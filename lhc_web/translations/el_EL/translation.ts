@@ -823,6 +823,10 @@
       <translation>Ενσωματώστε τον κώδικα</translation>
     </message>
     <message>
+      <source>Speech language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide status when offline</source>
       <translation>Απόκρυψη status, όταν είναι εκτός σύνδεσης</translation>
     </message>
@@ -1535,6 +1539,10 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>General information</source>
+      <translation>Γενικές πληροφορίες</translation>
+    </message>
+    <message>
       <source>Footprint</source>
       <translation>Αποτύπωμα</translation>
     </message>
@@ -1543,8 +1551,8 @@
       <translation>Επισκέπτης</translation>
     </message>
     <message>
-      <source>General information</source>
-      <translation>Γενικές πληροφορίες</translation>
+      <source>Information</source>
+      <translation>Πληροφορία</translation>
     </message>
     <message>
       <source>Files</source>
@@ -1573,10 +1581,6 @@
     <message>
       <source>Operators chat</source>
       <translation>Φορείς συνομιλίας</translation>
-    </message>
-    <message>
-      <source>Information</source>
-      <translation>Πληροφορία</translation>
     </message>
     <message>
       <source>Edit main chat information</source>
@@ -1731,6 +1735,14 @@
       <translation>Αποστολή</translation>
     </message>
     <message>
+      <source>Choose other than default recognition language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send delayed canned message instantly</source>
+      <translation>Στείλτε την καθυστερημένη κονσερβοποιημένο μήνυμα αμέσως</translation>
+    </message>
+    <message>
       <source>Reopen chat</source>
       <translation>Ανοίξτε πάλι το chat</translation>
     </message>
@@ -1741,10 +1753,6 @@
     <message>
       <source>Fill textarea with canned message</source>
       <translation>Γεμίζουν το κονσερβοποιημένο μήνυμα textarea</translation>
-    </message>
-    <message>
-      <source>Send delayed canned message instantly</source>
-      <translation>Στείλτε την καθυστερημένη κονσερβοποιημένο μήνυμα αμέσως</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -3139,6 +3147,10 @@
       <translation>Προεπιλεγμένο θέμα</translation>
     </message>
     <message>
+      <source>Speech</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>File configuration</source>
       <translation>Αρχείο ρύθμισης παραμέτρων</translation>
     </message>
@@ -4515,6 +4527,10 @@
     <message>
       <source>I can see all pending chats, not only assigned to me</source>
       <translation>Μπορώ να δω όλα σε εκκρεμότητα συνομιλίες, όχι μόνο που μου έχουν ανατεθεί</translation>
+    </message>
+    <message>
+      <source>Speech</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Account updated</source>
@@ -6522,6 +6538,36 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Παρακαλούμε, εισάγετε έγκυρο αρχείο τύπου!</translation>
+    </message>
+  </context>
+  <context>
+    <name>speech/language</name>
+    <message>
+      <source>Choose speech recognition language for this chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Dialect</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default speech recognition language</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>speech/speech</name>
+    <message>
+      <source>Use application default recognition language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use application default recognition dialect</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

@@ -823,6 +823,10 @@
       <translation>嵌入代碼</translation>
     </message>
     <message>
+      <source>Speech language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide status when offline</source>
       <translation>隐藏状态离线</translation>
     </message>
@@ -1535,6 +1539,10 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>General information</source>
+      <translation>一般资料</translation>
+    </message>
+    <message>
       <source>Footprint</source>
       <translation>脚印</translation>
     </message>
@@ -1543,8 +1551,8 @@
       <translation>游客</translation>
     </message>
     <message>
-      <source>General information</source>
-      <translation>一般资料</translation>
+      <source>Information</source>
+      <translation>信息</translation>
     </message>
     <message>
       <source>Files</source>
@@ -1573,10 +1581,6 @@
     <message>
       <source>Operators chat</source>
       <translation>運營聊天</translation>
-    </message>
-    <message>
-      <source>Information</source>
-      <translation>信息</translation>
     </message>
     <message>
       <source>Edit main chat information</source>
@@ -1731,6 +1735,14 @@
       <translation>发送</translation>
     </message>
     <message>
+      <source>Choose other than default recognition language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send delayed canned message instantly</source>
+      <translation>發送延遲罐頭消息瞬間</translation>
+    </message>
+    <message>
       <source>Reopen chat</source>
       <translation>重新打開聊天</translation>
     </message>
@@ -1741,10 +1753,6 @@
     <message>
       <source>Fill textarea with canned message</source>
       <translation>填寫文本框罐頭消息</translation>
-    </message>
-    <message>
-      <source>Send delayed canned message instantly</source>
-      <translation>發送延遲罐頭消息瞬間</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -3139,6 +3147,10 @@
       <translation>默认主题</translation>
     </message>
     <message>
+      <source>Speech</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>File configuration</source>
       <translation>配置文件</translation>
     </message>
@@ -4515,6 +4527,10 @@
     <message>
       <source>I can see all pending chats, not only assigned to me</source>
       <translation>我可以看到所有待定的聊天，不只是分配给我的</translation>
+    </message>
+    <message>
+      <source>Speech</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Account updated</source>
@@ -6522,6 +6538,36 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>请输入有效的文件类型 ！</translation>
+    </message>
+  </context>
+  <context>
+    <name>speech/language</name>
+    <message>
+      <source>Choose speech recognition language for this chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Dialect</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default speech recognition language</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>speech/speech</name>
+    <message>
+      <source>Use application default recognition language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use application default recognition dialect</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

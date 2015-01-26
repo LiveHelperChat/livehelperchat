@@ -823,6 +823,10 @@
       <translation>Inbäddad kod</translation>
     </message>
     <message>
+      <source>Speech language</source>
+      <translation>Talspråk</translation>
+    </message>
+    <message>
       <source>Hide status when offline</source>
       <translation>Göm status när ej tillgänglig</translation>
     </message>
@@ -1535,6 +1539,10 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>General information</source>
+      <translation>Allmän information</translation>
+    </message>
+    <message>
       <source>Footprint</source>
       <translation>Fotspår</translation>
     </message>
@@ -1543,8 +1551,8 @@
       <translation>Besökare</translation>
     </message>
     <message>
-      <source>General information</source>
-      <translation>Allmän information</translation>
+      <source>Information</source>
+      <translation>Information</translation>
     </message>
     <message>
       <source>Files</source>
@@ -1573,10 +1581,6 @@
     <message>
       <source>Operators chat</source>
       <translation>Operatörschatt</translation>
-    </message>
-    <message>
-      <source>Information</source>
-      <translation>Information</translation>
     </message>
     <message>
       <source>Edit main chat information</source>
@@ -1731,6 +1735,14 @@
       <translation>Skicka</translation>
     </message>
     <message>
+      <source>Choose other than default recognition language</source>
+      <translation>Välj ett annat igenkänningsspråk än det som är standard</translation>
+    </message>
+    <message>
+      <source>Send delayed canned message instantly</source>
+      <translation>Skicka snabbmeddelande direkt</translation>
+    </message>
+    <message>
       <source>Reopen chat</source>
       <translation>Återuppta chatten</translation>
     </message>
@@ -1741,10 +1753,6 @@
     <message>
       <source>Fill textarea with canned message</source>
       <translation>Fyll textrutan med snabbmeddelandet</translation>
-    </message>
-    <message>
-      <source>Send delayed canned message instantly</source>
-      <translation>Skicka snabbmeddelande direkt</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -3139,6 +3147,10 @@
       <translation>Standardstil</translation>
     </message>
     <message>
+      <source>Speech</source>
+      <translation>Tal</translation>
+    </message>
+    <message>
       <source>File configuration</source>
       <translation>Filinställningar</translation>
     </message>
@@ -4515,6 +4527,10 @@
     <message>
       <source>I can see all pending chats, not only assigned to me</source>
       <translation>Jag kan se alla väntande chattar, inte endast dem som är tilldelade mig</translation>
+    </message>
+    <message>
+      <source>Speech</source>
+      <translation>Tal</translation>
     </message>
     <message>
       <source>Account updated</source>
@@ -6522,6 +6538,36 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Vänligen ange en giltig filtyp!</translation>
+    </message>
+  </context>
+  <context>
+    <name>speech/language</name>
+    <message>
+      <source>Choose speech recognition language for this chat</source>
+      <translation>Välj ett igenkänningstalspråk för denna chatten</translation>
+    </message>
+    <message>
+      <source>Language</source>
+      <translation>Språk</translation>
+    </message>
+    <message>
+      <source>Dialect</source>
+      <translation>Dialekt</translation>
+    </message>
+    <message>
+      <source>Default speech recognition language</source>
+      <translation>Standard igenkänningstalkspråk</translation>
+    </message>
+  </context>
+  <context>
+    <name>speech/speech</name>
+    <message>
+      <source>Use application default recognition language</source>
+      <translation>Använd applikationens standard igenkänningsskråk</translation>
+    </message>
+    <message>
+      <source>Use application default recognition dialect</source>
+      <translation>Använd applikationens standard igenkänningsdialekt</translation>
     </message>
   </context>
 </TS>

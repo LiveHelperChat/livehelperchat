@@ -400,7 +400,7 @@
     </message>
     <message>
       <source>Header padding (px)</source>
-      <translation type="unfinished"/>
+      <translation>Altezza intestazione (px)</translation>
     </message>
     <message>
       <source>Widget copyright link</source>
@@ -469,19 +469,19 @@
     </message>
     <message>
       <source>Minimize image</source>
-      <translation type="unfinished"/>
+      <translation>Ridurre al minimo l&apos;immagine</translation>
     </message>
     <message>
       <source>Restore image</source>
-      <translation type="unfinished"/>
+      <translation>Ripristinare l&apos;immagine</translation>
     </message>
     <message>
       <source>Close image</source>
-      <translation type="unfinished"/>
+      <translation>Chiudi immagine</translation>
     </message>
     <message>
       <source>Popup image</source>
-      <translation type="unfinished"/>
+      <translation>Immagine popup</translation>
     </message>
     <message>
       <source>Widget themes</source>
@@ -824,6 +824,10 @@
       <translation>Codice incluso</translation>
     </message>
     <message>
+      <source>Speech language</source>
+      <translation>Lingua parlata</translation>
+    </message>
+    <message>
       <source>Hide status when offline</source>
       <translation>Nascondi stato quando offline</translation>
     </message>
@@ -1069,7 +1073,7 @@
     </message>
     <message>
       <source>Choose department</source>
-      <translation type="unfinished"/>
+      <translation>Scegli il dipartimento</translation>
     </message>
   </context>
   <context>
@@ -1536,6 +1540,10 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>General information</source>
+      <translation>Informazioni generali</translation>
+    </message>
+    <message>
       <source>Footprint</source>
       <translation>Info aggiuntive</translation>
     </message>
@@ -1544,8 +1552,8 @@
       <translation>Visitatore</translation>
     </message>
     <message>
-      <source>General information</source>
-      <translation>Informazioni generali</translation>
+      <source>Information</source>
+      <translation>Informazione</translation>
     </message>
     <message>
       <source>Files</source>
@@ -1574,10 +1582,6 @@
     <message>
       <source>Operators chat</source>
       <translation>Chat operatore</translation>
-    </message>
-    <message>
-      <source>Information</source>
-      <translation>Informazione</translation>
     </message>
     <message>
       <source>Edit main chat information</source>
@@ -1732,6 +1736,14 @@
       <translation>Invia</translation>
     </message>
     <message>
+      <source>Choose other than default recognition language</source>
+      <translation>Scegli un altra lingua di riconoscimento predefinita</translation>
+    </message>
+    <message>
+      <source>Send delayed canned message instantly</source>
+      <translation>Invia messaggio predefinito scelto subito!</translation>
+    </message>
+    <message>
       <source>Reopen chat</source>
       <translation>Riapri la chat</translation>
     </message>
@@ -1742,10 +1754,6 @@
     <message>
       <source>Fill textarea with canned message</source>
       <translation>Riempi area testo con messaggio predefinito</translation>
-    </message>
-    <message>
-      <source>Send delayed canned message instantly</source>
-      <translation>Invia messaggio predefinito scelto subito!</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -2096,11 +2104,11 @@
     </message>
     <message>
       <source>Invalid file extension</source>
-      <translation>Estensione di file non valido</translation>
+      <translation>Estensione di file non valida</translation>
     </message>
     <message>
       <source>Invalid file extension!</source>
-      <translation>Estensione di file non valido!</translation>
+      <translation>Estensione di file non valida!</translation>
     </message>
     <message>
       <source>To big file!</source>
@@ -3138,6 +3146,10 @@
     <message>
       <source>Default theme</source>
       <translation>Tema di default</translation>
+    </message>
+    <message>
+      <source>Speech</source>
+      <translation>Discorso</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -4337,15 +4349,15 @@
     </message>
     <message>
       <source>On highlight scroll user window location to match my</source>
-      <translation type="unfinished"/>
+      <translation>Evidenziare la posizione finestra di scorrimento utente per abbinare la mia</translation>
     </message>
     <message>
       <source>Follow user scroll position</source>
-      <translation type="unfinished"/>
+      <translation>Seguire la posizione di scorrimento dell&apos;utente</translation>
     </message>
     <message>
       <source>On click navigate user browser</source>
-      <translation type="unfinished"/>
+      <translation>Con un click navigare nel browser utente</translation>
     </message>
     <message>
       <source>Click blue eye at the top to request screen share</source>
@@ -4516,6 +4528,10 @@
     <message>
       <source>I can see all pending chats, not only assigned to me</source>
       <translation>Puoi vedere tutte le chat in attesa non solo quelle  a te assegnate </translation>
+    </message>
+    <message>
+      <source>Speech</source>
+      <translation>Discorso</translation>
     </message>
     <message>
       <source>Account updated</source>
@@ -6523,6 +6539,36 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Inserisci un formato file valido!</translation>
+    </message>
+  </context>
+  <context>
+    <name>speech/language</name>
+    <message>
+      <source>Choose speech recognition language for this chat</source>
+      <translation>Scegliere la lingua di riconoscimento vocale per questa chat</translation>
+    </message>
+    <message>
+      <source>Language</source>
+      <translation>Lingua</translation>
+    </message>
+    <message>
+      <source>Dialect</source>
+      <translation>Dialetto</translation>
+    </message>
+    <message>
+      <source>Default speech recognition language</source>
+      <translation>Lingua di riconoscimento vocale predefinito</translation>
+    </message>
+  </context>
+  <context>
+    <name>speech/speech</name>
+    <message>
+      <source>Use application default recognition language</source>
+      <translation>Utilizzare applicazione predefinita riconoscimento lingua</translation>
+    </message>
+    <message>
+      <source>Use application default recognition dialect</source>
+      <translation>Utilizzare il dialetto riconoscimento di applicazione predefinita</translation>
     </message>
   </context>
 </TS>

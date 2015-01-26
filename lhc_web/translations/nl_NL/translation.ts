@@ -823,6 +823,10 @@
       <translation>Embed code</translation>
     </message>
     <message>
+      <source>Speech language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide status when offline</source>
       <translation>Verberg status wanneer offline</translation>
     </message>
@@ -1535,6 +1539,10 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>General information</source>
+      <translation>Algemene informatie</translation>
+    </message>
+    <message>
       <source>Footprint</source>
       <translation>Voetafdruk</translation>
     </message>
@@ -1543,8 +1551,8 @@
       <translation>Bezoeker</translation>
     </message>
     <message>
-      <source>General information</source>
-      <translation>Algemene informatie</translation>
+      <source>Information</source>
+      <translation>Informatie</translation>
     </message>
     <message>
       <source>Files</source>
@@ -1573,10 +1581,6 @@
     <message>
       <source>Operators chat</source>
       <translation>Operators chat</translation>
-    </message>
-    <message>
-      <source>Information</source>
-      <translation>Informatie</translation>
     </message>
     <message>
       <source>Edit main chat information</source>
@@ -1731,6 +1735,14 @@
       <translation>Zend</translation>
     </message>
     <message>
+      <source>Choose other than default recognition language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send delayed canned message instantly</source>
+      <translation>Stuur voorgeprogrammeerd bericht meteen</translation>
+    </message>
+    <message>
       <source>Reopen chat</source>
       <translation>Heropen chat</translation>
     </message>
@@ -1741,10 +1753,6 @@
     <message>
       <source>Fill textarea with canned message</source>
       <translation>Vul tekstveld met voorgeprogrammeerd bericht</translation>
-    </message>
-    <message>
-      <source>Send delayed canned message instantly</source>
-      <translation>Stuur voorgeprogrammeerd bericht meteen</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -3139,6 +3147,10 @@
       <translation>Standaard thema</translation>
     </message>
     <message>
+      <source>Speech</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>File configuration</source>
       <translation>Bestandsconfiguratie</translation>
     </message>
@@ -4515,6 +4527,10 @@
     <message>
       <source>I can see all pending chats, not only assigned to me</source>
       <translation>Alle openstaande chats bekijken, niet alleen aan mij toegewezen</translation>
+    </message>
+    <message>
+      <source>Speech</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Account updated</source>
@@ -6522,6 +6538,36 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Voer s.v.p. een geldig bestandstype in!</translation>
+    </message>
+  </context>
+  <context>
+    <name>speech/language</name>
+    <message>
+      <source>Choose speech recognition language for this chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Dialect</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default speech recognition language</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>speech/speech</name>
+    <message>
+      <source>Use application default recognition language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use application default recognition dialect</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

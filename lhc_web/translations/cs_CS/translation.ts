@@ -823,6 +823,10 @@
       <translation>Vložený kód</translation>
     </message>
     <message>
+      <source>Speech language</source>
+      <translation>Jazyk řeči</translation>
+    </message>
+    <message>
       <source>Hide status when offline</source>
       <translation>Nezobrazovat stav pokud je operátor offline</translation>
     </message>
@@ -1535,6 +1539,10 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>General information</source>
+      <translation>Základní informace</translation>
+    </message>
+    <message>
       <source>Footprint</source>
       <translation>Otisk</translation>
     </message>
@@ -1543,8 +1551,8 @@
       <translation>Návštěvník</translation>
     </message>
     <message>
-      <source>General information</source>
-      <translation>Základní informace</translation>
+      <source>Information</source>
+      <translation>Informace</translation>
     </message>
     <message>
       <source>Files</source>
@@ -1573,10 +1581,6 @@
     <message>
       <source>Operators chat</source>
       <translation>Rozhovor operátorů</translation>
-    </message>
-    <message>
-      <source>Information</source>
-      <translation>Informace</translation>
     </message>
     <message>
       <source>Edit main chat information</source>
@@ -1731,6 +1735,14 @@
       <translation>Odeslat</translation>
     </message>
     <message>
+      <source>Choose other than default recognition language</source>
+      <translation>Vyberte jiný než výchozí jazyk rozpoznávání</translation>
+    </message>
+    <message>
+      <source>Send delayed canned message instantly</source>
+      <translation>Odeslat ihned zpožděné předpřipraveé zprávy</translation>
+    </message>
+    <message>
       <source>Reopen chat</source>
       <translation>Znovuotevřít rozhovor</translation>
     </message>
@@ -1741,10 +1753,6 @@
     <message>
       <source>Fill textarea with canned message</source>
       <translation>Vyplňte text předvyplněné pzrávy do pole pro text</translation>
-    </message>
-    <message>
-      <source>Send delayed canned message instantly</source>
-      <translation>Odeslat ihned zpožděné předpřipraveé zprávy</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -3139,6 +3147,10 @@
       <translation>Výchozí šablona</translation>
     </message>
     <message>
+      <source>Speech</source>
+      <translation>Řeč</translation>
+    </message>
+    <message>
       <source>File configuration</source>
       <translation>Nastavení souborü</translation>
     </message>
@@ -4515,6 +4527,10 @@
     <message>
       <source>I can see all pending chats, not only assigned to me</source>
       <translation>Mohu vidět všechny čekající rozhovory, ne pouze ty přiřazené mně</translation>
+    </message>
+    <message>
+      <source>Speech</source>
+      <translation>Řeč</translation>
     </message>
     <message>
       <source>Account updated</source>
@@ -6522,6 +6538,36 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Prosím vyberte platný typ souboru!</translation>
+    </message>
+  </context>
+  <context>
+    <name>speech/language</name>
+    <message>
+      <source>Choose speech recognition language for this chat</source>
+      <translation>Zvolte jazyk rozpoznávání řeči pro tento rozhovor</translation>
+    </message>
+    <message>
+      <source>Language</source>
+      <translation>Jazyk</translation>
+    </message>
+    <message>
+      <source>Dialect</source>
+      <translation>Dialekt</translation>
+    </message>
+    <message>
+      <source>Default speech recognition language</source>
+      <translation>Výchozí jazyk rozpoznávání řeči</translation>
+    </message>
+  </context>
+  <context>
+    <name>speech/speech</name>
+    <message>
+      <source>Use application default recognition language</source>
+      <translation>Používat výchozí jazyk rozpoznávání řeči aplikace</translation>
+    </message>
+    <message>
+      <source>Use application default recognition dialect</source>
+      <translation>Používat výchozí dialekt rozpoznávání aplikace</translation>
     </message>
   </context>
 </TS>

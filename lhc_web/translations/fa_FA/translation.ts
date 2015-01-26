@@ -823,6 +823,10 @@
       <translation>کد داخلی</translation>
     </message>
     <message>
+      <source>Speech language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide status when offline</source>
       <translation>پنهان کردن وضعیت در حالت آفلاین</translation>
     </message>
@@ -1535,6 +1539,10 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>General information</source>
+      <translation>اطلاعات عمومی</translation>
+    </message>
+    <message>
       <source>Footprint</source>
       <translation>رد پا</translation>
     </message>
@@ -1543,8 +1551,8 @@
       <translation>بازدید کننده</translation>
     </message>
     <message>
-      <source>General information</source>
-      <translation>اطلاعات عمومی</translation>
+      <source>Information</source>
+      <translation>اطلاعات</translation>
     </message>
     <message>
       <source>Files</source>
@@ -1573,10 +1581,6 @@
     <message>
       <source>Operators chat</source>
       <translation>چت اپراتورها</translation>
-    </message>
-    <message>
-      <source>Information</source>
-      <translation>اطلاعات</translation>
     </message>
     <message>
       <source>Edit main chat information</source>
@@ -1731,6 +1735,14 @@
       <translation>ارسال</translation>
     </message>
     <message>
+      <source>Choose other than default recognition language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send delayed canned message instantly</source>
+      <translation>ارسال فوری پیام مسدود شده تاخیردار</translation>
+    </message>
+    <message>
       <source>Reopen chat</source>
       <translation>باز کردن مجدد چت</translation>
     </message>
@@ -1741,10 +1753,6 @@
     <message>
       <source>Fill textarea with canned message</source>
       <translation>پر کردن محدوده متنی با پیام مسدود شده</translation>
-    </message>
-    <message>
-      <source>Send delayed canned message instantly</source>
-      <translation>ارسال فوری پیام مسدود شده تاخیردار</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -3139,6 +3147,10 @@
       <translation>تم پیشفرض</translation>
     </message>
     <message>
+      <source>Speech</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>File configuration</source>
       <translation>تنظیمات فایل</translation>
     </message>
@@ -4515,6 +4527,10 @@
     <message>
       <source>I can see all pending chats, not only assigned to me</source>
       <translation>من میتوانم تمامی چت های معلق را ببینم، نه تنها چت های مختص به من</translation>
+    </message>
+    <message>
+      <source>Speech</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Account updated</source>
@@ -6522,6 +6538,36 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>لطفا نوع فایل معتبر وارد کنید!</translation>
+    </message>
+  </context>
+  <context>
+    <name>speech/language</name>
+    <message>
+      <source>Choose speech recognition language for this chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Dialect</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default speech recognition language</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>speech/speech</name>
+    <message>
+      <source>Use application default recognition language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use application default recognition dialect</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

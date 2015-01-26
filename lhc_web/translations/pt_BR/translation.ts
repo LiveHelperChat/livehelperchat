@@ -340,7 +340,7 @@
     </message>
     <message>
       <source>Widget border width (px)</source>
-      <translation type="unfinished"/>
+      <translation>Largura da borda do widget (px)</translation>
     </message>
     <message>
       <source>Online status text</source>
@@ -388,19 +388,19 @@
     </message>
     <message>
       <source>Hide widget close button</source>
-      <translation type="unfinished"/>
+      <translation>Esconder o widget no botão de fechar</translation>
     </message>
     <message>
       <source>Hide popup option</source>
-      <translation type="unfinished"/>
+      <translation>Esconder opção popup</translation>
     </message>
     <message>
       <source>Header height (px)</source>
-      <translation type="unfinished"/>
+      <translation>Altura do cabeçalho (px)</translation>
     </message>
     <message>
       <source>Header padding (px)</source>
-      <translation type="unfinished"/>
+      <translation>Preenchimento do cabeçalho (px)</translation>
     </message>
     <message>
       <source>Widget copyright link</source>
@@ -468,19 +468,19 @@
     </message>
     <message>
       <source>Minimize image</source>
-      <translation type="unfinished"/>
+      <translation>Minimizar imagem</translation>
     </message>
     <message>
       <source>Restore image</source>
-      <translation type="unfinished"/>
+      <translation>Restaurar imagem</translation>
     </message>
     <message>
       <source>Close image</source>
-      <translation type="unfinished"/>
+      <translation>Fechar imagem</translation>
     </message>
     <message>
       <source>Popup image</source>
-      <translation type="unfinished"/>
+      <translation>Imagem popup</translation>
     </message>
     <message>
       <source>Widget themes</source>
@@ -823,6 +823,10 @@
       <translation>Código de incorporação</translation>
     </message>
     <message>
+      <source>Speech language</source>
+      <translation>Falar no idioma</translation>
+    </message>
+    <message>
       <source>Hide status when offline</source>
       <translation>Ocultar status quando offline</translation>
     </message>
@@ -1068,7 +1072,7 @@
     </message>
     <message>
       <source>Choose department</source>
-      <translation type="unfinished"/>
+      <translation>Escolher departamento</translation>
     </message>
   </context>
   <context>
@@ -1535,6 +1539,10 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>General information</source>
+      <translation>Informações gerais</translation>
+    </message>
+    <message>
       <source>Footprint</source>
       <translation>Rastro</translation>
     </message>
@@ -1543,8 +1551,8 @@
       <translation>Visitante</translation>
     </message>
     <message>
-      <source>General information</source>
-      <translation>Informações gerais</translation>
+      <source>Information</source>
+      <translation>Informação</translation>
     </message>
     <message>
       <source>Files</source>
@@ -1573,10 +1581,6 @@
     <message>
       <source>Operators chat</source>
       <translation>Operadores de chat</translation>
-    </message>
-    <message>
-      <source>Information</source>
-      <translation>Informação</translation>
     </message>
     <message>
       <source>Edit main chat information</source>
@@ -1731,6 +1735,14 @@
       <translation>Enviar</translation>
     </message>
     <message>
+      <source>Choose other than default recognition language</source>
+      <translation>Escolha outro idioma que não seja o padrão</translation>
+    </message>
+    <message>
+      <source>Send delayed canned message instantly</source>
+      <translation>Enviar mensagem predefinida com atraso</translation>
+    </message>
+    <message>
       <source>Reopen chat</source>
       <translation>Reabrir o chat</translation>
     </message>
@@ -1741,10 +1753,6 @@
     <message>
       <source>Fill textarea with canned message</source>
       <translation>Preencha o campo com a mensagem predefinida</translation>
-    </message>
-    <message>
-      <source>Send delayed canned message instantly</source>
-      <translation>Enviar mensagem predefinida com atraso</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -3139,6 +3147,10 @@
       <translation>Tema padrão</translation>
     </message>
     <message>
+      <source>Speech</source>
+      <translation>Falar</translation>
+    </message>
+    <message>
       <source>File configuration</source>
       <translation>Configuração de arquivo</translation>
     </message>
@@ -4340,11 +4352,11 @@
     </message>
     <message>
       <source>Follow user scroll position</source>
-      <translation type="unfinished"/>
+      <translation>Acompanhar posição do scroll do usuário</translation>
     </message>
     <message>
       <source>On click navigate user browser</source>
-      <translation type="unfinished"/>
+      <translation>Ao clicar navegar o browser do usuário</translation>
     </message>
     <message>
       <source>Click blue eye at the top to request screen share</source>
@@ -4515,6 +4527,10 @@
     <message>
       <source>I can see all pending chats, not only assigned to me</source>
       <translation>Eu posso ver todos os chats pendentes, não apenas os encaminhados para mim</translation>
+    </message>
+    <message>
+      <source>Speech</source>
+      <translation>Falar</translation>
     </message>
     <message>
       <source>Account updated</source>
@@ -6522,6 +6538,36 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Por favor insira um tipo de arquivo válido!</translation>
+    </message>
+  </context>
+  <context>
+    <name>speech/language</name>
+    <message>
+      <source>Choose speech recognition language for this chat</source>
+      <translation>Escolha o idioma de reconhecimento de voz para este bate-papo</translation>
+    </message>
+    <message>
+      <source>Language</source>
+      <translation>Idioma</translation>
+    </message>
+    <message>
+      <source>Dialect</source>
+      <translation>Dialeto</translation>
+    </message>
+    <message>
+      <source>Default speech recognition language</source>
+      <translation>Idioma de reconhecimento de fala padrão</translation>
+    </message>
+  </context>
+  <context>
+    <name>speech/speech</name>
+    <message>
+      <source>Use application default recognition language</source>
+      <translation>Usar idioma de reconhecimento padrão da aplicação</translation>
+    </message>
+    <message>
+      <source>Use application default recognition dialect</source>
+      <translation>Usar dialeto de reconhecimento padrão da aplicação</translation>
     </message>
   </context>
 </TS>
