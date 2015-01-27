@@ -177,5 +177,5 @@ class erLhcoreClassUpdate
 		return $tablesStatus;
 	}
 }
-sdfsdf
+
 ?>
