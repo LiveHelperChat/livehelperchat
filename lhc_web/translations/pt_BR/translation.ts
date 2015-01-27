@@ -146,6 +146,10 @@
       <translation>Ocultar widgets de departamento desativados</translation>
     </message>
     <message>
+      <source>Home page tabs order</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Is visitor e-mail required for FAQ</source>
       <translation>E-mail de visitante necessário para FAQ?</translation>
     </message>
@@ -302,10 +306,6 @@
   </context>
   <context>
     <name>abstract/widgettheme</name>
-    <message>
-      <source>Widget copyright</source>
-      <translation>Copyright widget</translation>
-    </message>
     <message>
       <source>Download theme</source>
       <translation>Baixar tema</translation>
@@ -1539,10 +1539,6 @@
   <context>
     <name>chat/adminchat</name>
     <message>
-      <source>General information</source>
-      <translation>Informações gerais</translation>
-    </message>
-    <message>
       <source>Footprint</source>
       <translation>Rastro</translation>
     </message>
@@ -1921,6 +1917,14 @@
     <message>
       <source>Online operators</source>
       <translation>Operadores online</translation>
+    </message>
+    <message>
+      <source>Mail settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>SMTP</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -3007,8 +3011,8 @@
       <translation>Informações de atualização</translation>
     </message>
     <message>
-      <source>SMTP settings</source>
-      <translation>Configurações de SMTP</translation>
+      <source>Mail settings</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>E-mail templates</source>
@@ -5469,6 +5473,36 @@
     </message>
   </context>
   <context>
+    <name>speech/language</name>
+    <message>
+      <source>Choose speech recognition language for this chat</source>
+      <translation>Escolha o idioma de reconhecimento de voz para este bate-papo</translation>
+    </message>
+    <message>
+      <source>Language</source>
+      <translation>Idioma</translation>
+    </message>
+    <message>
+      <source>Dialect</source>
+      <translation>Dialeto</translation>
+    </message>
+    <message>
+      <source>Default speech recognition language</source>
+      <translation>Idioma de reconhecimento de fala padrão</translation>
+    </message>
+  </context>
+  <context>
+    <name>speech/speech</name>
+    <message>
+      <source>Use application default recognition language</source>
+      <translation>Usar idioma de reconhecimento padrão da aplicação</translation>
+    </message>
+    <message>
+      <source>Use application default recognition dialect</source>
+      <translation>Usar dialeto de reconhecimento padrão da aplicação</translation>
+    </message>
+  </context>
+  <context>
     <name>system/languages</name>
     <message>
       <source>Languages configuration</source>
@@ -5534,8 +5568,20 @@
   <context>
     <name>system/smtp</name>
     <message>
-      <source>SMTP settings</source>
-      <translation>Configurações de SMTP</translation>
+      <source>Mail settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sender address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default from e-mail address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default from name</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>SMTP enabled</source>
@@ -6414,8 +6460,8 @@
       <translation>Permitir a alteração do nome de remetente</translation>
     </message>
     <message>
-      <source>From e-mail, if mail was not sent for some reason, this mail will get a failed delivery message</source>
-      <translation>E-mail remetente, se por algum motivo o e-mail não foi enviado, este e-mail irá receber uma mensagem de falha na entrega</translation>
+      <source>From e-mail</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Allow to change from e-mail</source>
@@ -6538,36 +6584,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Por favor insira um tipo de arquivo válido!</translation>
-    </message>
-  </context>
-  <context>
-    <name>speech/language</name>
-    <message>
-      <source>Choose speech recognition language for this chat</source>
-      <translation>Escolha o idioma de reconhecimento de voz para este bate-papo</translation>
-    </message>
-    <message>
-      <source>Language</source>
-      <translation>Idioma</translation>
-    </message>
-    <message>
-      <source>Dialect</source>
-      <translation>Dialeto</translation>
-    </message>
-    <message>
-      <source>Default speech recognition language</source>
-      <translation>Idioma de reconhecimento de fala padrão</translation>
-    </message>
-  </context>
-  <context>
-    <name>speech/speech</name>
-    <message>
-      <source>Use application default recognition language</source>
-      <translation>Usar idioma de reconhecimento padrão da aplicação</translation>
-    </message>
-    <message>
-      <source>Use application default recognition dialect</source>
-      <translation>Usar dialeto de reconhecimento padrão da aplicação</translation>
     </message>
   </context>
 </TS>

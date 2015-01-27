@@ -146,6 +146,10 @@
       <translation>Dölj inaktiverad avdelningswidget</translation>
     </message>
     <message>
+      <source>Home page tabs order</source>
+      <translation>Flikordning på startsidan</translation>
+    </message>
+    <message>
       <source>Is visitor e-mail required for FAQ</source>
       <translation>Är besökar-e-post obligatorisk för FAQ</translation>
     </message>
@@ -302,10 +306,6 @@
   </context>
   <context>
     <name>abstract/widgettheme</name>
-    <message>
-      <source>Widget copyright</source>
-      <translation>Widget copyright</translation>
-    </message>
     <message>
       <source>Download theme</source>
       <translation>Ladda ned stil</translation>
@@ -1539,10 +1539,6 @@
   <context>
     <name>chat/adminchat</name>
     <message>
-      <source>General information</source>
-      <translation>Allmän information</translation>
-    </message>
-    <message>
       <source>Footprint</source>
       <translation>Fotspår</translation>
     </message>
@@ -1921,6 +1917,14 @@
     <message>
       <source>Online operators</source>
       <translation>Tillgängliga operatörer</translation>
+    </message>
+    <message>
+      <source>Mail settings</source>
+      <translation>E-postinställningar</translation>
+    </message>
+    <message>
+      <source>SMTP</source>
+      <translation>SMTP</translation>
     </message>
   </context>
   <context>
@@ -3007,8 +3011,8 @@
       <translation>Uppdateringsinformation för Live Helper Chat</translation>
     </message>
     <message>
-      <source>SMTP settings</source>
-      <translation>SMTP-inställningar</translation>
+      <source>Mail settings</source>
+      <translation>E-postinställningar</translation>
     </message>
     <message>
       <source>E-mail templates</source>
@@ -5469,6 +5473,36 @@
     </message>
   </context>
   <context>
+    <name>speech/language</name>
+    <message>
+      <source>Choose speech recognition language for this chat</source>
+      <translation>Välj ett igenkänningstalspråk för denna chatten</translation>
+    </message>
+    <message>
+      <source>Language</source>
+      <translation>Språk</translation>
+    </message>
+    <message>
+      <source>Dialect</source>
+      <translation>Dialekt</translation>
+    </message>
+    <message>
+      <source>Default speech recognition language</source>
+      <translation>Standard igenkänningstalkspråk</translation>
+    </message>
+  </context>
+  <context>
+    <name>speech/speech</name>
+    <message>
+      <source>Use application default recognition language</source>
+      <translation>Använd applikationens standard igenkänningsskråk</translation>
+    </message>
+    <message>
+      <source>Use application default recognition dialect</source>
+      <translation>Använd applikationens standard igenkänningsdialekt</translation>
+    </message>
+  </context>
+  <context>
     <name>system/languages</name>
     <message>
       <source>Languages configuration</source>
@@ -5534,8 +5568,20 @@
   <context>
     <name>system/smtp</name>
     <message>
-      <source>SMTP settings</source>
-      <translation>SMTP-inställningar</translation>
+      <source>Mail settings</source>
+      <translation>E-postinställningar</translation>
+    </message>
+    <message>
+      <source>Sender address</source>
+      <translation>E-post avsändaradress</translation>
+    </message>
+    <message>
+      <source>Default from e-mail address</source>
+      <translation>Standard från e-postadress</translation>
+    </message>
+    <message>
+      <source>Default from name</source>
+      <translation>Standard från namn</translation>
     </message>
     <message>
       <source>SMTP enabled</source>
@@ -6414,8 +6460,8 @@
       <translation>Tillåt ändring av från namn</translation>
     </message>
     <message>
-      <source>From e-mail, if mail was not sent for some reason, this mail will get a failed delivery message</source>
-      <translation>Adress för om e-posten av någon anledning inte skickats, så skickas en felrapport hit</translation>
+      <source>From e-mail</source>
+      <translation>Från e-post</translation>
     </message>
     <message>
       <source>Allow to change from e-mail</source>
@@ -6538,36 +6584,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Vänligen ange en giltig filtyp!</translation>
-    </message>
-  </context>
-  <context>
-    <name>speech/language</name>
-    <message>
-      <source>Choose speech recognition language for this chat</source>
-      <translation>Välj ett igenkänningstalspråk för denna chatten</translation>
-    </message>
-    <message>
-      <source>Language</source>
-      <translation>Språk</translation>
-    </message>
-    <message>
-      <source>Dialect</source>
-      <translation>Dialekt</translation>
-    </message>
-    <message>
-      <source>Default speech recognition language</source>
-      <translation>Standard igenkänningstalkspråk</translation>
-    </message>
-  </context>
-  <context>
-    <name>speech/speech</name>
-    <message>
-      <source>Use application default recognition language</source>
-      <translation>Använd applikationens standard igenkänningsskråk</translation>
-    </message>
-    <message>
-      <source>Use application default recognition dialect</source>
-      <translation>Använd applikationens standard igenkänningsdialekt</translation>
     </message>
   </context>
 </TS>

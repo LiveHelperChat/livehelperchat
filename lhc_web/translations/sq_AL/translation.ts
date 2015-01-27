@@ -146,6 +146,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Home page tabs order</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Is visitor e-mail required for FAQ</source>
       <translation type="unfinished"/>
     </message>
@@ -302,10 +306,6 @@
   </context>
   <context>
     <name>abstract/widgettheme</name>
-    <message>
-      <source>Widget copyright</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>Download theme</source>
       <translation type="unfinished"/>
@@ -1539,10 +1539,6 @@
   <context>
     <name>chat/adminchat</name>
     <message>
-      <source>General information</source>
-      <translation>Informacion personal</translation>
-    </message>
-    <message>
       <source>Footprint</source>
       <translation>Gjurme</translation>
     </message>
@@ -1922,6 +1918,14 @@
     <message>
       <source>Online operators</source>
       <translation>Operatoret online</translation>
+    </message>
+    <message>
+      <source>Mail settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>SMTP</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -3008,8 +3012,8 @@
       <translation>Rifreskim informacioni</translation>
     </message>
     <message>
-      <source>SMTP settings</source>
-      <translation>Konfigurimet SMTP</translation>
+      <source>Mail settings</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>E-mail templates</source>
@@ -5470,6 +5474,36 @@
     </message>
   </context>
   <context>
+    <name>speech/language</name>
+    <message>
+      <source>Choose speech recognition language for this chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Dialect</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default speech recognition language</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>speech/speech</name>
+    <message>
+      <source>Use application default recognition language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use application default recognition dialect</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>system/languages</name>
     <message>
       <source>Languages configuration</source>
@@ -5535,7 +5569,19 @@
   <context>
     <name>system/smtp</name>
     <message>
-      <source>SMTP settings</source>
+      <source>Mail settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sender address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default from e-mail address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default from name</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6415,7 +6461,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>From e-mail, if mail was not sent for some reason, this mail will get a failed delivery message</source>
+      <source>From e-mail</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6538,36 +6584,6 @@
     <name>file/configurations</name>
     <message>
       <source>Please enter valid file type!</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>speech/language</name>
-    <message>
-      <source>Choose speech recognition language for this chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Language</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Dialect</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Default speech recognition language</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>speech/speech</name>
-    <message>
-      <source>Use application default recognition language</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Use application default recognition dialect</source>
       <translation type="unfinished"/>
     </message>
   </context>

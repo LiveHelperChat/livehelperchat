@@ -146,6 +146,10 @@
       <translation>Nascondi widget &quot;dipartimento disabilitato&quot;</translation>
     </message>
     <message>
+      <source>Home page tabs order</source>
+      <translation>Home page ordine schede</translation>
+    </message>
+    <message>
       <source>Is visitor e-mail required for FAQ</source>
       <translation>e-mail del visitatore richiesta per FAQ?</translation>
     </message>
@@ -302,10 +306,6 @@
   </context>
   <context>
     <name>abstract/widgettheme</name>
-    <message>
-      <source>Widget copyright</source>
-      <translation>Copyright del widget</translation>
-    </message>
     <message>
       <source>Download theme</source>
       <translation>Scarica tema</translation>
@@ -1540,10 +1540,6 @@
   <context>
     <name>chat/adminchat</name>
     <message>
-      <source>General information</source>
-      <translation>Informazioni generali</translation>
-    </message>
-    <message>
       <source>Footprint</source>
       <translation>Info aggiuntive</translation>
     </message>
@@ -1922,6 +1918,14 @@
     <message>
       <source>Online operators</source>
       <translation>Operatori Online</translation>
+    </message>
+    <message>
+      <source>Mail settings</source>
+      <translation>Impostazioni di posta</translation>
+    </message>
+    <message>
+      <source>SMTP</source>
+      <translation>SMTP</translation>
     </message>
   </context>
   <context>
@@ -3008,8 +3012,8 @@
       <translation>Informazioni sugli aggiornamenti</translation>
     </message>
     <message>
-      <source>SMTP settings</source>
-      <translation>SMTP Setting</translation>
+      <source>Mail settings</source>
+      <translation>Impostazioni di posta</translation>
     </message>
     <message>
       <source>E-mail templates</source>
@@ -5470,6 +5474,36 @@
     </message>
   </context>
   <context>
+    <name>speech/language</name>
+    <message>
+      <source>Choose speech recognition language for this chat</source>
+      <translation>Scegliere la lingua di riconoscimento vocale per questa chat</translation>
+    </message>
+    <message>
+      <source>Language</source>
+      <translation>Lingua</translation>
+    </message>
+    <message>
+      <source>Dialect</source>
+      <translation>Dialetto</translation>
+    </message>
+    <message>
+      <source>Default speech recognition language</source>
+      <translation>Lingua di riconoscimento vocale predefinito</translation>
+    </message>
+  </context>
+  <context>
+    <name>speech/speech</name>
+    <message>
+      <source>Use application default recognition language</source>
+      <translation>Utilizzare applicazione predefinita riconoscimento lingua</translation>
+    </message>
+    <message>
+      <source>Use application default recognition dialect</source>
+      <translation>Utilizzare il dialetto riconoscimento di applicazione predefinita</translation>
+    </message>
+  </context>
+  <context>
     <name>system/languages</name>
     <message>
       <source>Languages configuration</source>
@@ -5535,8 +5569,20 @@
   <context>
     <name>system/smtp</name>
     <message>
-      <source>SMTP settings</source>
-      <translation>SMTP impostazioni</translation>
+      <source>Mail settings</source>
+      <translation>Impostazioni di posta</translation>
+    </message>
+    <message>
+      <source>Sender address</source>
+      <translation>Indirizzo mittente</translation>
+    </message>
+    <message>
+      <source>Default from e-mail address</source>
+      <translation>Predefinito dall&apos;indirizzo di posta elettronica</translation>
+    </message>
+    <message>
+      <source>Default from name</source>
+      <translation>Dal nome di default</translation>
     </message>
     <message>
       <source>SMTP enabled</source>
@@ -6415,8 +6461,8 @@
       <translation>Consenti di cambiare &quot;Da Nome&quot;</translation>
     </message>
     <message>
-      <source>From e-mail, if mail was not sent for some reason, this mail will get a failed delivery message</source>
-      <translation>Da e-mail, se la posta non è stata inviata per qualche motivo, a questa mail verrà visualizzato un messaggio di mancato recapito</translation>
+      <source>From e-mail</source>
+      <translation>Da e-mail</translation>
     </message>
     <message>
       <source>Allow to change from e-mail</source>
@@ -6539,36 +6585,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Inserisci un formato file valido!</translation>
-    </message>
-  </context>
-  <context>
-    <name>speech/language</name>
-    <message>
-      <source>Choose speech recognition language for this chat</source>
-      <translation>Scegliere la lingua di riconoscimento vocale per questa chat</translation>
-    </message>
-    <message>
-      <source>Language</source>
-      <translation>Lingua</translation>
-    </message>
-    <message>
-      <source>Dialect</source>
-      <translation>Dialetto</translation>
-    </message>
-    <message>
-      <source>Default speech recognition language</source>
-      <translation>Lingua di riconoscimento vocale predefinito</translation>
-    </message>
-  </context>
-  <context>
-    <name>speech/speech</name>
-    <message>
-      <source>Use application default recognition language</source>
-      <translation>Utilizzare applicazione predefinita riconoscimento lingua</translation>
-    </message>
-    <message>
-      <source>Use application default recognition dialect</source>
-      <translation>Utilizzare il dialetto riconoscimento di applicazione predefinita</translation>
     </message>
   </context>
 </TS>

@@ -146,6 +146,10 @@
       <translation>Да се скрие модул за неактивен отдел</translation>
     </message>
     <message>
+      <source>Home page tabs order</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Is visitor e-mail required for FAQ</source>
       <translation>Нужен ли е е-мейлът на посетителите за ЧЗВ?</translation>
     </message>
@@ -302,10 +306,6 @@
   </context>
   <context>
     <name>abstract/widgettheme</name>
-    <message>
-      <source>Widget copyright</source>
-      <translation>Авторско право на модула</translation>
-    </message>
     <message>
       <source>Download theme</source>
       <translation>Свали темата</translation>
@@ -1539,10 +1539,6 @@
   <context>
     <name>chat/adminchat</name>
     <message>
-      <source>General information</source>
-      <translation>Обща информация</translation>
-    </message>
-    <message>
       <source>Footprint</source>
       <translation>Стъпки</translation>
     </message>
@@ -1921,6 +1917,14 @@
     <message>
       <source>Online operators</source>
       <translation>Оператори онлайн</translation>
+    </message>
+    <message>
+      <source>Mail settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>SMTP</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -3007,8 +3011,8 @@
       <translation>Обновяване на информацията</translation>
     </message>
     <message>
-      <source>SMTP settings</source>
-      <translation>SMTP настройки</translation>
+      <source>Mail settings</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>E-mail templates</source>
@@ -5469,6 +5473,36 @@
     </message>
   </context>
   <context>
+    <name>speech/language</name>
+    <message>
+      <source>Choose speech recognition language for this chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Dialect</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default speech recognition language</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>speech/speech</name>
+    <message>
+      <source>Use application default recognition language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use application default recognition dialect</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>system/languages</name>
     <message>
       <source>Languages configuration</source>
@@ -5534,8 +5568,20 @@
   <context>
     <name>system/smtp</name>
     <message>
-      <source>SMTP settings</source>
-      <translation>Настройки за SMTP</translation>
+      <source>Mail settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sender address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default from e-mail address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default from name</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>SMTP enabled</source>
@@ -6414,8 +6460,8 @@
       <translation>Позволяване на потребителите да сменят от името</translation>
     </message>
     <message>
-      <source>From e-mail, if mail was not sent for some reason, this mail will get a failed delivery message</source>
-      <translation>От е-мейл, ако писмото не бъде изпратено успешно, на този е-мейл ще бъде изпратено съобщение за неуспешно изпращане</translation>
+      <source>From e-mail</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Allow to change from e-mail</source>
@@ -6538,36 +6584,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Въведете валиден формат!</translation>
-    </message>
-  </context>
-  <context>
-    <name>speech/language</name>
-    <message>
-      <source>Choose speech recognition language for this chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Language</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Dialect</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Default speech recognition language</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>speech/speech</name>
-    <message>
-      <source>Use application default recognition language</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Use application default recognition dialect</source>
-      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

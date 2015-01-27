@@ -3,19 +3,19 @@
     <name>listchatconfig</name>
     <message>
       <source>How many days voting widget should not be expanded after last show</source>
-      <translation>Hoeveel dagen stemmen widget moeten niet worden uitgebreid na laatste show</translation>
+      <translation>Hoeveel dagen moet de stemmen widget niet worden getoond na laatste weergave</translation>
     </message>
     <message>
       <source>Use secure cookie, check this if you want to force SSL all the time</source>
-      <translation>Veilige-cookie gebruiken, schakel dit in als u wilt afdwingen SSL aller tijden</translation>
+      <translation>Veilige cookie gebruiken, schakel dit in als u altijd een SSL verbinding wilt afdwingen</translation>
     </message>
     <message>
       <source>Which ip should be allowed to update DB by executing http request, separate by comma?</source>
-      <translation>Welke ip mogen DB bijwerken door het uitvoeren van de http-aanvraag, gescheiden door komma?</translation>
+      <translation>Welke ip&apos;s mogen DB bijwerken door het uitvoeren van een http aanvraag (gescheiden door komma)?</translation>
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
-      <translation>Site voor online bezoekers bijhouden inschakelen</translation>
+      <translation>Online bezoekers volgen inschakelen</translation>
     </message>
     <message>
       <source>Track is user still on site, chat status checks also has to be enabled</source>
@@ -144,6 +144,10 @@
     <message>
       <source>Hide disabled department widget</source>
       <translation>Verberg een uitgeschakelde afdeling widget</translation>
+    </message>
+    <message>
+      <source>Home page tabs order</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Is visitor e-mail required for FAQ</source>
@@ -302,10 +306,6 @@
   </context>
   <context>
     <name>abstract/widgettheme</name>
-    <message>
-      <source>Widget copyright</source>
-      <translation>Auteursrecht widget</translation>
-    </message>
     <message>
       <source>Download theme</source>
       <translation>Download thema</translation>
@@ -530,7 +530,7 @@
     <name>abstract/proactivechatinvitation</name>
     <message>
       <source>If you want pro active chat invitation to work it has to be enabled in</source>
-      <translation>Als je wilt dat proactieve chat uitnodigingen werken dan moeten deze ingeschakeld worden in</translation>
+      <translation>Als je wilt dat proactieve chat uitnodigingen werken dan moeten deze ingeschakeld worden</translation>
     </message>
     <message>
       <source>chat configuration</source>
@@ -1539,10 +1539,6 @@
   <context>
     <name>chat/adminchat</name>
     <message>
-      <source>General information</source>
-      <translation>Algemene informatie</translation>
-    </message>
-    <message>
       <source>Footprint</source>
       <translation>Voetafdruk</translation>
     </message>
@@ -1921,6 +1917,14 @@
     <message>
       <source>Online operators</source>
       <translation>Online medewerkers</translation>
+    </message>
+    <message>
+      <source>Mail settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>SMTP</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -3007,8 +3011,8 @@
       <translation>Update informatie</translation>
     </message>
     <message>
-      <source>SMTP settings</source>
-      <translation>SMTP instellingen</translation>
+      <source>Mail settings</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>E-mail templates</source>
@@ -5469,6 +5473,36 @@
     </message>
   </context>
   <context>
+    <name>speech/language</name>
+    <message>
+      <source>Choose speech recognition language for this chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Dialect</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default speech recognition language</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>speech/speech</name>
+    <message>
+      <source>Use application default recognition language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use application default recognition dialect</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>system/languages</name>
     <message>
       <source>Languages configuration</source>
@@ -5534,8 +5568,20 @@
   <context>
     <name>system/smtp</name>
     <message>
-      <source>SMTP settings</source>
-      <translation>SMTP instellingen</translation>
+      <source>Mail settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sender address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default from e-mail address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default from name</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>SMTP enabled</source>
@@ -6414,8 +6460,8 @@
       <translation>Veranderen van van-naam toestaan</translation>
     </message>
     <message>
-      <source>From e-mail, if mail was not sent for some reason, this mail will get a failed delivery message</source>
-      <translation>Afzender e-mail, als om een bepaalde reden mail niet verzonden kon worden, krijgt dit een failed delivery bericht</translation>
+      <source>From e-mail</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Allow to change from e-mail</source>
@@ -6538,36 +6584,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Voer s.v.p. een geldig bestandstype in!</translation>
-    </message>
-  </context>
-  <context>
-    <name>speech/language</name>
-    <message>
-      <source>Choose speech recognition language for this chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Language</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Dialect</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Default speech recognition language</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>speech/speech</name>
-    <message>
-      <source>Use application default recognition language</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Use application default recognition dialect</source>
-      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

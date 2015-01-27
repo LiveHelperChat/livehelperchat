@@ -11,7 +11,7 @@
     </message>
     <message>
       <source>Which ip should be allowed to update DB by executing http request, separate by comma?</source>
-      <translation type="unfinished"/>
+      <translation>С каких IP должно быть разрешено обновление БД через HTTP запрос, через запятую?</translation>
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
@@ -47,7 +47,7 @@
     </message>
     <message>
       <source>Show users option to switch language at widget</source>
-      <translation type="unfinished"/>
+      <translation>Показать пользователям возможность переключения языка в виджете</translation>
     </message>
     <message>
       <source>Between what languages user should be able to switch</source>
@@ -67,11 +67,11 @@
     </message>
     <message>
       <source>NodeJS support enabled</source>
-      <translation type="unfinished"/>
+      <translation>Включить поддержку NodeJS</translation>
     </message>
     <message>
       <source>Do not ask permission for users to see their screen</source>
-      <translation type="unfinished"/>
+      <translation>Не спрашивать у пользователей разрешение просматривать их экран</translation>
     </message>
     <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
@@ -111,11 +111,11 @@
     </message>
     <message>
       <source>Show need help tooltip?</source>
-      <translation type="unfinished"/>
+      <translation>Показать подсказку о необходимости помощи?</translation>
     </message>
     <message>
       <source>Minimum phone number length</source>
-      <translation>Минимальная длинна телефонного номера</translation>
+      <translation>Минимальная длина телефонного номера</translation>
     </message>
     <message>
       <source>Messages box height</source>
@@ -127,7 +127,7 @@
     </message>
     <message>
       <source>Maximum message length in characters</source>
-      <translation type="unfinished"/>
+      <translation>Максимальная длина сообщений, символов</translation>
     </message>
     <message>
       <source>List online operators.</source>
@@ -139,10 +139,14 @@
     </message>
     <message>
       <source>Which ip should be ignored in online users list, separate by comma</source>
-      <translation type="unfinished"/>
+      <translation>Какие IP следует игнорировать в списке пользователей онлайн, через запятую</translation>
     </message>
     <message>
       <source>Hide disabled department widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Home page tabs order</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -302,10 +306,6 @@
   </context>
   <context>
     <name>abstract/widgettheme</name>
-    <message>
-      <source>Widget copyright</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>Download theme</source>
       <translation>Загрузить тему</translation>
@@ -680,7 +680,7 @@
     </message>
     <message>
       <source>For what domain you are generating embed code?</source>
-      <translation type="unfinished"/>
+      <translation>Для какого домена вы генерируете код для вставки?</translation>
     </message>
     <message>
       <source>example.com</source>
@@ -947,7 +947,7 @@
     </message>
     <message>
       <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
-      <translation>Скопируйте код из текстовой области в подвал сайта, перед закрывающимся тегом &amp;lt;/body&amp;gt;</translation>
+      <translation>Скопируйте код из текстовой области в нижний колонтитул сайта, перед закрывающимся тегом &amp;lt;/body&amp;gt;</translation>
     </message>
     <message>
       <source>HTML code</source>
@@ -1540,10 +1540,6 @@
   <context>
     <name>chat/adminchat</name>
     <message>
-      <source>General information</source>
-      <translation>Общая информация</translation>
-    </message>
-    <message>
       <source>Footprint</source>
       <translation>Переходы</translation>
     </message>
@@ -1922,6 +1918,14 @@
     <message>
       <source>Online operators</source>
       <translation>Операторы в Онлайн</translation>
+    </message>
+    <message>
+      <source>Mail settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>SMTP</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -3008,8 +3012,8 @@
       <translation>Обновить информацию</translation>
     </message>
     <message>
-      <source>SMTP settings</source>
-      <translation>SMTP установки</translation>
+      <source>Mail settings</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>E-mail templates</source>
@@ -4365,7 +4369,7 @@
     </message>
     <message>
       <source>Screen sharing session has finished</source>
-      <translation type="unfinished"/>
+      <translation>Сессия просмотра экрана была завершена</translation>
     </message>
     <message>
       <source>Screen is shared</source>
@@ -5470,6 +5474,36 @@
     </message>
   </context>
   <context>
+    <name>speech/language</name>
+    <message>
+      <source>Choose speech recognition language for this chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Dialect</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default speech recognition language</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>speech/speech</name>
+    <message>
+      <source>Use application default recognition language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use application default recognition dialect</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>system/languages</name>
     <message>
       <source>Languages configuration</source>
@@ -5535,8 +5569,20 @@
   <context>
     <name>system/smtp</name>
     <message>
-      <source>SMTP settings</source>
-      <translation>Настройка SMTP</translation>
+      <source>Mail settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sender address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default from e-mail address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default from name</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>SMTP enabled</source>
@@ -6385,7 +6431,7 @@
     </message>
     <message>
       <source>Custom pagelayout</source>
-      <translation type="unfinished"/>
+      <translation>Пользовательский шаблон страницы</translation>
     </message>
     <message>
       <source>Forms list</source>
@@ -6415,8 +6461,8 @@
       <translation>Позволяет менять имя отправителя</translation>
     </message>
     <message>
-      <source>From e-mail, if mail was not sent for some reason, this mail will get a failed delivery message</source>
-      <translation>E-mail отправителя. На него придут письма со статусом &quot;недоставлено&quot;, если вдруг письмо по каким то причинам не дойдет до получателя.</translation>
+      <source>From e-mail</source>
+      <translation>Е-mail отправителя</translation>
     </message>
     <message>
       <source>Allow to change from e-mail</source>
@@ -6455,7 +6501,7 @@
     </message>
     <message>
       <source>has accepted a chat!</source>
-      <translation type="unfinished"/>
+      <translation>Принял чат!</translation>
     </message>
   </context>
   <context>
@@ -6539,36 +6585,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Пожалуйста, введите правильный тип файла</translation>
-    </message>
-  </context>
-  <context>
-    <name>speech/language</name>
-    <message>
-      <source>Choose speech recognition language for this chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Language</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Dialect</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Default speech recognition language</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>speech/speech</name>
-    <message>
-      <source>Use application default recognition language</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Use application default recognition dialect</source>
-      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

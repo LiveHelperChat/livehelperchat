@@ -146,6 +146,10 @@
       <translation>Skrýt widget vypnutého oddělení</translation>
     </message>
     <message>
+      <source>Home page tabs order</source>
+      <translation>Pořadí tabů na hlavní stránce</translation>
+    </message>
+    <message>
       <source>Is visitor e-mail required for FAQ</source>
       <translation>Je pro FAQ vyžadován e-mail návštěvníka</translation>
     </message>
@@ -302,10 +306,6 @@
   </context>
   <context>
     <name>abstract/widgettheme</name>
-    <message>
-      <source>Widget copyright</source>
-      <translation>Copyright widgetu</translation>
-    </message>
     <message>
       <source>Download theme</source>
       <translation>Stáhnout téma</translation>
@@ -1539,10 +1539,6 @@
   <context>
     <name>chat/adminchat</name>
     <message>
-      <source>General information</source>
-      <translation>Základní informace</translation>
-    </message>
-    <message>
       <source>Footprint</source>
       <translation>Otisk</translation>
     </message>
@@ -1921,6 +1917,14 @@
     <message>
       <source>Online operators</source>
       <translation>Operátoři, kteří jsou online</translation>
+    </message>
+    <message>
+      <source>Mail settings</source>
+      <translation>Nastavení e-mailu</translation>
+    </message>
+    <message>
+      <source>SMTP</source>
+      <translation>SMTP</translation>
     </message>
   </context>
   <context>
@@ -3007,8 +3011,8 @@
       <translation>Informace o aktualizaci</translation>
     </message>
     <message>
-      <source>SMTP settings</source>
-      <translation>Nastavení SMTP</translation>
+      <source>Mail settings</source>
+      <translation>Nastavení e-mailu</translation>
     </message>
     <message>
       <source>E-mail templates</source>
@@ -5469,6 +5473,36 @@
     </message>
   </context>
   <context>
+    <name>speech/language</name>
+    <message>
+      <source>Choose speech recognition language for this chat</source>
+      <translation>Zvolte jazyk rozpoznávání řeči pro tento rozhovor</translation>
+    </message>
+    <message>
+      <source>Language</source>
+      <translation>Jazyk</translation>
+    </message>
+    <message>
+      <source>Dialect</source>
+      <translation>Dialekt</translation>
+    </message>
+    <message>
+      <source>Default speech recognition language</source>
+      <translation>Výchozí jazyk rozpoznávání řeči</translation>
+    </message>
+  </context>
+  <context>
+    <name>speech/speech</name>
+    <message>
+      <source>Use application default recognition language</source>
+      <translation>Používat výchozí jazyk rozpoznávání řeči aplikace</translation>
+    </message>
+    <message>
+      <source>Use application default recognition dialect</source>
+      <translation>Používat výchozí dialekt rozpoznávání aplikace</translation>
+    </message>
+  </context>
+  <context>
     <name>system/languages</name>
     <message>
       <source>Languages configuration</source>
@@ -5534,8 +5568,20 @@
   <context>
     <name>system/smtp</name>
     <message>
-      <source>SMTP settings</source>
-      <translation>Nastavení SMTP</translation>
+      <source>Mail settings</source>
+      <translation>Nastavení e-mailu</translation>
+    </message>
+    <message>
+      <source>Sender address</source>
+      <translation>Adresa odesílatele</translation>
+    </message>
+    <message>
+      <source>Default from e-mail address</source>
+      <translation>Výchozí e-mailová adresa od</translation>
+    </message>
+    <message>
+      <source>Default from name</source>
+      <translation>Výchozí jméno od</translation>
     </message>
     <message>
       <source>SMTP enabled</source>
@@ -6414,8 +6460,8 @@
       <translation>Povolit změnu jména odesílatele</translation>
     </message>
     <message>
-      <source>From e-mail, if mail was not sent for some reason, this mail will get a failed delivery message</source>
-      <translation>Email odesilatele, pokud není zpráva z nějakého důvodu odeslána, na tento email bude doručeno oznámení o selhání.</translation>
+      <source>From e-mail</source>
+      <translation>E-mail od</translation>
     </message>
     <message>
       <source>Allow to change from e-mail</source>
@@ -6538,36 +6584,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Prosím vyberte platný typ souboru!</translation>
-    </message>
-  </context>
-  <context>
-    <name>speech/language</name>
-    <message>
-      <source>Choose speech recognition language for this chat</source>
-      <translation>Zvolte jazyk rozpoznávání řeči pro tento rozhovor</translation>
-    </message>
-    <message>
-      <source>Language</source>
-      <translation>Jazyk</translation>
-    </message>
-    <message>
-      <source>Dialect</source>
-      <translation>Dialekt</translation>
-    </message>
-    <message>
-      <source>Default speech recognition language</source>
-      <translation>Výchozí jazyk rozpoznávání řeči</translation>
-    </message>
-  </context>
-  <context>
-    <name>speech/speech</name>
-    <message>
-      <source>Use application default recognition language</source>
-      <translation>Používat výchozí jazyk rozpoznávání řeči aplikace</translation>
-    </message>
-    <message>
-      <source>Use application default recognition dialect</source>
-      <translation>Používat výchozí dialekt rozpoznávání aplikace</translation>
     </message>
   </context>
 </TS>
