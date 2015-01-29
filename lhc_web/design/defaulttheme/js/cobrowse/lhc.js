@@ -100,6 +100,56 @@ var LHCCoBrowser = (function() {
 		});		
 	}
 	
+	LHCCoBrowser.prototype.sendInputsData = function()
+	{
+		if (typeof jQuery !== 'undefined' ) {
+			this.initializeSelector();			
+			var inputs = document.getElementsByTagName("INPUT");		
+			for (var i = 0; i < inputs.length; i++) {
+				var selectorData = jQuery(inputs[i]).getSelector();	
+				if (selectorData.length >= 1) {						
+					if (inputs[i].type == 'checkbox' || inputs[i].type == 'radio') {
+						this.sendData({
+							'f' : 'chkval',
+							'selector' : selectorData[0],
+							'value' : jQuery(inputs[i]).is(':checked')
+						});
+					} else {
+						this.sendData({
+							'f' : 'textdata',
+							'selector' : selectorData[0],
+							'value' : inputs[i].value
+						});
+					}					
+				}
+			};		
+			
+			var inputs = document.getElementsByTagName("TEXTAREA");		
+			for (var i = 0; i < inputs.length; i++) {			
+				var selectorData = jQuery(inputs[i]).getSelector();	
+				if (selectorData.length >= 1) {	
+					this.sendData({
+						'f' : 'textdata',
+						'selector' : selectorData[0],
+						'value' : inputs[i].value
+					});
+				}
+			};		
+			
+			var inputs = document.getElementsByTagName("SELECT");		
+			for (var i = 0; i < inputs.length; i++) {
+				var selectorData = jQuery(inputs[i]).getSelector();	
+				if (selectorData.length >= 1) {	
+					this.sendData({
+						'f' : 'selectval',
+						'selector' : selectorData[0],
+						'value' : inputs[i].selectedIndex
+					});
+				}
+			};
+		}
+	}
+	
 	LHCCoBrowser.prototype.scrollEventListener = function() 
 	{
 		this.scrollTop = this.scrollTopGS();
@@ -833,6 +883,7 @@ var LHCCoBrowser = (function() {
 				setTimeout(function(){
 					_this.initialiseBlock = false;
 					_this.scrollEventListener();
+					_this.sendInputsData();
 				},3000);
 				
 				_this.sendData({
