@@ -216,20 +216,25 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
 			}
 		});
 		
-		
 		$scope.$watch('online.userTimeout + online.department + online.maxRows + groupByField', function(newVal,oldVal) { 
 				that.updateList();			
 		});
 		
+		this.initializeModal = function() {
+			if ($('#myModal').size() == 0) {
+				$('body').prepend('<div id="myModal" class="reveal-modal medium"><a class="close-reveal-modal">&#215;</a></div>');
+				$("#myModal").on("opened", function(){
+					$(document).foundation('section', 'reflow')					
+				});
+			};	
+		};
+		
 		this.showOnlineUserInfo = function(user_id) {
-			$.colorbox({onComplete:function(){$(document).foundation('section', 'reflow');},width:'550px',href:WWW_DIR_JAVASCRIPT+'chat/getonlineuserinfo/'+user_id});
+			$('#myModal').foundation('reveal', 'open', {url: WWW_DIR_JAVASCRIPT+'chat/getonlineuserinfo/'+user_id});
 		};
 		
 		this.previewChat = function(ou) {
-			if (ou.chat_id > 0 && ou.can_view_chat == 1) {				
-				if ($('#myModal').size() == 0) {
-					$('body').prepend('<div id="myModal" class="reveal-modal medium"><a class="close-reveal-modal">&#215;</a></div>');
-				};				
+			if (ou.chat_id > 0 && ou.can_view_chat == 1) {	
 				$('#myModal').foundation('reveal', 'open', {url: WWW_DIR_JAVASCRIPT+'chat/previewchat/'+ou.chat_id});
 			}
 		};
@@ -258,5 +263,7 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
 		
 		$scope.$on('$destroy', function disableController() {
 			$interval.cancel(timeoutId);	
-		});			  
+		});	
+		
+		this.initializeModal();
 }]);
