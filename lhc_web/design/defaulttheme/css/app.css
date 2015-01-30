@@ -503,8 +503,7 @@ div.message-row-in {
 #id-operator-typing {
 	visibility:hidden;
 	font-style:italic;
-    font-weight:bold;     
-    background-color: rgba(250, 250, 250, 0.95);    
+    font-weight:bold;      
 	line-height:140%;
 	min-height:14px;   
     font-size:11px;
