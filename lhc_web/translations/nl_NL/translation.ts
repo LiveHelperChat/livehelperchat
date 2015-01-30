@@ -3607,23 +3607,23 @@
     </message>
     <message>
       <source>Additional form settings</source>
-      <translation type="unfinished"/>
+      <translation>Aanvullende formulier instellingen</translation>
     </message>
     <message>
       <source>Show operator profile above input fields</source>
-      <translation type="unfinished"/>
+      <translation>Toon operator profiel boven de invoervelden</translation>
     </message>
     <message>
       <source>Remove space after operator profile</source>
-      <translation type="unfinished"/>
+      <translation>Verwijder spaties achter operator profiel</translation>
     </message>
     <message>
       <source>Hide message label</source>
-      <translation type="unfinished"/>
+      <translation>Verberg berichtenveld label</translation>
     </message>
     <message>
       <source>Initial user message height in pixels</source>
-      <translation type="unfinished"/>
+      <translation>Start hoogte berichtenveld in pixels</translation>
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>

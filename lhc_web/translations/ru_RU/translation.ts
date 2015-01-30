@@ -19,7 +19,7 @@
     </message>
     <message>
       <source>Track is user still on site, chat status checks also has to be enabled</source>
-      <translation type="unfinished"/>
+      <translation>Отслеживать пользователя, пока он остаётся на сайте, проверка статуса чата также должна быть включена</translation>
     </message>
     <message>
       <source>Track online visitors even if there is no online operators</source>
@@ -51,19 +51,19 @@
     </message>
     <message>
       <source>Between what languages user should be able to switch</source>
-      <translation type="unfinished"/>
+      <translation>Между какими языками пользователь сможет переключаться</translation>
     </message>
     <message>
       <source>Host where NodeJs is running</source>
-      <translation type="unfinished"/>
+      <translation>Хост, на котором запущен NodeJs</translation>
     </message>
     <message>
       <source>Location of SocketIO JS library</source>
-      <translation type="unfinished"/>
+      <translation>Путь к библиотеке SocketIO JS</translation>
     </message>
     <message>
       <source>Connect to NodeJs in https mode</source>
-      <translation type="unfinished"/>
+      <translation>Подключиться к NodeJs в режиме https</translation>
     </message>
     <message>
       <source>NodeJS support enabled</source>
@@ -340,7 +340,7 @@
     </message>
     <message>
       <source>Widget border width (px)</source>
-      <translation type="unfinished"/>
+      <translation>Ширина рамки виджета (пикселей)</translation>
     </message>
     <message>
       <source>Online status text</source>
@@ -352,7 +352,7 @@
     </message>
     <message>
       <source>Operator intro text</source>
-      <translation type="unfinished"/>
+      <translation>Вводный текст оператора</translation>
     </message>
     <message>
       <source>Have a question? Ask us!</source>
@@ -5481,7 +5481,7 @@
     </message>
     <message>
       <source>Language</source>
-      <translation type="unfinished"/>
+      <translation>Язык</translation>
     </message>
     <message>
       <source>Dialect</source>
@@ -5570,19 +5570,19 @@
     <name>system/smtp</name>
     <message>
       <source>Mail settings</source>
-      <translation type="unfinished"/>
+      <translation>Настройки почты</translation>
     </message>
     <message>
       <source>Sender address</source>
-      <translation type="unfinished"/>
+      <translation>Адрес отправителя</translation>
     </message>
     <message>
       <source>Default from e-mail address</source>
-      <translation type="unfinished"/>
+      <translation>Адрес &quot;от&quot; по умолчанию</translation>
     </message>
     <message>
       <source>Default from name</source>
-      <translation type="unfinished"/>
+      <translation>Имя отправителя по умолчанию</translation>
     </message>
     <message>
       <source>SMTP enabled</source>
