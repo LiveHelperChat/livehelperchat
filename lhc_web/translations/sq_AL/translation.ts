@@ -2423,7 +2423,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>This message will be send to your e-mail</source>
+      <source>Please enter to what gmail address test message should be send?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This message will be send to test e-mail</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2456,6 +2460,10 @@
     </message>
     <message>
       <source>XMPP message was sent succesfuly</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid test e-mail address</source>
       <translation type="unfinished"/>
     </message>
   </context>

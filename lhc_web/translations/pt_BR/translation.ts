@@ -1920,11 +1920,11 @@
     </message>
     <message>
       <source>Mail settings</source>
-      <translation type="unfinished"/>
+      <translation>Configuração de e-Mail</translation>
     </message>
     <message>
       <source>SMTP</source>
-      <translation type="unfinished"/>
+      <translation>SMTP</translation>
     </message>
   </context>
   <context>
@@ -2422,8 +2422,12 @@
       <translation>Segredo do cliente</translation>
     </message>
     <message>
-      <source>This message will be send to your e-mail</source>
-      <translation>Esta mensagem será enviada para o seu e-mail</translation>
+      <source>Please enter to what gmail address test message should be send?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This message will be send to test e-mail</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Send test message</source>
@@ -2456,6 +2460,10 @@
     <message>
       <source>XMPP message was sent succesfuly</source>
       <translation>Mensagem XMPP enviada com sucesso </translation>
+    </message>
+    <message>
+      <source>Invalid test e-mail address</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

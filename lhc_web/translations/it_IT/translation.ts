@@ -2423,8 +2423,12 @@
       <translation>Segreto del cliente</translation>
     </message>
     <message>
-      <source>This message will be send to your e-mail</source>
-      <translation>il messaggio verrà inviato alla tua email</translation>
+      <source>Please enter to what gmail address test message should be send?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This message will be send to test e-mail</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Send test message</source>
@@ -2457,6 +2461,10 @@
     <message>
       <source>XMPP message was sent succesfuly</source>
       <translation>Messaggio XMPP inviato con successo</translation>
+    </message>
+    <message>
+      <source>Invalid test e-mail address</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

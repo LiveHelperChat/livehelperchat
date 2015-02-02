@@ -294,7 +294,7 @@
     </message>
     <message>
       <source>Send test message</source>
-      <translation>Odeslat testovací zprávu</translation>
+      <translation>Odeslat zkušební zprávu</translation>
     </message>
   </context>
   <context>
@@ -2383,11 +2383,11 @@
     </message>
     <message>
       <source>Test group recipients</source>
-      <translation>Testovací skupina příjemců</translation>
+      <translation>Zkušební skupina příjemců</translation>
     </message>
     <message>
       <source>Test message will be send to your account e-mail</source>
-      <translation>Testovací zpráva bude odeslána na email Vašeho účtu</translation>
+      <translation>Zkušební zpráva bude odeslána na e-mail Vašeho účtu</translation>
     </message>
     <message>
       <source>GTalk</source>
@@ -2422,12 +2422,16 @@
       <translation>&quot;Tajná formule&quot;  klienta</translation>
     </message>
     <message>
-      <source>This message will be send to your e-mail</source>
-      <translation>Tato zpráva bude zaslána va váš e-mail</translation>
+      <source>Please enter to what gmail address test message should be send?</source>
+      <translation>Zadejte prosím e-mailovou adresu GMailu, na kterou má být zaslána zkušební zpráva?</translation>
+    </message>
+    <message>
+      <source>This message will be send to test e-mail</source>
+      <translation>Tato zpráva bude odeslána na zkušební e-mail</translation>
     </message>
     <message>
       <source>Send test message</source>
-      <translation>Odeslat testovací zprávu</translation>
+      <translation>Odeslat zkušební zprávu</translation>
     </message>
     <message>
       <source>Revoke access token</source>
@@ -2456,6 +2460,10 @@
     <message>
       <source>XMPP message was sent succesfuly</source>
       <translation>XMPP zpráva byla úspěšně odeslána</translation>
+    </message>
+    <message>
+      <source>Invalid test e-mail address</source>
+      <translation>Neplatná zkušební e-mailová adresa</translation>
     </message>
   </context>
   <context>
@@ -5711,7 +5719,7 @@
     </message>
     <message>
       <source>Wrong email address</source>
-      <translation>Nesprávný e-mail</translation>
+      <translation>Neplatná e-mailová adresa</translation>
     </message>
     <message>
       <source>Invalid CSRF token!</source>
@@ -5917,7 +5925,7 @@
     </message>
     <message>
       <source>Wrong email address</source>
-      <translation>Neplaný e-mail</translation>
+      <translation>Neplaná e-mailová adresa</translation>
     </message>
     <message>
       <source>Please enter a name</source>
@@ -6042,7 +6050,7 @@
     </message>
     <message>
       <source>E-mail sent. Click the link in the email and You will be sent out a new password.</source>
-      <translation>E-mail odeslán. Po kliknutí na odkaz v e-mailu vám odešleme zpět nové heslo.</translation>
+      <translation>E-mail odeslán. Po kliknutí na odkaz v e-mailu Vám odešleme zpět nové heslo.</translation>
     </message>
   </context>
   <context>
@@ -6184,7 +6192,7 @@
     </message>
     <message>
       <source>New password has been sent to your email.</source>
-      <translation>Nové heslo bylo zasláno na váš e-mail.</translation>
+      <translation>Nové heslo bylo zasláno na Váš e-mail.</translation>
     </message>
   </context>
   <context>
@@ -6477,7 +6485,7 @@
     </message>
     <message>
       <source>Recipient email, this is used if the application could not determine who should receive an email.</source>
-      <translation>Email příjemce, je používán, pokud není aplikace schopna rozpoznat, kdo by měl zprávu obdržet.</translation>
+      <translation>E-mail příjemce, je používán, pokud není aplikace schopna rozpoznat, kdo by měl zprávu obdržet.</translation>
     </message>
     <message>
       <source>BCC recipients, can be separated by comma.</source>

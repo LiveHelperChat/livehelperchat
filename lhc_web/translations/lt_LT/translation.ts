@@ -2422,8 +2422,12 @@
       <translation>Client secret</translation>
     </message>
     <message>
-      <source>This message will be send to your e-mail</source>
-      <translation>Ši žinutė bus išsiųsta į Jūsų el. pašto adresą</translation>
+      <source>Please enter to what gmail address test message should be send?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This message will be send to test e-mail</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Send test message</source>
@@ -2456,6 +2460,10 @@
     <message>
       <source>XMPP message was sent succesfuly</source>
       <translation>XMPP žinutė buvo sėkminga išsiųsta</translation>
+    </message>
+    <message>
+      <source>Invalid test e-mail address</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
