@@ -33,7 +33,6 @@ var LHCCoBrowserOperator = (function() {
 		if (params['nodejsenabled']) {
 			this.setupNodeJs();
 		}
-		;
 		
 		if (parseInt(params['cpos'].w) > 0 && parseInt(params['cpos'].wh) > 0){
 			document.getElementById('center-layout').style.width = params['cpos'].w+'px';
