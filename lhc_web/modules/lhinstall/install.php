@@ -897,6 +897,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   	  `last_check_time` int(11) NOT NULL,
         	   	  `dep_id` int(11) NOT NULL,
                   `user_agent` varchar(250) NOT NULL,
+                  `notes` varchar(250) NOT NULL,
                   `user_country_code` varchar(50) NOT NULL,
                   `user_country_name` varchar(50) NOT NULL,
                   `visitor_tz` varchar(50) NOT NULL,

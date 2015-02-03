@@ -211,6 +211,11 @@ $def->properties['visitor_tz']->columnName   = 'visitor_tz';
 $def->properties['visitor_tz']->propertyName = 'visitor_tz';
 $def->properties['visitor_tz']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['notes'] = new ezcPersistentObjectProperty();
+$def->properties['notes']->columnName   = 'notes';
+$def->properties['notes']->propertyName = 'notes';
+$def->properties['notes']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 return $def;
 
 ?>

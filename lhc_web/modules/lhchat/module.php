@@ -221,6 +221,11 @@ $ViewList['saveremarks'] = array(
     'functions' => array( 'use' )
     );
 
+$ViewList['saveonlinenotes'] = array(
+    'params' => array('online_user_id'),
+    'functions' => array( 'use' )
+);
+
 /* Anonymous functions */
 $ViewList['addmsguser'] = array(
     'params' => array('chat_id','hash'),

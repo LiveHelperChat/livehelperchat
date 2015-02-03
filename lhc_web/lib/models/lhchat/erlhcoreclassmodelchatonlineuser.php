@@ -43,7 +43,8 @@ class erLhcoreClassModelChatOnlineUser {
 	       	   'screenshot_id'   	=> $this->screenshot_id,
 	       	   'online_attr'   		=> $this->online_attr,
 	       	   'visitor_tz'   		=> $this->visitor_tz,
-	       	   'last_check_time'	=> $this->last_check_time
+	       	   'last_check_time'	=> $this->last_check_time,
+	       	   'notes'	            => $this->notes
        );
    }
 
@@ -717,6 +718,7 @@ class erLhcoreClassModelChatOnlineUser {
    public $operation = '';
    public $online_attr = '';
    public $visitor_tz = '';
+   public $notes = '';
    public $requires_phone = 0;
    public $last_check_time = 0;
       

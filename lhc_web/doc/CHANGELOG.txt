@@ -1,3 +1,14 @@
+2.22v
+
+1. All Javascript's is now compressed.
+2. Option to set notes for online user. If you click first user icon in popup the last tab will be notes. https://github.com/LiveHelperChat/livehelperchat/issues/613
+3. Delete, Close icons will represents actual user permissions. https://github.com/LiveHelperChat/livehelperchat/issues/614
+4. Online users list will have lest icons in last column.
+5. New maxmind database for countries
+6. Identifier variable for forms.
+
+execute doc/update_db/update_100.sql for update
+
 2.21v
 
 1. Option to change front page tabs order in chat configuraiton section. (Misc)

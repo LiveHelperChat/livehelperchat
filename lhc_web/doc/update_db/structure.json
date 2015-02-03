@@ -1888,6 +1888,14 @@
                 "extra": ""
             },
             {
+                "field": "notes",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "referrer",
                 "type": "text",
                 "null": "NO",
