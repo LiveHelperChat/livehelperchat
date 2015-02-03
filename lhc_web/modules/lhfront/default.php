@@ -18,6 +18,6 @@ if ($userDepartments !== true){
 $tpl->set('departmentParams',$departmentParams);
 
 $Result['content'] = $tpl->fetch();
-$Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.lhc.online.js').'"></script>';
+$Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.lhc.online.min.js').'"></script>';
 
 ?>

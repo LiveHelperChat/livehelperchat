@@ -69,6 +69,6 @@ $tpl->set('geo_location_data',erLhcoreClassModelChatConfig::fetch('geo_location_
 
 $Result['content'] = $tpl->fetch();
 $Result['path'] = array(array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Online visitors')));
-$Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.lhc.online.js').'"></script>';
+$Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.lhc.online.min.js').'"></script>';
 
 ?>
