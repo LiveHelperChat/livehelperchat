@@ -159,7 +159,12 @@ function generateEmbedCode(){
     };
     
     var id_embed_domain = $('#id_embed_domain').val() != '' ? ',domain:\''+$('#id_embed_domain').val()+'\'' : '';
- 
+
+    if (id_embed_domain.indexOf('://') != -1) {
+        alert(<?php echo json_encode(htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Please do not enter protocol, only domain name is required'),ENT_QUOTES))?>);
+        return;
+    };
+    
     var script = '<script type="text/javascript">'+"\n"+"var LHCChatOptions = {};\n"+
       'LHCChatOptions.opt = {widget_height:'+$('#id_widget_height').val()+',widget_width:'+$('#id_widget_width').val()+',popup_height:'+$('#id_popup_height').val()+',popup_width:'+$('#id_popup_width').val()+id_embed_domain+'};\n'+
       '(function() {'+"\n"+
