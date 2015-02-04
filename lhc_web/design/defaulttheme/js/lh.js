@@ -1973,18 +1973,13 @@ function gMapsCallback(){
     			var marker = new google.maps.Marker({ position: latLng, icon : e.icon, map : map });
 
     			google.maps.event.addListener(marker, 'click', function() {
-    				var content = '<div class="map-preview">...</div>';
-    				infoWindow.setContent(content);
-    				infoWindow.open(map, this);
-    				$.get(WWW_DIR_JAVASCRIPT + 'chat/getonlineuserinfo/'+e.Id,function(result){
-    					infoWindow.setContent(result);
-
-    					setTimeout(function(){
-    						$(document).foundation('section', 'reflow');
-    					},250);
-
-
-    				});
+    				if ($('#myModal').size() == 0) {
+    					$('body').prepend('<div id="myModal" class="reveal-modal medium"><a class="close-reveal-modal">&#215;</a></div>');
+    					$("#myModal").on("opened", function(){
+    						$(document).foundation('section', 'reflow')					
+    					});
+    				};    				
+    				$('#myModal').foundation('reveal', 'open', {url: WWW_DIR_JAVASCRIPT+'chat/getonlineuserinfo/'+e.Id});
     			});
 
     			marker.setVisible(true);
