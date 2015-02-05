@@ -1510,7 +1510,7 @@
     </message>
     <message>
       <source>None</source>
-      <translation>هیچ</translation>
+      <translation>هیچ کدام</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -1529,18 +1529,18 @@
     <name>chat/chatnotexists</name>
     <message>
       <source>Resume chat</source>
-      <translation>رزومه چت</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chat was deleted</source>
-      <translation>چت حذف شده است.</translation>
+      <translation>چت حذف شد.</translation>
     </message>
   </context>
   <context>
     <name>chat/adminchat</name>
     <message>
       <source>Footprint</source>
-      <translation>رد پا</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visitor</source>
@@ -1560,7 +1560,7 @@
     </message>
     <message>
       <source>Pending chat</source>
-      <translation>چت معلق</translation>
+      <translation>چت در وضعیت انتظار</translation>
     </message>
     <message>
       <source>Active chat</source>
@@ -1572,7 +1572,7 @@
     </message>
     <message>
       <source>Chatbox chat</source>
-      <translation>جعبه چت </translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Operators chat</source>
@@ -1592,7 +1592,7 @@
     </message>
     <message>
       <source>Time zone</source>
-      <translation>زمان محلی</translation>
+      <translation>منطقه زمانی</translation>
     </message>
     <message>
       <source>City</source>
@@ -1616,7 +1616,7 @@
     </message>
     <message>
       <source>Additional data</source>
-      <translation>اطلاعات اضافی</translation>
+      <translation>سایر داده ها</translation>
     </message>
     <message>
       <source>Created</source>
@@ -1628,7 +1628,7 @@
     </message>
     <message>
       <source>Waited</source>
-      <translation>منتظر</translation>
+      <translation>در انتظار</translation>
     </message>
     <message>
       <source>Chat duration</source>
@@ -1636,7 +1636,7 @@
     </message>
     <message>
       <source>Actions</source>
-      <translation>فعالیت ها</translation>
+      <translation>عملیات</translation>
     </message>
     <message>
       <source>Close dialog</source>
@@ -1696,7 +1696,7 @@
     </message>
     <message>
       <source>Chat between operators, chat initializer</source>
-      <translation>چت بین اپراتورها، چت منسوب</translation>
+      <translation>چت بین اپراتورها، آغازکننده چت</translation>
     </message>
     <message>
       <source>Chat owner</source>
@@ -1716,7 +1716,7 @@
     </message>
     <message>
       <source>Refresh</source>
-      <translation>بازنشانی</translation>
+      <translation>رفرش</translation>
     </message>
     <message>
       <source>Remarks</source>
@@ -1736,7 +1736,7 @@
     </message>
     <message>
       <source>Send delayed canned message instantly</source>
-      <translation>ارسال فوری پیام مسدود شده تاخیردار</translation>
+      <translation>ارسال فوری پیام تعریف شده تاخیردار</translation>
     </message>
     <message>
       <source>Reopen chat</source>
@@ -1744,11 +1744,11 @@
     </message>
     <message>
       <source>Select a canned message</source>
-      <translation>انتخاب پیام مسدود شده</translation>
+      <translation>انتخاب پیام تعریف شده</translation>
     </message>
     <message>
       <source>Fill textarea with canned message</source>
-      <translation>پر کردن محدوده متنی با پیام مسدود شده</translation>
+      <translation>تکمیل ناحیه متنی با پیام از پیش تعریف شده</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -1756,14 +1756,14 @@
     </message>
     <message>
       <source>Invalid chat status</source>
-      <translation>وضعیت چت نادرست</translation>
+      <translation>وضعیت چت نامعتبر است</translation>
     </message>
   </context>
   <context>
     <name>files/files</name>
     <message>
       <source>Refresh</source>
-      <translation>بازنشانی</translation>
+      <translation>رفرش</translation>
     </message>
     <message>
       <source>Delete file</source>
@@ -1783,14 +1783,14 @@
     </message>
     <message>
       <source>Filesize is too big</source>
-      <translation>اندازه فایل بزرگ است</translation>
+      <translation>اندازه فایل بسیار بزرگ است</translation>
     </message>
   </context>
   <context>
     <name>chat/syncadmininterface</name>
     <message>
       <source>Open in a new window</source>
-      <translation>بازکردن در پنجره جدید</translation>
+      <translation>در پنجره جدید باز کن</translation>
     </message>
     <message>
       <source>Add chat</source>
@@ -1849,11 +1849,11 @@
     </message>
     <message>
       <source>Refresh</source>
-      <translation>بازنشانی</translation>
+      <translation>رفرش</translation>
     </message>
     <message>
       <source>Taken</source>
-      <translation>گرفتن</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Empty...</source>
@@ -1861,7 +1861,7 @@
     </message>
     <message>
       <source>Perhaps screenshot is under way or screenshot is not supported on client browser, click refresh to check for a screenshot</source>
-      <translation>شاید تصویر توسط مرورگر کاربر پشتیبانی نمیشود.</translation>
+      <translation>احتمالاً تصویر توسط مرورگر کاربر پشتیبانی نمی شود.</translation>
     </message>
     <message>
       <source>Screenshot ready...</source>
@@ -1876,7 +1876,7 @@
     </message>
     <message>
       <source>All pending chats</source>
-      <translation>تمام چت های معلق</translation>
+      <translation>تمام چت های در انتظار</translation>
     </message>
     <message>
       <source>Active chats</source>
@@ -1884,7 +1884,7 @@
     </message>
     <message>
       <source>All active chats</source>
-      <translation>تمام چت های فعال</translation>
+      <translation>همه چت های فعال</translation>
     </message>
     <message>
       <source>Unread messages</source>
@@ -1892,7 +1892,7 @@
     </message>
     <message>
       <source>All unread chats</source>
-      <translation>تمام چت های خوانده نشده</translation>
+      <translation>همه چت های خوانده نشده</translation>
     </message>
     <message>
       <source>Closed chats</source>
@@ -1900,7 +1900,7 @@
     </message>
     <message>
       <source>All closed chats</source>
-      <translation>تمام چت های بسته شده</translation>
+      <translation>همه چت های بسته شده</translation>
     </message>
     <message>
       <source>You do not have permission to use chattabschrome function</source>
@@ -2208,15 +2208,15 @@
     </message>
     <message>
       <source>Enable/Disable sound about new pending chats</source>
-      <translation>فعال/غیرفعال کردن صدا برای چت های معلق</translation>
+      <translation>فعال/غیرفعال کردن صدا برای چت های در انتظار</translation>
     </message>
     <message>
       <source>Change my visibility to visible/invisible</source>
-      <translation>تغییر حالت نمایش به پیدا / پنهان</translation>
+      <translation>تغییر حالت نمایش به قابل مشاهده/ غیرقابل مشاهده</translation>
     </message>
     <message>
       <source>Change my status to online/offline</source>
-      <translation>تغیر وضعیت من از آنلاین/آفلاین</translation>
+      <translation>تغیر وضعیت من به آنلاین/آفلاین</translation>
     </message>
   </context>
   <context>
@@ -2280,7 +2280,7 @@
     </message>
     <message>
       <source>custom</source>
-      <translation>سفارشی سازی</translation>
+      <translation>سفارشی</translation>
     </message>
     <message>
       <source>E.g. ar,pl</source>
@@ -2288,19 +2288,19 @@
     </message>
     <message>
       <source>Other countries, put widget/chat status to</source>
-      <translation>دیگر کشورها، قراردهید ابزارک / وضعیت چت تا</translation>
+      <translation>دیگر کشورها، قرار دادن وضعیت چت / ابزارک در</translation>
     </message>
     <message>
       <source>offline status</source>
-      <translation>وضعیت خاموش</translation>
+      <translation>وضعیت آفلاین</translation>
     </message>
     <message>
       <source>hidden/disabled, widget will not be shown</source>
-      <translation>پنهان / غیرفعال کردن، ابزارک نمایش داده نخواهد شد</translation>
+      <translation>عدم نمایش / غیرفعال کردن، ابزارک نمایش داده نخواهد شد</translation>
     </message>
     <message>
       <source>For unmatched countries put chat status to</source>
-      <translation>برای کشورهای بی همتا قرار دهید وضعیت چت را به </translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>normal status</source>
@@ -2327,7 +2327,7 @@
     </message>
     <message>
       <source>XMPP Message content</source>
-      <translation>محتوا پیام XMPP</translation>
+      <translation>محتوای پیام XMPP</translation>
     </message>
     <message>
       <source>XMPP Message about accepted chat</source>
@@ -2355,7 +2355,7 @@
     </message>
     <message>
       <source>Password</source>
-      <translation>کلمه عبور</translation>
+      <translation>رمز عبور</translation>
     </message>
     <message>
       <source>Resource</source>
@@ -2383,7 +2383,7 @@
     </message>
     <message>
       <source>Test group recipients</source>
-      <translation>گروه گیرندگان آزمایشی</translation>
+      <translation>گیرندگان گروه آزمایشی</translation>
     </message>
     <message>
       <source>Test message will be send to your account e-mail</source>
@@ -2391,11 +2391,11 @@
     </message>
     <message>
       <source>GTalk</source>
-      <translation>GTalk</translation>
+      <translation>چت گوگل</translation>
     </message>
     <message>
       <source>Use GTalk for messaging</source>
-      <translation>استفاده از چت گوگل برای پیام</translation>
+      <translation>استفاده از چت گوگل برای پیام رسانی</translation>
     </message>
     <message>
       <source>Information for your google app</source>
@@ -2403,7 +2403,7 @@
     </message>
     <message>
       <source>Redirect URL, this url you will have to enter in your google app configuration</source>
-      <translation>آدرس مستقیم، این آدرس در تنظیمات برنامه گوگل شما وارد میشود.</translation>
+      <translation>آدرس جدید، این آدرس را باید در تنظیمات برنامه گوگل وارد کنید.</translation>
     </message>
     <message>
       <source>Enter your app information bellow</source>
@@ -2411,11 +2411,11 @@
     </message>
     <message>
       <source>OAuth 2.0 Client ID</source>
-      <translation>OAuth 2.0 Client ID</translation>
+      <translation>شناسه کاربری در OAuth 2.0</translation>
     </message>
     <message>
       <source>Please enter your Client ID</source>
-      <translation>لطفا شناسه کلاینت خود را وارد کنید</translation>
+      <translation>لطفا شناسه کاربری خود را وارد کنید</translation>
     </message>
     <message>
       <source>Client secret</source>

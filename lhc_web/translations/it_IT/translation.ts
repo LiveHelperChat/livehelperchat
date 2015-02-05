@@ -2424,11 +2424,11 @@
     </message>
     <message>
       <source>Please enter to what gmail address test message should be send?</source>
-      <translation type="unfinished"/>
+      <translation>Per favore inserisca la sua mail di gmail dove inviare il messaggio di prova</translation>
     </message>
     <message>
       <source>This message will be send to test e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Questo messaggio sarà inviato per testare l&apos;email.</translation>
     </message>
     <message>
       <source>Send test message</source>
@@ -2464,7 +2464,7 @@
     </message>
     <message>
       <source>Invalid test e-mail address</source>
-      <translation type="unfinished"/>
+      <translation>Email di prova non valida.</translation>
     </message>
   </context>
   <context>

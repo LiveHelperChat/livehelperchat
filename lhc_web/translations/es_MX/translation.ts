@@ -468,15 +468,15 @@
     </message>
     <message>
       <source>Minimize image</source>
-      <translation type="unfinished"/>
+      <translation>Minimizar imagen</translation>
     </message>
     <message>
       <source>Restore image</source>
-      <translation type="unfinished"/>
+      <translation>Restaurar imagen</translation>
     </message>
     <message>
       <source>Close image</source>
-      <translation type="unfinished"/>
+      <translation>Cerrar imagen</translation>
     </message>
     <message>
       <source>Popup image</source>
@@ -5488,7 +5488,7 @@
     </message>
     <message>
       <source>Language</source>
-      <translation type="unfinished"/>
+      <translation>Idioma</translation>
     </message>
     <message>
       <source>Dialect</source>

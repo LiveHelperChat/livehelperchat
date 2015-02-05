@@ -2423,11 +2423,11 @@
     </message>
     <message>
       <source>Please enter to what gmail address test message should be send?</source>
-      <translation type="unfinished"/>
+      <translation>Var vänlig skriv in den gmail-adress som testmeddelandet ska skickas till.</translation>
     </message>
     <message>
       <source>This message will be send to test e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Detta meddelande kommer att skickas till test-e-postadressen</translation>
     </message>
     <message>
       <source>Send test message</source>
@@ -2463,7 +2463,7 @@
     </message>
     <message>
       <source>Invalid test e-mail address</source>
-      <translation type="unfinished"/>
+      <translation>Ogiltig test-e-postadress</translation>
     </message>
   </context>
   <context>
