@@ -258,7 +258,7 @@ class erLhAbstractModelProactiveChatInvitation {
    		       'repeat_number' => array(
            		        'type' => 'text',
            		        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','How many times repeat message?'),
-           		        'required' => false,
+           		        'required' => true,
            		        'validation_definition' => new ezcInputFormDefinitionElement(
            		            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
    		        )),
@@ -484,7 +484,7 @@ class erLhAbstractModelProactiveChatInvitation {
 	public $wait_timeout = 0;
 	public $show_random_operator = 0;
 	public $hide_after_ntimes = 0;
-	public $repeat_number = 0;
+	public $repeat_number = 1;
 	public $dep_id = 0;
 	public $referrer = '';
 	public $operator_ids = '';
