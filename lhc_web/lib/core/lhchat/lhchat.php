@@ -50,6 +50,7 @@ class erLhcoreClassChat {
 			'operator_typing_id',
 			'chat_initiator',
 			'chat_variables',
+			'wait_timeout_repeat',
 			// Angular remake
 			'referrer'
 	);

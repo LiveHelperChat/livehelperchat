@@ -16,6 +16,7 @@ class erLhAbstractModelEmailTemplate {
 			'subject'       => $this->subject,
 			'subject_ac'    => $this->subject_ac,
 			'recipient'     => $this->recipient,
+			'user_mail_as_sender'     => $this->user_mail_as_sender,
 			'content'    	=> $this->content,
 			'bcc_recipients'=> $this->bcc_recipients
 		);
@@ -87,6 +88,14 @@ class erLhAbstractModelEmailTemplate {
    				'from_email_ac' => array(
    						'type' => 'checkbox',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/email_template','Allow to change from e-mail'),
+   						'required' => false,
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+   						)),
+   				'user_mail_as_sender' => array(
+   						'type' => 'checkbox',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/email_template','Use user e-mail as from address'),
    						'required' => false,
    						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
@@ -264,6 +273,7 @@ class erLhAbstractModelEmailTemplate {
 	public $from_email_ac = 0;
 	public $reply_to = '';
 	public $reply_to_ac = 0;
+	public $user_mail_as_sender = 0;
 	public $content = '';
 	public $recipient = '';
 	public $bcc_recipients = '';

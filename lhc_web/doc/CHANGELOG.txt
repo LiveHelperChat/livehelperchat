@@ -6,6 +6,9 @@
 4. Online users list will have lest icons in last column.
 5. New maxmind database for countries
 6. Identifier variable for forms.
+7. Option to force to use user e-mail as from address in e-mail templates. Use with caution because most cases Gmail could consider mails as spam. But usefull with integration with third party ticket systems.
+8. Option to set how many times repeat autoresponder message. This can be set in proactive invitation and autoresponder itself also.
+9. Map icon click will open full size Modal window instead of Marker popup.
 
 execute doc/update_db/update_100.sql for update
 

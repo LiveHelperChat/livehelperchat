@@ -269,6 +269,11 @@ class erLhcoreClassChatMail {
     			$mail->AddBCC(trim($recipientBCC));    			
     		}
     	}
+    	
+    	if ($sendMail->user_mail_as_sender == 1 && $chat->email != '') {    	       	 
+    	   $mail->From = $chat->email;
+    	   $mail->FromName = $chat->nick;    	  
+    	}
     	    	
     	$mail->Send();
     	$mail->ClearAddresses();

@@ -12,6 +12,7 @@ class erLhAbstractModelProactiveChatInvitation {
 			'referrer' 		=> $this->referrer,
 			'pageviews' 	=> $this->pageviews,
 			'message' 			=> $this->message,
+			'repeat_number' 	=> $this->repeat_number,
 			'message_returning' => $this->message_returning,
 			'message_returning_nick' => $this->message_returning_nick,
 			'identifier' 	=> $this->identifier,
@@ -19,9 +20,9 @@ class erLhAbstractModelProactiveChatInvitation {
 			'executed_times'=> $this->executed_times,
 			'position'		=> $this->position,
 			'operator_name'	=> $this->operator_name,
-			'wait_message'		=> $this->wait_message,
-			'timeout_message'	=> $this->timeout_message,
-			'wait_timeout'		=> $this->wait_timeout,
+			'wait_message'		    => $this->wait_message,
+			'timeout_message'	    => $this->timeout_message,
+			'wait_timeout'		    => $this->wait_timeout,
 			'requires_email'		=> $this->requires_email,
 			'requires_username'		=> $this->requires_username,
 			'show_random_operator'	=> $this->show_random_operator,
@@ -245,7 +246,7 @@ class erLhAbstractModelProactiveChatInvitation {
    						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),
+   						)),   		     
    				'timeout_message' => array(
    						'type' => 'text',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Show visitor this message then wait timeout passes.'),
@@ -253,7 +254,14 @@ class erLhAbstractModelProactiveChatInvitation {
    						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),
+   						)),  
+   		       'repeat_number' => array(
+           		        'type' => 'text',
+           		        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','How many times repeat message?'),
+           		        'required' => false,
+           		        'validation_definition' => new ezcInputFormDefinitionElement(
+           		            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
+   		        )),
    		);
 	}
 
@@ -476,6 +484,7 @@ class erLhAbstractModelProactiveChatInvitation {
 	public $wait_timeout = 0;
 	public $show_random_operator = 0;
 	public $hide_after_ntimes = 0;
+	public $repeat_number = 0;
 	public $dep_id = 0;
 	public $referrer = '';
 	public $operator_ids = '';

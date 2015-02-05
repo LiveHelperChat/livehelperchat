@@ -43,6 +43,14 @@ $def->properties['timeout_message']->columnName   = 'timeout_message';
 $def->properties['timeout_message']->propertyName = 'timeout_message';
 $def->properties['timeout_message']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+// How many times repeat timeout message
+// 0 - infinity times
+// 1 - one time
+$def->properties['repeat_number'] = new ezcPersistentObjectProperty();
+$def->properties['repeat_number']->columnName   = 'repeat_number';
+$def->properties['repeat_number']->propertyName = 'repeat_number';
+$def->properties['repeat_number']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

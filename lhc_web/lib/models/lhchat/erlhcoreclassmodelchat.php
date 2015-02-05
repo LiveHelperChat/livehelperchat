@@ -48,6 +48,7 @@ class erLhcoreClassModelChat {
 
        		   // Wait timeout attribute
                'wait_timeout'     		=> $this->wait_timeout,
+               'wait_timeout_repeat'    => $this->wait_timeout_repeat,
                'wait_timeout_send'     	=> $this->wait_timeout_send,
                'timeout_message'     	=> $this->timeout_message,
 
@@ -441,6 +442,8 @@ class erLhcoreClassModelChat {
    public $operation_admin = '';
    
    public $screenshot_id = 0;
+   
+   public $wait_timeout_repeat = 0;
    
    public $unread_messages_informed = 0;
    public $reinform_timeout = 0;

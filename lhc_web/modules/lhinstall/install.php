@@ -300,6 +300,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   	  `wait_time` int(11) NOT NULL,
         	   	  `wait_timeout` int(11) NOT NULL,
         	   	  `wait_timeout_send` int(11) NOT NULL,
+        	   	  `wait_timeout_repeat` int(11) NOT NULL,
   				  `chat_duration` int(11) NOT NULL,
   				  `tslasign` int(11) NOT NULL,
         	   	  `priority` int(11) NOT NULL,
@@ -343,6 +344,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `wait_timeout` int(11) NOT NULL,
 				  `position` int(11) NOT NULL,
 				  `dep_id` int(11) NOT NULL,
+        	      `repeat_number` int(11) NOT NULL DEFAULT '1',
 				  `timeout_message` varchar(250) NOT NULL,
 				  PRIMARY KEY (`id`),
 				  KEY `siteaccess_position` (`siteaccess`,`position`)
@@ -600,6 +602,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `from_name_ac` tinyint(4) NOT NULL,
 				  `from_email` varchar(150) NOT NULL,
 				  `from_email_ac` tinyint(4) NOT NULL,
+				  `user_mail_as_sender` tinyint(4) NOT NULL,
 				  `content` text NOT NULL,
 				  `subject` varchar(250) NOT NULL,
 				  `bcc_recipients` varchar(200) NOT NULL,
@@ -949,11 +952,14 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   	  `requires_email` int(11) NOT NULL,
         	   	  `requires_username` int(11) NOT NULL,
         	   	  `requires_phone` int(11) NOT NULL,
+        	   	  `repeat_number` int(11) NOT NULL DEFAULT '1',
 				  PRIMARY KEY (`id`),
 				  KEY `time_on_site_pageviews_siteaccess_position` (`time_on_site`,`pageviews`,`siteaccess`,`identifier`,`position`),
         	      KEY `identifier` (`identifier`),
         	      KEY `dep_id` (`dep_id`)
 				) DEFAULT CHARSET=utf8;");
+        	   
+        	
         	   
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_accept` (
         	   `id` int(11) NOT NULL AUTO_INCREMENT,

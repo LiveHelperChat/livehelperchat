@@ -59,6 +59,11 @@ $def->properties['reply_to_ac']->columnName   = 'reply_to_ac';
 $def->properties['reply_to_ac']->propertyName = 'reply_to_ac';
 $def->properties['reply_to_ac']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['user_mail_as_sender'] = new ezcPersistentObjectProperty();
+$def->properties['user_mail_as_sender']->columnName   = 'user_mail_as_sender';
+$def->properties['user_mail_as_sender']->propertyName = 'user_mail_as_sender';
+$def->properties['user_mail_as_sender']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['recipient'] = new ezcPersistentObjectProperty();
 $def->properties['recipient']->columnName   = 'recipient';
 $def->properties['recipient']->propertyName = 'recipient';

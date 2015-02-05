@@ -11,7 +11,8 @@ class erLhAbstractModelAutoResponder {
 			'timeout_message'	=> $this->timeout_message,
 			'wait_timeout'		=> $this->wait_timeout,
 			'dep_id'			=> $this->dep_id,
-			'position'			=> $this->position
+			'position'			=> $this->position,
+			'repeat_number'		=> $this->repeat_number
 		);
 
 		return $stateArray;
@@ -74,6 +75,13 @@ class erLhAbstractModelAutoResponder {
    						'required' => false,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
+   				'repeat_number' => array(
+   						'type' => 'text',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','How many times repeat message?'),
+   						'required' => false,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
    						)),
    				'timeout_message' => array(
    						'type' => 'text',
@@ -234,6 +242,7 @@ class erLhAbstractModelAutoResponder {
 	public $wait_timeout = 0;
 	public $timeout_message = '';
 	public $dep_id = 0;
+	public $repeat_number = 1;
 
 	public $hide_add = false;
 	public $hide_delete = false;

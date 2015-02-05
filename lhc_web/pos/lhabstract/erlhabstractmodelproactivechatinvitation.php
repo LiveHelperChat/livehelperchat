@@ -76,6 +76,11 @@ $def->properties['wait_timeout']->columnName   = 'wait_timeout';
 $def->properties['wait_timeout']->propertyName = 'wait_timeout';
 $def->properties['wait_timeout']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['repeat_number'] = new ezcPersistentObjectProperty();
+$def->properties['repeat_number']->columnName   = 'repeat_number';
+$def->properties['repeat_number']->propertyName = 'repeat_number';
+$def->properties['repeat_number']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['requires_email'] = new ezcPersistentObjectProperty();
 $def->properties['requires_email']->columnName   = 'requires_email';
 $def->properties['requires_email']->propertyName = 'requires_email';

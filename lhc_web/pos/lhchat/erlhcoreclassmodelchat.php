@@ -228,6 +228,11 @@ $def->properties['wait_timeout_send']->columnName   = 'wait_timeout_send';
 $def->properties['wait_timeout_send']->propertyName = 'wait_timeout_send';
 $def->properties['wait_timeout_send']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['wait_timeout_repeat'] = new ezcPersistentObjectProperty();
+$def->properties['wait_timeout_repeat']->columnName   = 'wait_timeout_repeat';
+$def->properties['wait_timeout_repeat']->propertyName = 'wait_timeout_repeat';
+$def->properties['wait_timeout_repeat']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['online_user_id'] = new ezcPersistentObjectProperty();
 $def->properties['online_user_id']->columnName   = 'online_user_id';
 $def->properties['online_user_id']->propertyName = 'online_user_id';
