@@ -294,6 +294,7 @@ if (isset($_POST['askQuestion']))
 	       	// Store wait timeout attribute for future
 	       	$chat->wait_timeout = $userInstance->invitation->wait_timeout;
 	       	$chat->timeout_message = $userInstance->invitation->timeout_message;
+	       	$chat->wait_timeout_send = 1-$userInstance->invitation->repeat_number;
 	       	$chat->wait_timeout_repeat = $userInstance->invitation->repeat_number;
        } else {
 
@@ -301,9 +302,9 @@ if (isset($_POST['askQuestion']))
 	       	$responder = erLhAbstractModelAutoResponder::processAutoResponder($chat);
 
 	       	if ($responder instanceof erLhAbstractModelAutoResponder) {
-	       		$chat->wait_timeout = $responder->wait_timeout*$responder->repeat_number;
+	       		$chat->wait_timeout = $responder->wait_timeout;
 	       		$chat->timeout_message = $responder->timeout_message;
-	       		$chat->wait_timeout_send = 1-$responder->repeat_number;
+	       		$chat->wait_timeout_send = 1-$responder->repeat_number;	       	
 	       		$chat->wait_timeout_repeat = $responder->repeat_number;
 	       		
 	       		if ($responder->wait_message != '') {
