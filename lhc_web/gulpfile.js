@@ -91,4 +91,6 @@ gulp.task('default', ['js-cobrowse-operator','js-cobrowse-visitor','js-angular-m
 
 gulp.task('watch', function () {
 	gulp.watch('design/defaulttheme/js/cobrowse/*.js', ['js-cobrowse-visitor','js-cobrowse-operator']);
+	
+	gulp.watch('design/defaulttheme/js/lh.js', ['js-lh']);
 });

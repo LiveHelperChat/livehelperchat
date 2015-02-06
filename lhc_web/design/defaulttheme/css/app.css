@@ -556,10 +556,6 @@ div.message-row-in {
 	position:relative;
 }
 
-.user-action-colorbox #cboxLoadedContent{
-	margin-bottom: 0;
-}
-
 .print-ico-admin,
 .print-ico{
 	background-image:url(../images/icons/printer.png);

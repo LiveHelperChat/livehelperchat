@@ -1,7 +1,7 @@
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','List of files');?></h1>
 
 <ul class="button-group radius">
-  <li><a onclick="$.colorbox({iframe:true, width:'90%',height:'90%', href:'<?php echo erLhcoreClassDesign::baseurl('file/new')?>' + '/(mode)/reloadparent'});" href="#" class="button small"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','Upload a file');?></a></li>
+  <li><a onclick="lhinst.revealIframe('<?php echo erLhcoreClassDesign::baseurl('file/new')?>' + '/(mode)/reloadparent',400);" href="#" class="button small"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','Upload a file');?></a></li>
 </ul>
 
 <?php include(erLhcoreClassDesign::designtpl('lhfile/parts/search_panel.tpl.php')); ?>

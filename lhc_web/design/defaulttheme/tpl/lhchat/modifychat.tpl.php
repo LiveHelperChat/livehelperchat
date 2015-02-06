@@ -12,7 +12,7 @@ setTimeout(function(){
 	parent.lhinst.removeDialogTab('<?php echo $chat->id?>',parent.$('#tabs'),true);
 	parent.lhinst.closeWindowOnChatCloseDelet = originValue;
 	parent.lhinst.startChat('<?php echo $chat->id?>',parent.$('#tabs'),'<?php echo erLhcoreClassDesign::shrt($chat->nick,10,'...',30,ENT_QUOTES);?>');
-	parent.$.colorbox.close();
+	parent.$('#myModal').foundation('reveal', 'close');
 },3000);
 </script>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>

@@ -8,7 +8,7 @@
 <script>
 setTimeout(function(){
 	parent.lhinst.updateVoteStatus('<?php echo $chat->id?>');
-    parent.$.colorbox.close();
+    parent.$('#myModal').foundation('reveal', 'close');
 },3000);
 </script>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>

@@ -8,8 +8,8 @@
 
 <script>
 setTimeout(function(){
-    parent.$.colorbox.close();
-},3000);
+    parent.$('#myModal').foundation('reveal', 'close');
+},2000);
 </script>
 
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>	

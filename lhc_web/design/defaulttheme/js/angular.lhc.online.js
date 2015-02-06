@@ -222,7 +222,7 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
 		
 		this.initializeModal = function() {
 			if ($('#myModal').size() == 0) {
-				$('body').prepend('<div id="myModal" class="reveal-modal medium"><a class="close-reveal-modal">&#215;</a></div>');
+				$('body').prepend('<div id="myModal" class="reveal-modal large"><a class="close-reveal-modal">&#215;</a></div>');
 				$("#myModal").on("opened", function(){
 					$(document).foundation('section', 'reflow')					
 				});
@@ -240,7 +240,7 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
 		};
 		
 		this.sendMessage = function(user_id) {
-			$.colorbox({'iframe':true,height:'500px',width:'500px', href:WWW_DIR_JAVASCRIPT+'chat/sendnotice/'+user_id});
+			lhinst.revealIframe(WWW_DIR_JAVASCRIPT+'chat/sendnotice/'+user_id,500);
 		};
 		
 		this.deleteUser = function(user,q) {

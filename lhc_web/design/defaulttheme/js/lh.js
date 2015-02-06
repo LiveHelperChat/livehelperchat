@@ -299,17 +299,16 @@ function lh(){
     };
 
     this.cancelcolorbox = function(){
-    	$.colorbox.remove();
+    	$('#myModal').foundation('reveal', 'close');
     };
 
-    this.sendemail = function(){
+    this.sendemail = function(){    
     	$.postJSON(this.wwwDir + 'chat/sendchat/' + this.chat_id+'/'+this.hash,{csfr_token:confLH.csrf_token, email:$('input[name="UserEmail"]').val()}, function(data){
     		if (data.error == 'false') {
-    			$.colorbox.remove();
+    			lhinst.cancelcolorbox();    			
     		} else {
     			$('#user-action .alert-box').remove();
-    			$('#user-action').prepend(data.result);
-    			$.colorbox.resize();
+    			$('#user-action').prepend(data.result);    		
     		}
     	});
     };
@@ -818,19 +817,19 @@ function lh(){
 	},
 	
 	this.sendMail = function(chat_id) {
-		$.colorbox({iframe:true, width:'90%',height:'90%', href:this.wwwDir + 'chat/sendmail/'+chat_id});
+		this.revealIframe(this.wwwDir + 'chat/sendmail/'+chat_id,450);
 	};
 	
 	this.modifyChat = function(chat_id) {
-		$.colorbox({iframe:true, width:'90%',height:'90%', href:this.wwwDir + 'chat/modifychat/'+chat_id});
+		this.revealIframe(this.wwwDir + 'chat/modifychat/'+chat_id,350);
 	};
 	
 	this.attatchLinkToFile = function(chat_id) {
-		$.colorbox({iframe:true, width:'90%',height:'90%', href:this.wwwDir + 'file/attatchfile/'+chat_id});
+		this.revealIframe(this.wwwDir + 'file/attatchfile/'+chat_id,500); 		
 	};
 	
 	this.embedFileSendMail = function(chat_id) {
-		$.colorbox({iframe:true, width:'90%',height:'90%', href:this.wwwDir + 'file/attatchfilemail'});
+		this.revealIframe(this.wwwDir + 'file/attatchfilemail',350);
 	};	
 	
 	this.sendLinkToMail = function( embed_code,file_id) {
@@ -846,7 +845,7 @@ function lh(){
 	},
 	
 	this.sendMailArchive = function(archive_id,chat_id) {
-		$.colorbox({iframe:true, width:'550px',height:'500px', href:this.wwwDir + 'chatarchive/sendmail/'+archive_id+'/'+chat_id});
+		this.revealIframe(this.wwwDir + 'chatarchive/sendmail/'+archive_id+'/'+chat_id,500);
 	};
 
 	this.transferChat = function(chat_id)
@@ -1408,18 +1407,34 @@ function lh(){
 
 	this.transferUserDialog = function(chat_id,title)
 	{
-		$.colorbox({width:'550px',height:'400px', href:this.wwwDir + 'chat/transferchat/'+chat_id});
+		this.revealModal(this.wwwDir + 'chat/transferchat/'+chat_id);		
 	};
 	
 	this.initializeModal = function() {
 		if ($('#myModal').size() == 0) {
-			$('body').prepend('<div id="myModal" class="reveal-modal medium"><a class="close-reveal-modal">&#215;</a></div>');
+			$('body').prepend('<div id="myModal" class="reveal-modal large"><a class="close-reveal-modal">&#215;</a></div>');
 			$("#myModal").on("opened", function(){
 				$(document).foundation('section', 'reflow')					
 			});
 		};	
 	};
-		
+	
+	this.revealIframe = function(url,height) {
+		this.initializeModal();
+		$('#myModal').html('<a class="close-reveal-modal">&#215;</a><iframe src="'+url+'" frameborder="0" style="width:100%" height="'+height+'" />');
+		$('#myModal').foundation('reveal', 'open'); 
+	};
+	
+	this.revealModal = function(url) {
+		this.initializeModal();		
+		$('#myModal').foundation('reveal', 'open',{'url':url}); 
+	};
+	
+	this.closeReveal = function()
+	{
+		$('#myModal').foundation('reveal', 'close'); 
+	};
+	
 	this.speechLanguage = function(chat_id)
 	{
 		this.initializeModal();		

@@ -1,3 +1,4 @@
+<a class="close-reveal-modal">&#215;</a>
 <br>
 <div id="transfer-block-<?php echo $chat->id?>"></div>
 

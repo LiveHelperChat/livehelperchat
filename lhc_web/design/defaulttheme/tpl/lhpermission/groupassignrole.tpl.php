@@ -1,3 +1,5 @@
+<a class="close-reveal-modal">&#215;</a>
+
 <form action="<?php echo erLhcoreClassDesign::baseurl('user/editgroup')?>/<?php echo $group_id?>" method="post">
 
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>

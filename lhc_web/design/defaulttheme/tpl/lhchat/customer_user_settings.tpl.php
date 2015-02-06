@@ -18,7 +18,7 @@ $soundMessageEnabled = erLhcoreClassModelUserSetting::getSetting('chat_message',
 		 <?php endif;?>
 		 				 
 		 <?php if ((int)erLhcoreClassModelChatConfig::fetch('disable_send')->current_value == 0) : ?>
-		 <li><a target="_blank" onclick="$.colorbox({className:'user-action-colorbox',closeButton:false,href:'<?php echo erLhcoreClassDesign::baseurl('chat/sendchat')?>/<?php echo $chat->id?>/<?php echo $chat->hash?>'});return false;" href="#" class="icon-mail" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Send chat transcript to your e-mail')?>"></a></li>
+		 <li><a target="_blank" onclick="lhinst.revealModal('<?php echo erLhcoreClassDesign::baseurl('chat/sendchat')?>/<?php echo $chat->id?>/<?php echo $chat->hash?>');return false;" href="#" class="icon-mail" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Send chat transcript to your e-mail')?>"></a></li>
 		 <?php endif;?>
 		 
 		 <?php $fileData = (array)erLhcoreClassModelChatConfig::fetch('file_configuration')->data ?>

@@ -1,3 +1,4 @@
+<a class="close-reveal-modal">&#215;</a>
 <form action="<?php echo erLhcoreClassDesign::baseurl('permission/editrole')?>/<?php echo $role_id ?>" method="post">
 <table cellpadding="0" cellspacing="0" width="100%">
 <thead>

@@ -8,4 +8,4 @@ confLH.new_chat_sound_enabled = 1;
 confLH.new_message_sound_admin_enabled =1;
 confLH.new_message_sound_user_enabled = 1;
 </script>
-<script type="text/javascript" language="javascript" src="<?php echo erLhcoreClassDesign::designJS('js/jquery.js;js/modernizr.js;js/foundation.min.js;js/jquery.colorbox-min.js;js/lh.js;js/jquery.hotkeys-0.7.9.min.js');?>"></script>
+<script type="text/javascript" language="javascript" src="<?php echo erLhcoreClassDesign::designJS('js/jquery.js;js/modernizr.js;js/foundation.min.js;js/lh.js;js/jquery.hotkeys-0.7.9.min.js');?>"></script>

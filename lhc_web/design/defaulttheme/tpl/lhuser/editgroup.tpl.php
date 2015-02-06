@@ -43,7 +43,7 @@
 
 <div>
 
-<input type="submit" class="small button alert" name="Remove_user_from_group" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Remove user from the group');?>" /> <input class="small button" type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Assign user');?>" onclick="$.colorbox({iframe:true,width:'850px',height:'600px', href:'<?php echo erLhcoreClassDesign::baseurl('user/groupassignuser')?>/<?php echo $group->id?>'});" />
+<input type="submit" class="small button alert" name="Remove_user_from_group" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Remove user from the group');?>" /> <input class="small button" type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Assign user');?>" onclick="lhinst.revealIframe('<?php echo erLhcoreClassDesign::baseurl('user/groupassignuser')?>/<?php echo $group->id?>','600')" />
 </div>
 </form>
 
@@ -70,7 +70,7 @@
 
 
 <input type="submit" class="small alert button" name="Remove_role_from_group" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Remove role from group');?>" />
-<input class="small button" type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Assign role');?>" onclick="$.colorbox({width:'850px',height:'600px', href:'<?php echo erLhcoreClassDesign::baseurl('permission/groupassignrole')?>/<?php echo $group->id?>'});" />
+<input class="small button" type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Assign role');?>" onclick="lhinst.revealModal('<?php echo erLhcoreClassDesign::baseurl('permission/groupassignrole')?>/<?php echo $group->id?>');" />
 
 
 </form>
@@ -79,7 +79,7 @@
 <?php if (isset($adduser)) : ?>
 <script type="text/javascript">
 $(function() {
-	$.colorbox({width:'850px',height:'600px',iframe:true,href:'<?php echo erLhcoreClassDesign::baseurl('user/groupassignuser')?>/<?php echo $group->id?>'});
+	lhinst.revealIframe('<?php echo erLhcoreClassDesign::baseurl('user/groupassignuser')?>/<?php echo $group->id?>','600');
 })
 </script>
 <?php endif; ?>
