@@ -114,10 +114,17 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		});
 	};
 	
-	this.previewChat = function(chat_id){				
+	this.initializeModal = function() {
 		if ($('#myModal').size() == 0) {
 			$('body').prepend('<div id="myModal" class="reveal-modal medium"><a class="close-reveal-modal">&#215;</a></div>');
-		};				
+			$("#myModal").on("opened", function(){
+				$(document).foundation('section', 'reflow')					
+			});
+		};	
+	};
+	
+	this.previewChat = function(chat_id){				
+		this.initializeModal();				
 		$('#myModal').foundation('reveal', 'open', {url: WWW_DIR_JAVASCRIPT+'chat/previewchat/'+chat_id});
 	};		
 	

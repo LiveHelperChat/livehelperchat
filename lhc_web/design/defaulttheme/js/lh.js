@@ -1410,12 +1410,18 @@ function lh(){
 		$.colorbox({width:'550px',height:'400px', href:this.wwwDir + 'chat/transferchat/'+chat_id});
 	};
 	
-	this.speechLanguage = function(chat_id)
-	{
+	this.initializeModal = function() {
 		if ($('#myModal').size() == 0) {
 			$('body').prepend('<div id="myModal" class="reveal-modal medium"><a class="close-reveal-modal">&#215;</a></div>');
-		};
-		
+			$("#myModal").on("opened", function(){
+				$(document).foundation('section', 'reflow')					
+			});
+		};	
+	};
+	
+	this.speechLanguage = function(chat_id)
+	{
+		this.initializeModal();		
 		$('#myModal').foundation('reveal', 'open', {url: WWW_DIR_JAVASCRIPT+'speech/setchatspeechlanguage/'+chat_id});
 		
 		return false;
@@ -1694,9 +1700,7 @@ function lh(){
 	};
 	
     this.changeChatStatus = function(chat_id){    	
-    	if ($('#myModal').size() == 0){
-    		$('body').append('<div id="myModal" class="reveal-modal"></div>');    	
-    	}    	
+    	this.initializeModal();	   	
     	$('#myModal').foundation('reveal','open',{url: this.wwwDir+  'chat/changestatus/'+chat_id});
     };
     
