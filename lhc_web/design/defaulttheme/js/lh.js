@@ -862,7 +862,8 @@ function lh(){
 
 	this.previewChat = function(chat_id)
 	{
-		$.colorbox({'iframe':true,height:'500px',width:'500px', href:this.wwwDir+'chat/previewchat/'+chat_id});
+		this.initializeModal();
+		$('#myModal').foundation('reveal', 'open', {url: WWW_DIR_JAVASCRIPT+'chat/previewchat/'+chat_id});
 	};
 	
 	this.redirectContact = function(chat_id,message){		
@@ -1418,7 +1419,7 @@ function lh(){
 			});
 		};	
 	};
-	
+		
 	this.speechLanguage = function(chat_id)
 	{
 		this.initializeModal();		
