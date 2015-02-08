@@ -240,7 +240,7 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
 		};
 		
 		this.sendMessage = function(user_id) {
-			lhinst.revealIframe(WWW_DIR_JAVASCRIPT+'chat/sendnotice/'+user_id,500);
+			lhinst.revealModal(WWW_DIR_JAVASCRIPT+'chat/sendnotice/'+user_id);
 		};
 		
 		this.deleteUser = function(user,q) {

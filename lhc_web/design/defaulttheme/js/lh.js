@@ -1410,10 +1410,11 @@ function lh(){
 		this.revealModal(this.wwwDir + 'chat/transferchat/'+chat_id);		
 	};
 	
-	this.initializeModal = function() {
-		if ($('#myModal').size() == 0) {
-			$('body').prepend('<div id="myModal" class="reveal-modal large"><a class="close-reveal-modal">&#215;</a></div>');
-			$("#myModal").on("opened", function(){
+	this.initializeModal = function(selector) {		
+		var modelSelector = selector != undefined ? selector : 'myModal';
+		if ($('#'+modelSelector).size() == 0) {
+			$('body').prepend('<div id="'+modelSelector+'" class="reveal-modal large"><a class="close-reveal-modal">&#215;</a></div>');
+			$("#"+modelSelector).on("opened", function(){
 				$(document).foundation('section', 'reflow')					
 			});
 		};	
@@ -1425,9 +1426,14 @@ function lh(){
 		$('#myModal').foundation('reveal', 'open'); 
 	};
 	
-	this.revealModal = function(url) {
-		this.initializeModal();		
-		$('#myModal').foundation('reveal', 'open',{'url':url}); 
+	this.revealModal = function(url,closePrevious) {
+		if (closePrevious != undefined && closePrevious == true){
+			$('#myModal').remove(); 	
+			$('.reveal-modal-bg').remove();	
+		}
+		
+		this.initializeModal('myModal');			
+		$('#myModal').foundation('reveal', 'open',{'url':url}); 		
 	};
 	
 	this.closeReveal = function()
@@ -1438,8 +1444,7 @@ function lh(){
 	this.speechLanguage = function(chat_id)
 	{
 		this.initializeModal();		
-		$('#myModal').foundation('reveal', 'open', {url: WWW_DIR_JAVASCRIPT+'speech/setchatspeechlanguage/'+chat_id});
-		
+		$('#myModal').foundation('reveal', 'open', {url: WWW_DIR_JAVASCRIPT+'speech/setchatspeechlanguage/'+chat_id});		
 		return false;
 	};
 	
@@ -1729,6 +1734,14 @@ function lh(){
 	   		 } else {
 	   			 alert(data.result);
 	   		 }
+	   	 });
+    	return false;
+    };
+    
+    this.submitModalForm = function(form){
+    	var inst = this;
+    	$.post(form.attr('action'),form.serialize(), function(data) {	   		
+	   		$('#myModal').html(data);	   		
 	   	 });
     	return false;
     };

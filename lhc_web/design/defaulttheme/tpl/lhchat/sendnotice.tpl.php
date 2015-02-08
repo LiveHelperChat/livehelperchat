@@ -1,3 +1,4 @@
+<a class="close-reveal-modal">&#215;</a>
 <h2><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Send a message to the user');?></h2>
 
 <?php if (isset($errors)) : ?>
@@ -8,7 +9,7 @@
 
 <script>
 setTimeout(function(){
-    parent.$('#myModal').foundation('reveal', 'close');
+    lhinst.closeReveal();
 },2000);
 </script>
 
@@ -17,7 +18,7 @@ setTimeout(function(){
 
 <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','If the message was already sent, this will mark it as not delivered and the user will be shown the chat message again.');?></p>
 
-<form action="" method="post">
+<form action="<?php echo erLhcoreClassDesign::baseurl('chat/sendnotice')?>/<?php echo $visitor->id?>" method="post" onsubmit="return lhinst.submitModalForm($(this))">
 
 	<textarea name="Message" id="sendMessageContent" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Type your message to the user');?>"><?php echo htmlspecialchars($visitor->operator_message) ?></textarea>
 	
@@ -33,6 +34,8 @@ setTimeout(function(){
 		            <option value="<?php echo $item->id?>"><?php echo htmlspecialchars(str_replace('{nick}', $chat->nick, $item->msg))?></option>
 		       <?php endforeach;?>
 	</select>
+		      
+	<input type="hidden" name="SendMessage" value="1" />
 	      
 	<input type="submit" class="button small" name="SendMessage" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Send the message');?>" />
 
