@@ -565,6 +565,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>How many times repeat message?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show visitor this message then wait timeout passes.</source>
       <translation type="unfinished"/>
     </message>
@@ -916,6 +920,10 @@
     </message>
     <message>
       <source>Minimize to bottom of the screen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please do not enter protocol, only domain name is required</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1722,6 +1730,10 @@
     <message>
       <source>Remarks</source>
       <translation>Verejtje</translation>
+    </message>
+    <message>
+      <source>Notes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chats</source>
@@ -2830,20 +2842,20 @@
       <translation>Veprim</translation>
     </message>
     <message>
-      <source>has sent a message to the user</source>
-      <translation>i ka dërguar një mesazh për përdoruesit</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>Ende skush nuk i ka dërguar një mesazh për përdoruesit</translation>
-    </message>
-    <message>
       <source>first visit</source>
       <translation>Vizita e pare</translation>
     </message>
     <message>
       <source>last visit</source>
       <translation>Vizita e fundit</translation>
+    </message>
+    <message>
+      <source>has sent a message to the user</source>
+      <translation>i ka dërguar një mesazh për përdoruesit</translation>
+    </message>
+    <message>
+      <source>No one has sent a message to the user yet</source>
+      <translation>Ende skush nuk i ka dërguar një mesazh për përdoruesit</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>
@@ -6474,6 +6486,10 @@
     </message>
     <message>
       <source>Allow to change from e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use user e-mail as from address</source>
       <translation type="unfinished"/>
     </message>
     <message>

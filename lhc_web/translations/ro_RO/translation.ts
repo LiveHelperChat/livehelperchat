@@ -565,6 +565,10 @@
       <translation>Aşteptaţi timp de expirare. Timpul în secunde înainte de expirare mesaj este indicat.</translation>
     </message>
     <message>
+      <source>How many times repeat message?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show visitor this message then wait timeout passes.</source>
       <translation>Arată vizitator acest mesaj, apoi aşteptaţi timp trece.</translation>
     </message>
@@ -917,6 +921,10 @@
     <message>
       <source>Minimize to bottom of the screen</source>
       <translation>Minimizare la partea de jos a ecranului</translation>
+    </message>
+    <message>
+      <source>Please do not enter protocol, only domain name is required</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>System configuration</source>
@@ -1721,6 +1729,10 @@
     <message>
       <source>Remarks</source>
       <translation>Comentarii</translation>
+    </message>
+    <message>
+      <source>Notes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chats</source>
@@ -2829,20 +2841,20 @@
       <translation>Actiune</translation>
     </message>
     <message>
-      <source>has sent a message to the user</source>
-      <translation>a transmis un mesaj utilizatorului</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>Nimeni nu a transmis vreun mesaj utilizatorului</translation>
-    </message>
-    <message>
       <source>first visit</source>
       <translation>prima vizita</translation>
     </message>
     <message>
       <source>last visit</source>
       <translation>ultima vizita</translation>
+    </message>
+    <message>
+      <source>has sent a message to the user</source>
+      <translation>a transmis un mesaj utilizatorului</translation>
+    </message>
+    <message>
+      <source>No one has sent a message to the user yet</source>
+      <translation>Nimeni nu a transmis vreun mesaj utilizatorului</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>
@@ -6474,6 +6486,10 @@
     <message>
       <source>Allow to change from e-mail</source>
       <translation>Perminte schimbarea adresei de e-mail a expeditorului</translation>
+    </message>
+    <message>
+      <source>Use user e-mail as from address</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Reply to</source>

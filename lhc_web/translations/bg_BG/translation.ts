@@ -565,6 +565,10 @@
       <translation>Време на изчакване. Колко секунди трябва да минат преди да се покаже съобщението</translation>
     </message>
     <message>
+      <source>How many times repeat message?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show visitor this message then wait timeout passes.</source>
       <translation>Да се покаже това съобяение на посетителя когато изтече времето</translation>
     </message>
@@ -917,6 +921,10 @@
     <message>
       <source>Minimize to bottom of the screen</source>
       <translation>Да се минимизира на дъното на прозореца</translation>
+    </message>
+    <message>
+      <source>Please do not enter protocol, only domain name is required</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>System configuration</source>
@@ -1721,6 +1729,10 @@
     <message>
       <source>Remarks</source>
       <translation>Бележки</translation>
+    </message>
+    <message>
+      <source>Notes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chats</source>
@@ -2829,20 +2841,20 @@
       <translation>Действие</translation>
     </message>
     <message>
-      <source>has sent a message to the user</source>
-      <translation>изпрати съобщение до потребителя</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>Никой все още не е изпратил съобщение на потребителя</translation>
-    </message>
-    <message>
       <source>first visit</source>
       <translation>първо посещение</translation>
     </message>
     <message>
       <source>last visit</source>
       <translation>последно посещение</translation>
+    </message>
+    <message>
+      <source>has sent a message to the user</source>
+      <translation>изпрати съобщение до потребителя</translation>
+    </message>
+    <message>
+      <source>No one has sent a message to the user yet</source>
+      <translation>Никой все още не е изпратил съобщение на потребителя</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>
@@ -6474,6 +6486,10 @@
     <message>
       <source>Allow to change from e-mail</source>
       <translation>Позволяване на потребители да сменят от е-мейла</translation>
+    </message>
+    <message>
+      <source>Use user e-mail as from address</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Reply to</source>

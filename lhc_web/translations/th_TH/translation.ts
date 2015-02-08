@@ -565,6 +565,10 @@
       <translation>รอเวลา เวลาเป็นวินาทีก่อนหมดเวลาข้อความจะแสดงขึ้น</translation>
     </message>
     <message>
+      <source>How many times repeat message?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show visitor this message then wait timeout passes.</source>
       <translation>แสดงข้อความนี้ผู้เข้าชม แล้วรอเวลาผ่านไป</translation>
     </message>
@@ -916,6 +920,10 @@
     </message>
     <message>
       <source>Minimize to bottom of the screen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please do not enter protocol, only domain name is required</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1720,6 +1728,10 @@
     </message>
     <message>
       <source>Remarks</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Notes</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2829,20 +2841,20 @@
       <translation>การดำเนินการ</translation>
     </message>
     <message>
-      <source>has sent a message to the user</source>
-      <translation>ส่งข้อความไปยังผู้ใช้</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>ไม่ได้ส่งข้อความไปยังผู้ใช้ยัง</translation>
-    </message>
-    <message>
       <source>first visit</source>
       <translation>ชมแรก</translation>
     </message>
     <message>
       <source>last visit</source>
       <translation>เยี่ยมชมล่าสุด</translation>
+    </message>
+    <message>
+      <source>has sent a message to the user</source>
+      <translation>ส่งข้อความไปยังผู้ใช้</translation>
+    </message>
+    <message>
+      <source>No one has sent a message to the user yet</source>
+      <translation>ไม่ได้ส่งข้อความไปยังผู้ใช้ยัง</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>
@@ -6474,6 +6486,10 @@
     <message>
       <source>Allow to change from e-mail</source>
       <translation>อนุญาตให้เปลี่ยนจากอีเมล</translation>
+    </message>
+    <message>
+      <source>Use user e-mail as from address</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Reply to</source>

@@ -565,6 +565,10 @@
       <translation>Bekleme zaman aşımı. Zaman aşımı mesajı gösterilmeden önceki saniye cinsinden süre.</translation>
     </message>
     <message>
+      <source>How many times repeat message?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show visitor this message then wait timeout passes.</source>
       <translation>Bekleme zaman aşımı olduğunda kullanıcıya bu mesajı göster.</translation>
     </message>
@@ -916,6 +920,10 @@
     </message>
     <message>
       <source>Minimize to bottom of the screen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please do not enter protocol, only domain name is required</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1721,6 +1729,10 @@
     <message>
       <source>Remarks</source>
       <translation>Düşünceler</translation>
+    </message>
+    <message>
+      <source>Notes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chats</source>
@@ -2830,20 +2842,20 @@
       <translation>Hareket</translation>
     </message>
     <message>
-      <source>has sent a message to the user</source>
-      <translation>kullanıcıya mesaj gönderdi</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>Henüz kimse kullanıcıya mesaj göndermedi</translation>
-    </message>
-    <message>
       <source>first visit</source>
       <translation>ilk ziyaret</translation>
     </message>
     <message>
       <source>last visit</source>
       <translation>son ziyaret</translation>
+    </message>
+    <message>
+      <source>has sent a message to the user</source>
+      <translation>kullanıcıya mesaj gönderdi</translation>
+    </message>
+    <message>
+      <source>No one has sent a message to the user yet</source>
+      <translation>Henüz kimse kullanıcıya mesaj göndermedi</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>
@@ -6476,6 +6488,10 @@
     <message>
       <source>Allow to change from e-mail</source>
       <translation>E-postadan değiştirmeye izin ver</translation>
+    </message>
+    <message>
+      <source>Use user e-mail as from address</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Reply to</source>

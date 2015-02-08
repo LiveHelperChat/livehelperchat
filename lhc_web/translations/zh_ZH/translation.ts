@@ -565,6 +565,10 @@
       <translation>等待超時。秒超時之前消息中的時間顯示。</translation>
     </message>
     <message>
+      <source>How many times repeat message?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show visitor this message then wait timeout passes.</source>
       <translation>顯示遊客這個消息，然後等待超時的推移。</translation>
     </message>
@@ -917,6 +921,10 @@
     <message>
       <source>Minimize to bottom of the screen</source>
       <translation>最小化到屏幕底部</translation>
+    </message>
+    <message>
+      <source>Please do not enter protocol, only domain name is required</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>System configuration</source>
@@ -1721,6 +1729,10 @@
     <message>
       <source>Remarks</source>
       <translation>备注</translation>
+    </message>
+    <message>
+      <source>Notes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chats</source>
@@ -2829,20 +2841,20 @@
       <translation>行动</translation>
     </message>
     <message>
-      <source>has sent a message to the user</source>
-      <translation>发送一个消息给用户</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>没有人传话给用户</translation>
-    </message>
-    <message>
       <source>first visit</source>
       <translation>首次访华</translation>
     </message>
     <message>
       <source>last visit</source>
       <translation>最后的访问</translation>
+    </message>
+    <message>
+      <source>has sent a message to the user</source>
+      <translation>发送一个消息给用户</translation>
+    </message>
+    <message>
+      <source>No one has sent a message to the user yet</source>
+      <translation>没有人传话给用户</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>
@@ -6474,6 +6486,10 @@
     <message>
       <source>Allow to change from e-mail</source>
       <translation>允许改变从电子邮件</translation>
+    </message>
+    <message>
+      <source>Use user e-mail as from address</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Reply to</source>

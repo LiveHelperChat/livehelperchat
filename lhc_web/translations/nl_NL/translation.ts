@@ -67,7 +67,7 @@
     </message>
     <message>
       <source>NodeJS support enabled</source>
-      <translation type="unfinished"/>
+      <translation>NodeJS ondersteuning ingeschakeld</translation>
     </message>
     <message>
       <source>Do not ask permission for users to see their screen</source>
@@ -565,6 +565,10 @@
       <translation>Wacht timeout. Tijd in seconden voordat een timeout bericht getoond wordt.</translation>
     </message>
     <message>
+      <source>How many times repeat message?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show visitor this message then wait timeout passes.</source>
       <translation>Toon de bezoeker dit bericht en wacht dan op verlopen van timeout.</translation>
     </message>
@@ -916,6 +920,10 @@
     </message>
     <message>
       <source>Minimize to bottom of the screen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please do not enter protocol, only domain name is required</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1721,6 +1729,10 @@
     <message>
       <source>Remarks</source>
       <translation>Opmerkingen</translation>
+    </message>
+    <message>
+      <source>Notes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chats</source>
@@ -2829,20 +2841,20 @@
       <translation>Actie</translation>
     </message>
     <message>
-      <source>has sent a message to the user</source>
-      <translation>heeft een bericht verstuurd naar de gebruiker</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>Niemand heeft nog een bericht naar deze gebruiker verstuurd</translation>
-    </message>
-    <message>
       <source>first visit</source>
       <translation>eerste bezoek</translation>
     </message>
     <message>
       <source>last visit</source>
       <translation>laatste bezoek</translation>
+    </message>
+    <message>
+      <source>has sent a message to the user</source>
+      <translation>heeft een bericht verstuurd naar de gebruiker</translation>
+    </message>
+    <message>
+      <source>No one has sent a message to the user yet</source>
+      <translation>Niemand heeft nog een bericht naar deze gebruiker verstuurd</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>
@@ -6474,6 +6486,10 @@
     <message>
       <source>Allow to change from e-mail</source>
       <translation>Veranderen van afzender-e-mail toestaan</translation>
+    </message>
+    <message>
+      <source>Use user e-mail as from address</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Reply to</source>

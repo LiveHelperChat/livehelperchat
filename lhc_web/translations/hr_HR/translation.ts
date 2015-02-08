@@ -565,6 +565,10 @@
       <translation>Istek vremena čekanja. Vrijeme u sekundama prije nego što se poruka prikaže.</translation>
     </message>
     <message>
+      <source>How many times repeat message?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show visitor this message then wait timeout passes.</source>
       <translation>Pokaži posjetitelju ovu poruku i zatim čekaj da vrijeme čekanje istekne.</translation>
     </message>
@@ -916,6 +920,10 @@
     </message>
     <message>
       <source>Minimize to bottom of the screen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please do not enter protocol, only domain name is required</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1721,6 +1729,10 @@
     <message>
       <source>Remarks</source>
       <translation>Opaske</translation>
+    </message>
+    <message>
+      <source>Notes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chats</source>
@@ -2829,20 +2841,20 @@
       <translation>Aktivnost</translation>
     </message>
     <message>
-      <source>has sent a message to the user</source>
-      <translation>poslao je poruku korisniku</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>Nitko još nije poslao poruku korisniku</translation>
-    </message>
-    <message>
       <source>first visit</source>
       <translation>prvi posjet</translation>
     </message>
     <message>
       <source>last visit</source>
       <translation>zadnji posjet</translation>
+    </message>
+    <message>
+      <source>has sent a message to the user</source>
+      <translation>poslao je poruku korisniku</translation>
+    </message>
+    <message>
+      <source>No one has sent a message to the user yet</source>
+      <translation>Nitko još nije poslao poruku korisniku</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>
@@ -6474,6 +6486,10 @@
     <message>
       <source>Allow to change from e-mail</source>
       <translation>Dozvoli promjenu iz e-maila</translation>
+    </message>
+    <message>
+      <source>Use user e-mail as from address</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Reply to</source>

@@ -27,11 +27,11 @@
     </message>
     <message>
       <source>Track users footprint. For this also online visitors tracking should be enabled</source>
-      <translation type="unfinished"/>
+      <translation>Отслеживать перемещение пользователей. Также для этого должно быть включено отслеживание посетителей онлайн.</translation>
     </message>
     <message>
       <source>Set your domain to enable user tracking across different domain subdomains.</source>
-      <translation type="unfinished"/>
+      <translation>Установите ваш домен для отслеживания пользователей на разных субдоменах.</translation>
     </message>
     <message>
       <source>How many days keep records of online users.</source>
@@ -39,7 +39,7 @@
     </message>
     <message>
       <source>Suggest user to leave a message then user chooses offline department</source>
-      <translation type="unfinished"/>
+      <translation>Предложить пользователю оставить сообщение и затем выбрать неактивный департамент.</translation>
     </message>
     <message>
       <source>Play sound on invitation to chat.</source>
@@ -75,7 +75,7 @@
     </message>
     <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
-      <translation type="unfinished"/>
+      <translation>Использовать капчу. LHC должен быть установлен на тот же домен или поддомен.</translation>
     </message>
     <message>
       <source>Should cronjob run unanswered chats workflow and execute unaswered chats callback, 0 - no, any other number bigger than 0 is a minits how long chat have to be not accepted before executing callback.</source>
@@ -83,27 +83,27 @@
     </message>
     <message>
       <source>Should cronjob run departments transfer workflow, even if user leaves a chat</source>
-      <translation type="unfinished"/>
+      <translation>Cron должен передать депертаментам рабочий процесс, даже если пользователь покинул чат</translation>
     </message>
     <message>
       <source>Reopen chat functionality enabled</source>
-      <translation type="unfinished"/>
+      <translation>Восстановить функциональность чата при переоткрытии</translation>
     </message>
     <message>
       <source>Reopen closed chat as new? Otherwise it will be reopened as active.</source>
-      <translation type="unfinished"/>
+      <translation>Открыть закрытый чат как новый? Иначе он будет открыт как активный</translation>
     </message>
     <message>
       <source>Should invitation logic be executed if there is no online operators</source>
-      <translation type="unfinished"/>
+      <translation>Должна ли быть выполнена логика приглашений, если нет онлайн операторов</translation>
     </message>
     <message>
       <source>Pro active chats invitations limitation based on pending chats, (-1) do not limit, (0,1,n+1) number of pending chats can be for invitation to be shown.</source>
-      <translation type="unfinished"/>
+      <translation>Ограничение проактивных приглашений базируется на отложенных чатах, (-1) - не ограничивать, (0,1,n+1) - количество ожидаемых чатов для ограничения показов приглашений</translation>
     </message>
     <message>
       <source>Is pro active chat invitation active. Online users tracking also has to be enabled</source>
-      <translation type="unfinished"/>
+      <translation>Активны ли приглашения чата? Онлайн отслеживание также должно быть включено.</translation>
     </message>
     <message>
       <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
@@ -388,7 +388,7 @@
     </message>
     <message>
       <source>Hide widget close button</source>
-      <translation type="unfinished"/>
+      <translation>Скрыть кнопку закрытия виджета</translation>
     </message>
     <message>
       <source>Hide popup option</source>
@@ -563,6 +563,10 @@
     <message>
       <source>Wait timeout. Time in seconds before timeout message is shown.</source>
       <translation>Время в секундах, после которого будет показано сообщение об окончании времени ожидания</translation>
+    </message>
+    <message>
+      <source>How many times repeat message?</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Show visitor this message then wait timeout passes.</source>
@@ -919,6 +923,10 @@
       <translation>Минимизировать вниз экрана</translation>
     </message>
     <message>
+      <source>Please do not enter protocol, only domain name is required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>System configuration</source>
       <translation>Настройки Системы</translation>
     </message>
@@ -1072,7 +1080,7 @@
     </message>
     <message>
       <source>Choose department</source>
-      <translation type="unfinished"/>
+      <translation>Выберите департамент</translation>
     </message>
   </context>
   <context>
@@ -1581,7 +1589,7 @@
     </message>
     <message>
       <source>Edit main chat information</source>
-      <translation type="unfinished"/>
+      <translation>Редактировать основную информацию чата</translation>
     </message>
     <message>
       <source>Department</source>
@@ -1625,7 +1633,7 @@
     </message>
     <message>
       <source>User left</source>
-      <translation type="unfinished"/>
+      <translation>Пользователь отошёл</translation>
     </message>
     <message>
       <source>Waited</source>
@@ -1685,11 +1693,11 @@
     </message>
     <message>
       <source>Please enter a URL</source>
-      <translation type="unfinished"/>
+      <translation>Пожалуйста, введите URL</translation>
     </message>
     <message>
       <source>Redirect user to another url</source>
-      <translation type="unfinished"/>
+      <translation>Переадресовать пользователя на другой URL</translation>
     </message>
     <message>
       <source>Screen sharing</source>
@@ -1722,6 +1730,10 @@
     <message>
       <source>Remarks</source>
       <translation>Заметки</translation>
+    </message>
+    <message>
+      <source>Notes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chats</source>
@@ -1921,7 +1933,7 @@
     </message>
     <message>
       <source>Mail settings</source>
-      <translation type="unfinished"/>
+      <translation>Настройки почты</translation>
     </message>
     <message>
       <source>SMTP</source>
@@ -1976,7 +1988,7 @@
     </message>
     <message>
       <source>File</source>
-      <translation type="unfinished"/>
+      <translation>Файл</translation>
     </message>
     <message>
       <source>Leave a message</source>
@@ -2008,7 +2020,7 @@
     </message>
     <message>
       <source>Department is offline</source>
-      <translation type="unfinished"/>
+      <translation>Департамент не в сети</translation>
     </message>
     <message>
       <source>Go to leave a message form</source>
@@ -2020,7 +2032,7 @@
     </message>
     <message>
       <source>characters</source>
-      <translation type="unfinished"/>
+      <translation>символы</translation>
     </message>
     <message>
       <source>Type your message here and hit enter to send...</source>
@@ -2048,7 +2060,7 @@
     </message>
     <message>
       <source>Invalid CSRF token!</source>
-      <translation type="unfinished"/>
+      <translation>Неверный CSRF токен!</translation>
     </message>
     <message>
       <source>Please enter a valid email address</source>
@@ -2096,7 +2108,7 @@
     </message>
     <message>
       <source>Invalid file</source>
-      <translation type="unfinished"/>
+      <translation>Неверный файл!</translation>
     </message>
     <message>
       <source>Could not determine a default department!</source>
@@ -2108,15 +2120,15 @@
     </message>
     <message>
       <source>Invalid file extension</source>
-      <translation type="unfinished"/>
+      <translation>Неверное расширение файла</translation>
     </message>
     <message>
       <source>Invalid file extension!</source>
-      <translation type="unfinished"/>
+      <translation>Неверное расширение файла</translation>
     </message>
     <message>
       <source>To big file!</source>
-      <translation type="unfinished"/>
+      <translation>Файл слишком большой!</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -2261,11 +2273,11 @@
     <name>chat/geoadjustment</name>
     <message>
       <source>GEO adjustment</source>
-      <translation type="unfinished"/>
+      <translation>GEO регулирование</translation>
     </message>
     <message>
       <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
-      <translation type="unfinished"/>
+      <translation>Применить также эти правила к индикации состояния виджета чата? Снижение производительности связано с этой опцией</translation>
     </message>
     <message>
       <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
@@ -2281,7 +2293,7 @@
     </message>
     <message>
       <source>custom</source>
-      <translation type="unfinished"/>
+      <translation>Пользовательское</translation>
     </message>
     <message>
       <source>E.g. ar,pl</source>
@@ -2830,20 +2842,20 @@
       <translation>Действие</translation>
     </message>
     <message>
-      <source>has sent a message to the user</source>
-      <translation>сообщение отправлено пользователю</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>Никто пока не связался с пользователем</translation>
-    </message>
-    <message>
       <source>first visit</source>
       <translation>первый визит</translation>
     </message>
     <message>
       <source>last visit</source>
       <translation>последний визит</translation>
+    </message>
+    <message>
+      <source>has sent a message to the user</source>
+      <translation>сообщение отправлено пользователю</translation>
+    </message>
+    <message>
+      <source>No one has sent a message to the user yet</source>
+      <translation>Никто пока не связался с пользователем</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>
@@ -3021,7 +3033,7 @@
     </message>
     <message>
       <source>Mail settings</source>
-      <translation type="unfinished"/>
+      <translation>Настройки почты</translation>
     </message>
     <message>
       <source>E-mail templates</source>
@@ -3089,7 +3101,7 @@
     </message>
     <message>
       <source>GEO adjustment</source>
-      <translation type="unfinished"/>
+      <translation>GEO регулирование</translation>
     </message>
     <message>
       <source>Synchronization and sound settings</source>
@@ -3344,7 +3356,7 @@
     <name>chat/modifychat</name>
     <message>
       <source>Modify chat</source>
-      <translation type="unfinished"/>
+      <translation>Изменить чат</translation>
     </message>
     <message>
       <source>E-mail</source>
@@ -5493,7 +5505,7 @@
     </message>
     <message>
       <source>Dialect</source>
-      <translation type="unfinished"/>
+      <translation>Диалект</translation>
     </message>
     <message>
       <source>Default speech recognition language</source>
@@ -6278,7 +6290,7 @@
     </message>
     <message>
       <source>Mail send</source>
-      <translation type="unfinished"/>
+      <translation>Отправка почты</translation>
     </message>
     <message>
       <source>Referrer</source>
@@ -6427,7 +6439,7 @@
     </message>
     <message>
       <source>XLS Columns</source>
-      <translation type="unfinished"/>
+      <translation>XLS колонки</translation>
     </message>
     <message>
       <source>Recipient</source>
@@ -6475,6 +6487,10 @@
     <message>
       <source>Allow to change from e-mail</source>
       <translation>Позволяет менять отправителя e-mail</translation>
+    </message>
+    <message>
+      <source>Use user e-mail as from address</source>
+      <translation>Использовать e-mail пользователя как адрес отправителя</translation>
     </message>
     <message>
       <source>Reply to</source>

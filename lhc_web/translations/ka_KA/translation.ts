@@ -565,6 +565,10 @@
       <translation>ტაიმ-აუტის დაცდა, დრო წამებში იქამდე სანამ ტაიმ-აუტის შეტყობინება იქნება ნაჩვენები.</translation>
     </message>
     <message>
+      <source>How many times repeat message?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show visitor this message then wait timeout passes.</source>
       <translation>ვიზიტორებისთის ამ შეტყობინების ჩვენება და შემდეგ  მოცდა ტაიმ-აუტის გასვლამდე.</translation>
     </message>
@@ -917,6 +921,10 @@
     <message>
       <source>Minimize to bottom of the screen</source>
       <translation>მინიმიზაცია ეკრანის ქვემოთ</translation>
+    </message>
+    <message>
+      <source>Please do not enter protocol, only domain name is required</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>System configuration</source>
@@ -1721,6 +1729,10 @@
     <message>
       <source>Remarks</source>
       <translation>შენიშვნები</translation>
+    </message>
+    <message>
+      <source>Notes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chats</source>
@@ -2829,20 +2841,20 @@
       <translation>მოქმედება</translation>
     </message>
     <message>
-      <source>has sent a message to the user</source>
-      <translation> მომხმარებელთან გაიგზავნა შეტყობინება</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>მომხმარებლისთვის შეტყობინება ჯერ არ გაგზავნილა</translation>
-    </message>
-    <message>
       <source>first visit</source>
       <translation>პირველი ვიზიტი</translation>
     </message>
     <message>
       <source>last visit</source>
       <translation>ბოლო ვიზიტი</translation>
+    </message>
+    <message>
+      <source>has sent a message to the user</source>
+      <translation> მომხმარებელთან გაიგზავნა შეტყობინება</translation>
+    </message>
+    <message>
+      <source>No one has sent a message to the user yet</source>
+      <translation>მომხმარებლისთვის შეტყობინება ჯერ არ გაგზავნილა</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>
@@ -6474,6 +6486,10 @@
     <message>
       <source>Allow to change from e-mail</source>
       <translation>გამომგზავნის ელ.ფოსტის შეცვლის ნების დართვა</translation>
+    </message>
+    <message>
+      <source>Use user e-mail as from address</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Reply to</source>

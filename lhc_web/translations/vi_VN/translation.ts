@@ -565,6 +565,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>How many times repeat message?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show visitor this message then wait timeout passes.</source>
       <translation>Hiển thị tin nhắn này cho khách hàng khi hết thời gian chờ.</translation>
     </message>
@@ -916,6 +920,10 @@
     </message>
     <message>
       <source>Minimize to bottom of the screen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please do not enter protocol, only domain name is required</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1721,6 +1729,10 @@
     <message>
       <source>Remarks</source>
       <translation>Nhận xét</translation>
+    </message>
+    <message>
+      <source>Notes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chats</source>
@@ -2829,20 +2841,20 @@
       <translation>hành động</translation>
     </message>
     <message>
-      <source>has sent a message to the user</source>
-      <translation>Đã gửi một thông điệp cho người sử dụng</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>Không ai có thể gửi một tin nhắn cho người chưa sử dụng </translation>
-    </message>
-    <message>
       <source>first visit</source>
       <translation>lần thăm đầu</translation>
     </message>
     <message>
       <source>last visit</source>
       <translation>lần thăm cuối</translation>
+    </message>
+    <message>
+      <source>has sent a message to the user</source>
+      <translation>Đã gửi một thông điệp cho người sử dụng</translation>
+    </message>
+    <message>
+      <source>No one has sent a message to the user yet</source>
+      <translation>Không ai có thể gửi một tin nhắn cho người chưa sử dụng </translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>
@@ -6474,6 +6486,10 @@
     <message>
       <source>Allow to change from e-mail</source>
       <translation>Cho phép thay đổi qua e-mail</translation>
+    </message>
+    <message>
+      <source>Use user e-mail as from address</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Reply to</source>

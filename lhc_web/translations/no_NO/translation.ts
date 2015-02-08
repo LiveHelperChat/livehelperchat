@@ -565,6 +565,10 @@
       <translation>Vent timeout. Tid i sekunder før timeoutmelding vises.</translation>
     </message>
     <message>
+      <source>How many times repeat message?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show visitor this message then wait timeout passes.</source>
       <translation>Vis besøkende denne meldingen, vent så til timeout utgår.</translation>
     </message>
@@ -916,6 +920,10 @@
     </message>
     <message>
       <source>Minimize to bottom of the screen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please do not enter protocol, only domain name is required</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1720,6 +1728,10 @@
     </message>
     <message>
       <source>Remarks</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Notes</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2829,20 +2841,20 @@
       <translation>Handling</translation>
     </message>
     <message>
-      <source>has sent a message to the user</source>
-      <translation>har sendt en melding til brukeren</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>Ingen har svart brukeren enda</translation>
-    </message>
-    <message>
       <source>first visit</source>
       <translation>første besøk</translation>
     </message>
     <message>
       <source>last visit</source>
       <translation>sist besøk</translation>
+    </message>
+    <message>
+      <source>has sent a message to the user</source>
+      <translation>har sendt en melding til brukeren</translation>
+    </message>
+    <message>
+      <source>No one has sent a message to the user yet</source>
+      <translation>Ingen har svart brukeren enda</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>
@@ -6474,6 +6486,10 @@
     <message>
       <source>Allow to change from e-mail</source>
       <translation>Tillat å endre &quot;fra&quot; epost</translation>
+    </message>
+    <message>
+      <source>Use user e-mail as from address</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Reply to</source>

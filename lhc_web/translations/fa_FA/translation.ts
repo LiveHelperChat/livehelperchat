@@ -565,6 +565,10 @@
       <translation>مدت زمان انتظار، زمان بر حسب ثانیه برای نمایش پیام قطع ارتباط</translation>
     </message>
     <message>
+      <source>How many times repeat message?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show visitor this message then wait timeout passes.</source>
       <translation>بازدیدکننده وقتی این پیام را می بیند که زمان انتظار به پایان رسیده باشد.</translation>
     </message>
@@ -586,7 +590,7 @@
     </message>
     <message>
       <source>Pageviews</source>
-      <translation>بازدید</translation>
+      <translation>مشاهده صفحه</translation>
     </message>
     <message>
       <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
@@ -917,6 +921,10 @@
     <message>
       <source>Minimize to bottom of the screen</source>
       <translation>کمینه شدن به پایین صفحه</translation>
+    </message>
+    <message>
+      <source>Please do not enter protocol, only domain name is required</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>System configuration</source>
@@ -1564,7 +1572,7 @@
     </message>
     <message>
       <source>Active chat</source>
-      <translation>چت فعال</translation>
+      <translation>چت در وضعیت فعال</translation>
     </message>
     <message>
       <source>Closed chat</source>
@@ -1700,7 +1708,7 @@
     </message>
     <message>
       <source>Chat owner</source>
-      <translation>مالک چت</translation>
+      <translation>شروع کننده چت</translation>
     </message>
     <message>
       <source>Map</source>
@@ -1720,7 +1728,11 @@
     </message>
     <message>
       <source>Remarks</source>
-      <translation>علامت گذاری</translation>
+      <translation>توضیحات</translation>
+    </message>
+    <message>
+      <source>Notes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chats</source>
@@ -1744,7 +1756,7 @@
     </message>
     <message>
       <source>Select a canned message</source>
-      <translation>انتخاب پیام تعریف شده</translation>
+      <translation>انتخاب پیام از پیش تعریف شده</translation>
     </message>
     <message>
       <source>Fill textarea with canned message</source>
@@ -1841,7 +1853,7 @@
     <name>chat/screenshot</name>
     <message>
       <source>Screenshot</source>
-      <translation>عکس</translation>
+      <translation>تصویر</translation>
     </message>
     <message>
       <source>Take user screenshot</source>
@@ -1861,7 +1873,7 @@
     </message>
     <message>
       <source>Perhaps screenshot is under way or screenshot is not supported on client browser, click refresh to check for a screenshot</source>
-      <translation>احتمالاً تصویر توسط مرورگر کاربر پشتیبانی نمی شود.</translation>
+      <translation>احتمالاً تصویر توسط مرورگر کاربر پشتیبانی نمی شود. برای چک کردن تصویر، رفرش کنید.</translation>
     </message>
     <message>
       <source>Screenshot ready...</source>
@@ -1904,7 +1916,7 @@
     </message>
     <message>
       <source>You do not have permission to use chattabschrome function</source>
-      <translation>شما مجوز استفاده از تابع تب های چت در مرورگر کروم را ندارید</translation>
+      <translation>شما برای استفاده از تابع chattabschrome حق دسترسی ندارید</translation>
     </message>
     <message>
       <source>Please</source>
@@ -1912,7 +1924,7 @@
     </message>
     <message>
       <source>login first.</source>
-      <translation>لاگین کنید.</translation>
+      <translation>اول وارد شوید.</translation>
     </message>
     <message>
       <source>Online operators</source>
@@ -1951,7 +1963,7 @@
     </message>
     <message>
       <source>Your question</source>
-      <translation>پرسش شما</translation>
+      <translation>سوال شما</translation>
     </message>
     <message>
       <source>Please enter a message...</source>
@@ -1979,7 +1991,7 @@
     </message>
     <message>
       <source>Leave a message</source>
-      <translation>پیام گذاشتن</translation>
+      <translation>وارد کردن پیام</translation>
     </message>
     <message>
       <source>Your request was sent!</source>
@@ -1991,7 +2003,7 @@
     </message>
     <message>
       <source>our terms and to the Law</source>
-      <translation>شرایط ما و قانون</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Department</source>
@@ -2003,7 +2015,7 @@
     </message>
     <message>
       <source>Have a question? Ask us!</source>
-      <translation>سوالی دارید؟ از ما بپرسید!</translation>
+      <translation>سوالات خود را با ما در میان بگذارید.</translation>
     </message>
     <message>
       <source>Department is offline</source>
@@ -2011,7 +2023,7 @@
     </message>
     <message>
       <source>Go to leave a message form</source>
-      <translation>بسوی گذاشتن فرم تماس</translation>
+      <translation>فرم پیام را وارد کنید</translation>
     </message>
     <message>
       <source>Cancel and choose another department</source>
@@ -2019,11 +2031,11 @@
     </message>
     <message>
       <source>characters</source>
-      <translation>حروف</translation>
+      <translation>کاراکترها</translation>
     </message>
     <message>
       <source>Type your message here and hit enter to send...</source>
-      <translation>پیام خود را اینجا وارد کنید و برای ارسال دکمه اینتر را بزنید ...</translation>
+      <translation>پیام خود را اینجا وارد کنید و برای ارسال دکمه enter را بزنید ...</translation>
     </message>
     <message>
       <source>Send</source>
@@ -2039,7 +2051,7 @@
     </message>
     <message>
       <source>There are no online operators at the moment, please leave your message</source>
-      <translation>در حال حاظر اپراتور آنلاین نیست، لطفا پیام خود را بگذارید</translation>
+      <translation>در حال حاضر، اپراتوری آنلاین نیست، لطفا پیام خود را بگذارید</translation>
     </message>
     <message>
       <source>Choose your language</source>
@@ -2059,11 +2071,11 @@
     </message>
     <message>
       <source>You do not have permission to chat! Please contact site owner.</source>
-      <translation>شما نمیتوانید چت کنید، لطفا با مالک سایت تماس بگیرید.</translation>
+      <translation>شما نمی توانید چت کنید، لطفا با مالک سایت تماس بگیرید.</translation>
     </message>
     <message>
       <source>Invalid captcha code, please enable Javascript!</source>
-      <translation>کد امنیتی نامعتبر، لطفا جاوا اسکریپت را فعال کنید!</translation>
+      <translation>کد امنیتی نامعتبر است، لطفاً جاوا اسکریپت را فعال کنید!</translation>
     </message>
     <message>
       <source>Please enter your name</source>
@@ -2075,7 +2087,7 @@
     </message>
     <message>
       <source>Maximum</source>
-      <translation>بزرگ کردن</translation>
+      <translation>حداکثر</translation>
     </message>
     <message>
       <source>characters for a message</source>
@@ -2087,11 +2099,11 @@
     </message>
     <message>
       <source>Please enter your phone</source>
-      <translation>لطفا تلفن خود را وارد کنید</translation>
+      <translation>لطفا شماره تلفن خود را وارد کنید</translation>
     </message>
     <message>
       <source>Maximum 100 characters for phone</source>
-      <translation>حداکثر 100 کاراکتر برای تلفن</translation>
+      <translation>حداکثر 100 کاراکتر برای شماره تلفن</translation>
     </message>
     <message>
       <source>Invalid file</source>
@@ -2099,11 +2111,11 @@
     </message>
     <message>
       <source>Could not determine a default department!</source>
-      <translation>دپارتمان پیشفرض مشخص نیست</translation>
+      <translation>دپارتمان پیش فرض مشخص نیست</translation>
     </message>
     <message>
       <source>is required</source>
-      <translation>مورد نیاز</translation>
+      <translation>الزامی است</translation>
     </message>
     <message>
       <source>Invalid file extension</source>
@@ -2119,7 +2131,7 @@
     </message>
     <message>
       <source>Please enter a message, max characters</source>
-      <translation>لطفا تعداد حداکثر کاراکترهای یک پیام را وارد کنید</translation>
+      <translation>لطفا حداکثر تعداد کاراکترهای یک پیام را وارد کنید</translation>
     </message>
     <message>
       <source>Visitor</source>
@@ -2127,34 +2139,34 @@
     </message>
     <message>
       <source>Fill in the form to start a chat</source>
-      <translation>برای شروع چت فرم را پر کنید</translation>
+      <translation>برای شروع چت، فرم را پر کنید</translation>
     </message>
     <message>
       <source>Unread message</source>
-      <translation>پیام های خوانده نشده</translation>
+      <translation>پیام خوانده نشده</translation>
     </message>
   </context>
   <context>
     <name>chat/checkchatstatus</name>
     <message>
       <source>A support staff member has joined this chat</source>
-      <translation>یک پشتیبان به چت پیوست</translation>
+      <translation>یکی از کادر پشتیبان به چت پیوست</translation>
     </message>
     <message>
       <source>A support staff member has closed this chat</source>
-      <translation>پشتیبان این چت را بسته است</translation>
+      <translation>یکی از کارکنان پشتیبان این چت را بسته است</translation>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
-      <translation>شما میتوانید پیام بگذارید، پشتیبانان به محض تایید چت پیام شما را مشاهده میکنند.</translation>
+      <translation>شما می توانید پیام بگذارید، کادر پشتیبان به محض تایید چت، پیام شما را مشاهده می کند.</translation>
     </message>
     <message>
       <source>At this moment there are no logged in support staff members, but you can leave your messages</source>
-      <translation>در حال حاضر هیچ پشتیبانی آنلاین نیست، میتوانید پیام بگذارید</translation>
+      <translation>در حال حاضر هیچ پشتیبانی آنلاین نیست، شما می توانید پیغام خود را بگذارید</translation>
     </message>
     <message>
       <source>Visitor has been redirected to contact form</source>
-      <translation>بازدید کننده به فرم تماس منتقل می شود</translation>
+      <translation>بازدید کننده به فرم تماس منتقل شد</translation>
     </message>
   </context>
   <context>
@@ -2169,7 +2181,7 @@
     </message>
     <message>
       <source>Open in a new window</source>
-      <translation>بازکردن در یک صفحه جدید</translation>
+      <translation>در یک پنجره جدید باز کن</translation>
     </message>
     <message>
       <source>Delete chat</source>
@@ -2200,11 +2212,11 @@
     </message>
     <message>
       <source>Send chat transcript to your e-mail</source>
-      <translation>ارسال متن چت به ایمیل</translation>
+      <translation>ارسال متن چت به ایمیل شما</translation>
     </message>
     <message>
       <source>Enable/Disable sound about new messages from users</source>
-      <translation>فعال/غیرفعال کردن صدا برای دریافت پیام های جدید از کاربران</translation>
+      <translation>فعال/غیرفعال کردن صدا هنگام دریافت پیام های جدید از کاربران</translation>
     </message>
     <message>
       <source>Enable/Disable sound about new pending chats</source>
@@ -2239,7 +2251,7 @@
     </message>
     <message>
       <source>Data updated</source>
-      <translation>اطلاعات به روز شده</translation>
+      <translation>داده ها به روز شد</translation>
     </message>
   </context>
   <context>
@@ -2288,7 +2300,7 @@
     </message>
     <message>
       <source>Other countries, put widget/chat status to</source>
-      <translation>دیگر کشورها، قرار دادن وضعیت چت / ابزارک در</translation>
+      <translation>سایر کشورها، قرار دادن وضعیت چت / ابزارک در</translation>
     </message>
     <message>
       <source>offline status</source>
@@ -2296,7 +2308,7 @@
     </message>
     <message>
       <source>hidden/disabled, widget will not be shown</source>
-      <translation>عدم نمایش / غیرفعال کردن، ابزارک نمایش داده نخواهد شد</translation>
+      <translation>عدم نمایش / غیرفعال شده، ابزارک نمایش داده نخواهد شد</translation>
     </message>
     <message>
       <source>For unmatched countries put chat status to</source>
@@ -2419,7 +2431,7 @@
     </message>
     <message>
       <source>Client secret</source>
-      <translation>کلید امنیتی کلاینت</translation>
+      <translation>کلید امنیتی کاربر</translation>
     </message>
     <message>
       <source>Please enter to what gmail address test message should be send?</source>
@@ -2431,11 +2443,11 @@
     </message>
     <message>
       <source>Send test message</source>
-      <translation>ارسال پیام تستی</translation>
+      <translation>ارسال پیام آزمایشی</translation>
     </message>
     <message>
       <source>Revoke access token</source>
-      <translation>لغو نشانه دسترسی</translation>
+      <translation>لغو Token دسترسی</translation>
     </message>
     <message>
       <source>Revoke permission to send a message</source>
@@ -2443,19 +2455,19 @@
     </message>
     <message>
       <source>Authentificate and grant permission to send a message</source>
-      <translation>سطوح دسترسی برای ارسال پیام</translation>
+      <translation>تایید و اعطای دسترسی برای ارسال پیام</translation>
     </message>
     <message>
       <source>Grant permission to send a message</source>
-      <translation>سطوح دسترسی برای ارسال پیام</translation>
+      <translation>اعطای دسترسی برای ارسال پیام</translation>
     </message>
     <message>
       <source>Succesfully authorised, now you can try to send a message</source>
-      <translation>تصدیق هویت، شما میتوانید پیام ارسال کنید</translation>
+      <translation>اجازه دسترسی با موفقیت تایید شد، اکنون شما می توانید پیام را ارسال کنید</translation>
     </message>
     <message>
       <source>Token was revoked</source>
-      <translation>نشانه لغو شد</translation>
+      <translation>Token لغو شد</translation>
     </message>
     <message>
       <source>XMPP message was sent succesfuly</source>
@@ -2470,11 +2482,11 @@
     <name>chat/onlineusers</name>
     <message>
       <source>GEO detection configuration</source>
-      <translation>تنظیمات دریافت موقعیت جغرافیایی</translation>
+      <translation>تنظیمات شناسایی موقعیت جغرافیایی</translation>
     </message>
     <message>
       <source>GEO Enabled</source>
-      <translation>فعال سازی موقعیت جغرافیایی</translation>
+      <translation>موقعیت جغرافیایی فعال شد</translation>
     </message>
     <message>
       <source>Use this service</source>
@@ -2490,47 +2502,47 @@
     </message>
     <message>
       <source>Country code server variable</source>
-      <translation>متغیر کد کشور سرور</translation>
+      <translation>متغیر سرور - کد کشور</translation>
     </message>
     <message>
       <source>Country name server variable</source>
-      <translation>متغیر کشور نام سرور</translation>
+      <translation>متغیر سرور - نام کشور</translation>
     </message>
     <message>
       <source>City name server variable</source>
-      <translation>متغیر شهر سرور</translation>
+      <translation>متغیر سرور - نام شهر</translation>
     </message>
     <message>
       <source>Region name server variable</source>
-      <translation>متغیر نام منطقه سرور</translation>
+      <translation>متغیر سرور - نام منطقه</translation>
     </message>
     <message>
       <source>Latitude variable</source>
-      <translation>متغیر عرض</translation>
+      <translation>متغیر عرض جغرافیایی</translation>
     </message>
     <message>
       <source>Longitude variable</source>
-      <translation>متغیر طول</translation>
+      <translation>متغیر طول جغرافیایی</translation>
     </message>
     <message>
       <source>Use MaxMind, does not depend on any third party remote service</source>
-      <translation>Use MaxMind, does not depend on any third party remote service</translation>
+      <translation>استفاده از MaxMind وابسته به سایر سرویس های از راه دور نیست</translation>
     </message>
     <message>
       <source>You can download city/country database from.</source>
-      <translation>شما میتوانید دیتابیس شهر/کشور را دانلود کنید</translation>
+      <translation>شما می توانید پایگاه داده شهر/کشور را دانلود کنید</translation>
     </message>
     <message>
       <source>bcmath php extension detected</source>
-      <translation>bcmath php extension detected</translation>
+      <translation>افزونه bcmath php شناسایی شد </translation>
     </message>
     <message>
       <source>Location of city database</source>
-      <translation>شهر محل بانک اطلاعاتی</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User country based detection, faster</source>
-      <translation>تشخیص بر اساس کشور کاربر، سریعتر</translation>
+      <translation>تشخیص بر اساس کشور کاربر، عملیات سریعتر انجام می شود</translation>
     </message>
     <message>
       <source>File exists</source>
@@ -2542,19 +2554,19 @@
     </message>
     <message>
       <source>User city based detection, slower</source>
-      <translation>تشخیص بر اساس شهر کاربر، کندتر</translation>
+      <translation>تشخیص بر اساس شهر کاربر، عملیات کندتر انجام می شود</translation>
     </message>
     <message>
       <source>Use PHP-GeoIP module</source>
-      <translation>استفاده از ماژول منطقه مکانی PHP</translation>
+      <translation>استفاده از ماژول PHP-GeoIP</translation>
     </message>
     <message>
       <source>Support for PHP-GeoIP detected</source>
-      <translation>پشتیبانی از منطقه مکانی PHP یافت شد</translation>
+      <translation>پشتیبانی از PHP-GeoIP یافت شد</translation>
     </message>
     <message>
       <source>Requests will be comming from</source>
-      <translation>درخواست ها از طرف</translation>
+      <translation>درخواست های ارسالی از طرف</translation>
     </message>
     <message>
       <source>API Key</source>
@@ -2566,19 +2578,19 @@
     </message>
     <message>
       <source>IP, if your site remote IP is different from detected one, please provide correct remote IP address</source>
-      <translation>IP، در صورتی که IP سرور شما مغایر با IP شناسایی شده میباشد، لطفا IP صحیح را وارد نمایید</translation>
+      <translation>IP، در صورتی که IP سرور شما مغایر با IP شناسایی شده می باشد، لطفاً IP صحیح را وارد نمایید</translation>
     </message>
     <message>
       <source>Map location</source>
-      <translation>محل نقشه</translation>
+      <translation>مکان در نقشه</translation>
     </message>
     <message>
       <source>Drag a marker where you want to have map centered by default. Zoom is also saved.</source>
-      <translation>نشانگر را در جایی که میخواهید مرکز نقشه باشد قرار دهید. بزرگنمایی نیز ذخیره میشود.</translation>
+      <translation>نشانگر را در جایی که می خواهید مرکز نقشه باشد، قرار دهید. بزرگنمایی نیز ذخیره می شود.</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>تنظیمات به روز شده</translation>
+      <translation>تنظیمات به روز شد</translation>
     </message>
     <message>
       <source>Send message</source>
@@ -2590,23 +2602,23 @@
     </message>
     <message>
       <source>Lat.</source>
-      <translation>عرض.</translation>
+      <translation>عرض جغرافیایی.</translation>
     </message>
     <message>
       <source>Lon.</source>
-      <translation>طول.</translation>
+      <translation>طول جغرافیایی.</translation>
     </message>
     <message>
       <source>Time zone</source>
-      <translation>زمان محلی</translation>
+      <translation>منطقه زمانی</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation>شناسایی</translation>
+      <translation>شناسه</translation>
     </message>
     <message>
       <source>Additional information</source>
-      <translation>اطلاعات اضافی</translation>
+      <translation>سایر اطلاعات</translation>
     </message>
     <message>
       <source>Last activity</source>
@@ -2626,7 +2638,7 @@
     </message>
     <message>
       <source>No</source>
-      <translation>نه</translation>
+      <translation>خیر</translation>
     </message>
     <message>
       <source>User does not have any message from operator</source>
@@ -2638,11 +2650,11 @@
     </message>
     <message>
       <source>User has seen message from operator.</source>
-      <translation>کاربر پیام اپراتور را دیده</translation>
+      <translation>کاربر پیام اپراتور را دیده است</translation>
     </message>
     <message>
       <source>User is chatting</source>
-      <translation>کاربر در چت</translation>
+      <translation>کاربر در حال چت کردن</translation>
     </message>
     <message>
       <source>User is not having any chat right now</source>
@@ -2650,7 +2662,7 @@
     </message>
     <message>
       <source>has send message to user</source>
-      <translation>پیام به کاربر ارسال شده است</translation>
+      <translation>پیام به کاربر ارسال شد</translation>
     </message>
     <message>
       <source>No one has send any message to user yet</source>
@@ -2666,11 +2678,11 @@
     </message>
     <message>
       <source>Total visits</source>
-      <translation>تمام بازدیدها</translation>
+      <translation>تعدا کل بازدید</translation>
     </message>
     <message>
       <source>time(s) invitation logic was applied</source>
-      <translation>زمان منطقی برای اعمال</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Pageviews</source>
@@ -2678,7 +2690,7 @@
     </message>
     <message>
       <source>Total pageviews</source>
-      <translation>تمام صفحات مشاهده شده</translation>
+      <translation>تعداد کل مشاهدات صفحه</translation>
     </message>
     <message>
       <source>Time on site</source>
@@ -2686,7 +2698,7 @@
     </message>
     <message>
       <source>Total time on site</source>
-      <translation>مجموع زمان بودن در سایت</translation>
+      <translation>کل زمان صرف شده در سایت</translation>
     </message>
     <message>
       <source>Current page</source>
@@ -2710,7 +2722,7 @@
     </message>
     <message>
       <source>User tracking is disabled, enable it at</source>
-      <translation>ردیابی کاربرغیرفعال شده است، فعال سازی در</translation>
+      <translation>رهگیری کاربرغیرفعال است، فعال سازی در</translation>
     </message>
     <message>
       <source>Chat configuration</source>
@@ -2718,11 +2730,11 @@
     </message>
     <message>
       <source>Enable/Disable sound about new visitor</source>
-      <translation>پخش/عدم پخش صدا وقتی بازدیدکننده تازه وارد شد</translation>
+      <translation>پخش/عدم پخش صدا وقتی بازدیدکننده جدید وارد شد</translation>
     </message>
     <message>
       <source>Enable/Disable browser notifications about new visitor</source>
-      <translation>فعال/غیر فعال سازی اعلان‌های مرورگر وقتی کاربر تازه وارد شد</translation>
+      <translation>فعال/غیر فعال سازی آگاه کننده های مرورگر هنگام وارد شدن کاربر جدید</translation>
     </message>
     <message>
       <source>Online users on map</source>
@@ -2738,7 +2750,7 @@
     </message>
     <message>
       <source>seconds</source>
-      <translation>ثانیه ها</translation>
+      <translation>ثانیه</translation>
     </message>
     <message>
       <source>minute</source>
@@ -2746,7 +2758,7 @@
     </message>
     <message>
       <source>minutes</source>
-      <translation>دقایق</translation>
+      <translation>دقیقه</translation>
     </message>
     <message>
       <source>Online visitors list</source>
@@ -2758,11 +2770,11 @@
     </message>
     <message>
       <source>Group list by</source>
-      <translation>لیست گروه با</translation>
+      <translation>لیست گروه بر اساس</translation>
     </message>
     <message>
       <source>Group by</source>
-      <translation>گروه با</translation>
+      <translation>گروه بندی بر اساس</translation>
     </message>
     <message>
       <source>User country</source>
@@ -2778,7 +2790,7 @@
     </message>
     <message>
       <source>Referrer</source>
-      <translation>ارجاع</translation>
+      <translation>ارجاع کننده</translation>
     </message>
     <message>
       <source>Department</source>
@@ -2786,7 +2798,7 @@
     </message>
     <message>
       <source>Refresh list every</source>
-      <translation>بازنشانی فهرست هر</translation>
+      <translation>رفرش لیست هر</translation>
     </message>
     <message>
       <source>second</source>
@@ -2806,11 +2818,11 @@
     </message>
     <message>
       <source>days</source>
-      <translation>روزها</translation>
+      <translation>روز</translation>
     </message>
     <message>
       <source>Max records to return</source>
-      <translation>بیشترین مقدار بازگشتی رکوردها</translation>
+      <translation>حداکثر تعداد رکوردها برای بازگشت</translation>
     </message>
     <message>
       <source>Visitor local time</source>
@@ -2829,20 +2841,20 @@
       <translation>عملیات</translation>
     </message>
     <message>
-      <source>has sent a message to the user</source>
-      <translation>پیام ارسال شده به کاربر</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>پیامی برای کاربر ارسال نشده است</translation>
-    </message>
-    <message>
       <source>first visit</source>
       <translation>اولین بازدید</translation>
     </message>
     <message>
       <source>last visit</source>
       <translation>آخرین بازدید</translation>
+    </message>
+    <message>
+      <source>has sent a message to the user</source>
+      <translation>پیام به کاربر ارسال شد</translation>
+    </message>
+    <message>
+      <source>No one has sent a message to the user yet</source>
+      <translation>پیامی برای کاربر ارسال نشده است</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>
@@ -2858,11 +2870,11 @@
     </message>
     <message>
       <source>Files upload for users is active</source>
-      <translation>بارگذاری فایل برای کاربران فعال است</translation>
+      <translation>آپلود فایل برای کاربران فعال است</translation>
     </message>
     <message>
       <source>Files upload for operators is active</source>
-      <translation>بارگذاری فایل برای اپراتورها فعال است</translation>
+      <translation>آپلود فایل برای اپراتورها فعال است</translation>
     </message>
     <message>
       <source>Country code variable does not exist!</source>
@@ -2886,27 +2898,27 @@
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages!</source>
-      <translation>تنظیمات سرویس دهنده شکست خورد، لطفا چک کنید سرویس دهنده به شما امکانات لازم را داده باشد</translation>
+      <translation>تنظیمات سرویس دهنده ناموفق بود. لطفاً چک کنید که سرویس دهنده به شما امکانات لازم را داده باشد</translation>
     </message>
     <message>
       <source>MaxMind city file does not exists!</source>
-      <translation>MaxMind city file does not exists!</translation>
+      <translation>فایل MaxMind شهر وجود ندارد!</translation>
     </message>
     <message>
       <source>MaxMind country file does not exists!</source>
-      <translation>MaxMind country file does not exists!</translation>
+      <translation>فایل MaxMind  کشور موجود نیست!</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that MaxMind database files exists!</source>
-      <translation>تنظیمات سرویس دهنده شکست خورد، چک کنید فایل های دیتابیس MaxMind وجود داشته باشد</translation>
+      <translation>تنظیمات سرویس دهنده ناموفق بود. لطفاً چک کنید فایل های پایگاه داده MaxMind وجود داشته باشد</translation>
     </message>
     <message>
       <source>Please enter the API key!</source>
-      <translation>لطفا API key را وارد کنید!</translation>
+      <translation>لطفاً کلید API را وارد کنید!</translation>
     </message>
     <message>
       <source>Please enter the API username!</source>
-      <translation>لطفا API نام کاربری را وارد کنید!</translation>
+      <translation>لطفا نام کاربری API را وارد کنید!</translation>
     </message>
     <message>
       <source>Please enter IP!</source>
@@ -2914,15 +2926,15 @@
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key and username is correct!</source>
-      <translation>تنظیمات سرویس دهنده شکست خورد، لطفا بررسی کنید که سرویس دهنده به شما مجوز دسترسی به صفحات را داده باشد و API key و نام کاربری درست باشد!</translation>
+      <translation>تنظیمات سرویس دهنده ناموفق بود. لطفاً بررسی کنید که سرویس دهنده به شما مجوز دسترسی به صفحات را داده باشد و نام کاربری و کلید API درست باشد!</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key is correct!</source>
-      <translation>تنظیمات سرویس دهنده ناموفق بود. لطفا مطمئن شوید سرویس دهنده دسترسی راه دور به صفحات سایت را داده باشد.</translation>
+      <translation>تنظیمات سرویس دهنده ناموفق بود. لطفاً مطمئن شوید که سرویس دهنده امکان دسترسی به صفحات سایت را فراهم کند و کلید API صحیح باشد!</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that you have installed php-GeoIP module and GeoIPCity.dat file is available!</source>
-      <translation>تنظیمات سرویس دهنده اعمال نشد. لطفا بررسی کنید ماژول منطقه مکانی php نصب شده و فایل GeoIPCity.dat موجود باشد.</translation>
+      <translation>تنظیمات سرویس دهنده اعمال نشد. لطفا بررسی کنید ماژول php-GeoIP نصب شده و فایل GeoIPCity.dat موجود باشد.</translation>
     </message>
     <message>
       <source>Please choose a service provider!</source>
@@ -2941,7 +2953,7 @@
     </message>
     <message>
       <source>Notifications about new chats</source>
-      <translation>هشدار در مورد چت های جدید</translation>
+      <translation>آگاه کننده در مورد چت های جدید</translation>
     </message>
     <message>
       <source>Copyright settings</source>
@@ -2957,7 +2969,7 @@
     </message>
     <message>
       <source>Online tracking</source>
-      <translation>پیگیری آنلاین</translation>
+      <translation>رهگیری آنلاین</translation>
     </message>
     <message>
       <source>Misc</source>
@@ -2996,11 +3008,11 @@
     <name>system/configuration</name>
     <message>
       <source>Request notification permission</source>
-      <translation>درخواست مجوز اطلاع رسانی</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>New chat notification settings</source>
-      <translation>تنیظیمات اطلاع رسانی چت جدید</translation>
+      <translation>تنیظیمات آگاه کننده چت جدید</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -3052,19 +3064,19 @@
     </message>
     <message>
       <source>FAQ embed code</source>
-      <translation>کد داخلی س/ج</translation>
+      <translation>کد داخلی سوالات متداول</translation>
     </message>
     <message>
       <source>Questionary embed code</source>
-      <translation>کد داخلی پرسشی</translation>
+      <translation>کد داخلی پرسش نامه</translation>
     </message>
     <message>
       <source>Chatbox embed code</source>
-      <translation>کد داخلی جعبه چت</translation>
+      <translation>کد داخلی باکس چت</translation>
     </message>
     <message>
       <source>Browse offers embed code</source>
-      <translation>مرور پیشنهاد های کدها درونی</translation>
+      <translation>کد داخلی مشاهده پیشنهادات</translation>
     </message>
     <message>
       <source>Live help configuration</source>
@@ -3100,7 +3112,7 @@
     </message>
     <message>
       <source>Canned messages</source>
-      <translation>پیام های مسدود شده</translation>
+      <translation>پیام های از پیش تعریف شده</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -3128,7 +3140,7 @@
     </message>
     <message>
       <source>Maintenance</source>
-      <translation>نگهداری</translation>
+      <translation>تعمیر و نگهداری</translation>
     </message>
     <message>
       <source>Files</source>
@@ -6474,6 +6486,10 @@
     <message>
       <source>Allow to change from e-mail</source>
       <translation>مجوز تغییر فرستنده ایمیل</translation>
+    </message>
+    <message>
+      <source>Use user e-mail as from address</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Reply to</source>

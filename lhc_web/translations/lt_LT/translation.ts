@@ -147,7 +147,7 @@
     </message>
     <message>
       <source>Home page tabs order</source>
-      <translation type="unfinished"/>
+      <translation>Titulinio puslapio kortelių išdėstymas</translation>
     </message>
     <message>
       <source>Is visitor e-mail required for FAQ</source>
@@ -340,7 +340,7 @@
     </message>
     <message>
       <source>Widget border width (px)</source>
-      <translation type="unfinished"/>
+      <translation>Widgeto rėmelio plotis (px)</translation>
     </message>
     <message>
       <source>Online status text</source>
@@ -388,19 +388,19 @@
     </message>
     <message>
       <source>Hide widget close button</source>
-      <translation type="unfinished"/>
+      <translation>Slėpti widgeto uždarymo mygtuką</translation>
     </message>
     <message>
       <source>Hide popup option</source>
-      <translation type="unfinished"/>
+      <translation>Slėpti galimybę atidaryti popupe</translation>
     </message>
     <message>
       <source>Header height (px)</source>
-      <translation type="unfinished"/>
+      <translation>Antraštės auktšis (px)</translation>
     </message>
     <message>
       <source>Header padding (px)</source>
-      <translation type="unfinished"/>
+      <translation>Antraštės atitraukimas (px)</translation>
     </message>
     <message>
       <source>Widget copyright link</source>
@@ -468,19 +468,19 @@
     </message>
     <message>
       <source>Minimize image</source>
-      <translation type="unfinished"/>
+      <translation>Sumažinimo paveiksliukas</translation>
     </message>
     <message>
       <source>Restore image</source>
-      <translation type="unfinished"/>
+      <translation>Atstatymo paveiksliukas</translation>
     </message>
     <message>
       <source>Close image</source>
-      <translation type="unfinished"/>
+      <translation>Uždarymo paveiksliukas</translation>
     </message>
     <message>
       <source>Popup image</source>
-      <translation type="unfinished"/>
+      <translation>Iššokančio lango paveiksliukas</translation>
     </message>
     <message>
       <source>Widget themes</source>
@@ -563,6 +563,10 @@
     <message>
       <source>Wait timeout. Time in seconds before timeout message is shown.</source>
       <translation>Laukimo intervalas. Laikas sekundėmis prieš parodant laukimo žinutę.</translation>
+    </message>
+    <message>
+      <source>How many times repeat message?</source>
+      <translation>Kiek kartų pakartoti žinutę</translation>
     </message>
     <message>
       <source>Show visitor this message then wait timeout passes.</source>
@@ -824,7 +828,7 @@
     </message>
     <message>
       <source>Speech language</source>
-      <translation type="unfinished"/>
+      <translation>Jūsų kalba</translation>
     </message>
     <message>
       <source>Hide status when offline</source>
@@ -917,6 +921,10 @@
     <message>
       <source>Minimize to bottom of the screen</source>
       <translation>Sumažinti prie apačios ekrano</translation>
+    </message>
+    <message>
+      <source>Please do not enter protocol, only domain name is required</source>
+      <translation>Prašome nevesti protokolo, tik jūsų domenas yra privalomas</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -1072,7 +1080,7 @@
     </message>
     <message>
       <source>Choose department</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite departamentą</translation>
     </message>
   </context>
   <context>
@@ -1723,6 +1731,10 @@
       <translation>Pastabos</translation>
     </message>
     <message>
+      <source>Notes</source>
+      <translation>Pastabos</translation>
+    </message>
+    <message>
       <source>Chats</source>
       <translation>Pokalbiai</translation>
     </message>
@@ -1732,7 +1744,7 @@
     </message>
     <message>
       <source>Choose other than default recognition language</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite kitą negu standartinę atpažinimo kalbą</translation>
     </message>
     <message>
       <source>Send delayed canned message instantly</source>
@@ -1920,11 +1932,11 @@
     </message>
     <message>
       <source>Mail settings</source>
-      <translation type="unfinished"/>
+      <translation>Pašto nustatymai</translation>
     </message>
     <message>
       <source>SMTP</source>
-      <translation type="unfinished"/>
+      <translation>SMTP</translation>
     </message>
   </context>
   <context>
@@ -2423,11 +2435,11 @@
     </message>
     <message>
       <source>Please enter to what gmail address test message should be send?</source>
-      <translation type="unfinished"/>
+      <translation>Prašome įvesti į kokį testinį Gmail adresą žinutė turėtų būti išsiųsta</translation>
     </message>
     <message>
       <source>This message will be send to test e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Ši žinutė bus išsiųsta į testinį el. pašto adresą</translation>
     </message>
     <message>
       <source>Send test message</source>
@@ -2463,7 +2475,7 @@
     </message>
     <message>
       <source>Invalid test e-mail address</source>
-      <translation type="unfinished"/>
+      <translation>Nekorektiškas testinis el. pašto adresas</translation>
     </message>
   </context>
   <context>
@@ -2829,20 +2841,20 @@
       <translation>Veiksmas</translation>
     </message>
     <message>
-      <source>has sent a message to the user</source>
-      <translation>išsiuntė žinutę vartotojui</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>Niekas dar neišsiuntė žinutės vartotojui</translation>
-    </message>
-    <message>
       <source>first visit</source>
       <translation>pirmas apsilankymas</translation>
     </message>
     <message>
       <source>last visit</source>
       <translation>paskutinis apsilankymas</translation>
+    </message>
+    <message>
+      <source>has sent a message to the user</source>
+      <translation>išsiuntė žinutę vartotojui</translation>
+    </message>
+    <message>
+      <source>No one has sent a message to the user yet</source>
+      <translation>Niekas dar neišsiuntė žinutės vartotojui</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>
@@ -3020,7 +3032,7 @@
     </message>
     <message>
       <source>Mail settings</source>
-      <translation type="unfinished"/>
+      <translation>Pašto nustatymai</translation>
     </message>
     <message>
       <source>E-mail templates</source>
@@ -3160,7 +3172,7 @@
     </message>
     <message>
       <source>Speech</source>
-      <translation type="unfinished"/>
+      <translation>Kalba</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -4364,11 +4376,11 @@
     </message>
     <message>
       <source>Follow user scroll position</source>
-      <translation type="unfinished"/>
+      <translation>Sekti vartotojo slinkties juostą</translation>
     </message>
     <message>
       <source>On click navigate user browser</source>
-      <translation type="unfinished"/>
+      <translation>Paspaudus nukreipti vartotojo naršyklę</translation>
     </message>
     <message>
       <source>Click blue eye at the top to request screen share</source>
@@ -4542,7 +4554,7 @@
     </message>
     <message>
       <source>Speech</source>
-      <translation type="unfinished"/>
+      <translation>Kalba</translation>
     </message>
     <message>
       <source>Account updated</source>
@@ -5484,30 +5496,30 @@
     <name>speech/language</name>
     <message>
       <source>Choose speech recognition language for this chat</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite atpažinimo kalbą šiam pokalbiui</translation>
     </message>
     <message>
       <source>Language</source>
-      <translation type="unfinished"/>
+      <translation>Kalba</translation>
     </message>
     <message>
       <source>Dialect</source>
-      <translation type="unfinished"/>
+      <translation>Dialektas</translation>
     </message>
     <message>
       <source>Default speech recognition language</source>
-      <translation type="unfinished"/>
+      <translation>Numatytoji kalbos atpažinimo kalba</translation>
     </message>
   </context>
   <context>
     <name>speech/speech</name>
     <message>
       <source>Use application default recognition language</source>
-      <translation type="unfinished"/>
+      <translation>Naudoti numatytają kalbos atpažinimo kalbą</translation>
     </message>
     <message>
       <source>Use application default recognition dialect</source>
-      <translation type="unfinished"/>
+      <translation>Naudoti numatytają dialekto atpažinimą</translation>
     </message>
   </context>
   <context>
@@ -5577,19 +5589,19 @@
     <name>system/smtp</name>
     <message>
       <source>Mail settings</source>
-      <translation type="unfinished"/>
+      <translation>Pašto nustatymai</translation>
     </message>
     <message>
       <source>Sender address</source>
-      <translation type="unfinished"/>
+      <translation>Siuntėjo adresas</translation>
     </message>
     <message>
       <source>Default from e-mail address</source>
-      <translation type="unfinished"/>
+      <translation>Numatysas siuntėjo el. pašto adresas</translation>
     </message>
     <message>
       <source>Default from name</source>
-      <translation type="unfinished"/>
+      <translation>Numatytasis siuntėjo pavadinimas</translation>
     </message>
     <message>
       <source>SMTP enabled</source>
@@ -6469,11 +6481,15 @@
     </message>
     <message>
       <source>From e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Siuntėjo el-paštas</translation>
     </message>
     <message>
       <source>Allow to change from e-mail</source>
       <translation>Leisti keisti siuntėjo el. pašto adresą</translation>
+    </message>
+    <message>
+      <source>Use user e-mail as from address</source>
+      <translation>Naudoti vartotojo el. pašto adresą kaip siuntėjo adresą</translation>
     </message>
     <message>
       <source>Reply to</source>

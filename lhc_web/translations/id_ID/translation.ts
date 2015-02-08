@@ -565,6 +565,10 @@
       <translation>Batas waktu menunggu. Waktu dalam detik sebelum pesan batas waktu ditampilkan.</translation>
     </message>
     <message>
+      <source>How many times repeat message?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show visitor this message then wait timeout passes.</source>
       <translation>Tunjukkan kepada pengunjung pesan ini kemudian tunggu batas waktu lewat.</translation>
     </message>
@@ -917,6 +921,10 @@
     <message>
       <source>Minimize to bottom of the screen</source>
       <translation>Minimalkan ke bawah layar</translation>
+    </message>
+    <message>
+      <source>Please do not enter protocol, only domain name is required</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>System configuration</source>
@@ -1721,6 +1729,10 @@
     <message>
       <source>Remarks</source>
       <translation>Ditandai</translation>
+    </message>
+    <message>
+      <source>Notes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chats</source>
@@ -2829,20 +2841,20 @@
       <translation>Tindakan</translation>
     </message>
     <message>
-      <source>has sent a message to the user</source>
-      <translation>telah mengirimkan sebuah pesan ke pengguna</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>Masih belum ada orang yang mengirimkan pesan ke pengguna</translation>
-    </message>
-    <message>
       <source>first visit</source>
       <translation>kunjungan pertama</translation>
     </message>
     <message>
       <source>last visit</source>
       <translation>kunjungan terakhir</translation>
+    </message>
+    <message>
+      <source>has sent a message to the user</source>
+      <translation>telah mengirimkan sebuah pesan ke pengguna</translation>
+    </message>
+    <message>
+      <source>No one has sent a message to the user yet</source>
+      <translation>Masih belum ada orang yang mengirimkan pesan ke pengguna</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>
@@ -6474,6 +6486,10 @@
     <message>
       <source>Allow to change from e-mail</source>
       <translation>Mengizinkan untuk mengubah e-mail pengirim</translation>
+    </message>
+    <message>
+      <source>Use user e-mail as from address</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Reply to</source>

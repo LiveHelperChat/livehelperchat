@@ -565,6 +565,10 @@
       <translation>Timeout på väntan. Tid i sekunder innan timeout meddelande visas.</translation>
     </message>
     <message>
+      <source>How many times repeat message?</source>
+      <translation>Hur många gånger ska meddelandet repeteras?</translation>
+    </message>
+    <message>
       <source>Show visitor this message then wait timeout passes.</source>
       <translation>Visa besökaren detta meddelande när timeout tiden passerats.</translation>
     </message>
@@ -917,6 +921,10 @@
     <message>
       <source>Minimize to bottom of the screen</source>
       <translation>Minimera till botten av skärmen</translation>
+    </message>
+    <message>
+      <source>Please do not enter protocol, only domain name is required</source>
+      <translation>Var vänlig och utelämna http-protokollet från namnet, endast domännamnet är nödvändigt</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -1721,6 +1729,10 @@
     <message>
       <source>Remarks</source>
       <translation>Anmärkningar</translation>
+    </message>
+    <message>
+      <source>Notes</source>
+      <translation>Anteckningar</translation>
     </message>
     <message>
       <source>Chats</source>
@@ -2829,20 +2841,20 @@
       <translation>Aktivitet</translation>
     </message>
     <message>
-      <source>has sent a message to the user</source>
-      <translation>har skickat meddelande till användaren</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>Ingen har skickat meddelande till användaren ännu</translation>
-    </message>
-    <message>
       <source>first visit</source>
       <translation>första besök</translation>
     </message>
     <message>
       <source>last visit</source>
       <translation>senaste besök</translation>
+    </message>
+    <message>
+      <source>has sent a message to the user</source>
+      <translation>har skickat meddelande till användaren</translation>
+    </message>
+    <message>
+      <source>No one has sent a message to the user yet</source>
+      <translation>Ingen har skickat meddelande till användaren ännu</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>
@@ -6474,6 +6486,10 @@
     <message>
       <source>Allow to change from e-mail</source>
       <translation>Tillåt ändring av från-adressen</translation>
+    </message>
+    <message>
+      <source>Use user e-mail as from address</source>
+      <translation>Använd användarens e-postadress som från-adress</translation>
     </message>
     <message>
       <source>Reply to</source>

@@ -565,6 +565,10 @@
       <translation>Tempo limite de espera. Tempo em segundos antes da mensagem de tempo limite de ser exibida.</translation>
     </message>
     <message>
+      <source>How many times repeat message?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show visitor this message then wait timeout passes.</source>
       <translation>Mostrar ao visitante esta mensagem quando ultrapassar o tempo limite.</translation>
     </message>
@@ -917,6 +921,10 @@
     <message>
       <source>Minimize to bottom of the screen</source>
       <translation>Minimizar para a parte inferior da tela</translation>
+    </message>
+    <message>
+      <source>Please do not enter protocol, only domain name is required</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>System configuration</source>
@@ -1721,6 +1729,10 @@
     <message>
       <source>Remarks</source>
       <translation>Observações</translation>
+    </message>
+    <message>
+      <source>Notes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chats</source>
@@ -2829,20 +2841,20 @@
       <translation>Ação</translation>
     </message>
     <message>
-      <source>has sent a message to the user</source>
-      <translation>enviou uma mensagem para o usuário</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>Ninguém enviou uma mensagem para o usuário ainda</translation>
-    </message>
-    <message>
       <source>first visit</source>
       <translation>primeira visita</translation>
     </message>
     <message>
       <source>last visit</source>
       <translation>última visita</translation>
+    </message>
+    <message>
+      <source>has sent a message to the user</source>
+      <translation>enviou uma mensagem para o usuário</translation>
+    </message>
+    <message>
+      <source>No one has sent a message to the user yet</source>
+      <translation>Ninguém enviou uma mensagem para o usuário ainda</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>
@@ -6474,6 +6486,10 @@
     <message>
       <source>Allow to change from e-mail</source>
       <translation>Permitir alteração do email de remetente</translation>
+    </message>
+    <message>
+      <source>Use user e-mail as from address</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Reply to</source>

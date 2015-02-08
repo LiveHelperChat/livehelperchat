@@ -565,6 +565,10 @@
       <translation>Prodleva čekání. Čas v sekundách, po kterém se zobrazí hláška o vypšení časového limitu.</translation>
     </message>
     <message>
+      <source>How many times repeat message?</source>
+      <translation>Kolikrát odpovědět na otázku?</translation>
+    </message>
+    <message>
       <source>Show visitor this message then wait timeout passes.</source>
       <translation>Zobrazovat návštěvníkům tuto zprávu pokud vypší časový limit.</translation>
     </message>
@@ -917,6 +921,10 @@
     <message>
       <source>Minimize to bottom of the screen</source>
       <translation>Minimalizovat na obrazovce dolů</translation>
+    </message>
+    <message>
+      <source>Please do not enter protocol, only domain name is required</source>
+      <translation>Prosím nevyplňujte protokol, je vyžadováno pouze doménové jméno</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -1720,6 +1728,10 @@
     </message>
     <message>
       <source>Remarks</source>
+      <translation>Poznámky</translation>
+    </message>
+    <message>
+      <source>Notes</source>
       <translation>Poznámky</translation>
     </message>
     <message>
@@ -2829,20 +2841,20 @@
       <translation>Akce</translation>
     </message>
     <message>
-      <source>has sent a message to the user</source>
-      <translation>již odeslal zprávu uživateli</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>Uživateli dosud nikdo neodeslal zprávu</translation>
-    </message>
-    <message>
       <source>first visit</source>
       <translation>první návštěva</translation>
     </message>
     <message>
       <source>last visit</source>
       <translation>poslední návštěva</translation>
+    </message>
+    <message>
+      <source>has sent a message to the user</source>
+      <translation>již odeslal zprávu uživateli</translation>
+    </message>
+    <message>
+      <source>No one has sent a message to the user yet</source>
+      <translation>Uživateli dosud nikdo neodeslal zprávu</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>
@@ -6474,6 +6486,10 @@
     <message>
       <source>Allow to change from e-mail</source>
       <translation>Povolit změnu e-mailu odesílatele</translation>
+    </message>
+    <message>
+      <source>Use user e-mail as from address</source>
+      <translation>Použít e-mail uživatele jako odresu odesílatele</translation>
     </message>
     <message>
       <source>Reply to</source>

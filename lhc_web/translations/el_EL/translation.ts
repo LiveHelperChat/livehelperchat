@@ -565,6 +565,10 @@
       <translation>Περιμένετε χρονικού ορίου. Χρόνος σε δευτερόλεπτα πριν εμφανίζεται μήνυμα λήξης χρονικού ορίου.</translation>
     </message>
     <message>
+      <source>How many times repeat message?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show visitor this message then wait timeout passes.</source>
       <translation>Εμφάνιση επισκέπτη αυτό το μήνυμα, στη συνέχεια, περιμένετε χρονικού ορίου περάσματα.</translation>
     </message>
@@ -917,6 +921,10 @@
     <message>
       <source>Minimize to bottom of the screen</source>
       <translation>Ελαχιστοποίηση κάτω μέρος της οθόνης</translation>
+    </message>
+    <message>
+      <source>Please do not enter protocol, only domain name is required</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>System configuration</source>
@@ -1721,6 +1729,10 @@
     <message>
       <source>Remarks</source>
       <translation>Παρατηρήσεις</translation>
+    </message>
+    <message>
+      <source>Notes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chats</source>
@@ -2829,20 +2841,20 @@
       <translation>Ενέργεια</translation>
     </message>
     <message>
-      <source>has sent a message to the user</source>
-      <translation>απέστειλε ένα μήνυμα στο χρήστη</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>Κανείς δεν έχει σταλεί ένα μήνυμα στο χρήστη ακόμη</translation>
-    </message>
-    <message>
       <source>first visit</source>
       <translation>πρώτη επίσκεψη</translation>
     </message>
     <message>
       <source>last visit</source>
       <translation>τελευταία επίσκεψη</translation>
+    </message>
+    <message>
+      <source>has sent a message to the user</source>
+      <translation>απέστειλε ένα μήνυμα στο χρήστη</translation>
+    </message>
+    <message>
+      <source>No one has sent a message to the user yet</source>
+      <translation>Κανείς δεν έχει σταλεί ένα μήνυμα στο χρήστη ακόμη</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>
@@ -6474,6 +6486,10 @@
     <message>
       <source>Allow to change from e-mail</source>
       <translation>Επιτρέπει την αλλαγή από ηλεκτρονικό ταχυδρομείο</translation>
+    </message>
+    <message>
+      <source>Use user e-mail as from address</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Reply to</source>
