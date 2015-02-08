@@ -828,7 +828,7 @@ function lh(){
 		this.revealIframe(this.wwwDir + 'file/attatchfile/'+chat_id,500); 		
 	};
 	
-	this.embedFileSendMail = function(chat_id) {
+	this.embedFileSendMail = function(chat_id) {	
 		this.revealIframe(this.wwwDir + 'file/attatchfilemail',350);
 	};	
 	
@@ -860,7 +860,7 @@ function lh(){
 	};
 
 	this.previewChat = function(chat_id)
-	{
+	{		
 		this.initializeModal();
 		$('#myModal').foundation('reveal', 'open', {url: WWW_DIR_JAVASCRIPT+'chat/previewchat/'+chat_id});
 	};
@@ -1406,7 +1406,7 @@ function lh(){
 	};
 
 	this.transferUserDialog = function(chat_id,title)
-	{
+	{		
 		this.revealModal(this.wwwDir + 'chat/transferchat/'+chat_id);		
 	};
 	
