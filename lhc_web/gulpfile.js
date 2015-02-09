@@ -1,8 +1,10 @@
 var gulp = require('gulp'),
 gutil    = require('gulp-util'),
 uglify   = require('gulp-uglify'),
-concat   = require('gulp-concat');
-watch 	 = require('gulp-watch');
+concat   = require('gulp-concat'),
+watch 	 = require('gulp-watch'),
+webpack = require('webpack'),
+webpackConfig = require('./webpack.config.js');
 
 gulp.task('js-cobrowse-operator', function() {
 	var stylePath = ['design/defaulttheme/js/cobrowse/mutation-summary.js',
@@ -77,19 +79,33 @@ gulp.task('js-lhc-speak-js', function() {
 });
 
 gulp.task('js-lh', function() {
-    var stylePath = ['design/defaulttheme/js/lh.js'];
-        
-    return gulp.src(stylePath)
-        .pipe(concat('lh.min.js'))
-        .pipe(uglify({preserveComments: 'some'}))
-        .pipe(gulp.dest('design/defaulttheme/js'));
+	var stylePath = ['design/defaulttheme/js/lh.js'];
+	
+	return gulp.src(stylePath)
+	.pipe(concat('lh.min.js'))
+	.pipe(uglify({preserveComments: 'some'}))
+	.pipe(gulp.dest('design/defaulttheme/js'));
 });
 
-gulp.task('default', ['js-cobrowse-operator','js-cobrowse-visitor','js-angular-main','js-main-fileupload','js-datepicker','js-lhc-speak-js','js-lh','js-angular-online'], function() {
+gulp.task('js-lh-npm', function() {		 
+	 webpack(webpackConfig, function(err, stats) {
+	        if(err) throw new gutil.PluginError("webpack", err);
+	        gutil.log("[webpack]", stats.toString({
+	            // output options
+	        }));	            	
+	 });
+});
+
+gulp.task('default', ['js-cobrowse-operator','js-cobrowse-visitor','js-angular-main','js-main-fileupload','js-datepicker','js-lhc-speak-js','js-lh','js-angular-online','js-lh-npm'], function() {
+	// Just execute all the tasks	
+});
+
+gulp.task('webpack', ['js-lh-npm'], function() {
 	// Just execute all the tasks	
 });
 
 gulp.task('watch', function () {
 	gulp.watch('design/defaulttheme/js/cobrowse/*.js', ['js-cobrowse-visitor','js-cobrowse-operator']);	
 	gulp.watch('design/defaulttheme/js/lh.js', ['js-lh']);
+	gulp.watch(['design/defaulttheme/js/lh/lh.js','design/defaulttheme/js/lh/lh-modules/*.js'], ['js-lh-npm']);
 });

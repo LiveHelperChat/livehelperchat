@@ -123,9 +123,8 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		};	
 	};
 	
-	this.previewChat = function(chat_id){				
-		this.initializeModal();				
-		$('#myModal').foundation('reveal', 'open', {url: WWW_DIR_JAVASCRIPT+'chat/previewchat/'+chat_id});
+	this.previewChat = function(chat_id){		
+		lhc.previewChat(chat_id);
 	};		
 	
 	this.redirectContact = function(chat_id,message) {	
