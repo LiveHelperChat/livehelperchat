@@ -6,7 +6,7 @@
 			<li><a href="#" class="button small" onclick="return lhinst.addmsgadmin('<?php echo $chat->id?>')"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Send')?></a>
 						
 			<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhspeech','use')) : ?>
-			<li><a class="button icon-mic small" href="#" id="mic-chat-<?php echo $chat->id?>" onclick="return lhinst.speechToText('<?php echo $chat->id?>')"></a></li>
+			<li><a class="button icon-mic small" href="#" id="mic-chat-<?php echo $chat->id?>" onclick="return lhc.methodCall('lhc.speak','listen',{'chat_id':'<?php echo $chat->id?>'})"></a></li>
 			<?php endif;?>
 									
 			<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhspeech','change_chat_recognition')) : ?>

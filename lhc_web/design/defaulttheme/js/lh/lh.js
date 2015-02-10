@@ -2,7 +2,7 @@
 
 __webpack_public_path__ = window.WWW_DIR_LHC_WEBPACK;
 
-var lhc = (function(){	 
+var lhc = (function() { 
 	  global.lhc = {
 			previewChat : function(chat_id){	
 				require.ensure([], function (require) {
@@ -10,6 +10,14 @@ var lhc = (function(){
 					revealModalName.initializeModal();
 					revealModalName.revealModal(WWW_DIR_JAVASCRIPT+'chat/previewchat/'+chat_id);	
 				});		
-			}
-	  }	  
+			},
+			/**
+			 * This can be used on any singleton class
+			 * */
+			methodCall : function(module,functionName,params) {				
+				require([], function() {
+					require("./lh-modules/lazy/"+module)[functionName](params);				
+				});								
+			} 
+	  }
 }());
