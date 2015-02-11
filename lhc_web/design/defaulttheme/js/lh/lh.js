@@ -16,7 +16,7 @@ var lhc = (function() {
 			 * */
 			methodCall : function(module,functionName,params) {				
 				require([], function() {
-					require("./lh-modules/lazy/"+module)[functionName](params);				
+					require("./lh-modules/lazy/speak/"+module + ".js")[functionName](params);				
 				});								
 			} 
 	  }

@@ -20,7 +20,8 @@ var config = {
      chunkFilename: '[name]-[chunkhash].js'
    },
    resolve: {
-     alias: {}
+     alias: {},
+   	 extensions: ['', '.js', '.json', '.coffee'] 
    },
    module: {
      noParse: [],
@@ -29,6 +30,10 @@ var config = {
        loader: 'jsx-loader',
        exclude: [bower_dir, node_modules_dir]
      }, {
+         test: /\.cssref$/,
+         loader: 'style/useable!css!'
+     }, 
+     {
        test: /\.css$/,
        loader: 'style-loader!css-loader'
      }, {
@@ -37,7 +42,7 @@ var config = {
      }]
    },
    plugins: [
-     new webpack.optimize.CommonsChunkPlugin('app', null, false),
+     new webpack.optimize.CommonsChunkPlugin('app', null, false),     
      new webpack.optimize.UglifyJsPlugin({minimize: true})
    ]
  };
