@@ -1,0 +1,8 @@
+{
+  "name": "Live Helper Chat",
+  "description": "Live Helper Chat external dependencies",
+  "version": "1.0.0",
+  "dependencies": {
+    "bootstrap": "*"
+  }  
+}

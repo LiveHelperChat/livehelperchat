@@ -1,5 +1,5 @@
 <?php if (erConfigClassLhConfig::getInstance()->getDirLanguage('dir_language') == 'ltr' || erConfigClassLhConfig::getInstance()->getDirLanguage('dir_language') == '') : ?>
-<link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::designCSS('css/normalize.css;css/foundation-ltr.css;css/app.css;css/override.css;css/fontello.css;css/datepicker.css');?>" />
+<link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::designCSS('vendor/bootstrap/css/bootstrap.min.css;css/app.css;css/override.css;css/fontello.css;css/datepicker.css');?>" />
 <?php else : ?>
 <link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::designCSS('css/normalize.css;css/foundation-rtl.css;css/app.css;css/app-rtl.css;css/override_rtl.css;css/fontello.css;css/datepicker.css');?>" />
 <?php endif;?>

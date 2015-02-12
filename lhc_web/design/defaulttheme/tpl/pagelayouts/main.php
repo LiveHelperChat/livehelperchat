@@ -10,14 +10,14 @@
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/top_menu.tpl.php'));?>
 
 <div class="row pt10 border-top-grey">
-<div class="columns large-12">
+<div class="col-md-12">
 
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/path.tpl.php'));?>
 <?php $canUseChat = erLhcoreClassUser::instance()->hasAccessTo('lhchat','use'); ?>
 
 <div class="row">
 
-    <div class="columns large-<?php $canUseChat == true ? print '9' : print '12'; ?>">
+    <div class="col-md-<?php $canUseChat == true ? print '9' : print '12'; ?>">
     	<?php echo $Result['content']; ?>
     </div>
 
@@ -27,7 +27,7 @@
     $closedTabEnabled = (int)erLhcoreClassModelUserSetting::getSetting('enable_close_list',0);
     $unreadTabEnabled = (int)erLhcoreClassModelUserSetting::getSetting('enable_unread_list',1);
     ?>
-    <div class="columns large-3" id="right-column-page" ng-cloak>
+    <div class="columns col-md-3" id="right-column-page" ng-cloak>
 			<div class="section-container auto" data-section="auto">
 			  <section>
 			    <p class="title" data-section-title><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Chats transferred to you directly');?>" href="#panel1"><i class="icon-user"></i><span class="tru-cnt"></span></a></p>
