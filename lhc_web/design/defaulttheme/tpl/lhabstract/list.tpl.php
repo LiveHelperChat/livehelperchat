@@ -63,8 +63,6 @@
 
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/secure_links.tpl.php')); ?>
 
-	<br>
-
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/paginator.tpl.php')); ?>
 
 <?php else:?>
@@ -73,8 +71,8 @@
 
 
 <?php if (!isset($hide_add)) : ?>
-	<div class="new-record-control">
-		<a class="small button round" href="<?php echo erLhcoreClassDesign::baseurl('abstract/new')?>/<?php echo $identifier?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','New');?></a>
-	</div>
+
+	<a class="btn btn-default" href="<?php echo erLhcoreClassDesign::baseurl('abstract/new')?>/<?php echo $identifier?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','New');?></a>
+
 	<br>
 <?php endif;?>
