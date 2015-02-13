@@ -98,35 +98,3 @@
 	</div>
 
 </div>
-
-
-<?php
-/*
- * ?>
- *
- * <div class="section-container auto" data-section>
- *
- * <?php if ($currentUser->hasAccessTo('lhsystem','changelanguage')) : ?>
- * <section <?php if ($tab == '') : ?>class="active"<?php endif;?>>
- * <p class="title" data-section-title><a href="#panel1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/languages','Your language');?></a></p>
- * <div class="content" data-section-content>
- * <div>
- *
- * </div>
- * </div>
- * </section>
- * <?php endif; ?>
- *
- * <?php if ($currentUser->hasAccessTo('lhsystem','configurelanguages')) : ?>
- * <section <?php if ($tab == 'generalsettings') : ?>class="active"<?php endif;?>>
- * <p class="title" data-section-title><a href="#panel1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/languages','General language settings');?></a></p>
- * <div class="content" data-section-content>
- *
- *
- * </div>
- * </section>
- * <?php endif;?>
- *
- * </div>
- */
-?>
