@@ -18,6 +18,8 @@ body {
     outline: 0;
 }
 
+img{max-height:100%}
+
 .wb{
 	background-color:white;
 }
@@ -190,10 +192,6 @@ form {
 	float:right;
 }
 
-.breadcrumbs li a span {
-	font-size: 1em;
-}
-
 .section-container.hide {
 	display:none;
 }
@@ -280,19 +278,6 @@ option.offline-dep{
 	color:#970b0e;
 }
 
-ul.small-list,
-.section-container.auto section.active .content p,
-.section-container.auto .section.active .content p {
-	font-size: 0.75em;
-}
-
-
-ul, ol, dl{
-	list-style-position: inside;
-}
-
-
-
 h1 { font-size: 24px; }
 
 h2 { font-size: 18px; }
@@ -355,8 +340,7 @@ select {
 	font-size:0.75em;
 }
 
-.found-total,
-table tr td {
+.found-total{
 	font-size:0.75em;
 }
 

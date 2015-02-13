@@ -10,7 +10,7 @@ class erLhcoreClassAbstract {
         	       if (isset($attr['multilanguage']) && $attr['multilanguage'] == true) {
         	           $returnString = '';
         	           foreach (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'available_locales' ) as $locale){
-        	                   $returnString .= '<input class="abstract_input" name="AbstractInput_'.$name.'_'.$locale.'" type="text" value="'.htmlspecialchars($object->{$name.'_'.strtolower($locale)}).'" />'.$locale.'<br/>';
+        	                   $returnString .= '<input class="form-control" name="AbstractInput_'.$name.'_'.$locale.'" type="text" value="'.htmlspecialchars($object->{$name.'_'.strtolower($locale)}).'" />'.$locale.'<br/>';
         	           }
 
         	           return $returnString;
@@ -19,7 +19,7 @@ class erLhcoreClassAbstract {
         	       	  if (isset($attr['placeholder'])) {
         	       	  		$ngModel .= " placeholder=\"{$attr['placeholder']}\" ";
         	       	  };
-        		      return '<input class="abstract_input" class="abstract_input" '.$ngModel.' name="AbstractInput_'.$name.'" type="text" value="'.htmlspecialchars($object->$name).'" />';
+        		      return '<input class="form-control" '.$ngModel.' name="AbstractInput_'.$name.'" type="text" value="'.htmlspecialchars($object->$name).'" />';
         	       }
         		break;
 
@@ -35,13 +35,13 @@ class erLhcoreClassAbstract {
         			$returnString = '';
 
         			foreach (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'available_locales' ) as $locale){
-        				$returnString .= '<textarea ng-non-bindable style="height:'.$height.';"  class="abstract_input" name="AbstractInput_'.$name.'_'.$locale.'">'.htmlspecialchars($object->{$name.'_'.strtolower($locale)}).'</textarea>'.$locale.'<br/>';
+        				$returnString .= '<textarea ng-non-bindable style="height:'.$height.';"  class="form-control" name="AbstractInput_'.$name.'_'.$locale.'">'.htmlspecialchars($object->{$name.'_'.strtolower($locale)}).'</textarea>'.$locale.'<br/>';
         			}
 
         			return $returnString;
         		} else {
         			  $placeholder = isset($attr['placeholder']) ? 'placeholder="'.htmlspecialchars($attr['placeholder']).'"' :'';
-        		      return '<textarea ng-non-bindable style="height:'.$height.';" '.$placeholder.' class="abstract_input" name="AbstractInput_'.$name.'">'.htmlspecialchars($object->$name).'</textarea>';
+        		      return '<textarea ng-non-bindable style="height:'.$height.';" '.$placeholder.' class="form-control" name="AbstractInput_'.$name.'">'.htmlspecialchars($object->$name).'</textarea>';
         		}
         		break;
 
@@ -77,7 +77,7 @@ class erLhcoreClassAbstract {
         	case 'combobox':
 
         	        $onchange = isset($attr['on_change']) ? $attr['on_change'] : '';
-        	        $return = '<select class="abstract_input" name="AbstractInput_'.$name.'"'.$onchange.'>';
+        	        $return = '<select class="form-control" name="AbstractInput_'.$name.'"'.$onchange.'>';
         	        
         	        if (!isset($attr['hide_optional']) || $attr['hide_optional'] == false){
             	    	$return .= '<option value="0">Choose option</option>';
@@ -101,7 +101,7 @@ class erLhcoreClassAbstract {
         	    break;
 
         	    case 'combobox_multi':
-            	    $return = '<select class="abstract_input" name="AbstractInput_'.$name.'[]" multiple size="5">';
+            	    $return = '<select class="form-control" name="AbstractInput_'.$name.'[]" multiple size="5">';
             	    $items = call_user_func($attr['source'],$attr['params_call']);
             	    foreach ($items as $item)
             	    {

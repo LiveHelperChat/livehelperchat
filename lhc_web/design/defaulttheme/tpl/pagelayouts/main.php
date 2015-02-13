@@ -7,10 +7,11 @@
 <body ng-controller="LiveHelperChatCtrl as lhc">
 
 
+
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/top_menu.tpl.php'));?>
 
-<div class="row pt10 border-top-grey">
-<div class="col-md-12">
+<div class="container-fluid">
+
 
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/path.tpl.php'));?>
 <?php $canUseChat = erLhcoreClassUser::instance()->hasAccessTo('lhchat','use'); ?>
@@ -92,7 +93,6 @@
 
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_footer.tpl.php'));?>
 
-</div>
 </div>
 
 

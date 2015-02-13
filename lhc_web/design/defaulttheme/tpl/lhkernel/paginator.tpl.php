@@ -1,7 +1,7 @@
 <?php if (isset($pages) && $pages->num_pages > 1) : ?>
 
-<div class="found-total"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','Page')?> <?php echo $pages->current_page?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','of')?> <?php echo $pages->num_pages?>, <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','Found')?> - <?php echo $pages->items_total?></div>
 
+<nav>
 <ul class="pagination">
 
     <?php if ($pages->current_page != 1) : ?>
@@ -20,7 +20,7 @@
     	<?php else : ?>
            <li><a class="no-b" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','Go to page')?> <?php echo $i?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','of')?> <?php echo $pages->num_pages?>" href="<?php echo $pages->serverURL,$pageURL,$pages->querystring?>"><?php echo $i?></a></li>
         <?php endif;
-        ?> <li>...</li> <?php
+        ?> <li><a href="#">...</a></li> <?php
         endif;
 
         for($i=$pages->range[0];$i<=$pages->lastArrayNumber;$i++) :
@@ -31,7 +31,7 @@
 
 				if ($i == $pages->current_page): ?>
 
-				<li class="current<?php echo $noBolderClass?>"><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','Go to page')?> <?php echo $i?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','of')?> <?php echo $pages->num_pages?>"  href="#"><?php echo $i?></a></li>
+				<li class="active<?php echo $noBolderClass?>"><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','Go to page')?> <?php echo $i?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','of')?> <?php echo $pages->num_pages?>"  href="#"><?php echo $i?></a></li>
 
 			    <?php else : ?>
 
@@ -42,9 +42,9 @@
     $i = $pages->num_pages;
     $pageURL = $i > 1 ? '/(page)/'.$i : '';
 
-    ?> <li>...</li> <?php if ($i == $pages->current_page) : ?>
+    ?> <li><a href="#">...</a></li> <?php if ($i == $pages->current_page) : ?>
 
-			<li class="current"><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','Go to page')?> <?php echo $i?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','of')?> <?php echo $pages->num_pages?>" href="#"><?php echo $i?></a></li>
+			<li class="active"><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','Go to page')?> <?php echo $i?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','of')?> <?php echo $pages->num_pages?>" href="#"><?php echo $i?></a></li>
 
     <?php  else : ?>
 
@@ -56,7 +56,7 @@
    $noBolderClass = ($i == 1) ? ' no-b' : '';
    $pageURL = $i > 1 ? '/(page)/'.$i : '';
 		if ($i == $pages->current_page) :?>
-            <li class="current<?php echo $noBolderClass?>"><a href="#"><?php echo $i?></a></li>
+            <li class="active<?php echo $noBolderClass?>"><a href="#"><?php echo $i?></a></li>
 		<?php else : ?>
 		    <li><a class="paginate" href="<?php echo $pages->serverURL,$pageURL,$pages->querystring;?>"><?php echo $i?></a></li>
     <?php endif; endfor; endif;
@@ -68,4 +68,8 @@
     <?php endif;?>
 
     </ul>
+    
+    <div class="found-total"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','Page')?> <?php echo $pages->current_page?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','of')?> <?php echo $pages->num_pages?>, <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','Found')?> - <?php echo $pages->items_total?></div>
+    
+    </nav>
 <?php endif;?>

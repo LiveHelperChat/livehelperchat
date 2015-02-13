@@ -12,7 +12,7 @@ if ($pages->items_total > 0) {
 
 ?>
 
-<table class="twelve" cellpadding="0" cellspacing="0">
+<table class="table" cellpadding="0" cellspacing="0">
 <thead>
 <tr>
     <th width="1%">ID</th>
@@ -55,21 +55,30 @@ if ($pages->items_total > 0) {
 <?php endif; ?>
 
 <form action="<?php if ($canned_msg->id > 0) : ?><?php echo erLhcoreClassDesign::baseurl('user/account')?>/(msg)/<?php echo $canned_msg->id?><?php endif;?>#canned" method="post">
-	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Message');?></label>
-    <textarea name="Message"><?php echo htmlspecialchars($canned_msg->msg);?></textarea>
+    <div class="form-group">
+	   <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Message');?></label>
+        <textarea class="form-control" name="Message"><?php echo htmlspecialchars($canned_msg->msg);?></textarea>
+    </div>
 
-    <label><input type="checkbox" name="AutoSend" value="on" <?php $canned_msg->auto_send == 1 ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Automatically send this message to user then chat is accepted');?></label>
+    <div class="form-group">
+        <label><input type="checkbox" name="AutoSend" value="on" <?php $canned_msg->auto_send == 1 ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Automatically send this message to user then chat is accepted');?></label>
+    </div>
     
-	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Delay in seconds');?></label>
-    <input type="text" name="Delay" value="<?php echo $canned_msg->delay?>" />
+    <div class="form-group">
+	     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Delay in seconds');?></label>
+        <input type="text" class="form-control" name="Delay" value="<?php echo $canned_msg->delay?>" />
+    </div>
 
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Position');?></label>
-    <input type="text" name="Position" value="<?php echo $canned_msg->position?>" />
- 
-    <ul class="button-group radius">
-    	<li><input type="submit" class="small button" name="Save_canned_action" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>"/></li>
+    <div class="form-group">
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Position');?></label>
+        <input type="text" class="form-control" name="Position" value="<?php echo $canned_msg->position?>" />
+    </div>
+ 	    
+	<div class="btn-group" role="group" aria-label="...">
+		<input type="submit" class="btn btn-default" name="Save_canned_action" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>"/>
     	<?php if ($canned_msg->id > 0) : ?>
-    	<li><input type="submit" class="small button" name="Cancel_canned_action" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel');?>"/></li>
+    	<input type="submit" class="btn btn-default" name="Cancel_canned_action" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel');?>"/>
     	<?php endif;?>
-	</ul>
+	</div>
+	
 </form>

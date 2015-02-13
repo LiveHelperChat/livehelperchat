@@ -3,17 +3,33 @@
 <?php $currentUser = erLhcoreClassUser::instance(); ?>
 
 
-<div class="section-container auto" data-section="auto" id="tabs" data-options="deep_linking: true">
+<div role="tabpanel">
 
-  <section>
-    <p class="title" data-section-title><a href="#system"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','System');?></a></p>
-    <div class="content" data-section-content data-slug="system">
-      <div>
-      
-      <div class="row">
-      	<div class="columns small-6">
-      	
-      	 <ul class="circle small-list">
+	<!-- Nav tabs -->
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active"><a href="#system" aria-controls="system" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','System');?></a></li>
+    
+        <?php if ($currentUser->hasAccessTo('lhsystem','generate_js_tab')) : ?>
+        <li role="presentation"><a href="#embed" aria-controls="embed" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Embed code');?></a></li>
+        <?php endif; ?>
+        
+        <?php if ($currentUser->hasAccessTo('lhchat','use')) : ?>
+        <li role="presentation"><a href="#chatconfiguration" aria-controls="chatconfiguration" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Live help configuration');?></a></li>
+        <?php endif; ?>
+        
+        <?php if ($currentUser->hasAccessTo('lhspeech','manage')) : ?>
+        <li role="presentation"><a href="#speech" aria-controls="speech" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Speech');?></a></li>
+        <?php endif;?>
+	</ul>
+
+	<!-- Tab panes -->
+	<div class="tab-content">
+		<div role="tabpanel" class="tab-pane active" id="system">
+
+			<div class="row">
+				<div class="col-md-6">
+					<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','System');?></h4>
+					<ul>
 	      		<?php if ($currentUser->hasAccessTo('lhsystem','timezone')) : ?>
 			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('system/timezone')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Time zone settings');?></a></li>
 			    <?php endif; ?>
@@ -40,12 +56,12 @@
 					<li><a href="<?php echo erLhcoreClassDesign::baseurl('system/expirecache')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Clean cache');?></a></li>			
 				<?php endif; ?>
 			</ul>
-			
-      	</div>
-      	<div class="columns small-6 end">
+
+				</div>
+				<div class="col-md-6">
       	<?php if ($currentUser->hasAccessTo('lhuser','userlist') || $currentUser->hasAccessTo('lhuser','grouplist') || $currentUser->hasAccessTo('lhpermission','list')) : ?>
-		  	<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Users');?></h4>		    
-			<ul class="circle small-list">
+		  	<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Users');?></h4>
+					<ul class="circle small-list">
 				    <?php if ($currentUser->hasAccessTo('lhuser','userlist')) : ?>
 				    <li><a href="<?php echo erLhcoreClassDesign::baseurl('user/userlist')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Users');?></a></li>
 				    <?php endif; ?>
@@ -60,83 +76,71 @@
 			</ul>		     
 		 <?php endif; ?>
       	</div>
-      </div>
-	     
-      </div>
-    </div>
-   </section>
-   
-   <?php if ($currentUser->hasAccessTo('lhsystem','generate_js_tab')) : ?>
-   <section>
-    <p class="title" data-section-title><a href="#embed"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Embed code');?></a></p>
-    <div class="content" data-section-content data-slug="embed">
-      <div>
-      <div class="row">
+			</div>
+
+		</div>
+    
+    <?php if ($currentUser->hasAccessTo('lhsystem','generate_js_tab')) : ?>
+    <div role="tabpanel" class="tab-pane" id="embed">
+			<div class="row">
       
       	<?php if ($currentUser->hasAccessTo('lhsystem','generatejs')) : ?>
-      	<div class="columns small-6 end">
-			<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Live help embed code');?></h4>
-			<ul class="circle small-list">
-			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('system/htmlcode')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Widget embed code');?></a></li>
-			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('system/embedcode')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Page embed code');?></a></li>
-			</ul>
-		</div>
+      	<div class="col-md-6">
+					<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Live help embed code');?></h4>
+					<ul>
+						<li><a href="<?php echo erLhcoreClassDesign::baseurl('system/htmlcode')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Widget embed code');?></a></li>
+						<li><a href="<?php echo erLhcoreClassDesign::baseurl('system/embedcode')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Page embed code');?></a></li>
+					</ul>
+				</div>
 		<?php endif; ?>
 	
 		<?php if ($currentUser->hasAccessTo('lhfaq','manage_faq')) : ?>
-		<div class="columns small-6 end">
-			<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','FAQ embed code');?></h4>
-			<ul class="circle small-list">
-			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('faq/htmlcode')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Widget embed code');?></a></li>
-			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('faq/embedcode')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Page embed code');?></a></li>
-			</ul>
-		</div>
+		<div class="col-md-6">
+					<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','FAQ embed code');?></h4>
+					<ul>
+						<li><a href="<?php echo erLhcoreClassDesign::baseurl('faq/htmlcode')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Widget embed code');?></a></li>
+						<li><a href="<?php echo erLhcoreClassDesign::baseurl('faq/embedcode')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Page embed code');?></a></li>
+					</ul>
+				</div>
 		<?php endif; ?>
 	
 		<?php if ($currentUser->hasAccessTo('lhquestionary','manage_questionary')) : ?>
-		<div class="columns small-6 end">
-			<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Questionary embed code');?></h4>
-			<ul class="circle small-list">
-			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('questionary/htmlcode')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Widget embed code');?></a></li>
-			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('questionary/embedcode')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Page embed code');?></a></li>
-			</ul>
-		</div>
+		<div class="col-md-6">
+					<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Questionary embed code');?></h4>
+					<ul>
+						<li><a href="<?php echo erLhcoreClassDesign::baseurl('questionary/htmlcode')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Widget embed code');?></a></li>
+						<li><a href="<?php echo erLhcoreClassDesign::baseurl('questionary/embedcode')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Page embed code');?></a></li>
+					</ul>
+				</div>
 		<?php endif; ?>
 	
 		<?php if ($currentUser->hasAccessTo('lhchatbox','manage_chatbox')) : ?>
-		<div class="columns small-6 end">
-			<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Chatbox embed code');?></h4>
-			<ul class="circle small-list">
-			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chatbox/htmlcode')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Widget embed code');?></a></li>
-			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chatbox/embedcode')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Page embed code');?></a></li>
-			</ul>
-		</div>
+		<div class="col-md-6">
+					<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Chatbox embed code');?></h4>
+					<ul>
+						<li><a href="<?php echo erLhcoreClassDesign::baseurl('chatbox/htmlcode')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Widget embed code');?></a></li>
+						<li><a href="<?php echo erLhcoreClassDesign::baseurl('chatbox/embedcode')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Page embed code');?></a></li>
+					</ul>
+				</div>
 		<?php endif; ?>
 	
 		<?php if ($currentUser->hasAccessTo('lhbrowseoffer','manage_bo')) : ?>
-		<div class="columns small-6 end">
-			<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Browse offers embed code');?></h4>
-			<ul class="circle small-list">
-			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('browseoffer/htmlcode')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Embed code');?></a></li>
-			</ul>
-		</div>
+		<div class="col-md-6">
+					<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Browse offers embed code');?></h4>
+					<ul>
+						<li><a href="<?php echo erLhcoreClassDesign::baseurl('browseoffer/htmlcode')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Embed code');?></a></li>
+					</ul>
+				</div>
 		<?php endif; ?>
   	  </div>
-    </div>
-    </div>
-  </section>
-  <?php endif;?> 
-   
-      
-  <?php if ($currentUser->hasAccessTo('lhchat','use')) : ?>
-  <section>
-    <p class="title" data-section-title><a href="#chatconfiguration"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Live help configuration');?></a></p>
-    <div class="content" data-section-content data-slug="chatconfiguration">
-      <div>
-      
-      <div class="row">      
-	      <div class="columns small-6">
-	      	<ul class="circle small-list">
+		</div>	
+    <?php endif; ?>
+    
+    <?php if ($currentUser->hasAccessTo('lhchat','use')) : ?>
+    <div role="tabpanel" class="tab-pane" id="chatconfiguration">
+		<div class="row">
+			<div class="col-md-6">
+				<ul>
 			    <?php if ($currentUser->hasAccessTo('lhdepartament','list')) : ?>
 			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('departament/departaments')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Departments');?></a></li>
 			    <?php endif; ?>
@@ -153,7 +157,7 @@
 				<li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/geoadjustment')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','GEO adjustment');?></a></li>
 				<?php endif; ?>
 			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/syncandsoundesetting')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Synchronization and sound settings');?></a></li>
-			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/startchatformsettings')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Start chat form settings');?></a></li>
+					<li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/startchatformsettings')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Start chat form settings');?></a></li>
 			    <?php endif; ?>
 			    
 	 			
@@ -195,11 +199,11 @@
 				<?php endif; ?>		    
 			</ul>
 			</div>
-		
-			<div class="columns small-6 end">
+
+			<div class="col-md-6">
 				<?php if ($currentUser->hasAccessTo('lhfile','use') || $currentUser->hasAccessTo('lhfile','file_list')) : ?>
-			    <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Files');?></h5>   
-				<ul class="circle small-list">
+			    <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Files');?></h5>
+				<ul>
 					    <?php if ($currentUser->hasAccessTo('lhfile','use')) : ?>
 					    <li><a href="<?php echo erLhcoreClassDesign::baseurl('file/configuration')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Files upload configuration');?></a></li>
 					    <?php endif; ?>
@@ -211,48 +215,28 @@
 			    <?php endif; ?>
 			       
 				<?php if ($currentUser->hasAccessTo('lhabstract','use') && $currentUser->hasAccessTo('lhtheme','administratethemes')) : ?>
-			    <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Theming');?></h5>   
-				<ul class="circle small-list">					
-					 <li><a href="<?php echo erLhcoreClassDesign::baseurl('abstract/list')?>/WidgetTheme"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Widget themes');?></a></li>
-					 <li><a href="<?php echo erLhcoreClassDesign::baseurl('theme/import')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Import new themes');?></a></li>
-					 <li><a href="<?php echo erLhcoreClassDesign::baseurl('theme/default')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Default theme');?></a></li>
+			    <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Theming');?></h5>
+				<ul>
+					<li><a href="<?php echo erLhcoreClassDesign::baseurl('abstract/list')?>/WidgetTheme"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Widget themes');?></a></li>
+					<li><a href="<?php echo erLhcoreClassDesign::baseurl('theme/import')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Import new themes');?></a></li>
+					<li><a href="<?php echo erLhcoreClassDesign::baseurl('theme/default')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Default theme');?></a></li>
 				</ul>
 				<?php endif; ?>
 			    
 			</div>
-		
+
 		</div>
-		
-		
-  	  </div>
-    </div>
-  </section>
-  <?php endif;?>      
- 
- <?php if ($currentUser->hasAccessTo('lhspeech','manage')) : ?>
-   <section>
-    <p class="title" data-section-title><a href="#speech"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Speech');?></a></p>
-    <div class="content" data-section-content data-slug="speech">
-      <div>
-			<ul class="circle small-list">
-			    <li><a title="Set default speech recognition language" href="<?php echo erLhcoreClassDesign::baseurl('speech/defaultlanguage')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Speech language');?></a></li>
-			</ul>	
-        </div>
-    </div>
-  </section>
-  <?php endif;?>
-  
-  
+
+
+	</div>
+    <?php endif;?>
+    
+    <?php if ($currentUser->hasAccessTo('lhspeech','manage')) : ?>
+    <div role="tabpanel" class="tab-pane" id="speech">
+       <ul class="circle small-list">
+            <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Set default speech recognition language')?>" href="<?php echo erLhcoreClassDesign::baseurl('speech/defaultlanguage')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Speech language');?></a></li>
+       </ul>
+    </div>    
+    <?php endif;?>
+    </div>    
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
