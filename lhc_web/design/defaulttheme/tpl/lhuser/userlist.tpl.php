@@ -3,7 +3,7 @@
 	$canEdit = $currentUser->hasAccessTo('lhuser','edituser');
 	$canDelete = $currentUser->hasAccessTo('lhuser','deleteuser');
 ?>
-<table class="lentele" cellpadding="0" cellspacing="0" width="100%">
+<table class="table" cellpadding="0" cellspacing="0" width="100%">
 <thead>
 <tr>
     <th width="1%">ID</th>
@@ -20,8 +20,8 @@
         <td><?php echo htmlspecialchars($user->username)?></td>
         <td><?php echo htmlspecialchars($user->email)?></td>
         <td><?php echo $user->lastactivity_ago?> ago</td>
-        <?php if ($canEdit) : ?><td><a class="small button round" href="<?php echo erLhcoreClassDesign::baseurl('user/edit')?>/<?php echo $user->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Edit');?></a></td><?php endif;?>
-        <?php if ($canDelete) : ?><td><?php if ($user->id != 1) : ?><a class="small alert button round csfr-required" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/messages','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('user/delete')?>/<?php echo $user->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Delete');?></a><?php endif;?></td><?php endif;?>
+        <?php if ($canEdit) : ?><td><a class="btn btn-default btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('user/edit')?>/<?php echo $user->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Edit');?></a></td><?php endif;?>
+        <?php if ($canDelete) : ?><td><?php if ($user->id != 1) : ?><a class="btn btn-danger btn-xs csfr-required" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/messages','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('user/delete')?>/<?php echo $user->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Delete');?></a><?php endif;?></td><?php endif;?>
     </tr>
 <?php endforeach; ?>
 </table>
@@ -34,5 +34,5 @@
 <br />
 
 <?php if ($currentUser->hasAccessTo('lhuser','createuser')) : ?>
-<div><a class="small button" href="<?php echo erLhcoreClassDesign::baseurl('user/new')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','New user');?></a></div>
+<div><a class="btn btn-default" href="<?php echo erLhcoreClassDesign::baseurl('user/new')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','New user');?></a></div>
 <?php endif; ?>

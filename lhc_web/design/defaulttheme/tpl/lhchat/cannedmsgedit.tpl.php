@@ -10,37 +10,12 @@
 
 <form action="<?php echo erLhcoreClassDesign::baseurl('chat/cannedmsgedit')?>/<?php echo $canned_message->id?>" method="post">
 
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Message');?></label>
-    <textarea name="Message"><?php echo htmlspecialchars($canned_message->msg);?></textarea>
-        
-	<label><input type="checkbox" name="AutoSend" value="on" <?php $canned_message->auto_send == 1 ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Automatically send this message to user then chat is accepted');?></label>
-       
-	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Delay in seconds');?></label>
-    <input type="text" name="Delay" value="<?php echo $canned_message->delay?>" />
-
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Position');?></label>
-    <input type="text" name="Position" value="<?php echo $canned_message->position?>" />
-
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Department');?></label>
-	<?php 
-	$params = array (
-			'input_name'     => 'DepartmentID',			
-			'display_name'   => 'name',
-			'selected_id'    => $canned_message->department_id,
-			'list_function'  => 'erLhcoreClassModelDepartament::getList',
-			'list_function_params'  => array_merge(array('limit' => '1000000'),$limitDepartments)
-	);
-	
-	if (empty($limitDepartments)) {
-		$params['optional_field'] = erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Any');
-	}
-
-	echo erLhcoreClassRenderHelper::renderCombobox( $params ); ?>
-
-	<ul class="button-group radius">
-      <li><input type="submit" class="small button" name="Save_action" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>"/></li>
-      <li><input type="submit" class="small button" name="Update_action" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update');?>"/></li>
-      <li><input type="submit" class="small button" name="Cancel_action" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel');?>"/></li>
-    </ul>
+    <?php include(erLhcoreClassDesign::designtpl('lhchat/cannedmsgform.tpl.php'));?>
+    
+    <div class="btn-group" role="group" aria-label="...">
+	  <input type="submit" class="btn btn-default" name="Save_action" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>"/>
+      <input type="submit" class="btn btn-default" name="Update_action" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update');?>"/>
+      <input type="submit" class="btn btn-default" name="Cancel_action" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel');?>"/>
+	</div>
 
 </form>

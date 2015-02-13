@@ -64,14 +64,15 @@
 
 		      <input type="hidden" name="siteaccess" value="<?php echo $input->siteaccess?>" />
 
-		<?php $siteAccessOptions = erConfigClassLhConfig::getInstance()->getSetting( 'site_access_options', $input->siteaccess ); ?>
-		<fieldset>
+		         <?php $siteAccessOptions = erConfigClassLhConfig::getInstance()->getSetting( 'site_access_options', $input->siteaccess ); ?>
+		      <fieldset>
 					<legend><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/languages','options for')?> (<?php echo $input->siteaccess?>)</legend>
-					<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/languages','Language')?></label> <select name="language" class="form-control">
-    			<?php foreach (erLhcoreClassSiteaccessGenerator::getLanguages() as $language) : ?>
-    				<option value="<?php echo $language['locale']?>" <?php $siteAccessOptions['locale'] == $language['locale'] ? print 'selected="selected"' : ''?>><?php echo $language['locale']?></option>
-    			<?php endforeach;?>
-    		</select>
+					<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/languages','Language')?></label> 
+					<select name="language" class="form-control">
+            			<?php foreach (erLhcoreClassSiteaccessGenerator::getLanguages() as $language) : ?>
+            				<option value="<?php echo $language['locale']?>" <?php $siteAccessOptions['locale'] == $language['locale'] ? print 'selected="selected"' : ''?>><?php echo $language['locale']?></option>
+            			<?php endforeach;?>
+            		</select>
 
 					<div class="form-group">
 						<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/languages','Theme, separate themes by new line')?></label>

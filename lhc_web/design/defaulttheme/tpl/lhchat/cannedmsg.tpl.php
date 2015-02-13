@@ -1,6 +1,6 @@
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Canned messages');?></h1>
 
-<table class="twelve" cellpadding="0" cellspacing="0">
+<table class="table" cellpadding="0" cellspacing="0">
 <thead>
 <tr>
     <th width="1%">ID</th>
@@ -21,8 +21,8 @@
         <td><?php echo $departament->delay?></td>
         <td><?php echo $departament->position?></td>
         <td><?php echo $departament->auto_send?></td>
-        <td nowrap><a class="small button round" href="<?php echo erLhcoreClassDesign::baseurl('chat/cannedmsgedit')?>/<?php echo $departament->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Edit message');?></a></td>
-        <td nowrap><a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="csfr-required small alert button round" href="<?php echo erLhcoreClassDesign::baseurl('chat/cannedmsg')?>/(action)/delete/(id)/<?php echo $departament->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Delete message');?></a></td>
+        <td nowrap><a class="btn btn-default btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('chat/cannedmsgedit')?>/<?php echo $departament->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Edit message');?></a></td>
+        <td nowrap><a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="csfr-required btn btn-danger btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('chat/cannedmsg')?>/(action)/delete/(id)/<?php echo $departament->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Delete message');?></a></td>
     </tr>
 <?php endforeach; ?>
 </table>
@@ -33,4 +33,4 @@
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/paginator.tpl.php')); ?>
 <?php endif;?>
 
-<a class="small button" href="<?php echo erLhcoreClassDesign::baseurl('chat/newcannedmsg')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','New canned message');?></a>
+<a class="btn btn-default" href="<?php echo erLhcoreClassDesign::baseurl('chat/newcannedmsg')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','New canned message');?></a>
