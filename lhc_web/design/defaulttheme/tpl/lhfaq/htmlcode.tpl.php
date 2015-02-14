@@ -1,18 +1,18 @@
 <h1 class="attr-header"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','HTML code');?></h1>
 
 <div class="row">
-    <div class="columns large-6">
+    <div class="col-md-6">
 		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Status text');?></label>
-		<input type="text" id="id_status_text" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','FAQ');?>" />
+		<input type="text" class="form-control" id="id_status_text" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','FAQ');?>" />
 	</div>
-    <div class="columns large-6">
+    <div class="col-md-6">
 		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Position from the top, only used if the Middle left or the Middle right side is chosen');?></label>
 	    <div class="row">
-	      <div class="large-8 columns">
-	        <input type="text" id="id_top_text" value="450" />
+	      <div class="col-md-8 columns">
+	        <input type="text" class="form-control" id="id_top_text" value="450" />
 	      </div>
-	      <div class="large-4 columns">
-	      	<select id="UnitsTop">
+	      <div class="col-md-4 columns">
+	      	<select id="UnitsTop" class="form-control">
 	            <option value="pixels">Pixels</option>
 	            <option value="percents">Percents</option>
 	        </select>
@@ -22,37 +22,37 @@
 </div>
 
 <div class="row">
-    <div class="columns large-6">
+    <div class="col-md-6">
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Choose a language');?></label>
-        <select id="LocaleID">
+        <select id="LocaleID" class="form-control">
             <?php foreach ($locales as $locale ) : ?>
             <option value="<?php echo $locale?>/"><?php echo $locale?></option>
             <?php endforeach; ?>
         </select>
     </div>
-    <div class="columns large-6">
+    <div class="col-md-6">
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Position');?></label>
-        <select id="PositionID">
+        <select id="PositionID" class="form-control">
                <option value="bottom_right"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Bottom right corner of the screen');?></option>
                <option value="bottom_left"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Bottom left corner of the screen');?></option>
                <option value="middle_right"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Middle right side of the screen');?></option>
                <option value="middle_left"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Middle left side of the screen');?></option>
         </select>
     </div>
-    <div class="columns large-6">
+    <div class="col-md-6">
 	   <label><input type="checkbox" id="id_disable_responsive" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Disable responsive layout for status widget.');?></label> 	    
     </div>
-    <div class="columns large-6">
+    <div class="col-md-6">
 	   <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Choose prefered http mode');?></label>
-		    <select id="HttpMode">         
+		    <select id="HttpMode" class="form-control">         
 		            <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Based on site (default)');?></option>
 		            <option value="http:">http:</option>
 		            <option value="https:">https:</option>      
 		    </select>    	    
     </div>
-    <div class="columns large-6 end">
+    <div class="col-md-6 end">
     	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Theme')?></label>
-        <select id="ThemeID">
+        <select id="ThemeID" class="form-control">
         	<option value="0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Default');?></option>
 			<?php foreach (erLhAbstractModelWidgetTheme::getList(array('limit' => 1000)) as $theme) : ?>
 			   <option value="<?php echo $theme->id?>"><?php echo htmlspecialchars($theme->name)?></option>

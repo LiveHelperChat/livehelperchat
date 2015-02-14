@@ -4,12 +4,16 @@ __webpack_public_path__ = window.WWW_DIR_LHC_WEBPACK;
 
 var lhc = (function() { 
 	  global.lhc = {
-			previewChat : function(chat_id){	
+			previewChat : function(chat_id){
+				this.revealModal({'url':WWW_DIR_JAVASCRIPT+'chat/previewchat/'+chat_id});						
+			},
+			
+			revealModal : function(params) {				
 				require.ensure([], function (require) {
 					var revealModalName = require('./lh-modules/reveal-modal');				
 					revealModalName.initializeModal();
-					revealModalName.revealModal(WWW_DIR_JAVASCRIPT+'chat/previewchat/'+chat_id);	
-				});		
+					revealModalName.revealModal(params);	
+				});	
 			},
 			/**
 			 * This can be used on any singleton class

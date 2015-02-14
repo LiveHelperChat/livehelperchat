@@ -445,6 +445,7 @@ if ( erLhcoreClassUser::instance()->hasAccessTo('lhuser','personalcannedmsg') ) 
 	}
 	
 	$tpl->set('canned_msg',$cannedMessage);
+	$tpl->set('tab','tab_canned');
 }
 
 

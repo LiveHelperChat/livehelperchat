@@ -5,6 +5,11 @@
 <?php endif; ?>
 
 <form action="" method="post">
+
+
+
+
+
 <div class="section-container auto" data-section data-options="deep_linking: true">
   <section class="active">
 	    <p class="title" data-section-title><a href="#notifications"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Notifications about new chats');?></a></p>

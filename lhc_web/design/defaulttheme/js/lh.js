@@ -21,7 +21,7 @@ $.postJSON = function(url, data, callback) {
 
 
 /*Port FN accordion*/
-(function(e,t,n){"use strict";e.fn.foundationAccordion=function(t){var n=function(e){return e.hasClass("hover")&&!Modernizr.touch};e(document).on("mouseenter",".accordion-lhc li",function(){var t=e(this).parent();if(n(t)){var r=e(this).children(".content-lhc").first();e(".content-lhc",t).not(r).hide().parent("li").removeClass("active-lhc"),r.show(0,function(){r.parent("li").addClass("active-lhc")})}}),e(document).on("click.fndtn",".accordion-lhc li .title-lhc",function(){var t=e(this).closest("li"),r=t.parent();if(!n(r)){var i=t.children(".content-lhc").first();t.hasClass("active-lhc")?r.find("li").removeClass("active-lhc").end().find(".content-lhc").hide():(e(".content-lhc",r).not(i).hide().parent("li").removeClass("active-lhc"),i.show(0,function(){i.parent("li").addClass("active-lhc")}))}})}})(jQuery,this);
+//(function(e,t,n){"use strict";e.fn.foundationAccordion=function(t){var n=function(e){return e.hasClass("hover")&&!Modernizr.touch};e(document).on("mouseenter",".accordion-lhc li",function(){var t=e(this).parent();if(n(t)){var r=e(this).children(".content-lhc").first();e(".content-lhc",t).not(r).hide().parent("li").removeClass("active-lhc"),r.show(0,function(){r.parent("li").addClass("active-lhc")})}}),e(document).on("click.fndtn",".accordion-lhc li .title-lhc",function(){var t=e(this).closest("li"),r=t.parent();if(!n(r)){var i=t.children(".content-lhc").first();t.hasClass("active-lhc")?r.find("li").removeClass("active-lhc").end().find(".content-lhc").hide():(e(".content-lhc",r).not(i).hide().parent("li").removeClass("active-lhc"),i.show(0,function(){i.parent("li").addClass("active-lhc")}))}})}})(jQuery,this);
 
 var LHCCallbacks = {};
 
@@ -134,14 +134,14 @@ function lh(){
     		setTimeout(function(){
     			inst.find('.msg-nm').remove();
     			inst.removeClass('has-pm');
-    			$(document).foundation('section', 'resize');
+    			//$(document).foundation('section', 'resize');
     			$('#messagesBlock-'+chat_id).animate({ scrollTop: $('#messagesBlock-'+chat_id).prop('scrollHeight') }, 1000);
     		},500);
     	});
 
     	$.get(url, function(data) {
     		  $('#simple'+chat_id+'Tab').html(data);    		
-    		  $(document).foundation('section', 'resize');    		
+    		  //$(document).foundation('section', 'resize');    		
     	});
     };
 
@@ -299,7 +299,7 @@ function lh(){
     };
 
     this.cancelcolorbox = function(){
-    	$('#myModal').foundation('reveal', 'close');
+    	//$('#myModal').foundation('reveal', 'close');
     };
 
     this.sendemail = function(){    
@@ -428,7 +428,7 @@ function lh(){
     		$('#chat-right-column-'+chat_id).show();
 	    	$('#chat-main-column-'+chat_id).removeClass('large-12');
 	    	$('#chat-main-column-'+chat_id+' .collapse-right').removeClass('icon-left-circled').addClass('icon-right-circled');
-	    	$(document).foundation('section', 'reflow');
+	    	//$(document).foundation('section', 'reflow');
     	};
     };
 
@@ -582,7 +582,7 @@ function lh(){
 	    	tabs.find(' > section.active').remove();
 			tabs.find(' > section:eq(' + (index - 1) + ')').addClass("active");
 
-			$(document).foundation('section', 'resize');
+			//$(document).foundation('section', 'resize');
 
 	        if (this.closeWindowOnChatCloseDelete == true)
 	        {
@@ -614,7 +614,7 @@ function lh(){
     	tabs.find(' > section.active').remove();
 		tabs.find(' > section:eq(' + (index - 1) + ')').addClass("active");
 
-		$(document).foundation('section', 'resize');
+		//$(document).foundation('section', 'resize');
 
         if (this.closeWindowOnChatCloseDelete == true)
         {
@@ -649,7 +649,7 @@ function lh(){
 			tabs.find(' > section:eq(' + (index - 1) + ')').addClass("active");
 
 
-			$(document).foundation('section', 'resize');
+			//$(document).foundation('section', 'resize');
 
 	        if (this.closeWindowOnChatCloseDelete == true)
 	        {
@@ -667,7 +667,7 @@ function lh(){
     	tabs.find(' > section.active').remove();
 		tabs.find(' > section:eq(' + (index - 1) + ')').addClass("active");
 
-		$(document).foundation('section', 'resize');
+		//$(document).foundation('section', 'resize');
 
         if (this.closeWindowOnChatCloseDelete == true)
         {
@@ -702,7 +702,7 @@ function lh(){
 		    tabs.find(' > section.active').remove();
 			tabs.find(' > section:eq(' + (index - 1) + ')').addClass("active");
 
-			$(document).foundation('section', 'resize');
+			//$(document).foundation('section', 'resize');
 
 
 	        if (this.closeWindowOnChatCloseDelete == true)
@@ -862,7 +862,7 @@ function lh(){
 	this.previewChat = function(chat_id)
 	{		
 		this.initializeModal();
-		$('#myModal').foundation('reveal', 'open', {url: WWW_DIR_JAVASCRIPT+'chat/previewchat/'+chat_id});
+		//$('#myModal').foundation('reveal', 'open', {url: WWW_DIR_JAVASCRIPT+'chat/previewchat/'+chat_id});
 	};
 	
 	this.redirectContact = function(chat_id,message){		
@@ -1140,7 +1140,7 @@ function lh(){
 	        		                	  } else {
 	        		                		  mainElement.append('<span rel="'+item.mn+'" class="msg-nm"> ('+item.mn+')</span>');
 	        		                		  mainElement.addClass('has-pm');
-	        		                		  $(document).foundation('section', 'resize');
+	        		                		  //$(document).foundation('section', 'resize');
 	        		                	  }
 	        		                  }
 	        		                  
@@ -1415,7 +1415,7 @@ function lh(){
 		if ($('#'+modelSelector).size() == 0) {
 			$('body').prepend('<div id="'+modelSelector+'" class="reveal-modal large"><a class="close-reveal-modal">&#215;</a></div>');
 			$("#"+modelSelector).on("opened", function(){
-				$(document).foundation('section', 'reflow')					
+				//$(document).foundation('section', 'reflow')					
 			});
 		};	
 	};
@@ -1423,7 +1423,7 @@ function lh(){
 	this.revealIframe = function(url,height) {
 		this.initializeModal();
 		$('#myModal').html('<a class="close-reveal-modal">&#215;</a><iframe src="'+url+'" frameborder="0" style="width:100%" height="'+height+'" />');
-		$('#myModal').foundation('reveal', 'open'); 
+		//$('#myModal').foundation('reveal', 'open'); 
 	};
 	
 	this.revealModal = function(url,closePrevious) {
@@ -1433,18 +1433,18 @@ function lh(){
 		}
 		
 		this.initializeModal('myModal');			
-		$('#myModal').foundation('reveal', 'open',{'url':url}); 		
+		//$('#myModal').foundation('reveal', 'open',{'url':url}); 		
 	};
 	
 	this.closeReveal = function()
 	{
-		$('#myModal').foundation('reveal', 'close'); 
+		//$('#myModal').foundation('reveal', 'close'); 
 	};
 	
 	this.speechLanguage = function(chat_id)
 	{
 		this.initializeModal();		
-		$('#myModal').foundation('reveal', 'open', {url: WWW_DIR_JAVASCRIPT+'speech/setchatspeechlanguage/'+chat_id});		
+		//$('#myModal').foundation('reveal', 'open', {url: WWW_DIR_JAVASCRIPT+'speech/setchatspeechlanguage/'+chat_id});		
 		return false;
 	};
 	
@@ -1463,7 +1463,7 @@ function lh(){
 				if (_this.speechHandler !== false) {
 					_this.speechHandler.setChatDialect(chat_id,data.dialect);
 				}
-				$('#myModal').foundation('reveal', 'close');
+				//$('#myModal').foundation('reveal', 'close');
 			}
 		});
 		
@@ -1710,7 +1710,7 @@ function lh(){
     };
     
     this.closeReveal = function(id){
-		$(id).foundation('reveal', 'close');
+		//$(id).foundation('reveal', 'close');
 	};
 	
 	this.switchToOfflineForm = function(){
@@ -1722,14 +1722,14 @@ function lh(){
 	
     this.changeChatStatus = function(chat_id){    	
     	this.initializeModal();	   	
-    	$('#myModal').foundation('reveal','open',{url: this.wwwDir+  'chat/changestatus/'+chat_id});
+    	//$('#myModal').foundation('reveal','open',{url: this.wwwDir+  'chat/changestatus/'+chat_id});
     };
     
     this.changeStatusAction = function(form,chat_id){
     	var inst = this;
     	$.postJSON(form.attr('action'),form.serialize(), function(data) {
 	   		 if (data.error == 'false') {
-	   			$('#myModal').foundation('reveal', 'close');
+	   			//$('#myModal').foundation('reveal', 'close');
 	   			inst.updateVoteStatus(chat_id);
 	   		 } else {
 	   			 alert(data.result);
@@ -2009,10 +2009,10 @@ function gMapsCallback(){
     				if ($('#myModal').size() == 0) {
     					$('body').prepend('<div id="myModal" class="reveal-modal medium"><a class="close-reveal-modal">&#215;</a></div>');
     					$("#myModal").on("opened", function(){
-    						$(document).foundation('section', 'reflow')					
+    						//$(document).foundation('section', 'reflow')					
     					});
     				};    				
-    				$('#myModal').foundation('reveal', 'open', {url: WWW_DIR_JAVASCRIPT+'chat/getonlineuserinfo/'+e.Id});
+    				//$('#myModal').foundation('reveal', 'open', {url: WWW_DIR_JAVASCRIPT+'chat/getonlineuserinfo/'+e.Id});
     			});
 
     			marker.setVisible(true);

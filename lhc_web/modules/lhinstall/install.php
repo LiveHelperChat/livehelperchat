@@ -47,9 +47,6 @@ switch ((int)$Params['user_parameters']['step_id']) {
 		if (!is_writable("var/storage"))
 	       $Errors[] = "var/storage is not writable";
 
-		if (!is_writable("var/storagedocshare"))
-	       $Errors[] = "var/storagedocshare is not writable";
-
 		if (!is_writable("var/storageform"))
 	       $Errors[] = "var/storageform is not writable";
 
@@ -348,26 +345,6 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `timeout_message` varchar(250) NOT NULL,
 				  PRIMARY KEY (`id`),
 				  KEY `siteaccess_position` (`siteaccess`,`position`)
-				) DEFAULT CHARSET=utf8;");
-
-        	   $db->query("CREATE TABLE IF NOT EXISTS  `lh_doc_share` (
-				  `id` int(11) NOT NULL AUTO_INCREMENT,
-				  `name` varchar(250) NOT NULL,
-				  `desc` text NOT NULL,
-				  `user_id` int(11) NOT NULL,
-				  `active` int(11) NOT NULL,
-				  `converted` int(11) NOT NULL,
-				  `file_name` varchar(250) NOT NULL,
-				  `file_path` varchar(250) NOT NULL,
-				  `file_name_upload` varchar(250) NOT NULL,
-				  `file_size` int(11) NOT NULL,
-				  `type` varchar(250) NOT NULL,
-				  `ext` varchar(250) NOT NULL,
-				  `pdf_file` varchar(250) NOT NULL,
-				  `pages_pdf_count` int(11) NOT NULL,
-				  `pdf_to_img_converted` int(11) NOT NULL,
-				  PRIMARY KEY (`id`),
-				  KEY `user_id` (`user_id`)
 				) DEFAULT CHARSET=utf8;");
 
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_abstract_widget_theme` (

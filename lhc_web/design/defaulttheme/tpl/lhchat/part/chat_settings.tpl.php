@@ -1,3 +1,4 @@
+<div class="form-group">
 <?php $systemconfig = erLhcoreClassModelChatConfig::fetch($attribute);?>
 
 <?php if (!isset($boolValue)) : ?>
@@ -11,12 +12,13 @@
     <?php foreach (erConfigClassLhConfig::getInstance()->getSetting('site','available_site_access') as $siteaccess) : 
     $siteaccessOptions = erConfigClassLhConfig::getInstance()->getSetting('site_access_options',$siteaccess); ?>
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/editchatconfig','Value in');?> - &quot;<?php echo htmlspecialchars($siteaccess);?>&quot; <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/editchatconfig','site access');?></label>
-    <input class="default-input" name="<?php echo $attribute?>Value<?php echo $siteaccess?>" type="text" value="<?php isset($systemconfig->data[$siteaccess]) ? print htmlspecialchars($systemconfig->data[$siteaccess]) : ''?>" />
+    <input class="form-control" name="<?php echo $attribute?>Value<?php echo $siteaccess?>" type="text" value="<?php isset($systemconfig->data[$siteaccess]) ? print htmlspecialchars($systemconfig->data[$siteaccess]) : ''?>" />
     <?php endforeach;?>
 	
 <?php else : ?>
 	
 	<?php if (!isset($boolValue)) : ?>
-    <input class="default-input" type="text" name="<?php echo $attribute?>ValueParam" value="<?php echo htmlspecialchars($systemconfig->value);?>" />
+    <input class="form-control" type="text" name="<?php echo $attribute?>ValueParam" value="<?php echo htmlspecialchars($systemconfig->value);?>" />
     <?php else : unset($boolValue);?> <?php endif;?>
 <?php endif;?>
+</div>

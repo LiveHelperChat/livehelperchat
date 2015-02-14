@@ -164,11 +164,7 @@ return array_merge(array (
 		'MaxMind\Db\Reader\Decoder'					=> 'lib/core/lhexternal/MaxMind/Db/Reader/Decoder.php',		
 		'MaxMind\Db\Reader\Metadata'				=> 'lib/core/lhexternal/MaxMind/Db/Reader/Metadata.php',		
 		'JsonSerializable'							=> 'lib/core/lhexternal/GeoIp2/Record/JsonSerializable.php',	
-		
-		// Doc Share
-		'erLhcoreClassDocShare' 					=> 'lib/core/lhdocshare/lhdocshare.php',
-		'erLhcoreClassModelDocShare' 				=> 'lib/models/lhdocshare/erlhcoreclassmodeldocshare.php',
-		
+				
         // Speech
         'erLhcoreClassSpeech'                       => 'lib/core/lhspeech/lhspeech.php',
         'erLhcoreClassModelSpeechLanguage'          => 'lib/models/lhspeech/erlhcoreclassmodelspeechlanguage.php',

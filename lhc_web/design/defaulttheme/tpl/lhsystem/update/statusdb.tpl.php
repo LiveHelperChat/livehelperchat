@@ -4,9 +4,9 @@
 </div>
 
 <div class="row" id="db-status-checked">
-	<div class="columns small-12">
+	<div class="columns col-md-12 form-group">
 		<h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('update/statusdb','Database structure check')?></h3>
-		<ul class="circle fs12">
+		<ul>
 		<?php 
 		$hasError = false;
 		$queries = array();
@@ -14,28 +14,31 @@
 		$queries = array_merge($queries,$status['queries']);
 		$hasError = $status['error'] == true ? true : $hasError;
 		if ($status['error'] == true) : ?>
-			<li><div class="alert-box <?php echo $status['error'] == false ? 'success' : 'alert'?>"><?php echo $table?> - <?php echo $status['status']?></div></li>
+			<li><div class="alert alert-<?php echo $status['error'] == false ? 'success' : 'danger'?>"><?php echo $table?> - <?php echo $status['status']?></div></li>
 		<?php endif; endforeach;?>
 		</ul>
+				
 		<?php if ($hasError == false) : ?>
-			<label class="success label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('update/statusdb','Your database does not require any updates')?></label>
+			<label class="alert alert-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('update/statusdb','Your database does not require any updates')?></label>
 		<?php endif; ?>
 		
 		<?php if ($hasError) : ?>
-		<a class="button radius success small" onclick="updateDatabase()"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('update/statusdb','Update database')?></a>
+		<a class="btn btn-primary" onclick="updateDatabase()"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('update/statusdb','Update database')?></a>
 		<?php endif;?>
 
 	</div>
 	<?php if ( !empty($queries) ) : ?>
-	<div class="columns small-12">
-	<div class="panel">
-		<h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('update/statusdb','Queries which will be executed on update')?></h3>
-		<ul class="fs11 circle">
-			<?php foreach ($queries as $query) : ?>
-				<li class="fs11"><?php echo $query;?></li>
-			<?php endforeach; ?>
-		</ul>
-	</div>
+	<div class="columns col-md-12">	
+		<div class="panel panel-default">
+          <div class="panel-heading"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('update/statusdb','Queries which will be executed on update')?></div>
+          <div class="panel-body">
+            <ul>
+        		<?php foreach ($queries as $query) : ?>
+        			<li><?php echo $query;?></li>
+        		<?php endforeach; ?>
+        	</ul>
+          </div>
+        </div>	
 	</div>
 	<?php endif; ?>
 </div>

@@ -1,24 +1,24 @@
 <h1 class="attr-header"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','HTML code');?></h1>
 
 <div class="row">
-    <div class="columns large-6"><label><input type="checkbox" id="id_hide_then_offline" value="on" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Hide status when offline');?></label></div>
-    <div class="columns large-6"><label><input type="checkbox" id="id_show_leave_form" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Show a leave a message form when there are no online operators');?></label></div>
+    <div class="col-md-6"><label><input type="checkbox" id="id_hide_then_offline" value="on" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Hide status when offline');?></label></div>
+    <div class="col-md-6"><label><input type="checkbox" id="id_show_leave_form" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Show a leave a message form when there are no online operators');?></label></div>
 </div>
 <br />
 
 <div class="row">
-    <div class="columns large-6">
+    <div class="col-md-6">
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Choose a language');?></label>
-        <select id="LocaleID">
+        <select id="LocaleID" class="form-control">
             <?php foreach ($locales as $locale ) : ?>
             <option value="<?php echo $locale?>/"><?php echo $locale?></option>
             <?php endforeach; ?>
         </select>
     </div>
 
-    <div class="columns large-6">
+    <div class="col-md-6">
 	    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Department')?></label>
-	    <select id="DepartmentID" multiple="multiple" size="5">
+	    <select id="DepartmentID" multiple="multiple" size="5" class="form-control">
 	        	<option value="0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Any');?></option>
 			<?php foreach (erLhcoreClassModelDepartament::getList($departmentParams) as $departament) : ?>
 			    <option value="<?php echo $departament->id?>"><?php echo htmlspecialchars($departament->name)?></option>
@@ -26,14 +26,14 @@
 		</select>
 	</div>
 	
-	<div class="columns large-6">
+	<div class="col-md-6">
 		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Operator ID')?></label>
-    	<input type="text" id="id_operator" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','To what operator chat should be assigned automatically?')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','To what operator chat should be assigned automatically?')?>" value="" />
+    	<input type="text" id="id_operator" class="form-control" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','To what operator chat should be assigned automatically?')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','To what operator chat should be assigned automatically?')?>" value="" />
 	</div>
 	
-	<div class="columns large-6">
+	<div class="col-md-6">
 		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Theme')?></label>
-	        <select id="ThemeID">
+	        <select id="ThemeID" class="form-control">
 	        	<option value="0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Default');?></option>
 				<?php foreach (erLhAbstractModelWidgetTheme::getList(array('limit' => 1000)) as $theme) : ?>
 				   <option value="<?php echo $theme->id?>"><?php echo htmlspecialchars($theme->name)?></option>
@@ -41,9 +41,9 @@
 	    </select>
     </div>	
    
-   <div class="columns large-6 end">
+   <div class="col-md-6 end">
 	   <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Choose prefered http mode');?></label>
-		    <select id="HttpMode">         
+		    <select id="HttpMode" class="form-control">         
 		            <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Based on site (default)');?></option>
 		            <option value="http:">http:</option>
 		            <option value="https:">https:</option>      
@@ -81,7 +81,7 @@ function generateEmbedCode() {
     $('#HMLTContent').text(id_tag+script);
 };
 
-$('#LocaleID,#id_show_leave_form,#DepartmentID,#HttpMode,#ThemeID,#id_operator').change(function(){
+$('#LocaleID,#id_show_leave_form,#DepartmentID,#HttpMode,#ThemeID,#id_operator,#id_hide_then_offline').change(function(){
     generateEmbedCode();
 });
 

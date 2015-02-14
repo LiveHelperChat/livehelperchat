@@ -6,13 +6,13 @@
 </head>
 <body>
 
-
+<div class="container-fluid">
     <div class="row">
         <div class="columns large-12 pt10">
             <?php echo $Result['content']; ?>
         </div>
     </div>
-
+</div>
 
 <script type="text/javascript" language="javascript" src="<?php echo erLhcoreClassDesign::designJS('js/app.js');?>"></script>
 

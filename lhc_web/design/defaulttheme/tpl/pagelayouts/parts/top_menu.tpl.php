@@ -30,9 +30,8 @@
 			$useChatbox = $currentUser->hasAccessTo('lhchatbox','manage_chatbox');
 			$useBo = $currentUser->hasAccessTo('lhbrowseoffer','manage_bo');
 			$useFm = $currentUser->hasAccessTo('lhform','manage_fm');
-			$useDoc = $currentUser->hasAccessTo('lhdocshare','manage_dc');
 		?>		
-		<?php if ($useDoc || $useFm || $useBo || $useChatbox || $useFaq || $useQuestionary) : ?>
+		<?php if ($useFm || $useBo || $useChatbox || $useFaq || $useQuestionary) : ?>
 		<li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Extra modules')?> <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
@@ -50,10 +49,7 @@
 			  <?php endif; ?>				  				  
 			  <?php if ($useFm) : ?>
 			  <li><a href="<?php echo erLhcoreClassDesign::baseurl('form/index')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('browseoffer/index','Forms');?></a></li>
-			  <?php endif;?>
-              <?php if ($useDoc) : ?>
-			  <li><a href="<?php echo erLhcoreClassDesign::baseurl('docshare/index')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('browseoffer/index','Documents');?></a></li>
-			  <?php endif; ?>
+			  <?php endif;?>             
             </ul>
         </li>		
 		<?php endif; ?> 

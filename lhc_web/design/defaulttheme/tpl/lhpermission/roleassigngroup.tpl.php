@@ -1,6 +1,6 @@
-<a class="close-reveal-modal">&#215;</a>
+<?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_header.tpl.php'));?>
 <form action="<?php echo erLhcoreClassDesign::baseurl('permission/editrole')?>/<?php echo $role_id ?>" method="post">
-<table cellpadding="0" cellspacing="0" width="100%">
+<table class="table" width="100%">
 <thead>
 <tr>
     <th width="1%">ID</th>
@@ -18,6 +18,7 @@
 
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
-<input type="submit" class="small button" name="AssignGroups" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/roleassigngroup','Assign');?>" />
+<input type="submit" class="btn btn-default" name="AssignGroups" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/roleassigngroup','Assign');?>" />
 
 </form>
+<?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_footer.tpl.php'));?>
