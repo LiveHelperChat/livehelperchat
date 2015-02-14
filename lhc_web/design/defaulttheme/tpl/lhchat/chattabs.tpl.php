@@ -7,58 +7,56 @@ $closedTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_close_list
 $unreadTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_unread_list',1);
 ?>
 
-<div class="section-container auto" data-section="auto" id="tabs" ng-cloak>
-  <?php if ($pendingTabEnabled == true) : ?>
-  <section>
-    <p class="title" data-section-title><a href="#panel1" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Pending confirm');?>"><i class="icon-chat chat-pending"></i><span>{{pending_chats.list.length != false && pending_chats.list.length > 0 ? ' ('+pending_chats.list.length+')' : ''}}</span></a></p>
-    <div class="content" data-section-content>
-      <div>
-      	<div id="pending-chat-list"><?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_pending_list.tpl.php'));?></div>
-  	  	<br/>
-  	  	<a class="small button round" href="<?php echo erLhcoreClassDesign::baseurl('chat/pendingchats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','All pending chats');?></a>
-  	  </div>
-    </div>
-  </section>
-  <?php endif;?>
+<div role="tabpanel" ng-cloak id="tabs">
 
-  <?php if ($activeTabEnabled == true) : ?>
-  <section>
-    <p class="title" data-section-title><a href="#panel2" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Active chats');?>"><i class="icon-chat chat-active"></i><span>{{active_chats.list.length != false && active_chats.list.length > 0 ? ' ('+active_chats.list.length+')' : ''}}</span></a></p>
-    <div class="content" data-section-content>
-      <div>
-     	<div id="active-chat-list"><?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_active_list.tpl.php'));?></div>
-     	<br/>
- 	 	<a class="small button round" href="<?php echo erLhcoreClassDesign::baseurl('chat/activechats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','All active chats');?></a>
-      </div>
-    </div>
-  </section>
-  <?php endif;?>
+	<!-- Nav tabs -->
+	<ul class="nav nav-tabs" role="tablist">
+	    <?php if ($pendingTabEnabled == true) : ?>
+		<li role="presentation" class="active"><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Pending confirm');?>" href="#panel1" aria-controls="panel1" role="tab" data-toggle="tab"><i class="icon-chat chat-pending"></i><span>{{pending_chats.list.length != false && pending_chats.list.length > 0 ? ' ('+pending_chats.list.length+')' : ''}}</span></a></li>
+		<?php endif;?>
+		<?php if ($activeTabEnabled == true) : ?>
+		<li role="presentation"><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Active chats');?>" href="#panel2" aria-controls="panel2" role="tab" data-toggle="tab"><i class="icon-chat chat-active"></i><span>{{active_chats.list.length != false && active_chats.list.length > 0 ? ' ('+active_chats.list.length+')' : ''}}</span></a></li>
+		<?php endif;?>
+		
+		<?php if ($unreadTabEnabled == true) : ?>
+		<li role="presentation"><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Unread messages');?>" href="#panel3" aria-controls="panel3" role="tab" data-toggle="tab"><i class="icon-comment chat-unread"></i><span>{{unread_chats.list.length != false && unread_chats.list.length > 0 ? ' ('+unread_chats.list.length+')' : ''}}</span></a></li>
+		<?php endif;?>
+		
+		<?php if ($closedTabEnabled == true) : ?>
+		<li role="presentation"><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Closed chats');?>" href="#panel4" aria-controls="panel4" role="tab" data-toggle="tab"><i class="icon-cancel-circled chat-closed"></i><span>{{closed_chats.list.length != false && closed_chats.list.length > 0 ? ' ('+closed_chats.list.length+')' : ''}}</span></a></li>
+		<?php endif;?>
+	</ul>
 
-  <?php if ($unreadTabEnabled == true) : ?>
-  <section>
-    <p class="title" data-section-title><a href="#panel3" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Unread messages');?>"><i class="icon-comment chat-unread"></i><span>{{unread_chats.list.length != false && unread_chats.list.length > 0 ? ' ('+unread_chats.list.length+')' : ''}}</span></a></p>
-    <div class="content" data-section-content>
-      <div>
-     	<div id="unread-chat-list"><?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_unread_list.tpl.php'));?></div>
-  		<br/>
-  		<a class="small button round" href="<?php echo erLhcoreClassDesign::baseurl('chat/unreadchats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','All unread chats');?></a>
-      </div>
-    </div>
-  </section>
-  <?php endif;?>
-
-  <?php if ($closedTabEnabled == true) : ?>
-  <section>
-    <p class="title" data-section-title><a href="#panel4" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Closed chats');?>"><i class="icon-cancel-circled chat-closed"></i><span>{{closed_chats.list.length != false && closed_chats.list.length > 0 ? ' ('+closed_chats.list.length+')' : ''}}</span></a></p>
-    <div class="content" data-section-content>
-      <div>
-     	<div id="closed-chat-list"><?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_closed_list.tpl.php'));?></div>
-  		<br/>
-  		<a class="small button round" href="<?php echo erLhcoreClassDesign::baseurl('chat/closedchats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','All closed chats');?></a>
-      </div>
-    </div>
-  </section>
-  <?php endif;?>
+	<!-- Tab panes -->
+	<div class="tab-content">
+	    <?php if ($pendingTabEnabled == true) : ?>
+		<div role="tabpanel" class="tab-pane active" id="panel1">
+		      <div id="pending-chat-list"><?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_pending_list.tpl.php'));?></div>
+			  <br /> <a class="btn btn-default" href="<?php echo erLhcoreClassDesign::baseurl('chat/pendingchats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','All pending chats');?></a>
+		</div>
+		<?php endif;?>
+		
+		<?php if ($activeTabEnabled == true) : ?>
+		<div role="tabpanel" class="tab-pane" id="panel2">
+		     <div id="active-chat-list"><?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_active_list.tpl.php'));?></div>
+			 <br /><a class="btn btn-default" href="<?php echo erLhcoreClassDesign::baseurl('chat/activechats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','All active chats');?></a>
+		</div>
+		<?php endif;?>
+		
+		<?php if ($unreadTabEnabled == true) : ?>
+		<div role="tabpanel" class="tab-pane" id="panel3">
+		     <div id="unread-chat-list"><?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_unread_list.tpl.php'));?></div>
+			 <br /> <a class="btn btn-default" href="<?php echo erLhcoreClassDesign::baseurl('chat/unreadchats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','All unread chats');?></a>
+		</div>
+		<?php endif;?>
+		
+		<?php if ($closedTabEnabled == true) : ?>
+		<div role="tabpanel" class="tab-pane" id="panel4">
+		     <div id="closed-chat-list"><?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_closed_list.tpl.php'));?></div>
+			 <br /> <a class="btn btn-default" href="<?php echo erLhcoreClassDesign::baseurl('chat/closedchats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','All closed chats');?></a>
+		</div>
+		<?php endif;?>
+	</div>
 </div>
 
 <script type="text/javascript">
