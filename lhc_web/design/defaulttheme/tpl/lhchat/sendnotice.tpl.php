@@ -1,4 +1,4 @@
-<a class="close-reveal-modal">&#215;</a>
+<?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_header.tpl.php'));?>
 <h2><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Send a message to the user');?></h2>
 
 <?php if (isset($errors)) : ?>
@@ -40,3 +40,4 @@ setTimeout(function(){
 	<input type="submit" class="button small" name="SendMessage" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Send the message');?>" />
 
 </form>
+<?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_footer.tpl.php'));?>

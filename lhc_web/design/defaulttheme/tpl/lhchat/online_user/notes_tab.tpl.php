@@ -1,0 +1,2 @@
+<li role="presentation"><a href="#notestab" aria-controls="notestab" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Notes')?></a></li>
+    		

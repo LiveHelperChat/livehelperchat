@@ -1,0 +1,2 @@
+<li role="presentation"><a href="#screenshot" aria-controls="screenshot" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/screenshot','Screenshot')?></a></li>
+    		

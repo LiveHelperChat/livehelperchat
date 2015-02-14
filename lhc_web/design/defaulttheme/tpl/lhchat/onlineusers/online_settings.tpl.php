@@ -1,4 +1,4 @@
-<ul class="no-bullet inline-list user-settings-list online-settings">
+<ul class="list-inline user-settings-list online-settings">
 	<li class="li-icon"><a href="#" ng-click="online.disableNewUserSound()"><i ng-class="{'icon-mute disabled-icon':!online.soundEnabled}" class="icon-sound"  title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Enable/Disable sound about new visitor');?>"></i></a></li>
 	<li class="li-icon"><a href="#" ng-click="online.disableNewUserBNotif()"><i ng-class="{'disabled-icon':!online.notificationEnabled}" class="icon-eye"  title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Enable/Disable browser notifications about new visitor');?>"></i></a></li>
 </ul>

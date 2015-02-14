@@ -1,43 +1,59 @@
-<a class="close-reveal-modal">&#215;</a>
+<?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_header.tpl.php'));?>
 
-<div class="online-user-info">
 <a href="<?php echo htmlspecialchars(trim($online_user->current_page))?>" class="no-wrap fs11"><?php echo htmlspecialchars(trim($online_user->referrer))?></a>
 
+<div class="online-user-info">
+    <div role="tabpanel">
+    	<!-- Nav tabs -->
+    	<ul class="nav nav-tabs" role="tablist">
+    		<li role="presentation" class="active"><a href="#panel1" aria-controls="panel1" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Visitor')?></a></li>
+    		
+    		<?php if ( erLhcoreClassModelChatConfig::fetch('track_footprint')->current_value == 1) : ?>
+    		<li role="presentation"><a href="#panel2" aria-controls="panel2" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Footprint')?></a></li>
+    		<?php endif;?>
+    		
+    		<?php include(erLhcoreClassDesign::designtpl('lhchat/online_user/user_chats_tab.tpl.php')); ?>
+    		
+    		<?php include(erLhcoreClassDesign::designtpl('lhchat/online_user/screenshot_tab.tpl.php')); ?>
+    		
+    		<?php include(erLhcoreClassDesign::designtpl('lhchat/online_user/notes_tab.tpl.php')); ?>
+    	</ul>
+    
+    	<!-- Tab panes -->
+    	<div class="tab-content">
+    		<div role="tabpanel" class="tab-pane active" id="panel1">
+    		  <?php include(erLhcoreClassDesign::designtpl('lhchat/online_user/online_user_info.tpl.php')); ?>
+    		  <input type="button" class="small button radius mb0" onclick="lhinst.revealModal('<?php echo erLhcoreClassDesign::baseurl('chat/sendnotice')?>/<?php echo $online_user->id?>',true);" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Send message');?>"/>
+    		</div>
+    		
+    		<?php if ( erLhcoreClassModelChatConfig::fetch('track_footprint')->current_value == 1) : ?>
+    		<div role="tabpanel" class="tab-pane" id="panel2">
+        		<ul class="foot-print-content list-unstyled mb0" style="max-height: 170px;">
+        		<?php foreach (erLhcoreClassModelChatOnlineUserFootprint::getList(array('filter' => array('online_user_id' => $online_user->id))) as $footprintItems) : ?>
+        		<li>
+        		<a target="_blank" href="<?php echo htmlspecialchars($footprintItems->page);?>"><?php echo $footprintItems->time_ago?> | <?php echo htmlspecialchars($footprintItems->page);?></a>
+        		</li>
+        		<?php endforeach;?>
+        		</ul>
+    		</div>
+    		<?php endif;?>
+    		
+    		<?php include(erLhcoreClassDesign::designtpl('lhchat/online_user/user_chats.tpl.php')); ?>
+    		
+    		<?php include(erLhcoreClassDesign::designtpl('lhchat/online_user/screenshot.tpl.php')); ?>
+    		
+    		 <?php include(erLhcoreClassDesign::designtpl('lhchat/online_user/notes.tpl.php')); ?>
+    	</div>
+    </div>
+</div>
+
+<?php /*?>
 <div class="mt10 section-container auto mb0" data-section >
-  <section id="online-user-info">
-    <p class="title" data-section-title><a href="#panel1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Visitor')?></a></p>
-    <div class="content" data-section-content>
-
-    <div>
-    	<?php include(erLhcoreClassDesign::designtpl('lhchat/online_user/online_user_info.tpl.php')); ?>
-		<input type="button" class="small button radius mb0" onclick="lhinst.revealModal('<?php echo erLhcoreClassDesign::baseurl('chat/sendnotice')?>/<?php echo $online_user->id?>',true);" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Send message');?>"/>
-	</div>
-
-    </div>
-  </section>
-  <?php if ( erLhcoreClassModelChatConfig::fetch('track_footprint')->current_value == 1) : ?>
-  <section>
-    <p class="title" data-section-title><a href="#panel2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Footprint')?></a></p>
-    <div class="content" data-section-content>
-      	<div>
-		<ul class="foot-print-content circle mb0" style="max-height: 170px;">
-		<?php foreach (erLhcoreClassModelChatOnlineUserFootprint::getList(array('filter' => array('online_user_id' => $online_user->id))) as $footprintItems) : ?>
-		<li>
-		<a target="_blank" href="<?php echo htmlspecialchars($footprintItems->page);?>"><?php echo $footprintItems->time_ago?> | <?php echo htmlspecialchars($footprintItems->page);?></a>
-		</li>
-		<?php endforeach;?>
-		</ul>
-		</div>
-    </div>
-  </section>
-  <?php endif;?>
-
-  <?php include(erLhcoreClassDesign::designtpl('lhchat/online_user/user_chats.tpl.php')); ?>
   
-  <?php include(erLhcoreClassDesign::designtpl('lhchat/online_user/screenshot.tpl.php')); ?>
-  
+    
   <?php include(erLhcoreClassDesign::designtpl('lhchat/online_user/notes.tpl.php')); ?>
 
 </div>
+*/ ?>
 
-</div>
+<?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_footer.tpl.php'));?>
