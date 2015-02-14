@@ -8,12 +8,12 @@
 
 <div class="container-fluid">
 	<div class="row">
-	    <div class="columns large-6">
+	    <div class="col-sm-6">
 	        <h1><a href="<?php echo erLhcoreClassDesign::baseurl()?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Home')?>"><img src="<?php echo erLhcoreClassDesign::design('images/general/logo.png');?>" alt="<?php echo erConfigClassLhConfig::getInstance()->getSetting( 'site', 'title' )?>" title="<?php echo erConfigClassLhConfig::getInstance()->getSetting( 'site', 'title' )?>"></a></h1>
 	    </div>	    
 	</div>
 	<div class="row">
-		<div class="columns large-12">
+		<div class="col-sm-12">
 		<?php echo $Result['content'];?>
 		<?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_footer.tpl.php'));?>
 		</div>

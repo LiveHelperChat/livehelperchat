@@ -5,8 +5,11 @@
 <?php endif; ?>
 
 <form method="post" action="<?php echo erLhcoreClassDesign::baseurl('user/forgotpassword')?>">
-<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/forgotpassword','E-mail')?>:</label>
-<input type="text" class="inputfield" name="Email" value="" />
 
-<input type="submit" class="small round button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/forgotpassword','Restore password')?>" name="Forgotpassword" />
+<div class="form-group">
+    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/forgotpassword','E-mail')?>:</label>
+    <input type="text" class="form-control" name="Email" value="" />
+</div>
+
+<input type="submit" class="btn btn-default" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/forgotpassword','Restore password')?>" name="Forgotpassword" />
 </form>

@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="columns large-7" id="chat-main-column-<?php echo $chat->id;?>">
+	<div class="col-sm-7" id="chat-main-column-<?php echo $chat->id;?>">
 		<a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Show/Hide right column')?>" href="#" class="icon-right-circled collapse-right" onclick="lhinst.processCollapse('<?php echo $chat->id;?>')"></a>
 
 		<div class="message-block">
@@ -24,9 +24,9 @@
 		
 		<div class="user-is-typing" id="user-is-typing-<?php echo $chat->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','User is typing now...')?></div>
 		
-		<textarea rows="4" <?php if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?>readonly="readonly"<?php endif;?> name="ChatMessage" id="CSChatMessage-<?php echo $chat->id?>"></textarea>
 		
-			
+		<textarea class="form-control form-group" rows="4" <?php if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?>readonly="readonly"<?php endif;?> name="ChatMessage" id="CSChatMessage-<?php echo $chat->id?>"></textarea>
+					
 		<script type="text/javascript">
 		jQuery('#CSChatMessage-<?php echo $chat->id?>').bind('keydown', 'return', function (evt){
 		    lhinst.addmsgadmin('<?php echo $chat->id?>');
@@ -43,7 +43,7 @@
 		<?php include(erLhcoreClassDesign::designtpl('lhchat/part/below_action_block.tpl.php')); ?>
 
 	</div>
-	<div class="columns large-5" id="chat-right-column-<?php echo $chat->id;?>">
+	<div class="columns col-sm-5" id="chat-right-column-<?php echo $chat->id;?>">
 		<?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/chat_tabs_container.tpl.php')); ?>
 	</div>
 </div>

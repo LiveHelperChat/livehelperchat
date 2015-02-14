@@ -6,15 +6,21 @@
 
 <form id="form-start-chat" method="post" action="<?php echo erLhcoreClassDesign::baseurl('user/login')?>">
 
-<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Username');?></label>
-<input type="text" name="Username" value="" />
+<div class="form-group">
+    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Username');?></label>
+    <input class="form-control" type="text" name="Username" value="" />
+</div>
 
-<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Password');?></label>
-<input type="password" class="inputfield" name="Password" value="" />
+<div class="form-group">
+    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Password');?></label>
+    <input type="password" class="form-control" name="Password" value="" />
+</div>
 
-<label class="mb6"><input class="input-checkbox" type="checkbox" name="rememberMe" value="1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Remember me');?></label>
+<div class="form-group">
+    <label class="mb6"><input class="input-checkbox" type="checkbox" name="rememberMe" value="1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Remember me');?></label>
+</div>
 
-<input type="submit" class="small round button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Login');?>" name="Login" />&nbsp;<a class="fs11" href="<?php echo erLhcoreClassDesign::baseurl('user/forgotpassword')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Password reminder')?></a>
+<input type="submit" class="btn btn-default" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Login');?>" name="Login" />&nbsp;<a class="fs11" href="<?php echo erLhcoreClassDesign::baseurl('user/forgotpassword')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Password reminder')?></a>
 
 <input type="hidden" name="redirect" value="<?php echo htmlspecialchars($redirect_url);?>" />
 

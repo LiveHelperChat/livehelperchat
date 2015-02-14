@@ -29,24 +29,28 @@
     $unreadTabEnabled = (int)erLhcoreClassModelUserSetting::getSetting('enable_unread_list',1);
     ?>
     <div class="columns col-md-3" id="right-column-page" ng-cloak>
-			<div class="section-container auto" data-section="auto">
-			  <section>
-			    <p class="title" data-section-title><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Chats transferred to you directly');?>" href="#panel1"><i class="icon-user"></i><span class="tru-cnt"></span></a></p>
-			    <div class="content" data-section-content>
-			      <div id="right-transfer-chats">
+        
+        <div role="tabpanel">
+        	<!-- Nav tabs -->
+        	<ul class="nav nav-tabs" role="tablist">
+        		<li role="presentation" class="active"><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Chats transferred to you directly');?>" href="#transferedperson" aria-controls="transferedperson" role="tab" data-toggle="tab"><i class="icon-user"></i><span class="tru-cnt"></span></a></li>
+        		<li role="presentation"><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Transferred to your department');?>" href="#transfereddep" aria-controls="transfereddep" role="tab" data-toggle="tab"><i class="icon-users"></i><span class="trd-cnt"></span></a></li>
+        	</ul>
+        
+        	<!-- Tab panes -->
+        	<div class="tab-content">
+        		<div role="tabpanel" class="tab-pane active" id="transferedperson">
+        		    <div id="right-transfer-chats">
 			      		<?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_transfer_chats.tpl.php'));?>
 		            </div>
-			    </div>
-			  </section>
-			  <section>
-			    <p class="title" data-section-title><a href="#panel2" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Transferred to your department');?>"><i class="icon-users"></i><span class="trd-cnt"></span></a></p>
-			    <div class="content" data-section-content>
-			      <div id="right-transfer-departments">
+        		</div>
+        		<div role="tabpanel" class="tab-pane" id="transfereddep">
+        		    <div id="right-transfer-departments">
 			      		<?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_transfer_chats_departments.tpl.php'));?>
 		            </div>
-			    </div>
-			  </section>
-			</div>
+        		</div>
+        	</div>
+        </div>
 
     		<?php if ($pendingTabEnabled == true) : ?>
     		<div ng-show="pending_chats.list.length > 0">

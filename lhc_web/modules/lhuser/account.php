@@ -420,6 +420,8 @@ if ( erLhcoreClassUser::instance()->hasAccessTo('lhuser','personalcannedmsg') ) 
 		}  else {
 			$tpl->set('errors_canned',$Errors);
 		}
+		
+		$tpl->set('tab','tab_canned');
 	}
 	
 	/**
@@ -444,8 +446,7 @@ if ( erLhcoreClassUser::instance()->hasAccessTo('lhuser','personalcannedmsg') ) 
 		exit;
 	}
 	
-	$tpl->set('canned_msg',$cannedMessage);
-	$tpl->set('tab','tab_canned');
+	$tpl->set('canned_msg',$cannedMessage);	
 }
 
 

@@ -1,33 +1,26 @@
 <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','take_screenshot')) : ?>
-<section>
-    <p class="title" data-section-title><a href="#screenshot"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/screenshot','Screenshot')?></a></p>
-    <div class="content" data-section-content>    
-      <div>
-            
-	    <ul class="button-group radius">
-	      <li><input type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/screenshot','Take user screenshot')?>" class="button tiny" onclick="lhinst.addRemoteCommand('<?php echo $chat->id?>','lhc_screenshot')" /></li>
-		  <li><input type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/screenshot','Refresh')?>" class="button tiny" onclick="lhinst.updateScreenshot('<?php echo $chat->id?>')" /></li>
-		</ul>
-	
-      	<div id="user-screenshot-container">
-      	
+<div role="tabpanel" class="tab-pane" id="main-user-info-screenshot-<?php echo $chat->id?>">
+    <div class="btn-group" role="group" aria-label="...">
+      <input type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/screenshot','Take user screenshot')?>" class="btn btn-default" onclick="lhinst.addRemoteCommand('<?php echo $chat->id?>','lhc_screenshot')" />
+      <input type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/screenshot','Refresh')?>" class="btn btn-default" onclick="lhinst.updateScreenshot('<?php echo $chat->id?>')" />
+    </div>
+       
+    <div id="user-screenshot-container">
       	<?php if ($chat->screenshot !== false) : ?>    
       	<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/screenshot','Taken')?> <?php echo $chat->screenshot->date_front?></h5>
       	   	
       	<a href="<?php echo erLhcoreClassDesign::baseurl('file/downloadfile')?>/<?php echo $chat->screenshot->id?>/<?php echo $chat->screenshot->security_hash?>/(inline)/true" target="_blank" class="screnshot-container">
-			<img id="screenshotImage" src="<?php echo erLhcoreClassDesign::baseurl('file/downloadfile')?>/<?php echo $chat->screenshot->id?>/<?php echo $chat->screenshot->security_hash?>" alt="" />
-		</a>
-		<script>
-		$(document).ready(function(){
-		  $('.screnshot-container').zoom();
-		});
-		</script>		
-      	<?php else : ?>      
+    		<img id="screenshotImage" src="<?php echo erLhcoreClassDesign::baseurl('file/downloadfile')?>/<?php echo $chat->screenshot->id?>/<?php echo $chat->screenshot->security_hash?>" alt="" />
+    	</a>
+    	<script>
+    	$(document).ready(function(){
+    	  $('.screnshot-container').zoom();
+    	});
+    	</script>		
+      	<?php else : ?>    
+      	<br/>  
       	<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/screenshot','Empty...')?>
       	<?php endif;?>
-      	
-      	</div>
-      </div>
     </div>
-</section>
+</div>
 <?php endif;?>

@@ -6,7 +6,7 @@
 
 <?php if (!isset($start_data_fields['show_operator_profile']) || $start_data_fields['show_operator_profile'] == false) : ?>
 <div class="row">
-	<div class="columns pos-rel small-6 max-width-180 right">
+	<div class="columns pos-rel col-xs-6 max-width-180">
 	<?php $rightLanguage = true;?>
 	<?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/switch_language.tpl.php'));?>
 	</div>
@@ -15,8 +15,6 @@
 
 <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/widget_geo_adjustment.tpl.php'));?>
 <?php if ($exitTemplate == true) return; ?>
-
-
 
 <?php if ($leaveamessage == false || ($forceoffline === false && erLhcoreClassChat::isOnline($department, false, array('ignore_user_status'=> (int)erLhcoreClassModelChatConfig::fetch('ignore_user_status')->current_value, 'online_timeout' => (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'])) === true)) : ?>
 
@@ -45,9 +43,9 @@ if ($theme !== false && $theme->explain_text != '') : ?>
 		<?php if (in_array('username', $input_data->hattr)) : ?>
 			<input type="hidden" name="Username" value="<?php echo htmlspecialchars($input_data->username);?>" />
 		<?php else : ?>
-	    <div class="columns small-6 end">
+	    <div class="col-xs-6">
 	        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Name');?><?php if (isset($start_data_fields['name_require_option']) && $start_data_fields['name_require_option'] == 'required') : ?>*<?php endif;?></label>
-	        <input type="text" name="Username" value="<?php echo htmlspecialchars($input_data->username);?>" />
+	        <input type="text" class="form-control" name="Username" value="<?php echo htmlspecialchars($input_data->username);?>" />
 	    </div>    
 	    <?php endif; ?>    
     <?php endif; ?>
@@ -62,9 +60,9 @@ if ($theme !== false && $theme->explain_text != '') : ?>
 		<?php if (in_array('email', $input_data->hattr)) : ?>
 			<input type="hidden" name="Email" value="<?php echo htmlspecialchars($input_data->email);?>" />
 		<?php else : ?>
-	    <div class="columns small-6 end">
+	    <div class="col-xs-6 form-group">
 	        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','E-mail');?><?php if (isset($start_data_fields['email_require_option']) && $start_data_fields['email_require_option'] == 'required') : ?>*<?php endif;?></label>
-	        <input type="text" name="Email" value="<?php echo htmlspecialchars($input_data->email);?>" />
+	        <input class="form-control" type="text" name="Email" value="<?php echo htmlspecialchars($input_data->email);?>" />
 	    </div>
 	    <?php endif; ?>
     <?php endif; ?>
@@ -80,8 +78,10 @@ if ($theme !== false && $theme->explain_text != '') : ?>
 		<?php if (in_array('phone', $input_data->hattr)) : ?>
 		<input type="hidden" name="Phone" value="<?php echo htmlspecialchars($input_data->phone);?>" />
 		<?php else : ?>
-		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Phone');?><?php if (isset($start_data_fields['phone_require_option']) && $start_data_fields['phone_require_option'] == 'required') : ?>*<?php endif;?></label>
-		<input type="text" name="Phone" value="<?php echo htmlspecialchars($input_data->phone);?>" />
+		<div class="form-group">
+		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Phone');?><?php if (isset($start_data_fields['phone_require_option']) && $start_data_fields['phone_require_option'] == 'required') : ?>*<?php endif;?></label>
+		  <input class="form-control" type="text" name="Phone" value="<?php echo htmlspecialchars($input_data->phone);?>" />
+		</div>
 		<?php endif; ?>
 <?php endif; ?>
 <?php endif; ?>
@@ -91,7 +91,7 @@ if ($theme !== false && $theme->explain_text != '') : ?>
 <textarea class="hide" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your message');?>" name="Question"><?php echo htmlspecialchars($input_data->question);?></textarea>
 <?php else : ?>
 <?php if (!isset($start_data_fields['hide_message_label']) || $start_data_fields['hide_message_label'] == false) : ?><label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Your question');?><?php if (isset($start_data_fields['message_require_option']) && $start_data_fields['message_require_option'] == 'required') : ?>*<?php endif;?></label><?php endif;?>
-<textarea <?php if (isset($start_data_fields['user_msg_height']) && $start_data_fields['user_msg_height'] > 0) : ?>style="height: <?php echo $start_data_fields['user_msg_height']?>px"<?php endif;?> placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a message...');?>" id="id_Question" name="Question"><?php echo htmlspecialchars($input_data->question);?></textarea>
+<textarea class="form-control form-group" <?php if (isset($start_data_fields['user_msg_height']) && $start_data_fields['user_msg_height'] > 0) : ?>style="height: <?php echo $start_data_fields['user_msg_height']?>px"<?php endif;?> placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a message...');?>" id="id_Question" name="Question"><?php echo htmlspecialchars($input_data->question);?></textarea>
 <?php endif; ?>
 <?php else : $hasExtraField = true; endif; ?>
 
@@ -142,7 +142,7 @@ jQuery('#id_Question').bind('keydown', 'return', function (evt){
 <?php else : ?>
 	<?php if (isset($start_data_fields['show_operator_profile']) && $start_data_fields['show_operator_profile'] == true) : ?>
 	<div class="row">
-		<div class="columns pos-rel small-6 max-width-180 right">
+		<div class="columns pos-rel col-xs-6 max-width-180 pull-right">
 		<?php $rightLanguage = true;?>
 		<?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/switch_language.tpl.php'));?>
 		</div>

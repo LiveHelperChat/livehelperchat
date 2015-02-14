@@ -1,6 +1,7 @@
-require("./lazyinit.css");
-
-var style = require("./lazy.cssref");
+//require("./lazyinit.css");
+//var style = require("./lazy.cssref");
+//style.unref();
+//style.ref();	
 
 var LHCSpeechToTextCallbackListener = (function() {
 	
@@ -18,9 +19,7 @@ var LHCSpeechToTextCallbackListener = (function() {
 		$('#CSChatMessage-'+this.chat_id).addClass('admin-chat-mic');
 		$('#user-chat-status-'+this.chat_id).removeClass('icon-user').addClass('icon-mic');
 		$('#mic-chat-'+this.chat_id).addClass('icon-mic-recording').html(this.recognition.lang);
-		$('#user-is-typing-'+this.chat_id).html('Speak now.').css("visibility","visible");
-		style.ref();
-		
+		$('#user-is-typing-'+this.chat_id).html('Speak now.').css("visibility","visible");			
 	}
 	
 	LHCSpeechToTextCallbackListener.prototype.onend = function(params)
@@ -36,7 +35,6 @@ var LHCSpeechToTextCallbackListener = (function() {
 			this.startOnEnd = false;
 			this.recognition.start();
 		}
-		style.unref();
 	}
 	
 	LHCSpeechToTextCallbackListener.prototype.onerror = function(event){

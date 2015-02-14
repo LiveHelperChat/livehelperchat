@@ -1,5 +1,5 @@
 <?php if ((int)erLhcoreClassModelChatConfig::fetch('show_language_switcher')->current_value == 1) : ?>
-<a href="#" data-dropdown="drop1" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Choose your language');?>" class="<?php if (isset($rightLanguage) && $rightLanguage == true) : ?>right <?php endif;?>button tiny secondary radius dropdown"><i class="icon-language"></i></a>
+
 <?php 
 $enabledLanguages = explode(',',erLhcoreClassModelChatConfig::fetch('show_languages')->current_value);
 $langArray = array(
@@ -33,9 +33,19 @@ $langArray = array(
     'alb' => 'Albanian',
 );
 ?>
-<ul id="drop1" class="f-dropdown f-dropdown-lang">
-	<?php foreach ($enabledLanguages as $siteAccess) : ?>
-		<li><a onclick="return lhinst.switchLang($('#form-start-chat'),'<?php echo $siteAccess?>')" href="#"><?php echo $langArray[$siteAccess]?></a>
-	<?php endforeach;?>   
-</ul>
+
+<div class="btn-group pull-right" role="group">
+        <button type="button" class="btn btn-default btn-xs dropdown-toggle" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Choose your language');?>" data-toggle="dropdown" aria-expanded="false">
+          <i class="icon-language"></i>
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu f-dropdown-lang" role="menu">
+          
+          <?php foreach ($enabledLanguages as $siteAccess) : ?>
+    		<li><a onclick="return lhinst.switchLang($('#form-start-chat'),'<?php echo $siteAccess?>')" href="#"><?php echo $langArray[$siteAccess]?></a>
+    	<?php endforeach;?> 
+          
+        </ul>
+      </div>
+         
 <?php endif;?>

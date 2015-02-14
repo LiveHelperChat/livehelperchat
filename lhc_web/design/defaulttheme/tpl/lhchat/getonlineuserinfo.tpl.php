@@ -23,7 +23,7 @@
     	<div class="tab-content">
     		<div role="tabpanel" class="tab-pane active" id="panel1">
     		  <?php include(erLhcoreClassDesign::designtpl('lhchat/online_user/online_user_info.tpl.php')); ?>
-    		  <input type="button" class="small button radius mb0" onclick="lhinst.revealModal('<?php echo erLhcoreClassDesign::baseurl('chat/sendnotice')?>/<?php echo $online_user->id?>',true);" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Send message');?>"/>
+    		  <input type="button" class="btn btn-default" onclick="lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('chat/sendnotice')?>/<?php echo $online_user->id?>'});" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Send message');?>"/>
     		</div>
     		
     		<?php if ( erLhcoreClassModelChatConfig::fetch('track_footprint')->current_value == 1) : ?>
@@ -47,13 +47,5 @@
     </div>
 </div>
 
-<?php /*?>
-<div class="mt10 section-container auto mb0" data-section >
-  
-    
-  <?php include(erLhcoreClassDesign::designtpl('lhchat/online_user/notes.tpl.php')); ?>
-
-</div>
-*/ ?>
 
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_footer.tpl.php'));?>

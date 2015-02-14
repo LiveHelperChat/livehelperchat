@@ -18,14 +18,22 @@ body {
     outline: 0;
 }
 
+.tab-content {
+	margin-top:15px;
+}
 img{max-height:100%}
 
 .wb{
 	background-color:white;
 }
 
-.row {
-	max-width: 100%;
+
+h1{
+	margin-top:10px;
+}
+
+.breadcrumb {
+	margin-bottom:5px;
 }
 
 .no-wrap{
@@ -64,41 +72,6 @@ img{max-height:100%}
 	line-height:1;
 }
 
-.icon-user-assigned,
-a.icon-chat,
-a.icon-info,
-a.icon-popup,
-a.icon-cancel,
-a.icon-cancel-circled,
-a.icon-cancel-squared,
-a.icon-users,
-a.icon-block,
-a.icon-mail,
-a.icon-reply,
-a.icon-network,
-a.icon-eye,
-a.icon-print {	
-	color:#86B5CC;
-}
-
-.icon-user-assigned:hover,
-a.icon-chat:hover,
-a.icon-info:hover,
-a.icon-popup:hover,
-a.icon-cancel:hover,
-a.icon-cancel-circled:hover,
-a.icon-cancel-squared:hover,
-a.icon-users:hover,
-a.icon-block:hover,
-a.icon-mail:hover,
-a.icon-sound:hover,
-a.icon-network:hover,
-a.icon-eye:hover,
-a.icon-reply:hover,
-a.icon-print:hover{
-	color:#2ba6cb;
-}
-
 a.icon-mail-send{
 	color:green;
 }
@@ -109,6 +82,11 @@ a.icon-mic-recording {
 
 .button-group a.icon-mail{
 	color:#FFF;
+}
+
+a:hover{
+	text-decoration:none;
+	cursor:pointer;
 }
 
 .mx170{
@@ -460,7 +438,7 @@ div.message-row-in {
 .message-block,
 #messages{position:relative;}
 .message-block{
-	font-size: 0.75em;
+	font-size: 12px;
 }
 
 #messagesBlock .message-row .msg-date{
@@ -473,7 +451,7 @@ div.message-row-in {
 
 
 #messages {
-	font-size: 0.75em;
+	font-size: 12px;
 }
 
 .start-chat-intro{
@@ -862,12 +840,6 @@ border-top-right-radius: 6px;
 	color:#FCDA54;
 }
 
-@media only screen and (max-width: 768px) {
-	.user-settings-list{
-		float:none;
-	}
-}
-
 .table-list .button {
 	margin-bottom:0;
 }
@@ -925,12 +897,15 @@ border-top-right-radius: 6px;
 
 .f-dropdown-lang{
 	font-size:14px;
+	margin-left: -200px;
 }
 
 .f-dropdown-lang li{
 	float:left;
 	width:50%;		
 }
+
+
 input[type="file"]{
 	font-size:12px;
 }

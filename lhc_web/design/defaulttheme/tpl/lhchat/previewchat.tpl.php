@@ -1,3 +1,4 @@
+<?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_header.tpl.php'));?>
 <h5>
 	<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Chat owner')?>
 </h5>
@@ -14,4 +15,4 @@
 <?php $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 100,'sort' => 'id DESC','filter' => array('chat_id' => $chat->id)))); ?>
 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/msg_obj_list_admin.tpl.php'));?>
 </div>
-<a class="close-reveal-modal">&#215;</a>
+<?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_footer.tpl.php'));?>

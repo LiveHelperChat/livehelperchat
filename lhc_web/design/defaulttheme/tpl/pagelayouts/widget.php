@@ -15,10 +15,11 @@
 <body<?php isset($Result['pagelayout_css_append']) ? print ' class="'.$Result['pagelayout_css_append'].'" ' : ''?>>
 
 <div id="widget-layout" class="row">
-	<div class="columns large-12">
+	<div class="col-xs-12">
        <?php echo $Result['content']; ?>
      </div>
 </div>
+
 
 <script type="text/javascript" language="javascript" src="<?php echo erLhcoreClassDesign::designJS('js/app.js');?>"></script>
 <?php if (isset($Result['dynamic_height'])) : ?>

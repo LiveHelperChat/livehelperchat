@@ -7,9 +7,11 @@
 </script>
 
 <?php include(erLhcoreClassDesign::designtpl('lhchat/user_settings.tpl.php'));?>
-
-<div class="section-container auto" data-section="auto" id="tabs">
-
+<div role="tabpanel" id="tabs">
+        <ul class="nav nav-pills" role="tablist">
+        </ul>
+        <div class="tab-content">
+        </div>
 </div>
 
 <script type="text/javascript">

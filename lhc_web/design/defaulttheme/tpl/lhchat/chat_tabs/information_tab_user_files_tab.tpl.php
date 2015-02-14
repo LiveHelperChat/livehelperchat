@@ -1,0 +1,1 @@
+<li role="presentation"><a href="#main-user-info-files-<?php echo $chat->id?>" aria-controls="main-user-info-files-<?php echo $chat->id?>" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Files')?></a></a></li>

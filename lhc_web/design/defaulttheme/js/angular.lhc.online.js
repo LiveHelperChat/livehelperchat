@@ -231,7 +231,7 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
 		};
 		
 		this.sendMessage = function(user_id) {
-			lhinst.revealModal(WWW_DIR_JAVASCRIPT+'chat/sendnotice/'+user_id);
+			lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'chat/sendnotice/'+user_id});
 		};
 		
 		this.deleteUser = function(user,q) {

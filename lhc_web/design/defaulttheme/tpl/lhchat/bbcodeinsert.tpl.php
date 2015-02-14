@@ -1,5 +1,11 @@
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">    
+      <div class="modal-body">
+       
+       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+       
 <div class="text-center">
-<ul class="bb-list inline-list">	
+<ul class="bb-list list-inline">	
 	<li><a href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert','Image');?>" class="icon-picture" data-promt="img" data-bb-code="img"></a></li>
 	<li><a href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert','Link');?>" class="icon-link" data-promt="url" data-bb-code=" [url=http://example.com]<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert','Link title');?>[/url] "></a></li>
 	<li><a href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert','Bold');?>" data-bb-code=" [b][/b] "><strong>B</strong></a></li>
@@ -20,20 +26,20 @@
     	if (link) {
     		txtToAdd ='['+txtToAdd+']'+link+'[/'+txtToAdd+']';
     		jQuery("#CSChatMessage").val(textAreaTxt.substring(0, caretPos) + txtToAdd + textAreaTxt.substring(caretPos) );   
-    	    $('#bbcodeReveal').foundation('reveal', 'close');
+    	    $('#myModal').modal('hide');
         }
     } else if (typeof $(this).attr('data-promt') != 'undefined' && $(this).attr('data-promt') == 'url') {
     	var link = prompt("<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert','Please enter a link')?>"); 
     	if (link) {
     		txtToAdd ='[url='+link+']<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert','Here is a link')?>[/url]';
     		jQuery("#CSChatMessage").val(textAreaTxt.substring(0, caretPos) + txtToAdd + textAreaTxt.substring(caretPos) );   
-    	    $('#bbcodeReveal').foundation('reveal', 'close');
+    		$('#myModal').modal('hide');
         }
     } else {    
 	    jQuery("#CSChatMessage").val(textAreaTxt.substring(0, caretPos) + txtToAdd + textAreaTxt.substring(caretPos) );   
-	    $('#bbcodeReveal').foundation('reveal', 'close');
+	    $('#myModal').modal('hide');
     };    
     return false; 
 });</script>
-<a class="close-reveal-modal">&#215;</a>
 </div>
+</div></div></div>
