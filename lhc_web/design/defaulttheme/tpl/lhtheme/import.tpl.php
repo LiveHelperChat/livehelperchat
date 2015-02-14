@@ -11,10 +11,12 @@
 <form action="" method="post" autocomplete="off" enctype="multipart/form-data">
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 	
-	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('theme/import','File')?> (json)</label>
-	<input type="file" name="themefile" value="" />
+	<div class="form-group">
+	   <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('theme/import','File')?> (json)</label>
+	   <input type="file" name="themefile" value="" />
+	</div>
 	
-	<input type="submit" name="ImportTheme" class="button small radius" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('theme/import','Import')?>" />
+	<input type="submit" name="ImportTheme" class="btn btn-default" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('theme/import','Import')?>" />
 	
 </form>
 	

@@ -1,5 +1,5 @@
 <?php if ($pages->items_total > 0) : ?>
-	<table class="large-12" cellpadding="0" cellspacing="0">
+	<table class="table" cellpadding="0" cellspacing="0">
 	<thead>
 	<tr>
 	    <th width="1%">ID</th>
@@ -16,8 +16,8 @@
 	        <td><?php echo htmlspecialchars(erLhcoreClassDesign::shrt($item->answer))?></td>
 	        <td><?php echo date(erLhcoreClassModule::$dateDateHourFormat,$item->ctime)?></td>
 	        <td><?php echo $item->ip_front?></td>
-	        <td nowrap><a class="tiny button round" onclick="return lhinst.revealIframe('<?php echo erLhcoreClassDesign::baseurl('questionary/previewanswer')?>/<?php echo $item->id?>','500')" href="#"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/answers','View');?></a></td>
-	        <td nowrap><a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="csfr-required tiny alert button round" href="<?php echo erLhcoreClassDesign::baseurl('questionary/deleteanswer')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/answers','Delete the answer');?></a></td>
+	        <td nowrap><a class="btn btn-default btn-xs" onclick="return lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('questionary/previewanswer')?>/<?php echo $item->id?>','height':'500','iframe':true})" href="#"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/answers','View');?></a></td>
+	        <td nowrap><a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="csfr-required btn btn-danger btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('questionary/deleteanswer')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/answers','Delete the answer');?></a></td>
 	    </tr>
 	<?php endforeach; ?>
 	</table>
@@ -29,7 +29,7 @@
 <?php endif; ?>
 
 <?php if ($question->is_voting == 1) : ?>
-<table class="large-12" cellpadding="0" cellspacing="0">
+<table class="table" cellpadding="0" cellspacing="0">
 <thead>
 <tr>
     <th width="1%">ID</th>

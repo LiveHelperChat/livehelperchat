@@ -24,7 +24,7 @@ class erLhcoreClassAbstract {
         		break;
 
         	case 'colorpicker':        	      
-        		      return '<div class="row collapse" ng-init=\'bactract_bg_color_'.$name.'='.json_encode($object->$name,JSON_HEX_APOS).'\'><div class="small-1 columns"><span class="prefix" style="background-color:#{{bactract_bg_color_'.$name.'}}">#</span></div><div class="small-11 columns"><input class="abstract_input" class="abstract_input" ng-model="bactract_bg_color_'.$name.'" id="id_AbstractInput_'.$name.'" name="AbstractInput_'.$name.'" type="text" value="'.htmlspecialchars($object->$name).'" /></div></div><script>$(\'#id_AbstractInput_'.$name.'\').ColorPicker({	onSubmit: function(hsb, hex, rgb, el) {		$(el).val(hex);	$(el).trigger(\'input\');	$(el).ColorPickerHide();	},	onBeforeShow: function () {		$(this).ColorPickerSetColor(this.value);	}});</script>';
+        		      return '<div class="input-group" ng-init=\'bactract_bg_color_'.$name.'='.json_encode($object->$name,JSON_HEX_APOS).'\'><div class="input-group-addon" style="background-color:#{{bactract_bg_color_'.$name.'}}">#</div><input class="form-control" class="abstract_input" ng-model="bactract_bg_color_'.$name.'" id="id_AbstractInput_'.$name.'" name="AbstractInput_'.$name.'" type="text" value="'.htmlspecialchars($object->$name).'" /></div><script>$(\'#id_AbstractInput_'.$name.'\').ColorPicker({	onSubmit: function(hsb, hex, rgb, el) {		$(el).val(hex);	$(el).trigger(\'input\');	$(el).ColorPickerHide();	},	onBeforeShow: function () {		$(this).ColorPickerSetColor(this.value);	}});</script>';
         		break;
 
         	case 'textarea':
@@ -58,7 +58,7 @@ class erLhcoreClassAbstract {
         			$fields = $object->getFields();
         			$img = $object->{$attr['frontend']};
         		    if($img){
-        				return '<input type="file" name="AbstractInput_'.$name.'"/><br/><br/>'.$img.'<br/><br/><input type="checkbox" name="AbstractInput_'.$name.'_delete" value="1" /> Delete Image';
+        				return '<input type="file" name="AbstractInput_'.$name.'"/><br/>'.$img.'<br/><input type="checkbox" name="AbstractInput_'.$name.'_delete" value="1" /> Delete Image';
         		    } else {
         		    	return '<input type="file" name="AbstractInput_'.$name.'"/>';
         		    }

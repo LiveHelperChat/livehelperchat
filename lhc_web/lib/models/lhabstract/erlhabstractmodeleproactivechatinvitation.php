@@ -259,6 +259,7 @@ class erLhAbstractModelProactiveChatInvitation {
            		        'type' => 'text',
            		        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','How many times repeat message?'),
            		        'required' => true,
+   		                'hidden' => true,
            		        'validation_definition' => new ezcInputFormDefinitionElement(
            		            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
    		        )),

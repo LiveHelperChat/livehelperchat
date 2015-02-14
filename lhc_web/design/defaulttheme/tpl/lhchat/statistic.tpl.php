@@ -1,12 +1,17 @@
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Statistic');?></h1>
 
-<div class="section-container auto" data-section>
-  
-  <section class="active">
-   <p class="title" data-section-title><a href="#panel2" onclick="redrawAllCharts(500)"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Statistic');?></a></p>
-   <div class="content" data-section-content>  
-        	
-    	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<div role="tabpanel">
+	<!-- Nav tabs -->
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active"><a onclick="redrawAllCharts(500)" href="#panel1" aria-controls="panel1" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Statistic');?></a></li>
+		<li role="presentation"><a href="#panel2" aria-controls="panel2" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','General');?></a></li>
+	</ul>
+
+	<!-- Tab panes -->
+	<div class="tab-content">
+		<div role="tabpanel" class="tab-pane active" id="panel1">
+		
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 	    <script type="text/javascript">
 	      	google.load("visualization", "1", {packages:["corechart"]});
 			
@@ -199,50 +204,54 @@
 			
 			$(window).on("resize", function (event) {
 				redrawAllCharts(100);
-			});			
+			});
+			$( document ).ready(function() {
+				redrawAllCharts(100);
+			});
+						
 		</script> 
 		
 		<form action="" method="get">
 		
 		<div class="row">
 		
-			<div class="columns large-3">
+			<div class="col-md-3">
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','User');?></label>
 			<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
 	                    'input_name'     => 'user_id',
 						'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select user'),
-	                    'selected_id'    => $input->user_id,				
+	                    'selected_id'    => $input->user_id,
+			            'css_class'      => 'form-control',
 	                    'list_function'  => 'erLhcoreClassModelUser::getUserList'
 	            )); ?> 
 	        </div>   
 		
-			<div class="columns large-3">
+			<div class="col-md-3">
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department');?></label>
 		
 			<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
 	                    'input_name'     => 'department_id',
 						'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose department'),
-	                    'selected_id'    => $input->department_id,				
+	                    'selected_id'    => $input->department_id,	
+			            'css_class'      => 'form-control',			
 	                    'list_function'  => 'erLhcoreClassModelDepartament::getList'
 	            )); ?> 
 	        </div>   
           
-		    <div class="columns large-6">
+		    <div class="col-md-6">
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Date range from to');?></label>
 				<div class="row">
-					<div class="columns large-6">
-						<input type="text" name="timefrom" id="id_timefrom" placeholder="E.g <?php echo date('Y-m-d',time()-7*24*3600)?>" value="<?php echo htmlspecialchars($input->timefrom)?>" />
+					<div class="col-md-6">
+						<input class="form-control" type="text" name="timefrom" id="id_timefrom" placeholder="E.g <?php echo date('Y-m-d',time()-7*24*3600)?>" value="<?php echo htmlspecialchars($input->timefrom)?>" />
 					</div>
-					<div class="columns large-6">
-						<input type="text" name="timeto" id="id_timeto" placeholder="E.g <?php echo date('Y-m-d')?>" value="<?php echo htmlspecialchars($input->timeto)?>" />
+					<div class="col-md-6">
+						<input class="form-control" type="text" name="timeto" id="id_timeto" placeholder="E.g <?php echo date('Y-m-d')?>" value="<?php echo htmlspecialchars($input->timeto)?>" />
 					</div>
 				</div>
 			</div>
 		</div>
 			
-			<ul class="button-group radius">
-				<li><input type="submit" name="doSearch" class="button small" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" /></li>
-			</ul>
+			<input type="submit" name="doSearch" class="btn btn-default" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" />
 			
 			<script>
 			$(function() {
@@ -275,16 +284,15 @@
  			<div class="columns small-6"><div id="chart_div_upvotes" style="width: 100%; height: 300px;"></div></div>
  			<div class="columns small-6"><div id="chart_div_downvotes" style="width: 100%; height: 300px;"></div></div>
  		</div>
-    	
-   </div>
-   </section>
-   <section>
-   <p class="title" data-section-title><a href="#panel1">General</a></p>
-   <div class="content" data-section-content>
-    	<div class="row">
-			<div class="columns large-6">
+ 		
+ 		
+		</div>
+		
+		<div role="tabpanel" class="tab-pane" id="panel2">
+		<div class="row">
+			<div class="col-md-6">
 				<h2><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Total statistic');?></h2>
-				<table class="small-12">
+				<table class="table">
 					<thead>
 						<tr>
 							<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Parameter');?></td>
@@ -333,9 +341,9 @@
 					</tr>
 				</table>
 			</div>
-			<div class="columns large-6">
+			<div class="col-md-6">
 				<h2><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Last 24h statistic');?></h2>
-				<table class="small-12">
+				<table class="table">
 					<thead>
 						<tr>
 							<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Parameter');?></td>
@@ -388,7 +396,8 @@
 		
 		<h2><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Operators last 24h statistic, top 100 by chats number');?></h2>
 		<?php $operators = erLhcoreClassChatStatistic::getTopTodaysOperators(100); ?>
-		<table class="small-12">
+		
+		<table class="table">
 			<thead>
 				<tr>
 					<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','User');?></td>
@@ -413,9 +422,8 @@
 			</tr>
 			<?php endforeach;?>
 		</table>
-   </div>
-   </section>
-   
+		
+		
+		</div>
+	</div>
 </div>
-  
-
