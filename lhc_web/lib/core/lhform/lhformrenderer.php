@@ -380,7 +380,7 @@ class erLhcoreClassFormRenderer {
     		$options[] = "<option =\"".htmlspecialchars($i)."\" {$isSelected}>".htmlspecialchars($i).'</option>';    		
     	}
     		    	
-    	return "<select {$additionalAttributes} name=\"{$params['name']}\">".implode('', $options)."</select>";  	
+    	return "<select class=\"form-control\" {$additionalAttributes} name=\"{$params['name']}\">".implode('', $options)."</select>";  	
     }
     
     public static function renderInputTypeMonth($params) {    	
@@ -418,7 +418,7 @@ class erLhcoreClassFormRenderer {
     		$options[] = "<option =\"".htmlspecialchars($i)."\" {$isSelected}>".htmlspecialchars($i).'</option>';    		
     	}
     		    	
-    	return "<select {$additionalAttributes} name=\"{$params['name']}\">".implode('', $options)."</select>";  	
+    	return "<select class=\"form-control\" {$additionalAttributes} name=\"{$params['name']}\">".implode('', $options)."</select>";  	
     }
     
     
