@@ -3,7 +3,7 @@
 <?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile.tpl.php'));?>
 <?php endif;?>
 
-<div id="messages" class="read-operator-message form-group">
+<div id="messages" class="read-operator-message">
      <div class="msgBlock" id="messagesBlock">
      	<?php include(erLhcoreClassDesign::designtpl('lhchat/lists/operator_message_row.tpl.php'));?>
      </div>
@@ -49,7 +49,7 @@ if ($visitor->requires_username == 1 || $visitor->requires_email == 1 || $visito
 	<?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/department.tpl.php'));?>
 <?php endif;?>
 
-<textarea class="form-control form-group <?php if ($hasExtraField !== true) : ?>mb0<?php endif;?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Type your message here and hit enter to send...');?>" id="id_Question" name="Question"><?php echo htmlspecialchars($input_data->question);?></textarea>
+<textarea class="form-control form-group <?php if ($hasExtraField !== true) : ?>btop-reset btrad-reset mb0<?php endif;?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Type your message here and hit enter to send...');?>" id="id_Question" name="Question"><?php echo htmlspecialchars($input_data->question);?></textarea>
 
 <input type="hidden" value="<?php echo htmlspecialchars($referer);?>" name="URLRefer"/>
 <input type="hidden" value="<?php echo htmlspecialchars($referer_site);?>" name="r"/>

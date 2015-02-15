@@ -18,6 +18,15 @@ body {
     outline: 0;
 }
 
+.btrad-reset{
+	border-top-right-radius: 0px;
+border-top-left-radius: 0px;
+}
+
+.btop-reset{
+	border-top:0;
+}
+
 .tab-content {
 	margin-top:15px;
 }
