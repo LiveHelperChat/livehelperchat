@@ -213,7 +213,7 @@
 		
 		<form action="" method="get">
 		
-		<div class="row">
+		<div class="row form-group">
 		
 			<div class="col-md-3">
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','User');?></label>

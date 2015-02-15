@@ -122,8 +122,6 @@ function lh(){
     this.addTab = function(tabs, url, name, chat_id) {    	    	
     	tabs.find('> ul').append('<li role="presentation" class="active" id="chat-tab-li-'+chat_id+'" ><a href="#chat-id-'+chat_id+'" id="chat-tab-link-'+chat_id+'" aria-controls="chat-id-'+chat_id+'" role="tab" data-toggle="tab"><i id="user-chat-status-'+chat_id+'" class="icon-user-status icon-user icon-user-online"></i>' + name.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '<span onclick="return lhinst.removeDialogTab('+chat_id+',$(\'#tabs\'),true)" class="icon-cancel icon-close-chat"></span></a></li>')
     	
-    	//<section class="active" id="chat-tab-'+chat_id+'"><p class="title"><a class="chat-tab-item" id="chat-id-'+chat_id+'" href="#chat'+chat_id+'">'+ '<i id="user-chat-status-'+chat_id+'" class="icon-user-status icon-user icon-user-online"></i>' + name.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</a><a href="#" onclick="return lhinst.removeDialogTab('+chat_id+',$(\'#tabs\'),true)" class="icon-cancel icon-close-chat"></a></p><div class="content" data-slug="chat'+chat_id+'" id="simple'+chat_id+'Tab">...</div></section>');
-    	
     	$('#chat-tab-link-'+chat_id).click(function() {
     		var inst = $(this);
     		setTimeout(function(){
@@ -140,28 +138,10 @@ function lh(){
     		tabs.find('> div.tab-content').append('<div role="tabpanel" class="tab-pane active" id="chat-id-'+chat_id+'"></div>');    		
     		$('#chat-id-'+chat_id).html(data);  
     	});
-    	
-    	
-    	/*tabs.append('<section class="active" id="chat-tab-'+chat_id+'"><p class="title"><a class="chat-tab-item" id="chat-id-'+chat_id+'" href="#chat'+chat_id+'">'+ '<i id="user-chat-status-'+chat_id+'" class="icon-user-status icon-user icon-user-online"></i>' + name.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</a><a href="#" onclick="return lhinst.removeDialogTab('+chat_id+',$(\'#tabs\'),true)" class="icon-cancel icon-close-chat"></a></p><div class="content" data-slug="chat'+chat_id+'" id="simple'+chat_id+'Tab">...</div></section>');
-
-    	$('#chat-id-'+chat_id).click(function() {
-    		var inst = $(this);
-    		setTimeout(function(){
-    			inst.find('.msg-nm').remove();
-    			inst.removeClass('has-pm');
-    			//$(document).foundation('section', 'resize');
-    			$('#messagesBlock-'+chat_id).animate({ scrollTop: $('#messagesBlock-'+chat_id).prop('scrollHeight') }, 1000);
-    		},500);
-    	});
-
-    	$.get(url, function(data) {
-    		  $('#simple'+chat_id+'Tab').html(data);    		
-    		  //$(document).foundation('section', 'resize');    		
-    	});*/
     };
 
     this.attachTabNavigator = function(){
-    	$('#tabs > section > p.title > a.chat-tab-item').click(function(){
+    	$('#tabs > ul.nav > li > a').click(function(){
     		$(this).find('.msg-nm').remove();
     		$(this).removeClass('has-pm');
     	});
@@ -587,13 +567,13 @@ function lh(){
 	    };
 
 	    if (hidetab == true) {
-
-	    	var index = tabs.find(' > section.active').index();
-	    	tabs.find(' > section.active').remove();
-			tabs.find(' > section:eq(' + (index - 1) + ')').addClass("active");
-
-			//$(document).foundation('section', 'resize');
-
+	    				
+			var index = tabs.find('> ul > #chat-tab-li-'+chat_id).index();
+	    	tabs.find('> ul > #chat-tab-li-'+chat_id).remove();
+	    	tabs.find('#chat-id-'+chat_id).remove();	    	
+	    	tabs.find('> ul > li:eq('+ (index - 1)+')').addClass('active');
+	    	tabs.find('> div.tab-content > div:eq(' + (index - 1) + ')').addClass("active");
+			
 	        if (this.closeWindowOnChatCloseDelete == true)
 	        {
 	            window.close();
@@ -673,12 +653,8 @@ function lh(){
 
 	this.removeActiveDialogTag = function(tabs) {
 
-		var index = tabs.find(' > section.active').index();
-    	tabs.find(' > section.active').remove();
-		tabs.find(' > section:eq(' + (index - 1) + ')').addClass("active");
-
-		//$(document).foundation('section', 'resize');
-
+		/* @todo add removement of current active tab */
+		
         if (this.closeWindowOnChatCloseDelete == true)
         {
             window.close();
@@ -837,11 +813,7 @@ function lh(){
 		window.parent.$('#CSChatMessage-'+chat_id).val(((val != '') ? val+"\n" : val)+embed_code);
 		$('#embed-button-'+file_id).addClass('success');	
 	},
-	
-	this.sendMailArchive = function(archive_id,chat_id) {
-		this.revealIframe(this.wwwDir + 'chatarchive/sendmail/'+archive_id+'/'+chat_id,500);
-	};
-
+		
 	this.transferChat = function(chat_id)
 	{
 		var user_id = $('[name=TransferTo'+chat_id+']:checked').val();
@@ -853,12 +825,6 @@ function lh(){
 		});
 	};
 
-	this.previewChat = function(chat_id)
-	{		
-		this.initializeModal();
-		//$('#myModal').foundation('reveal', 'open', {url: WWW_DIR_JAVASCRIPT+'chat/previewchat/'+chat_id});
-	};
-	
 	this.redirectContact = function(chat_id,message){		
 		if (confirm(message)){	
 			$.postJSON(this.wwwDir + 'chat/redirectcontact/' + chat_id, function(data){				
@@ -1130,11 +1096,11 @@ function lh(){
 	
 	        		                  if (!mainElement.parent().hasClass('active')) {
 	        		                	  if (mainElement.find('span.msg-nm').length > 0) {
-	        		                		  mainElement.find('span.msg-nm').html(' (' + (parseInt(mainElement.find('span.msg-nm').attr('rel')) + item.mn) + ')' );
+	        		                		  var totalMsg = (parseInt(mainElement.find('span.msg-nm').attr('rel')) + item.mn);
+	        		                		  mainElement.find('span.msg-nm').html(' (' + totalMsg + ')' ).attr('rel',totalMsg);
 	        		                	  } else {
 	        		                		  mainElement.append('<span rel="'+item.mn+'" class="msg-nm"> ('+item.mn+')</span>');
-	        		                		  mainElement.addClass('has-pm');
-	        		                		  //$(document).foundation('section', 'resize');
+	        		                		  mainElement.addClass('has-pm');	        		                		
 	        		                	  }
 	        		                  }
 	        		                  
@@ -1637,28 +1603,19 @@ function lh(){
     	}
     	return false;
     };
-    
-    this.closeReveal = function(id){
-		//$(id).foundation('reveal', 'close');
-	};
-	
+   	
 	this.switchToOfflineForm = function(){
 		var form = $('#form-start-chat');
 		form.attr('action',$('#form-start-chat').attr('action')+'/(switchform)/true/(offline)/true/(leaveamessage)/true/(department)/'+$('#id_DepartamentID').val());
 		form.submit();
 		return false;
 	};
-	
-    this.changeChatStatus = function(chat_id){    	
-    	this.initializeModal();	   	
-    	//$('#myModal').foundation('reveal','open',{url: this.wwwDir+  'chat/changestatus/'+chat_id});
-    };
-    
+	    
     this.changeStatusAction = function(form,chat_id){
     	var inst = this;
     	$.postJSON(form.attr('action'),form.serialize(), function(data) {
 	   		 if (data.error == 'false') {
-	   			//$('#myModal').foundation('reveal', 'close');
+	   			$('#myModal').modal('hide');
 	   			inst.updateVoteStatus(chat_id);
 	   		 } else {
 	   			 alert(data.result);
@@ -1882,9 +1839,8 @@ function gMapsCallback(){
 
 	google.maps.event.addListener(map, 'idle', showMarkers);
 	
-	var mapTabSection = $('#map-activator').parent().parent();
-	
-	
+	var mapTabSection = $('#map-activator').parent();
+		
 	function showMarkers() {
 	    if ( processing == false) {	    		
 	    	if (mapTabSection.hasClass('active')) {
@@ -1934,14 +1890,8 @@ function gMapsCallback(){
     			var latLng = new google.maps.LatLng(e.Latitude, e.Longitude);
     			var marker = new google.maps.Marker({ position: latLng, icon : e.icon, map : map });
 
-    			google.maps.event.addListener(marker, 'click', function() {
-    				if ($('#myModal').size() == 0) {
-    					$('body').prepend('<div id="myModal" class="reveal-modal medium"><a class="close-reveal-modal">&#215;</a></div>');
-    					$("#myModal").on("opened", function(){
-    						//$(document).foundation('section', 'reflow')					
-    					});
-    				};    				
-    				//$('#myModal').foundation('reveal', 'open', {url: WWW_DIR_JAVASCRIPT+'chat/getonlineuserinfo/'+e.Id});
+    			google.maps.event.addListener(marker, 'click', function() {    			
+    				lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'chat/getonlineuserinfo/'+e.Id})    				
     			});
 
     			marker.setVisible(true);
@@ -1987,7 +1937,7 @@ function gMapsCallback(){
 				locationSet = true;
 				map.setCenter(new google.maps.LatLng(GeoLocationData.lat, GeoLocationData.lng));
 			}
-		},500);
+		},500);	
 		showMarkers();
 	});
 	

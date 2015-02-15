@@ -9,7 +9,7 @@
 
 <script>
 setTimeout(function(){
-    lhinst.closeReveal();
+    $('#myModal').modal('hide');
 },2000);
 </script>
 
