@@ -6,7 +6,6 @@ watch 	 = require('gulp-watch'),
 webpack = require('webpack'),
 webpackConfig = require('./webpack.config.js');
 bower = require('gulp-bower');
-//rm = require('gulp-rimraf');
 
 gulp.task('js-cobrowse-operator', function() {
 	var stylePath = ['design/defaulttheme/js/cobrowse/mutation-summary.js',
@@ -104,7 +103,9 @@ gulp.task('bower', function() {
 });
 
 gulp.task('bower-move-bootstrap',['bower'], function() {
-	gulp.src('./bower_components/bootstrap/dist/*/**.*').pipe(gulp.dest('./design/defaulttheme/vendor/bootstrap'));
+	gulp.src('./bower_components/bootstrap/dist/js/**.*').pipe(gulp.dest('./design/defaulttheme/vendor/bootstrap/js'));
+	gulp.src('./bower_components/bootstrap/dist/fonts/**.*').pipe(gulp.dest('./design/defaulttheme/vendor/bootstrap/fonts'));
+	gulp.src('./bower_components/bootstrap/dist/css/bootstrap.min.css').pipe(gulp.dest('./design/defaulttheme/vendor/bootstrap/css'));
 });
 
 gulp.task('bower-move-bootstrap-font',['bower'], function() {
@@ -122,7 +123,6 @@ gulp.task('bower-setup',['bower-move-bootstrap','bower-move-jquery','bower-move-
 gulp.task('js-cobrowse',['js-cobrowse-operator','js-cobrowse-visitor'], function() {
 
 });
-
 
 gulp.task('default', ['js-cobrowse-operator','js-cobrowse-visitor','js-angular-main','js-main-fileupload','js-datepicker','js-lhc-speak-js','js-lh','js-angular-online','js-lh-npm','bower-setup'], function() {
 	// Just execute all the tasks	

@@ -27,7 +27,7 @@ body {
 	padding-bottom:10px;
 }
 .nav-pills>li>a{
-	background-color:#F4F4F4;
+	border:1px solid #F4F4F4;
 	margin-bottom:5px;
 	margin-right:3px;
 }
@@ -74,6 +74,7 @@ img{max-height:100%}
 
 h1 {
 	margin-top:10px;
+	font-size:28px;
 }
 
 .breadcrumb {
@@ -414,7 +415,7 @@ ul.user-settings-list li{
 .page-url {
 	overflow:hidden;
 	position:relative;
-	height:13px;;
+	height:15px;;
 }
 
 .page-url span{
