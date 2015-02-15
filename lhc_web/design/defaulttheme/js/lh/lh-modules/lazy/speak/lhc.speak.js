@@ -14,7 +14,7 @@ var LHCSpeechToTextCallbackListener = (function() {
 		this.originText = $('#CSChatMessage-'+this.chat_id).val() != '' ? $('#CSChatMessage-'+this.chat_id).val()+' ' : '';	
 	}
 	
-	LHCSpeechToTextCallbackListener.prototype.onstart = function(params)
+	LHCSpeechToTextCallbackListener.prototype.onstart = function()
 	{
 		$('#CSChatMessage-'+this.chat_id).addClass('admin-chat-mic');
 		$('#user-chat-status-'+this.chat_id).removeClass('icon-user').addClass('icon-mic');
@@ -22,14 +22,14 @@ var LHCSpeechToTextCallbackListener = (function() {
 		$('#user-is-typing-'+this.chat_id).html('Speak now.').css("visibility","visible");			
 	}
 	
-	LHCSpeechToTextCallbackListener.prototype.onend = function(params)
+	LHCSpeechToTextCallbackListener.prototype.onend = function()
 	{
 		$('#user-chat-status-'+this.chat_id).addClass('icon-user').removeClass('icon-mic');
 		$('#CSChatMessage-'+this.chat_id).removeClass('admin-chat-mic');
 		$('#mic-chat-'+this.chat_id).removeClass('icon-mic-recording').html('');
 		$('#user-is-typing-'+this.chat_id).html('');
 		
-		if (this.startOnEnd == true) {			
+		if (this.startOnEnd === true) {			
 			this.originText = '';
 			this.final_transcript = '';
 			this.startOnEnd = false;
@@ -51,7 +51,7 @@ var LHCSpeechToTextCallbackListener = (function() {
 	
 	LHCSpeechToTextCallbackListener.prototype.onresult = function(event)
 	{
-		if (this.startOnEnd == false) { // Do not replace last text like user already clicked send message
+		if (this.startOnEnd === false) { // Do not replace last text like user already clicked send message
 			var interim_transcript = '';
 		    for (var i = event.resultIndex; i < event.results.length; ++i) {
 		      if (event.results[i].isFinal) {
@@ -94,9 +94,9 @@ module.exports = (function() {
 	
 	LHCSpeechToText.prototype.stopSpeech = function()
 	{
-		if (this.browserSupported == true)
+		if (this.browserSupported === true)
 		{
-			if (this.recognizing == true) {
+			if (this.recognizing === true) {
 				this.recognizing = false;			
 				this.recognition.stop();			
 			}
@@ -104,7 +104,7 @@ module.exports = (function() {
 	}
 	
 	LHCSpeechToText.prototype.messageSend = function() {	
-		if (this.browserSupported == true)
+		if (this.browserSupported === true)
 		{
 			this.recognition.callbackHandler.startOnEnd = true;
 			this.recognition.stop();
@@ -118,7 +118,7 @@ module.exports = (function() {
 	LHCSpeechToText.prototype.getChatDialectAndStart = function() {
 		var _this = this;		
 		$.getJSON(WWW_DIR_JAVASCRIPT + 'speech/getchatdialect/' + this.chat_id, function(data){
-			if (data.error == false){
+			if (data.error === false){
 				_this.chatDialect[_this.chat_id] = data.dialect;
 				_this.recognition.lang = _this.chatDialect[_this.chat_id];
 				_this.recognition.start();
@@ -148,7 +148,7 @@ module.exports = (function() {
 	
 	LHCSpeechToText.prototype.listen = function(params)
 	{
-		if (this.browserSupported == true)
+		if (this.browserSupported === true)
 		{
 			// Stop any previous chat listening
 			if (this.chat_id !== false && this.chat_id != params['chat_id']) {
@@ -158,7 +158,7 @@ module.exports = (function() {
 			// Set new chat id
 			this.chat_id = params['chat_id'];
 							
-			if (this.recognizing == false) {
+			if (this.recognizing === false) {
 													
 				// Start new object
 				this.recognition = new webkitSpeechRecognition();
@@ -171,11 +171,11 @@ module.exports = (function() {
 					callbackListener.onresult(event);
 				};	
 				
-				this.recognition.onstart = function(event){
+				this.recognition.onstart = function(){
 					callbackListener.onstart();
 				};	
 							
-				this.recognition.onend = function(event){
+				this.recognition.onend = function(){
 					callbackListener.onend();
 				};	
 	

@@ -2,14 +2,14 @@
 
 __webpack_public_path__ = window.WWW_DIR_LHC_WEBPACK;
 
-var lhc = (function() { 
+(function() { 
 	  global.lhc = {
 			previewChat : function(chat_id){
 				this.revealModal({'url':WWW_DIR_JAVASCRIPT+'chat/previewchat/'+chat_id});						
 			},
 			
 			revealModal : function(params) {				
-				require.ensure([], function (require) {
+				require.ensure([], function () {
 					var revealModalName = require('./lh-modules/reveal-modal');				
 					revealModalName.initializeModal();
 					revealModalName.revealModal(params);	
