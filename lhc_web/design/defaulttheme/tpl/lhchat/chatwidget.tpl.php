@@ -43,7 +43,7 @@ if ($theme !== false && $theme->explain_text != '') : ?>
 		<?php if (in_array('username', $input_data->hattr)) : ?>
 			<input type="hidden" name="Username" value="<?php echo htmlspecialchars($input_data->username);?>" />
 		<?php else : ?>
-	    <div class="col-xs-6">
+	    <div class="col-xs-6 form-group">
 	        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Name');?><?php if (isset($start_data_fields['name_require_option']) && $start_data_fields['name_require_option'] == 'required') : ?>*<?php endif;?></label>
 	        <input type="text" class="form-control" name="Username" value="<?php echo htmlspecialchars($input_data->username);?>" />
 	    </div>    
@@ -105,16 +105,18 @@ if ($theme !== false && $theme->explain_text != '') : ?>
 
 <?php $tosVariable = 'tos_visible_in_page_widget'?>
 <?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/accept_tos.tpl.php'));?>
-<ul class="button-group radius startchat">
+
+<div class="btn-group" role="group" aria-label="...">
+
   
   <?php if ($hasExtraField === true) : ?>
-  <li><input type="submit" class="tiny button secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Start chat');?>" name="StartChatAction" /></li>
+  <input type="submit" class="btn btn-default btn-sm" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Start chat');?>" name="StartChatAction" />
   <?php endif;?>
   
   <?php if ( erLhcoreClassModelChatConfig::fetch('reopen_chat_enabled')->current_value == 1 && ($reopenData = erLhcoreClassChat::canReopenDirectly(array('reopen_closed' => erLhcoreClassModelChatConfig::fetch('allow_reopen_closed')->current_value))) !== false ) : ?>
-  <li><input type="button" class="tiny success button"  value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatnotexists','Resume chat');?>" onclick="document.location = '<?php echo erLhcoreClassDesign::baseurl('chat/reopen')?>/<?php echo $reopenData['id']?>/<?php echo $reopenData['hash']?>/(mode)/widget<?php if ( isset($append_mode) && $append_mode != '' ) : ?>/(embedmode)/embed<?php endif;?><?php echo $append_mode_theme?>'"></li>
+  <input type="button" class="btn btn-default btn-sm"  value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatnotexists','Resume chat');?>" onclick="document.location = '<?php echo erLhcoreClassDesign::baseurl('chat/reopen')?>/<?php echo $reopenData['id']?>/<?php echo $reopenData['hash']?>/(mode)/widget<?php if ( isset($append_mode) && $append_mode != '' ) : ?>/(embedmode)/embed<?php endif;?><?php echo $append_mode_theme?>'">
   <?php endif; ?>
-</ul>
+</div>
 
 <input type="hidden" value="<?php echo htmlspecialchars($referer);?>" name="URLRefer" />
 <input type="hidden" value="<?php echo htmlspecialchars($referer_site);?>" name="r" />

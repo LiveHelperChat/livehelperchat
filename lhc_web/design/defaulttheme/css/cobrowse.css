@@ -11,6 +11,16 @@ html, body {
     background: #F0F0F0;
     
 }
+#cobrose-chat-window .nav,
+#cobrose-chat-window .icon-right-circled,
+#cobrose-chat-window .chat-main-right-column{
+	display:none;
+}
+
+#cobrose-chat-window .chat-main-left-column{
+	width:100%;
+}
+
 .pr-0{
 	padding-right:0;
 }
@@ -19,7 +29,7 @@ html, body {
 }
 #chrome .icon-network,
 #chrome .icon-eye{
-	font-size:32px;
+	font-size:20px;
 }
 
 #status-icon-sharing{

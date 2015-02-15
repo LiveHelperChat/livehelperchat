@@ -26,14 +26,20 @@
 			<form action="<?php echo erLhcoreClassDesign::baseurl('system/languages')?>" method="post">
     				<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
     				
-    				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/languages','Language')?></label> <select name="language" class="form-control">
-    					<?php
-                            $userLanguage = erLhcoreClassModelUserSetting::getSetting('user_language', erLhcoreClassSystem::instance()->Language);
-                            foreach (erLhcoreClassSiteaccessGenerator::getLanguages() as $language) :
-                        ?>
-    						<option value="<?php echo $language['locale']?>" <?php $userLanguage == $language['locale'] ? print 'selected="selected"' : ''?>><?php echo $language['locale']?></option>
-    					<?php endforeach;?>
-    				</select> <input type="hidden" name="StoreUserSettings" value="1" /> <input type="submit" class="btn btn-default" name="StoreUserSettingsAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
+    				<div class="form-group">
+        				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/languages','Language')?></label> 
+        				<select name="language" class="form-control">
+        					<?php
+                                $userLanguage = erLhcoreClassModelUserSetting::getSetting('user_language', erLhcoreClassSystem::instance()->Language);
+                                foreach (erLhcoreClassSiteaccessGenerator::getLanguages() as $language) :
+                            ?>
+        						<option value="<?php echo $language['locale']?>" <?php $userLanguage == $language['locale'] ? print 'selected="selected"' : ''?>><?php echo $language['locale']?></option>
+        					<?php endforeach;?>
+        				</select> 
+    				</div>
+    				
+    				<input type="hidden" name="StoreUserSettings" value="1" /> 
+    				<input type="submit" class="btn btn-default" name="StoreUserSettingsAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
 			</form>
 		</div>
 	  <?php endif;?>
@@ -65,15 +71,17 @@
 		      <input type="hidden" name="siteaccess" value="<?php echo $input->siteaccess?>" />
 
 		         <?php $siteAccessOptions = erConfigClassLhConfig::getInstance()->getSetting( 'site_access_options', $input->siteaccess ); ?>
-		      <fieldset>
-					<legend><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/languages','options for')?> (<?php echo $input->siteaccess?>)</legend>
-					<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/languages','Language')?></label> 
-					<select name="language" class="form-control">
-            			<?php foreach (erLhcoreClassSiteaccessGenerator::getLanguages() as $language) : ?>
-            				<option value="<?php echo $language['locale']?>" <?php $siteAccessOptions['locale'] == $language['locale'] ? print 'selected="selected"' : ''?>><?php echo $language['locale']?></option>
-            			<?php endforeach;?>
-            		</select>
-
+		          <h2><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/languages','options for')?> (<?php echo $input->siteaccess?>)</h2>
+					
+					<div class="form-group">
+    					<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/languages','Language')?></label> 
+    					<select name="language" class="form-control">
+                			<?php foreach (erLhcoreClassSiteaccessGenerator::getLanguages() as $language) : ?>
+                				<option value="<?php echo $language['locale']?>" <?php $siteAccessOptions['locale'] == $language['locale'] ? print 'selected="selected"' : ''?>><?php echo $language['locale']?></option>
+                			<?php endforeach;?>
+                		</select>
+                    </div>
+                    
 					<div class="form-group">
 						<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/languages','Theme, separate themes by new line')?></label>
 						<textarea class="form-control" name="theme"><?php echo implode("\n", $siteAccessOptions['theme'])?></textarea>
@@ -87,9 +95,7 @@
 							<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/languages','Default view')?></label> <input type="text" class="form-control" name="view" value="<?php echo $siteAccessOptions['default_url']['view']?>" />
 						</div>
 					</div>
-					
-				</fieldset>
-
+				
 				<input type="hidden" name="StoreLanguageSettings" value="1" /> <input type="submit" class="btn btn-default" name="StoreLanguageSettingsAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
 
 			</form>

@@ -128,6 +128,24 @@ module.exports = (function() {
 		});
 	};
 	
+	LHCSpeechToText.prototype.getDialect = function(language) {
+		$.get(WWW_DIR_JAVASCRIPT + 'speech/getdialect/' + language.val(), function(data){
+			$('#id_select_dialect').replaceWith(data);
+		});
+	};
+	
+	LHCSpeechToText.prototype.setChatLanguageRecognition = function(params) {
+		$.postJSON(WWW_DIR_JAVASCRIPT + 'speech/setchatspeechlanguage/' + params['chat_id'], {'select_language':$('#id_select_language').val(),'select_dialect':$('#id_select_dialect').val()} , function(data){
+			if (data.error == 'false') {
+				if (params['lhinst'].speechHandler !== false) {
+					params['lhinst'].speechHandler.setChatDialect(params['chat_id'], data.dialect);
+				}
+				$('#myModal').modal('hide');
+			}
+		});		
+		return false;
+	};
+	
 	LHCSpeechToText.prototype.listen = function(params)
 	{
 		if (this.browserSupported == true)

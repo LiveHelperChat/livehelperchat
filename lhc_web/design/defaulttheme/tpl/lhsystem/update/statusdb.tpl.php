@@ -4,7 +4,7 @@
 </div>
 
 <div class="row" id="db-status-checked">
-	<div class="columns col-md-12 form-group">
+	<div class="col-md-12 form-group">
 		<h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('update/statusdb','Database structure check')?></h3>
 		<ul>
 		<?php 
@@ -28,7 +28,7 @@
 
 	</div>
 	<?php if ( !empty($queries) ) : ?>
-	<div class="columns col-md-12">	
+	<div class="col-md-12">	
 		<div class="panel panel-default">
           <div class="panel-heading"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('update/statusdb','Queries which will be executed on update')?></div>
           <div class="panel-body">

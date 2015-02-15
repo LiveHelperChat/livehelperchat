@@ -7,21 +7,21 @@
 </head>
 <body>
 
-<div class="content-row">
+<div class="container-fluid">
 
 <div class="row">
-    <div class="columns small-10">
+    <div class="col-xs-10">
         <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_logo.tpl.php'));?>
     </div>
     <?php if (!isset($Result['hide_close_window'])) : ?>
-    <div class="columns small-2 pt20">
-		<input type="button" class="secondary tiny button round right" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close')?>" onclick="lhinst.userclosedchatandbrowser();" />
+    <div class="col-xs-2 pt20">
+		<input type="button" class="btn btn-defaut pull-right" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close')?>" onclick="lhinst.userclosedchatandbrowser();" />
 	</div>
 	<?php endif;?>
 </div>
 
 <div class="row">
-    <div class="columns twelve">
+    <div class="col-xs-12">
     <?php echo $Result['content']; ?>
     </div>
 </div>

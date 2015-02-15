@@ -54,14 +54,7 @@
 	    		<input type="button" class="btn btn-default btn-xs invisible-button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close')?>" onclick="lhinst.userclosedchatembed();" />
 	    		<?php endif;?>
 		   	</div>
-		   	
-		  <!--  	
-	    	<ul class="button-group right button-action-right">    	
-	    	
-	    		
-	    	</ul> -->
-	    	
-	    	    	
+		  	    	    	
 	    </div>
        
         <textarea class="form-control" rows="4" name="ChatMessage" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Enter your message')?>" id="CSChatMessage" class="live-chat-message"></textarea>

@@ -13,15 +13,9 @@ $.ajaxSetup({
     }
 });
 
-
 $.postJSON = function(url, data, callback) {
 	return $.post(url, data, callback, "json");
 };
-
-
-
-/*Port FN accordion*/
-//(function(e,t,n){"use strict";e.fn.foundationAccordion=function(t){var n=function(e){return e.hasClass("hover")&&!Modernizr.touch};e(document).on("mouseenter",".accordion-lhc li",function(){var t=e(this).parent();if(n(t)){var r=e(this).children(".content-lhc").first();e(".content-lhc",t).not(r).hide().parent("li").removeClass("active-lhc"),r.show(0,function(){r.parent("li").addClass("active-lhc")})}}),e(document).on("click.fndtn",".accordion-lhc li .title-lhc",function(){var t=e(this).closest("li"),r=t.parent();if(!n(r)){var i=t.children(".content-lhc").first();t.hasClass("active-lhc")?r.find("li").removeClass("active-lhc").end().find(".content-lhc").hide():(e(".content-lhc",r).not(i).hide().parent("li").removeClass("active-lhc"),i.show(0,function(){i.parent("li").addClass("active-lhc")}))}})}})(jQuery,this);
 
 var LHCCallbacks = {};
 
@@ -317,10 +311,6 @@ function lh(){
 	            });
             }
         }
-    };
-
-    this.cancelcolorbox = function(){
-    	//$('#myModal').foundation('reveal', 'close');
     };
 
     this.sendemail = function(){    
@@ -630,12 +620,12 @@ function lh(){
 	        async: true
 	    });
 
-    	var index = tabs.find(' > section.active').index();
-    	tabs.find(' > section.active').remove();
-		tabs.find(' > section:eq(' + (index - 1) + ')').addClass("active");
-
-		//$(document).foundation('section', 'resize');
-
+	    var index = tabs.find('> ul > #chat-tab-li-'+chat_id).index();
+    	tabs.find('> ul > #chat-tab-li-'+chat_id).remove();
+    	tabs.find('#chat-id-'+chat_id).remove();	    	
+    	tabs.find('> ul > li:eq('+ (index - 1)+')').addClass('active');
+    	tabs.find('> div.tab-content > div:eq(' + (index - 1) + ')').addClass("active");
+    	
         if (this.closeWindowOnChatCloseDelete == true)
         {
             window.close();
@@ -1408,37 +1398,7 @@ function lh(){
         	//
         };
 	};
-	
-	
-	this.speechLanguage = function(chat_id)
-	{
-		this.initializeModal();		
-		//$('#myModal').foundation('reveal', 'open', {url: WWW_DIR_JAVASCRIPT+'speech/setchatspeechlanguage/'+chat_id});		
-		return false;
-	};
-	
-	this.getDialect = function(language) {
-		$.get(this.wwwDir + 'speech/getdialect/' + language.val(), function(data){
-			$('#id_select_dialect').replaceWith(data);
-		});
-	};
-	
-	this.setChatLanguageRecognition = function(chat_id)
-	{
-		var _this = this;
-		
-		$.postJSON(this.wwwDir + 'speech/setchatspeechlanguage/' + chat_id, {'select_language':$('#id_select_language').val(),'select_dialect':$('#id_select_dialect').val()} , function(data){
-			if (data.error == 'false') {
-				if (_this.speechHandler !== false) {
-					_this.speechHandler.setChatDialect(chat_id,data.dialect);
-				}
-				//$('#myModal').foundation('reveal', 'close');
-			}
-		});
-		
-		return false;
-	};
-	
+			
 	this.addmsgadmin = function (chat_id)
 	{
 		var textArea = $("#CSChatMessage-"+chat_id);

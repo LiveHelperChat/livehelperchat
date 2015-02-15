@@ -1,5 +1,5 @@
 <div class="operator-info float-break">
-	<div class="left pr5">
+	<div class="pull-left pr5">
 		<?php if ($user->has_photo) : ?>
      			<img src="<?php echo $user->photo_path?>" alt="<?php echo htmlspecialchars($user->name_support)?>" />
      	<?php else : ?>
@@ -7,7 +7,7 @@
      	<?php endif;?>
      </div>
      <div class="pl10">
-	    <h5 class="subheader"><strong><?php echo htmlspecialchars($user->name_support)?></strong></h5>
+	    <span><strong><?php echo htmlspecialchars($user->name_support)?></strong></span>
 	    <?php if (isset($extraMessage)) : ?>
 	    	<i><?php echo $extraMessage;?></i>
 	    <?php endif;?>

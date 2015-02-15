@@ -18,7 +18,7 @@
 
 <div class="row">
 
-    <div class="col-md-<?php $canUseChat == true ? print '9' : print '12'; ?>">
+    <div class="col-sm-<?php $canUseChat == true ? print '8' : print '12'; ?> col-md-<?php $canUseChat == true ? print '9' : print '12'; ?>">
     	<?php echo $Result['content']; ?>
     </div>
 
@@ -28,7 +28,7 @@
     $closedTabEnabled = (int)erLhcoreClassModelUserSetting::getSetting('enable_close_list',0);
     $unreadTabEnabled = (int)erLhcoreClassModelUserSetting::getSetting('enable_unread_list',1);
     ?>
-    <div class="columns col-md-3" id="right-column-page" ng-cloak>
+    <div class="columns col-sm-4 col-md-3" id="right-column-page" ng-cloak>
         
         <div role="tabpanel">
         	<!-- Nav tabs -->
@@ -84,7 +84,7 @@
 
         	<?php if ($closedTabEnabled == true) : ?>
         	<div ng-show="closed_chats.list.length > 0">
-	        <h5><a href="<?php echo erLhcoreClassDesign::baseurl('chat/closedchats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Closed chats');?></a></h5>
+	        <h4><a href="<?php echo erLhcoreClassDesign::baseurl('chat/closedchats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Closed chats');?></a></h4>
     		<div id="right-closed-chats">        		
         		<?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_closed_list.tpl.php'));?>        		
             </div>

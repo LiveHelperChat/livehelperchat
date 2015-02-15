@@ -1,11 +1,11 @@
 <div class="row">
     <div class="col-md-6">
     	   <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('speech/language','Language')?></label>
-            <?php   
+            <?php    
             
             $params = array(
                 'input_name' => 'select_language',
-                'on_change'  => 'lhinst.getDialect($(this))',
+                'on_change'  => "lhc.methodCall('lhc.speak','getDialect',$(this))",
                 'selected_id' => $dataSpeech['language'],
                 'css_class' => 'form-control',
                 'list_function' => 'erLhcoreClassModelSpeechLanguage::getList'

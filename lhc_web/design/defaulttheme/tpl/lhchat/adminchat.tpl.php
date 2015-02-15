@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-sm-7" id="chat-main-column-<?php echo $chat->id;?>">
+	<div class="col-sm-7 chat-main-left-column" id="chat-main-column-<?php echo $chat->id;?>">
 		<a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Show/Hide right column')?>" href="#" class="icon-right-circled collapse-right" onclick="lhinst.processCollapse('<?php echo $chat->id;?>')"></a>
 
 		<div class="message-block">
@@ -43,7 +43,7 @@
 		<?php include(erLhcoreClassDesign::designtpl('lhchat/part/below_action_block.tpl.php')); ?>
 
 	</div>
-	<div class="columns col-sm-5" id="chat-right-column-<?php echo $chat->id;?>">
+	<div class="col-sm-5 chat-main-right-column" id="chat-right-column-<?php echo $chat->id;?>">
 		<?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/chat_tabs_container.tpl.php')); ?>
 	</div>
 </div>
