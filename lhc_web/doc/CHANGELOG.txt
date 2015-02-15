@@ -1,3 +1,9 @@
+2.23v
+
+1. Integrated webpack, bower, gulp and other fancy stuff.
+2. LHC was migrated to Bootstrap v3.3.2. I had tough choise decing stay with Foundation or use Bootstrap, but for systems Bootstrap just is more nicer.
+3. A lot of code rewrite, CSS cleanup and so on.
+
 2.22v
 
 1. All Javascript's is now compressed.

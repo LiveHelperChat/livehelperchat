@@ -705,14 +705,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Widget embed code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Page embed code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Chatbox messages content height</source>
       <translation type="unfinished"/>
     </message>
@@ -825,7 +817,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Widget embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set default speech recognition language</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -984,10 +988,6 @@
     </message>
     <message>
       <source>Forms</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Documents</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1375,6 +1375,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Notifications</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat transfer worklow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Auto assignment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Miscellaneous</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Work hours/work days logic is active</source>
       <translation type="unfinished"/>
     </message>
@@ -1431,10 +1447,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Notifications</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>XMPP recipients</source>
       <translation type="unfinished"/>
     </message>
@@ -1487,10 +1499,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Chat transfer worklow</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>To what department chat should be transfered if it is not accepted</source>
       <translation type="unfinished"/>
     </message>
@@ -1504,14 +1512,6 @@
     </message>
     <message>
       <source>Execute unanswered chat logic again for recipient department?</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Auto assignment</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Miscellaneous</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1557,10 +1557,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Information</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Files</source>
       <translation type="unfinished"/>
     </message>
@@ -1590,62 +1586,6 @@
     </message>
     <message>
       <source>Edit main chat information</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Country</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Time zone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>City</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Page</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Came from</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Additional data</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Created</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User left</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Waited</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat duration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Actions</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1705,6 +1645,58 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>City</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Page</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Came from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Additional data</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User left</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Waited</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat duration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat between operators, chat initializer</source>
       <translation type="unfinished"/>
     </message>
@@ -1713,7 +1705,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Map</source>
+      <source>Information</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1721,11 +1713,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Browsing information</source>
+      <source>Map</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Refresh</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User browsing information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1734,10 +1734,6 @@
     </message>
     <message>
       <source>Notes</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1854,10 +1850,6 @@
   <context>
     <name>chat/screenshot</name>
     <message>
-      <source>Screenshot</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Take user screenshot</source>
       <translation type="unfinished"/>
     </message>
@@ -1878,6 +1870,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Screenshot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Screenshot ready...</source>
       <translation type="unfinished"/>
     </message>
@@ -1889,15 +1885,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>All pending chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Active chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>All active chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1905,11 +1893,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>All unread chats</source>
+      <source>Closed chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Closed chats</source>
+      <source>All pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>All active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>All unread chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2352,6 +2348,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>GTalk</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Use standard XMPP service</source>
       <translation type="unfinished"/>
     </message>
@@ -2401,10 +2401,6 @@
     </message>
     <message>
       <source>Test message will be send to your account e-mail</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>GTalk</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2487,15 +2483,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Map location</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>GEO Enabled</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Use this service</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Save</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2583,7 +2579,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Map location</source>
+      <source>Save</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2731,15 +2727,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Online visitors list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online users on map</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Enable/Disable sound about new visitor</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Enable/Disable browser notifications about new visitor</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online users on map</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2760,10 +2760,6 @@
     </message>
     <message>
       <source>minutes</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online visitors list</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2962,14 +2958,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Application name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Site settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Online tracking</source>
       <translation type="unfinished"/>
     </message>
@@ -2978,19 +2966,27 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Cookie related</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat related</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Workflow</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Screen sharing</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Application name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Site settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Cookie related</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat related</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3022,6 +3018,18 @@
     </message>
     <message>
       <source>System</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live help configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Speech</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3057,10 +3065,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Embed code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Live help embed code</source>
       <translation type="unfinished"/>
     </message>
@@ -3078,10 +3082,6 @@
     </message>
     <message>
       <source>Browse offers embed code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Live help configuration</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3173,10 +3173,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Speech</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>File configuration</source>
       <translation type="unfinished"/>
     </message>
@@ -3259,23 +3255,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Configuration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chats list</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat rooms</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>New chat request</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Menu</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats list</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3572,6 +3560,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Offline form settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Additional form settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation type="unfinished"/>
     </message>
@@ -3616,19 +3612,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Offline form settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>E-mail is always required</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Allow to attatch a file</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Additional form settings</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3795,6 +3783,10 @@
     <name>chat/statistic</name>
     <message>
       <source>Statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>General</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3985,6 +3977,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Transfer to a department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Logged in users</source>
       <translation type="unfinished"/>
     </message>
@@ -3994,10 +3990,6 @@
     </message>
     <message>
       <source>Transfer</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Transfer to a department</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4447,6 +4439,26 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Assigned departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visible lists</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Personal canned messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Speech</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Do not enter a password unless you want to change it</source>
       <translation type="unfinished"/>
     </message>
@@ -4515,15 +4527,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Assigned departments</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>All departments</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Visible lists</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4543,19 +4547,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Personal canned messages</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>I can see all pending chats, not only assigned to me</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Speech</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5000,7 +4992,7 @@
   <context>
     <name>core/paginator</name>
     <message>
-      <source>Page</source>
+      <source>Go to page</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5008,11 +5000,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Found</source>
+      <source>Page</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Go to page</source>
+      <source>Found</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -5275,6 +5267,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Voting options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Answers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Save</source>
       <translation type="unfinished"/>
     </message>
@@ -5284,14 +5284,6 @@
     </message>
     <message>
       <source>Cancel</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Voting options</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Answers</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5535,11 +5527,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Language</source>
+      <source>General language settings</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>General language settings</source>
+      <source>Language</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5772,14 +5764,6 @@
     </message>
     <message>
       <source>Update instructions</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Missing updates from new versions.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>You are running current version. No updates required</source>
       <translation type="unfinished"/>
     </message>
     <message>

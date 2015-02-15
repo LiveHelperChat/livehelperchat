@@ -35,7 +35,7 @@ if (!!window.postMessage) {
 		if (heightContent != currentHeight){
 			heightContent = currentHeight;
 			try {
-				parent.postMessage('<?php echo $Result['dynamic_height_message']?>:'+(parseInt(heightContent)+<?php (isset($Result['dynamic_height_append'])) ? print $Result['dynamic_height_append'] : print 20?>), '*');
+				parent.postMessage('<?php echo $Result['dynamic_height_message']?>:'+(parseInt(heightContent)+<?php (isset($Result['dynamic_height_append'])) ? print $Result['dynamic_height_append'] : print 15?>), '*');
 			} catch(e) {
 
 			};

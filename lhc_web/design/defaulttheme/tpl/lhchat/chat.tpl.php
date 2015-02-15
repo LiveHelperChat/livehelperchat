@@ -70,11 +70,7 @@
         lhinst.initTypingMonitoringUser('<?php echo $chat_id?>');
         </script>
     </div>
-	<div id="bbcodeReveal" class="reveal-modal"></div>
-	
     
-
-
 <script type="text/javascript">
     lhinst.setChatID('<?php echo $chat_id?>');
     lhinst.setChatHash('<?php echo $hash?>');
