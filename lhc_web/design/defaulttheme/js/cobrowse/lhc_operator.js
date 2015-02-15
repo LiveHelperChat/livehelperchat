@@ -248,9 +248,12 @@ var LHCCoBrowserOperator = (function() {
 	
 	LHCCoBrowserOperator.prototype.scrollTopGS = function(stop)
 	{
+		
 		if (typeof stop === 'undefined') {
+			console.log("returning");
 			return this.iFrameDocument.documentElement.scrollTop || this.iFrameDocument.body.scrollTop;
 		} else {
+			console.log("setting");
 			jQuery(this.iFrameDocument).scrollTop(stop);
 		}
 	};

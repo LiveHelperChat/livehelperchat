@@ -11,8 +11,7 @@ bower = require('gulp-bower');
 gulp.task('js-cobrowse-operator', function() {
 	var stylePath = ['design/defaulttheme/js/cobrowse/mutation-summary.js',
 	                 'design/defaulttheme/js/cobrowse/tree-mirror.js',
-	                 'design/defaulttheme/js/cobrowse/jquery.selector.js',
-	                 'design/defaulttheme/js/cobrowse/lhc_operator.js'];
+	                 'design/defaulttheme/js/cobrowse/jquery.selector.js'];
 	
 	return gulp.src(stylePath)
 	.pipe(concat('cobrowse.operator.min.js'))
@@ -116,6 +115,10 @@ gulp.task('bower-move-jquery',['bower'], function() {
 });
 
 gulp.task('bower-setup',['bower-move-bootstrap','bower-move-jquery','bower-move-bootstrap-font'], function() {
+	
+});
+
+gulp.task('js-cobrowse',['js-cobrowse-operator','js-cobrowse-visitor'], function() {
 
 });
 
