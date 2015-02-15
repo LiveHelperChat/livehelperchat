@@ -7,7 +7,7 @@
      	<?php endif;?>
      </div>
      <div class="pl10">
-	    <span><strong><?php echo htmlspecialchars($user->name_support)?></strong></span>
+	    <div><strong><?php echo htmlspecialchars($user->name_support)?></strong></div>
 	    <?php if (isset($extraMessage)) : ?>
 	    	<i><?php echo $extraMessage;?></i>
 	    <?php endif;?>
