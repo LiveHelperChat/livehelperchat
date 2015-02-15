@@ -4,14 +4,19 @@
 
 	<div class="row form-group">
 		<div class="col-md-3">
+		   <div class="form-group">
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Nick');?></label>
 			<input type="text" class="form-control" name="nick" value="<?php echo htmlspecialchars($input->nick)?>" />
+		   </div>
 		</div>
 		<div class="col-md-3">
+		  <div class="form-group">
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','E-mail');?></label>
 			<input type="text" class="form-control" name="email" value="<?php echo htmlspecialchars($input->email)?>" />
+		  </div>
 		</div>
 		<div class="col-md-6">
+		  <div class="form-group">
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Date range from to');?></label>
 			<div class="row">
 				<div class="col-md-6">
@@ -21,11 +26,13 @@
 					<input type="text" class="form-control" name="timeto" id="id_timeto" placeholder="E.g <?php echo date('Y-m-d')?>" value="<?php echo htmlspecialchars($input->timeto)?>" />
 				</div>
 			</div>
+			</div>
 		</div>		
 	</div>
 			
 	<div class="row">
 		<div class="col-md-6">
+		  <div class="form-group">
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department');?></label>
 				<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
 	                    'input_name'     => 'department_id',
@@ -34,8 +41,10 @@
 				        'css_class'      => 'form-control',				
 	                    'list_function'  => 'erLhcoreClassModelDepartament::getList'
 	            )); ?>            	
+		  </div>
 		</div>
 		<div class="col-md-6">
+		   <div class="form-group">
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','User');?></label>
 			<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
 	                    'input_name'     => 'user_id',
@@ -44,6 +53,7 @@
 			            'css_class'      => 'form-control',
 	                    'list_function'  => 'erLhcoreClassModelUser::getUserList'
 	            )); ?>            	
+		  </div>
 		</div>
 	</div>
 	
