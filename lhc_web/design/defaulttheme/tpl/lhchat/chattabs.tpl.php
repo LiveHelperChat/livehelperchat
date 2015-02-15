@@ -10,7 +10,7 @@ $unreadTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_unread_lis
 <div role="tabpanel" ng-cloak id="tabs">
 
 	<!-- Nav tabs -->
-	<ul class="nav nav-tabs" role="tablist">
+	<ul class="nav nav-pills" role="tablist">
 	    <?php if ($pendingTabEnabled == true) : ?>
 		<li role="presentation" class="active"><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Pending confirm');?>" href="#panel1" aria-controls="panel1" role="tab" data-toggle="tab"><i class="icon-chat chat-pending"></i><span>{{pending_chats.list.length != false && pending_chats.list.length > 0 ? ' ('+pending_chats.list.length+')' : ''}}</span></a></li>
 		<?php endif;?>

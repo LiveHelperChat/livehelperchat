@@ -602,7 +602,7 @@ ul.mb0 {
 .collapse-right,
 .collapse-right:hover{
 	position:absolute;
-	right:-3px;
+	right:0px;
 	margin-top:-15px;
 	color:#CCC;
 }

@@ -7,8 +7,10 @@
 <body ng-controller="LiveHelperChatCtrl as lhc">
 
 <div class="container-fluid">
-    <div class="col-xs-12 pt10">
+    <div class="row">
+    <div class="col-xs-12">
         <?php echo $Result['content']; ?>
+    </div>
     </div>
 </div>
 

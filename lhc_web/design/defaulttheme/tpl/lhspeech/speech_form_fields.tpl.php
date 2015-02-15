@@ -1,7 +1,8 @@
 <div class="row">
     <div class="col-md-6">
+        <div class="form-group">
     	   <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('speech/language','Language')?></label>
-            <?php    
+            <?php   
             
             $params = array(
                 'input_name' => 'select_language',
@@ -17,9 +18,11 @@
                    
             echo erLhcoreClassRenderHelper::renderCombobox($params);
             ?> 
+         </div>
     </div>
     <div class="col-md-6">
-        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('speech/language','Dialect')?></label>
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('speech/language','Dialect')?></label>
          <?php                       
             $params = array(
                 'input_name' => 'select_dialect',
@@ -37,5 +40,6 @@
             
             echo erLhcoreClassRenderHelper::renderCombobox($params);
          ?>    	
+        </div>
     </div>
 </div>
