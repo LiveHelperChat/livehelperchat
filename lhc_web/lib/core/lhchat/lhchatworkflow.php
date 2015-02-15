@@ -295,7 +295,7 @@ class erLhcoreClassChatWorkflow {
      		$cannedMsg = array_shift($items);
      		
      		$msg = new erLhcoreClassModelmsg();
-     		$msg->msg = $cannedMsg->msg;
+     		$msg->msg = str_replace(array('{nick}','{operator}'), array($chat->nick,(string)$chat->user->name_support),$cannedMsg->msg);
      		$msg->chat_id = $chat->id;
      		$msg->user_id = $chat->user_id;
      		$msg->name_support = $chat->user->name_support;

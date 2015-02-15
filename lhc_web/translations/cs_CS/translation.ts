@@ -566,7 +566,7 @@
     </message>
     <message>
       <source>How many times repeat message?</source>
-      <translation>Kolikrát odpovědět na otázku?</translation>
+      <translation>Kolikrát zopakovat zprávu?</translation>
     </message>
     <message>
       <source>Show visitor this message then wait timeout passes.</source>
@@ -6489,7 +6489,7 @@
     </message>
     <message>
       <source>Use user e-mail as from address</source>
-      <translation>Použít e-mail uživatele jako odresu odesílatele</translation>
+      <translation>Použít e-mail uživatele jako odesílatele</translation>
     </message>
     <message>
       <source>Reply to</source>

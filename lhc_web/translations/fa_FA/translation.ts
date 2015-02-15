@@ -3148,7 +3148,7 @@
     </message>
     <message>
       <source>Files upload configuration</source>
-      <translation>تنظیمات بارگذاری فایل</translation>
+      <translation>تنظیمات آپلود فایل</translation>
     </message>
     <message>
       <source>List of files</source>
@@ -3160,15 +3160,15 @@
     </message>
     <message>
       <source>Widget themes</source>
-      <translation>تم‌های ابزارک</translation>
+      <translation>قالب های ابزارک</translation>
     </message>
     <message>
       <source>Import new themes</source>
-      <translation>ایمپورت تم جدید</translation>
+      <translation>وارد کردن قالب های جدید</translation>
     </message>
     <message>
       <source>Default theme</source>
-      <translation>تم پیشفرض</translation>
+      <translation>قالب پیش فرض</translation>
     </message>
     <message>
       <source>Speech</source>
@@ -3191,7 +3191,7 @@
     </message>
     <message>
       <source>Pending chats</source>
-      <translation>چت های معلق</translation>
+      <translation>چت های در انتظار</translation>
     </message>
     <message>
       <source>Active chats</source>
@@ -3230,7 +3230,7 @@
     </message>
     <message>
       <source>Home</source>
-      <translation>خانه</translation>
+      <translation>صفحه اصلی</translation>
     </message>
     <message>
       <source>Chats transferred to you directly</source>
@@ -3238,11 +3238,11 @@
     </message>
     <message>
       <source>Transferred to your department</source>
-      <translation>منتقل شده به دپارتمان شما</translation>
+      <translation>به دپارتمان شما منتقل شد</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation>چت های معلق</translation>
+      <translation>چت های در انتظار</translation>
     </message>
     <message>
       <source>Active chats</source>
@@ -3282,27 +3282,27 @@
     </message>
     <message>
       <source>Extra modules</source>
-      <translation>ماژول های جانبی</translation>
+      <translation>سایر ماژول ها</translation>
     </message>
     <message>
       <source>Questionary</source>
-      <translation>پرسشی</translation>
+      <translation>پرسش نامه</translation>
     </message>
     <message>
       <source>FAQ</source>
-      <translation>س / ج</translation>
+      <translation>سوالات متداول</translation>
     </message>
     <message>
       <source>Chatbox</source>
-      <translation>جعبه چت</translation>
+      <translation>باکس چت</translation>
     </message>
     <message>
       <source>Browse offers</source>
-      <translation>مرور پیشنهادات</translation>
+      <translation>مشاهده پیشنهادات</translation>
     </message>
     <message>
       <source>Account</source>
-      <translation>حساب</translation>
+      <translation>حساب کاربری</translation>
     </message>
     <message>
       <source>Logout</source>
@@ -3324,7 +3324,7 @@
     <name>chat/maintenance</name>
     <message>
       <source>Maintenance</source>
-      <translation>نگهداری</translation>
+      <translation>تعمیر و نگهداری</translation>
     </message>
     <message>
       <source>Automatic chats close, click to close old chats</source>
@@ -3404,7 +3404,7 @@
     <name>chat/pendingchats</name>
     <message>
       <source>Pending chats list</source>
-      <translation>فهرست چت های معلق</translation>
+      <translation>فهرست چت های در انتظار</translation>
     </message>
     <message>
       <source>Information</source>
@@ -3428,7 +3428,7 @@
     </message>
     <message>
       <source>Pending chats</source>
-      <translation>چت های معلق</translation>
+      <translation>چت های در انتظار</translation>
     </message>
   </context>
   <context>
@@ -3461,23 +3461,23 @@
     </message>
     <message>
       <source>Subject</source>
-      <translation>عنوان</translation>
+      <translation>موضوع</translation>
     </message>
     <message>
       <source>From name</source>
-      <translation>از نام</translation>
+      <translation>نام فرستنده</translation>
     </message>
     <message>
       <source>Reply e-mail</source>
-      <translation>پاسخ ایمیل</translation>
+      <translation>ایمیل دریافت کننده پاسخ</translation>
     </message>
     <message>
       <source>From e-mail</source>
-      <translation>از ایمیل</translation>
+      <translation>ایمیل فرستنده</translation>
     </message>
     <message>
       <source>Type your message to the user</source>
-      <translation>تایپ پیام برای کاربر</translation>
+      <translation>پیام خود را برای کاربر وارد کنید</translation>
     </message>
     <message>
       <source>Send the mail</source>
@@ -3485,7 +3485,7 @@
     </message>
     <message>
       <source>Embed link to file</source>
-      <translation>اتصال لینک به فایل</translation>
+      <translation>وارد کردن لینک به فایل</translation>
     </message>
     <message>
       <source>Mail was sent to the user</source>
@@ -3497,15 +3497,15 @@
     </message>
     <message>
       <source>From e-mail is missing!</source>
-      <translation>آدرس فرستنده ایمیل از دست رفته!</translation>
+      <translation>آدرس ایمیل فرستنده وجود ندارد!</translation>
     </message>
     <message>
       <source>Reply e-mail is missing!</source>
-      <translation>پاسخ ایمیل از دست رفته!</translation>
+      <translation>ایمیل دریافت کننده پاسخ وجود ندارد!</translation>
     </message>
     <message>
       <source>Subject is missing!</source>
-      <translation>عنوان از دست رفته!</translation>
+      <translation>موضوع وجود ندارد!</translation>
     </message>
   </context>
   <context>
@@ -3516,23 +3516,23 @@
     </message>
     <message>
       <source>If the message was already sent, this will mark it as not delivered and the user will be shown the chat message again.</source>
-      <translation>اگر پیام ارسال شده باشد، این گزینه آن را به عنوان دریافت نشده علامت گذاری کرده و مجدد در پیام چت نمایش داده میشود.</translation>
+      <translation>اگر پیام ارسال شده باشد، این گزینه آن را به عنوان دریافت نشده علامت گذاری کرده و مجدداً پیام چت برای کاربر نمایش داده می شود.</translation>
     </message>
     <message>
       <source>Type your message to the user</source>
-      <translation>تایپ پیام شخصی به کاربر</translation>
+      <translation>پیام خود را برای کاربر وارد کنید</translation>
     </message>
     <message>
       <source>Requires e-mail</source>
-      <translation>ایمیل درخواستی</translation>
+      <translation>ایمیل الزامی است</translation>
     </message>
     <message>
       <source>Requires name</source>
-      <translation>نام درخواستی</translation>
+      <translation>نام الزامی است</translation>
     </message>
     <message>
       <source>Requires phone</source>
-      <translation>درخواست شماره تلفن</translation>
+      <translation>شماره تلفن الزامی است</translation>
     </message>
     <message>
       <source>Send the message</source>
@@ -3559,11 +3559,11 @@
     </message>
     <message>
       <source>At least one field has to be visible and required in the popup and page widget</source>
-      <translation>در نهایت یک فیلد نمایش داده میشود و برای ویجت پنجره باز شونده لازم است</translation>
+      <translation>حداقل یک فیلد باید قابل مشاهده باشد و در popup و ابزارک صفحه لازم است</translation>
     </message>
     <message>
       <source>Enable leave a message functionality automatically if there are no online operators</source>
-      <translation>قابلیت گذاشتن پیام را فعال کنید برای زمانی که اپراتوری آنلاین نیست</translation>
+      <translation>در صورتی که اپراتوری آنلاین نباشد، قابلیت گذاشتن پیام را به طور خودکار فعال می کند</translation>
     </message>
     <message>
       <source>Online form settings</source>
@@ -3575,15 +3575,15 @@
     </message>
     <message>
       <source>This field is visible in the popup</source>
-      <translation>این فیلد در پنجره بازشونده نمایش داده میشود</translation>
+      <translation>این فیلد در پنجره popup نمایش داده می شود</translation>
     </message>
     <message>
       <source>This field is visible in the page widget</source>
-      <translation>این فیلد در پنجره ویجت نمایش داده میشود</translation>
+      <translation>این فیلد در ابزارک صفحه نمایش داده می شود</translation>
     </message>
     <message>
       <source>This field is invisible but prefilled data is collected</source>
-      <translation>این فیلد غیرقابل مشاهده است. اما اطلاعات درون آن جمع آوری میشود.</translation>
+      <translation>این فیلد غیرقابل مشاهده است. اما داده های از قبل وارد شده، جمع آوری می شود.</translation>
     </message>
     <message>
       <source>This field is</source>
@@ -3591,7 +3591,7 @@
     </message>
     <message>
       <source>Required</source>
-      <translation>درخواست شده</translation>
+      <translation>الزامی است</translation>
     </message>
     <message>
       <source>Optional</source>
@@ -3611,7 +3611,7 @@
     </message>
     <message>
       <source>Terms of service acceptance checkbox</source>
-      <translation>جعبه انتخاب پذیرفتن شرایط خدمات</translation>
+      <translation>چک باکس پذیرفتن شرایط خدمات</translation>
     </message>
     <message>
       <source>Offline form settings</source>
@@ -3627,19 +3627,19 @@
     </message>
     <message>
       <source>Additional form settings</source>
-      <translation>تنظیمات اضافی فرم</translation>
+      <translation>سایر تنظیمات فرم</translation>
     </message>
     <message>
       <source>Show operator profile above input fields</source>
-      <translation>نمایش اطلاعات اپراتور در بالای فیلدهای ورودی</translation>
+      <translation>نمایش پروفایل اپراتور در بالای فیلدهای ورودی</translation>
     </message>
     <message>
       <source>Remove space after operator profile</source>
-      <translation>پاک کردن فضای بعد از پروفایل اپراتور</translation>
+      <translation>حذف فضا بعد از پروفایل اپراتور</translation>
     </message>
     <message>
       <source>Hide message label</source>
-      <translation>پنهان کردن برچسب پیام</translation>
+      <translation>عدم نمایش برچسب پیام</translation>
     </message>
     <message>
       <source>Initial user message height in pixels</source>
@@ -3647,11 +3647,11 @@
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>
-      <translation>لطفا حداقل یک فیلد برای پنچره بازشونده انتخاب کنید</translation>
+      <translation>لطفا حداقل یک فیلد برای پنچره popup انتخاب کنید</translation>
     </message>
     <message>
       <source>Please choose at least one field for a page widget</source>
-      <translation>لطفا حداقل یک فیلد برای پنجره ویجت انتخاب کنید</translation>
+      <translation>لطفا حداقل یک فیلد برای ابزارک صفحه انتخاب کنید</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
@@ -3674,7 +3674,7 @@
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>تنظیمات به روزشده</translation>
+      <translation>تنظیمات به روزشد</translation>
     </message>
     <message>
       <source>Synchronisation and sound settings</source>
@@ -3682,19 +3682,19 @@
     </message>
     <message>
       <source>How many seconds for a user to be considered as being online</source>
-      <translation>ثانیه هایی که طول میکشد تا کاربر به عنوان آنلاین شناخته شود</translation>
+      <translation>چند ثانیه طول می کشد تا کاربر به عنوان آنلاین شناخته شود</translation>
     </message>
     <message>
       <source>Value in seconds</source>
-      <translation>مقدار بر اساس ثانیه</translation>
+      <translation>مقدار بر حسب ثانیه</translation>
     </message>
     <message>
       <source>Sync for new chats, interval in seconds</source>
-      <translation>هماهنگی برای چت های جدید، به ثانیه</translation>
+      <translation>هماهنگی برای چت های جدید، فاصله زمانی بر حسب ثانیه</translation>
     </message>
     <message>
       <source>Check for messages from the operators, interval in seconds</source>
-      <translation>بررسی پیام ها از اپراتورها در هر ثانیه</translation>
+      <translation>بررسی پیام ها از اپراتورها بر حسب ثانیه</translation>
     </message>
     <message>
       <source>Messages settings</source>
@@ -3702,11 +3702,11 @@
     </message>
     <message>
       <source>Sync for a new user message, interval in seconds</source>
-      <translation>هماهنگی برای پیام جدید کاربر بر اساس ثانیه</translation>
+      <translation>هماهنگی برای پیام جدید کاربر، فاصله زمانی بر حسب ثانیه</translation>
     </message>
     <message>
       <source>Show browser notification for new messages</source>
-      <translation>نمایش اطلاع رسانی مرورگر برای پیام جدید</translation>
+      <translation>نمایش آگاه کننده مرورگر برای پیام های جدید</translation>
     </message>
     <message>
       <source>Long polling (experimental)</source>
@@ -3718,11 +3718,11 @@
     </message>
     <message>
       <source>How many seconds keep connection to server?</source>
-      <translation>میخواهید چند ثانیه به سرور متصل باشید؟</translation>
+      <translation>اتصال به سرور، چند ثانیه به طول انجامد؟</translation>
     </message>
     <message>
       <source>New chat request notification settings</source>
-      <translation>تنظیمات اطلاع رسانی درخواست چت جدید</translation>
+      <translation>تنظیمات آگاه کننده درخواست چت جدید</translation>
     </message>
     <message>
       <source>Play a new pending chat sound on a new chat request</source>
