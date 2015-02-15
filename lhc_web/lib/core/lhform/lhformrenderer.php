@@ -183,7 +183,7 @@ class erLhcoreClassFormRenderer {
     	}
     	    	
     	$placeholder = isset($params['placeholder']) ? ' placeholder="'.htmlspecialchars($params['placeholder']).'" ' : '';    
-    	return "<input type=\"text\" name=\"{$params['name']}\" {$additionalAttributes} {$placeholder} value=\"".htmlspecialchars($value)."\" />";    	
+    	return "<input class=\"form-control\" type=\"text\" name=\"{$params['name']}\" {$additionalAttributes} {$placeholder} value=\"".htmlspecialchars($value)."\" />";    	
     }
         
     public static function renderInputTypeEmail($params) {    	
@@ -341,7 +341,7 @@ class erLhcoreClassFormRenderer {
 	    	};
     	}
     	    	
-    	return "<select {$additionalAttributes} name=\"{$params['name']}\">".implode('', $options)."</select>";  	
+    	return "<select class=\"form-control\" {$additionalAttributes} name=\"{$params['name']}\">".implode('', $options)."</select>";  	
     }
     
     
