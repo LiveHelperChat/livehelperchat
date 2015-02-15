@@ -1,13 +1,18 @@
 
 
 <div class="row">
-	<div class="col-xs-1 pr5">
-		<label class="inline" id="online-users-count" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','online users');?>">{{online.onlineusers.length}}</label>
+	<div class="col-sm-2 form-group col-xs-6 pr5">
+		<label id="online-users-count" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','online users');?>">{{online.onlineusers.length}}</label>
+		
+		<div class="pull-right">
+		  <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/online_settings.tpl.php')); ?>
+	    </div>
+	
 	</div>
-	<div class="col-xs-2 pl5 pr5">
+	<div class="col-sm-2 form-group col-xs-6 pl5 pr5">
 		<input class="form-control" ng-model="query" type="text" value="" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Type to search')?>">
 	</div>
-	<div class="col-xs-2 pl5 pr5">
+	<div class="col-sm-2 form-group col-xs-6 pl5 pr5">
 		<select class="form-control" ng-model="groupByField" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Group list by');?>">
 		    	<option value="none"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Group by');?></option>
 		    	<option value="user_country_name"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User country');?></option>
@@ -18,7 +23,7 @@
 		    	<option value="dep_id"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Department');?></option>
 		</select>
 	</div>	
-	<div class="col-xs-2 pl5 pr5">
+	<div class="col-sm-2 form-group col-xs-6 pl5 pr5">
 		<?php 		
 		echo erLhcoreClassRenderHelper::renderCombobox( array (
 	                    'input_name'     => 'department_id',
@@ -30,7 +35,7 @@
 						'list_function_params' => $departmentParams
 	    )); ?>
 	</div>	
-	<div class="col-xs-2 pl5 pr5">
+	<div class="col-sm-2 form-group col-xs-6 pl5 pr5">
 		<select class="form-control" id="updateTimeout" ng-model="online.updateTimeout" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Refresh list every');?>">
 		    	<option value="1">1 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','second');?></option>		    	
 		    	<option value="3">3 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','seconds');?></option>		    	
@@ -38,7 +43,7 @@
 		    	<option value="10">10 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','seconds');?></option>		    	
 		</select>
 	</div>
-	<div class="col-xs-2 pl5 pr5">
+	<div class="col-sm-1 form-group col-xs-6 pl5 pr5">
 		<select class="form-control" id="userTimeout" ng-model="online.userTimeout" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Show visitors who visited site in the past');?>">
 		    	<option value="30">30 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','seconds');?></option>
 		    	<option value="60">1 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','minute');?></option>
@@ -53,7 +58,7 @@
 		    	<option value="2678400">31 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','day');?></option>
 		</select>
 	</div>
-	<div class="col-xs-1 pl5">
+	<div class="col-sm-1 form-group col-xs-12 pl5">
 		<select class="form-control" id="maxRows" ng-model="online.maxRows" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Max records to return');?>">
 		    	<option value="50">50</option>
 		    	<option value="100">100</option>
@@ -64,8 +69,10 @@
 		    	<option value="500">500</option>
 		    	<option value="1000">1000</option>
 		</select>
-	</div>
+	</div>	
 </div>
+
+
 
 <table ng-cloak class="table table-condensed online-users-table" cellpadding="0" cellspacing="0" ng-init='trans = <?php echo json_encode(array('third' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User has not seen a message from the operator, or the message window is still open.'), 'second' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User has seen the message from the operator.'),'first' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User does not have any messages from the operator')),JSON_HEX_APOS)?>'>
 <thead>

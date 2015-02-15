@@ -24,7 +24,12 @@ body {
 
 .nav-pills{
 	border-bottom:1px solid #ddd;
-	padding-bottom:15px;
+	padding-bottom:10px;
+}
+.nav-pills>li>a{
+	background-color:#F4F4F4;
+	margin-bottom:5px;
+	margin-right:3px;
 }
 
 img{max-height:100%}

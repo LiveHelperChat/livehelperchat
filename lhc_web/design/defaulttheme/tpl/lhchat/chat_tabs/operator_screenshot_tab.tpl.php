@@ -1,3 +1,3 @@
 <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','take_screenshot')) : ?>
-<li role="presentation"><a href="#main-user-info-screenshot-<?php echo $chat->id?>" aria-controls="main-user-info-screenshot-<?php echo $chat->id?>" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/screenshot','Screenshot')?></a></a></li>
+<li role="presentation"><a href="#main-user-info-screenshot-<?php echo $chat->id?>" aria-controls="main-user-info-screenshot-<?php echo $chat->id?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/screenshot','Screenshot')?>" role="tab" data-toggle="tab"><i class="icon-picture"></i></a></li>
 <?php endif;?>
