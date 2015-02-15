@@ -784,7 +784,7 @@
     </message>
     <message>
       <source>Show chatbox content instead of widget, users will be able only minimize, not close it.</source>
-      <translation>نمایش محتوای چک باکس به جای ابزارک، کاربران فقط می توانند آن را پایین بزنند.</translation>
+      <translation>نمایش محتوای باکس چت به جای ابزارک، کاربران فقط می توانند این باکس را کوچک کنند.</translation>
     </message>
     <message>
       <source>Show chatbox content minimized first time if content is shown.</source>
@@ -1111,7 +1111,7 @@
     </message>
     <message>
       <source>Chatbox chat</source>
-      <translation type="unfinished"/>
+      <translation>چت Chatbox </translation>
     </message>
     <message>
       <source>Operators chat</source>
@@ -1580,7 +1580,7 @@
     </message>
     <message>
       <source>Chatbox chat</source>
-      <translation type="unfinished"/>
+      <translation>چت Chatbox </translation>
     </message>
     <message>
       <source>Operators chat</source>
@@ -3726,15 +3726,15 @@
     </message>
     <message>
       <source>Play a new pending chat sound on a new chat request</source>
-      <translation>برای درخواست چت جدید یک صدای جدید اجرا کن</translation>
+      <translation>برای درخواست چت جدید، صدای چت در وضعیت انتظار را اجرا کن</translation>
     </message>
     <message>
       <source>Play a sound on a new message for a back office user</source>
-      <translation>در زمان دریافت پیام از کاربر اداری صدا اجرا کن</translation>
+      <translation>در زمان دریافت پیام برای کاربر اداری، صدا اجرا کن</translation>
     </message>
     <message>
       <source>Play a sound on a new message for a front end user</source>
-      <translation>در زمان دریافت پیام از کاربر صدا اجرا کن</translation>
+      <translation>در زمان دریافت پیام جدید برای کاربر، صدا اجرا کن</translation>
     </message>
     <message>
       <source>Show alert message on a new chat request</source>
@@ -3742,23 +3742,23 @@
     </message>
     <message>
       <source>How many times play sound notification</source>
-      <translation>صدای هشدار چند مرتبه پخش شود</translation>
+      <translation>صدای آگاه کننده چند مرتبه پخش شود</translation>
     </message>
     <message>
       <source>Number</source>
-      <translation>شماره</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Delay between sound notifications in seconds</source>
-      <translation>تاخیر بین هشدارهای صوتی بر اساس ثانیه</translation>
+      <translation>تاخیر بین آگاه کننده های صوتی بر حسب ثانیه</translation>
     </message>
     <message>
       <source>delay in seconds</source>
-      <translation>تاخیر بر اساس ثانیه</translation>
+      <translation>تاخیر بر حسب ثانیه</translation>
     </message>
     <message>
       <source>Seconds</source>
-      <translation>ثانیه ها</translation>
+      <translation>ثانیه</translation>
     </message>
     <message>
       <source>Please enter a valid online timeout value!</source>
@@ -3774,19 +3774,19 @@
     </message>
     <message>
       <source>Please enter a valid new messages polling sync interval!</source>
-      <translation>لطفا یک فاصله زمانی درست برای هماهنگ سازی پیام ها وارد کنید</translation>
+      <translation>لطفا یک فاصله زمانی درست برای هماهنگ سازی پیام های جدید وارد کنید</translation>
     </message>
     <message>
       <source>Please enter a valid back office sync interval!</source>
-      <translation>لطفا یک پشتیبان اداری صحیح وارد کنید</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter a valid new messages sync interval!</source>
-      <translation>لطفا یک مقدار صحیح برای پیام جدید وارد کنید</translation>
+      <translation>لطفا فاصله زمانی صحیح را برای هماهنگ سازی پیام های جدید وارد کنید!!</translation>
     </message>
     <message>
       <source>Synchronization and sound settings</source>
-      <translation>هماهنگی و تنظیمات صدا</translation>
+      <translation>تنظیمات صدا و هماهنگ سازی</translation>
     </message>
   </context>
   <context>
@@ -3841,7 +3841,7 @@
     </message>
     <message>
       <source>Closed</source>
-      <translation>بسته</translation>
+      <translation>بسته شده</translation>
     </message>
     <message>
       <source>Active</source>
@@ -3885,7 +3885,7 @@
     </message>
     <message>
       <source>Number of chats per hour, average chat duration</source>
-      <translation>تعداد چت ها در ساعت، میانگین مدت زمان چت</translation>
+      <translation>تعداد چت ها در هر ساعت، میانگین مدت زمان چت</translation>
     </message>
     <message>
       <source>Chats statistic</source>
@@ -3913,7 +3913,7 @@
     </message>
     <message>
       <source>Value</source>
-      <translation>ارزش</translation>
+      <translation>مقدار</translation>
     </message>
     <message>
       <source>Total chats</source>
@@ -3933,23 +3933,23 @@
     </message>
     <message>
       <source>Chatbox chats</source>
-      <translation>جعبه گفتگو چت ها</translation>
+      <translation>چت های Chatbox </translation>
     </message>
     <message>
       <source>Total messages (including visitors, system and operators messages)</source>
-      <translation>تمامی پیام ها (شامل بازدیدکنندگان، پیام سیستمی و پیام اپراتورها)</translation>
+      <translation>تمامی پیام ها (شامل بازدیدکنندگان، پیام های سیستم و اپراتورها)</translation>
     </message>
     <message>
       <source>Total messages (only visitors)</source>
-      <translation>تمام پیام ها (فقط بازدیدکنندگان)</translation>
+      <translation>کل پیام ها (فقط بازدیدکنندگان)</translation>
     </message>
     <message>
       <source>Total messages (only system messages)</source>
-      <translation>تمام پیام ها (فقط پیام های سیستمی)</translation>
+      <translation>کل پیام ها (فقط پیام های سیستم)</translation>
     </message>
     <message>
       <source>Total messages (only operators)</source>
-      <translation>تمام پیام ها (فقط اپراتورها)</translation>
+      <translation>کل پیام ها (فقط اپراتورها)</translation>
     </message>
     <message>
       <source>Last 24h statistic</source>
@@ -3957,15 +3957,15 @@
     </message>
     <message>
       <source>Operators last 24h statistic, top 100 by chats number</source>
-      <translation>آمار 24 ساعت اخیر اپراتورها، با بیشتر از 100 چت</translation>
+      <translation>آمار 24 ساعت اخیر اپراتورها، 100 تای اول بر اساس تعداد چت</translation>
     </message>
     <message>
       <source>Total messages</source>
-      <translation>تمام پیام ها</translation>
+      <translation>کل پیام ها</translation>
     </message>
     <message>
       <source>Votes</source>
-      <translation>آرا</translation>
+      <translation>آراء</translation>
     </message>
     <message>
       <source>Last activity</source>
@@ -4070,7 +4070,7 @@
     </message>
     <message>
       <source>Archive updated</source>
-      <translation>به روزرسانی بایگانی</translation>
+      <translation>بایگانی به روز رسانی شد</translation>
     </message>
   </context>
   <context>
@@ -4081,7 +4081,7 @@
     </message>
     <message>
       <source>E.g</source>
-      <translation>E.g</translation>
+      <translation>مثال</translation>
     </message>
     <message>
       <source>Date to</source>
@@ -4124,11 +4124,11 @@
     </message>
     <message>
       <source>List chats</source>
-      <translation>فرست چت ها</translation>
+      <translation>فهرست چت ها</translation>
     </message>
     <message>
       <source>Process again</source>
-      <translation>فرایند مجدد</translation>
+      <translation>بررسی مجدد</translation>
     </message>
     <message>
       <source>Edit</source>
@@ -4154,7 +4154,7 @@
     <name>chatarchive/process</name>
     <message>
       <source>Process archive</source>
-      <translation>پردازش بایگانی</translation>
+      <translation>فرایند بایگانی</translation>
     </message>
     <message>
       <source>Process</source>
@@ -4181,23 +4181,23 @@
     </message>
     <message>
       <source>Archive progress</source>
-      <translation>پردازش بایگانی</translation>
+      <translation>جریان پیشرفت بایگانی</translation>
     </message>
     <message>
       <source>Pending for action...</source>
-      <translation>در انتظار اعمال...</translation>
+      <translation>در انتظار عملیات...</translation>
     </message>
     <message>
       <source>Terms dictionary</source>
-      <translation>شرایط فرهنگ لغت</translation>
+      <translation>واژه نامه</translation>
     </message>
     <message>
       <source>first archived chat ID</source>
-      <translation>ID اولین چت بایگانی شده</translation>
+      <translation>شناسه اولین چت بایگانی شده</translation>
     </message>
     <message>
       <source>last archived chat ID</source>
-      <translation>ID آخرین چت بایگانی شده</translation>
+      <translation>شناسه آخرین چت بایگانی شده</translation>
     </message>
     <message>
       <source>number of archived chats</source>
@@ -4209,14 +4209,14 @@
     </message>
     <message>
       <source>Error accoured during archive process</source>
-      <translation>بروز خطا در فرآیند بایگانی</translation>
+      <translation>طی فرآیند بایگانی، خطا رخ داد</translation>
     </message>
   </context>
   <context>
     <name>chatbox/configuration</name>
     <message>
       <source>Chatbox</source>
-      <translation>جعبه چت</translation>
+      <translation>باکس چت</translation>
     </message>
     <message>
       <source>General</source>
@@ -4228,7 +4228,7 @@
     </message>
     <message>
       <source>Chatbox list</source>
-      <translation>فهرست جعبه چت</translation>
+      <translation>فهرست باکس چت</translation>
     </message>
   </context>
   <context>
@@ -4242,7 +4242,7 @@
     <name>chatbox/form</name>
     <message>
       <source>Chatbox name</source>
-      <translation>نام جعبه چت</translation>
+      <translation>نام باکس چت</translation>
     </message>
     <message>
       <source>Name of manager</source>
@@ -4254,45 +4254,45 @@
     </message>
     <message>
       <source>Chatbox active</source>
-      <translation>جعبه چت فعال است</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>chatbox/generalsettings</name>
     <message>
       <source>Chatbox settings</source>
-      <translation>تنظیمات جعبه چت</translation>
+      <translation>تنظیمات باکس چت</translation>
     </message>
     <message>
       <source>Default new chatbox name</source>
-      <translation>نام پیش فرض برای جعبه چت جدید</translation>
+      <translation>نام پیش فرض باکس چت جدید</translation>
     </message>
     <message>
       <source>Default operator name</source>
-      <translation>نام پیش فرض برای اپراتور</translation>
+      <translation>نام پیش فرض اپراتور</translation>
     </message>
     <message>
       <source>Messages limit in the chatbox</source>
-      <translation>محدودیت پیام ها در جعبه چت</translation>
+      <translation>تعداد پیام ها در  باکس چت</translation>
     </message>
     <message>
       <source>Auto creation by chatbox identifier is enabled</source>
-      <translation>ایجاد خودکار توسط شناسه جعبه چت فعال است</translation>
+      <translation>ایجاد خودکار بر اساس شناسه باکس چت، فعال است</translation>
     </message>
     <message>
       <source>Secret hash, this is used when auto creation is disabled</source>
-      <translation>کلید امنیتی، در زمان فعال بودن تولید خودکار استفاده میشود</translation>
+      <translation>کلید امنیتی، در زمان فعال بودن ایجاد خودکار استفاده می شود</translation>
     </message>
     <message>
       <source>more information on how to use it</source>
-      <translation>اطلاعات بیشتر درباره نحوه استفاده از</translation>
+      <translation>اطلاعات بیشتر درباره نحوه استفاده از آن</translation>
     </message>
   </context>
   <context>
     <name>chatbox/list</name>
     <message>
       <source>Chatbox list</source>
-      <translation>فهرست جعبه چت</translation>
+      <translation>فهرست باکس چت</translation>
     </message>
     <message>
       <source>Name</source>
@@ -4304,7 +4304,7 @@
     </message>
     <message>
       <source>Chatbox</source>
-      <translation>جعبه چت</translation>
+      <translation>باکس چت</translation>
     </message>
   </context>
   <context>
@@ -4346,14 +4346,14 @@
     <name>kernel/messages</name>
     <message>
       <source>Are you sure?</source>
-      <translation>آیا مطمئن هستید؟</translation>
+      <translation>آیا برای انجام این کار مطمئن هستید؟</translation>
     </message>
   </context>
   <context>
     <name>chatbox/new</name>
     <message>
       <source>New chatbox</source>
-      <translation>جعبه چت جدید</translation>
+      <translation>باکس چت جدید</translation>
     </message>
     <message>
       <source>New</source>
@@ -4419,7 +4419,7 @@
     </message>
     <message>
       <source>Are you sure?</source>
-      <translation>آیا مطمئن هستید؟</translation>
+      <translation>آیا برای انجام این کار مطمئن هستید؟</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -4442,11 +4442,11 @@
     </message>
     <message>
       <source>Account data</source>
-      <translation>اطلاعات حساب</translation>
+      <translation>اطلاعات حساب کاربری</translation>
     </message>
     <message>
       <source>Do not enter a password unless you want to change it</source>
-      <translation>کلمه عبور را وارد نکنید مگر آنکه بخواهید در آن تغییری دهید</translation>
+      <translation>رمز عبور را وارد نکنید مگر آنکه بخواهید در آن تغییری دهید</translation>
     </message>
     <message>
       <source>Username</source>
@@ -4454,23 +4454,23 @@
     </message>
     <message>
       <source>Your username</source>
-      <translation>نام کاربری</translation>
+      <translation>نام کاربری شما</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation>کلمه عبور</translation>
+      <translation>رمز عبور</translation>
     </message>
     <message>
       <source>Enter a new password</source>
-      <translation>کلمه عبور جدید را وارد کنید</translation>
+      <translation>رمز عبور جدید را وارد کنید</translation>
     </message>
     <message>
       <source>Repeat password</source>
-      <translation>تکرار کلمه عبور</translation>
+      <translation>تکرار رمز عبور</translation>
     </message>
     <message>
       <source>Repeat the new password</source>
-      <translation>کلمه عبور جدید را تکرار کنید</translation>
+      <translation>رمز عبور جدید را مجدداً وارد کنید</translation>
     </message>
     <message>
       <source>Email</source>
@@ -4490,7 +4490,7 @@
     </message>
     <message>
       <source>Chat status will not change upon pending chat opening</source>
-      <translation>وضعیت چت تا زمانی که چت معلق باز باشد تغییر نمیکند</translation>
+      <translation>وضعیت چت تا زمانی که چت در انتظار فعال شود، تغییر نخواهد کرد</translation>
     </message>
     <message>
       <source>Skype</source>
@@ -4502,7 +4502,7 @@
     </message>
     <message>
       <source>Photo</source>
-      <translation>تصویر</translation>
+      <translation>عکس</translation>
     </message>
     <message>
       <source>Update</source>
@@ -4514,7 +4514,7 @@
     </message>
     <message>
       <source>Assigned departments</source>
-      <translation>دپارتمان های واگذار شده</translation>
+      <translation>دپارتمان های اختصاص یافته</translation>
     </message>
     <message>
       <source>All departments</source>
@@ -4526,7 +4526,7 @@
     </message>
     <message>
       <source>Pending chats tab enabled</source>
-      <translation>فعال سازی تب چت های معلق</translation>
+      <translation>فعال سازی تب چت های در انتظار</translation>
     </message>
     <message>
       <source>Active chats tab enabled</source>
@@ -4542,15 +4542,15 @@
     </message>
     <message>
       <source>Personal canned messages</source>
-      <translation>پیام شخصی</translation>
+      <translation>پیام های شخصی از پیش تعریف شده</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation>چت های معلق</translation>
+      <translation>چت های در انتظار</translation>
     </message>
     <message>
       <source>I can see all pending chats, not only assigned to me</source>
-      <translation>من میتوانم تمامی چت های معلق را ببینم، نه تنها چت های مختص به من</translation>
+      <translation>علاوه بر چت های اختصاص داده شده به من، چت های در انتظار را نیز می توانم مشاهده کنم</translation>
     </message>
     <message>
       <source>Speech</source>
@@ -4558,7 +4558,7 @@
     </message>
     <message>
       <source>Account updated</source>
-      <translation>حساب به روز شده</translation>
+      <translation>حساب کاربری به روز شد</translation>
     </message>
     <message>
       <source>Delete</source>
@@ -4566,7 +4566,7 @@
     </message>
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
-      <translation>کاربر میتواند تمام چت های معلق را ببیند، نه تنها چت هایی که به او اختصاص داده شده.</translation>
+      <translation>کاربر می تواند علاوه بر چت های اختصاص داده شده به او، همه چت های در انتظار را نیز مشاهده کند</translation>
     </message>
     <message>
       <source>Please enter a username!</source>
@@ -4578,7 +4578,7 @@
     </message>
     <message>
       <source>Wrong email address</source>
-      <translation>آدرس ایمیل اشتباه</translation>
+      <translation>آدرس ایمیل اشتباه است</translation>
     </message>
     <message>
       <source>Please enter a name</source>
@@ -4586,7 +4586,7 @@
     </message>
     <message>
       <source>Passwords mismatch</source>
-      <translation>کلمات عبور یکسان نیستند</translation>
+      <translation>رمزهای عبور یکسان نیستند</translation>
     </message>
   </context>
   <context>
@@ -4597,11 +4597,11 @@
     </message>
     <message>
       <source>Maximum number of active chats user can have at a time, 0 - unlimited</source>
-      <translation>بیشترین تعداد چت هایی که کاربر میتواند داشته باشد. 0 برای نامحدود</translation>
+      <translation>حداکثر تعداد چت های فعالی که کاربر می تواند به طور همزمان داشته باشد. برای تعداد نامحدود، عدد 0 را وارد کنید.</translation>
     </message>
     <message>
       <source>Automatically assign chat to another operator if operator did not accepted chat in seconds, 0 - disabled</source>
-      <translation>اختصاص خودکار چت به اپراتور دیگر. اگر اپراتور چت را در زمان تعیین شده پاسخ ندهد. 0 برای غیرفعال سازی</translation>
+      <translation>اختصاص خودکار چت به اپراتور دیگر در صورتی که اپراتور، چت را در زمان تعیین شده پاسخ ندهد. برای غیرفعال سازی عدد 0 را وارد کنید</translation>
     </message>
   </context>
   <context>
@@ -4623,15 +4623,15 @@
     <name>faq/faqwidget</name>
     <message>
       <source>FAQ</source>
-      <translation>س/ج</translation>
+      <translation>سوالات متداول</translation>
     </message>
     <message>
       <source>Ask a question</source>
-      <translation>طرح یک پرسش</translation>
+      <translation>طرح سوال</translation>
     </message>
     <message>
       <source>Type your question</source>
-      <translation>پرسش خود را تایپ کنید</translation>
+      <translation>سوال خود را تایپ کنید</translation>
     </message>
     <message>
       <source>E-mail</source>
@@ -4639,19 +4639,19 @@
     </message>
     <message>
       <source>Question</source>
-      <translation>پرسش</translation>
+      <translation>سوال</translation>
     </message>
     <message>
       <source>Send your question</source>
-      <translation>ارسال پرسش</translation>
+      <translation>ارسال سوال</translation>
     </message>
     <message>
       <source>Your question was submitted!</source>
-      <translation>پرسش شما ثبت شد!</translation>
+      <translation>سوال شما ثبت شد!</translation>
     </message>
     <message>
       <source>Please enter a question!</source>
-      <translation>لطفا یک پرسش وارد کنید!</translation>
+      <translation>لطفا یک سوال وارد کنید!</translation>
     </message>
     <message>
       <source>Please enter your email address!</source>
@@ -4662,7 +4662,7 @@
     <name>faq/new</name>
     <message>
       <source>Question</source>
-      <translation>پرسش</translation>
+      <translation>سوال</translation>
     </message>
     <message>
       <source>Answer</source>
@@ -4670,38 +4670,38 @@
     </message>
     <message>
       <source>URL, enter * at the end for the wildcard</source>
-      <translation>URL، یک * در پایان برای تمامی آدرس های ممکن وارد کنید</translation>
+      <translation>آدرس اینترنتی، کاراکتر * را در آخر وارد کنید</translation>
     </message>
     <message>
       <source>The URL where this question should appear, leave it empty for all</source>
-      <translation>آدرس URL که این پرسش باید در آن نمایش داده شود، برای نمایش در تمام صفحات آن را خالی بگذارید</translation>
+      <translation>آدرس اینترنتی که این پرسش باید در آن نمایش داده شود، برای نمایش در تمام صفحات آن را خالی بگذارید</translation>
     </message>
     <message>
       <source>Submitter e-mail</source>
-      <translation>ارسال ایمیل</translation>
+      <translation>ایمیل فرستنده</translation>
     </message>
     <message>
       <source>Identifier, can be used to filter questions by identifier</source>
-      <translation>شناسایی، میتوان برای فیلتر کردن سوالات توسط شناسه</translation>
+      <translation>شناسه، برای فیلتر کردن سوالات بر اساس شناسه استفاده می شود</translation>
     </message>
     <message>
       <source>Question is active</source>
-      <translation>پرسش فعال است</translation>
+      <translation>سوال فعال است</translation>
     </message>
     <message>
       <source>New question</source>
-      <translation>پرسش جدید</translation>
+      <translation>سوال جدید</translation>
     </message>
   </context>
   <context>
     <name>faq/list</name>
     <message>
       <source>FAQ</source>
-      <translation>س/ج</translation>
+      <translation>سوالات متداول</translation>
     </message>
     <message>
       <source>Question</source>
-      <translation>پرسش</translation>
+      <translation>سوال</translation>
     </message>
     <message>
       <source>Identifier</source>
@@ -4713,11 +4713,11 @@
     </message>
     <message>
       <source>Y</source>
-      <translation>Y</translation>
+      <translation>بله</translation>
     </message>
     <message>
       <source>N</source>
-      <translation>N</translation>
+      <translation>خیر</translation>
     </message>
     <message>
       <source>Edit</source>
@@ -4725,18 +4725,18 @@
     </message>
     <message>
       <source>Delete this question</source>
-      <translation>حذف این پرسش</translation>
+      <translation>حذف این سوال</translation>
     </message>
     <message>
       <source>New question</source>
-      <translation>پرسش جدید</translation>
+      <translation>سوال جدید</translation>
     </message>
   </context>
   <context>
     <name>faq/view</name>
     <message>
       <source>View</source>
-      <translation>نمایه</translation>
+      <translation>نما</translation>
     </message>
     <message>
       <source>Please enter a manager name!</source>
@@ -4744,11 +4744,11 @@
     </message>
     <message>
       <source>Please enter a chatbox name!</source>
-      <translation>لطفا نام جعبه چت را وارد کنید!</translation>
+      <translation>لطفاً نام باکس چت را وارد کنید!</translation>
     </message>
     <message>
       <source>Please enter a chatbox identifier!</source>
-      <translation>لطفا شناسه جعبه چت را وارد کنید!</translation>
+      <translation>لطفا شناسه باکس چت را وارد کنید!</translation>
     </message>
     <message>
       <source>Please enter answer!</source>
@@ -4760,15 +4760,15 @@
     </message>
     <message>
       <source>Please enter question!</source>
-      <translation>لطفا پرسش وارد کنید!</translation>
+      <translation>لطفا سوال خود را وارد کنید!</translation>
     </message>
     <message>
       <source>FAQ</source>
-      <translation>س/ج</translation>
+      <translation>سوالات متداول</translation>
     </message>
     <message>
       <source>FAQ description</source>
-      <translation>شرح س/ج</translation>
+      <translation>توضیح سوال</translation>
     </message>
   </context>
   <context>
@@ -4779,11 +4779,11 @@
     </message>
     <message>
       <source>Upload a file</source>
-      <translation>بارگذاری فایل</translation>
+      <translation>آپلود فایل</translation>
     </message>
     <message>
       <source>Upload name</source>
-      <translation>بارگذاری نام</translation>
+      <translation>نام فایل آپلود</translation>
     </message>
     <message>
       <source>File size</source>
@@ -4791,7 +4791,7 @@
     </message>
     <message>
       <source>Embed BB code</source>
-      <translation>قرار دادن کد BB</translation>
+      <translation>وارد کردن کد BB</translation>
     </message>
     <message>
       <source>User</source>
@@ -4803,7 +4803,7 @@
     </message>
     <message>
       <source>Extension</source>
-      <translation>گسترش</translation>
+      <translation>پسوند</translation>
     </message>
     <message>
       <source>Date</source>
@@ -4822,7 +4822,7 @@
     </message>
     <message>
       <source>Allowed files types for operators</source>
-      <translation>نوع فایل های مجاز برای اپراتورها</translation>
+      <translation>انواع مجاز فایل برای اپراتورها</translation>
     </message>
     <message>
       <source>Allowed files types for users</source>
@@ -4830,15 +4830,15 @@
     </message>
     <message>
       <source>Maximum file size in KB</source>
-      <translation>حداکثر اندازه فایل در کیلوبایت</translation>
+      <translation>حداکثر اندازه فایل بر حسب کیلوبایت</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>تنظیمات به روز شده</translation>
+      <translation>تنظیمات به روز رسانی شد</translation>
     </message>
     <message>
       <source>Please enter valid file type!</source>
-      <translation>لطفا نوع فایل معتبر وارد کنید!</translation>
+      <translation>لطفا نوع معتبر فایل را وارد کنید!</translation>
     </message>
     <message>
       <source>Please enter valid maximum file size!</source>
@@ -4857,11 +4857,11 @@
     </message>
     <message>
       <source>Upload</source>
-      <translation>بارگذاری</translation>
+      <translation>آپلود</translation>
     </message>
     <message>
       <source>File uploaded</source>
-      <translation>فایل بارگذاری شد</translation>
+      <translation>فایل آپلود شد</translation>
     </message>
   </context>
   <context>
@@ -4884,7 +4884,7 @@
     </message>
     <message>
       <source>Intro</source>
-      <translation>معرفی</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Time</source>
@@ -4915,15 +4915,15 @@
     </message>
     <message>
       <source>Submit</source>
-      <translation>تایید</translation>
+      <translation>ثبت</translation>
     </message>
     <message>
       <source>Information collected</source>
-      <translation>اطلاعات جمع آوری شده</translation>
+      <translation>اطلاعات جمع آوری شد</translation>
     </message>
     <message>
       <source>is required</source>
-      <translation>ضروری</translation>
+      <translation>الزامی است</translation>
     </message>
     <message>
       <source>invalid date format</source>
@@ -4992,7 +4992,7 @@
     </message>
     <message>
       <source>You do not have permission to edit selected object</source>
-      <translation>شما برای ویرایش آیتم انتخابی مجوز ندارید</translation>
+      <translation>شما برای ویرایش شیء انتخابی دسترسی ندارید</translation>
     </message>
   </context>
   <context>
@@ -5007,7 +5007,7 @@
     </message>
     <message>
       <source>Found</source>
-      <translation>یافتن</translation>
+      <translation>یافت شد</translation>
     </message>
     <message>
       <source>Go to page</source>
