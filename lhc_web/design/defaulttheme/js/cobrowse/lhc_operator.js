@@ -248,10 +248,20 @@ var LHCCoBrowserOperator = (function() {
 	
 	LHCCoBrowserOperator.prototype.scrollTopGS = function(stop)
 	{
-		if (typeof stop === 'undefined') {			
+		if (typeof stop === 'undefined') {
 			return this.iFrameDocument.documentElement.scrollTop || this.iFrameDocument.body.scrollTop;
-		} else {	
-			jQuery(this.iFrameDocument).scrollTop(stop);
+		} else {		
+			if (this.iFrameDocument.documentElement){
+				try {
+					this.iFrameDocument.documentElement.scrollTop = stop;
+				} catch (e) {}	
+			};	
+			
+			if (this.iFrameDocument.body) {
+				try {
+					this.iFrameDocument.body.scrollTop = stop;
+				} catch (e) {}	
+			}
 		}
 	};
 	
@@ -260,7 +270,16 @@ var LHCCoBrowserOperator = (function() {
 		if (typeof sleft === 'undefined') {
 			return this.iFrameDocument.documentElement.scrollLeft || this.iFrameDocument.body.scrollLeft;
 		} else {
-			jQuery(this.iFrameDocument).scrollLeft(sleft);			
+			if (this.iFrameDocument.documentElement){
+				try {
+					this.iFrameDocument.documentElement.scrollLeft = sleft;
+				} catch (e) {}	
+			};		
+			if (this.iFrameDocument.body) {
+				try {
+					this.iFrameDocument.body.scrollLeft = sleft;
+				} catch (e) {}	
+			}			
 		}
 	};
 	

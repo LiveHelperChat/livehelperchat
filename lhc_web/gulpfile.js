@@ -11,7 +11,8 @@ bower = require('gulp-bower');
 gulp.task('js-cobrowse-operator', function() {
 	var stylePath = ['design/defaulttheme/js/cobrowse/mutation-summary.js',
 	                 'design/defaulttheme/js/cobrowse/tree-mirror.js',
-	                 'design/defaulttheme/js/cobrowse/jquery.selector.js'];
+	                 'design/defaulttheme/js/cobrowse/jquery.selector.js',
+	                 'design/defaulttheme/js/cobrowse/lhc_operator.js'];
 	
 	return gulp.src(stylePath)
 	.pipe(concat('cobrowse.operator.min.js'))
