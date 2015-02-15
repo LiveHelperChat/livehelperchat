@@ -54,7 +54,8 @@
               </div>
 
 			  <input type="submit" class="btn btn-default btn-sm" name="sendAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/faqwidget','Send your question');?>"/>
-
+              <br/>
+              <br/>
 			  <input type="hidden" value="<?php echo htmlspecialchars($referer);?>" name="url" />
 			  <input type="hidden" value="1" name="send"/>
 
