@@ -55,16 +55,16 @@ $frontTabsOrder = explode(',', erLhcoreClassModelChatConfig::fetch('front_tabs')
         <div class="tab-content" ng-cloak>    		
     		      <?php foreach ($frontTabsOrder as $frontTab) : ?>    
                       <?php if (trim($frontTab) == 'online_users') : ?>    
-                      <div role="tabpanel" class="tab-pane" id="onlineusers">
+                      <div role="tabpanel" class="tab-pane form-group" id="onlineusers">
                             <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/section_online_users.tpl.php')); ?>
                       </div>
                       <?php elseif (trim($frontTab) == 'online_map') : ?>
-                      <div role="tabpanel" class="tab-pane" id="map">
+                      <div role="tabpanel" class="tab-pane form-group" id="map">
                             <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/section_map_online.tpl.php')); ?>   
                         </div>   
                       <?php elseif (trim($frontTab) == 'pending_chats') : ?>
                           <?php if ($pendingTabEnabled == true) : ?>
-                          <div role="tabpanel" class="tab-pane" id="pendingchats">
+                          <div role="tabpanel" class="tab-pane form-group" id="pendingchats">
                                 <div id="pending-chat-list">
                               		<?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_pending_list.tpl.php'));?>
                               	</div>
@@ -74,7 +74,7 @@ $frontTabsOrder = explode(',', erLhcoreClassModelChatConfig::fetch('front_tabs')
                      <?php elseif (trim($frontTab) == 'active_chats') : ?>
                      
                       <?php if ($activeTabEnabled == true) : ?>
-                      <div role="tabpanel" class="tab-pane" id="activechats">
+                      <div role="tabpanel" class="tab-pane form-group" id="activechats">
                             <div id="active-chat-list">
                          		<?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_active_list.tpl.php'));?>
                          	</div>
@@ -85,7 +85,7 @@ $frontTabsOrder = explode(',', erLhcoreClassModelChatConfig::fetch('front_tabs')
                     <?php elseif (trim($frontTab) == 'unread_chats') : ?>
                     
                       <?php if ($unreadTabEnabled == true) : ?>
-                      <div role="tabpanel" class="tab-pane" id="unreadchats">
+                      <div role="tabpanel" class="tab-pane form-group" id="unreadchats">
                             <div id="unread-chat-list"><?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_unread_list.tpl.php'));?></div>
                 			<a class="btn btn-default btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('chat/unreadchats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','All unread chats');?></a>
                       </div>
@@ -94,7 +94,7 @@ $frontTabsOrder = explode(',', erLhcoreClassModelChatConfig::fetch('front_tabs')
                     <?php elseif (trim($frontTab) == 'closed_chats') : ?>
                     
                       <?php if ($closedTabEnabled == true) : ?>
-                      <div role="tabpanel" class="tab-pane" id="closedchats">
+                      <div role="tabpanel" class="tab-pane form-group" id="closedchats">
                           <div id="closed-chat-list"><?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_closed_list.tpl.php'));?></div>
                 		  <a class="btn btn-default btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('chat/closedchats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','All closed chats');?></a>
                       </div>                     
@@ -103,7 +103,7 @@ $frontTabsOrder = explode(',', erLhcoreClassModelChatConfig::fetch('front_tabs')
                     <?php elseif (trim($frontTab) == 'online_operators') : ?>
                     
                       <?php if ($canListOnlineUsers == true || $canListOnlineUsersAll == true) : ?>
-                      <div role="tabpanel" class="tab-pane" id="onlineoperators">
+                      <div role="tabpanel" class="tab-pane form-group" id="onlineoperators">
                             <div id="online-operator-list"><?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_online_op_list.tpl.php'));?></div>
                       </div>                      
                       <?php endif; ?>
