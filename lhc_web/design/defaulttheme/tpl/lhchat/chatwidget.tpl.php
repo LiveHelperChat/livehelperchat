@@ -132,7 +132,9 @@ if ($theme !== false && $theme->explain_text != '') : ?>
 
 <?php if ($hasExtraField === false) : ?>
 <script>
+<?php if ($canReopen == false) : ?>
 jQuery('#id_Question').addClass('mb0');
+<?php endif;?>
 var formSubmitted = false;
 jQuery('#id_Question').bind('keydown', 'return', function (evt){
 	if (formSubmitted == false) {
