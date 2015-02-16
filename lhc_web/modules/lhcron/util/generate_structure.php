@@ -21,7 +21,6 @@ $structureTables = array(
 	'lh_chat_online_user_footprint',
 	'lh_chatbox',
 	'lh_departament',
-	'lh_doc_share',
 	'lh_faq',
 	'lh_forgotpasswordhash',
 	'lh_group',
