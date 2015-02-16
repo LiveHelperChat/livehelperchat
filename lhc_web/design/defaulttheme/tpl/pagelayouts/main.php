@@ -30,9 +30,9 @@
     ?>
     <div class="columns col-sm-4 col-md-3" id="right-column-page" ng-cloak>
         
-        <div role="tabpanel">
+        <div role="tabpanel" ng-show="transfer_dep_chats.list.length > 0 || transfer_chats.list.length > 0">
         	<!-- Nav tabs -->
-        	<ul class="nav nav-tabs" role="tablist">
+        	<ul class="nav nav-pills" role="tablist">
         		<li role="presentation" class="active"><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Chats transferred to you directly');?>" href="#transferedperson" aria-controls="transferedperson" role="tab" data-toggle="tab"><i class="icon-user"></i><span class="tru-cnt"></span></a></li>
         		<li role="presentation"><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Transferred to your department');?>" href="#transfereddep" aria-controls="transfereddep" role="tab" data-toggle="tab"><i class="icon-users"></i><span class="trd-cnt"></span></a></li>
         	</ul>
@@ -52,44 +52,42 @@
         	</div>
         </div>
 
-    		<?php if ($pendingTabEnabled == true) : ?>
-    		<div ng-show="pending_chats.list.length > 0">
-			<h4><a href="<?php echo erLhcoreClassDesign::baseurl('chat/pendingchats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Pending chats');?></a></h4>
-    		<div id="right-pending-chats">
-				<?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_pending_list.tpl.php'));?>
+            <div class="panel panel-default panel-lhc">
+            <?php if ($pendingTabEnabled == true) : ?>
+            <div class="panel-heading" ng-if="pending_chats.list.length > 0"><a href="<?php echo erLhcoreClassDesign::baseurl('chat/pendingchats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Pending chats');?></a></div>
+            <div class="panel-body" id="right-pending-chats" ng-if="pending_chats.list.length > 0">
+        			<?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_pending_list.tpl.php'));?>
             </div>
-            <hr>
-            </div>        	
+            <?php endif;?>
+        
+        	<?php if ($activeTabEnabled == true) : ?> 
+            <div class="panel-heading" ng-if="active_chats.list.length > 0"><a href="<?php echo erLhcoreClassDesign::baseurl('chat/activechats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Active chats');?></a></div>
+            <div class="panel-body"  id="right-active-chats" ng-show="active_chats.list.length > 0">
+        			<?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_active_list.tpl.php'));?>
+            </div>                     
         	<?php endif;?>
-
-        	<?php if ($activeTabEnabled == true) : ?>
-        	<div ng-show="active_chats.list.length > 0">
-			<h4><a href="<?php echo erLhcoreClassDesign::baseurl('chat/activechats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Active chats');?></a></h4>
-    		<div id="right-active-chats">
-    			<?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_active_list.tpl.php'));?>
-            </div>
-        	<hr>
-        	</div>
-        	<?php endif;?>
-
-			<?php if ($unreadTabEnabled == true) : ?>
-			<div ng-show="unread_chats.list.length > 0">
-	        <h4><a href="<?php echo erLhcoreClassDesign::baseurl('chat/unreadchats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Unread messages');?></a></h4>
-    		<div id="right-unread-chats">
-    			<?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_unread_list.tpl.php'));?>           		
-            </div>
-            <hr>
-            </div>
+        	
+        	<?php if ($unreadTabEnabled == true) : ?>			
+            <div class="panel-heading" ng-if="unread_chats.list.length > 0"><a href="<?php echo erLhcoreClassDesign::baseurl('chat/unreadchats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Unread messages');?></a></div>
+            <div class="panel-body" ng-if="unread_chats.list.length > 0" id="right-unread-chats">
+    			<?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_unread_list.tpl.php'));?>
+            </div>                        
 			<?php endif;?>
+			
+			<?php if ($closedTabEnabled == true) : ?>        	
+            <div class="panel-heading" ng-if="closed_chats.list.length > 0"><a href="<?php echo erLhcoreClassDesign::baseurl('chat/closedchats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Closed chats');?></a></div>
+            <div class="panel-body" id="right-closed-chats" ng-if="closed_chats.list.length > 0">
+        			<?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_closed_list.tpl.php'));?>  
+            </div>            
+        	<?php endif;?>        			
+        	</div> 
+        	        	
+			
 
-        	<?php if ($closedTabEnabled == true) : ?>
-        	<div ng-show="closed_chats.list.length > 0">
-	        <h4><a href="<?php echo erLhcoreClassDesign::baseurl('chat/closedchats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Closed chats');?></a></h4>
-    		<div id="right-closed-chats">        		
-        		<?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_closed_list.tpl.php'));?>        		
-            </div>
-            </div>
-        	<?php endif;?>
+        	
+        	
+        	
+        	
     </div>
     <?php endif; ?>
 

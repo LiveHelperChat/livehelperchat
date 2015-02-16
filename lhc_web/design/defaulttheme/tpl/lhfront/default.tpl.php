@@ -21,7 +21,7 @@ $frontTabsOrder = explode(',', erLhcoreClassModelChatConfig::fetch('front_tabs')
 
 <div ng-controller="OnlineCtrl as online" ng-init='groupByField = <?php echo json_encode($ogroupBy)?>;online.maxRows=<?php echo (int)$omaxRows?>;online.updateTimeout=<?php echo (int)$oupdTimeout?>;online.userTimeout = <?php echo (int)$ouserTimeout?>;online.department=<?php echo (int)$onlineDepartment?>;online.soundEnabled=<?php echo $soundUserNotification == 1 ? 'true' : 'false'?>;online.notificationEnabled=<?php echo $browserNotification == 1 ? 'true' : 'false'?>'>
        
-    <div role="tabpanel" id="tabs">
+    <div role="tabpanel" id="tabs" ng-cloak>
         <ul class="nav nav-pills" role="tablist">
             <?php foreach ($frontTabsOrder as $frontTab) : ?>
             		<?php if (trim($frontTab) == 'online_users') : ?> 
@@ -52,7 +52,7 @@ $frontTabsOrder = explode(',', erLhcoreClassModelChatConfig::fetch('front_tabs')
             <?php endforeach;?>
         </ul>
         
-        <div class="tab-content">    		
+        <div class="tab-content" ng-cloak>    		
     		      <?php foreach ($frontTabsOrder as $frontTab) : ?>    
                       <?php if (trim($frontTab) == 'online_users') : ?>    
                       <div role="tabpanel" class="tab-pane" id="onlineusers">
