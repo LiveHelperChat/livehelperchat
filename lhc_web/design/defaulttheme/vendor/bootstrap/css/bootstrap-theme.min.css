@@ -20,3 +20,9 @@
 .panel-lhc > .panel-heading:first-child{
 	border-top:0;
 }
+
+.navbar-lhc{
+	border-radius:0;
+	border-width:0 0 1px 0;
+	
+}
