@@ -24,16 +24,7 @@ $soundMessageEnabled = erLhcoreClassModelUserSetting::getSetting('chat_message',
 		 <li><a target="_blank" onclick="lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('chat/sendchat')?>/<?php echo $chat->id?>/<?php echo $chat->hash?>'});return false;" href="#" class="icon-mail" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Send chat transcript to your e-mail')?>"></a></li>
 		 <?php endif;?>
 		 
-		 <?php $fileData = (array)erLhcoreClassModelChatConfig::fetch('file_configuration')->data ?>
-
-		 <?php if (isset($fileData['active_user_upload']) && $fileData['active_user_upload'] == true) : ?>
-		 <li>
-		 <a class="file-uploader icon-attach" href="#">
-		        <!-- The file input field used as target for the file upload widget -->
-		        <input id="fileupload" type="file" name="files[]" multiple>
-		 </a>
-		 </li>
-		 <?php endif;?>
+		 <?php include(erLhcoreClassDesign::designtpl('lhchat/customer_user_settings/user_file_upload.tpl.php'));?>
 
 		 <?php endif;?>
 	</ul>

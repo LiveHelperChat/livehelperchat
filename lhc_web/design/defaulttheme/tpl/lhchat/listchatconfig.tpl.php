@@ -16,7 +16,7 @@
 			<li role="presentation"><a href="#onlinetracking" aria-controls="onlinetracking" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Online tracking');?></a></li>
 			<li role="presentation"><a href="#misc" aria-controls="misc" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Misc');?></a></li>
 			<li role="presentation"><a href="#workflow" aria-controls="workflow" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Workflow');?></a></li>
-			<li role="presentation"><a href="#screen-sharing" aria-controls="screen-sharing" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Screen sharing');?></a></li>
+			<?php include(erLhcoreClassDesign::designtpl('lhchat/listchatconfig/screen_sharing_tab.tpl.php'));?>
 			<?php endif;?>
 		</ul>
 
@@ -205,32 +205,14 @@
 			</div>
 						
 			<div role="tabpanel" class="tab-pane" id="workflow">
-			     <?php $attribute = 'run_unaswered_chat_workflow'?>
+			    <?php $attribute = 'run_unaswered_chat_workflow'?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
     		    
     		    <?php $attribute = 'run_departments_workflow';$boolValue = true;?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
 			</div>
-						
-			<div role="tabpanel" class="tab-pane" id="screen-sharing">
-			    <?php $attribute = 'sharing_auto_allow';$boolValue = true;?>
-    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
-    	     
-    		    <?php $attribute = 'disable_js_execution';$boolValue = true;?>
-    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
-    	     
-    		    <?php $attribute = 'sharing_nodejs_enabled';$boolValue = true;?>
-    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
-    	     
-    		    <?php $attribute = 'sharing_nodejs_secure';$boolValue = true;?>
-    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
-    	     
-    		    <?php $attribute = 'sharing_nodejs_socket_host';?>
-    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
-    	     
-    		    <?php $attribute = 'sharing_nodejs_sllocation';?>
-    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
-			</div>
+			
+			<?php include(erLhcoreClassDesign::designtpl('lhchat/listchatconfig/screen_sharing.tpl.php'));?>
 										
 			<?php endif;?>		
 							

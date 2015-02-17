@@ -201,19 +201,9 @@
 			</div>
 
 			<div class="col-md-6">
-				<?php if ($currentUser->hasAccessTo('lhfile','use') || $currentUser->hasAccessTo('lhfile','file_list')) : ?>
-			    <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Files');?></h5>
-				<ul>
-					    <?php if ($currentUser->hasAccessTo('lhfile','use')) : ?>
-					    <li><a href="<?php echo erLhcoreClassDesign::baseurl('file/configuration')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Files upload configuration');?></a></li>
-					    <?php endif; ?>
-					
-					    <?php if ($currentUser->hasAccessTo('lhfile','file_list')) : ?>
-					    <li><a href="<?php echo erLhcoreClassDesign::baseurl('file/list')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','List of files');?></a></li>
-					    <?php endif; ?>   
-				</ul>
-			    <?php endif; ?>
-			       
+			 
+			    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/files.tpl.php'));?>
+			     
 				<?php if ($currentUser->hasAccessTo('lhabstract','use') && $currentUser->hasAccessTo('lhtheme','administratethemes')) : ?>
 			    <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Theming');?></h5>
 				<ul>
