@@ -25,6 +25,7 @@
 					drawChartPerMonth();
 					drawChartWorkload();
 					drawChartUserMessages();
+					drawChartUserAVGWaitTime();
 				},ts);
 			};
 			
@@ -98,12 +99,31 @@
 				    <?php endforeach;?>
 				  ]);   
 				  var options = {
-				    title: 'Number of chats by user',
+				    title: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of chats by user')?>',
 				    hAxis: {titleTextStyle: {color: 'red'}},
 			        width: '100%',
 			        height: '100%'
 				  };
 				  var chartUp = new google.visualization.ColumnChart(document.getElementById('chart_div_user'));
+				  chartUp.draw(data, options);	
+				  <?php endif;?>						  
+			};
+
+			function drawChartUserAVGWaitTime() {	
+				<?php if (!empty($userWaitTimeByOperator)) : ?>			
+				  var data = google.visualization.arrayToDataTable([
+				    ['<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','User');?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Wait time');?>']
+				    <?php foreach ($userWaitTimeByOperator as $data) : ?>
+				    	<?php echo ',[\''.htmlspecialchars(erLhcoreClassModelUser::fetch($data['user_id'],true)->username,ENT_QUOTES).'\','.$data['avg_wait_time'].']'?>
+				    <?php endforeach;?>
+				  ]);   
+				  var options = {
+				    title: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','AVG visitor wait time by operator')?>',
+				    hAxis: {titleTextStyle: {color: 'red'}},
+			        width: '100%',
+			        height: '100%'
+				  };
+				  var chartUp = new google.visualization.ColumnChart(document.getElementById('chart_div_user_wait_time'));
 				  chartUp.draw(data, options);	
 				  <?php endif;?>						  
 			};
@@ -151,6 +171,22 @@
 				  };
 				  var chartUp = new google.visualization.ColumnChart(document.getElementById('chart_div_per_month'));
 				  chartUp.draw(data, options);
+				  
+				  var data = google.visualization.arrayToDataTable([
+				    ['<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Month');?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Time');?>']
+				    <?php foreach ($numberOfChatsPerWaitTimeMonth as $monthUnix => $data) : ?>
+				    	<?php echo ',[\''.date('Y.m',$monthUnix).'\','.$data.']'?>
+				    <?php endforeach;?>
+				  ]);   		  
+				  var options = {
+					title: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','AVG wait time in seconds, max 10 mininutes');?>',
+			        width: '100%',
+			        height: '100%',
+			        isStacked: true
+				  };
+				  var chartUp = new google.visualization.ColumnChart(document.getElementById('chart_div_per_month_wait_time'));
+				  chartUp.draw(data, options);
+
 				  						  
 				  var data = google.visualization.arrayToDataTable([
 				    ['<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Month');?>', '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Visitors initiated');?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Proactive');?>']
@@ -267,6 +303,7 @@
  		<div id="chart_div_per_month" style="width: 100%; height: 300px;"></div> 		 		
  		<div id="chart_type_div_per_month" style="width: 100%; height: 300px;"></div> 		
  		<div id="chart_type_div_msg_type" style="width: 100%; height: 300px;"></div>
+ 		<div id="chart_div_per_month_wait_time" style="width: 100%; height: 300px;"></div>
  		 		 		 		
 		<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Hourly statistic');?></h5>
  		<hr>
@@ -280,6 +317,7 @@
  		<hr>
  		<div id="chart_div_user" style="width: 100%; height: 300px;"></div>
  		<div id="chart_div_user_msg" style="width: 100%; height: 300px;"></div> 		
+ 		<div id="chart_div_user_wait_time" style="width: 100%; height: 300px;"></div> 		
  		<div class="row">
  			<div class="columns small-6"><div id="chart_div_upvotes" style="width: 100%; height: 300px;"></div></div>
  			<div class="columns small-6"><div id="chart_div_downvotes" style="width: 100%; height: 300px;"></div></div>

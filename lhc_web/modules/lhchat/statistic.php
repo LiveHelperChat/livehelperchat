@@ -14,7 +14,9 @@ $tpl->setArray(array(
 	'userStats' => erLhcoreClassChatStatistic::getRatingByUser(30,$filterParams['filter']),
 	'countryStats' => erLhcoreClassChatStatistic::getTopChatsByCountry(30,$filterParams['filter']),
 	'userChatsStats' => erLhcoreClassChatStatistic::numberOfChatsDialogsByUser(30,$filterParams['filter']),
+	'userWaitTimeByOperator' => erLhcoreClassChatStatistic::avgWaitTimeyUser(30,$filterParams['filter']),
 	'numberOfChatsPerMonth' => erLhcoreClassChatStatistic::getNumberOfChatsPerMonth($filterParams['filter']),
+	'numberOfChatsPerWaitTimeMonth' => erLhcoreClassChatStatistic::getNumberOfChatsWaitTime($filterParams['filter']),
 	'numberOfChatsPerHour' => erLhcoreClassChatStatistic::getWorkLoadStatistic($filterParams['filter']),
 	'numberOfMsgByUser' => erLhcoreClassChatStatistic::numberOfMessagesByUser(30,$filterParams['filter']))
 );
