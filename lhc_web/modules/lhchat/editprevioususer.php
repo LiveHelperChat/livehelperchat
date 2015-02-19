@@ -10,7 +10,7 @@ try {
 		if (isset($lastMessage['msg'])) {
 			
 			$array['id'] = $lastMessage['id'];
-			$array['msg'] = $lastMessage['msg'];
+			$array['msg'] = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $lastMessage['msg']);
 			$array['error'] = 'f';
 			
 			echo json_encode($array);	

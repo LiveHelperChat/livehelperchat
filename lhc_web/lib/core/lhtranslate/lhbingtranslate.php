@@ -2,15 +2,6 @@
 
 class erLhcoreClassTranslateBing {
     
-        public $clientID;
-        public $clientSecret;
-
-        public function __construct($cid, $secret)
-        {
-            $this->clientID = $cid;
-            $this->clientSecret = $secret;
-        }
-
         public static function getAccessToken($clientId, $clientSecret)
         {            
             // Get a 10-minute access token for Microsoft Translator API.
@@ -90,7 +81,7 @@ class erLhcoreClassTranslateBing {
             }
             
             preg_match_all('/<string (.*?)>(.*?)<\/string>/s', $rsp, $matches);            
-            return $matches[2][0]; 
+            return htmlspecialchars_decode($matches[2][0]); 
         }
     }
 ?>
