@@ -1228,6 +1228,22 @@
                 "extra": ""
             },
             {
+                "field": "chat_locale",
+                "type": "varchar(10)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "chat_locale_to",
+                "type": "varchar(10)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "status",
                 "type": "int(11)",
                 "null": "NO",
@@ -3928,6 +3944,13 @@
                 "type": "0",
                 "explain": "Use secure cookie, check this if you want to force SSL all the time",
                 "hidden": "0"
+            },
+            {
+                "identifier": "translation_data",
+                "value": "a:6:{i:0;b:0;s:19:\"translation_handler\";s:4:\"bing\";s:19:\"enable_translations\";b:0;s:14:\"bing_client_id\";s:0:\"\";s:18:\"bing_client_secret\";s:0:\"\";s:14:\"google_api_key\";s:0:\"\";}",
+                "type": "0",
+                "explain": "Translation data",
+                "hidden": "1"
             },
             {
                 "identifier": "voting_days_limit",

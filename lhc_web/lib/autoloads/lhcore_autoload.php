@@ -174,6 +174,11 @@ return array_merge(array (
 		// Co browse
 		'erLhcoreClassCoBrowse' 					=> 'lib/core/lhcobrowse/lhcobrowse.php',
 		'erLhcoreClassModelCoBrowse' 				=> 'lib/models/lhcobrowse/erlhcoreclassmodelcobrowse.php',
+    
+        // Translations
+        'erLhcoreClassTranslate'                    => 'lib/core/lhtranslate/lhtranslate.php',
+        'erLhcoreClassTranslateBing'                => 'lib/core/lhtranslate/lhbingtranslate.php',
+        'erLhcoreClassTranslateGoogle'              => 'lib/core/lhtranslate/lhgoogletranslate.php',
 		
 ),
 include('var/autoloads/lhextension_autoload.php')

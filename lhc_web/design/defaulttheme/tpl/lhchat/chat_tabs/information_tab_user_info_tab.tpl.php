@@ -1,1 +1,0 @@
-<li role="presentation" class="active"><a href="#main-user-info-tab-sub-<?php echo $chat->id?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Information')?>" aria-controls="main-user-info-tab-sub-<?php echo $chat->id?>" role="tab" data-toggle="tab"><i class="icon-info"></i></a></li>

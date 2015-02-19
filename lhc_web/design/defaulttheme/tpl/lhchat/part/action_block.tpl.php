@@ -6,18 +6,16 @@
 			<a href="#" class="btn btn-default" onclick="return lhinst.addmsgadmin('<?php echo $chat->id?>')"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Send')?></a>
 						
 			<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhspeech','use')) : ?>
-			<a class="btn btn-default icon-mic" href="#" id="mic-chat-<?php echo $chat->id?>" onclick="return lhc.methodCall('lhc.speak','listen',{'chat_id':'<?php echo $chat->id?>'})"></a></li>
-			<?php endif;?>
-									
-			<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhspeech','change_chat_recognition')) : ?>
-			<a class="btn btn-default icon-mic" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Choose other than default recognition language')?>" onclick="lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('speech/setchatspeechlanguage')?>/<?php echo $chat->id?>'})"> <i class="icon-tools"></i></a></li>
+			     <a class="btn btn-default icon-mic" href="#" id="mic-chat-<?php echo $chat->id?>" onclick="return lhc.methodCall('lhc.speak','listen',{'chat_id':'<?php echo $chat->id?>'})"></a>
 			<?php endif;?>
 			
-			<a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Send delayed canned message instantly')?>" href="#" class="btn btn-default icon-mail" onclick="return lhinst.sendCannedMessage('<?php echo $chat->id?>',$(this))"></a></li>
+			<?php include(erLhcoreClassDesign::designtpl('lhchat/part/translation_action.tpl.php')); ?>
+               
+			<a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Send delayed canned message instantly')?>" href="#" class="btn btn-default icon-mail" onclick="return lhinst.sendCannedMessage('<?php echo $chat->id?>',$(this))"></a>
 		</div>
 		
 		</div>
-		<?php if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?><input type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Reopen chat')?>" class="small button secondary round" data-id="<?php echo $chat->id?>" onclick="lhinst.reopenchat($(this))" /><?php endif;?>
+		<?php if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?><input type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Reopen chat')?>" class="btn btn-default" data-id="<?php echo $chat->id?>" onclick="lhinst.reopenchat($(this))" /><?php endif;?>
 	</div>
 	
 	<div class="row">

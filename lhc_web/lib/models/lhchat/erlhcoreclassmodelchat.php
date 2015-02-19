@@ -74,6 +74,12 @@ class erLhcoreClassModelChat {
                'screenshot_id'    		=> $this->screenshot_id,
        		
                'tslasign'    			=> $this->tslasign,
+           
+               // Visitor language
+               'chat_locale'    		=> $this->chat_locale,
+           
+               // Operator language
+               'chat_locale_to'    		=> $this->chat_locale_to,
        );
    }
 
@@ -453,6 +459,10 @@ class erLhcoreClassModelChat {
    
    // Time since last assignment
    public $tslasign = 0;
+   
+   public $chat_locale = '';
+   
+   public $chat_locale_to = '';
    
    public $updateIgnoreColumns = array();
 }

@@ -292,6 +292,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `city` varchar(100) NOT NULL,
 				  `operation` text NOT NULL,
 				  `operation_admin` varchar(200) NOT NULL,
+				  `chat_locale` varchar(10) NOT NULL,
+				  `chat_locale_to` varchar(10) NOT NULL,
 				  `mail_send` int(11) NOT NULL,
         	   	  `screenshot_id` int(11) NOT NULL,
         	   	  `wait_time` int(11) NOT NULL,
@@ -829,7 +831,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('bbc_button_visible','1',0,'Show BB Code button', '0'),
                 ('allow_reopen_closed','1', 0, 'Allow user to reopen closed chats?', '0'),
                 ('reopen_as_new','1', 0, 'Reopen closed chat as new? Otherwise it will be reopened as active.', '0'),
-                ('default_theme_id','0', 0, 'Default theme ID.', '1'),                
+                ('default_theme_id','0', 0, 'Default theme ID.', '1'),  
+                ('translation_data',	'a:6:{i:0;b:0;s:19:\"translation_handler\";s:4:\"bing\";s:19:\"enable_translations\";b:0;s:14:\"bing_client_id\";s:0:\"\";s:18:\"bing_client_secret\";s:0:\"\";s:14:\"google_api_key\";s:0:\"\";}',	0,	'Translation data',	1),              
                 ('disable_html5_storage','1',0,'Disable HMTL5 storage, check it if your site is switching between http and https', '0'),
                 ('automatically_reopen_chat','1',0,'Automatically reopen chat on widget open', '0'),
                 ('autoclose_timeout','0', 0, 'Automatic chats closing. 0 - disabled, n > 0 time in minutes before chat is automatically closed', '0'),
@@ -1194,6 +1197,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                     array('module' => 'lhchat',  'function' => 'take_screenshot'),
                     array('module' => 'lhfront', 'function' => 'use'),
                     array('module' => 'lhsystem','function' => 'use'),
+                    array('module' => 'lhtranslation','function' => 'use'),
                     array('module' => 'lhchat',  'function' => 'allowblockusers'),
                     array('module' => 'lhsystem','function' => 'generatejs'),
                     array('module' => 'lhsystem','function' => 'changelanguage'),
@@ -1213,7 +1217,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                     array('module' => 'lhspeech', 'function' => 'use'),
                     array('module' => 'lhspeech', 'function' => 'change_chat_recognition'),
                 );
-
+                
                 foreach ($permissionsArray as $paramsPermission) {
                     $RoleFunctionOperator = new erLhcoreClassModelRoleFunction();
                     $RoleFunctionOperator->role_id = $RoleOperators->id;

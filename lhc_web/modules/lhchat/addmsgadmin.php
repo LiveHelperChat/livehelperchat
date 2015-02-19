@@ -35,6 +35,11 @@ if (trim($form->msg) != '')
 	        $msg->user_id = $userData->id;
 	        $msg->time = time();
 	        $msg->name_support = $userData->name_support;
+	        
+	        if ($Chat->chat_locale != '' && $Chat->chat_locale_to != '') {
+	            erLhcoreClassTranslate::translateChatMsgOperator($Chat, $msg);
+	        }
+	        
 	        erLhcoreClassChat::getSession()->save($msg);
 	
 	        // Set last message ID

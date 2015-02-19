@@ -30,32 +30,32 @@
 				<div class="col-md-6">
 					<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','System');?></h4>
 					<ul>
-	      		<?php if ($currentUser->hasAccessTo('lhsystem','timezone')) : ?>
-			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('system/timezone')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Time zone settings');?></a></li>
-			    <?php endif; ?>
-			    
-			    <?php if ($currentUser->hasAccessTo('lhsystem','performupdate')) : ?>
-			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('system/update')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Update information');?></a></li>
-			    <?php endif; ?>
-			    
-			    <?php if ($currentUser->hasAccessTo('lhsystem','configuresmtp')) : ?>
-			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('system/smtp')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Mail settings');?></a></li>
-			    <?php endif; ?>
-		    
-			    <?php if ($currentUser->hasAccessTo('lhabstract','use')) : ?>		    
-				    <?php if ($currentUser->hasAccessTo('lhsystem','changetemplates')) : ?>
-				    <li><a href="<?php echo erLhcoreClassDesign::baseurl('abstract/list')?>/EmailTemplate"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','E-mail templates');?></a></li>
-				    <?php endif; ?>			    
-			    <?php endif;?>
-			    
-			    <?php if ($currentUser->hasAccessTo('lhsystem','configurelanguages') || $currentUser->hasAccessTo('lhsystem','changelanguage')) : ?>
-			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('system/languages')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Languages configuration');?></a></li>
-			    <?php endif; ?>
-		    
-			    <?php if ($currentUser->hasAccessTo('lhsystem','expirecache')) : ?>		
-					<li><a href="<?php echo erLhcoreClassDesign::baseurl('system/expirecache')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Clean cache');?></a></li>			
-				<?php endif; ?>
-			</ul>
+        	      		<?php if ($currentUser->hasAccessTo('lhsystem','timezone')) : ?>
+        			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('system/timezone')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Time zone settings');?></a></li>
+        			    <?php endif; ?>
+        			    
+        			    <?php if ($currentUser->hasAccessTo('lhsystem','performupdate')) : ?>
+        			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('system/update')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Update information');?></a></li>
+        			    <?php endif; ?>
+        			    
+        			    <?php if ($currentUser->hasAccessTo('lhsystem','configuresmtp')) : ?>
+        			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('system/smtp')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Mail settings');?></a></li>
+        			    <?php endif; ?>
+        		    
+        			    <?php if ($currentUser->hasAccessTo('lhabstract','use')) : ?>		    
+        				    <?php if ($currentUser->hasAccessTo('lhsystem','changetemplates')) : ?>
+        				    <li><a href="<?php echo erLhcoreClassDesign::baseurl('abstract/list')?>/EmailTemplate"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','E-mail templates');?></a></li>
+        				    <?php endif; ?>			    
+        			    <?php endif;?>
+        			    
+        			    <?php if ($currentUser->hasAccessTo('lhsystem','configurelanguages') || $currentUser->hasAccessTo('lhsystem','changelanguage')) : ?>
+        			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('system/languages')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Languages configuration');?></a></li>
+        			    <?php endif; ?>
+        		    
+        			    <?php if ($currentUser->hasAccessTo('lhsystem','expirecache')) : ?>		
+        					<li><a href="<?php echo erLhcoreClassDesign::baseurl('system/expirecache')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Clean cache');?></a></li>			
+        				<?php endif; ?>
+        			</ul>
 
 				</div>
 				<div class="col-md-6">
@@ -157,10 +157,10 @@
 				<li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/geoadjustment')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','GEO adjustment');?></a></li>
 				<?php endif; ?>
 			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/syncandsoundesetting')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Synchronization and sound settings');?></a></li>
-					<li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/startchatformsettings')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Start chat form settings');?></a></li>
+				<li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/startchatformsettings')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Start chat form settings');?></a></li>
 			    <?php endif; ?>
 			    
-	 			
+	 			<?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/translation.tpl.php'));?>
 				
 			    <?php if ($currentUser->hasAccessTo('lhchat','administratecannedmsg')) : ?>
 			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/cannedmsg')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Canned messages');?></a></li>

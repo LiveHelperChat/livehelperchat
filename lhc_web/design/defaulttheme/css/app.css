@@ -72,6 +72,15 @@ h1 {
 	font-size:28px;
 }
 
+.tr-msg{
+	font-style: italic;
+	display: block;
+	background-color: #F4F3F3;
+	border-radius: 10px;
+	padding: 3px 6px;
+	color: #4A4A4A;
+}
+
 .breadcrumb {
 	margin-bottom:5px;
 }

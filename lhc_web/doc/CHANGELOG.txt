@@ -1,3 +1,16 @@
+2.24v
+
+Sponsored release
+1. Automatic messages translations using Bing or Google translations service.
+2. Futher Bootstrap fixes. Were missing some places with old foundation 4 syntax.
+3. A little bit refactored chat window. Removed subtabs.
+4. Microphone settings moved to actions block and in it's place added automatic translations button.
+5. Allow operators to chat even if they do not have permission to open others operators chats. https://forum.livehelperchat.com/viewtopic.php?id=1019
+6. Right columns nicer interface
+7. Co-Browsing scroll sync stopped to work after jQuery update. Switched to native JS API
+
+execute doc/update_db/update_100.sql for update
+
 2.23v
 
 1. Integrated webpack, bower, gulp and other fancy stuff.

@@ -314,9 +314,10 @@ class erLhcoreClassBBCode
     	// Youtube block
     	$ret = preg_replace_callback('#\[youtube\](.*?)\[/youtube\]#is', 'erLhcoreClassBBCode::_make_youtube_block', $ret);
 
+    	$ret = preg_replace('#\[translation\](.*?)\[/translation\]#is', '<span class="tr-msg">$1</span>', $ret);
+
     	// File block
     	$ret = preg_replace_callback('#\[file="?(.*?)"?\]#is', 'erLhcoreClassBBCode::_make_url_file', $ret);
-
 
     	$ret = trim($ret);
     	return $ret;

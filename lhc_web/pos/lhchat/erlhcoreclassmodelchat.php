@@ -283,6 +283,17 @@ $def->properties['na_cb_executed']->columnName   = 'na_cb_executed';
 $def->properties['na_cb_executed']->propertyName = 'na_cb_executed';
 $def->properties['na_cb_executed']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+// Chat locale, if empty that means no automatic translations are needed
+$def->properties['chat_locale'] = new ezcPersistentObjectProperty();
+$def->properties['chat_locale']->columnName   = 'chat_locale';
+$def->properties['chat_locale']->propertyName = 'chat_locale';
+$def->properties['chat_locale']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['chat_locale_to'] = new ezcPersistentObjectProperty();
+$def->properties['chat_locale_to']->columnName   = 'chat_locale_to';
+$def->properties['chat_locale_to']->propertyName = 'chat_locale_to';
+$def->properties['chat_locale_to']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 // Feedback status
 // 0 - not votes, 1 - upvote, 2 - novote
 $def->properties['fbst'] = new ezcPersistentObjectProperty();
