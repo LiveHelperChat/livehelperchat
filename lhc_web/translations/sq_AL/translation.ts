@@ -703,14 +703,6 @@
       <translation>Zgjidhni gjuhen</translation>
     </message>
     <message>
-      <source>Widget embed code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Page embed code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Chatbox messages content height</source>
       <translation type="unfinished"/>
     </message>
@@ -823,7 +815,19 @@
       <translation>Na ndihmoni qe te rritemi</translation>
     </message>
     <message>
+      <source>Widget embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set default speech recognition language</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -983,10 +987,6 @@
     <message>
       <source>Forms</source>
       <translation>Format</translation>
-    </message>
-    <message>
-      <source>Documents</source>
-      <translation>Dokumentat</translation>
     </message>
     <message>
       <source>Form</source>
@@ -1373,6 +1373,22 @@
       <translation>Oret automatike online</translation>
     </message>
     <message>
+      <source>Notifications</source>
+      <translation>Njoftime</translation>
+    </message>
+    <message>
+      <source>Chat transfer worklow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Auto assignment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Miscellaneous</source>
+      <translation>Te ndryshme</translation>
+    </message>
+    <message>
       <source>Work hours/work days logic is active</source>
       <translation type="unfinished"/>
     </message>
@@ -1429,10 +1445,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Notifications</source>
-      <translation>Njoftime</translation>
-    </message>
-    <message>
       <source>XMPP recipients</source>
       <translation type="unfinished"/>
     </message>
@@ -1485,10 +1497,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Chat transfer worklow</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>To what department chat should be transfered if it is not accepted</source>
       <translation type="unfinished"/>
     </message>
@@ -1503,14 +1511,6 @@
     <message>
       <source>Execute unanswered chat logic again for recipient department?</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Auto assignment</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Miscellaneous</source>
-      <translation>Te ndryshme</translation>
     </message>
     <message>
       <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
@@ -1555,10 +1555,6 @@
       <translation>Vizitor</translation>
     </message>
     <message>
-      <source>Information</source>
-      <translation>Informacion</translation>
-    </message>
-    <message>
       <source>Files</source>
       <translation>Skedare</translation>
     </message>
@@ -1589,62 +1585,6 @@
     <message>
       <source>Edit main chat information</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Departament</translation>
-    </message>
-    <message>
-      <source>Country</source>
-      <translation>Shtet</translation>
-    </message>
-    <message>
-      <source>Time zone</source>
-      <translation>Zona kohore</translation>
-    </message>
-    <message>
-      <source>City</source>
-      <translation>Qytet</translation>
-    </message>
-    <message>
-      <source>Page</source>
-      <translation>Faqe</translation>
-    </message>
-    <message>
-      <source>Came from</source>
-      <translation>Erdhi nga</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-mail</translation>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>Telefon</translation>
-    </message>
-    <message>
-      <source>Additional data</source>
-      <translation>Te dhena te tjera</translation>
-    </message>
-    <message>
-      <source>Created</source>
-      <translation>Krijuar</translation>
-    </message>
-    <message>
-      <source>User left</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Waited</source>
-      <translation>Ne pritje</translation>
-    </message>
-    <message>
-      <source>Chat duration</source>
-      <translation>Kohezgjatja e bisedes</translation>
-    </message>
-    <message>
-      <source>Actions</source>
-      <translation>Veprime</translation>
     </message>
     <message>
       <source>Close dialog</source>
@@ -1704,6 +1644,58 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Department</source>
+      <translation>Departament</translation>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation>Shtet</translation>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation>Zona kohore</translation>
+    </message>
+    <message>
+      <source>City</source>
+      <translation>Qytet</translation>
+    </message>
+    <message>
+      <source>Page</source>
+      <translation>Faqe</translation>
+    </message>
+    <message>
+      <source>Came from</source>
+      <translation>Erdhi nga</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Telefon</translation>
+    </message>
+    <message>
+      <source>Additional data</source>
+      <translation>Te dhena te tjera</translation>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation>Krijuar</translation>
+    </message>
+    <message>
+      <source>User left</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Waited</source>
+      <translation>Ne pritje</translation>
+    </message>
+    <message>
+      <source>Chat duration</source>
+      <translation>Kohezgjatja e bisedes</translation>
+    </message>
+    <message>
       <source>Chat between operators, chat initializer</source>
       <translation>Chat midis operatoreve</translation>
     </message>
@@ -1712,20 +1704,28 @@
       <translation>Pronari i chatit</translation>
     </message>
     <message>
-      <source>Map</source>
-      <translation>Harta</translation>
+      <source>Information</source>
+      <translation>Informacion</translation>
     </message>
     <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
       <translation>Nuk mund të zbulojë. Sigurohuni që zbulimi Gjeo është aktivizuar.</translation>
     </message>
     <message>
-      <source>Browsing information</source>
-      <translation>Shfleto informacionin</translation>
+      <source>Map</source>
+      <translation>Harta</translation>
     </message>
     <message>
       <source>Refresh</source>
       <translation>Rifresko</translation>
+    </message>
+    <message>
+      <source>User browsing information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats</source>
+      <translation>Chate</translation>
     </message>
     <message>
       <source>Remarks</source>
@@ -1734,10 +1734,6 @@
     <message>
       <source>Notes</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chats</source>
-      <translation>Chate</translation>
     </message>
     <message>
       <source>Send</source>
@@ -1853,10 +1849,6 @@
   <context>
     <name>chat/screenshot</name>
     <message>
-      <source>Screenshot</source>
-      <translation>Screenshot</translation>
-    </message>
-    <message>
       <source>Take user screenshot</source>
       <translation>Screenshot perdoruesin</translation>
     </message>
@@ -1877,6 +1869,10 @@
       <translation>Ndoshta screenshot është në proces ose screenshot nuk është i mbështetur në shfletuesin e klientit, klikoni rifresko për të kontrolluar për një screenshot.</translation>
     </message>
     <message>
+      <source>Screenshot</source>
+      <translation>Screenshot</translation>
+    </message>
+    <message>
       <source>Screenshot ready...</source>
       <translation>Screenshot gati...</translation>
     </message>
@@ -1888,28 +1884,28 @@
       <translation>Konfirmim ne pritje</translation>
     </message>
     <message>
-      <source>All pending chats</source>
-      <translation>Te gjitha bisedat ne pritje</translation>
-    </message>
-    <message>
       <source>Active chats</source>
       <translation>Bisedat aktive</translation>
-    </message>
-    <message>
-      <source>All active chats</source>
-      <translation>Te gjithe bisedat aktive</translation>
     </message>
     <message>
       <source>Unread messages</source>
       <translation>Mesazhet e palexuara</translation>
     </message>
     <message>
-      <source>All unread chats</source>
-      <translation>Te gjitha mesazhet e palexuara</translation>
-    </message>
-    <message>
       <source>Closed chats</source>
       <translation>Bisedat e mbyllura</translation>
+    </message>
+    <message>
+      <source>All pending chats</source>
+      <translation>Te gjitha bisedat ne pritje</translation>
+    </message>
+    <message>
+      <source>All active chats</source>
+      <translation>Te gjithe bisedat aktive</translation>
+    </message>
+    <message>
+      <source>All unread chats</source>
+      <translation>Te gjitha mesazhet e palexuara</translation>
     </message>
     <message>
       <source>All closed chats</source>
@@ -2351,6 +2347,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>GTalk</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Use standard XMPP service</source>
       <translation type="unfinished"/>
     </message>
@@ -2400,10 +2400,6 @@
     </message>
     <message>
       <source>Test message will be send to your account e-mail</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>GTalk</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2486,16 +2482,16 @@
       <translation>Konfigurimi GEO</translation>
     </message>
     <message>
+      <source>Map location</source>
+      <translation>Harta e vendndodhjes</translation>
+    </message>
+    <message>
       <source>GEO Enabled</source>
       <translation>GEO e Aktivizuar</translation>
     </message>
     <message>
       <source>Use this service</source>
       <translation>Perdor kete sherbim</translation>
-    </message>
-    <message>
-      <source>Save</source>
-      <translation>Ruaj</translation>
     </message>
     <message>
       <source>Use mod_geoip2</source>
@@ -2582,8 +2578,8 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Map location</source>
-      <translation>Harta e vendndodhjes</translation>
+      <source>Save</source>
+      <translation>Ruaj</translation>
     </message>
     <message>
       <source>Drag a marker where you want to have map centered by default. Zoom is also saved.</source>
@@ -2730,16 +2726,20 @@
       <translation>Konfigurimi i chatit</translation>
     </message>
     <message>
+      <source>Online visitors list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online users on map</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Enable/Disable sound about new visitor</source>
       <translation>Aktivizo/Fik zerin per vizitor te ri</translation>
     </message>
     <message>
       <source>Enable/Disable browser notifications about new visitor</source>
       <translation>Aktivio/C&apos;aktivizo njoftimet nga shfletuesi per vizitore te ri</translation>
-    </message>
-    <message>
-      <source>Online users on map</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>User has message from operator</source>
@@ -2760,10 +2760,6 @@
     <message>
       <source>minutes</source>
       <translation>minutat</translation>
-    </message>
-    <message>
-      <source>Online visitors list</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>online users</source>
@@ -2961,14 +2957,6 @@
       <translation>Konfigurimet e autorit</translation>
     </message>
     <message>
-      <source>Application name</source>
-      <translation>Emri i aplikacionit</translation>
-    </message>
-    <message>
-      <source>Site settings</source>
-      <translation>Konfigurimet e faqes</translation>
-    </message>
-    <message>
       <source>Online tracking</source>
       <translation type="unfinished"/>
     </message>
@@ -2977,19 +2965,27 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Cookie related</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat related</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Workflow</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Screen sharing</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Application name</source>
+      <translation>Emri i aplikacionit</translation>
+    </message>
+    <message>
+      <source>Site settings</source>
+      <translation>Konfigurimet e faqes</translation>
+    </message>
+    <message>
+      <source>Cookie related</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat related</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3024,6 +3020,18 @@
       <translation>Sistemi</translation>
     </message>
     <message>
+      <source>Embed code</source>
+      <translation>Kodi i ngulitur</translation>
+    </message>
+    <message>
+      <source>Live help configuration</source>
+      <translation>Konfigurmi i ndihmes direkte</translation>
+    </message>
+    <message>
+      <source>Speech</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Time zone settings</source>
       <translation type="unfinished"/>
     </message>
@@ -3056,10 +3064,6 @@
       <translation>Lista e roleve</translation>
     </message>
     <message>
-      <source>Embed code</source>
-      <translation>Kodi i ngulitur</translation>
-    </message>
-    <message>
       <source>Live help embed code</source>
       <translation type="unfinished"/>
     </message>
@@ -3078,10 +3082,6 @@
     <message>
       <source>Browse offers embed code</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Live help configuration</source>
-      <translation>Konfigurmi i ndihmes direkte</translation>
     </message>
     <message>
       <source>Departments</source>
@@ -3172,10 +3172,6 @@
       <translation>Tema Baze</translation>
     </message>
     <message>
-      <source>Speech</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>File configuration</source>
       <translation>Konfigurimi i skedareve</translation>
     </message>
@@ -3258,24 +3254,16 @@
       <translation>Bisedat e mbyllura</translation>
     </message>
     <message>
-      <source>Configuration</source>
-      <translation>Konfigurimet</translation>
-    </message>
-    <message>
-      <source>Chats list</source>
-      <translation>Lista e bisedave</translation>
-    </message>
-    <message>
-      <source>Chat rooms</source>
-      <translation>Dhoma e bisedave</translation>
-    </message>
-    <message>
       <source>New chat request</source>
       <translation>Kerkese e re per bisede</translation>
     </message>
     <message>
       <source>Menu</source>
       <translation>Menu</translation>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>Lista e bisedave</translation>
     </message>
     <message>
       <source>Online visitors</source>
@@ -3571,6 +3559,14 @@
       <translation>Konfigurimi i Formes &apos;ne linje&apos; </translation>
     </message>
     <message>
+      <source>Offline form settings</source>
+      <translation>Konfigurimi i formes &apos;jashte linje&apos;</translation>
+    </message>
+    <message>
+      <source>Additional form settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation>Emri</translation>
     </message>
@@ -3615,19 +3611,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Offline form settings</source>
-      <translation>Konfigurimi i formes &apos;jashte linje&apos;</translation>
-    </message>
-    <message>
       <source>E-mail is always required</source>
       <translation>E-Mail eshte gjithmone i detyrueshem</translation>
     </message>
     <message>
       <source>Allow to attatch a file</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Additional form settings</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3795,6 +3783,10 @@
     <message>
       <source>Statistic</source>
       <translation>Statistikat</translation>
+    </message>
+    <message>
+      <source>General</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User</source>
@@ -3984,6 +3976,10 @@
       <translation>Transfero tek nje perdorues</translation>
     </message>
     <message>
+      <source>Transfer to a department</source>
+      <translation>Transfero tek nje departament</translation>
+    </message>
+    <message>
       <source>Logged in users</source>
       <translation type="unfinished"/>
     </message>
@@ -3994,10 +3990,6 @@
     <message>
       <source>Transfer</source>
       <translation>Transfero</translation>
-    </message>
-    <message>
-      <source>Transfer to a department</source>
-      <translation>Transfero tek nje departament</translation>
     </message>
     <message>
       <source>Departments</source>
@@ -4446,6 +4438,26 @@
       <translation>Te dhenat e llogarise</translation>
     </message>
     <message>
+      <source>Assigned departments</source>
+      <translation>Cakto departamentet</translation>
+    </message>
+    <message>
+      <source>Visible lists</source>
+      <translation>Listat e dukshme</translation>
+    </message>
+    <message>
+      <source>Personal canned messages</source>
+      <translation>Mesazhet personale te konservuara</translation>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation>Bisedat ne pritje</translation>
+    </message>
+    <message>
+      <source>Speech</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Do not enter a password unless you want to change it</source>
       <translation>Mos futni një fjalëkalim nëse nuk doni qe ta ndryshoni atë</translation>
     </message>
@@ -4514,16 +4526,8 @@
       <translation>Kthehu</translation>
     </message>
     <message>
-      <source>Assigned departments</source>
-      <translation>Cakto departamentet</translation>
-    </message>
-    <message>
       <source>All departments</source>
       <translation>Te gjitha departamentet</translation>
-    </message>
-    <message>
-      <source>Visible lists</source>
-      <translation>Listat e dukshme</translation>
     </message>
     <message>
       <source>Pending chats tab enabled</source>
@@ -4542,20 +4546,8 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Personal canned messages</source>
-      <translation>Mesazhet personale te konservuara</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>Bisedat ne pritje</translation>
-    </message>
-    <message>
       <source>I can see all pending chats, not only assigned to me</source>
       <translation>Mund te shoh te gjitha bisedat ne pritje,te cilat nuk jane caktuar tek une</translation>
-    </message>
-    <message>
-      <source>Speech</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Account updated</source>
@@ -4999,20 +4991,20 @@
   <context>
     <name>core/paginator</name>
     <message>
-      <source>Page</source>
-      <translation>Faqe</translation>
+      <source>Go to page</source>
+      <translation>Shko tek faqja</translation>
     </message>
     <message>
       <source>of</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Found</source>
-      <translation>U gjet</translation>
+      <source>Page</source>
+      <translation>Faqe</translation>
     </message>
     <message>
-      <source>Go to page</source>
-      <translation>Shko tek faqja</translation>
+      <source>Found</source>
+      <translation>U gjet</translation>
     </message>
   </context>
   <context>
@@ -5274,6 +5266,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Voting options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Answers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Save</source>
       <translation type="unfinished"/>
     </message>
@@ -5283,14 +5283,6 @@
     </message>
     <message>
       <source>Cancel</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Voting options</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Answers</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5534,11 +5526,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Language</source>
+      <source>General language settings</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>General language settings</source>
+      <source>Language</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5771,14 +5763,6 @@
     </message>
     <message>
       <source>Update instructions</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Missing updates from new versions.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>You are running current version. No updates required</source>
       <translation type="unfinished"/>
     </message>
     <message>

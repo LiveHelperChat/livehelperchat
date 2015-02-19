@@ -703,14 +703,6 @@
       <translation>Выберите язык</translation>
     </message>
     <message>
-      <source>Widget embed code</source>
-      <translation>Код виджета</translation>
-    </message>
-    <message>
-      <source>Page embed code</source>
-      <translation>Код блока страницы</translation>
-    </message>
-    <message>
       <source>Chatbox messages content height</source>
       <translation>Высота содержимого Chatbox контейнера</translation>
     </message>
@@ -823,8 +815,20 @@
       <translation>Помогите нашему развитию</translation>
     </message>
     <message>
+      <source>Widget embed code</source>
+      <translation>Код виджета</translation>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation>Код блока страницы</translation>
+    </message>
+    <message>
       <source>Embed code</source>
       <translation>Код для вставки</translation>
+    </message>
+    <message>
+      <source>Set default speech recognition language</source>
+      <translation>Выбрать язык распознавания по умолчанию</translation>
     </message>
     <message>
       <source>Speech language</source>
@@ -983,10 +987,6 @@
     <message>
       <source>Forms</source>
       <translation>Формы</translation>
-    </message>
-    <message>
-      <source>Documents</source>
-      <translation>Документы</translation>
     </message>
     <message>
       <source>Form</source>
@@ -1373,6 +1373,22 @@
       <translation>Автоматизация онлайн часов</translation>
     </message>
     <message>
+      <source>Notifications</source>
+      <translation>Уведомления</translation>
+    </message>
+    <message>
+      <source>Chat transfer worklow</source>
+      <translation>Чат передачи рабочего процесса</translation>
+    </message>
+    <message>
+      <source>Auto assignment</source>
+      <translation>Авто назначение</translation>
+    </message>
+    <message>
+      <source>Miscellaneous</source>
+      <translation>Разное</translation>
+    </message>
+    <message>
       <source>Work hours/work days logic is active</source>
       <translation>Активировать рабочие часы/дни</translation>
     </message>
@@ -1429,10 +1445,6 @@
       <translation>Минуты по. Например, 30</translation>
     </message>
     <message>
-      <source>Notifications</source>
-      <translation>Уведомления</translation>
-    </message>
-    <message>
       <source>XMPP recipients</source>
       <translation>Получатели XMPP</translation>
     </message>
@@ -1485,10 +1497,6 @@
       <translation>Информировать о том, что чат закрыт оператором, и возможно отправить только сообщение на e-mail</translation>
     </message>
     <message>
-      <source>Chat transfer worklow</source>
-      <translation>Чат передачи рабочего процесса</translation>
-    </message>
-    <message>
       <source>To what department chat should be transfered if it is not accepted</source>
       <translation>На какой департамент чат должен быть переведен, если его не принял ни один оператор</translation>
     </message>
@@ -1503,14 +1511,6 @@
     <message>
       <source>Execute unanswered chat logic again for recipient department?</source>
       <translation>Выполнить не отвеченную логику чата снова для отдела-получателя?</translation>
-    </message>
-    <message>
-      <source>Auto assignment</source>
-      <translation>Авто назначение</translation>
-    </message>
-    <message>
-      <source>Miscellaneous</source>
-      <translation>Разное</translation>
     </message>
     <message>
       <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
@@ -1556,10 +1556,6 @@
       <translation>Посетитель</translation>
     </message>
     <message>
-      <source>Information</source>
-      <translation>Информация</translation>
-    </message>
-    <message>
       <source>Files</source>
       <translation>Файлы</translation>
     </message>
@@ -1590,62 +1586,6 @@
     <message>
       <source>Edit main chat information</source>
       <translation>Редактировать основную информацию чата</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Департамент</translation>
-    </message>
-    <message>
-      <source>Country</source>
-      <translation>Страна</translation>
-    </message>
-    <message>
-      <source>Time zone</source>
-      <translation>Часовой пояс</translation>
-    </message>
-    <message>
-      <source>City</source>
-      <translation>Город</translation>
-    </message>
-    <message>
-      <source>Page</source>
-      <translation>Страница</translation>
-    </message>
-    <message>
-      <source>Came from</source>
-      <translation>Прибыл из</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-mail</translation>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>Телефон</translation>
-    </message>
-    <message>
-      <source>Additional data</source>
-      <translation>Дополнительная информация</translation>
-    </message>
-    <message>
-      <source>Created</source>
-      <translation>Создано</translation>
-    </message>
-    <message>
-      <source>User left</source>
-      <translation>Пользователь отошёл</translation>
-    </message>
-    <message>
-      <source>Waited</source>
-      <translation>Ожидал</translation>
-    </message>
-    <message>
-      <source>Chat duration</source>
-      <translation>Длительность чата</translation>
-    </message>
-    <message>
-      <source>Actions</source>
-      <translation>Действие</translation>
     </message>
     <message>
       <source>Close dialog</source>
@@ -1704,6 +1644,58 @@
       <translation>Просмотр экрана</translation>
     </message>
     <message>
+      <source>Department</source>
+      <translation>Департамент</translation>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation>Страна</translation>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation>Часовой пояс</translation>
+    </message>
+    <message>
+      <source>City</source>
+      <translation>Город</translation>
+    </message>
+    <message>
+      <source>Page</source>
+      <translation>Страница</translation>
+    </message>
+    <message>
+      <source>Came from</source>
+      <translation>Прибыл из</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Телефон</translation>
+    </message>
+    <message>
+      <source>Additional data</source>
+      <translation>Дополнительная информация</translation>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation>Создано</translation>
+    </message>
+    <message>
+      <source>User left</source>
+      <translation>Пользователь отошёл</translation>
+    </message>
+    <message>
+      <source>Waited</source>
+      <translation>Ожидал</translation>
+    </message>
+    <message>
+      <source>Chat duration</source>
+      <translation>Длительность чата</translation>
+    </message>
+    <message>
       <source>Chat between operators, chat initializer</source>
       <translation>Чат между операторами, чат инициализатора</translation>
     </message>
@@ -1712,20 +1704,28 @@
       <translation>Владелец чата</translation>
     </message>
     <message>
-      <source>Map</source>
-      <translation>Карта</translation>
+      <source>Information</source>
+      <translation>Информация</translation>
     </message>
     <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
       <translation>Невозможно определить. Проверьте что функция GEO включена.</translation>
     </message>
     <message>
-      <source>Browsing information</source>
-      <translation>Информация о просмотрах</translation>
+      <source>Map</source>
+      <translation>Карта</translation>
     </message>
     <message>
       <source>Refresh</source>
       <translation>Обновить</translation>
+    </message>
+    <message>
+      <source>User browsing information</source>
+      <translation>Просмотр информации пользователя</translation>
+    </message>
+    <message>
+      <source>Chats</source>
+      <translation>Чаты</translation>
     </message>
     <message>
       <source>Remarks</source>
@@ -1734,10 +1734,6 @@
     <message>
       <source>Notes</source>
       <translation>Примечания</translation>
-    </message>
-    <message>
-      <source>Chats</source>
-      <translation>Чаты</translation>
     </message>
     <message>
       <source>Send</source>
@@ -1853,10 +1849,6 @@
   <context>
     <name>chat/screenshot</name>
     <message>
-      <source>Screenshot</source>
-      <translation>Снимок экрана</translation>
-    </message>
-    <message>
       <source>Take user screenshot</source>
       <translation>Сделать снимок экрана пользователя</translation>
     </message>
@@ -1877,6 +1869,10 @@
       <translation>Вероятно снимок экрана уже в пути или снятие снимков экрана не поддерживается браузером клиента, для проверки снимка нажмите обновить</translation>
     </message>
     <message>
+      <source>Screenshot</source>
+      <translation>Снимок экрана</translation>
+    </message>
+    <message>
       <source>Screenshot ready...</source>
       <translation>Снимок готов...</translation>
     </message>
@@ -1888,28 +1884,28 @@
       <translation>Ожидание подтверждения</translation>
     </message>
     <message>
-      <source>All pending chats</source>
-      <translation>Все чаты в очереди</translation>
-    </message>
-    <message>
       <source>Active chats</source>
       <translation>Активные чаты</translation>
-    </message>
-    <message>
-      <source>All active chats</source>
-      <translation>Все активные чаты</translation>
     </message>
     <message>
       <source>Unread messages</source>
       <translation>Непрочитанные сообщения</translation>
     </message>
     <message>
-      <source>All unread chats</source>
-      <translation>Все непрочитанные чаты</translation>
-    </message>
-    <message>
       <source>Closed chats</source>
       <translation>Завершённые чаты</translation>
+    </message>
+    <message>
+      <source>All pending chats</source>
+      <translation>Все чаты в очереди</translation>
+    </message>
+    <message>
+      <source>All active chats</source>
+      <translation>Все активные чаты</translation>
+    </message>
+    <message>
+      <source>All unread chats</source>
+      <translation>Все непрочитанные чаты</translation>
     </message>
     <message>
       <source>All closed chats</source>
@@ -2351,6 +2347,10 @@
       <translation>XMPP</translation>
     </message>
     <message>
+      <source>GTalk</source>
+      <translation>GTalk</translation>
+    </message>
+    <message>
       <source>Use standard XMPP service</source>
       <translation>Использовать стандартный XMPP сервис</translation>
     </message>
@@ -2401,10 +2401,6 @@
     <message>
       <source>Test message will be send to your account e-mail</source>
       <translation>Тестовое сообщение которое будет отправлено на ваш e-mail</translation>
-    </message>
-    <message>
-      <source>GTalk</source>
-      <translation>GTalk</translation>
     </message>
     <message>
       <source>Use GTalk for messaging</source>
@@ -2486,16 +2482,16 @@
       <translation>Настройки GEO-обнаружения</translation>
     </message>
     <message>
+      <source>Map location</source>
+      <translation>Расположение на карте</translation>
+    </message>
+    <message>
       <source>GEO Enabled</source>
       <translation>GEO Доступно</translation>
     </message>
     <message>
       <source>Use this service</source>
       <translation>Задействовать этот сервис</translation>
-    </message>
-    <message>
-      <source>Save</source>
-      <translation>Сохранить</translation>
     </message>
     <message>
       <source>Use mod_geoip2</source>
@@ -2582,8 +2578,8 @@
       <translation>IP адрес, если IP адрес Вашего сайта отличается от определенного автоматически, введите верный IP адрес</translation>
     </message>
     <message>
-      <source>Map location</source>
-      <translation>Расположение на карте</translation>
+      <source>Save</source>
+      <translation>Сохранить</translation>
     </message>
     <message>
       <source>Drag a marker where you want to have map centered by default. Zoom is also saved.</source>
@@ -2730,16 +2726,20 @@
       <translation>Настройки чата</translation>
     </message>
     <message>
+      <source>Online visitors list</source>
+      <translation>Список посетителей онлайн</translation>
+    </message>
+    <message>
+      <source>Online users on map</source>
+      <translation>Онлайн пользователи на карте</translation>
+    </message>
+    <message>
       <source>Enable/Disable sound about new visitor</source>
       <translation>Включён/Выключен звук о новом посетителе</translation>
     </message>
     <message>
       <source>Enable/Disable browser notifications about new visitor</source>
       <translation>Включено/Выключено оповещение браузером о новом посетителе</translation>
-    </message>
-    <message>
-      <source>Online users on map</source>
-      <translation>Онлайн пользователи на карте</translation>
     </message>
     <message>
       <source>User has message from operator</source>
@@ -2760,10 +2760,6 @@
     <message>
       <source>minutes</source>
       <translation>минут</translation>
-    </message>
-    <message>
-      <source>Online visitors list</source>
-      <translation>Список посетителей онлайн</translation>
     </message>
     <message>
       <source>online users</source>
@@ -2961,14 +2957,6 @@
       <translation>Настройки Copyright</translation>
     </message>
     <message>
-      <source>Application name</source>
-      <translation>Имя приложения</translation>
-    </message>
-    <message>
-      <source>Site settings</source>
-      <translation>Параметры сайта</translation>
-    </message>
-    <message>
       <source>Online tracking</source>
       <translation>Отслеживание</translation>
     </message>
@@ -2977,20 +2965,28 @@
       <translation>Разное</translation>
     </message>
     <message>
-      <source>Cookie related</source>
-      <translation>Cookie опознаны</translation>
-    </message>
-    <message>
-      <source>Chat related</source>
-      <translation>Связанные диалоги</translation>
-    </message>
-    <message>
       <source>Workflow</source>
       <translation>Рабочий процесс</translation>
     </message>
     <message>
       <source>Screen sharing</source>
       <translation>Просмотр экрана</translation>
+    </message>
+    <message>
+      <source>Application name</source>
+      <translation>Имя приложения</translation>
+    </message>
+    <message>
+      <source>Site settings</source>
+      <translation>Параметры сайта</translation>
+    </message>
+    <message>
+      <source>Cookie related</source>
+      <translation>Cookie опознаны</translation>
+    </message>
+    <message>
+      <source>Chat related</source>
+      <translation>Связанные диалоги</translation>
     </message>
     <message>
       <source>Update</source>
@@ -3022,6 +3018,18 @@
     <message>
       <source>System</source>
       <translation>Система</translation>
+    </message>
+    <message>
+      <source>Embed code</source>
+      <translation>Код для вставки</translation>
+    </message>
+    <message>
+      <source>Live help configuration</source>
+      <translation>Настройка онлайн помощи</translation>
+    </message>
+    <message>
+      <source>Speech</source>
+      <translation>Речь</translation>
     </message>
     <message>
       <source>Time zone settings</source>
@@ -3056,10 +3064,6 @@
       <translation>Список ролей</translation>
     </message>
     <message>
-      <source>Embed code</source>
-      <translation>Код для вставки</translation>
-    </message>
-    <message>
       <source>Live help embed code</source>
       <translation>Код Чата</translation>
     </message>
@@ -3078,10 +3082,6 @@
     <message>
       <source>Browse offers embed code</source>
       <translation>Код вставки для блока &quot;изучить предложения&quot;</translation>
-    </message>
-    <message>
-      <source>Live help configuration</source>
-      <translation>Настройка онлайн помощи</translation>
     </message>
     <message>
       <source>Departments</source>
@@ -3172,10 +3172,6 @@
       <translation>Тема по умолчанию</translation>
     </message>
     <message>
-      <source>Speech</source>
-      <translation>Речь</translation>
-    </message>
-    <message>
       <source>File configuration</source>
       <translation>Настройки файла</translation>
     </message>
@@ -3258,24 +3254,16 @@
       <translation>Завершённые чаты</translation>
     </message>
     <message>
-      <source>Configuration</source>
-      <translation>Настройки</translation>
-    </message>
-    <message>
-      <source>Chats list</source>
-      <translation>Список чатов</translation>
-    </message>
-    <message>
-      <source>Chat rooms</source>
-      <translation>Зал переговоров</translation>
-    </message>
-    <message>
       <source>New chat request</source>
       <translation>Запрос нового чата</translation>
     </message>
     <message>
       <source>Menu</source>
       <translation>Меню</translation>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>Список чатов</translation>
     </message>
     <message>
       <source>Online visitors</source>
@@ -3571,6 +3559,14 @@
       <translation>Настройки онлайн формы</translation>
     </message>
     <message>
+      <source>Offline form settings</source>
+      <translation>Настройки оффлайн формы</translation>
+    </message>
+    <message>
+      <source>Additional form settings</source>
+      <translation>Дополнительные настройки формы</translation>
+    </message>
+    <message>
       <source>Name</source>
       <translation>Название</translation>
     </message>
@@ -3615,20 +3611,12 @@
       <translation>Флажок принятия условия предоставления услуг</translation>
     </message>
     <message>
-      <source>Offline form settings</source>
-      <translation>Настройки оффлайн формы</translation>
-    </message>
-    <message>
       <source>E-mail is always required</source>
       <translation>Всегда требовать E-mail</translation>
     </message>
     <message>
       <source>Allow to attatch a file</source>
       <translation>Разрешить прикреплять файл</translation>
-    </message>
-    <message>
-      <source>Additional form settings</source>
-      <translation>Дополнительные настройки формы</translation>
     </message>
     <message>
       <source>Show operator profile above input fields</source>
@@ -3795,6 +3783,10 @@
     <message>
       <source>Statistic</source>
       <translation>Статистика</translation>
+    </message>
+    <message>
+      <source>General</source>
+      <translation>Основные</translation>
     </message>
     <message>
       <source>User</source>
@@ -3984,6 +3976,10 @@
       <translation>перевести на пользователя</translation>
     </message>
     <message>
+      <source>Transfer to a department</source>
+      <translation>Перевести на департамент</translation>
+    </message>
+    <message>
       <source>Logged in users</source>
       <translation>Залогинен к пользователям</translation>
     </message>
@@ -3994,10 +3990,6 @@
     <message>
       <source>Transfer</source>
       <translation>переброс</translation>
-    </message>
-    <message>
-      <source>Transfer to a department</source>
-      <translation>Перевести на департамент</translation>
     </message>
     <message>
       <source>Departments</source>
@@ -4446,6 +4438,26 @@
       <translation>Данные аккаунта</translation>
     </message>
     <message>
+      <source>Assigned departments</source>
+      <translation>Назначенные департаменты</translation>
+    </message>
+    <message>
+      <source>Visible lists</source>
+      <translation>Отображаемые списки</translation>
+    </message>
+    <message>
+      <source>Personal canned messages</source>
+      <translation>Персональные шаблоны сообщений</translation>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation>Диалоги в ожидании</translation>
+    </message>
+    <message>
+      <source>Speech</source>
+      <translation>Речь</translation>
+    </message>
+    <message>
       <source>Do not enter a password unless you want to change it</source>
       <translation>Не вводите пароль если не хотите его изменять</translation>
     </message>
@@ -4514,16 +4526,8 @@
       <translation>Возврат</translation>
     </message>
     <message>
-      <source>Assigned departments</source>
-      <translation>Назначенные департаменты</translation>
-    </message>
-    <message>
       <source>All departments</source>
       <translation>Все департаменты</translation>
-    </message>
-    <message>
-      <source>Visible lists</source>
-      <translation>Отображаемые списки</translation>
     </message>
     <message>
       <source>Pending chats tab enabled</source>
@@ -4542,20 +4546,8 @@
       <translation>Включить вкладку завершённых чатов</translation>
     </message>
     <message>
-      <source>Personal canned messages</source>
-      <translation>Персональные шаблоны сообщений</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>Диалоги в ожидании</translation>
-    </message>
-    <message>
       <source>I can see all pending chats, not only assigned to me</source>
       <translation>Я вижу все ожидающие диалоги, а не только назначенные мне</translation>
-    </message>
-    <message>
-      <source>Speech</source>
-      <translation>Речь</translation>
     </message>
     <message>
       <source>Account updated</source>
@@ -4999,20 +4991,20 @@
   <context>
     <name>core/paginator</name>
     <message>
-      <source>Page</source>
-      <translation>Страница</translation>
+      <source>Go to page</source>
+      <translation>Перейти на страницу</translation>
     </message>
     <message>
       <source>of</source>
       <translation>из</translation>
     </message>
     <message>
-      <source>Found</source>
-      <translation>Найдено</translation>
+      <source>Page</source>
+      <translation>Страница</translation>
     </message>
     <message>
-      <source>Go to page</source>
-      <translation>Перейти на страницу</translation>
+      <source>Found</source>
+      <translation>Найдено</translation>
     </message>
   </context>
   <context>
@@ -5274,6 +5266,14 @@
       <translation>Вопрос</translation>
     </message>
     <message>
+      <source>Voting options</source>
+      <translation>Опции голосования</translation>
+    </message>
+    <message>
+      <source>Answers</source>
+      <translation>Ответы</translation>
+    </message>
+    <message>
       <source>Save</source>
       <translation>Сохранить</translation>
     </message>
@@ -5284,14 +5284,6 @@
     <message>
       <source>Cancel</source>
       <translation>Отменить</translation>
-    </message>
-    <message>
-      <source>Voting options</source>
-      <translation>Опции голосования</translation>
-    </message>
-    <message>
-      <source>Answers</source>
-      <translation>Ответы</translation>
     </message>
     <message>
       <source>Updated</source>
@@ -5534,12 +5526,12 @@
       <translation>Ваш язык</translation>
     </message>
     <message>
-      <source>Language</source>
-      <translation>Язык</translation>
-    </message>
-    <message>
       <source>General language settings</source>
       <translation>Общие языковые настройки</translation>
+    </message>
+    <message>
+      <source>Language</source>
+      <translation>Язык</translation>
     </message>
     <message>
       <source>Current site access</source>
@@ -5772,14 +5764,6 @@
     <message>
       <source>Update instructions</source>
       <translation>Инструкции по обновлению</translation>
-    </message>
-    <message>
-      <source>Missing updates from new versions.</source>
-      <translation>Обновлённые версии не обнаружены.</translation>
-    </message>
-    <message>
-      <source>You are running current version. No updates required</source>
-      <translation>Вы используете текущую версию. Обновления не требуется</translation>
     </message>
     <message>
       <source>Live Helper Chat update information</source>

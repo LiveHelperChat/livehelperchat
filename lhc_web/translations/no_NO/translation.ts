@@ -703,14 +703,6 @@
       <translation>Velg språk</translation>
     </message>
     <message>
-      <source>Widget embed code</source>
-      <translation>Widgetinnbakt kode</translation>
-    </message>
-    <message>
-      <source>Page embed code</source>
-      <translation>Sideinnbakt kode</translation>
-    </message>
-    <message>
       <source>Chatbox messages content height</source>
       <translation>Samtaleboks høyde</translation>
     </message>
@@ -823,8 +815,20 @@
       <translation>Hjelp oss vokse</translation>
     </message>
     <message>
+      <source>Widget embed code</source>
+      <translation>Widgetinnbakt kode</translation>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation>Sideinnbakt kode</translation>
+    </message>
+    <message>
       <source>Embed code</source>
       <translation>Integrer html kode</translation>
+    </message>
+    <message>
+      <source>Set default speech recognition language</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Speech language</source>
@@ -982,10 +986,6 @@
     </message>
     <message>
       <source>Forms</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Documents</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1373,6 +1373,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Notifications</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat transfer worklow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Auto assignment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Miscellaneous</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Work hours/work days logic is active</source>
       <translation type="unfinished"/>
     </message>
@@ -1429,10 +1445,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Notifications</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>XMPP recipients</source>
       <translation type="unfinished"/>
     </message>
@@ -1485,10 +1497,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Chat transfer worklow</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>To what department chat should be transfered if it is not accepted</source>
       <translation>Hvilken avdeling skal samtalen automatisk flyttes til hvis den ikke aksepteres</translation>
     </message>
@@ -1502,14 +1510,6 @@
     </message>
     <message>
       <source>Execute unanswered chat logic again for recipient department?</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Auto assignment</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Miscellaneous</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1555,10 +1555,6 @@
       <translation>Besøkende</translation>
     </message>
     <message>
-      <source>Information</source>
-      <translation>Informasjon</translation>
-    </message>
-    <message>
       <source>Files</source>
       <translation type="unfinished"/>
     </message>
@@ -1589,62 +1585,6 @@
     <message>
       <source>Edit main chat information</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Country</source>
-      <translation>Land</translation>
-    </message>
-    <message>
-      <source>Time zone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>City</source>
-      <translation>By</translation>
-    </message>
-    <message>
-      <source>Page</source>
-      <translation>Side</translation>
-    </message>
-    <message>
-      <source>Came from</source>
-      <translation>Kommer fra</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-post</translation>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>Telefon</translation>
-    </message>
-    <message>
-      <source>Additional data</source>
-      <translation>Tilleggsdata</translation>
-    </message>
-    <message>
-      <source>Created</source>
-      <translation>Laget</translation>
-    </message>
-    <message>
-      <source>User left</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Waited</source>
-      <translation>Ventet</translation>
-    </message>
-    <message>
-      <source>Chat duration</source>
-      <translation>Samtale varighet</translation>
-    </message>
-    <message>
-      <source>Actions</source>
-      <translation>Handlinger</translation>
     </message>
     <message>
       <source>Close dialog</source>
@@ -1703,6 +1643,58 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation>Land</translation>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>City</source>
+      <translation>By</translation>
+    </message>
+    <message>
+      <source>Page</source>
+      <translation>Side</translation>
+    </message>
+    <message>
+      <source>Came from</source>
+      <translation>Kommer fra</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-post</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Telefon</translation>
+    </message>
+    <message>
+      <source>Additional data</source>
+      <translation>Tilleggsdata</translation>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation>Laget</translation>
+    </message>
+    <message>
+      <source>User left</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Waited</source>
+      <translation>Ventet</translation>
+    </message>
+    <message>
+      <source>Chat duration</source>
+      <translation>Samtale varighet</translation>
+    </message>
+    <message>
       <source>Chat between operators, chat initializer</source>
       <translation>Samtale mellom operatører, samtalestarter</translation>
     </message>
@@ -1711,20 +1703,28 @@
       <translation>Samtale eier</translation>
     </message>
     <message>
-      <source>Map</source>
-      <translation>Kart</translation>
+      <source>Information</source>
+      <translation>Informasjon</translation>
     </message>
     <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
       <translation>Fant ikke GEO. Pass på at GEO oppdagelse er aktivert.</translation>
     </message>
     <message>
-      <source>Browsing information</source>
-      <translation>Nettleser informasjon</translation>
+      <source>Map</source>
+      <translation>Kart</translation>
     </message>
     <message>
       <source>Refresh</source>
       <translation>Oppdater</translation>
+    </message>
+    <message>
+      <source>User browsing information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats</source>
+      <translation>Samtaler</translation>
     </message>
     <message>
       <source>Remarks</source>
@@ -1733,10 +1733,6 @@
     <message>
       <source>Notes</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chats</source>
-      <translation>Samtaler</translation>
     </message>
     <message>
       <source>Send</source>
@@ -1852,10 +1848,6 @@
   <context>
     <name>chat/screenshot</name>
     <message>
-      <source>Screenshot</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Take user screenshot</source>
       <translation type="unfinished"/>
     </message>
@@ -1876,6 +1868,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Screenshot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Screenshot ready...</source>
       <translation type="unfinished"/>
     </message>
@@ -1887,28 +1883,28 @@
       <translation>Avventer godkjenning</translation>
     </message>
     <message>
-      <source>All pending chats</source>
-      <translation>Alle avventende samtaler</translation>
-    </message>
-    <message>
       <source>Active chats</source>
       <translation>Aktive samtaler</translation>
-    </message>
-    <message>
-      <source>All active chats</source>
-      <translation>Alle aktive samtaler</translation>
     </message>
     <message>
       <source>Unread messages</source>
       <translation>Uleste meldinger</translation>
     </message>
     <message>
-      <source>All unread chats</source>
-      <translation>Alle uleste samtaler</translation>
-    </message>
-    <message>
       <source>Closed chats</source>
       <translation>Lukkede samtaler</translation>
+    </message>
+    <message>
+      <source>All pending chats</source>
+      <translation>Alle avventende samtaler</translation>
+    </message>
+    <message>
+      <source>All active chats</source>
+      <translation>Alle aktive samtaler</translation>
+    </message>
+    <message>
+      <source>All unread chats</source>
+      <translation>Alle uleste samtaler</translation>
     </message>
     <message>
       <source>All closed chats</source>
@@ -2350,6 +2346,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>GTalk</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Use standard XMPP service</source>
       <translation type="unfinished"/>
     </message>
@@ -2399,10 +2399,6 @@
     </message>
     <message>
       <source>Test message will be send to your account e-mail</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>GTalk</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2485,16 +2481,16 @@
       <translation>GEO detection configuration</translation>
     </message>
     <message>
+      <source>Map location</source>
+      <translation>Kartlokasjon</translation>
+    </message>
+    <message>
       <source>GEO Enabled</source>
       <translation>GEO aktivert</translation>
     </message>
     <message>
       <source>Use this service</source>
       <translation>Bruk denne tjenesten</translation>
-    </message>
-    <message>
-      <source>Save</source>
-      <translation>Lagre</translation>
     </message>
     <message>
       <source>Use mod_geoip2</source>
@@ -2581,8 +2577,8 @@
       <translation>IP, Hvis ip adressen til ditt nettsted er forskjellig fra oppdaget ip adresse. Vennligst fyll inn korrekt ip adresse</translation>
     </message>
     <message>
-      <source>Map location</source>
-      <translation>Kartlokasjon</translation>
+      <source>Save</source>
+      <translation>Lagre</translation>
     </message>
     <message>
       <source>Drag a marker where you want to have map centered by default. Zoom is also saved.</source>
@@ -2729,15 +2725,19 @@
       <translation>Samtalekonfigurasjon </translation>
     </message>
     <message>
+      <source>Online visitors list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online users on map</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Enable/Disable sound about new visitor</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Enable/Disable browser notifications about new visitor</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online users on map</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2758,10 +2758,6 @@
     </message>
     <message>
       <source>minutes</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online visitors list</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2960,14 +2956,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Application name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Site settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Online tracking</source>
       <translation type="unfinished"/>
     </message>
@@ -2976,19 +2964,27 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Cookie related</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat related</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Workflow</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Screen sharing</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Application name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Site settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Cookie related</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat related</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3020,6 +3016,18 @@
     </message>
     <message>
       <source>System</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live help configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Speech</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3055,10 +3063,6 @@
       <translation>Liste over roller</translation>
     </message>
     <message>
-      <source>Embed code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Live help embed code</source>
       <translation>Live hjelpe innebygd kode</translation>
     </message>
@@ -3076,10 +3080,6 @@
     </message>
     <message>
       <source>Browse offers embed code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Live help configuration</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3171,10 +3171,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Speech</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>File configuration</source>
       <translation type="unfinished"/>
     </message>
@@ -3257,24 +3253,16 @@
       <translation>Lukkede samtaler</translation>
     </message>
     <message>
-      <source>Configuration</source>
-      <translation>Konfigurasjon</translation>
-    </message>
-    <message>
-      <source>Chats list</source>
-      <translation>Samtaleliste</translation>
-    </message>
-    <message>
-      <source>Chat rooms</source>
-      <translation>Samtalerom</translation>
-    </message>
-    <message>
       <source>New chat request</source>
       <translation>Ny samtaleforespørsel</translation>
     </message>
     <message>
       <source>Menu</source>
       <translation>Meny</translation>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>Samtaleliste</translation>
     </message>
     <message>
       <source>Online visitors</source>
@@ -3570,6 +3558,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Offline form settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Additional form settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation>Navn</translation>
     </message>
@@ -3614,19 +3610,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Offline form settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>E-mail is always required</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Allow to attatch a file</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Additional form settings</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3794,6 +3782,10 @@
     <message>
       <source>Statistic</source>
       <translation>Statistikk</translation>
+    </message>
+    <message>
+      <source>General</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User</source>
@@ -3983,6 +3975,10 @@
       <translation>Overføre til en bruker</translation>
     </message>
     <message>
+      <source>Transfer to a department</source>
+      <translation>Overføre til en avdeling</translation>
+    </message>
+    <message>
       <source>Logged in users</source>
       <translation>Innloggede brukere</translation>
     </message>
@@ -3993,10 +3989,6 @@
     <message>
       <source>Transfer</source>
       <translation>Overføre</translation>
-    </message>
-    <message>
-      <source>Transfer to a department</source>
-      <translation>Overføre til en avdeling</translation>
     </message>
     <message>
       <source>Departments</source>
@@ -4445,6 +4437,26 @@
       <translation>Kontodata</translation>
     </message>
     <message>
+      <source>Assigned departments</source>
+      <translation>Tildelte avdelinger</translation>
+    </message>
+    <message>
+      <source>Visible lists</source>
+      <translation>Synlige lsiter</translation>
+    </message>
+    <message>
+      <source>Personal canned messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Speech</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Do not enter a password unless you want to change it</source>
       <translation>Skriv ikke inn en passord med mindre du vil endre det</translation>
     </message>
@@ -4513,16 +4525,8 @@
       <translation>Tilbake</translation>
     </message>
     <message>
-      <source>Assigned departments</source>
-      <translation>Tildelte avdelinger</translation>
-    </message>
-    <message>
       <source>All departments</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Visible lists</source>
-      <translation>Synlige lsiter</translation>
     </message>
     <message>
       <source>Pending chats tab enabled</source>
@@ -4541,19 +4545,7 @@
       <translation>Stengte samtalekategorier aktivert</translation>
     </message>
     <message>
-      <source>Personal canned messages</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>I can see all pending chats, not only assigned to me</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Speech</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4998,20 +4990,20 @@
   <context>
     <name>core/paginator</name>
     <message>
-      <source>Page</source>
-      <translation>Side</translation>
+      <source>Go to page</source>
+      <translation>Gå til side</translation>
     </message>
     <message>
       <source>of</source>
       <translation>av</translation>
     </message>
     <message>
-      <source>Found</source>
-      <translation>Funnet</translation>
+      <source>Page</source>
+      <translation>Side</translation>
     </message>
     <message>
-      <source>Go to page</source>
-      <translation>Gå til side</translation>
+      <source>Found</source>
+      <translation>Funnet</translation>
     </message>
   </context>
   <context>
@@ -5273,6 +5265,14 @@
       <translation>Spørsmål</translation>
     </message>
     <message>
+      <source>Voting options</source>
+      <translation>Avstemmingsvalg</translation>
+    </message>
+    <message>
+      <source>Answers</source>
+      <translation>Svar</translation>
+    </message>
+    <message>
       <source>Save</source>
       <translation>Lagre</translation>
     </message>
@@ -5283,14 +5283,6 @@
     <message>
       <source>Cancel</source>
       <translation>Avbryt</translation>
-    </message>
-    <message>
-      <source>Voting options</source>
-      <translation>Avstemmingsvalg</translation>
-    </message>
-    <message>
-      <source>Answers</source>
-      <translation>Svar</translation>
     </message>
     <message>
       <source>Updated</source>
@@ -5533,12 +5525,12 @@
       <translation>Ditt språk</translation>
     </message>
     <message>
-      <source>Language</source>
-      <translation>Språk</translation>
-    </message>
-    <message>
       <source>General language settings</source>
       <translation>Generelle språkinstillinger</translation>
+    </message>
+    <message>
+      <source>Language</source>
+      <translation>Språk</translation>
     </message>
     <message>
       <source>Current site access</source>
@@ -5770,14 +5762,6 @@
     </message>
     <message>
       <source>Update instructions</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Missing updates from new versions.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>You are running current version. No updates required</source>
       <translation type="unfinished"/>
     </message>
     <message>

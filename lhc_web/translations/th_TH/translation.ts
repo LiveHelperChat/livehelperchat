@@ -703,14 +703,6 @@
       <translation>เลือกภาษา</translation>
     </message>
     <message>
-      <source>Widget embed code</source>
-      <translation>เครื่องมือฝังรหัส</translation>
-    </message>
-    <message>
-      <source>Page embed code</source>
-      <translation>หน้าฝังรหัส</translation>
-    </message>
-    <message>
       <source>Chatbox messages content height</source>
       <translation>Chatbox สูงเนื้อหาข้อความ</translation>
     </message>
@@ -823,8 +815,20 @@
       <translation>ช่วยให้เราเติบโต</translation>
     </message>
     <message>
+      <source>Widget embed code</source>
+      <translation>เครื่องมือฝังรหัส</translation>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation>หน้าฝังรหัส</translation>
+    </message>
+    <message>
       <source>Embed code</source>
       <translation>ฝังรหัส</translation>
+    </message>
+    <message>
+      <source>Set default speech recognition language</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Speech language</source>
@@ -982,10 +986,6 @@
     </message>
     <message>
       <source>Forms</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Documents</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1373,6 +1373,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Notifications</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat transfer worklow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Auto assignment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Miscellaneous</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Work hours/work days logic is active</source>
       <translation>ตรรกะวันทำงานชั่วโมงทำงานอยู่</translation>
     </message>
@@ -1429,10 +1445,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Notifications</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>XMPP recipients</source>
       <translation>XMPP ผู้รับ</translation>
     </message>
@@ -1485,10 +1497,6 @@
       <translation>แจ้ง แล้วสนทนาถูกปิด โดยผู้ประกอบการ เพียงแต่ส่งเป็นจดหมายแจ้งเตือน</translation>
     </message>
     <message>
-      <source>Chat transfer worklow</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>To what department chat should be transfered if it is not accepted</source>
       <translation>แผนกใดสนทนาควรโอนย้ายถ้ามันไม่ยอมรับ</translation>
     </message>
@@ -1502,14 +1510,6 @@
     </message>
     <message>
       <source>Execute unanswered chat logic again for recipient department?</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Auto assignment</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Miscellaneous</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1555,10 +1555,6 @@
       <translation>ผู้เยี่ยมชม</translation>
     </message>
     <message>
-      <source>Information</source>
-      <translation>ข้อมูล</translation>
-    </message>
-    <message>
       <source>Files</source>
       <translation>แฟ้ม</translation>
     </message>
@@ -1589,62 +1585,6 @@
     <message>
       <source>Edit main chat information</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>แผนก</translation>
-    </message>
-    <message>
-      <source>Country</source>
-      <translation>ประเทศ</translation>
-    </message>
-    <message>
-      <source>Time zone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>City</source>
-      <translation>เมือง</translation>
-    </message>
-    <message>
-      <source>Page</source>
-      <translation>หน้า</translation>
-    </message>
-    <message>
-      <source>Came from</source>
-      <translation>มาจาก</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>อีเมล</translation>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>โทรศัพท์</translation>
-    </message>
-    <message>
-      <source>Additional data</source>
-      <translation>ข้อมูลเพิ่มเติม</translation>
-    </message>
-    <message>
-      <source>Created</source>
-      <translation>สร้าง</translation>
-    </message>
-    <message>
-      <source>User left</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Waited</source>
-      <translation>รอ</translation>
-    </message>
-    <message>
-      <source>Chat duration</source>
-      <translation>ระยะเวลาสนทนา</translation>
-    </message>
-    <message>
-      <source>Actions</source>
-      <translation>การดำเนินการ</translation>
     </message>
     <message>
       <source>Close dialog</source>
@@ -1703,6 +1643,58 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Department</source>
+      <translation>แผนก</translation>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation>ประเทศ</translation>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>City</source>
+      <translation>เมือง</translation>
+    </message>
+    <message>
+      <source>Page</source>
+      <translation>หน้า</translation>
+    </message>
+    <message>
+      <source>Came from</source>
+      <translation>มาจาก</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>อีเมล</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>โทรศัพท์</translation>
+    </message>
+    <message>
+      <source>Additional data</source>
+      <translation>ข้อมูลเพิ่มเติม</translation>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation>สร้าง</translation>
+    </message>
+    <message>
+      <source>User left</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Waited</source>
+      <translation>รอ</translation>
+    </message>
+    <message>
+      <source>Chat duration</source>
+      <translation>ระยะเวลาสนทนา</translation>
+    </message>
+    <message>
       <source>Chat between operators, chat initializer</source>
       <translation>พูดคุยระหว่างผู้ประกอบการ สนทนาตัว</translation>
     </message>
@@ -1711,20 +1703,28 @@
       <translation>เจ้าของพูดคุย</translation>
     </message>
     <message>
-      <source>Map</source>
-      <translation>แผนที่</translation>
+      <source>Information</source>
+      <translation>ข้อมูล</translation>
     </message>
     <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
       <translation>ไม่สามารถตรวจพบ ตรวจสอบให้แน่ใจว่า แก้วค่า</translation>
     </message>
     <message>
-      <source>Browsing information</source>
-      <translation>เรียกดูข้อมูล</translation>
+      <source>Map</source>
+      <translation>แผนที่</translation>
     </message>
     <message>
       <source>Refresh</source>
       <translation>รีเฟรช</translation>
+    </message>
+    <message>
+      <source>User browsing information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats</source>
+      <translation>อีกเลย</translation>
     </message>
     <message>
       <source>Remarks</source>
@@ -1733,10 +1733,6 @@
     <message>
       <source>Notes</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chats</source>
-      <translation>อีกเลย</translation>
     </message>
     <message>
       <source>Send</source>
@@ -1852,10 +1848,6 @@
   <context>
     <name>chat/screenshot</name>
     <message>
-      <source>Screenshot</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Take user screenshot</source>
       <translation type="unfinished"/>
     </message>
@@ -1876,6 +1868,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Screenshot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Screenshot ready...</source>
       <translation type="unfinished"/>
     </message>
@@ -1887,28 +1883,28 @@
       <translation>รอยืนยัน</translation>
     </message>
     <message>
-      <source>All pending chats</source>
-      <translation>สนทนาค้างอยู่ทั้งหมด</translation>
-    </message>
-    <message>
       <source>Active chats</source>
       <translation>สนทนาที่ใช้งานอยู่</translation>
-    </message>
-    <message>
-      <source>All active chats</source>
-      <translation>ใช้งานสนทนาทั้งหมด</translation>
     </message>
     <message>
       <source>Unread messages</source>
       <translation>ข้อความที่ยังไม่ได้อ่าน</translation>
     </message>
     <message>
-      <source>All unread chats</source>
-      <translation>อีกเลยยังไม่ได้อ่านทั้งหมด</translation>
-    </message>
-    <message>
       <source>Closed chats</source>
       <translation>ปิดอีกเลย</translation>
+    </message>
+    <message>
+      <source>All pending chats</source>
+      <translation>สนทนาค้างอยู่ทั้งหมด</translation>
+    </message>
+    <message>
+      <source>All active chats</source>
+      <translation>ใช้งานสนทนาทั้งหมด</translation>
+    </message>
+    <message>
+      <source>All unread chats</source>
+      <translation>อีกเลยยังไม่ได้อ่านทั้งหมด</translation>
     </message>
     <message>
       <source>All closed chats</source>
@@ -2350,6 +2346,10 @@
       <translation>XMPP</translation>
     </message>
     <message>
+      <source>GTalk</source>
+      <translation>GTalk</translation>
+    </message>
+    <message>
       <source>Use standard XMPP service</source>
       <translation>ใช้บริการ XMPP มาตรฐาน</translation>
     </message>
@@ -2400,10 +2400,6 @@
     <message>
       <source>Test message will be send to your account e-mail</source>
       <translation>ทดสอบข้อความจะถูกส่งอีเมลบัญชีของคุณ</translation>
-    </message>
-    <message>
-      <source>GTalk</source>
-      <translation>GTalk</translation>
     </message>
     <message>
       <source>Use GTalk for messaging</source>
@@ -2485,16 +2481,16 @@
       <translation>กำหนดค่าตรวจสอบ GEO</translation>
     </message>
     <message>
+      <source>Map location</source>
+      <translation>สถานที่ตั้งแผนที่</translation>
+    </message>
+    <message>
       <source>GEO Enabled</source>
       <translation>แก้วที่ใช้</translation>
     </message>
     <message>
       <source>Use this service</source>
       <translation>ใช้บริการนี้</translation>
-    </message>
-    <message>
-      <source>Save</source>
-      <translation>บันทึก</translation>
     </message>
     <message>
       <source>Use mod_geoip2</source>
@@ -2581,8 +2577,8 @@
       <translation>IP หากตรวจพบ IP ระยะไกลจะแตกต่างจากไซต์ของคุณหนึ่ง กรุณาใส่ที่อยู่ IP ระยะไกลที่ถูกต้อง</translation>
     </message>
     <message>
-      <source>Map location</source>
-      <translation>สถานที่ตั้งแผนที่</translation>
+      <source>Save</source>
+      <translation>บันทึก</translation>
     </message>
     <message>
       <source>Drag a marker where you want to have map centered by default. Zoom is also saved.</source>
@@ -2729,15 +2725,19 @@
       <translation>การกำหนดค่าแชท</translation>
     </message>
     <message>
+      <source>Online visitors list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online users on map</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Enable/Disable sound about new visitor</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Enable/Disable browser notifications about new visitor</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online users on map</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2758,10 +2758,6 @@
     </message>
     <message>
       <source>minutes</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online visitors list</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2960,14 +2956,6 @@
       <translation>การตั้งค่าลิขสิทธิ์</translation>
     </message>
     <message>
-      <source>Application name</source>
-      <translation>ชื่อโปรแกรมประยุกต์</translation>
-    </message>
-    <message>
-      <source>Site settings</source>
-      <translation>การตั้งค่าไซต์</translation>
-    </message>
-    <message>
       <source>Online tracking</source>
       <translation>ติดตามออนไลน์</translation>
     </message>
@@ -2976,19 +2964,27 @@
       <translation>เบ็ดเตล็ด</translation>
     </message>
     <message>
-      <source>Cookie related</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat related</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Workflow</source>
       <translation>ลำดับงาน</translation>
     </message>
     <message>
       <source>Screen sharing</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Application name</source>
+      <translation>ชื่อโปรแกรมประยุกต์</translation>
+    </message>
+    <message>
+      <source>Site settings</source>
+      <translation>การตั้งค่าไซต์</translation>
+    </message>
+    <message>
+      <source>Cookie related</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat related</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3020,6 +3016,18 @@
     </message>
     <message>
       <source>System</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live help configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Speech</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3055,10 +3063,6 @@
       <translation>รายการของบทบาท</translation>
     </message>
     <message>
-      <source>Embed code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Live help embed code</source>
       <translation>สดช่วยฝังรหัส</translation>
     </message>
@@ -3076,10 +3080,6 @@
     </message>
     <message>
       <source>Browse offers embed code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Live help configuration</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3171,10 +3171,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Speech</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>File configuration</source>
       <translation>แฟ้มกำหนดค่า</translation>
     </message>
@@ -3257,24 +3253,16 @@
       <translation>ปิดอีกเลย</translation>
     </message>
     <message>
-      <source>Configuration</source>
-      <translation>ตั้งค่าคอนฟิก</translation>
-    </message>
-    <message>
-      <source>Chats list</source>
-      <translation>รายการสนทนา</translation>
-    </message>
-    <message>
-      <source>Chat rooms</source>
-      <translation>ห้องสนทนา</translation>
-    </message>
-    <message>
       <source>New chat request</source>
       <translation>ขอสนทนาใหม่</translation>
     </message>
     <message>
       <source>Menu</source>
       <translation>เมนู</translation>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>รายการสนทนา</translation>
     </message>
     <message>
       <source>Online visitors</source>
@@ -3570,6 +3558,14 @@
       <translation>ตั้งค่าฟอร์มออนไลน์</translation>
     </message>
     <message>
+      <source>Offline form settings</source>
+      <translation>ตั้งค่าฟอร์มอ๊อฟไลน์</translation>
+    </message>
+    <message>
+      <source>Additional form settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation>ชื่อ</translation>
     </message>
@@ -3614,19 +3610,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Offline form settings</source>
-      <translation>ตั้งค่าฟอร์มอ๊อฟไลน์</translation>
-    </message>
-    <message>
       <source>E-mail is always required</source>
       <translation>อีเมล์จำเป็นต้องมีเสมอ</translation>
     </message>
     <message>
       <source>Allow to attatch a file</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Additional form settings</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3794,6 +3782,10 @@
     <message>
       <source>Statistic</source>
       <translation>สถิติ</translation>
+    </message>
+    <message>
+      <source>General</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User</source>
@@ -3983,6 +3975,10 @@
       <translation>ถ่ายโอนไปยังผู้ใช้</translation>
     </message>
     <message>
+      <source>Transfer to a department</source>
+      <translation>โอนย้ายไปยังแผนก</translation>
+    </message>
+    <message>
       <source>Logged in users</source>
       <translation>ผู้ใช้ในระบบ</translation>
     </message>
@@ -3993,10 +3989,6 @@
     <message>
       <source>Transfer</source>
       <translation>โอนย้าย</translation>
-    </message>
-    <message>
-      <source>Transfer to a department</source>
-      <translation>โอนย้ายไปยังแผนก</translation>
     </message>
     <message>
       <source>Departments</source>
@@ -4445,6 +4437,26 @@
       <translation>ข้อมูลบัญชี</translation>
     </message>
     <message>
+      <source>Assigned departments</source>
+      <translation>กำหนดแผนก</translation>
+    </message>
+    <message>
+      <source>Visible lists</source>
+      <translation>เห็นรายการ</translation>
+    </message>
+    <message>
+      <source>Personal canned messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Speech</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Do not enter a password unless you want to change it</source>
       <translation>ป้อนรหัสผ่านถ้าคุณต้องการเปลี่ยน</translation>
     </message>
@@ -4513,16 +4525,8 @@
       <translation>เที่ยวกลับ</translation>
     </message>
     <message>
-      <source>Assigned departments</source>
-      <translation>กำหนดแผนก</translation>
-    </message>
-    <message>
       <source>All departments</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Visible lists</source>
-      <translation>เห็นรายการ</translation>
     </message>
     <message>
       <source>Pending chats tab enabled</source>
@@ -4541,19 +4545,7 @@
       <translation>แท็บอีกเลยปิดแล้วเปิดใช้งาน</translation>
     </message>
     <message>
-      <source>Personal canned messages</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>I can see all pending chats, not only assigned to me</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Speech</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4998,20 +4990,20 @@
   <context>
     <name>core/paginator</name>
     <message>
-      <source>Page</source>
-      <translation>หน้า</translation>
+      <source>Go to page</source>
+      <translation>ไปที่หน้า</translation>
     </message>
     <message>
       <source>of</source>
       <translation>ของ</translation>
     </message>
     <message>
-      <source>Found</source>
-      <translation>พบ</translation>
+      <source>Page</source>
+      <translation>หน้า</translation>
     </message>
     <message>
-      <source>Go to page</source>
-      <translation>ไปที่หน้า</translation>
+      <source>Found</source>
+      <translation>พบ</translation>
     </message>
   </context>
   <context>
@@ -5273,6 +5265,14 @@
       <translation>คำถาม</translation>
     </message>
     <message>
+      <source>Voting options</source>
+      <translation>ตัวเลือกการลงคะแนนเสียง</translation>
+    </message>
+    <message>
+      <source>Answers</source>
+      <translation>คำตอบ</translation>
+    </message>
+    <message>
       <source>Save</source>
       <translation>บันทึก</translation>
     </message>
@@ -5283,14 +5283,6 @@
     <message>
       <source>Cancel</source>
       <translation>ยกเลิก</translation>
-    </message>
-    <message>
-      <source>Voting options</source>
-      <translation>ตัวเลือกการลงคะแนนเสียง</translation>
-    </message>
-    <message>
-      <source>Answers</source>
-      <translation>คำตอบ</translation>
     </message>
     <message>
       <source>Updated</source>
@@ -5533,12 +5525,12 @@
       <translation>ภาษาของคุณ</translation>
     </message>
     <message>
-      <source>Language</source>
-      <translation>ภาษา</translation>
-    </message>
-    <message>
       <source>General language settings</source>
       <translation>การตั้งค่าภาษาทั่วไป</translation>
+    </message>
+    <message>
+      <source>Language</source>
+      <translation>ภาษา</translation>
     </message>
     <message>
       <source>Current site access</source>
@@ -5770,14 +5762,6 @@
     </message>
     <message>
       <source>Update instructions</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Missing updates from new versions.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>You are running current version. No updates required</source>
       <translation type="unfinished"/>
     </message>
     <message>

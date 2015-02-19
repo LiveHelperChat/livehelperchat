@@ -703,14 +703,6 @@
       <translation>Zvolte jazyk</translation>
     </message>
     <message>
-      <source>Widget embed code</source>
-      <translation>Vložený kód Widgetu</translation>
-    </message>
-    <message>
-      <source>Page embed code</source>
-      <translation>Vložený kód na stránku</translation>
-    </message>
-    <message>
       <source>Chatbox messages content height</source>
       <translation>Výška obsahu zpráv Chatboxu</translation>
     </message>
@@ -823,8 +815,20 @@
       <translation>Pomožte nám růst</translation>
     </message>
     <message>
+      <source>Widget embed code</source>
+      <translation>Vložený kód Widgetu</translation>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation>Vložený kód na stránku</translation>
+    </message>
+    <message>
       <source>Embed code</source>
       <translation>Vložený kód</translation>
+    </message>
+    <message>
+      <source>Set default speech recognition language</source>
+      <translation>Nastavte výchozí jazyk rozpoznávání řeči</translation>
     </message>
     <message>
       <source>Speech language</source>
@@ -983,10 +987,6 @@
     <message>
       <source>Forms</source>
       <translation>Formuláře</translation>
-    </message>
-    <message>
-      <source>Documents</source>
-      <translation>Dokumenty</translation>
     </message>
     <message>
       <source>Form</source>
@@ -1373,6 +1373,22 @@
       <translation>Automatizovat provozní hodiny</translation>
     </message>
     <message>
+      <source>Notifications</source>
+      <translation>Upozornění</translation>
+    </message>
+    <message>
+      <source>Chat transfer worklow</source>
+      <translation>Workflow převodu rozhovoru</translation>
+    </message>
+    <message>
+      <source>Auto assignment</source>
+      <translation>Automatické přiřazení</translation>
+    </message>
+    <message>
+      <source>Miscellaneous</source>
+      <translation>Různé</translation>
+    </message>
+    <message>
       <source>Work hours/work days logic is active</source>
       <translation>Logika provozní doby/pracovních dnů je aktivní</translation>
     </message>
@@ -1429,10 +1445,6 @@
       <translation>Minuty do, např. 30</translation>
     </message>
     <message>
-      <source>Notifications</source>
-      <translation>Upozornění</translation>
-    </message>
-    <message>
       <source>XMPP recipients</source>
       <translation>XMPP příjemnci</translation>
     </message>
@@ -1485,10 +1497,6 @@
       <translation>Informovat o ukončení rozhovoru operátorem, je odesláno pouze emailové upozornění.</translation>
     </message>
     <message>
-      <source>Chat transfer worklow</source>
-      <translation>Workflow převodu rozhovoru</translation>
-    </message>
-    <message>
       <source>To what department chat should be transfered if it is not accepted</source>
       <translation>Na jaké oddělení má být rozhovor převeden, pokud není přijat</translation>
     </message>
@@ -1503,14 +1511,6 @@
     <message>
       <source>Execute unanswered chat logic again for recipient department?</source>
       <translation>Spustit znovu logiku nezodpovězených rozhovorů pro oddělení příjemce?</translation>
-    </message>
-    <message>
-      <source>Auto assignment</source>
-      <translation>Automatické přiřazení</translation>
-    </message>
-    <message>
-      <source>Miscellaneous</source>
-      <translation>Různé</translation>
     </message>
     <message>
       <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
@@ -1555,10 +1555,6 @@
       <translation>Návštěvník</translation>
     </message>
     <message>
-      <source>Information</source>
-      <translation>Informace</translation>
-    </message>
-    <message>
       <source>Files</source>
       <translation>Soubory</translation>
     </message>
@@ -1589,62 +1585,6 @@
     <message>
       <source>Edit main chat information</source>
       <translation>Upravit hlavní informace o rozhovoru</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Oddělení</translation>
-    </message>
-    <message>
-      <source>Country</source>
-      <translation>Země</translation>
-    </message>
-    <message>
-      <source>Time zone</source>
-      <translation>Časové pásmo</translation>
-    </message>
-    <message>
-      <source>City</source>
-      <translation>Město</translation>
-    </message>
-    <message>
-      <source>Page</source>
-      <translation>Strana</translation>
-    </message>
-    <message>
-      <source>Came from</source>
-      <translation>Přišel z</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-mail</translation>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>Telefon</translation>
-    </message>
-    <message>
-      <source>Additional data</source>
-      <translation>Další informace</translation>
-    </message>
-    <message>
-      <source>Created</source>
-      <translation>Vytvořeno</translation>
-    </message>
-    <message>
-      <source>User left</source>
-      <translation>Uživatel odešel</translation>
-    </message>
-    <message>
-      <source>Waited</source>
-      <translation>Čekal</translation>
-    </message>
-    <message>
-      <source>Chat duration</source>
-      <translation>Délka rozhovoru</translation>
-    </message>
-    <message>
-      <source>Actions</source>
-      <translation>Akce</translation>
     </message>
     <message>
       <source>Close dialog</source>
@@ -1703,6 +1643,58 @@
       <translation>Sdílení obrazovky</translation>
     </message>
     <message>
+      <source>Department</source>
+      <translation>Oddělení</translation>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation>Země</translation>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation>Časové pásmo</translation>
+    </message>
+    <message>
+      <source>City</source>
+      <translation>Město</translation>
+    </message>
+    <message>
+      <source>Page</source>
+      <translation>Strana</translation>
+    </message>
+    <message>
+      <source>Came from</source>
+      <translation>Přišel z</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Telefon</translation>
+    </message>
+    <message>
+      <source>Additional data</source>
+      <translation>Další informace</translation>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation>Vytvořeno</translation>
+    </message>
+    <message>
+      <source>User left</source>
+      <translation>Uživatel odešel</translation>
+    </message>
+    <message>
+      <source>Waited</source>
+      <translation>Čekal</translation>
+    </message>
+    <message>
+      <source>Chat duration</source>
+      <translation>Délka rozhovoru</translation>
+    </message>
+    <message>
       <source>Chat between operators, chat initializer</source>
       <translation>Rozhovor mezi operátory, zavaděč rozhovoru</translation>
     </message>
@@ -1711,20 +1703,28 @@
       <translation>Vlastník rozhovoru</translation>
     </message>
     <message>
-      <source>Map</source>
-      <translation>Mapa</translation>
+      <source>Information</source>
+      <translation>Informace</translation>
     </message>
     <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
       <translation>Nelze zjistit. Ujistěte se, že máte aktivní GEO zjišťování.</translation>
     </message>
     <message>
-      <source>Browsing information</source>
-      <translation>Informace o prohlížeči</translation>
+      <source>Map</source>
+      <translation>Mapa</translation>
     </message>
     <message>
       <source>Refresh</source>
       <translation>Znovu načíst</translation>
+    </message>
+    <message>
+      <source>User browsing information</source>
+      <translation>Informace o prohlížení uživatele</translation>
+    </message>
+    <message>
+      <source>Chats</source>
+      <translation>Rozhovory</translation>
     </message>
     <message>
       <source>Remarks</source>
@@ -1733,10 +1733,6 @@
     <message>
       <source>Notes</source>
       <translation>Poznámky</translation>
-    </message>
-    <message>
-      <source>Chats</source>
-      <translation>Rozhovory</translation>
     </message>
     <message>
       <source>Send</source>
@@ -1852,10 +1848,6 @@
   <context>
     <name>chat/screenshot</name>
     <message>
-      <source>Screenshot</source>
-      <translation>Snímek obrazovky</translation>
-    </message>
-    <message>
       <source>Take user screenshot</source>
       <translation>Vytvořit snímek obrazovky uživatele</translation>
     </message>
@@ -1876,6 +1868,10 @@
       <translation>Snímek obrazovky se vytváří, ale je také možné, že tato fukce není podporována prohlížečem uživatele. Klikněte na Obnovit pro kontrolu</translation>
     </message>
     <message>
+      <source>Screenshot</source>
+      <translation>Snímek obrazovky</translation>
+    </message>
+    <message>
       <source>Screenshot ready...</source>
       <translation>Snímek obrazovky je připraven...</translation>
     </message>
@@ -1887,28 +1883,28 @@
       <translation>Čekající na potvrzení</translation>
     </message>
     <message>
-      <source>All pending chats</source>
-      <translation>Všechny čekající rozhovory</translation>
-    </message>
-    <message>
       <source>Active chats</source>
       <translation>Aktivní rozhovory</translation>
-    </message>
-    <message>
-      <source>All active chats</source>
-      <translation>Všechny aktivní rozhovory</translation>
     </message>
     <message>
       <source>Unread messages</source>
       <translation>Nepřečtené zprávy</translation>
     </message>
     <message>
-      <source>All unread chats</source>
-      <translation>Všechny nepřečtené rozhovory</translation>
-    </message>
-    <message>
       <source>Closed chats</source>
       <translation>Ukončené rozhovory</translation>
+    </message>
+    <message>
+      <source>All pending chats</source>
+      <translation>Všechny čekající rozhovory</translation>
+    </message>
+    <message>
+      <source>All active chats</source>
+      <translation>Všechny aktivní rozhovory</translation>
+    </message>
+    <message>
+      <source>All unread chats</source>
+      <translation>Všechny nepřečtené rozhovory</translation>
     </message>
     <message>
       <source>All closed chats</source>
@@ -2350,6 +2346,10 @@
       <translation>XMPP</translation>
     </message>
     <message>
+      <source>GTalk</source>
+      <translation>GTalk</translation>
+    </message>
+    <message>
       <source>Use standard XMPP service</source>
       <translation>Použít standardní službu XMPP</translation>
     </message>
@@ -2400,10 +2400,6 @@
     <message>
       <source>Test message will be send to your account e-mail</source>
       <translation>Zkušební zpráva bude odeslána na e-mail Vašeho účtu</translation>
-    </message>
-    <message>
-      <source>GTalk</source>
-      <translation>GTalk</translation>
     </message>
     <message>
       <source>Use GTalk for messaging</source>
@@ -2485,16 +2481,16 @@
       <translation>Konfigurace geodetekce</translation>
     </message>
     <message>
+      <source>Map location</source>
+      <translation>Umístění mapy</translation>
+    </message>
+    <message>
       <source>GEO Enabled</source>
       <translation>GEO povoleno</translation>
     </message>
     <message>
       <source>Use this service</source>
       <translation>Použít tuto službu</translation>
-    </message>
-    <message>
-      <source>Save</source>
-      <translation>Uložit</translation>
     </message>
     <message>
       <source>Use mod_geoip2</source>
@@ -2581,8 +2577,8 @@
       <translation>IP, pokud je veřejná IP adresa stránky rozdílná od té rozpoznané, poskytněte, prosím, správnou veřejnou IP adresu</translation>
     </message>
     <message>
-      <source>Map location</source>
-      <translation>Umístění mapy</translation>
+      <source>Save</source>
+      <translation>Uložit</translation>
     </message>
     <message>
       <source>Drag a marker where you want to have map centered by default. Zoom is also saved.</source>
@@ -2729,16 +2725,20 @@
       <translation>Konfigurace rozhovoru</translation>
     </message>
     <message>
+      <source>Online visitors list</source>
+      <translation>Seznam online návštěvníků</translation>
+    </message>
+    <message>
+      <source>Online users on map</source>
+      <translation>Online uživatelé na mapě</translation>
+    </message>
+    <message>
       <source>Enable/Disable sound about new visitor</source>
       <translation>Zapnout/vypnout zvukovou signalizaci nových návštěvníků</translation>
     </message>
     <message>
       <source>Enable/Disable browser notifications about new visitor</source>
       <translation>Povolit/Zakázat signalizaci prohlížeče o nových návštěvnících</translation>
-    </message>
-    <message>
-      <source>Online users on map</source>
-      <translation>Online uživatelé na mapě</translation>
     </message>
     <message>
       <source>User has message from operator</source>
@@ -2759,10 +2759,6 @@
     <message>
       <source>minutes</source>
       <translation>minut</translation>
-    </message>
-    <message>
-      <source>Online visitors list</source>
-      <translation>Seznam online návštěvníků</translation>
     </message>
     <message>
       <source>online users</source>
@@ -2960,14 +2956,6 @@
       <translation>Nastavení autorských práv</translation>
     </message>
     <message>
-      <source>Application name</source>
-      <translation>Název aplikace</translation>
-    </message>
-    <message>
-      <source>Site settings</source>
-      <translation>Nastavení stránek</translation>
-    </message>
-    <message>
       <source>Online tracking</source>
       <translation>Online sledování</translation>
     </message>
@@ -2976,20 +2964,28 @@
       <translation>Různé</translation>
     </message>
     <message>
-      <source>Cookie related</source>
-      <translation>Vztahující se ke cookie</translation>
-    </message>
-    <message>
-      <source>Chat related</source>
-      <translation>Vztahující se k rozhovoru</translation>
-    </message>
-    <message>
       <source>Workflow</source>
       <translation>Workflow</translation>
     </message>
     <message>
       <source>Screen sharing</source>
       <translation>Sdílení obrazovky</translation>
+    </message>
+    <message>
+      <source>Application name</source>
+      <translation>Název aplikace</translation>
+    </message>
+    <message>
+      <source>Site settings</source>
+      <translation>Nastavení stránek</translation>
+    </message>
+    <message>
+      <source>Cookie related</source>
+      <translation>Vztahující se ke cookie</translation>
+    </message>
+    <message>
+      <source>Chat related</source>
+      <translation>Vztahující se k rozhovoru</translation>
     </message>
     <message>
       <source>Update</source>
@@ -3021,6 +3017,18 @@
     <message>
       <source>System</source>
       <translation>Systém</translation>
+    </message>
+    <message>
+      <source>Embed code</source>
+      <translation>Vložený kód</translation>
+    </message>
+    <message>
+      <source>Live help configuration</source>
+      <translation>Nastavení online pomoci</translation>
+    </message>
+    <message>
+      <source>Speech</source>
+      <translation>Řeč</translation>
     </message>
     <message>
       <source>Time zone settings</source>
@@ -3055,10 +3063,6 @@
       <translation>Seznam rolí</translation>
     </message>
     <message>
-      <source>Embed code</source>
-      <translation>Vložený kód</translation>
-    </message>
-    <message>
       <source>Live help embed code</source>
       <translation>Vložený kód online pomoci</translation>
     </message>
@@ -3077,10 +3081,6 @@
     <message>
       <source>Browse offers embed code</source>
       <translation>Vložený kód nabídek prohlížení</translation>
-    </message>
-    <message>
-      <source>Live help configuration</source>
-      <translation>Nastavení online pomoci</translation>
     </message>
     <message>
       <source>Departments</source>
@@ -3171,10 +3171,6 @@
       <translation>Výchozí šablona</translation>
     </message>
     <message>
-      <source>Speech</source>
-      <translation>Řeč</translation>
-    </message>
-    <message>
       <source>File configuration</source>
       <translation>Nastavení souborü</translation>
     </message>
@@ -3257,24 +3253,16 @@
       <translation>Ukončené rozhovory</translation>
     </message>
     <message>
-      <source>Configuration</source>
-      <translation>Nastavení</translation>
-    </message>
-    <message>
-      <source>Chats list</source>
-      <translation>Seznam rozhovorů</translation>
-    </message>
-    <message>
-      <source>Chat rooms</source>
-      <translation>Místnosti rozhovorů</translation>
-    </message>
-    <message>
       <source>New chat request</source>
       <translation>Nový požadavek na rozhovor</translation>
     </message>
     <message>
       <source>Menu</source>
       <translation>Menu</translation>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>Seznam rozhovorů</translation>
     </message>
     <message>
       <source>Online visitors</source>
@@ -3570,6 +3558,14 @@
       <translation>Nastavení online formuláře</translation>
     </message>
     <message>
+      <source>Offline form settings</source>
+      <translation>Nastavení offline formuláře</translation>
+    </message>
+    <message>
+      <source>Additional form settings</source>
+      <translation>Doplňující nastavení formuláře</translation>
+    </message>
+    <message>
       <source>Name</source>
       <translation>Jméno</translation>
     </message>
@@ -3614,20 +3610,12 @@
       <translation>Zaškrtávací pole souhlasu s Podmínkami služby</translation>
     </message>
     <message>
-      <source>Offline form settings</source>
-      <translation>Nastavení offline formuláře</translation>
-    </message>
-    <message>
       <source>E-mail is always required</source>
       <translation>E-mail je vždy vyžadován</translation>
     </message>
     <message>
       <source>Allow to attatch a file</source>
       <translation>Umožnit přiložení souboru</translation>
-    </message>
-    <message>
-      <source>Additional form settings</source>
-      <translation>Doplňující nastavení formuláře</translation>
     </message>
     <message>
       <source>Show operator profile above input fields</source>
@@ -3794,6 +3782,10 @@
     <message>
       <source>Statistic</source>
       <translation>Statistika</translation>
+    </message>
+    <message>
+      <source>General</source>
+      <translation>Obecné</translation>
     </message>
     <message>
       <source>User</source>
@@ -3983,6 +3975,10 @@
       <translation>Přesměrovat uživateli</translation>
     </message>
     <message>
+      <source>Transfer to a department</source>
+      <translation>Přesměrovat do oddělení</translation>
+    </message>
+    <message>
       <source>Logged in users</source>
       <translation>Přihlášení uživatelé</translation>
     </message>
@@ -3993,10 +3989,6 @@
     <message>
       <source>Transfer</source>
       <translation>Přesměrování</translation>
-    </message>
-    <message>
-      <source>Transfer to a department</source>
-      <translation>Přesměrovat do oddělení</translation>
     </message>
     <message>
       <source>Departments</source>
@@ -4445,6 +4437,26 @@
       <translation>Data účtu</translation>
     </message>
     <message>
+      <source>Assigned departments</source>
+      <translation>Přiřazená oddělení</translation>
+    </message>
+    <message>
+      <source>Visible lists</source>
+      <translation>Viditelné seznamy</translation>
+    </message>
+    <message>
+      <source>Personal canned messages</source>
+      <translation>Osobní předpřipravé zprávy</translation>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation>Čekající rozhovory</translation>
+    </message>
+    <message>
+      <source>Speech</source>
+      <translation>Řeč</translation>
+    </message>
+    <message>
       <source>Do not enter a password unless you want to change it</source>
       <translation>Nezadávejte heslo, pokud jej nechcete změnit</translation>
     </message>
@@ -4513,16 +4525,8 @@
       <translation>Vrátit</translation>
     </message>
     <message>
-      <source>Assigned departments</source>
-      <translation>Přiřazená oddělení</translation>
-    </message>
-    <message>
       <source>All departments</source>
       <translation>Všechna oddělení</translation>
-    </message>
-    <message>
-      <source>Visible lists</source>
-      <translation>Viditelné seznamy</translation>
     </message>
     <message>
       <source>Pending chats tab enabled</source>
@@ -4541,20 +4545,8 @@
       <translation>Záložka ukončených rozhovorů povolena</translation>
     </message>
     <message>
-      <source>Personal canned messages</source>
-      <translation>Osobní předpřipravé zprávy</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>Čekající rozhovory</translation>
-    </message>
-    <message>
       <source>I can see all pending chats, not only assigned to me</source>
       <translation>Mohu vidět všechny čekající rozhovory, ne pouze ty přiřazené mně</translation>
-    </message>
-    <message>
-      <source>Speech</source>
-      <translation>Řeč</translation>
     </message>
     <message>
       <source>Account updated</source>
@@ -4998,20 +4990,20 @@
   <context>
     <name>core/paginator</name>
     <message>
-      <source>Page</source>
-      <translation>Strana</translation>
+      <source>Go to page</source>
+      <translation>Jít na stranu</translation>
     </message>
     <message>
       <source>of</source>
       <translation>z</translation>
     </message>
     <message>
-      <source>Found</source>
-      <translation>Nalezeno</translation>
+      <source>Page</source>
+      <translation>Strana</translation>
     </message>
     <message>
-      <source>Go to page</source>
-      <translation>Jít na stranu</translation>
+      <source>Found</source>
+      <translation>Nalezeno</translation>
     </message>
   </context>
   <context>
@@ -5273,6 +5265,14 @@
       <translation>Dotaz</translation>
     </message>
     <message>
+      <source>Voting options</source>
+      <translation>Volby hlasování</translation>
+    </message>
+    <message>
+      <source>Answers</source>
+      <translation>Odpovědi</translation>
+    </message>
+    <message>
       <source>Save</source>
       <translation>Uložit</translation>
     </message>
@@ -5283,14 +5283,6 @@
     <message>
       <source>Cancel</source>
       <translation>Zrušit</translation>
-    </message>
-    <message>
-      <source>Voting options</source>
-      <translation>Volby hlasování</translation>
-    </message>
-    <message>
-      <source>Answers</source>
-      <translation>Odpovědi</translation>
     </message>
     <message>
       <source>Updated</source>
@@ -5533,12 +5525,12 @@
       <translation>Váš jazyk</translation>
     </message>
     <message>
-      <source>Language</source>
-      <translation>Jazyk</translation>
-    </message>
-    <message>
       <source>General language settings</source>
       <translation>Základní nastavení jazyka</translation>
+    </message>
+    <message>
+      <source>Language</source>
+      <translation>Jazyk</translation>
     </message>
     <message>
       <source>Current site access</source>
@@ -5771,14 +5763,6 @@
     <message>
       <source>Update instructions</source>
       <translation>Instrukce k aktualizaci</translation>
-    </message>
-    <message>
-      <source>Missing updates from new versions.</source>
-      <translation>Aktualizace, které vám scházejí do aktuální.</translation>
-    </message>
-    <message>
-      <source>You are running current version. No updates required</source>
-      <translation>Používáte aktuální verzi. Není nutné aktualizovat.</translation>
     </message>
     <message>
       <source>Live Helper Chat update information</source>
