@@ -309,7 +309,7 @@ $ViewList['getstatusembed'] = array(
 
 $ViewList['startchat'] = array (
     'params' => array(),
-    'uparams' => array('switchform','operator','theme','vid','hash_resume','sound','hash','offline','leaveamessage','department','priority','chatprefill'),
+    'uparams' => array('switchform','operator','theme','er','vid','hash_resume','sound','hash','offline','leaveamessage','department','priority','chatprefill'),
 	'multiple_arguments' => array ( 'department' )
 );
 
@@ -348,7 +348,8 @@ $ViewList['chatwidgetclosed'] = array(
 );
 
 $ViewList['chat'] = array(
-    'params' => array('chat_id','hash','theme')
+    'params' => array('chat_id','hash'),
+    'uparams' => array('theme','er')
 );
 
 $ViewList['printchat'] = array(

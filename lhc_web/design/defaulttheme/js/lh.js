@@ -882,6 +882,15 @@ function lh(){
 	    };
 	};
 
+	this.restoreWidget = function(hash){
+		 if (!!window.postMessage && window.opener) { 	    	          	    
+ 	    	window.opener.postMessage("lhc_ch:hash:"+hash, '*');
+ 	    	window.opener.postMessage("lhc_ch:hash_resume:"+hash, '*');            	    	
+ 	    	window.opener.postMessage("lhc_open_restore", '*'); 
+ 	    	window.close();
+ 	    };
+	};
+	
 	this.userclosedchatandbrowser = function()
 	{
 		if (LHCCallbacks.userleftchatNotification) {
