@@ -997,11 +997,13 @@ switch ((int)$Params['user_parameters']['step_id']) {
 
                //Administrators group
                $db->query("CREATE TABLE IF NOT EXISTS `lh_group` (
-                  `id` int(11) NOT NULL AUTO_INCREMENT,
-                  `name` varchar(50) NOT NULL,
-                  PRIMARY KEY (`id`)
-                ) DEFAULT CHARSET=utf8;");
-
+               `id` int(11) NOT NULL AUTO_INCREMENT,
+               `name` varchar(50) NOT NULL,
+               `disabled` int(11) NOT NULL,
+               PRIMARY KEY (`id`),
+               KEY `disabled` (`disabled`)
+               ) DEFAULT CHARSET=utf8;");                             
+               
                // Admin group
                $GroupData = new erLhcoreClassModelGroup();
                $GroupData->name    = "Administrators";

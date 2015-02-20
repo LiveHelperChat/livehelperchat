@@ -1,3 +1,9 @@
+2.25v
+
+1. Posibility to disable groups. Thats the only stuff will be done regarding https://github.com/LiveHelperChat/livehelperchat/issues/626
+
+execute doc/update_db/update_102.sql for update
+
 2.24v
 
 Sponsored release
@@ -9,7 +15,7 @@ Sponsored release
 6. Right columns nicer interface
 7. Co-Browsing scroll sync stopped to work after jQuery update. Switched to native JS API
 
-execute doc/update_db/update_100.sql for update
+execute doc/update_db/update_101.sql for update
 
 2.23v
 

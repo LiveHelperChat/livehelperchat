@@ -14,6 +14,10 @@
 		  <input class="form-control" type="text" name="Name"  value="<?php echo htmlspecialchars($group->name);?>" />
         </div>
 
+		<div class="form-group">
+		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Disabled');?> <input type="checkbox" name="Disabled"  value="on" <?php echo $group->disabled == 1 ? 'checked="checked"' : ''?> /></label>
+        </div>
+
 		<input type="submit" class="btn btn-default" name="Update_group" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Update');?>"/>
 
 	</form>

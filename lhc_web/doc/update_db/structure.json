@@ -2668,6 +2668,14 @@
                 "extra": "auto_increment"
             },
             {
+                "field": "disabled",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "name",
                 "type": "varchar(50)",
                 "null": "NO",
@@ -4640,6 +4648,10 @@
     "tables_indexes" : {
     	"lh_grouprole" : {
     		"new" : {"group_id_primary" : "ALTER TABLE `lh_grouprole` ADD INDEX `group_id_primary` (`group_id`);"},
+    		"old" : []
+    	},
+    	"lh_group" : {
+    		"new" : {"disabled" : "ALTER TABLE `lh_group` ADD INDEX `disabled` (`disabled`);"},
     		"old" : []
     	}
     },
