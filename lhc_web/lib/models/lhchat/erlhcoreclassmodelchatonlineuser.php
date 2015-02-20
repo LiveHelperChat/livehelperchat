@@ -615,12 +615,8 @@ class erLhcoreClassModelChatOnlineUser {
 	           		$item->tt_pages_count++;
 	           		$item->store_chat = true;
 	           		
-	           		if ( isset($_GET['onattr']) && is_array($_GET['onattr']) && !(empty($_GET['onattr'])) ) {
-	           			$stringOnlineAttr = array();
-	           			foreach ($_GET['onattr'] as $field => $value){
-	           				$stringOnlineAttr[] = $field.' - '.$value;
-	           			}
-	           			$item->online_attr = implode("\n", $stringOnlineAttr);
+	           		if ( isset($_GET['onattr']) && is_array($_GET['onattr']) && !(empty($_GET['onattr'])) ) {	           			
+	           			$item->online_attr = json_encode($_GET['onattr']);
 	           		}
 	           		
 	           		if ($item->has_message_from_operator == true) {
