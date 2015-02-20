@@ -1156,6 +1156,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Switch to widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitor</source>
       <translation type="unfinished"/>
     </message>
