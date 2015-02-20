@@ -101,6 +101,10 @@ class erLhcoreClassModelChatOnlineUser {
        	        return ($this->message_seen == 0 && $this->operator_message != '');
        	    break;
 
+       	case 'notes_intro':
+       	        return $this->notes_intro = $this->notes != '' ? '[ '.mb_substr($this->notes, 0, 50).' ]'.'<br/>' : '';
+       	    break;
+
        	case 'chat':
        			$this->chat = false;
 	       		if ($this->chat_id > 0) {
