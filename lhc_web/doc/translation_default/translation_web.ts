@@ -6116,6 +6116,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Disabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Update</source>
       <translation type="unfinished"/>
     </message>
