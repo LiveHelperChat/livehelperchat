@@ -66,6 +66,7 @@ if (is_array($Params['user_parameters_unordered']['department']) && erLhcoreClas
 }
 
 $tpl->set('disabled_department',$disabled_department);
+$tpl->set('append_mode_theme',$themeAppend);
 
 // Start chat field options
 $startData = erLhcoreClassModelChatConfig::fetch('start_chat_data');
