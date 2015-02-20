@@ -11,7 +11,7 @@
 	    <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/footprint_tab_tab.tpl.php')); ?>
 	    <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/map_tab_tab.tpl.php')); ?>
 	    <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/online_user_info_tab.tpl.php')); ?>	  
-	    <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/extension_chat_tab.tpl.php'));?>  
+	    <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/extension_chat_tab_multiinclude.tpl.php'));?>  
 	</ul>
 	<div class="tab-content">
 	   <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information_tab.tpl.php')); ?>
@@ -28,6 +28,6 @@
        <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/footprint_tab.tpl.php')); ?>
        <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/map_tab.tpl.php')); ?>
        <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/online_user_info.tpl.php')); ?>
-       <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/extension_chat_tab_content.tpl.php'));?>  	
+       <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/extension_chat_tab_content_multiinclude.tpl.php'));?>  	
 	</div>
 </div>

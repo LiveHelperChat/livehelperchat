@@ -1,4 +1,5 @@
-<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhtranslation','use')) : ?>
+<?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/chat_translation_pre.tpl.php')); ?>
+<?php if ($chat_translation_enabled == true && erLhcoreClassUser::instance()->hasAccessTo('lhtranslation','use')) : ?>
     <?php 
     // This values comes from tab template
     if ($dataChatTranslation['enable_translations'] && $dataChatTranslation['enable_translations'] == true) : ?>
