@@ -28,6 +28,28 @@ class erLhcoreClassRole{
 	   	return $stmt->fetchColumn() == 0;
    }
    
+   public static function canUseByModuleAndFunction($AccessArray, $module, $functions) {
+       // Global rights
+       if (isset($AccessArray['*']['*']) || isset($AccessArray[$module]['*']))
+       {
+           return true;
+       }
+        
+       // Provided rights have to be set
+       if (is_array($functions))
+       {
+           foreach ($functions as $function)
+           {
+               // Missing one of provided right
+               if (!isset($AccessArray[$module][$function])) return false;
+           }
+       } else {
+           if (!isset($AccessArray[$module][$functions])) return false;
+       }
+        
+       return true;
+   }
+   
    public static function getSession()
    {
         if ( !isset( self::$persistentSession ) )

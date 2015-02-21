@@ -1444,7 +1444,13 @@ function lh(){
 					$('#msg-'+data.id).addClass('edit-mode');
 				}
 			});			
-    	}
+		}
+	};
+	
+	this.showMyPermissions = function(user_id) {
+		$.get(this.wwwDir + 'permission/getpermissionsummary/'+user_id, function(data){
+			$('#permissions-summary').html(data);
+		});
 	};
 	
     this.addmsguserchatbox = function (chat_id)
