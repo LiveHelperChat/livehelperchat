@@ -77,8 +77,8 @@
     		
     		<?php if ($user->has_photo) : ?>
     		<div class="form-group">
-    			<img src="<?=$user->photo_path?>" alt="" width="50" /><br />
-    			<label><input type="checkbox" name="DeletePhoto" value="1" /> <?=erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Delete')?></label>
+    			<img src="<?php echo $user->photo_path?>" alt="" width="50" /><br />
+    			<label><input type="checkbox" name="DeletePhoto" value="1" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Delete')?></label>
     		</div>
     		<?php endif;?>
     		
