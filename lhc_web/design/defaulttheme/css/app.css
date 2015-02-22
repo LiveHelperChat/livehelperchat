@@ -214,29 +214,11 @@ option.offline-dep{
 	display:none;
 }
 
-.status-row .columns p,
 #right-pending-chats p,
 #right-active-chats p,
 #right-unread-chats p,
 #right-closed-chats p{
 	font-size:0.75em;
-}
-
-.found-total{
-	font-size:0.75em;
-}
-
-.found-total{
-	color:#999999;
-	float:right;
-}
-
-.fs11 {
-	font-size: 12px !important;
-}
-
-.fs-11 {
-	font-size: 11px;
 }
 
 .fs12 {

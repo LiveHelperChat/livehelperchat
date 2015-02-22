@@ -1154,6 +1154,10 @@
       <translation>არასწორი ჰეში ან ავტოშექმნა გამორთულია</translation>
     </message>
     <message>
+      <source>Switch to widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitor</source>
       <translation>ვიზიტორი</translation>
     </message>
@@ -1547,6 +1551,14 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>Attach uploaded file</source>
+      <translation>ატვირთული ფაილების დართვა</translation>
+    </message>
+    <message>
+      <source>Screen sharing</source>
+      <translation>ეკრანის გაზიარება</translation>
+    </message>
+    <message>
       <source>Footprint</source>
       <translation>კვალი</translation>
     </message>
@@ -1627,10 +1639,6 @@
       <translation>დაბეჭდვა</translation>
     </message>
     <message>
-      <source>Attach uploaded file</source>
-      <translation>ატვირთული ფაილების დართვა</translation>
-    </message>
-    <message>
       <source>Please enter a URL</source>
       <translation>გთხოვთ დაბეჭდეთ URL</translation>
     </message>
@@ -1639,8 +1647,8 @@
       <translation>მომხმარებლის გადართვა სხვა url-ზე</translation>
     </message>
     <message>
-      <source>Screen sharing</source>
-      <translation>ეკრანის გაზიარება</translation>
+      <source>Choose other than default recognition language</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Department</source>
@@ -1703,10 +1711,6 @@
       <translation>ჩეთის მფლობელი</translation>
     </message>
     <message>
-      <source>Information</source>
-      <translation>ინფორმაცია</translation>
-    </message>
-    <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
       <translation>ვერ გამოვლინდა. დარწმუნდით, რომ GEO გამოვლენა ჩართულია.</translation>
     </message>
@@ -1739,10 +1743,6 @@
       <translation>გაგზავნა</translation>
     </message>
     <message>
-      <source>Choose other than default recognition language</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Send delayed canned message instantly</source>
       <translation>შეკავებული კონსერვირებული შეტყობენიებების მომენტალურად გაგზავნა </translation>
     </message>
@@ -1765,6 +1765,133 @@
     <message>
       <source>Invalid chat status</source>
       <translation>ჩეთის არასწორი სტატუსი</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/translation</name>
+    <message>
+      <source>Visitor language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>My language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Auto translate</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Translating</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatically detected</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatic translation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Translation settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter text for testing purposes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Translated text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Detected language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Detect language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Translate</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable translation service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bing</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Google</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use Bing service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bing client ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bing client secret, key is never shown for security purposes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bing access token expires</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use Google service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>API key, key is never shown for security purposes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Missing text to translate</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not detect language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not translate</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>We could not detect operator language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Detected operator and visitor languages matches, please choose languages manually</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Translation configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat messages automatic translations has been stopped</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Messages has been translated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose translation languages manually and click Auto translate</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -2968,10 +3095,6 @@
       <translation>სამუშაო დატვირთვა</translation>
     </message>
     <message>
-      <source>Screen sharing</source>
-      <translation>ეკრანის გაზიარება</translation>
-    </message>
-    <message>
       <source>Application name</source>
       <translation>აპლიკაციის სახელი</translation>
     </message>
@@ -2994,6 +3117,10 @@
     <message>
       <source>Settings updated</source>
       <translation>პარამეტრები განახლდა</translation>
+    </message>
+    <message>
+      <source>Screen sharing</source>
+      <translation>ეკრანის გაზიარება</translation>
     </message>
     <message>
       <source>List chat configuration</source>
@@ -3143,18 +3270,6 @@
       <translation>მომსახურება</translation>
     </message>
     <message>
-      <source>Files</source>
-      <translation>ფაილები</translation>
-    </message>
-    <message>
-      <source>Files upload configuration</source>
-      <translation>ფაილების ატვირთვის კონფიგურაცია</translation>
-    </message>
-    <message>
-      <source>List of files</source>
-      <translation>ფაილების სია</translation>
-    </message>
-    <message>
       <source>Theming</source>
       <translation>დეკორაცია</translation>
     </message>
@@ -3169,6 +3284,22 @@
     <message>
       <source>Default theme</source>
       <translation>ნაგულისხმევი თემა</translation>
+    </message>
+    <message>
+      <source>Files</source>
+      <translation>ფაილები</translation>
+    </message>
+    <message>
+      <source>Files upload configuration</source>
+      <translation>ფაილების ატვირთვის კონფიგურაცია</translation>
+    </message>
+    <message>
+      <source>List of files</source>
+      <translation>ფაილების სია</translation>
+    </message>
+    <message>
+      <source>Automatic translations</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>File configuration</source>
@@ -3820,6 +3951,18 @@
       <translation>ჩეთების რაოდენობა ქვეყნის მიხედვით</translation>
     </message>
     <message>
+      <source>Number of chats by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wait time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>AVG visitor wait time by operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Messages</source>
       <translation>შეტყობინებები</translation>
     </message>
@@ -3850,6 +3993,14 @@
     <message>
       <source>Chats number by statuses</source>
       <translation>ჩეთების რაოდენობა სტატუსების მიხედვით</translation>
+    </message>
+    <message>
+      <source>Time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>AVG wait time in seconds, max 10 mininutes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visitors initiated</source>

@@ -1155,6 +1155,10 @@ pokazywany</translation>
       <translation>Nieprawidłowy kod, lub automatyczne tworzenie jest wyłączone</translation>
     </message>
     <message>
+      <source>Switch to widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitor</source>
       <translation>Gość</translation>
     </message>
@@ -1548,6 +1552,14 @@ pokazywany</translation>
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>Attach uploaded file</source>
+      <translation>Dołącz przesłany plik </translation>
+    </message>
+    <message>
+      <source>Screen sharing</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Footprint</source>
       <translation>Ślad</translation>
     </message>
@@ -1628,10 +1640,6 @@ pokazywany</translation>
       <translation>Drukuj</translation>
     </message>
     <message>
-      <source>Attach uploaded file</source>
-      <translation>Dołącz przesłany plik </translation>
-    </message>
-    <message>
       <source>Please enter a URL</source>
       <translation type="unfinished"/>
     </message>
@@ -1640,7 +1648,7 @@ pokazywany</translation>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Screen sharing</source>
+      <source>Choose other than default recognition language</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1704,10 +1712,6 @@ pokazywany</translation>
       <translation>Właściciel rozmowy</translation>
     </message>
     <message>
-      <source>Information</source>
-      <translation>Informacja</translation>
-    </message>
-    <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
       <translation>Nie można wykryć GEO. Upewnij się czy GEO jest włączone.</translation>
     </message>
@@ -1740,10 +1744,6 @@ pokazywany</translation>
       <translation>Wyśli</translation>
     </message>
     <message>
-      <source>Choose other than default recognition language</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Send delayed canned message instantly</source>
       <translation>Wyślij gotową wiadomość natychmiast</translation>
     </message>
@@ -1766,6 +1766,133 @@ pokazywany</translation>
     <message>
       <source>Invalid chat status</source>
       <translation>Nieprawidłowy status rozmowy</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/translation</name>
+    <message>
+      <source>Visitor language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>My language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Auto translate</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Translating</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatically detected</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatic translation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Translation settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter text for testing purposes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Translated text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Detected language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Detect language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Translate</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable translation service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bing</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Google</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use Bing service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bing client ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bing client secret, key is never shown for security purposes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bing access token expires</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use Google service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>API key, key is never shown for security purposes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Missing text to translate</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not detect language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not translate</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>We could not detect operator language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Detected operator and visitor languages matches, please choose languages manually</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Translation configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat messages automatic translations has been stopped</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Messages has been translated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose translation languages manually and click Auto translate</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -2969,10 +3096,6 @@ pokazywany</translation>
       <translation>Logika przepływu</translation>
     </message>
     <message>
-      <source>Screen sharing</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Application name</source>
       <translation>Nazwa aplikacji</translation>
     </message>
@@ -2995,6 +3118,10 @@ pokazywany</translation>
     <message>
       <source>Settings updated</source>
       <translation>Ustawienia zaktualizowane</translation>
+    </message>
+    <message>
+      <source>Screen sharing</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>List chat configuration</source>
@@ -3144,18 +3271,6 @@ pokazywany</translation>
       <translation>Konserwacja</translation>
     </message>
     <message>
-      <source>Files</source>
-      <translation>Pliki</translation>
-    </message>
-    <message>
-      <source>Files upload configuration</source>
-      <translation>Konfiguracja wysyłania plików</translation>
-    </message>
-    <message>
-      <source>List of files</source>
-      <translation>Lista plików</translation>
-    </message>
-    <message>
       <source>Theming</source>
       <translation>Motywy</translation>
     </message>
@@ -3170,6 +3285,22 @@ pokazywany</translation>
     <message>
       <source>Default theme</source>
       <translation>Domyślny motyw</translation>
+    </message>
+    <message>
+      <source>Files</source>
+      <translation>Pliki</translation>
+    </message>
+    <message>
+      <source>Files upload configuration</source>
+      <translation>Konfiguracja wysyłania plików</translation>
+    </message>
+    <message>
+      <source>List of files</source>
+      <translation>Lista plików</translation>
+    </message>
+    <message>
+      <source>Automatic translations</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>File configuration</source>
@@ -3821,6 +3952,18 @@ pokazywany</translation>
       <translation>Ilość rozmów według kraju</translation>
     </message>
     <message>
+      <source>Number of chats by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wait time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>AVG visitor wait time by operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Messages</source>
       <translation>Wiadomości</translation>
     </message>
@@ -3851,6 +3994,14 @@ pokazywany</translation>
     <message>
       <source>Chats number by statuses</source>
       <translation>Ilość rozmów według statusu</translation>
+    </message>
+    <message>
+      <source>Time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>AVG wait time in seconds, max 10 mininutes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visitors initiated</source>

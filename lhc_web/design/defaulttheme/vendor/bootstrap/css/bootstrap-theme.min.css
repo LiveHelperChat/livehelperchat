@@ -30,3 +30,13 @@
 #onlineusers .tooltip-inner {
 	text-align:left;
 }
+
+.paginator-lhc{
+	margin-top:0;
+}
+
+.found-total{
+	color:#999999;
+	float:right;
+	line-height: 2.42857143;
+}

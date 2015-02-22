@@ -1,6 +1,6 @@
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_header.tpl.php'));?>
 
-<a href="<?php echo htmlspecialchars(trim($online_user->current_page))?>" class="no-wrap fs11"><?php echo htmlspecialchars(trim($online_user->referrer))?></a>
+<a href="<?php echo htmlspecialchars(trim($online_user->current_page))?>" class="no-wrap fs12"><?php echo htmlspecialchars(trim($online_user->referrer))?></a>
 
 <div class="online-user-info">
     <div role="tabpanel">

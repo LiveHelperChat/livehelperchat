@@ -147,7 +147,7 @@
     </message>
     <message>
       <source>Home page tabs order</source>
-      <translation type="unfinished"/>
+      <translation>Ordem das tabs da homepage</translation>
     </message>
     <message>
       <source>Is visitor e-mail required for FAQ</source>
@@ -566,7 +566,7 @@
     </message>
     <message>
       <source>How many times repeat message?</source>
-      <translation type="unfinished"/>
+      <translation>Repetir a mensagem quantas vezes?</translation>
     </message>
     <message>
       <source>Show visitor this message then wait timeout passes.</source>
@@ -828,7 +828,7 @@
     </message>
     <message>
       <source>Set default speech recognition language</source>
-      <translation type="unfinished"/>
+      <translation>Definir o idioma de reconhecimento de voz padrão</translation>
     </message>
     <message>
       <source>Speech language</source>
@@ -928,7 +928,7 @@
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>
-      <translation type="unfinished"/>
+      <translation>Por favor, não informe o protoloco, somente o nome do domínio é requerido</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -1152,6 +1152,10 @@
     <message>
       <source>Invalid hash or auto creation is disabled</source>
       <translation>hash inválido ou a criação automática está desabilitada</translation>
+    </message>
+    <message>
+      <source>Switch to widget</source>
+      <translation>Alternar para o widget</translation>
     </message>
     <message>
       <source>Visitor</source>
@@ -1547,6 +1551,14 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>Attach uploaded file</source>
+      <translation>Anexar arquivo carregado</translation>
+    </message>
+    <message>
+      <source>Screen sharing</source>
+      <translation>Compartilhamento de tela</translation>
+    </message>
+    <message>
       <source>Footprint</source>
       <translation>Rastro</translation>
     </message>
@@ -1627,10 +1639,6 @@
       <translation>Imprimir</translation>
     </message>
     <message>
-      <source>Attach uploaded file</source>
-      <translation>Anexar arquivo carregado</translation>
-    </message>
-    <message>
       <source>Please enter a URL</source>
       <translation>Digite uma URL</translation>
     </message>
@@ -1639,8 +1647,8 @@
       <translation>Redirecionar usuário para outra URL</translation>
     </message>
     <message>
-      <source>Screen sharing</source>
-      <translation>Compartilhamento de tela</translation>
+      <source>Choose other than default recognition language</source>
+      <translation>Escolha outro idioma que não seja o padrão</translation>
     </message>
     <message>
       <source>Department</source>
@@ -1703,10 +1711,6 @@
       <translation>Dono do chat</translation>
     </message>
     <message>
-      <source>Information</source>
-      <translation>Informação</translation>
-    </message>
-    <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
       <translation>Não pôde detectar. Certifique-se que a geolocalização está ativada.</translation>
     </message>
@@ -1720,7 +1724,7 @@
     </message>
     <message>
       <source>User browsing information</source>
-      <translation type="unfinished"/>
+      <translation>Informações de navegação do usuário</translation>
     </message>
     <message>
       <source>Chats</source>
@@ -1732,15 +1736,11 @@
     </message>
     <message>
       <source>Notes</source>
-      <translation type="unfinished"/>
+      <translation>Observações</translation>
     </message>
     <message>
       <source>Send</source>
       <translation>Enviar</translation>
-    </message>
-    <message>
-      <source>Choose other than default recognition language</source>
-      <translation>Escolha outro idioma que não seja o padrão</translation>
     </message>
     <message>
       <source>Send delayed canned message instantly</source>
@@ -1765,6 +1765,133 @@
     <message>
       <source>Invalid chat status</source>
       <translation>Status do chat inválido</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/translation</name>
+    <message>
+      <source>Visitor language</source>
+      <translation>Idioma do visitante</translation>
+    </message>
+    <message>
+      <source>My language</source>
+      <translation>Meu idioma</translation>
+    </message>
+    <message>
+      <source>Auto translate</source>
+      <translation>Auto traduzir</translation>
+    </message>
+    <message>
+      <source>Translating</source>
+      <translation>Traduzindo</translation>
+    </message>
+    <message>
+      <source>Automatically detected</source>
+      <translation>Detectado automaticamente</translation>
+    </message>
+    <message>
+      <source>Automatic translation</source>
+      <translation>Tradução automática</translation>
+    </message>
+    <message>
+      <source>Translation settings</source>
+      <translation>Configurações de tradução</translation>
+    </message>
+    <message>
+      <source>Enter text for testing purposes</source>
+      <translation>Digite algo para testar</translation>
+    </message>
+    <message>
+      <source>Translated text</source>
+      <translation>Texto traduzido</translation>
+    </message>
+    <message>
+      <source>Detected language</source>
+      <translation>Idioma detectado</translation>
+    </message>
+    <message>
+      <source>Detect language</source>
+      <translation>Detectar idioma</translation>
+    </message>
+    <message>
+      <source>Translate</source>
+      <translation>Traduzir</translation>
+    </message>
+    <message>
+      <source>Enable translation service</source>
+      <translation>Ativar serviço de tradução</translation>
+    </message>
+    <message>
+      <source>Bing</source>
+      <translation>Bing</translation>
+    </message>
+    <message>
+      <source>Google</source>
+      <translation>Google</translation>
+    </message>
+    <message>
+      <source>Use Bing service</source>
+      <translation>Usar serviço do Bing</translation>
+    </message>
+    <message>
+      <source>Bing client ID</source>
+      <translation>ID do cliente Bing </translation>
+    </message>
+    <message>
+      <source>Bing client secret, key is never shown for security purposes</source>
+      <translation>Chave secreta do Bing, nunca é mostrada para fins de segurança</translation>
+    </message>
+    <message>
+      <source>Bing access token expires</source>
+      <translation>Token de acesso Bing expira</translation>
+    </message>
+    <message>
+      <source>Use Google service</source>
+      <translation>Usar serviço do Google</translation>
+    </message>
+    <message>
+      <source>API key, key is never shown for security purposes</source>
+      <translation>Chave API, chave nunca é mostrada para fins de segurança</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Configurações atualizadas</translation>
+    </message>
+    <message>
+      <source>Missing text to translate</source>
+      <translation>Faltando texto para traduzir</translation>
+    </message>
+    <message>
+      <source>Could not detect language</source>
+      <translation>Não foi possível detectar o idioma</translation>
+    </message>
+    <message>
+      <source>Could not translate</source>
+      <translation>Não foi possível traduzir</translation>
+    </message>
+    <message>
+      <source>We could not detect operator language</source>
+      <translation>Não foi possível detectar o idioma do operador</translation>
+    </message>
+    <message>
+      <source>Detected operator and visitor languages matches, please choose languages manually</source>
+      <translation>Idiomas detectados para o operador e visitante são iguais, por favor, escolha os idiomas manualmente</translation>
+    </message>
+    <message>
+      <source>Translation configuration</source>
+      <translation>Configuração de tradução</translation>
+    </message>
+    <message>
+      <source>Chat messages automatic translations has been stopped</source>
+      <translation>Tradução automática das menssagens do chat foi finalizada</translation>
+    </message>
+    <message>
+      <source>Messages has been translated</source>
+      <translation>As mensagens foram traduzidas</translation>
+    </message>
+    <message>
+      <source>Please choose translation languages manually and click Auto translate</source>
+      <translation>Por favor, escolha Idiomas de tradução manualmente e clique em Auto traduzir</translation>
     </message>
   </context>
   <context>
@@ -1928,7 +2055,7 @@
     </message>
     <message>
       <source>Mail settings</source>
-      <translation>Configuração de e-Mail</translation>
+      <translation>Configuração de Email</translation>
     </message>
     <message>
       <source>SMTP</source>
@@ -2431,11 +2558,11 @@
     </message>
     <message>
       <source>Please enter to what gmail address test message should be send?</source>
-      <translation type="unfinished"/>
+      <translation>Para qual endereço do gmail a menssagem de teste deverá ser encaminhada?</translation>
     </message>
     <message>
       <source>This message will be send to test e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Esta mensagem será encaminhada para o email de teste</translation>
     </message>
     <message>
       <source>Send test message</source>
@@ -2471,7 +2598,7 @@
     </message>
     <message>
       <source>Invalid test e-mail address</source>
-      <translation type="unfinished"/>
+      <translation>Endereço de email de teste inválido</translation>
     </message>
   </context>
   <context>
@@ -2968,10 +3095,6 @@
       <translation>Fluxo de Trabalho</translation>
     </message>
     <message>
-      <source>Screen sharing</source>
-      <translation>Compartilhamento de tela</translation>
-    </message>
-    <message>
       <source>Application name</source>
       <translation>Nome da aplicação</translation>
     </message>
@@ -2994,6 +3117,10 @@
     <message>
       <source>Settings updated</source>
       <translation>Configurações atualizadas</translation>
+    </message>
+    <message>
+      <source>Screen sharing</source>
+      <translation>Compartilhamento de tela</translation>
     </message>
     <message>
       <source>List chat configuration</source>
@@ -3040,7 +3167,7 @@
     </message>
     <message>
       <source>Mail settings</source>
-      <translation type="unfinished"/>
+      <translation>Configurações de Email</translation>
     </message>
     <message>
       <source>E-mail templates</source>
@@ -3143,18 +3270,6 @@
       <translation>Manutenção</translation>
     </message>
     <message>
-      <source>Files</source>
-      <translation>Arquivos</translation>
-    </message>
-    <message>
-      <source>Files upload configuration</source>
-      <translation>Configurações de envio de arquivos</translation>
-    </message>
-    <message>
-      <source>List of files</source>
-      <translation>Lista de arquivos</translation>
-    </message>
-    <message>
       <source>Theming</source>
       <translation>Gerenciamento de temas</translation>
     </message>
@@ -3169,6 +3284,22 @@
     <message>
       <source>Default theme</source>
       <translation>Tema padrão</translation>
+    </message>
+    <message>
+      <source>Files</source>
+      <translation>Arquivos</translation>
+    </message>
+    <message>
+      <source>Files upload configuration</source>
+      <translation>Configurações de envio de arquivos</translation>
+    </message>
+    <message>
+      <source>List of files</source>
+      <translation>Lista de arquivos</translation>
+    </message>
+    <message>
+      <source>Automatic translations</source>
+      <translation>Traduções automáticas</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -3785,7 +3916,7 @@
     </message>
     <message>
       <source>General</source>
-      <translation type="unfinished"/>
+      <translation>Geral</translation>
     </message>
     <message>
       <source>User</source>
@@ -3820,6 +3951,18 @@
       <translation>Número de chats por país</translation>
     </message>
     <message>
+      <source>Number of chats by user</source>
+      <translation>Número de chats por usuário</translation>
+    </message>
+    <message>
+      <source>Wait time</source>
+      <translation>Tempo de espera</translation>
+    </message>
+    <message>
+      <source>AVG visitor wait time by operator</source>
+      <translation>Tempo de espera médio dos visitantes por operador</translation>
+    </message>
+    <message>
       <source>Messages</source>
       <translation>Mensagens</translation>
     </message>
@@ -3850,6 +3993,14 @@
     <message>
       <source>Chats number by statuses</source>
       <translation>Número de chats por status</translation>
+    </message>
+    <message>
+      <source>Time</source>
+      <translation>Tempo</translation>
+    </message>
+    <message>
+      <source>AVG wait time in seconds, max 10 mininutes</source>
+      <translation>tempo médio de espera em segundos, máx. 10 minutos.</translation>
     </message>
     <message>
       <source>Visitors initiated</source>
@@ -5581,19 +5732,19 @@
     <name>system/smtp</name>
     <message>
       <source>Mail settings</source>
-      <translation type="unfinished"/>
+      <translation>Configurações de Email</translation>
     </message>
     <message>
       <source>Sender address</source>
-      <translation type="unfinished"/>
+      <translation>Remetente</translation>
     </message>
     <message>
       <source>Default from e-mail address</source>
-      <translation type="unfinished"/>
+      <translation>Email de destinatário padrão</translation>
     </message>
     <message>
       <source>Default from name</source>
-      <translation type="unfinished"/>
+      <translation>Nome de destinatário padrão</translation>
     </message>
     <message>
       <source>SMTP enabled</source>
@@ -6465,7 +6616,7 @@
     </message>
     <message>
       <source>From e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Destinatário</translation>
     </message>
     <message>
       <source>Allow to change from e-mail</source>
@@ -6473,7 +6624,7 @@
     </message>
     <message>
       <source>Use user e-mail as from address</source>
-      <translation type="unfinished"/>
+      <translation>Utilizar email do usuário como destinatário</translation>
     </message>
     <message>
       <source>Reply to</source>

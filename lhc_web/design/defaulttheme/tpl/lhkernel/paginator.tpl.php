@@ -2,7 +2,7 @@
 
 
 <nav>
-<ul class="pagination">
+<ul class="pagination paginator-lhc">
 
     <?php if ($pages->current_page != 1) : ?>
         <li class="arrow"><a class="previous" href="<?php echo $pages->serverURL,$pages->prev_page,$pages->querystring?>">&laquo;</a></li>
@@ -69,7 +69,7 @@
 
     </ul>
     
-    <div class="found-total"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','Page')?> <?php echo $pages->current_page?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','of')?> <?php echo $pages->num_pages?>, <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','Found')?> - <?php echo $pages->items_total?></div>
+    <div class="found-total pull-right"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','Page')?> <?php echo $pages->current_page?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','of')?> <?php echo $pages->num_pages?>, <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','Found')?> - <?php echo $pages->items_total?></div>
     
     </nav>
 <?php endif;?>

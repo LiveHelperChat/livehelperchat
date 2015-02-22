@@ -1154,6 +1154,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Switch to widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitor</source>
       <translation>Ziyaretçi</translation>
     </message>
@@ -1547,6 +1551,14 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>Attach uploaded file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Screen sharing</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Footprint</source>
       <translation>Kapladığı alan</translation>
     </message>
@@ -1627,10 +1639,6 @@
       <translation>Yazdır</translation>
     </message>
     <message>
-      <source>Attach uploaded file</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Please enter a URL</source>
       <translation type="unfinished"/>
     </message>
@@ -1639,7 +1647,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Screen sharing</source>
+      <source>Choose other than default recognition language</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1703,10 +1711,6 @@
       <translation>Konuşma sahibi</translation>
     </message>
     <message>
-      <source>Information</source>
-      <translation>Bilgi</translation>
-    </message>
-    <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
       <translation>Saptanamadı. GEO saptamanın etkinleştirildiğinden emin olun.</translation>
     </message>
@@ -1739,10 +1743,6 @@
       <translation>Gönder</translation>
     </message>
     <message>
-      <source>Choose other than default recognition language</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Send delayed canned message instantly</source>
       <translation type="unfinished"/>
     </message>
@@ -1764,6 +1764,133 @@
     </message>
     <message>
       <source>Invalid chat status</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/translation</name>
+    <message>
+      <source>Visitor language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>My language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Auto translate</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Translating</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatically detected</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatic translation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Translation settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter text for testing purposes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Translated text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Detected language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Detect language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Translate</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable translation service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bing</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Google</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use Bing service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bing client ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bing client secret, key is never shown for security purposes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bing access token expires</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use Google service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>API key, key is never shown for security purposes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Missing text to translate</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not detect language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not translate</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>We could not detect operator language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Detected operator and visitor languages matches, please choose languages manually</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Translation configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat messages automatic translations has been stopped</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Messages has been translated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose translation languages manually and click Auto translate</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -2970,10 +3097,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Screen sharing</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Application name</source>
       <translation>Uygulama adı</translation>
     </message>
@@ -2996,6 +3119,10 @@
     <message>
       <source>Settings updated</source>
       <translation>Ayarlar güncellendi</translation>
+    </message>
+    <message>
+      <source>Screen sharing</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>List chat configuration</source>
@@ -3145,18 +3272,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Files</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Files upload configuration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>List of files</source>
-      <translation>Dosyaların listesi</translation>
-    </message>
-    <message>
       <source>Theming</source>
       <translation type="unfinished"/>
     </message>
@@ -3170,6 +3285,22 @@
     </message>
     <message>
       <source>Default theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Files</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Files upload configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>List of files</source>
+      <translation>Dosyaların listesi</translation>
+    </message>
+    <message>
+      <source>Automatic translations</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3822,6 +3953,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Number of chats by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wait time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>AVG visitor wait time by operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Messages</source>
       <translation>Mesajlar</translation>
     </message>
@@ -3851,6 +3994,14 @@
     </message>
     <message>
       <source>Chats number by statuses</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>AVG wait time in seconds, max 10 mininutes</source>
       <translation type="unfinished"/>
     </message>
     <message>

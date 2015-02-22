@@ -147,7 +147,7 @@
     </message>
     <message>
       <source>Home page tabs order</source>
-      <translation type="unfinished"/>
+      <translation>Ordinea tab-urile de pe homepage</translation>
     </message>
     <message>
       <source>Is visitor e-mail required for FAQ</source>
@@ -566,7 +566,7 @@
     </message>
     <message>
       <source>How many times repeat message?</source>
-      <translation type="unfinished"/>
+      <translation>De cate ori sa se repete mesajul?</translation>
     </message>
     <message>
       <source>Show visitor this message then wait timeout passes.</source>
@@ -828,7 +828,7 @@
     </message>
     <message>
       <source>Set default speech recognition language</source>
-      <translation type="unfinished"/>
+      <translation>Seteaza limba standard pentru recunoasterea vocala</translation>
     </message>
     <message>
       <source>Speech language</source>
@@ -928,7 +928,7 @@
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>
-      <translation type="unfinished"/>
+      <translation>Nu introduceti un protocol, doar numele de domeniu este necesar</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -1152,6 +1152,10 @@
     <message>
       <source>Invalid hash or auto creation is disabled</source>
       <translation>Crearea nevalidă hash sau auto este dezactivat</translation>
+    </message>
+    <message>
+      <source>Switch to widget</source>
+      <translation>Schimba catre widget</translation>
     </message>
     <message>
       <source>Visitor</source>
@@ -1547,6 +1551,14 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>Attach uploaded file</source>
+      <translation>Atașați fișierul încărcat</translation>
+    </message>
+    <message>
+      <source>Screen sharing</source>
+      <translation>Partajare ecran</translation>
+    </message>
+    <message>
       <source>Footprint</source>
       <translation>Amprenta</translation>
     </message>
@@ -1584,7 +1596,7 @@
     </message>
     <message>
       <source>Edit main chat information</source>
-      <translation type="unfinished"/>
+      <translation>Editeaza informatiile chat-ului principal</translation>
     </message>
     <message>
       <source>Close dialog</source>
@@ -1627,20 +1639,16 @@
       <translation>Printeaza</translation>
     </message>
     <message>
-      <source>Attach uploaded file</source>
-      <translation>Atașați fișierul încărcat</translation>
-    </message>
-    <message>
       <source>Please enter a URL</source>
-      <translation type="unfinished"/>
+      <translation>Te rog sa introduci un URL</translation>
     </message>
     <message>
       <source>Redirect user to another url</source>
-      <translation type="unfinished"/>
+      <translation>Redirectioneaza utilizatorul catre un alt URL</translation>
     </message>
     <message>
-      <source>Screen sharing</source>
-      <translation type="unfinished"/>
+      <source>Choose other than default recognition language</source>
+      <translation>Alege o alta limba in afara de limba standard pentru recunoastere vocala</translation>
     </message>
     <message>
       <source>Department</source>
@@ -1684,7 +1692,7 @@
     </message>
     <message>
       <source>User left</source>
-      <translation type="unfinished"/>
+      <translation>Utilizatorul a parasit conversatia</translation>
     </message>
     <message>
       <source>Waited</source>
@@ -1701,10 +1709,6 @@
     <message>
       <source>Chat owner</source>
       <translation>Proprietarul conversatiei</translation>
-    </message>
-    <message>
-      <source>Information</source>
-      <translation>Informatii</translation>
     </message>
     <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
@@ -1732,15 +1736,11 @@
     </message>
     <message>
       <source>Notes</source>
-      <translation type="unfinished"/>
+      <translation>Note</translation>
     </message>
     <message>
       <source>Send</source>
       <translation>Trimite</translation>
-    </message>
-    <message>
-      <source>Choose other than default recognition language</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Send delayed canned message instantly</source>
@@ -1765,6 +1765,133 @@
     <message>
       <source>Invalid chat status</source>
       <translation>Stare conversatie invalida</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/translation</name>
+    <message>
+      <source>Visitor language</source>
+      <translation>Limba vizitatorului</translation>
+    </message>
+    <message>
+      <source>My language</source>
+      <translation>Limba mea</translation>
+    </message>
+    <message>
+      <source>Auto translate</source>
+      <translation>Traducere automata</translation>
+    </message>
+    <message>
+      <source>Translating</source>
+      <translation>Se traduce</translation>
+    </message>
+    <message>
+      <source>Automatically detected</source>
+      <translation>Detectie automata</translation>
+    </message>
+    <message>
+      <source>Automatic translation</source>
+      <translation>Traducere automata</translation>
+    </message>
+    <message>
+      <source>Translation settings</source>
+      <translation>Setari traducere</translation>
+    </message>
+    <message>
+      <source>Enter text for testing purposes</source>
+      <translation>Te rog sa introduci text pentru a testa functia</translation>
+    </message>
+    <message>
+      <source>Translated text</source>
+      <translation>Textul tradus</translation>
+    </message>
+    <message>
+      <source>Detected language</source>
+      <translation>Limba detectata</translation>
+    </message>
+    <message>
+      <source>Detect language</source>
+      <translation>Detecteaza limba</translation>
+    </message>
+    <message>
+      <source>Translate</source>
+      <translation>Tradu</translation>
+    </message>
+    <message>
+      <source>Enable translation service</source>
+      <translation>Activeaza serviciul de traducere</translation>
+    </message>
+    <message>
+      <source>Bing</source>
+      <translation>Bing</translation>
+    </message>
+    <message>
+      <source>Google</source>
+      <translation>Google</translation>
+    </message>
+    <message>
+      <source>Use Bing service</source>
+      <translation>Foloseste serviciul Bing</translation>
+    </message>
+    <message>
+      <source>Bing client ID</source>
+      <translation>ID client Bing</translation>
+    </message>
+    <message>
+      <source>Bing client secret, key is never shown for security purposes</source>
+      <translation>Cheie secreta Bing (nu este afisata din motive de securitate)</translation>
+    </message>
+    <message>
+      <source>Bing access token expires</source>
+      <translation>Token-ul de acces Bing expira</translation>
+    </message>
+    <message>
+      <source>Use Google service</source>
+      <translation>Foloseste serviciul Google</translation>
+    </message>
+    <message>
+      <source>API key, key is never shown for security purposes</source>
+      <translation>Cheie API (nu este afisata din motive de securitate)</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Setari actualizate</translation>
+    </message>
+    <message>
+      <source>Missing text to translate</source>
+      <translation>Lipseste mesajul pentru traducere</translation>
+    </message>
+    <message>
+      <source>Could not detect language</source>
+      <translation>Nu am putut detecta limba</translation>
+    </message>
+    <message>
+      <source>Could not translate</source>
+      <translation>Nu am putut traduce</translation>
+    </message>
+    <message>
+      <source>We could not detect operator language</source>
+      <translation>Nu am putut detecta limba operatorului</translation>
+    </message>
+    <message>
+      <source>Detected operator and visitor languages matches, please choose languages manually</source>
+      <translation>Limbile detectate pentru operator si vizitator se potrivesc, te rog sa alegi limbile manual</translation>
+    </message>
+    <message>
+      <source>Translation configuration</source>
+      <translation>Setari traducere</translation>
+    </message>
+    <message>
+      <source>Chat messages automatic translations has been stopped</source>
+      <translation>Traducerea automata e mesajelor a fost oprita</translation>
+    </message>
+    <message>
+      <source>Messages has been translated</source>
+      <translation>Mesajele au fost traduse</translation>
+    </message>
+    <message>
+      <source>Please choose translation languages manually and click Auto translate</source>
+      <translation>Te rog sa alegi limba de traducere manual si sa apesi pe &quot;Traducere automata&quot;</translation>
     </message>
   </context>
   <context>
@@ -1928,11 +2055,11 @@
     </message>
     <message>
       <source>Mail settings</source>
-      <translation type="unfinished"/>
+      <translation>Setari e-mail</translation>
     </message>
     <message>
       <source>SMTP</source>
-      <translation type="unfinished"/>
+      <translation>SMTP</translation>
     </message>
   </context>
   <context>
@@ -1983,7 +2110,7 @@
     </message>
     <message>
       <source>File</source>
-      <translation type="unfinished"/>
+      <translation>Fisier</translation>
     </message>
     <message>
       <source>Leave a message</source>
@@ -2055,7 +2182,7 @@
     </message>
     <message>
       <source>Invalid CSRF token!</source>
-      <translation type="unfinished"/>
+      <translation>Token CSRF invalid!</translation>
     </message>
     <message>
       <source>Please enter a valid email address</source>
@@ -2103,7 +2230,7 @@
     </message>
     <message>
       <source>Invalid file</source>
-      <translation type="unfinished"/>
+      <translation>Fisier invalid</translation>
     </message>
     <message>
       <source>Could not determine a default department!</source>
@@ -2115,15 +2242,15 @@
     </message>
     <message>
       <source>Invalid file extension</source>
-      <translation type="unfinished"/>
+      <translation>Extensie fisier invalida</translation>
     </message>
     <message>
       <source>Invalid file extension!</source>
-      <translation type="unfinished"/>
+      <translation>Extensie fisier invalida!</translation>
     </message>
     <message>
       <source>To big file!</source>
-      <translation type="unfinished"/>
+      <translation>Fisier prea mare!</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -2431,7 +2558,7 @@
     </message>
     <message>
       <source>Please enter to what gmail address test message should be send?</source>
-      <translation type="unfinished"/>
+      <translation>La ce adresa de e-mail Gmail sa se trimita mesaju de test?</translation>
     </message>
     <message>
       <source>This message will be send to test e-mail</source>
@@ -2471,7 +2598,7 @@
     </message>
     <message>
       <source>Invalid test e-mail address</source>
-      <translation type="unfinished"/>
+      <translation>Adresa de e-mail de test invalida?</translation>
     </message>
   </context>
   <context>
@@ -2726,11 +2853,11 @@
     </message>
     <message>
       <source>Online visitors list</source>
-      <translation type="unfinished"/>
+      <translation>Lista vizitatorilor online</translation>
     </message>
     <message>
       <source>Online users on map</source>
-      <translation type="unfinished"/>
+      <translation>Utilizatori online afisati pe harta</translation>
     </message>
     <message>
       <source>Enable/Disable sound about new visitor</source>
@@ -2968,10 +3095,6 @@
       <translation>Flux de lucru</translation>
     </message>
     <message>
-      <source>Screen sharing</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Application name</source>
       <translation>Nume aplicatie</translation>
     </message>
@@ -2994,6 +3117,10 @@
     <message>
       <source>Settings updated</source>
       <translation>Setari actualizate</translation>
+    </message>
+    <message>
+      <source>Screen sharing</source>
+      <translation>Partajare ecran</translation>
     </message>
     <message>
       <source>List chat configuration</source>
@@ -3028,7 +3155,7 @@
     </message>
     <message>
       <source>Speech</source>
-      <translation type="unfinished"/>
+      <translation>Voce</translation>
     </message>
     <message>
       <source>Time zone settings</source>
@@ -3040,7 +3167,7 @@
     </message>
     <message>
       <source>Mail settings</source>
-      <translation type="unfinished"/>
+      <translation>Setari email</translation>
     </message>
     <message>
       <source>E-mail templates</source>
@@ -3143,18 +3270,6 @@
       <translation>Mentenanta</translation>
     </message>
     <message>
-      <source>Files</source>
-      <translation>Fisiere</translation>
-    </message>
-    <message>
-      <source>Files upload configuration</source>
-      <translation>Setari upload fisiere</translation>
-    </message>
-    <message>
-      <source>List of files</source>
-      <translation>Lista fisierelor</translation>
-    </message>
-    <message>
       <source>Theming</source>
       <translation>Teme</translation>
     </message>
@@ -3169,6 +3284,22 @@
     <message>
       <source>Default theme</source>
       <translation>Tema default</translation>
+    </message>
+    <message>
+      <source>Files</source>
+      <translation>Fisiere</translation>
+    </message>
+    <message>
+      <source>Files upload configuration</source>
+      <translation>Setari upload fisiere</translation>
+    </message>
+    <message>
+      <source>List of files</source>
+      <translation>Lista fisierelor</translation>
+    </message>
+    <message>
+      <source>Automatic translations</source>
+      <translation>Traducere automata</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -3343,31 +3474,31 @@
     <name>chat/modifychat</name>
     <message>
       <source>Modify chat</source>
-      <translation type="unfinished"/>
+      <translation>Modifica conversatie</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation type="unfinished"/>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Recipient e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Adresa de e-mail destinatar</translation>
     </message>
     <message>
       <source>Nick</source>
-      <translation type="unfinished"/>
+      <translation>Alias</translation>
     </message>
     <message>
       <source>Phone</source>
-      <translation type="unfinished"/>
+      <translation>Telefon</translation>
     </message>
     <message>
       <source>Update chat</source>
-      <translation type="unfinished"/>
+      <translation>Actualizeaza conversatie</translation>
     </message>
     <message>
       <source>Chat information was updated</source>
-      <translation type="unfinished"/>
+      <translation>Informatiile conversatiei au fost actualizate</translation>
     </message>
   </context>
   <context>
@@ -3615,7 +3746,7 @@
     </message>
     <message>
       <source>Allow to attatch a file</source>
-      <translation type="unfinished"/>
+      <translation>Permite atasarea fisierelor</translation>
     </message>
     <message>
       <source>Show operator profile above input fields</source>
@@ -3785,7 +3916,7 @@
     </message>
     <message>
       <source>General</source>
-      <translation type="unfinished"/>
+      <translation>General</translation>
     </message>
     <message>
       <source>User</source>
@@ -3820,6 +3951,18 @@
       <translation>Număr de discuții pe țară</translation>
     </message>
     <message>
+      <source>Number of chats by user</source>
+      <translation>Numar de conversatii ale utilizatorului</translation>
+    </message>
+    <message>
+      <source>Wait time</source>
+      <translation>Timp de asteptare</translation>
+    </message>
+    <message>
+      <source>AVG visitor wait time by operator</source>
+      <translation>Timp mediu de asteptare in functie de operator</translation>
+    </message>
+    <message>
       <source>Messages</source>
       <translation>Mesaje</translation>
     </message>
@@ -3850,6 +3993,14 @@
     <message>
       <source>Chats number by statuses</source>
       <translation>Numar de discutii dupa status</translation>
+    </message>
+    <message>
+      <source>Time</source>
+      <translation>Timp</translation>
+    </message>
+    <message>
+      <source>AVG wait time in seconds, max 10 mininutes</source>
+      <translation>Timp mediu de asteptare, maxim 10 minute</translation>
     </message>
     <message>
       <source>Visitors initiated</source>
@@ -4356,35 +4507,35 @@
     <name>cobrowse/browse</name>
     <message>
       <source>Request screen share</source>
-      <translation type="unfinished"/>
+      <translation>Cere dreptul de partajare ecran</translation>
     </message>
     <message>
       <source>Show my mouse position to visitor</source>
-      <translation type="unfinished"/>
+      <translation>Afiseaza pozitia mouse-ului meu vizitatorului</translation>
     </message>
     <message>
       <source>On highlight scroll user window location to match my</source>
-      <translation type="unfinished"/>
+      <translation>La activare, scroll-ul vizitatorului va fi identic cu scroll-ul meu</translation>
     </message>
     <message>
       <source>Follow user scroll position</source>
-      <translation type="unfinished"/>
+      <translation>Urmareste pozitia scroll-ului utilizatorului</translation>
     </message>
     <message>
       <source>On click navigate user browser</source>
-      <translation type="unfinished"/>
+      <translation>La click, browser-ul vizitatorului navigheaza</translation>
     </message>
     <message>
       <source>Click blue eye at the top to request screen share</source>
-      <translation type="unfinished"/>
+      <translation>Apasa pe ochiul albastru de sus pentru a cere partajarea ecranului</translation>
     </message>
     <message>
       <source>Screen sharing session has finished</source>
-      <translation type="unfinished"/>
+      <translation>Sesiunea de partajare a ecranului a fost terminata</translation>
     </message>
     <message>
       <source>Screen is shared</source>
-      <translation type="unfinished"/>
+      <translation>Ecranul este partajat</translation>
     </message>
   </context>
   <context>
@@ -4454,7 +4605,7 @@
     </message>
     <message>
       <source>Speech</source>
-      <translation type="unfinished"/>
+      <translation>Voce</translation>
     </message>
     <message>
       <source>Do not enter a password unless you want to change it</source>
@@ -5488,30 +5639,30 @@
     <name>speech/language</name>
     <message>
       <source>Choose speech recognition language for this chat</source>
-      <translation type="unfinished"/>
+      <translation>Alege limba pentru recunoastere vocala pentru aceasta conversatie</translation>
     </message>
     <message>
       <source>Language</source>
-      <translation type="unfinished"/>
+      <translation>Limba</translation>
     </message>
     <message>
       <source>Dialect</source>
-      <translation type="unfinished"/>
+      <translation>Dialect</translation>
     </message>
     <message>
       <source>Default speech recognition language</source>
-      <translation type="unfinished"/>
+      <translation>Limba standard pentru recunoastere vocala</translation>
     </message>
   </context>
   <context>
     <name>speech/speech</name>
     <message>
       <source>Use application default recognition language</source>
-      <translation type="unfinished"/>
+      <translation>Foloseste setarile standard pentru recunoastere vocala</translation>
     </message>
     <message>
       <source>Use application default recognition dialect</source>
-      <translation type="unfinished"/>
+      <translation>Foloseste setarile standard pentru dialectul pentru recunoastere vocala</translation>
     </message>
   </context>
   <context>
@@ -5581,19 +5732,19 @@
     <name>system/smtp</name>
     <message>
       <source>Mail settings</source>
-      <translation type="unfinished"/>
+      <translation>Setari email</translation>
     </message>
     <message>
       <source>Sender address</source>
-      <translation type="unfinished"/>
+      <translation>Adresa expeditor</translation>
     </message>
     <message>
       <source>Default from e-mail address</source>
-      <translation type="unfinished"/>
+      <translation>Adresa standard pentru expeditor</translation>
     </message>
     <message>
       <source>Default from name</source>
-      <translation type="unfinished"/>
+      <translation>Nume standard pentru expeditor</translation>
     </message>
     <message>
       <source>SMTP enabled</source>
@@ -6473,7 +6624,7 @@
     </message>
     <message>
       <source>Use user e-mail as from address</source>
-      <translation type="unfinished"/>
+      <translation>Foloseste adresa de e-mail a utilizatorului ca expeditor</translation>
     </message>
     <message>
       <source>Reply to</source>

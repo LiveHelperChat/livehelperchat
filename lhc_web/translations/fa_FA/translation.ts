@@ -1154,6 +1154,10 @@
       <translation>تابع hash غیرمعتبر می باشد و یا ایجادخودکار غیرفعال است</translation>
     </message>
     <message>
+      <source>Switch to widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitor</source>
       <translation>بازدیدکننده</translation>
     </message>
@@ -1547,6 +1551,14 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>Attach uploaded file</source>
+      <translation>ضمیمه کردن فایل آپلود شده</translation>
+    </message>
+    <message>
+      <source>Screen sharing</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Footprint</source>
       <translation type="unfinished"/>
     </message>
@@ -1627,10 +1639,6 @@
       <translation>چاپ</translation>
     </message>
     <message>
-      <source>Attach uploaded file</source>
-      <translation>ضمیمه کردن فایل آپلود شده</translation>
-    </message>
-    <message>
       <source>Please enter a URL</source>
       <translation type="unfinished"/>
     </message>
@@ -1639,7 +1647,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Screen sharing</source>
+      <source>Choose other than default recognition language</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1703,10 +1711,6 @@
       <translation>شروع کننده چت</translation>
     </message>
     <message>
-      <source>Information</source>
-      <translation>اطلاعات</translation>
-    </message>
-    <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
       <translation>شناسایی نشد. مطمئن شوید قابلیت موقعیت جغرافیایی فعال باشد.</translation>
     </message>
@@ -1739,10 +1743,6 @@
       <translation>ارسال</translation>
     </message>
     <message>
-      <source>Choose other than default recognition language</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Send delayed canned message instantly</source>
       <translation>ارسال فوری پیام تعریف شده تاخیردار</translation>
     </message>
@@ -1765,6 +1765,133 @@
     <message>
       <source>Invalid chat status</source>
       <translation>وضعیت چت نامعتبر است</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/translation</name>
+    <message>
+      <source>Visitor language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>My language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Auto translate</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Translating</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatically detected</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatic translation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Translation settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter text for testing purposes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Translated text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Detected language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Detect language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Translate</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable translation service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bing</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Google</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use Bing service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bing client ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bing client secret, key is never shown for security purposes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bing access token expires</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use Google service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>API key, key is never shown for security purposes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Missing text to translate</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not detect language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not translate</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>We could not detect operator language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Detected operator and visitor languages matches, please choose languages manually</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Translation configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat messages automatic translations has been stopped</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Messages has been translated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose translation languages manually and click Auto translate</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -2968,10 +3095,6 @@
       <translation>گردش کاری</translation>
     </message>
     <message>
-      <source>Screen sharing</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Application name</source>
       <translation>نام برنامه</translation>
     </message>
@@ -2994,6 +3117,10 @@
     <message>
       <source>Settings updated</source>
       <translation>تنظیمات به روزسانی شد</translation>
+    </message>
+    <message>
+      <source>Screen sharing</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>List chat configuration</source>
@@ -3143,18 +3270,6 @@
       <translation>تعمیر و نگهداری</translation>
     </message>
     <message>
-      <source>Files</source>
-      <translation>فایل ها</translation>
-    </message>
-    <message>
-      <source>Files upload configuration</source>
-      <translation>تنظیمات آپلود فایل</translation>
-    </message>
-    <message>
-      <source>List of files</source>
-      <translation>فهرست فایل ها</translation>
-    </message>
-    <message>
       <source>Theming</source>
       <translation type="unfinished"/>
     </message>
@@ -3169,6 +3284,22 @@
     <message>
       <source>Default theme</source>
       <translation>قالب پیش فرض</translation>
+    </message>
+    <message>
+      <source>Files</source>
+      <translation>فایل ها</translation>
+    </message>
+    <message>
+      <source>Files upload configuration</source>
+      <translation>تنظیمات آپلود فایل</translation>
+    </message>
+    <message>
+      <source>List of files</source>
+      <translation>فهرست فایل ها</translation>
+    </message>
+    <message>
+      <source>Automatic translations</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>File configuration</source>
@@ -3820,6 +3951,18 @@
       <translation>تعداد چت ها بر اساس کشور</translation>
     </message>
     <message>
+      <source>Number of chats by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wait time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>AVG visitor wait time by operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Messages</source>
       <translation>پیام ها</translation>
     </message>
@@ -3850,6 +3993,14 @@
     <message>
       <source>Chats number by statuses</source>
       <translation>تعداد چت ها بر اساس وضعیت</translation>
+    </message>
+    <message>
+      <source>Time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>AVG wait time in seconds, max 10 mininutes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visitors initiated</source>
@@ -5554,11 +5705,11 @@
     </message>
     <message>
       <source>Default view</source>
-      <translation>مشاهده پیش فرض</translation>
+      <translation>نمای پیش فرض</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>تنظیمات به روز</translation>
+      <translation>تنظیمات به روز رسانی شد</translation>
     </message>
     <message>
       <source>Please choose correct language</source>
@@ -5574,7 +5725,7 @@
     </message>
     <message>
       <source>Please enter view name</source>
-      <translation>لطفا نام نمایه را وارد کنید</translation>
+      <translation>لطفا نام نما را وارد کنید</translation>
     </message>
   </context>
   <context>
@@ -5605,7 +5756,7 @@
     </message>
     <message>
       <source>Password</source>
-      <translation>کلمه عبور</translation>
+      <translation>رمز عبور</translation>
     </message>
     <message>
       <source>Host</source>
@@ -5617,7 +5768,7 @@
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>تنظیمات به روز شده</translation>
+      <translation>تنظیمات به روز رسانی شد</translation>
     </message>
   </context>
   <context>
@@ -5628,7 +5779,7 @@
     </message>
     <message>
       <source>Set application specific time zone</source>
-      <translation>تنظیمات منطقه زمانی برنامه</translation>
+      <translation>تنظیم منطقه زمانی برنامه</translation>
     </message>
     <message>
       <source>Date format E.g (Y-m-d)</source>
@@ -5636,11 +5787,11 @@
     </message>
     <message>
       <source>Full date format E.g (Y-m-d H:i:s)</source>
-      <translation>قالب تاریخ کامل (Y-m-d H:i:s)</translation>
+      <translation>قالب تاریخ کامل، مثال: (Y-m-d H:i:s)</translation>
     </message>
     <message>
       <source>Hour format E.g (H:i:s)</source>
-      <translation>قالب ساعت (H:i:s)</translation>
+      <translation>قالب ساعت، مثال: (H:i:s)</translation>
     </message>
     <message>
       <source>Live Helper Chat update</source>
@@ -5648,7 +5799,7 @@
     </message>
     <message>
       <source>Comparing current database structure, please wait...</source>
-      <translation>در حال مقایسه ساختار  پایگاه داده حاضر، لطفاً منتظر بمانید</translation>
+      <translation>در حال مقایسه ساختار  پایگاه داده فعلی، لطفاً منتظر بمانید</translation>
     </message>
     <message>
       <source>Time zone</source>
@@ -5659,7 +5810,7 @@
     <name>user/edit</name>
     <message>
       <source>Server default time zone</source>
-      <translation>منطقه زمانی پیشفرض سرور</translation>
+      <translation>منطقه زمانی پیش فرض سرور</translation>
     </message>
     <message>
       <source>User edit</source>
@@ -5667,7 +5818,7 @@
     </message>
     <message>
       <source>Do not enter a password unless you want to change it</source>
-      <translation>کلمه عبور را وارد نکنید مگر آنکه بخواهید تغییری در آن دهید</translation>
+      <translation>رمز عبور را وارد نکنید مگر آنکه بخواهید تغییری در آن دهید</translation>
     </message>
     <message>
       <source>Username</source>
@@ -5675,11 +5826,11 @@
     </message>
     <message>
       <source>Password</source>
-      <translation>کلمه عبور</translation>
+      <translation>رمز عبور</translation>
     </message>
     <message>
       <source>Repeat the new password</source>
-      <translation>تکرار کلمه عبور جدید</translation>
+      <translation>تکرار رمز عبور جدید</translation>
     </message>
     <message>
       <source>E-mail</source>
@@ -5695,7 +5846,7 @@
     </message>
     <message>
       <source>Photo</source>
-      <translation>تصویر</translation>
+      <translation>عکس</translation>
     </message>
     <message>
       <source>Save</source>
@@ -5711,7 +5862,7 @@
     </message>
     <message>
       <source>Assigned departments</source>
-      <translation>دپارتمان های واگذار شده</translation>
+      <translation>دپارتمان های اختصاص یافته</translation>
     </message>
     <message>
       <source>User time zone</source>
@@ -5719,15 +5870,15 @@
     </message>
     <message>
       <source>Application default time zone</source>
-      <translation>منطقه زمانی پیشفرض برنامه</translation>
+      <translation>منطقه زمانی پیش فرض برنامه</translation>
     </message>
     <message>
       <source>Wrong email address</source>
-      <translation>آدرس ایمیل نادرست</translation>
+      <translation>آدرس ایمیل نادرست است</translation>
     </message>
     <message>
       <source>Invalid CSRF token!</source>
-      <translation>CSRF token نامعتبر!</translation>
+      <translation>CSRF token نامعتبر است!</translation>
     </message>
     <message>
       <source>Please enter a name</source>
@@ -5735,7 +5886,7 @@
     </message>
     <message>
       <source>Passwords mismatch</source>
-      <translation>کلمات عبور یکسان نیستند</translation>
+      <translation>رمزهای عبور یکسان نیستند</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -5792,45 +5943,45 @@
     <name>theme/index</name>
     <message>
       <source>Default theme</source>
-      <translation>تم پیشفرض</translation>
+      <translation>قالب پیش فرض</translation>
     </message>
     <message>
       <source>Theme</source>
-      <translation>تم</translation>
+      <translation>قالب</translation>
     </message>
     <message>
       <source>Widget themes</source>
-      <translation>تم‌های ابزارک</translation>
+      <translation>قالب های ابزارک</translation>
     </message>
     <message>
       <source>Import a new theme</source>
-      <translation>ایمپورت تم جدید</translation>
+      <translation>وارد کردن قالب جدید</translation>
     </message>
     <message>
       <source>Themes</source>
-      <translation>تم‌ها</translation>
+      <translation>قالب ها</translation>
     </message>
     <message>
       <source>Import theme</source>
-      <translation>ایمپورت تم</translation>
+      <translation>وارد کردن قالب</translation>
     </message>
   </context>
   <context>
     <name>theme/default</name>
     <message>
       <source>Set as default theme</source>
-      <translation>انتخاب به عنوان تم پیشفرض</translation>
+      <translation>انتخاب به عنوان قالب پیش فرض</translation>
     </message>
   </context>
   <context>
     <name>theme/import</name>
     <message>
       <source>Default theme was set</source>
-      <translation>یم پیشفرض تنظیم شد</translation>
+      <translation>قالب پیش فرض تنظیم شد</translation>
     </message>
     <message>
       <source>Import theme</source>
-      <translation>ایمپورت تم</translation>
+      <translation>وارد کردن قالب </translation>
     </message>
     <message>
       <source>File</source>
@@ -5838,19 +5989,19 @@
     </message>
     <message>
       <source>Import</source>
-      <translation>ایمپورت</translation>
+      <translation>وارد کردن</translation>
     </message>
     <message>
       <source>Theme imported</source>
-      <translation>نم ایمپورت شد</translation>
+      <translation>قالب وارد شد</translation>
     </message>
     <message>
       <source>Could not import a new theme!</source>
-      <translation>نمی‌توان تم جدید را ایمپورت کرد</translation>
+      <translation>وارد کردن قالب جدید امکان پذیر نیست!</translation>
     </message>
     <message>
       <source>Invalid file!</source>
-      <translation>فایل نامعتبر</translation>
+      <translation>فایل نامعتبر است!</translation>
     </message>
   </context>
   <context>
@@ -5889,11 +6040,11 @@
     </message>
     <message>
       <source>Password</source>
-      <translation>کلمه عبور</translation>
+      <translation>رمز عبور</translation>
     </message>
     <message>
       <source>Repeat the new password</source>
-      <translation>تکرار کلمه عبور جدید</translation>
+      <translation>تکرار رمز عبور جدید</translation>
     </message>
     <message>
       <source>Name</source>
@@ -5905,7 +6056,7 @@
     </message>
     <message>
       <source>Photo</source>
-      <translation>تصویر</translation>
+      <translation>عکس</translation>
     </message>
     <message>
       <source>Save</source>
@@ -5921,7 +6072,7 @@
     </message>
     <message>
       <source>Wrong email address</source>
-      <translation>آدرس ایمیل اشتباه</translation>
+      <translation>آدرس ایمیل، اشتباه است</translation>
     </message>
     <message>
       <source>Please enter a name</source>
@@ -5937,7 +6088,7 @@
     </message>
     <message>
       <source>Passwords mismatch</source>
-      <translation>کلمات عبور یکسان نیستند</translation>
+      <translation>رمزهای عبور یکسان نیستند</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -5949,7 +6100,7 @@
     </message>
     <message>
       <source>Please enter a group name</source>
-      <translation>لطفا نام گروه وارد کنید</translation>
+      <translation>لطفا نام گروه را وارد کنید</translation>
     </message>
   </context>
   <context>
@@ -5968,7 +6119,7 @@
     </message>
     <message>
       <source>Assigned users</source>
-      <translation>کاربران واگذار شده</translation>
+      <translation>کاربران اختصاص یافته</translation>
     </message>
     <message>
       <source>Username</source>
@@ -5976,15 +6127,15 @@
     </message>
     <message>
       <source>Remove user from the group</source>
-      <translation>برداشتن کاربر از گروه</translation>
+      <translation>حذف کاربر از گروه</translation>
     </message>
     <message>
       <source>Assign user</source>
-      <translation>واگذاری کاربر</translation>
+      <translation>اختصاص کاربر</translation>
     </message>
     <message>
       <source>Assigned roles</source>
-      <translation>نقش های واگذار شده</translation>
+      <translation>نقش های اختصاص یافته</translation>
     </message>
     <message>
       <source>Name</source>
@@ -5992,11 +6143,11 @@
     </message>
     <message>
       <source>Remove role from group</source>
-      <translation>براشتن نقش از گروه</translation>
+      <translation>حذف نقش از گروه</translation>
     </message>
     <message>
       <source>Assign role</source>
-      <translation>واگذاری نقش</translation>
+      <translation>اختصاص نقش</translation>
     </message>
     <message>
       <source>Please enter a group name</source>
@@ -6015,7 +6166,7 @@
     <name>user/forgotpassword</name>
     <message>
       <source>Password reminder</source>
-      <translation>فراموشی کلمه عبور</translation>
+      <translation>یادآوری رمز عبور</translation>
     </message>
     <message>
       <source>E-mail</source>
@@ -6023,30 +6174,30 @@
     </message>
     <message>
       <source>Restore password</source>
-      <translation>بازنشانی کلمه عبور</translation>
+      <translation>بازیابی رمز عبور</translation>
     </message>
     <message>
       <source>Invalid e-mail address!</source>
-      <translation>آدرس ایمیل نامعتبر!</translation>
+      <translation>آدرس ایمیل نامعتبر است!</translation>
     </message>
     <message>
       <source>Password remind</source>
-      <translation>فراموشی کلمه عبور</translation>
+      <translation>یادآوری رمز عبور </translation>
     </message>
     <message>
       <source>Click this link and You will be sent a new password</source>
-      <translation>روی لینک زیر کلیک کنید تا کلمه عبور جدید برایتان ایمیل شود.</translation>
+      <translation>روی لینک زیر کلیک کنید تا رمز عبور جدید برایتان ارسال شود.</translation>
     </message>
   </context>
   <context>
     <name>user/forgotpasswordsent</name>
     <message>
       <source>Password reminder</source>
-      <translation>فراموشی کلمه عبور</translation>
+      <translation>یادآوری رمز عبور </translation>
     </message>
     <message>
       <source>E-mail sent. Click the link in the email and You will be sent out a new password.</source>
-      <translation>ایمیل ارسال شد. روی لینک داخل ایمیل کلیک کنید تا کلمه عبور جدید ارسال شود.</translation>
+      <translation>ایمیل ارسال شد. روی لینک داخل ایمیل کلیک کنید تا رمز عبور جدید ارسال شود.</translation>
     </message>
   </context>
   <context>
@@ -6069,11 +6220,11 @@
     </message>
     <message>
       <source>Assign</source>
-      <translation>واگذار</translation>
+      <translation>تخصیص</translation>
     </message>
     <message>
       <source>User was assigned to the group!</source>
-      <translation>کاربر اختصاص داده شده به گروه!</translation>
+      <translation>کاربر به گروه اختصاص داده شد!</translation>
     </message>
   </context>
   <context>
@@ -6122,7 +6273,7 @@
     </message>
     <message>
       <source>Password</source>
-      <translation>کلمه عبور</translation>
+      <translation>رمز عبور</translation>
     </message>
     <message>
       <source>Remember me</source>
@@ -6134,11 +6285,11 @@
     </message>
     <message>
       <source>Password reminder</source>
-      <translation>فراموشی کلمه عبور</translation>
+      <translation>یادآوری رمز عبور</translation>
     </message>
     <message>
       <source>Incorrect username or password</source>
-      <translation>نام کاربری یا کلمه عبور نامعتبر است</translation>
+      <translation>نام کاربری و یا رمز عبور صحیح نیست</translation>
     </message>
   </context>
   <context>
@@ -6157,7 +6308,7 @@
     </message>
     <message>
       <source>Save and assign the user</source>
-      <translation>ذخیره و واگذار شده به کاربر</translation>
+      <translation>ذخیره و تخصیص کاربر</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -6172,30 +6323,30 @@
     <name>user/remindpassword</name>
     <message>
       <source>New password</source>
-      <translation>کلمه عبور جدید</translation>
+      <translation>رمز عبور جدید</translation>
     </message>
     <message>
       <source>Hash was not found or was used already</source>
-      <translation>رمزنگاری یافت نشد و یا در حال استفاده است</translation>
+      <translation>تابع Hash یافت نشد و یا در حال استفاده است</translation>
     </message>
     <message>
       <source>Password remind - new password</source>
-      <translation>فراموشی کلمه عبور - کلمه عبور جدید</translation>
+      <translation>یادآوری رمز عبور - رمز عبور جدید</translation>
     </message>
     <message>
       <source>New password:</source>
-      <translation>کلمه عبور جدید:</translation>
+      <translation>رمز عبور جدید:</translation>
     </message>
     <message>
       <source>New password has been sent to your email.</source>
-      <translation>کلمه عبور جدید به ایمیل شما ارسال شد.</translation>
+      <translation>رمز عبور جدید به ایمیل شما ارسال شد.</translation>
     </message>
   </context>
   <context>
     <name>lhxml/userinfo</name>
     <message>
       <source>ID</source>
-      <translation>ID</translation>
+      <translation>شناسه</translation>
     </message>
     <message>
       <source>IP address</source>
@@ -6223,7 +6374,7 @@
     </message>
     <message>
       <source>Message seen</source>
-      <translation>پیام دیده شده</translation>
+      <translation>پیام دیده شد</translation>
     </message>
   </context>
   <context>
@@ -6241,11 +6392,11 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation>پست الکترونیک</translation>
+      <translation>ایمیل</translation>
     </message>
     <message>
       <source>Phone</source>
-      <translation>شماره تماس</translation>
+      <translation>شماره تلفن</translation>
     </message>
     <message>
       <source>Country</source>
@@ -6257,7 +6408,7 @@
     </message>
     <message>
       <source>IP</source>
-      <translation>آی پی</translation>
+      <translation>IP </translation>
     </message>
     <message>
       <source>Operator</source>
@@ -6281,14 +6432,14 @@
     </message>
     <message>
       <source>Link</source>
-      <translation>پیوند</translation>
+      <translation>لینک</translation>
     </message>
   </context>
   <context>
     <name>chat/syncuser</name>
     <message>
       <source>Chat was automatically transferred to</source>
-      <translation>چت به صورت خودکار منتقل میشود به</translation>
+      <translation>انتقال خودکار چت به</translation>
     </message>
     <message>
       <source>from</source>
@@ -6296,23 +6447,23 @@
     </message>
     <message>
       <source>Chat was automatically closed by cron</source>
-      <translation>چت به صورت خودکار پس از انجام عملیات کران بسته میشود.</translation>
+      <translation>چت به صورت خودکار از طریق cron بسته شد.</translation>
     </message>
     <message>
       <source>Support staff member has closed this chat</source>
-      <translation>پشتیبان چت را بسته است</translation>
+      <translation>پشتیبان، چت را بسته است</translation>
     </message>
     <message>
       <source>You do not have permission to view this chat, or chat was deleted</source>
-      <translation>شما مجوز دیدن این چت را ندارید و یا چت حذف شده است</translation>
+      <translation>شما برای مشاهده این چت دسترسی ندارید و یا اینکه چت حذف شده است</translation>
     </message>
     <message>
       <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
-      <translation>پشتیبان پنجره چت بست، ولی شما میتوانید پیام بگذارید تا مدیر پشتیبانی آن را مشاهده کند.</translation>
+      <translation>پشتیبان، پنجره چت را بسته است، ولی شما می توانید پیام بگذارید تا مدیر پشتیبانی آن را بعداً مشاهده کند.</translation>
     </message>
     <message>
       <source>You do not have permission to view this chat, or the chat was deleted</source>
-      <translation>شما دسترسی لازم برای دیدن این چت و یا حذف کردن آن ها را ندارید</translation>
+      <translation>شما برای مشاهده این چت دسترسی ندارید و یا اینکه چت حذف شده است </translation>
     </message>
   </context>
   <context>
@@ -6327,7 +6478,7 @@
     </message>
     <message>
       <source>Transfer department has to be different one than self</source>
-      <translation>انتقال دپارتمان به دپارتمان دیگر</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter a valid from date range!</source>

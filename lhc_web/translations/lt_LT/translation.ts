@@ -828,7 +828,7 @@
     </message>
     <message>
       <source>Set default speech recognition language</source>
-      <translation type="unfinished"/>
+      <translation>Nustatyti numatytąją kalbos atpažinimo kalbą</translation>
     </message>
     <message>
       <source>Speech language</source>
@@ -1152,6 +1152,10 @@
     <message>
       <source>Invalid hash or auto creation is disabled</source>
       <translation>Nekorektiškas maišos kodas arba auto sukūrimas yra išjungtas</translation>
+    </message>
+    <message>
+      <source>Switch to widget</source>
+      <translation>Sumažinti į puslapį</translation>
     </message>
     <message>
       <source>Visitor</source>
@@ -1547,6 +1551,14 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>Attach uploaded file</source>
+      <translation>Prisegti nusiųstą failą</translation>
+    </message>
+    <message>
+      <source>Screen sharing</source>
+      <translation>Ekrano dalinamasis</translation>
+    </message>
+    <message>
       <source>Footprint</source>
       <translation>Naršymo istorija</translation>
     </message>
@@ -1627,10 +1639,6 @@
       <translation>Spausdinti</translation>
     </message>
     <message>
-      <source>Attach uploaded file</source>
-      <translation>Prisegti nusiųstą failą</translation>
-    </message>
-    <message>
       <source>Please enter a URL</source>
       <translation>Prašome įvesti URL</translation>
     </message>
@@ -1639,8 +1647,8 @@
       <translation>Nukreipti vartotoją į kitą URL</translation>
     </message>
     <message>
-      <source>Screen sharing</source>
-      <translation>Ekrano dalinamasis</translation>
+      <source>Choose other than default recognition language</source>
+      <translation>Pasirinkite kitą negu standartinę atpažinimo kalbą</translation>
     </message>
     <message>
       <source>Department</source>
@@ -1703,10 +1711,6 @@
       <translation>Pokalbio sąvininkas</translation>
     </message>
     <message>
-      <source>Information</source>
-      <translation>Informacija</translation>
-    </message>
-    <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
       <translation>Negalima nustatyti. Patikrinkite jog GEO detekcija įjungta.</translation>
     </message>
@@ -1720,7 +1724,7 @@
     </message>
     <message>
       <source>User browsing information</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojo naršymo informaicja</translation>
     </message>
     <message>
       <source>Chats</source>
@@ -1737,10 +1741,6 @@
     <message>
       <source>Send</source>
       <translation>Siųsti</translation>
-    </message>
-    <message>
-      <source>Choose other than default recognition language</source>
-      <translation>Pasirinkite kitą negu standartinę atpažinimo kalbą</translation>
     </message>
     <message>
       <source>Send delayed canned message instantly</source>
@@ -1765,6 +1765,133 @@
     <message>
       <source>Invalid chat status</source>
       <translation>Nekorektiškas pokalbio statusas</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/translation</name>
+    <message>
+      <source>Visitor language</source>
+      <translation>Lankytojo kalba</translation>
+    </message>
+    <message>
+      <source>My language</source>
+      <translation>Mano kalba</translation>
+    </message>
+    <message>
+      <source>Auto translate</source>
+      <translation>Automatinis vertimas</translation>
+    </message>
+    <message>
+      <source>Translating</source>
+      <translation>Verčiama</translation>
+    </message>
+    <message>
+      <source>Automatically detected</source>
+      <translation>Automatiškai nustatoma</translation>
+    </message>
+    <message>
+      <source>Automatic translation</source>
+      <translation>Automatinis vertimas</translation>
+    </message>
+    <message>
+      <source>Translation settings</source>
+      <translation>Vertimo nustatymai</translation>
+    </message>
+    <message>
+      <source>Enter text for testing purposes</source>
+      <translation>Įveskite tekstą bandymo tikslams</translation>
+    </message>
+    <message>
+      <source>Translated text</source>
+      <translation>Išverstas tekstas</translation>
+    </message>
+    <message>
+      <source>Detected language</source>
+      <translation>Atpažinta kalba</translation>
+    </message>
+    <message>
+      <source>Detect language</source>
+      <translation>Nustatyti kalbą</translation>
+    </message>
+    <message>
+      <source>Translate</source>
+      <translation>Versti</translation>
+    </message>
+    <message>
+      <source>Enable translation service</source>
+      <translation>Įgalinti vertimo paslaugą</translation>
+    </message>
+    <message>
+      <source>Bing</source>
+      <translation>Bing</translation>
+    </message>
+    <message>
+      <source>Google</source>
+      <translation>Google</translation>
+    </message>
+    <message>
+      <source>Use Bing service</source>
+      <translation>Naudoti Bing paslaugą</translation>
+    </message>
+    <message>
+      <source>Bing client ID</source>
+      <translation>Bing kliento ID</translation>
+    </message>
+    <message>
+      <source>Bing client secret, key is never shown for security purposes</source>
+      <translation>Bing kliento slaptas raktas, raktas yra nerodomas saugumo sumetimais</translation>
+    </message>
+    <message>
+      <source>Bing access token expires</source>
+      <translation>Bing prieigos raktas baigia galioti</translation>
+    </message>
+    <message>
+      <source>Use Google service</source>
+      <translation>Naudoti Google paslaugą</translation>
+    </message>
+    <message>
+      <source>API key, key is never shown for security purposes</source>
+      <translation>API raktas, raktas nėra rodomas saugumo sumetimais</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Nustatymai atnaujinti</translation>
+    </message>
+    <message>
+      <source>Missing text to translate</source>
+      <translation>Nerastas vertimo tekstas</translation>
+    </message>
+    <message>
+      <source>Could not detect language</source>
+      <translation>Negalėjome nustatyti kalbos</translation>
+    </message>
+    <message>
+      <source>Could not translate</source>
+      <translation>Negalėjome išversti</translation>
+    </message>
+    <message>
+      <source>We could not detect operator language</source>
+      <translation>Negalėjome nustatyti operatoriaus kalbos</translation>
+    </message>
+    <message>
+      <source>Detected operator and visitor languages matches, please choose languages manually</source>
+      <translation>Nustatyta operatoriaus ir lankytojo kalba sutampa, prašome pasirinkti kalbas rankiniu būdu</translation>
+    </message>
+    <message>
+      <source>Translation configuration</source>
+      <translation>Vertimų nustatymai</translation>
+    </message>
+    <message>
+      <source>Chat messages automatic translations has been stopped</source>
+      <translation>Žinučių automatinis vertimas buvo sustabdytas</translation>
+    </message>
+    <message>
+      <source>Messages has been translated</source>
+      <translation>Žinutės buvo išverstos</translation>
+    </message>
+    <message>
+      <source>Please choose translation languages manually and click Auto translate</source>
+      <translation>Prašome pasirinkti vertimo kalbas rankiniu būdu ir paspausi Automatinis vertimas</translation>
     </message>
   </context>
   <context>
@@ -2968,10 +3095,6 @@
       <translation>Darbo eiga</translation>
     </message>
     <message>
-      <source>Screen sharing</source>
-      <translation>Ekrano dalinimasis</translation>
-    </message>
-    <message>
       <source>Application name</source>
       <translation>Aplikacijos pavadinimas</translation>
     </message>
@@ -2994,6 +3117,10 @@
     <message>
       <source>Settings updated</source>
       <translation>Nustatymai atnaujinti</translation>
+    </message>
+    <message>
+      <source>Screen sharing</source>
+      <translation>Ekrano dalinimasis</translation>
     </message>
     <message>
       <source>List chat configuration</source>
@@ -3143,18 +3270,6 @@
       <translation>Priežiūra</translation>
     </message>
     <message>
-      <source>Files</source>
-      <translation>Failai</translation>
-    </message>
-    <message>
-      <source>Files upload configuration</source>
-      <translation>Failų siuntimo konfiguracija</translation>
-    </message>
-    <message>
-      <source>List of files</source>
-      <translation>Failų sąrašas</translation>
-    </message>
-    <message>
       <source>Theming</source>
       <translation>Temos</translation>
     </message>
@@ -3169,6 +3284,22 @@
     <message>
       <source>Default theme</source>
       <translation>Standartinė tema</translation>
+    </message>
+    <message>
+      <source>Files</source>
+      <translation>Failai</translation>
+    </message>
+    <message>
+      <source>Files upload configuration</source>
+      <translation>Failų siuntimo konfiguracija</translation>
+    </message>
+    <message>
+      <source>List of files</source>
+      <translation>Failų sąrašas</translation>
+    </message>
+    <message>
+      <source>Automatic translations</source>
+      <translation>Automatinis vertimas</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -3785,7 +3916,7 @@
     </message>
     <message>
       <source>General</source>
-      <translation type="unfinished"/>
+      <translation>Bendra</translation>
     </message>
     <message>
       <source>User</source>
@@ -3820,6 +3951,18 @@
       <translation>Pokalbių skaičius pagal šalį</translation>
     </message>
     <message>
+      <source>Number of chats by user</source>
+      <translation>Pokalbių skaičius per vartotoją</translation>
+    </message>
+    <message>
+      <source>Wait time</source>
+      <translation>Laukimo laikas</translation>
+    </message>
+    <message>
+      <source>AVG visitor wait time by operator</source>
+      <translation>Vidutinis lankytojo laukimo laikas pagal operatorių</translation>
+    </message>
+    <message>
       <source>Messages</source>
       <translation>Žinutės</translation>
     </message>
@@ -3850,6 +3993,14 @@
     <message>
       <source>Chats number by statuses</source>
       <translation>Pokalbių skaičius pagal būsenas</translation>
+    </message>
+    <message>
+      <source>Time</source>
+      <translation>Laikas</translation>
+    </message>
+    <message>
+      <source>AVG wait time in seconds, max 10 mininutes</source>
+      <translation>Vidutinis laukimo laikas sekundėmis, max 10 minučių</translation>
     </message>
     <message>
       <source>Visitors initiated</source>

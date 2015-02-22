@@ -1154,6 +1154,10 @@
       <translation>Μη έγκυρη hash ή αυτόματη δημιουργία είναι άτομα με ειδικές ανάγκες</translation>
     </message>
     <message>
+      <source>Switch to widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitor</source>
       <translation>Επισκέπτης</translation>
     </message>
@@ -1547,6 +1551,14 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>Attach uploaded file</source>
+      <translation>Επισυνάψετε το αρχείο</translation>
+    </message>
+    <message>
+      <source>Screen sharing</source>
+      <translation>Οθόνη μοιράζομαι</translation>
+    </message>
+    <message>
       <source>Footprint</source>
       <translation>Αποτύπωμα</translation>
     </message>
@@ -1627,10 +1639,6 @@
       <translation>Εκτύπωση</translation>
     </message>
     <message>
-      <source>Attach uploaded file</source>
-      <translation>Επισυνάψετε το αρχείο</translation>
-    </message>
-    <message>
       <source>Please enter a URL</source>
       <translation>Πληκτρολογήστε μια διεύθυνση URL</translation>
     </message>
@@ -1639,8 +1647,8 @@
       <translation>Ανακατευθύνει το χρήστη σε ένα άλλο url</translation>
     </message>
     <message>
-      <source>Screen sharing</source>
-      <translation>Οθόνη μοιράζομαι</translation>
+      <source>Choose other than default recognition language</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Department</source>
@@ -1703,10 +1711,6 @@
       <translation>Κάτοχος συνομιλίας</translation>
     </message>
     <message>
-      <source>Information</source>
-      <translation>Πληροφορία</translation>
-    </message>
-    <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
       <translation>Δεν θα μπορούσα να ανιχνεύσει. Βεβαιωθείτε ότι είναι ενεργοποιημένος ο εντοπισμός GEO.</translation>
     </message>
@@ -1739,10 +1743,6 @@
       <translation>Αποστολή</translation>
     </message>
     <message>
-      <source>Choose other than default recognition language</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Send delayed canned message instantly</source>
       <translation>Στείλτε την καθυστερημένη κονσερβοποιημένο μήνυμα αμέσως</translation>
     </message>
@@ -1765,6 +1765,133 @@
     <message>
       <source>Invalid chat status</source>
       <translation>Μη έγκυρη chat κατάσταση</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/translation</name>
+    <message>
+      <source>Visitor language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>My language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Auto translate</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Translating</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatically detected</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatic translation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Translation settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter text for testing purposes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Translated text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Detected language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Detect language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Translate</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable translation service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bing</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Google</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use Bing service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bing client ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bing client secret, key is never shown for security purposes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bing access token expires</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use Google service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>API key, key is never shown for security purposes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Missing text to translate</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not detect language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not translate</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>We could not detect operator language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Detected operator and visitor languages matches, please choose languages manually</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Translation configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat messages automatic translations has been stopped</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Messages has been translated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose translation languages manually and click Auto translate</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -2968,10 +3095,6 @@
       <translation>Ροή εργασίας</translation>
     </message>
     <message>
-      <source>Screen sharing</source>
-      <translation>Οθόνη μοιράζομαι</translation>
-    </message>
-    <message>
       <source>Application name</source>
       <translation>Όνομα εφαρμογής</translation>
     </message>
@@ -2994,6 +3117,10 @@
     <message>
       <source>Settings updated</source>
       <translation>Ρυθμίσεις ενημέρωση</translation>
+    </message>
+    <message>
+      <source>Screen sharing</source>
+      <translation>Οθόνη μοιράζομαι</translation>
     </message>
     <message>
       <source>List chat configuration</source>
@@ -3143,18 +3270,6 @@
       <translation>Συντήρηση</translation>
     </message>
     <message>
-      <source>Files</source>
-      <translation>Αρχεία</translation>
-    </message>
-    <message>
-      <source>Files upload configuration</source>
-      <translation>Αρχεία ανεβάσετε διαμόρφωση</translation>
-    </message>
-    <message>
-      <source>List of files</source>
-      <translation>Λίστα των αρχείων</translation>
-    </message>
-    <message>
       <source>Theming</source>
       <translation>Θεματοποίηση</translation>
     </message>
@@ -3169,6 +3284,22 @@
     <message>
       <source>Default theme</source>
       <translation>Προεπιλεγμένο θέμα</translation>
+    </message>
+    <message>
+      <source>Files</source>
+      <translation>Αρχεία</translation>
+    </message>
+    <message>
+      <source>Files upload configuration</source>
+      <translation>Αρχεία ανεβάσετε διαμόρφωση</translation>
+    </message>
+    <message>
+      <source>List of files</source>
+      <translation>Λίστα των αρχείων</translation>
+    </message>
+    <message>
+      <source>Automatic translations</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>File configuration</source>
@@ -3820,6 +3951,18 @@
       <translation>Αριθμός των συνομιλιών ανά χώρα</translation>
     </message>
     <message>
+      <source>Number of chats by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wait time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>AVG visitor wait time by operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Messages</source>
       <translation>Μηνύματα</translation>
     </message>
@@ -3850,6 +3993,14 @@
     <message>
       <source>Chats number by statuses</source>
       <translation>Αριθμός συνομιλίες από καταστάσεις</translation>
+    </message>
+    <message>
+      <source>Time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>AVG wait time in seconds, max 10 mininutes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visitors initiated</source>
