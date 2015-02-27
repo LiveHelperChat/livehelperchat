@@ -20,8 +20,6 @@
      </div>
 </div>
 
-
-<script type="text/javascript" language="javascript" src="<?php echo erLhcoreClassDesign::designJS('js/app.js');?>"></script>
 <?php if (isset($Result['dynamic_height'])) : ?>
 <script>
 var wasFocused = false;
