@@ -1,0 +1,1 @@
+<?php $user_menu_tabs_content_personal_canned_messages_tab = true;?>

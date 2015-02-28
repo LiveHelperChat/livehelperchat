@@ -1,4 +1,5 @@
-<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','take_screenshot')) : ?>
+<?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/operator_screenshot_pre.tpl.php')); ?>
+<?php if ($operator_screenshot_enabled == true && erLhcoreClassUser::instance()->hasAccessTo('lhchat','take_screenshot')) : ?>
 <div role="tabpanel" class="tab-pane" id="main-user-info-screenshot-<?php echo $chat->id?>">
     <div class="btn-group" role="group" aria-label="...">
       <input type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/screenshot','Take user screenshot')?>" class="btn btn-default" onclick="lhinst.addRemoteCommand('<?php echo $chat->id?>','lhc_screenshot')" />

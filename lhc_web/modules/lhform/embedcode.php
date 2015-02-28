@@ -1,5 +1,7 @@
 <?php
 
+$response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('form.embedcode', array());
+
 $tpl = erLhcoreClassTemplate::getInstance( 'lhform/embedcode.tpl.php');
 
 $cfgSite = erConfigClassLhConfig::getInstance();

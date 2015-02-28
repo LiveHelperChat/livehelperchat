@@ -1,8 +1,10 @@
 <?php
 
-$tpl = erLhcoreClassTemplate::getInstance('lhfaq/new.tpl.php');
-
 $faq = new erLhcoreClassModelFaq();
+
+$response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('faq.new', array('faq' => $faq));
+
+$tpl = erLhcoreClassTemplate::getInstance('lhfaq/new.tpl.php');
 
 if ( isset($_POST['Save']) )
 {

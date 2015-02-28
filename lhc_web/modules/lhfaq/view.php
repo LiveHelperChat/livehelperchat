@@ -1,8 +1,10 @@
 <?php
 
-$tpl = erLhcoreClassTemplate::getInstance('lhfaq/view.tpl.php');
-
 $faq = erLhcoreClassModelFaq::fetch($Params['user_parameters']['id']);
+
+$response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('faq.view', array('faq' => $faq));
+
+$tpl = erLhcoreClassTemplate::getInstance('lhfaq/view.tpl.php');
 
 if ( isset($_POST['Update']) )
 {

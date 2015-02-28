@@ -8,9 +8,9 @@
 
 <?php include(erLhcoreClassDesign::designtpl('lhquestionary/question_form.tpl.php'));?>
 
-<ul class="button-group radius">
-    <li><input type="submit" class="small button" name="SaveAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/newquestion','Save');?>"/></li>
-	<li><input type="submit" class="small button" name="CancelAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/newquestion','Cancel');?>"/></li>
-</ul>
+<div class="btn-group" role="group" aria-label="...">
+    <input type="submit" class="btn btn-default" name="SaveAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/newquestion','Save');?>"/>
+	<input type="submit" class="btn btn-default" name="CancelAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/newquestion','Cancel');?>"/>
+</div>
 
 </form>

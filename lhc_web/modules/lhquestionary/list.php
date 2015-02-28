@@ -1,6 +1,9 @@
 <?php
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhquestionary/list.tpl.php');
+
+$response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('questionary.list', array('tpl' => & $tpl));
+
 $pages = new lhPaginator();
 $pages->serverURL = erLhcoreClassDesign::baseurl('questionary/list');
 $pages->items_total = erLhcoreClassQuestionary::getCount();

@@ -1,5 +1,15 @@
 <?php
 
+/**
+ * This is optional if some extension AH decides to block usage of this module function completely
+ * We don't do redirect here
+ * */
+$response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.statistic', array());
+
+if ($response === erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
+    return;
+}
+
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/statistic.tpl.php');
 
 if (isset($_GET['doSearch'])) {
