@@ -3,14 +3,13 @@
 <div id="offline-modal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
     <div class="modal-content">    
-         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+         <div class="modal-header">           
             <h4 class="modal-title" id="myModalLabel"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Department is offline');?></h4>
         </div> 
         <div class="modal-body">
               <div class="btn-group" role="group" aria-label="...">
-              	 <a href="#" class="btn btn-default btn-sm" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Go to leave a message form');?>" onclick="return lhinst.switchToOfflineForm();"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Leave a message');?></a>
-              	 <a href="#" class="btn btn-default btn-sm" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Cancel and choose another department');?>" onclick="closeRevealForm();return $('#offline-modal').modal('hide');"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel');?></a>
+              	 <a href="#" class="btn btn-default btn-xs" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Go to leave a message form');?>" onclick="return lhinst.switchToOfflineForm();"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Leave a message');?></a>
+              	 <a href="#" class="btn btn-default btn-xs" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Cancel and choose another department');?>" onclick="closeRevealForm();return $('#offline-modal').modal('hide');"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel');?></a>
               </div> 
        </div>
     </div>
@@ -24,12 +23,12 @@ function closeRevealForm() {
 };
 $('#id_DepartamentID').change(function() {	
 	if ( $(this).find('option:selected').attr('data-attr-online') == 'false' ) {		
-		$('#offline-modal').modal('show');
+		$('#offline-modal').modal({'show':true,keyboard:false,backdrop: 'static'});
 	};
 });
 $(document).ready(function() {
 	if ( $('#id_DepartamentID').find('option:selected').attr('data-attr-online') == 'false' ) {
-		$('#offline-modal').modal('show');
+		$('#offline-modal').modal({'show':true,keyboard:false,backdrop: 'static'});
 	};
 });
 </script>

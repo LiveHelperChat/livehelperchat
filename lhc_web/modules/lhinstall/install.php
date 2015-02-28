@@ -1207,6 +1207,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                     array('module' => 'lhchat',  'function' => 'allowtransfer'),
                     array('module' => 'lhchat',  'function' => 'administratecannedmsg'),
                     array('module' => 'lhchat',  'function' => 'sees_all_online_visitors'),
+                    array('module' => 'lhpermission',   'function' => 'see_permissions'),
                     array('module' => 'lhquestionary',  'function' => 'manage_questionary'),
                     array('module' => 'lhfaq',   		'function' => 'manage_faq'),
                     array('module' => 'lhchatbox',   	'function' => 'manage_chatbox'),

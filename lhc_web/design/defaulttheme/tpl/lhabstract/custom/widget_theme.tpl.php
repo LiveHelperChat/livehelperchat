@@ -52,6 +52,11 @@
 						<?php echo erLhcoreClassAbstract::renderInput('logo_image', $fields['logo_image'], $object)?>
 						</div>
 						
+						<div class="form-group">	
+						<label><?php echo $fields['widget_copyright_url']['trans'];?></label>
+						<?php echo erLhcoreClassAbstract::renderInput('widget_copyright_url', $fields['widget_copyright_url'], $object)?>
+						</div>
+						
 						<div class="form-group">					
 						<label><?php echo $fields['onl_bcolor']['trans'];?></label>
 						<?php echo erLhcoreClassAbstract::renderInput('onl_bcolor', $fields['onl_bcolor'], $object)?>
@@ -138,11 +143,6 @@
 						<div class="form-group">	
 						<label><?php echo $fields['popup_image']['trans'];?></label>
 						<?php echo erLhcoreClassAbstract::renderInput('popup_image', $fields['popup_image'], $object)?>
-						</div>
-						
-						<div class="form-group">	
-						<label><?php echo $fields['widget_copyright_url']['trans'];?></label>
-						<?php echo erLhcoreClassAbstract::renderInput('widget_copyright_url', $fields['widget_copyright_url'], $object)?>
 						</div>
 						
 						<div class="form-group">	

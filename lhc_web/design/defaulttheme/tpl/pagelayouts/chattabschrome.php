@@ -14,7 +14,7 @@
     </div>
 </div>
 
-<script type="text/javascript" language="javascript" src="<?php echo erLhcoreClassDesign::designJS('js/app.js;js/angular.min.js;js/angular.lhc.js');?>"></script>
+<script type="text/javascript" language="javascript" src="<?php echo erLhcoreClassDesign::designJS('js/angular.min.js;js/angular.lhc.js');?>"></script>
 
 <?php if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) == true) {
 		$debug = ezcDebug::getInstance();

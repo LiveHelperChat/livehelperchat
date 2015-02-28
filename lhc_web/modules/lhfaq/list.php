@@ -2,6 +2,8 @@
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhfaq/list.tpl.php');
 
+$response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('faq.list', array('tpl' => & $tpl));
+
 $pages = new lhPaginator();
 $pages->serverURL = erLhcoreClassDesign::baseurl('faq/list');
 $pages->items_total = erLhcoreClassModelFaq::getCount();

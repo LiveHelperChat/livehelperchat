@@ -1154,6 +1154,10 @@
       <translation>Neplatný hash nebo je vypná volba jeho  automatického vytvoření</translation>
     </message>
     <message>
+      <source>Switch to widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitor</source>
       <translation>Návštěvník</translation>
     </message>
@@ -1547,6 +1551,14 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>Attach uploaded file</source>
+      <translation>Přiložit nahraný soubor</translation>
+    </message>
+    <message>
+      <source>Screen sharing</source>
+      <translation>Sdílení obrazovky</translation>
+    </message>
+    <message>
       <source>Footprint</source>
       <translation>Otisk</translation>
     </message>
@@ -1627,10 +1639,6 @@
       <translation>Tisk</translation>
     </message>
     <message>
-      <source>Attach uploaded file</source>
-      <translation>Přiložit nahraný soubor</translation>
-    </message>
-    <message>
       <source>Please enter a URL</source>
       <translation>Prosím zadejte URL</translation>
     </message>
@@ -1639,8 +1647,8 @@
       <translation>Přesmětovat uživatele na jinou URL</translation>
     </message>
     <message>
-      <source>Screen sharing</source>
-      <translation>Sdílení obrazovky</translation>
+      <source>Choose other than default recognition language</source>
+      <translation>Vyberte jiný než výchozí jazyk rozpoznávání</translation>
     </message>
     <message>
       <source>Department</source>
@@ -1703,10 +1711,6 @@
       <translation>Vlastník rozhovoru</translation>
     </message>
     <message>
-      <source>Information</source>
-      <translation>Informace</translation>
-    </message>
-    <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
       <translation>Nelze zjistit. Ujistěte se, že máte aktivní GEO zjišťování.</translation>
     </message>
@@ -1739,10 +1743,6 @@
       <translation>Odeslat</translation>
     </message>
     <message>
-      <source>Choose other than default recognition language</source>
-      <translation>Vyberte jiný než výchozí jazyk rozpoznávání</translation>
-    </message>
-    <message>
       <source>Send delayed canned message instantly</source>
       <translation>Odeslat ihned zpožděné předpřipraveé zprávy</translation>
     </message>
@@ -1765,6 +1765,133 @@
     <message>
       <source>Invalid chat status</source>
       <translation>Neplatný stav rozhovoru</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/translation</name>
+    <message>
+      <source>Visitor language</source>
+      <translation>Řeč návštěvníka</translation>
+    </message>
+    <message>
+      <source>My language</source>
+      <translation>Moje řeč</translation>
+    </message>
+    <message>
+      <source>Auto translate</source>
+      <translation>Automatický překlad</translation>
+    </message>
+    <message>
+      <source>Translating</source>
+      <translation>Překládání</translation>
+    </message>
+    <message>
+      <source>Automatically detected</source>
+      <translation>Automaticky rozpoznáno</translation>
+    </message>
+    <message>
+      <source>Automatic translation</source>
+      <translation>Automatický překlad</translation>
+    </message>
+    <message>
+      <source>Translation settings</source>
+      <translation>Nstavení překladu</translation>
+    </message>
+    <message>
+      <source>Enter text for testing purposes</source>
+      <translation>Zadejte text pro test překládání</translation>
+    </message>
+    <message>
+      <source>Translated text</source>
+      <translation>Přeložený text</translation>
+    </message>
+    <message>
+      <source>Detected language</source>
+      <translation>Rozpoznaný jazyk</translation>
+    </message>
+    <message>
+      <source>Detect language</source>
+      <translation>Rozpoznat jazyk</translation>
+    </message>
+    <message>
+      <source>Translate</source>
+      <translation>Přeložit</translation>
+    </message>
+    <message>
+      <source>Enable translation service</source>
+      <translation>Zapnout službu automatického překladu</translation>
+    </message>
+    <message>
+      <source>Bing</source>
+      <translation>Bing</translation>
+    </message>
+    <message>
+      <source>Google</source>
+      <translation>Google</translation>
+    </message>
+    <message>
+      <source>Use Bing service</source>
+      <translation>Použít službu Bing</translation>
+    </message>
+    <message>
+      <source>Bing client ID</source>
+      <translation>ID klienta Bing</translation>
+    </message>
+    <message>
+      <source>Bing client secret, key is never shown for security purposes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bing access token expires</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use Google service</source>
+      <translation>Použít službu Google překlad</translation>
+    </message>
+    <message>
+      <source>API key, key is never shown for security purposes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Nastavení bylo aktualizováno</translation>
+    </message>
+    <message>
+      <source>Missing text to translate</source>
+      <translation>Chybí text k překladu</translation>
+    </message>
+    <message>
+      <source>Could not detect language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not translate</source>
+      <translation>Nelze přeložit</translation>
+    </message>
+    <message>
+      <source>We could not detect operator language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Detected operator and visitor languages matches, please choose languages manually</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Translation configuration</source>
+      <translation>Nastavení překládání</translation>
+    </message>
+    <message>
+      <source>Chat messages automatic translations has been stopped</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Messages has been translated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose translation languages manually and click Auto translate</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -2968,10 +3095,6 @@
       <translation>Workflow</translation>
     </message>
     <message>
-      <source>Screen sharing</source>
-      <translation>Sdílení obrazovky</translation>
-    </message>
-    <message>
       <source>Application name</source>
       <translation>Název aplikace</translation>
     </message>
@@ -2994,6 +3117,10 @@
     <message>
       <source>Settings updated</source>
       <translation>Nastavení bylo aktualizováno</translation>
+    </message>
+    <message>
+      <source>Screen sharing</source>
+      <translation>Sdílení obrazovky</translation>
     </message>
     <message>
       <source>List chat configuration</source>
@@ -3143,18 +3270,6 @@
       <translation>Údržba</translation>
     </message>
     <message>
-      <source>Files</source>
-      <translation>Soubory</translation>
-    </message>
-    <message>
-      <source>Files upload configuration</source>
-      <translation>Nastavení nahrávání souborů</translation>
-    </message>
-    <message>
-      <source>List of files</source>
-      <translation>Seznam souborů</translation>
-    </message>
-    <message>
       <source>Theming</source>
       <translation>Šablonování</translation>
     </message>
@@ -3169,6 +3284,22 @@
     <message>
       <source>Default theme</source>
       <translation>Výchozí šablona</translation>
+    </message>
+    <message>
+      <source>Files</source>
+      <translation>Soubory</translation>
+    </message>
+    <message>
+      <source>Files upload configuration</source>
+      <translation>Nastavení nahrávání souborů</translation>
+    </message>
+    <message>
+      <source>List of files</source>
+      <translation>Seznam souborů</translation>
+    </message>
+    <message>
+      <source>Automatic translations</source>
+      <translation>Automatický překlad</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -3820,6 +3951,18 @@
       <translation>Počet rozhovorů podle země</translation>
     </message>
     <message>
+      <source>Number of chats by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wait time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>AVG visitor wait time by operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Messages</source>
       <translation>Zprávy</translation>
     </message>
@@ -3850,6 +3993,14 @@
     <message>
       <source>Chats number by statuses</source>
       <translation>Počty rozhovorů podle stavu</translation>
+    </message>
+    <message>
+      <source>Time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>AVG wait time in seconds, max 10 mininutes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visitors initiated</source>

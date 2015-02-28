@@ -96,6 +96,11 @@ class erLhAbstractModelAutoResponder {
 
 	public function getModuleTranslations()
 	{
+	    /**
+	     * Get's executed before permissions check. It can redirect to frontpage throw permission exception etc
+	     * */
+	    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('feature.can_use_autoresponder', array());
+	    
 		return array('permission_delete' => array('module' => 'lhchat','function' => 'administrateresponder'),'permission' => array('module' => 'lhchat','function' => 'administrateresponder'),'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Auto responder'));
 	}
 

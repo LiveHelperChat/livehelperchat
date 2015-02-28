@@ -169,7 +169,7 @@ return array(
    						)),  				
    				'widget_copyright_url' => array(
    						'type' => 'text',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Widget copyright link'),
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Site URL'),
    						'required' => false,  
    						'hidden' => true,
    						'nginit' => true,						

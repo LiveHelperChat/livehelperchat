@@ -567,7 +567,7 @@
     </message>
     <message>
       <source>How many times repeat message?</source>
-      <translation type="unfinished"/>
+      <translation>Quante volte ripetere il messaggio?</translation>
     </message>
     <message>
       <source>Show visitor this message then wait timeout passes.</source>
@@ -829,7 +829,7 @@
     </message>
     <message>
       <source>Set default speech recognition language</source>
-      <translation type="unfinished"/>
+      <translation>Imposta lingua di riconoscimento vocale predefinita</translation>
     </message>
     <message>
       <source>Speech language</source>
@@ -929,7 +929,7 @@
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>
-      <translation type="unfinished"/>
+      <translation>Per favore non inserire il protocollo, il solo nome di dominio è necessario</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -1153,6 +1153,10 @@
     <message>
       <source>Invalid hash or auto creation is disabled</source>
       <translation>Hash non valido o la creazione automatica è disabilitata</translation>
+    </message>
+    <message>
+      <source>Switch to widget</source>
+      <translation>Passa la chat al widget</translation>
     </message>
     <message>
       <source>Visitor</source>
@@ -1548,6 +1552,14 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>Attach uploaded file</source>
+      <translation>Allega file caricato</translation>
+    </message>
+    <message>
+      <source>Screen sharing</source>
+      <translation>Condivisione dello schermo</translation>
+    </message>
+    <message>
       <source>Footprint</source>
       <translation>Info aggiuntive</translation>
     </message>
@@ -1628,10 +1640,6 @@
       <translation>Stampa</translation>
     </message>
     <message>
-      <source>Attach uploaded file</source>
-      <translation>Allega file caricato</translation>
-    </message>
-    <message>
       <source>Please enter a URL</source>
       <translation>Immettere un URL</translation>
     </message>
@@ -1640,8 +1648,8 @@
       <translation>Reindirizzare l&apos;utente ad un altro url</translation>
     </message>
     <message>
-      <source>Screen sharing</source>
-      <translation>Condivisione dello schermo</translation>
+      <source>Choose other than default recognition language</source>
+      <translation>Scegli un altra lingua di riconoscimento predefinita</translation>
     </message>
     <message>
       <source>Department</source>
@@ -1704,10 +1712,6 @@
       <translation>Chat proprietario</translation>
     </message>
     <message>
-      <source>Information</source>
-      <translation>Informazione</translation>
-    </message>
-    <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
       <translation>NOn posso verificare. Assicurati che GEO verifica sia attiva.</translation>
     </message>
@@ -1721,7 +1725,7 @@
     </message>
     <message>
       <source>User browsing information</source>
-      <translation type="unfinished"/>
+      <translation>Informazioni di navigazione dell&apos;utente</translation>
     </message>
     <message>
       <source>Chats</source>
@@ -1733,15 +1737,11 @@
     </message>
     <message>
       <source>Notes</source>
-      <translation type="unfinished"/>
+      <translation>Note</translation>
     </message>
     <message>
       <source>Send</source>
       <translation>Invia</translation>
-    </message>
-    <message>
-      <source>Choose other than default recognition language</source>
-      <translation>Scegli un altra lingua di riconoscimento predefinita</translation>
     </message>
     <message>
       <source>Send delayed canned message instantly</source>
@@ -1766,6 +1766,133 @@
     <message>
       <source>Invalid chat status</source>
       <translation>Stato chat non valido</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/translation</name>
+    <message>
+      <source>Visitor language</source>
+      <translation>Lingua del visitatore</translation>
+    </message>
+    <message>
+      <source>My language</source>
+      <translation>Mia lingua</translation>
+    </message>
+    <message>
+      <source>Auto translate</source>
+      <translation>Auto tradurre</translation>
+    </message>
+    <message>
+      <source>Translating</source>
+      <translation>Traduzione in corso</translation>
+    </message>
+    <message>
+      <source>Automatically detected</source>
+      <translation>Rilevato automaticamente</translation>
+    </message>
+    <message>
+      <source>Automatic translation</source>
+      <translation>Traduzione automatica</translation>
+    </message>
+    <message>
+      <source>Translation settings</source>
+      <translation>Impostazioni di traduzione</translation>
+    </message>
+    <message>
+      <source>Enter text for testing purposes</source>
+      <translation>Immettere il testo per scopi di test</translation>
+    </message>
+    <message>
+      <source>Translated text</source>
+      <translation>Testo tradotto</translation>
+    </message>
+    <message>
+      <source>Detected language</source>
+      <translation>Lingua riconosciuta</translation>
+    </message>
+    <message>
+      <source>Detect language</source>
+      <translation>Rilevare la lingua</translation>
+    </message>
+    <message>
+      <source>Translate</source>
+      <translation>Traduci</translation>
+    </message>
+    <message>
+      <source>Enable translation service</source>
+      <translation>Abilitare il servizio di traduzione</translation>
+    </message>
+    <message>
+      <source>Bing</source>
+      <translation>Bing</translation>
+    </message>
+    <message>
+      <source>Google</source>
+      <translation>Google</translation>
+    </message>
+    <message>
+      <source>Use Bing service</source>
+      <translation>Utilizzare il servizio Bing</translation>
+    </message>
+    <message>
+      <source>Bing client ID</source>
+      <translation>ID client Bing</translation>
+    </message>
+    <message>
+      <source>Bing client secret, key is never shown for security purposes</source>
+      <translation>Chiave segreta di client Bing, la chiave non viene visualizzata per motivi di sicurezza</translation>
+    </message>
+    <message>
+      <source>Bing access token expires</source>
+      <translation>E&apos; scafuto il token di accesso Bing</translation>
+    </message>
+    <message>
+      <source>Use Google service</source>
+      <translation>Utilizzare il servizio di Google</translation>
+    </message>
+    <message>
+      <source>API key, key is never shown for security purposes</source>
+      <translation>Chiave API, chiave non viene visualizzata per motivi di sicurezza</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Impostazioni aggiornate</translation>
+    </message>
+    <message>
+      <source>Missing text to translate</source>
+      <translation>Testo mancante per la traduzione</translation>
+    </message>
+    <message>
+      <source>Could not detect language</source>
+      <translation>Non posso rilevare la lingua</translation>
+    </message>
+    <message>
+      <source>Could not translate</source>
+      <translation>Non posso tradurre</translation>
+    </message>
+    <message>
+      <source>We could not detect operator language</source>
+      <translation>Non posso rilevare la lingua operatore</translation>
+    </message>
+    <message>
+      <source>Detected operator and visitor languages matches, please choose languages manually</source>
+      <translation>Lingua operatore e visitatore uguale, si prega di scegliere lingue manualmente</translation>
+    </message>
+    <message>
+      <source>Translation configuration</source>
+      <translation>Configurazione di traduzione</translation>
+    </message>
+    <message>
+      <source>Chat messages automatic translations has been stopped</source>
+      <translation>Traduzioni automatiche di messaggi chat si è fermato</translation>
+    </message>
+    <message>
+      <source>Messages has been translated</source>
+      <translation>Il Messaggio è stato tradotto</translation>
+    </message>
+    <message>
+      <source>Please choose translation languages manually and click Auto translate</source>
+      <translation>Si prega di scegliere manualmente le lingue di traduzione e cliccare su Traduci automaticamente</translation>
     </message>
   </context>
   <context>
@@ -2969,10 +3096,6 @@
       <translation>Flusso di lavoro</translation>
     </message>
     <message>
-      <source>Screen sharing</source>
-      <translation>Condivisione dello schermo</translation>
-    </message>
-    <message>
       <source>Application name</source>
       <translation>Nome applicazione</translation>
     </message>
@@ -2995,6 +3118,10 @@
     <message>
       <source>Settings updated</source>
       <translation>Impostazioni aggiornate</translation>
+    </message>
+    <message>
+      <source>Screen sharing</source>
+      <translation>Condivisione dello schermo</translation>
     </message>
     <message>
       <source>List chat configuration</source>
@@ -3144,18 +3271,6 @@
       <translation>Manutenzione</translation>
     </message>
     <message>
-      <source>Files</source>
-      <translation>Files</translation>
-    </message>
-    <message>
-      <source>Files upload configuration</source>
-      <translation>Configurazione upload files</translation>
-    </message>
-    <message>
-      <source>List of files</source>
-      <translation>Lista dei files</translation>
-    </message>
-    <message>
       <source>Theming</source>
       <translation>Temi</translation>
     </message>
@@ -3170,6 +3285,22 @@
     <message>
       <source>Default theme</source>
       <translation>Tema di default</translation>
+    </message>
+    <message>
+      <source>Files</source>
+      <translation>Files</translation>
+    </message>
+    <message>
+      <source>Files upload configuration</source>
+      <translation>Configurazione upload files</translation>
+    </message>
+    <message>
+      <source>List of files</source>
+      <translation>Lista dei files</translation>
+    </message>
+    <message>
+      <source>Automatic translations</source>
+      <translation>Traduzioni automatiche</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -3786,7 +3917,7 @@
     </message>
     <message>
       <source>General</source>
-      <translation type="unfinished"/>
+      <translation>Generale</translation>
     </message>
     <message>
       <source>User</source>
@@ -3821,6 +3952,18 @@
       <translation>Numero di chat per paese</translation>
     </message>
     <message>
+      <source>Number of chats by user</source>
+      <translation>Numero di chat per utente</translation>
+    </message>
+    <message>
+      <source>Wait time</source>
+      <translation>Tempo di attesa</translation>
+    </message>
+    <message>
+      <source>AVG visitor wait time by operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Messages</source>
       <translation>Messaggi</translation>
     </message>
@@ -3851,6 +3994,14 @@
     <message>
       <source>Chats number by statuses</source>
       <translation>Numero di chat per stato</translation>
+    </message>
+    <message>
+      <source>Time</source>
+      <translation>Tempo</translation>
+    </message>
+    <message>
+      <source>AVG wait time in seconds, max 10 mininutes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visitors initiated</source>
@@ -6474,7 +6625,7 @@
     </message>
     <message>
       <source>Use user e-mail as from address</source>
-      <translation type="unfinished"/>
+      <translation>Utilizzare la posta elettronica dell&apos;utente a partire dall&apos;indirizzo</translation>
     </message>
     <message>
       <source>Reply to</source>

@@ -1,8 +1,14 @@
 <?php
 
-$tpl = erLhcoreClassTemplate::getInstance('lhchatbox/new.tpl.php');
-
 $chatbox = new erLhcoreClassModelChatbox();
+
+$response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chatbox.new', array('chatbox' => $chatbox));
+
+if ($response === erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
+    return;
+}
+
+$tpl = erLhcoreClassTemplate::getInstance('lhchatbox/new.tpl.php');
 
 if ( isset($_POST['Save']) )
 {

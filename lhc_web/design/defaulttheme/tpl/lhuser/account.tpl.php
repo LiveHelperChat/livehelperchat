@@ -13,7 +13,7 @@
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php endif; ?>
 
-<ul class="nav nav-tabs" role="tablist">
+<ul class="nav nav-pills" role="tablist">
 	<li role="presentation" <?php if ($tab == '') : ?> class="active" <?php endif;?>><a href="#account" aria-controls="account" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Account data');?></a></li>
 	
 	<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','see_assigned_departments')) : ?>
@@ -24,9 +24,7 @@
 	<li role="presentation" <?php if ($tab == 'tab_settings') : ?>class="active"<?php endif;?>><a href="#lists" aria-controls="lists" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Visible lists');?></a></li>
 	<?php endif; ?>
 	
-	<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','personalcannedmsg')) : ?>
-	<li role="presentation" <?php if ($tab == 'tab_canned') : ?>class="active"<?php endif;?>><a href="#canned" aria-controls="canned" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Personal canned messages');?></a></li>
-	<?php endif;?>
+	<?php include(erLhcoreClassDesign::designtpl('lhuser/menu_tabs/personal_canned_messages_tab.tpl.php'));?>
 	
 	<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','allowtochoosependingmode')) : ?>
 	<li role="presentation" <?php if ($tab == 'tab_pending') : ?>class="active"<?php endif;?>><a href="#pending" aria-controls="pending" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Pending chats');?></a></li>
@@ -35,6 +33,10 @@
 	<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhspeech','changedefaultlanguage')) : ?>
 	<li role="presentation" <?php if ($tab == 'tab_speech') : ?>class="active"<?php endif;?>><a href="#speech" aria-controls="speech" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Speech');?></a></li>
 	<?php endif;?>	
+
+	<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhpermission','see_permissions')) : ?>
+	<li role="presentation" <?php if ($tab == 'tab_permission') : ?>class="active"<?php endif;?>><a href="#permission" aria-controls="permission" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Permissions');?></a></li>
+	<?php endif;?>
 </ul>
 
 
@@ -89,7 +91,7 @@
 
 		<?php if ($user->has_photo) : ?>
 		        <div class="form-group">
-				<img src="<?=$user->photo_path?>" alt="" width="50" /><br /> <label><input type="checkbox" name="DeletePhoto" value="1" /> <?=erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Delete')?></label>
+				<img src="<?php echo $user->photo_path?>" alt="" width="50" /><br /> <label><input type="checkbox" name="DeletePhoto" value="1" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Delete')?></label>
 			</div>
 		<?php endif;?>
 	        				
@@ -135,11 +137,7 @@
 	</div>
     <?php endif; ?>
   	
-  	<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','personalcannedmsg')) : ?>
-  	<div role="tabpanel" class="tab-pane <?php if ($tab == 'tab_canned') : ?>active<?php endif;?>" id="canned">
-  	     <?php include(erLhcoreClassDesign::designtpl('lhuser/parts/canned_messages.tpl.php'));?>
-  	</div>
-  	<?php endif;?>
+  	<?php include(erLhcoreClassDesign::designtpl('lhuser/menu_tabs_content/personal_canned_messages_tab.tpl.php'));?>
   	
   	<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','allowtochoosependingmode')) : ?>
     <div role="tabpanel" class="tab-pane <?php if ($tab == 'tab_pending') : ?>active<?php endif;?>" id="pending">
@@ -180,4 +178,11 @@
 	</div>
   <?php endif; ?>
   
+    <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhpermission','see_permissions')) : ?>
+    <div role="tabpanel" class="tab-pane <?php if ($tab == 'tab_permission') : ?>active<?php endif;?>" id="permission">
+        <input type="button" class="btn btn-default" name="UpdateSpeech_account" onclick="lhinst.showMyPermissions('<?php echo $user->id?>')" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Show permissions');?>" />
+		<div id="permissions-summary"></div>		
+    </div>
+	<?php endif;?>
+	
 </div>

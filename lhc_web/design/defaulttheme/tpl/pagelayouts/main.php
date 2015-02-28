@@ -52,7 +52,7 @@
         	</div>
         </div>
 
-            <div class="panel panel-default panel-lhc">
+            <div class="panel panel-default panel-lhc" ng-show="pending_chats.list.length > 0 || active_chats.list.length > 0 || unread_chats.list.length > 0 || closed_chats.list.length > 0">
             <?php if ($pendingTabEnabled == true) : ?>
             <div class="panel-heading" ng-if="pending_chats.list.length > 0"><a href="<?php echo erLhcoreClassDesign::baseurl('chat/pendingchats')?>"><i class="icon-chat chat-pending"></i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Pending chats');?></a></div>
             <div class="panel-body" id="right-pending-chats" ng-if="pending_chats.list.length > 0">
@@ -81,12 +81,7 @@
             </div>            
         	<?php endif;?>        			
         	</div> 
-        	        	
-			
-
-        	
-        	
-        	
+        	  
         	
     </div>
     <?php endif; ?>

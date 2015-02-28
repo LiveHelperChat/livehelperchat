@@ -1,5 +1,11 @@
 <?php
 
+$response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.newcannedmsg', array());
+
+if ($response === erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
+    return;
+}
+
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/newcannedmsg.tpl.php');
 $Departament = new erLhcoreClassModelCannedMsg();
 

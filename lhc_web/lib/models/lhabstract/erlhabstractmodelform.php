@@ -117,6 +117,11 @@ class erLhAbstractModelForm {
 
 	public function getModuleTranslations()
 	{
+	    /**
+	     * Get's executed before permissions check. It can redirect to frontpage throw permission exception etc
+	     * */
+	    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('feature.can_use_forms', array());
+	    
 		return array('path' => array('url' => erLhcoreClassDesign::baseurl('form/index'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('browseoffer/index','Form')),'permission_delete' => array('module' => 'lhform','function' => 'delete_fm'), 'permission' => array('module' => 'lhform','function' => 'manage_fm'),'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/browserofferinvitation','Forms list'));
 	}
 

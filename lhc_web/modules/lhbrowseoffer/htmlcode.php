@@ -1,5 +1,11 @@
 <?php
 
+$response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('browseoffer.htmlcode', array());
+
+if ($response === erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
+    return;
+}
+
 $tpl = erLhcoreClassTemplate::getInstance( 'lhbrowseoffer/htmlcode.tpl.php');
 
 $cfgSite = erConfigClassLhConfig::getInstance();

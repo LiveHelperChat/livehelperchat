@@ -1,5 +1,7 @@
 <?php
 
+$response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.blockedusers', array());
+
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/blockedusers.tpl.php');
 
 if (is_numeric($Params['user_parameters_unordered']['remove_block'])){

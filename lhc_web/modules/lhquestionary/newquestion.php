@@ -1,7 +1,10 @@
 <?php
 
-$tpl = erLhcoreClassTemplate::getInstance( 'lhquestionary/newquestion.tpl.php');
 $Data = new erLhcoreClassModelQuestion();
+
+$response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('questionary.new', array('questionary' => $Data));
+
+$tpl = erLhcoreClassTemplate::getInstance( 'lhquestionary/newquestion.tpl.php');
 
 if (isset($_POST['SaveAction']))
 {

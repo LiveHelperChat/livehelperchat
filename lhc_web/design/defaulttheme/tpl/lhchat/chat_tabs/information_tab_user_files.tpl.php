@@ -9,7 +9,7 @@
 </div>
 
 <div class="form-group">
-<input id="fileupload-<?php echo $chat->id?>" class="fs11" type="file" name="files[]" multiple>
+<input id="fileupload-<?php echo $chat->id?>" class="fs12" type="file" name="files[]" multiple>
 </div>
 
 <div class="drop-zone form-group" id="drop-zone-<?php echo $chat->id?>">
