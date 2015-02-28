@@ -2,6 +2,15 @@
 
 1. Posibility to disable groups. Thats the only stuff will be done regarding https://github.com/LiveHelperChat/livehelperchat/issues/626
 2. Company name for theme. https://github.com/LiveHelperChat/livehelperchat/issues/644
+3. Option to provide chatbox name. E.g 
+For page embed code
+var LHCChatboxOptionsEmbed = {identifier:'default','nick':'remdex44','chatbox_name' : 'custom name'};
+For standard widget
+var LHCChatboxOptions = {identifier:'default',status_text:'Chatbox','nick':'remdex44','disable_nick_change':true,'chatbox_name' : 'custom name right'};
+https://github.com/LiveHelperChat/livehelperchat/issues/643
+
+4. System messages won't be shown in messages send to user
+https://github.com/LiveHelperChat/livehelperchat/issues/645
 
 execute doc/update_db/update_102.sql for update
 
