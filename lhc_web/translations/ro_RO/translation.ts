@@ -3,87 +3,87 @@
     <name>listchatconfig</name>
     <message>
       <source>How many days voting widget should not be expanded after last show</source>
-      <translation>Cât de multe zile widget de vot nu ar trebui extinsă după ultimul show</translation>
+      <translation>Nr de zile ce trebuie sa treaca de la ultima votare pentru ca fereastra de votare sa se poata activa din nou</translation>
     </message>
     <message>
       <source>Use secure cookie, check this if you want to force SSL all the time</source>
-      <translation>Utilizare cookie securizat, verificaţi acest lucru dacă doriţi să forţaţi SSL tot timpul</translation>
+      <translation>Foloseste cookie sercurizat, bifeaza aceasta optiune daca vrei sa folosesti SSL mereu</translation>
     </message>
     <message>
       <source>Which ip should be allowed to update DB by executing http request, separate by comma?</source>
-      <translation>Ip care ar trebui să li se permită să actualiza DB prin http cerere de executare, separate prin virgula?</translation>
+      <translation>Ce IP-uri ar trebui sa fie autorizate sa actualizeze baza de date executand o cerere prin http (separate prin virgula)?</translation>
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
-      <translation>Permite vizitatorilor online site de urmărire</translation>
+      <translation>Permite urmarirea vizitatorilor online</translation>
     </message>
     <message>
       <source>Track is user still on site, chat status checks also has to be enabled</source>
-      <translation>Piesa este utilizator încă pe site-ul, controalele de statutul de chat, de asemenea, a activat</translation>
+      <translation>Urmareste daca vizitatorul se afla inca pe site. Trebuie activata verificarea periodica a activitatii ferestrei de chat</translation>
     </message>
     <message>
       <source>Track online visitors even if there is no online operators</source>
-      <translation>Urmări vizitatori online, chiar dacă nu există nici o operatorii online</translation>
+      <translation>Urmareste vizitatorii online cand nu sunt operatori online</translation>
     </message>
     <message>
       <source>Track users footprint. For this also online visitors tracking should be enabled</source>
-      <translation>Piesa utilizatorii amprenta. Pentru aceasta, de asemenea, vizitatorii online de urmărire trebuie să fie activate</translation>
+      <translation>Urmareste activitatea vizitatorilor. Ca sa fie functionala facilitatea, trebuie sa activat deasemenea urmarirea vizitatorilor online</translation>
     </message>
     <message>
       <source>Set your domain to enable user tracking across different domain subdomains.</source>
-      <translation>Setaţi domeniu pentru a permite utilizatorului de urmărire în domenii diferite subdomenii.</translation>
+      <translation>Setati domeniu site-ului dvs, pentru a putea activa urmarirea pe subdomeniile pe care este activat Livehelperchat.</translation>
     </message>
     <message>
       <source>How many days keep records of online users.</source>
-      <translation>Cât de multe zile ţine evidenţa de utilizatori online.</translation>
+      <translation>Cate zile sa tina minte vizitatorul respectiv?</translation>
     </message>
     <message>
       <source>Suggest user to leave a message then user chooses offline department</source>
-      <translation>Sugerează de utilizator pentru a lăsa un mesaj, atunci utilizatorul alege Departamentul offline</translation>
+      <translation>Sugerează utilizatorului sa lase un mesaj daca se deconecteaza.</translation>
     </message>
     <message>
       <source>Play sound on invitation to chat.</source>
-      <translation>Joc sunet pe invitație la chat.</translation>
+      <translation>Pornire sunet la invitatia pe chat</translation>
     </message>
     <message>
       <source>Show users option to switch language at widget</source>
-      <translation>Arăta utilizatorilor opţiunea de a schimba limba la widget</translation>
+      <translation>Arăta utilizatorilor opţiunea de a schimba limba in cadrul widgetului</translation>
     </message>
     <message>
       <source>Between what languages user should be able to switch</source>
-      <translation>Între ce limbi utilizator ar trebui să fie capabil pentru a comuta</translation>
+      <translation>Limbile care pot fi alese de catre utilizator</translation>
     </message>
     <message>
       <source>Host where NodeJs is running</source>
-      <translation>Gazdă în cazul în care se execută NodeJs</translation>
+      <translation>Adresa serverului NodeJs</translation>
     </message>
     <message>
       <source>Location of SocketIO JS library</source>
-      <translation>Localizarea SocketIO JS bibliotecă</translation>
+      <translation>Locatia librariei SocketIO JS</translation>
     </message>
     <message>
       <source>Connect to NodeJs in https mode</source>
-      <translation>Conecta la NodeJs în modul de https</translation>
+      <translation>Conectare la NodeJs prin https</translation>
     </message>
     <message>
       <source>NodeJS support enabled</source>
-      <translation>Suport de NodeJS activat</translation>
+      <translation>Suport NodeJS activat</translation>
     </message>
     <message>
       <source>Do not ask permission for users to see their screen</source>
-      <translation>Nu cere permisiunea pentru utilizatori pentru a vedea ecranul lor</translation>
+      <translation>Nu cere permisia utilizatorilor pentru a le vedea ecranul</translation>
     </message>
     <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
-      <translation>Utilizarea sesiune captcha. LHC trebuie să fie instalat pe acelaşi domeniu sau subdomeniu.</translation>
+      <translation>Folosește Captcha pentru fiecare sesiune. LHC trebuie sa fie instalat pe acelasi domeniu sau subdomeniu.</translation>
     </message>
     <message>
       <source>Should cronjob run unanswered chats workflow and execute unaswered chats callback, 0 - no, any other number bigger than 0 is a minits how long chat have to be not accepted before executing callback.</source>
-      <translation>Ar trebui să cronjob rula fără răspuns chat flux de lucru şi executa unaswered chat de apel invers, 0 - nu, orice alt număr mai mare decât 0 este o minits cât timp de chat trebuie să nu fie acceptate înainte de a executa de apel invers.</translation>
+      <translation>Sa ruleze cronjob automat varianta de lucru pentru callback --procesare automata -- la discutiile care au ramas fara raspuns? 0 - nu, 1-n minute trec pana cand un chat care a ramas nealocat unui operator va fi trecut prin procesarea automata.</translation>
     </message>
     <message>
       <source>Should cronjob run departments transfer workflow, even if user leaves a chat</source>
-      <translation>Ar trebui să cronjob executa serviciile de transfer flux de lucru, chiar dacă utilizatorul părăseşte un chat</translation>
+      <translation>Sa ruleze cronjob automat redirectarea cater un alt departament pentru chat-urile la care vizitatorul a abandonat discutie?</translation>
     </message>
     <message>
       <source>Reopen chat functionality enabled</source>
@@ -307,56 +307,60 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
+      <source>Widget copyright link</source>
+      <translation>Link de copyright pentru widget</translation>
+    </message>
+    <message>
       <source>Download theme</source>
       <translation>Descarca tema</translation>
     </message>
     <message>
       <source>Status widget style</source>
-      <translation>Stil de widget stare</translation>
+      <translation>Stilul widgetului pentru status</translation>
     </message>
     <message>
       <source>Widget container</source>
-      <translation>Container de widget</translation>
+      <translation>Container widget</translation>
     </message>
     <message>
       <source>Need help widget</source>
-      <translation>Aveţi nevoie de ajutor widget</translation>
+      <translation>Widget pentru suport</translation>
     </message>
     <message>
       <source>Custom CSS</source>
-      <translation>Personalizat CSS</translation>
+      <translation>CSS personalizat</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>nume</translation>
+      <translation>Nume</translation>
     </message>
     <message>
       <source>Need help header text</source>
-      <translation>Aveţi nevoie de ajutor textul antetului</translation>
+      <translation>Text header suport</translation>
     </message>
     <message>
       <source>Need help standard text</source>
-      <translation>Aveţi nevoie de ajutor standard text</translation>
+      <translation>Text standard suport</translation>
     </message>
     <message>
       <source>Widget border width (px)</source>
-      <translation>Lăţime bordură widget (px)</translation>
+      <translation>Latime margine widget (px)</translation>
     </message>
     <message>
       <source>Online status text</source>
-      <translation>Starea online text</translation>
+      <translation>Text status online</translation>
     </message>
     <message>
       <source>Offline status text</source>
-      <translation>Offline statuie text</translation>
+      <translation>Text status offline</translation>
     </message>
     <message>
       <source>Operator intro text</source>
-      <translation>Operator introducere text</translation>
+      <translation>Text introducere operator</translation>
     </message>
     <message>
       <source>Have a question? Ask us!</source>
-      <translation>Am o întrebare? Intreaba-ne!</translation>
+      <translation>Ai o întrebare? Intreaba-ne!</translation>
     </message>
     <message>
       <source>Background color</source>
@@ -403,8 +407,8 @@
       <translation>Antet umplutură (px)</translation>
     </message>
     <message>
-      <source>Widget copyright link</source>
-      <translation>Widget link-ul de autor</translation>
+      <source>Site URL</source>
+      <translation>URL website</translation>
     </message>
     <message>
       <source>Text above start chat form fields</source>
@@ -503,7 +507,7 @@
     </message>
     <message>
       <source>Live help is online...</source>
-      <translation>Ajutor direct este online...</translation>
+      <translation>Suport live online...</translation>
     </message>
     <message>
       <source>Need help?</source>
@@ -1342,7 +1346,7 @@
     </message>
     <message>
       <source>Edit department</source>
-      <translation>Editarea Departamentul</translation>
+      <translation>Editarea departamentul</translation>
     </message>
     <message>
       <source>Name</source>
@@ -1350,19 +1354,19 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Poştă electronică</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Disabled</source>
-      <translation>Cu handicap</translation>
+      <translation>Dezactivat</translation>
     </message>
     <message>
       <source>Will not be visible to visitor</source>
-      <translation>Nu va fi vizibil pentru a vizitatorilor</translation>
+      <translation>Nu va fi vizibil pentru vizitator</translation>
     </message>
     <message>
       <source>Hidden</source>
-      <translation>Ascunse</translation>
+      <translation>Ascuns</translation>
     </message>
     <message>
       <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
@@ -1450,11 +1454,11 @@
     </message>
     <message>
       <source>XMPP recipients</source>
-      <translation>XMPP destinatari</translation>
+      <translation>Destinatari XMPP</translation>
     </message>
     <message>
       <source>XMPP group recipients</source>
-      <translation>XMPP grup de destinatari</translation>
+      <translation>Grup de destinatari XMPP (separati doar cu virgula)</translation>
     </message>
     <message>
       <source>E.g somechat@conference.server.org/LiveChat</source>
@@ -1462,11 +1466,11 @@
     </message>
     <message>
       <source>These messages will be send as group messages</source>
-      <translation>Aceste mesaje vor fi trimite ca grup mesaje</translation>
+      <translation>Aceste mesaje vor fi trimite ca mesaje de grup</translation>
     </message>
     <message>
       <source>Inform about new chats using</source>
-      <translation>Informatii despre conversatiile noi prin</translation>
+      <translation>Trimite informatii despre conversatiile noi prin</translation>
     </message>
     <message>
       <source>XMPP messages</source>
@@ -4608,6 +4612,10 @@
       <translation>Voce</translation>
     </message>
     <message>
+      <source>Permissions</source>
+      <translation>Permisii</translation>
+    </message>
+    <message>
       <source>Do not enter a password unless you want to change it</source>
       <translation>Nu introduce o parola decat daca vrei schimbarea ei</translation>
     </message>
@@ -4668,6 +4676,10 @@
       <translation>Poza</translation>
     </message>
     <message>
+      <source>Delete</source>
+      <translation>Sterge</translation>
+    </message>
+    <message>
       <source>Update</source>
       <translation>Actualizeaza</translation>
     </message>
@@ -4700,12 +4712,12 @@
       <translation>Pot vedea toate conversatiile in asteptare, nu doar cele alocate mie</translation>
     </message>
     <message>
-      <source>Account updated</source>
-      <translation>Cont actualizat</translation>
+      <source>Show permissions</source>
+      <translation>Afiseaza permii</translation>
     </message>
     <message>
-      <source>Delete</source>
-      <translation>Sterge</translation>
+      <source>Account updated</source>
+      <translation>Cont actualizat</translation>
     </message>
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
@@ -6743,6 +6755,13 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Te rog sa introduci un tip de fisier valid!</translation>
+    </message>
+  </context>
+  <context>
+    <name>permission/getpermissionsummary</name>
+    <message>
+      <source>Module/Function</source>
+      <translation>Modul/functie</translation>
     </message>
   </context>
 </TS>

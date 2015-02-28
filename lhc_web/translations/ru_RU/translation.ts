@@ -307,6 +307,10 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
+      <source>Widget copyright link</source>
+      <translation>Ссылка на авторские права виджета</translation>
+    </message>
+    <message>
       <source>Download theme</source>
       <translation>Загрузить тему</translation>
     </message>
@@ -403,8 +407,8 @@
       <translation>Толщина заголовка (пикселей)</translation>
     </message>
     <message>
-      <source>Widget copyright link</source>
-      <translation>Ссылка на авторские права виджета</translation>
+      <source>Site URL</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Text above start chat form fields</source>
@@ -1155,7 +1159,7 @@
     </message>
     <message>
       <source>Switch to widget</source>
-      <translation type="unfinished"/>
+      <translation>Переключить к виджету</translation>
     </message>
     <message>
       <source>Visitor</source>
@@ -1772,31 +1776,31 @@
     <name>chat/translation</name>
     <message>
       <source>Visitor language</source>
-      <translation type="unfinished"/>
+      <translation>Язык посетителя</translation>
     </message>
     <message>
       <source>My language</source>
-      <translation type="unfinished"/>
+      <translation>Мой язык</translation>
     </message>
     <message>
       <source>Auto translate</source>
-      <translation type="unfinished"/>
+      <translation>Автоперевод</translation>
     </message>
     <message>
       <source>Translating</source>
-      <translation type="unfinished"/>
+      <translation>Перевод</translation>
     </message>
     <message>
       <source>Automatically detected</source>
-      <translation type="unfinished"/>
+      <translation>Автоматическое определение</translation>
     </message>
     <message>
       <source>Automatic translation</source>
-      <translation type="unfinished"/>
+      <translation>Автоматический перевод</translation>
     </message>
     <message>
       <source>Translation settings</source>
-      <translation type="unfinished"/>
+      <translation>Настройки перевода</translation>
     </message>
     <message>
       <source>Enter text for testing purposes</source>
@@ -1804,19 +1808,19 @@
     </message>
     <message>
       <source>Translated text</source>
-      <translation type="unfinished"/>
+      <translation>Переведённый текст</translation>
     </message>
     <message>
       <source>Detected language</source>
-      <translation type="unfinished"/>
+      <translation>Определённый язык</translation>
     </message>
     <message>
       <source>Detect language</source>
-      <translation type="unfinished"/>
+      <translation>Определение языка</translation>
     </message>
     <message>
       <source>Translate</source>
-      <translation type="unfinished"/>
+      <translation>Перевести</translation>
     </message>
     <message>
       <source>Enable translation service</source>
@@ -1824,19 +1828,19 @@
     </message>
     <message>
       <source>Bing</source>
-      <translation type="unfinished"/>
+      <translation>Bing</translation>
     </message>
     <message>
       <source>Google</source>
-      <translation type="unfinished"/>
+      <translation>Google</translation>
     </message>
     <message>
       <source>Use Bing service</source>
-      <translation type="unfinished"/>
+      <translation>Использовать службу Bing</translation>
     </message>
     <message>
       <source>Bing client ID</source>
-      <translation type="unfinished"/>
+      <translation>ID клиента Bing</translation>
     </message>
     <message>
       <source>Bing client secret, key is never shown for security purposes</source>
@@ -1864,15 +1868,15 @@
     </message>
     <message>
       <source>Could not detect language</source>
-      <translation type="unfinished"/>
+      <translation>Невозможно определить язык</translation>
     </message>
     <message>
       <source>Could not translate</source>
-      <translation type="unfinished"/>
+      <translation>Невозможно перевести</translation>
     </message>
     <message>
       <source>We could not detect operator language</source>
-      <translation type="unfinished"/>
+      <translation>Мы не можем определить язык оператора</translation>
     </message>
     <message>
       <source>Detected operator and visitor languages matches, please choose languages manually</source>
@@ -3957,7 +3961,7 @@
     </message>
     <message>
       <source>Wait time</source>
-      <translation type="unfinished"/>
+      <translation>Время ожидания</translation>
     </message>
     <message>
       <source>AVG visitor wait time by operator</source>
@@ -3997,7 +4001,7 @@
     </message>
     <message>
       <source>Time</source>
-      <translation type="unfinished"/>
+      <translation>Время</translation>
     </message>
     <message>
       <source>AVG wait time in seconds, max 10 mininutes</source>
@@ -4609,6 +4613,10 @@
       <translation>Речь</translation>
     </message>
     <message>
+      <source>Permissions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Do not enter a password unless you want to change it</source>
       <translation>Не вводите пароль если не хотите его изменять</translation>
     </message>
@@ -4669,6 +4677,10 @@
       <translation>Фото</translation>
     </message>
     <message>
+      <source>Delete</source>
+      <translation>Удалить</translation>
+    </message>
+    <message>
       <source>Update</source>
       <translation>Обновить</translation>
     </message>
@@ -4701,12 +4713,12 @@
       <translation>Я вижу все ожидающие диалоги, а не только назначенные мне</translation>
     </message>
     <message>
-      <source>Account updated</source>
-      <translation>Аккаунт обновлен</translation>
+      <source>Show permissions</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Delete</source>
-      <translation>Удалить</translation>
+      <source>Account updated</source>
+      <translation>Аккаунт обновлен</translation>
     </message>
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
@@ -6744,6 +6756,13 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Пожалуйста, введите правильный тип файла</translation>
+    </message>
+  </context>
+  <context>
+    <name>permission/getpermissionsummary</name>
+    <message>
+      <source>Module/Function</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

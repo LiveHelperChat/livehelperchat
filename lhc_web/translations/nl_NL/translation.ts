@@ -307,6 +307,10 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
+      <source>Widget copyright link</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Download theme</source>
       <translation>Download thema</translation>
     </message>
@@ -403,7 +407,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Widget copyright link</source>
+      <source>Site URL</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1076,7 +1080,7 @@
     </message>
     <message>
       <source>Type to search</source>
-      <translation>Type om te zoeken</translation>
+      <translation>Typ om te zoeken</translation>
     </message>
     <message>
       <source>Choose department</source>
@@ -1807,15 +1811,15 @@
     </message>
     <message>
       <source>Detected language</source>
-      <translation type="unfinished"/>
+      <translation>Gedetecteerde taal</translation>
     </message>
     <message>
       <source>Detect language</source>
-      <translation type="unfinished"/>
+      <translation>Detecteer taal</translation>
     </message>
     <message>
       <source>Translate</source>
-      <translation type="unfinished"/>
+      <translation>Vertaal</translation>
     </message>
     <message>
       <source>Enable translation service</source>
@@ -2090,7 +2094,7 @@
     </message>
     <message>
       <source>Please enter a message...</source>
-      <translation type="unfinished"/>
+      <translation>Voer hier uw bericht in...</translation>
     </message>
     <message>
       <source>Start chat</source>
@@ -2250,7 +2254,7 @@
     </message>
     <message>
       <source>To big file!</source>
-      <translation type="unfinished"/>
+      <translation>Te groot bestand!</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -2266,7 +2270,7 @@
     </message>
     <message>
       <source>Unread message</source>
-      <translation type="unfinished"/>
+      <translation>Ongelezen bericht</translation>
     </message>
   </context>
   <context>
@@ -2733,7 +2737,7 @@
     </message>
     <message>
       <source>Time zone</source>
-      <translation type="unfinished"/>
+      <translation>Tijdszone</translation>
     </message>
     <message>
       <source>Identifier</source>
@@ -2757,11 +2761,11 @@
     </message>
     <message>
       <source>Yes</source>
-      <translation type="unfinished"/>
+      <translation>Ja</translation>
     </message>
     <message>
       <source>No</source>
-      <translation type="unfinished"/>
+      <translation>Nee</translation>
     </message>
     <message>
       <source>User does not have any message from operator</source>
@@ -2853,11 +2857,11 @@
     </message>
     <message>
       <source>Online visitors list</source>
-      <translation type="unfinished"/>
+      <translation>Online bezoekers lijst</translation>
     </message>
     <message>
       <source>Online users on map</source>
-      <translation type="unfinished"/>
+      <translation>Online gebruikers op de kaart</translation>
     </message>
     <message>
       <source>Enable/Disable sound about new visitor</source>
@@ -3667,7 +3671,7 @@
     </message>
     <message>
       <source>Type your message to the operator</source>
-      <translation>Type uw bericht aan de operator</translation>
+      <translation>Typ uw bericht aan de operator</translation>
     </message>
   </context>
   <context>
@@ -4608,6 +4612,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Permissions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Do not enter a password unless you want to change it</source>
       <translation>Voer geen wachtwoord in tenzij u het wilt veranderen</translation>
     </message>
@@ -4668,6 +4676,10 @@
       <translation>Foto</translation>
     </message>
     <message>
+      <source>Delete</source>
+      <translation>Verwijder</translation>
+    </message>
+    <message>
       <source>Update</source>
       <translation>Update</translation>
     </message>
@@ -4700,12 +4712,12 @@
       <translation>Alle openstaande chats bekijken, niet alleen aan mij toegewezen</translation>
     </message>
     <message>
-      <source>Account updated</source>
-      <translation>Account geüpdate</translation>
+      <source>Show permissions</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Delete</source>
-      <translation>Verwijder</translation>
+      <source>Account updated</source>
+      <translation>Account geüpdate</translation>
     </message>
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
@@ -4774,7 +4786,7 @@
     </message>
     <message>
       <source>Type your question</source>
-      <translation>Type u vraag.</translation>
+      <translation>Typ uw vraag.</translation>
     </message>
     <message>
       <source>E-mail</source>
@@ -4965,7 +4977,7 @@
     </message>
     <message>
       <source>Allowed files types for operators</source>
-      <translation>Toegestane file types voor operators</translation>
+      <translation>Toegestane bestandstypen voor operators</translation>
     </message>
     <message>
       <source>Allowed files types for users</source>
@@ -6743,6 +6755,13 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Voer s.v.p. een geldig bestandstype in!</translation>
+    </message>
+  </context>
+  <context>
+    <name>permission/getpermissionsummary</name>
+    <message>
+      <source>Module/Function</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

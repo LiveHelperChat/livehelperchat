@@ -307,6 +307,10 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
+      <source>Widget copyright link</source>
+      <translation>Widget copyright link</translation>
+    </message>
+    <message>
       <source>Download theme</source>
       <translation>Download theme</translation>
     </message>
@@ -403,8 +407,8 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Widget copyright link</source>
-      <translation>Widget copyright link</translation>
+      <source>Site URL</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Text above start chat form fields</source>
@@ -4608,6 +4612,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Permissions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Do not enter a password unless you want to change it</source>
       <translation>Geben Sie hier nur ein Passwort ein, wenn Sie es aendern wollen</translation>
     </message>
@@ -4668,6 +4676,10 @@
       <translation>Foto</translation>
     </message>
     <message>
+      <source>Delete</source>
+      <translation>Löschen</translation>
+    </message>
+    <message>
       <source>Update</source>
       <translation>Update</translation>
     </message>
@@ -4700,12 +4712,12 @@
       <translation>Ich kann alle anstehenden Chats sehen, nicht nur die mir zugewiesen sind</translation>
     </message>
     <message>
-      <source>Account updated</source>
-      <translation>Konto-Update</translation>
+      <source>Show permissions</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Delete</source>
-      <translation>Löschen</translation>
+      <source>Account updated</source>
+      <translation>Konto-Update</translation>
     </message>
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
@@ -6743,6 +6755,13 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Bitte unterstütze Dateitypen verwenden!</translation>
+    </message>
+  </context>
+  <context>
+    <name>permission/getpermissionsummary</name>
+    <message>
+      <source>Module/Function</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

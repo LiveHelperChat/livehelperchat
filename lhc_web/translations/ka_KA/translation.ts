@@ -307,6 +307,10 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
+      <source>Widget copyright link</source>
+      <translation>ვიდჯერის საავტორო უფლების ბმული</translation>
+    </message>
+    <message>
       <source>Download theme</source>
       <translation>თემის ჩამოტვირთვა</translation>
     </message>
@@ -403,8 +407,8 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Widget copyright link</source>
-      <translation>ვიდჯერის საავტორო უფლების ბმული</translation>
+      <source>Site URL</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Text above start chat form fields</source>
@@ -4608,6 +4612,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Permissions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Do not enter a password unless you want to change it</source>
       <translation>არ შეიტანოთ პაროლი თუ არ გსურთ მისი შეცვლა</translation>
     </message>
@@ -4668,6 +4676,10 @@
       <translation>ფოტო</translation>
     </message>
     <message>
+      <source>Delete</source>
+      <translation>წაშლა</translation>
+    </message>
+    <message>
       <source>Update</source>
       <translation>განახლება</translation>
     </message>
@@ -4700,12 +4712,12 @@
       <translation>მე შემიძლია ვნახო ყველა მომლოდინე ჩეთი, არამხოლოდ ჩემთვის მოკუთვნებული</translation>
     </message>
     <message>
-      <source>Account updated</source>
-      <translation>ანგარიში განახლდა</translation>
+      <source>Show permissions</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Delete</source>
-      <translation>წაშლა</translation>
+      <source>Account updated</source>
+      <translation>ანგარიში განახლდა</translation>
     </message>
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
@@ -6743,6 +6755,13 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>გთხოვთ, შეიტანეთ ვალიდური ტიპის ფაილი!</translation>
+    </message>
+  </context>
+  <context>
+    <name>permission/getpermissionsummary</name>
+    <message>
+      <source>Module/Function</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

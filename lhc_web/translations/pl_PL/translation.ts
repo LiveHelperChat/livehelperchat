@@ -307,6 +307,10 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
+      <source>Widget copyright link</source>
+      <translation>Link widżetu praw autorskich</translation>
+    </message>
+    <message>
       <source>Download theme</source>
       <translation>Pobierz skórkę</translation>
     </message>
@@ -403,8 +407,8 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Widget copyright link</source>
-      <translation>Link widżetu praw autorskich</translation>
+      <source>Site URL</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Text above start chat form fields</source>
@@ -4609,6 +4613,10 @@ pokazywany</translation>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Permissions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Do not enter a password unless you want to change it</source>
       <translation>Nie należy wpisywać hasła, chyba że chcesz je zmienić</translation>
     </message>
@@ -4669,6 +4677,10 @@ pokazywany</translation>
       <translation>Zdjęcie</translation>
     </message>
     <message>
+      <source>Delete</source>
+      <translation>Usuń</translation>
+    </message>
+    <message>
       <source>Update</source>
       <translation>Aktualizacja</translation>
     </message>
@@ -4701,12 +4713,12 @@ pokazywany</translation>
       <translation>Mogę wyświetlić wszystkie rozmowy oczekujące, przypisane nie tylko do mnie</translation>
     </message>
     <message>
-      <source>Account updated</source>
-      <translation>Konto zaktualizowane</translation>
+      <source>Show permissions</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Delete</source>
-      <translation>Usuń</translation>
+      <source>Account updated</source>
+      <translation>Konto zaktualizowane</translation>
     </message>
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
@@ -6744,6 +6756,13 @@ pokazywany</translation>
     <message>
       <source>Please enter valid file type!</source>
       <translation>Podaj poprawny typ pliku!</translation>
+    </message>
+  </context>
+  <context>
+    <name>permission/getpermissionsummary</name>
+    <message>
+      <source>Module/Function</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

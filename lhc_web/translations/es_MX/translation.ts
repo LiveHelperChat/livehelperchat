@@ -147,7 +147,7 @@
     </message>
     <message>
       <source>Home page tabs order</source>
-      <translation type="unfinished"/>
+      <translation>Orden de las pestañas en la página de inicio</translation>
     </message>
     <message>
       <source>Is visitor e-mail required for FAQ</source>
@@ -175,7 +175,7 @@
     </message>
     <message>
       <source>Disable JS execution in Co-Browsing operator window</source>
-      <translation type="unfinished"/>
+      <translation>Deshabilitar la ejecución JS en la ventana compartida del operador.</translation>
     </message>
     <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
@@ -199,7 +199,7 @@
     </message>
     <message>
       <source>Which ip should not be allowed to chat</source>
-      <translation>Cuál IP no debería estar autorizada para chatear</translation>
+      <translation>Qué IP no debería estar autorizada para chatear</translation>
     </message>
     <message>
       <source>Automatic chats purging. 0 - disabled, n &gt; 0 time in minutes before chat is automatically deleted</source>
@@ -307,6 +307,10 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
+      <source>Widget copyright link</source>
+      <translation>Enlace para el widget de los derechos de autor</translation>
+    </message>
+    <message>
       <source>Download theme</source>
       <translation>Descargar tema</translation>
     </message>
@@ -403,8 +407,8 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Widget copyright link</source>
-      <translation>Enlace para el widget de los derechos de autor</translation>
+      <source>Site URL</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Text above start chat form fields</source>
@@ -480,7 +484,7 @@
     </message>
     <message>
       <source>Popup image</source>
-      <translation type="unfinished"/>
+      <translation>Imagen del popup</translation>
     </message>
     <message>
       <source>Widget themes</source>
@@ -566,7 +570,7 @@
     </message>
     <message>
       <source>How many times repeat message?</source>
-      <translation type="unfinished"/>
+      <translation>¿Cuántas veces se repite el mensaje?</translation>
     </message>
     <message>
       <source>Show visitor this message then wait timeout passes.</source>
@@ -684,7 +688,7 @@
     </message>
     <message>
       <source>For what domain you are generating embed code?</source>
-      <translation>¿Para qué dominio usted esta generando el código de incrustación?</translation>
+      <translation>¿Para qué dominio esta usted generando el código de incrustación?</translation>
     </message>
     <message>
       <source>example.com</source>
@@ -828,11 +832,11 @@
     </message>
     <message>
       <source>Set default speech recognition language</source>
-      <translation type="unfinished"/>
+      <translation>Configurar el idioma predeterminado del dictado</translation>
     </message>
     <message>
       <source>Speech language</source>
-      <translation type="unfinished"/>
+      <translation>Idioma del dictado</translation>
     </message>
     <message>
       <source>Hide status when offline</source>
@@ -928,7 +932,7 @@
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>
-      <translation type="unfinished"/>
+      <translation>Por favor no incluya el protocolo, solo es necesario el nombre de dominio</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -1080,7 +1084,7 @@
     </message>
     <message>
       <source>Choose department</source>
-      <translation type="unfinished"/>
+      <translation>Elige departamento</translation>
     </message>
   </context>
   <context>
@@ -1155,7 +1159,7 @@
     </message>
     <message>
       <source>Switch to widget</source>
-      <translation type="unfinished"/>
+      <translation>Cambiar al widget</translation>
     </message>
     <message>
       <source>Visitor</source>
@@ -1724,7 +1728,7 @@
     </message>
     <message>
       <source>User browsing information</source>
-      <translation type="unfinished"/>
+      <translation>Información de navegación del usuario</translation>
     </message>
     <message>
       <source>Chats</source>
@@ -1736,7 +1740,7 @@
     </message>
     <message>
       <source>Notes</source>
-      <translation type="unfinished"/>
+      <translation>Notas</translation>
     </message>
     <message>
       <source>Send</source>
@@ -1771,55 +1775,55 @@
     <name>chat/translation</name>
     <message>
       <source>Visitor language</source>
-      <translation type="unfinished"/>
+      <translation>Idioma del visitante</translation>
     </message>
     <message>
       <source>My language</source>
-      <translation type="unfinished"/>
+      <translation>Mi idioma</translation>
     </message>
     <message>
       <source>Auto translate</source>
-      <translation type="unfinished"/>
+      <translation>Auto traducir</translation>
     </message>
     <message>
       <source>Translating</source>
-      <translation type="unfinished"/>
+      <translation>Traduciendo</translation>
     </message>
     <message>
       <source>Automatically detected</source>
-      <translation type="unfinished"/>
+      <translation>Detectado automáticamente</translation>
     </message>
     <message>
       <source>Automatic translation</source>
-      <translation type="unfinished"/>
+      <translation>Traducción automática</translation>
     </message>
     <message>
       <source>Translation settings</source>
-      <translation type="unfinished"/>
+      <translation>Ajustes de traducción</translation>
     </message>
     <message>
       <source>Enter text for testing purposes</source>
-      <translation type="unfinished"/>
+      <translation>Escribe un texto a modo de prueba</translation>
     </message>
     <message>
       <source>Translated text</source>
-      <translation type="unfinished"/>
+      <translation>Texto traducido</translation>
     </message>
     <message>
       <source>Detected language</source>
-      <translation type="unfinished"/>
+      <translation>Idioma detectado</translation>
     </message>
     <message>
       <source>Detect language</source>
-      <translation type="unfinished"/>
+      <translation>Detectar Idioma</translation>
     </message>
     <message>
       <source>Translate</source>
-      <translation type="unfinished"/>
+      <translation>Traducir</translation>
     </message>
     <message>
       <source>Enable translation service</source>
-      <translation type="unfinished"/>
+      <translation>Habilitar el servicio de traducción</translation>
     </message>
     <message>
       <source>Bing</source>
@@ -1831,11 +1835,11 @@
     </message>
     <message>
       <source>Use Bing service</source>
-      <translation type="unfinished"/>
+      <translation>Usar el servicio de Bing</translation>
     </message>
     <message>
       <source>Bing client ID</source>
-      <translation type="unfinished"/>
+      <translation>ID de cliente de Bing</translation>
     </message>
     <message>
       <source>Bing client secret, key is never shown for security purposes</source>
@@ -4608,6 +4612,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Permissions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Do not enter a password unless you want to change it</source>
       <translation>No escriba una contraseña a menos que desee cambiar la actual</translation>
     </message>
@@ -4668,6 +4676,10 @@
       <translation>Foto</translation>
     </message>
     <message>
+      <source>Delete</source>
+      <translation>Borrar</translation>
+    </message>
+    <message>
       <source>Update</source>
       <translation>Actualizar</translation>
     </message>
@@ -4700,12 +4712,12 @@
       <translation>Puedo ver todos los chats pendientes, no solo los que se me han asignado</translation>
     </message>
     <message>
-      <source>Account updated</source>
-      <translation>Cuenta actualizada</translation>
+      <source>Show permissions</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Delete</source>
-      <translation>Borrar</translation>
+      <source>Account updated</source>
+      <translation>Cuenta actualizada</translation>
     </message>
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
@@ -6743,6 +6755,13 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Por favor, introduzca un tipo de archivo válido</translation>
+    </message>
+  </context>
+  <context>
+    <name>permission/getpermissionsummary</name>
+    <message>
+      <source>Module/Function</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

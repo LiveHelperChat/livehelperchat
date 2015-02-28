@@ -307,6 +307,10 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
+      <source>Widget copyright link</source>
+      <translation>Odkaz copyrightu widgetu</translation>
+    </message>
+    <message>
       <source>Download theme</source>
       <translation>Stáhnout téma</translation>
     </message>
@@ -403,8 +407,8 @@
       <translation>Vnitřní odsazení hlavičky (px)</translation>
     </message>
     <message>
-      <source>Widget copyright link</source>
-      <translation>Odkaz copyrightu widgetu</translation>
+      <source>Site URL</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Text above start chat form fields</source>
@@ -1863,7 +1867,7 @@
     </message>
     <message>
       <source>Could not detect language</source>
-      <translation type="unfinished"/>
+      <translation>Jazyk nebyl rozpoznán</translation>
     </message>
     <message>
       <source>Could not translate</source>
@@ -1871,11 +1875,11 @@
     </message>
     <message>
       <source>We could not detect operator language</source>
-      <translation type="unfinished"/>
+      <translation>Jazyk operátora nebyl rozpoznán</translation>
     </message>
     <message>
       <source>Detected operator and visitor languages matches, please choose languages manually</source>
-      <translation type="unfinished"/>
+      <translation>Jazyky návštěvníka a operátora jsou shodné, změnte je manuálně</translation>
     </message>
     <message>
       <source>Translation configuration</source>
@@ -1883,15 +1887,15 @@
     </message>
     <message>
       <source>Chat messages automatic translations has been stopped</source>
-      <translation type="unfinished"/>
+      <translation>Automatický překlad zpráv v chatu byl zastaven</translation>
     </message>
     <message>
       <source>Messages has been translated</source>
-      <translation type="unfinished"/>
+      <translation>Zprávy byly přeloženy</translation>
     </message>
     <message>
       <source>Please choose translation languages manually and click Auto translate</source>
-      <translation type="unfinished"/>
+      <translation>Vyberte jazyky pro překlad a klikněte na Automatický překlad</translation>
     </message>
   </context>
   <context>
@@ -3952,11 +3956,11 @@
     </message>
     <message>
       <source>Number of chats by user</source>
-      <translation type="unfinished"/>
+      <translation>Počet rozhovorů podle uživatele</translation>
     </message>
     <message>
       <source>Wait time</source>
-      <translation type="unfinished"/>
+      <translation>Čekací doba</translation>
     </message>
     <message>
       <source>AVG visitor wait time by operator</source>
@@ -3996,7 +4000,7 @@
     </message>
     <message>
       <source>Time</source>
-      <translation type="unfinished"/>
+      <translation>Čas</translation>
     </message>
     <message>
       <source>AVG wait time in seconds, max 10 mininutes</source>
@@ -4608,6 +4612,10 @@
       <translation>Řeč</translation>
     </message>
     <message>
+      <source>Permissions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Do not enter a password unless you want to change it</source>
       <translation>Nezadávejte heslo, pokud jej nechcete změnit</translation>
     </message>
@@ -4668,6 +4676,10 @@
       <translation>Fotografie</translation>
     </message>
     <message>
+      <source>Delete</source>
+      <translation>Smazat</translation>
+    </message>
+    <message>
       <source>Update</source>
       <translation>Aktualizovat</translation>
     </message>
@@ -4700,12 +4712,12 @@
       <translation>Mohu vidět všechny čekající rozhovory, ne pouze ty přiřazené mně</translation>
     </message>
     <message>
-      <source>Account updated</source>
-      <translation>Účet aktualizován</translation>
+      <source>Show permissions</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Delete</source>
-      <translation>Smazat</translation>
+      <source>Account updated</source>
+      <translation>Účet aktualizován</translation>
     </message>
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
@@ -6743,6 +6755,13 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Prosím vyberte platný typ souboru!</translation>
+    </message>
+  </context>
+  <context>
+    <name>permission/getpermissionsummary</name>
+    <message>
+      <source>Module/Function</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

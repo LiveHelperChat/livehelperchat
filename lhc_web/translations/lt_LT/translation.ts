@@ -307,6 +307,10 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
+      <source>Widget copyright link</source>
+      <translation>Widgeto autorystės nuoroda</translation>
+    </message>
+    <message>
       <source>Download theme</source>
       <translation>Parsisiųsti temą</translation>
     </message>
@@ -403,8 +407,8 @@
       <translation>Antraštės atitraukimas (px)</translation>
     </message>
     <message>
-      <source>Widget copyright link</source>
-      <translation>Widgeto autorystės nuoroda</translation>
+      <source>Site URL</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Text above start chat form fields</source>
@@ -4608,6 +4612,10 @@
       <translation>Kalba</translation>
     </message>
     <message>
+      <source>Permissions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Do not enter a password unless you want to change it</source>
       <translation>Neveskite slaptažodžio nebent norite jį pakeisti</translation>
     </message>
@@ -4668,6 +4676,10 @@
       <translation>Nuotrauka</translation>
     </message>
     <message>
+      <source>Delete</source>
+      <translation>Trinti</translation>
+    </message>
+    <message>
       <source>Update</source>
       <translation>Atnaujinti</translation>
     </message>
@@ -4700,12 +4712,12 @@
       <translation>Aš galiu matyti visus pokalbius, ne tik priskirtus man</translation>
     </message>
     <message>
-      <source>Account updated</source>
-      <translation>Paskyros duomenys buvo atnaujinti</translation>
+      <source>Show permissions</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Delete</source>
-      <translation>Trinti</translation>
+      <source>Account updated</source>
+      <translation>Paskyros duomenys buvo atnaujinti</translation>
     </message>
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
@@ -6743,6 +6755,13 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Prašome pasirinkti korektišką failo tipą!</translation>
+    </message>
+  </context>
+  <context>
+    <name>permission/getpermissionsummary</name>
+    <message>
+      <source>Module/Function</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

@@ -7,15 +7,15 @@
     </message>
     <message>
       <source>Use secure cookie, check this if you want to force SSL all the time</source>
-      <translation type="unfinished"/>
+      <translation>Bruk sikker informasjonkapsler, sjekk denne dersom du ønsker bruk av SSL.</translation>
     </message>
     <message>
       <source>Which ip should be allowed to update DB by executing http request, separate by comma?</source>
-      <translation type="unfinished"/>
+      <translation>Hvilke IP-adresse skal få lov til å oppdatere databasen gjennom en http-forespørsel? Separer med komma.</translation>
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
-      <translation type="unfinished"/>
+      <translation>Slå på &quot;hvis hvem som er pålogget&quot;-funksjon</translation>
     </message>
     <message>
       <source>Track is user still on site, chat status checks also has to be enabled</source>
@@ -23,7 +23,7 @@
     </message>
     <message>
       <source>Track online visitors even if there is no online operators</source>
-      <translation type="unfinished"/>
+      <translation>Loggfør påloggede brukere selv om det ikke er noen operatører pålogget</translation>
     </message>
     <message>
       <source>Track users footprint. For this also online visitors tracking should be enabled</source>
@@ -234,7 +234,7 @@
     <name>system/buttons</name>
     <message>
       <source>Save</source>
-      <translation>lagre</translation>
+      <translation>Lagre</translation>
     </message>
     <message>
       <source>Update</source>
@@ -306,6 +306,10 @@
   </context>
   <context>
     <name>abstract/widgettheme</name>
+    <message>
+      <source>Widget copyright link</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Download theme</source>
       <translation type="unfinished"/>
@@ -403,7 +407,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Widget copyright link</source>
+      <source>Site URL</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -507,11 +511,11 @@
     </message>
     <message>
       <source>Need help?</source>
-      <translation type="unfinished"/>
+      <translation>Trenger du hjelp?</translation>
     </message>
     <message>
       <source>Our staff is always ready to help</source>
-      <translation type="unfinished"/>
+      <translation>Vi er alltid tilgjengelig for deg.</translation>
     </message>
     <message>
       <source>Live help is offline...</source>
@@ -2170,7 +2174,7 @@
     </message>
     <message>
       <source>Fill out this form to start a chat</source>
-      <translation>Fyll ut skjema for å starte samtale</translation>
+      <translation>Fyll ut skjemaet for å starte en samtale.</translation>
     </message>
     <message>
       <source>There are no online operators at the moment, please leave your message</source>
@@ -2262,7 +2266,7 @@
     </message>
     <message>
       <source>Fill in the form to start a chat</source>
-      <translation>Fyll ut skjema for å starte samtale</translation>
+      <translation>Fyll ut skjemaet for å starte en samtale.</translation>
     </message>
     <message>
       <source>Unread message</source>
@@ -4608,6 +4612,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Permissions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Do not enter a password unless you want to change it</source>
       <translation>Skriv ikke inn en passord med mindre du vil endre det</translation>
     </message>
@@ -4668,6 +4676,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Delete</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Update</source>
       <translation>Oppdatere</translation>
     </message>
@@ -4700,12 +4712,12 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Account updated</source>
-      <translation>Konto oppdatert</translation>
+      <source>Show permissions</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Delete</source>
-      <translation type="unfinished"/>
+      <source>Account updated</source>
+      <translation>Konto oppdatert</translation>
     </message>
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
@@ -6742,6 +6754,13 @@
     <name>file/configurations</name>
     <message>
       <source>Please enter valid file type!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>permission/getpermissionsummary</name>
+    <message>
+      <source>Module/Function</source>
       <translation type="unfinished"/>
     </message>
   </context>

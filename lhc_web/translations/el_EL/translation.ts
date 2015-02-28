@@ -307,6 +307,10 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
+      <source>Widget copyright link</source>
+      <translation>Widget, πνευματικής ιδιοκτησίας σύνδεση</translation>
+    </message>
+    <message>
       <source>Download theme</source>
       <translation>Κατεβάστε θέμα</translation>
     </message>
@@ -403,8 +407,8 @@
       <translation>Κεφαλίδα αναπλήρωση (px)</translation>
     </message>
     <message>
-      <source>Widget copyright link</source>
-      <translation>Widget, πνευματικής ιδιοκτησίας σύνδεση</translation>
+      <source>Site URL</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Text above start chat form fields</source>
@@ -4608,6 +4612,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Permissions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Do not enter a password unless you want to change it</source>
       <translation>Μην εισάγετε έναν κωδικό πρόσβασης, αν δεν θέλετε να το αλλάξετε</translation>
     </message>
@@ -4668,6 +4676,10 @@
       <translation>Φωτογραφία</translation>
     </message>
     <message>
+      <source>Delete</source>
+      <translation>Διαγραφή</translation>
+    </message>
+    <message>
       <source>Update</source>
       <translation>Ενημέρωση</translation>
     </message>
@@ -4700,12 +4712,12 @@
       <translation>Μπορώ να δω όλα σε εκκρεμότητα συνομιλίες, όχι μόνο που μου έχουν ανατεθεί</translation>
     </message>
     <message>
-      <source>Account updated</source>
-      <translation>Ο λογαριασμός ενημερώθηκε</translation>
+      <source>Show permissions</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Delete</source>
-      <translation>Διαγραφή</translation>
+      <source>Account updated</source>
+      <translation>Ο λογαριασμός ενημερώθηκε</translation>
     </message>
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
@@ -6743,6 +6755,13 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Παρακαλούμε, εισάγετε έγκυρο αρχείο τύπου!</translation>
+    </message>
+  </context>
+  <context>
+    <name>permission/getpermissionsummary</name>
+    <message>
+      <source>Module/Function</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

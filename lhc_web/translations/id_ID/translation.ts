@@ -307,6 +307,10 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
+      <source>Widget copyright link</source>
+      <translation>Tautan hak cipta Widget</translation>
+    </message>
+    <message>
       <source>Download theme</source>
       <translation>Unduh tema</translation>
     </message>
@@ -403,8 +407,8 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Widget copyright link</source>
-      <translation>Tautan hak cipta Widget</translation>
+      <source>Site URL</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Text above start chat form fields</source>
@@ -4608,6 +4612,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Permissions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Do not enter a password unless you want to change it</source>
       <translation>Jangan masukkan kata sandi kecuali anda ingin menggantinya</translation>
     </message>
@@ -4668,6 +4676,10 @@
       <translation>Foto</translation>
     </message>
     <message>
+      <source>Delete</source>
+      <translation>Hapus</translation>
+    </message>
+    <message>
       <source>Update</source>
       <translation>Perbarui</translation>
     </message>
@@ -4700,12 +4712,12 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Account updated</source>
-      <translation>Akun diperbarui</translation>
+      <source>Show permissions</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Delete</source>
-      <translation>Hapus</translation>
+      <source>Account updated</source>
+      <translation>Akun diperbarui</translation>
     </message>
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
@@ -6743,6 +6755,13 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Silakan masukkan tipe berkas yang sah!</translation>
+    </message>
+  </context>
+  <context>
+    <name>permission/getpermissionsummary</name>
+    <message>
+      <source>Module/Function</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

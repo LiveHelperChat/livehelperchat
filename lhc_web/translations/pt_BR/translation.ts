@@ -307,6 +307,10 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
+      <source>Widget copyright link</source>
+      <translation>Widget link de copyright </translation>
+    </message>
+    <message>
       <source>Download theme</source>
       <translation>Baixar tema</translation>
     </message>
@@ -403,8 +407,8 @@
       <translation>Preenchimento do cabeçalho (px)</translation>
     </message>
     <message>
-      <source>Widget copyright link</source>
-      <translation>Widget link de copyright </translation>
+      <source>Site URL</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Text above start chat form fields</source>
@@ -4608,6 +4612,10 @@
       <translation>Falar</translation>
     </message>
     <message>
+      <source>Permissions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Do not enter a password unless you want to change it</source>
       <translation>Não informe uma senha a não ser que você deseje alterá-la</translation>
     </message>
@@ -4668,6 +4676,10 @@
       <translation>Foto</translation>
     </message>
     <message>
+      <source>Delete</source>
+      <translation>Apagar</translation>
+    </message>
+    <message>
       <source>Update</source>
       <translation>Atualizar</translation>
     </message>
@@ -4700,12 +4712,12 @@
       <translation>Eu posso ver todos os chats pendentes, não apenas os encaminhados para mim</translation>
     </message>
     <message>
-      <source>Account updated</source>
-      <translation>Cadastro atualizado</translation>
+      <source>Show permissions</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Delete</source>
-      <translation>Apagar</translation>
+      <source>Account updated</source>
+      <translation>Cadastro atualizado</translation>
     </message>
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
@@ -6743,6 +6755,13 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Por favor insira um tipo de arquivo válido!</translation>
+    </message>
+  </context>
+  <context>
+    <name>permission/getpermissionsummary</name>
+    <message>
+      <source>Module/Function</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

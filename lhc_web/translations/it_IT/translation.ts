@@ -307,6 +307,10 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
+      <source>Widget copyright link</source>
+      <translation>Link copyright del widget</translation>
+    </message>
+    <message>
       <source>Download theme</source>
       <translation>Scarica tema</translation>
     </message>
@@ -403,8 +407,8 @@
       <translation>Altezza intestazione (px)</translation>
     </message>
     <message>
-      <source>Widget copyright link</source>
-      <translation>Link copyright del widget</translation>
+      <source>Site URL</source>
+      <translation>URL sito web</translation>
     </message>
     <message>
       <source>Text above start chat form fields</source>
@@ -1546,7 +1550,7 @@
     </message>
     <message>
       <source>Chat was deleted</source>
-      <translation>Chat è stata cancellata</translation>
+      <translation>La chat è stata cancellata.</translation>
     </message>
   </context>
   <context>
@@ -3609,7 +3613,7 @@
     </message>
     <message>
       <source>Mail was sent to the user</source>
-      <translation>Mail è stata inviata all&apos;utente</translation>
+      <translation>e-mail inviata con successo all&apos;utente</translation>
     </message>
     <message>
       <source>Please enter recipient e-mail!</source>
@@ -3961,7 +3965,7 @@
     </message>
     <message>
       <source>AVG visitor wait time by operator</source>
-      <translation type="unfinished"/>
+      <translation>Tempo medio di attesa dall&apos;operatore</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -4001,7 +4005,7 @@
     </message>
     <message>
       <source>AVG wait time in seconds, max 10 mininutes</source>
-      <translation type="unfinished"/>
+      <translation>Tempo medio di attesa in secondi, massimo 10 minuti</translation>
     </message>
     <message>
       <source>Visitors initiated</source>
@@ -4609,6 +4613,10 @@
       <translation>Discorso</translation>
     </message>
     <message>
+      <source>Permissions</source>
+      <translation>Permessi</translation>
+    </message>
+    <message>
       <source>Do not enter a password unless you want to change it</source>
       <translation>Non immettere una password a meno che non si vuole cambiare</translation>
     </message>
@@ -4669,6 +4677,10 @@
       <translation>Foto</translation>
     </message>
     <message>
+      <source>Delete</source>
+      <translation>Cancella</translation>
+    </message>
+    <message>
       <source>Update</source>
       <translation>Aggiorna</translation>
     </message>
@@ -4701,12 +4713,12 @@
       <translation>Puoi vedere tutte le chat in attesa non solo quelle  a te assegnate </translation>
     </message>
     <message>
-      <source>Account updated</source>
-      <translation>Account aggiornato</translation>
+      <source>Show permissions</source>
+      <translation>Mostra permessi</translation>
     </message>
     <message>
-      <source>Delete</source>
-      <translation>Cancella</translation>
+      <source>Account updated</source>
+      <translation>Account aggiornato</translation>
     </message>
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
@@ -6744,6 +6756,13 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Inserisci un formato file valido!</translation>
+    </message>
+  </context>
+  <context>
+    <name>permission/getpermissionsummary</name>
+    <message>
+      <source>Module/Function</source>
+      <translation>Moduli/Funzioni</translation>
     </message>
   </context>
 </TS>

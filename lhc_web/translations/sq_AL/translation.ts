@@ -307,6 +307,10 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
+      <source>Widget copyright link</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Download theme</source>
       <translation type="unfinished"/>
     </message>
@@ -403,7 +407,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Widget copyright link</source>
+      <source>Site URL</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4609,6 +4613,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Permissions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Do not enter a password unless you want to change it</source>
       <translation>Mos futni një fjalëkalim nëse nuk doni qe ta ndryshoni atë</translation>
     </message>
@@ -4669,6 +4677,10 @@
       <translation>Foto</translation>
     </message>
     <message>
+      <source>Delete</source>
+      <translation>Fshi</translation>
+    </message>
+    <message>
       <source>Update</source>
       <translation>Rifresko</translation>
     </message>
@@ -4701,12 +4713,12 @@
       <translation>Mund te shoh te gjitha bisedat ne pritje,te cilat nuk jane caktuar tek une</translation>
     </message>
     <message>
-      <source>Account updated</source>
-      <translation>Rifreskimi i llogarise</translation>
+      <source>Show permissions</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Delete</source>
-      <translation>Fshi</translation>
+      <source>Account updated</source>
+      <translation>Rifreskimi i llogarise</translation>
     </message>
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
@@ -6743,6 +6755,13 @@
     <name>file/configurations</name>
     <message>
       <source>Please enter valid file type!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>permission/getpermissionsummary</name>
+    <message>
+      <source>Module/Function</source>
       <translation type="unfinished"/>
     </message>
   </context>

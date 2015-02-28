@@ -307,6 +307,10 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
+      <source>Widget copyright link</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Download theme</source>
       <translation type="unfinished"/>
     </message>
@@ -403,7 +407,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Widget copyright link</source>
+      <source>Site URL</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4608,6 +4612,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Permissions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Do not enter a password unless you want to change it</source>
       <translation type="unfinished"/>
     </message>
@@ -4668,6 +4676,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Delete</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Update</source>
       <translation>حدِّث</translation>
     </message>
@@ -4700,12 +4712,12 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Account updated</source>
-      <translation>حدِّث الحساب</translation>
+      <source>Show permissions</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Delete</source>
-      <translation type="unfinished"/>
+      <source>Account updated</source>
+      <translation>حدِّث الحساب</translation>
     </message>
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
@@ -6742,6 +6754,13 @@
     <name>file/configurations</name>
     <message>
       <source>Please enter valid file type!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>permission/getpermissionsummary</name>
+    <message>
+      <source>Module/Function</source>
       <translation type="unfinished"/>
     </message>
   </context>

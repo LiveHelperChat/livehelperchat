@@ -307,6 +307,10 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
+      <source>Widget copyright link</source>
+      <translation>版权小部件的链接</translation>
+    </message>
+    <message>
       <source>Download theme</source>
       <translation>下载主题</translation>
     </message>
@@ -403,8 +407,8 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Widget copyright link</source>
-      <translation>版权小部件的链接</translation>
+      <source>Site URL</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Text above start chat form fields</source>
@@ -4608,6 +4612,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Permissions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Do not enter a password unless you want to change it</source>
       <translation>不要输入密码，除非你想改变它</translation>
     </message>
@@ -4668,6 +4676,10 @@
       <translation>照片</translation>
     </message>
     <message>
+      <source>Delete</source>
+      <translation>删除</translation>
+    </message>
+    <message>
       <source>Update</source>
       <translation>更新</translation>
     </message>
@@ -4700,12 +4712,12 @@
       <translation>我可以看到所有待定的聊天，不只是分配给我的</translation>
     </message>
     <message>
-      <source>Account updated</source>
-      <translation>帐户更新</translation>
+      <source>Show permissions</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Delete</source>
-      <translation>删除</translation>
+      <source>Account updated</source>
+      <translation>帐户更新</translation>
     </message>
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
@@ -6743,6 +6755,13 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>请输入有效的文件类型 ！</translation>
+    </message>
+  </context>
+  <context>
+    <name>permission/getpermissionsummary</name>
+    <message>
+      <source>Module/Function</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

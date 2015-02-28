@@ -307,6 +307,10 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
+      <source>Widget copyright link</source>
+      <translation>Авторски права линк</translation>
+    </message>
+    <message>
       <source>Download theme</source>
       <translation>Свали темата</translation>
     </message>
@@ -403,8 +407,8 @@
       <translation>Вътрешен отстъп на заглавната част (пиксели)</translation>
     </message>
     <message>
-      <source>Widget copyright link</source>
-      <translation>Авторски права линк</translation>
+      <source>Site URL</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Text above start chat form fields</source>
@@ -4608,6 +4612,10 @@
       <translation>Реч</translation>
     </message>
     <message>
+      <source>Permissions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Do not enter a password unless you want to change it</source>
       <translation>Не вкарвайте парола, освен ако не искате да я промените</translation>
     </message>
@@ -4668,6 +4676,10 @@
       <translation>Снимка</translation>
     </message>
     <message>
+      <source>Delete</source>
+      <translation>Изтриване</translation>
+    </message>
+    <message>
       <source>Update</source>
       <translation>Обновяване</translation>
     </message>
@@ -4700,12 +4712,12 @@
       <translation>Мога да виждам всички изчакващи чатове, не само тези, насочени към мен</translation>
     </message>
     <message>
-      <source>Account updated</source>
-      <translation>Сметката беше обновена</translation>
+      <source>Show permissions</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Delete</source>
-      <translation>Изтриване</translation>
+      <source>Account updated</source>
+      <translation>Сметката беше обновена</translation>
     </message>
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
@@ -6743,6 +6755,13 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Въведете валиден формат!</translation>
+    </message>
+  </context>
+  <context>
+    <name>permission/getpermissionsummary</name>
+    <message>
+      <source>Module/Function</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

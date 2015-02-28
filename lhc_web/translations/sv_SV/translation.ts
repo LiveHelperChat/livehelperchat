@@ -307,6 +307,10 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
+      <source>Widget copyright link</source>
+      <translation>Widget copyrightlänk</translation>
+    </message>
+    <message>
       <source>Download theme</source>
       <translation>Ladda ned stil</translation>
     </message>
@@ -403,8 +407,8 @@
       <translation>Spaltfyllnad för headern (px)</translation>
     </message>
     <message>
-      <source>Widget copyright link</source>
-      <translation>Widget copyrightlänk</translation>
+      <source>Site URL</source>
+      <translation>Sidans webbadress</translation>
     </message>
     <message>
       <source>Text above start chat form fields</source>
@@ -4608,6 +4612,10 @@
       <translation>Tal</translation>
     </message>
     <message>
+      <source>Permissions</source>
+      <translation>Behörigheter</translation>
+    </message>
+    <message>
       <source>Do not enter a password unless you want to change it</source>
       <translation>Skriv inte in ett lösenord om du inte vill ändra det</translation>
     </message>
@@ -4668,6 +4676,10 @@
       <translation>Foto</translation>
     </message>
     <message>
+      <source>Delete</source>
+      <translation>Ta bort</translation>
+    </message>
+    <message>
       <source>Update</source>
       <translation>Uppdatera</translation>
     </message>
@@ -4700,12 +4712,12 @@
       <translation>Jag kan se alla väntande chattar, inte endast dem som är tilldelade mig</translation>
     </message>
     <message>
-      <source>Account updated</source>
-      <translation>Konto uppdaterat</translation>
+      <source>Show permissions</source>
+      <translation>Visa behörigheter</translation>
     </message>
     <message>
-      <source>Delete</source>
-      <translation>Ta bort</translation>
+      <source>Account updated</source>
+      <translation>Konto uppdaterat</translation>
     </message>
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
@@ -6743,6 +6755,13 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Vänligen ange en giltig filtyp!</translation>
+    </message>
+  </context>
+  <context>
+    <name>permission/getpermissionsummary</name>
+    <message>
+      <source>Module/Function</source>
+      <translation>Modul/funktion</translation>
     </message>
   </context>
 </TS>
