@@ -21,6 +21,7 @@ class erLhcoreClassModelUser {
 			   'time_zone'     	 => $this->time_zone,
 			   'invisible_mode'  => $this->invisible_mode,
 			   'xmpp_username'   => $this->xmpp_username,
+			   'rec_per_req'     => $this->rec_per_req,
        );
    }
 
@@ -350,6 +351,7 @@ class erLhcoreClassModelUser {
     public $all_departments = 0;
     public $invisible_mode = 0;
     public $time_zone = '';
+    public $rec_per_req = '';
 }
 
 ?>

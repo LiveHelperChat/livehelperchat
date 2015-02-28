@@ -21,7 +21,8 @@ var lhc_ChatboxPage = {
     getAppendRequestArguments : function() {
 		    var nickOption = (typeof LHCChatboxOptionsEmbed.nick !== 'undefined') ?  '&nick='+encodeURIComponent(LHCChatboxOptionsEmbed.nick) : (this.cookieData.nick ? '&nick='+encodeURIComponent(this.cookieData.nick) : '');
 		    var disableOption = (typeof LHCChatboxOptionsEmbed.disable_nick_change !== 'undefined') ?  '&dnc=true' : '';
-		    return nickOption+disableOption;
+		    var chatboxName = (typeof LHCChatboxOptionsEmbed.chatbox_name !== 'undefined') ?  '&chtbx_name='+encodeURIComponent(LHCChatboxOptionsEmbed.chatbox_name) : '';
+		    return nickOption+disableOption+chatboxName;
     },
 
 	getAppendCookieArguments : function() {

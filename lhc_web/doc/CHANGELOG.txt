@@ -1,6 +1,7 @@
 2.25v
 
 1. Posibility to disable groups. Thats the only stuff will be done regarding https://github.com/LiveHelperChat/livehelperchat/issues/626
+2. Company name for theme. https://github.com/LiveHelperChat/livehelperchat/issues/644
 
 execute doc/update_db/update_102.sql for update
 

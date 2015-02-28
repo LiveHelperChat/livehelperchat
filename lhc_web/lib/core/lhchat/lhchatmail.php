@@ -89,9 +89,9 @@ class erLhcoreClassChatMail {
     	$Errors = array();
 
     	if (isset($params['archive_mode']) && $params['archive_mode'] == true){
-    		$messages = array_reverse(erLhcoreClassChat::getList(array('limit' => 100, 'sort' => 'id DESC', 'filter' => array('chat_id' => $chat->id)),'erLhcoreClassModelChatArchiveMsg',erLhcoreClassModelChatArchiveRange::$archiveMsgTable));
+    		$messages = array_reverse(erLhcoreClassChat::getList(array('limit' => 100, 'sort' => 'id DESC','customfilter' => array('user_id != -1'), 'filter' => array('chat_id' => $chat->id)),'erLhcoreClassModelChatArchiveMsg',erLhcoreClassModelChatArchiveRange::$archiveMsgTable));
     	} else {
-    		$messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 100,'sort' => 'id DESC','filter' => array('chat_id' => $chat->id))));
+    		$messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 100,'sort' => 'id DESC','customfilter' => array('user_id != -1'), 'filter' => array('chat_id' => $chat->id))));
     	}
     	
     	// Fetch chat messages
@@ -214,6 +214,29 @@ class erLhcoreClassChatMail {
     	self::setupSMTP($mail);
     	
     	$mail->Send();    	
+    }
+    
+    public static function sendMailRequestPermission(erLhcoreClassModelUser $recipient, erLhcoreClassModelUser $sender, $requestedPermissions) {
+        $sendMail = erLhAbstractModelEmailTemplate::fetch(10);
+        
+        $mail = new PHPMailer();
+        $mail->CharSet = "UTF-8";
+        
+        if ($sendMail->from_email != '') {
+            $mail->From = $mail->Sender = $sendMail->from_email;
+        }
+                     
+        $mail->Subject = str_replace(array('{user}'),array((string)$sender),$sendMail->subject);
+        $mail->AddReplyTo($sender->email,(string)$sender);
+                 
+        $mail->Body = str_replace(array('{permissions}','{user}'), array($requestedPermissions,(string)$sender), $sendMail->content);
+        
+        $mail->AddAddress( $recipient->email );
+        
+        self::setupSMTP($mail);
+                     
+        $mail->Send();
+        $mail->ClearAddresses();
     }
     
     public static function sendMailRequest($inputData, erLhcoreClassModelChat $chat, $params = array()) {

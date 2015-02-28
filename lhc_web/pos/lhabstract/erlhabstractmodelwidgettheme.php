@@ -14,6 +14,11 @@ $def->properties['name']->columnName   = 'name';
 $def->properties['name']->propertyName = 'name';
 $def->properties['name']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['name_company'] = new ezcPersistentObjectProperty();
+$def->properties['name_company']->columnName   = 'name_company';
+$def->properties['name_company']->propertyName = 'name_company';
+$def->properties['name_company']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 $def->properties['onl_bcolor'] = new ezcPersistentObjectProperty();
 $def->properties['onl_bcolor']->columnName   = 'onl_bcolor';
 $def->properties['onl_bcolor']->propertyName = 'onl_bcolor';

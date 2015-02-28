@@ -162,6 +162,9 @@ if (isset($_POST['Update']))
    		),
    		'UserInvisible' => new ezcInputFormDefinitionElement(
    				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+   		),
+   		'ReceivePermissionRequest' => new ezcInputFormDefinitionElement(
+   				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
    		)
     );
 
@@ -228,6 +231,14 @@ if (isset($_POST['Update']))
 	    	$UserData->invisible_mode = 1;
 	    } else {
 	    	$UserData->invisible_mode = 0;
+	    }
+    }
+    
+    if ( erLhcoreClassUser::instance()->hasAccessTo('lhuser','receivepermissionrequest') ) {
+	    if ( $form->hasValidData( 'ReceivePermissionRequest' ) && $form->ReceivePermissionRequest == true ) {
+	    	$UserData->rec_per_req = 1;
+	    } else {
+	    	$UserData->rec_per_req = 0;
 	    }
     }
     

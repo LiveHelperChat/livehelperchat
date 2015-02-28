@@ -39,7 +39,6 @@
 	<?php endif;?>
 </ul>
 
-
 <div class="tab-content">
 	<div role="tabpanel" class="tab-pane <?php if ($tab == '') : ?>active<?php endif;?>" id="account">
 		<div class="explain"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Do not enter a password unless you want to change it');?></div>
@@ -70,16 +69,29 @@
 			</div>
 	    <?php include(erLhcoreClassDesign::designtpl('lhuser/parts/time_zone.tpl.php'));?>
 	    
-	   	<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','changevisibility')) : ?>
-		<label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Chat status will not change upon pending chat opening');?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Invisible mode')?>&nbsp;<input type="checkbox" value="on" name="UserInvisible" <?php echo $user->invisible_mode == 1 ? 'checked="checked"' : '' ?> /></label>
-		<?php endif; ?>
-
+	    <div class="row">	   
+    	   	<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','changevisibility')) : ?>
+    	   	<div class="col-xs-6"> 	    
+        	   	<div class="form-group">
+        		  <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Chat status will not change upon pending chat opening');?>"><input type="checkbox" value="on" name="UserInvisible" <?php echo $user->invisible_mode == 1 ? 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Invisible mode')?></label>
+        		</div>
+    		</div>
+    		<?php endif; ?>
+    	   	<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','receivepermissionrequest')) : ?>
+    	   	<div class="col-xs-6">
+        	   	<div class="form-group">
+        		  <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','I receive other operators permissions request');?>"><input type="checkbox" value="on" name="ReceivePermissionRequest" <?php echo $user->rec_per_req == 1 ? 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','I receive other operators permissions request')?></label>
+        		</div>
+    		</div>
+    		<?php endif; ?>
+        </div>
+        
 		<div class="form-group">
 			<div class="row">
     	    	<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','changeskypenick')) : ?>
     			<div class="col-md-6">
-    						<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Skype');?></label> <input class="form-control" type="text" name="Skype" value="<?php echo htmlspecialchars($user->skype);?>" />
-    					</div>
+					<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Skype');?></label> <input class="form-control" type="text" name="Skype" value="<?php echo htmlspecialchars($user->skype);?>" />
+				</div>
     			<?php endif;?>
 		         <div class="col-md-6">
 					<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','XMPP username');?></label> <input class="form-control" type="text" name="XMPPUsername" value="<?php echo htmlspecialchars($user->xmpp_username);?>" />

@@ -7,6 +7,7 @@ class erLhAbstractModelWidgetTheme {
 		$stateArray = array (
 			'id'         				=> $this->id,
 			'name'  					=> $this->name,
+			'name_company'  			=> $this->name_company,
 			'onl_bcolor'				=> $this->onl_bcolor,			
 			'bor_bcolor'				=> $this->bor_bcolor,			
 			'text_color'				=> $this->text_color,				
@@ -405,6 +406,7 @@ class erLhAbstractModelWidgetTheme {
 	public $close_image_path = '';	
 	public $popup_image = '';
 	public $popup_image_path = '';	
+	public $name_company = '';	
 	public $header_height = 0;
 	public $header_padding = 0;
 	public $widget_border_width = 0;

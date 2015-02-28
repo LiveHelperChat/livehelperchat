@@ -208,7 +208,8 @@ var lhc_Chatbox = {
  	getAppendRequestArguments : function() {
 		    var nickOption = (typeof LHCChatboxOptions.nick !== 'undefined') ?  '&nick='+encodeURIComponent(LHCChatboxOptions.nick) : (this.cookieData.nick ? '&nick='+encodeURIComponent(this.cookieData.nick) : '');
 		    var disableOption = (typeof LHCChatboxOptions.disable_nick_change !== 'undefined') ?  '&dnc=true' : '';
-		    return nickOption+disableOption;
+		    var chatboxName = (typeof LHCChatboxOptions.chatbox_name !== 'undefined') ?  '&chtbx_name='+encodeURIComponent(LHCChatboxOptions.chatbox_name) : '';
+		    return nickOption+disableOption+chatboxName;
     },
     
 	addEvent : (function () {

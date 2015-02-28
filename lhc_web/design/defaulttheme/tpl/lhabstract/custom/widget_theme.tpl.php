@@ -57,6 +57,11 @@
 						<?php echo erLhcoreClassAbstract::renderInput('widget_copyright_url', $fields['widget_copyright_url'], $object)?>
 						</div>
 						
+						<div class="form-group">	
+						<label><?php echo $fields['name_company']['trans'];?></label>
+						<?php echo erLhcoreClassAbstract::renderInput('name_company', $fields['name_company'], $object)?>
+						</div>
+						
 						<div class="form-group">					
 						<label><?php echo $fields['onl_bcolor']['trans'];?></label>
 						<?php echo erLhcoreClassAbstract::renderInput('onl_bcolor', $fields['onl_bcolor'], $object)?>

@@ -69,6 +69,14 @@ $def->properties['invisible_mode']->columnName   = 'invisible_mode';
 $def->properties['invisible_mode']->propertyName = 'invisible_mode';
 $def->properties['invisible_mode']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+/**
+ * Receive permission request from other users/operators
+ * */
+$def->properties['rec_per_req'] = new ezcPersistentObjectProperty();
+$def->properties['rec_per_req']->columnName   = 'rec_per_req';
+$def->properties['rec_per_req']->propertyName = 'rec_per_req';
+$def->properties['rec_per_req']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['filepath'] = new ezcPersistentObjectProperty();
 $def->properties['filepath']->columnName   = 'filepath';
 $def->properties['filepath']->propertyName = 'filepath';

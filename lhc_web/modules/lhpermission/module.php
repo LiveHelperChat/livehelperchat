@@ -8,22 +8,27 @@ $ViewList['roles'] = array(
     'script' => 'roles.php',
     'params' => array(),
     'functions' => array( 'list' )
-    );
+);
 
 $ViewList['newrole'] = array(
     'script' => 'newrole.php',
     'params' => array(),
     'functions' => array( 'new' )
-    );
+);
 
 $ViewList['editrole'] = array(
     'script' => 'editrole.php',
     'params' => array('role_id'),
     'functions' => array( 'edit' )
-    );
+);
 
 $ViewList['getpermissionsummary'] = array(
     'params' => array('user_id'),
+    'functions' => array( 'see_permissions' )
+);
+
+$ViewList['request'] = array(
+    'params' => array('permissions'),
     'functions' => array( 'see_permissions' )
 );
 

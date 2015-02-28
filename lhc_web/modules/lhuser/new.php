@@ -39,6 +39,9 @@ if (isset($_POST['Update_account']))
 		'showAllPendingEnabled' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 		), 
+		'ReceivePermissionRequest' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+		), 
    		'JobTitle' => new ezcInputFormDefinitionElement(
    				ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    		),
@@ -157,6 +160,12 @@ if (isset($_POST['Update_account']))
     	$UserData->invisible_mode = 1;
     } else {
     	$UserData->invisible_mode = 0;
+    }
+    
+    if ( $form->hasValidData( 'ReceivePermissionRequest' ) && $form->ReceivePermissionRequest == true ) {
+        $UserData->rec_per_req = 1;
+    } else {
+        $UserData->rec_per_req = 0;
     }
     
     $globalDepartament = array();

@@ -352,6 +352,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_abstract_widget_theme` (
 				 `id` int(11) NOT NULL AUTO_INCREMENT,
                  `name` varchar(250) NOT NULL,
+                 `name_company` varchar(250) NOT NULL,
                  `onl_bcolor` varchar(10) NOT NULL,
                  `bor_bcolor` varchar(10) NOT NULL DEFAULT 'e3e3e3',
                  `text_color` varchar(10) NOT NULL,
@@ -601,7 +602,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   		(6,	'New FAQ question',	'Live Helper Chat',	0,	'',	0,	 0,'Hello,\r\n\r\nNew FAQ question\r\nEmail: {email}\r\n\r\nQuestion:\r\n{question}\r\n\r\nQuestion URL:\r\n{url_question}\r\n\r\nURL to answer a question:\r\n{url_request}\r\n\r\nSincerely,\r\nLive Support Team',	'New FAQ question',	0,	'',	0,	'',	''),
         	   		(7,	'New unread message',	'Live Helper Chat',	0,	'',	0,	 0,'Hello,\r\n\r\nUser request data:\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nClick to accept chat automatically\r\n{url_accept}\r\n\r\nSincerely,\r\nLive Support Team',	'New chat request',	0,	'',	0,	'{$adminEmail}',''),
         	   		(8,	'Filled form',	'Live Helper Chat',	0,	'',	0,	 0,'Hello,\r\n\r\nUser has filled a form\r\nForm name - {form_name}\r\nUser IP - {ip}\r\nDownload filled data - {url_download}\r\nIdentifier - {identifier}\r\nView filled data - {url_view}\r\n\r\n {content} \r\n\r\nSincerely,\r\nLive Support Team','Filled form - {form_name}',	0,	'',	0,	'{$adminEmail}',''),
-        	   		(9,	'Chat was accepted',	'Live Helper Chat',	0,	'',	0,	 0, 'Hello,\r\n\r\nOperator {user_name} has accepted a chat [{chat_id}]\r\n\r\nUser request data:\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nClick to accept chat automatically\r\n{url_accept}\r\n\r\nSincerely,\r\nLive Support Team',	'Chat was accepted [{chat_id}]',	0,	'',	0,	'{$adminEmail}','');");
+        	   		(9,	'Chat was accepted',	'Live Helper Chat',	0,	'',	0,	 0, 'Hello,\r\n\r\nOperator {user_name} has accepted a chat [{chat_id}]\r\n\r\nUser request data:\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nClick to accept chat automatically\r\n{url_accept}\r\n\r\nSincerely,\r\nLive Support Team',	'Chat was accepted [{chat_id}]',	0,	'',	0,	'{$adminEmail}',''),
+        	        (10, 'Permission request',	'Live Helper Chat',	0,	'',	0,	'Hello,\r\n\r\nOperator {user} has requested these permissions\n\r\n{permissions}\r\n\r\nSincerely,\r\nLive Support Team',	'Permission request from {user}',	0,	'',	0,	'',	'',	0);");
 
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_question` (
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1071,8 +1073,10 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `hide_online` tinyint(1) NOT NULL,
                   `all_departments` tinyint(1) NOT NULL,
                   `invisible_mode` tinyint(1) NOT NULL,
+                  `rec_per_req` tinyint(1) NOT NULL,
                   PRIMARY KEY (`id`),
                   KEY `hide_online` (`hide_online`),
+                  KEY `rec_per_req` (`rec_per_req`),
                   KEY `email` (`email`),
                   KEY `xmpp_username` (`xmpp_username`)
                 ) DEFAULT CHARSET=utf8;");
