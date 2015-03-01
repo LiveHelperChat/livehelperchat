@@ -4691,7 +4691,7 @@
     	"lh_group" : {
     		"new" : {"disabled" : "ALTER TABLE `lh_group` ADD INDEX `disabled` (`disabled`);"},
     		"old" : []
-    	}
+    	},
     	"lh_users" : {
     		"new" : {"rec_per_req" : "ALTER TABLE `lh_users` ADD INDEX `rec_per_req` (`rec_per_req`);"},
     		"old" : []
