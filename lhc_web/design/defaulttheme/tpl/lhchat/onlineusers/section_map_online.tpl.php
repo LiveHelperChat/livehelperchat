@@ -1,3 +1,5 @@
+<?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/section_map_online_pre.tpl.php')); ?>
+<?php if ($chat_onlineusers_section_map_online_enabled == true) : ?>
 <div class="row form-group">
 	<div class="col-xs-6">
 		<img data-toggle="tooltip" data-placement="bottom" class="tip-right" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User is chatting');?>" src="<?php echo erLhcoreClassDesign::design('images/icons/home-chat.png')?>" />
@@ -29,5 +31,4 @@
 var GeoLocationData = {zoom:<?php echo $geo_location_data['zoom']?>,lat:<?php echo $geo_location_data['lat']?>,lng:<?php echo $geo_location_data['lng']?>};
 </script>
 <script src="https://maps-api-ssl.google.com/maps/api/js?v=3&sensor=false&callback=gMapsCallback"></script>
-
-	    
+<?php endif;?>

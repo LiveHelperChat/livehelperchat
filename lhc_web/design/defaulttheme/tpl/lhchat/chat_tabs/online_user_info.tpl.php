@@ -1,4 +1,5 @@
-<?php if ( ($online_user = $chat->online_user) !== false) : ?>
+<?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/online_user_info_pre.tpl.php'));?>	
+<?php if ($information_tab_online_user_info_enabled == true && ($online_user = $chat->online_user) !== false) : ?>
 <div role="tabpanel" class="tab-pane" id="online-user-info-tab-<?php echo $chat->id?>">
 	<a class="btn btn-default btn-xs" rel="<?php echo $chat->id?>" onclick="lhinst.refreshOnlineUserInfo($(this))"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Refresh')?></a>
 
@@ -20,5 +21,3 @@
 	</ul>
 </div>
 <?php endif; ?>
-
-

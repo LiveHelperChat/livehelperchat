@@ -1,5 +1,5 @@
-
-
+<?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/section_online_users_pre.tpl.php')); ?>
+<?php if ($chat_onlineusers_section_online_users_enabled == true) : ?>
 <div class="row">
 	<div class="col-sm-2 form-group col-xs-6 pr5">
 		<label id="online-users-count" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','online users');?>">{{online.onlineusers.length}}</label>
@@ -123,3 +123,4 @@
 	</tr>	
 </tbody>
 </table>
+<?php endif;?>

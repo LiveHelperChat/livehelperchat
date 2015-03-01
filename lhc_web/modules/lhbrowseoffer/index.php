@@ -2,10 +2,6 @@
 
 $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('browseoffer.index', array());
 
-if ($response === erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
-    return;
-}
-
 $tpl = erLhcoreClassTemplate::getInstance( 'lhbrowseoffer/index.tpl.php');
 
 $Result['content'] = $tpl->fetch();

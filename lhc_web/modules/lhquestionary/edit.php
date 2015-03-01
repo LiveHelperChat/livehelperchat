@@ -4,10 +4,6 @@ $Question = erLhcoreClassModelQuestion::fetch((int)$Params['user_parameters']['i
 
 $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('questionary.edit', array('questionary' => $Question));
 
-if ($response === erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
-    return;
-}
-
 $tpl = erLhcoreClassTemplate::getInstance('lhquestionary/edit.tpl.php');
 
 $validTabs = array('answers','voting');

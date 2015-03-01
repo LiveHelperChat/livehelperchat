@@ -6,10 +6,6 @@
  * */
 $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.statistic', array());
 
-if ($response === erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
-    return;
-}
-
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/statistic.tpl.php');
 
 if (isset($_GET['doSearch'])) {
