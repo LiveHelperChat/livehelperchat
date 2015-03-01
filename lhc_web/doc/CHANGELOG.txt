@@ -12,6 +12,9 @@ https://github.com/LiveHelperChat/livehelperchat/issues/643
 4. System messages won't be shown in messages send to user
 https://github.com/LiveHelperChat/livehelperchat/issues/645
 
+5. Co-Browsing now does not require dedicated domain. It can use same domain sublocations
+See doc/node_servers/cobrowsing
+
 execute doc/update_db/update_102.sql for update
 
 2.24v

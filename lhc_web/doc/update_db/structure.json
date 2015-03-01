@@ -3577,6 +3577,13 @@
                 "hidden": "0"
             },
             {
+                "identifier": "sharing_nodejs_path",
+                "value": "",
+                "type": "0",
+                "explain": "socket.io path, optional",
+                "hidden": "0"
+            },
+            {
                 "identifier": "disable_js_execution",
                 "value": "1",
                 "type": "0",

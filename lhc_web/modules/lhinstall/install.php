@@ -849,6 +849,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('show_language_switcher','0',0,'Show users option to switch language at widget',0),
                 ('sharing_auto_allow','0',0,'Do not ask permission for users to see their screen',0),
                 ('sharing_nodejs_enabled','0',0,'NodeJs support enabled',0),
+                ('sharing_nodejs_path','',0,'socket.io path, optional',0),
                 ('sharing_nodejs_secure','0',0,'Connect to NodeJs in https mode',0),
                 ('disable_js_execution','1',0,'Disable JS execution in Co-Browsing operator window',0),
                 ('sharing_nodejs_socket_host','',0,'Host where NodeJs is running',0),

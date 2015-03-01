@@ -713,7 +713,8 @@ var LHCCoBrowser = (function() {
 		} else {
 			try {
 				this.socket = io.connect(this.node_js_settings.nodejshost, {
-					secure : this.node_js_settings.secure,
+					secure : this.node_js_settings.secure,					
+					path : this.node_js_settings.path,
 					'forceNew' : true
 				});
 				this.socket.on('connect', function() {

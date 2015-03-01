@@ -399,7 +399,8 @@ var LHCCoBrowserOperator = (function() {
 		} else {
 			try {
 				this.socket = io.connect(this.node_js_settings.nodejshost, {
-					secure : this.node_js_settings.secure
+					secure : this.node_js_settings.secure,
+					path : this.node_js_settings.path
 				});
 				this.socket.on('connect', function() {
 					_this.onConnected();
