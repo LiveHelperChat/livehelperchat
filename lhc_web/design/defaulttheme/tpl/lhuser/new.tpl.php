@@ -69,11 +69,11 @@
 		<div class="row form-group">
 			<div class="col-md-6">
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Skype');?></label>
-				<input type="text" name="Skype" value="<?php echo htmlspecialchars($user->skype);?>"/>
+				<input class="form-control" type="text" name="Skype" value="<?php echo htmlspecialchars($user->skype);?>"/>
 			</div>
 			<div class="col-md-6">
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','XMPP username');?></label>
-				<input type="text" name="XMPPUsername" value="<?php echo htmlspecialchars($user->xmpp_username);?>"/>
+				<input class="form-control" type="text" name="XMPPUsername" value="<?php echo htmlspecialchars($user->xmpp_username);?>"/>
 			</div>
 		</div>
 		

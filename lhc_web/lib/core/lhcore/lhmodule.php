@@ -243,6 +243,14 @@ class erLhcoreClassModule{
 				$contentFile = str_replace($Matches[0][$key],'\''.erLhcoreClassDesign::baseurl(trim($UrlAddress,'\'')).'\'',$contentFile);
 			}
 
+			// Compile additional JS
+			$Matches = array();
+			preg_match_all('/erLhcoreClassDesign::designJS\(\'(.*?)\'\)/i',$contentFile,$Matches);
+			foreach ($Matches[1] as $key => $UrlAddress)
+			{			  
+			    $contentFile = str_replace($Matches[0][$key],'\''.erLhcoreClassDesign::designJS(trim($UrlAddress,'\'')).'\'',$contentFile);
+			}
+			
 			$Matches = array();
 			preg_match_all('/erLhcoreClassDesign::baseurldirect\((.*?)\)/i',$contentFile,$Matches);
 			foreach ($Matches[1] as $key => $UrlAddress)

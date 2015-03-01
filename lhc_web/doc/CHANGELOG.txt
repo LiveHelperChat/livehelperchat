@@ -12,8 +12,12 @@ https://github.com/LiveHelperChat/livehelperchat/issues/643
 4. System messages won't be shown in messages send to user
 https://github.com/LiveHelperChat/livehelperchat/issues/645
 
-5. Co-Browsing now does not require dedicated domain. It can use same domain sublocations
+5. Co-Browsing now does not require dedicated sub-domain. It can use same domain sub-locations. This will save some users funds like they won't have to buy ssl for sub-domain
 See doc/node_servers/cobrowsing
+
+6. Operator now has ability to request permission to selected module. [Sponsored]
+
+7. Many parts were splitted into separte templates to prepare for new features in automated hosting [Sponsored]
 
 execute doc/update_db/update_102.sql for update
 
