@@ -3330,6 +3330,14 @@
                 "extra": ""
             },
             {
+                "field": "rec_per_req",
+                "type": "tinyint(4)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "hide_online",
                 "type": "tinyint(1)",
                 "null": "NO",
@@ -4682,6 +4690,10 @@
     	},
     	"lh_group" : {
     		"new" : {"disabled" : "ALTER TABLE `lh_group` ADD INDEX `disabled` (`disabled`);"},
+    		"old" : []
+    	}
+    	"lh_users" : {
+    		"new" : {"rec_per_req" : "ALTER TABLE `lh_users` ADD INDEX `rec_per_req` (`rec_per_req`);"},
     		"old" : []
     	}
     },
