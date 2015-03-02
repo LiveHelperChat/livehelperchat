@@ -95,13 +95,26 @@ class erLhcoreClassTranslate {
      * @return void || Exception 
      * */
     public static function translateChatMessages(erLhcoreClassModelChat $chat) {
+
         $translationConfig = erLhcoreClassModelChatConfig::fetch('translation_data');
-        $translationData = $translationConfig->data;
-         
+        
+        // Allow callback provide translation config first
+        $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translation.get_config', array());        
+        if ($response !== false && isset($response['status']) && $response['status'] == erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
+            $translationData = $response['data'];                    
+        } else {            
+            $translationData = $translationConfig->data;
+        }
+                
         if (isset($translationData['translation_handler']) && $translationData['translation_handler'] == 'bing') {
             
-            self::getBingAccessToken($translationConfig, $translationData);
-        
+            $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translation.get_bing_token', array('translation_config' => & $translationConfig, 'translation_data' => & $translationData));
+            if ($response !== false && isset($response['status']) && $response['status'] == erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
+                // Do nothing
+            } else {
+                self::getBingAccessToken($translationConfig, $translationData);
+            }
+            
             // Only last 10 messages are translated
             $msgs = erLhcoreClassModelmsg::getList(array('filter' => array('chat_id' => $chat->id),'limit' => 10,'sort' => 'id DESC'));
             
@@ -156,8 +169,13 @@ class erLhcoreClassTranslate {
         static $config = null;
         
         if ($config === null) {
-            $translationConfig = erLhcoreClassModelChatConfig::fetch('translation_data');
-            $config = $translationConfig->data;
+            $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translation.get_config', array());
+            if ($response !== false && isset($response['status']) && $response['status'] == erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
+                $config = $response['data'];
+            } else {
+                $translationConfig = erLhcoreClassModelChatConfig::fetch('translation_data');
+                $config = $translationConfig->data;
+            }
         }
         
         return $config;
@@ -310,11 +328,25 @@ class erLhcoreClassTranslate {
      * 
      * */
 	public static function detectLanguage($text)
-	{
+	{	   
 	    $translationConfig = erLhcoreClassModelChatConfig::fetch('translation_data');
-	    $translationData = $translationConfig->data;
+	    
+	    $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translation.get_config', array());
+	    if ($response !== false && isset($response['status']) && $response['status'] == erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
+	        $translationData = $response['data'];
+	    } else {	        
+	        $translationData = $translationConfig->data;
+	    }
+	    	    
 	    if (isset($translationData['translation_handler']) && $translationData['translation_handler'] == 'bing') {
-	        self::getBingAccessToken($translationConfig, $translationData);	        
+	        
+	        $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translation.get_bing_token', array('translation_config' => & $translationConfig, 'translation_data' => & $translationData));
+	        if ($response !== false && isset($response['status']) && $response['status'] == erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
+	            // Do nothing
+	        } else {
+	           self::getBingAccessToken($translationConfig, $translationData);	  
+	        }
+	        
 	        return erLhcoreClassTranslateBing::detectLanguage($translationData['bing_access_token'], $text);
 	    } elseif (isset($translationData['translation_handler']) && $translationData['translation_handler'] == 'google'){
 	        return erLhcoreClassTranslateGoogle::detectLanguage($translationData['google_api_key'], $text);
@@ -332,13 +364,25 @@ class erLhcoreClassTranslate {
 	 * 
 	 * */
 	public static function translateTo($text, $translateFrom = false, $translateTo)
-	{
+	{	    	    
 	    $translationConfig = erLhcoreClassModelChatConfig::fetch('translation_data');
-	    $translationData = $translationConfig->data;
+	     
+	    $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translation.get_config', array());
+	    if ($response !== false && isset($response['status']) && $response['status'] == erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
+	        $translationData = $response['data'];
+	    } else {
+	        $translationData = $translationConfig->data;
+	    }
 	    
 	    if (isset($translationData['translation_handler']) && $translationData['translation_handler'] == 'bing') {
-	       self::getBingAccessToken($translationConfig, $translationData);
-	       
+	        
+	        $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translation.get_bing_token', array('translation_config' => & $translationConfig, 'translation_data' => & $translationData));
+	        if ($response !== false && isset($response['status']) && $response['status'] == erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
+	            // Do nothing
+	        } else {
+	           self::getBingAccessToken($translationConfig, $translationData);
+	        }
+	        
 	       if ($translateFrom == false){
 	           $translateFrom = self::detectLanguage($text);
 	       }
