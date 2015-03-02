@@ -3331,7 +3331,7 @@
             },
             {
                 "field": "rec_per_req",
-                "type": "tinyint(4)",
+                "type": "tinyint(1)",
                 "null": "NO",
                 "key": "",
                 "default": null,
