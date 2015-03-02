@@ -4,6 +4,13 @@ class erLhcoreClassChatMail {
 
 	public static function setupSMTP(PHPMailer & $phpMailer)
 	{
+	    // Allow extension override mail settings
+	    $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chatmail.setup_smtp',array('phpmailer' => & $phpMailer));
+	    
+	    if ($response !== false && isset($response['status']) && $response['status'] == erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
+	        return;
+	    }
+	    
 		$smtpData = erLhcoreClassModelChatConfig::fetch('smtp_data');
 		$data = (array)$smtpData->data;
 

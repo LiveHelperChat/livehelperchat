@@ -399,7 +399,7 @@ $ViewList['sendnotice'] = array(
 $ViewList['geoconfiguration'] = array(
     'params' => array(),
     'uparams' => array(),
-    'functions' => array( 'administrateconfig' )
+    'functions' => array( 'administrategeoconfig' )
 );
 
 $ViewList['listchatconfig'] = array(
@@ -488,6 +488,7 @@ $FunctionList['geoadjustment'] = array('explain' => 'Allow operator to edit geo 
 $FunctionList['take_screenshot'] = array('explain' => 'Allow operator to take visitor browser page screenshots');
 $FunctionList['modifychat'] = array('explain' => 'Allow operator modify main chat information');
 $FunctionList['allowredirect'] = array('explain' => 'Allow operator to redirect user to another page');
+$FunctionList['administrategeoconfig'] = array('explain' => 'Allow operator to edit geo detection configuration');
 
 
 ?>

@@ -50,10 +50,21 @@
 
 <h2><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','New chat request notification settings');?></h2>
 
+<div class="form-group">
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Play a new pending chat sound on a new chat request');?> <input type="checkbox" name="PlayOnRequest" value="on" <?php echo isset($sound_data['new_chat_sound_enabled']) && $sound_data['new_chat_sound_enabled'] == 1 ? 'checked="checked"' : '' ?> /></label>
+</div>
+
+<div class="form-group">
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Play a sound on a new message for a back office user');?> <input type="checkbox" name="PlayOnMessageBackOffice" value="on" <?php echo isset($sound_data['new_message_sound_admin_enabled']) && $sound_data['new_message_sound_admin_enabled'] == 1 ? 'checked="checked"' : '' ?> /></label>
+</div>
+
+<div class="form-group">
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Play a sound on a new message for a front end user');?> <input type="checkbox" name="PlayOnMessageFrontOffice" value="on" <?php echo isset($sound_data['new_message_sound_user_enabled']) && $sound_data['new_message_sound_user_enabled'] == 1 ? 'checked="checked"' : '' ?> /></label>
+</div>
+
+<div class="form-group">
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Show alert message on a new chat request');?> <input type="checkbox" name="ShowAlertMessageBackOffice" value="1" <?php echo isset($sound_data['show_alert']) && $sound_data['show_alert'] == 1 ? 'checked="checked"' : '' ?> /></label>
+</div>
 
 <div class="form-group">
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','How many times play sound notification');?></label>
