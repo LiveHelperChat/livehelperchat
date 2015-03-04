@@ -67,8 +67,10 @@ if (trim($form->msg) != '')
 	        	$stmt->bindValue(':status',$Chat->status,PDO::PARAM_INT);
 	        	$stmt->execute();	        	
 	        }
-	
+	        	        
 	        echo json_encode(array('error' => 'false'));
+	        
+	        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin',array('msg' => & $msg,'chat' => & $Chat));
 	    }   
 	     	    
 	    $db->commit();

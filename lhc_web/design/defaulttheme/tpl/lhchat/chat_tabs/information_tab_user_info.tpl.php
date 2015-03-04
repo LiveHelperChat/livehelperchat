@@ -132,6 +132,9 @@
 		<td><?php echo htmlspecialchars($chat->phone)?></td>
 	</tr>
 	<?php endif;?>
+	
+	<?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/after_phone_extension_multiinclude.tpl.php'));?>
+	
 	<?php if (!empty($chat->additional_data)) : ?>
 	<tr>
 		<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Additional data')?></td>

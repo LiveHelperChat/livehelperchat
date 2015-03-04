@@ -39,7 +39,7 @@ if (trim($form->msg) != '')
         	$Chat->updateThis();
         }
         
-        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.desktop_client_admin_msg',array('chat' => & $Chat));
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.desktop_client_admin_msg',array('msg' => & $msg,'chat' => & $Chat));
 
     }
 
