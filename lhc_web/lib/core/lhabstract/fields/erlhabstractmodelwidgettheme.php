@@ -11,7 +11,7 @@ return array(
    				'name_company' => array(
    						'type' => 'text',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Name of the company'),
-   						'required' => true,   						
+   						'required' => false,   						
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),
@@ -262,7 +262,7 @@ return array(
    				'support_joined' => array(
    						'type' => 'text',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Text then user starts chat based on proactive invitation'),
-   						'required' => true,
+   						'required' => false,
    				        'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','A support staff member has joined this chat'),
    						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
@@ -271,7 +271,7 @@ return array(
    				'support_closed' => array(
    						'type' => 'text',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Text then operator closes a chat'),
-   						'required' => true,
+   						'required' => false,
    				        'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','A support staff member has closed this chat'),
    						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
@@ -281,7 +281,7 @@ return array(
    						'type' => 'text',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Text then user starts a chat and is waiting for operator to join a chat'),
    				        'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages'),
-   						'required' => true,
+   						'required' => false,
    						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
@@ -290,7 +290,7 @@ return array(
    						'type' => 'text',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Text then user starts a chat but department is offline'),
    				        'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','At this moment there are no logged in support staff members, but you can leave your messages'),
-   						'required' => true,
+   						'required' => false,
    						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
@@ -298,7 +298,7 @@ return array(
    				'noonline_operators_offline' => array(
    						'type' => 'text',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Leave a message form text'),
-   						'required' => true,
+   						'required' => false,
    						'hidden' => true,
    				        'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','There are no online operators at the moment, please leave a message'),
    						'validation_definition' => new ezcInputFormDefinitionElement(

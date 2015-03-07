@@ -335,6 +335,10 @@
       <translation>Tên</translation>
     </message>
     <message>
+      <source>Name of the company</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Need help header text</source>
       <translation type="unfinished"/>
     </message>
@@ -1437,7 +1441,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Hours from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hours from, E.g. 8</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minutes from</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1445,7 +1457,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Hours to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hours to, E.g. 17</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minutes to</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1559,6 +1579,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Are you sure?</source>
+      <translation>Bạn có chắc chắn?</translation>
+    </message>
+    <message>
+      <source>Block user</source>
+      <translation>Khoá người sử dụng</translation>
+    </message>
+    <message>
       <source>Screen sharing</source>
       <translation type="unfinished"/>
     </message>
@@ -1617,14 +1645,6 @@
     <message>
       <source>Transfer chat</source>
       <translation> Chuyển hướng trò chuyện</translation>
-    </message>
-    <message>
-      <source>Are you sure?</source>
-      <translation>Bạn có chắc chắn?</translation>
-    </message>
-    <message>
-      <source>Block user</source>
-      <translation>Khoá người sử dụng</translation>
     </message>
     <message>
       <source>Mail was send</source>
@@ -3158,10 +3178,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Speech</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Time zone settings</source>
       <translation>Cài đặt múi giờ</translation>
     </message>
@@ -3198,28 +3214,8 @@
       <translation>Mã nhúng Live help</translation>
     </message>
     <message>
-      <source>FAQ embed code</source>
-      <translation>Mã nhúng  HỎI ĐÁP</translation>
-    </message>
-    <message>
-      <source>Questionary embed code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chatbox embed code</source>
-      <translation>Mã nhúng Chatbox</translation>
-    </message>
-    <message>
-      <source>Browse offers embed code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Departments</source>
       <translation>Bộ phận</translation>
-    </message>
-    <message>
-      <source>Blocked users</source>
-      <translation>Người dùng bị chặn</translation>
     </message>
     <message>
       <source>Chat configuration</source>
@@ -3242,14 +3238,6 @@
       <translation>Bắt đầu trò chuyện thiết lập hình thức</translation>
     </message>
     <message>
-      <source>Canned messages</source>
-      <translation>Đóng thông điệp</translation>
-    </message>
-    <message>
-      <source>Pro active chat invitations</source>
-      <translation>Lời mời trò chuyện chuyên nghiệp hoạt động</translation>
-    </message>
-    <message>
       <source>Auto responder</source>
       <translation>Tự động trả lời</translation>
     </message>
@@ -3264,14 +3252,6 @@
     <message>
       <source>Chat archive</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Statistic</source>
-      <translation>Thống kê</translation>
-    </message>
-    <message>
-      <source>Maintenance</source>
-      <translation>Bảo trì</translation>
     </message>
     <message>
       <source>Theming</source>
@@ -3290,6 +3270,26 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Blocked users</source>
+      <translation>Người dùng bị chặn</translation>
+    </message>
+    <message>
+      <source>Browse offers embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Canned messages</source>
+      <translation>Đóng thông điệp</translation>
+    </message>
+    <message>
+      <source>Chatbox embed code</source>
+      <translation>Mã nhúng Chatbox</translation>
+    </message>
+    <message>
+      <source>FAQ embed code</source>
+      <translation>Mã nhúng  HỎI ĐÁP</translation>
+    </message>
+    <message>
       <source>Files</source>
       <translation>Các tập tin</translation>
     </message>
@@ -3302,7 +3302,27 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Maintenance</source>
+      <translation>Bảo trì</translation>
+    </message>
+    <message>
+      <source>Pro active chat invitations</source>
+      <translation>Lời mời trò chuyện chuyên nghiệp hoạt động</translation>
+    </message>
+    <message>
+      <source>Questionary embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Statistic</source>
+      <translation>Thống kê</translation>
+    </message>
+    <message>
       <source>Automatic translations</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Speech</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3388,6 +3408,22 @@
       <translation>Kết thúc cuộc trò chuyện</translation>
     </message>
     <message>
+      <source>Browse offers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>FAQ</source>
+      <translation>Hỏi - Đáp</translation>
+    </message>
+    <message>
+      <source>Questionary</source>
+      <translation>Lời câu hỏi:</translation>
+    </message>
+    <message>
       <source>New chat request</source>
       <translation>Yêu cầu cuộc trò chuyện mới</translation>
     </message>
@@ -3406,22 +3442,6 @@
     <message>
       <source>Extra modules</source>
       <translation>Mô-đun phụ</translation>
-    </message>
-    <message>
-      <source>Questionary</source>
-      <translation>Lời câu hỏi:</translation>
-    </message>
-    <message>
-      <source>FAQ</source>
-      <translation>Hỏi - Đáp</translation>
-    </message>
-    <message>
-      <source>Chatbox</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Browse offers</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Account</source>
@@ -4600,10 +4620,6 @@
       <translation>Danh sách có thể nhìn thấy</translation>
     </message>
     <message>
-      <source>Personal canned messages</source>
-      <translation>Các tin nhắn mẫu cá nhân</translation>
-    </message>
-    <message>
       <source>Pending chats</source>
       <translation>Cuộc trò chuyện đang chờ</translation>
     </message>
@@ -4664,6 +4680,10 @@
       <translation>Trạng thái trò chuyện sẽ không thay đổi khi đang chờ</translation>
     </message>
     <message>
+      <source>I receive other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Skype</source>
       <translation type="unfinished"/>
     </message>
@@ -4720,8 +4740,16 @@
       <translation>Tài khoản được cập nhật</translation>
     </message>
     <message>
+      <source>User receives other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User can see all pending chats, not only assigned to him</source>
       <translation>Người dùng có thể xem tất cả cuộc trò chuyện đang chờ xử lý, không chỉ những cuộc được gán cho anh ta</translation>
+    </message>
+    <message>
+      <source>Personal canned messages</source>
+      <translation>Các tin nhắn mẫu cá nhân</translation>
     </message>
     <message>
       <source>Please enter a username!</source>
@@ -6023,6 +6051,14 @@
       <translation>Chế độ ẩn</translation>
     </message>
     <message>
+      <source>I receive other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User receives other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User group</source>
       <translation>Nhóm người sử dụng</translation>
     </message>
@@ -6124,6 +6160,10 @@
     <message>
       <source>Title</source>
       <translation>Tiêu đề</translation>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Update</source>
@@ -6761,6 +6801,44 @@
     <name>permission/getpermissionsummary</name>
     <message>
       <source>Module/Function</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>permission/getpermissionssummary</name>
+    <message>
+      <source>Request permission</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose at least one permission</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>permission/request</name>
+    <message>
+      <source>Request permission</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Request permissions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Permission requested</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a user!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This user can not receive permision request!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Permissions were not provided</source>
       <translation type="unfinished"/>
     </message>
   </context>

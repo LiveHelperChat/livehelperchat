@@ -335,6 +335,10 @@
       <translation>Jméno</translation>
     </message>
     <message>
+      <source>Name of the company</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Need help header text</source>
       <translation>Text hlavičky Potřebujete radu?</translation>
     </message>
@@ -1437,16 +1441,32 @@
       <translation>Pracovní doba, 24hodinový formát, 1-24, formát minut 0-60</translation>
     </message>
     <message>
+      <source>Hours from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hours from, E.g. 8</source>
       <translation>Hodiny od, např. 8</translation>
+    </message>
+    <message>
+      <source>Minutes from</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Minutes from, E.g. 30</source>
       <translation>Minuty od, např. 30</translation>
     </message>
     <message>
+      <source>Hours to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hours to, E.g. 17</source>
       <translation>Hodiny do, např. 17</translation>
+    </message>
+    <message>
+      <source>Minutes to</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Minutes to, E.g. 30</source>
@@ -1559,6 +1579,14 @@
       <translation>Přiložit nahraný soubor</translation>
     </message>
     <message>
+      <source>Are you sure?</source>
+      <translation>Jste si jistý/á?</translation>
+    </message>
+    <message>
+      <source>Block user</source>
+      <translation>Blokovat uživatele</translation>
+    </message>
+    <message>
       <source>Screen sharing</source>
       <translation>Sdílení obrazovky</translation>
     </message>
@@ -1617,14 +1645,6 @@
     <message>
       <source>Transfer chat</source>
       <translation>Přesměrovat rozhovor</translation>
-    </message>
-    <message>
-      <source>Are you sure?</source>
-      <translation>Jste si jistý/á?</translation>
-    </message>
-    <message>
-      <source>Block user</source>
-      <translation>Blokovat uživatele</translation>
     </message>
     <message>
       <source>Mail was send</source>
@@ -3158,10 +3178,6 @@
       <translation>Nastavení online pomoci</translation>
     </message>
     <message>
-      <source>Speech</source>
-      <translation>Řeč</translation>
-    </message>
-    <message>
       <source>Time zone settings</source>
       <translation>Nastavení časové zóny</translation>
     </message>
@@ -3198,28 +3214,8 @@
       <translation>Vložený kód online pomoci</translation>
     </message>
     <message>
-      <source>FAQ embed code</source>
-      <translation>Vložený kód FAQ</translation>
-    </message>
-    <message>
-      <source>Questionary embed code</source>
-      <translation>Vložený kód dotazníku</translation>
-    </message>
-    <message>
-      <source>Chatbox embed code</source>
-      <translation>Vložený kód Chatboxu</translation>
-    </message>
-    <message>
-      <source>Browse offers embed code</source>
-      <translation>Vložený kód nabídek prohlížení</translation>
-    </message>
-    <message>
       <source>Departments</source>
       <translation>Oddělení</translation>
-    </message>
-    <message>
-      <source>Blocked users</source>
-      <translation>Blokovaní uživatelé</translation>
     </message>
     <message>
       <source>Chat configuration</source>
@@ -3242,14 +3238,6 @@
       <translation>Nastavení formuláře spouštějícího rozhovor</translation>
     </message>
     <message>
-      <source>Canned messages</source>
-      <translation>Předpřipravené zprávy</translation>
-    </message>
-    <message>
-      <source>Pro active chat invitations</source>
-      <translation>Proaktivní pozvánky k rozhovoru</translation>
-    </message>
-    <message>
       <source>Auto responder</source>
       <translation>Automatický odpovídač</translation>
     </message>
@@ -3264,14 +3252,6 @@
     <message>
       <source>Chat archive</source>
       <translation>Archiv rozhovorů</translation>
-    </message>
-    <message>
-      <source>Statistic</source>
-      <translation>Statistika</translation>
-    </message>
-    <message>
-      <source>Maintenance</source>
-      <translation>Údržba</translation>
     </message>
     <message>
       <source>Theming</source>
@@ -3290,6 +3270,26 @@
       <translation>Výchozí šablona</translation>
     </message>
     <message>
+      <source>Blocked users</source>
+      <translation>Blokovaní uživatelé</translation>
+    </message>
+    <message>
+      <source>Browse offers embed code</source>
+      <translation>Vložený kód nabídek prohlížení</translation>
+    </message>
+    <message>
+      <source>Canned messages</source>
+      <translation>Předpřipravené zprávy</translation>
+    </message>
+    <message>
+      <source>Chatbox embed code</source>
+      <translation>Vložený kód Chatboxu</translation>
+    </message>
+    <message>
+      <source>FAQ embed code</source>
+      <translation>Vložený kód FAQ</translation>
+    </message>
+    <message>
       <source>Files</source>
       <translation>Soubory</translation>
     </message>
@@ -3302,8 +3302,28 @@
       <translation>Seznam souborů</translation>
     </message>
     <message>
+      <source>Maintenance</source>
+      <translation>Údržba</translation>
+    </message>
+    <message>
+      <source>Pro active chat invitations</source>
+      <translation>Proaktivní pozvánky k rozhovoru</translation>
+    </message>
+    <message>
+      <source>Questionary embed code</source>
+      <translation>Vložený kód dotazníku</translation>
+    </message>
+    <message>
+      <source>Statistic</source>
+      <translation>Statistika</translation>
+    </message>
+    <message>
       <source>Automatic translations</source>
       <translation>Automatický překlad</translation>
+    </message>
+    <message>
+      <source>Speech</source>
+      <translation>Řeč</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -3388,6 +3408,22 @@
       <translation>Ukončené rozhovory</translation>
     </message>
     <message>
+      <source>Browse offers</source>
+      <translation>Nabídky procházení</translation>
+    </message>
+    <message>
+      <source>Chatbox</source>
+      <translation>Chatbox</translation>
+    </message>
+    <message>
+      <source>FAQ</source>
+      <translation>FAQ</translation>
+    </message>
+    <message>
+      <source>Questionary</source>
+      <translation>Dotazník</translation>
+    </message>
+    <message>
       <source>New chat request</source>
       <translation>Nový požadavek na rozhovor</translation>
     </message>
@@ -3406,22 +3442,6 @@
     <message>
       <source>Extra modules</source>
       <translation>Extra moduly</translation>
-    </message>
-    <message>
-      <source>Questionary</source>
-      <translation>Dotazník</translation>
-    </message>
-    <message>
-      <source>FAQ</source>
-      <translation>FAQ</translation>
-    </message>
-    <message>
-      <source>Chatbox</source>
-      <translation>Chatbox</translation>
-    </message>
-    <message>
-      <source>Browse offers</source>
-      <translation>Nabídky procházení</translation>
     </message>
     <message>
       <source>Account</source>
@@ -4600,10 +4620,6 @@
       <translation>Viditelné seznamy</translation>
     </message>
     <message>
-      <source>Personal canned messages</source>
-      <translation>Osobní předpřipravé zprávy</translation>
-    </message>
-    <message>
       <source>Pending chats</source>
       <translation>Čekající rozhovory</translation>
     </message>
@@ -4664,6 +4680,10 @@
       <translation>Status rozhovoru nebude změněn do otevření čekající konverzace</translation>
     </message>
     <message>
+      <source>I receive other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Skype</source>
       <translation>Skype</translation>
     </message>
@@ -4720,8 +4740,16 @@
       <translation>Účet aktualizován</translation>
     </message>
     <message>
+      <source>User receives other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User can see all pending chats, not only assigned to him</source>
       <translation>Uživatel může vidět všechny čekající rozhovory, ne pouze ty přiřazené jemu</translation>
+    </message>
+    <message>
+      <source>Personal canned messages</source>
+      <translation>Osobní předpřipravé zprávy</translation>
     </message>
     <message>
       <source>Please enter a username!</source>
@@ -6023,6 +6051,14 @@
       <translation>Neviditelný mód</translation>
     </message>
     <message>
+      <source>I receive other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User receives other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User group</source>
       <translation>Skupina uživatelů</translation>
     </message>
@@ -6124,6 +6160,10 @@
     <message>
       <source>Title</source>
       <translation>Nadpis</translation>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Update</source>
@@ -6761,6 +6801,44 @@
     <name>permission/getpermissionsummary</name>
     <message>
       <source>Module/Function</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>permission/getpermissionssummary</name>
+    <message>
+      <source>Request permission</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose at least one permission</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>permission/request</name>
+    <message>
+      <source>Request permission</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Request permissions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Permission requested</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a user!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This user can not receive permision request!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Permissions were not provided</source>
       <translation type="unfinished"/>
     </message>
   </context>

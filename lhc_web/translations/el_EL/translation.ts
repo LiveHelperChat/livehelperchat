@@ -335,6 +335,10 @@
       <translation>Όνομα</translation>
     </message>
     <message>
+      <source>Name of the company</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Need help header text</source>
       <translation>Χρειάζεστε βοήθεια κειμένου κεφαλίδας</translation>
     </message>
@@ -1437,16 +1441,32 @@
       <translation>Ώρες εργασίας, 24 ώρες μορφή, 1-24, λεπτά μορφή 0 - 60</translation>
     </message>
     <message>
+      <source>Hours from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hours from, E.g. 8</source>
       <translation>Ώρες από, π.χ. 8</translation>
+    </message>
+    <message>
+      <source>Minutes from</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Minutes from, E.g. 30</source>
       <translation>Λεπτά από, π.χ. 30</translation>
     </message>
     <message>
+      <source>Hours to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hours to, E.g. 17</source>
       <translation>Ώρες να, π.χ. 17</translation>
+    </message>
+    <message>
+      <source>Minutes to</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Minutes to, E.g. 30</source>
@@ -1559,6 +1579,14 @@
       <translation>Επισυνάψετε το αρχείο</translation>
     </message>
     <message>
+      <source>Are you sure?</source>
+      <translation>Είστε σίγουρος;</translation>
+    </message>
+    <message>
+      <source>Block user</source>
+      <translation>Μπλοκάρισμα χρήστη</translation>
+    </message>
+    <message>
       <source>Screen sharing</source>
       <translation>Οθόνη μοιράζομαι</translation>
     </message>
@@ -1617,14 +1645,6 @@
     <message>
       <source>Transfer chat</source>
       <translation>Μεταφορά συνομιλίας</translation>
-    </message>
-    <message>
-      <source>Are you sure?</source>
-      <translation>Είστε σίγουρος;</translation>
-    </message>
-    <message>
-      <source>Block user</source>
-      <translation>Μπλοκάρισμα χρήστη</translation>
     </message>
     <message>
       <source>Mail was send</source>
@@ -3158,10 +3178,6 @@
       <translation>Ζωντανή βοήθεια διαμόρφωση</translation>
     </message>
     <message>
-      <source>Speech</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Time zone settings</source>
       <translation>Οι ρυθμίσεις ζώνης ώρας</translation>
     </message>
@@ -3198,28 +3214,8 @@
       <translation>ΖΩΝΤΑΝΗ ΒΟΗΘΕΙΑ ενσωματώνει τον κώδικα</translation>
     </message>
     <message>
-      <source>FAQ embed code</source>
-      <translation>FAQ ενσωματώνει τον κώδικα</translation>
-    </message>
-    <message>
-      <source>Questionary embed code</source>
-      <translation>Ενσωματώστε τον κώδικα Questionary</translation>
-    </message>
-    <message>
-      <source>Chatbox embed code</source>
-      <translation>Chatbox ενσωματώνει τον κώδικα</translation>
-    </message>
-    <message>
-      <source>Browse offers embed code</source>
-      <translation>Αναζήτηση προσφορές ενσωματώνει τον κώδικα</translation>
-    </message>
-    <message>
       <source>Departments</source>
       <translation>Τμήματα</translation>
-    </message>
-    <message>
-      <source>Blocked users</source>
-      <translation>Αποκλεισμένοι χρήστες</translation>
     </message>
     <message>
       <source>Chat configuration</source>
@@ -3242,14 +3238,6 @@
       <translation>Έναρξη συνομιλίας μορφή ρυθμίσεις</translation>
     </message>
     <message>
-      <source>Canned messages</source>
-      <translation>Κονσερβοποιημένα μηνύματα</translation>
-    </message>
-    <message>
-      <source>Pro active chat invitations</source>
-      <translation>Προσκλήσεις προορατικού συνομιλίας</translation>
-    </message>
-    <message>
       <source>Auto responder</source>
       <translation>Αυτόματη απάντηση</translation>
     </message>
@@ -3264,14 +3252,6 @@
     <message>
       <source>Chat archive</source>
       <translation>Αρχείο συνομιλίας</translation>
-    </message>
-    <message>
-      <source>Statistic</source>
-      <translation>Στατιστική</translation>
-    </message>
-    <message>
-      <source>Maintenance</source>
-      <translation>Συντήρηση</translation>
     </message>
     <message>
       <source>Theming</source>
@@ -3290,6 +3270,26 @@
       <translation>Προεπιλεγμένο θέμα</translation>
     </message>
     <message>
+      <source>Blocked users</source>
+      <translation>Αποκλεισμένοι χρήστες</translation>
+    </message>
+    <message>
+      <source>Browse offers embed code</source>
+      <translation>Αναζήτηση προσφορές ενσωματώνει τον κώδικα</translation>
+    </message>
+    <message>
+      <source>Canned messages</source>
+      <translation>Κονσερβοποιημένα μηνύματα</translation>
+    </message>
+    <message>
+      <source>Chatbox embed code</source>
+      <translation>Chatbox ενσωματώνει τον κώδικα</translation>
+    </message>
+    <message>
+      <source>FAQ embed code</source>
+      <translation>FAQ ενσωματώνει τον κώδικα</translation>
+    </message>
+    <message>
       <source>Files</source>
       <translation>Αρχεία</translation>
     </message>
@@ -3302,7 +3302,27 @@
       <translation>Λίστα των αρχείων</translation>
     </message>
     <message>
+      <source>Maintenance</source>
+      <translation>Συντήρηση</translation>
+    </message>
+    <message>
+      <source>Pro active chat invitations</source>
+      <translation>Προσκλήσεις προορατικού συνομιλίας</translation>
+    </message>
+    <message>
+      <source>Questionary embed code</source>
+      <translation>Ενσωματώστε τον κώδικα Questionary</translation>
+    </message>
+    <message>
+      <source>Statistic</source>
+      <translation>Στατιστική</translation>
+    </message>
+    <message>
       <source>Automatic translations</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Speech</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3388,6 +3408,22 @@
       <translation>Ανενεργές συνομιλίες</translation>
     </message>
     <message>
+      <source>Browse offers</source>
+      <translation>Αναζήτηση προσφέρει</translation>
+    </message>
+    <message>
+      <source>Chatbox</source>
+      <translation>Chatbox</translation>
+    </message>
+    <message>
+      <source>FAQ</source>
+      <translation>Συχνές ερωτήσεις</translation>
+    </message>
+    <message>
+      <source>Questionary</source>
+      <translation>Ερωτηματολόγιο</translation>
+    </message>
+    <message>
       <source>New chat request</source>
       <translation>Αίτημα νέας συνομιλίας</translation>
     </message>
@@ -3406,22 +3442,6 @@
     <message>
       <source>Extra modules</source>
       <translation>Επιπλέον ενότητες</translation>
-    </message>
-    <message>
-      <source>Questionary</source>
-      <translation>Ερωτηματολόγιο</translation>
-    </message>
-    <message>
-      <source>FAQ</source>
-      <translation>Συχνές ερωτήσεις</translation>
-    </message>
-    <message>
-      <source>Chatbox</source>
-      <translation>Chatbox</translation>
-    </message>
-    <message>
-      <source>Browse offers</source>
-      <translation>Αναζήτηση προσφέρει</translation>
     </message>
     <message>
       <source>Account</source>
@@ -4600,10 +4620,6 @@
       <translation>Ορατές λίστες</translation>
     </message>
     <message>
-      <source>Personal canned messages</source>
-      <translation>Προσωπικά τα κονσερβοποιημένα μηνύματα</translation>
-    </message>
-    <message>
       <source>Pending chats</source>
       <translation>Σε εκκρεμότητα συνομιλίες</translation>
     </message>
@@ -4664,6 +4680,10 @@
       <translation>Κατάστασής της συζήτησής δεν θα αλλάξει κατά την εν αναμονή chat άνοιγμα</translation>
     </message>
     <message>
+      <source>I receive other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Skype</source>
       <translation>Skype</translation>
     </message>
@@ -4720,8 +4740,16 @@
       <translation>Ο λογαριασμός ενημερώθηκε</translation>
     </message>
     <message>
+      <source>User receives other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User can see all pending chats, not only assigned to him</source>
       <translation>Χρήστης μπορεί να δει όλα σε εκκρεμότητα συνομιλίες, όχι μόνο που του ανατίθενται</translation>
+    </message>
+    <message>
+      <source>Personal canned messages</source>
+      <translation>Προσωπικά τα κονσερβοποιημένα μηνύματα</translation>
     </message>
     <message>
       <source>Please enter a username!</source>
@@ -6023,6 +6051,14 @@
       <translation>Invisible μοντέλο</translation>
     </message>
     <message>
+      <source>I receive other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User receives other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User group</source>
       <translation>Ομάδα χρήστη</translation>
     </message>
@@ -6124,6 +6160,10 @@
     <message>
       <source>Title</source>
       <translation>Τίτλος</translation>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Update</source>
@@ -6761,6 +6801,44 @@
     <name>permission/getpermissionsummary</name>
     <message>
       <source>Module/Function</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>permission/getpermissionssummary</name>
+    <message>
+      <source>Request permission</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose at least one permission</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>permission/request</name>
+    <message>
+      <source>Request permission</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Request permissions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Permission requested</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a user!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This user can not receive permision request!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Permissions were not provided</source>
       <translation type="unfinished"/>
     </message>
   </context>

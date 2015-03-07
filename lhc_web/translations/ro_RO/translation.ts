@@ -335,6 +335,10 @@
       <translation>Nume</translation>
     </message>
     <message>
+      <source>Name of the company</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Need help header text</source>
       <translation>Text header suport</translation>
     </message>
@@ -1437,16 +1441,32 @@
       <translation>Lucreze ore, format de 24 de ore, 1-24, format de minute 0 - 60</translation>
     </message>
     <message>
+      <source>Hours from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hours from, E.g. 8</source>
       <translation>Ore de la ex. 8</translation>
+    </message>
+    <message>
+      <source>Minutes from</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Minutes from, E.g. 30</source>
       <translation>Minute, de exemplu 30</translation>
     </message>
     <message>
+      <source>Hours to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hours to, E.g. 17</source>
       <translation>Ore-ex. 17</translation>
+    </message>
+    <message>
+      <source>Minutes to</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Minutes to, E.g. 30</source>
@@ -1559,6 +1579,14 @@
       <translation>Atașați fișierul încărcat</translation>
     </message>
     <message>
+      <source>Are you sure?</source>
+      <translation>Sunteti sigur?</translation>
+    </message>
+    <message>
+      <source>Block user</source>
+      <translation>Blocheaza utilizator</translation>
+    </message>
+    <message>
       <source>Screen sharing</source>
       <translation>Partajare ecran</translation>
     </message>
@@ -1617,14 +1645,6 @@
     <message>
       <source>Transfer chat</source>
       <translation>Transfera conversatia</translation>
-    </message>
-    <message>
-      <source>Are you sure?</source>
-      <translation>Sunteti sigur?</translation>
-    </message>
-    <message>
-      <source>Block user</source>
-      <translation>Blocheaza utilizator</translation>
     </message>
     <message>
       <source>Mail was send</source>
@@ -3158,10 +3178,6 @@
       <translation>Configurare sistem suport live</translation>
     </message>
     <message>
-      <source>Speech</source>
-      <translation>Voce</translation>
-    </message>
-    <message>
       <source>Time zone settings</source>
       <translation>Setari fus orar</translation>
     </message>
@@ -3198,28 +3214,8 @@
       <translation>Cod pentru embed sistem conversatii</translation>
     </message>
     <message>
-      <source>FAQ embed code</source>
-      <translation>Cod petnru embed FAQ - Intrebari frecvente</translation>
-    </message>
-    <message>
-      <source>Questionary embed code</source>
-      <translation>Cod pentru embed chestionar</translation>
-    </message>
-    <message>
-      <source>Chatbox embed code</source>
-      <translation>Cod pentru embed fereastra de conversatii</translation>
-    </message>
-    <message>
-      <source>Browse offers embed code</source>
-      <translation>Cod de embed pentru vizualizare oferte</translation>
-    </message>
-    <message>
       <source>Departments</source>
       <translation>Departamente</translation>
-    </message>
-    <message>
-      <source>Blocked users</source>
-      <translation>Utilizatori blocati</translation>
     </message>
     <message>
       <source>Chat configuration</source>
@@ -3242,14 +3238,6 @@
       <translation>Setari pentru formularul de incepere a unei conversatii</translation>
     </message>
     <message>
-      <source>Canned messages</source>
-      <translation>Mesaje predefinite</translation>
-    </message>
-    <message>
-      <source>Pro active chat invitations</source>
-      <translation>Invitații pro-active la discuție</translation>
-    </message>
-    <message>
       <source>Auto responder</source>
       <translation>Raspuns automat</translation>
     </message>
@@ -3264,14 +3252,6 @@
     <message>
       <source>Chat archive</source>
       <translation>Arhiva conversatii</translation>
-    </message>
-    <message>
-      <source>Statistic</source>
-      <translation>Statistici</translation>
-    </message>
-    <message>
-      <source>Maintenance</source>
-      <translation>Mentenanta</translation>
     </message>
     <message>
       <source>Theming</source>
@@ -3290,6 +3270,26 @@
       <translation>Tema default</translation>
     </message>
     <message>
+      <source>Blocked users</source>
+      <translation>Utilizatori blocati</translation>
+    </message>
+    <message>
+      <source>Browse offers embed code</source>
+      <translation>Cod de embed pentru vizualizare oferte</translation>
+    </message>
+    <message>
+      <source>Canned messages</source>
+      <translation>Mesaje predefinite</translation>
+    </message>
+    <message>
+      <source>Chatbox embed code</source>
+      <translation>Cod pentru embed fereastra de conversatii</translation>
+    </message>
+    <message>
+      <source>FAQ embed code</source>
+      <translation>Cod petnru embed FAQ - Intrebari frecvente</translation>
+    </message>
+    <message>
       <source>Files</source>
       <translation>Fisiere</translation>
     </message>
@@ -3302,8 +3302,28 @@
       <translation>Lista fisierelor</translation>
     </message>
     <message>
+      <source>Maintenance</source>
+      <translation>Mentenanta</translation>
+    </message>
+    <message>
+      <source>Pro active chat invitations</source>
+      <translation>Invitații pro-active la discuție</translation>
+    </message>
+    <message>
+      <source>Questionary embed code</source>
+      <translation>Cod pentru embed chestionar</translation>
+    </message>
+    <message>
+      <source>Statistic</source>
+      <translation>Statistici</translation>
+    </message>
+    <message>
       <source>Automatic translations</source>
       <translation>Traducere automata</translation>
+    </message>
+    <message>
+      <source>Speech</source>
+      <translation>Voce</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -3388,6 +3408,22 @@
       <translation>Conversatii inchise</translation>
     </message>
     <message>
+      <source>Browse offers</source>
+      <translation>Vizualizeaza oferte</translation>
+    </message>
+    <message>
+      <source>Chatbox</source>
+      <translation>Chatbox</translation>
+    </message>
+    <message>
+      <source>FAQ</source>
+      <translation>FAQ - intrebari frecvente</translation>
+    </message>
+    <message>
+      <source>Questionary</source>
+      <translation>Chestionar</translation>
+    </message>
+    <message>
       <source>New chat request</source>
       <translation>Cerere conversatie noua</translation>
     </message>
@@ -3406,22 +3442,6 @@
     <message>
       <source>Extra modules</source>
       <translation>Module extra</translation>
-    </message>
-    <message>
-      <source>Questionary</source>
-      <translation>Chestionar</translation>
-    </message>
-    <message>
-      <source>FAQ</source>
-      <translation>FAQ - intrebari frecvente</translation>
-    </message>
-    <message>
-      <source>Chatbox</source>
-      <translation>Chatbox</translation>
-    </message>
-    <message>
-      <source>Browse offers</source>
-      <translation>Vizualizeaza oferte</translation>
     </message>
     <message>
       <source>Account</source>
@@ -4600,10 +4620,6 @@
       <translation>Liste vizibile</translation>
     </message>
     <message>
-      <source>Personal canned messages</source>
-      <translation>Mesaje predefinite personale</translation>
-    </message>
-    <message>
       <source>Pending chats</source>
       <translation>Conversatii in asteptare</translation>
     </message>
@@ -4664,6 +4680,10 @@
       <translation>Starea conversatiei nu se va schimba dupa deschiderea unei conversatii in asteptare</translation>
     </message>
     <message>
+      <source>I receive other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Skype</source>
       <translation>Skype</translation>
     </message>
@@ -4720,8 +4740,16 @@
       <translation>Cont actualizat</translation>
     </message>
     <message>
+      <source>User receives other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User can see all pending chats, not only assigned to him</source>
       <translation>Utilizatorul poate vedea toate conversatiile in asteptare, nu doar cele alocate lui</translation>
+    </message>
+    <message>
+      <source>Personal canned messages</source>
+      <translation>Mesaje predefinite personale</translation>
     </message>
     <message>
       <source>Please enter a username!</source>
@@ -6023,6 +6051,14 @@
       <translation>Mod invizibil</translation>
     </message>
     <message>
+      <source>I receive other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User receives other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User group</source>
       <translation>Grup de utilizatori</translation>
     </message>
@@ -6124,6 +6160,10 @@
     <message>
       <source>Title</source>
       <translation>Titlu</translation>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Update</source>
@@ -6762,6 +6802,44 @@
     <message>
       <source>Module/Function</source>
       <translation>Modul/functie</translation>
+    </message>
+  </context>
+  <context>
+    <name>permission/getpermissionssummary</name>
+    <message>
+      <source>Request permission</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose at least one permission</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>permission/request</name>
+    <message>
+      <source>Request permission</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Request permissions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Permission requested</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a user!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This user can not receive permision request!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Permissions were not provided</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

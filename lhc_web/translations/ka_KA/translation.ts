@@ -335,6 +335,10 @@
       <translation>სახელი</translation>
     </message>
     <message>
+      <source>Name of the company</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Need help header text</source>
       <translation>გჭირდებათ დახმარება ზედა კოლონტიტულის ტექსტი</translation>
     </message>
@@ -1437,16 +1441,32 @@
       <translation>სამუშაო საათები, 24 საათიანი ფორმატი, 1-24, წუთების ფორმატი 0-60</translation>
     </message>
     <message>
+      <source>Hours from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hours from, E.g. 8</source>
       <translation>საათები, მაგ. 8-დან</translation>
+    </message>
+    <message>
+      <source>Minutes from</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Minutes from, E.g. 30</source>
       <translation>წუთები, მაგ. 30-დან</translation>
     </message>
     <message>
+      <source>Hours to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hours to, E.g. 17</source>
       <translation>საათები მაგ. 17 -მდე</translation>
+    </message>
+    <message>
+      <source>Minutes to</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Minutes to, E.g. 30</source>
@@ -1559,6 +1579,14 @@
       <translation>ატვირთული ფაილების დართვა</translation>
     </message>
     <message>
+      <source>Are you sure?</source>
+      <translation>დარწმუნებული ხართ?</translation>
+    </message>
+    <message>
+      <source>Block user</source>
+      <translation>მომხმარებლის დაბლოკვა</translation>
+    </message>
+    <message>
       <source>Screen sharing</source>
       <translation>ეკრანის გაზიარება</translation>
     </message>
@@ -1617,14 +1645,6 @@
     <message>
       <source>Transfer chat</source>
       <translation>ჩეთის გადატანა</translation>
-    </message>
-    <message>
-      <source>Are you sure?</source>
-      <translation>დარწმუნებული ხართ?</translation>
-    </message>
-    <message>
-      <source>Block user</source>
-      <translation>მომხმარებლის დაბლოკვა</translation>
     </message>
     <message>
       <source>Mail was send</source>
@@ -3158,10 +3178,6 @@
       <translation>ინტერაქტიული დახმარების კონფიგურირება</translation>
     </message>
     <message>
-      <source>Speech</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Time zone settings</source>
       <translation>დროის სარტყელის პარამეტრები</translation>
     </message>
@@ -3198,28 +3214,8 @@
       <translation>ონალინ დახმარება ჩასაშენებელი კოდი</translation>
     </message>
     <message>
-      <source>FAQ embed code</source>
-      <translation>ხშირად დასმული კითხვების ჩასაშენებელი კოდი</translation>
-    </message>
-    <message>
-      <source>Questionary embed code</source>
-      <translation>კითხვარის ჩასაშენებელი კოდი</translation>
-    </message>
-    <message>
-      <source>Chatbox embed code</source>
-      <translation>ჩეთის სარკმლის ჩასაშენებელი კოდი</translation>
-    </message>
-    <message>
-      <source>Browse offers embed code</source>
-      <translation>შემოთავაზებული ჩასაშენებელი კოდის დათვალიერება</translation>
-    </message>
-    <message>
       <source>Departments</source>
       <translation>დეპარტამენტები</translation>
-    </message>
-    <message>
-      <source>Blocked users</source>
-      <translation>დაბლოკილი მომხმარებლები</translation>
     </message>
     <message>
       <source>Chat configuration</source>
@@ -3242,14 +3238,6 @@
       <translation>ჩეთის დაწყება პარამეტრებიდან</translation>
     </message>
     <message>
-      <source>Canned messages</source>
-      <translation>კონსერვირებული შეტყობინებები</translation>
-    </message>
-    <message>
-      <source>Pro active chat invitations</source>
-      <translation>პრო აქტიური ჩეთების მოწვევები</translation>
-    </message>
-    <message>
       <source>Auto responder</source>
       <translation>ავტომოპასუხე</translation>
     </message>
@@ -3264,14 +3252,6 @@
     <message>
       <source>Chat archive</source>
       <translation>ჩეთის არქივი</translation>
-    </message>
-    <message>
-      <source>Statistic</source>
-      <translation>სტატისტიკა</translation>
-    </message>
-    <message>
-      <source>Maintenance</source>
-      <translation>მომსახურება</translation>
     </message>
     <message>
       <source>Theming</source>
@@ -3290,6 +3270,26 @@
       <translation>ნაგულისხმევი თემა</translation>
     </message>
     <message>
+      <source>Blocked users</source>
+      <translation>დაბლოკილი მომხმარებლები</translation>
+    </message>
+    <message>
+      <source>Browse offers embed code</source>
+      <translation>შემოთავაზებული ჩასაშენებელი კოდის დათვალიერება</translation>
+    </message>
+    <message>
+      <source>Canned messages</source>
+      <translation>კონსერვირებული შეტყობინებები</translation>
+    </message>
+    <message>
+      <source>Chatbox embed code</source>
+      <translation>ჩეთის სარკმლის ჩასაშენებელი კოდი</translation>
+    </message>
+    <message>
+      <source>FAQ embed code</source>
+      <translation>ხშირად დასმული კითხვების ჩასაშენებელი კოდი</translation>
+    </message>
+    <message>
       <source>Files</source>
       <translation>ფაილები</translation>
     </message>
@@ -3302,7 +3302,27 @@
       <translation>ფაილების სია</translation>
     </message>
     <message>
+      <source>Maintenance</source>
+      <translation>მომსახურება</translation>
+    </message>
+    <message>
+      <source>Pro active chat invitations</source>
+      <translation>პრო აქტიური ჩეთების მოწვევები</translation>
+    </message>
+    <message>
+      <source>Questionary embed code</source>
+      <translation>კითხვარის ჩასაშენებელი კოდი</translation>
+    </message>
+    <message>
+      <source>Statistic</source>
+      <translation>სტატისტიკა</translation>
+    </message>
+    <message>
       <source>Automatic translations</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Speech</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3388,6 +3408,22 @@
       <translation>დახურული ჩეთები</translation>
     </message>
     <message>
+      <source>Browse offers</source>
+      <translation>შეთავაზებების დათვალიერება</translation>
+    </message>
+    <message>
+      <source>Chatbox</source>
+      <translation>ჩეთის სარკმელი</translation>
+    </message>
+    <message>
+      <source>FAQ</source>
+      <translation>ხშირად დასმული კითხვები</translation>
+    </message>
+    <message>
+      <source>Questionary</source>
+      <translation>ანკეტა</translation>
+    </message>
+    <message>
       <source>New chat request</source>
       <translation>ახალი ჩეთის მოთხოვნა</translation>
     </message>
@@ -3406,22 +3442,6 @@
     <message>
       <source>Extra modules</source>
       <translation>ექსტრა მოდულები</translation>
-    </message>
-    <message>
-      <source>Questionary</source>
-      <translation>ანკეტა</translation>
-    </message>
-    <message>
-      <source>FAQ</source>
-      <translation>ხშირად დასმული კითხვები</translation>
-    </message>
-    <message>
-      <source>Chatbox</source>
-      <translation>ჩეთის სარკმელი</translation>
-    </message>
-    <message>
-      <source>Browse offers</source>
-      <translation>შეთავაზებების დათვალიერება</translation>
     </message>
     <message>
       <source>Account</source>
@@ -4600,10 +4620,6 @@
       <translation>ნაჩვენები სიები</translation>
     </message>
     <message>
-      <source>Personal canned messages</source>
-      <translation>პირადი კონსერვირებული შეტყობინებები</translation>
-    </message>
-    <message>
       <source>Pending chats</source>
       <translation>მომლოდინე ჩეთები</translation>
     </message>
@@ -4664,6 +4680,10 @@
       <translation>ჩეთის სტატუსი არ შეიცვლება მომლოდინე ჩეთის გახსნამდე</translation>
     </message>
     <message>
+      <source>I receive other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Skype</source>
       <translation>Skype</translation>
     </message>
@@ -4720,8 +4740,16 @@
       <translation>ანგარიში განახლდა</translation>
     </message>
     <message>
+      <source>User receives other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User can see all pending chats, not only assigned to him</source>
       <translation>მომხმარებელს შეუძლია ნახოს ყველა მომლოდინე ჩეთი, არამხოლოდ მისთვის მიკუთვნებული</translation>
+    </message>
+    <message>
+      <source>Personal canned messages</source>
+      <translation>პირადი კონსერვირებული შეტყობინებები</translation>
     </message>
     <message>
       <source>Please enter a username!</source>
@@ -6023,6 +6051,14 @@
       <translation>უხილავი რეჟიმი</translation>
     </message>
     <message>
+      <source>I receive other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User receives other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User group</source>
       <translation>მომხმარებლის ჯგუფი</translation>
     </message>
@@ -6124,6 +6160,10 @@
     <message>
       <source>Title</source>
       <translation>სათაური</translation>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Update</source>
@@ -6761,6 +6801,44 @@
     <name>permission/getpermissionsummary</name>
     <message>
       <source>Module/Function</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>permission/getpermissionssummary</name>
+    <message>
+      <source>Request permission</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose at least one permission</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>permission/request</name>
+    <message>
+      <source>Request permission</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Request permissions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Permission requested</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a user!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This user can not receive permision request!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Permissions were not provided</source>
       <translation type="unfinished"/>
     </message>
   </context>

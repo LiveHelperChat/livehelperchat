@@ -335,6 +335,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Name of the company</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Need help header text</source>
       <translation type="unfinished"/>
     </message>
@@ -1437,7 +1441,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Hours from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hours from, E.g. 8</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minutes from</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1445,7 +1457,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Hours to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hours to, E.g. 17</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minutes to</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1559,6 +1579,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Are you sure?</source>
+      <translation>Emin misin?</translation>
+    </message>
+    <message>
+      <source>Block user</source>
+      <translation>Kullanıcıyı engelle</translation>
+    </message>
+    <message>
       <source>Screen sharing</source>
       <translation type="unfinished"/>
     </message>
@@ -1617,14 +1645,6 @@
     <message>
       <source>Transfer chat</source>
       <translation>Konuşma aktar</translation>
-    </message>
-    <message>
-      <source>Are you sure?</source>
-      <translation>Emin misin?</translation>
-    </message>
-    <message>
-      <source>Block user</source>
-      <translation>Kullanıcıyı engelle</translation>
     </message>
     <message>
       <source>Mail was send</source>
@@ -3160,10 +3180,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Speech</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Time zone settings</source>
       <translation type="unfinished"/>
     </message>
@@ -3200,28 +3216,8 @@
       <translation>Canlı yardım gömü kodu</translation>
     </message>
     <message>
-      <source>FAQ embed code</source>
-      <translation>SSS gömü kodu</translation>
-    </message>
-    <message>
-      <source>Questionary embed code</source>
-      <translation>Anket gömü kodu</translation>
-    </message>
-    <message>
-      <source>Chatbox embed code</source>
-      <translation>Konuşma kutusu gömü kodu</translation>
-    </message>
-    <message>
-      <source>Browse offers embed code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Departments</source>
       <translation>Departmanlar</translation>
-    </message>
-    <message>
-      <source>Blocked users</source>
-      <translation>Engelli kullanıcılar</translation>
     </message>
     <message>
       <source>Chat configuration</source>
@@ -3244,14 +3240,6 @@
       <translation>Konuşma formu ayarları başlat</translation>
     </message>
     <message>
-      <source>Canned messages</source>
-      <translation>Arşivlenmiş mesajlar</translation>
-    </message>
-    <message>
-      <source>Pro active chat invitations</source>
-      <translation>Pro aktif konuşma davetiyeleri</translation>
-    </message>
-    <message>
       <source>Auto responder</source>
       <translation>Otomatik yanıtlayıcı</translation>
     </message>
@@ -3265,14 +3253,6 @@
     </message>
     <message>
       <source>Chat archive</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Statistic</source>
-      <translation>İstatistik</translation>
-    </message>
-    <message>
-      <source>Maintenance</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3292,6 +3272,26 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Blocked users</source>
+      <translation>Engelli kullanıcılar</translation>
+    </message>
+    <message>
+      <source>Browse offers embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Canned messages</source>
+      <translation>Arşivlenmiş mesajlar</translation>
+    </message>
+    <message>
+      <source>Chatbox embed code</source>
+      <translation>Konuşma kutusu gömü kodu</translation>
+    </message>
+    <message>
+      <source>FAQ embed code</source>
+      <translation>SSS gömü kodu</translation>
+    </message>
+    <message>
       <source>Files</source>
       <translation type="unfinished"/>
     </message>
@@ -3304,7 +3304,27 @@
       <translation>Dosyaların listesi</translation>
     </message>
     <message>
+      <source>Maintenance</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pro active chat invitations</source>
+      <translation>Pro aktif konuşma davetiyeleri</translation>
+    </message>
+    <message>
+      <source>Questionary embed code</source>
+      <translation>Anket gömü kodu</translation>
+    </message>
+    <message>
+      <source>Statistic</source>
+      <translation>İstatistik</translation>
+    </message>
+    <message>
       <source>Automatic translations</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Speech</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3390,6 +3410,22 @@
       <translation>Kapatılmış konuşmalar </translation>
     </message>
     <message>
+      <source>Browse offers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>FAQ</source>
+      <translation>SSS</translation>
+    </message>
+    <message>
+      <source>Questionary</source>
+      <translation>Anket</translation>
+    </message>
+    <message>
       <source>New chat request</source>
       <translation>Yeni konuşma isteği</translation>
     </message>
@@ -3407,22 +3443,6 @@
     </message>
     <message>
       <source>Extra modules</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Questionary</source>
-      <translation>Anket</translation>
-    </message>
-    <message>
-      <source>FAQ</source>
-      <translation>SSS</translation>
-    </message>
-    <message>
-      <source>Chatbox</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Browse offers</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4602,10 +4622,6 @@
       <translation>Görülebilir listeler</translation>
     </message>
     <message>
-      <source>Personal canned messages</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Pending chats</source>
       <translation>Bekleyen sohbetler</translation>
     </message>
@@ -4666,6 +4682,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>I receive other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Skype</source>
       <translation>Skype</translation>
     </message>
@@ -4722,7 +4742,15 @@
       <translation>Hesap güncellendi</translation>
     </message>
     <message>
+      <source>User receives other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User can see all pending chats, not only assigned to him</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Personal canned messages</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6025,6 +6053,14 @@
       <translation>Görünmez mod</translation>
     </message>
     <message>
+      <source>I receive other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User receives other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User group</source>
       <translation>Kullanıcı grubu</translation>
     </message>
@@ -6126,6 +6162,10 @@
     <message>
       <source>Title</source>
       <translation>Başlık</translation>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Update</source>
@@ -6763,6 +6803,44 @@
     <name>permission/getpermissionsummary</name>
     <message>
       <source>Module/Function</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>permission/getpermissionssummary</name>
+    <message>
+      <source>Request permission</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose at least one permission</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>permission/request</name>
+    <message>
+      <source>Request permission</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Request permissions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Permission requested</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a user!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This user can not receive permision request!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Permissions were not provided</source>
       <translation type="unfinished"/>
     </message>
   </context>

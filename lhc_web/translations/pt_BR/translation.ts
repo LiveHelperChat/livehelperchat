@@ -335,6 +335,10 @@
       <translation>Nome</translation>
     </message>
     <message>
+      <source>Name of the company</source>
+      <translation>Nome da empresa</translation>
+    </message>
+    <message>
       <source>Need help header text</source>
       <translation>Texto do cabeçalho de ajuda</translation>
     </message>
@@ -408,7 +412,7 @@
     </message>
     <message>
       <source>Site URL</source>
-      <translation type="unfinished"/>
+      <translation>Endereço de Site</translation>
     </message>
     <message>
       <source>Text above start chat form fields</source>
@@ -1437,16 +1441,32 @@
       <translation>Horas de trabalho, formato de horas 1 - 24, formato de minutos 0 - 60</translation>
     </message>
     <message>
+      <source>Hours from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hours from, E.g. 8</source>
       <translation>Horas de, Ex. 8</translation>
+    </message>
+    <message>
+      <source>Minutes from</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Minutes from, E.g. 30</source>
       <translation>Minutos de, Ex. 30</translation>
     </message>
     <message>
+      <source>Hours to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hours to, E.g. 17</source>
       <translation>Horas para, Ex. 17</translation>
+    </message>
+    <message>
+      <source>Minutes to</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Minutes to, E.g. 30</source>
@@ -1559,6 +1579,14 @@
       <translation>Anexar arquivo carregado</translation>
     </message>
     <message>
+      <source>Are you sure?</source>
+      <translation>Tem certeza?</translation>
+    </message>
+    <message>
+      <source>Block user</source>
+      <translation>Bloquear usuário</translation>
+    </message>
+    <message>
       <source>Screen sharing</source>
       <translation>Compartilhamento de tela</translation>
     </message>
@@ -1617,14 +1645,6 @@
     <message>
       <source>Transfer chat</source>
       <translation>Transferir chat</translation>
-    </message>
-    <message>
-      <source>Are you sure?</source>
-      <translation>Tem certeza?</translation>
-    </message>
-    <message>
-      <source>Block user</source>
-      <translation>Bloquear usuário</translation>
     </message>
     <message>
       <source>Mail was send</source>
@@ -3158,10 +3178,6 @@
       <translation>Configuração do Live help</translation>
     </message>
     <message>
-      <source>Speech</source>
-      <translation>Falar</translation>
-    </message>
-    <message>
       <source>Time zone settings</source>
       <translation>Definições de fuso horário</translation>
     </message>
@@ -3198,28 +3214,8 @@
       <translation>Código de incorporação do suporte online</translation>
     </message>
     <message>
-      <source>FAQ embed code</source>
-      <translation>Código de incorporação da FAQ</translation>
-    </message>
-    <message>
-      <source>Questionary embed code</source>
-      <translation>Código de incorporação do questionário</translation>
-    </message>
-    <message>
-      <source>Chatbox embed code</source>
-      <translation>Código de incorporação do chatbox</translation>
-    </message>
-    <message>
-      <source>Browse offers embed code</source>
-      <translation>Procurar opções de código de incorporação</translation>
-    </message>
-    <message>
       <source>Departments</source>
       <translation>Departamentos</translation>
-    </message>
-    <message>
-      <source>Blocked users</source>
-      <translation>Usuário bloqueados</translation>
     </message>
     <message>
       <source>Chat configuration</source>
@@ -3242,14 +3238,6 @@
       <translation>Configurações de formulário inicial de chat</translation>
     </message>
     <message>
-      <source>Canned messages</source>
-      <translation>Mensagens predefinidas</translation>
-    </message>
-    <message>
-      <source>Pro active chat invitations</source>
-      <translation>Convites de chat pró ativos</translation>
-    </message>
-    <message>
       <source>Auto responder</source>
       <translation>Atendedor automático</translation>
     </message>
@@ -3264,14 +3252,6 @@
     <message>
       <source>Chat archive</source>
       <translation>Arquivo de chat</translation>
-    </message>
-    <message>
-      <source>Statistic</source>
-      <translation>Estatística</translation>
-    </message>
-    <message>
-      <source>Maintenance</source>
-      <translation>Manutenção</translation>
     </message>
     <message>
       <source>Theming</source>
@@ -3290,6 +3270,26 @@
       <translation>Tema padrão</translation>
     </message>
     <message>
+      <source>Blocked users</source>
+      <translation>Usuário bloqueados</translation>
+    </message>
+    <message>
+      <source>Browse offers embed code</source>
+      <translation>Procurar opções de código de incorporação</translation>
+    </message>
+    <message>
+      <source>Canned messages</source>
+      <translation>Mensagens predefinidas</translation>
+    </message>
+    <message>
+      <source>Chatbox embed code</source>
+      <translation>Código de incorporação do chatbox</translation>
+    </message>
+    <message>
+      <source>FAQ embed code</source>
+      <translation>Código de incorporação da FAQ</translation>
+    </message>
+    <message>
       <source>Files</source>
       <translation>Arquivos</translation>
     </message>
@@ -3302,8 +3302,28 @@
       <translation>Lista de arquivos</translation>
     </message>
     <message>
+      <source>Maintenance</source>
+      <translation>Manutenção</translation>
+    </message>
+    <message>
+      <source>Pro active chat invitations</source>
+      <translation>Convites de chat pró ativos</translation>
+    </message>
+    <message>
+      <source>Questionary embed code</source>
+      <translation>Código de incorporação do questionário</translation>
+    </message>
+    <message>
+      <source>Statistic</source>
+      <translation>Estatística</translation>
+    </message>
+    <message>
       <source>Automatic translations</source>
       <translation>Traduções automáticas</translation>
+    </message>
+    <message>
+      <source>Speech</source>
+      <translation>Falar</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -3388,6 +3408,22 @@
       <translation>Chats fechados</translation>
     </message>
     <message>
+      <source>Browse offers</source>
+      <translation>Procurar opções</translation>
+    </message>
+    <message>
+      <source>Chatbox</source>
+      <translation>Chatbox</translation>
+    </message>
+    <message>
+      <source>FAQ</source>
+      <translation>FAQ</translation>
+    </message>
+    <message>
+      <source>Questionary</source>
+      <translation>Questionário</translation>
+    </message>
+    <message>
       <source>New chat request</source>
       <translation>Nova requisição de chat</translation>
     </message>
@@ -3406,22 +3442,6 @@
     <message>
       <source>Extra modules</source>
       <translation>Módulos extras</translation>
-    </message>
-    <message>
-      <source>Questionary</source>
-      <translation>Questionário</translation>
-    </message>
-    <message>
-      <source>FAQ</source>
-      <translation>FAQ</translation>
-    </message>
-    <message>
-      <source>Chatbox</source>
-      <translation>Chatbox</translation>
-    </message>
-    <message>
-      <source>Browse offers</source>
-      <translation>Procurar opções</translation>
     </message>
     <message>
       <source>Account</source>
@@ -4600,10 +4620,6 @@
       <translation>Listas visíveis</translation>
     </message>
     <message>
-      <source>Personal canned messages</source>
-      <translation>Mensagens predefinidas pessoais</translation>
-    </message>
-    <message>
       <source>Pending chats</source>
       <translation>Chats pendentes</translation>
     </message>
@@ -4613,7 +4629,7 @@
     </message>
     <message>
       <source>Permissions</source>
-      <translation type="unfinished"/>
+      <translation>Permissões</translation>
     </message>
     <message>
       <source>Do not enter a password unless you want to change it</source>
@@ -4662,6 +4678,10 @@
     <message>
       <source>Chat status will not change upon pending chat opening</source>
       <translation>O Status do chat não vai mudar durante a abertura de um chat pendente</translation>
+    </message>
+    <message>
+      <source>I receive other operators permissions request</source>
+      <translation>Eu recebo pedido de permissões de outros operadores</translation>
     </message>
     <message>
       <source>Skype</source>
@@ -4713,15 +4733,23 @@
     </message>
     <message>
       <source>Show permissions</source>
-      <translation type="unfinished"/>
+      <translation>Exibir permissões</translation>
     </message>
     <message>
       <source>Account updated</source>
       <translation>Cadastro atualizado</translation>
     </message>
     <message>
+      <source>User receives other operators permissions request</source>
+      <translation> Usuário recebe pedido permissões de outros operadores</translation>
+    </message>
+    <message>
       <source>User can see all pending chats, not only assigned to him</source>
       <translation>O usuário pode ver todos os chates pendentes, não apenas os encaminhados para ele</translation>
+    </message>
+    <message>
+      <source>Personal canned messages</source>
+      <translation>Mensagens predefinidas pessoais</translation>
     </message>
     <message>
       <source>Please enter a username!</source>
@@ -6023,6 +6051,14 @@
       <translation>Modo invisível</translation>
     </message>
     <message>
+      <source>I receive other operators permissions request</source>
+      <translation>Eu recebo pedido de permissões de outros operadores</translation>
+    </message>
+    <message>
+      <source>User receives other operators permissions request</source>
+      <translation>Usuário recebe pedido permissões de outros operadores</translation>
+    </message>
+    <message>
       <source>User group</source>
       <translation>Grupo de usuário</translation>
     </message>
@@ -6124,6 +6160,10 @@
     <message>
       <source>Title</source>
       <translation>Título</translation>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation>Desativado</translation>
     </message>
     <message>
       <source>Update</source>
@@ -6761,7 +6801,45 @@
     <name>permission/getpermissionsummary</name>
     <message>
       <source>Module/Function</source>
-      <translation type="unfinished"/>
+      <translation>Módulo/Função</translation>
+    </message>
+  </context>
+  <context>
+    <name>permission/getpermissionssummary</name>
+    <message>
+      <source>Request permission</source>
+      <translation>Solicitar permissão</translation>
+    </message>
+    <message>
+      <source>Please choose at least one permission</source>
+      <translation>Por favor, escolha pelo menos uma permissão</translation>
+    </message>
+  </context>
+  <context>
+    <name>permission/request</name>
+    <message>
+      <source>Request permission</source>
+      <translation>Solicitar permissão</translation>
+    </message>
+    <message>
+      <source>Request permissions</source>
+      <translation>Solicitar permissões</translation>
+    </message>
+    <message>
+      <source>Permission requested</source>
+      <translation>Permissão solicitada</translation>
+    </message>
+    <message>
+      <source>Please choose a user!</source>
+      <translation>Por favor escolha um usuário!</translation>
+    </message>
+    <message>
+      <source>This user can not receive permision request!</source>
+      <translation>Este usuário não pode receber a permissão solicitada!</translation>
+    </message>
+    <message>
+      <source>Permissions were not provided</source>
+      <translation>Permissões não foram aceitas</translation>
     </message>
   </context>
 </TS>

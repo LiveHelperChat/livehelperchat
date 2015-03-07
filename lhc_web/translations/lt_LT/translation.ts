@@ -335,6 +335,10 @@
       <translation>Pavadinimas</translation>
     </message>
     <message>
+      <source>Name of the company</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Need help header text</source>
       <translation>Reikia pagalbos antraštės tekstas</translation>
     </message>
@@ -1437,16 +1441,32 @@
       <translation>Darbo valandos, 24 valandų formatas, 1-24, minučių formatas 0 - 60</translation>
     </message>
     <message>
+      <source>Hours from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hours from, E.g. 8</source>
       <translation>Valandos, Pvz. 8</translation>
+    </message>
+    <message>
+      <source>Minutes from</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Minutes from, E.g. 30</source>
       <translation>Minutės nuo, Pvz. 30</translation>
     </message>
     <message>
+      <source>Hours to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hours to, E.g. 17</source>
       <translation>Valandos iki, Pvz. 17</translation>
+    </message>
+    <message>
+      <source>Minutes to</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Minutes to, E.g. 30</source>
@@ -1559,6 +1579,14 @@
       <translation>Prisegti nusiųstą failą</translation>
     </message>
     <message>
+      <source>Are you sure?</source>
+      <translation>Ar esate tuo tikras?</translation>
+    </message>
+    <message>
+      <source>Block user</source>
+      <translation>Blokuoti vartotoją</translation>
+    </message>
+    <message>
       <source>Screen sharing</source>
       <translation>Ekrano dalinamasis</translation>
     </message>
@@ -1617,14 +1645,6 @@
     <message>
       <source>Transfer chat</source>
       <translation>Perskirti pokalbį</translation>
-    </message>
-    <message>
-      <source>Are you sure?</source>
-      <translation>Ar esate tuo tikras?</translation>
-    </message>
-    <message>
-      <source>Block user</source>
-      <translation>Blokuoti vartotoją</translation>
     </message>
     <message>
       <source>Mail was send</source>
@@ -3158,10 +3178,6 @@
       <translation>Gyvos pagalbos konfiguracija</translation>
     </message>
     <message>
-      <source>Speech</source>
-      <translation>Kalba</translation>
-    </message>
-    <message>
       <source>Time zone settings</source>
       <translation>Laiko zonos nustatymai</translation>
     </message>
@@ -3198,28 +3214,8 @@
       <translation>Live Help įterpimo kodas</translation>
     </message>
     <message>
-      <source>FAQ embed code</source>
-      <translation>DUK įterpimo kodas</translation>
-    </message>
-    <message>
-      <source>Questionary embed code</source>
-      <translation>Klausimyno įterpimo kodas</translation>
-    </message>
-    <message>
-      <source>Chatbox embed code</source>
-      <translation>Chatbox įterpimo kodas</translation>
-    </message>
-    <message>
-      <source>Browse offers embed code</source>
-      <translation>Naršymo pasiūlymų įterpimo kodas</translation>
-    </message>
-    <message>
       <source>Departments</source>
       <translation>Departamentai</translation>
-    </message>
-    <message>
-      <source>Blocked users</source>
-      <translation>Blokuoti vartotojai</translation>
     </message>
     <message>
       <source>Chat configuration</source>
@@ -3242,14 +3238,6 @@
       <translation>Pokalbio pradžios formos nustatymai</translation>
     </message>
     <message>
-      <source>Canned messages</source>
-      <translation>Paruoštos žinutės</translation>
-    </message>
-    <message>
-      <source>Pro active chat invitations</source>
-      <translation>Vartotojo veiksmais paremtos žinutės lankytojams</translation>
-    </message>
-    <message>
       <source>Auto responder</source>
       <translation>Auto atsakiklis</translation>
     </message>
@@ -3264,14 +3252,6 @@
     <message>
       <source>Chat archive</source>
       <translation>Pokalbių archyvas</translation>
-    </message>
-    <message>
-      <source>Statistic</source>
-      <translation>Statistika</translation>
-    </message>
-    <message>
-      <source>Maintenance</source>
-      <translation>Priežiūra</translation>
     </message>
     <message>
       <source>Theming</source>
@@ -3290,6 +3270,26 @@
       <translation>Standartinė tema</translation>
     </message>
     <message>
+      <source>Blocked users</source>
+      <translation>Blokuoti vartotojai</translation>
+    </message>
+    <message>
+      <source>Browse offers embed code</source>
+      <translation>Naršymo pasiūlymų įterpimo kodas</translation>
+    </message>
+    <message>
+      <source>Canned messages</source>
+      <translation>Paruoštos žinutės</translation>
+    </message>
+    <message>
+      <source>Chatbox embed code</source>
+      <translation>Chatbox įterpimo kodas</translation>
+    </message>
+    <message>
+      <source>FAQ embed code</source>
+      <translation>DUK įterpimo kodas</translation>
+    </message>
+    <message>
       <source>Files</source>
       <translation>Failai</translation>
     </message>
@@ -3302,8 +3302,28 @@
       <translation>Failų sąrašas</translation>
     </message>
     <message>
+      <source>Maintenance</source>
+      <translation>Priežiūra</translation>
+    </message>
+    <message>
+      <source>Pro active chat invitations</source>
+      <translation>Vartotojo veiksmais paremtos žinutės lankytojams</translation>
+    </message>
+    <message>
+      <source>Questionary embed code</source>
+      <translation>Klausimyno įterpimo kodas</translation>
+    </message>
+    <message>
+      <source>Statistic</source>
+      <translation>Statistika</translation>
+    </message>
+    <message>
       <source>Automatic translations</source>
       <translation>Automatinis vertimas</translation>
+    </message>
+    <message>
+      <source>Speech</source>
+      <translation>Kalba</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -3388,6 +3408,22 @@
       <translation>Uždaryti pokalbiai</translation>
     </message>
     <message>
+      <source>Browse offers</source>
+      <translation>Naršymo pasiūlymai</translation>
+    </message>
+    <message>
+      <source>Chatbox</source>
+      <translation>Chatbox</translation>
+    </message>
+    <message>
+      <source>FAQ</source>
+      <translation>DUK</translation>
+    </message>
+    <message>
+      <source>Questionary</source>
+      <translation>Klausimynas</translation>
+    </message>
+    <message>
       <source>New chat request</source>
       <translation>Naujas užklausimas</translation>
     </message>
@@ -3406,22 +3442,6 @@
     <message>
       <source>Extra modules</source>
       <translation>Papildomi moduliai</translation>
-    </message>
-    <message>
-      <source>Questionary</source>
-      <translation>Klausimynas</translation>
-    </message>
-    <message>
-      <source>FAQ</source>
-      <translation>DUK</translation>
-    </message>
-    <message>
-      <source>Chatbox</source>
-      <translation>Chatbox</translation>
-    </message>
-    <message>
-      <source>Browse offers</source>
-      <translation>Naršymo pasiūlymai</translation>
     </message>
     <message>
       <source>Account</source>
@@ -4600,10 +4620,6 @@
       <translation>Matomi sąrašai</translation>
     </message>
     <message>
-      <source>Personal canned messages</source>
-      <translation>Asmeninės numatytosios žinutės</translation>
-    </message>
-    <message>
       <source>Pending chats</source>
       <translation>Laukiantys pokalbiai</translation>
     </message>
@@ -4664,6 +4680,10 @@
       <translation>Pokalbio būsena nepasikeis atsidarius laukiantį pokalbį</translation>
     </message>
     <message>
+      <source>I receive other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Skype</source>
       <translation>Skype</translation>
     </message>
@@ -4720,8 +4740,16 @@
       <translation>Paskyros duomenys buvo atnaujinti</translation>
     </message>
     <message>
+      <source>User receives other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User can see all pending chats, not only assigned to him</source>
       <translation>Vartotojas gali matyti visus laukiančius pokalbius, ne tik priskirtus jam</translation>
+    </message>
+    <message>
+      <source>Personal canned messages</source>
+      <translation>Asmeninės numatytosios žinutės</translation>
     </message>
     <message>
       <source>Please enter a username!</source>
@@ -6023,6 +6051,14 @@
       <translation>Nematomas rešimas</translation>
     </message>
     <message>
+      <source>I receive other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User receives other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User group</source>
       <translation>Vartotojų grupė</translation>
     </message>
@@ -6124,6 +6160,10 @@
     <message>
       <source>Title</source>
       <translation>Pavadinimas</translation>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Update</source>
@@ -6761,6 +6801,44 @@
     <name>permission/getpermissionsummary</name>
     <message>
       <source>Module/Function</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>permission/getpermissionssummary</name>
+    <message>
+      <source>Request permission</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose at least one permission</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>permission/request</name>
+    <message>
+      <source>Request permission</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Request permissions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Permission requested</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a user!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This user can not receive permision request!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Permissions were not provided</source>
       <translation type="unfinished"/>
     </message>
   </context>

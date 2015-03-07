@@ -335,6 +335,10 @@
       <translation>名字</translation>
     </message>
     <message>
+      <source>Name of the company</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Need help header text</source>
       <translation>需要帮助的标题文本</translation>
     </message>
@@ -1437,7 +1441,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Hours from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hours from, E.g. 8</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minutes from</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1445,7 +1457,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Hours to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hours to, E.g. 17</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minutes to</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1559,6 +1579,14 @@
       <translation>上传的附件</translation>
     </message>
     <message>
+      <source>Are you sure?</source>
+      <translation>你确定吗？</translation>
+    </message>
+    <message>
+      <source>Block user</source>
+      <translation>黑名单</translation>
+    </message>
+    <message>
       <source>Screen sharing</source>
       <translation type="unfinished"/>
     </message>
@@ -1617,14 +1645,6 @@
     <message>
       <source>Transfer chat</source>
       <translation>转让聊天</translation>
-    </message>
-    <message>
-      <source>Are you sure?</source>
-      <translation>你确定吗？</translation>
-    </message>
-    <message>
-      <source>Block user</source>
-      <translation>黑名单</translation>
     </message>
     <message>
       <source>Mail was send</source>
@@ -3158,10 +3178,6 @@
       <translation>配置Live Help</translation>
     </message>
     <message>
-      <source>Speech</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Time zone settings</source>
       <translation>时区设置</translation>
     </message>
@@ -3198,28 +3214,8 @@
       <translation>在線幫助嵌入代碼</translation>
     </message>
     <message>
-      <source>FAQ embed code</source>
-      <translation>常見問題嵌入代碼</translation>
-    </message>
-    <message>
-      <source>Questionary embed code</source>
-      <translation>問卷嵌入代碼</translation>
-    </message>
-    <message>
-      <source>Chatbox embed code</source>
-      <translation>客艙嵌入代碼</translation>
-    </message>
-    <message>
-      <source>Browse offers embed code</source>
-      <translation>浏览提供嵌入代码</translation>
-    </message>
-    <message>
       <source>Departments</source>
       <translation>部门</translation>
-    </message>
-    <message>
-      <source>Blocked users</source>
-      <translation>被阻止的用户</translation>
     </message>
     <message>
       <source>Chat configuration</source>
@@ -3242,14 +3238,6 @@
       <translation>开始聊天的形式设置</translation>
     </message>
     <message>
-      <source>Canned messages</source>
-      <translation>罐头消息</translation>
-    </message>
-    <message>
-      <source>Pro active chat invitations</source>
-      <translation>临主动聊天邀请</translation>
-    </message>
-    <message>
       <source>Auto responder</source>
       <translation>自動應答</translation>
     </message>
@@ -3264,14 +3252,6 @@
     <message>
       <source>Chat archive</source>
       <translation>聊天記錄存檔</translation>
-    </message>
-    <message>
-      <source>Statistic</source>
-      <translation>统计</translation>
-    </message>
-    <message>
-      <source>Maintenance</source>
-      <translation>维护</translation>
     </message>
     <message>
       <source>Theming</source>
@@ -3290,6 +3270,26 @@
       <translation>默认主题</translation>
     </message>
     <message>
+      <source>Blocked users</source>
+      <translation>被阻止的用户</translation>
+    </message>
+    <message>
+      <source>Browse offers embed code</source>
+      <translation>浏览提供嵌入代码</translation>
+    </message>
+    <message>
+      <source>Canned messages</source>
+      <translation>罐头消息</translation>
+    </message>
+    <message>
+      <source>Chatbox embed code</source>
+      <translation>客艙嵌入代碼</translation>
+    </message>
+    <message>
+      <source>FAQ embed code</source>
+      <translation>常見問題嵌入代碼</translation>
+    </message>
+    <message>
       <source>Files</source>
       <translation>文件</translation>
     </message>
@@ -3302,7 +3302,27 @@
       <translation>文件列表</translation>
     </message>
     <message>
+      <source>Maintenance</source>
+      <translation>维护</translation>
+    </message>
+    <message>
+      <source>Pro active chat invitations</source>
+      <translation>临主动聊天邀请</translation>
+    </message>
+    <message>
+      <source>Questionary embed code</source>
+      <translation>問卷嵌入代碼</translation>
+    </message>
+    <message>
+      <source>Statistic</source>
+      <translation>统计</translation>
+    </message>
+    <message>
       <source>Automatic translations</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Speech</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3388,6 +3408,22 @@
       <translation>封闭式聊天</translation>
     </message>
     <message>
+      <source>Browse offers</source>
+      <translation>浏览提供</translation>
+    </message>
+    <message>
+      <source>Chatbox</source>
+      <translation>客舱</translation>
+    </message>
+    <message>
+      <source>FAQ</source>
+      <translation>常问问题</translation>
+    </message>
+    <message>
+      <source>Questionary</source>
+      <translation>问卷</translation>
+    </message>
+    <message>
       <source>New chat request</source>
       <translation>新的聊天请求</translation>
     </message>
@@ -3406,22 +3442,6 @@
     <message>
       <source>Extra modules</source>
       <translation>扩展模块</translation>
-    </message>
-    <message>
-      <source>Questionary</source>
-      <translation>问卷</translation>
-    </message>
-    <message>
-      <source>FAQ</source>
-      <translation>常问问题</translation>
-    </message>
-    <message>
-      <source>Chatbox</source>
-      <translation>客舱</translation>
-    </message>
-    <message>
-      <source>Browse offers</source>
-      <translation>浏览提供</translation>
     </message>
     <message>
       <source>Account</source>
@@ -4600,10 +4620,6 @@
       <translation>可见名单</translation>
     </message>
     <message>
-      <source>Personal canned messages</source>
-      <translation>个人罐装的消息</translation>
-    </message>
-    <message>
       <source>Pending chats</source>
       <translation>等待中的聊天</translation>
     </message>
@@ -4664,6 +4680,10 @@
       <translation>聊天状态不会更改时挂起的打开聊天</translation>
     </message>
     <message>
+      <source>I receive other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Skype</source>
       <translation>Skype</translation>
     </message>
@@ -4720,8 +4740,16 @@
       <translation>帐户更新</translation>
     </message>
     <message>
+      <source>User receives other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User can see all pending chats, not only assigned to him</source>
       <translation>用户可以看到所有待定的聊天，不只分配给他的</translation>
+    </message>
+    <message>
+      <source>Personal canned messages</source>
+      <translation>个人罐装的消息</translation>
     </message>
     <message>
       <source>Please enter a username!</source>
@@ -6023,6 +6051,14 @@
       <translation>隐形模式</translation>
     </message>
     <message>
+      <source>I receive other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User receives other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User group</source>
       <translation>用户组</translation>
     </message>
@@ -6124,6 +6160,10 @@
     <message>
       <source>Title</source>
       <translation>标题</translation>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Update</source>
@@ -6761,6 +6801,44 @@
     <name>permission/getpermissionsummary</name>
     <message>
       <source>Module/Function</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>permission/getpermissionssummary</name>
+    <message>
+      <source>Request permission</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose at least one permission</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>permission/request</name>
+    <message>
+      <source>Request permission</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Request permissions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Permission requested</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a user!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This user can not receive permision request!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Permissions were not provided</source>
       <translation type="unfinished"/>
     </message>
   </context>

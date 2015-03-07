@@ -335,6 +335,10 @@
       <translation>Nombre</translation>
     </message>
     <message>
+      <source>Name of the company</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Need help header text</source>
       <translation>Texto del encabezado de necesita ayuda</translation>
     </message>
@@ -1437,16 +1441,32 @@
       <translation>Horas de trabajo, formato de 1 a 24 horas y de 0 a 60 minutos.</translation>
     </message>
     <message>
+      <source>Hours from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hours from, E.g. 8</source>
       <translation>Horas desde, Ej. 8</translation>
+    </message>
+    <message>
+      <source>Minutes from</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Minutes from, E.g. 30</source>
       <translation>Minutos desde, Ej. 30</translation>
     </message>
     <message>
+      <source>Hours to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hours to, E.g. 17</source>
       <translation>Horas hasta, Ej. 17</translation>
+    </message>
+    <message>
+      <source>Minutes to</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Minutes to, E.g. 30</source>
@@ -1559,6 +1579,14 @@
       <translation>Adjuntar archivo subido</translation>
     </message>
     <message>
+      <source>Are you sure?</source>
+      <translation>¿Está seguro?</translation>
+    </message>
+    <message>
+      <source>Block user</source>
+      <translation>Bloquear usuario</translation>
+    </message>
+    <message>
       <source>Screen sharing</source>
       <translation>Compartir pantalla</translation>
     </message>
@@ -1617,14 +1645,6 @@
     <message>
       <source>Transfer chat</source>
       <translation>Transferir chat</translation>
-    </message>
-    <message>
-      <source>Are you sure?</source>
-      <translation>¿Está seguro?</translation>
-    </message>
-    <message>
-      <source>Block user</source>
-      <translation>Bloquear usuario</translation>
     </message>
     <message>
       <source>Mail was send</source>
@@ -3158,10 +3178,6 @@
       <translation>Configuración de la ayuda en línea</translation>
     </message>
     <message>
-      <source>Speech</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Time zone settings</source>
       <translation>Configuraciones de zona horaria</translation>
     </message>
@@ -3198,28 +3214,8 @@
       <translation>Código de incrustación para Live help</translation>
     </message>
     <message>
-      <source>FAQ embed code</source>
-      <translation>Código de incrustación para FAQ</translation>
-    </message>
-    <message>
-      <source>Questionary embed code</source>
-      <translation>Código de incrustación para cuestionario</translation>
-    </message>
-    <message>
-      <source>Chatbox embed code</source>
-      <translation>Código de incrustación para Chatbox</translation>
-    </message>
-    <message>
-      <source>Browse offers embed code</source>
-      <translation>Código de incrustación  para ofertas en el navegador</translation>
-    </message>
-    <message>
       <source>Departments</source>
       <translation>Departamentos</translation>
-    </message>
-    <message>
-      <source>Blocked users</source>
-      <translation>Usuarios bloqueados</translation>
     </message>
     <message>
       <source>Chat configuration</source>
@@ -3242,14 +3238,6 @@
       <translation>Ajustes del formulario de Iniciar chat</translation>
     </message>
     <message>
-      <source>Canned messages</source>
-      <translation>Mensajes predefinidos</translation>
-    </message>
-    <message>
-      <source>Pro active chat invitations</source>
-      <translation>Invitaciones de chat pro activas</translation>
-    </message>
-    <message>
       <source>Auto responder</source>
       <translation>Auto responder</translation>
     </message>
@@ -3264,14 +3252,6 @@
     <message>
       <source>Chat archive</source>
       <translation>Archivo de chats</translation>
-    </message>
-    <message>
-      <source>Statistic</source>
-      <translation>Estadística</translation>
-    </message>
-    <message>
-      <source>Maintenance</source>
-      <translation>Mantenimiento</translation>
     </message>
     <message>
       <source>Theming</source>
@@ -3290,6 +3270,26 @@
       <translation>Tema predefinido</translation>
     </message>
     <message>
+      <source>Blocked users</source>
+      <translation>Usuarios bloqueados</translation>
+    </message>
+    <message>
+      <source>Browse offers embed code</source>
+      <translation>Código de incrustación  para ofertas en el navegador</translation>
+    </message>
+    <message>
+      <source>Canned messages</source>
+      <translation>Mensajes predefinidos</translation>
+    </message>
+    <message>
+      <source>Chatbox embed code</source>
+      <translation>Código de incrustación para Chatbox</translation>
+    </message>
+    <message>
+      <source>FAQ embed code</source>
+      <translation>Código de incrustación para FAQ</translation>
+    </message>
+    <message>
       <source>Files</source>
       <translation>Archivos</translation>
     </message>
@@ -3302,7 +3302,27 @@
       <translation>Lista de archivos</translation>
     </message>
     <message>
+      <source>Maintenance</source>
+      <translation>Mantenimiento</translation>
+    </message>
+    <message>
+      <source>Pro active chat invitations</source>
+      <translation>Invitaciones de chat pro activas</translation>
+    </message>
+    <message>
+      <source>Questionary embed code</source>
+      <translation>Código de incrustación para cuestionario</translation>
+    </message>
+    <message>
+      <source>Statistic</source>
+      <translation>Estadística</translation>
+    </message>
+    <message>
       <source>Automatic translations</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Speech</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3388,6 +3408,22 @@
       <translation>Chats cerrados</translation>
     </message>
     <message>
+      <source>Browse offers</source>
+      <translation>Ver ofertas</translation>
+    </message>
+    <message>
+      <source>Chatbox</source>
+      <translation>Chatbox</translation>
+    </message>
+    <message>
+      <source>FAQ</source>
+      <translation>Preguntas frecuentes</translation>
+    </message>
+    <message>
+      <source>Questionary</source>
+      <translation>Cuestionario</translation>
+    </message>
+    <message>
       <source>New chat request</source>
       <translation>Nueva solicitud de chat</translation>
     </message>
@@ -3406,22 +3442,6 @@
     <message>
       <source>Extra modules</source>
       <translation>Módulos extra</translation>
-    </message>
-    <message>
-      <source>Questionary</source>
-      <translation>Cuestionario</translation>
-    </message>
-    <message>
-      <source>FAQ</source>
-      <translation>Preguntas frecuentes</translation>
-    </message>
-    <message>
-      <source>Chatbox</source>
-      <translation>Chatbox</translation>
-    </message>
-    <message>
-      <source>Browse offers</source>
-      <translation>Ver ofertas</translation>
     </message>
     <message>
       <source>Account</source>
@@ -4600,10 +4620,6 @@
       <translation>Listas visibles</translation>
     </message>
     <message>
-      <source>Personal canned messages</source>
-      <translation>Mensajes predefinidos personales</translation>
-    </message>
-    <message>
       <source>Pending chats</source>
       <translation>Chats pendientes</translation>
     </message>
@@ -4664,6 +4680,10 @@
       <translation>El estado del chat no cambiará al abrir el chat en espera</translation>
     </message>
     <message>
+      <source>I receive other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Skype</source>
       <translation>Skype</translation>
     </message>
@@ -4720,8 +4740,16 @@
       <translation>Cuenta actualizada</translation>
     </message>
     <message>
+      <source>User receives other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User can see all pending chats, not only assigned to him</source>
       <translation>El usuario puede ver todos los chats pendientes, no solo los asignados a el</translation>
+    </message>
+    <message>
+      <source>Personal canned messages</source>
+      <translation>Mensajes predefinidos personales</translation>
     </message>
     <message>
       <source>Please enter a username!</source>
@@ -6023,6 +6051,14 @@
       <translation>Modo invisible</translation>
     </message>
     <message>
+      <source>I receive other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User receives other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User group</source>
       <translation>Grupo de usuarios</translation>
     </message>
@@ -6124,6 +6160,10 @@
     <message>
       <source>Title</source>
       <translation>Título</translation>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Update</source>
@@ -6761,6 +6801,44 @@
     <name>permission/getpermissionsummary</name>
     <message>
       <source>Module/Function</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>permission/getpermissionssummary</name>
+    <message>
+      <source>Request permission</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose at least one permission</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>permission/request</name>
+    <message>
+      <source>Request permission</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Request permissions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Permission requested</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a user!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This user can not receive permision request!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Permissions were not provided</source>
       <translation type="unfinished"/>
     </message>
   </context>

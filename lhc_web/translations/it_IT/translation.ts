@@ -335,6 +335,10 @@
       <translation>Nome</translation>
     </message>
     <message>
+      <source>Name of the company</source>
+      <translation>Nome della compagnia (compare nel footer pop up)</translation>
+    </message>
+    <message>
       <source>Need help header text</source>
       <translation>&quot;Serve AIuto?&quot; titolo</translation>
     </message>
@@ -1438,16 +1442,32 @@
       <translation>Orario di lavoro, formato 24 ore, 1-24. formato minuti 0- 60</translation>
     </message>
     <message>
+      <source>Hours from</source>
+      <translation>Ore da</translation>
+    </message>
+    <message>
       <source>Hours from, E.g. 8</source>
       <translation>Ore da, Es. 8</translation>
+    </message>
+    <message>
+      <source>Minutes from</source>
+      <translation>Minuti da</translation>
     </message>
     <message>
       <source>Minutes from, E.g. 30</source>
       <translation>Minuti da, Es. 30</translation>
     </message>
     <message>
+      <source>Hours to</source>
+      <translation>Ore fino</translation>
+    </message>
+    <message>
       <source>Hours to, E.g. 17</source>
       <translation>Ore a, Es. 17</translation>
+    </message>
+    <message>
+      <source>Minutes to</source>
+      <translation>Minuti fino</translation>
     </message>
     <message>
       <source>Minutes to, E.g. 30</source>
@@ -1560,6 +1580,14 @@
       <translation>Allega file caricato</translation>
     </message>
     <message>
+      <source>Are you sure?</source>
+      <translation>Sei sicuro?</translation>
+    </message>
+    <message>
+      <source>Block user</source>
+      <translation>Blocco degli utenti</translation>
+    </message>
+    <message>
       <source>Screen sharing</source>
       <translation>Condivisione dello schermo</translation>
     </message>
@@ -1618,14 +1646,6 @@
     <message>
       <source>Transfer chat</source>
       <translation>Trasferisci chat</translation>
-    </message>
-    <message>
-      <source>Are you sure?</source>
-      <translation>Sei sicuro?</translation>
-    </message>
-    <message>
-      <source>Block user</source>
-      <translation>Blocco degli utenti</translation>
     </message>
     <message>
       <source>Mail was send</source>
@@ -3159,10 +3179,6 @@
       <translation>Configurazione live help</translation>
     </message>
     <message>
-      <source>Speech</source>
-      <translation>Discorso</translation>
-    </message>
-    <message>
       <source>Time zone settings</source>
       <translation>Impostazioni di fuso orario</translation>
     </message>
@@ -3199,28 +3215,8 @@
       <translation>Supporto live codice incluso</translation>
     </message>
     <message>
-      <source>FAQ embed code</source>
-      <translation>FAQ codice incluso</translation>
-    </message>
-    <message>
-      <source>Questionary embed code</source>
-      <translation>Questionario codice incluso</translation>
-    </message>
-    <message>
-      <source>Chatbox embed code</source>
-      <translation>Chatbox codice incluso</translation>
-    </message>
-    <message>
-      <source>Browse offers embed code</source>
-      <translation>Browse offers embed code</translation>
-    </message>
-    <message>
       <source>Departments</source>
       <translation>Dipartimenti</translation>
-    </message>
-    <message>
-      <source>Blocked users</source>
-      <translation>Utenti bloccati</translation>
     </message>
     <message>
       <source>Chat configuration</source>
@@ -3243,14 +3239,6 @@
       <translation>Avvia chat impostazioni del modulo</translation>
     </message>
     <message>
-      <source>Canned messages</source>
-      <translation>Messaggi predefiniti</translation>
-    </message>
-    <message>
-      <source>Pro active chat invitations</source>
-      <translation>Invito alla chat pro attiva</translation>
-    </message>
-    <message>
       <source>Auto responder</source>
       <translation>Auto risponditore</translation>
     </message>
@@ -3265,14 +3253,6 @@
     <message>
       <source>Chat archive</source>
       <translation>Archivio chat</translation>
-    </message>
-    <message>
-      <source>Statistic</source>
-      <translation>Statistica</translation>
-    </message>
-    <message>
-      <source>Maintenance</source>
-      <translation>Manutenzione</translation>
     </message>
     <message>
       <source>Theming</source>
@@ -3291,6 +3271,26 @@
       <translation>Tema di default</translation>
     </message>
     <message>
+      <source>Blocked users</source>
+      <translation>Utenti bloccati</translation>
+    </message>
+    <message>
+      <source>Browse offers embed code</source>
+      <translation>Browse offers embed code</translation>
+    </message>
+    <message>
+      <source>Canned messages</source>
+      <translation>Messaggi predefiniti</translation>
+    </message>
+    <message>
+      <source>Chatbox embed code</source>
+      <translation>Chatbox codice incluso</translation>
+    </message>
+    <message>
+      <source>FAQ embed code</source>
+      <translation>FAQ codice incluso</translation>
+    </message>
+    <message>
       <source>Files</source>
       <translation>Files</translation>
     </message>
@@ -3303,8 +3303,28 @@
       <translation>Lista dei files</translation>
     </message>
     <message>
+      <source>Maintenance</source>
+      <translation>Manutenzione</translation>
+    </message>
+    <message>
+      <source>Pro active chat invitations</source>
+      <translation>Invito alla chat pro attiva</translation>
+    </message>
+    <message>
+      <source>Questionary embed code</source>
+      <translation>Questionario codice incluso</translation>
+    </message>
+    <message>
+      <source>Statistic</source>
+      <translation>Statistica</translation>
+    </message>
+    <message>
       <source>Automatic translations</source>
       <translation>Traduzioni automatiche</translation>
+    </message>
+    <message>
+      <source>Speech</source>
+      <translation>Discorso</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -3389,6 +3409,22 @@
       <translation>Chat chiuse</translation>
     </message>
     <message>
+      <source>Browse offers</source>
+      <translation>Naviga tra le offerte</translation>
+    </message>
+    <message>
+      <source>Chatbox</source>
+      <translation>Chatbox</translation>
+    </message>
+    <message>
+      <source>FAQ</source>
+      <translation>FAQ</translation>
+    </message>
+    <message>
+      <source>Questionary</source>
+      <translation>Questionario</translation>
+    </message>
+    <message>
       <source>New chat request</source>
       <translation>Nuova richiesta chat</translation>
     </message>
@@ -3407,22 +3443,6 @@
     <message>
       <source>Extra modules</source>
       <translation>Moduli extra</translation>
-    </message>
-    <message>
-      <source>Questionary</source>
-      <translation>Questionario</translation>
-    </message>
-    <message>
-      <source>FAQ</source>
-      <translation>FAQ</translation>
-    </message>
-    <message>
-      <source>Chatbox</source>
-      <translation>Chatbox</translation>
-    </message>
-    <message>
-      <source>Browse offers</source>
-      <translation>Naviga tra le offerte</translation>
     </message>
     <message>
       <source>Account</source>
@@ -4601,10 +4621,6 @@
       <translation>Liste Visibili</translation>
     </message>
     <message>
-      <source>Personal canned messages</source>
-      <translation>Messaggi predefiniti</translation>
-    </message>
-    <message>
       <source>Pending chats</source>
       <translation>Chat in attesa </translation>
     </message>
@@ -4665,6 +4681,10 @@
       <translation>Lo stato della chat non cambierà fino a quando la chat in attesa sarà aperta</translation>
     </message>
     <message>
+      <source>I receive other operators permissions request</source>
+      <translation>Ricevo le richieste di permessi di altri operatori</translation>
+    </message>
+    <message>
       <source>Skype</source>
       <translation>Skype</translation>
     </message>
@@ -4721,8 +4741,16 @@
       <translation>Account aggiornato</translation>
     </message>
     <message>
+      <source>User receives other operators permissions request</source>
+      <translation>L&apos;utente riceve la richiesta di autorizzazioni per gli altri operatori</translation>
+    </message>
+    <message>
       <source>User can see all pending chats, not only assigned to him</source>
       <translation>L&apos;utente può vedere tutte le chat in attesa, non solo quelle assegnatemi</translation>
+    </message>
+    <message>
+      <source>Personal canned messages</source>
+      <translation>Messaggi predefiniti</translation>
     </message>
     <message>
       <source>Please enter a username!</source>
@@ -6024,6 +6052,14 @@
       <translation>Modalità invisibile</translation>
     </message>
     <message>
+      <source>I receive other operators permissions request</source>
+      <translation>Ricevo le richieste di permessi di altri operatori</translation>
+    </message>
+    <message>
+      <source>User receives other operators permissions request</source>
+      <translation>L&apos;utente riceve la richiesta di autorizzazioni per gli altri operatori</translation>
+    </message>
+    <message>
       <source>User group</source>
       <translation>Utente gruppo</translation>
     </message>
@@ -6125,6 +6161,10 @@
     <message>
       <source>Title</source>
       <translation>Titolo</translation>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation>Disabilitato</translation>
     </message>
     <message>
       <source>Update</source>
@@ -6763,6 +6803,44 @@
     <message>
       <source>Module/Function</source>
       <translation>Moduli/Funzioni</translation>
+    </message>
+  </context>
+  <context>
+    <name>permission/getpermissionssummary</name>
+    <message>
+      <source>Request permission</source>
+      <translation>Richiesta autorizzazione</translation>
+    </message>
+    <message>
+      <source>Please choose at least one permission</source>
+      <translation>Si prega di scegliere almeno un permesso</translation>
+    </message>
+  </context>
+  <context>
+    <name>permission/request</name>
+    <message>
+      <source>Request permission</source>
+      <translation>Richiesta autorizzazione</translation>
+    </message>
+    <message>
+      <source>Request permissions</source>
+      <translation>Richiesta autorizzazioni</translation>
+    </message>
+    <message>
+      <source>Permission requested</source>
+      <translation>Permesso richiesto</translation>
+    </message>
+    <message>
+      <source>Please choose a user!</source>
+      <translation>Si prega di scegliere un utente!</translation>
+    </message>
+    <message>
+      <source>This user can not receive permision request!</source>
+      <translation>Questo utente non può ricevere la richiesta di permessi!</translation>
+    </message>
+    <message>
+      <source>Permissions were not provided</source>
+      <translation>Le autorizzazioni non sono state fornite</translation>
     </message>
   </context>
 </TS>

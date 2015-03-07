@@ -335,6 +335,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Name of the company</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Need help header text</source>
       <translation type="unfinished"/>
     </message>
@@ -1437,7 +1441,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Hours from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hours from, E.g. 8</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minutes from</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1445,7 +1457,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Hours to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hours to, E.g. 17</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minutes to</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1559,6 +1579,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Are you sure?</source>
+      <translation>Er du sikker?</translation>
+    </message>
+    <message>
+      <source>Block user</source>
+      <translation>Blokkerbruger</translation>
+    </message>
+    <message>
       <source>Screen sharing</source>
       <translation type="unfinished"/>
     </message>
@@ -1617,14 +1645,6 @@
     <message>
       <source>Transfer chat</source>
       <translation>Overfør chat</translation>
-    </message>
-    <message>
-      <source>Are you sure?</source>
-      <translation>Er du sikker?</translation>
-    </message>
-    <message>
-      <source>Block user</source>
-      <translation>Blokkerbruger</translation>
     </message>
     <message>
       <source>Mail was send</source>
@@ -3158,10 +3178,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Speech</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Time zone settings</source>
       <translation>Tidszoneindstillinger</translation>
     </message>
@@ -3198,28 +3214,8 @@
       <translation>Live-hjælp indlejringskode</translation>
     </message>
     <message>
-      <source>FAQ embed code</source>
-      <translation>FAQ indlejringskode</translation>
-    </message>
-    <message>
-      <source>Questionary embed code</source>
-      <translation>Spørgeskema indlejringskode</translation>
-    </message>
-    <message>
-      <source>Chatbox embed code</source>
-      <translation>Chatboks indlejringskode</translation>
-    </message>
-    <message>
-      <source>Browse offers embed code</source>
-      <translation>Gennemse tilbud embed kode</translation>
-    </message>
-    <message>
       <source>Departments</source>
       <translation>Afdelinger</translation>
-    </message>
-    <message>
-      <source>Blocked users</source>
-      <translation>Blokerede brugere</translation>
     </message>
     <message>
       <source>Chat configuration</source>
@@ -3242,14 +3238,6 @@
       <translation>Start chatformular-indstillinger</translation>
     </message>
     <message>
-      <source>Canned messages</source>
-      <translation>Forhåndsbeskeder</translation>
-    </message>
-    <message>
-      <source>Pro active chat invitations</source>
-      <translation>Proaktive chatinvitationer</translation>
-    </message>
-    <message>
       <source>Auto responder</source>
       <translation>Autosvar</translation>
     </message>
@@ -3264,14 +3252,6 @@
     <message>
       <source>Chat archive</source>
       <translation>Chatarkiv</translation>
-    </message>
-    <message>
-      <source>Statistic</source>
-      <translation>Statistik</translation>
-    </message>
-    <message>
-      <source>Maintenance</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Theming</source>
@@ -3290,6 +3270,26 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Blocked users</source>
+      <translation>Blokerede brugere</translation>
+    </message>
+    <message>
+      <source>Browse offers embed code</source>
+      <translation>Gennemse tilbud embed kode</translation>
+    </message>
+    <message>
+      <source>Canned messages</source>
+      <translation>Forhåndsbeskeder</translation>
+    </message>
+    <message>
+      <source>Chatbox embed code</source>
+      <translation>Chatboks indlejringskode</translation>
+    </message>
+    <message>
+      <source>FAQ embed code</source>
+      <translation>FAQ indlejringskode</translation>
+    </message>
+    <message>
       <source>Files</source>
       <translation type="unfinished"/>
     </message>
@@ -3302,7 +3302,27 @@
       <translation>Liste af filer</translation>
     </message>
     <message>
+      <source>Maintenance</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pro active chat invitations</source>
+      <translation>Proaktive chatinvitationer</translation>
+    </message>
+    <message>
+      <source>Questionary embed code</source>
+      <translation>Spørgeskema indlejringskode</translation>
+    </message>
+    <message>
+      <source>Statistic</source>
+      <translation>Statistik</translation>
+    </message>
+    <message>
       <source>Automatic translations</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Speech</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3388,6 +3408,22 @@
       <translation>Lukkede chats</translation>
     </message>
     <message>
+      <source>Browse offers</source>
+      <translation>Gennemse tilbud</translation>
+    </message>
+    <message>
+      <source>Chatbox</source>
+      <translation>Chatboks</translation>
+    </message>
+    <message>
+      <source>FAQ</source>
+      <translation>FAQ</translation>
+    </message>
+    <message>
+      <source>Questionary</source>
+      <translation>Spørgeskema</translation>
+    </message>
+    <message>
       <source>New chat request</source>
       <translation>Ny chatanmodning</translation>
     </message>
@@ -3406,22 +3442,6 @@
     <message>
       <source>Extra modules</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Questionary</source>
-      <translation>Spørgeskema</translation>
-    </message>
-    <message>
-      <source>FAQ</source>
-      <translation>FAQ</translation>
-    </message>
-    <message>
-      <source>Chatbox</source>
-      <translation>Chatboks</translation>
-    </message>
-    <message>
-      <source>Browse offers</source>
-      <translation>Gennemse tilbud</translation>
     </message>
     <message>
       <source>Account</source>
@@ -4600,10 +4620,6 @@
       <translation>Synlige lister</translation>
     </message>
     <message>
-      <source>Personal canned messages</source>
-      <translation>Personlige forhåndsmeddelelser</translation>
-    </message>
-    <message>
       <source>Pending chats</source>
       <translation type="unfinished"/>
     </message>
@@ -4664,6 +4680,10 @@
       <translation>Chat status vil ikke ændre på ventende chat åbning</translation>
     </message>
     <message>
+      <source>I receive other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Skype</source>
       <translation>Skype</translation>
     </message>
@@ -4720,8 +4740,16 @@
       <translation>Konto opdateret</translation>
     </message>
     <message>
+      <source>User receives other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User can see all pending chats, not only assigned to him</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Personal canned messages</source>
+      <translation>Personlige forhåndsmeddelelser</translation>
     </message>
     <message>
       <source>Please enter a username!</source>
@@ -6023,6 +6051,14 @@
       <translation>Usynlig tilstand</translation>
     </message>
     <message>
+      <source>I receive other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User receives other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User group</source>
       <translation>Brugergruppe</translation>
     </message>
@@ -6124,6 +6160,10 @@
     <message>
       <source>Title</source>
       <translation>Titel</translation>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Update</source>
@@ -6761,6 +6801,44 @@
     <name>permission/getpermissionsummary</name>
     <message>
       <source>Module/Function</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>permission/getpermissionssummary</name>
+    <message>
+      <source>Request permission</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose at least one permission</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>permission/request</name>
+    <message>
+      <source>Request permission</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Request permissions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Permission requested</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a user!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This user can not receive permision request!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Permissions were not provided</source>
       <translation type="unfinished"/>
     </message>
   </context>

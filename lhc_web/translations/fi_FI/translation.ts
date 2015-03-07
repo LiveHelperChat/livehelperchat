@@ -335,6 +335,10 @@
       <translation>Nimi</translation>
     </message>
     <message>
+      <source>Name of the company</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Need help header text</source>
       <translation>Tarvitsetko apua otsikkoteksti</translation>
     </message>
@@ -1437,16 +1441,32 @@
       <translation>Työskentelyajat, 24 tunnin muodossa, 1-24, minuutit muodossa 0-60</translation>
     </message>
     <message>
+      <source>Hours from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hours from, E.g. 8</source>
       <translation>Alkaen tunnit, esim. 8</translation>
+    </message>
+    <message>
+      <source>Minutes from</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Minutes from, E.g. 30</source>
       <translation>Alkaen minuutit, esim. 30</translation>
     </message>
     <message>
+      <source>Hours to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hours to, E.g. 17</source>
       <translation>Saakka tunnit, esim. 17</translation>
+    </message>
+    <message>
+      <source>Minutes to</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Minutes to, E.g. 30</source>
@@ -1559,6 +1579,14 @@
       <translation>Liitä tiedosto</translation>
     </message>
     <message>
+      <source>Are you sure?</source>
+      <translation>Oletko varma?</translation>
+    </message>
+    <message>
+      <source>Block user</source>
+      <translation>Estä käyttäjä</translation>
+    </message>
+    <message>
       <source>Screen sharing</source>
       <translation>Näytön jakaminen</translation>
     </message>
@@ -1617,14 +1645,6 @@
     <message>
       <source>Transfer chat</source>
       <translation>Siirrä keskustelu</translation>
-    </message>
-    <message>
-      <source>Are you sure?</source>
-      <translation>Oletko varma?</translation>
-    </message>
-    <message>
-      <source>Block user</source>
-      <translation>Estä käyttäjä</translation>
     </message>
     <message>
       <source>Mail was send</source>
@@ -3158,10 +3178,6 @@
       <translation>Live Help -asetukset</translation>
     </message>
     <message>
-      <source>Speech</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Time zone settings</source>
       <translation>Aikavyöhykeasetukset</translation>
     </message>
@@ -3198,28 +3214,8 @@
       <translation>Live help upotuskoodi</translation>
     </message>
     <message>
-      <source>FAQ embed code</source>
-      <translation>FAQ upotuskoodi</translation>
-    </message>
-    <message>
-      <source>Questionary embed code</source>
-      <translation>Kyselyn upotuskoodi</translation>
-    </message>
-    <message>
-      <source>Chatbox embed code</source>
-      <translation>Chatbox upotuskoodi</translation>
-    </message>
-    <message>
-      <source>Browse offers embed code</source>
-      <translation>Selaa tarjouksia upotuskoodi</translation>
-    </message>
-    <message>
       <source>Departments</source>
       <translation>Yksiköt</translation>
-    </message>
-    <message>
-      <source>Blocked users</source>
-      <translation>Estetyt käyttäjät</translation>
     </message>
     <message>
       <source>Chat configuration</source>
@@ -3242,14 +3238,6 @@
       <translation>Aloita keskustelu asetuksista</translation>
     </message>
     <message>
-      <source>Canned messages</source>
-      <translation>Viestipohjat</translation>
-    </message>
-    <message>
-      <source>Pro active chat invitations</source>
-      <translation>Pro-aktiivisien keskustelujen kutsut</translation>
-    </message>
-    <message>
       <source>Auto responder</source>
       <translation>Automaattinen vastaaja</translation>
     </message>
@@ -3264,14 +3252,6 @@
     <message>
       <source>Chat archive</source>
       <translation>Keskusteluarkisto</translation>
-    </message>
-    <message>
-      <source>Statistic</source>
-      <translation>Tilasto</translation>
-    </message>
-    <message>
-      <source>Maintenance</source>
-      <translation>Huolto</translation>
     </message>
     <message>
       <source>Theming</source>
@@ -3290,6 +3270,26 @@
       <translation>Oletusteema</translation>
     </message>
     <message>
+      <source>Blocked users</source>
+      <translation>Estetyt käyttäjät</translation>
+    </message>
+    <message>
+      <source>Browse offers embed code</source>
+      <translation>Selaa tarjouksia upotuskoodi</translation>
+    </message>
+    <message>
+      <source>Canned messages</source>
+      <translation>Viestipohjat</translation>
+    </message>
+    <message>
+      <source>Chatbox embed code</source>
+      <translation>Chatbox upotuskoodi</translation>
+    </message>
+    <message>
+      <source>FAQ embed code</source>
+      <translation>FAQ upotuskoodi</translation>
+    </message>
+    <message>
       <source>Files</source>
       <translation>Tiedostot</translation>
     </message>
@@ -3302,7 +3302,27 @@
       <translation>Tiedostolista</translation>
     </message>
     <message>
+      <source>Maintenance</source>
+      <translation>Huolto</translation>
+    </message>
+    <message>
+      <source>Pro active chat invitations</source>
+      <translation>Pro-aktiivisien keskustelujen kutsut</translation>
+    </message>
+    <message>
+      <source>Questionary embed code</source>
+      <translation>Kyselyn upotuskoodi</translation>
+    </message>
+    <message>
+      <source>Statistic</source>
+      <translation>Tilasto</translation>
+    </message>
+    <message>
       <source>Automatic translations</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Speech</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3388,6 +3408,22 @@
       <translation>Suljetut keskustelut</translation>
     </message>
     <message>
+      <source>Browse offers</source>
+      <translation>Selaa tarjouksia</translation>
+    </message>
+    <message>
+      <source>Chatbox</source>
+      <translation>Chatbox</translation>
+    </message>
+    <message>
+      <source>FAQ</source>
+      <translation>FAQ</translation>
+    </message>
+    <message>
+      <source>Questionary</source>
+      <translation>Kysely</translation>
+    </message>
+    <message>
       <source>New chat request</source>
       <translation>Uusi keskustelupyyntö</translation>
     </message>
@@ -3406,22 +3442,6 @@
     <message>
       <source>Extra modules</source>
       <translation>Erillismoduulit</translation>
-    </message>
-    <message>
-      <source>Questionary</source>
-      <translation>Kysely</translation>
-    </message>
-    <message>
-      <source>FAQ</source>
-      <translation>FAQ</translation>
-    </message>
-    <message>
-      <source>Chatbox</source>
-      <translation>Chatbox</translation>
-    </message>
-    <message>
-      <source>Browse offers</source>
-      <translation>Selaa tarjouksia</translation>
     </message>
     <message>
       <source>Account</source>
@@ -4600,10 +4620,6 @@
       <translation>Näkyvät listat</translation>
     </message>
     <message>
-      <source>Personal canned messages</source>
-      <translation>Henkilökohtainen viestipohja</translation>
-    </message>
-    <message>
       <source>Pending chats</source>
       <translation>Odottavat keskustelut</translation>
     </message>
@@ -4664,6 +4680,10 @@
       <translation>Viestin tila ei muutu kun odottava viesti avataan</translation>
     </message>
     <message>
+      <source>I receive other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Skype</source>
       <translation type="unfinished"/>
     </message>
@@ -4720,8 +4740,16 @@
       <translation>Tunnus päivitetty</translation>
     </message>
     <message>
+      <source>User receives other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User can see all pending chats, not only assigned to him</source>
       <translation>Käyttäjä näkee kaikki odottavat kesksutelut, ei vain hänelle ohjattuja</translation>
+    </message>
+    <message>
+      <source>Personal canned messages</source>
+      <translation>Henkilökohtainen viestipohja</translation>
     </message>
     <message>
       <source>Please enter a username!</source>
@@ -6023,6 +6051,14 @@
       <translation>Näkymätön toiminta</translation>
     </message>
     <message>
+      <source>I receive other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User receives other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User group</source>
       <translation>Käyttäjäryhmä</translation>
     </message>
@@ -6124,6 +6160,10 @@
     <message>
       <source>Title</source>
       <translation>Nimi</translation>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Update</source>
@@ -6761,6 +6801,44 @@
     <name>permission/getpermissionsummary</name>
     <message>
       <source>Module/Function</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>permission/getpermissionssummary</name>
+    <message>
+      <source>Request permission</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose at least one permission</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>permission/request</name>
+    <message>
+      <source>Request permission</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Request permissions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Permission requested</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a user!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This user can not receive permision request!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Permissions were not provided</source>
       <translation type="unfinished"/>
     </message>
   </context>

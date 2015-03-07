@@ -335,6 +335,10 @@
       <translation>Namn</translation>
     </message>
     <message>
+      <source>Name of the company</source>
+      <translation>Namn på företaget</translation>
+    </message>
+    <message>
       <source>Need help header text</source>
       <translation>Hjälpwidget titeltext</translation>
     </message>
@@ -1437,16 +1441,32 @@
       <translation>Arbetstid, 24 timmars format, 1 -24, format i minuter, 0 -60</translation>
     </message>
     <message>
+      <source>Hours from</source>
+      <translation>Timmar från</translation>
+    </message>
+    <message>
       <source>Hours from, E.g. 8</source>
       <translation>Timmar från, exempelvis 8</translation>
+    </message>
+    <message>
+      <source>Minutes from</source>
+      <translation>Minuter från</translation>
     </message>
     <message>
       <source>Minutes from, E.g. 30</source>
       <translation>Minuter från, exempelvis 30</translation>
     </message>
     <message>
+      <source>Hours to</source>
+      <translation>Timmar till</translation>
+    </message>
+    <message>
       <source>Hours to, E.g. 17</source>
       <translation>Timmar till, exempelvis 17</translation>
+    </message>
+    <message>
+      <source>Minutes to</source>
+      <translation>Minuter till</translation>
     </message>
     <message>
       <source>Minutes to, E.g. 30</source>
@@ -1559,6 +1579,14 @@
       <translation>Bifoga uppladdad fil</translation>
     </message>
     <message>
+      <source>Are you sure?</source>
+      <translation>Är du säker?</translation>
+    </message>
+    <message>
+      <source>Block user</source>
+      <translation>Blockera användare</translation>
+    </message>
+    <message>
       <source>Screen sharing</source>
       <translation>Skärmdelning</translation>
     </message>
@@ -1617,14 +1645,6 @@
     <message>
       <source>Transfer chat</source>
       <translation>Vidarebefodra chatten</translation>
-    </message>
-    <message>
-      <source>Are you sure?</source>
-      <translation>Är du säker?</translation>
-    </message>
-    <message>
-      <source>Block user</source>
-      <translation>Blockera användare</translation>
     </message>
     <message>
       <source>Mail was send</source>
@@ -3158,10 +3178,6 @@
       <translation>Live hjälp, inställningar</translation>
     </message>
     <message>
-      <source>Speech</source>
-      <translation>Tal</translation>
-    </message>
-    <message>
       <source>Time zone settings</source>
       <translation>Inställningar för tidszon</translation>
     </message>
@@ -3198,28 +3214,8 @@
       <translation>Live hjälp inbäddad kod</translation>
     </message>
     <message>
-      <source>FAQ embed code</source>
-      <translation>FAQ inbäddad kod</translation>
-    </message>
-    <message>
-      <source>Questionary embed code</source>
-      <translation>Frågeformulär inbäddad kod</translation>
-    </message>
-    <message>
-      <source>Chatbox embed code</source>
-      <translation>Chattbox inbäddad kod</translation>
-    </message>
-    <message>
-      <source>Browse offers embed code</source>
-      <translation>Bläddra bland erbjudanden inbäddad kod</translation>
-    </message>
-    <message>
       <source>Departments</source>
       <translation>Avdelningar</translation>
-    </message>
-    <message>
-      <source>Blocked users</source>
-      <translation>Blockerade användare</translation>
     </message>
     <message>
       <source>Chat configuration</source>
@@ -3242,14 +3238,6 @@
       <translation>Inställningar för &quot;starta en chatt&quot;-formulär</translation>
     </message>
     <message>
-      <source>Canned messages</source>
-      <translation>Snabbmeddelanden</translation>
-    </message>
-    <message>
-      <source>Pro active chat invitations</source>
-      <translation>Proaktiva chatt inbjudningar</translation>
-    </message>
-    <message>
       <source>Auto responder</source>
       <translation>Automatiskt svar</translation>
     </message>
@@ -3264,14 +3252,6 @@
     <message>
       <source>Chat archive</source>
       <translation>Chatt arkiv</translation>
-    </message>
-    <message>
-      <source>Statistic</source>
-      <translation>Statistik</translation>
-    </message>
-    <message>
-      <source>Maintenance</source>
-      <translation>Underhåll</translation>
     </message>
     <message>
       <source>Theming</source>
@@ -3290,6 +3270,26 @@
       <translation>Standardstil</translation>
     </message>
     <message>
+      <source>Blocked users</source>
+      <translation>Blockerade användare</translation>
+    </message>
+    <message>
+      <source>Browse offers embed code</source>
+      <translation>Bläddra bland erbjudanden inbäddad kod</translation>
+    </message>
+    <message>
+      <source>Canned messages</source>
+      <translation>Snabbmeddelanden</translation>
+    </message>
+    <message>
+      <source>Chatbox embed code</source>
+      <translation>Chattbox inbäddad kod</translation>
+    </message>
+    <message>
+      <source>FAQ embed code</source>
+      <translation>FAQ inbäddad kod</translation>
+    </message>
+    <message>
       <source>Files</source>
       <translation>Filer</translation>
     </message>
@@ -3302,8 +3302,28 @@
       <translation>Lista med filer</translation>
     </message>
     <message>
+      <source>Maintenance</source>
+      <translation>Underhåll</translation>
+    </message>
+    <message>
+      <source>Pro active chat invitations</source>
+      <translation>Proaktiva chatt inbjudningar</translation>
+    </message>
+    <message>
+      <source>Questionary embed code</source>
+      <translation>Frågeformulär inbäddad kod</translation>
+    </message>
+    <message>
+      <source>Statistic</source>
+      <translation>Statistik</translation>
+    </message>
+    <message>
       <source>Automatic translations</source>
       <translation>Automatiska översättningar</translation>
+    </message>
+    <message>
+      <source>Speech</source>
+      <translation>Tal</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -3388,6 +3408,22 @@
       <translation>Avslutade chattar</translation>
     </message>
     <message>
+      <source>Browse offers</source>
+      <translation>Bläddra bland erbjudanden</translation>
+    </message>
+    <message>
+      <source>Chatbox</source>
+      <translation>Chattbox</translation>
+    </message>
+    <message>
+      <source>FAQ</source>
+      <translation>FAQ - Vanliga frågor och svar</translation>
+    </message>
+    <message>
+      <source>Questionary</source>
+      <translation>Frågeformulär</translation>
+    </message>
+    <message>
       <source>New chat request</source>
       <translation>Ny chattförfrågan</translation>
     </message>
@@ -3406,22 +3442,6 @@
     <message>
       <source>Extra modules</source>
       <translation>Extra inställningar</translation>
-    </message>
-    <message>
-      <source>Questionary</source>
-      <translation>Frågeformulär</translation>
-    </message>
-    <message>
-      <source>FAQ</source>
-      <translation>FAQ - Vanliga frågor och svar</translation>
-    </message>
-    <message>
-      <source>Chatbox</source>
-      <translation>Chattbox</translation>
-    </message>
-    <message>
-      <source>Browse offers</source>
-      <translation>Bläddra bland erbjudanden</translation>
     </message>
     <message>
       <source>Account</source>
@@ -4600,10 +4620,6 @@
       <translation>Lista över synliga</translation>
     </message>
     <message>
-      <source>Personal canned messages</source>
-      <translation>Personligt förifyllda meddelanden</translation>
-    </message>
-    <message>
       <source>Pending chats</source>
       <translation>Väntande chattar</translation>
     </message>
@@ -4664,6 +4680,10 @@
       <translation>Chattens status kommer inte ändras vid öppning av chatt i vänteläge</translation>
     </message>
     <message>
+      <source>I receive other operators permissions request</source>
+      <translation>Jag mottager andra operatörers behörighetsförfrågan</translation>
+    </message>
+    <message>
       <source>Skype</source>
       <translation>Skype</translation>
     </message>
@@ -4720,8 +4740,16 @@
       <translation>Konto uppdaterat</translation>
     </message>
     <message>
+      <source>User receives other operators permissions request</source>
+      <translation>Användaren mottager andra operatörers behörighetsförfrågan</translation>
+    </message>
+    <message>
       <source>User can see all pending chats, not only assigned to him</source>
       <translation>Användare kan se alla väntande chattar, inte endast dem som är tilldelade användaren</translation>
+    </message>
+    <message>
+      <source>Personal canned messages</source>
+      <translation>Personligt förifyllda meddelanden</translation>
     </message>
     <message>
       <source>Please enter a username!</source>
@@ -6023,6 +6051,14 @@
       <translation>Ej synligt läge</translation>
     </message>
     <message>
+      <source>I receive other operators permissions request</source>
+      <translation>Jag mottager andra operatörers behörighetsförfrågan</translation>
+    </message>
+    <message>
+      <source>User receives other operators permissions request</source>
+      <translation>Användaren mottager andra operatörers behörighetsförfrågan</translation>
+    </message>
+    <message>
       <source>User group</source>
       <translation>Användargrupp</translation>
     </message>
@@ -6124,6 +6160,10 @@
     <message>
       <source>Title</source>
       <translation>Titel</translation>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation>Inaktiverad</translation>
     </message>
     <message>
       <source>Update</source>
@@ -6762,6 +6802,44 @@
     <message>
       <source>Module/Function</source>
       <translation>Modul/funktion</translation>
+    </message>
+  </context>
+  <context>
+    <name>permission/getpermissionssummary</name>
+    <message>
+      <source>Request permission</source>
+      <translation>Begär behörighet</translation>
+    </message>
+    <message>
+      <source>Please choose at least one permission</source>
+      <translation>Var vänlig välj minst en behörighet</translation>
+    </message>
+  </context>
+  <context>
+    <name>permission/request</name>
+    <message>
+      <source>Request permission</source>
+      <translation>Begär behörighet</translation>
+    </message>
+    <message>
+      <source>Request permissions</source>
+      <translation>Begär behörigheter</translation>
+    </message>
+    <message>
+      <source>Permission requested</source>
+      <translation>Behörighet begärd</translation>
+    </message>
+    <message>
+      <source>Please choose a user!</source>
+      <translation>Var vänlig välj en användare!</translation>
+    </message>
+    <message>
+      <source>This user can not receive permision request!</source>
+      <translation>Denna användare kan inte få behörighetsförfrågan!</translation>
+    </message>
+    <message>
+      <source>Permissions were not provided</source>
+      <translation>Behörigheter lämnades inte</translation>
     </message>
   </context>
 </TS>
