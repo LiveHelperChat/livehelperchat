@@ -7,6 +7,25 @@ $ru = '';
 
 $tpl = erLhcoreClassTemplate::getInstance('lhchat/checkchatstatus.tpl.php');
 
+if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
+    try {
+        $theme = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
+        $tpl->set('theme',$theme);
+    } catch (Exception $e) {
+
+    }
+} else {
+    $defaultTheme = erLhcoreClassModelChatConfig::fetch('default_theme_id')->current_value;
+    if ($defaultTheme > 0) {
+        try {
+            $theme = erLhAbstractModelWidgetTheme::fetch($defaultTheme);
+            $tpl->set('theme',$theme);
+        } catch (Exception $e) {
+             
+        }
+    }
+}
+
 try {
     $chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['chat_id']);
 

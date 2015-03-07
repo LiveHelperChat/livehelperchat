@@ -80,6 +80,12 @@
     lhinst.setWidgetMode(true);
 	<?php endif; ?>
 
+    <?php if ( isset($theme) && $theme !== false ) : ?>
+    lhinst.setTheme('<?php echo $theme->id?>');
+	<?php endif; ?>
+
+	
+	
 	setTimeout(function(){
 			$('#messagesBlock').scrollTop($('#messagesBlock').prop('scrollHeight'));
 	},100);

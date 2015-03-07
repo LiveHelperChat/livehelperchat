@@ -987,11 +987,15 @@ function lh(){
     	});
 	};
 
+	this.theme = null;
+	
 	this.chatsyncuserpending = function ()
 	{	
 		var modeWindow = this.isWidgetMode == true ? '/(mode)/widget' : '';	
+		var themeWindow = this.theme !== null ? '/(theme)/'+this.theme : '';	
+		
 		var inst = this;
-	    $.getJSON(this.wwwDir + this.checkchatstatus + this.chat_id + '/' + this.hash + modeWindow ,{}, function(data){
+	    $.getJSON(this.wwwDir + this.checkchatstatus + this.chat_id + '/' + this.hash + modeWindow + themeWindow,{}, function(data){
 	        // If no error
 	        if (data.error == 'false')
 	        {
@@ -1017,6 +1021,10 @@ function lh(){
     	});
 	};
 
+	this.setTheme = function(theme_id) {
+		this.theme = theme_id;
+	};
+	
 	this.isBlinking = false;
 
 	this.startBlinking = function(){

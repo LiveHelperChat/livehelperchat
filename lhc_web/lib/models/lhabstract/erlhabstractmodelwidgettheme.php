@@ -55,6 +55,11 @@ class erLhAbstractModelWidgetTheme {
 			'header_height'		        => $this->header_height,
 			'header_padding'		    => $this->header_padding,
 			'widget_border_width'		=> $this->widget_border_width,
+			'support_joined'		    => $this->support_joined,
+			'support_closed'		    => $this->support_closed,
+			'pending_join'		        => $this->pending_join,
+			'noonline_operators'		=> $this->noonline_operators,
+			'noonline_operators_offline'=> $this->noonline_operators_offline,
 		);
 
 		return $stateArray;
@@ -411,6 +416,12 @@ class erLhAbstractModelWidgetTheme {
 	public $header_padding = 0;
 	public $widget_border_width = 0;
 	
+	public $support_joined = '';
+	public $support_closed = '';
+	public $pending_join = '';
+	public $noonline_operators = '';
+	public $noonline_operators_offline = '';
+		
 	public $hide_add = false;
 	public $hide_delete = false;
 

@@ -46,6 +46,10 @@ $tpl->set('referer','');
 $tpl->set('referer_site','');
 $disabled_department = false;
 
+if (isset($Result['theme'])){
+    $tpl->set('theme',$Result['theme']);
+}
+
 if (is_array($Params['user_parameters_unordered']['department']) && erLhcoreClassModelChatConfig::fetch('hide_disabled_department')->current_value == 1){
 	try {
 		

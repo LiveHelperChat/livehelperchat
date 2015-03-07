@@ -21,6 +21,7 @@
         		<li role="presentation" class="active"><a href="#statuswidget" aria-controls="statuswidget" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Status widget style');?></a></li>
         		<li role="presentation"><a href="#widgetcontainer" aria-controls="widgetcontainer" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Widget container');?></a></li>
         		<li role="presentation"><a href="#needhelp" aria-controls="needhelp" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Need help widget');?></a></li>
+        		<li role="presentation"><a href="#widgettexts" aria-controls="widgettexts" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Main widget text');?></a></li>
         		<li role="presentation"><a href="#customcss" aria-controls="customcss" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom CSS');?></a></li>
         	</ul>
         
@@ -210,6 +211,34 @@
 						<?php echo erLhcoreClassAbstract::renderInput('need_help_image', $fields['need_help_image'], $object)?>		
 						</div>
         		</div>
+        		
+        		<div role="tabpanel" class="tab-pane" id="widgettexts">
+            		<div class="form-group">										
+    				<label><?php echo $fields['support_joined']['trans'];?></label>
+    				<?php echo erLhcoreClassAbstract::renderInput('support_joined', $fields['support_joined'], $object)?>		
+    				</div>
+    				
+    				<div class="form-group">										
+    				<label><?php echo $fields['support_closed']['trans'];?></label>
+    				<?php echo erLhcoreClassAbstract::renderInput('support_closed', $fields['support_closed'], $object)?>		
+    				</div>
+    				
+    				<div class="form-group">										
+    				<label><?php echo $fields['pending_join']['trans'];?></label>
+    				<?php echo erLhcoreClassAbstract::renderInput('pending_join', $fields['pending_join'], $object)?>		
+    				</div>
+    				
+    				<div class="form-group">										
+    				<label><?php echo $fields['noonline_operators']['trans'];?></label>
+    				<?php echo erLhcoreClassAbstract::renderInput('noonline_operators', $fields['noonline_operators'], $object)?>		
+    				</div>
+    				
+    				<div class="form-group">										
+    				<label><?php echo $fields['noonline_operators_offline']['trans'];?></label>
+    				<?php echo erLhcoreClassAbstract::renderInput('noonline_operators_offline', $fields['noonline_operators_offline'], $object)?>		
+    				</div>
+        		</div>
+        		
         		<div role="tabpanel" class="tab-pane" id="customcss">
         		
         		<label><?php echo $fields['custom_status_css']['trans'];?></label>

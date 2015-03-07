@@ -16,6 +16,7 @@ if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_p
 	try {
 		$theme = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
 		$Result['theme'] = $theme;
+		$tpl->set('theme',$theme);
 		$modeAppend .= '/(theme)/'.$theme->id;
 	} catch (Exception $e) {
 
