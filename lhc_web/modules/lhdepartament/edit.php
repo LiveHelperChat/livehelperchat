@@ -4,6 +4,8 @@ $tpl = erLhcoreClassTemplate::getInstance('lhdepartament/edit.tpl.php');
 
 $Departament = erLhcoreClassDepartament::getSession()->load( 'erLhcoreClassModelDepartament', (int)$Params['user_parameters']['departament_id'] );
 
+$userDepartments = true;
+
 /**
  * Append user departments filter
 * */
