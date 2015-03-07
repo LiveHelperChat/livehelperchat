@@ -102,7 +102,7 @@ class erLhcoreClassChatStatistic {
     	    	 	    	    	    
     	for ($i = 0; $i < 12;$i++) {
     		$dateUnix = mktime(0,0,0,date('m')-$i,1,date('y'));
-    		$numberOfChats[$dateUnix] = (int)erLhcoreClassChat::getCount(array_merge_recursive($filter,array('customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m\') = '. date('Ym',$dateUnix)),'filtergt' => array('chat_duration' => 0),'filterlt' =>  array('wait_time' => 600),'filtergt' =>  array('wait_time' => 0))),'lh_chat','AVG(wait_time)');
+    		$numberOfChats[$dateUnix] = (int)erLhcoreClassChat::getCount(array_merge_recursive($filter,array('customfilter' =>  array('to_char(date(to_timestamp(time)),\'YYYYMM\') = \''. date('Ym',$dateUnix)).'\'','filtergt' => array('chat_duration' => 0),'filterlt' =>  array('wait_time' => 600),'filtergt' =>  array('wait_time' => 0))),'lh_chat','AVG(wait_time)');
     	}
     	    	
     	return $numberOfChats;

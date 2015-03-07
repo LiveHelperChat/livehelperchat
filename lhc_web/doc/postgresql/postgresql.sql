@@ -16,25 +16,6 @@ CREATE TABLE "lh_abstract_auto_responder" (
     PRIMARY KEY ("id")
 );
 
-CREATE TABLE "lh_doc_share" (
-  "id" integer NOT NULL,
-  "name" varchar(250) NOT NULL,
-  "desc" text NOT NULL,
-  "user_id" integer NOT NULL,
-  "active" integer NOT NULL,
-  "converted" integer NOT NULL,
-  "file_name" varchar(250) NOT NULL,
-  "file_path" varchar(250) NOT NULL,
-  "file_name_upload" varchar(250) NOT NULL,
-  "file_size" integer NOT NULL,
-  "type" varchar(250) NOT NULL,
-  "ext" varchar(250) NOT NULL,
-  "pdf_file" varchar(250) NOT NULL,
-  "pages_pdf_count" integer NOT NULL,
-  "pdf_to_img_converted" integer NOT NULL,
-  PRIMARY KEY ("id")
-);
-
 CREATE TABLE "lh_abstract_widget_theme" (
   "id" integer NOT NULL,
   "show_copyright" integer NOT NULL,
@@ -304,7 +285,7 @@ CREATE TABLE "lh_chat_config" (
     PRIMARY KEY ("identifier")
 );
 
-INSERT INTO "lh_speech_language" ("id`, "name") VALUES
+INSERT INTO "lh_speech_language" ("id", "name") VALUES
         	   (1,	'Afrikaans'),
         	   (2,	'Bahasa Indonesia'),
         	   (3,	'Bahasa Melayu'),
@@ -743,129 +724,192 @@ COMMIT;
 START TRANSACTION;
 
 -- Sequences --
+DROP SEQUENCE IF EXISTS lh_abstract_auto_responder_id_seq;
 CREATE SEQUENCE lh_abstract_auto_responder_id_seq;
 SELECT setval('lh_abstract_auto_responder_id_seq', max(id)) FROM lh_abstract_auto_responder;
 ALTER TABLE "lh_abstract_auto_responder" ALTER COLUMN "id" SET DEFAULT nextval('lh_abstract_auto_responder_id_seq');
 
+DROP SEQUENCE IF EXISTS lh_speech_language_id_seq;
 CREATE SEQUENCE lh_speech_language_id_seq;
 SELECT setval('lh_speech_language_id_seq', max(id)) FROM lh_speech_language;
 ALTER TABLE "lh_speech_language" ALTER COLUMN "id" SET DEFAULT nextval('lh_speech_language_id_seq');
 
+DROP SEQUENCE IF EXISTS lh_speech_language_dialect_id_seq;
 CREATE SEQUENCE lh_speech_language_dialect_id_seq;
 SELECT setval('lh_speech_language_dialect_id_seq', max(id)) FROM lh_speech_language_dialect;
 ALTER TABLE "lh_speech_language_dialect" ALTER COLUMN "id" SET DEFAULT nextval('lh_speech_language_dialect_id_seq');
 
+DROP SEQUENCE IF EXISTS lh_speech_chat_language_id_seq;
 CREATE SEQUENCE lh_speech_chat_language_id_seq;
 SELECT setval('lh_speech_chat_language_id_seq', max(id)) FROM lh_speech_chat_language;
 ALTER TABLE "lh_speech_chat_language" ALTER COLUMN "id" SET DEFAULT nextval('lh_speech_chat_language_id_seq');
 
+DROP SEQUENCE IF EXISTS lh_cobrowse_id_seq;
 CREATE SEQUENCE lh_cobrowse_id_seq;
 SELECT setval('lh_cobrowse_id_seq', max(id)) FROM lh_cobrowse;
 ALTER TABLE "lh_cobrowse" ALTER COLUMN "id" SET DEFAULT nextval('lh_cobrowse_id_seq');
 
+DROP SEQUENCE IF EXISTS lh_abstract_form_id_seq;
 CREATE SEQUENCE lh_abstract_form_id_seq;
 SELECT setval('lh_abstract_form_id_seq', max(id)) FROM lh_abstract_form;
 ALTER TABLE "lh_abstract_form" ALTER COLUMN "id" SET DEFAULT nextval('lh_abstract_form_id_seq');
 
+DROP SEQUENCE IF EXISTS lh_abstract_form_collected_id_seq;
 CREATE SEQUENCE lh_abstract_form_collected_id_seq;
 SELECT setval('lh_abstract_form_collected_id_seq', max(id)) FROM lh_abstract_form_collected;
 ALTER TABLE "lh_abstract_form_collected" ALTER COLUMN "id" SET DEFAULT nextval('lh_abstract_form_collected_id_seq');
 
-CREATE SEQUENCE lh_doc_share_id_seq;
-SELECT setval('lh_doc_share_id_seq', max(id)) FROM lh_doc_share;
-ALTER TABLE "lh_doc_share" ALTER COLUMN "id" SET DEFAULT nextval('lh_doc_share_id_seq');
-
+DROP SEQUENCE IF EXISTS lh_abstract_widget_theme_id_seq;
 CREATE SEQUENCE lh_abstract_widget_theme_id_seq;
 SELECT setval('lh_abstract_widget_theme_id_seq', max(id)) FROM lh_abstract_widget_theme;
 ALTER TABLE "lh_abstract_widget_theme" ALTER COLUMN "id" SET DEFAULT nextval('lh_abstract_widget_theme_id_seq');
 
+DROP SEQUENCE IF EXISTS lh_abstract_email_template_id_seq;
 CREATE SEQUENCE lh_abstract_email_template_id_seq;
 SELECT setval('lh_abstract_email_template_id_seq', max(id)) FROM lh_abstract_email_template;
 ALTER TABLE "lh_abstract_email_template" ALTER COLUMN "id" SET DEFAULT nextval('lh_abstract_email_template_id_seq');
+
+DROP SEQUENCE IF EXISTS lh_abstract_proactive_chat_invitation_id_seq;
 CREATE SEQUENCE lh_abstract_proactive_chat_invitation_id_seq;
 SELECT setval('lh_abstract_proactive_chat_invitation_id_seq', max(id)) FROM lh_abstract_proactive_chat_invitation;
 ALTER TABLE "lh_abstract_proactive_chat_invitation" ALTER COLUMN "id" SET DEFAULT nextval('lh_abstract_proactive_chat_invitation_id_seq');
+
+DROP SEQUENCE IF EXISTS lh_canned_msg_id_seq;
 CREATE SEQUENCE lh_canned_msg_id_seq;
 SELECT setval('lh_canned_msg_id_seq', max(id)) FROM lh_canned_msg;
 ALTER TABLE "lh_canned_msg" ALTER COLUMN "id" SET DEFAULT nextval('lh_canned_msg_id_seq');
+
+DROP SEQUENCE IF EXISTS lh_chat_id_seq;
 CREATE SEQUENCE lh_chat_id_seq;
 SELECT setval('lh_chat_id_seq', max(id)) FROM lh_chat;
 ALTER TABLE "lh_chat" ALTER COLUMN "id" SET DEFAULT nextval('lh_chat_id_seq');
+
+DROP SEQUENCE IF EXISTS lh_chat_accept_id_seq;
 CREATE SEQUENCE lh_chat_accept_id_seq;
 SELECT setval('lh_chat_accept_id_seq', max(id)) FROM lh_chat_accept;
 ALTER TABLE "lh_chat_accept" ALTER COLUMN "id" SET DEFAULT nextval('lh_chat_accept_id_seq');
+
+DROP SEQUENCE IF EXISTS lh_chat_archive_range_id_seq;
 CREATE SEQUENCE lh_chat_archive_range_id_seq;
 SELECT setval('lh_chat_archive_range_id_seq', max(id)) FROM lh_chat_archive_range;
 ALTER TABLE "lh_chat_archive_range" ALTER COLUMN "id" SET DEFAULT nextval('lh_chat_archive_range_id_seq');
+
+DROP SEQUENCE IF EXISTS lh_chat_blocked_user_id_seq;
 CREATE SEQUENCE lh_chat_blocked_user_id_seq;
 SELECT setval('lh_chat_blocked_user_id_seq', max(id)) FROM lh_chat_blocked_user;
 ALTER TABLE "lh_chat_blocked_user" ALTER COLUMN "id" SET DEFAULT nextval('lh_chat_blocked_user_id_seq');
+
+DROP SEQUENCE IF EXISTS lh_chat_file_id_seq;
 CREATE SEQUENCE lh_chat_file_id_seq;
 SELECT setval('lh_chat_file_id_seq', max(id)) FROM lh_chat_file;
 ALTER TABLE "lh_chat_file" ALTER COLUMN "id" SET DEFAULT nextval('lh_chat_file_id_seq');
+
+DROP SEQUENCE IF EXISTS lh_chat_online_user_id_seq;
 CREATE SEQUENCE lh_chat_online_user_id_seq;
 SELECT setval('lh_chat_online_user_id_seq', max(id)) FROM lh_chat_online_user;
 ALTER TABLE "lh_chat_online_user" ALTER COLUMN "id" SET DEFAULT nextval('lh_chat_online_user_id_seq');
+
+DROP SEQUENCE IF EXISTS lh_chat_online_user_footprint_id_seq;
 CREATE SEQUENCE lh_chat_online_user_footprint_id_seq;
 SELECT setval('lh_chat_online_user_footprint_id_seq', max(id)) FROM lh_chat_online_user_footprint;
 ALTER TABLE "lh_chat_online_user_footprint" ALTER COLUMN "id" SET DEFAULT nextval('lh_chat_online_user_footprint_id_seq');
+
+DROP SEQUENCE IF EXISTS lh_chatbox_id_seq;
 CREATE SEQUENCE lh_chatbox_id_seq;
 SELECT setval('lh_chatbox_id_seq', max(id)) FROM lh_chatbox;
 ALTER TABLE "lh_chatbox" ALTER COLUMN "id" SET DEFAULT nextval('lh_chatbox_id_seq');
+
+DROP SEQUENCE IF EXISTS lh_departament_id_seq;
 CREATE SEQUENCE lh_departament_id_seq;
 SELECT setval('lh_departament_id_seq', max(id)) FROM lh_departament;
 ALTER TABLE "lh_departament" ALTER COLUMN "id" SET DEFAULT nextval('lh_departament_id_seq');
+
+DROP SEQUENCE IF EXISTS lh_abstract_browse_offer_invitation_id_seq;
 CREATE SEQUENCE lh_abstract_browse_offer_invitation_id_seq;
 SELECT setval('lh_abstract_browse_offer_invitation_id_seq', max(id)) FROM lh_abstract_browse_offer_invitation;
 ALTER TABLE "lh_abstract_browse_offer_invitation" ALTER COLUMN "id" SET DEFAULT nextval('lh_abstract_browse_offer_invitation_id_seq');
+
+DROP SEQUENCE IF EXISTS lh_faq_id_seq;
 CREATE SEQUENCE lh_faq_id_seq;
 SELECT setval('lh_faq_id_seq', max(id)) FROM lh_faq;
 ALTER TABLE "lh_faq" ALTER COLUMN "id" SET DEFAULT nextval('lh_faq_id_seq');
+
+DROP SEQUENCE IF EXISTS lh_forgotpasswordhash_id_seq;
 CREATE SEQUENCE lh_forgotpasswordhash_id_seq;
 SELECT setval('lh_forgotpasswordhash_id_seq', max(id)) FROM lh_forgotpasswordhash;
 ALTER TABLE "lh_forgotpasswordhash" ALTER COLUMN "id" SET DEFAULT nextval('lh_forgotpasswordhash_id_seq');
+
+DROP SEQUENCE IF EXISTS lh_group_id_seq;
 CREATE SEQUENCE lh_group_id_seq;
 SELECT setval('lh_group_id_seq', max(id)) FROM lh_group;
 ALTER TABLE "lh_group" ALTER COLUMN "id" SET DEFAULT nextval('lh_group_id_seq');
+
+DROP SEQUENCE IF EXISTS lh_grouprole_id_seq;
 CREATE SEQUENCE lh_grouprole_id_seq;
 SELECT setval('lh_grouprole_id_seq', max(id)) FROM lh_grouprole;
 ALTER TABLE "lh_grouprole" ALTER COLUMN "id" SET DEFAULT nextval('lh_grouprole_id_seq');
+
+DROP SEQUENCE IF EXISTS lh_groupuser_id_seq;
 CREATE SEQUENCE lh_groupuser_id_seq;
 SELECT setval('lh_groupuser_id_seq', max(id)) FROM lh_groupuser;
 ALTER TABLE "lh_groupuser" ALTER COLUMN "id" SET DEFAULT nextval('lh_groupuser_id_seq');
+
+DROP SEQUENCE IF EXISTS lh_msg_id_seq;
 CREATE SEQUENCE lh_msg_id_seq;
 SELECT setval('lh_msg_id_seq', max(id)) FROM lh_msg;
 ALTER TABLE "lh_msg" ALTER COLUMN "id" SET DEFAULT nextval('lh_msg_id_seq');
+
+DROP SEQUENCE IF EXISTS lh_question_id_seq;
 CREATE SEQUENCE lh_question_id_seq;
 SELECT setval('lh_question_id_seq', max(id)) FROM lh_question;
 ALTER TABLE "lh_question" ALTER COLUMN "id" SET DEFAULT nextval('lh_question_id_seq');
+
+DROP SEQUENCE IF EXISTS lh_question_answer_id_seq;
 CREATE SEQUENCE lh_question_answer_id_seq;
 SELECT setval('lh_question_answer_id_seq', max(id)) FROM lh_question_answer;
 ALTER TABLE "lh_question_answer" ALTER COLUMN "id" SET DEFAULT nextval('lh_question_answer_id_seq');
+
+DROP SEQUENCE IF EXISTS lh_question_option_id_seq;
 CREATE SEQUENCE lh_question_option_id_seq;
 SELECT setval('lh_question_option_id_seq', max(id)) FROM lh_question_option;
 ALTER TABLE "lh_question_option" ALTER COLUMN "id" SET DEFAULT nextval('lh_question_option_id_seq');
+
+DROP SEQUENCE IF EXISTS lh_question_option_answer_id_seq;
 CREATE SEQUENCE lh_question_option_answer_id_seq;
 SELECT setval('lh_question_option_answer_id_seq', max(id)) FROM lh_question_option_answer;
 ALTER TABLE "lh_question_option_answer" ALTER COLUMN "id" SET DEFAULT nextval('lh_question_option_answer_id_seq');
+
+DROP SEQUENCE IF EXISTS lh_role_id_seq;
 CREATE SEQUENCE lh_role_id_seq;
 SELECT setval('lh_role_id_seq', max(id)) FROM lh_role;
 ALTER TABLE "lh_role" ALTER COLUMN "id" SET DEFAULT nextval('lh_role_id_seq');
+
+DROP SEQUENCE IF EXISTS lh_rolefunction_id_seq;
 CREATE SEQUENCE lh_rolefunction_id_seq;
 SELECT setval('lh_rolefunction_id_seq', max(id)) FROM lh_rolefunction;
 ALTER TABLE "lh_rolefunction" ALTER COLUMN "id" SET DEFAULT nextval('lh_rolefunction_id_seq');
+
+DROP SEQUENCE IF EXISTS lh_transfer_id_seq;
 CREATE SEQUENCE lh_transfer_id_seq;
 SELECT setval('lh_transfer_id_seq', max(id)) FROM lh_transfer;
 ALTER TABLE "lh_transfer" ALTER COLUMN "id" SET DEFAULT nextval('lh_transfer_id_seq');
+
+DROP SEQUENCE IF EXISTS lh_userdep_id_seq;
 CREATE SEQUENCE lh_userdep_id_seq;
 SELECT setval('lh_userdep_id_seq', max(id)) FROM lh_userdep;
 ALTER TABLE "lh_userdep" ALTER COLUMN "id" SET DEFAULT nextval('lh_userdep_id_seq');
+
+DROP SEQUENCE IF EXISTS lh_users_id_seq;
 CREATE SEQUENCE lh_users_id_seq;
 SELECT setval('lh_users_id_seq', max(id)) FROM lh_users;
 ALTER TABLE "lh_users" ALTER COLUMN "id" SET DEFAULT nextval('lh_users_id_seq');
+
+DROP SEQUENCE IF EXISTS lh_users_remember_id_seq;
 CREATE SEQUENCE lh_users_remember_id_seq;
 SELECT setval('lh_users_remember_id_seq', max(id)) FROM lh_users_remember;
 ALTER TABLE "lh_users_remember" ALTER COLUMN "id" SET DEFAULT nextval('lh_users_remember_id_seq');
+
+DROP SEQUENCE IF EXISTS lh_users_setting_id_seq;
 CREATE SEQUENCE lh_users_setting_id_seq;
 SELECT setval('lh_users_setting_id_seq', max(id)) FROM lh_users_setting;
 ALTER TABLE "lh_users_setting" ALTER COLUMN "id" SET DEFAULT nextval('lh_users_setting_id_seq');
@@ -930,7 +974,6 @@ CREATE INDEX users_email ON lh_users USING btree (email);
 CREATE INDEX users_xmpp_username ON lh_users USING btree (xmpp_username);
 CREATE INDEX users_settings_user_id_identifier ON lh_users_setting USING btree (user_id, identifier);
 CREATE INDEX form_id ON lh_abstract_form_collected USING btree (form_id);
-CREATE INDEX user_id ON lh_doc_share USING btree (user_id);
 CREATE INDEX chat_id ON lh_cobrowse USING btree (chat_id);
 CREATE INDEX lh_group_disabled ON lh_group USING btree (disabled);
 
