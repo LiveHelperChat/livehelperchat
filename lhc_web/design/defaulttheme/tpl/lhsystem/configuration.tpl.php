@@ -124,13 +124,11 @@
 	            <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/cannedmsg.tpl.php'));?>
 	           
 			    <?php if ($currentUser->hasAccessTo('lhabstract','use')) : ?>
-			    
+
 			   		<?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/proactive.tpl.php'));?>	
-				    
-				    <?php if ($currentUser->hasAccessTo('lhchat','administrateresponder')) : ?>
-				    <li><a href="<?php echo erLhcoreClassDesign::baseurl('abstract/list')?>/AutoResponder"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Auto responder');?></a></li>
-				    <?php endif;?>
-				    				    		    
+
+				    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/autoresponder.tpl.php'));?>
+		    
 			    <?php endif; ?>
 	
 			    <?php if ($currentUser->hasAccessTo('lhxmp','configurexmp')) : ?>
