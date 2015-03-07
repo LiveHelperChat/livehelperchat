@@ -112,9 +112,7 @@
 			    
 			    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/administrategeoconfig.tpl.php'));?>
 			    
-			    <?php if ($currentUser->hasAccessTo('lhchat','geoadjustment')) : ?>
-				<li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/geoadjustment')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','GEO adjustment');?></a></li>
-				<?php endif; ?>
+			    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/geoadjustment.tpl.php'));?>
 				
 			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/syncandsoundesetting')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Synchronization and sound settings');?></a></li>
 				<li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/startchatformsettings')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Start chat form settings');?></a></li>

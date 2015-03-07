@@ -1,6 +1,6 @@
 <?php
 
-$response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.cannedmsg', array());
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.cannedmsg', array());
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/cannedmsg.tpl.php');
 

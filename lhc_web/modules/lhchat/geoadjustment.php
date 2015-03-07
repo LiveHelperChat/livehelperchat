@@ -1,5 +1,7 @@
 <?php
 
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.geoadjustment', array());
+
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/geoadjustment.tpl.php');
 
 $geoData = erLhcoreClassModelChatConfig::fetch('geoadjustment_data');
