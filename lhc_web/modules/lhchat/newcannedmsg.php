@@ -1,5 +1,7 @@
 <?php
 
+$response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.newcannedmsg', array());
+
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/newcannedmsg.tpl.php');
 $Departament = new erLhcoreClassModelCannedMsg();
 
@@ -86,7 +88,7 @@ if (isset($_POST['Save_action']))
     }
 }
 
-$tpl->set('msg',$Departament);
+$tpl->set('canned_message',$Departament);
 $tpl->set('limitDepartments',$userDepartments !== true ? array('filterin' => array('id' => $userDepartments)) : array());
 
 $Result['content'] = $tpl->fetch();

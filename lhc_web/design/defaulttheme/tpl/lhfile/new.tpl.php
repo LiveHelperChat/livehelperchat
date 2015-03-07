@@ -18,8 +18,14 @@ setTimeout(function(){
 <?php endif;?>
 
 <form action="" method="post" enctype="multipart/form-data">
-	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/new','File name');?></label>
-	<input type="text" name="Name" />
-	<input type="file" name="files" />
-	<input type="submit" class="button small radius" name="UploadFileAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/new','Upload');?>" />
+    <div class="form-group">
+	   <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/new','File name');?></label>	
+	   <input type="text" name="Name" class="form-control"/>
+	</div>
+	
+	<div class="form-group">
+	   <input type="file" name="files" />
+	</div>
+	
+	<input type="submit" class="btn btn-default" name="UploadFileAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/new','Upload');?>" />
 </form>

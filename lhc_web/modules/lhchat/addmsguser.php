@@ -25,6 +25,10 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && mb_strlen($form->m
 	        $msg->user_id = 0;
 	        $msg->time = time();
 	
+	        if ($chat->chat_locale != '' && $chat->chat_locale_to != '') {
+	            erLhcoreClassTranslate::translateChatMsgVisitor($chat, $msg);
+	        }
+	        
 	        erLhcoreClassChat::getSession()->save($msg);
 
 	        $stmt = $db->prepare('UPDATE lh_chat SET last_user_msg_time = :last_user_msg_time, last_msg_id = :last_msg_id, has_unread_messages = 1 WHERE id = :id');

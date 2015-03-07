@@ -50,6 +50,7 @@ class erLhcoreClassChat {
 			'operator_typing_id',
 			'chat_initiator',
 			'chat_variables',
+			'wait_timeout_repeat',
 			// Angular remake
 			'referrer'
 	);
@@ -898,7 +899,7 @@ class erLhcoreClassChat {
 
             if (in_array($chat->dep_id,$userDepartaments)) {
 
-            	if ($currentUser->hasAccessTo('lhchat','allowopenremotechat') == true){
+            	if ($currentUser->hasAccessTo('lhchat','allowopenremotechat') == true || $chat->status == erLhcoreClassModelChat::STATUS_OPERATORS_CHAT){
             		return true;
             	} elseif ($chat->user_id == 0 || $chat->user_id == $currentUser->getUserID()) {
             		return true;

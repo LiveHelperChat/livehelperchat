@@ -221,6 +221,11 @@ $ViewList['saveremarks'] = array(
     'functions' => array( 'use' )
     );
 
+$ViewList['saveonlinenotes'] = array(
+    'params' => array('online_user_id'),
+    'functions' => array( 'use' )
+);
+
 /* Anonymous functions */
 $ViewList['addmsguser'] = array(
     'params' => array('chat_id','hash'),
@@ -265,7 +270,7 @@ $ViewList['usertyping'] = array(
 
 $ViewList['checkchatstatus'] = array(
     'params' => array('chat_id','hash'),
-    'uparams' => array('mode')
+    'uparams' => array('mode','theme')
 );
 
 $ViewList['transferuser'] = array(
@@ -304,7 +309,7 @@ $ViewList['getstatusembed'] = array(
 
 $ViewList['startchat'] = array (
     'params' => array(),
-    'uparams' => array('switchform','operator','theme','vid','hash_resume','sound','hash','offline','leaveamessage','department','priority','chatprefill'),
+    'uparams' => array('switchform','operator','theme','er','vid','hash_resume','sound','hash','offline','leaveamessage','department','priority','chatprefill'),
 	'multiple_arguments' => array ( 'department' )
 );
 
@@ -343,7 +348,8 @@ $ViewList['chatwidgetclosed'] = array(
 );
 
 $ViewList['chat'] = array(
-    'params' => array('chat_id','hash','theme')
+    'params' => array('chat_id','hash'),
+    'uparams' => array('theme','er')
 );
 
 $ViewList['printchat'] = array(
@@ -393,7 +399,7 @@ $ViewList['sendnotice'] = array(
 $ViewList['geoconfiguration'] = array(
     'params' => array(),
     'uparams' => array(),
-    'functions' => array( 'administrateconfig' )
+    'functions' => array( 'administrategeoconfig' )
 );
 
 $ViewList['listchatconfig'] = array(
@@ -482,6 +488,7 @@ $FunctionList['geoadjustment'] = array('explain' => 'Allow operator to edit geo 
 $FunctionList['take_screenshot'] = array('explain' => 'Allow operator to take visitor browser page screenshots');
 $FunctionList['modifychat'] = array('explain' => 'Allow operator modify main chat information');
 $FunctionList['allowredirect'] = array('explain' => 'Allow operator to redirect user to another page');
+$FunctionList['administrategeoconfig'] = array('explain' => 'Allow operator to edit geo detection configuration');
 
 
 ?>

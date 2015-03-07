@@ -48,6 +48,7 @@ class erLhcoreClassModelChat {
 
        		   // Wait timeout attribute
                'wait_timeout'     		=> $this->wait_timeout,
+               'wait_timeout_repeat'    => $this->wait_timeout_repeat,
                'wait_timeout_send'     	=> $this->wait_timeout_send,
                'timeout_message'     	=> $this->timeout_message,
 
@@ -73,6 +74,12 @@ class erLhcoreClassModelChat {
                'screenshot_id'    		=> $this->screenshot_id,
        		
                'tslasign'    			=> $this->tslasign,
+           
+               // Visitor language
+               'chat_locale'    		=> $this->chat_locale,
+           
+               // Operator language
+               'chat_locale_to'    		=> $this->chat_locale_to,
        );
    }
 
@@ -105,6 +112,11 @@ class erLhcoreClassModelChat {
 	   	
 	   	// Delete screen sharing
 	   	$q->deleteFrom( 'lh_cobrowse' )->where( $q->expr->eq( 'chat_id', $this->id ) );
+	   	$stmt = $q->prepare();
+	   	$stmt->execute();
+	   	
+	   	// Delete speech settings
+	   	$q->deleteFrom( 'lh_speech_chat_language' )->where( $q->expr->eq( 'chat_id', $this->id ) );
 	   	$stmt = $q->prepare();
 	   	$stmt->execute();
 	   	
@@ -437,6 +449,8 @@ class erLhcoreClassModelChat {
    
    public $screenshot_id = 0;
    
+   public $wait_timeout_repeat = 0;
+   
    public $unread_messages_informed = 0;
    public $reinform_timeout = 0;
    
@@ -445,6 +459,10 @@ class erLhcoreClassModelChat {
    
    // Time since last assignment
    public $tslasign = 0;
+   
+   public $chat_locale = '';
+   
+   public $chat_locale_to = '';
    
    public $updateIgnoreColumns = array();
 }

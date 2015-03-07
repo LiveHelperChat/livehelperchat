@@ -27,6 +27,10 @@ if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_p
 	}
 }
 
+if (isset($Params['user_parameters_unordered']['er']) && (int)$Params['user_parameters_unordered']['er'] == 1){
+    $Result['er'] = true;
+    $themeAppend .= '/(er)/1';
+}
 
 // Perhaps it's direct argument
 if ((string)$Params['user_parameters_unordered']['hash'] != '') {
@@ -41,6 +45,10 @@ $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/startchat.tpl.php');
 $tpl->set('referer','');
 $tpl->set('referer_site','');
 $disabled_department = false;
+
+if (isset($Result['theme'])){
+    $tpl->set('theme',$Result['theme']);
+}
 
 if (is_array($Params['user_parameters_unordered']['department']) && erLhcoreClassModelChatConfig::fetch('hide_disabled_department')->current_value == 1){
 	try {
@@ -66,6 +74,7 @@ if (is_array($Params['user_parameters_unordered']['department']) && erLhcoreClas
 }
 
 $tpl->set('disabled_department',$disabled_department);
+$tpl->set('append_mode_theme',$themeAppend);
 
 // Start chat field options
 $startData = erLhcoreClassModelChatConfig::fetch('start_chat_data');
@@ -244,7 +253,9 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
 	       if ($responder instanceof erLhAbstractModelAutoResponder) {
 		       	$chat->wait_timeout = $responder->wait_timeout;
 		       	$chat->timeout_message = $responder->timeout_message;
-
+		       	$chat->wait_timeout_send = 1-$responder->repeat_number;
+		       	$chat->wait_timeout_repeat = $responder->repeat_number;
+		       	
 		       	if ($responder->wait_message != '') {
 		       		$msg = new erLhcoreClassModelmsg();
 		       		$msg->msg = trim($responder->wait_message);

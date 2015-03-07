@@ -41,9 +41,6 @@ input[type="file"] {
 	font-size:12px;
 }
 
-/* Accordion ---------------------- */
-ul.accordion-lhc > li > div.title-lhc:after { right:auto; left: 15px;}
-
 .chatbox-row .usr-tit {
 	float:none;
 }

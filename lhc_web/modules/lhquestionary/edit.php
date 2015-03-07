@@ -1,7 +1,10 @@
 <?php
 
-$tpl = erLhcoreClassTemplate::getInstance('lhquestionary/edit.tpl.php');
 $Question = erLhcoreClassModelQuestion::fetch((int)$Params['user_parameters']['id']);
+
+$response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('questionary.edit', array('questionary' => $Question));
+
+$tpl = erLhcoreClassTemplate::getInstance('lhquestionary/edit.tpl.php');
 
 $validTabs = array('answers','voting');
 

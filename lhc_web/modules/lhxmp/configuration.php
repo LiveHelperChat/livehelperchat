@@ -7,8 +7,20 @@ $data = (array)$xmpData->data;
 
 if (isset($_POST['StoreXMPGTalkSendeMessage'])) {	
 	try {
-		erLhcoreClassXMP::sendTestXMPGTalk($currentUser->getUserData());
-		$tpl->set('message_send','done');
+        $definition = array(
+            'test_recipients_gtalk' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'validate_email')
+        );
+        
+        $form = new ezcInputForm(INPUT_POST, $definition);
+        
+        if ($form->hasValidData('test_recipients_gtalk')) {
+            erLhcoreClassXMP::sendTestXMPGTalk($form->test_recipients_gtalk);
+            $tpl->set('message_send','done');
+            $tpl->set('test_gmail_email',$form->test_recipients_gtalk);
+        } else {
+            $tpl->set('errors',array(erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Invalid test e-mail address')));
+        }
+	    
 	} catch (Exception $e) {
 		$tpl->set('errors',array($e->getMessage()));
 	}
@@ -74,7 +86,7 @@ if ( isset($_POST['StoreXMPGTalkSettings']) || isset($_POST['StoreXMPGTalkSettin
 			),
 			'XMPAcceptedMessage' => new ezcInputFormDefinitionElement(
 					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-			),
+			),			
 			'use_standard_xmp' => new ezcInputFormDefinitionElement(
 					ezcInputFormDefinitionElement::OPTIONAL, 'int'
 			),			
@@ -87,9 +99,7 @@ if ( isset($_POST['StoreXMPGTalkSettings']) || isset($_POST['StoreXMPGTalkSettin
 		erLhcoreClassModule::redirect('xmp/configuration');
 		exit;
 	}
-	
-	$Errors = array();
-	
+		
 	$form = new ezcInputForm( INPUT_POST, $definition );
 	$Errors = array();
 	

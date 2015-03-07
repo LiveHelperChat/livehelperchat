@@ -32,6 +32,11 @@ if (trim($form->msg) != '' && $form->hasValidData('msgid'))
 	        	        
 	        if ($msg->chat_id == $Chat->id && $msg->user_id == $currentUser->getUserID()) {
 		        $msg->msg = trim($form->msg);
+		        
+		        if ($Chat->chat_locale != '' && $Chat->chat_locale_to != '') {
+		            erLhcoreClassTranslate::translateChatMsgOperator($Chat, $msg);
+		        }
+		        
 		        erLhcoreClassChat::getSession()->update($msg);
 		        
 		        $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/syncadmin.tpl.php');

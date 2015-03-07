@@ -6,11 +6,13 @@ $tpl = erLhcoreClassTemplate::getInstance( 'lhdepartament/departaments.tpl.php')
  * Append user departments filter
  * */
 $departmentParams = array();
-$userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID());
-if ($userDepartments !== true){
-	$departmentParams['filterin']['id'] = $userDepartments;
+if ($currentUser->hasAccessTo('lhdepartment','manageall') !== true)
+{
+    $userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID());
+    if ($userDepartments !== true){
+    	$departmentParams['filterin']['id'] = $userDepartments;
+    }
 }
-
 
 $pages = new lhPaginator();
 $pages->serverURL = erLhcoreClassDesign::baseurl('departament/departaments');

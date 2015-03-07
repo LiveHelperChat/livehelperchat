@@ -281,7 +281,9 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
 	       if ($responder instanceof erLhAbstractModelAutoResponder) {
 	       		$chat->wait_timeout = $responder->wait_timeout;
 	       		$chat->timeout_message = $responder->timeout_message;
-
+	       		$chat->wait_timeout_send = 1-$responder->repeat_number;
+	       		$chat->wait_timeout_repeat = $responder->repeat_number;
+	       		
 	       		if ($responder->wait_message != '') {
 		       		$msg = new erLhcoreClassModelmsg();
 		       		$msg->msg = trim($responder->wait_message);

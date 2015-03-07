@@ -33,7 +33,6 @@ var LHCCoBrowserOperator = (function() {
 		if (params['nodejsenabled']) {
 			this.setupNodeJs();
 		}
-		;
 		
 		if (parseInt(params['cpos'].w) > 0 && parseInt(params['cpos'].wh) > 0){
 			document.getElementById('center-layout').style.width = params['cpos'].w+'px';
@@ -251,8 +250,18 @@ var LHCCoBrowserOperator = (function() {
 	{
 		if (typeof stop === 'undefined') {
 			return this.iFrameDocument.documentElement.scrollTop || this.iFrameDocument.body.scrollTop;
-		} else {
-			jQuery(this.iFrameDocument).scrollTop(stop);
+		} else {		
+			if (this.iFrameDocument.documentElement){
+				try {
+					this.iFrameDocument.documentElement.scrollTop = stop;
+				} catch (e) {}	
+			};	
+			
+			if (this.iFrameDocument.body) {
+				try {
+					this.iFrameDocument.body.scrollTop = stop;
+				} catch (e) {}	
+			}
 		}
 	};
 	
@@ -261,7 +270,16 @@ var LHCCoBrowserOperator = (function() {
 		if (typeof sleft === 'undefined') {
 			return this.iFrameDocument.documentElement.scrollLeft || this.iFrameDocument.body.scrollLeft;
 		} else {
-			jQuery(this.iFrameDocument).scrollLeft(sleft);			
+			if (this.iFrameDocument.documentElement){
+				try {
+					this.iFrameDocument.documentElement.scrollLeft = sleft;
+				} catch (e) {}	
+			};		
+			if (this.iFrameDocument.body) {
+				try {
+					this.iFrameDocument.body.scrollLeft = sleft;
+				} catch (e) {}	
+			}			
 		}
 	};
 	
@@ -381,7 +399,8 @@ var LHCCoBrowserOperator = (function() {
 		} else {
 			try {
 				this.socket = io.connect(this.node_js_settings.nodejshost, {
-					secure : this.node_js_settings.secure
+					secure : this.node_js_settings.secure,
+					path : this.node_js_settings.path
 				});
 				this.socket.on('connect', function() {
 					_this.onConnected();

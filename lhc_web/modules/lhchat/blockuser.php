@@ -1,5 +1,7 @@
 <?php
 
+$response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.blockuser', array());
+
 $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
 $currentUser = erLhcoreClassUser::instance();
 

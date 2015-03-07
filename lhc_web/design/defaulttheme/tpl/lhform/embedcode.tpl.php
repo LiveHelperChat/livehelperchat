@@ -1,42 +1,43 @@
-<h1 class="attr-header"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','HTML code');?></h1>
+<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','HTML code');?></h1>
 
 <div class="row">
-    <div class="columns large-6">
+    <div class="col-md-6">
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Choose a language');?></label>
-        <select id="LocaleID">
+        <select class="form-control" id="LocaleID">
             <?php foreach ($locales as $locale ) : ?>
             <option value="<?php echo $locale?>/"><?php echo $locale?></option>
             <?php endforeach; ?>
         </select>
     </div>
-    <div class="columns large-6">
+    <div class="col-md-6">
 	   <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Choose prefered http mode');?></label>
-		    <select id="HttpMode">         
+		    <select class="form-control" id="HttpMode">         
 		            <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Based on site (default)');?></option>
 		            <option value="http:">http:</option>
 		            <option value="https:">https:</option>      
 		    </select>    	    
     </div>
-    <div class="columns large-6">
+    <div class="col-md-6">
 	   <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Choose what form you want to embed');?></label>
 	   <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
 										'input_name'     => 'FormID',								
 										'display_name'   => 'name',
 										'selected_id'    => 0,
+	                                    'css_class'      => 'form-control',
 										'list_function'  => 'erLhAbstractModelForm::getList',
 										'list_function_params'  => array('limit' => '1000000'),
 		)); ?> 	    
     </div>
-    <div class="columns large-6 end">
+    <div class="col-md-6">
 	   <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Identifier');?></label>
-	   <input type="text" id="id_identifier" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Identifier')?>" value="" /> 	    
+	   <input class="form-control" type="text" id="id_identifier" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Identifier')?>" value="" /> 	    
     </div>
     
 </div>
 
 <p class="explain"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Copy the code from the textarea to page where you want it to be rendered');?></p>
 
-<textarea style="width:100%;height:180px;font-size:12px;" id="HMLTContent" ></textarea>
+<textarea class="form-control" style="width:100%;height:180px;font-size:12px;" id="HMLTContent" ></textarea>
 
 <script type="text/javascript">
 var default_site_access = '<?php echo erConfigClassLhConfig::getInstance()->getSetting( 'site', 'default_site_access' ); ?>/';

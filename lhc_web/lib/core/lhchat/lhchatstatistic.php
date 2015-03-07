@@ -95,6 +95,19 @@ class erLhcoreClassChatStatistic {
     	return $numberOfChats;
     }
     
+    
+    public static function getNumberOfChatsWaitTime($filter = array())
+    {	
+    	$numberOfChats = array();
+    	    	 	    	    	    
+    	for ($i = 0; $i < 12;$i++) {
+    		$dateUnix = mktime(0,0,0,date('m')-$i,1,date('y'));
+    		$numberOfChats[$dateUnix] = (int)erLhcoreClassChat::getCount(array_merge_recursive($filter,array('customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m\') = '. date('Ym',$dateUnix)),'filtergt' => array('chat_duration' => 0),'filterlt' =>  array('wait_time' => 600),'filtergt' =>  array('wait_time' => 0))),'lh_chat','AVG(wait_time)');
+    	}
+    	    	
+    	return $numberOfChats;
+    }
+    
     public static function getWorkLoadStatistic($filter = array()) 
     {
     	$numberOfChats = array();
@@ -161,6 +174,38 @@ class erLhcoreClassChatStatistic {
     	}
     	    	
     	$sql = "SELECT count(id) AS number_of_chats,user_id FROM lh_chat WHERE {$appendFilterTime} {$generalFilter} GROUP BY user_id ORDER BY number_of_chats DESC LIMIT 20";
+    	$db = ezcDbInstance::get();
+    	$stmt = $db->prepare($sql);
+    	
+    	if ($useTimeFilter == true) {
+    		$stmt->bindValue(':time',$dateUnixPast);
+    	}
+    	
+    	$stmt->setFetchMode(PDO::FETCH_ASSOC);
+    	$stmt->execute();
+    	return $stmt->fetchAll();
+    }
+    
+    public static function avgWaitTimeyUser($days = 30, $filter = array()) 
+    {    	    
+    	$dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
+    	
+    	$filter['filterlt']['wait_time'] = 600;
+    	
+    	$generalFilter = self::formatFilter($filter);
+    	
+    	$useTimeFilter = !isset($filter['filtergte']['time']) && !isset($filter['filterlte']['time']);
+    	$appendFilterTime = '';
+    	
+    	if ($useTimeFilter == true) {
+    		$appendFilterTime = 'time > :time ';
+    	}
+    	 
+    	if ($generalFilter != '' && $useTimeFilter == true) {
+    		$generalFilter = ' AND '.$generalFilter;
+    	}
+    	    	
+    	$sql = "SELECT count(wait_time) AS avg_wait_time,user_id FROM lh_chat WHERE {$appendFilterTime} {$generalFilter} GROUP BY user_id ORDER BY avg_wait_time DESC LIMIT 20";
     	$db = ezcDbInstance::get();
     	$stmt = $db->prepare($sql);
     	

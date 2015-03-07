@@ -34,6 +34,40 @@ if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','allowtochoosependingmod
 	$tpl->set('tab','tab_pending');
 }
 
+if (erLhcoreClassUser::instance()->hasAccessTo('lhspeech','changedefaultlanguage') && isset($_POST['UpdateSpeech_account']))
+{	
+	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+		erLhcoreClassModule::redirect('user/account');
+		exit;
+	}
+	
+	$definition = array(
+			'select_language' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1)
+			),
+			'select_dialect' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'string'
+			),
+	);
+	
+	$form = new ezcInputForm( INPUT_POST, $definition );
+	$Errors = array();
+	
+	if ( $form->hasValidData( 'select_language' ) )	{	  
+	    erLhcoreClassModelUserSetting::setSetting('speech_language',$form->select_language);
+	} else {
+	    erLhcoreClassModelUserSetting::setSetting('speech_language','');
+	}
+	
+	if ( $form->hasValidData( 'select_dialect' ) && $form->hasValidData( 'select_dialect' ) != '0' )	{
+	    erLhcoreClassModelUserSetting::setSetting('speech_dialect',$form->select_dialect);
+	} else {
+	   erLhcoreClassModelUserSetting::setSetting('speech_dialect','');
+	}
+
+	$tpl->set('account_updated','done');
+	$tpl->set('tab','tab_speech');
+}
 
 if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','change_visibility_list') && isset($_POST['UpdateTabsSettings_account']))
 {
@@ -128,6 +162,9 @@ if (isset($_POST['Update']))
    		),
    		'UserInvisible' => new ezcInputFormDefinitionElement(
    				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+   		),
+   		'ReceivePermissionRequest' => new ezcInputFormDefinitionElement(
+   				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
    		)
     );
 
@@ -194,6 +231,14 @@ if (isset($_POST['Update']))
 	    	$UserData->invisible_mode = 1;
 	    } else {
 	    	$UserData->invisible_mode = 0;
+	    }
+    }
+    
+    if ( erLhcoreClassUser::instance()->hasAccessTo('lhuser','receivepermissionrequest') ) {
+	    if ( $form->hasValidData( 'ReceivePermissionRequest' ) && $form->ReceivePermissionRequest == true ) {
+	    	$UserData->rec_per_req = 1;
+	    } else {
+	    	$UserData->rec_per_req = 0;
 	    }
     }
     
@@ -386,6 +431,8 @@ if ( erLhcoreClassUser::instance()->hasAccessTo('lhuser','personalcannedmsg') ) 
 		}  else {
 			$tpl->set('errors_canned',$Errors);
 		}
+		
+		$tpl->set('tab','tab_canned');
 	}
 	
 	/**
@@ -410,7 +457,7 @@ if ( erLhcoreClassUser::instance()->hasAccessTo('lhuser','personalcannedmsg') ) 
 		exit;
 	}
 	
-	$tpl->set('canned_msg',$cannedMessage);
+	$tpl->set('canned_msg',$cannedMessage);	
 }
 
 

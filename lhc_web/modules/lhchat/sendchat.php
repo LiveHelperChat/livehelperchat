@@ -42,7 +42,7 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'] && ($c
 			erLhcoreClassChatMail::prepareSendMail($mailTemplate);
 			$mailTemplate->recipient = $form->email;
 
-			$messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 500, 'sort' => 'id DESC','filter' => array('chat_id' => $chat->id))));
+			$messages = array_reverse(erLhcoreClassModelmsg::getList(array('customfilter' => array('user_id != -1'),'limit' => 500, 'sort' => 'id DESC','filter' => array('chat_id' => $chat->id))));
 
 			// Fetch chat messages
 			$tpl = new erLhcoreClassTemplate( 'lhchat/messagelist/plain.tpl.php');

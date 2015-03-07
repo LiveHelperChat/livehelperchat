@@ -1,0 +1,1 @@
+<?php $system_configuration_links_autoresponder_enabled = true;?>

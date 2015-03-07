@@ -97,10 +97,6 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
                 	clearTimeout(lhinst.soundIsPlaying);
 				};
 		
-				setTimeout(function(){
-					$(document).foundation('section', 'resize');
-				},500);	
-				
 				if ($scope.setTimeoutEnabled == true) {
 					$scope.timeoutControl = setTimeout(function(){
 						$scope.loadChatList();
@@ -113,12 +109,9 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 				},confLH.back_office_sinterval);
 		});
 	};
-	
-	this.previewChat = function(chat_id){				
-		if ($('#myModal').size() == 0) {
-			$('body').prepend('<div id="myModal" class="reveal-modal medium"><a class="close-reveal-modal">&#215;</a></div>');
-		};				
-		$('#myModal').foundation('reveal', 'open', {url: WWW_DIR_JAVASCRIPT+'chat/previewchat/'+chat_id});
+		
+	this.previewChat = function(chat_id){		
+		lhc.previewChat(chat_id);
 	};		
 	
 	this.redirectContact = function(chat_id,message) {	

@@ -6,14 +6,14 @@
 </head>
 <body ng-controller="LiveHelperChatCtrl as lhc">
 
-<div class="row">
-    <div class="columns large-12 pt10">
-        <?php echo $Result['content']; ?>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 pt10">
+            <?php echo $Result['content']; ?>
+        </div>
     </div>
 </div>
 
-
-<script type="text/javascript" language="javascript" src="<?php echo erLhcoreClassDesign::designJS('js/app.js');?>"></script>
 <?php if (!isset($Result['disable_angular'])) : ?>
 <script type="text/javascript" language="javascript" src="<?php echo erLhcoreClassDesign::designJS('js/angular.min.js;js/angular.lhc.js');?>"></script>
 <?php endif;?>

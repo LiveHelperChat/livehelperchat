@@ -18,9 +18,13 @@ class erLhcoreClassChatWorkflow {
     	if ($chat->last_msg_id < $msg->id) {
     		$chat->last_msg_id = $msg->id;
     	}
-
-    	$chat->timeout_message = '';
-    	$chat->wait_timeout_send = 1;
+    	
+    	$chat->wait_timeout_send++;
+    	
+    	if ($chat->wait_timeout_send == 1) {
+    	   $chat->timeout_message = '';
+    	}
+    	    	
     	$chat->updateThis();
     }
 
@@ -291,7 +295,7 @@ class erLhcoreClassChatWorkflow {
      		$cannedMsg = array_shift($items);
      		
      		$msg = new erLhcoreClassModelmsg();
-     		$msg->msg = $cannedMsg->msg;
+     		$msg->msg = str_replace(array('{nick}','{operator}'), array($chat->nick,(string)$chat->user->name_support),$cannedMsg->msg);
      		$msg->chat_id = $chat->id;
      		$msg->user_id = $chat->user_id;
      		$msg->name_support = $chat->user->name_support;

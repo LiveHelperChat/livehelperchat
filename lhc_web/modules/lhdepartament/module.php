@@ -29,5 +29,6 @@ $FunctionList['delete'] = array('explain' => 'Permission to delete department');
 $FunctionList['selfedit'] = array('explain' => 'Allow user to choose his departments');
 $FunctionList['actworkflow'] = array('explain' => 'Allow user to change transfer workflow');
 $FunctionList['actautoassignment'] = array('explain' => 'Allow user to change auto assignment');
+$FunctionList['manageall'] = array('explain' => 'Allow user to manage all departments, not only assigned to him');
 
 ?>

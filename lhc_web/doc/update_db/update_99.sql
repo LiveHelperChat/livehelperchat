@@ -1,0 +1,2 @@
+INSERT INTO `lh_chat_config` (`identifier`, `value`, `type`, `explain`, `hidden`)
+VALUES ('front_tabs', 'online_users,online_map,pending_chats,active_chats,unread_chats,closed_chats,online_operators', '0', 'Home page tabs order', '0');

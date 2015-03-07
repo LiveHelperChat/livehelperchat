@@ -5,13 +5,16 @@
 <?php endif; ?>
 
 <form action="<?php echo erLhcoreClassDesign::baseurl('user/newgroup')?>" method="post">
-<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/newgroup','Title');?></label>
-<input type="text" name="Name"  value="" />
 
-<ul class="button-group radius">
-    <li><input type="submit" class="small button" name="Save_group" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/newgroup','Save');?>"/></li>
-    <li><input type="submit" class="small button" name="Save_group_and_assign_user" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/newgroup','Save and assign the user');?>"/></li>
-</ul>
+<div class="form-group">
+    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/newgroup','Title');?></label>
+    <input type="text" name="Name" class="form-control" value="" />
+</div>
+
+<div class="btn-group" role="group" aria-label="...">
+	<input type="submit" class="btn btn-default" name="Save_group" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/newgroup','Save');?>"/>
+    <input type="submit" class="btn btn-default" name="Save_group_and_assign_user" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/newgroup','Save and assign the user');?>"/>
+</div>
 
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 

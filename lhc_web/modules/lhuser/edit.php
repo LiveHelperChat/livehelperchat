@@ -45,12 +45,15 @@ if (isset($_POST['Update_account']) || isset($_POST['Save_account']))
 		),
 		'UserInvisible' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
-		),
+		),		
 		'DefaultGroup' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'int',
 				null,
 				FILTER_REQUIRE_ARRAY
-		)
+		),
+   		'ReceivePermissionRequest' => new ezcInputFormDefinitionElement(
+   				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+   		)
     );
 
     if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
@@ -111,6 +114,12 @@ if (isset($_POST['Update_account']) || isset($_POST['Save_account']))
     	$UserData->invisible_mode = 1;
     } else {
     	$UserData->invisible_mode = 0;
+    }
+    
+    if ( $form->hasValidData( 'ReceivePermissionRequest' ) && $form->ReceivePermissionRequest == true ) {
+    	$UserData->rec_per_req = 1;
+    } else {
+    	$UserData->rec_per_req = 0;
     }
     
     if ( $form->hasValidData( 'JobTitle' ) && $form->JobTitle != '')

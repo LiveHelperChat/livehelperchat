@@ -11,18 +11,18 @@
 
 <form action="<?php echo erLhcoreClassDesign::baseurl('chat/blockedusers')?>"  method="post">
 <div class="row">
-	<div class="columns small-4">
-		<input type="text" name="IPToBlock" value="" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','IP');?>" />
+	<div class="col-xs-4">
+		<input type="text" class="form-control" name="IPToBlock" value="" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','IP');?>" />
 	</div>	
-	<div class="columns small-8">
-		<input type="submit" class="button small" name="AddBlock" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>" />
+	<div class="col-xs-8">
+		<input type="submit" class="btn btn-default" name="AddBlock" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>" />
 	</div>
 </div>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 </form>
 
 <?php if (!empty($items)) : ?>
-<table class="twelve" cellpadding="0" cellspacing="0">
+<table class="table" cellpadding="0" cellspacing="0">
 <thead>
 <tr>
     <th width="1%">ID</th>
@@ -38,7 +38,7 @@
         <td><?php echo $departament->ip?></td>
         <td><?php echo htmlspecialchars($departament->datets_front)?></td>
         <td><?php echo htmlspecialchars($departament->user)?></td>
-        <td nowrap><a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="csfr-required small alert button round" href="<?php echo erLhcoreClassDesign::baseurl('chat/blockedusers')?>/(remove_block)/<?php echo $departament->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Remove block');?></a></td>
+        <td nowrap><a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="csfr-required btn btn-danger btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('chat/blockedusers')?>/(remove_block)/<?php echo $departament->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Remove block');?></a></td>
     </tr>
 <?php endforeach; ?>
 </table>

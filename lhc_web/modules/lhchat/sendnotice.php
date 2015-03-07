@@ -59,6 +59,7 @@ if ( isset($_POST['SendMessage']) ) {
     } 
 }
 
-$Result['content'] = $tpl->fetch();
-$Result['pagelayout'] = 'popup';
+echo $tpl->fetch();
+exit;
+
 ?>

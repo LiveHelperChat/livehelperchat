@@ -10,7 +10,7 @@
 	
 	     <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newpolicy','Choose a module');?></h4>	
 	    
-	     <select id="ModuleSelectedID" name="Module">
+	     <select class="form-control" id="ModuleSelectedID" name="Module">
 	         <option value="*">---<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newpolicy','All modules');?>---</option>
 		     <?php foreach (erLhcoreClassModules::getModuleList() as $key => $Module) : ?>
 		         <option value="<?php echo $key?>"><?php echo htmlspecialchars($Module['name']);?></option>
@@ -22,12 +22,11 @@
 	     <div id="ModuleFunctionsID">
 	     	<label class="fs12"><input type="checkbox" name="ModuleFunction[]" value="*"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/modulefunctions','All functions');?></label>
 	     </div>
-	
 
-	<ul class="button-group radius">
-	 <li><input type="submit" class="small button" name="Store_policy" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newpolicy','Save');?>"/></li>
-	 <li><input type="submit" class="small button" name="Cancel_policy" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newpolicy','Cancel');?>"/></li>
-	</ul>
+	<div class="btn-group" role="group" aria-label="...">
+	 <input type="submit" class="btn btn-default" name="Store_policy" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newpolicy','Save');?>"/>
+	 <input type="submit" class="btn btn-default" name="Cancel_policy" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newpolicy','Cancel');?>"/>
+	</div>
 
 </form>
 

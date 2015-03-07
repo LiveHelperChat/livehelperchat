@@ -4,9 +4,31 @@ class erLhcoreClassChatMail {
 
 	public static function setupSMTP(PHPMailer & $phpMailer)
 	{
+        // Allow extension override mail settings
+        $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chatmail.setup_smtp', array(
+            'phpmailer' => & $phpMailer
+        ));
+        
+        if ($response !== false && isset($response['status']) && $response['status'] == erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
+            return;
+        }
+	    
+	        
 		$smtpData = erLhcoreClassModelChatConfig::fetch('smtp_data');
 		$data = (array)$smtpData->data;
 
+		if ( isset($data['sender']) && $data['sender'] != '' ) {
+		    $phpMailer->Sender = $data['sender'];
+		}
+		
+		if ($phpMailer->From == 'root@localhost') {
+		    $phpMailer->From = $data['default_from'];
+		}
+		
+		if ($phpMailer->FromName == 'Root User') {
+		    $phpMailer->FromName = $data['default_from_name'];
+		}
+		
 		if ( isset($data['use_smtp']) && $data['use_smtp'] == 1 ) {
 			$phpMailer->IsSMTP();
 			$phpMailer->Host = $data['host'];
@@ -16,7 +38,10 @@ class erLhcoreClassChatMail {
 				$phpMailer->Username = $data['username'];
 				$phpMailer->Password = $data['password'];
 				$phpMailer->SMTPAuth = true;
-			}
+				$phpMailer->From = $data['username'];
+			} else {
+			    $phpMailer->From = '';
+			}			
 		}
 	}
 
@@ -24,16 +49,13 @@ class erLhcoreClassChatMail {
 
 		$mail = new PHPMailer(true);
 		$mail->CharSet = "UTF-8";
-		$mail->Sender = $userData->email;
-		$mail->From = $userData->email;
-		$mail->FromName = $userData->email;
 		$mail->Subject = 'LHC Test mail';
 		$mail->AddReplyTo($userData->email,(string)$userData);
-		$mail->Body = 'This is test mail. If you received this mail. That means that your SMTP settings is correct.';
+		$mail->Body = 'This is test mail. If you received this mail. That means that your mail settings is correct.';
 		$mail->AddAddress( $userData->email );
 
 		self::setupSMTP($mail);
-
+		
 		try {
 			return $mail->Send();
 		} catch (Exception $e) {
@@ -80,9 +102,9 @@ class erLhcoreClassChatMail {
     	$Errors = array();
 
     	if (isset($params['archive_mode']) && $params['archive_mode'] == true){
-    		$messages = array_reverse(erLhcoreClassChat::getList(array('limit' => 100, 'sort' => 'id DESC', 'filter' => array('chat_id' => $chat->id)),'erLhcoreClassModelChatArchiveMsg',erLhcoreClassModelChatArchiveRange::$archiveMsgTable));
+    		$messages = array_reverse(erLhcoreClassChat::getList(array('limit' => 100, 'sort' => 'id DESC','customfilter' => array('user_id != -1'), 'filter' => array('chat_id' => $chat->id)),'erLhcoreClassModelChatArchiveMsg',erLhcoreClassModelChatArchiveRange::$archiveMsgTable));
     	} else {
-    		$messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 100,'sort' => 'id DESC','filter' => array('chat_id' => $chat->id))));
+    		$messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 100,'sort' => 'id DESC','customfilter' => array('user_id != -1'), 'filter' => array('chat_id' => $chat->id))));
     	}
     	
     	// Fetch chat messages
@@ -207,6 +229,29 @@ class erLhcoreClassChatMail {
     	$mail->Send();    	
     }
     
+    public static function sendMailRequestPermission(erLhcoreClassModelUser $recipient, erLhcoreClassModelUser $sender, $requestedPermissions) {
+        $sendMail = erLhAbstractModelEmailTemplate::fetch(10);
+        
+        $mail = new PHPMailer();
+        $mail->CharSet = "UTF-8";
+        
+        if ($sendMail->from_email != '') {
+            $mail->From = $mail->Sender = $sendMail->from_email;
+        }
+                     
+        $mail->Subject = str_replace(array('{user}'),array((string)$sender),$sendMail->subject);
+        $mail->AddReplyTo($sender->email,(string)$sender);
+                 
+        $mail->Body = str_replace(array('{permissions}','{user}'), array($requestedPermissions,(string)$sender), $sendMail->content);
+        
+        $mail->AddAddress( $recipient->email );
+        
+        self::setupSMTP($mail);
+                     
+        $mail->Send();
+        $mail->ClearAddresses();
+    }
+    
     public static function sendMailRequest($inputData, erLhcoreClassModelChat $chat, $params = array()) {
 
     	$sendMail = erLhAbstractModelEmailTemplate::fetch(2);
@@ -217,7 +262,7 @@ class erLhcoreClassChatMail {
     	if ($sendMail->from_email != '') {
     		$mail->From = $mail->Sender = $sendMail->from_email;
     	}    	
-    
+        	
     	$mail->FromName = $sendMail->from_name;
     	    	
     	$mail->Subject = str_replace(array('{name}','{department}','{country}','{city}'),array($chat->nick,(string)$chat->department,$chat->country_name,$chat->city),$sendMail->subject);
@@ -259,6 +304,11 @@ class erLhcoreClassChatMail {
     		foreach ($recipientsBCC as $recipientBCC) {
     			$mail->AddBCC(trim($recipientBCC));    			
     		}
+    	}
+    	
+    	if ($sendMail->user_mail_as_sender == 1 && $chat->email != '') {    	       	 
+    	   $mail->From = $chat->email;
+    	   $mail->FromName = $chat->nick;    	  
     	}
     	    	
     	$mail->Send();
@@ -332,7 +382,7 @@ class erLhcoreClassChatMail {
     	}
     }
     
-    public static function informFormFilled($formCollected) {
+    public static function informFormFilled($formCollected, $params = array()) {
     	$sendMail = erLhAbstractModelEmailTemplate::fetch(8);
     	
     	$mail = new PHPMailer();
@@ -342,9 +392,14 @@ class erLhcoreClassChatMail {
     		$mail->From = $mail->Sender = $sendMail->from_email;
     	}
     	
+    	if (isset($params['email']) && $params['email'] !== false && $params['email'] != '')
+    	{
+    	    $mail->AddReplyTo($params['email']);    	    
+    	}
+    	
     	$mail->FromName = $sendMail->from_name;    	
     	$mail->Subject = str_replace(array('{form_name}'),array($formCollected->form),$sendMail->subject);   	     	
-    	$mail->Body = str_replace(array('{form_name}','{ip}','{url_download}','{url_view}'), array((string)$formCollected->form, $formCollected->ip, erLhcoreClassXMP::getBaseHost() . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurldirect('user/login').'/(r)/'.rawurlencode(base64_encode('form/downloaditem/'.$formCollected->id)), erLhcoreClassXMP::getBaseHost() . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurldirect('user/login').'/(r)/'.rawurlencode(base64_encode('form/viewcollected/'.$formCollected->id))), $sendMail->content);
+    	$mail->Body = str_replace(array('{identifier}','{form_name}','{content}','{ip}','{url_download}','{url_view}'), array($formCollected->identifier,(string)$formCollected->form, $formCollected->form_content, $formCollected->ip, erLhcoreClassXMP::getBaseHost() . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurldirect('user/login').'/(r)/'.rawurlencode(base64_encode('form/downloaditem/'.$formCollected->id)), erLhcoreClassXMP::getBaseHost() . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurldirect('user/login').'/(r)/'.rawurlencode(base64_encode('form/viewcollected/'.$formCollected->id))), $sendMail->content);
 
     	$emailRecipient = array();
     	if ($formCollected->form->recipient != '') {

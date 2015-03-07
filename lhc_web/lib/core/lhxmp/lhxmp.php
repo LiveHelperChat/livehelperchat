@@ -137,7 +137,7 @@ class erLhcoreClassXMP {
 		}
 	}
 			
-	public static function sendTestXMPGTalk($userData) {	
+	public static function sendTestXMPGTalk($email) {	
 								
 		$xmpData = erLhcoreClassModelChatConfig::fetch('xmp_data');
 		$data = (array)$xmpData->data;
@@ -151,7 +151,7 @@ class erLhcoreClassXMP {
 				$conn->connect();
 				$conn->processUntil('session_start');
 				$conn->presence();
-				$conn->message($userData->email, $data['xmp_message']);
+				$conn->message($email, $data['xmp_message']);
 				$conn->disconnect();
 				return true;
 			} catch (Exception $e) {

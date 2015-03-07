@@ -1,12 +1,10 @@
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','List of files');?></h1>
 
-<ul class="button-group radius">
-  <li><a href="<?php echo erLhcoreClassDesign::baseurl('file/new')?>" class="button small"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','Upload a file');?></a></li>
-</ul>
+
 
 <?php include(erLhcoreClassDesign::designtpl('lhfile/parts/search_panel.tpl.php')); ?>
 
-<table class="twelve table-list" cellpadding="0" cellspacing="0">
+<table class="table" cellpadding="0" cellspacing="0">
 <thead>
 <tr>
     <th width="1%">ID</th>
@@ -35,7 +33,7 @@
         <td nowrap><?php echo htmlspecialchars($file->extension)?></td>
         <td nowrap><?php echo htmlspecialchars($file->date_front)?></td>
         <td nowrap>
-        <a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="csfr-required small alert button round" href="<?php echo erLhcoreClassDesign::baseurl('file/delete')?>/<?php echo $file->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','Delete the file');?></a>
+        <a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="csfr-required btn btn-danger btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('file/delete')?>/<?php echo $file->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','Delete the file');?></a>
         </td>
     </tr>
 <?php endforeach; ?>
@@ -46,3 +44,5 @@
 <?php if (isset($pages)) : ?>
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/paginator.tpl.php')); ?>
 <?php endif;?>
+
+<a href="<?php echo erLhcoreClassDesign::baseurl('file/new')?>" class="btn btn-default"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','Upload a file');?></a>

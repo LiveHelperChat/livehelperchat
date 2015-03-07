@@ -1,0 +1,1 @@
+<?php $chat_chat_tabs_footprint_tab_enabled = true; ?>

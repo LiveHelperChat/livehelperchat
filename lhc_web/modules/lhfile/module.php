@@ -22,7 +22,7 @@ $ViewList['chatfileslist'] = array(
 
 $ViewList['downloadfile'] = array(
 		'params' => array('file_id','hash'),
-		'uparams' => array(),
+		'uparams' => array('inline'),
 );
 
 $ViewList['uploadfileadmin'] = array(

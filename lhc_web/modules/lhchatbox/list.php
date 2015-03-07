@@ -1,5 +1,7 @@
 <?php
 
+$response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chatbox.list', array());
+
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchatbox/list.tpl.php');
 
 $pages = new lhPaginator();

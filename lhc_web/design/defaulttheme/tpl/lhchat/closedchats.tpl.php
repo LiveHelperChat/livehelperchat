@@ -8,7 +8,7 @@
 
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
-<table cellpadding="0" cellspacing="0" width="100%">
+<table class="table" cellpadding="0" cellspacing="0" width="100%">
 <thead>
     <tr>
         <th width="1%"><input class="mb0" type="checkbox" ng-model="check_all_items" /></th>
@@ -35,7 +35,7 @@
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/paginator.tpl.php')); ?>
 <?php endif;?>
 
-<input type="submit" name="doDelete" class="button small radius" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Delete selected');?>" />
+<input type="submit" name="doDelete" class="btn btn-danger" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Delete selected');?>" />
 
 </form>
 

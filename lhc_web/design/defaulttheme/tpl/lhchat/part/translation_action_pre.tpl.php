@@ -1,0 +1,1 @@
+<?php $translation_action_enabled = true;?>

@@ -43,7 +43,8 @@ class erLhcoreClassModelChatOnlineUser {
 	       	   'screenshot_id'   	=> $this->screenshot_id,
 	       	   'online_attr'   		=> $this->online_attr,
 	       	   'visitor_tz'   		=> $this->visitor_tz,
-	       	   'last_check_time'	=> $this->last_check_time
+	       	   'last_check_time'	=> $this->last_check_time,
+	       	   'notes'	            => $this->notes
        );
    }
 
@@ -98,6 +99,10 @@ class erLhcoreClassModelChatOnlineUser {
 
        	case 'has_message_from_operator':
        	        return ($this->message_seen == 0 && $this->operator_message != '');
+       	    break;
+
+       	case 'notes_intro':
+       	        return $this->notes_intro = $this->notes != '' ? '[ '.mb_substr($this->notes, 0, 50).' ]'.'<br/>' : '';
        	    break;
 
        	case 'chat':
@@ -614,12 +619,8 @@ class erLhcoreClassModelChatOnlineUser {
 	           		$item->tt_pages_count++;
 	           		$item->store_chat = true;
 	           		
-	           		if ( isset($_GET['onattr']) && is_array($_GET['onattr']) && !(empty($_GET['onattr'])) ) {
-	           			$stringOnlineAttr = array();
-	           			foreach ($_GET['onattr'] as $field => $value){
-	           				$stringOnlineAttr[] = $field.' - '.$value;
-	           			}
-	           			$item->online_attr = implode("\n", $stringOnlineAttr);
+	           		if ( isset($_GET['onattr']) && is_array($_GET['onattr']) && !(empty($_GET['onattr'])) ) {	           			
+	           			$item->online_attr = json_encode($_GET['onattr']);
 	           		}
 	           		
 	           		if ($item->has_message_from_operator == true) {
@@ -717,6 +718,7 @@ class erLhcoreClassModelChatOnlineUser {
    public $operation = '';
    public $online_attr = '';
    public $visitor_tz = '';
+   public $notes = '';
    public $requires_phone = 0;
    public $last_check_time = 0;
       

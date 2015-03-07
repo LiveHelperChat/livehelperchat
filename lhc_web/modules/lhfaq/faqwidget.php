@@ -246,7 +246,7 @@ $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'widget';
 $Result['dynamic_height'] = true;
 $Result['dynamic_height_message'] = 'lhc_sizing_faq';
-$Result['dynamic_height_append'] = 10;
+$Result['dynamic_height_append'] = 0;
 if ($embedMode == true) {
 	$Result['dynamic_height_message'] = 'lhc_sizing_faq_embed';
 	$Result['pagelayout_css_append'] = 'embed-widget';

@@ -12,7 +12,7 @@ setTimeout(function(){
 
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
-<table class="lentele" cellpadding="0" cellspacing="0" width="100%">
+<table class="table" cellpadding="0" cellspacing="0" width="100%">
 <thead>
     <tr>
         <th>ID</th>
@@ -33,7 +33,6 @@ setTimeout(function(){
 <?php endforeach; ?>
 </table>
 <br />
-
-<input type="submit" class="small button" name="AssignUsers" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/groupassignuser','Assign');?>" />
+<input type="submit" class="btn btn-default" name="AssignUsers" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/groupassignuser','Assign');?>" />
 
 </form>

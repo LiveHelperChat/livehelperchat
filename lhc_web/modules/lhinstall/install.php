@@ -47,9 +47,6 @@ switch ((int)$Params['user_parameters']['step_id']) {
 		if (!is_writable("var/storage"))
 	       $Errors[] = "var/storage is not writable";
 
-		if (!is_writable("var/storagedocshare"))
-	       $Errors[] = "var/storagedocshare is not writable";
-
 		if (!is_writable("var/storageform"))
 	       $Errors[] = "var/storageform is not writable";
 
@@ -295,11 +292,14 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `city` varchar(100) NOT NULL,
 				  `operation` text NOT NULL,
 				  `operation_admin` varchar(200) NOT NULL,
+				  `chat_locale` varchar(10) NOT NULL,
+				  `chat_locale_to` varchar(10) NOT NULL,
 				  `mail_send` int(11) NOT NULL,
         	   	  `screenshot_id` int(11) NOT NULL,
         	   	  `wait_time` int(11) NOT NULL,
         	   	  `wait_timeout` int(11) NOT NULL,
         	   	  `wait_timeout_send` int(11) NOT NULL,
+        	   	  `wait_timeout_repeat` int(11) NOT NULL,
   				  `chat_duration` int(11) NOT NULL,
   				  `tslasign` int(11) NOT NULL,
         	   	  `priority` int(11) NOT NULL,
@@ -343,34 +343,16 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `wait_timeout` int(11) NOT NULL,
 				  `position` int(11) NOT NULL,
 				  `dep_id` int(11) NOT NULL,
+        	      `repeat_number` int(11) NOT NULL DEFAULT '1',
 				  `timeout_message` varchar(250) NOT NULL,
 				  PRIMARY KEY (`id`),
 				  KEY `siteaccess_position` (`siteaccess`,`position`)
 				) DEFAULT CHARSET=utf8;");
 
-        	   $db->query("CREATE TABLE IF NOT EXISTS  `lh_doc_share` (
-				  `id` int(11) NOT NULL AUTO_INCREMENT,
-				  `name` varchar(250) NOT NULL,
-				  `desc` text NOT NULL,
-				  `user_id` int(11) NOT NULL,
-				  `active` int(11) NOT NULL,
-				  `converted` int(11) NOT NULL,
-				  `file_name` varchar(250) NOT NULL,
-				  `file_path` varchar(250) NOT NULL,
-				  `file_name_upload` varchar(250) NOT NULL,
-				  `file_size` int(11) NOT NULL,
-				  `type` varchar(250) NOT NULL,
-				  `ext` varchar(250) NOT NULL,
-				  `pdf_file` varchar(250) NOT NULL,
-				  `pages_pdf_count` int(11) NOT NULL,
-				  `pdf_to_img_converted` int(11) NOT NULL,
-				  PRIMARY KEY (`id`),
-				  KEY `user_id` (`user_id`)
-				) DEFAULT CHARSET=utf8;");
-
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_abstract_widget_theme` (
 				 `id` int(11) NOT NULL AUTO_INCREMENT,
                  `name` varchar(250) NOT NULL,
+                 `name_company` varchar(250) NOT NULL,
                  `onl_bcolor` varchar(10) NOT NULL,
                  `bor_bcolor` varchar(10) NOT NULL DEFAULT 'e3e3e3',
                  `text_color` varchar(10) NOT NULL,
@@ -413,6 +395,11 @@ switch ((int)$Params['user_parameters']['step_id']) {
                  `close_image_path` varchar(250) NOT NULL,
                  `popup_image` varchar(250) NOT NULL,
                  `popup_image_path` varchar(250) NOT NULL,
+                 `support_joined` varchar(250) NOT NULL,
+                 `support_closed` varchar(250) NOT NULL,
+                 `pending_join` varchar(250) NOT NULL,
+                 `noonline_operators` varchar(250) NOT NULL,
+                 `noonline_operators_offline` varchar(250) NOT NULL,
                  `hide_close` int(11) NOT NULL,
                  `hide_popup` int(11) NOT NULL,
                  `header_height` int(11) NOT NULL,
@@ -455,6 +442,128 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   KEY `chat_id` (`chat_id`)
         	   ) DEFAULT CHARSET=utf8");
         	   
+        	   $db->query("CREATE TABLE IF NOT EXISTS `lh_speech_language` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `name` varchar(100) NOT NULL,
+                  PRIMARY KEY (`id`)
+               ) DEFAULT CHARSET=utf8");
+        	           	   
+        	   $db->query("CREATE TABLE IF NOT EXISTS `lh_speech_language_dialect` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `language_id` int(11) NOT NULL,
+                  `lang_name` varchar(100) NOT NULL,
+                  `lang_code` varchar(100) NOT NULL,
+                  PRIMARY KEY (`id`),
+                  KEY `language_id` (`language_id`)
+               ) DEFAULT CHARSET=utf8");
+        	   
+        	   $db->query("INSERT INTO `lh_speech_language` (`id`, `name`) VALUES
+        	   (1,	'Afrikaans'),
+        	   (2,	'Bahasa Indonesia'),
+        	   (3,	'Bahasa Melayu'),
+        	   (4,	'Català'),
+        	   (5,	'Čeština'),
+        	   (6,	'Deutsch'),
+        	   (7,	'English'),
+        	   (8,	'Español'),
+        	   (9,	'Euskara'),
+        	   (10,	'Français'),
+        	   (11,	'Galego'),
+        	   (12,	'Hrvatski'),
+        	   (13,	'IsiZulu'),
+        	   (14,	'Íslenska'),
+        	   (15,	'Italiano'),
+        	   (16,	'Magyar'),
+        	   (17,	'Nederlands'),
+        	   (18,	'Norsk bokmål'),
+        	   (19,	'Polski'),
+        	   (20,	'Português'),
+        	   (21,	'Română'),
+        	   (22,	'Slovenčina'),
+        	   (23,	'Suomi'),
+        	   (24,	'Svenska'),
+        	   (25,	'Türkçe'),
+        	   (26,	'български'),
+        	   (27,	'Pусский'),
+        	   (28,	'Српски'),
+        	   (29,	'한국어'),
+        	   (30,	'中文'),
+        	   (31,	'日本語'),
+        	   (32,	'Lingua latīna')");
+        	   
+        	   $db->query("INSERT INTO `lh_speech_language_dialect` (`id`, `language_id`, `lang_name`, `lang_code`) VALUES
+                (1,	1,	'Afrikaans',	'af-ZA'),
+                (2,	2,	'Bahasa Indonesia',	'id-ID'),
+                (3,	3,	'Bahasa Melayu',	'ms-MY'),
+                (4,	4,	'Català',	'ca-ES'),
+                (5,	5,	'Čeština',	'cs-CZ'),
+                (6,	6,	'Deutsch',	'de-DE'),
+                (7,	7,	'Australia',	'en-AU'),
+                (8,	7,	'Canada',	'en-CA'),
+                (9,	7,	'India',	'en-IN'),
+                (10,	7,	'New Zealand',	'en-NZ'),
+                (11,	7,	'South Africa',	'en-ZA'),
+                (12,	7,	'United Kingdom',	'en-GB'),
+                (13,	7,	'United States',	'en-US'),
+                (14,	8,	'Argentina',	'es-AR'),
+                (15,	8,	'Bolivia',	'es-BO'),
+                (16,	8,	'Chile',	'es-CL'),
+                (17,	8,	'Colombia',	'es-CO'),
+                (18,	8,	'Costa Rica',	'es-CR'),
+                (19,	8,	'Ecuador',	'es-EC'),
+                (20,	8,	'El Salvador',	'es-SV'),
+                (21,	8,	'España',	'es-ES'),
+                (22,	8,	'Estados Unidos',	'es-US'),
+                (23,	8,	'Guatemala',	'es-GT'),
+                (24,	8,	'Honduras',	'es-HN'),
+                (25,	8,	'México',	'es-MX'),
+                (26,	8,	'Nicaragua',	'es-NI'),
+                (27,	8,	'Panamá',	'es-PA'),
+                (28,	8,	'Paraguay',	'es-PY'),
+                (29,	8,	'Perú',	'es-PE'),
+                (30,	8,	'Puerto Rico',	'es-PR'),
+                (31,	8,	'República Dominicana',	'es-DO'),
+                (32,	8,	'Uruguay',	'es-UY'),
+                (33,	8,	'Venezuela',	'es-VE'),
+                (34,	9,	'Euskara',	'eu-ES'),
+                (35,	10,	'Français',	'fr-FR'),
+                (36,	11,	'Galego',	'gl-ES'),
+                (37,	12,	'Hrvatski',	'hr_HR'),
+                (38,	13,	'IsiZulu',	'zu-ZA'),
+                (39,	14,	'Íslenska',	'is-IS'),
+                (40,	15,	'Italia',	'it-IT'),
+                (41,	15,	'Svizzera',	'it-CH'),
+                (42,	16,	'Magyar',	'hu-HU'),
+                (43,	17,	'Nederlands',	'nl-NL'),
+                (44,	18,	'Norsk bokmål',	'nb-NO'),
+                (45,	19,	'Polski',	'pl-PL'),
+                (46,	20,	'Brasil',	'pt-BR'),
+                (47,	20,	'Portugal',	'pt-PT'),
+                (48,	21,	'Română',	'ro-RO'),
+                (49,	22,	'Slovenčina',	'sk-SK'),
+                (50,	23,	'Suomi',	'fi-FI'),
+                (51,	24,	'Svenska',	'sv-SE'),
+                (52,	25,	'Türkçe',	'tr-TR'),
+                (53,	26,	'български',	'bg-BG'),
+                (54,	27,	'Pусский',	'ru-RU'),
+                (55,	28,	'Српски',	'sr-RS'),
+                (56,	29,	'한국어',	'ko-KR'),
+                (57,	30,	'普通话 (中国大陆)',	'cmn-Hans-CN'),
+                (58,	30,	'普通话 (香港)',	'cmn-Hans-HK'),
+                (59,	30,	'中文 (台灣)',	'cmn-Hant-TW'),
+                (60,	30,	'粵語 (香港)',	'yue-Hant-HK'),
+                (61,	31,	'日本語',	'ja-JP'),
+                (62,	32,	'Lingua latīna',	'la')");
+        	   
+        	   $db->query("CREATE TABLE IF NOT EXISTS `lh_speech_chat_language` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `chat_id` int(11) NOT NULL,
+                  `language_id` int(11) NOT NULL,
+                  `dialect` varchar(50) NOT NULL,
+                  PRIMARY KEY (`id`),
+                  KEY `chat_id` (`chat_id`)
+               ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
+
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_file` (
         	   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
         	   `name` varchar(255) NOT NULL,
@@ -478,6 +587,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `from_name_ac` tinyint(4) NOT NULL,
 				  `from_email` varchar(150) NOT NULL,
 				  `from_email_ac` tinyint(4) NOT NULL,
+				  `user_mail_as_sender` tinyint(4) NOT NULL,
 				  `content` text NOT NULL,
 				  `subject` varchar(250) NOT NULL,
 				  `bcc_recipients` varchar(200) NOT NULL,
@@ -488,16 +598,17 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  PRIMARY KEY (`id`)
 				) DEFAULT CHARSET=utf8;");
 
-        	   $db->query("INSERT INTO `lh_abstract_email_template` (`id`, `name`, `from_name`, `from_name_ac`, `from_email`, `from_email_ac`, `content`, `subject`, `subject_ac`, `reply_to`, `reply_to_ac`, `recipient`,`bcc_recipients`) VALUES
-        	   		(1,'Send mail to user','Live Helper Chat',0,'',0,'Dear {user_chat_nick},\r\n\r\n{additional_message}\r\n\r\nLive Support response:\r\n{messages_content}\r\n\r\nSincerely,\r\nLive Support Team\r\n','{name_surname} has responded to your request',	1,'',1,'',''),
-        	   		(2,'Support request from user',	'',	0,	'',	0,	'Hello,\r\n\r\nUser request data:\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nAdditional data, if any:\r\n{additional_data}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nLink to chat if any:\r\n{prefillchat}\r\n\r\nSincerely,\r\nLive Support Team',	'Support request from user',	0,	'',	0,	'{$adminEmail}',''),
-        	   		(3,	'User mail for himself',	'Live Helper Chat',	0,	'',	0,	'Dear {user_chat_nick},\r\n\r\nTranscript:\r\n{messages_content}\r\n\r\nSincerely,\r\nLive Support Team\r\n',	'Chat transcript',	0,	'',	0,	'',''),
-        	   		(4,	'New chat request',	'Live Helper Chat',	0,	'',	0,	'Hello,\r\n\r\nUser request data:\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nClick to accept chat automatically\r\n{url_accept}\r\n\r\nSincerely,\r\nLive Support Team',	'New chat request',	0,	'',	0,	'{$adminEmail}',''),
-        	   		(5,	'Chat was closed',	'Live Helper Chat',	0,	'',	0,	'Hello,\r\n\r\n{operator} has closed a chat\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nAdditional data, if any:\r\n{additional_data}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nSincerely,\r\nLive Support Team',	'Chat was closed',	0,	'',	0,	'',''),
-        	   		(6,	'New FAQ question',	'Live Helper Chat',	0,	'',	0,	'Hello,\r\n\r\nNew FAQ question\r\nEmail: {email}\r\n\r\nQuestion:\r\n{question}\r\n\r\nQuestion URL:\r\n{url_question}\r\n\r\nURL to answer a question:\r\n{url_request}\r\n\r\nSincerely,\r\nLive Support Team',	'New FAQ question',	0,	'',	0,	'',	''),
-        	   		(7,	'New unread message',	'Live Helper Chat',	0,	'',	0,	'Hello,\r\n\r\nUser request data:\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nClick to accept chat automatically\r\n{url_accept}\r\n\r\nSincerely,\r\nLive Support Team',	'New chat request',	0,	'',	0,	'{$adminEmail}',''),
-        	   		(8,	'Filled form',	'Live Helper Chat',	0,	'',	0,	'Hello,\r\n\r\nUser has filled a form\r\nForm name - {form_name}\r\nUser IP - {ip}\r\nDownload filled data - {url_download}\r\nView filled data - {url_view}\r\n\r\nSincerely,\r\nLive Support Team','Filled form - {form_name}',	0,	'',	0,	'{$adminEmail}',''),
-        	   		(9,	'Chat was accepted',	'Live Helper Chat',	0,	'',	0,	'Hello,\r\n\r\nOperator {user_name} has accepted a chat [{chat_id}]\r\n\r\nUser request data:\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nClick to accept chat automatically\r\n{url_accept}\r\n\r\nSincerely,\r\nLive Support Team',	'Chat was accepted [{chat_id}]',	0,	'',	0,	'{$adminEmail}','');");
+        	   $db->query("INSERT INTO `lh_abstract_email_template` (`id`, `name`, `from_name`, `from_name_ac`, `from_email`, `from_email_ac`, `user_mail_as_sender`, `content`, `subject`, `subject_ac`, `reply_to`, `reply_to_ac`, `recipient`,`bcc_recipients`) VALUES
+        	   		(1,'Send mail to user','Live Helper Chat',0,'',0, 0,'Dear {user_chat_nick},\r\n\r\n{additional_message}\r\n\r\nLive Support response:\r\n{messages_content}\r\n\r\nSincerely,\r\nLive Support Team\r\n','{name_surname} has responded to your request',	1,'',1,'',''),
+        	   		(2,'Support request from user',	'',	0,	'',	0,	 0,'Hello,\r\n\r\nUser request data:\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nAdditional data, if any:\r\n{additional_data}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nLink to chat if any:\r\n{prefillchat}\r\n\r\nSincerely,\r\nLive Support Team',	'Support request from user',	0,	'',	0,	'{$adminEmail}',''),
+        	   		(3,	'User mail for himself',	'Live Helper Chat',	0,	'',	0,	 0,'Dear {user_chat_nick},\r\n\r\nTranscript:\r\n{messages_content}\r\n\r\nSincerely,\r\nLive Support Team\r\n',	'Chat transcript',	0,	'',	0,	'',''),
+        	   		(4,	'New chat request',	'Live Helper Chat',	0,	'',	0,	 0,'Hello,\r\n\r\nUser request data:\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nClick to accept chat automatically\r\n{url_accept}\r\n\r\nSincerely,\r\nLive Support Team',	'New chat request',	0,	'',	0,	'{$adminEmail}',''),
+        	   		(5,	'Chat was closed',	'Live Helper Chat',	0,	'',	0,	 0,'Hello,\r\n\r\n{operator} has closed a chat\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nAdditional data, if any:\r\n{additional_data}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nSincerely,\r\nLive Support Team',	'Chat was closed',	0,	'',	0,	'',''),
+        	   		(6,	'New FAQ question',	'Live Helper Chat',	0,	'',	0,	 0,'Hello,\r\n\r\nNew FAQ question\r\nEmail: {email}\r\n\r\nQuestion:\r\n{question}\r\n\r\nQuestion URL:\r\n{url_question}\r\n\r\nURL to answer a question:\r\n{url_request}\r\n\r\nSincerely,\r\nLive Support Team',	'New FAQ question',	0,	'',	0,	'',	''),
+        	   		(7,	'New unread message',	'Live Helper Chat',	0,	'',	0,	 0,'Hello,\r\n\r\nUser request data:\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nClick to accept chat automatically\r\n{url_accept}\r\n\r\nSincerely,\r\nLive Support Team',	'New chat request',	0,	'',	0,	'{$adminEmail}',''),
+        	   		(8,	'Filled form',	'Live Helper Chat',	0,	'',	0,	 0,'Hello,\r\n\r\nUser has filled a form\r\nForm name - {form_name}\r\nUser IP - {ip}\r\nDownload filled data - {url_download}\r\nIdentifier - {identifier}\r\nView filled data - {url_view}\r\n\r\n {content} \r\n\r\nSincerely,\r\nLive Support Team','Filled form - {form_name}',	0,	'',	0,	'{$adminEmail}',''),
+        	   		(9,	'Chat was accepted',	'Live Helper Chat',	0,	'',	0,	 0, 'Hello,\r\n\r\nOperator {user_name} has accepted a chat [{chat_id}]\r\n\r\nUser request data:\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nClick to accept chat automatically\r\n{url_accept}\r\n\r\nSincerely,\r\nLive Support Team',	'Chat was accepted [{chat_id}]',	0,	'',	0,	'{$adminEmail}',''),
+        	        (10, 'Permission request',	'Live Helper Chat',	0,	'',	0,	0, 'Hello,\r\n\r\nOperator {user} has requested these permissions\n\r\n{permissions}\r\n\r\nSincerely,\r\nLive Support Team',	'Permission request from {user}',	0,	'',	0,	'{$adminEmail}',	'');");
 
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_question` (
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -727,8 +838,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('bbc_button_visible','1',0,'Show BB Code button', '0'),
                 ('allow_reopen_closed','1', 0, 'Allow user to reopen closed chats?', '0'),
                 ('reopen_as_new','1', 0, 'Reopen closed chat as new? Otherwise it will be reopened as active.', '0'),
-                ('default_theme_id','0', 0, 'Default theme ID.', '1'),
-                ('doc_sharer',	'a:10:{i:0;b:0;s:17:\"libre_office_path\";s:20:\"/usr/bin/libreoffice\";s:19:\"supported_extension\";s:51:\"ppt,pptx,doc,odp,docx,xlsx,txt,xls,xlsx,pdf,rtf,odt\";s:18:\"background_process\";i:1;s:13:\"max_file_size\";i:4;s:13:\"pdftoppm_path\";s:17:\"/usr/bin/pdftoppm\";s:13:\"PdftoppmLimit\";i:5;s:14:\"pdftoppm_limit\";i:0;s:14:\"http_user_name\";s:6:\"apache\";s:20:\"http_user_group_name\";s:6:\"apache\";}',	0,	'Libreoffice path',	1),
+                ('default_theme_id','0', 0, 'Default theme ID.', '1'),  
+                ('translation_data',	'a:6:{i:0;b:0;s:19:\"translation_handler\";s:4:\"bing\";s:19:\"enable_translations\";b:0;s:14:\"bing_client_id\";s:0:\"\";s:18:\"bing_client_secret\";s:0:\"\";s:14:\"google_api_key\";s:0:\"\";}',	0,	'Translation data',	1),              
                 ('disable_html5_storage','1',0,'Disable HMTL5 storage, check it if your site is switching between http and https', '0'),
                 ('automatically_reopen_chat','1',0,'Automatically reopen chat on widget open', '0'),
                 ('autoclose_timeout','0', 0, 'Automatic chats closing. 0 - disabled, n > 0 time in minutes before chat is automatically closed', '0'),
@@ -743,9 +854,12 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('show_language_switcher','0',0,'Show users option to switch language at widget',0),
                 ('sharing_auto_allow','0',0,'Do not ask permission for users to see their screen',0),
                 ('sharing_nodejs_enabled','0',0,'NodeJs support enabled',0),
+                ('sharing_nodejs_path','',0,'socket.io path, optional',0),
                 ('sharing_nodejs_secure','0',0,'Connect to NodeJs in https mode',0),
                 ('disable_js_execution','1',0,'Disable JS execution in Co-Browsing operator window',0),
                 ('sharing_nodejs_socket_host','',0,'Host where NodeJs is running',0),
+                ('front_tabs', 'online_users,online_map,pending_chats,active_chats,unread_chats,closed_chats,online_operators', '0', 'Home page tabs order', '0'),
+                ('speech_data',	'a:3:{i:0;b:0;s:8:\"language\";i:7;s:7:\"dialect\";s:5:\"en-US\";}',	1,	'',	1),
                 ('sharing_nodejs_sllocation','https://cdn.socket.io/socket.io-1.1.0.js',0,'Location of SocketIO JS library',0),
                 ('track_is_online','0',0,'Track is user still on site, chat status checks also has to be enabled',0),
 				('show_languages','eng,lit,hrv,esp,por,nld,ara,ger,pol,rus,ita,fre,chn,cse,nor,tur,vnm,idn,sve,per,ell,dnk,rou,bgr,tha,geo,fin,alb',0,'Between what languages user should be able to switch',0),
@@ -773,6 +887,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   	  `last_check_time` int(11) NOT NULL,
         	   	  `dep_id` int(11) NOT NULL,
                   `user_agent` varchar(250) NOT NULL,
+                  `notes` varchar(250) NOT NULL,
                   `user_country_code` varchar(50) NOT NULL,
                   `user_country_name` varchar(50) NOT NULL,
                   `visitor_tz` varchar(50) NOT NULL,
@@ -824,11 +939,14 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   	  `requires_email` int(11) NOT NULL,
         	   	  `requires_username` int(11) NOT NULL,
         	   	  `requires_phone` int(11) NOT NULL,
+        	   	  `repeat_number` int(11) NOT NULL DEFAULT '1',
 				  PRIMARY KEY (`id`),
 				  KEY `time_on_site_pageviews_siteaccess_position` (`time_on_site`,`pageviews`,`siteaccess`,`identifier`,`position`),
         	      KEY `identifier` (`identifier`),
         	      KEY `dep_id` (`dep_id`)
 				) DEFAULT CHARSET=utf8;");
+        	   
+        	
         	   
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_accept` (
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -887,11 +1005,13 @@ switch ((int)$Params['user_parameters']['step_id']) {
 
                //Administrators group
                $db->query("CREATE TABLE IF NOT EXISTS `lh_group` (
-                  `id` int(11) NOT NULL AUTO_INCREMENT,
-                  `name` varchar(50) NOT NULL,
-                  PRIMARY KEY (`id`)
-                ) DEFAULT CHARSET=utf8;");
-
+               `id` int(11) NOT NULL AUTO_INCREMENT,
+               `name` varchar(50) NOT NULL,
+               `disabled` int(11) NOT NULL,
+               PRIMARY KEY (`id`),
+               KEY `disabled` (`disabled`)
+               ) DEFAULT CHARSET=utf8;");                             
+               
                // Admin group
                $GroupData = new erLhcoreClassModelGroup();
                $GroupData->name    = "Administrators";
@@ -959,8 +1079,10 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `hide_online` tinyint(1) NOT NULL,
                   `all_departments` tinyint(1) NOT NULL,
                   `invisible_mode` tinyint(1) NOT NULL,
+                  `rec_per_req` tinyint(1) NOT NULL,
                   PRIMARY KEY (`id`),
                   KEY `hide_online` (`hide_online`),
+                  KEY `rec_per_req` (`rec_per_req`),
                   KEY `email` (`email`),
                   KEY `xmpp_username` (`xmpp_username`)
                 ) DEFAULT CHARSET=utf8;");
@@ -1087,6 +1209,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                     array('module' => 'lhchat',  'function' => 'take_screenshot'),
                     array('module' => 'lhfront', 'function' => 'use'),
                     array('module' => 'lhsystem','function' => 'use'),
+                    array('module' => 'lhtranslation','function' => 'use'),
                     array('module' => 'lhchat',  'function' => 'allowblockusers'),
                     array('module' => 'lhsystem','function' => 'generatejs'),
                     array('module' => 'lhsystem','function' => 'changelanguage'),
@@ -1094,6 +1217,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                     array('module' => 'lhchat',  'function' => 'allowtransfer'),
                     array('module' => 'lhchat',  'function' => 'administratecannedmsg'),
                     array('module' => 'lhchat',  'function' => 'sees_all_online_visitors'),
+                    array('module' => 'lhpermission',   'function' => 'see_permissions'),
                     array('module' => 'lhquestionary',  'function' => 'manage_questionary'),
                     array('module' => 'lhfaq',   		'function' => 'manage_faq'),
                     array('module' => 'lhchatbox',   	'function' => 'manage_chatbox'),
@@ -1101,9 +1225,12 @@ switch ((int)$Params['user_parameters']['step_id']) {
                     array('module' => 'lhxml',   		'function' => '*'),
                     array('module' => 'lhcobrowse',   	'function' => 'browse'),
                     array('module' => 'lhfile',   		'function' => 'use_operator'),
-                    array('module' => 'lhfile',   		'function' => 'file_delete_chat')
+                    array('module' => 'lhfile',   		'function' => 'file_delete_chat'),
+                    array('module' => 'lhspeech', 'function' => 'changedefaultlanguage'),
+                    array('module' => 'lhspeech', 'function' => 'use'),
+                    array('module' => 'lhspeech', 'function' => 'change_chat_recognition'),
                 );
-
+                
                 foreach ($permissionsArray as $paramsPermission) {
                     $RoleFunctionOperator = new erLhcoreClassModelRoleFunction();
                     $RoleFunctionOperator->role_id = $RoleOperators->id;

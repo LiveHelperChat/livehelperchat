@@ -1,5 +1,5 @@
-<div class="right">
-<p class="fs11">
+<div class="pull-right">
+<p class="fs12">
 <?php if ( !empty($online_user->user_country_code) ) : ?><img src="<?php echo erLhcoreClassDesign::design('images/flags');?>/<?php echo $online_user->user_country_code?>.png" alt="<?php echo htmlspecialchars($online_user->user_country_name)?>" title="<?php echo htmlspecialchars($online_user->user_country_name)?>" /><?php endif; ?> (<?php echo $online_user->ip?>)
 <?php if ( !empty($online_user->city) ) :?><br/><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','City');?>: <?php echo htmlspecialchars($online_user->city) ?><?php endif;?>
 <?php if ( !empty($online_user->lat) ) :?><br/><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Lat.');?> <?php echo htmlspecialchars($online_user->lat) ?><?php endif;?>
@@ -12,17 +12,17 @@
 
 <?php if ($online_user->online_attr != '') : ?>
 <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Additional information')?></h5>
-<p class="fs11">
-<?php echo nl2br(htmlspecialchars($online_user->online_attr));?>
+<pre>
+<?php echo htmlspecialchars(json_encode(json_decode($online_user->online_attr),JSON_PRETTY_PRINT));?>
+</pre>
 <?php endif;?>
-</p>
 </div>
 
 <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Last activity');?> <?php echo htmlspecialchars($online_user->lastactivity_ago)?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','ago');?><?php $timeoutOnPage = (int)erLhcoreClassModelChatConfig::fetch('checkstatus_timeout')->current_value; if ($timeoutOnPage > 0) : ?>,<br/><b><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','On page');?> - <?php if ($online_user->last_check_time_ago < ($timeoutOnPage+3)) : ?><i class="icon-user-status icon-user icon-user-online" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Yes')?>"></i><?php else : ?><i class="icon-user-status icon-user" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','No')?>"></i><?php endif;?></b><?php endif;?></h5>
 
 <img src="<?php if ($online_user->operator_message == '') : ?><?php echo erLhcoreClassDesign::design('images/icons/user_inactive.png');?><?php elseif ($online_user->message_seen == 1 && $online_user->operator_message != '') : ?><?php echo erLhcoreClassDesign::design('images/icons/user_green_32.png');?><?php else : ?><?php echo erLhcoreClassDesign::design('images/icons/user.png');?><?php endif;?>" title="<?php if ($online_user->message_seen == 0) : ?><?php if ($online_user->operator_message == '') : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User does not have any message from operator');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User have not seen message from operator, or message window still open.');?><?php endif; ?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User has seen message from operator.');?><?php endif; ?>" /><img src="<?php echo erLhcoreClassDesign::design('images/icons/browsers.png');?>" title="<?php echo htmlspecialchars($online_user->user_agent)?>" />
 <?php if ($online_user->chat_id > 0) : ?>
-        <img <?php if ($online_user->can_view_chat == true) : ?>class="action-image" onclick="$.colorbox({'iframe':true,height:'500px',width:'500px', href:'<?php echo erLhcoreClassDesign::baseurl('chat/previewchat')?>/<?php echo $online_user->chat_id?>'});"<?php endif;?> src="<?php echo erLhcoreClassDesign::design('images/icons/user_comment.png');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User is chatting');?>" />
+        <img <?php if ($online_user->can_view_chat == true) : ?>class="action-image" onclick="lhc.previewChat('<?php echo $online_user->chat_id?>');"<?php endif;?> src="<?php echo erLhcoreClassDesign::design('images/icons/user_comment.png');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User is chatting');?>" />
         <?php else : ?>
         <img src="<?php echo erLhcoreClassDesign::design('images/icons/user_comment_inactive.png');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User is not having any chat right now');?>" />
         <?php endif; ?>
@@ -32,7 +32,7 @@
     <img src="<?php echo erLhcoreClassDesign::design('images/icons/user_suit_32_inactive.png');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','No one has send any message to user yet');?>" />
     <?php endif; ?>
 
-<ul class="circle fs11">
+<ul class="list-unstyled">
     <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','First visit');?> - <?php echo $online_user->first_visit_front?></li>
     <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Last visit');?> - <?php echo $online_user->last_visit_front?></li>
     <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Total visits');?> - <?php echo $online_user->total_visits?></li>

@@ -1,0 +1,1 @@
+<?php $chat_chat_tabs_actions_attatch_file_enabled = true;?>

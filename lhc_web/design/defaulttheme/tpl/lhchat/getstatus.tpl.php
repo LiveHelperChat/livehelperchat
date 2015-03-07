@@ -111,6 +111,7 @@ var lh_inst  = {
     checkOperatorMessage : <?php echo $check_operator_messages == true ? 'true' : 'false'?>,
 	offset_data : '',
 	lang: '<?php echo erLhcoreClassSystem::instance()->WWWDirLang?>',
+	langDefault: '/<?php echo erLhcoreClassSystem::instance()->SiteAccess?>',
 	is_dragging : false,
 	online_tracked : false,
     urlopen : function(){   
@@ -274,7 +275,7 @@ var lh_inst  = {
         var popupHeight = (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.opt != 'undefined' && typeof LHCChatOptions.opt.popup_height != 'undefined') ? parseInt(LHCChatOptions.opt.popup_height) : 520;
         var popupWidth = (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.opt != 'undefined' && typeof LHCChatOptions.opt.popup_width != 'undefined') ? parseInt(LHCChatOptions.opt.popup_width) : 500;
         var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));        
-        window.open(this.urlopen()+this.getAppendCookieArguments()+'?URLReferer='+locationCurrent+this.parseOptions()+this.parseStorageArguments(),this.windowname,"scrollbars=yes,menubar=1,resizable=1,width="+popupWidth+",height="+popupHeight);
+        window.open(this.urlopen()+this.getAppendCookieArguments()+'/(er)/1'+'?URLReferer='+locationCurrent+this.parseOptions()+this.parseStorageArguments(),this.windowname,"scrollbars=yes,menubar=1,resizable=1,width="+popupWidth+",height="+popupHeight);
         this.removeCookieAttr('hash');
         this.toggleStatusWidget(false);
     },
@@ -717,7 +718,7 @@ var lh_inst  = {
 			   		var th = document.getElementsByTagName('head')[0];
 			        var s = document.createElement('script');
 			        s.setAttribute('type','text/javascript');
-			        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::designJS('js/cobrowse/mutation-summary.js;js/cobrowse/tree-mirror.js;js/cobrowse/lhc.js');?>');
+			        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::designJS('js/cobrowse/compiled/cobrowse.visitor.min.js');?>');
 			        th.appendChild(s);
 			        s.onreadystatechange = s.onload = function(){
 			        	inst.startCoBrowse(inst.sharehash);
@@ -789,8 +790,8 @@ var lh_inst  = {
     timeoutStatuscheck : null,
     
     initLanguage : function() {
-   		var langUser = this.getPersistentAttribute('lng');
-    	this.lang = (langUser != null && langUser != '' && langUser != undefined) ? langUser : this.lang;   
+   		var langUser = this.getPersistentAttribute('lng');   		
+    	this.lang = (langUser != null && langUser != '' && langUser != undefined && this.langDefault != langUser) ? langUser : this.lang;   
     },
     
     checkStatusChat : function() {
@@ -826,6 +827,8 @@ var lh_inst  = {
     		if (parts[1] != '' && parts[2] != '') {
     			lh_inst.addCookieAttribute(parts[1],parts[2]);
     		}
+    	} else if (action == 'lhc_open_restore') {    		
+    		lh_inst.lh_openchatWindow();    		
     	} else if (action == 'lhc_screenshot') {
     		lh_inst.makeScreenshot();
     	} else if (action == 'lhc_cobrowse') {

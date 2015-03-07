@@ -28,6 +28,28 @@ class erLhcoreClassRole{
 	   	return $stmt->fetchColumn() == 0;
    }
    
+   public static function canUseByModuleAndFunction($AccessArray, $module, $functions) {
+       // Global rights
+       if (isset($AccessArray['*']['*']) || isset($AccessArray[$module]['*']))
+       {
+           return true;
+       }
+        
+       // Provided rights have to be set
+       if (is_array($functions))
+       {
+           foreach ($functions as $function)
+           {
+               // Missing one of provided right
+               if (!isset($AccessArray[$module][$function])) return false;
+           }
+       } else {
+           if (!isset($AccessArray[$module][$functions])) return false;
+       }
+        
+       return true;
+   }
+   
    public static function getSession()
    {
         if ( !isset( self::$persistentSession ) )
@@ -62,32 +84,31 @@ class erLhcoreClassRole{
        $db = ezcDbInstance::get();
        
        $stmt = $db->prepare('SELECT lh_rolefunction.module,lh_rolefunction.function       
+
        FROM lh_rolefunction
        
        INNER JOIN lh_role ON lh_role.id = lh_rolefunction.role_id
        INNER JOIN lh_grouprole ON lh_role.id = lh_grouprole.role_id
-       INNER JOIN lh_groupuser ON lh_groupuser.group_id = lh_grouprole.group_id
-       
-       WHERE lh_groupuser.user_id = :user_id'); 
+       INNER JOIN lh_groupuser ON lh_groupuser.group_id = lh_grouprole.group_id       
+       INNER JOIN lh_group ON lh_grouprole.group_id = lh_group.id
+           
+       WHERE lh_groupuser.user_id = :user_id AND lh_group.disabled = 0');
+        
+        $stmt->bindValue(':user_id', $user_id, PDO::PARAM_INT);
+        
+        $stmt->execute();
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
+        $AccessArray = array();
+        
+        foreach ($rows as $Policy) {
+            $AccessArray[$Policy['module']][$Policy['function']] = true;
+        }
+        
+        return $AccessArray;
+    }
 
-       $stmt->bindValue( ':user_id',$user_id,PDO::PARAM_INT);   
-              
-       $stmt->execute();
-       $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-       
-       $AccessArray = array() ;
-       
-       foreach ($rows as $Policy)
-       {
-           $AccessArray[$Policy['module']][$Policy['function']] = true;
-       }
-       
-       return $AccessArray;      
-   }
-   
-   private static $persistentSession;
-
+    private static $persistentSession;
 }
-
 
 ?>

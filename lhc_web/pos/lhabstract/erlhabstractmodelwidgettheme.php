@@ -15,6 +15,11 @@ $def->properties['name']->columnName   = 'name';
 $def->properties['name']->propertyName = 'name';
 $def->properties['name']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['name_company'] = new ezcPersistentObjectProperty();
+$def->properties['name_company']->columnName   = 'name_company';
+$def->properties['name_company']->propertyName = 'name_company';
+$def->properties['name_company']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 $def->properties['onl_bcolor'] = new ezcPersistentObjectProperty();
 $def->properties['onl_bcolor']->columnName   = 'onl_bcolor';
 $def->properties['onl_bcolor']->propertyName = 'onl_bcolor';
@@ -249,6 +254,34 @@ $def->properties['widget_border_width'] = new ezcPersistentObjectProperty();
 $def->properties['widget_border_width']->columnName   = 'widget_border_width';
 $def->properties['widget_border_width']->propertyName = 'widget_border_width';
 $def->properties['widget_border_width']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+// Allow to change default important widget text's
+
+$def->properties['support_joined'] = new ezcPersistentObjectProperty();
+$def->properties['support_joined']->columnName   = 'support_joined';
+$def->properties['support_joined']->propertyName = 'support_joined';
+$def->properties['support_joined']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['support_closed'] = new ezcPersistentObjectProperty();
+$def->properties['support_closed']->columnName   = 'support_closed';
+$def->properties['support_closed']->propertyName = 'support_closed';
+$def->properties['support_closed']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['pending_join'] = new ezcPersistentObjectProperty();
+$def->properties['pending_join']->columnName   = 'pending_join';
+$def->properties['pending_join']->propertyName = 'pending_join';
+$def->properties['pending_join']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['noonline_operators'] = new ezcPersistentObjectProperty();
+$def->properties['noonline_operators']->columnName   = 'noonline_operators';
+$def->properties['noonline_operators']->propertyName = 'noonline_operators';
+$def->properties['noonline_operators']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['noonline_operators_offline'] = new ezcPersistentObjectProperty();
+$def->properties['noonline_operators_offline']->columnName   = 'noonline_operators_offline';
+$def->properties['noonline_operators_offline']->propertyName = 'noonline_operators_offline';
+$def->properties['noonline_operators_offline']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 
 return $def;
 

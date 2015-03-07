@@ -72,10 +72,29 @@ class erLhAbstractModelFormCollected {
 	   	case 'form':
 	   			return $this->form = erLhAbstractModelForm::fetch($this->form_id);
 	   		break;
-	   						
+	   		
+	   	case 'form_content':
+	   	       return $this->getFormattedContent();
+	   	    break;					
 	   	default:
 	   		break;
 	   }
+	}
+	
+	public function getFormattedContent()
+	{	    
+	    $dataCollected = array();
+	    foreach ($this->content_array as $nameAttr => $contentArray) {
+	        if (isset($contentArray['definition']['type']) && $contentArray['definition']['type'] == 'file') {
+	            $dataCollected[] = $contentArray['definition']['name_literal']." - " . erLhcoreClassXMP::getBaseHost() . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurldirect('user/login').'/(r)/'.rawurlencode(base64_encode('form/download/'.$this->id.'/'.$nameAttr));
+	        } elseif (isset($contentArray['definition']['type']) && $contentArray['definition']['type'] == 'checkbox') {
+	            $dataCollected[] = $contentArray['definition']['name_literal']." - ".($contentArray['value'] == 1 ? 'Y' : 'N');
+	        } else {
+	            $dataCollected[] = $contentArray['definition']['name_literal']." - ".$contentArray['value'];
+	        }
+	    }
+	  
+	    return implode("\n", $dataCollected);
 	}
 	
 	public function getAttrValue($attrDesc) {		

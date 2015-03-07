@@ -1,5 +1,5 @@
 body {
-	margin:5px;
+	margin:7px;
 	margin-bottom:0;
 }
 
@@ -12,17 +12,6 @@ body.embed-widget {
 }
 
 #widget-layout .row { min-width: 0;  }
-#widget-layout > .columns { padding: 0;  }
-
-.widget-chat #widget-layout > .columns{
-padding:5px;
-padding-top:0;
-padding-bottom:0;
-}
-
-.widget-chat{
-
-}
 
 input.mb0 {
 	margin-bottom:0;
@@ -37,7 +26,7 @@ input.mt5 {
 }
 
 .widget-chat #widget-layout {
-	padding-top:5px;
+	padding-top:0px;
 }
 
 #widget-layout #status-chat h4{
@@ -68,13 +57,6 @@ background-color: #fff;
 
 .chatbox-row-response .usr-tit{
 	background-image:url(../images/icons/user_suit.png);
-}
-
-
-.section-container,
-.section-container.auto,
-.button {
-	margin-bottom:0;
 }
 
 ::-webkit-scrollbar-thumb {

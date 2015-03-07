@@ -1,0 +1,1 @@
+<?php $operator_screenshot_enabled = true ?>

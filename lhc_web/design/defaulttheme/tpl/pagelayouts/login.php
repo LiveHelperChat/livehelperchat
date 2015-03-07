@@ -5,26 +5,23 @@
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head.tpl.php'));?>
 </head>
 <body>
-
-<div class="content-row">
-	<div class="row">
-	    <div class="columns large-6">
-	        <h1><a href="<?php echo erLhcoreClassDesign::baseurl()?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Home')?>"><img src="<?php echo erLhcoreClassDesign::design('images/general/logo.png');?>" alt="<?php echo erConfigClassLhConfig::getInstance()->getSetting( 'site', 'title' )?>" title="<?php echo erConfigClassLhConfig::getInstance()->getSetting( 'site', 'title' )?>"></a></h1>
-	    </div>	    
-	</div>
-	<div class="row">
-		<div class="columns large-12">
-		<?php echo $Result['content'];?>
-		<?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_footer.tpl.php'));?>
+<div class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header">
+			<span><a href="<?php echo erLhcoreClassDesign::baseurl()?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Home')?>"><img src="<?php echo erLhcoreClassDesign::design('images/general/logo.png');?>" alt="<?php echo erConfigClassLhConfig::getInstance()->getSetting( 'site', 'title' )?>" title="<?php echo erConfigClassLhConfig::getInstance()->getSetting( 'site', 'title' )?>"></a></span>
 		</div>
+		<div class="modal-body">      
+                <?php echo $Result['content'];?>  
+        </div>
 	</div>
+</div>
+<div class="container-fluid">
+<?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_footer.tpl.php'));?>
 </div>
 
 <?php if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) == true) {
 		$debug = ezcDebug::getInstance();
 		echo $debug->generateOutput();
 } ?>
-
 </body>
-
 </html>

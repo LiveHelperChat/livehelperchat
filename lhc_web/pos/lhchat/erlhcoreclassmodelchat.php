@@ -229,6 +229,11 @@ $def->properties['wait_timeout_send']->columnName   = 'wait_timeout_send';
 $def->properties['wait_timeout_send']->propertyName = 'wait_timeout_send';
 $def->properties['wait_timeout_send']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['wait_timeout_repeat'] = new ezcPersistentObjectProperty();
+$def->properties['wait_timeout_repeat']->columnName   = 'wait_timeout_repeat';
+$def->properties['wait_timeout_repeat']->propertyName = 'wait_timeout_repeat';
+$def->properties['wait_timeout_repeat']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['online_user_id'] = new ezcPersistentObjectProperty();
 $def->properties['online_user_id']->columnName   = 'online_user_id';
 $def->properties['online_user_id']->propertyName = 'online_user_id';
@@ -278,6 +283,17 @@ $def->properties['na_cb_executed'] = new ezcPersistentObjectProperty();
 $def->properties['na_cb_executed']->columnName   = 'na_cb_executed';
 $def->properties['na_cb_executed']->propertyName = 'na_cb_executed';
 $def->properties['na_cb_executed']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+// Chat locale, if empty that means no automatic translations are needed
+$def->properties['chat_locale'] = new ezcPersistentObjectProperty();
+$def->properties['chat_locale']->columnName   = 'chat_locale';
+$def->properties['chat_locale']->propertyName = 'chat_locale';
+$def->properties['chat_locale']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['chat_locale_to'] = new ezcPersistentObjectProperty();
+$def->properties['chat_locale_to']->columnName   = 'chat_locale_to';
+$def->properties['chat_locale_to']->propertyName = 'chat_locale_to';
+$def->properties['chat_locale_to']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 // Feedback status
 // 0 - not votes, 1 - upvote, 2 - novote

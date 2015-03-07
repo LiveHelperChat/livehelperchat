@@ -1,3 +1,91 @@
+2.26v
+
+1. Widget theme has new tab where you can enter most important text.
+2. SMTP failing sending if forgot password window.
+3. Separation templates based on features. It's all hard work because of upcomming new Automated hosting version.
+4. Offline text styling then operator are offline. Just language select was taking a whole space.
+5. Theme variable was not passed on some cases.
+
+execute doc/update_db/update_103.sql for update
+
+2.25v
+
+1. Posibility to disable groups. Thats the only stuff will be done regarding https://github.com/LiveHelperChat/livehelperchat/issues/626
+2. Company name for theme. https://github.com/LiveHelperChat/livehelperchat/issues/644
+3. Option to provide chatbox name. E.g 
+For page embed code
+var LHCChatboxOptionsEmbed = {identifier:'default','nick':'remdex44','chatbox_name' : 'custom name'};
+For standard widget
+var LHCChatboxOptions = {identifier:'default',status_text:'Chatbox','nick':'remdex44','disable_nick_change':true,'chatbox_name' : 'custom name right'};
+https://github.com/LiveHelperChat/livehelperchat/issues/643
+
+4. System messages won't be shown in messages send to user
+https://github.com/LiveHelperChat/livehelperchat/issues/645
+
+5. Co-Browsing now does not require dedicated sub-domain. It can use same domain sub-locations. This will save some users funds like they won't have to buy ssl for sub-domain
+See doc/node_servers/cobrowsing
+
+6. Operator now has ability to request permission to selected module. [Sponsored]
+
+7. Many parts were splitted into separte templates to prepare for new features in automated hosting [Sponsored]
+
+execute doc/update_db/update_102.sql for update
+
+2.24v
+
+Sponsored release
+1. Automatic messages translations using Bing or Google translations service.
+2. Futher Bootstrap fixes. Were missing some places with old foundation 4 syntax.
+3. A little bit refactored chat window. Removed subtabs.
+4. Microphone settings moved to actions block and in it's place added automatic translations button.
+5. Allow operators to chat even if they do not have permission to open others operators chats. https://forum.livehelperchat.com/viewtopic.php?id=1019
+6. Right columns nicer interface
+7. Co-Browsing scroll sync stopped to work after jQuery update. Switched to native JS API
+
+execute doc/update_db/update_101.sql for update
+
+2.23v
+
+1. Integrated webpack, bower, gulp and other fancy stuff.
+2. LHC was migrated to Bootstrap v3.3.2. I had tough choise decing stay with Foundation or use Bootstrap, but for systems Bootstrap just is more nicer.
+3. A lot of code rewrite, CSS cleanup and so on.
+
+2.22v
+
+1. All Javascript's is now compressed.
+2. Option to set notes for online user. If you click first user icon in popup the last tab will be notes. https://github.com/LiveHelperChat/livehelperchat/issues/613
+3. Delete, Close icons will represents actual user permissions. https://github.com/LiveHelperChat/livehelperchat/issues/614
+4. Online users list will have lest icons in last column.
+5. New maxmind database for countries
+6. Identifier variable for forms.
+7. Option to force to use user e-mail as from address in e-mail templates. Use with caution because most cases Gmail could consider mails as spam. But usefull with integration with third party ticket systems.
+8. Option to set how many times repeat autoresponder message. This can be set in proactive invitation and autoresponder itself also.
+9. Map icon click will open full size Modal window instead of Marker popup.
+10. Embed code generation window will check that domain would not contain protocol.
+
+execute doc/update_db/update_100.sql for update
+
+2.21v
+
+1. Option to change front page tabs order in chat configuraiton section. (Misc)
+https://github.com/LiveHelperChat/livehelperchat/issues/593
+2. Option to set Sender e-mail for all aplication.
+https://github.com/LiveHelperChat/livehelperchat/issues/598
+
+execute doc/update_db/update_99.sql for update
+
+2.20v
+
+1. Speech to text support. Only google chrome at the moment has this hTML5 API
+2. Theme variable was not forwarded internally. (During read operator message action)
+3. Relative position for iframe. Some sites are using nonsense iframe positions.
+4. Operator typing issue was fixed. Operator typing message was shown and was not shown again even if operator was still typing
+5. Text preview position was changed.
+6. Various co-browsing improvements.
+
+execute doc/update_db/update_98.sql for update
+
+
 2.19v
 
 1. More attributes for themes

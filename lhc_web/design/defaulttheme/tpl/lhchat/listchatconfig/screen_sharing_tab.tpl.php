@@ -1,0 +1,1 @@
+<li role="presentation"><a href="#screen-sharing" aria-controls="screen-sharing" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Screen sharing');?></a></li>

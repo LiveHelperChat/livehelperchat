@@ -1,5 +1,7 @@
 <?php
 
+$response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('browseoffer.htmlcode', array());
+
 $tpl = erLhcoreClassTemplate::getInstance( 'lhbrowseoffer/htmlcode.tpl.php');
 
 $cfgSite = erConfigClassLhConfig::getInstance();

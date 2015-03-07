@@ -12,10 +12,9 @@
 
 	<?php include(erLhcoreClassDesign::designtpl('lhchatbox/form.tpl.php'));?>
 
-	<br>
-	<ul class="button-group radius">
-      <li><input type="submit" class="small button" name="Update" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update');?>"/></li>
-      <li><input type="submit" class="small button" name="Cancel" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel');?>"/></li>
-    </ul>
+	<div class="btn-group" role="group" aria-label="...">
+      <input type="submit" class="btn btn-default" name="Update" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update');?>"/>
+      <input type="submit" class="btn btn-default" name="Cancel" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel');?>"/>
+    </div>
 
 </form>

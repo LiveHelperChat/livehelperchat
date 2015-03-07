@@ -25,6 +25,11 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && mb_strlen($form->m
 	    	
 	    	if ($msg->chat_id == $chat->id && $msg->user_id == 0) {	    	
 		    	$msg->msg = trim($form->msg);
+		    	
+    	    	if ($chat->chat_locale != '' && $chat->chat_locale_to != '') {
+    	            erLhcoreClassTranslate::translateChatMsgVisitor($chat, $msg);
+    	        }
+		    	
 		    	erLhcoreClassChat::getSession()->update($msg);
 		    	
 		    	$tpl = erLhcoreClassTemplate::getInstance( 'lhchat/syncuser.tpl.php');
