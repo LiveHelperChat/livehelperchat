@@ -17,18 +17,6 @@ class erLhcoreClassChatMail {
 		$smtpData = erLhcoreClassModelChatConfig::fetch('smtp_data');
 		$data = (array)$smtpData->data;
 
-		if ( isset($data['use_smtp']) && $data['use_smtp'] == 1 ) {
-			$phpMailer->IsSMTP();
-			$phpMailer->Host = $data['host'];
-			$phpMailer->Port = $data['port'];
-			
-			if ($data['username'] != '' && $data['password'] != '') {			
-				$phpMailer->Username = $data['username'];
-				$phpMailer->Password = $data['password'];
-				$phpMailer->SMTPAuth = true;
-			}
-		}
-				
 		if ( isset($data['sender']) && $data['sender'] != '' ) {
 		    $phpMailer->Sender = $data['sender'];
 		}
@@ -39,6 +27,21 @@ class erLhcoreClassChatMail {
 		
 		if ($phpMailer->FromName == 'Root User') {
 		    $phpMailer->FromName = $data['default_from_name'];
+		}
+		
+		if ( isset($data['use_smtp']) && $data['use_smtp'] == 1 ) {
+			$phpMailer->IsSMTP();
+			$phpMailer->Host = $data['host'];
+			$phpMailer->Port = $data['port'];
+			
+			if ($data['username'] != '' && $data['password'] != '') {			
+				$phpMailer->Username = $data['username'];
+				$phpMailer->Password = $data['password'];
+				$phpMailer->SMTPAuth = true;
+				$phpMailer->From = $data['username'];
+			} else {
+			    $phpMailer->From = '';
+			}			
 		}
 	}
 

@@ -1,5 +1,8 @@
+<?php if (($online_user = $chat->online_user) !== false) : ?>
+
 <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/online_user_info_pre.tpl.php'));?>	
-<?php if ($information_tab_online_user_info_enabled == true && ($online_user = $chat->online_user) !== false) : ?>
+
+<?php if ($information_tab_online_user_info_enabled == true) : ?>
 <div role="tabpanel" class="tab-pane" id="online-user-info-tab-<?php echo $chat->id?>">
 	<a class="btn btn-default btn-xs" rel="<?php echo $chat->id?>" onclick="lhinst.refreshOnlineUserInfo($(this))"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Refresh')?></a>
 
@@ -7,7 +10,11 @@
 		<?php include(erLhcoreClassDesign::designtpl('lhchat/online_user/online_user_info.tpl.php')); ?>
 	</div>	
 </div>
+<?php endif;?>
 
+<?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/online_user_info_chats_pre.tpl.php'));?>	
+
+<?php if ($information_tab_online_user_info_chats_enabled == true) : ?>
 <div role="tabpanel" class="tab-pane" id="online-user-info-chats-tab-<?php echo $chat->id?>">
   <ul class="foot-print-content list-unstyled" style="max-height: 170px;">
 	<?php foreach (erLhcoreClassChat::getList(array('limit' => 100, 'filter' => array('online_user_id' => $online_user->id))) as $chatPrev) : ?>
@@ -20,4 +27,6 @@
 	<?php endforeach;?>
 	</ul>
 </div>
+<?php endif; ?>
+
 <?php endif; ?>
