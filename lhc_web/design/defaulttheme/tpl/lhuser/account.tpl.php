@@ -176,8 +176,8 @@
 	  	<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
 	  	<?php $dataSpeech = array(
-	  	        'language' => erLhcoreClassModelUserSetting::getSetting('speech_language',''),
-	  	        'dialect' => erLhcoreClassModelUserSetting::getSetting('speech_dialect',''),
+	  	        'language' => (int)erLhcoreClassModelUserSetting::getSetting('speech_language',''),
+	  	        'dialect' => (int)erLhcoreClassModelUserSetting::getSetting('speech_dialect',''),
 	  	        'optional' => true,
 	  	    );
 	  	?>

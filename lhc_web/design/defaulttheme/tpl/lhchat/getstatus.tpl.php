@@ -111,6 +111,7 @@ var lh_inst  = {
     checkOperatorMessage : <?php echo $check_operator_messages == true ? 'true' : 'false'?>,
 	offset_data : '',
 	lang: '<?php echo erLhcoreClassSystem::instance()->WWWDirLang?>',
+	langDefault: '/<?php echo erLhcoreClassSystem::instance()->SiteAccess?>',
 	is_dragging : false,
 	online_tracked : false,
     urlopen : function(){   
@@ -793,8 +794,8 @@ var lh_inst  = {
     timeoutStatuscheck : null,
     
     initLanguage : function() {
-   		var langUser = this.getPersistentAttribute('lng');
-    	this.lang = (langUser != null && langUser != '' && langUser != undefined) ? langUser : this.lang;   
+   		var langUser = this.getPersistentAttribute('lng');   		
+    	this.lang = (langUser != null && langUser != '' && langUser != undefined && this.langDefault != langUser) ? langUser : this.lang;   
     },
     
     checkStatusChat : function() {

@@ -42,7 +42,7 @@ class erLhcoreClassTranslate {
            $chat->chat_locale = $data['chat_locale'] = $visitorLanguage;
         } else { 
            // We take few first messages from visitor and try to detect language
-           $stmt = $db->prepare('SELECT msg FROM lh_msg WHERE chat_id = :chat_id AND user_id = 0 ORDER BY id ASC LIMIT 0,3');   
+           $stmt = $db->prepare('SELECT msg FROM lh_msg WHERE chat_id = :chat_id AND user_id = 0 ORDER BY id ASC LIMIT 3 OFFSET 0');   
            $stmt->bindValue( ':chat_id',$chat->id);                 
            $stmt->execute();
            $rows = $stmt->fetchAll(PDO::FETCH_COLUMN);
