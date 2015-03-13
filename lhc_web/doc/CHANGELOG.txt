@@ -1,5 +1,15 @@
 2.26v
 
+1. Autologin module. Read site how to use it. It's simplifies integration with third party CMS. By default it's turned off.
+Example also available at doc/autologin/autologin.php
+This module was sponsored by the way.
+
+2. And a lot of templates split's in order for automated hosting to allow easier enable disable features
+ 
+execute doc/update_db/update_104.sql for update
+
+2.26v
+
 1. Widget theme has new tab where you can enter most important text.
 2. SMTP failing sending if forgot password window.
 3. Separation templates based on features. It's all hard work because of upcomming new Automated hosting version.

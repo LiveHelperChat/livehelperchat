@@ -3800,6 +3800,13 @@
                 "hidden": "1"
             },
             {
+                "identifier": "autologin_data",
+                "value": "a:3:{i:0;b:0;s:11:\"secret_hash\";s:16:\"please_change_me\";s:7:\"enabled\";i:0;}",
+                "type": "0",
+                "explain": "Autologin configuration data",
+                "hidden": "1"
+            },
+            {
                 "identifier": "hide_disabled_department",
                 "value": "1",
                 "type": "0",
