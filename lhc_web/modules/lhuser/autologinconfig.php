@@ -41,6 +41,9 @@ if ( isset($_POST['StoreAutologinSettings']) ) {
         $autologinData->value = serialize($data);
         $autologinData->saveThis();
         
+        $CacheManager = erConfigClassLhCacheConfig::getInstance();
+        $CacheManager->expireCache();
+        
         $tpl->set('updated','done');
         
     } catch (Exception $e) {
