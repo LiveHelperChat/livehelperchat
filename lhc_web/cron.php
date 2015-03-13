@@ -48,6 +48,14 @@ new ezcConsoleOption(
 )
 );
 
+$cronjobPathOption = $input->registerOption(
+    new ezcConsoleOption(
+        'p',
+        'path',
+        ezcConsoleInput::TYPE_STRING
+    )
+);
+
 $extensionPartOption = $input->registerOption(
 new ezcConsoleOption(
     'e',

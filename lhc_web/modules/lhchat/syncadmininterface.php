@@ -130,6 +130,8 @@ if ($unreadTabEnabled == true) {
 // Update last visit
 $currentUser->updateLastVisit();
 
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.syncadmininterface',array('lists' => & $ReturnMessages));
+
 echo json_encode(array('error' => 'false', 'result' => $ReturnMessages ));
 exit;
 ?>

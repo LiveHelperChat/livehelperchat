@@ -124,7 +124,7 @@ var lh_inst  = {
     cookieDataPers : {},
 	domain : false,
     isSharing : false,
-        
+    extensionArgs : '',    
     getCookieDomain : function(domain) {    
     	 if (this.domain !== false) {
     	 	return this.domain;
@@ -282,7 +282,7 @@ var lh_inst  = {
 
     parseOptions : function() {
 		argumentsQuery = new Array();
-
+        var paramsReturn = '';
 		if (typeof LHCChatOptions != 'undefined') {
 	    	if (typeof LHCChatOptions.attr != 'undefined') {
 	    		if (LHCChatOptions.attr.length > 0){
@@ -308,11 +308,15 @@ var lh_inst  = {
 	    	};
 
 	    	if (argumentsQuery.length > 0) {
-	    		return '&'+argumentsQuery.join('&');
+	    		paramsReturn = '&'+argumentsQuery.join('&');
 	    	};
     	};
 
-    	return '';
+    	if (this.extensionArgs != '') {
+    	    paramsReturn = paramsReturn + this.extensionArgs;
+    	}
+    	
+    	return paramsReturn;
     },
 
     parseOptionsOnline : function(){
@@ -808,7 +812,7 @@ var lh_inst  = {
         },<?php echo (int)(erLhcoreClassModelChatConfig::fetch('checkstatus_timeout')->current_value*1000); ?>);
         <?php endif;?>       		
     },
-    
+        
     handleMessage : function(e) {
     	var action = e.data.split(':')[0];
     	if (action == 'lhc_sizing_chat') {
@@ -857,6 +861,8 @@ var lh_inst  = {
     	}
     }
 };
+
+<?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/lhc_chat_multiinclude.tpl.php')); ?>	
 
 if ( window.attachEvent ) {
 	// IE

@@ -6,11 +6,14 @@
      		<i class="icon-user icon-assistant"></i>
      	<?php endif;?>
      </div>
-     <div class="pl10">
+     <div class="pl10">        
 	    <div><strong><?php echo htmlspecialchars($user->name_support)?></strong></div>
 	    <?php if (isset($extraMessage)) : ?>
 	    	<i><?php echo $extraMessage;?></i>
 	    <?php endif;?>
+	    
+	    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile_pre.tpl.php'));?>
+	    
 	    <?php if (!isset($hideThumbs) || $hideThumbs == false) : ?>
      	<i class="icon-thumbs-up<?php if ($chat->fbst == 1) : ?> up-voted<?php endif;?>" data-id="1" onclick="lhinst.voteAction($(this))" ></i>
      	<i class="icon-thumbs-down<?php if ($chat->fbst == 2) : ?> down-voted<?php endif;?>" data-id="2" onclick="lhinst.voteAction($(this))"></i>
@@ -20,5 +23,6 @@
      	<?php endif;?>
      	
      	<?php endif;?>
+     	<?php include(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile_post.tpl.php'));?>
      </div>
 </div>

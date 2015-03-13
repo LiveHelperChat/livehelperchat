@@ -6,8 +6,12 @@ class erLhcoreClassSearchHandler {
 
         $uparams = isset($params['uparams']) ? $params['uparams'] : array();
 
-        $fieldsObjects = include('lib/core/lh'.$params['module'].'/searchattr/'.$params['module_file'].'.php');
-
+        if (isset($params['customfilterfile'])) {
+            $fieldsObjects = include($params['customfilterfile']);
+        } else {
+            $fieldsObjects = include('lib/core/lh'.$params['module'].'/searchattr/'.$params['module_file'].'.php');
+        }
+        
         $fields = $fieldsObjects['filterAttributes'];
         $orderOptions = $fieldsObjects['sortAttributes'];
 
