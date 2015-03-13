@@ -58,6 +58,8 @@ if ($visitor->requires_username == 1 || $visitor->requires_email == 1 || $visito
 <input type="submit" name="askQuestionAction" id="idaskQuestionAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Send');?>" class="btn btn-default btn-sm"/>
 <?php endif;?>
 
+<?php include(erLhcoreClassDesign::designtpl('lhchat/part/readoperatormessage_button_multiinclude.tpl.php'));?>
+
 <input type="hidden" name="askQuestion" value="1" />
 <input type="hidden" value="<?php echo htmlspecialchars($input_data->operator);?>" name="operator" />
 

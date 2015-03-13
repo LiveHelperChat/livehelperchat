@@ -6,6 +6,8 @@ $soundMessageEnabled = erLhcoreClassModelUserSetting::getSetting('chat_message',
 
 
   <div class="btn-group pull-right" role="group">
+    <?php include(erLhcoreClassDesign::designtpl('lhchat/customer_user_settings_multiinclude.tpl.php'));?>
+    
     <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
       <i class="icon-tools"></i>
       <span class="caret"></span>

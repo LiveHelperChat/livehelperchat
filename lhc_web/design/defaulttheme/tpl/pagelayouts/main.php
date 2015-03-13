@@ -60,6 +60,8 @@
             </div>
             <?php endif;?>
         
+        <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/right_panel_post_pending_multiinclude.tpl.php'));?>
+        
         	<?php if ($activeTabEnabled == true) : ?> 
             <div class="panel-heading" ng-if="active_chats.list.length > 0"><a href="<?php echo erLhcoreClassDesign::baseurl('chat/activechats')?>"><i class="icon-chat chat-active"></i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Active chats');?></a></div>
             <div class="panel-body"  id="right-active-chats" ng-show="active_chats.list.length > 0">
