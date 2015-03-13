@@ -66,6 +66,10 @@
       <translation>Συνδεθεί στην NodeJs σε λειτουργία https</translation>
     </message>
     <message>
+      <source>socket.io path, optional</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>NodeJS support enabled</source>
       <translation>Ενεργοποιημένη την υποστήριξη NodeJS</translation>
     </message>
@@ -151,7 +155,7 @@
     </message>
     <message>
       <source>Is visitor e-mail required for FAQ</source>
-      <translation>Είναι επισκέπτης ηλεκτρονικού ταχυδρομείου απαιτείται για το FAQ</translation>
+      <translation>Aπαιτείται e-mail επισκέπτη  για το FAQ</translation>
     </message>
     <message>
       <source>Chats export secret hash</source>
@@ -327,6 +331,10 @@
       <translation>Χρειάζεστε βοήθεια widget</translation>
     </message>
     <message>
+      <source>Main widget text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Custom CSS</source>
       <translation>Προσαρμοσμένη CSS</translation>
     </message>
@@ -447,6 +455,26 @@
       <translation>Χρειάζεστε βοήθεια χρώμα κειμένου</translation>
     </message>
     <message>
+      <source>Text then user starts chat based on proactive invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then operator closes a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then user starts a chat and is waiting for operator to join a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then user starts a chat but department is offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Leave a message form text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Need help border color</source>
       <translation>Χρειάζεστε βοήθεια χρώμα περιγράμματος</translation>
     </message>
@@ -511,7 +539,7 @@
     </message>
     <message>
       <source>Live help is online...</source>
-      <translation>Ζωντανή βοήθεια είναι σε απευθείας σύνδεση...</translation>
+      <translation>Η ζωντανή βοήθεια είναι σε απευθείας σύνδεση...</translation>
     </message>
     <message>
       <source>Need help?</source>
@@ -523,7 +551,7 @@
     </message>
     <message>
       <source>Live help is offline...</source>
-      <translation>Ζωντανή βοήθεια είναι σε μη απευθείας σύνδεση...</translation>
+      <translation>Η ζωντανή βοήθεια είναι σε μη απευθείας σύνδεση...</translation>
     </message>
     <message>
       <source>Allow operator to see your page content?</source>
@@ -1048,7 +1076,7 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Ηλεκτρονικού ταχυδρομείου</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Date range from to</source>
@@ -1700,7 +1728,7 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Ηλεκτρονικό ταχυδρομείο</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Phone</source>
@@ -2098,7 +2126,7 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Ηλεκτρονικού ταχυδρομείου</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Phone</source>
@@ -2550,7 +2578,7 @@
     </message>
     <message>
       <source>Test message will be send to your account e-mail</source>
-      <translation>Δοκιμή μήνυμα θα στείλει στο e-mail σας λογαριασμό</translation>
+      <translation>Δοκιμή μήνυμα θα σταλεί στον e-mail λογαριασμό σας</translation>
     </message>
     <message>
       <source>Use GTalk for messaging</source>
@@ -3175,19 +3203,11 @@
     </message>
     <message>
       <source>Live help configuration</source>
-      <translation>Ζωντανή βοήθεια διαμόρφωση</translation>
+      <translation>Διαμόρφωση της ζωντανής βοήθειας</translation>
     </message>
     <message>
       <source>Time zone settings</source>
       <translation>Οι ρυθμίσεις ζώνης ώρας</translation>
-    </message>
-    <message>
-      <source>Update information</source>
-      <translation>Ενημέρωση πληροφοριών</translation>
-    </message>
-    <message>
-      <source>Mail settings</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>E-mail templates</source>
@@ -3211,7 +3231,7 @@
     </message>
     <message>
       <source>Live help embed code</source>
-      <translation>ΖΩΝΤΑΝΗ ΒΟΗΘΕΙΑ ενσωματώνει τον κώδικα</translation>
+      <translation>Κώδικας ενσωμάτωσης ζωντανής βοήθειας</translation>
     </message>
     <message>
       <source>Departments</source>
@@ -3222,24 +3242,12 @@
       <translation>Διαμόρφωση συνομιλίας</translation>
     </message>
     <message>
-      <source>GEO detection configuration</source>
-      <translation>Ρύθμιση παραμέτρων ανίχνευσης GEO</translation>
-    </message>
-    <message>
-      <source>GEO adjustment</source>
-      <translation>GEO προσαρμογής</translation>
-    </message>
-    <message>
       <source>Synchronization and sound settings</source>
       <translation>Ρυθμίσεις συγχρονισμού και ήχο</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
       <translation>Έναρξη συνομιλίας μορφή ρυθμίσεις</translation>
-    </message>
-    <message>
-      <source>Auto responder</source>
-      <translation>Αυτόματη απάντηση</translation>
     </message>
     <message>
       <source>XMPP settings</source>
@@ -3270,6 +3278,14 @@
       <translation>Προεπιλεγμένο θέμα</translation>
     </message>
     <message>
+      <source>GEO detection configuration</source>
+      <translation>Ρύθμιση παραμέτρων ανίχνευσης GEO</translation>
+    </message>
+    <message>
+      <source>Auto responder</source>
+      <translation>Αυτόματη απάντηση</translation>
+    </message>
+    <message>
       <source>Blocked users</source>
       <translation>Αποκλεισμένοι χρήστες</translation>
     </message>
@@ -3284,6 +3300,10 @@
     <message>
       <source>Chatbox embed code</source>
       <translation>Chatbox ενσωματώνει τον κώδικα</translation>
+    </message>
+    <message>
+      <source>Mail settings</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>FAQ embed code</source>
@@ -3302,8 +3322,16 @@
       <translation>Λίστα των αρχείων</translation>
     </message>
     <message>
+      <source>GEO adjustment</source>
+      <translation>GEO προσαρμογής</translation>
+    </message>
+    <message>
       <source>Maintenance</source>
       <translation>Συντήρηση</translation>
+    </message>
+    <message>
+      <source>Update information</source>
+      <translation>Ενημέρωση πληροφοριών</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -3368,16 +3396,16 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
+      <source>Clean cache</source>
+      <translation>Καθαρισμός προσωρινής μνήμης</translation>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>Άδειο...</translation>
     </message>
     <message>
       <source>Assigned operator</source>
       <translation>Ειδικό φορέα</translation>
-    </message>
-    <message>
-      <source>Clean cache</source>
-      <translation>Καθαρισμός προσωρινής μνήμης</translation>
     </message>
     <message>
       <source>Home</source>
@@ -3436,12 +3464,12 @@
       <translation>Λίστα συνομιλιών</translation>
     </message>
     <message>
-      <source>Online visitors</source>
-      <translation>Συνδεδεμένοι χρήστες</translation>
-    </message>
-    <message>
       <source>Extra modules</source>
       <translation>Επιπλέον ενότητες</translation>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation>Συνδεδεμένοι χρήστες</translation>
     </message>
     <message>
       <source>Account</source>
@@ -3502,7 +3530,7 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Ηλεκτρονικού ταχυδρομείου</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Recipient e-mail</source>
@@ -3750,7 +3778,7 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Ηλεκτρονικού ταχυδρομείου</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Message</source>
@@ -4490,7 +4518,7 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Ηλεκτρονικό ταχυδρομείο</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Last activity</source>
@@ -4574,7 +4602,7 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Ηλεκτρονικού ταχυδρομείου</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Edit department</source>
@@ -4818,7 +4846,7 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Ηλεκτρονικού ταχυδρομείου</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Question</source>
@@ -5874,7 +5902,7 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Ηλεκτρονικό ταχυδρομείο</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Name</source>
@@ -6084,7 +6112,7 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Ηλεκτρονικό ταχυδρομείο</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Password</source>
@@ -6222,7 +6250,7 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Ηλεκτρονικό ταχυδρομείο</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Restore password</source>
@@ -6260,7 +6288,7 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Ηλεκτρονικό ταχυδρομείο</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Name</source>
@@ -6444,7 +6472,7 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Ηλεκτρονικού ταχυδρομείου</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Phone</source>

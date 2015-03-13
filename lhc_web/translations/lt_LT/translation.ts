@@ -66,6 +66,10 @@
       <translation>Jungtis prie NodeJs https režimu</translation>
     </message>
     <message>
+      <source>socket.io path, optional</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>NodeJS support enabled</source>
       <translation>NodeJS palaikymas įgalintas</translation>
     </message>
@@ -327,6 +331,10 @@
       <translation>Reikia pagalbos widgetas</translation>
     </message>
     <message>
+      <source>Main widget text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Custom CSS</source>
       <translation>Tinkintas CSS</translation>
     </message>
@@ -445,6 +453,26 @@
     <message>
       <source>Need help text color</source>
       <translation>Reikia pagalbos teksto spalva</translation>
+    </message>
+    <message>
+      <source>Text then user starts chat based on proactive invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then operator closes a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then user starts a chat and is waiting for operator to join a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then user starts a chat but department is offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Leave a message form text</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Need help border color</source>
@@ -3182,14 +3210,6 @@
       <translation>Laiko zonos nustatymai</translation>
     </message>
     <message>
-      <source>Update information</source>
-      <translation>Atnaujinti informaciją</translation>
-    </message>
-    <message>
-      <source>Mail settings</source>
-      <translation>Pašto nustatymai</translation>
-    </message>
-    <message>
       <source>E-mail templates</source>
       <translation>El. pašto šablonai</translation>
     </message>
@@ -3222,24 +3242,12 @@
       <translation>Pokalbių nustatymai</translation>
     </message>
     <message>
-      <source>GEO detection configuration</source>
-      <translation>GEO detekcijos nustatymai</translation>
-    </message>
-    <message>
-      <source>GEO adjustment</source>
-      <translation>GEO tinkinimas</translation>
-    </message>
-    <message>
       <source>Synchronization and sound settings</source>
       <translation>Sinchronizacijos ir garso nustatymai</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
       <translation>Pokalbio pradžios formos nustatymai</translation>
-    </message>
-    <message>
-      <source>Auto responder</source>
-      <translation>Auto atsakiklis</translation>
     </message>
     <message>
       <source>XMPP settings</source>
@@ -3270,6 +3278,14 @@
       <translation>Standartinė tema</translation>
     </message>
     <message>
+      <source>GEO detection configuration</source>
+      <translation>GEO detekcijos nustatymai</translation>
+    </message>
+    <message>
+      <source>Auto responder</source>
+      <translation>Auto atsakiklis</translation>
+    </message>
+    <message>
       <source>Blocked users</source>
       <translation>Blokuoti vartotojai</translation>
     </message>
@@ -3284,6 +3300,10 @@
     <message>
       <source>Chatbox embed code</source>
       <translation>Chatbox įterpimo kodas</translation>
+    </message>
+    <message>
+      <source>Mail settings</source>
+      <translation>Pašto nustatymai</translation>
     </message>
     <message>
       <source>FAQ embed code</source>
@@ -3302,8 +3322,16 @@
       <translation>Failų sąrašas</translation>
     </message>
     <message>
+      <source>GEO adjustment</source>
+      <translation>GEO tinkinimas</translation>
+    </message>
+    <message>
       <source>Maintenance</source>
       <translation>Priežiūra</translation>
+    </message>
+    <message>
+      <source>Update information</source>
+      <translation>Atnaujinti informaciją</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -3368,16 +3396,16 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
+      <source>Clean cache</source>
+      <translation>Išvalyti podėlius</translation>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>Tuščia...</translation>
     </message>
     <message>
       <source>Assigned operator</source>
       <translation>Priskirtas operatorius</translation>
-    </message>
-    <message>
-      <source>Clean cache</source>
-      <translation>Išvalyti podėlius</translation>
     </message>
     <message>
       <source>Home</source>
@@ -3436,12 +3464,12 @@
       <translation>Pokalbių sąrašai</translation>
     </message>
     <message>
-      <source>Online visitors</source>
-      <translation>Prisijungę vartotojai</translation>
-    </message>
-    <message>
       <source>Extra modules</source>
       <translation>Papildomi moduliai</translation>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation>Prisijungę vartotojai</translation>
     </message>
     <message>
       <source>Account</source>

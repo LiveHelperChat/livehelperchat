@@ -66,6 +66,10 @@
       <translation>NodeJs სთან დაკავშირება  https  რეჟიმში</translation>
     </message>
     <message>
+      <source>socket.io path, optional</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>NodeJS support enabled</source>
       <translation>NodeJS  მხარდაჭერა ჩართულია</translation>
     </message>
@@ -327,6 +331,10 @@
       <translation>გჭირდებათ დახმარება ვიდჯეტი</translation>
     </message>
     <message>
+      <source>Main widget text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Custom CSS</source>
       <translation>მორგებული  CSS</translation>
     </message>
@@ -445,6 +453,26 @@
     <message>
       <source>Need help text color</source>
       <translation>გჭირდებათ დახმარება ტექსტის ფერი</translation>
+    </message>
+    <message>
+      <source>Text then user starts chat based on proactive invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then operator closes a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then user starts a chat and is waiting for operator to join a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then user starts a chat but department is offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Leave a message form text</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Need help border color</source>
@@ -3182,14 +3210,6 @@
       <translation>დროის სარტყელის პარამეტრები</translation>
     </message>
     <message>
-      <source>Update information</source>
-      <translation>განახლების ინფორმაცია</translation>
-    </message>
-    <message>
-      <source>Mail settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>E-mail templates</source>
       <translation>ელ. ფოსტის შაბლონები</translation>
     </message>
@@ -3222,24 +3242,12 @@
       <translation>ჩეთის კონფიგურაცია</translation>
     </message>
     <message>
-      <source>GEO detection configuration</source>
-      <translation>GEO კონფიგურაციის გამოვლენა</translation>
-    </message>
-    <message>
-      <source>GEO adjustment</source>
-      <translation>GEO რეგულირება</translation>
-    </message>
-    <message>
       <source>Synchronization and sound settings</source>
       <translation>სინქრონიზაციისა და ხმის პარამეტრები</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
       <translation>ჩეთის დაწყება პარამეტრებიდან</translation>
-    </message>
-    <message>
-      <source>Auto responder</source>
-      <translation>ავტომოპასუხე</translation>
     </message>
     <message>
       <source>XMPP settings</source>
@@ -3270,6 +3278,14 @@
       <translation>ნაგულისხმევი თემა</translation>
     </message>
     <message>
+      <source>GEO detection configuration</source>
+      <translation>GEO კონფიგურაციის გამოვლენა</translation>
+    </message>
+    <message>
+      <source>Auto responder</source>
+      <translation>ავტომოპასუხე</translation>
+    </message>
+    <message>
       <source>Blocked users</source>
       <translation>დაბლოკილი მომხმარებლები</translation>
     </message>
@@ -3284,6 +3300,10 @@
     <message>
       <source>Chatbox embed code</source>
       <translation>ჩეთის სარკმლის ჩასაშენებელი კოდი</translation>
+    </message>
+    <message>
+      <source>Mail settings</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>FAQ embed code</source>
@@ -3302,8 +3322,16 @@
       <translation>ფაილების სია</translation>
     </message>
     <message>
+      <source>GEO adjustment</source>
+      <translation>GEO რეგულირება</translation>
+    </message>
+    <message>
       <source>Maintenance</source>
       <translation>მომსახურება</translation>
+    </message>
+    <message>
+      <source>Update information</source>
+      <translation>განახლების ინფორმაცია</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -3368,16 +3396,16 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
+      <source>Clean cache</source>
+      <translation>კეშის გაწმენდა</translation>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>ცარიელი</translation>
     </message>
     <message>
       <source>Assigned operator</source>
       <translation>მიკუთვნებული ოპერატორები</translation>
-    </message>
-    <message>
-      <source>Clean cache</source>
-      <translation>კეშის გაწმენდა</translation>
     </message>
     <message>
       <source>Home</source>
@@ -3436,12 +3464,12 @@
       <translation>ჩეთების სია</translation>
     </message>
     <message>
-      <source>Online visitors</source>
-      <translation>ონლაინ ვიზიტორები</translation>
-    </message>
-    <message>
       <source>Extra modules</source>
       <translation>ექსტრა მოდულები</translation>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation>ონლაინ ვიზიტორები</translation>
     </message>
     <message>
       <source>Account</source>

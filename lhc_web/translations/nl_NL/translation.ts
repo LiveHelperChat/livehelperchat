@@ -55,15 +55,19 @@
     </message>
     <message>
       <source>Host where NodeJs is running</source>
-      <translation type="unfinished"/>
+      <translation>Host waar NodeJs draait</translation>
     </message>
     <message>
       <source>Location of SocketIO JS library</source>
-      <translation type="unfinished"/>
+      <translation>Lokatie van de SocketIO bibliotheek</translation>
     </message>
     <message>
       <source>Connect to NodeJs in https mode</source>
-      <translation type="unfinished"/>
+      <translation>Verbinding naar NodeJs via https</translation>
+    </message>
+    <message>
+      <source>socket.io path, optional</source>
+      <translation>socket.io pad, Optioneel</translation>
     </message>
     <message>
       <source>NodeJS support enabled</source>
@@ -71,7 +75,7 @@
     </message>
     <message>
       <source>Do not ask permission for users to see their screen</source>
-      <translation type="unfinished"/>
+      <translation>Gebrukers niet om toestemming vragen om scherm te delen</translation>
     </message>
     <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
@@ -147,7 +151,7 @@
     </message>
     <message>
       <source>Home page tabs order</source>
-      <translation type="unfinished"/>
+      <translation>Startpagina tabbladen volgorde</translation>
     </message>
     <message>
       <source>Is visitor e-mail required for FAQ</source>
@@ -179,7 +183,7 @@
     </message>
     <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
-      <translation>Uitschakelen HMTL5 opslag, controleer dit als uw site blijft wisselen tussen http en https</translation>
+      <translation>HMTL5 opslag uitschakelen, selecteer dit als uw site wisselt tussen http en https</translation>
     </message>
     <message>
       <source>Your site URL address</source>
@@ -327,6 +331,10 @@
       <translation>Hulp nodig widget</translation>
     </message>
     <message>
+      <source>Main widget text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Custom CSS</source>
       <translation>Eigen CSS</translation>
     </message>
@@ -336,7 +344,7 @@
     </message>
     <message>
       <source>Name of the company</source>
-      <translation type="unfinished"/>
+      <translation>Bedrijfsnaam</translation>
     </message>
     <message>
       <source>Need help header text</source>
@@ -445,6 +453,26 @@
     <message>
       <source>Need help text color</source>
       <translation>Hulp nodig, tekstkleur</translation>
+    </message>
+    <message>
+      <source>Text then user starts chat based on proactive invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then operator closes a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then user starts a chat and is waiting for operator to join a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then user starts a chat but department is offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Leave a message form text</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Need help border color</source>
@@ -3182,14 +3210,6 @@
       <translation>Tijdszone instellingen</translation>
     </message>
     <message>
-      <source>Update information</source>
-      <translation>Update informatie</translation>
-    </message>
-    <message>
-      <source>Mail settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>E-mail templates</source>
       <translation>E-mail templates</translation>
     </message>
@@ -3222,24 +3242,12 @@
       <translation>Chat configuratie</translation>
     </message>
     <message>
-      <source>GEO detection configuration</source>
-      <translation>GEO detectie en configuratie</translation>
-    </message>
-    <message>
-      <source>GEO adjustment</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Synchronization and sound settings</source>
       <translation>Synchronisatie en geluidsinstellingen</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
       <translation>Welkomstscherm instellingen</translation>
-    </message>
-    <message>
-      <source>Auto responder</source>
-      <translation>Automatische beantwoorder</translation>
     </message>
     <message>
       <source>XMPP settings</source>
@@ -3270,6 +3278,14 @@
       <translation>Standaard thema</translation>
     </message>
     <message>
+      <source>GEO detection configuration</source>
+      <translation>GEO detectie en configuratie</translation>
+    </message>
+    <message>
+      <source>Auto responder</source>
+      <translation>Automatische beantwoorder</translation>
+    </message>
+    <message>
       <source>Blocked users</source>
       <translation>Geblokkerde gebruikers</translation>
     </message>
@@ -3284,6 +3300,10 @@
     <message>
       <source>Chatbox embed code</source>
       <translation>Chatbox embed code</translation>
+    </message>
+    <message>
+      <source>Mail settings</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>FAQ embed code</source>
@@ -3302,8 +3322,16 @@
       <translation>Lijst van bestanden</translation>
     </message>
     <message>
+      <source>GEO adjustment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Maintenance</source>
       <translation>Onderhoud</translation>
+    </message>
+    <message>
+      <source>Update information</source>
+      <translation>Update informatie</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -3368,16 +3396,16 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
+      <source>Clean cache</source>
+      <translation>Cache opschonen</translation>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>Leeg</translation>
     </message>
     <message>
       <source>Assigned operator</source>
       <translation>Toegewezen operator</translation>
-    </message>
-    <message>
-      <source>Clean cache</source>
-      <translation>Cache opschonen</translation>
     </message>
     <message>
       <source>Home</source>
@@ -3436,12 +3464,12 @@
       <translation>Chat overzicht</translation>
     </message>
     <message>
-      <source>Online visitors</source>
-      <translation>Online gebruikers</translation>
-    </message>
-    <message>
       <source>Extra modules</source>
       <translation>Extra modules</translation>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation>Online gebruikers</translation>
     </message>
     <message>
       <source>Account</source>

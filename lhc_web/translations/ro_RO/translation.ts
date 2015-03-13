@@ -66,6 +66,10 @@
       <translation>Conectare la NodeJs prin https</translation>
     </message>
     <message>
+      <source>socket.io path, optional</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>NodeJS support enabled</source>
       <translation>Suport NodeJS activat</translation>
     </message>
@@ -327,6 +331,10 @@
       <translation>Widget pentru suport</translation>
     </message>
     <message>
+      <source>Main widget text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Custom CSS</source>
       <translation>CSS personalizat</translation>
     </message>
@@ -445,6 +453,26 @@
     <message>
       <source>Need help text color</source>
       <translation>Aveţi nevoie de ajutor culoarea textului</translation>
+    </message>
+    <message>
+      <source>Text then user starts chat based on proactive invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then operator closes a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then user starts a chat and is waiting for operator to join a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then user starts a chat but department is offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Leave a message form text</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Need help border color</source>
@@ -3182,14 +3210,6 @@
       <translation>Setari fus orar</translation>
     </message>
     <message>
-      <source>Update information</source>
-      <translation>Informatii actualizate</translation>
-    </message>
-    <message>
-      <source>Mail settings</source>
-      <translation>Setari email</translation>
-    </message>
-    <message>
       <source>E-mail templates</source>
       <translation>Template-uri pentru e-mail</translation>
     </message>
@@ -3222,24 +3242,12 @@
       <translation>Setari conversatii</translation>
     </message>
     <message>
-      <source>GEO detection configuration</source>
-      <translation>Setari pentru detectarea pozitiei geografice</translation>
-    </message>
-    <message>
-      <source>GEO adjustment</source>
-      <translation>Ajustare localizare GEO</translation>
-    </message>
-    <message>
       <source>Synchronization and sound settings</source>
       <translation>Setari de sincronizare si sunet</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
       <translation>Setari pentru formularul de incepere a unei conversatii</translation>
-    </message>
-    <message>
-      <source>Auto responder</source>
-      <translation>Raspuns automat</translation>
     </message>
     <message>
       <source>XMPP settings</source>
@@ -3270,6 +3278,14 @@
       <translation>Tema default</translation>
     </message>
     <message>
+      <source>GEO detection configuration</source>
+      <translation>Setari pentru detectarea pozitiei geografice</translation>
+    </message>
+    <message>
+      <source>Auto responder</source>
+      <translation>Raspuns automat</translation>
+    </message>
+    <message>
       <source>Blocked users</source>
       <translation>Utilizatori blocati</translation>
     </message>
@@ -3284,6 +3300,10 @@
     <message>
       <source>Chatbox embed code</source>
       <translation>Cod pentru embed fereastra de conversatii</translation>
+    </message>
+    <message>
+      <source>Mail settings</source>
+      <translation>Setari email</translation>
     </message>
     <message>
       <source>FAQ embed code</source>
@@ -3302,8 +3322,16 @@
       <translation>Lista fisierelor</translation>
     </message>
     <message>
+      <source>GEO adjustment</source>
+      <translation>Ajustare localizare GEO</translation>
+    </message>
+    <message>
       <source>Maintenance</source>
       <translation>Mentenanta</translation>
+    </message>
+    <message>
+      <source>Update information</source>
+      <translation>Informatii actualizate</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -3368,16 +3396,16 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
+      <source>Clean cache</source>
+      <translation>Curata memoria cache</translation>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>Gol...</translation>
     </message>
     <message>
       <source>Assigned operator</source>
       <translation>Operator activ</translation>
-    </message>
-    <message>
-      <source>Clean cache</source>
-      <translation>Curata memoria cache</translation>
     </message>
     <message>
       <source>Home</source>
@@ -3436,12 +3464,12 @@
       <translation>Lista de conversatii</translation>
     </message>
     <message>
-      <source>Online visitors</source>
-      <translation>Vizitatoritori online</translation>
-    </message>
-    <message>
       <source>Extra modules</source>
       <translation>Module extra</translation>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation>Vizitatoritori online</translation>
     </message>
     <message>
       <source>Account</source>

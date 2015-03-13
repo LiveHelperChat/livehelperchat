@@ -66,6 +66,10 @@
       <translation>Connecter à NodeJs en mode https</translation>
     </message>
     <message>
+      <source>socket.io path, optional</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>NodeJS support enabled</source>
       <translation>Support pour NodeJS activé</translation>
     </message>
@@ -327,6 +331,10 @@
       <translation>Widget &quot;Besoin d&apos;aide ?&quot;</translation>
     </message>
     <message>
+      <source>Main widget text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Custom CSS</source>
       <translation>CSS personnalisé</translation>
     </message>
@@ -445,6 +453,26 @@
     <message>
       <source>Need help text color</source>
       <translation>Couleur du texte &quot;Besoin d&apos;aide ?&quot;</translation>
+    </message>
+    <message>
+      <source>Text then user starts chat based on proactive invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then operator closes a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then user starts a chat and is waiting for operator to join a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then user starts a chat but department is offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Leave a message form text</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Need help border color</source>
@@ -3182,14 +3210,6 @@
       <translation>Paramètres du fuseau horaire</translation>
     </message>
     <message>
-      <source>Update information</source>
-      <translation>Informations de mise à jour</translation>
-    </message>
-    <message>
-      <source>Mail settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>E-mail templates</source>
       <translation>Templates de courriel</translation>
     </message>
@@ -3222,24 +3242,12 @@
       <translation>Configuration du chat</translation>
     </message>
     <message>
-      <source>GEO detection configuration</source>
-      <translation>Configuration de la géodétection</translation>
-    </message>
-    <message>
-      <source>GEO adjustment</source>
-      <translation>Ajustement GEO</translation>
-    </message>
-    <message>
       <source>Synchronization and sound settings</source>
       <translation>Paramètres de synchronisation et de son</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
       <translation>Paramètres du formulaire &quot;Démarrer un chat&quot;</translation>
-    </message>
-    <message>
-      <source>Auto responder</source>
-      <translation>Répondeur automatique</translation>
     </message>
     <message>
       <source>XMPP settings</source>
@@ -3270,6 +3278,14 @@
       <translation>Thème par défaut</translation>
     </message>
     <message>
+      <source>GEO detection configuration</source>
+      <translation>Configuration de la géodétection</translation>
+    </message>
+    <message>
+      <source>Auto responder</source>
+      <translation>Répondeur automatique</translation>
+    </message>
+    <message>
       <source>Blocked users</source>
       <translation>Visiteurs bloqués</translation>
     </message>
@@ -3284,6 +3300,10 @@
     <message>
       <source>Chatbox embed code</source>
       <translation>Code d&apos;intégration de chatbox</translation>
+    </message>
+    <message>
+      <source>Mail settings</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>FAQ embed code</source>
@@ -3302,8 +3322,16 @@
       <translation>Liste des fichiers</translation>
     </message>
     <message>
+      <source>GEO adjustment</source>
+      <translation>Ajustement GEO</translation>
+    </message>
+    <message>
       <source>Maintenance</source>
       <translation>Maintenance</translation>
+    </message>
+    <message>
+      <source>Update information</source>
+      <translation>Informations de mise à jour</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -3368,16 +3396,16 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
+      <source>Clean cache</source>
+      <translation>Vider le cache</translation>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>Vide...</translation>
     </message>
     <message>
       <source>Assigned operator</source>
       <translation>Opérateur assigné</translation>
-    </message>
-    <message>
-      <source>Clean cache</source>
-      <translation>Vider le cache</translation>
     </message>
     <message>
       <source>Home</source>
@@ -3436,12 +3464,12 @@
       <translation>Liste des chats</translation>
     </message>
     <message>
-      <source>Online visitors</source>
-      <translation>Visiteurs connectés</translation>
-    </message>
-    <message>
       <source>Extra modules</source>
       <translation>Modules complémentaires</translation>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation>Visiteurs connectés</translation>
     </message>
     <message>
       <source>Account</source>

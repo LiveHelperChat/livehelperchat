@@ -66,6 +66,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>socket.io path, optional</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>NodeJS support enabled</source>
       <translation type="unfinished"/>
     </message>
@@ -327,6 +331,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Main widget text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Custom CSS</source>
       <translation type="unfinished"/>
     </message>
@@ -444,6 +452,26 @@
     </message>
     <message>
       <source>Need help text color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then user starts chat based on proactive invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then operator closes a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then user starts a chat and is waiting for operator to join a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then user starts a chat but department is offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Leave a message form text</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3182,14 +3210,6 @@
       <translation>Tidszoneindstillinger</translation>
     </message>
     <message>
-      <source>Update information</source>
-      <translation>Opdater information</translation>
-    </message>
-    <message>
-      <source>Mail settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>E-mail templates</source>
       <translation>E-mail-skabeloner</translation>
     </message>
@@ -3222,24 +3242,12 @@
       <translation>Chatkonfiguration</translation>
     </message>
     <message>
-      <source>GEO detection configuration</source>
-      <translation>GEO-detektions konfiguration</translation>
-    </message>
-    <message>
-      <source>GEO adjustment</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Synchronization and sound settings</source>
       <translation>Synkronisering og lydindstillinger</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
       <translation>Start chatformular-indstillinger</translation>
-    </message>
-    <message>
-      <source>Auto responder</source>
-      <translation>Autosvar</translation>
     </message>
     <message>
       <source>XMPP settings</source>
@@ -3270,6 +3278,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>GEO detection configuration</source>
+      <translation>GEO-detektions konfiguration</translation>
+    </message>
+    <message>
+      <source>Auto responder</source>
+      <translation>Autosvar</translation>
+    </message>
+    <message>
       <source>Blocked users</source>
       <translation>Blokerede brugere</translation>
     </message>
@@ -3284,6 +3300,10 @@
     <message>
       <source>Chatbox embed code</source>
       <translation>Chatboks indlejringskode</translation>
+    </message>
+    <message>
+      <source>Mail settings</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>FAQ embed code</source>
@@ -3302,8 +3322,16 @@
       <translation>Liste af filer</translation>
     </message>
     <message>
+      <source>GEO adjustment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Maintenance</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update information</source>
+      <translation>Opdater information</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -3368,16 +3396,16 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
+      <source>Clean cache</source>
+      <translation>Tøm cache</translation>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>Tom...</translation>
     </message>
     <message>
       <source>Assigned operator</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Clean cache</source>
-      <translation>Tøm cache</translation>
     </message>
     <message>
       <source>Home</source>
@@ -3436,12 +3464,12 @@
       <translation>Chat liste</translation>
     </message>
     <message>
-      <source>Online visitors</source>
-      <translation>Besøgende online</translation>
-    </message>
-    <message>
       <source>Extra modules</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation>Besøgende online</translation>
     </message>
     <message>
       <source>Account</source>

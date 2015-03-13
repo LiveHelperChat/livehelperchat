@@ -66,6 +66,10 @@
       <translation>Käyttä https yhteyttä NodeJs rajapinnassa</translation>
     </message>
     <message>
+      <source>socket.io path, optional</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>NodeJS support enabled</source>
       <translation>NodeJS tuki aktivoitu</translation>
     </message>
@@ -327,6 +331,10 @@
       <translation>Tarvitsetko apua widgetti</translation>
     </message>
     <message>
+      <source>Main widget text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Custom CSS</source>
       <translation>Oma CSS</translation>
     </message>
@@ -445,6 +453,26 @@
     <message>
       <source>Need help text color</source>
       <translation>Tarvitsetko apua tekstin väri</translation>
+    </message>
+    <message>
+      <source>Text then user starts chat based on proactive invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then operator closes a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then user starts a chat and is waiting for operator to join a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then user starts a chat but department is offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Leave a message form text</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Need help border color</source>
@@ -3182,14 +3210,6 @@
       <translation>Aikavyöhykeasetukset</translation>
     </message>
     <message>
-      <source>Update information</source>
-      <translation>Päivitä tiedot</translation>
-    </message>
-    <message>
-      <source>Mail settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>E-mail templates</source>
       <translation>Sähköpostipohjat</translation>
     </message>
@@ -3222,24 +3242,12 @@
       <translation>Keskustelujen asetukset</translation>
     </message>
     <message>
-      <source>GEO detection configuration</source>
-      <translation>GEO sijaintiasetukset</translation>
-    </message>
-    <message>
-      <source>GEO adjustment</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Synchronization and sound settings</source>
       <translation>Synkronointi- ja ääniasetukset</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
       <translation>Aloita keskustelu asetuksista</translation>
-    </message>
-    <message>
-      <source>Auto responder</source>
-      <translation>Automaattinen vastaaja</translation>
     </message>
     <message>
       <source>XMPP settings</source>
@@ -3270,6 +3278,14 @@
       <translation>Oletusteema</translation>
     </message>
     <message>
+      <source>GEO detection configuration</source>
+      <translation>GEO sijaintiasetukset</translation>
+    </message>
+    <message>
+      <source>Auto responder</source>
+      <translation>Automaattinen vastaaja</translation>
+    </message>
+    <message>
       <source>Blocked users</source>
       <translation>Estetyt käyttäjät</translation>
     </message>
@@ -3284,6 +3300,10 @@
     <message>
       <source>Chatbox embed code</source>
       <translation>Chatbox upotuskoodi</translation>
+    </message>
+    <message>
+      <source>Mail settings</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>FAQ embed code</source>
@@ -3302,8 +3322,16 @@
       <translation>Tiedostolista</translation>
     </message>
     <message>
+      <source>GEO adjustment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Maintenance</source>
       <translation>Huolto</translation>
+    </message>
+    <message>
+      <source>Update information</source>
+      <translation>Päivitä tiedot</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -3368,16 +3396,16 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
+      <source>Clean cache</source>
+      <translation>Tyhjennä välimuisti</translation>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>Tyhjä...</translation>
     </message>
     <message>
       <source>Assigned operator</source>
       <translation>Määritetty operaattori</translation>
-    </message>
-    <message>
-      <source>Clean cache</source>
-      <translation>Tyhjennä välimuisti</translation>
     </message>
     <message>
       <source>Home</source>
@@ -3436,12 +3464,12 @@
       <translation>Keskustelu listat</translation>
     </message>
     <message>
-      <source>Online visitors</source>
-      <translation>Kirjautuneet käyttäjät</translation>
-    </message>
-    <message>
       <source>Extra modules</source>
       <translation>Erillismoduulit</translation>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation>Kirjautuneet käyttäjät</translation>
     </message>
     <message>
       <source>Account</source>

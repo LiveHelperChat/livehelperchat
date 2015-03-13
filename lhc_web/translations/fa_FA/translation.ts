@@ -66,6 +66,10 @@
       <translation>ارتباط با NodeJs  در حالت https </translation>
     </message>
     <message>
+      <source>socket.io path, optional</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>NodeJS support enabled</source>
       <translation>پشتیبانی NodeJS  فعال شد</translation>
     </message>
@@ -327,6 +331,10 @@
       <translation>ابزارک نیاز به راهنما</translation>
     </message>
     <message>
+      <source>Main widget text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Custom CSS</source>
       <translation>CSS سفارشی</translation>
     </message>
@@ -445,6 +453,26 @@
     <message>
       <source>Need help text color</source>
       <translation>رنگ متن نیاز به راهنما</translation>
+    </message>
+    <message>
+      <source>Text then user starts chat based on proactive invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then operator closes a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then user starts a chat and is waiting for operator to join a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then user starts a chat but department is offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Leave a message form text</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Need help border color</source>
@@ -3182,14 +3210,6 @@
       <translation>تنظیمات منطقه زمانی</translation>
     </message>
     <message>
-      <source>Update information</source>
-      <translation>به روزرسانی اطلاعات</translation>
-    </message>
-    <message>
-      <source>Mail settings</source>
-      <translation>تنظیمات ایمیل</translation>
-    </message>
-    <message>
       <source>E-mail templates</source>
       <translation>قالب های ایمیل</translation>
     </message>
@@ -3222,24 +3242,12 @@
       <translation>تنظیمات چت</translation>
     </message>
     <message>
-      <source>GEO detection configuration</source>
-      <translation>تنظیمات شناسایی موقعیت جغرافیایی</translation>
-    </message>
-    <message>
-      <source>GEO adjustment</source>
-      <translation>تنظیم GEO </translation>
-    </message>
-    <message>
       <source>Synchronization and sound settings</source>
       <translation>تنظیمات هماهنگی و صدا</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
       <translation>تنظیمات فرم شروع چت</translation>
-    </message>
-    <message>
-      <source>Auto responder</source>
-      <translation>پاسخگوی خودکار</translation>
     </message>
     <message>
       <source>XMPP settings</source>
@@ -3270,6 +3278,14 @@
       <translation>قالب پیش فرض</translation>
     </message>
     <message>
+      <source>GEO detection configuration</source>
+      <translation>تنظیمات شناسایی موقعیت جغرافیایی</translation>
+    </message>
+    <message>
+      <source>Auto responder</source>
+      <translation>پاسخگوی خودکار</translation>
+    </message>
+    <message>
       <source>Blocked users</source>
       <translation>کاربران مسدود شده</translation>
     </message>
@@ -3284,6 +3300,10 @@
     <message>
       <source>Chatbox embed code</source>
       <translation>کد داخلی باکس چت</translation>
+    </message>
+    <message>
+      <source>Mail settings</source>
+      <translation>تنظیمات ایمیل</translation>
     </message>
     <message>
       <source>FAQ embed code</source>
@@ -3302,8 +3322,16 @@
       <translation>فهرست فایل ها</translation>
     </message>
     <message>
+      <source>GEO adjustment</source>
+      <translation>تنظیم GEO </translation>
+    </message>
+    <message>
       <source>Maintenance</source>
       <translation>تعمیر و نگهداری</translation>
+    </message>
+    <message>
+      <source>Update information</source>
+      <translation>به روزرسانی اطلاعات</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -3368,16 +3396,16 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
+      <source>Clean cache</source>
+      <translation>پاک سازی کش</translation>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>خالی ...</translation>
     </message>
     <message>
       <source>Assigned operator</source>
       <translation>اپراتور اختصاص داده شده</translation>
-    </message>
-    <message>
-      <source>Clean cache</source>
-      <translation>پاک سازی کش</translation>
     </message>
     <message>
       <source>Home</source>
@@ -3436,12 +3464,12 @@
       <translation>فهرست چت ها</translation>
     </message>
     <message>
-      <source>Online visitors</source>
-      <translation>بازدیدکنندگان آنلاین</translation>
-    </message>
-    <message>
       <source>Extra modules</source>
       <translation>سایر ماژول ها</translation>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation>بازدیدکنندگان آنلاین</translation>
     </message>
     <message>
       <source>Account</source>

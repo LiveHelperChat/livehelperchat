@@ -66,6 +66,10 @@
       <translation>Anslut till NodeJS i https-läge</translation>
     </message>
     <message>
+      <source>socket.io path, optional</source>
+      <translation>Sökväg för socket.io, frivillig</translation>
+    </message>
+    <message>
       <source>NodeJS support enabled</source>
       <translation>Stöd för NodeJS är aktiverat</translation>
     </message>
@@ -327,6 +331,10 @@
       <translation>Hjälpwidget</translation>
     </message>
     <message>
+      <source>Main widget text</source>
+      <translation>Text för huvudwidgeten</translation>
+    </message>
+    <message>
       <source>Custom CSS</source>
       <translation>Egen CSS</translation>
     </message>
@@ -445,6 +453,26 @@
     <message>
       <source>Need help text color</source>
       <translation>Hjälpwidget textfärg</translation>
+    </message>
+    <message>
+      <source>Text then user starts chat based on proactive invitation</source>
+      <translation>Text som ska visas när en användare startar en chatt baserat på proactive inbjudan</translation>
+    </message>
+    <message>
+      <source>Text then operator closes a chat</source>
+      <translation>Text som ska visas när en operatör stänger en chatt</translation>
+    </message>
+    <message>
+      <source>Text then user starts a chat and is waiting for operator to join a chat</source>
+      <translation>Text som ska visas när en användare startar en chatt och väntar på att operatören ska ansluta</translation>
+    </message>
+    <message>
+      <source>Text then user starts a chat but department is offline</source>
+      <translation>Text som ska visas när en användare startar en chatt med avdelningen är offline</translation>
+    </message>
+    <message>
+      <source>Leave a message form text</source>
+      <translation>Text för &quot;Lämna ett meddelande&quot;-formulär</translation>
     </message>
     <message>
       <source>Need help border color</source>
@@ -3182,14 +3210,6 @@
       <translation>Inställningar för tidszon</translation>
     </message>
     <message>
-      <source>Update information</source>
-      <translation>Uppdateringsinformation för Live Helper Chat</translation>
-    </message>
-    <message>
-      <source>Mail settings</source>
-      <translation>E-postinställningar</translation>
-    </message>
-    <message>
       <source>E-mail templates</source>
       <translation>E-postmallar</translation>
     </message>
@@ -3222,24 +3242,12 @@
       <translation>Chattinställningar</translation>
     </message>
     <message>
-      <source>GEO detection configuration</source>
-      <translation>Geografisk lokaliseringsinställning</translation>
-    </message>
-    <message>
-      <source>GEO adjustment</source>
-      <translation>Geo justering</translation>
-    </message>
-    <message>
       <source>Synchronization and sound settings</source>
       <translation>Synkronisering och ljudinställningar</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
       <translation>Inställningar för &quot;starta en chatt&quot;-formulär</translation>
-    </message>
-    <message>
-      <source>Auto responder</source>
-      <translation>Automatiskt svar</translation>
     </message>
     <message>
       <source>XMPP settings</source>
@@ -3270,6 +3278,14 @@
       <translation>Standardstil</translation>
     </message>
     <message>
+      <source>GEO detection configuration</source>
+      <translation>Geografisk lokaliseringsinställning</translation>
+    </message>
+    <message>
+      <source>Auto responder</source>
+      <translation>Automatiskt svar</translation>
+    </message>
+    <message>
       <source>Blocked users</source>
       <translation>Blockerade användare</translation>
     </message>
@@ -3284,6 +3300,10 @@
     <message>
       <source>Chatbox embed code</source>
       <translation>Chattbox inbäddad kod</translation>
+    </message>
+    <message>
+      <source>Mail settings</source>
+      <translation>E-postinställningar</translation>
     </message>
     <message>
       <source>FAQ embed code</source>
@@ -3302,8 +3322,16 @@
       <translation>Lista med filer</translation>
     </message>
     <message>
+      <source>GEO adjustment</source>
+      <translation>Geo justering</translation>
+    </message>
+    <message>
       <source>Maintenance</source>
       <translation>Underhåll</translation>
+    </message>
+    <message>
+      <source>Update information</source>
+      <translation>Uppdateringsinformation för Live Helper Chat</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -3368,16 +3396,16 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
+      <source>Clean cache</source>
+      <translation>Rensa cache</translation>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>Tom...</translation>
     </message>
     <message>
       <source>Assigned operator</source>
       <translation>Tilldelad operatör</translation>
-    </message>
-    <message>
-      <source>Clean cache</source>
-      <translation>Rensa cache</translation>
     </message>
     <message>
       <source>Home</source>
@@ -3436,12 +3464,12 @@
       <translation>Chattlista</translation>
     </message>
     <message>
-      <source>Online visitors</source>
-      <translation>Besökare online</translation>
-    </message>
-    <message>
       <source>Extra modules</source>
       <translation>Extra inställningar</translation>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation>Besökare online</translation>
     </message>
     <message>
       <source>Account</source>

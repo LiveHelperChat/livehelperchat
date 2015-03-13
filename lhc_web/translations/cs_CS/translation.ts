@@ -66,6 +66,10 @@
       <translation>Připojit se k NodeJS v HTTPS módu</translation>
     </message>
     <message>
+      <source>socket.io path, optional</source>
+      <translation>cesta k socket.io, volitelně</translation>
+    </message>
+    <message>
       <source>NodeJS support enabled</source>
       <translation>Podpora NodeJS zapnuta</translation>
     </message>
@@ -327,6 +331,10 @@
       <translation>Widget Potřebujete radu?</translation>
     </message>
     <message>
+      <source>Main widget text</source>
+      <translation>Text hlavního widgetu</translation>
+    </message>
+    <message>
       <source>Custom CSS</source>
       <translation>Vlastní CSS</translation>
     </message>
@@ -336,7 +344,7 @@
     </message>
     <message>
       <source>Name of the company</source>
-      <translation type="unfinished"/>
+      <translation>Název společnosti</translation>
     </message>
     <message>
       <source>Need help header text</source>
@@ -412,7 +420,7 @@
     </message>
     <message>
       <source>Site URL</source>
-      <translation type="unfinished"/>
+      <translation>URL webu</translation>
     </message>
     <message>
       <source>Text above start chat form fields</source>
@@ -445,6 +453,26 @@
     <message>
       <source>Need help text color</source>
       <translation>Barva textu Potřebujete radu?</translation>
+    </message>
+    <message>
+      <source>Text then user starts chat based on proactive invitation</source>
+      <translation>Text než uživatel začne rozhovor založený na proaktivní pozvánce</translation>
+    </message>
+    <message>
+      <source>Text then operator closes a chat</source>
+      <translation>Text než operátor uzavře rozhovor</translation>
+    </message>
+    <message>
+      <source>Text then user starts a chat and is waiting for operator to join a chat</source>
+      <translation>Text než uživatel začne rozhovor a čeká na připojení operátora</translation>
+    </message>
+    <message>
+      <source>Text then user starts a chat but department is offline</source>
+      <translation>Text než uživatel začne rozhovor, ale oddělení je offline</translation>
+    </message>
+    <message>
+      <source>Leave a message form text</source>
+      <translation>Text formuláře pro zanechání zprávy</translation>
     </message>
     <message>
       <source>Need help border color</source>
@@ -1163,7 +1191,7 @@
     </message>
     <message>
       <source>Switch to widget</source>
-      <translation type="unfinished"/>
+      <translation>Přepnout na widget</translation>
     </message>
     <message>
       <source>Visitor</source>
@@ -1442,7 +1470,7 @@
     </message>
     <message>
       <source>Hours from</source>
-      <translation type="unfinished"/>
+      <translation>Hodiny od</translation>
     </message>
     <message>
       <source>Hours from, E.g. 8</source>
@@ -1450,7 +1478,7 @@
     </message>
     <message>
       <source>Minutes from</source>
-      <translation type="unfinished"/>
+      <translation>Minuty od</translation>
     </message>
     <message>
       <source>Minutes from, E.g. 30</source>
@@ -1458,7 +1486,7 @@
     </message>
     <message>
       <source>Hours to</source>
-      <translation type="unfinished"/>
+      <translation>Hodiny do</translation>
     </message>
     <message>
       <source>Hours to, E.g. 17</source>
@@ -1466,7 +1494,7 @@
     </message>
     <message>
       <source>Minutes to</source>
-      <translation type="unfinished"/>
+      <translation>Minuty do</translation>
     </message>
     <message>
       <source>Minutes to, E.g. 30</source>
@@ -1795,11 +1823,11 @@
     <name>chat/translation</name>
     <message>
       <source>Visitor language</source>
-      <translation>Řeč návštěvníka</translation>
+      <translation>Jazyk návštěvníka</translation>
     </message>
     <message>
       <source>My language</source>
-      <translation>Moje řeč</translation>
+      <translation>Můj jazyk</translation>
     </message>
     <message>
       <source>Auto translate</source>
@@ -1863,11 +1891,11 @@
     </message>
     <message>
       <source>Bing client secret, key is never shown for security purposes</source>
-      <translation type="unfinished"/>
+      <translation>Klientský kód Bing, klíč není z bezpečnostních důvodů nikdy zobrazen</translation>
     </message>
     <message>
       <source>Bing access token expires</source>
-      <translation type="unfinished"/>
+      <translation>Přístupový token Bing exspiruje</translation>
     </message>
     <message>
       <source>Use Google service</source>
@@ -1875,7 +1903,7 @@
     </message>
     <message>
       <source>API key, key is never shown for security purposes</source>
-      <translation type="unfinished"/>
+      <translation>Klíč API, klíč není z bezpečnostních důvodů nikdy zobrazen</translation>
     </message>
     <message>
       <source>Settings updated</source>
@@ -1895,11 +1923,11 @@
     </message>
     <message>
       <source>We could not detect operator language</source>
-      <translation>Jazyk operátora nebyl rozpoznán</translation>
+      <translation>Nepodařilo se rozpoznat jazyk operátora</translation>
     </message>
     <message>
       <source>Detected operator and visitor languages matches, please choose languages manually</source>
-      <translation>Jazyky návštěvníka a operátora jsou shodné, změnte je manuálně</translation>
+      <translation>Jazyky návštěvníka a operátora se shodují, zvolte, prosím, jazyky ručně</translation>
     </message>
     <message>
       <source>Translation configuration</source>
@@ -1907,7 +1935,7 @@
     </message>
     <message>
       <source>Chat messages automatic translations has been stopped</source>
-      <translation>Automatický překlad zpráv v chatu byl zastaven</translation>
+      <translation>Automatické překladání zpráv rozhovoru bylo zastaveno</translation>
     </message>
     <message>
       <source>Messages has been translated</source>
@@ -1915,7 +1943,7 @@
     </message>
     <message>
       <source>Please choose translation languages manually and click Auto translate</source>
-      <translation>Vyberte jazyky pro překlad a klikněte na Automatický překlad</translation>
+      <translation>Vyberte, prosím, jazyky překladu ručně a klikněte na Automatický přeložit</translation>
     </message>
   </context>
   <context>
@@ -3182,14 +3210,6 @@
       <translation>Nastavení časové zóny</translation>
     </message>
     <message>
-      <source>Update information</source>
-      <translation>Informace o aktualizaci</translation>
-    </message>
-    <message>
-      <source>Mail settings</source>
-      <translation>Nastavení e-mailu</translation>
-    </message>
-    <message>
       <source>E-mail templates</source>
       <translation>Šablona E-mailu</translation>
     </message>
@@ -3222,24 +3242,12 @@
       <translation>Konfigurace rozhovoru</translation>
     </message>
     <message>
-      <source>GEO detection configuration</source>
-      <translation>Nastavení GEO detekce</translation>
-    </message>
-    <message>
-      <source>GEO adjustment</source>
-      <translation>GEO přizpůsobení</translation>
-    </message>
-    <message>
       <source>Synchronization and sound settings</source>
       <translation>Nastavení synchronizace a zvuku</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
       <translation>Nastavení formuláře spouštějícího rozhovor</translation>
-    </message>
-    <message>
-      <source>Auto responder</source>
-      <translation>Automatický odpovídač</translation>
     </message>
     <message>
       <source>XMPP settings</source>
@@ -3270,6 +3278,14 @@
       <translation>Výchozí šablona</translation>
     </message>
     <message>
+      <source>GEO detection configuration</source>
+      <translation>Nastavení GEO detekce</translation>
+    </message>
+    <message>
+      <source>Auto responder</source>
+      <translation>Automatický odpovídač</translation>
+    </message>
+    <message>
       <source>Blocked users</source>
       <translation>Blokovaní uživatelé</translation>
     </message>
@@ -3284,6 +3300,10 @@
     <message>
       <source>Chatbox embed code</source>
       <translation>Vložený kód Chatboxu</translation>
+    </message>
+    <message>
+      <source>Mail settings</source>
+      <translation>Nastavení e-mailu</translation>
     </message>
     <message>
       <source>FAQ embed code</source>
@@ -3302,8 +3322,16 @@
       <translation>Seznam souborů</translation>
     </message>
     <message>
+      <source>GEO adjustment</source>
+      <translation>GEO přizpůsobení</translation>
+    </message>
+    <message>
       <source>Maintenance</source>
       <translation>Údržba</translation>
+    </message>
+    <message>
+      <source>Update information</source>
+      <translation>Informace o aktualizaci</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -3368,16 +3396,16 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
+      <source>Clean cache</source>
+      <translation>Vymazat cache</translation>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>Prázdné...</translation>
     </message>
     <message>
       <source>Assigned operator</source>
       <translation>Přiřazený operátor</translation>
-    </message>
-    <message>
-      <source>Clean cache</source>
-      <translation>Vymazat cache</translation>
     </message>
     <message>
       <source>Home</source>
@@ -3436,12 +3464,12 @@
       <translation>Seznam rozhovorů</translation>
     </message>
     <message>
-      <source>Online visitors</source>
-      <translation>Online návštěvníci</translation>
-    </message>
-    <message>
       <source>Extra modules</source>
       <translation>Extra moduly</translation>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation>Online návštěvníci</translation>
     </message>
     <message>
       <source>Account</source>
@@ -3984,7 +4012,7 @@
     </message>
     <message>
       <source>AVG visitor wait time by operator</source>
-      <translation type="unfinished"/>
+      <translation>Průměrný čas čekání návštěvníka podle operátora</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -4024,7 +4052,7 @@
     </message>
     <message>
       <source>AVG wait time in seconds, max 10 mininutes</source>
-      <translation type="unfinished"/>
+      <translation>Průměrný čas čekání ve vteřinách, max 10 minut</translation>
     </message>
     <message>
       <source>Visitors initiated</source>
@@ -4629,7 +4657,7 @@
     </message>
     <message>
       <source>Permissions</source>
-      <translation type="unfinished"/>
+      <translation>Oprávnění</translation>
     </message>
     <message>
       <source>Do not enter a password unless you want to change it</source>
@@ -4681,7 +4709,7 @@
     </message>
     <message>
       <source>I receive other operators permissions request</source>
-      <translation type="unfinished"/>
+      <translation>Dostávám požadaveky na oprávnění jiných operátorů</translation>
     </message>
     <message>
       <source>Skype</source>
@@ -4733,7 +4761,7 @@
     </message>
     <message>
       <source>Show permissions</source>
-      <translation type="unfinished"/>
+      <translation>Zobrazit oprávnění</translation>
     </message>
     <message>
       <source>Account updated</source>
@@ -4741,7 +4769,7 @@
     </message>
     <message>
       <source>User receives other operators permissions request</source>
-      <translation type="unfinished"/>
+      <translation>Uživatel dostává požadavky na oprávnění jiných operátorů</translation>
     </message>
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
@@ -6052,11 +6080,11 @@
     </message>
     <message>
       <source>I receive other operators permissions request</source>
-      <translation type="unfinished"/>
+      <translation>Dostávám požadavky na oprávnění jiných operátorů</translation>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
-      <translation type="unfinished"/>
+      <translation>Uživatel dostává požadavky na oprávnění jiných operátorů</translation>
     </message>
     <message>
       <source>User group</source>
@@ -6163,7 +6191,7 @@
     </message>
     <message>
       <source>Disabled</source>
-      <translation type="unfinished"/>
+      <translation>Vypnuto</translation>
     </message>
     <message>
       <source>Update</source>
@@ -6801,45 +6829,45 @@
     <name>permission/getpermissionsummary</name>
     <message>
       <source>Module/Function</source>
-      <translation type="unfinished"/>
+      <translation>Modul/funkce</translation>
     </message>
   </context>
   <context>
     <name>permission/getpermissionssummary</name>
     <message>
       <source>Request permission</source>
-      <translation type="unfinished"/>
+      <translation>Požadavek na oprávnění</translation>
     </message>
     <message>
       <source>Please choose at least one permission</source>
-      <translation type="unfinished"/>
+      <translation>Vyberte, prosím, alespoň jedno oprávnění</translation>
     </message>
   </context>
   <context>
     <name>permission/request</name>
     <message>
       <source>Request permission</source>
-      <translation type="unfinished"/>
+      <translation>Požadavek na oprávnění</translation>
     </message>
     <message>
       <source>Request permissions</source>
-      <translation type="unfinished"/>
+      <translation>Požadavek na oprávnění</translation>
     </message>
     <message>
       <source>Permission requested</source>
-      <translation type="unfinished"/>
+      <translation>Oprávnění vyžádáno</translation>
     </message>
     <message>
       <source>Please choose a user!</source>
-      <translation type="unfinished"/>
+      <translation>Vyberte, prosím, uživatele!</translation>
     </message>
     <message>
       <source>This user can not receive permision request!</source>
-      <translation type="unfinished"/>
+      <translation>Uživatelů nemůže přijmout požadavek na oprávnění!</translation>
     </message>
     <message>
       <source>Permissions were not provided</source>
-      <translation type="unfinished"/>
+      <translation>Oprávnění bylo poskytnuto</translation>
     </message>
   </context>
 </TS>

@@ -66,6 +66,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>socket.io path, optional</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>NodeJS support enabled</source>
       <translation type="unfinished"/>
     </message>
@@ -327,6 +331,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Main widget text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Custom CSS</source>
       <translation type="unfinished"/>
     </message>
@@ -444,6 +452,26 @@
     </message>
     <message>
       <source>Need help text color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then user starts chat based on proactive invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then operator closes a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then user starts a chat and is waiting for operator to join a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then user starts a chat but department is offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Leave a message form text</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3182,14 +3210,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Update information</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Mail settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>E-mail templates</source>
       <translation>แม่แบบอีเมล</translation>
     </message>
@@ -3222,24 +3242,12 @@
       <translation>การกำหนดค่าแชท</translation>
     </message>
     <message>
-      <source>GEO detection configuration</source>
-      <translation>กำหนดค่าตรวจสอบ GEO</translation>
-    </message>
-    <message>
-      <source>GEO adjustment</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Synchronization and sound settings</source>
       <translation>การตั้งค่าการซิงโครไนส์และเสียง</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
       <translation>เริ่มต้นการตั้งค่าแบบฟอร์มสนทนา</translation>
-    </message>
-    <message>
-      <source>Auto responder</source>
-      <translation>ผู้ตอบสนองโดยอัตโนมัติ</translation>
     </message>
     <message>
       <source>XMPP settings</source>
@@ -3270,6 +3278,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>GEO detection configuration</source>
+      <translation>กำหนดค่าตรวจสอบ GEO</translation>
+    </message>
+    <message>
+      <source>Auto responder</source>
+      <translation>ผู้ตอบสนองโดยอัตโนมัติ</translation>
+    </message>
+    <message>
       <source>Blocked users</source>
       <translation>ผู้ใช้ที่ถูกบล็อค</translation>
     </message>
@@ -3284,6 +3300,10 @@
     <message>
       <source>Chatbox embed code</source>
       <translation>Chatbox ฝังรหัส</translation>
+    </message>
+    <message>
+      <source>Mail settings</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>FAQ embed code</source>
@@ -3302,7 +3322,15 @@
       <translation>รายการของแฟ้ม</translation>
     </message>
     <message>
+      <source>GEO adjustment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Maintenance</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update information</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3368,16 +3396,16 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
+      <source>Clean cache</source>
+      <translation>ดีแคช</translation>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>ว่างเปล่า...</translation>
     </message>
     <message>
       <source>Assigned operator</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Clean cache</source>
-      <translation>ดีแคช</translation>
     </message>
     <message>
       <source>Home</source>
@@ -3436,12 +3464,12 @@
       <translation>รายการสนทนา</translation>
     </message>
     <message>
-      <source>Online visitors</source>
-      <translation>ผู้เยี่ยมชมออนไลน์</translation>
-    </message>
-    <message>
       <source>Extra modules</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation>ผู้เยี่ยมชมออนไลน์</translation>
     </message>
     <message>
       <source>Account</source>

@@ -66,6 +66,10 @@
       <translation>Подключиться к NodeJs в режиме https</translation>
     </message>
     <message>
+      <source>socket.io path, optional</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>NodeJS support enabled</source>
       <translation>Включить поддержку NodeJS</translation>
     </message>
@@ -327,6 +331,10 @@
       <translation>Виджет запроса помощи</translation>
     </message>
     <message>
+      <source>Main widget text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Custom CSS</source>
       <translation>Пользовательский CSS</translation>
     </message>
@@ -445,6 +453,26 @@
     <message>
       <source>Need help text color</source>
       <translation>Цвет текста запроса помощи</translation>
+    </message>
+    <message>
+      <source>Text then user starts chat based on proactive invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then operator closes a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then user starts a chat and is waiting for operator to join a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then user starts a chat but department is offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Leave a message form text</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Need help border color</source>
@@ -3183,14 +3211,6 @@
       <translation>Настройка часовых поясов</translation>
     </message>
     <message>
-      <source>Update information</source>
-      <translation>Обновить информацию</translation>
-    </message>
-    <message>
-      <source>Mail settings</source>
-      <translation>Настройки почты</translation>
-    </message>
-    <message>
       <source>E-mail templates</source>
       <translation>Шаблоны писем</translation>
     </message>
@@ -3223,24 +3243,12 @@
       <translation>Настройки чата</translation>
     </message>
     <message>
-      <source>GEO detection configuration</source>
-      <translation>Настройки GEO-обнаружения</translation>
-    </message>
-    <message>
-      <source>GEO adjustment</source>
-      <translation>GEO регулирование</translation>
-    </message>
-    <message>
       <source>Synchronization and sound settings</source>
       <translation>Настройки синхронизации и звука</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
       <translation>Настройки формы начала чата</translation>
-    </message>
-    <message>
-      <source>Auto responder</source>
-      <translation>Авто-ответчик</translation>
     </message>
     <message>
       <source>XMPP settings</source>
@@ -3271,6 +3279,14 @@
       <translation>Тема по умолчанию</translation>
     </message>
     <message>
+      <source>GEO detection configuration</source>
+      <translation>Настройки GEO-обнаружения</translation>
+    </message>
+    <message>
+      <source>Auto responder</source>
+      <translation>Авто-ответчик</translation>
+    </message>
+    <message>
       <source>Blocked users</source>
       <translation>Заблокированные пользователи</translation>
     </message>
@@ -3285,6 +3301,10 @@
     <message>
       <source>Chatbox embed code</source>
       <translation>Код Чатбокса</translation>
+    </message>
+    <message>
+      <source>Mail settings</source>
+      <translation>Настройки почты</translation>
     </message>
     <message>
       <source>FAQ embed code</source>
@@ -3303,8 +3323,16 @@
       <translation>Список файлов</translation>
     </message>
     <message>
+      <source>GEO adjustment</source>
+      <translation>GEO регулирование</translation>
+    </message>
+    <message>
       <source>Maintenance</source>
       <translation>Управление</translation>
+    </message>
+    <message>
+      <source>Update information</source>
+      <translation>Обновить информацию</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -3369,16 +3397,16 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
+      <source>Clean cache</source>
+      <translation>Очистить кэш</translation>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>Пусто...</translation>
     </message>
     <message>
       <source>Assigned operator</source>
       <translation>Назначенный оператор</translation>
-    </message>
-    <message>
-      <source>Clean cache</source>
-      <translation>Очистить кэш</translation>
     </message>
     <message>
       <source>Home</source>
@@ -3437,12 +3465,12 @@
       <translation>Список чатов</translation>
     </message>
     <message>
-      <source>Online visitors</source>
-      <translation>Пользователи онлайн</translation>
-    </message>
-    <message>
       <source>Extra modules</source>
       <translation>Extra модули</translation>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation>Пользователи онлайн</translation>
     </message>
     <message>
       <source>Account</source>

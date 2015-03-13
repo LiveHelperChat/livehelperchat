@@ -66,6 +66,10 @@
       <translation>Sambungkan ke NodeJs dalam mode https</translation>
     </message>
     <message>
+      <source>socket.io path, optional</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>NodeJS support enabled</source>
       <translation>Bantuan NodeJS diaktifkan</translation>
     </message>
@@ -327,6 +331,10 @@
       <translation>Widget butuh bantuan</translation>
     </message>
     <message>
+      <source>Main widget text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Custom CSS</source>
       <translation>CSS kustom</translation>
     </message>
@@ -445,6 +453,26 @@
     <message>
       <source>Need help text color</source>
       <translation>Warna teks butuh bantuan</translation>
+    </message>
+    <message>
+      <source>Text then user starts chat based on proactive invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then operator closes a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then user starts a chat and is waiting for operator to join a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then user starts a chat but department is offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Leave a message form text</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Need help border color</source>
@@ -3182,14 +3210,6 @@
       <translation>Pengaturan zona waktu</translation>
     </message>
     <message>
-      <source>Update information</source>
-      <translation>Perbarui informasi</translation>
-    </message>
-    <message>
-      <source>Mail settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>E-mail templates</source>
       <translation>Template e-mail</translation>
     </message>
@@ -3222,24 +3242,12 @@
       <translation>Konfigurasi percakapan</translation>
     </message>
     <message>
-      <source>GEO detection configuration</source>
-      <translation>Konfigurasi deteksi GEO</translation>
-    </message>
-    <message>
-      <source>GEO adjustment</source>
-      <translation>Penyesuaian GEO</translation>
-    </message>
-    <message>
       <source>Synchronization and sound settings</source>
       <translation>Pengaturan sinkronisasi dan suara</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
       <translation>Pengaturan Formulir &quot;Mulai Percakapan&quot;</translation>
-    </message>
-    <message>
-      <source>Auto responder</source>
-      <translation>Balasan secara otomatis</translation>
     </message>
     <message>
       <source>XMPP settings</source>
@@ -3270,6 +3278,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>GEO detection configuration</source>
+      <translation>Konfigurasi deteksi GEO</translation>
+    </message>
+    <message>
+      <source>Auto responder</source>
+      <translation>Balasan secara otomatis</translation>
+    </message>
+    <message>
       <source>Blocked users</source>
       <translation>Pengguna diblokir</translation>
     </message>
@@ -3284,6 +3300,10 @@
     <message>
       <source>Chatbox embed code</source>
       <translation>Kode pencantuman kotak percakapan</translation>
+    </message>
+    <message>
+      <source>Mail settings</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>FAQ embed code</source>
@@ -3302,8 +3322,16 @@
       <translation>Daftar berkas</translation>
     </message>
     <message>
+      <source>GEO adjustment</source>
+      <translation>Penyesuaian GEO</translation>
+    </message>
+    <message>
       <source>Maintenance</source>
       <translation>Perbaikan &amp; Pemeliharaan</translation>
+    </message>
+    <message>
+      <source>Update information</source>
+      <translation>Perbarui informasi</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -3368,16 +3396,16 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
+      <source>Clean cache</source>
+      <translation>Bersihkan cache</translation>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>Kosong...</translation>
     </message>
     <message>
       <source>Assigned operator</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Clean cache</source>
-      <translation>Bersihkan cache</translation>
     </message>
     <message>
       <source>Home</source>
@@ -3436,12 +3464,12 @@
       <translation>Daftar percakapan</translation>
     </message>
     <message>
-      <source>Online visitors</source>
-      <translation>Pengunjung online</translation>
-    </message>
-    <message>
       <source>Extra modules</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation>Pengunjung online</translation>
     </message>
     <message>
       <source>Account</source>
