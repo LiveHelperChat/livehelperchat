@@ -56,7 +56,11 @@
 				    <?php if ($currentUser->hasAccessTo('lhuser','userlist')) : ?>
 				    <li><a href="<?php echo erLhcoreClassDesign::baseurl('user/userlist')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Users');?></a></li>
 				    <?php endif; ?>
-				
+				    
+				    <?php if ($currentUser->hasAccessTo('lhuser','userautologin')) : ?>
+				    <li><a href="<?php echo erLhcoreClassDesign::baseurl('user/autologinconfig')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Auto login settings');?></a></li>
+				    <?php endif; ?>
+				    
 				    <?php if ($currentUser->hasAccessTo('lhuser','grouplist')) : ?>
 				    <li><a href="<?php echo erLhcoreClassDesign::baseurl('user/grouplist')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','List of groups');?></a></li>
 				    <?php endif; ?>
