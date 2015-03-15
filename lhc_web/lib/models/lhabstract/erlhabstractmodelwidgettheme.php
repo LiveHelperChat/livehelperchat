@@ -115,7 +115,8 @@ class erLhAbstractModelWidgetTheme {
 			$response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('theme.edit.store_'.$attr,array(
 					'theme' => & $this, 
 					'path_attr' => $attr.'_path', 
-					'name' => $this->$attr,					
+					'name' => $this->$attr,
+			        'name_attr' => $attr,				
 					'file_path' => $this->{$attr.'_path'} . $this->$attr));
 			
 		} else {
