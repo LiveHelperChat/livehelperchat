@@ -36,7 +36,23 @@ if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_p
 try {
 	$chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
 	if ($chat->hash == $Params['user_parameters']['hash'] && erLhcoreClassChat::canReopen($chat,true) )
-	{		
+	{	
+	    // Is IP blocked directly?
+	    if (erLhcoreClassModelChatBlockedUser::getCount(array('filter' => array('ip' => erLhcoreClassIPDetect::getIP()))) > 0) {
+	        header('Location: ' . $_SERVER['HTTP_REFERER']);
+		    exit;
+	    }
+	    
+	    /**
+	     * is IP range blocked
+	     * */
+	    $ignorable_ip = erLhcoreClassModelChatConfig::fetch('banned_ip_range')->current_value;
+
+	    if ( $ignorable_ip != '' && erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDetect::getIP(),explode(',',$ignorable_ip))) {
+	        header('Location: ' . $_SERVER['HTTP_REFERER']);
+		    exit;
+	    }	    
+	    
 		if ($chat->status != erLhcoreClassModelChat::STATUS_ACTIVE_CHAT && $chat->status != erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
 			
 			if (erLhcoreClassModelChatConfig::fetch('reopen_as_new')->current_value == 1 || $chat->user_id == 0) {
