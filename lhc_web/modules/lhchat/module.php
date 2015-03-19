@@ -303,8 +303,8 @@ $ViewList['chatcheckstatus'] = array(
 
 $ViewList['getstatusembed'] = array(
     'params' => array(),
-    'uparams' => array('operator','theme','hide_offline','leaveamessage','department','priority'),
-	'multiple_arguments' => array ( 'department' )
+    'uparams' => array('ua','operator','theme','hide_offline','leaveamessage','department','priority'),
+	'multiple_arguments' => array ( 'department','ua' )
 );
 
 $ViewList['startchat'] = array (
