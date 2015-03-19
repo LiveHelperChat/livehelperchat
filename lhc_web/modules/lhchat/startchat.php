@@ -386,6 +386,8 @@ if (isset($_POST['r']))
 	$tpl->set('referer_site',$_POST['r']);
 }
 
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.startchat',array('tpl' => $tpl, 'params' => & $Params));
+
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'userchat';
 $Result['show_switch_language'] = true;

@@ -445,6 +445,7 @@ if (isset($_POST['r']))
 	$tpl->set('referer_site',$_POST['r']);
 }
 
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.readoperatormessage',array('tpl' => $tpl, 'params' => & $Params));
 
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'widget';

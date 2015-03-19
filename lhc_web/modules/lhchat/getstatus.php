@@ -79,6 +79,13 @@ if (is_array($Params['user_parameters_unordered']['department'])){
 	$tpl->set('department_array',false);
 }
 
+// Pass user arguments
+if (is_array($Params['user_parameters_unordered']['ua'])){
+	$tpl->set('uarguments',implode('/', $Params['user_parameters_unordered']['ua']));
+} else {
+	$tpl->set('uarguments',false);
+}
+
 $tpl->set('check_operator_messages',$Params['user_parameters_unordered']['check_operator_messages']);
 $tpl->set('top_pos',(!is_null($Params['user_parameters_unordered']['top']) && (int)$Params['user_parameters_unordered']['top'] >= 0) ? (int)$Params['user_parameters_unordered']['top'] : 350);
 $tpl->set('units',key_exists((string)$Params['user_parameters_unordered']['units'], $validUnits) ? $validUnits[(string)$Params['user_parameters_unordered']['units']] : 'px');

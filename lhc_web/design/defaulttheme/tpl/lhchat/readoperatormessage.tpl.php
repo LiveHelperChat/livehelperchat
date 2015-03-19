@@ -49,21 +49,15 @@ if ($visitor->requires_username == 1 || $visitor->requires_email == 1 || $visito
 	<?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/department.tpl.php'));?>
 <?php endif;?>
 
-<textarea class="form-control form-group <?php if ($hasExtraField !== true) : ?>btop-reset btrad-reset mb0<?php endif;?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Type your message here and hit enter to send...');?>" id="id_Question" name="Question"><?php echo htmlspecialchars($input_data->question);?></textarea>
-
-<input type="hidden" value="<?php echo htmlspecialchars($referer);?>" name="URLRefer"/>
-<input type="hidden" value="<?php echo htmlspecialchars($referer_site);?>" name="r"/>
-
-<?php if ($hasExtraField === true) : ?>
-<input type="submit" name="askQuestionAction" id="idaskQuestionAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Send');?>" class="btn btn-default btn-sm"/>
-<?php endif;?>
-
-<?php include(erLhcoreClassDesign::designtpl('lhchat/part/readoperatormessage_button_multiinclude.tpl.php'));?>
+<?php include(erLhcoreClassDesign::designtpl('lhchat/part/user_timezone.tpl.php'));?>
 
 <input type="hidden" name="askQuestion" value="1" />
 <input type="hidden" value="<?php echo htmlspecialchars($input_data->operator);?>" name="operator" />
 
-<?php include(erLhcoreClassDesign::designtpl('lhchat/part/user_timezone.tpl.php'));?>
+<input type="hidden" value="<?php echo htmlspecialchars($referer);?>" name="URLRefer"/>
+<input type="hidden" value="<?php echo htmlspecialchars($referer_site);?>" name="r"/>
+
+<?php include(erLhcoreClassDesign::designtpl('lhchat/part/readoperatormessage_form_bottom.tpl.php'));?>
 
 </form>
 

@@ -96,6 +96,8 @@
 	    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/chatbox_embed.tpl.php'));?>
 	    
 	    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/browse_offers_embed.tpl.php'));?>
+	    
+	    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/embed_multiinclude.tpl.php'));?>
 		
   	  </div>
 		</div>	

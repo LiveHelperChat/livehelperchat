@@ -425,6 +425,8 @@ if (isset($_POST['r']))
     $tpl->set('referer_site',$_POST['r']);
 }
 
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chatwidget',array('tpl' => $tpl, 'params' => & $Params));
+
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'widget';
 $Result['dynamic_height'] = true;
