@@ -6870,4 +6870,47 @@
       <translation>Behörigheter lämnades inte</translation>
     </message>
   </context>
+  <context>
+    <name>users/autologin</name>
+    <message>
+      <source>Auto login settings</source>
+      <translation>Inställningar för automatisk inloggning</translation>
+    </message>
+    <message>
+      <source>This module can be used if you are generating autologin link. See site for code examples</source>
+      <translation>Denna modul kan användas om du genererar en länk för automatisk inloggning. Se hemsidan för kodexempel</translation>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation>Aktiverad</translation>
+    </message>
+    <message>
+      <source>Secret hash used for authentification token generation, min 10 characters</source>
+      <translation>Hemlig hashfunktion som ska användas för autentisering av skapandet av nyckeln, 10 tecken är minimum</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Inställningarna uppdaterades</translation>
+    </message>
+    <message>
+      <source>Autologin hash has expired</source>
+      <translation>Hashfunktionen för den automatiska inloggningen har utgått</translation>
+    </message>
+    <message>
+      <source>Could not find a user</source>
+      <translation>Kunde inte hitta en användare</translation>
+    </message>
+    <message>
+      <source>Could not find a provided user</source>
+      <translation>Kunde inte hitta en försedd användare</translation>
+    </message>
+    <message>
+      <source>Invalid autologin hash</source>
+      <translation>Ogiltig hashfunktion för automatisk inloggning</translation>
+    </message>
+    <message>
+      <source>Auto login module is not enabled</source>
+      <translation>Modulen för den automatiska inloggningen är inte aktiverad</translation>
+    </message>
+  </context>
 </TS>
