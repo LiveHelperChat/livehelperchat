@@ -527,7 +527,7 @@ class erLhcoreClassTemplate {
 	{
 		@extract($this->vars,EXTR_REFS);        // Extract the vars to local namespace
         ob_start();                             // Start output buffering
-        $result = @include($file);               // Include the file
+        $result = include($file);               // Include the file
         if ($result === false) {                 // Make sure file was included succesfuly
             throw new Exception("File inclusion failed"); // Throw exception if failed, so tpl compiler will recompile template
         }

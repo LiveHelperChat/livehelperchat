@@ -6,15 +6,16 @@
 
 <form action="<?php echo erLhcoreClassDesign::baseurl('permission/newrole')?>" method="post">
 
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newrole','Title');?></label>
-    <input class="inputfield" type="text" name="Name"  value="" />
+    <div class="form-group">
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newrole','Title');?></label>
+        <input class="form-control" type="text" name="Name"  value="" />
+    </div>
 
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
-	<fieldset>
-	<legend><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newrole','Policy list');?></legend>
+	<h2><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newrole','Policy list');?></h2>
 
-	<table class="lentele" cellpadding="0" cellspacing="0">
+	<table class="table" cellpadding="0" cellspacing="0">
 	<thead>
 	<tr>
 	     <th>&nbsp;</th>
@@ -23,14 +24,12 @@
 	</tr>
 	</thead>
 	</table>
-	<input type="submit" class="small button" name="New_policy" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newrole','New policy');?>"/>
+	<input type="submit" class="btn btn-default" name="New_policy" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newrole','New policy');?>"/>
 	<br /><br />
 
-
-	</fieldset>
-
-	<ul class="button-group radius">
-	<li><input type="submit" class="small button" name="Save_role" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newrole','Save');?>"/></li>
-	<li><input type="submit" class="small button" name="Cancel_role" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newrole','Cancel');?>"/></li>
-	</ul>
+	<div class="btn-group" role="group" aria-label="...">
+	   <input type="submit" class="btn btn-default" name="Save_role" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newrole','Save');?>"/>
+	   <input type="submit" class="btn btn-default" name="Cancel_role" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newrole','Cancel');?>"/>
+	</div>
+	
 </form>
