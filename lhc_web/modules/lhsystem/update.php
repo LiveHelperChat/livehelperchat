@@ -9,7 +9,7 @@ if ((string)$Params['user_parameters_unordered']['action'] == 'statusdb' || (str
 	
 	$tpl = erLhcoreClassTemplate::getInstance( 'lhsystem/update/statusdb.tpl.php');
 	
-	$contentData = erLhcoreClassModelChatOnlineUser::executeRequest('https://raw.githubusercontent.com/LiveHelperChat/livehelperchat/remdex_dev/lhc_web/doc/update_db/structure.json');
+	$contentData = erLhcoreClassModelChatOnlineUser::executeRequest('https://raw.githubusercontent.com/LiveHelperChat/livehelperchat/master/lhc_web/doc/update_db/structure.json');
 	
 	if ((string)$Params['user_parameters_unordered']['action'] == 'statusdbdoupdate'){	
 		erLhcoreClassUpdate::doTablesUpdate(json_decode($contentData,true));
