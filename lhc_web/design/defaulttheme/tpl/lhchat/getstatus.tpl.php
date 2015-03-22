@@ -701,6 +701,7 @@ var lh_inst  = {
     finishScreenSharing : function(){
     	this.removeById('lhc_status_mirror');
 		this.removeCookieAttr('shr');
+		this.removeCookieAttr('shrm');
 		this.isSharing = false;
 		
 		var vid = this.cookieDataPers.vid;       
@@ -710,19 +711,21 @@ var lh_inst  = {
         var tzOffset = this.getTzOffset(); 
         s.setAttribute('id','lhc_finish_shr');
         s.setAttribute('type','text/javascript');
-        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+lh_inst.lang+'/cobrowse/finishsession'+lh_inst.getAppendCookieArguments());
+        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+lh_inst.lang+'/cobrowse/finishsession/(sharemode)/'+lh_inst.sharemode+lh_inst.getAppendCookieArguments());
         th.appendChild(s);
         this.cobrowser = null;
     },
     
     cobrowse : null,
     
-    startCoBrowse : function(chatHash){
+    startCoBrowse : function(chatHash,sharemode){
     	var inst = this;    	
     	if (this.isSharing == false && (this.cookieData.shr || <?php echo (int)erLhcoreClassModelChatConfig::fetch('sharing_auto_allow')->current_value?> == 1 || confirm(<?php echo json_encode(htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Allow operator to see your page content?'),ENT_QUOTES))?>)))
     	{
     		this.sharehash = chatHash || this.cookieData.hash || this.cookieData.shr;    		
+    		this.sharemode = sharemode || this.cookieData.shrm || 'chat';
     		this.addCookieAttribute('shr',this.sharehash);
+    		this.addCookieAttribute('shrm',this.sharemode);
     		
 	    	if (typeof TreeMirror == "undefined") {    					   		
 			   		var th = document.getElementsByTagName('head')[0];
@@ -731,12 +734,13 @@ var lh_inst  = {
 			        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::designJS('js/cobrowse/compiled/cobrowse.visitor.min.js');?>');
 			        th.appendChild(s);
 			        s.onreadystatechange = s.onload = function(){
-			        	inst.startCoBrowse(inst.sharehash);
+			        	inst.startCoBrowse(inst.sharehash,this.sharemode);
 			        };		        
 	    	} else {
 		    	try {	 
 		    		this.isSharing = true;
 		    		this.addCookieAttribute('shr',this.sharehash);
+		    		this.addCookieAttribute('shrm',this.sharemode);
 		    		<?php include(erLhcoreClassDesign::designtpl('lhcobrowse/userinit.tpl.php')); ?>
 			   } catch(err) {
 			  		console.log(err);
@@ -842,7 +846,7 @@ var lh_inst  = {
     	} else if (action == 'lhc_screenshot') {
     		lh_inst.makeScreenshot();
     	} else if (action == 'lhc_cobrowse') {
-    		lh_inst.startCoBrowse(e.data.split(':')[1]);
+    		lh_inst.startCoBrowse(e.data.split(':')[1],'chat');    	
     	} else if (action == 'lhc_chat_redirect') {
     		document.location = e.data.split(':')[1].replace(new RegExp('__SPLIT__','g'),':');
     	} else if (action == 'lhc_cobrowse_cmd') {

@@ -26,7 +26,17 @@ if (erLhcoreClassModelChatConfig::fetch('track_is_online')->current_value) {
 	if ( $ignorable_ip == '' || !erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDetect::getIP(),explode(',',$ignorable_ip))) {
 		if ((string)$Params['user_parameters_unordered']['vid'] != '') {
 			$db = ezcDbInstance::get();				
-			$stmt = $db->prepare('UPDATE lh_chat_online_user SET last_check_time = :time WHERE vid = :vid');
+
+			/**
+			 * Perhaps there is some pending operations for online visitor
+			 * */
+			$stmt = $db->prepare('SELECT operation FROM lh_chat_online_user WHERE vid = :vid');			
+			$stmt->bindValue(':vid',(string)$Params['user_parameters_unordered']['vid']);
+		    $stmt->execute();
+			$operation = $stmt->fetch(PDO::FETCH_COLUMN);
+			echo $operation;
+			
+			$stmt = $db->prepare("UPDATE lh_chat_online_user SET last_check_time = :time, operation = '' WHERE vid = :vid");
 			$stmt->bindValue(':time',time(),PDO::PARAM_INT);
 			$stmt->bindValue(':vid',(string)$Params['user_parameters_unordered']['vid']);
 			$stmt->execute();

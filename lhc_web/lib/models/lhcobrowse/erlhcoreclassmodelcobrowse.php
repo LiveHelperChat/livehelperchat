@@ -7,6 +7,7 @@ class erLhcoreClassModelCoBrowse {
 		return array(
 				'id'         		=> $this->id,
 				'chat_id'   	 	=> $this->chat_id,
+				'online_user_id'   	 	    => $this->online_user_id,
 				'mtime'     	 	=> $this->mtime,
 				'url'    			=> $this->url,
 				'modifications'     => $this->modifications,
@@ -65,6 +66,18 @@ class erLhcoreClassModelCoBrowse {
 					return $this->finished == 0 && $this->mtime > time()-3600;
 				break;
 
+			case 'online_user':
+			    $this->online_user = false;
+			    if ($this->online_user_id > 0) {
+			        try {
+			            $this->online_user = erLhcoreClassModelChatOnlineUser::fetch($this->online_user_id);
+			        } catch (Exception $e) {
+			            $this->online_user = false;
+			        }
+			    }
+			    return $this->online_user;
+			    break;
+				    
 			case 'chat':
 					$this->chat = erLhcoreClassModelChat::fetch($this->chat_id);
 					return $this->chat;
@@ -151,11 +164,12 @@ class erLhcoreClassModelCoBrowse {
 	}
 
 	public $id = NULL;
-	public $chat_id = NULL;
 	public $mtime = NULL;
+	public $chat_id = 0;
 	public $url = '';
 	public $modifications = '';	
 	public $initialize = '';	
+	public $online_user_id = 0;	
 	public $finished = 0;	
 	public $w = 0;	
 	public $wh = 0;	

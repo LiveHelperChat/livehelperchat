@@ -9,8 +9,10 @@ var LHCCoBrowserOperator = (function() {
 
 		this.initialize = params['initialize'];
 		this.base = params['base'];
-		this.chat_id = params['chat_id'];
-		this.chat_hash = params['chat_hash'];
+		this.chat_id = params['chat_id'] ? params['chat_id'] : params['online_user_id'];
+		this.chat_hash = params['chat_hash'] ? params['chat_hash'] : params['online_user_hash'];
+		this.mode_co_browse =  params['mode'] ? '/(cobrowsemode)/'+params['mode'] : '/(cobrowsemode)/chat';
+		this.mode_co_browse_internal =  params['mode'] ? params['mode'] : 'chat';		
 		this.node_js_settings = params['nodejssettings'];
 		this.disablejs = params['disablejs'];
 		this.refreshTimeout = null;
@@ -183,7 +185,7 @@ var LHCCoBrowserOperator = (function() {
 						node.setAttribute('lhc-css','true');	
 						// Perhaps href was already set for particular node
 						if (_this.httpsmode == true && _this.sitehttps == false && node.getAttribute('href') != "") {
-							node.setAttribute('href',_this.lhcbase +'/'+_this.chat_id+'/?base='+encodeURIComponent(_this.base)+'&css='+encodeURIComponent(node.getAttribute('href')));						
+							node.setAttribute('href',_this.lhcbase+'/'+_this.chat_id+_this.mode_co_browse+'/?base='+encodeURIComponent(_this.base)+'&css='+encodeURIComponent(node.getAttribute('href')));						
 						}
 					}
 				}
@@ -191,7 +193,7 @@ var LHCCoBrowserOperator = (function() {
 				if (node.nodeName == 'LINK' && attr == 'href') {					
 					// We have to proxy CSS request because LHC is in HTTPS and user site in HTTP
 					if (_this.httpsmode == true && _this.sitehttps == false && node.getAttribute('lhc-css') !== null) {
-						node.setAttribute('href',_this.lhcbase +'/'+_this.chat_id+'/?base='+encodeURIComponent(_this.base)+'&css='+encodeURIComponent(val));
+						node.setAttribute('href',_this.lhcbase +'/'+_this.chat_id+_this.mode_co_browse+'/?base='+encodeURIComponent(_this.base)+'&css='+encodeURIComponent(val));
 						return true;
 					}					
 				}
@@ -354,7 +356,12 @@ var LHCCoBrowserOperator = (function() {
 	LHCCoBrowserOperator.prototype.sendData = function(command)
 	{
 		if (this.isNodeConnected === false) {
-			lhinst.addRemoteCommand(this.chat_id,command);	
+			
+			if (this.mode_co_browse_internal == 'onlineuser'){
+				return lhinst.addExecutionCommand(this.chat_id,'lhc_cobrowse_multi_command__'+command);
+			} else {		
+				lhinst.addRemoteCommand(this.chat_id,command);
+			}	
 		} else {
 			this.socket.emit('remotecommand', {
 				chat_id : this.chat_id + '_' + this.chat_hash,
@@ -453,11 +460,11 @@ var LHCCoBrowserOperator = (function() {
 
 	LHCCoBrowserOperator.prototype.startChangesMonitoring = function() {
 		if (this.isNodeConnected === false) {
-			var _this = this;
+			var _this = this; 
 			this.isInitialized = true;
 			$.getJSON(
 					WWW_DIR_JAVASCRIPT + 'cobrowse/checkmirrorchanges/'
-							+ _this.chat_id, function(data) {
+							+ _this.chat_id + _this.mode_co_browse, function(data) {
 
 						if (typeof data.empty == "undefined") {
 							_this.handleMessage(data);

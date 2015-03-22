@@ -1,4 +1,11 @@
-2.26v
+2.28v
+
+1. Internal changes regarding co-browsing. Support for co-browsing session based on online visitor. These changes were done to allow plugin initiate co-browsing session without a chat.
+2. NodeJS-Helper plugin update, chat became offline if no actions were processed for online timeout period. This happened only if NodeJS with publish notifications were used.
+
+execute doc/update_db/update_105.sql for update
+
+2.27v
 
 1. Autologin module. Read site how to use it. It's simplifies integration with third party CMS. By default it's turned off.
 Example also available at doc/autologin/autologin.php

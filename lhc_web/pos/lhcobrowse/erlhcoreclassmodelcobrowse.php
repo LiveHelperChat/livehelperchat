@@ -34,6 +34,11 @@ $def->properties['modifications']->columnName   = 'modifications';
 $def->properties['modifications']->propertyName = 'modifications';
 $def->properties['modifications']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['online_user_id'] = new ezcPersistentObjectProperty();
+$def->properties['online_user_id']->columnName   = 'online_user_id';
+$def->properties['online_user_id']->propertyName = 'online_user_id';
+$def->properties['online_user_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['finished'] = new ezcPersistentObjectProperty();
 $def->properties['finished']->columnName   = 'finished';
 $def->properties['finished']->propertyName = 'finished';

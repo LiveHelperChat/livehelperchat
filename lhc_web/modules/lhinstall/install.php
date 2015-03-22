@@ -429,6 +429,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_cobrowse` (
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
         	   `chat_id` int(11) NOT NULL,
+        	   `online_user_id` int(11) NOT NULL,
         	   `mtime` int(11) NOT NULL,
         	   `url` varchar(250) NOT NULL,
         	   `initialize` longtext NOT NULL,
@@ -439,7 +440,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
 			   `x` int NOT NULL,
 			   `y` int NOT NULL,        	   		
         	   PRIMARY KEY (`id`),
-        	   KEY `chat_id` (`chat_id`)
+        	   KEY `chat_id` (`chat_id`),
+        	   KEY `online_user_id` (`online_user_id`),
         	   ) DEFAULT CHARSET=utf8");
         	   
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_speech_language` (
@@ -908,7 +910,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   	  `requires_phone` int(11) NOT NULL,
         	   	  `screenshot_id` int(11) NOT NULL,
         	   	  `identifier` varchar(50) NOT NULL,
-        	   	  `operation` varchar(200) NOT NULL,
+        	   	  `operation` text NOT NULL,
         	   	  `online_attr` varchar(250) NOT NULL,
                   PRIMARY KEY (`id`),
                   KEY `vid` (`vid`),

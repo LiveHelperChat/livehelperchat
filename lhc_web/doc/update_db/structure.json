@@ -1186,6 +1186,14 @@
                 "extra": ""
             },
             {
+                "field": "online_user_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "mtime",
                 "type": "int(11)",
                 "null": "NO",
@@ -2241,7 +2249,7 @@
             },
             {
                 "field": "operation",
-                "type": "varchar(200)",
+                "type": "text",
                 "null": "NO",
                 "key": "",
                 "default": null,
