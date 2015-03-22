@@ -441,7 +441,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 			   `y` int NOT NULL,        	   		
         	   PRIMARY KEY (`id`),
         	   KEY `chat_id` (`chat_id`),
-        	   KEY `online_user_id` (`online_user_id`),
+        	   KEY `online_user_id` (`online_user_id`)
         	   ) DEFAULT CHARSET=utf8");
         	   
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_speech_language` (

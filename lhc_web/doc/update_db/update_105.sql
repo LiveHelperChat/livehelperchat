@@ -5,3 +5,6 @@ COMMENT='';
 ALTER TABLE `lh_chat_online_user`
 CHANGE `operation` `operation` text COLLATE 'utf8_general_ci' NOT NULL AFTER `reopen_chat`,
 COMMENT='';
+
+ALTER TABLE `lh_cobrowse`
+ADD INDEX `online_user_id` (`online_user_id`);

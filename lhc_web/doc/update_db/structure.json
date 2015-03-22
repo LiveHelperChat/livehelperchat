@@ -4750,6 +4750,10 @@
     	"lh_users" : {
     		"new" : {"rec_per_req" : "ALTER TABLE `lh_users` ADD INDEX `rec_per_req` (`rec_per_req`);"},
     		"old" : []
+    	},
+    	"lh_cobrowse" : {
+    		"new" : {"online_user_id" : "ALTER TABLE `lh_cobrowse` ADD INDEX `online_user_id` (`online_user_id`);"},
+    		"old" : []
     	}
     },
     "tables_create": {
