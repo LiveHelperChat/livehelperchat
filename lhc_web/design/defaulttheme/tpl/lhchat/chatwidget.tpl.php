@@ -1,3 +1,5 @@
+<?php include(erLhcoreClassDesign::designtpl('lhchat/chatwidget/chatwidget_pre_multiinclude.tpl.php'));?>
+
 <?php if ($disabled_department === true) : ?>
 
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Department is disabled');?></h1>
@@ -164,3 +166,5 @@ jQuery('#id_Question').bind('keydown', 'return', function (evt){
 <?php endif;?>
 
 <?php endif;?>
+
+<?php include(erLhcoreClassDesign::designtpl('lhchat/chatwidget/chatwidget_post_multiinclude.tpl.php'));?>
