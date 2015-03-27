@@ -7,7 +7,7 @@
 <body>
 
 
-<div class="modal-dialog modal-lg">
+<div class="modal-dialog modal-lg" id="user-popup-window">
 	<div class="modal-content">
 		<div class="modal-header">
 		
@@ -43,6 +43,9 @@
 		$debug = ezcDebug::getInstance();
 		echo $debug->generateOutput();
 } ?>
+
+<?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/dynamic_height.tpl.php'));?>
+
 
 </body>
 </html>
