@@ -6,7 +6,7 @@ if (isset($Result['dynamic_height'])) : ?>
 <script>
 $( window ).load(function() {
 	if (window.opener && $('#user-popup-window').size() > 0) {
-		var windowHeight = $('#user-popup-window').height()+90;		  
+		var windowHeight = $('#user-popup-window').height()+90<?php if (isset($Result['dynamic_height_adjust'])) {echo $Result['dynamic_height_adjust'];}?>;		  
 		window.resizeBy(0, windowHeight - $( window ).height());
 	}
 });

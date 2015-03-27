@@ -392,6 +392,7 @@ $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'userchat';
 $Result['show_switch_language'] = true;
 $Result['dynamic_height'] = true;
+$Result['dynamic_height_adjust'] = '-20';
 
 if (!isset($Result['path'])) {
     $Result['path'] = array(array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Fill in the form to start a chat')));
