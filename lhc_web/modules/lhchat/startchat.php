@@ -386,12 +386,16 @@ if (isset($_POST['r']))
 	$tpl->set('referer_site',$_POST['r']);
 }
 
-erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.startchat',array('tpl' => $tpl, 'params' => & $Params));
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.startchat',array('result' => & $Result,'tpl' => $tpl, 'params' => & $Params));
 
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'userchat';
 $Result['show_switch_language'] = true;
+$Result['dynamic_height'] = true;
+$Result['dynamic_height_adjust'] = '-20';
 
-$Result['path'] = array(array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Fill in the form to start a chat')))
+if (!isset($Result['path'])) {
+    $Result['path'] = array(array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Fill in the form to start a chat')));
+}
 
 ?>

@@ -95,14 +95,13 @@ class erLhcoreClassTranslate {
      * @return void || Exception 
      * */
     public static function translateChatMessages(erLhcoreClassModelChat $chat) {
-
-        $translationConfig = erLhcoreClassModelChatConfig::fetch('translation_data');
         
         // Allow callback provide translation config first
         $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translation.get_config', array());        
         if ($response !== false && isset($response['status']) && $response['status'] == erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
             $translationData = $response['data'];                    
-        } else {            
+        } else { 
+            $translationConfig = erLhcoreClassModelChatConfig::fetch('translation_data');
             $translationData = $translationConfig->data;
         }
                 
@@ -329,12 +328,12 @@ class erLhcoreClassTranslate {
      * */
 	public static function detectLanguage($text)
 	{	   
-	    $translationConfig = erLhcoreClassModelChatConfig::fetch('translation_data');
 	    
 	    $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translation.get_config', array());
 	    if ($response !== false && isset($response['status']) && $response['status'] == erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
 	        $translationData = $response['data'];
-	    } else {	        
+	    } else {	  
+	        $translationConfig = erLhcoreClassModelChatConfig::fetch('translation_data');
 	        $translationData = $translationConfig->data;
 	    }
 	    	    
@@ -365,12 +364,12 @@ class erLhcoreClassTranslate {
 	 * */
 	public static function translateTo($text, $translateFrom = false, $translateTo)
 	{	    	    
-	    $translationConfig = erLhcoreClassModelChatConfig::fetch('translation_data');
 	     
 	    $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translation.get_config', array());
 	    if ($response !== false && isset($response['status']) && $response['status'] == erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
 	        $translationData = $response['data'];
 	    } else {
+	        $translationConfig = erLhcoreClassModelChatConfig::fetch('translation_data');
 	        $translationData = $translationConfig->data;
 	    }
 	    
