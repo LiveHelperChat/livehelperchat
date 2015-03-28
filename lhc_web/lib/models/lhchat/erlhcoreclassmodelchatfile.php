@@ -106,7 +106,6 @@ class erLhcoreClassModelChatFile {
    		}
    }
 
-
    public function saveThis() {
    		erLhcoreClassChat::getSession()->saveOrUpdate($this);
    }
