@@ -43,7 +43,7 @@
     </message>
     <message>
       <source>Play sound on invitation to chat.</source>
-      <translation>Görüşmeye davette müzik oynat</translation>
+      <translation>Görüşmeye davette ses oynat</translation>
     </message>
     <message>
       <source>Show users option to switch language at widget</source>

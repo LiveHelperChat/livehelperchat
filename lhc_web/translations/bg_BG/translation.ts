@@ -332,7 +332,7 @@
     </message>
     <message>
       <source>Main widget text</source>
-      <translation type="unfinished"/>
+      <translation>Текст на основната притурка</translation>
     </message>
     <message>
       <source>Custom CSS</source>

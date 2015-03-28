@@ -67,7 +67,7 @@
     </message>
     <message>
       <source>socket.io path, optional</source>
-      <translation type="unfinished"/>
+      <translation>مسیر socket.io ، اختیاری</translation>
     </message>
     <message>
       <source>NodeJS support enabled</source>
@@ -332,7 +332,7 @@
     </message>
     <message>
       <source>Main widget text</source>
-      <translation type="unfinished"/>
+      <translation>ابزارک نوشتار اصلی</translation>
     </message>
     <message>
       <source>Custom CSS</source>
@@ -456,23 +456,23 @@
     </message>
     <message>
       <source>Text then user starts chat based on proactive invitation</source>
-      <translation type="unfinished"/>
+      <translation>نوشتار سپس شروع گفتگوی کاربر بر اساس دعوت فعال</translation>
     </message>
     <message>
       <source>Text then operator closes a chat</source>
-      <translation type="unfinished"/>
+      <translation>نوشتار سپس راهبر یک گفتگو را می بندد</translation>
     </message>
     <message>
       <source>Text then user starts a chat and is waiting for operator to join a chat</source>
-      <translation type="unfinished"/>
+      <translation>نوشتار سپس کاربر یک گفتگو را شروع می‌کند و برای پیوستن یک راهبر به گفتگو منتظر می‌ماند</translation>
     </message>
     <message>
       <source>Text then user starts a chat but department is offline</source>
-      <translation type="unfinished"/>
+      <translation>متن سپس کاربر یک گفتگو را شروع می کند اما بخش آفلاین است</translation>
     </message>
     <message>
       <source>Leave a message form text</source>
-      <translation type="unfinished"/>
+      <translation>گذاردن یک نوشتار فرم پیام</translation>
     </message>
     <message>
       <source>Need help border color</source>
@@ -1863,7 +1863,7 @@
     </message>
     <message>
       <source>Detect language</source>
-      <translation type="unfinished"/>
+      <translation>شناسایی زبان</translation>
     </message>
     <message>
       <source>Translate</source>
@@ -3949,7 +3949,7 @@
     </message>
     <message>
       <source>Please enter a valid back office sync interval!</source>
-      <translation type="unfinished"/>
+      <translation>لطفا یک فاصله همگام درست بخش مدیریت وارد کنید!</translation>
     </message>
     <message>
       <source>Please enter a valid new messages sync interval!</source>
@@ -3976,19 +3976,19 @@
     </message>
     <message>
       <source>Thumbs up</source>
-      <translation type="unfinished"/>
+      <translation>شست بالا</translation>
     </message>
     <message>
       <source>Number of Thumbs Up</source>
-      <translation type="unfinished"/>
+      <translation>تعداد شست بالا</translation>
     </message>
     <message>
       <source>Thumbs down</source>
-      <translation type="unfinished"/>
+      <translation>شست پایین</translation>
     </message>
     <message>
       <source>Number of Thumbs Down</source>
-      <translation type="unfinished"/>
+      <translation>تعداد شست پایین</translation>
     </message>
     <message>
       <source>Country</source>
@@ -4056,7 +4056,7 @@
     </message>
     <message>
       <source>Visitors initiated</source>
-      <translation type="unfinished"/>
+      <translation>بازدید کنندگان وارد شده</translation>
     </message>
     <message>
       <source>Proactive</source>
@@ -4064,7 +4064,7 @@
     </message>
     <message>
       <source>Proactive chats number vs visitors initiated</source>
-      <translation type="unfinished"/>
+      <translation>تعداد گفتگوهای فعال در مقابل بازدیدکنندگان وارد شده</translation>
     </message>
     <message>
       <source>Visitors</source>
@@ -4567,15 +4567,15 @@
     </message>
     <message>
       <source>On highlight scroll user window location to match my</source>
-      <translation type="unfinished"/>
+      <translation>در برجسته، جایگاه پنجره کاربر را اسکرول کن مانند من</translation>
     </message>
     <message>
       <source>Follow user scroll position</source>
-      <translation type="unfinished"/>
+      <translation>دنبال کردن اسکرول کاربر</translation>
     </message>
     <message>
       <source>On click navigate user browser</source>
-      <translation type="unfinished"/>
+      <translation>در کلیک، مزوزگر کاربر را هدایت کن</translation>
     </message>
     <message>
       <source>Click blue eye at the top to request screen share</source>
@@ -5095,7 +5095,7 @@
     </message>
     <message>
       <source>Intro</source>
-      <translation type="unfinished"/>
+      <translation>معرفی</translation>
     </message>
     <message>
       <source>Time</source>
@@ -6739,7 +6739,7 @@
     </message>
     <message>
       <source>has accepted a chat!</source>
-      <translation type="unfinished"/>
+      <translation>گفتگو را پذیرفت!</translation>
     </message>
   </context>
   <context>
@@ -6800,15 +6800,15 @@
     <name>chat/voteaction</name>
     <message>
       <source>Thumbs up</source>
-      <translation type="unfinished"/>
+      <translation>شست بالا</translation>
     </message>
     <message>
       <source>Thumbs down</source>
-      <translation type="unfinished"/>
+      <translation>شست پایین</translation>
     </message>
     <message>
       <source>Removed thumb vote</source>
-      <translation type="unfinished"/>
+      <translation>رای شستی حذف شده</translation>
     </message>
   </context>
   <context>
@@ -6874,43 +6874,43 @@
     <name>users/autologin</name>
     <message>
       <source>Auto login settings</source>
-      <translation type="unfinished"/>
+      <translation>پیکربندی ورود خودکار</translation>
     </message>
     <message>
       <source>This module can be used if you are generating autologin link. See site for code examples</source>
-      <translation type="unfinished"/>
+      <translation>اگر لینک ورود خودکار را تولید کردید، این ماژول می تواند استفاده شود. برای کد‌های مثال سایت را ببیند</translation>
     </message>
     <message>
       <source>Enabled</source>
-      <translation type="unfinished"/>
+      <translation>فعال شده</translation>
     </message>
     <message>
       <source>Secret hash used for authentification token generation, min 10 characters</source>
-      <translation type="unfinished"/>
+      <translation>هش راز برای تصدیق تولید توکن، حداقل 10 کارکتر</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>پیکربندی به روز شد</translation>
     </message>
     <message>
       <source>Autologin hash has expired</source>
-      <translation type="unfinished"/>
+      <translation>ورود خودکار منقضی شد</translation>
     </message>
     <message>
       <source>Could not find a user</source>
-      <translation type="unfinished"/>
+      <translation>نمی توان یک کاربر یافت</translation>
     </message>
     <message>
       <source>Could not find a provided user</source>
-      <translation type="unfinished"/>
+      <translation>نمی توان کاربر ارائه شده را یافت</translation>
     </message>
     <message>
       <source>Invalid autologin hash</source>
-      <translation type="unfinished"/>
+      <translation>هش ورود خودکار نادرست</translation>
     </message>
     <message>
       <source>Auto login module is not enabled</source>
-      <translation type="unfinished"/>
+      <translation>ماژول ورود خودکار فعال نیست</translation>
     </message>
   </context>
 </TS>

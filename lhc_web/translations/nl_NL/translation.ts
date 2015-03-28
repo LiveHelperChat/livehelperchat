@@ -203,7 +203,7 @@
     </message>
     <message>
       <source>Which ip should not be allowed to chat</source>
-      <translation type="unfinished"/>
+      <translation>Welk IP adres mag niet chatten?</translation>
     </message>
     <message>
       <source>Automatic chats purging. 0 - disabled, n &gt; 0 time in minutes before chat is automatically deleted</source>
@@ -312,7 +312,7 @@
     <name>abstract/widgettheme</name>
     <message>
       <source>Widget copyright link</source>
-      <translation type="unfinished"/>
+      <translation>Widget copyright link</translation>
     </message>
     <message>
       <source>Download theme</source>
@@ -356,7 +356,7 @@
     </message>
     <message>
       <source>Widget border width (px)</source>
-      <translation type="unfinished"/>
+      <translation>Widget grens (in pixels)</translation>
     </message>
     <message>
       <source>Online status text</source>
@@ -400,31 +400,31 @@
     </message>
     <message>
       <source>Show copyright widget logo in left corner</source>
-      <translation type="unfinished"/>
+      <translation>Laat copyright widget logo zien in de linkse hoek</translation>
     </message>
     <message>
       <source>Hide widget close button</source>
-      <translation type="unfinished"/>
+      <translation>Verberg widget sluit knop</translation>
     </message>
     <message>
       <source>Hide popup option</source>
-      <translation type="unfinished"/>
+      <translation>Verberg popup optie</translation>
     </message>
     <message>
       <source>Header height (px)</source>
-      <translation type="unfinished"/>
+      <translation>Header hoogte (px)</translation>
     </message>
     <message>
       <source>Header padding (px)</source>
-      <translation type="unfinished"/>
+      <translation>Header vulling (px)</translation>
     </message>
     <message>
       <source>Site URL</source>
-      <translation type="unfinished"/>
+      <translation>Site link</translation>
     </message>
     <message>
       <source>Text above start chat form fields</source>
-      <translation type="unfinished"/>
+      <translation>Tekst boven het &apos;start chat&apos; veld</translation>
     </message>
     <message>
       <source>Online image</source>
@@ -460,7 +460,7 @@
     </message>
     <message>
       <source>Text then operator closes a chat</source>
-      <translation type="unfinished"/>
+      <translation>Tekst wanneer operator een chat sluit</translation>
     </message>
     <message>
       <source>Text then user starts a chat and is waiting for operator to join a chat</source>
@@ -472,7 +472,7 @@
     </message>
     <message>
       <source>Leave a message form text</source>
-      <translation type="unfinished"/>
+      <translation>&apos;Laat een bericht achter&apos; tekst</translation>
     </message>
     <message>
       <source>Need help border color</source>
@@ -504,19 +504,19 @@
     </message>
     <message>
       <source>Minimize image</source>
-      <translation type="unfinished"/>
+      <translation>Minimaliseer foto</translation>
     </message>
     <message>
       <source>Restore image</source>
-      <translation type="unfinished"/>
+      <translation>Herstel foto</translation>
     </message>
     <message>
       <source>Close image</source>
-      <translation type="unfinished"/>
+      <translation>Sluit foto</translation>
     </message>
     <message>
       <source>Popup image</source>
-      <translation type="unfinished"/>
+      <translation>Popup foto</translation>
     </message>
     <message>
       <source>Widget themes</source>
@@ -555,11 +555,11 @@
     </message>
     <message>
       <source>Allow operator to see your page content?</source>
-      <translation type="unfinished"/>
+      <translation>Operator toestaan om live mee te kijken?</translation>
     </message>
     <message>
       <source>Screen shared, click to finish</source>
-      <translation type="unfinished"/>
+      <translation>Scherm gedeeld, klik om te voltooiien</translation>
     </message>
   </context>
   <context>
@@ -602,7 +602,7 @@
     </message>
     <message>
       <source>How many times repeat message?</source>
-      <translation type="unfinished"/>
+      <translation>Hoe vaak wilt u het bericht herhalen?</translation>
     </message>
     <message>
       <source>Show visitor this message then wait timeout passes.</source>
@@ -646,7 +646,7 @@
     </message>
     <message>
       <source>Requires phone</source>
-      <translation type="unfinished"/>
+      <translation>Telefoonnummer verplicht</translation>
     </message>
     <message>
       <source>Show random operator profile</source>
@@ -670,7 +670,7 @@
     </message>
     <message>
       <source>Message to returning user</source>
-      <translation type="unfinished"/>
+      <translation>Bericht aan terugkomende bezoekers</translation>
     </message>
     <message>
       <source>Nick which will be used if we cannot determine returning user name</source>
@@ -720,11 +720,11 @@
     </message>
     <message>
       <source>For what domain you are generating embed code?</source>
-      <translation type="unfinished"/>
+      <translation>Voor welk domein genereer je een embed code?</translation>
     </message>
     <message>
       <source>example.com</source>
-      <translation type="unfinished"/>
+      <translation>voorbeeld.nl</translation>
     </message>
     <message>
       <source>Choose prefered http mode</source>
@@ -864,11 +864,11 @@
     </message>
     <message>
       <source>Set default speech recognition language</source>
-      <translation type="unfinished"/>
+      <translation>Standaard taalherkenning</translation>
     </message>
     <message>
       <source>Speech language</source>
-      <translation type="unfinished"/>
+      <translation>Spreektaal</translation>
     </message>
     <message>
       <source>Hide status when offline</source>
@@ -1116,7 +1116,7 @@
     </message>
     <message>
       <source>Choose department</source>
-      <translation type="unfinished"/>
+      <translation>Kies afdeling</translation>
     </message>
   </context>
   <context>
@@ -1466,39 +1466,39 @@
     </message>
     <message>
       <source>Work hours, 24 hours format, 1 - 24, minutes format 0 - 60</source>
-      <translation type="unfinished"/>
+      <translation>Werkuren in 24-uurs formaat</translation>
     </message>
     <message>
       <source>Hours from</source>
-      <translation type="unfinished"/>
+      <translation>Uren vanaf</translation>
     </message>
     <message>
       <source>Hours from, E.g. 8</source>
-      <translation type="unfinished"/>
+      <translation>Uren vanaf, bv. 8</translation>
     </message>
     <message>
       <source>Minutes from</source>
-      <translation type="unfinished"/>
+      <translation>Minuten vanaf</translation>
     </message>
     <message>
       <source>Minutes from, E.g. 30</source>
-      <translation type="unfinished"/>
+      <translation>Minuten vanaf, bv. 30</translation>
     </message>
     <message>
       <source>Hours to</source>
-      <translation type="unfinished"/>
+      <translation>Uren tot</translation>
     </message>
     <message>
       <source>Hours to, E.g. 17</source>
-      <translation type="unfinished"/>
+      <translation>Uren tot, bv. 17</translation>
     </message>
     <message>
       <source>Minutes to</source>
-      <translation type="unfinished"/>
+      <translation>Minuten tot</translation>
     </message>
     <message>
       <source>Minutes to, E.g. 30</source>
-      <translation type="unfinished"/>
+      <translation>Minuten tot, bv. 30</translation>
     </message>
     <message>
       <source>XMPP recipients</source>
@@ -1604,7 +1604,7 @@
     <name>chat/adminchat</name>
     <message>
       <source>Attach uploaded file</source>
-      <translation type="unfinished"/>
+      <translation>Voeg geupload bestand toe</translation>
     </message>
     <message>
       <source>Are you sure?</source>
@@ -1712,7 +1712,7 @@
     </message>
     <message>
       <source>Time zone</source>
-      <translation type="unfinished"/>
+      <translation>Tijdzone</translation>
     </message>
     <message>
       <source>City</source>
@@ -1744,7 +1744,7 @@
     </message>
     <message>
       <source>User left</source>
-      <translation type="unfinished"/>
+      <translation>Gebruiker heeft chat verlaten</translation>
     </message>
     <message>
       <source>Waited</source>
@@ -1776,7 +1776,7 @@
     </message>
     <message>
       <source>User browsing information</source>
-      <translation type="unfinished"/>
+      <translation>Gebruiker zijn browserinformatie</translation>
     </message>
     <message>
       <source>Chats</source>
@@ -1788,7 +1788,7 @@
     </message>
     <message>
       <source>Notes</source>
-      <translation type="unfinished"/>
+      <translation>Notities</translation>
     </message>
     <message>
       <source>Send</source>
@@ -1823,31 +1823,31 @@
     <name>chat/translation</name>
     <message>
       <source>Visitor language</source>
-      <translation type="unfinished"/>
+      <translation>Bezoeker zijn taal</translation>
     </message>
     <message>
       <source>My language</source>
-      <translation type="unfinished"/>
+      <translation>Mijn taal</translation>
     </message>
     <message>
       <source>Auto translate</source>
-      <translation type="unfinished"/>
+      <translation>Automatisch vertalen</translation>
     </message>
     <message>
       <source>Translating</source>
-      <translation type="unfinished"/>
+      <translation>Aan het vertalen</translation>
     </message>
     <message>
       <source>Automatically detected</source>
-      <translation type="unfinished"/>
+      <translation>Automatisch herkend</translation>
     </message>
     <message>
       <source>Automatic translation</source>
-      <translation type="unfinished"/>
+      <translation>Automatisch vertaald</translation>
     </message>
     <message>
       <source>Translation settings</source>
-      <translation type="unfinished"/>
+      <translation>Vertaal instellingen</translation>
     </message>
     <message>
       <source>Enter text for testing purposes</source>
@@ -1855,7 +1855,7 @@
     </message>
     <message>
       <source>Translated text</source>
-      <translation type="unfinished"/>
+      <translation>Vertaalde tekst</translation>
     </message>
     <message>
       <source>Detected language</source>
@@ -1871,59 +1871,59 @@
     </message>
     <message>
       <source>Enable translation service</source>
-      <translation type="unfinished"/>
+      <translation>Vertalingsservice aanzetten</translation>
     </message>
     <message>
       <source>Bing</source>
-      <translation type="unfinished"/>
+      <translation>Bing</translation>
     </message>
     <message>
       <source>Google</source>
-      <translation type="unfinished"/>
+      <translation>Google</translation>
     </message>
     <message>
       <source>Use Bing service</source>
-      <translation type="unfinished"/>
+      <translation>Gebruik Bing service</translation>
     </message>
     <message>
       <source>Bing client ID</source>
-      <translation type="unfinished"/>
+      <translation>Bing client ID</translation>
     </message>
     <message>
       <source>Bing client secret, key is never shown for security purposes</source>
-      <translation type="unfinished"/>
+      <translation>Bing client geheim, sleutel wordt nooit weergegeven voor uw veiligheid</translation>
     </message>
     <message>
       <source>Bing access token expires</source>
-      <translation type="unfinished"/>
+      <translation>Bing toegangscode vervalt</translation>
     </message>
     <message>
       <source>Use Google service</source>
-      <translation type="unfinished"/>
+      <translation>Gebruik Google service</translation>
     </message>
     <message>
       <source>API key, key is never shown for security purposes</source>
-      <translation type="unfinished"/>
+      <translation>API sleutel, sleutel wordt nooit weergegeven voor uw veiligheid</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>Instellingen opgeslagen</translation>
     </message>
     <message>
       <source>Missing text to translate</source>
-      <translation type="unfinished"/>
+      <translation>Geen tekst om te vertalen</translation>
     </message>
     <message>
       <source>Could not detect language</source>
-      <translation type="unfinished"/>
+      <translation>Kan de taal niet herkennen</translation>
     </message>
     <message>
       <source>Could not translate</source>
-      <translation type="unfinished"/>
+      <translation>Kon niet vertalen</translation>
     </message>
     <message>
       <source>We could not detect operator language</source>
-      <translation type="unfinished"/>
+      <translation>De operator zijn taal kan niet herkend worden</translation>
     </message>
     <message>
       <source>Detected operator and visitor languages matches, please choose languages manually</source>
@@ -1931,15 +1931,15 @@
     </message>
     <message>
       <source>Translation configuration</source>
-      <translation type="unfinished"/>
+      <translation>Vertaal opties</translation>
     </message>
     <message>
       <source>Chat messages automatic translations has been stopped</source>
-      <translation type="unfinished"/>
+      <translation>Het automatisch vertalen is gestopt</translation>
     </message>
     <message>
       <source>Messages has been translated</source>
-      <translation type="unfinished"/>
+      <translation>Berichten zijn vertaald</translation>
     </message>
     <message>
       <source>Please choose translation languages manually and click Auto translate</source>
@@ -2107,11 +2107,11 @@
     </message>
     <message>
       <source>Mail settings</source>
-      <translation type="unfinished"/>
+      <translation>Mail instellingen</translation>
     </message>
     <message>
       <source>SMTP</source>
-      <translation type="unfinished"/>
+      <translation>SMTP</translation>
     </message>
   </context>
   <context>
@@ -2150,7 +2150,7 @@
     </message>
     <message>
       <source>Live support is not available in your country</source>
-      <translation type="unfinished"/>
+      <translation>Live chat is niet beschikbaar in uw land</translation>
     </message>
     <message>
       <source>Live Support</source>
@@ -2162,7 +2162,7 @@
     </message>
     <message>
       <source>File</source>
-      <translation type="unfinished"/>
+      <translation>Bestand</translation>
     </message>
     <message>
       <source>Leave a message</source>
@@ -2190,23 +2190,23 @@
     </message>
     <message>
       <source>Have a question? Ask us!</source>
-      <translation type="unfinished"/>
+      <translation>Heeft u een vraag? Vraag het ons!</translation>
     </message>
     <message>
       <source>Department is offline</source>
-      <translation type="unfinished"/>
+      <translation>Afdeling is offline</translation>
     </message>
     <message>
       <source>Go to leave a message form</source>
-      <translation type="unfinished"/>
+      <translation>Laat een bericht achter</translation>
     </message>
     <message>
       <source>Cancel and choose another department</source>
-      <translation type="unfinished"/>
+      <translation>Annuleer en kies een andere afdeling</translation>
     </message>
     <message>
       <source>characters</source>
-      <translation type="unfinished"/>
+      <translation>karakters</translation>
     </message>
     <message>
       <source>Type your message here and hit enter to send...</source>
@@ -2230,7 +2230,7 @@
     </message>
     <message>
       <source>Choose your language</source>
-      <translation type="unfinished"/>
+      <translation>Kies uw taal</translation>
     </message>
     <message>
       <source>Invalid CSRF token!</source>
@@ -2282,7 +2282,7 @@
     </message>
     <message>
       <source>Invalid file</source>
-      <translation type="unfinished"/>
+      <translation>Ongeldig bestand</translation>
     </message>
     <message>
       <source>Could not determine a default department!</source>
@@ -2294,11 +2294,11 @@
     </message>
     <message>
       <source>Invalid file extension</source>
-      <translation type="unfinished"/>
+      <translation>Ongeldige bestandsextensie</translation>
     </message>
     <message>
       <source>Invalid file extension!</source>
-      <translation type="unfinished"/>
+      <translation>Ongeldige bestandsextensie</translation>
     </message>
     <message>
       <source>To big file!</source>
@@ -2341,7 +2341,7 @@
     </message>
     <message>
       <source>Visitor has been redirected to contact form</source>
-      <translation type="unfinished"/>
+      <translation>Gebruiker is doorgestuurd naar het contactformulier</translation>
     </message>
   </context>
   <context>
@@ -2447,7 +2447,7 @@
     <name>chat/geoadjustment</name>
     <message>
       <source>GEO adjustment</source>
-      <translation type="unfinished"/>
+      <translation>GEO aanpassingen</translation>
     </message>
     <message>
       <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
@@ -2459,15 +2459,15 @@
     </message>
     <message>
       <source>For</source>
-      <translation type="unfinished"/>
+      <translation>Voor</translation>
     </message>
     <message>
       <source>all</source>
-      <translation type="unfinished"/>
+      <translation>alle</translation>
     </message>
     <message>
       <source>custom</source>
-      <translation type="unfinished"/>
+      <translation>aangepast</translation>
     </message>
     <message>
       <source>E.g. ar,pl</source>
@@ -2479,7 +2479,7 @@
     </message>
     <message>
       <source>offline status</source>
-      <translation type="unfinished"/>
+      <translation>offline status</translation>
     </message>
     <message>
       <source>hidden/disabled, widget will not be shown</source>
@@ -2487,18 +2487,18 @@
     </message>
     <message>
       <source>For unmatched countries put chat status to</source>
-      <translation type="unfinished"/>
+      <translation>Voor landen die niet aan het filter voldoen, stel de chatstatus in als</translation>
     </message>
     <message>
       <source>normal status</source>
-      <translation type="unfinished"/>
+      <translation>normale status</translation>
     </message>
   </context>
   <context>
     <name>system/xmpp</name>
     <message>
       <source>Geo adjustments active</source>
-      <translation type="unfinished"/>
+      <translation>GEO aanpassingen actief</translation>
     </message>
     <message>
       <source>Settings updated</source>
@@ -2610,11 +2610,11 @@
     </message>
     <message>
       <source>Please enter to what gmail address test message should be send?</source>
-      <translation type="unfinished"/>
+      <translation>Voer het Gmail adres in waar het testbericht heen verzonden moet worden.</translation>
     </message>
     <message>
       <source>This message will be send to test e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Dit bericht zal naar het test emailadres worden verstuurd.</translation>
     </message>
     <message>
       <source>Send test message</source>
@@ -2650,7 +2650,7 @@
     </message>
     <message>
       <source>Invalid test e-mail address</source>
-      <translation type="unfinished"/>
+      <translation>Ongeldig test e-mail adres!</translation>
     </message>
   </context>
   <context>
@@ -2805,7 +2805,7 @@
     </message>
     <message>
       <source>On page</source>
-      <translation type="unfinished"/>
+      <translation>Op pagina</translation>
     </message>
     <message>
       <source>Yes</source>
@@ -2997,15 +2997,15 @@
     </message>
     <message>
       <source>Max records to return</source>
-      <translation type="unfinished"/>
+      <translation>Maximale records</translation>
     </message>
     <message>
       <source>Visitor local time</source>
-      <translation type="unfinished"/>
+      <translation>Gebruiker zijn lokale tijd</translation>
     </message>
     <message>
       <source>By user status on site</source>
-      <translation type="unfinished"/>
+      <translation>Op gebruikerstatus op de website</translation>
     </message>
     <message>
       <source>Status</source>
@@ -3172,7 +3172,7 @@
     </message>
     <message>
       <source>Screen sharing</source>
-      <translation type="unfinished"/>
+      <translation>Scherm delen</translation>
     </message>
     <message>
       <source>List chat configuration</source>
@@ -3303,7 +3303,7 @@
     </message>
     <message>
       <source>Mail settings</source>
-      <translation type="unfinished"/>
+      <translation>Mail instellingen</translation>
     </message>
     <message>
       <source>FAQ embed code</source>
@@ -3323,7 +3323,7 @@
     </message>
     <message>
       <source>GEO adjustment</source>
-      <translation type="unfinished"/>
+      <translation>GEO aanpassingen</translation>
     </message>
     <message>
       <source>Maintenance</source>
@@ -3347,11 +3347,11 @@
     </message>
     <message>
       <source>Automatic translations</source>
-      <translation type="unfinished"/>
+      <translation>Automatische veralingen</translation>
     </message>
     <message>
       <source>Speech</source>
-      <translation type="unfinished"/>
+      <translation>Spraak</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -3481,7 +3481,7 @@
     </message>
     <message>
       <source>New unread message</source>
-      <translation type="unfinished"/>
+      <translation>Nieuwe ongelezen berichten</translation>
     </message>
   </context>
   <context>
@@ -3519,38 +3519,38 @@
     </message>
     <message>
       <source>Chats duration was updated</source>
-      <translation type="unfinished"/>
+      <translation>Tijdsduur van de chats zijn geupdated</translation>
     </message>
   </context>
   <context>
     <name>chat/modifychat</name>
     <message>
       <source>Modify chat</source>
-      <translation type="unfinished"/>
+      <translation>Bewerk chat</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation type="unfinished"/>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Recipient e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Ontvanger e-mail</translation>
     </message>
     <message>
       <source>Nick</source>
-      <translation type="unfinished"/>
+      <translation>Naam</translation>
     </message>
     <message>
       <source>Phone</source>
-      <translation type="unfinished"/>
+      <translation>Telefoon</translation>
     </message>
     <message>
       <source>Update chat</source>
-      <translation type="unfinished"/>
+      <translation>Update chat</translation>
     </message>
     <message>
       <source>Chat information was updated</source>
-      <translation type="unfinished"/>
+      <translation>chat informatie is geupdated</translation>
     </message>
   </context>
   <context>
@@ -3703,7 +3703,7 @@
     </message>
     <message>
       <source>Requires phone</source>
-      <translation type="unfinished"/>
+      <translation>Telefoonnummer is verplicht</translation>
     </message>
     <message>
       <source>Send the message</source>
@@ -3798,7 +3798,7 @@
     </message>
     <message>
       <source>Allow to attatch a file</source>
-      <translation type="unfinished"/>
+      <translation>Toestaan om een bestand toe te voegen</translation>
     </message>
     <message>
       <source>Show operator profile above input fields</source>
@@ -3968,7 +3968,7 @@
     </message>
     <message>
       <source>General</source>
-      <translation type="unfinished"/>
+      <translation>Algemeen</translation>
     </message>
     <message>
       <source>User</source>
@@ -3976,63 +3976,63 @@
     </message>
     <message>
       <source>Thumbs up</source>
-      <translation type="unfinished"/>
+      <translation>Duim omhoog</translation>
     </message>
     <message>
       <source>Number of Thumbs Up</source>
-      <translation type="unfinished"/>
+      <translation>Aantal duimen omhoog</translation>
     </message>
     <message>
       <source>Thumbs down</source>
-      <translation type="unfinished"/>
+      <translation>Duim omlaag</translation>
     </message>
     <message>
       <source>Number of Thumbs Down</source>
-      <translation type="unfinished"/>
+      <translation>Aantal duimen omlaag</translation>
     </message>
     <message>
       <source>Country</source>
-      <translation type="unfinished"/>
+      <translation>Land</translation>
     </message>
     <message>
       <source>Chats</source>
-      <translation type="unfinished"/>
+      <translation>Chats</translation>
     </message>
     <message>
       <source>Number of chats by country</source>
-      <translation type="unfinished"/>
+      <translation>Aantal chats gefilterd op land</translation>
     </message>
     <message>
       <source>Number of chats by user</source>
-      <translation type="unfinished"/>
+      <translation>Aantal chats gefilterd op gebruiker</translation>
     </message>
     <message>
       <source>Wait time</source>
-      <translation type="unfinished"/>
+      <translation>Wachttijd</translation>
     </message>
     <message>
       <source>AVG visitor wait time by operator</source>
-      <translation type="unfinished"/>
+      <translation>Gemiddelde wachttijd</translation>
     </message>
     <message>
       <source>Messages</source>
-      <translation type="unfinished"/>
+      <translation>Berichten</translation>
     </message>
     <message>
       <source>Number of messages by user</source>
-      <translation type="unfinished"/>
+      <translation>Aantal berichten door gebruiker</translation>
     </message>
     <message>
       <source>Month</source>
-      <translation type="unfinished"/>
+      <translation>Maand</translation>
     </message>
     <message>
       <source>Closed</source>
-      <translation type="unfinished"/>
+      <translation>Gesloten</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation type="unfinished"/>
+      <translation>Actief</translation>
     </message>
     <message>
       <source>Operators</source>
@@ -4040,7 +4040,7 @@
     </message>
     <message>
       <source>Pending</source>
-      <translation type="unfinished"/>
+      <translation>Wachtend</translation>
     </message>
     <message>
       <source>Chats number by statuses</source>
@@ -4048,11 +4048,11 @@
     </message>
     <message>
       <source>Time</source>
-      <translation type="unfinished"/>
+      <translation>Tijd</translation>
     </message>
     <message>
       <source>AVG wait time in seconds, max 10 mininutes</source>
-      <translation type="unfinished"/>
+      <translation>Gemiddelde wachttijd in seconden, maximaal 10 minuten</translation>
     </message>
     <message>
       <source>Visitors initiated</source>
@@ -4060,43 +4060,43 @@
     </message>
     <message>
       <source>Proactive</source>
-      <translation type="unfinished"/>
+      <translation>Proactieve</translation>
     </message>
     <message>
       <source>Proactive chats number vs visitors initiated</source>
-      <translation type="unfinished"/>
+      <translation>Proac</translation>
     </message>
     <message>
       <source>Visitors</source>
-      <translation type="unfinished"/>
+      <translation>Bezoekers</translation>
     </message>
     <message>
       <source>System</source>
-      <translation type="unfinished"/>
+      <translation>Systeem</translation>
     </message>
     <message>
       <source>Messages types</source>
-      <translation type="unfinished"/>
+      <translation>Berichttypes</translation>
     </message>
     <message>
       <source>Number of chats per hour, average chat duration</source>
-      <translation type="unfinished"/>
+      <translation>Aantal chats per uur, gemiddelde tijdsduur</translation>
     </message>
     <message>
       <source>Chats statistic</source>
-      <translation type="unfinished"/>
+      <translation>Chat statistieken</translation>
     </message>
     <message>
       <source>Hourly statistic</source>
-      <translation type="unfinished"/>
+      <translation>Statistieken per uur</translation>
     </message>
     <message>
       <source>Country statistic</source>
-      <translation type="unfinished"/>
+      <translation>Statistieken per land</translation>
     </message>
     <message>
       <source>Users statisic</source>
-      <translation type="unfinished"/>
+      <translation>Gebruikersstatistieken</translation>
     </message>
     <message>
       <source>Total statistic</source>
@@ -4559,11 +4559,11 @@
     <name>cobrowse/browse</name>
     <message>
       <source>Request screen share</source>
-      <translation type="unfinished"/>
+      <translation>Vraag gedeeld scherm aan</translation>
     </message>
     <message>
       <source>Show my mouse position to visitor</source>
-      <translation type="unfinished"/>
+      <translation>Laat mijn muis zien aan de gebruiker</translation>
     </message>
     <message>
       <source>On highlight scroll user window location to match my</source>
@@ -4571,7 +4571,7 @@
     </message>
     <message>
       <source>Follow user scroll position</source>
-      <translation type="unfinished"/>
+      <translation>Volg gebruiker zijn scrollpositie</translation>
     </message>
     <message>
       <source>On click navigate user browser</source>
@@ -4579,15 +4579,15 @@
     </message>
     <message>
       <source>Click blue eye at the top to request screen share</source>
-      <translation type="unfinished"/>
+      <translation>Klik op het blauwe oog bovenin om een aanvraag tot scherm delen te maken</translation>
     </message>
     <message>
       <source>Screen sharing session has finished</source>
-      <translation type="unfinished"/>
+      <translation>Scherm delen sessie is klaar</translation>
     </message>
     <message>
       <source>Screen is shared</source>
-      <translation type="unfinished"/>
+      <translation>Scherm wordt gedeeld</translation>
     </message>
   </context>
   <context>
@@ -4653,11 +4653,11 @@
     </message>
     <message>
       <source>Speech</source>
-      <translation type="unfinished"/>
+      <translation>Spraak</translation>
     </message>
     <message>
       <source>Permissions</source>
-      <translation type="unfinished"/>
+      <translation>Rechten</translation>
     </message>
     <message>
       <source>Do not enter a password unless you want to change it</source>
@@ -4761,7 +4761,7 @@
     </message>
     <message>
       <source>Show permissions</source>
-      <translation type="unfinished"/>
+      <translation>Laat rechten zien</translation>
     </message>
     <message>
       <source>Account updated</source>
@@ -5711,15 +5711,15 @@
     </message>
     <message>
       <source>Language</source>
-      <translation type="unfinished"/>
+      <translation>Taal</translation>
     </message>
     <message>
       <source>Dialect</source>
-      <translation type="unfinished"/>
+      <translation>Dialect</translation>
     </message>
     <message>
       <source>Default speech recognition language</source>
-      <translation type="unfinished"/>
+      <translation>Standaard taalherkenning</translation>
     </message>
   </context>
   <context>
@@ -5800,19 +5800,19 @@
     <name>system/smtp</name>
     <message>
       <source>Mail settings</source>
-      <translation type="unfinished"/>
+      <translation>Mail instellingen</translation>
     </message>
     <message>
       <source>Sender address</source>
-      <translation type="unfinished"/>
+      <translation>Verzendadres</translation>
     </message>
     <message>
       <source>Default from e-mail address</source>
-      <translation type="unfinished"/>
+      <translation>Standaard verzendadres</translation>
     </message>
     <message>
       <source>Default from name</source>
-      <translation type="unfinished"/>
+      <translation>Standaard verzendnaam</translation>
     </message>
     <message>
       <source>SMTP enabled</source>
@@ -6191,7 +6191,7 @@
     </message>
     <message>
       <source>Disabled</source>
-      <translation type="unfinished"/>
+      <translation>Uitgeschakeld</translation>
     </message>
     <message>
       <source>Update</source>
@@ -6468,27 +6468,27 @@
     <name>chat/chatexport</name>
     <message>
       <source>Visitor Name</source>
-      <translation type="unfinished"/>
+      <translation>Gebruikersnaam</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation type="unfinished"/>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Phone</source>
-      <translation type="unfinished"/>
+      <translation>Telefoonnummer</translation>
     </message>
     <message>
       <source>Country</source>
-      <translation type="unfinished"/>
+      <translation>Land</translation>
     </message>
     <message>
       <source>City</source>
-      <translation type="unfinished"/>
+      <translation>Stad</translation>
     </message>
     <message>
       <source>IP</source>
-      <translation type="unfinished"/>
+      <translation>IP</translation>
     </message>
     <message>
       <source>Operator</source>
@@ -6496,15 +6496,15 @@
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Afdeling</translation>
     </message>
     <message>
       <source>Date</source>
-      <translation type="unfinished"/>
+      <translation>Datum</translation>
     </message>
     <message>
       <source>Mail send</source>
-      <translation type="unfinished"/>
+      <translation>E-mail is verzonden</translation>
     </message>
     <message>
       <source>Referrer</source>
@@ -6512,7 +6512,7 @@
     </message>
     <message>
       <source>Link</source>
-      <translation type="unfinished"/>
+      <translation>Link</translation>
     </message>
   </context>
   <context>
@@ -6696,7 +6696,7 @@
     </message>
     <message>
       <source>From e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Van e-mail</translation>
     </message>
     <message>
       <source>Allow to change from e-mail</source>
@@ -6704,7 +6704,7 @@
     </message>
     <message>
       <source>Use user e-mail as from address</source>
-      <translation type="unfinished"/>
+      <translation>Gebruik de gebruiker zijn e-mailadres als verzendadres</translation>
     </message>
     <message>
       <source>Reply to</source>
@@ -6739,7 +6739,7 @@
     </message>
     <message>
       <source>has accepted a chat!</source>
-      <translation type="unfinished"/>
+      <translation>heeft de chat geopend!</translation>
     </message>
   </context>
   <context>
@@ -6793,7 +6793,7 @@
     <name>chat/updatemsguser</name>
     <message>
       <source>User has edited his last message</source>
-      <translation type="unfinished"/>
+      <translation>Gebruiker heeft zijn laatste bericht gewijzigd</translation>
     </message>
   </context>
   <context>
@@ -6829,37 +6829,37 @@
     <name>permission/getpermissionsummary</name>
     <message>
       <source>Module/Function</source>
-      <translation type="unfinished"/>
+      <translation>Module/Functie</translation>
     </message>
   </context>
   <context>
     <name>permission/getpermissionssummary</name>
     <message>
       <source>Request permission</source>
-      <translation type="unfinished"/>
+      <translation>Vraag permissies aan</translation>
     </message>
     <message>
       <source>Please choose at least one permission</source>
-      <translation type="unfinished"/>
+      <translation>Kies tenminste één permissie</translation>
     </message>
   </context>
   <context>
     <name>permission/request</name>
     <message>
       <source>Request permission</source>
-      <translation type="unfinished"/>
+      <translation>Vraag permissie aan</translation>
     </message>
     <message>
       <source>Request permissions</source>
-      <translation type="unfinished"/>
+      <translation>Vraag permissies aan</translation>
     </message>
     <message>
       <source>Permission requested</source>
-      <translation type="unfinished"/>
+      <translation>Permissie aangevraagd</translation>
     </message>
     <message>
       <source>Please choose a user!</source>
-      <translation type="unfinished"/>
+      <translation>Kies een gebruiker!</translation>
     </message>
     <message>
       <source>This user can not receive permision request!</source>
@@ -6867,50 +6867,50 @@
     </message>
     <message>
       <source>Permissions were not provided</source>
-      <translation type="unfinished"/>
+      <translation>Permissies zijn niet gegeven</translation>
     </message>
   </context>
   <context>
     <name>users/autologin</name>
     <message>
       <source>Auto login settings</source>
-      <translation type="unfinished"/>
+      <translation>Autologin instellingen</translation>
     </message>
     <message>
       <source>This module can be used if you are generating autologin link. See site for code examples</source>
-      <translation type="unfinished"/>
+      <translation>Deze module kan gebruikt worden om een autologin link te genereren</translation>
     </message>
     <message>
       <source>Enabled</source>
-      <translation type="unfinished"/>
+      <translation>Ingeschakeld</translation>
     </message>
     <message>
       <source>Secret hash used for authentification token generation, min 10 characters</source>
-      <translation type="unfinished"/>
+      <translation>Geheime code voor authenticatie, minimaal 10 karakters</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>Instellingen opgeslagen</translation>
     </message>
     <message>
       <source>Autologin hash has expired</source>
-      <translation type="unfinished"/>
+      <translation>Autologin code is verlopen</translation>
     </message>
     <message>
       <source>Could not find a user</source>
-      <translation type="unfinished"/>
+      <translation>Kan geen gebruiker vinden</translation>
     </message>
     <message>
       <source>Could not find a provided user</source>
-      <translation type="unfinished"/>
+      <translation>Kan de gebruiker niet vinden</translation>
     </message>
     <message>
       <source>Invalid autologin hash</source>
-      <translation type="unfinished"/>
+      <translation>Ongeldig autologin code</translation>
     </message>
     <message>
       <source>Auto login module is not enabled</source>
-      <translation type="unfinished"/>
+      <translation>Autologin module is niet ingeschakeld</translation>
     </message>
   </context>
 </TS>
