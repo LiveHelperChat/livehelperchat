@@ -260,6 +260,7 @@ var lh_inst  = {
         <?php if ($check_operator_messages == 'true') : ?>
         this.startNewMessageCheck();
         <?php endif; ?>
+        this.checkStatusChat();
     },
 
     getAppendCookieArguments : function() {
@@ -400,6 +401,8 @@ var lh_inst  = {
           	window.open(this.initial_iframe_url,"_blank");
           	return;
           };
+          
+          clearTimeout(this.timeoutStatuscheck);
           
           var widgetWidth = (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.opt != 'undefined' && typeof LHCChatOptions.opt.widget_width != 'undefined') ? parseInt(LHCChatOptions.opt.widget_width) : 300;
 		  var widgetHeight = (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.opt != 'undefined' && typeof LHCChatOptions.opt.widget_height != 'undefined') ? parseInt(LHCChatOptions.opt.widget_height) : 340;
@@ -810,6 +813,7 @@ var lh_inst  = {
     
     checkStatusChat : function() {
     	<?php if ((int)erLhcoreClassModelChatConfig::fetch('checkstatus_timeout')->current_value > 0) : ?>       
+    	clearTimeout(this.timeoutStatuscheck);
         this.timeoutStatuscheck = setTimeout(function() {
             lh_inst.removeById('lhc_check_status');
             var th = document.getElementsByTagName('head')[0];
@@ -824,7 +828,7 @@ var lh_inst  = {
     },
         
     handleMessage : function(e) {
-    	var action = e.data.split(':')[0];
+    	var action = e.data.split(':')[0];    	    	
     	if (action == 'lhc_sizing_chat') {
     		var height = e.data.split(':')[1];
     		var elementObject = document.getElementById('lhc_iframe');
@@ -847,6 +851,8 @@ var lh_inst  = {
     		lh_inst.makeScreenshot();
     	} else if (action == 'lhc_cobrowse') {
     		lh_inst.startCoBrowse(e.data.split(':')[1],'chat');    	
+    	} else if (action == 'lhc_cobrowse_online') {    		    		
+    		lh_inst.startCoBrowse(e.data.split(':')[1],'onlineuser');    			
     	} else if (action == 'lhc_chat_redirect') {
     		document.location = e.data.split(':')[1].replace(new RegExp('__SPLIT__','g'),':');
     	} else if (action == 'lhc_cobrowse_cmd') {

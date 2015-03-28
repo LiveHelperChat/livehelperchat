@@ -14,6 +14,7 @@ class erLhcoreClassModelChatFile {
                'extension'   	=> $this->extension,
                'chat_id'   		=> $this->chat_id,
                'user_id'   		=> $this->user_id,
+               'online_user_id' => $this->online_user_id,
                'date'   		=> $this->date,
               );
    }
@@ -117,7 +118,8 @@ class erLhcoreClassModelChatFile {
    public $file_path = null;
    public $size = null;
    public $extension = null;
-   public $chat_id = null;
+   public $chat_id = 0;
+   public $online_user_id = 0;
 }
 
 ?>

@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * These operations are executed directly in user site. Not in iframe
+ * */
 $definition = array(
         'operation' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::REQUIRED, 'string'

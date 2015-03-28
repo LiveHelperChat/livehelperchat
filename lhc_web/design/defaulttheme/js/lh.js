@@ -499,15 +499,7 @@ function lh(){
         			
         			// Execute pending operations
         			if (data.op != '') {
-	   	    			 $.each(data.op,function(i,item) {	   	    				 	   	    				 		
-	   	    				 	 if (item.indexOf('lhinst.') != -1) { // Internal operation
-	   	    				 		eval(item);	
-	   	    				 	 } else if (inst.isWidgetMode) {
-	   	    				 		 parent.postMessage(item, '*');
-	   	    					 } else if (window.opener) {
-	   	    						 window.opener.postMessage(item, '*');	  
-	   	    					 };
-	   	    			 });	    			
+        				 inst.executeRemoteCommands(data.op);	   	    			 	    			
         			};	
         			
         			
@@ -522,6 +514,20 @@ function lh(){
         };
 
         inst.syncroRequestSend = false;
+    };
+    
+    this.executeRemoteCommands = function(operations)
+    {
+    	 var inst = this;
+    	 $.each(operations,function(i,item) {	   	    				 	   	    				 		
+			 	 if (item.indexOf('lhinst.') != -1) { // Internal operation
+			 		eval(item);	
+			 	 } else if (inst.isWidgetMode) {
+			 		 parent.postMessage(item, '*');
+				 } else if (window.opener) {
+					 window.opener.postMessage(item, '*');	  
+				 };
+		 });
     };
     
     this.syncusercall = function()
@@ -1713,10 +1719,44 @@ function lh(){
     		}
     	});
     };
-
+    
     this.addFileUserUpload = function(data_config) {
     	$('#fileupload').fileupload({
-            url: this.wwwDir + 'file/uploadfile/'+data_config.chat_id+'/'+data_config.hash,
+    		url: this.wwwDir + 'file/uploadfile/'+data_config.chat_id+'/'+data_config.hash,
+    		dataType: 'json',
+    		add: function(e, data) {
+    			var uploadErrors = [];
+    			var acceptFileTypes = data_config.ft_us;                
+    			if (!(acceptFileTypes.test(data.originalFiles[0]['type']) || acceptFileTypes.test(data.originalFiles[0]['name']))) {
+    				uploadErrors.push(data_config.ft_msg);
+    			};
+    			if(data.originalFiles[0]['size'] > data_config.fs) {
+    				uploadErrors.push(data_config.fs_msg);
+    			};
+    			if(uploadErrors.length > 0) {
+    				alert(uploadErrors.join("\n"));
+    			} else {
+    				data.submit();
+    			};
+    		},
+    		done: function(e,data) {       			
+    			if (LHCCallbacks.addFileUserUpload) {
+    				LHCCallbacks.addFileUserUpload(data_config.chat_id);
+    			};			
+    		},
+    		progressall: function (e, data) {
+    			var progress = parseInt(data.loaded / data.total * 100, 10);
+    			$('#id-operator-typing').css('visibility','visible');
+    			$('#id-operator-typing').html(progress+'%');
+    		}}).prop('disabled', !$.support.fileInput)
+    		.parent().addClass($.support.fileInput ? undefined : 'disabled');
+    };
+
+    
+    this.addFileUserUploadOnline = function(data_config,callback) {
+    	var _this = this;
+    	$('#fileuploadonline').fileupload({
+            url: this.wwwDir + 'file/uploadfileonline/'+data_config.online_user_vid,
             dataType: 'json',
             add: function(e, data) {
                 var uploadErrors = [];
@@ -1733,28 +1773,76 @@ function lh(){
                     data.submit();
                 };
        		},
-       		done: function(e,data) {       			
-       			if (LHCCallbacks.addFileUserUpload) {
-       	        	LHCCallbacks.addFileUserUpload(data_config.chat_id);
+       		done: function(e,data) { 
+       			_this.updateOnlineFilesUser(data_config.online_user_vid);
+       			if (callback) {
+       				callback(data_config.online_user_vid);
        	        };			
-       		},
+       		},       		
             progressall: function (e, data) {
-                var progress = parseInt(data.loaded / data.total * 100, 10);
-                $('#id-operator-typing').css('visibility','visible');
-                $('#id-operator-typing').html(progress+'%');
+                var progress = parseInt(data.loaded / data.total * 100, 10);               
+                $('#upload-status-user-online').html(progress+'%');
             }}).prop('disabled', !$.support.fileInput)
             .parent().addClass($.support.fileInput ? undefined : 'disabled');
     };
-
+    
     this.updateChatFiles = function(chat_id) {
     	$.postJSON(this.wwwDir + 'file/chatfileslist/' + chat_id, function(data){
     		$('#chat-files-list-'+chat_id).html(data.result);
     	});
     };
+    
+    this.updateOnlineFiles = function(online_user_id) {
+    	$.postJSON(this.wwwDir + 'file/onlinefileslist/' + online_user_id, function(data){
+    		$('#online-user-files-list-'+online_user_id).html(data.result);
+    	});
+    };    
 
+    this.updateOnlineFilesUser = function(online_user_vid) {
+    	$.postJSON(this.wwwDir + 'file/useronlinefileslist/' + online_user_vid, function(data){
+    		$('#user-online-files-list').html(data.result);
+    	});
+    };    
+    
     this.addFileUpload = function(data_config) {
     	$('#fileupload-'+data_config.chat_id).fileupload({
-            url: this.wwwDir + 'file/uploadfileadmin/'+data_config.chat_id,
+    		url: this.wwwDir + 'file/uploadfileadmin/'+data_config.chat_id,
+    		dataType: 'json',
+    		add: function(e, data) {
+    			var uploadErrors = [];
+    			var acceptFileTypes = data_config.ft_op;
+    			if(!(acceptFileTypes.test(data.originalFiles[0]['type']) || acceptFileTypes.test(data.originalFiles[0]['name']))) {
+    				uploadErrors.push(data_config.ft_msg);
+    			};
+    			if(data.originalFiles[0]['size'] > data_config.fs) {
+    				uploadErrors.push(data_config.fs_msg);
+    			};
+    			if(uploadErrors.length > 0) {
+    				alert(uploadErrors.join("\n"));
+    			} else {
+    				data.submit();
+    			};
+    		},
+    		done: function(e,data) {       			
+    			lhinst.updateChatFiles(data_config.chat_id); 
+    			if (LHCCallbacks.addFileUpload) {
+    				LHCCallbacks.addFileUpload(data_config.chat_id);
+    			};
+    		},
+    		dropZone: $('#drop-zone-'+data_config.chat_id),
+    		pasteZone: $('#CSChatMessage-'+data_config.chat_id),
+    		progressall: function (e, data) {
+    			var progress = parseInt(data.loaded / data.total * 100, 10);
+    			$('#user-is-typing-'+data_config.chat_id).css('visibility','visible');
+    			$('#user-is-typing-'+data_config.chat_id).html(progress+'%');
+    		}}).prop('disabled', !$.support.fileInput)
+    		.parent().addClass($.support.fileInput ? undefined : 'disabled');
+    };
+
+    this.addFileUploadOnlineUser = function(data_config, callbackUploaded) {
+    	var _this = this;
+    	$('#fileupload-online-user-'+data_config.online_user_id).fileupload({
+            url: this.wwwDir + 'file/uploadfileadminonlineuser/'+data_config.online_user_id,
             dataType: 'json',
             add: function(e, data) {
                 var uploadErrors = [];
@@ -1771,18 +1859,16 @@ function lh(){
                     data.submit();
                 };
        		},
-       		done: function(e,data) {       			
-       			lhinst.updateChatFiles(data_config.chat_id); 
-       			if (LHCCallbacks.addFileUpload) {
-       	        	LHCCallbacks.addFileUpload(data_config.chat_id);
+       		done: function(e,data) {  
+       			if (callbackUploaded) {
+       				callbackUploaded(data_config.online_user_id);
        	        };
+       	        _this.updateOnlineFiles(data_config.online_user_id);
        		},
-            dropZone: $('#drop-zone-'+data_config.chat_id),
-            pasteZone: $('#CSChatMessage-'+data_config.chat_id),
+            dropZone: $('#drop-zone-online-user-'+data_config.online_user_id),        
             progressall: function (e, data) {
                 var progress = parseInt(data.loaded / data.total * 100, 10);
-                $('#user-is-typing-'+data_config.chat_id).css('visibility','visible');
-                $('#user-is-typing-'+data_config.chat_id).html(progress+'%');
+                $('#upload-status-admin-'+data_config.online_user_id).html(progress+'%');
             }}).prop('disabled', !$.support.fileInput)
             .parent().addClass($.support.fileInput ? undefined : 'disabled');
     };
@@ -1805,8 +1891,8 @@ function lh(){
     this.addRemoteCommand = function(chat_id,operation) {
     	$.postJSON(this.wwwDir + 'chat/addoperation/' + chat_id,{'operation':operation}, function(data){
     		if (LHCCallbacks.addRemoteCommand) {
-   	        	LHCCallbacks.addRemoteCommand(chat_id);
-   	        };
+    			LHCCallbacks.addRemoteCommand(chat_id);
+    		};
     	});    	
     	if (operation == 'lhc_screenshot') {
     		$('#user-screenshot-container').html('').addClass('screenshot-pending');
@@ -1815,6 +1901,14 @@ function lh(){
     			inst.updateScreenshot(chat_id);
     		},5000);    		
     	};
+    };
+    
+    this.addRemoteOnlineCommand = function(online_user_id,operation) {
+    	$.postJSON(this.wwwDir + 'chat/addonlineoperationiframe/' + online_user_id,{'operation':operation}, function(data){
+    		if (LHCCallbacks.addRemoteOnlineCommand) {
+   	        	LHCCallbacks.addRemoteOnlineCommand(online_user_id);
+   	        };
+    	});    	
     };
     
     this.updateScreenshot = function(chat_id) {

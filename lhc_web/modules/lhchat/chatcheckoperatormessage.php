@@ -62,6 +62,7 @@ if ( $ignorable_ip == '' || !erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDet
 		if ($userInstance->operation != ''){
 			$tpl->set('operation',$userInstance->operation);
 			$userInstance->operation = '';
+			$userInstance->operation_chat = '';
 			$userInstance->saveThis();
 		}
 			

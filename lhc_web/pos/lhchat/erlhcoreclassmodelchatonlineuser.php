@@ -206,6 +206,18 @@ $def->properties['online_attr']->columnName   = 'online_attr';
 $def->properties['online_attr']->propertyName = 'online_attr';
 $def->properties['online_attr']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['operation_chat'] = new ezcPersistentObjectProperty();
+$def->properties['operation_chat']->columnName   = 'operation_chat';
+$def->properties['operation_chat']->propertyName = 'operation_chat';
+$def->properties['operation_chat']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+// In this attribute should be stored json
+// This can act as custom storage for extension
+$def->properties['online_attr_system'] = new ezcPersistentObjectProperty();
+$def->properties['online_attr_system']->columnName   = 'online_attr_system';
+$def->properties['online_attr_system']->propertyName = 'online_attr_system';
+$def->properties['online_attr_system']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 $def->properties['visitor_tz'] = new ezcPersistentObjectProperty();
 $def->properties['visitor_tz']->columnName   = 'visitor_tz';
 $def->properties['visitor_tz']->propertyName = 'visitor_tz';

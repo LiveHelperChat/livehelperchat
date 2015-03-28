@@ -1926,6 +1926,14 @@
                 "extra": ""
             },
             {
+                "field": "online_user_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "user_id",
                 "type": "int(11)",
                 "null": "NO",
@@ -2249,6 +2257,22 @@
             },
             {
                 "field": "operation",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "online_attr_system",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "operation_chat",
                 "type": "text",
                 "null": "NO",
                 "key": "",
@@ -4753,6 +4777,10 @@
     	},
     	"lh_cobrowse" : {
     		"new" : {"online_user_id" : "ALTER TABLE `lh_cobrowse` ADD INDEX `online_user_id` (`online_user_id`);"},
+    		"old" : []
+    	},
+    	"lh_chat_file" : {
+    		"new" : {"online_user_id" : "ALTER TABLE `lh_chat_file` ADD INDEX `online_user_id` (`online_user_id`)"},
     		"old" : []
     	}
     },

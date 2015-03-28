@@ -24,10 +24,18 @@ $def->properties['size']->columnName   = 'size';
 $def->properties['size']->propertyName = 'size';
 $def->properties['size']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+/**
+ * We can associate file either with chat either with online user id
+ * */
 $def->properties['chat_id'] = new ezcPersistentObjectProperty();
 $def->properties['chat_id']->columnName   = 'chat_id';
 $def->properties['chat_id']->propertyName = 'chat_id';
 $def->properties['chat_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['online_user_id'] = new ezcPersistentObjectProperty();
+$def->properties['online_user_id']->columnName   = 'online_user_id';
+$def->properties['online_user_id']->propertyName = 'online_user_id';
+$def->properties['online_user_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
 $def->properties['user_id'] = new ezcPersistentObjectProperty();
 $def->properties['user_id']->columnName   = 'user_id';

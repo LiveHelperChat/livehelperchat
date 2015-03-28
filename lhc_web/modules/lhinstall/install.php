@@ -575,10 +575,12 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   `file_path` varchar(255) NOT NULL,
         	   `extension` varchar(255) NOT NULL,
         	   `chat_id` int(11) NOT NULL,
+        	   `online_user_id` int(11) NOT NULL,
         	   `user_id` int(11) NOT NULL,
         	   `date` int(11) NOT NULL,
         	   PRIMARY KEY (`id`),
         	   KEY `chat_id` (`chat_id`),
+        	   KEY `online_user_id` (`online_user_id`),
         	   KEY `user_id` (`user_id`)
         	   ) DEFAULT CHARSET=utf8;");
 
@@ -911,6 +913,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   	  `screenshot_id` int(11) NOT NULL,
         	   	  `identifier` varchar(50) NOT NULL,
         	   	  `operation` text NOT NULL,
+        	   	  `online_attr_system` text NOT NULL,
+        	   	  `operation_chat` text NOT NULL,
         	   	  `online_attr` varchar(250) NOT NULL,
                   PRIMARY KEY (`id`),
                   KEY `vid` (`vid`),

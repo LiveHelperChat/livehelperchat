@@ -216,6 +216,11 @@ $ViewList['addonlineoperation'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['addonlineoperationiframe'] = array(
+    'params' => array('online_user_id'),
+    'functions' => array( 'use' )
+);
+
 $ViewList['saveremarks'] = array(
     'params' => array('chat_id'),
     'functions' => array( 'use' )

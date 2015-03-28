@@ -36,7 +36,7 @@ if (erLhcoreClassModelChatConfig::fetch('track_is_online')->current_value) {
 			$operation = $stmt->fetch(PDO::FETCH_COLUMN);
 			echo $operation;
 			
-			$stmt = $db->prepare("UPDATE lh_chat_online_user SET last_check_time = :time, operation = '' WHERE vid = :vid");
+			$stmt = $db->prepare("UPDATE lh_chat_online_user SET last_check_time = :time, operation = '', operation_chat = '' WHERE vid = :vid");
 			$stmt->bindValue(':time',time(),PDO::PARAM_INT);
 			$stmt->bindValue(':vid',(string)$Params['user_parameters_unordered']['vid']);
 			$stmt->execute();

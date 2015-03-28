@@ -52,8 +52,13 @@ class erLhcoreClassFileUpload extends UploadHandler {
         	$fileUpload->user_id = isset($this->options['user_id']) ? $this->options['user_id'] : 0;
         	$fileUpload->upload_name = $name;
         	$fileUpload->file_path = $this->options['upload_dir'];
-        	$fileUpload->chat_id = $this->options['chat']->id;
-
+        	
+        	if (isset($this->options['chat']) && $this->options['chat'] instanceof erLhcoreClassModelChat) {
+        	   $fileUpload->chat_id = $this->options['chat']->id;
+        	} elseif (isset($this->options['online_user']) && $this->options['online_user'] instanceof erLhcoreClassModelChatOnlineUser) {
+        	    $fileUpload->online_user_id = $this->options['online_user']->id;
+        	}
+        	
         	$matches = array();
         	if (strpos($name, '.') === false && preg_match('/^image\/(gif|jpe?g|png)/', $fileUpload->type, $matches)) {
         		$fileUpload->extension = $matches[1];
@@ -66,28 +71,30 @@ class erLhcoreClassFileUpload extends UploadHandler {
 
 	        $file->id = $fileUpload->id;
 
-	        // Chat assign
-	        $chat = $this->options['chat'];
-
-	        // Format message
-	        $msg = new erLhcoreClassModelmsg();
-	        $msg->msg = '[file='.$file->id.'_'.md5($fileUpload->name.'_'.$fileUpload->chat_id).']';
-	        $msg->chat_id = $chat->id;
-	        $msg->user_id = isset($this->options['user_id']) ? $this->options['user_id'] : 0;
-	        if ($msg->user_id > 0 && isset($this->options['name_support'])){
-	        	$msg->name_support = (string)$this->options['name_support'];
+	        if (isset($this->options['chat']) && $this->options['chat'] instanceof erLhcoreClassModelChat) {
+    	        // Chat assign
+    	        $chat = $this->options['chat'];
+    
+    	        // Format message
+    	        $msg = new erLhcoreClassModelmsg();
+    	        $msg->msg = '[file='.$file->id.'_'.md5($fileUpload->name.'_'.$fileUpload->chat_id).']';
+    	        $msg->chat_id = $chat->id;
+    	        $msg->user_id = isset($this->options['user_id']) ? $this->options['user_id'] : 0;
+    	        if ($msg->user_id > 0 && isset($this->options['name_support'])){
+    	        	$msg->name_support = (string)$this->options['name_support'];
+    	        }
+    	        $chat->last_user_msg_time = $msg->time = time();
+    
+    	        erLhcoreClassChat::getSession()->save($msg);
+    
+    	        // Set last message ID
+    	        if ($chat->last_msg_id < $msg->id) {
+    	        	$chat->last_msg_id = $msg->id;
+    	        }
+    
+    	        $chat->has_unread_messages = 1;
+    	        $chat->updateThis();	        	            
 	        }
-	        $chat->last_user_msg_time = $msg->time = time();
-
-	        erLhcoreClassChat::getSession()->save($msg);
-
-	        // Set last message ID
-	        if ($chat->last_msg_id < $msg->id) {
-	        	$chat->last_msg_id = $msg->id;
-	        }
-
-	        $chat->has_unread_messages = 1;
-	        $chat->updateThis();
 	        
 	        $this->uploadedFile = $fileUpload;
         }
