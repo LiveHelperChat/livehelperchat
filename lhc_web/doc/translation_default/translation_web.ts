@@ -853,15 +853,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Widget embed code</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Page embed code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Embed code</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2195,6 +2195,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department is offline</source>
       <translation type="unfinished"/>
     </message>
@@ -2208,14 +2216,6 @@
     </message>
     <message>
       <source>characters</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Send</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3232,10 +3232,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Live help embed code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Departments</source>
       <translation type="unfinished"/>
     </message>
@@ -3297,6 +3293,10 @@
     </message>
     <message>
       <source>Canned messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live help embed code</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3462,11 +3462,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Chats list</source>
+      <source>Extra modules</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Extra modules</source>
+      <source>Chats list</source>
       <translation type="unfinished"/>
     </message>
     <message>
