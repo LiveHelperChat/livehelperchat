@@ -849,6 +849,14 @@ function lh(){
 		}
 	};
 	
+	this.redirectToURLOnline = function(online_user_id,trans) {
+		var url = prompt(trans, "");
+		if (url != null) {
+			lhinst.addRemoteOnlineCommand(online_user_id,'lhc_chat_redirect:'+url.replace(new RegExp(':','g'),'__SPLIT__'));	
+			lhinst.addExecutionCommand(online_user_id,'lhc_cobrowse_multi_command__lhc_chat_redirect:'+url.replace(new RegExp(':','g'),'__SPLIT__'));		
+		}
+	};
+	
 	this.transferChatDep = function(chat_id)
 	{
 	    var user_id = $('[name=DepartamentID'+chat_id+']:checked').val();
