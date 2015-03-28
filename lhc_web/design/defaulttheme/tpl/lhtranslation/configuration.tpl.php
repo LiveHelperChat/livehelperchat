@@ -20,6 +20,7 @@
             <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
                     'input_name'     => 'LanguageTo',  
     	            'css_class'      => 'form-control',
+                    'selected_id'    => '',
                     'list_function'  => 'erLhcoreClassTranslate::getSupportedLanguages'
             )); ?>
               
