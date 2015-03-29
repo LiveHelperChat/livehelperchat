@@ -117,6 +117,8 @@ class erLhcoreClassModelChatFile {
    public $file_path = null;
    public $size = null;
    public $extension = null;
+   public $date = 0;
+   public $user_id = 0;
    public $chat_id = 0;
    public $online_user_id = 0;
 }

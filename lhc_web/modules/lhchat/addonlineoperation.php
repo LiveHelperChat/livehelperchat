@@ -33,7 +33,11 @@ if (trim($form->operation) != '')
 	        echo json_encode(array('error' => 'true', 'result' => 'Invalid CSRF Token' ));
 	        exit;
 	    }
-	         	
+	    
+	    if ($form->operation == "lhc_screenshot") {
+	       $onlineuser->operation_chat .= $form->operation . "\n";
+	    }
+	    	    
 	    $onlineuser->operation .= str_replace(array('{online_user_id}','{online_user_hash}'), array($onlineuser->id,$onlineuser->vid), $validOperations[$operation]);
 	    $onlineuser->saveThis();	    
 	}

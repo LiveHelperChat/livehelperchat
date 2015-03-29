@@ -14,11 +14,17 @@ var LHCCoBrowser = (function() {
 		this.initializeData = null;
 		this.selectorInitialized = false;
 		this.initialiseBlock = true;
+		this.shareStyleStatus = "border-radius:3px;cursor:pointer;position:fixed;top:5px;right:5px;padding:5px;z-index:9999;text-align:center;font-weight:bold;background-color:rgba(140, 227, 253, 0.53);font-family:arial;font-size:12px;";
 		
 		this.trans = {};
-
+		
 		if (params['url']) {
 			this.url = params['url'];
+		}
+		;
+
+		if (params['style_share']) {
+			this.shareStyleStatus = params['style_share'];
 		}
 		;
 
@@ -923,7 +929,7 @@ var LHCCoBrowser = (function() {
 			}
 		});
 
-		var htmlStatus = '<div id="lhc_status_mirror" style="border-radius:3px;cursor:pointer;position:fixed;top:5px;right:5px;padding:5px;z-index:9999;text-align:center;font-weight:bold;background-color:rgba(140, 227, 253, 0.53);font-family:arial;font-size:12px;">'
+		var htmlStatus = '<div id="lhc_status_mirror" style="'+this.shareStyleStatus+'">'
 				+ this.trans.operator_watching + '</div>';
 		var fragment = lh_inst.appendHTML(htmlStatus);
 		
