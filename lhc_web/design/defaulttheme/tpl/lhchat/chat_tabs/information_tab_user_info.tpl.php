@@ -36,9 +36,7 @@
 		<a class="icon-cancel-squared" onclick="lhinst.deleteChat('<?php echo $chat->id?>',$('#tabs'),true)" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Delete chat')?>"></a>
 		<?php endif ?>	
 		
-		<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat', 'allowtransfer')) : ?>
-		<a class="icon-users" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT +'chat/transferchat/<?php echo $chat->id?>'})" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Transfer chat')?>">
-		<?php endif; ?>
+		<?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/actions/transfer.tpl.php'));?>
 		
         <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/actions/blockuser.tpl.php'));?>
 		
@@ -54,9 +52,7 @@
 		<a class="icon-network" onclick="lhinst.redirectToURL('<?php echo $chat->id?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Please enter a URL');?>')" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Redirect user to another url');?>"></a>
 		<?php endif;?>
 		
-		<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhspeech','change_chat_recognition')) : ?>
-		<a class="icon-mic" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Choose other than default recognition language')?>" onclick="lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('speech/setchatspeechlanguage')?>/<?php echo $chat->id?>'})"></a>
-		<?php endif;?>
+		<?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/actions/speech.tpl.php'));?>
 			
 		<?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/actions/cobrowse.tpl.php'));?>
 				

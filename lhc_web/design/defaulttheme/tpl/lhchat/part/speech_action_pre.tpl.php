@@ -1,0 +1,1 @@
+<?php $speech_action_enabled = true;?>
