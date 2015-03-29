@@ -410,6 +410,7 @@ ul.user-settings-list li{
 	overflow:hidden;
 	position:relative;
 	height:15px;;
+	margin-top:5px;
 }
 
 .page-url span{
