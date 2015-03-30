@@ -48,6 +48,10 @@ img{max-height:100%}
 	padding:6px;	
 }
 
+.up-case-first{
+	text-transform: capitalize;
+}
+
 #widget-layout input[type=text]{
 	height:30px;
 }
