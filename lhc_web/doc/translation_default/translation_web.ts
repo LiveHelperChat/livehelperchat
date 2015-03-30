@@ -1621,6 +1621,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Choose other than default recognition language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transfer chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Footprint</source>
       <translation type="unfinished"/>
     </message>
@@ -1673,10 +1681,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Transfer chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Mail was send</source>
       <translation type="unfinished"/>
     </message>
@@ -1698,10 +1702,6 @@
     </message>
     <message>
       <source>Redirect user to another url</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose other than default recognition language</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1797,10 +1797,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Send delayed canned message instantly</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Reopen chat</source>
       <translation type="unfinished"/>
     </message>
@@ -1810,6 +1806,10 @@
     </message>
     <message>
       <source>Fill textarea with canned message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send delayed canned message instantly</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1951,6 +1951,10 @@
   <context>
     <name>files/files</name>
     <message>
+      <source>Download file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Refresh</source>
       <translation type="unfinished"/>
     </message>
@@ -1959,7 +1963,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Download file</source>
+      <source>Sent by Customer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sent by Operator</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2658,6 +2666,14 @@
   <context>
     <name>chat/onlineusers</name>
     <message>
+      <source>Status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No one has sent a message to the user yet</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>GEO detection configuration</source>
       <translation type="unfinished"/>
     </message>
@@ -3010,11 +3026,27 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Status</source>
+      <source>Action</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Action</source>
+      <source>User has not seen a message from the operator, or the message window is still open.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Seen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unseen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User has seen the message from the operator.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User does not have any messages from the operator</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3026,23 +3058,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Returning</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>has sent a message to the user</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User has not seen a message from the operator, or the message window is still open.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User has seen the message from the operator.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User does not have any messages from the operator</source>
       <translation type="unfinished"/>
     </message>
     <message>
