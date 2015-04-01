@@ -2303,6 +2303,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Your request was not processed as expected - but don't worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Invalid file extension</source>
       <translation type="unfinished"/>
     </message>
