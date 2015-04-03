@@ -209,7 +209,7 @@ function generateEmbedCode(){
     <?php include(erLhcoreClassDesign::designtpl('lhsystem/htmlcode_custom_generation_multiinclude.tpl.php'));?>
 
     if (uaArguments != '') {
-    	uaArguments = '/(ua)/'+uaArguments;
+    	uaArguments = '/(ua)'+uaArguments;
     }
     
     var script = '<script type="text/javascript">'+"\n"+"var LHCChatOptions = {};\n"+
