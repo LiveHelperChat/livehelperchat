@@ -851,16 +851,16 @@
       <translation>ช่วยให้เราเติบโต</translation>
     </message>
     <message>
+      <source>Embed code</source>
+      <translation>ฝังรหัส</translation>
+    </message>
+    <message>
       <source>Widget embed code</source>
       <translation>เครื่องมือฝังรหัส</translation>
     </message>
     <message>
       <source>Page embed code</source>
       <translation>หน้าฝังรหัส</translation>
-    </message>
-    <message>
-      <source>Embed code</source>
-      <translation>ฝังรหัส</translation>
     </message>
     <message>
       <source>Set default speech recognition language</source>
@@ -1619,6 +1619,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Choose other than default recognition language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transfer chat</source>
+      <translation>โอนย้ายแชท</translation>
+    </message>
+    <message>
       <source>Footprint</source>
       <translation>รอยเท้า</translation>
     </message>
@@ -1671,10 +1679,6 @@
       <translation>ลบการสนทนา</translation>
     </message>
     <message>
-      <source>Transfer chat</source>
-      <translation>โอนย้ายแชท</translation>
-    </message>
-    <message>
       <source>Mail was send</source>
       <translation type="unfinished"/>
     </message>
@@ -1696,10 +1700,6 @@
     </message>
     <message>
       <source>Redirect user to another url</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose other than default recognition language</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1795,10 +1795,6 @@
       <translation>ส่ง</translation>
     </message>
     <message>
-      <source>Send delayed canned message instantly</source>
-      <translation>ส่งกระป๋องความล่าช้าได้ทันที</translation>
-    </message>
-    <message>
       <source>Reopen chat</source>
       <translation>เปิดสนทนา</translation>
     </message>
@@ -1809,6 +1805,10 @@
     <message>
       <source>Fill textarea with canned message</source>
       <translation>เติมพื้นที่ข้อความกับข้อความที่บรรจุกระป๋อง</translation>
+    </message>
+    <message>
+      <source>Send delayed canned message instantly</source>
+      <translation>ส่งกระป๋องความล่าช้าได้ทันที</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -1949,6 +1949,10 @@
   <context>
     <name>files/files</name>
     <message>
+      <source>Download file</source>
+      <translation>ดาวน์โหลดไฟล์</translation>
+    </message>
+    <message>
       <source>Refresh</source>
       <translation>รีเฟรช</translation>
     </message>
@@ -1957,8 +1961,12 @@
       <translation>ลบแฟ้ม</translation>
     </message>
     <message>
-      <source>Download file</source>
-      <translation>ดาวน์โหลดไฟล์</translation>
+      <source>Sent by Customer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sent by Operator</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Drop your files here.</source>
@@ -2193,6 +2201,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>พิมพ์ข้อความ และป้อนตีส่ง...</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>ส่ง</translation>
+    </message>
+    <message>
       <source>Department is offline</source>
       <translation type="unfinished"/>
     </message>
@@ -2207,14 +2223,6 @@
     <message>
       <source>characters</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>พิมพ์ข้อความ และป้อนตีส่ง...</translation>
-    </message>
-    <message>
-      <source>Send</source>
-      <translation>ส่ง</translation>
     </message>
     <message>
       <source>Personal assistant</source>
@@ -2291,6 +2299,10 @@
     <message>
       <source>is required</source>
       <translation>จำเป็นต้องมี</translation>
+    </message>
+    <message>
+      <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Invalid file extension</source>
@@ -2656,6 +2668,14 @@
   <context>
     <name>chat/onlineusers</name>
     <message>
+      <source>Status</source>
+      <translation>สถานะ</translation>
+    </message>
+    <message>
+      <source>No one has sent a message to the user yet</source>
+      <translation>ไม่ได้ส่งข้อความไปยังผู้ใช้ยัง</translation>
+    </message>
+    <message>
       <source>GEO detection configuration</source>
       <translation>กำหนดค่าตรวจสอบ GEO</translation>
     </message>
@@ -3008,12 +3028,28 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Status</source>
-      <translation>สถานะ</translation>
-    </message>
-    <message>
       <source>Action</source>
       <translation>การดำเนินการ</translation>
+    </message>
+    <message>
+      <source>User has not seen a message from the operator, or the message window is still open.</source>
+      <translation>ผู้ใช้ยังไม่เห็นข้อความจากตัวดำเนินการ หรือหน้าต่างข้อความยังคงเปิดอยู่</translation>
+    </message>
+    <message>
+      <source>Seen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unseen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User has seen the message from the operator.</source>
+      <translation>ผู้ใช้ได้เห็นข้อความจากตัวดำเนินการ</translation>
+    </message>
+    <message>
+      <source>User does not have any messages from the operator</source>
+      <translation>ผู้ใช้ที่มีข้อความใด ๆ จากตัวดำเนินการ</translation>
     </message>
     <message>
       <source>first visit</source>
@@ -3024,24 +3060,20 @@
       <translation>เยี่ยมชมล่าสุด</translation>
     </message>
     <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Returning</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>has sent a message to the user</source>
       <translation>ส่งข้อความไปยังผู้ใช้</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>ไม่ได้ส่งข้อความไปยังผู้ใช้ยัง</translation>
-    </message>
-    <message>
-      <source>User has not seen a message from the operator, or the message window is still open.</source>
-      <translation>ผู้ใช้ยังไม่เห็นข้อความจากตัวดำเนินการ หรือหน้าต่างข้อความยังคงเปิดอยู่</translation>
-    </message>
-    <message>
-      <source>User has seen the message from the operator.</source>
-      <translation>ผู้ใช้ได้เห็นข้อความจากตัวดำเนินการ</translation>
-    </message>
-    <message>
-      <source>User does not have any messages from the operator</source>
-      <translation>ผู้ใช้ที่มีข้อความใด ๆ จากตัวดำเนินการ</translation>
     </message>
     <message>
       <source>Files upload for users is active</source>
@@ -3230,10 +3262,6 @@
       <translation>รายการของบทบาท</translation>
     </message>
     <message>
-      <source>Live help embed code</source>
-      <translation>สดช่วยฝังรหัส</translation>
-    </message>
-    <message>
       <source>Departments</source>
       <translation>แผนก</translation>
     </message>
@@ -3296,6 +3324,10 @@
     <message>
       <source>Canned messages</source>
       <translation>ข้อความที่บรรจุกระป๋อง</translation>
+    </message>
+    <message>
+      <source>Live help embed code</source>
+      <translation>สดช่วยฝังรหัส</translation>
     </message>
     <message>
       <source>Chatbox embed code</source>
@@ -3460,12 +3492,12 @@
       <translation>เมนู</translation>
     </message>
     <message>
-      <source>Chats list</source>
-      <translation>รายการสนทนา</translation>
-    </message>
-    <message>
       <source>Extra modules</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>รายการสนทนา</translation>
     </message>
     <message>
       <source>Online visitors</source>

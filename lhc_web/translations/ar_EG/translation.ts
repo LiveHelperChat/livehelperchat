@@ -851,16 +851,16 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Widget embed code</source>
       <translation>شفرة تضمين الودجة</translation>
     </message>
     <message>
       <source>Page embed code</source>
       <translation>شفرة تضمين الصفحة</translation>
-    </message>
-    <message>
-      <source>Embed code</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Set default speech recognition language</source>
@@ -1619,6 +1619,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Choose other than default recognition language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transfer chat</source>
+      <translation>حَوِّل المحادثة</translation>
+    </message>
+    <message>
       <source>Footprint</source>
       <translation type="unfinished"/>
     </message>
@@ -1671,10 +1679,6 @@
       <translation>أزِل المحادثة</translation>
     </message>
     <message>
-      <source>Transfer chat</source>
-      <translation>حَوِّل المحادثة</translation>
-    </message>
-    <message>
       <source>Mail was send</source>
       <translation type="unfinished"/>
     </message>
@@ -1696,10 +1700,6 @@
     </message>
     <message>
       <source>Redirect user to another url</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose other than default recognition language</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1795,10 +1795,6 @@
       <translation>أرسِل</translation>
     </message>
     <message>
-      <source>Send delayed canned message instantly</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Reopen chat</source>
       <translation type="unfinished"/>
     </message>
@@ -1808,6 +1804,10 @@
     </message>
     <message>
       <source>Fill textarea with canned message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send delayed canned message instantly</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1949,6 +1949,10 @@
   <context>
     <name>files/files</name>
     <message>
+      <source>Download file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Refresh</source>
       <translation type="unfinished"/>
     </message>
@@ -1957,7 +1961,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Download file</source>
+      <source>Sent by Customer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sent by Operator</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2193,6 +2201,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department is offline</source>
       <translation type="unfinished"/>
     </message>
@@ -2206,14 +2222,6 @@
     </message>
     <message>
       <source>characters</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Send</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2290,6 +2298,10 @@
     </message>
     <message>
       <source>is required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2656,6 +2668,14 @@
   <context>
     <name>chat/onlineusers</name>
     <message>
+      <source>Status</source>
+      <translation>الحالة</translation>
+    </message>
+    <message>
+      <source>No one has sent a message to the user yet</source>
+      <translation>لم يتم ارسال رسالة لهذا العضو</translation>
+    </message>
+    <message>
       <source>GEO detection configuration</source>
       <translation>ضبط التقاط المكان الجيوغرافي</translation>
     </message>
@@ -3008,12 +3028,28 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Status</source>
-      <translation>الحالة</translation>
-    </message>
-    <message>
       <source>Action</source>
       <translation>الإجراء</translation>
+    </message>
+    <message>
+      <source>User has not seen a message from the operator, or the message window is still open.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Seen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unseen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User has seen the message from the operator.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User does not have any messages from the operator</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>first visit</source>
@@ -3024,23 +3060,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Returning</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>has sent a message to the user</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>لم يتم ارسال رسالة لهذا العضو</translation>
-    </message>
-    <message>
-      <source>User has not seen a message from the operator, or the message window is still open.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User has seen the message from the operator.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User does not have any messages from the operator</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3230,10 +3262,6 @@
       <translation>قائمة الأدوار</translation>
     </message>
     <message>
-      <source>Live help embed code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Departments</source>
       <translation>القسم</translation>
     </message>
@@ -3296,6 +3324,10 @@
     <message>
       <source>Canned messages</source>
       <translation>الرسائل الجاهزة</translation>
+    </message>
+    <message>
+      <source>Live help embed code</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chatbox embed code</source>
@@ -3460,12 +3492,12 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Chats list</source>
-      <translation>قائمة الدردشات</translation>
-    </message>
-    <message>
       <source>Extra modules</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>قائمة الدردشات</translation>
     </message>
     <message>
       <source>Online visitors</source>

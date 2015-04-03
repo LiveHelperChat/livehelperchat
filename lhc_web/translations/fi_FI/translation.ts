@@ -851,16 +851,16 @@
       <translation>Auta meitä kasvamaan</translation>
     </message>
     <message>
+      <source>Embed code</source>
+      <translation>Upotuskoodi</translation>
+    </message>
+    <message>
       <source>Widget embed code</source>
       <translation>Widget koodi</translation>
     </message>
     <message>
       <source>Page embed code</source>
       <translation>Sivu koodi</translation>
-    </message>
-    <message>
-      <source>Embed code</source>
-      <translation>Upotuskoodi</translation>
     </message>
     <message>
       <source>Set default speech recognition language</source>
@@ -1619,6 +1619,14 @@
       <translation>Näytön jakaminen</translation>
     </message>
     <message>
+      <source>Choose other than default recognition language</source>
+      <translation>Valitse muu kuin oletustunnistuskieli</translation>
+    </message>
+    <message>
+      <source>Transfer chat</source>
+      <translation>Siirrä keskustelu</translation>
+    </message>
+    <message>
       <source>Footprint</source>
       <translation>Jalanjälki</translation>
     </message>
@@ -1671,10 +1679,6 @@
       <translation>Poista keskustelu</translation>
     </message>
     <message>
-      <source>Transfer chat</source>
-      <translation>Siirrä keskustelu</translation>
-    </message>
-    <message>
       <source>Mail was send</source>
       <translation>Sähköposti lähetettiin</translation>
     </message>
@@ -1697,10 +1701,6 @@
     <message>
       <source>Redirect user to another url</source>
       <translation>Uudelleenohjaa käyttäjä toiseen URL osoitteeseen</translation>
-    </message>
-    <message>
-      <source>Choose other than default recognition language</source>
-      <translation>Valitse muu kuin oletustunnistuskieli</translation>
     </message>
     <message>
       <source>Department</source>
@@ -1795,10 +1795,6 @@
       <translation>Lähetä</translation>
     </message>
     <message>
-      <source>Send delayed canned message instantly</source>
-      <translation>Lähetä viivästetty esivalmisteltu viesti heti</translation>
-    </message>
-    <message>
       <source>Reopen chat</source>
       <translation>Avaa keskustelu uudelleen</translation>
     </message>
@@ -1809,6 +1805,10 @@
     <message>
       <source>Fill textarea with canned message</source>
       <translation>Täytä kenttä esivalmistelulla viestillä</translation>
+    </message>
+    <message>
+      <source>Send delayed canned message instantly</source>
+      <translation>Lähetä viivästetty esivalmisteltu viesti heti</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -1949,6 +1949,10 @@
   <context>
     <name>files/files</name>
     <message>
+      <source>Download file</source>
+      <translation>Lataa tiedosto</translation>
+    </message>
+    <message>
       <source>Refresh</source>
       <translation>Lataa uudelleen</translation>
     </message>
@@ -1957,8 +1961,12 @@
       <translation>Poista tiedosto</translation>
     </message>
     <message>
-      <source>Download file</source>
-      <translation>Lataa tiedosto</translation>
+      <source>Sent by Customer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sent by Operator</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Drop your files here.</source>
@@ -2193,6 +2201,14 @@
       <translation>Onko sinulla kysyttävää ? Kysy meiltä !</translation>
     </message>
     <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Kirjoita viestisi ja paina enteriä lähettääksesi...</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>Lähetä</translation>
+    </message>
+    <message>
       <source>Department is offline</source>
       <translation>Yksikkö on offline-tilassa</translation>
     </message>
@@ -2207,14 +2223,6 @@
     <message>
       <source>characters</source>
       <translation>merkit</translation>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Kirjoita viestisi ja paina enteriä lähettääksesi...</translation>
-    </message>
-    <message>
-      <source>Send</source>
-      <translation>Lähetä</translation>
     </message>
     <message>
       <source>Personal assistant</source>
@@ -2291,6 +2299,10 @@
     <message>
       <source>is required</source>
       <translation>vaaditaan</translation>
+    </message>
+    <message>
+      <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Invalid file extension</source>
@@ -2656,6 +2668,14 @@
   <context>
     <name>chat/onlineusers</name>
     <message>
+      <source>Status</source>
+      <translation>Tila</translation>
+    </message>
+    <message>
+      <source>No one has sent a message to the user yet</source>
+      <translation>Kukaan ei ole lähettänyt viestiä käyttäjälle vielä</translation>
+    </message>
+    <message>
       <source>GEO detection configuration</source>
       <translation>GEO tunnistus asetukset</translation>
     </message>
@@ -3008,12 +3028,28 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Status</source>
-      <translation>Tila</translation>
-    </message>
-    <message>
       <source>Action</source>
       <translation>Toiminto</translation>
+    </message>
+    <message>
+      <source>User has not seen a message from the operator, or the message window is still open.</source>
+      <translation>Käyttäjä ei ole nähnyt viestiä operaattorilta vielä tai viesti-ikkuna on vielä auki.</translation>
+    </message>
+    <message>
+      <source>Seen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unseen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User has seen the message from the operator.</source>
+      <translation>Käyttäjä on nähnyt operaattorin viestin.</translation>
+    </message>
+    <message>
+      <source>User does not have any messages from the operator</source>
+      <translation>Käyttäjälle ei ole viestejä operaattorilta</translation>
     </message>
     <message>
       <source>first visit</source>
@@ -3024,24 +3060,20 @@
       <translation>viimeisin vierailu</translation>
     </message>
     <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Returning</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>has sent a message to the user</source>
       <translation>on lähettänyt viestin käyttäjälle</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>Kukaan ei ole lähettänyt viestiä käyttäjälle vielä</translation>
-    </message>
-    <message>
-      <source>User has not seen a message from the operator, or the message window is still open.</source>
-      <translation>Käyttäjä ei ole nähnyt viestiä operaattorilta vielä tai viesti-ikkuna on vielä auki.</translation>
-    </message>
-    <message>
-      <source>User has seen the message from the operator.</source>
-      <translation>Käyttäjä on nähnyt operaattorin viestin.</translation>
-    </message>
-    <message>
-      <source>User does not have any messages from the operator</source>
-      <translation>Käyttäjälle ei ole viestejä operaattorilta</translation>
     </message>
     <message>
       <source>Files upload for users is active</source>
@@ -3230,10 +3262,6 @@
       <translation>Roolilista</translation>
     </message>
     <message>
-      <source>Live help embed code</source>
-      <translation>Live help upotuskoodi</translation>
-    </message>
-    <message>
       <source>Departments</source>
       <translation>Yksiköt</translation>
     </message>
@@ -3296,6 +3324,10 @@
     <message>
       <source>Canned messages</source>
       <translation>Viestipohjat</translation>
+    </message>
+    <message>
+      <source>Live help embed code</source>
+      <translation>Live help upotuskoodi</translation>
     </message>
     <message>
       <source>Chatbox embed code</source>
@@ -3460,12 +3492,12 @@
       <translation>Valikko</translation>
     </message>
     <message>
-      <source>Chats list</source>
-      <translation>Keskustelu listat</translation>
-    </message>
-    <message>
       <source>Extra modules</source>
       <translation>Erillismoduulit</translation>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>Keskustelu listat</translation>
     </message>
     <message>
       <source>Online visitors</source>

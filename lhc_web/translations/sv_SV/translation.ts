@@ -851,16 +851,16 @@
       <translation>Hjälp oss växa</translation>
     </message>
     <message>
+      <source>Embed code</source>
+      <translation>Inbäddad kod</translation>
+    </message>
+    <message>
       <source>Widget embed code</source>
       <translation>Inbäddad kod för widget</translation>
     </message>
     <message>
       <source>Page embed code</source>
       <translation>Inbäddad kod för sida</translation>
-    </message>
-    <message>
-      <source>Embed code</source>
-      <translation>Inbäddad kod</translation>
     </message>
     <message>
       <source>Set default speech recognition language</source>
@@ -1619,6 +1619,14 @@
       <translation>Skärmdelning</translation>
     </message>
     <message>
+      <source>Choose other than default recognition language</source>
+      <translation>Välj ett annat igenkänningsspråk än det som är standard</translation>
+    </message>
+    <message>
+      <source>Transfer chat</source>
+      <translation>Vidarebefodra chatten</translation>
+    </message>
+    <message>
       <source>Footprint</source>
       <translation>Fotspår</translation>
     </message>
@@ -1671,10 +1679,6 @@
       <translation>Ta bort chatt</translation>
     </message>
     <message>
-      <source>Transfer chat</source>
-      <translation>Vidarebefodra chatten</translation>
-    </message>
-    <message>
       <source>Mail was send</source>
       <translation>Mejlet skickades</translation>
     </message>
@@ -1697,10 +1701,6 @@
     <message>
       <source>Redirect user to another url</source>
       <translation>Vidarebefordra användare till en annan URL</translation>
-    </message>
-    <message>
-      <source>Choose other than default recognition language</source>
-      <translation>Välj ett annat igenkänningsspråk än det som är standard</translation>
     </message>
     <message>
       <source>Department</source>
@@ -1795,10 +1795,6 @@
       <translation>Skicka</translation>
     </message>
     <message>
-      <source>Send delayed canned message instantly</source>
-      <translation>Skicka snabbmeddelande direkt</translation>
-    </message>
-    <message>
       <source>Reopen chat</source>
       <translation>Återuppta chatten</translation>
     </message>
@@ -1809,6 +1805,10 @@
     <message>
       <source>Fill textarea with canned message</source>
       <translation>Fyll textrutan med snabbmeddelandet</translation>
+    </message>
+    <message>
+      <source>Send delayed canned message instantly</source>
+      <translation>Skicka snabbmeddelande direkt</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -1949,6 +1949,10 @@
   <context>
     <name>files/files</name>
     <message>
+      <source>Download file</source>
+      <translation>Ladda ner fil</translation>
+    </message>
+    <message>
       <source>Refresh</source>
       <translation>Uppdatera</translation>
     </message>
@@ -1957,8 +1961,12 @@
       <translation>Ta bort fil</translation>
     </message>
     <message>
-      <source>Download file</source>
-      <translation>Ladda ner fil</translation>
+      <source>Sent by Customer</source>
+      <translation>Skickat av besökare</translation>
+    </message>
+    <message>
+      <source>Sent by Operator</source>
+      <translation>Skickat av operatör</translation>
     </message>
     <message>
       <source>Drop your files here.</source>
@@ -2193,6 +2201,14 @@
       <translation>Har du en fråga? Kontakta oss!</translation>
     </message>
     <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Skriv in ditt meddelande och tryck enter för att skicka...</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>Skicka</translation>
+    </message>
+    <message>
       <source>Department is offline</source>
       <translation>Avdelningen är offline</translation>
     </message>
@@ -2207,14 +2223,6 @@
     <message>
       <source>characters</source>
       <translation>tecken</translation>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Skriv in ditt meddelande och tryck enter för att skicka...</translation>
-    </message>
-    <message>
-      <source>Send</source>
-      <translation>Skicka</translation>
     </message>
     <message>
       <source>Personal assistant</source>
@@ -2291,6 +2299,10 @@
     <message>
       <source>is required</source>
       <translation>är obligatorisk</translation>
+    </message>
+    <message>
+      <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Invalid file extension</source>
@@ -2656,6 +2668,14 @@
   <context>
     <name>chat/onlineusers</name>
     <message>
+      <source>Status</source>
+      <translation>Status</translation>
+    </message>
+    <message>
+      <source>No one has sent a message to the user yet</source>
+      <translation>Ingen har skickat meddelande till användaren ännu</translation>
+    </message>
+    <message>
       <source>GEO detection configuration</source>
       <translation>Geografisk lokaliseringsinställning</translation>
     </message>
@@ -3008,12 +3028,28 @@
       <translation>Genom användarstatus på sidan</translation>
     </message>
     <message>
-      <source>Status</source>
-      <translation>Status</translation>
-    </message>
-    <message>
       <source>Action</source>
       <translation>Aktivitet</translation>
+    </message>
+    <message>
+      <source>User has not seen a message from the operator, or the message window is still open.</source>
+      <translation>Användaren har inte sett meddelandet från operatören eller så är meddelanderutan fortfarande öppet.</translation>
+    </message>
+    <message>
+      <source>Seen</source>
+      <translation>Sett</translation>
+    </message>
+    <message>
+      <source>Unseen</source>
+      <translation>Osedda</translation>
+    </message>
+    <message>
+      <source>User has seen the message from the operator.</source>
+      <translation>Användaren har sett meddelandet från operatören.</translation>
+    </message>
+    <message>
+      <source>User does not have any messages from the operator</source>
+      <translation>Användaren har inga meddelanden från operatören</translation>
     </message>
     <message>
       <source>first visit</source>
@@ -3024,24 +3060,20 @@
       <translation>senaste besök</translation>
     </message>
     <message>
+      <source>Chat</source>
+      <translation>Chatt</translation>
+    </message>
+    <message>
+      <source>Returning</source>
+      <translation>Återkommande</translation>
+    </message>
+    <message>
+      <source>New</source>
+      <translation>Ny</translation>
+    </message>
+    <message>
       <source>has sent a message to the user</source>
       <translation>har skickat meddelande till användaren</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>Ingen har skickat meddelande till användaren ännu</translation>
-    </message>
-    <message>
-      <source>User has not seen a message from the operator, or the message window is still open.</source>
-      <translation>Användaren har inte sett meddelandet från operatören eller så är meddelanderutan fortfarande öppet.</translation>
-    </message>
-    <message>
-      <source>User has seen the message from the operator.</source>
-      <translation>Användaren har sett meddelandet från operatören.</translation>
-    </message>
-    <message>
-      <source>User does not have any messages from the operator</source>
-      <translation>Användaren har inga meddelanden från operatören</translation>
     </message>
     <message>
       <source>Files upload for users is active</source>
@@ -3230,10 +3262,6 @@
       <translation>Rollista</translation>
     </message>
     <message>
-      <source>Live help embed code</source>
-      <translation>Live hjälp inbäddad kod</translation>
-    </message>
-    <message>
       <source>Departments</source>
       <translation>Avdelningar</translation>
     </message>
@@ -3296,6 +3324,10 @@
     <message>
       <source>Canned messages</source>
       <translation>Snabbmeddelanden</translation>
+    </message>
+    <message>
+      <source>Live help embed code</source>
+      <translation>Live hjälp inbäddad kod</translation>
     </message>
     <message>
       <source>Chatbox embed code</source>
@@ -3460,12 +3492,12 @@
       <translation>Meny</translation>
     </message>
     <message>
-      <source>Chats list</source>
-      <translation>Chattlista</translation>
-    </message>
-    <message>
       <source>Extra modules</source>
       <translation>Extra inställningar</translation>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>Chattlista</translation>
     </message>
     <message>
       <source>Online visitors</source>

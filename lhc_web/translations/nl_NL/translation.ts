@@ -3,7 +3,7 @@
     <name>listchatconfig</name>
     <message>
       <source>How many days voting widget should not be expanded after last show</source>
-      <translation>Hoeveel dagen moet de stemmen widget niet worden getoond na laatste weergave</translation>
+      <translation>Hoeveel dagen moet de stemwidget verborgen worden na de laatste weergave?</translation>
     </message>
     <message>
       <source>Use secure cookie, check this if you want to force SSL all the time</source>
@@ -11,31 +11,31 @@
     </message>
     <message>
       <source>Which ip should be allowed to update DB by executing http request, separate by comma?</source>
-      <translation>Welke ip&apos;s mogen DB bijwerken door het uitvoeren van een http aanvraag (gescheiden door komma)?</translation>
+      <translation>Welke IP-adressen mogen de database updaten door http aanvragen te doen? (gescheiden door komma&apos;s)</translation>
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
-      <translation>Online bezoekers volgen inschakelen</translation>
+      <translation>Activeer online bezoekers volgen</translation>
     </message>
     <message>
       <source>Track is user still on site, chat status checks also has to be enabled</source>
-      <translation>Track is gebruiker nog steeds op de site, chat status controles moet ook worden ingeschakeld</translation>
+      <translation>Bekijk of de bezoeker nog steeds op de website is. Chat status moet hiervoor aan staan.</translation>
     </message>
     <message>
       <source>Track online visitors even if there is no online operators</source>
-      <translation>Online bezoekers bijhouden, zelfs als er geen online-ondernemers</translation>
+      <translation>Volg online bezoekers, zelfs als er geen operator online is.</translation>
     </message>
     <message>
       <source>Track users footprint. For this also online visitors tracking should be enabled</source>
-      <translation>Spoor gebruikers voetafdruk. Hiervoor moeten ook online bezoekers bijhouden worden ingeschakeld</translation>
+      <translation>Houdt de bezoeker zijn paginageschiedenis bij. &apos;Volg online bezoekers&apos; moet hiervoor aan staan.</translation>
     </message>
     <message>
       <source>Set your domain to enable user tracking across different domain subdomains.</source>
-      <translation>Stel uw domein om gebruikers bijhouden over ander domein subdomeinen.</translation>
+      <translation>Stel uw domeinnaam in om gebruikers bij te houden op een ander subdomein.</translation>
     </message>
     <message>
       <source>How many days keep records of online users.</source>
-      <translation>Hoeveel dagen wilt u de gegevens bewaren van online bezoekers?</translation>
+      <translation>Hoeveel dagen wilt u de gegevens van online bezoekers bewaren?</translation>
     </message>
     <message>
       <source>Suggest user to leave a message then user chooses offline department</source>
@@ -43,7 +43,7 @@
     </message>
     <message>
       <source>Play sound on invitation to chat.</source>
-      <translation>Speel geluid af bij een chat uitnodiging</translation>
+      <translation>Speel een geluid af bij een chat uitnodiging</translation>
     </message>
     <message>
       <source>Show users option to switch language at widget</source>
@@ -59,15 +59,15 @@
     </message>
     <message>
       <source>Location of SocketIO JS library</source>
-      <translation>Lokatie van de SocketIO bibliotheek</translation>
+      <translation>Locatie van de SocketIO bibliotheek</translation>
     </message>
     <message>
       <source>Connect to NodeJs in https mode</source>
-      <translation>Verbinding naar NodeJs via https</translation>
+      <translation>Verbinding naar NodeJs via HTTPS</translation>
     </message>
     <message>
       <source>socket.io path, optional</source>
-      <translation>socket.io pad, Optioneel</translation>
+      <translation>socket.io pad, optioneel</translation>
     </message>
     <message>
       <source>NodeJS support enabled</source>
@@ -75,7 +75,7 @@
     </message>
     <message>
       <source>Do not ask permission for users to see their screen</source>
-      <translation>Gebrukers niet om toestemming vragen om scherm te delen</translation>
+      <translation>Gebrukers niet om toestemming vragen om het scherm te delen</translation>
     </message>
     <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
@@ -83,7 +83,7 @@
     </message>
     <message>
       <source>Should cronjob run unanswered chats workflow and execute unaswered chats callback, 0 - no, any other number bigger than 0 is a minits how long chat have to be not accepted before executing callback.</source>
-      <translation>Moet de cronjob Onbeantwoorde Chats regels en Onbeantwoorde Chats Oppakken uitvoeren, 0 - nee, ander getal groter dan 0 is het aantal minuten dat een chat  moet mag worden gemarkeerd voor opnieuw aanspreken.</translation>
+      <translation>Moet de cronjob onbeantwoorde Chats regels en onbeantwoorde Chats oppakken uitvoeren, 0 - nee, ander getal groter dan 0 is het aantal minuten dat een chat  moet mag worden gemarkeerd voor opnieuw aanspreken.</translation>
     </message>
     <message>
       <source>Should cronjob run departments transfer workflow, even if user leaves a chat</source>
@@ -95,27 +95,27 @@
     </message>
     <message>
       <source>Reopen closed chat as new? Otherwise it will be reopened as active.</source>
-      <translation>Heropen chat als nieuw? Anders wordt hij alleen actief gezet.</translation>
+      <translation>Heropen chat als nieuw? Anders wordt de chat heropend als actief.</translation>
     </message>
     <message>
       <source>Should invitation logic be executed if there is no online operators</source>
-      <translation>Moet uitnodiging regel worden uitgevoerd als er geen agents online zijn</translation>
+      <translation>Moet de proactieve uitnodiging geactiveerd worden als er geen operator online is?</translation>
     </message>
     <message>
       <source>Pro active chats invitations limitation based on pending chats, (-1) do not limit, (0,1,n+1) number of pending chats can be for invitation to be shown.</source>
-      <translation>Pro actieve chats uitnodigingen beperking op basis van onbeantwoorde chats, (-1) niet beperken, (0,1, n + 1) aantal onbeantwoorde chats voordat de uitnodiging getoond kan worden.</translation>
+      <translation>Proactieve chats uitnodigingen beperking op basis van onbeantwoorde chats, &apos;-1&apos; is niet beperken, &apos;0,1, n + 1&apos; aantal onbeantwoorde chats voordat de uitnodiging getoond kan worden.</translation>
     </message>
     <message>
       <source>Is pro active chat invitation active. Online users tracking also has to be enabled</source>
-      <translation>Is een uitnodiging voor pro actieve chatsessie versturen actief? Online gebruikers bijhouden ook moet worden ingeschakeld</translation>
+      <translation>Is een uitnodiging voor pro actieve chatsessie versturen actief? Online gebruikers volgen moet ingeschakeld zijn.</translation>
     </message>
     <message>
       <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
-      <translation>Hulp nodig timeout, na hoeveel uur opnieuw tonen?</translation>
+      <translation>Na hoeveel uur wordt de tooltip opnieuw vertoond?</translation>
     </message>
     <message>
       <source>Show need help tooltip?</source>
-      <translation>Hulp tips tonen?</translation>
+      <translation>Hulp tooltip tonen?</translation>
     </message>
     <message>
       <source>Minimum phone number length</source>
@@ -123,7 +123,7 @@
     </message>
     <message>
       <source>Messages box height</source>
-      <translation>Hoogte berichtinhoud Chatbox</translation>
+      <translation>Hoogte berichtinhoud chatbox</translation>
     </message>
     <message>
       <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
@@ -139,11 +139,11 @@
     </message>
     <message>
       <source>Ignore users online statuses and use departments online hours</source>
-      <translation>Negeer gebruikers online statussen en gebruik afdelingen online uur</translation>
+      <translation>Negeer de gebruiker zijn online status en gebruik de werktijden van de afdeling</translation>
     </message>
     <message>
       <source>Which ip should be ignored in online users list, separate by comma</source>
-      <translation>Welke ip moet worden genegeerd in de online gebruikerslijst, gescheiden door komma</translation>
+      <translation>Welke IP adressen moeten worden genegeerd in de lijst van online bezoekers, gescheiden door komma&apos;s</translation>
     </message>
     <message>
       <source>Hide disabled department widget</source>
@@ -155,7 +155,7 @@
     </message>
     <message>
       <source>Is visitor e-mail required for FAQ</source>
-      <translation>Is bezoekers e-mailadres nodig voor FAQ</translation>
+      <translation>Is het e-mailadres van de bezoeker verplicht bij een FAQ?</translation>
     </message>
     <message>
       <source>Chats export secret hash</source>
@@ -163,11 +163,11 @@
     </message>
     <message>
       <source>Please enter explicit http mode. Either http: or https:, do not forget : at the end.</source>
-      <translation>Voer expliciete http modus in. Beide http: of https:, vergeet niet de : aan het einde.</translation>
+      <translation>Voer expliciete http modus in. HTTP: of HTTPS:, vergeet niet de : aan het einde.</translation>
     </message>
     <message>
       <source>Disable chat transcript send</source>
-      <translation>Chat chat-kopie verzenden uitschakelen</translation>
+      <translation>Chatkopie verzenden uitschakelen</translation>
     </message>
     <message>
       <source>Disable chat print</source>
@@ -179,7 +179,7 @@
     </message>
     <message>
       <source>Disable JS execution in Co-Browsing operator window</source>
-      <translation type="unfinished"/>
+      <translation>Schakel JavaScript uit in het Co-browse tabblad van de operator</translation>
     </message>
     <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
@@ -332,7 +332,7 @@
     </message>
     <message>
       <source>Main widget text</source>
-      <translation type="unfinished"/>
+      <translation>Tekst</translation>
     </message>
     <message>
       <source>Custom CSS</source>
@@ -368,7 +368,7 @@
     </message>
     <message>
       <source>Operator intro text</source>
-      <translation>Exploitant intro tekst</translation>
+      <translation>Operator intro tekst</translation>
     </message>
     <message>
       <source>Have a question? Ask us!</source>
@@ -388,7 +388,7 @@
     </message>
     <message>
       <source>Operator image in chat widget</source>
-      <translation>Agent afbeelding in chat widget</translation>
+      <translation>Operator afbeelding in chat widget</translation>
     </message>
     <message>
       <source>Logo image, visible in popup</source>
@@ -456,7 +456,7 @@
     </message>
     <message>
       <source>Text then user starts chat based on proactive invitation</source>
-      <translation type="unfinished"/>
+      <translation>Tekst wanneer een bezoeker een chat start op basis van een proactieve uitnodiging.</translation>
     </message>
     <message>
       <source>Text then operator closes a chat</source>
@@ -464,11 +464,11 @@
     </message>
     <message>
       <source>Text then user starts a chat and is waiting for operator to join a chat</source>
-      <translation type="unfinished"/>
+      <translation>Tekst wanneer een bezoeker een chat start en wacht op een operator.</translation>
     </message>
     <message>
       <source>Text then user starts a chat but department is offline</source>
-      <translation type="unfinished"/>
+      <translation>Tekst wanneer een bezoeker een chat start maar de afdeling is offline</translation>
     </message>
     <message>
       <source>Leave a message form text</source>
@@ -674,7 +674,7 @@
     </message>
     <message>
       <source>Nick which will be used if we cannot determine returning user name</source>
-      <translation type="unfinished"/>
+      <translation>Bijnaam die wordt gebruikt als de gebruikersnaam niet bepaald kan worden</translation>
     </message>
     <message>
       <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
@@ -844,11 +844,15 @@
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>Identificator</translation>
     </message>
     <message>
       <source>Help us to grow</source>
       <translation>Help ons te groeien</translation>
+    </message>
+    <message>
+      <source>Embed code</source>
+      <translation>Embed code</translation>
     </message>
     <message>
       <source>Widget embed code</source>
@@ -857,10 +861,6 @@
     <message>
       <source>Page embed code</source>
       <translation>Pagina embed code</translation>
-    </message>
-    <message>
-      <source>Embed code</source>
-      <translation>Embed code</translation>
     </message>
     <message>
       <source>Set default speech recognition language</source>
@@ -948,23 +948,23 @@
     </message>
     <message>
       <source>Invisible, only JS API will be included</source>
-      <translation type="unfinished"/>
+      <translation>Onzichtbaar, alleen JS API wordt bijgevoegd</translation>
     </message>
     <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
-      <translation type="unfinished"/>
+      <translation>Minimaliseer actie, alleen toepasbaar als de status widget beneden staat</translation>
     </message>
     <message>
       <source>Keep where it was</source>
-      <translation type="unfinished"/>
+      <translation>Laat staan waar het stond</translation>
     </message>
     <message>
       <source>Minimize to bottom of the screen</source>
-      <translation type="unfinished"/>
+      <translation>Minimaliseer naar de bodem van het scherm</translation>
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>
-      <translation type="unfinished"/>
+      <translation>Geen protocol toevoegen, alleen de domeinnaam is verplicht.</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -1100,7 +1100,7 @@
     </message>
     <message>
       <source>XLS</source>
-      <translation type="unfinished"/>
+      <translation>XLS</translation>
     </message>
     <message>
       <source>Select department</source>
@@ -1191,7 +1191,7 @@
     </message>
     <message>
       <source>Switch to widget</source>
-      <translation type="unfinished"/>
+      <translation>Ga naar widget</translation>
     </message>
     <message>
       <source>Visitor</source>
@@ -1616,7 +1616,15 @@
     </message>
     <message>
       <source>Screen sharing</source>
-      <translation type="unfinished"/>
+      <translation>Scherm delen</translation>
+    </message>
+    <message>
+      <source>Choose other than default recognition language</source>
+      <translation>Kies een andere taal om te herkennen dan de standaard</translation>
+    </message>
+    <message>
+      <source>Transfer chat</source>
+      <translation>Zet chat door</translation>
     </message>
     <message>
       <source>Footprint</source>
@@ -1656,7 +1664,7 @@
     </message>
     <message>
       <source>Edit main chat information</source>
-      <translation type="unfinished"/>
+      <translation>Verander algemene chatinformatie</translation>
     </message>
     <message>
       <source>Close dialog</source>
@@ -1669,10 +1677,6 @@
     <message>
       <source>Delete chat</source>
       <translation>Verwijder chat</translation>
-    </message>
-    <message>
-      <source>Transfer chat</source>
-      <translation>Zet chat door</translation>
     </message>
     <message>
       <source>Mail was send</source>
@@ -1692,15 +1696,11 @@
     </message>
     <message>
       <source>Please enter a URL</source>
-      <translation type="unfinished"/>
+      <translation>Voer s.v.p. een link in</translation>
     </message>
     <message>
       <source>Redirect user to another url</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose other than default recognition language</source>
-      <translation type="unfinished"/>
+      <translation>Stuur bezoeker door naar een andere link</translation>
     </message>
     <message>
       <source>Department</source>
@@ -1795,10 +1795,6 @@
       <translation>Zend</translation>
     </message>
     <message>
-      <source>Send delayed canned message instantly</source>
-      <translation>Stuur voorgeprogrammeerd bericht meteen</translation>
-    </message>
-    <message>
       <source>Reopen chat</source>
       <translation>Heropen chat</translation>
     </message>
@@ -1809,6 +1805,10 @@
     <message>
       <source>Fill textarea with canned message</source>
       <translation>Vul tekstveld met voorgeprogrammeerd bericht</translation>
+    </message>
+    <message>
+      <source>Send delayed canned message instantly</source>
+      <translation>Stuur voorgeprogrammeerd bericht meteen</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -1851,7 +1851,7 @@
     </message>
     <message>
       <source>Enter text for testing purposes</source>
-      <translation type="unfinished"/>
+      <translation>Voer tekst in om te testen</translation>
     </message>
     <message>
       <source>Translated text</source>
@@ -1927,7 +1927,7 @@
     </message>
     <message>
       <source>Detected operator and visitor languages matches, please choose languages manually</source>
-      <translation type="unfinished"/>
+      <translation>Gedetecteerde operator en bezoeker zijn talen matchen, kies s.v.p. handmatig een taal</translation>
     </message>
     <message>
       <source>Translation configuration</source>
@@ -1943,11 +1943,15 @@
     </message>
     <message>
       <source>Please choose translation languages manually and click Auto translate</source>
-      <translation type="unfinished"/>
+      <translation>Kies s.v.p. een taal en klik op &apos;Automatisch vertalen&apos;</translation>
     </message>
   </context>
   <context>
     <name>files/files</name>
+    <message>
+      <source>Download file</source>
+      <translation>Download bestand</translation>
+    </message>
     <message>
       <source>Refresh</source>
       <translation>Ververs</translation>
@@ -1957,8 +1961,12 @@
       <translation>Verwijder bestand</translation>
     </message>
     <message>
-      <source>Download file</source>
-      <translation>Download bestand</translation>
+      <source>Sent by Customer</source>
+      <translation>Verstuurd door bezoeker</translation>
+    </message>
+    <message>
+      <source>Sent by Operator</source>
+      <translation>Verstuurd door operator</translation>
     </message>
     <message>
       <source>Drop your files here.</source>
@@ -2193,6 +2201,14 @@
       <translation>Heeft u een vraag? Vraag het ons!</translation>
     </message>
     <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Typ hier uw bericht en druk op enter om te versturen</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>Verstuur</translation>
+    </message>
+    <message>
       <source>Department is offline</source>
       <translation>Afdeling is offline</translation>
     </message>
@@ -2207,14 +2223,6 @@
     <message>
       <source>characters</source>
       <translation>karakters</translation>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Typ hier uw bericht en druk op enter om te versturen</translation>
-    </message>
-    <message>
-      <source>Send</source>
-      <translation>Verstuur</translation>
     </message>
     <message>
       <source>Personal assistant</source>
@@ -2234,7 +2242,7 @@
     </message>
     <message>
       <source>Invalid CSRF token!</source>
-      <translation type="unfinished"/>
+      <translation>Ongeldig CSRF token!</translation>
     </message>
     <message>
       <source>Please enter a valid email address</source>
@@ -2291,6 +2299,10 @@
     <message>
       <source>is required</source>
       <translation>is verplicht</translation>
+    </message>
+    <message>
+      <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Invalid file extension</source>
@@ -2451,11 +2463,11 @@
     </message>
     <message>
       <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
-      <translation type="unfinished"/>
+      <translation>Deze regels ook op de chatstatus indicator toepassen? Systeem kan hierdoor trager worden</translation>
     </message>
     <message>
       <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
-      <translation type="unfinished"/>
+      <translation>Gebruik de normale chatstatus voor de volgende landen (bijvoorbeeld: nl,be,de,gb)</translation>
     </message>
     <message>
       <source>For</source>
@@ -2471,11 +2483,11 @@
     </message>
     <message>
       <source>E.g. ar,pl</source>
-      <translation type="unfinished"/>
+      <translation>Bijvoorbeeld: ar,pl</translation>
     </message>
     <message>
       <source>Other countries, put widget/chat status to</source>
-      <translation type="unfinished"/>
+      <translation>Zet de widget/chat status voor andere landen op</translation>
     </message>
     <message>
       <source>offline status</source>
@@ -2483,7 +2495,7 @@
     </message>
     <message>
       <source>hidden/disabled, widget will not be shown</source>
-      <translation type="unfinished"/>
+      <translation>verborgen widgets worden niet weergegeven</translation>
     </message>
     <message>
       <source>For unmatched countries put chat status to</source>
@@ -2655,6 +2667,14 @@
   </context>
   <context>
     <name>chat/onlineusers</name>
+    <message>
+      <source>Status</source>
+      <translation>Status</translation>
+    </message>
+    <message>
+      <source>No one has sent a message to the user yet</source>
+      <translation>Niemand heeft nog een bericht naar deze gebruiker verstuurd</translation>
+    </message>
     <message>
       <source>GEO detection configuration</source>
       <translation>GEO detectie configuratie</translation>
@@ -3008,12 +3028,28 @@
       <translation>Op gebruikerstatus op de website</translation>
     </message>
     <message>
-      <source>Status</source>
-      <translation>Status</translation>
-    </message>
-    <message>
       <source>Action</source>
       <translation>Actie</translation>
+    </message>
+    <message>
+      <source>User has not seen a message from the operator, or the message window is still open.</source>
+      <translation>Gebruiker heeft geen bericht van de operator gezien, of het bericht staat nog open</translation>
+    </message>
+    <message>
+      <source>Seen</source>
+      <translation>Gelezen</translation>
+    </message>
+    <message>
+      <source>Unseen</source>
+      <translation>Ongelezen</translation>
+    </message>
+    <message>
+      <source>User has seen the message from the operator.</source>
+      <translation>De gebruiker heeft het bericht van de operator gezien.</translation>
+    </message>
+    <message>
+      <source>User does not have any messages from the operator</source>
+      <translation>Gebruiker heeft geen berichten van de operator</translation>
     </message>
     <message>
       <source>first visit</source>
@@ -3024,24 +3060,20 @@
       <translation>laatste bezoek</translation>
     </message>
     <message>
+      <source>Chat</source>
+      <translation>Chat</translation>
+    </message>
+    <message>
+      <source>Returning</source>
+      <translation>Terugkomende</translation>
+    </message>
+    <message>
+      <source>New</source>
+      <translation>Nieuw</translation>
+    </message>
+    <message>
       <source>has sent a message to the user</source>
       <translation>heeft een bericht verstuurd naar de gebruiker</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>Niemand heeft nog een bericht naar deze gebruiker verstuurd</translation>
-    </message>
-    <message>
-      <source>User has not seen a message from the operator, or the message window is still open.</source>
-      <translation>Gebruiker heeft geen bericht van de operator gezien, of het bericht staat nog open</translation>
-    </message>
-    <message>
-      <source>User has seen the message from the operator.</source>
-      <translation>De gebruiker heeft het bericht van de operator gezien.</translation>
-    </message>
-    <message>
-      <source>User does not have any messages from the operator</source>
-      <translation>Gebruiker heeft geen berichten van de operator</translation>
     </message>
     <message>
       <source>Files upload for users is active</source>
@@ -3230,10 +3262,6 @@
       <translation>Rollen lijst</translation>
     </message>
     <message>
-      <source>Live help embed code</source>
-      <translation>Live help embed code</translation>
-    </message>
-    <message>
       <source>Departments</source>
       <translation>Afdelingen</translation>
     </message>
@@ -3296,6 +3324,10 @@
     <message>
       <source>Canned messages</source>
       <translation>Voorgeprogrammeerde berichten</translation>
+    </message>
+    <message>
+      <source>Live help embed code</source>
+      <translation>Live help embed code</translation>
     </message>
     <message>
       <source>Chatbox embed code</source>
@@ -3460,12 +3492,12 @@
       <translation>Menu</translation>
     </message>
     <message>
-      <source>Chats list</source>
-      <translation>Chat overzicht</translation>
-    </message>
-    <message>
       <source>Extra modules</source>
       <translation>Extra modules</translation>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>Chat overzicht</translation>
     </message>
     <message>
       <source>Online visitors</source>
@@ -4044,7 +4076,7 @@
     </message>
     <message>
       <source>Chats number by statuses</source>
-      <translation type="unfinished"/>
+      <translation>Aantal chats gefilterd op status</translation>
     </message>
     <message>
       <source>Time</source>
@@ -4056,7 +4088,7 @@
     </message>
     <message>
       <source>Visitors initiated</source>
-      <translation type="unfinished"/>
+      <translation>Chats geïnitieerd door bezoekers</translation>
     </message>
     <message>
       <source>Proactive</source>
@@ -4221,7 +4253,7 @@
     </message>
     <message>
       <source>User has joined the chat from popup chat window!</source>
-      <translation type="unfinished"/>
+      <translation>Gebruiker heeft de chat geopend vanuit een popup!</translation>
     </message>
   </context>
   <context>
@@ -4567,7 +4599,7 @@
     </message>
     <message>
       <source>On highlight scroll user window location to match my</source>
-      <translation type="unfinished"/>
+      <translation>Scroll het venster van de gebruiker samen met die van de operator</translation>
     </message>
     <message>
       <source>Follow user scroll position</source>
@@ -4575,7 +4607,7 @@
     </message>
     <message>
       <source>On click navigate user browser</source>
-      <translation type="unfinished"/>
+      <translation>Neem de muis van de bezoeker over</translation>
     </message>
     <message>
       <source>Click blue eye at the top to request screen share</source>
@@ -4709,7 +4741,7 @@
     </message>
     <message>
       <source>I receive other operators permissions request</source>
-      <translation type="unfinished"/>
+      <translation>Ik ontvang permissie aanvragen van andere operators</translation>
     </message>
     <message>
       <source>Skype</source>
@@ -4769,7 +4801,7 @@
     </message>
     <message>
       <source>User receives other operators permissions request</source>
-      <translation type="unfinished"/>
+      <translation>Gebruiker ontvangt permissie aanvragen van andere operators</translation>
     </message>
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
@@ -5091,7 +5123,7 @@
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>Identifier</translation>
     </message>
     <message>
       <source>Intro</source>
@@ -5161,7 +5193,7 @@
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>Identifier</translation>
     </message>
   </context>
   <context>
@@ -5172,7 +5204,7 @@
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>Identifier</translation>
     </message>
     <message>
       <source>Download</source>
@@ -5707,7 +5739,7 @@
     <name>speech/language</name>
     <message>
       <source>Choose speech recognition language for this chat</source>
-      <translation type="unfinished"/>
+      <translation>Kies spraakherkenning taal voor deze chat </translation>
     </message>
     <message>
       <source>Language</source>
@@ -5726,11 +5758,11 @@
     <name>speech/speech</name>
     <message>
       <source>Use application default recognition language</source>
-      <translation type="unfinished"/>
+      <translation>Gebruik standaard spraakherkenning taal</translation>
     </message>
     <message>
       <source>Use application default recognition dialect</source>
-      <translation type="unfinished"/>
+      <translation>Gebruik standaard spraakherkenning dialect</translation>
     </message>
   </context>
   <context>
@@ -6080,11 +6112,11 @@
     </message>
     <message>
       <source>I receive other operators permissions request</source>
-      <translation type="unfinished"/>
+      <translation>Ik ontvang permissie aanvragen van andere operators</translation>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
-      <translation type="unfinished"/>
+      <translation>Gebruiker ontvangt permissie aanvragen van andere operators</translation>
     </message>
     <message>
       <source>User group</source>
@@ -6508,7 +6540,7 @@
     </message>
     <message>
       <source>Referrer</source>
-      <translation type="unfinished"/>
+      <translation>Verwijzer</translation>
     </message>
     <message>
       <source>Link</source>
@@ -6863,7 +6895,7 @@
     </message>
     <message>
       <source>This user can not receive permision request!</source>
-      <translation type="unfinished"/>
+      <translation>Deze gebruiker kan de aanvraag niet ontvangen!</translation>
     </message>
     <message>
       <source>Permissions were not provided</source>

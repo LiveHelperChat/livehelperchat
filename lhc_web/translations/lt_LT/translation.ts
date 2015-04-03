@@ -851,16 +851,16 @@
       <translation>Padėkite mums augti</translation>
     </message>
     <message>
+      <source>Embed code</source>
+      <translation>Įterpimo kodas</translation>
+    </message>
+    <message>
       <source>Widget embed code</source>
       <translation>Widget įterpimo kodas</translation>
     </message>
     <message>
       <source>Page embed code</source>
       <translation>Įterpimo į puslapį kodas</translation>
-    </message>
-    <message>
-      <source>Embed code</source>
-      <translation>Įterpimo kodas</translation>
     </message>
     <message>
       <source>Set default speech recognition language</source>
@@ -1619,6 +1619,14 @@
       <translation>Ekrano dalinamasis</translation>
     </message>
     <message>
+      <source>Choose other than default recognition language</source>
+      <translation>Pasirinkite kitą negu standartinę atpažinimo kalbą</translation>
+    </message>
+    <message>
+      <source>Transfer chat</source>
+      <translation>Perskirti pokalbį</translation>
+    </message>
+    <message>
       <source>Footprint</source>
       <translation>Naršymo istorija</translation>
     </message>
@@ -1671,10 +1679,6 @@
       <translation>Ištrinti pokalbį</translation>
     </message>
     <message>
-      <source>Transfer chat</source>
-      <translation>Perskirti pokalbį</translation>
-    </message>
-    <message>
       <source>Mail was send</source>
       <translation>Laiškas buvo išsiųstas</translation>
     </message>
@@ -1697,10 +1701,6 @@
     <message>
       <source>Redirect user to another url</source>
       <translation>Nukreipti vartotoją į kitą URL</translation>
-    </message>
-    <message>
-      <source>Choose other than default recognition language</source>
-      <translation>Pasirinkite kitą negu standartinę atpažinimo kalbą</translation>
     </message>
     <message>
       <source>Department</source>
@@ -1795,10 +1795,6 @@
       <translation>Siųsti</translation>
     </message>
     <message>
-      <source>Send delayed canned message instantly</source>
-      <translation>Siųsti uždelstą žinutė tuoj pat</translation>
-    </message>
-    <message>
       <source>Reopen chat</source>
       <translation>Atidaryti pokalbį</translation>
     </message>
@@ -1809,6 +1805,10 @@
     <message>
       <source>Fill textarea with canned message</source>
       <translation>Užpildyti žinutės lauką paruošta žinute</translation>
+    </message>
+    <message>
+      <source>Send delayed canned message instantly</source>
+      <translation>Siųsti uždelstą žinutė tuoj pat</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -1949,6 +1949,10 @@
   <context>
     <name>files/files</name>
     <message>
+      <source>Download file</source>
+      <translation>Parsisiųsti failą</translation>
+    </message>
+    <message>
       <source>Refresh</source>
       <translation>Atnaujinti</translation>
     </message>
@@ -1957,8 +1961,12 @@
       <translation>Trinti failą</translation>
     </message>
     <message>
-      <source>Download file</source>
-      <translation>Parsisiųsti failą</translation>
+      <source>Sent by Customer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sent by Operator</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Drop your files here.</source>
@@ -2193,6 +2201,14 @@
       <translation>Turime klausimų? Klauskite!</translation>
     </message>
     <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Įveskite savo žinutę ir paspauskite enter</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>Siųsti</translation>
+    </message>
+    <message>
       <source>Department is offline</source>
       <translation>Departamentas neprisijungęs</translation>
     </message>
@@ -2207,14 +2223,6 @@
     <message>
       <source>characters</source>
       <translation>ženklai</translation>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Įveskite savo žinutę ir paspauskite enter</translation>
-    </message>
-    <message>
-      <source>Send</source>
-      <translation>Siųsti</translation>
     </message>
     <message>
       <source>Personal assistant</source>
@@ -2291,6 +2299,10 @@
     <message>
       <source>is required</source>
       <translation>yra privalomas</translation>
+    </message>
+    <message>
+      <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Invalid file extension</source>
@@ -2656,6 +2668,14 @@
   <context>
     <name>chat/onlineusers</name>
     <message>
+      <source>Status</source>
+      <translation>Būsena</translation>
+    </message>
+    <message>
+      <source>No one has sent a message to the user yet</source>
+      <translation>Niekas dar neišsiuntė žinutės vartotojui</translation>
+    </message>
+    <message>
       <source>GEO detection configuration</source>
       <translation>GEO detekcijos nustatymai</translation>
     </message>
@@ -3008,12 +3028,28 @@
       <translation>Pagal vartotojo būsena puslapyje</translation>
     </message>
     <message>
-      <source>Status</source>
-      <translation>Būsena</translation>
-    </message>
-    <message>
       <source>Action</source>
       <translation>Veiksmas</translation>
+    </message>
+    <message>
+      <source>User has not seen a message from the operator, or the message window is still open.</source>
+      <translation>Vartotojas nematė žinutės dar, arba žinutės langas dar atidarytas.</translation>
+    </message>
+    <message>
+      <source>Seen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unseen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User has seen the message from the operator.</source>
+      <translation>Vartotojas matė žinutę iš operatoriaus.</translation>
+    </message>
+    <message>
+      <source>User does not have any messages from the operator</source>
+      <translation>Vartotojas neturi jokių žinučių iš operatoriaus</translation>
     </message>
     <message>
       <source>first visit</source>
@@ -3024,24 +3060,20 @@
       <translation>paskutinis apsilankymas</translation>
     </message>
     <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Returning</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>has sent a message to the user</source>
       <translation>išsiuntė žinutę vartotojui</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>Niekas dar neišsiuntė žinutės vartotojui</translation>
-    </message>
-    <message>
-      <source>User has not seen a message from the operator, or the message window is still open.</source>
-      <translation>Vartotojas nematė žinutės dar, arba žinutės langas dar atidarytas.</translation>
-    </message>
-    <message>
-      <source>User has seen the message from the operator.</source>
-      <translation>Vartotojas matė žinutę iš operatoriaus.</translation>
-    </message>
-    <message>
-      <source>User does not have any messages from the operator</source>
-      <translation>Vartotojas neturi jokių žinučių iš operatoriaus</translation>
     </message>
     <message>
       <source>Files upload for users is active</source>
@@ -3230,10 +3262,6 @@
       <translation>Rolių sąrašas</translation>
     </message>
     <message>
-      <source>Live help embed code</source>
-      <translation>Live Help įterpimo kodas</translation>
-    </message>
-    <message>
       <source>Departments</source>
       <translation>Departamentai</translation>
     </message>
@@ -3296,6 +3324,10 @@
     <message>
       <source>Canned messages</source>
       <translation>Paruoštos žinutės</translation>
+    </message>
+    <message>
+      <source>Live help embed code</source>
+      <translation>Live Help įterpimo kodas</translation>
     </message>
     <message>
       <source>Chatbox embed code</source>
@@ -3460,12 +3492,12 @@
       <translation>Meniu</translation>
     </message>
     <message>
-      <source>Chats list</source>
-      <translation>Pokalbių sąrašai</translation>
-    </message>
-    <message>
       <source>Extra modules</source>
       <translation>Papildomi moduliai</translation>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>Pokalbių sąrašai</translation>
     </message>
     <message>
       <source>Online visitors</source>

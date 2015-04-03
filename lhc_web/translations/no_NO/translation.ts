@@ -851,16 +851,16 @@
       <translation>Hjelp oss vokse</translation>
     </message>
     <message>
+      <source>Embed code</source>
+      <translation>Integrer html kode</translation>
+    </message>
+    <message>
       <source>Widget embed code</source>
       <translation>Widgetinnbakt kode</translation>
     </message>
     <message>
       <source>Page embed code</source>
       <translation>Sideinnbakt kode</translation>
-    </message>
-    <message>
-      <source>Embed code</source>
-      <translation>Integrer html kode</translation>
     </message>
     <message>
       <source>Set default speech recognition language</source>
@@ -1619,6 +1619,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Choose other than default recognition language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transfer chat</source>
+      <translation>Overføre samtale</translation>
+    </message>
+    <message>
       <source>Footprint</source>
       <translation>Fotavtrykk</translation>
     </message>
@@ -1671,10 +1679,6 @@
       <translation>Slett samtale</translation>
     </message>
     <message>
-      <source>Transfer chat</source>
-      <translation>Overføre samtale</translation>
-    </message>
-    <message>
       <source>Mail was send</source>
       <translation type="unfinished"/>
     </message>
@@ -1696,10 +1700,6 @@
     </message>
     <message>
       <source>Redirect user to another url</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose other than default recognition language</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1795,10 +1795,6 @@
       <translation>Send</translation>
     </message>
     <message>
-      <source>Send delayed canned message instantly</source>
-      <translation>Send forsinkede forhåndsmeldinger umiddelbart</translation>
-    </message>
-    <message>
       <source>Reopen chat</source>
       <translation>Gjenåpne chat</translation>
     </message>
@@ -1809,6 +1805,10 @@
     <message>
       <source>Fill textarea with canned message</source>
       <translation>Fyll tekstområde med ferdigmelding</translation>
+    </message>
+    <message>
+      <source>Send delayed canned message instantly</source>
+      <translation>Send forsinkede forhåndsmeldinger umiddelbart</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -1949,6 +1949,10 @@
   <context>
     <name>files/files</name>
     <message>
+      <source>Download file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Refresh</source>
       <translation type="unfinished"/>
     </message>
@@ -1957,7 +1961,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Download file</source>
+      <source>Sent by Customer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sent by Operator</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2193,6 +2201,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Skriv din melding her og trykk send...</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>Send</translation>
+    </message>
+    <message>
       <source>Department is offline</source>
       <translation type="unfinished"/>
     </message>
@@ -2207,14 +2223,6 @@
     <message>
       <source>characters</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Skriv din melding her og trykk send...</translation>
-    </message>
-    <message>
-      <source>Send</source>
-      <translation>Send</translation>
     </message>
     <message>
       <source>Personal assistant</source>
@@ -2290,6 +2298,10 @@
     </message>
     <message>
       <source>is required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2656,6 +2668,14 @@
   <context>
     <name>chat/onlineusers</name>
     <message>
+      <source>Status</source>
+      <translation>Status</translation>
+    </message>
+    <message>
+      <source>No one has sent a message to the user yet</source>
+      <translation>Ingen har svart brukeren enda</translation>
+    </message>
+    <message>
       <source>GEO detection configuration</source>
       <translation>GEO detection configuration</translation>
     </message>
@@ -3008,12 +3028,28 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Status</source>
-      <translation>Status</translation>
-    </message>
-    <message>
       <source>Action</source>
       <translation>Handling</translation>
+    </message>
+    <message>
+      <source>User has not seen a message from the operator, or the message window is still open.</source>
+      <translation>Brukeren har en melding fra operatør, eller at samtalevinduet enda er åpent.</translation>
+    </message>
+    <message>
+      <source>Seen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unseen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User has seen the message from the operator.</source>
+      <translation>Brukeren har sett meldingen fra operatør</translation>
+    </message>
+    <message>
+      <source>User does not have any messages from the operator</source>
+      <translation>Brukeren har ingen meldinger fra operatør</translation>
     </message>
     <message>
       <source>first visit</source>
@@ -3024,24 +3060,20 @@
       <translation>sist besøk</translation>
     </message>
     <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Returning</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>has sent a message to the user</source>
       <translation>har sendt en melding til brukeren</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>Ingen har svart brukeren enda</translation>
-    </message>
-    <message>
-      <source>User has not seen a message from the operator, or the message window is still open.</source>
-      <translation>Brukeren har en melding fra operatør, eller at samtalevinduet enda er åpent.</translation>
-    </message>
-    <message>
-      <source>User has seen the message from the operator.</source>
-      <translation>Brukeren har sett meldingen fra operatør</translation>
-    </message>
-    <message>
-      <source>User does not have any messages from the operator</source>
-      <translation>Brukeren har ingen meldinger fra operatør</translation>
     </message>
     <message>
       <source>Files upload for users is active</source>
@@ -3230,10 +3262,6 @@
       <translation>Liste over roller</translation>
     </message>
     <message>
-      <source>Live help embed code</source>
-      <translation>Live hjelpe innebygd kode</translation>
-    </message>
-    <message>
       <source>Departments</source>
       <translation>Avdelinger</translation>
     </message>
@@ -3296,6 +3324,10 @@
     <message>
       <source>Canned messages</source>
       <translation>Forhåndsmeldinger</translation>
+    </message>
+    <message>
+      <source>Live help embed code</source>
+      <translation>Live hjelpe innebygd kode</translation>
     </message>
     <message>
       <source>Chatbox embed code</source>
@@ -3460,12 +3492,12 @@
       <translation>Meny</translation>
     </message>
     <message>
-      <source>Chats list</source>
-      <translation>Samtaleliste</translation>
-    </message>
-    <message>
       <source>Extra modules</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>Samtaleliste</translation>
     </message>
     <message>
       <source>Online visitors</source>

@@ -851,16 +851,16 @@
       <translation>Βοηθήστε μας να αυξάνονται</translation>
     </message>
     <message>
+      <source>Embed code</source>
+      <translation>Ενσωματώστε τον κώδικα</translation>
+    </message>
+    <message>
       <source>Widget embed code</source>
       <translation>Ενσωματώστε τον κώδικα widget</translation>
     </message>
     <message>
       <source>Page embed code</source>
       <translation>Σελίδα ενσωματώνει τον κώδικα</translation>
-    </message>
-    <message>
-      <source>Embed code</source>
-      <translation>Ενσωματώστε τον κώδικα</translation>
     </message>
     <message>
       <source>Set default speech recognition language</source>
@@ -1619,6 +1619,14 @@
       <translation>Οθόνη μοιράζομαι</translation>
     </message>
     <message>
+      <source>Choose other than default recognition language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transfer chat</source>
+      <translation>Μεταφορά συνομιλίας</translation>
+    </message>
+    <message>
       <source>Footprint</source>
       <translation>Αποτύπωμα</translation>
     </message>
@@ -1671,10 +1679,6 @@
       <translation>Διαγραφή συνομιλίας</translation>
     </message>
     <message>
-      <source>Transfer chat</source>
-      <translation>Μεταφορά συνομιλίας</translation>
-    </message>
-    <message>
       <source>Mail was send</source>
       <translation>Το email στάλθηκε</translation>
     </message>
@@ -1697,10 +1701,6 @@
     <message>
       <source>Redirect user to another url</source>
       <translation>Ανακατευθύνει το χρήστη σε ένα άλλο url</translation>
-    </message>
-    <message>
-      <source>Choose other than default recognition language</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Department</source>
@@ -1795,10 +1795,6 @@
       <translation>Αποστολή</translation>
     </message>
     <message>
-      <source>Send delayed canned message instantly</source>
-      <translation>Στείλτε την καθυστερημένη κονσερβοποιημένο μήνυμα αμέσως</translation>
-    </message>
-    <message>
       <source>Reopen chat</source>
       <translation>Ανοίξτε πάλι το chat</translation>
     </message>
@@ -1809,6 +1805,10 @@
     <message>
       <source>Fill textarea with canned message</source>
       <translation>Γεμίζουν το κονσερβοποιημένο μήνυμα textarea</translation>
+    </message>
+    <message>
+      <source>Send delayed canned message instantly</source>
+      <translation>Στείλτε την καθυστερημένη κονσερβοποιημένο μήνυμα αμέσως</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -1949,6 +1949,10 @@
   <context>
     <name>files/files</name>
     <message>
+      <source>Download file</source>
+      <translation>Κατεβάστε το αρχείο</translation>
+    </message>
+    <message>
       <source>Refresh</source>
       <translation>Ανανέωση</translation>
     </message>
@@ -1957,8 +1961,12 @@
       <translation>Διαγράψετε αρχείο</translation>
     </message>
     <message>
-      <source>Download file</source>
-      <translation>Κατεβάστε το αρχείο</translation>
+      <source>Sent by Customer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sent by Operator</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Drop your files here.</source>
@@ -2193,6 +2201,14 @@
       <translation>Έχετε μια ερώτηση; Ρωτήστε μας!</translation>
     </message>
     <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Πληκτρολογήστε το μήνυμά σας εδώ και πατήστε enter για να στείλετε...</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>Αποστολή</translation>
+    </message>
+    <message>
       <source>Department is offline</source>
       <translation>Τμήμα είναι συνδεδεμένος</translation>
     </message>
@@ -2207,14 +2223,6 @@
     <message>
       <source>characters</source>
       <translation>χαρακτήρες</translation>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Πληκτρολογήστε το μήνυμά σας εδώ και πατήστε enter για να στείλετε...</translation>
-    </message>
-    <message>
-      <source>Send</source>
-      <translation>Αποστολή</translation>
     </message>
     <message>
       <source>Personal assistant</source>
@@ -2291,6 +2299,10 @@
     <message>
       <source>is required</source>
       <translation>είναι απαιτούμενο</translation>
+    </message>
+    <message>
+      <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Invalid file extension</source>
@@ -2656,6 +2668,14 @@
   <context>
     <name>chat/onlineusers</name>
     <message>
+      <source>Status</source>
+      <translation>Κατάσταση</translation>
+    </message>
+    <message>
+      <source>No one has sent a message to the user yet</source>
+      <translation>Κανείς δεν έχει σταλεί ένα μήνυμα στο χρήστη ακόμη</translation>
+    </message>
+    <message>
       <source>GEO detection configuration</source>
       <translation>Ρύθμιση παραμέτρων ανίχνευσης GEO</translation>
     </message>
@@ -3008,12 +3028,28 @@
       <translation>Από χρήστη κατάσταση επιτόπου</translation>
     </message>
     <message>
-      <source>Status</source>
-      <translation>Κατάσταση</translation>
-    </message>
-    <message>
       <source>Action</source>
       <translation>Ενέργεια</translation>
+    </message>
+    <message>
+      <source>User has not seen a message from the operator, or the message window is still open.</source>
+      <translation>Χρήστη δεν έχει δει ένα μήνυμα από τον φορέα εκμετάλλευσης, ή το παράθυρο μηνύματος είναι ακόμα ανοιχτή.</translation>
+    </message>
+    <message>
+      <source>Seen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unseen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User has seen the message from the operator.</source>
+      <translation>Χρήστης έχει δει το μήνυμα από τον φορέα εκμετάλλευσης.</translation>
+    </message>
+    <message>
+      <source>User does not have any messages from the operator</source>
+      <translation>Χρήστης δεν έχει οποιαδήποτε μηνύματα από τον φορέα εκμετάλλευσης</translation>
     </message>
     <message>
       <source>first visit</source>
@@ -3024,24 +3060,20 @@
       <translation>τελευταία επίσκεψη</translation>
     </message>
     <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Returning</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>has sent a message to the user</source>
       <translation>απέστειλε ένα μήνυμα στο χρήστη</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>Κανείς δεν έχει σταλεί ένα μήνυμα στο χρήστη ακόμη</translation>
-    </message>
-    <message>
-      <source>User has not seen a message from the operator, or the message window is still open.</source>
-      <translation>Χρήστη δεν έχει δει ένα μήνυμα από τον φορέα εκμετάλλευσης, ή το παράθυρο μηνύματος είναι ακόμα ανοιχτή.</translation>
-    </message>
-    <message>
-      <source>User has seen the message from the operator.</source>
-      <translation>Χρήστης έχει δει το μήνυμα από τον φορέα εκμετάλλευσης.</translation>
-    </message>
-    <message>
-      <source>User does not have any messages from the operator</source>
-      <translation>Χρήστης δεν έχει οποιαδήποτε μηνύματα από τον φορέα εκμετάλλευσης</translation>
     </message>
     <message>
       <source>Files upload for users is active</source>
@@ -3230,10 +3262,6 @@
       <translation>Λίστα ρόλων</translation>
     </message>
     <message>
-      <source>Live help embed code</source>
-      <translation>Κώδικας ενσωμάτωσης ζωντανής βοήθειας</translation>
-    </message>
-    <message>
       <source>Departments</source>
       <translation>Τμήματα</translation>
     </message>
@@ -3296,6 +3324,10 @@
     <message>
       <source>Canned messages</source>
       <translation>Κονσερβοποιημένα μηνύματα</translation>
+    </message>
+    <message>
+      <source>Live help embed code</source>
+      <translation>Κώδικας ενσωμάτωσης ζωντανής βοήθειας</translation>
     </message>
     <message>
       <source>Chatbox embed code</source>
@@ -3460,12 +3492,12 @@
       <translation>Μενού</translation>
     </message>
     <message>
-      <source>Chats list</source>
-      <translation>Λίστα συνομιλιών</translation>
-    </message>
-    <message>
       <source>Extra modules</source>
       <translation>Επιπλέον ενότητες</translation>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>Λίστα συνομιλιών</translation>
     </message>
     <message>
       <source>Online visitors</source>

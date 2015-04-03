@@ -851,16 +851,16 @@
       <translation>Pomožte nám růst</translation>
     </message>
     <message>
+      <source>Embed code</source>
+      <translation>Vložený kód</translation>
+    </message>
+    <message>
       <source>Widget embed code</source>
       <translation>Vložený kód Widgetu</translation>
     </message>
     <message>
       <source>Page embed code</source>
       <translation>Vložený kód na stránku</translation>
-    </message>
-    <message>
-      <source>Embed code</source>
-      <translation>Vložený kód</translation>
     </message>
     <message>
       <source>Set default speech recognition language</source>
@@ -1619,6 +1619,14 @@
       <translation>Sdílení obrazovky</translation>
     </message>
     <message>
+      <source>Choose other than default recognition language</source>
+      <translation>Vyberte jiný než výchozí jazyk rozpoznávání</translation>
+    </message>
+    <message>
+      <source>Transfer chat</source>
+      <translation>Přesměrovat rozhovor</translation>
+    </message>
+    <message>
       <source>Footprint</source>
       <translation>Otisk</translation>
     </message>
@@ -1671,10 +1679,6 @@
       <translation>Smazat rozhovor</translation>
     </message>
     <message>
-      <source>Transfer chat</source>
-      <translation>Přesměrovat rozhovor</translation>
-    </message>
-    <message>
       <source>Mail was send</source>
       <translation>E-mail byl odeslán</translation>
     </message>
@@ -1697,10 +1701,6 @@
     <message>
       <source>Redirect user to another url</source>
       <translation>Přesmětovat uživatele na jinou URL</translation>
-    </message>
-    <message>
-      <source>Choose other than default recognition language</source>
-      <translation>Vyberte jiný než výchozí jazyk rozpoznávání</translation>
     </message>
     <message>
       <source>Department</source>
@@ -1795,10 +1795,6 @@
       <translation>Odeslat</translation>
     </message>
     <message>
-      <source>Send delayed canned message instantly</source>
-      <translation>Odeslat ihned zpožděné předpřipraveé zprávy</translation>
-    </message>
-    <message>
       <source>Reopen chat</source>
       <translation>Znovuotevřít rozhovor</translation>
     </message>
@@ -1809,6 +1805,10 @@
     <message>
       <source>Fill textarea with canned message</source>
       <translation>Vyplňte text předvyplněné pzrávy do pole pro text</translation>
+    </message>
+    <message>
+      <source>Send delayed canned message instantly</source>
+      <translation>Odeslat ihned zpožděné předpřipraveé zprávy</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -1949,6 +1949,10 @@
   <context>
     <name>files/files</name>
     <message>
+      <source>Download file</source>
+      <translation>Stáhnout soubor</translation>
+    </message>
+    <message>
       <source>Refresh</source>
       <translation>Obnovit</translation>
     </message>
@@ -1957,8 +1961,12 @@
       <translation>Smazat soubor</translation>
     </message>
     <message>
-      <source>Download file</source>
-      <translation>Stáhnout soubor</translation>
+      <source>Sent by Customer</source>
+      <translation>Odesláno zákazníkem</translation>
+    </message>
+    <message>
+      <source>Sent by Operator</source>
+      <translation>Odesláno operátorem</translation>
     </message>
     <message>
       <source>Drop your files here.</source>
@@ -2193,6 +2201,14 @@
       <translation>Máte dotaz? Zeptejte se nás!</translation>
     </message>
     <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Zadejte text své zprávy a odešlete ji stisknutím enter...</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>Odeslat</translation>
+    </message>
+    <message>
       <source>Department is offline</source>
       <translation>Oddělení je offline</translation>
     </message>
@@ -2207,14 +2223,6 @@
     <message>
       <source>characters</source>
       <translation>znaků</translation>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Zadejte text své zprávy a odešlete ji stisknutím enter...</translation>
-    </message>
-    <message>
-      <source>Send</source>
-      <translation>Odeslat</translation>
     </message>
     <message>
       <source>Personal assistant</source>
@@ -2291,6 +2299,10 @@
     <message>
       <source>is required</source>
       <translation>je vyžadován</translation>
+    </message>
+    <message>
+      <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
+      <translation>Vaše žádost nebyl zpracována podle očekávání - ale neboj, nebyla to Vaše chyba. Odešlete, prosím, svou žádost znovu. Pokud narazíte stejný problém, budete nás muset kontaktovat jiným způsobem.</translation>
     </message>
     <message>
       <source>Invalid file extension</source>
@@ -2656,6 +2668,14 @@
   <context>
     <name>chat/onlineusers</name>
     <message>
+      <source>Status</source>
+      <translation>Stav</translation>
+    </message>
+    <message>
+      <source>No one has sent a message to the user yet</source>
+      <translation>Uživateli dosud nikdo neodeslal zprávu</translation>
+    </message>
+    <message>
       <source>GEO detection configuration</source>
       <translation>Konfigurace geodetekce</translation>
     </message>
@@ -3008,12 +3028,28 @@
       <translation>Podle stavu uživatele na stránce</translation>
     </message>
     <message>
-      <source>Status</source>
-      <translation>Stav</translation>
-    </message>
-    <message>
       <source>Action</source>
       <translation>Akce</translation>
+    </message>
+    <message>
+      <source>User has not seen a message from the operator, or the message window is still open.</source>
+      <translation>Uživatel ještě nečetl zprávu od operátora nebo je okno se zprávou stále otevřené.</translation>
+    </message>
+    <message>
+      <source>Seen</source>
+      <translation>Přečteno</translation>
+    </message>
+    <message>
+      <source>Unseen</source>
+      <translation>Nepřečteno</translation>
+    </message>
+    <message>
+      <source>User has seen the message from the operator.</source>
+      <translation>Uživatel již viděl zprávu operátora.</translation>
+    </message>
+    <message>
+      <source>User does not have any messages from the operator</source>
+      <translation>Uživatel nemá žádnou zprávu od operátora</translation>
     </message>
     <message>
       <source>first visit</source>
@@ -3024,24 +3060,20 @@
       <translation>poslední návštěva</translation>
     </message>
     <message>
+      <source>Chat</source>
+      <translation>Rozhovor</translation>
+    </message>
+    <message>
+      <source>Returning</source>
+      <translation>Vracející se</translation>
+    </message>
+    <message>
+      <source>New</source>
+      <translation>Nový</translation>
+    </message>
+    <message>
       <source>has sent a message to the user</source>
       <translation>již odeslal zprávu uživateli</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>Uživateli dosud nikdo neodeslal zprávu</translation>
-    </message>
-    <message>
-      <source>User has not seen a message from the operator, or the message window is still open.</source>
-      <translation>Uživatel ještě nečetl zprávu od operátora nebo je okno se zprávou stále otevřené.</translation>
-    </message>
-    <message>
-      <source>User has seen the message from the operator.</source>
-      <translation>Uživatel již viděl zprávu operátora.</translation>
-    </message>
-    <message>
-      <source>User does not have any messages from the operator</source>
-      <translation>Uživatel nemá žádnou zprávu od operátora</translation>
     </message>
     <message>
       <source>Files upload for users is active</source>
@@ -3230,10 +3262,6 @@
       <translation>Seznam rolí</translation>
     </message>
     <message>
-      <source>Live help embed code</source>
-      <translation>Vložený kód online pomoci</translation>
-    </message>
-    <message>
       <source>Departments</source>
       <translation>Oddělení</translation>
     </message>
@@ -3296,6 +3324,10 @@
     <message>
       <source>Canned messages</source>
       <translation>Předpřipravené zprávy</translation>
+    </message>
+    <message>
+      <source>Live help embed code</source>
+      <translation>Vložený kód online pomoci</translation>
     </message>
     <message>
       <source>Chatbox embed code</source>
@@ -3460,12 +3492,12 @@
       <translation>Menu</translation>
     </message>
     <message>
-      <source>Chats list</source>
-      <translation>Seznam rozhovorů</translation>
-    </message>
-    <message>
       <source>Extra modules</source>
       <translation>Extra moduly</translation>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>Seznam rozhovorů</translation>
     </message>
     <message>
       <source>Online visitors</source>
@@ -6878,7 +6910,7 @@
     </message>
     <message>
       <source>This module can be used if you are generating autologin link. See site for code examples</source>
-      <translation type="unfinished"/>
+      <translation>Tento modul je možné použít při generování odkazu pro automatické přihlášení. Podívejte se na stránky pro příklady kódu</translation>
     </message>
     <message>
       <source>Enabled</source>
@@ -6886,7 +6918,7 @@
     </message>
     <message>
       <source>Secret hash used for authentification token generation, min 10 characters</source>
-      <translation type="unfinished"/>
+      <translation>Tajný hash použitý k vygenerování ověřovacího tokenu, minimálně 10 znaků</translation>
     </message>
     <message>
       <source>Settings updated</source>
@@ -6894,7 +6926,7 @@
     </message>
     <message>
       <source>Autologin hash has expired</source>
-      <translation type="unfinished"/>
+      <translation>Hash automatického přihlášení vypršel</translation>
     </message>
     <message>
       <source>Could not find a user</source>
@@ -6902,11 +6934,11 @@
     </message>
     <message>
       <source>Could not find a provided user</source>
-      <translation type="unfinished"/>
+      <translation>Zadaného uživatele se nepodařilo najít.</translation>
     </message>
     <message>
       <source>Invalid autologin hash</source>
-      <translation type="unfinished"/>
+      <translation>Neplatný hash automatického přihlášení</translation>
     </message>
     <message>
       <source>Auto login module is not enabled</source>

@@ -851,16 +851,16 @@
       <translation>Помогнете ни да се разрастваме</translation>
     </message>
     <message>
+      <source>Embed code</source>
+      <translation>Код за вграждане</translation>
+    </message>
+    <message>
       <source>Widget embed code</source>
       <translation>Код за вкарване на модула</translation>
     </message>
     <message>
       <source>Page embed code</source>
       <translation>Код за вкарване в страница</translation>
-    </message>
-    <message>
-      <source>Embed code</source>
-      <translation>Код за вграждане</translation>
     </message>
     <message>
       <source>Set default speech recognition language</source>
@@ -1619,6 +1619,14 @@
       <translation>Споделяне на екрана</translation>
     </message>
     <message>
+      <source>Choose other than default recognition language</source>
+      <translation>Изберете различен език по подразбиране от разпознатия</translation>
+    </message>
+    <message>
+      <source>Transfer chat</source>
+      <translation>Прехвърли чата</translation>
+    </message>
+    <message>
       <source>Footprint</source>
       <translation>Стъпки</translation>
     </message>
@@ -1671,10 +1679,6 @@
       <translation>Изтриване на чата</translation>
     </message>
     <message>
-      <source>Transfer chat</source>
-      <translation>Прехвърли чата</translation>
-    </message>
-    <message>
       <source>Mail was send</source>
       <translation>Мейлът бе изпратен.</translation>
     </message>
@@ -1697,10 +1701,6 @@
     <message>
       <source>Redirect user to another url</source>
       <translation>Пренасочи потребителя към друг URL адрес</translation>
-    </message>
-    <message>
-      <source>Choose other than default recognition language</source>
-      <translation>Изберете различен език по подразбиране от разпознатия</translation>
     </message>
     <message>
       <source>Department</source>
@@ -1795,10 +1795,6 @@
       <translation>Изпращане</translation>
     </message>
     <message>
-      <source>Send delayed canned message instantly</source>
-      <translation>Изпратете отложени автоматични съобщения</translation>
-    </message>
-    <message>
       <source>Reopen chat</source>
       <translation>Отвори наново чата</translation>
     </message>
@@ -1809,6 +1805,10 @@
     <message>
       <source>Fill textarea with canned message</source>
       <translation>Въведете автоматични съобщения в текстовото поле</translation>
+    </message>
+    <message>
+      <source>Send delayed canned message instantly</source>
+      <translation>Изпратете отложени автоматични съобщения</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -1949,6 +1949,10 @@
   <context>
     <name>files/files</name>
     <message>
+      <source>Download file</source>
+      <translation>Изтегляне на файл</translation>
+    </message>
+    <message>
       <source>Refresh</source>
       <translation>Опресняване</translation>
     </message>
@@ -1957,8 +1961,12 @@
       <translation>Изтриване на файл</translation>
     </message>
     <message>
-      <source>Download file</source>
-      <translation>Изтегляне на файл</translation>
+      <source>Sent by Customer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sent by Operator</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Drop your files here.</source>
@@ -2193,6 +2201,14 @@
       <translation>Имате ли въпрос? Попитайте ни!</translation>
     </message>
     <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Напишете съобщението си тук и натиснете enter, за да го изпратите...</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>Изпращане</translation>
+    </message>
+    <message>
       <source>Department is offline</source>
       <translation>Отделът не е на линия</translation>
     </message>
@@ -2207,14 +2223,6 @@
     <message>
       <source>characters</source>
       <translation>символи</translation>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Напишете съобщението си тук и натиснете enter, за да го изпратите...</translation>
-    </message>
-    <message>
-      <source>Send</source>
-      <translation>Изпращане</translation>
     </message>
     <message>
       <source>Personal assistant</source>
@@ -2291,6 +2299,10 @@
     <message>
       <source>is required</source>
       <translation>е нужно</translation>
+    </message>
+    <message>
+      <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Invalid file extension</source>
@@ -2656,6 +2668,14 @@
   <context>
     <name>chat/onlineusers</name>
     <message>
+      <source>Status</source>
+      <translation>Статут</translation>
+    </message>
+    <message>
+      <source>No one has sent a message to the user yet</source>
+      <translation>Никой все още не е изпратил съобщение на потребителя</translation>
+    </message>
+    <message>
       <source>GEO detection configuration</source>
       <translation>Настройки на GEO проследяването</translation>
     </message>
@@ -3008,12 +3028,28 @@
       <translation>По статус на потребителите на сайта</translation>
     </message>
     <message>
-      <source>Status</source>
-      <translation>Статут</translation>
-    </message>
-    <message>
       <source>Action</source>
       <translation>Действие</translation>
+    </message>
+    <message>
+      <source>User has not seen a message from the operator, or the message window is still open.</source>
+      <translation>Потребителят не е видял съобщение от оператора или чат прозорецът е все още отворен.</translation>
+    </message>
+    <message>
+      <source>Seen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unseen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User has seen the message from the operator.</source>
+      <translation>Потребителят е видял съобщението от оператора.</translation>
+    </message>
+    <message>
+      <source>User does not have any messages from the operator</source>
+      <translation>Потребителят няма никакви съобщения от оператор</translation>
     </message>
     <message>
       <source>first visit</source>
@@ -3024,24 +3060,20 @@
       <translation>последно посещение</translation>
     </message>
     <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Returning</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>has sent a message to the user</source>
       <translation>изпрати съобщение до потребителя</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>Никой все още не е изпратил съобщение на потребителя</translation>
-    </message>
-    <message>
-      <source>User has not seen a message from the operator, or the message window is still open.</source>
-      <translation>Потребителят не е видял съобщение от оператора или чат прозорецът е все още отворен.</translation>
-    </message>
-    <message>
-      <source>User has seen the message from the operator.</source>
-      <translation>Потребителят е видял съобщението от оператора.</translation>
-    </message>
-    <message>
-      <source>User does not have any messages from the operator</source>
-      <translation>Потребителят няма никакви съобщения от оператор</translation>
     </message>
     <message>
       <source>Files upload for users is active</source>
@@ -3230,10 +3262,6 @@
       <translation>Списък с роли</translation>
     </message>
     <message>
-      <source>Live help embed code</source>
-      <translation>Код за вграждане на онлайн помощ</translation>
-    </message>
-    <message>
       <source>Departments</source>
       <translation>Отдели</translation>
     </message>
@@ -3296,6 +3324,10 @@
     <message>
       <source>Canned messages</source>
       <translation>Автоматични съобщения</translation>
+    </message>
+    <message>
+      <source>Live help embed code</source>
+      <translation>Код за вграждане на онлайн помощ</translation>
     </message>
     <message>
       <source>Chatbox embed code</source>
@@ -3460,12 +3492,12 @@
       <translation>Меню</translation>
     </message>
     <message>
-      <source>Chats list</source>
-      <translation>Списък с чатове</translation>
-    </message>
-    <message>
       <source>Extra modules</source>
       <translation>Екстра модули</translation>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>Списък с чатове</translation>
     </message>
     <message>
       <source>Online visitors</source>

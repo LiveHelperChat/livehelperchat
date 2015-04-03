@@ -851,16 +851,16 @@
       <translation>幫助我們成長</translation>
     </message>
     <message>
+      <source>Embed code</source>
+      <translation>嵌入代碼</translation>
+    </message>
+    <message>
       <source>Widget embed code</source>
       <translation>小工具嵌入代码</translation>
     </message>
     <message>
       <source>Page embed code</source>
       <translation>页面嵌入代码</translation>
-    </message>
-    <message>
-      <source>Embed code</source>
-      <translation>嵌入代碼</translation>
     </message>
     <message>
       <source>Set default speech recognition language</source>
@@ -1619,6 +1619,14 @@
       <translation>屏幕分享</translation>
     </message>
     <message>
+      <source>Choose other than default recognition language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transfer chat</source>
+      <translation>转让聊天</translation>
+    </message>
+    <message>
       <source>Footprint</source>
       <translation>脚印</translation>
     </message>
@@ -1671,10 +1679,6 @@
       <translation>删除聊天</translation>
     </message>
     <message>
-      <source>Transfer chat</source>
-      <translation>转让聊天</translation>
-    </message>
-    <message>
       <source>Mail was send</source>
       <translation>邮件已发送</translation>
     </message>
@@ -1697,10 +1701,6 @@
     <message>
       <source>Redirect user to another url</source>
       <translation>重定向用户到另一个URL地址</translation>
-    </message>
-    <message>
-      <source>Choose other than default recognition language</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Department</source>
@@ -1795,10 +1795,6 @@
       <translation>发送</translation>
     </message>
     <message>
-      <source>Send delayed canned message instantly</source>
-      <translation>發送延遲罐頭消息瞬間</translation>
-    </message>
-    <message>
       <source>Reopen chat</source>
       <translation>重新打開聊天</translation>
     </message>
@@ -1809,6 +1805,10 @@
     <message>
       <source>Fill textarea with canned message</source>
       <translation>填寫文本框罐頭消息</translation>
+    </message>
+    <message>
+      <source>Send delayed canned message instantly</source>
+      <translation>發送延遲罐頭消息瞬間</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -1949,6 +1949,10 @@
   <context>
     <name>files/files</name>
     <message>
+      <source>Download file</source>
+      <translation>下载文件</translation>
+    </message>
+    <message>
       <source>Refresh</source>
       <translation>刷新</translation>
     </message>
@@ -1957,8 +1961,12 @@
       <translation>删除文件</translation>
     </message>
     <message>
-      <source>Download file</source>
-      <translation>下载文件</translation>
+      <source>Sent by Customer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sent by Operator</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Drop your files here.</source>
@@ -2193,6 +2201,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>輸入您的留言，並按下回車鍵發送...</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>发送</translation>
+    </message>
+    <message>
       <source>Department is offline</source>
       <translation type="unfinished"/>
     </message>
@@ -2207,14 +2223,6 @@
     <message>
       <source>characters</source>
       <translation>字符</translation>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>輸入您的留言，並按下回車鍵發送...</translation>
-    </message>
-    <message>
-      <source>Send</source>
-      <translation>发送</translation>
     </message>
     <message>
       <source>Personal assistant</source>
@@ -2291,6 +2299,10 @@
     <message>
       <source>is required</source>
       <translation>需要</translation>
+    </message>
+    <message>
+      <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Invalid file extension</source>
@@ -2656,6 +2668,14 @@
   <context>
     <name>chat/onlineusers</name>
     <message>
+      <source>Status</source>
+      <translation>状态</translation>
+    </message>
+    <message>
+      <source>No one has sent a message to the user yet</source>
+      <translation>没有人传话给用户</translation>
+    </message>
+    <message>
       <source>GEO detection configuration</source>
       <translation>GEO检测配置</translation>
     </message>
@@ -3008,12 +3028,28 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Status</source>
-      <translation>状态</translation>
-    </message>
-    <message>
       <source>Action</source>
       <translation>行动</translation>
+    </message>
+    <message>
+      <source>User has not seen a message from the operator, or the message window is still open.</source>
+      <translation>用户还没有看到从运营商的消息，或消息窗口仍然是开放的。</translation>
+    </message>
+    <message>
+      <source>Seen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unseen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User has seen the message from the operator.</source>
+      <translation>用戶從運營商已經看到了消息。</translation>
+    </message>
+    <message>
+      <source>User does not have any messages from the operator</source>
+      <translation>用户没有任何消息从操作</translation>
     </message>
     <message>
       <source>first visit</source>
@@ -3024,24 +3060,20 @@
       <translation>最后的访问</translation>
     </message>
     <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Returning</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>has sent a message to the user</source>
       <translation>发送一个消息给用户</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>没有人传话给用户</translation>
-    </message>
-    <message>
-      <source>User has not seen a message from the operator, or the message window is still open.</source>
-      <translation>用户还没有看到从运营商的消息，或消息窗口仍然是开放的。</translation>
-    </message>
-    <message>
-      <source>User has seen the message from the operator.</source>
-      <translation>用戶從運營商已經看到了消息。</translation>
-    </message>
-    <message>
-      <source>User does not have any messages from the operator</source>
-      <translation>用户没有任何消息从操作</translation>
     </message>
     <message>
       <source>Files upload for users is active</source>
@@ -3230,10 +3262,6 @@
       <translation>角色一览</translation>
     </message>
     <message>
-      <source>Live help embed code</source>
-      <translation>在線幫助嵌入代碼</translation>
-    </message>
-    <message>
       <source>Departments</source>
       <translation>部门</translation>
     </message>
@@ -3296,6 +3324,10 @@
     <message>
       <source>Canned messages</source>
       <translation>罐头消息</translation>
+    </message>
+    <message>
+      <source>Live help embed code</source>
+      <translation>在線幫助嵌入代碼</translation>
     </message>
     <message>
       <source>Chatbox embed code</source>
@@ -3460,12 +3492,12 @@
       <translation>菜單</translation>
     </message>
     <message>
-      <source>Chats list</source>
-      <translation>聊天列表</translation>
-    </message>
-    <message>
       <source>Extra modules</source>
       <translation>扩展模块</translation>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>聊天列表</translation>
     </message>
     <message>
       <source>Online visitors</source>
