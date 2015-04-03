@@ -32,6 +32,7 @@ $inputData->name_items = array();
 $inputData->value_items = array();
 $inputData->value_types = array();
 $inputData->value_sizes = array();
+$inputData->ua = $Params['user_parameters_unordered']['ua'];
 $inputData->hattr = array();
 
 if ((string)$Params['user_parameters_unordered']['vid'] != '') {

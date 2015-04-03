@@ -152,6 +152,7 @@ $inputData->value_items = array();
 $inputData->value_sizes = array();
 $inputData->value_types = array();
 $inputData->hattr = array();
+$inputData->ua = $Params['user_parameters_unordered']['ua'];
 $inputData->priority = is_numeric($Params['user_parameters_unordered']['priority']) ? (int)$Params['user_parameters_unordered']['priority'] : false;
 
 // Perhaps it's direct argument
