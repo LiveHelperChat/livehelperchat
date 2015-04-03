@@ -92,14 +92,20 @@ function generateEmbedCode() {
     
     var id_tag = '<!-- Place this tag where you want the Live Helper Plugin to render. -->'+"\n"+
         '<div id="lhc_status_container_page" ></div>'+"\n\n<!-- Place this tag after the Live Helper Plugin tag. -->\n";
-    
+
+    var uaArguments = '';
+        
     <?php include(erLhcoreClassDesign::designtpl('lhsystem/embedcode_custom_generation_multiinclude.tpl.php'));?>
 
+    if (uaArguments != '') {
+    	uaArguments = '/(ua)/'+uaArguments;
+    }
+    
     var script = '<script type="text/javascript">'+"\n"+"var LHCChatOptionsPage = {};\n"+
       'LHCChatOptionsPage.opt = {};\n'+
       '(function() {'+"\n"+
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
-        'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chat/getstatusembed<?php isset($userArgument) ? print $userArgument : ''?>'+id_hide_then_offline+id_theme+id_operator+id_show_leave_form+id_department+'\';'+"\n"+
+        'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chat/getstatusembed<?php isset($userArgument) ? print $userArgument : ''?>'+uaArguments+id_hide_then_offline+id_theme+id_operator+id_show_leave_form+id_department+'\';'+"\n"+
         'var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(po, s);'+"\n"+
       '})();'+"\n"+
     '</scr'+'ipt>';

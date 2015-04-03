@@ -203,8 +203,14 @@ function generateEmbedCode(){
         alert(<?php echo json_encode(htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Please do not enter protocol, only domain name is required'),ENT_QUOTES))?>);
         return;
     };
-
+    
+    var uaArguments = '';
+    
     <?php include(erLhcoreClassDesign::designtpl('lhsystem/htmlcode_custom_generation_multiinclude.tpl.php'));?>
+
+    if (uaArguments != '') {
+    	uaArguments = '/(ua)/'+uaArguments;
+    }
     
     var script = '<script type="text/javascript">'+"\n"+"var LHCChatOptions = {};\n"+
       'LHCChatOptions.opt = {widget_height:'+$('#id_widget_height').val()+',widget_width:'+$('#id_widget_width').val()+',popup_height:'+$('#id_popup_height').val()+',popup_width:'+$('#id_popup_width').val()+id_embed_domain+'};\n'+
@@ -212,7 +218,7 @@ function generateEmbedCode(){
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
         'var refferer = (document.referrer) ? encodeURIComponent(document.referrer.substr(document.referrer.indexOf(\'://\')+1)) : \'\';'+"\n"+
         'var location  = (document.location) ? encodeURIComponent(window.location.href.substring(window.location.protocol.length)) : \'\';'+"\n"+
-        'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chat/getstatus<?php isset($userArgument) ? print $userArgument : ''?>'+id_internal_popup+id_position+id_ma+id_hide_then_offline+id_check_operator_message+top+topposition+id_show_leave_form+id_department+id_operator+id_identifier+id_disable_pro_active_invitations+id_theme+id_disable_responsive+'?r=\'+refferer+\'&l=\'+location;'+"\n"+
+        'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chat/getstatus<?php isset($userArgument) ? print $userArgument : ''?>'+uaArguments+id_internal_popup+id_position+id_ma+id_hide_then_offline+id_check_operator_message+top+topposition+id_show_leave_form+id_department+id_operator+id_identifier+id_disable_pro_active_invitations+id_theme+id_disable_responsive+'?r=\'+refferer+\'&l=\'+location;'+"\n"+
         'var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(po, s);'+"\n"+
       '})();'+"\n"+
     '</scr'+'ipt>';
