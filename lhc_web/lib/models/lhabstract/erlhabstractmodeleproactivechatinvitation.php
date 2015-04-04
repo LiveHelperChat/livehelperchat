@@ -271,9 +271,11 @@ class erLhAbstractModelProactiveChatInvitation {
 	    /**
 	     * Get's executed before permissions check. It can redirect to frontpage throw permission exception etc
 	     * */
-	    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('feature.can_use_proactive', array());	
+	    $metaData = array('can_use' => $can_use, 'permission_delete' => array('module' => 'lhchat','function' => 'administrateinvitations'),'permission' => array('module' => 'lhchat','function' => 'administrateinvitations'),'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Pro active chat invitations'));
 	    
-		return array('can_use' => $can_use, 'permission_delete' => array('module' => 'lhchat','function' => 'administrateinvitations'),'permission' => array('module' => 'lhchat','function' => 'administrateinvitations'),'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Pro active chat invitations'));
+	    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('feature.can_use_proactive', array('object_meta_data' => & $metaData));	
+	    
+		return $metaData;
 	}
 
 	public static function getCount($params = array())
