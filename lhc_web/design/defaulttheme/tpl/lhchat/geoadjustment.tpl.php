@@ -1,4 +1,4 @@
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/geoadjustment','GEO adjustment');?></h1>
+<?php include(erLhcoreClassDesign::designtpl('lhchat/lists_titles/geoadjustment.tpl.php'));?>
 
 <?php if (isset($updated) && $updated == 'done') : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Settings updated'); ?>
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>

@@ -63,4 +63,5 @@ if (isset($object_trans['path'])){
 	);
 };
 
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('abstract.list_'.strtolower($Params['user_parameters']['identifier']).'_path', array('result' => & $Result));
 ?>
