@@ -101,8 +101,10 @@ function generateEmbedCode() {
     	uaArguments = '/(ua)'+uaArguments;
     }
     
-    var script = '<script type="text/javascript">'+"\n"+"var LHCChatOptionsPage = {};\n"+
-      'LHCChatOptionsPage.opt = {};\n'+
+    <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/options_variable_page.tpl.php')); ?>
+    
+    var script = '<script type="text/javascript">'+"\n"+"var <?php echo $chatOptionsVariablePage?> = {};\n"+
+      '<?php echo $chatOptionsVariablePage?>.opt = {};\n'+
       '(function() {'+"\n"+
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
         'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chat/getstatusembed<?php isset($userArgument) ? print $userArgument : ''?>'+uaArguments+id_hide_then_offline+id_theme+id_operator+id_show_leave_form+id_department+'\';'+"\n"+

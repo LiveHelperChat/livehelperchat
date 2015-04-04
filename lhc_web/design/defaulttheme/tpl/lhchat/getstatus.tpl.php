@@ -101,6 +101,8 @@ if ( !($isOnlineHelp == false && $hide_offline == 'true') || $trackOnline == 1 )
 
 lhc_Cookies.defaults = {path:"/",secure: <?php erLhcoreClassModelChatConfig::fetch('use_secure_cookie')->current_value == 1 ? print 'true' : print 'false' ?>};
 
+<?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/options_variable.tpl.php')); ?>
+
 var lh_inst  = {
    JSON : {
             parse: window.JSON && (window.JSON.parse || window.JSON.decode) || String.prototype.evalJSON && function(str){return String(str).evalJSON();} || $.parseJSON || $.evalJSON,
@@ -129,8 +131,8 @@ var lh_inst  = {
     	 if (this.domain !== false) {
     	 	return this.domain;
     	 } else {    
-	    	if (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.opt != 'undefined' && typeof LHCChatOptions.opt.domain != 'undefined') {
-	    		this.domain = '.'+LHCChatOptions.opt.domain;
+	    	if (typeof <?php echo $chatOptionsVariable?> != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt.domain != 'undefined') {
+	    		this.domain = '.'+<?php echo $chatOptionsVariable?>.opt.domain;
 	    	} else {    	
 	    		this.domain = '.'+document.location.hostname.replace(/^(?:[a-z0-9\-\.]+\.)??([a-z0-9\-]+)?(\.com|\.net|\.org|\.biz|\.ws|\.in|\.me|\.co\.uk|\.co|\.org\.uk|\.ltd\.uk|\.plc\.uk|\.me\.uk|\.edu|\.mil|\.br\.com|\.cn\.com|\.eu\.com|\.hu\.com|\.no\.com|\.qc\.com|\.sa\.com|\.se\.com|\.se\.net|\.us\.com|\.uy\.com|\.ac|\.co\.ac|\.gv\.ac|\.or\.ac|\.ac\.ac|\.af|\.am|\.as|\.at|\.ac\.at|\.co\.at|\.gv\.at|\.or\.at|\.asn\.au|\.com\.au|\.edu\.au|\.org\.au|\.net\.au|\.id\.au|\.be|\.ac\.be|\.adm\.br|\.adv\.br|\.am\.br|\.arq\.br|\.art\.br|\.bio\.br|\.cng\.br|\.cnt\.br|\.com\.br|\.ecn\.br|\.eng\.br|\.esp\.br|\.etc\.br|\.eti\.br|\.fm\.br|\.fot\.br|\.fst\.br|\.g12\.br|\.gov\.br|\.ind\.br|\.inf\.br|\.jor\.br|\.lel\.br|\.med\.br|\.mil\.br|\.net\.br|\.nom\.br|\.ntr\.br|\.odo\.br|\.org\.br|\.ppg\.br|\.pro\.br|\.psc\.br|\.psi\.br|\.rec\.br|\.slg\.br|\.tmp\.br|\.tur\.br|\.tv\.br|\.vet\.br|\.zlg\.br|\.br|\.ab\.ca|\.bc\.ca|\.mb\.ca|\.nb\.ca|\.nf\.ca|\.ns\.ca|\.nt\.ca|\.on\.ca|\.pe\.ca|\.qc\.ca|\.sk\.ca|\.yk\.ca|\.ca|\.cc|\.ac\.cn|\.com\.cn|\.edu\.cn|\.gov\.cn|\.org\.cn|\.bj\.cn|\.sh\.cn|\.tj\.cn|\.cq\.cn|\.he\.cn|\.nm\.cn|\.ln\.cn|\.jl\.cn|\.hl\.cn|\.js\.cn|\.zj\.cn|\.ah\.cn|\.gd\.cn|\.gx\.cn|\.hi\.cn|\.sc\.cn|\.gz\.cn|\.yn\.cn|\.xz\.cn|\.sn\.cn|\.gs\.cn|\.qh\.cn|\.nx\.cn|\.xj\.cn|\.tw\.cn|\.hk\.cn|\.mo\.cn|\.cn|\.cx|\.cz|\.de|\.dk|\.fo|\.com\.ec|\.tm\.fr|\.com\.fr|\.asso\.fr|\.presse\.fr|\.fr|\.gf|\.gs|\.co\.il|\.net\.il|\.ac\.il|\.k12\.il|\.gov\.il|\.muni\.il|\.ac\.in|\.co\.in|\.org\.in|\.ernet\.in|\.gov\.in|\.net\.in|\.res\.in|\.is|\.it|\.ac\.jp|\.co\.jp|\.go\.jp|\.or\.jp|\.ne\.jp|\.ac\.kr|\.co\.kr|\.go\.kr|\.ne\.kr|\.nm\.kr|\.or\.kr|\.li|\.lt|\.lu|\.asso\.mc|\.tm\.mc|\.com\.mm|\.org\.mm|\.net\.mm|\.edu\.mm|\.gov\.mm|\.ms|\.nl|\.no|\.nu|\.pl|\.ro|\.org\.ro|\.store\.ro|\.tm\.ro|\.firm\.ro|\.www\.ro|\.arts\.ro|\.rec\.ro|\.info\.ro|\.nom\.ro|\.nt\.ro|\.se|\.si|\.com\.sg|\.org\.sg|\.net\.sg|\.gov\.sg|\.sk|\.st|\.tf|\.ac\.th|\.co\.th|\.go\.th|\.mi\.th|\.net\.th|\.or\.th|\.tm|\.to|\.com\.tr|\.edu\.tr|\.gov\.tr|\.k12\.tr|\.net\.tr|\.org\.tr|\.com\.tw|\.org\.tw|\.net\.tw|\.ac\.uk|\.uk\.com|\.uk\.net|\.gb\.com|\.gb\.net|\.vg|\.sh|\.kz|\.ch|\.info|\.ua|\.gov|\.name|\.pro|\.ie|\.hk|\.com\.hk|\.org\.hk|\.net\.hk|\.edu\.hk|\.us|\.tk|\.cd|\.by|\.ad|\.lv|\.eu\.lv|\.bz|\.es|\.jp|\.cl|\.ag|\.mobi|\.eu|\.co\.nz|\.org\.nz|\.net\.nz|\.maori\.nz|\.iwi\.nz|\.io|\.la|\.md|\.sc|\.sg|\.vc|\.tw|\.travel|\.my|\.se|\.tv|\.pt|\.com\.pt|\.edu\.pt|\.asia|\.fi|\.com\.ve|\.net\.ve|\.fi|\.org\.ve|\.web\.ve|\.info\.ve|\.co\.ve|\.tel|\.im|\.gr|\.ru|\.net\.ru|\.org\.ru|\.hr|\.com\.hr)$/, '$1$2');
 	    	}
@@ -273,8 +275,8 @@ var lh_inst  = {
 
     openRemoteWindow : function() {
         this.removeById('lhc_container');
-        var popupHeight = (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.opt != 'undefined' && typeof LHCChatOptions.opt.popup_height != 'undefined') ? parseInt(LHCChatOptions.opt.popup_height) : 520;
-        var popupWidth = (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.opt != 'undefined' && typeof LHCChatOptions.opt.popup_width != 'undefined') ? parseInt(LHCChatOptions.opt.popup_width) : 500;
+        var popupHeight = (typeof <?php echo $chatOptionsVariable?> != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt.popup_height != 'undefined') ? parseInt(<?php echo $chatOptionsVariable?>.opt.popup_height) : 520;
+        var popupWidth = (typeof <?php echo $chatOptionsVariable?> != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt.popup_width != 'undefined') ? parseInt(<?php echo $chatOptionsVariable?>.opt.popup_width) : 500;
         var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));        
         window.open(this.urlopen()+this.getAppendCookieArguments()+'/(er)/1'+'?URLReferer='+locationCurrent+this.parseOptions()+this.parseStorageArguments(),this.windowname,"scrollbars=yes,menubar=1,resizable=1,width="+popupWidth+",height="+popupHeight);
         this.removeCookieAttr('hash');
@@ -284,24 +286,24 @@ var lh_inst  = {
     parseOptions : function() {
 		argumentsQuery = new Array();
         var paramsReturn = '';
-		if (typeof LHCChatOptions != 'undefined') {
-	    	if (typeof LHCChatOptions.attr != 'undefined') {
-	    		if (LHCChatOptions.attr.length > 0){
-					for (var index in LHCChatOptions.attr) {
-						if (typeof LHCChatOptions.attr[index] != 'undefined' && typeof LHCChatOptions.attr[index].type != 'undefined') {							
-							argumentsQuery.push('name[]='+encodeURIComponent(LHCChatOptions.attr[index].name)+'&value[]='+encodeURIComponent(LHCChatOptions.attr[index].value)+'&type[]='+encodeURIComponent(LHCChatOptions.attr[index].type)+'&size[]='+encodeURIComponent(LHCChatOptions.attr[index].size)+'&req[]='+(typeof LHCChatOptions.attr[index].req != 'undefined' && LHCChatOptions.attr[index].req == true ? 't' : 'f')+'&sh[]='+((typeof LHCChatOptions.attr[index].show != 'undefined' && (LHCChatOptions.attr[index].show == 'on' || LHCChatOptions.attr[index].show == 'off')) ? LHCChatOptions.attr[index].show : 'b'));
+		if (typeof <?php echo $chatOptionsVariable?> != 'undefined') {
+	    	if (typeof <?php echo $chatOptionsVariable?>.attr != 'undefined') {
+	    		if (<?php echo $chatOptionsVariable?>.attr.length > 0){
+					for (var index in <?php echo $chatOptionsVariable?>.attr) {
+						if (typeof <?php echo $chatOptionsVariable?>.attr[index] != 'undefined' && typeof <?php echo $chatOptionsVariable?>.attr[index].type != 'undefined') {							
+							argumentsQuery.push('name[]='+encodeURIComponent(<?php echo $chatOptionsVariable?>.attr[index].name)+'&value[]='+encodeURIComponent(<?php echo $chatOptionsVariable?>.attr[index].value)+'&type[]='+encodeURIComponent(<?php echo $chatOptionsVariable?>.attr[index].type)+'&size[]='+encodeURIComponent(<?php echo $chatOptionsVariable?>.attr[index].size)+'&req[]='+(typeof <?php echo $chatOptionsVariable?>.attr[index].req != 'undefined' && <?php echo $chatOptionsVariable?>.attr[index].req == true ? 't' : 'f')+'&sh[]='+((typeof <?php echo $chatOptionsVariable?>.attr[index].show != 'undefined' && (<?php echo $chatOptionsVariable?>.attr[index].show == 'on' || <?php echo $chatOptionsVariable?>.attr[index].show == 'off')) ? <?php echo $chatOptionsVariable?>.attr[index].show : 'b'));
 						};
 					};
 	    		};
 	    	};
 
-	    	if (typeof LHCChatOptions.attr_prefill != 'undefined') {
-	    		if (LHCChatOptions.attr_prefill.length > 0){
-					for (var index in LHCChatOptions.attr_prefill) {
-						if (typeof LHCChatOptions.attr_prefill[index] != 'undefined' && typeof LHCChatOptions.attr_prefill[index].name != 'undefined') {
-							argumentsQuery.push('prefill['+LHCChatOptions.attr_prefill[index].name+']='+encodeURIComponent(LHCChatOptions.attr_prefill[index].value));
-							if (typeof LHCChatOptions.attr_prefill[index].hidden != 'undefined'){
-								argumentsQuery.push('hattr[]='+encodeURIComponent(LHCChatOptions.attr_prefill[index].name));
+	    	if (typeof <?php echo $chatOptionsVariable?>.attr_prefill != 'undefined') {
+	    		if (<?php echo $chatOptionsVariable?>.attr_prefill.length > 0){
+					for (var index in <?php echo $chatOptionsVariable?>.attr_prefill) {
+						if (typeof <?php echo $chatOptionsVariable?>.attr_prefill[index] != 'undefined' && typeof <?php echo $chatOptionsVariable?>.attr_prefill[index].name != 'undefined') {
+							argumentsQuery.push('prefill['+<?php echo $chatOptionsVariable?>.attr_prefill[index].name+']='+encodeURIComponent(<?php echo $chatOptionsVariable?>.attr_prefill[index].value));
+							if (typeof <?php echo $chatOptionsVariable?>.attr_prefill[index].hidden != 'undefined'){
+								argumentsQuery.push('hattr[]='+encodeURIComponent(<?php echo $chatOptionsVariable?>.attr_prefill[index].name));
 							};
 						};
 					};
@@ -323,13 +325,13 @@ var lh_inst  = {
     parseOptionsOnline : function(){
     	argumentsQuery = new Array();
 
-		if (typeof LHCChatOptions != 'undefined') {
+		if (typeof <?php echo $chatOptionsVariable?> != 'undefined') {
 	    	
-	    	if (typeof LHCChatOptions.attr_online != 'undefined') {
-	    		if (LHCChatOptions.attr_online.length > 0){
-					for (var index in LHCChatOptions.attr_online) {
-						if (typeof LHCChatOptions.attr_online[index] != 'undefined' && typeof LHCChatOptions.attr_online[index].name != 'undefined') {
-							argumentsQuery.push('onattr['+LHCChatOptions.attr_online[index].name+']='+encodeURIComponent(LHCChatOptions.attr_online[index].value));
+	    	if (typeof <?php echo $chatOptionsVariable?>.attr_online != 'undefined') {
+	    		if (<?php echo $chatOptionsVariable?>.attr_online.length > 0){
+					for (var index in <?php echo $chatOptionsVariable?>.attr_online) {
+						if (typeof <?php echo $chatOptionsVariable?>.attr_online[index] != 'undefined' && typeof <?php echo $chatOptionsVariable?>.attr_online[index].name != 'undefined') {
+							argumentsQuery.push('onattr['+<?php echo $chatOptionsVariable?>.attr_online[index].name+']='+encodeURIComponent(<?php echo $chatOptionsVariable?>.attr_online[index].value));
 						};
 					};
 	    		};
@@ -376,8 +378,8 @@ var lh_inst  = {
 
     showStartWindow : function(url_to_open,delayShow) {
 		  
-		  if (this.isOnline == false && typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.opt != 'undefined' && typeof LHCChatOptions.opt.offline_redirect != 'undefined'){
-				window.open(LHCChatOptions.opt.offline_redirect,"_blank");
+		  if (this.isOnline == false && typeof <?php echo $chatOptionsVariable?> != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt.offline_redirect != 'undefined'){
+				window.open(<?php echo $chatOptionsVariable?>.opt.offline_redirect,"_blank");
 				return;
 		  };	
     	  this.lhc_need_help_hide();
@@ -404,8 +406,8 @@ var lh_inst  = {
           
           clearTimeout(this.timeoutStatuscheck);
           
-          var widgetWidth = (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.opt != 'undefined' && typeof LHCChatOptions.opt.widget_width != 'undefined') ? parseInt(LHCChatOptions.opt.widget_width) : 300;
-		  var widgetHeight = (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.opt != 'undefined' && typeof LHCChatOptions.opt.widget_height != 'undefined') ? parseInt(LHCChatOptions.opt.widget_height) : 340;
+          var widgetWidth = (typeof <?php echo $chatOptionsVariable?> != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt.widget_width != 'undefined') ? parseInt(<?php echo $chatOptionsVariable?>.opt.widget_width) : 300;
+		  var widgetHeight = (typeof <?php echo $chatOptionsVariable?> != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt.widget_height != 'undefined') ? parseInt(<?php echo $chatOptionsVariable?>.opt.widget_height) : 340;
 
           this.iframe_html = '<div id="lhc_iframe_container"><iframe id="lhc_iframe" allowTransparency="true" scrolling="no" class="lhc-loading" frameborder="0" ' +
                        ( this.initial_iframe_url != '' ? ' src="'    + this.initial_iframe_url + '"' : '' ) +
@@ -424,11 +426,11 @@ var lh_inst  = {
 
           var parentElement = document.body;
 
-          if (typeof LHCChatOptions != 'undefined' &&
-            typeof LHCChatOptions.opt != 'undefined' &&
-            typeof LHCChatOptions.opt.widget_parent != 'undefined') {
-            if(document.getElementById(LHCChatOptions.opt.widget_parent) != null) {
-                parentElement = document.getElementById(LHCChatOptions.opt.widget_parent);
+          if (typeof <?php echo $chatOptionsVariable?> != 'undefined' &&
+            typeof <?php echo $chatOptionsVariable?>.opt != 'undefined' &&
+            typeof <?php echo $chatOptionsVariable?>.opt.widget_parent != 'undefined') {
+            if(document.getElementById(<?php echo $chatOptionsVariable?>.opt.widget_parent) != null) {
+                parentElement = document.getElementById(<?php echo $chatOptionsVariable?>.opt.widget_parent);
               }
           }
 
@@ -484,8 +486,8 @@ var lh_inst  = {
         this.lhc_need_help_hide();
         var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));
          
-        var popupHeight = (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.opt != 'undefined' && typeof LHCChatOptions.opt.popup_height != 'undefined') ? parseInt(LHCChatOptions.opt.popup_height) : 520;
-        var popupWidth = (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.opt != 'undefined' && typeof LHCChatOptions.opt.popup_width != 'undefined') ? parseInt(LHCChatOptions.opt.popup_width) : 500;
+        var popupHeight = (typeof <?php echo $chatOptionsVariable?> != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt.popup_height != 'undefined') ? parseInt(<?php echo $chatOptionsVariable?>.opt.popup_height) : 520;
+        var popupWidth = (typeof <?php echo $chatOptionsVariable?> != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt.popup_width != 'undefined') ? parseInt(<?php echo $chatOptionsVariable?>.opt.popup_width) : 500;
         window.open(this.urlopen()+this.getAppendCookieArguments()+'?URLReferer='+locationCurrent+this.parseOptions()+this.parseStorageArguments(),this.windowname,"scrollbars=yes,menubar=1,resizable=1,width="+popupWidth+",height="+popupHeight);
         this.chatOpenedCallback(this.isOnline == false ? 'external_offline' : 'external');
         <?php endif; ?>
@@ -493,22 +495,22 @@ var lh_inst  = {
     },
 
     chatOpenedCallback : function(type){
-    	if (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.callback != 'undefined' && typeof LHCChatOptions.callback.start_chat_cb != 'undefined') {
-    		LHCChatOptions.callback.start_chat_cb(type+this.substatus);
+    	if (typeof <?php echo $chatOptionsVariable?> != 'undefined' && typeof <?php echo $chatOptionsVariable?>.callback != 'undefined' && typeof <?php echo $chatOptionsVariable?>.callback.start_chat_cb != 'undefined') {
+    		<?php echo $chatOptionsVariable?>.callback.start_chat_cb(type+this.substatus);
     		this.substatus = '';
     	}
     },
 
     chatClosedCallback : function(type){
-      if (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.callback != 'undefined' && typeof LHCChatOptions.callback.close_chat_cb != 'undefined') {
-        LHCChatOptions.callback.close_chat_cb(type+this.substatus);
+      if (typeof <?php echo $chatOptionsVariable?> != 'undefined' && typeof <?php echo $chatOptionsVariable?>.callback != 'undefined' && typeof <?php echo $chatOptionsVariable?>.callback.close_chat_cb != 'undefined') {
+        <?php echo $chatOptionsVariable?>.callback.close_chat_cb(type+this.substatus);
         this.substatus = '';
       }
     },
 
     genericCallback : function(name){
-    	if (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.callback != 'undefined' && typeof LHCChatOptions.callback[name] != 'undefined') {
-    		LHCChatOptions.callback[name](this);    	
+    	if (typeof <?php echo $chatOptionsVariable?> != 'undefined' && typeof <?php echo $chatOptionsVariable?>.callback != 'undefined' && typeof <?php echo $chatOptionsVariable?>.callback[name] != 'undefined') {
+    		<?php echo $chatOptionsVariable?>.callback[name](this);    	
     	}
     },
     
@@ -542,8 +544,8 @@ var lh_inst  = {
         
         document.body.insertBefore(fragment, document.body.childNodes[0]);        
     <?php endif; ?>
-    	if (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.callback != 'undefined' && typeof LHCChatOptions.callback.show_widget_cb != 'undefined') {
-    		LHCChatOptions.callback.show_widget_cb(this);    		
+    	if (typeof <?php echo $chatOptionsVariable?> != 'undefined' && typeof <?php echo $chatOptionsVariable?>.callback != 'undefined' && typeof <?php echo $chatOptionsVariable?>.callback.show_widget_cb != 'undefined') {
+    		<?php echo $chatOptionsVariable?>.callback.show_widget_cb(this);    		
     	};
     },
     

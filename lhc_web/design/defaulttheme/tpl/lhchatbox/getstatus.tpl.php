@@ -123,7 +123,7 @@ var lhc_Chatbox = {
 			<?php endif; ?>			
 			this.addCookieAttribute('m',1);
 			this.storePos(dm);
-			<?php if ($currentPosition['posv'] == 'b' && $minimize_action == 'br') : ?>
+			<?php if ($currentPosition['posv'] == 'b' && isset($minimize_action) && $minimize_action == 'br') : ?>
 					dm.attrBottomOrigin = dm.style.bottom;
 					dm.style.bottom = '';										
 					<?php if ($currentPosition['pos'] == 'r') : ?>

@@ -8,6 +8,8 @@ if ( !($isOnlineHelp == false && $hide_offline == 'true') ) : ?>
 /*! Cookies.js - 0.4.0; Copyright (c) 2014, Scott Hamper; http://www.opensource.org/licenses/MIT */
 (function(e){"use strict";var b=function(a,d,c){return 1===arguments.length?b.get(a):b.set(a,d,c)};b._document=document;b._navigator=navigator;b.defaults={path:"/"};b.get=function(a){b._cachedDocumentCookie!==b._document.cookie&&b._renewCache();return b._cache[a]};b.set=function(a,d,c){c=b._getExtendedOptions(c);c.expires=b._getExpiresDate(d===e?-1:c.expires);b._document.cookie=b._generateCookieString(a,d,c);return b};b.expire=function(a,d){return b.set(a,e,d)};b._getExtendedOptions=function(a){return{path:a&& a.path||b.defaults.path,domain:a&&a.domain||b.defaults.domain,expires:a&&a.expires||b.defaults.expires,secure:a&&a.secure!==e?a.secure:b.defaults.secure}};b._isValidDate=function(a){return"[object Date]"===Object.prototype.toString.call(a)&&!isNaN(a.getTime())};b._getExpiresDate=function(a,d){d=d||new Date;switch(typeof a){case "number":a=new Date(d.getTime()+1E3*a);break;case "string":a=new Date(a)}if(a&&!b._isValidDate(a))throw Error("`expires` parameter cannot be converted to a valid Date instance"); return a};b._generateCookieString=function(a,b,c){a=a.replace(/[^#$&+\^`|]/g,encodeURIComponent);a=a.replace(/\(/g,"%28").replace(/\)/g,"%29");b=(b+"").replace(/[^!#$&-+\--:<-\[\]-~]/g,encodeURIComponent);c=c||{};a=a+"="+b+(c.path?";path="+c.path:"");a+=c.domain?";domain="+c.domain:"";a+=c.expires?";expires="+c.expires.toUTCString():"";return a+=c.secure?";secure":""};b._getCookieObjectFromString=function(a){var d={};a=a?a.split("; "):[];for(var c=0;c<a.length;c++){var f=b._getKeyValuePairFromCookieString(a[c]); d[f.key]===e&&(d[f.key]=f.value)}return d};b._getKeyValuePairFromCookieString=function(a){var b=a.indexOf("="),b=0>b?a.length:b;try {return{key:decodeURIComponent(a.substr(0,b)),value:decodeURIComponent(a.substr(b+1))}} catch(e) {return{key:a.substr(0,b),value:a.substr(b+1)}}};b._renewCache=function(){b._cache=b._getCookieObjectFromString(b._document.cookie);b._cachedDocumentCookie=b._document.cookie};b._areEnabled=function(){var a="1"===b.set("cookies_lhc.js",1).get("cookies_lhc.js");b.expire("cookies_lhc.js");return a};b.enabled=b._areEnabled();window.lhc_Cookies=b})();
 
+<?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/options_variable_page.tpl.php')); ?>
+
 var lh_inst_page  = {
 	JSON : {
             parse: window.JSON && (window.JSON.parse || window.JSON.decode) || String.prototype.evalJSON && function(str){return String(str).evalJSON();} || $.parseJSON || $.evalJSON,
@@ -26,21 +28,21 @@ var lh_inst_page  = {
     parseOptions : function() {
 		argumentsQuery = new Array();
 
-		if (typeof LHCChatOptionsPage != 'undefined') {
-	    	if (typeof LHCChatOptionsPage.attr != 'undefined') {
-	    		if (LHCChatOptionsPage.attr.length > 0){
-					for (var index in LHCChatOptionsPage.attr) {
-						argumentsQuery.push('name[]='+encodeURIComponent(LHCChatOptionsPage.attr[index].name)+'&value[]='+encodeURIComponent(LHCChatOptionsPage.attr[index].value)+'&type[]='+encodeURIComponent(LHCChatOptionsPage.attr[index].type)+'&size[]='+encodeURIComponent(LHCChatOptionsPage.attr[index].size)+'&req[]='+(typeof LHCChatOptionsPage.attr[index].req != 'undefined' && LHCChatOptionsPage.attr[index].req == true ? 't' : 'f')+'&sh[]='+((typeof LHCChatOptionsPage.attr[index].show != 'undefined' && (LHCChatOptionsPage.attr[index].show == 'on' || LHCChatOptionsPage.attr[index].show == 'off')) ? LHCChatOptionsPage.attr[index].show : 'b'));
+		if (typeof <?php echo $chatOptionsVariablePage?> != 'undefined') {
+	    	if (typeof <?php echo $chatOptionsVariablePage?>.attr != 'undefined') {
+	    		if (<?php echo $chatOptionsVariablePage?>.attr.length > 0){
+					for (var index in <?php echo $chatOptionsVariablePage?>.attr) {
+						argumentsQuery.push('name[]='+encodeURIComponent(<?php echo $chatOptionsVariablePage?>.attr[index].name)+'&value[]='+encodeURIComponent(<?php echo $chatOptionsVariablePage?>.attr[index].value)+'&type[]='+encodeURIComponent(<?php echo $chatOptionsVariablePage?>.attr[index].type)+'&size[]='+encodeURIComponent(<?php echo $chatOptionsVariablePage?>.attr[index].size)+'&req[]='+(typeof <?php echo $chatOptionsVariablePage?>.attr[index].req != 'undefined' && <?php echo $chatOptionsVariablePage?>.attr[index].req == true ? 't' : 'f')+'&sh[]='+((typeof <?php echo $chatOptionsVariablePage?>.attr[index].show != 'undefined' && (<?php echo $chatOptionsVariablePage?>.attr[index].show == 'on' || <?php echo $chatOptionsVariablePage?>.attr[index].show == 'off')) ? <?php echo $chatOptionsVariablePage?>.attr[index].show : 'b'));
 					};
 	    		};
 	    	};
 
-	    	if (typeof LHCChatOptionsPage.attr_prefill != 'undefined') {
-	    		if (LHCChatOptionsPage.attr_prefill.length > 0){
-					for (var index in LHCChatOptionsPage.attr_prefill) {
-						argumentsQuery.push('prefill['+LHCChatOptionsPage.attr_prefill[index].name+']='+encodeURIComponent(LHCChatOptionsPage.attr_prefill[index].value));
-						if (typeof LHCChatOptionsPage.attr_prefill[index].hidden != 'undefined'){
-							argumentsQuery.push('hattr[]='+encodeURIComponent(LHCChatOptionsPage.attr_prefill[index].name));
+	    	if (typeof <?php echo $chatOptionsVariablePage?>.attr_prefill != 'undefined') {
+	    		if (<?php echo $chatOptionsVariablePage?>.attr_prefill.length > 0){
+					for (var index in <?php echo $chatOptionsVariablePage?>.attr_prefill) {
+						argumentsQuery.push('prefill['+<?php echo $chatOptionsVariablePage?>.attr_prefill[index].name+']='+encodeURIComponent(<?php echo $chatOptionsVariablePage?>.attr_prefill[index].value));
+						if (typeof <?php echo $chatOptionsVariablePage?>.attr_prefill[index].hidden != 'undefined'){
+							argumentsQuery.push('hattr[]='+encodeURIComponent(<?php echo $chatOptionsVariablePage?>.attr_prefill[index].name));
 						};
 					};
 	    		};
@@ -118,8 +120,8 @@ var lh_inst_page  = {
     },
     
 	genericCallback : function(name){
-    	if (typeof LHCChatOptionsPage != 'undefined' && typeof LHCChatOptionsPage.callback != 'undefined' && typeof LHCChatOptionsPage.callback[name] != 'undefined') {
-    		LHCChatOptionsPage.callback[name](this);    	
+    	if (typeof <?php echo $chatOptionsVariablePage?> != 'undefined' && typeof <?php echo $chatOptionsVariablePage?>.callback != 'undefined' && typeof <?php echo $chatOptionsVariablePage?>.callback[name] != 'undefined') {
+    		<?php echo $chatOptionsVariablePage?>.callback[name](this);    	
     	}
     },
     

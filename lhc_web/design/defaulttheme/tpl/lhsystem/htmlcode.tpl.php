@@ -212,8 +212,10 @@ function generateEmbedCode(){
     	uaArguments = '/(ua)'+uaArguments;
     }
     
-    var script = '<script type="text/javascript">'+"\n"+"var LHCChatOptions = {};\n"+
-      'LHCChatOptions.opt = {widget_height:'+$('#id_widget_height').val()+',widget_width:'+$('#id_widget_width').val()+',popup_height:'+$('#id_popup_height').val()+',popup_width:'+$('#id_popup_width').val()+id_embed_domain+'};\n'+
+    <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/options_variable.tpl.php')); ?>
+    
+    var script = '<script type="text/javascript">'+"\n"+"var <?php echo $chatOptionsVariable?> = {};\n"+
+      '<?php echo $chatOptionsVariable?>.opt = {widget_height:'+$('#id_widget_height').val()+',widget_width:'+$('#id_widget_width').val()+',popup_height:'+$('#id_popup_height').val()+',popup_width:'+$('#id_popup_width').val()+id_embed_domain+'};\n'+
       '(function() {'+"\n"+
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
         'var refferer = (document.referrer) ? encodeURIComponent(document.referrer.substr(document.referrer.indexOf(\'://\')+1)) : \'\';'+"\n"+
