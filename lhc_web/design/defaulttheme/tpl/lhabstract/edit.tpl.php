@@ -1,5 +1,4 @@
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Edit');?> - <?php echo htmlspecialchars($object_trans['name'])?></h1>
-
+<?php include(erLhcoreClassDesign::designtpl('lhabstract/parts/abstract_edit_title.tpl.php'));?>
 
 <form enctype="multipart/form-data" action="" method="post">
 		
