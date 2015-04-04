@@ -1,3 +1,5 @@
+<?php include(erLhcoreClassDesign::designtpl('lhform/getstatus/options_variable.tpl.php')); ?>
+
 var lhc_FormEmbed = function() {
 	var self = this;
 	this.showVotingForm = function() {

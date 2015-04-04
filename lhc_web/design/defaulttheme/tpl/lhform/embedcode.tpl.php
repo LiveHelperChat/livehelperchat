@@ -48,8 +48,10 @@ function generateEmbedCode(){
     var identifier = $('#id_identifier').val() == '' ? '' : '?identifier=' + $('#id_identifier').val();
 
     var id_tag = '<!-- Place this tag where you want the Live Helper Form module to render. -->'+"\n"+'<div id="lhc_form_embed_container" ></div>'+"\n\n<!-- Place this tag after the Live Helper Form module tag. -->\n";
-
-    var script = '<script type="text/javascript">'+"\nvar LHCFormOptions = {};\n"+
+    
+    <?php include(erLhcoreClassDesign::designtpl('lhform/getstatus/options_variable.tpl.php')); ?>
+    
+    var script = '<script type="text/javascript">'+"\nvar <?php echo $formOptionsVariable?> = {};\n"+
       '(function() {'+"\n"+
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
         'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'form/embed/'+formid+identifier+"';\n"+
