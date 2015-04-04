@@ -105,8 +105,10 @@ function generateEmbedCode(){
 	var dis_min = ($('#DisableMiminize').is(':checked')? '/(dmn)/true' : '');
 	var id_disable_responsive = $('#id_disable_responsive').is(':checked') ? '/(noresponse)/true' : '';
 	var id_theme = $('#ThemeID').val() > 0 ? '/(theme)/'+$('#ThemeID').val() : '';
+
+	<?php include(erLhcoreClassDesign::designtpl('lhchatbox/getstatus/options_variable.tpl.php')); ?>
 	
-    var script = '<script type="text/javascript">'+"\nvar LHCChatboxOptions = {hashchatbox:'empty',identifier:'default',status_text:'"+textStatus+"'};\n"+
+    var script = '<script type="text/javascript">'+"\nvar <?php echo $chatboxOptionsVariable?> = {hashchatbox:'empty',identifier:'default',status_text:'"+textStatus+"'};\n"+
       '(function() {'+"\n"+
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
         'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chatbox/getstatus'+id_position+top+id_disable_responsive+topposition+widthwidget+id_theme+heightwidget+chat_height+show_content+show_min+dis_min+"';\n"+

@@ -46,7 +46,9 @@ function generateEmbedCode(){
     
     var id_tag = '<!-- Place this tag where you want the Live Helper Chatbox module to render. -->'+"\n"+'<div id="lhc_chatbox_embed_container" ></div>'+"\n\n<!-- Place this tag after the Live Helper Chatbox module tag. -->\n";
 
-    var script = '<script type="text/javascript">'+"\nvar LHCChatboxOptionsEmbed = {hashchatbox:'empty',identifier:'default'};\n"+
+    <?php include(erLhcoreClassDesign::designtpl('lhchatbox/getstatus/options_variable_page.tpl.php')); ?>
+    
+    var script = '<script type="text/javascript">'+"\nvar <?php echo $chatboxOptionsVariablePage?> = {hashchatbox:'empty',identifier:'default'};\n"+
       '(function() {'+"\n"+
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
         'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chatbox/embed'+chat_height+id_theme+"';\n"+

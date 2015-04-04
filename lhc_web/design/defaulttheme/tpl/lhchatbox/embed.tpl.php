@@ -1,3 +1,5 @@
+<?php include(erLhcoreClassDesign::designtpl('lhchatbox/getstatus/options_variable_page.tpl.php')); ?>
+
 var lhc_ChatboxPage = {
 	JSON : {
             parse: window.JSON && (window.JSON.parse || window.JSON.decode) || String.prototype.evalJSON && function(str){return String(str).evalJSON();} || $.parseJSON || $.evalJSON,
@@ -7,7 +9,7 @@ var lhc_ChatboxPage = {
 
 	showVotingForm : function() {
 		  var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));
-   		  this.initial_iframe_url = "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chatbox/chatwidget')?>/(chat_height)/<?php echo $heightchatcontent;?><?php $theme !== false ? print '/(theme)/'.$theme : ''?>/(mode)/embed/(identifier)/"+LHCChatboxOptionsEmbed.identifier+'/(hashchatbox)/'+LHCChatboxOptionsEmbed.hashchatbox+this.getAppendCookieArguments()+'?URLReferer='+locationCurrent+this.getAppendRequestArguments();
+   		  this.initial_iframe_url = "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chatbox/chatwidget')?>/(chat_height)/<?php echo $heightchatcontent;?><?php $theme !== false ? print '/(theme)/'.$theme : ''?>/(mode)/embed/(identifier)/"+<?php echo $chatboxOptionsVariablePage;?>.identifier+'/(hashchatbox)/'+<?php echo $chatboxOptionsVariablePage;?>.hashchatbox+this.getAppendCookieArguments()+'?URLReferer='+locationCurrent+this.getAppendRequestArguments();
 
    		  this.iframe_html = '<iframe id="lhc_sizing_chatbox_page" allowTransparency="true" scrolling="no" frameborder="0" ' +
                        ( this.initial_iframe_url != '' ? ' src="'    + this.initial_iframe_url + '"' : '' ) +
@@ -19,9 +21,9 @@ var lhc_ChatboxPage = {
     },
 
     getAppendRequestArguments : function() {
-		    var nickOption = (typeof LHCChatboxOptionsEmbed.nick !== 'undefined') ?  '&nick='+encodeURIComponent(LHCChatboxOptionsEmbed.nick) : (this.cookieData.nick ? '&nick='+encodeURIComponent(this.cookieData.nick) : '');
-		    var disableOption = (typeof LHCChatboxOptionsEmbed.disable_nick_change !== 'undefined') ?  '&dnc=true' : '';
-		    var chatboxName = (typeof LHCChatboxOptionsEmbed.chatbox_name !== 'undefined') ?  '&chtbx_name='+encodeURIComponent(LHCChatboxOptionsEmbed.chatbox_name) : '';
+		    var nickOption = (typeof <?php echo $chatboxOptionsVariablePage;?>.nick !== 'undefined') ?  '&nick='+encodeURIComponent(<?php echo $chatboxOptionsVariablePage;?>.nick) : (this.cookieData.nick ? '&nick='+encodeURIComponent(this.cookieData.nick) : '');
+		    var disableOption = (typeof <?php echo $chatboxOptionsVariablePage;?>.disable_nick_change !== 'undefined') ?  '&dnc=true' : '';
+		    var chatboxName = (typeof <?php echo $chatboxOptionsVariablePage;?>.chatbox_name !== 'undefined') ?  '&chtbx_name='+encodeURIComponent(<?php echo $chatboxOptionsVariablePage;?>.chatbox_name) : '';
 		    return nickOption+disableOption+chatboxName;
     },
 
