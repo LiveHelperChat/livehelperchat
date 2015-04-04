@@ -6,14 +6,15 @@
 <div role="tabpanel">
 
 	<ul class="nav nav-tabs" role="tablist">
-		<li role="presentation" class="active"><a href="#system" aria-controls="system" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','System');?></a></li>
+		<li role="presentation" class="active"><a href="#system" aria-controls="system" role="tab" data-toggle="tab">
+		<?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_titles/system_title.tpl.php'));?></a></li>
     
         <?php if ($currentUser->hasAccessTo('lhsystem','generate_js_tab')) : ?>
-        <li role="presentation"><a href="#embed" aria-controls="embed" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Embed code');?></a></li>
+        <li role="presentation"><a href="#embed" aria-controls="embed" role="tab" data-toggle="tab"><?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_titles/embed_code_title.tpl.php'));?></a></li>
         <?php endif; ?>
         
         <?php if ($currentUser->hasAccessTo('lhchat','use')) : ?>
-        <li role="presentation"><a href="#chatconfiguration" aria-controls="chatconfiguration" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Live help configuration');?></a></li>
+        <li role="presentation"><a href="#chatconfiguration" aria-controls="chatconfiguration" role="tab" data-toggle="tab"><?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_titles/live_help_configuration.tpl.php'));?></a></li>
         <?php endif; ?>
         
         <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_tabs/speech.tpl.php'));?>
@@ -24,7 +25,9 @@
 
 			<div class="row">
 				<div class="col-md-6">
-					<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','System');?></h4>
+					
+					<h4><?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_titles/system_title.tpl.php'));?></h4>
+					
 					<ul>
         	      		<?php if ($currentUser->hasAccessTo('lhsystem','timezone')) : ?>
         			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('system/timezone')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Time zone settings');?></a></li>
