@@ -1,4 +1,4 @@
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','New canned message');?></h1>
+<?php include(erLhcoreClassDesign::designtpl('lhchat/lists_titles/newcannedmsg.tpl.php'));?>
 
 <?php if (isset($errors)) : ?>
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>

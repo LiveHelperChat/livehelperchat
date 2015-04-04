@@ -97,6 +97,7 @@ $Result['path'] = array(
 array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','System configuration')),
 array('url' => erLhcoreClassDesign::baseurl('chat/cannedmsg'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Canned messages')),
 array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','New canned message')),
-)
+);
 
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.newcannedmsg_path',array('result' => & $Result));
 ?>

@@ -1,4 +1,4 @@
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Canned messages');?></h1>
+<?php include(erLhcoreClassDesign::designtpl('lhchat/lists_titles/cannedmsg.tpl.php'));?>
 
 <table class="table" cellpadding="0" cellspacing="0">
 <thead>
