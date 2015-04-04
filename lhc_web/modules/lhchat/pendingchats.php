@@ -75,4 +75,5 @@ array('url' =>erLhcoreClassDesign::baseurl('chat/lists'), 'title' => erTranslati
 array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Pending chats'))
 );
 
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.pendingchats_path',array('result' => & $Result));
 ?>

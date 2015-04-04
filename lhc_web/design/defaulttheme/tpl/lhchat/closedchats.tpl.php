@@ -1,4 +1,4 @@
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closedchats','Closed chats list');?></h1>
+<?php include(erLhcoreClassDesign::designtpl('lhchat/lists_titles/closedchats.tpl.php'));?>
 
 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/search_panel.tpl.php')); ?>
 

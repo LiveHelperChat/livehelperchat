@@ -1,4 +1,4 @@
-<h1 class="attr-header"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Pending chats list');?></h1>
+<?php include(erLhcoreClassDesign::designtpl('lhchat/lists_titles/pendingchats.tpl.php'));?>
 
 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/search_panel.tpl.php')); ?>
 

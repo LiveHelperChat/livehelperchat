@@ -75,4 +75,5 @@ array('url' =>erLhcoreClassDesign::baseurl('chat/lists'), 'title' => erTranslati
 array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/activechats','Active chats'))
 );
 
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.activechats_path',array('result' => & $Result));
 ?>
