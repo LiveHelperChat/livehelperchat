@@ -96,7 +96,9 @@ function generateEmbedCode(){
 	var id_disable_responsive = $('#id_disable_responsive').is(':checked') ? '/(noresponse)/true' : '';
 	var id_theme = $('#ThemeID').val() > 0 ? '/(theme)/'+$('#ThemeID').val() : '';
 	
-    var script = '<script type="text/javascript">'+"\nvar LHCVotingOptions = {status_text:'"+textStatus+"'};\n"+
+	<?php include(erLhcoreClassDesign::designtpl('lhquestionary/getstatus/options_variable.tpl.php')); ?>
+	
+    var script = '<script type="text/javascript">'+"\nvar <?php echo $questionaryOptionsVariable?> = {status_text:'"+textStatus+"'};\n"+
       '(function() {'+"\n"+
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
         'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'questionary/getstatus'+id_position+id_disable_responsive+id_show_widget_on_open+top+topposition+widthwidget+id_theme+heightwidget+"';\n"+
