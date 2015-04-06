@@ -165,7 +165,7 @@
     
     <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_tabs_content/speech.tpl.php'));?>
     
-    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_tabs/tab_content_multiinclude.tpl.php'));?>
+    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_tabs_content/tab_content_multiinclude.tpl.php'));?>
      
     </div>    
 </div>
