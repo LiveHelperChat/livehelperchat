@@ -15,6 +15,7 @@ var LHCCoBrowserOperator = (function() {
 		this.mode_co_browse_internal =  params['mode'] ? params['mode'] : 'chat';		
 		this.node_js_settings = params['nodejssettings'];
 		this.disablejs = params['disablejs'];
+		this.formsenabled = typeof params['formsenabled'] != 'undefined' ? params['formsenabled'] : true;
 		this.refreshTimeout = null;
 		this.isNodeConnected = false;
 		this.isInitialized = false;
@@ -27,7 +28,7 @@ var LHCCoBrowserOperator = (function() {
 		this.httpsmode = params['httpsmode'];
 		this.lhcbase = params['lhcbase'];
 		this.sitehttps = false;
-		
+				
 		if (this.base != '' && this.base.indexOf('https') > -1) {
 			this.sitehttps = true;
 		}
@@ -137,7 +138,11 @@ var LHCCoBrowserOperator = (function() {
 				
 				if (tagName == 'INPUT' || tagName == 'TEXTAREA') {
 					var node = document.createElement(tagName);
-										
+					
+					if (_this.formsenabled == false) {
+						node.setAttribute('readonly','readonly');	
+					};	
+					
 					node.addEventListener('focus', function(){					
 						_this.highlightElement(-1,-1,_this.scrollLeftGS(),_this.scrollTopGS(),_this.getSelectorQuery(node),node);
 					}, false);
@@ -297,28 +302,32 @@ var LHCCoBrowserOperator = (function() {
 		
 	LHCCoBrowserOperator.prototype.fillForm = function(target,selector)
 	{
-		var elements = [target];
-		for (var i = 0; i < elements.length; i++) {
-			if (elements[i].tagName == 'INPUT' || elements[i].tagName == 'TEXTAREA') {
-				this.textSend = elements[i].value.replace(new RegExp(':','g'),'_SEL_');
-				if (this.isNodeConnected === true) {					
-					this.sendData('lhc_cobrowse_cmd:fillform:'+this.textSend+'__SPLIT__'+selector.replace(new RegExp(':','g'),'_SEL_')); // Split is required to avoid mixing argumetns	
-				} else {
-					if (this.fillTimeout === null) {
-						var _that = this;
-						this.fillTimeout = setTimeout(function() {
-							_that.sendData('lhc_cobrowse_cmd:fillform:'+_that.textSend+'__SPLIT__'+selector.replace(new RegExp(':','g'),'_SEL_'));
-							_that.fillTimeout = null;
-						}, 300);
-					};
+		if (this.formsenabled == true) {
+			var elements = [target];
+			for (var i = 0; i < elements.length; i++) {
+				if (elements[i].tagName == 'INPUT' || elements[i].tagName == 'TEXTAREA') {
+					this.textSend = elements[i].value.replace(new RegExp(':','g'),'_SEL_');
+					if (this.isNodeConnected === true) {					
+						this.sendData('lhc_cobrowse_cmd:fillform:'+this.textSend+'__SPLIT__'+selector.replace(new RegExp(':','g'),'_SEL_')); // Split is required to avoid mixing argumetns	
+					} else {
+						if (this.fillTimeout === null) {
+							var _that = this;
+							this.fillTimeout = setTimeout(function() {
+								_that.sendData('lhc_cobrowse_cmd:fillform:'+_that.textSend+'__SPLIT__'+selector.replace(new RegExp(':','g'),'_SEL_'));
+								_that.fillTimeout = null;
+							}, 300);
+						};
+					}
 				}
-			}
-		};
+			};
+		}
 	};
 	
 	LHCCoBrowserOperator.prototype.changeSelectValue = function(val,selector)
 	{		
-		this.sendData('lhc_cobrowse_cmd:changeselect:'+val+'__SPLIT__'+selector.replace(new RegExp(':','g'),'_SEL_'));		
+		if (this.formsenabled == true) {
+			this.sendData('lhc_cobrowse_cmd:changeselect:'+val+'__SPLIT__'+selector.replace(new RegExp(':','g'),'_SEL_'));
+		}		
 	};
 	
 	LHCCoBrowserOperator.prototype.highlightElement = function(x,y,l,t,selector,node)
