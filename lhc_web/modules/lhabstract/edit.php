@@ -84,3 +84,5 @@ if (isset($object_trans['path'])){
 			array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Edit'))
 	);
 }
+
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('abstract.edit_'.strtolower($Params['user_parameters']['identifier']).'_path', array('result' => & $Result));

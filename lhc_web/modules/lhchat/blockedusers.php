@@ -1,6 +1,6 @@
 <?php
 
-$response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.blockedusers', array());
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.blockedusers', array());
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/blockedusers.tpl.php');
 
@@ -64,9 +64,13 @@ if ($pages->items_total > 0) {
 $tpl->set('items',$items);
 $tpl->set('pages',$pages);
 
+
+
 $Result['content'] = $tpl->fetch();
 $Result['path'] = array(
 array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','System configuration')),
-array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Blocked users')))
+array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Blocked users')));
+
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.blockedusres_path',array('result' => & $Result));
 
 ?>

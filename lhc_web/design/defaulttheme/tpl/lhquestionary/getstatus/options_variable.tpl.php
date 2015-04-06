@@ -1,0 +1,1 @@
+<?php $questionaryOptionsVariable = 'LHCVotingOptions'?> 

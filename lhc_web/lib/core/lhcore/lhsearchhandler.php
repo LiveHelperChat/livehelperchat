@@ -6,8 +6,12 @@ class erLhcoreClassSearchHandler {
 
         $uparams = isset($params['uparams']) ? $params['uparams'] : array();
 
-        $fieldsObjects = include('lib/core/lh'.$params['module'].'/searchattr/'.$params['module_file'].'.php');
-
+        if (isset($params['customfilterfile'])) {
+            $fieldsObjects = include($params['customfilterfile']);
+        } else {
+            $fieldsObjects = include('lib/core/lh'.$params['module'].'/searchattr/'.$params['module_file'].'.php');
+        }
+        
         $fields = $fieldsObjects['filterAttributes'];
         $orderOptions = $fieldsObjects['sortAttributes'];
 
@@ -388,7 +392,7 @@ class erLhcoreClassSearchHandler {
    
    public static $lastError = null;
    
-   public static function isFile($fileName, $supportedExtensions = array ('zip','doc','docx','pdf','xls','xlsx','jpg','jpeg','png','bmp','rar','7z'), $maxFileSize = false)
+   public static function isFile($fileName, $supportedExtensions = array ('zip','doc','docx','pdf','xls','gif','xlsx','jpg','jpeg','png','bmp','rar','7z'), $maxFileSize = false)
    { 
 	   	if (isset($_FILES[$fileName]) &&  is_uploaded_file($_FILES[$fileName]["tmp_name"]) && $_FILES[$fileName]["error"] == 0 )
 	   	{
@@ -422,7 +426,7 @@ class erLhcoreClassSearchHandler {
    public static function isImageFile($fileName)
    {
 	   	$supportedExtensions = array (
-	   			'jpg','jpeg','png'
+	   			'jpg','jpeg','png','gif'
 	   	);
 	   	 
 	   	if (isset($_FILES[$fileName]) &&  is_uploaded_file($_FILES[$fileName]["tmp_name"]) && $_FILES[$fileName]["error"] == 0 && erLhcoreClassImageConverter::isPhoto($fileName))

@@ -1,4 +1,4 @@
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/maintenance','Maintenance');?></h1>
+<?php include(erLhcoreClassDesign::designtpl('lhchat/lists_titles/maintenance.tpl.php'));?>
 
 <?php if (isset($closedchats)) : ?>
 <?php $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/maintenance','Closed chats').' - '.$closedchats; ?>

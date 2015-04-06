@@ -697,6 +697,10 @@
   <context>
     <name>system/htmlcode</name>
     <message>
+      <source>Popup window size</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>HTML code</source>
       <translation type="unfinished"/>
     </message>
@@ -853,6 +857,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Widget embed code</source>
       <translation type="unfinished"/>
     </message>
@@ -861,15 +869,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Embed code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Set default speech recognition language</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Speech language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>General</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Design</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -917,11 +929,35 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Popup window size</source>
+      <source>Minimize action, applies only if status widget is at the bottom</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Keep where it was</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimize to bottom of the screen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Native placement - it will be shown where the html is embedded</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invisible, only JS API will be included</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Popup window width</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Popup window width in pixels</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>height</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -937,31 +973,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>height</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Widget height in pixels</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Native placement - it will be shown where the html is embedded</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invisible, only JS API will be included</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Minimize action, applies only if status widget is at the bottom</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Keep where it was</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Minimize to bottom of the screen</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1621,6 +1633,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Choose other than default recognition language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transfer chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Footprint</source>
       <translation type="unfinished"/>
     </message>
@@ -1673,10 +1693,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Transfer chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Mail was send</source>
       <translation type="unfinished"/>
     </message>
@@ -1698,10 +1714,6 @@
     </message>
     <message>
       <source>Redirect user to another url</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose other than default recognition language</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1797,10 +1809,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Send delayed canned message instantly</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Reopen chat</source>
       <translation type="unfinished"/>
     </message>
@@ -1810,6 +1818,10 @@
     </message>
     <message>
       <source>Fill textarea with canned message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send delayed canned message instantly</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1951,6 +1963,10 @@
   <context>
     <name>files/files</name>
     <message>
+      <source>Download file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Refresh</source>
       <translation type="unfinished"/>
     </message>
@@ -1959,7 +1975,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Download file</source>
+      <source>Sent by Customer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sent by Operator</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2195,6 +2215,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department is offline</source>
       <translation type="unfinished"/>
     </message>
@@ -2208,14 +2236,6 @@
     </message>
     <message>
       <source>characters</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Send</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2292,6 +2312,10 @@
     </message>
     <message>
       <source>is required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Your request was not processed as expected - but don't worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2658,6 +2682,14 @@
   <context>
     <name>chat/onlineusers</name>
     <message>
+      <source>Status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No one has sent a message to the user yet</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>GEO detection configuration</source>
       <translation type="unfinished"/>
     </message>
@@ -3010,11 +3042,27 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Status</source>
+      <source>Action</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Action</source>
+      <source>User has not seen a message from the operator, or the message window is still open.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Seen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unseen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User has seen the message from the operator.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User does not have any messages from the operator</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3026,23 +3074,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Returning</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>has sent a message to the user</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User has not seen a message from the operator, or the message window is still open.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User has seen the message from the operator.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User does not have any messages from the operator</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3232,10 +3276,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Live help embed code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Departments</source>
       <translation type="unfinished"/>
     </message>
@@ -3297,6 +3337,10 @@
     </message>
     <message>
       <source>Canned messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live help embed code</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3462,11 +3506,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Chats list</source>
+      <source>Extra modules</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Extra modules</source>
+      <source>Chats list</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6869,6 +6913,49 @@
     </message>
     <message>
       <source>Permissions were not provided</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>users/autologin</name>
+    <message>
+      <source>Auto login settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This module can be used if you are generating autologin link. See site for code examples</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Secret hash used for authentification token generation, min 10 characters</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Autologin hash has expired</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not find a user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not find a provided user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid autologin hash</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Auto login module is not enabled</source>
       <translation type="unfinished"/>
     </message>
   </context>

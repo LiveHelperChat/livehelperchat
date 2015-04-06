@@ -11,5 +11,7 @@
     <input type="text" class="form-control" name="Email" value="" />
 </div>
 
+<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+
 <input type="submit" class="btn btn-default" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/forgotpassword','Restore password')?>" name="Forgotpassword" />
 </form>

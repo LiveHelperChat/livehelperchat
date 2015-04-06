@@ -1,0 +1,1 @@
+<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Blocked users');?></h1>

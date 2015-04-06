@@ -198,12 +198,14 @@ class erLhAbstractModelBrowseOfferInvitation {
 
 	public function getModuleTranslations()
 	{
+	    $metaData = array('path' => array('url' => erLhcoreClassDesign::baseurl('browseoffer/index'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('browseoffer/index','Browse offers')),'permission_delete' => array('module' => 'lhbrowseoffer','function' => 'manage_bo'),'permission' => array('module' => 'lhbrowseoffer','function' => 'manage_bo'),'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/browserofferinvitation','Browser offer invitations'));
+	    
 	    /**
 	     * Get's executed before permissions check. It can redirect to frontpage throw permission exception etc
 	     * */
-	    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('feature.can_use_browse_offers', array());
+	    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('feature.can_use_browse_offers', array('object_meta_data' => & $metaData));
 	    
-		return array('path' => array('url' => erLhcoreClassDesign::baseurl('browseoffer/index'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('browseoffer/index','Browse offers')),'permission_delete' => array('module' => 'lhbrowseoffer','function' => 'manage_bo'),'permission' => array('module' => 'lhbrowseoffer','function' => 'manage_bo'),'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/browserofferinvitation','Browser offer invitations'));
+		return $metaData;
 	}
 
 	public static function getCount($params = array())

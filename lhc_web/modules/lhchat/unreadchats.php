@@ -46,5 +46,5 @@ $Result['path'] = array(
 array('url' =>erLhcoreClassDesign::baseurl('chat/lists'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closedchats','Chats list')),
 array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/unreadchats','Unread chats list')));
 
-
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.unreadchats_path',array('result' => & $Result));
 ?>

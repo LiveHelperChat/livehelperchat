@@ -19,7 +19,7 @@ $ViewList['mirror'] = array(
 $ViewList['checkmirrorchanges'] = array(
 		'params' => array('chat_id'),
 		'functions' => array('browse'),
-		'uparams' => array()
+		'uparams' => array('cobrowsemode')
 );
 
 $ViewList['checkinitializer'] = array(
@@ -30,18 +30,18 @@ $ViewList['checkinitializer'] = array(
 
 $ViewList['storenodemap'] = array(
 		'params' => array(),
-		'uparams' => array('vid','hash','hash_resume')
+		'uparams' => array('vid','hash','hash_resume','sharemode')
 );
 
 $ViewList['finishsession'] = array(
 		'params' => array(),
-		'uparams' => array('vid','hash','hash_resume')
+		'uparams' => array('vid','hash','hash_resume','sharemode')
 );
 
 $ViewList['proxycss'] = array(
 		'params' => array('chat_id'),
         'functions' => array('browse'),
-		'uparams' => array()
+		'uparams' => array('cobrowsemode')
 );
 
 $FunctionList = array();

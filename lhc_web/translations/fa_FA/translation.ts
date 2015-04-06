@@ -66,6 +66,10 @@
       <translation>ارتباط با NodeJs  در حالت https </translation>
     </message>
     <message>
+      <source>socket.io path, optional</source>
+      <translation>مسیر socket.io ، اختیاری</translation>
+    </message>
+    <message>
       <source>NodeJS support enabled</source>
       <translation>پشتیبانی NodeJS  فعال شد</translation>
     </message>
@@ -327,6 +331,10 @@
       <translation>ابزارک نیاز به راهنما</translation>
     </message>
     <message>
+      <source>Main widget text</source>
+      <translation>ابزارک نوشتار اصلی</translation>
+    </message>
+    <message>
       <source>Custom CSS</source>
       <translation>CSS سفارشی</translation>
     </message>
@@ -445,6 +453,26 @@
     <message>
       <source>Need help text color</source>
       <translation>رنگ متن نیاز به راهنما</translation>
+    </message>
+    <message>
+      <source>Text then user starts chat based on proactive invitation</source>
+      <translation>نوشتار سپس شروع گفتگوی کاربر بر اساس دعوت فعال</translation>
+    </message>
+    <message>
+      <source>Text then operator closes a chat</source>
+      <translation>نوشتار سپس راهبر یک گفتگو را می بندد</translation>
+    </message>
+    <message>
+      <source>Text then user starts a chat and is waiting for operator to join a chat</source>
+      <translation>نوشتار سپس کاربر یک گفتگو را شروع می‌کند و برای پیوستن یک راهبر به گفتگو منتظر می‌ماند</translation>
+    </message>
+    <message>
+      <source>Text then user starts a chat but department is offline</source>
+      <translation>متن سپس کاربر یک گفتگو را شروع می کند اما بخش آفلاین است</translation>
+    </message>
+    <message>
+      <source>Leave a message form text</source>
+      <translation>گذاردن یک نوشتار فرم پیام</translation>
     </message>
     <message>
       <source>Need help border color</source>
@@ -823,16 +851,16 @@
       <translation>برای توسعه کمک کنید</translation>
     </message>
     <message>
+      <source>Embed code</source>
+      <translation>کد داخلی</translation>
+    </message>
+    <message>
       <source>Widget embed code</source>
       <translation>کد داخلی ابزارک</translation>
     </message>
     <message>
       <source>Page embed code</source>
       <translation>کد داخلی صفحه</translation>
-    </message>
-    <message>
-      <source>Embed code</source>
-      <translation>کد داخلی</translation>
     </message>
     <message>
       <source>Set default speech recognition language</source>
@@ -1591,6 +1619,14 @@
       <translation>به اشتراک گذاری صفحه نمایش</translation>
     </message>
     <message>
+      <source>Choose other than default recognition language</source>
+      <translation>انتخاب زبانی به غیر از زبان پیش فرض تشخیص</translation>
+    </message>
+    <message>
+      <source>Transfer chat</source>
+      <translation>انتقال چت</translation>
+    </message>
+    <message>
       <source>Footprint</source>
       <translation>رهگیری</translation>
     </message>
@@ -1643,10 +1679,6 @@
       <translation>حذف چت</translation>
     </message>
     <message>
-      <source>Transfer chat</source>
-      <translation>انتقال چت</translation>
-    </message>
-    <message>
       <source>Mail was send</source>
       <translation>ایمیل ارسال شد</translation>
     </message>
@@ -1669,10 +1701,6 @@
     <message>
       <source>Redirect user to another url</source>
       <translation>انتقال کاربر به آدرس دیگر</translation>
-    </message>
-    <message>
-      <source>Choose other than default recognition language</source>
-      <translation>انتخاب زبانی به غیر از زبان پیش فرض تشخیص</translation>
     </message>
     <message>
       <source>Department</source>
@@ -1767,10 +1795,6 @@
       <translation>ارسال</translation>
     </message>
     <message>
-      <source>Send delayed canned message instantly</source>
-      <translation>ارسال فوری پیام تعریف شده تاخیردار</translation>
-    </message>
-    <message>
       <source>Reopen chat</source>
       <translation>باز کردن مجدد چت</translation>
     </message>
@@ -1781,6 +1805,10 @@
     <message>
       <source>Fill textarea with canned message</source>
       <translation>تکمیل ناحیه متنی با پیام از پیش تعریف شده</translation>
+    </message>
+    <message>
+      <source>Send delayed canned message instantly</source>
+      <translation>ارسال فوری پیام تعریف شده تاخیردار</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -1835,7 +1863,7 @@
     </message>
     <message>
       <source>Detect language</source>
-      <translation type="unfinished"/>
+      <translation>شناسایی زبان</translation>
     </message>
     <message>
       <source>Translate</source>
@@ -1921,6 +1949,10 @@
   <context>
     <name>files/files</name>
     <message>
+      <source>Download file</source>
+      <translation>دانلود فایل</translation>
+    </message>
+    <message>
       <source>Refresh</source>
       <translation>رفرش</translation>
     </message>
@@ -1929,8 +1961,12 @@
       <translation>حذف فایل</translation>
     </message>
     <message>
-      <source>Download file</source>
-      <translation>دانلود فایل</translation>
+      <source>Sent by Customer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sent by Operator</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Drop your files here.</source>
@@ -2165,6 +2201,14 @@
       <translation>سوالات خود را با ما در میان بگذارید.</translation>
     </message>
     <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>پیام خود را اینجا وارد کنید و برای ارسال دکمه enter را بزنید ...</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>ارسال</translation>
+    </message>
+    <message>
       <source>Department is offline</source>
       <translation>دپارتمان آفلاین می باشد</translation>
     </message>
@@ -2179,14 +2223,6 @@
     <message>
       <source>characters</source>
       <translation>کاراکترها</translation>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>پیام خود را اینجا وارد کنید و برای ارسال دکمه enter را بزنید ...</translation>
-    </message>
-    <message>
-      <source>Send</source>
-      <translation>ارسال</translation>
     </message>
     <message>
       <source>Personal assistant</source>
@@ -2263,6 +2299,10 @@
     <message>
       <source>is required</source>
       <translation>الزامی است</translation>
+    </message>
+    <message>
+      <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Invalid file extension</source>
@@ -2628,6 +2668,14 @@
   <context>
     <name>chat/onlineusers</name>
     <message>
+      <source>Status</source>
+      <translation>وضعیت</translation>
+    </message>
+    <message>
+      <source>No one has sent a message to the user yet</source>
+      <translation>پیامی برای کاربر ارسال نشده است</translation>
+    </message>
+    <message>
       <source>GEO detection configuration</source>
       <translation>تنظیمات شناسایی موقعیت جغرافیایی</translation>
     </message>
@@ -2980,12 +3028,28 @@
       <translation>بر اساس وضعیت کاربر در سایت</translation>
     </message>
     <message>
-      <source>Status</source>
-      <translation>وضعیت</translation>
-    </message>
-    <message>
       <source>Action</source>
       <translation>عملیات</translation>
+    </message>
+    <message>
+      <source>User has not seen a message from the operator, or the message window is still open.</source>
+      <translation>کاربر پیام اپراتور را ندیده و یا پنجره هنوز باز است.</translation>
+    </message>
+    <message>
+      <source>Seen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unseen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User has seen the message from the operator.</source>
+      <translation>کاربر پیام اپراتور را دیده است.</translation>
+    </message>
+    <message>
+      <source>User does not have any messages from the operator</source>
+      <translation>کاربر پیامی از اپراتور ندارد</translation>
     </message>
     <message>
       <source>first visit</source>
@@ -2996,24 +3060,20 @@
       <translation>آخرین بازدید</translation>
     </message>
     <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Returning</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>has sent a message to the user</source>
       <translation>پیام به کاربر ارسال شد</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>پیامی برای کاربر ارسال نشده است</translation>
-    </message>
-    <message>
-      <source>User has not seen a message from the operator, or the message window is still open.</source>
-      <translation>کاربر پیام اپراتور را ندیده و یا پنجره هنوز باز است.</translation>
-    </message>
-    <message>
-      <source>User has seen the message from the operator.</source>
-      <translation>کاربر پیام اپراتور را دیده است.</translation>
-    </message>
-    <message>
-      <source>User does not have any messages from the operator</source>
-      <translation>کاربر پیامی از اپراتور ندارد</translation>
     </message>
     <message>
       <source>Files upload for users is active</source>
@@ -3182,14 +3242,6 @@
       <translation>تنظیمات منطقه زمانی</translation>
     </message>
     <message>
-      <source>Update information</source>
-      <translation>به روزرسانی اطلاعات</translation>
-    </message>
-    <message>
-      <source>Mail settings</source>
-      <translation>تنظیمات ایمیل</translation>
-    </message>
-    <message>
       <source>E-mail templates</source>
       <translation>قالب های ایمیل</translation>
     </message>
@@ -3210,10 +3262,6 @@
       <translation>فهرست نقش ها</translation>
     </message>
     <message>
-      <source>Live help embed code</source>
-      <translation>کد داخلی پشتیبانی آنلاین</translation>
-    </message>
-    <message>
       <source>Departments</source>
       <translation>دپارتمان ها</translation>
     </message>
@@ -3222,24 +3270,12 @@
       <translation>تنظیمات چت</translation>
     </message>
     <message>
-      <source>GEO detection configuration</source>
-      <translation>تنظیمات شناسایی موقعیت جغرافیایی</translation>
-    </message>
-    <message>
-      <source>GEO adjustment</source>
-      <translation>تنظیم GEO </translation>
-    </message>
-    <message>
       <source>Synchronization and sound settings</source>
       <translation>تنظیمات هماهنگی و صدا</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
       <translation>تنظیمات فرم شروع چت</translation>
-    </message>
-    <message>
-      <source>Auto responder</source>
-      <translation>پاسخگوی خودکار</translation>
     </message>
     <message>
       <source>XMPP settings</source>
@@ -3270,6 +3306,14 @@
       <translation>قالب پیش فرض</translation>
     </message>
     <message>
+      <source>GEO detection configuration</source>
+      <translation>تنظیمات شناسایی موقعیت جغرافیایی</translation>
+    </message>
+    <message>
+      <source>Auto responder</source>
+      <translation>پاسخگوی خودکار</translation>
+    </message>
+    <message>
       <source>Blocked users</source>
       <translation>کاربران مسدود شده</translation>
     </message>
@@ -3282,8 +3326,16 @@
       <translation>پیام های از پیش تعریف شده</translation>
     </message>
     <message>
+      <source>Live help embed code</source>
+      <translation>کد داخلی پشتیبانی آنلاین</translation>
+    </message>
+    <message>
       <source>Chatbox embed code</source>
       <translation>کد داخلی باکس چت</translation>
+    </message>
+    <message>
+      <source>Mail settings</source>
+      <translation>تنظیمات ایمیل</translation>
     </message>
     <message>
       <source>FAQ embed code</source>
@@ -3302,8 +3354,16 @@
       <translation>فهرست فایل ها</translation>
     </message>
     <message>
+      <source>GEO adjustment</source>
+      <translation>تنظیم GEO </translation>
+    </message>
+    <message>
       <source>Maintenance</source>
       <translation>تعمیر و نگهداری</translation>
+    </message>
+    <message>
+      <source>Update information</source>
+      <translation>به روزرسانی اطلاعات</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -3368,16 +3428,16 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
+      <source>Clean cache</source>
+      <translation>پاک سازی کش</translation>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>خالی ...</translation>
     </message>
     <message>
       <source>Assigned operator</source>
       <translation>اپراتور اختصاص داده شده</translation>
-    </message>
-    <message>
-      <source>Clean cache</source>
-      <translation>پاک سازی کش</translation>
     </message>
     <message>
       <source>Home</source>
@@ -3432,16 +3492,16 @@
       <translation>منو</translation>
     </message>
     <message>
+      <source>Extra modules</source>
+      <translation>سایر ماژول ها</translation>
+    </message>
+    <message>
       <source>Chats list</source>
       <translation>فهرست چت ها</translation>
     </message>
     <message>
       <source>Online visitors</source>
       <translation>بازدیدکنندگان آنلاین</translation>
-    </message>
-    <message>
-      <source>Extra modules</source>
-      <translation>سایر ماژول ها</translation>
     </message>
     <message>
       <source>Account</source>
@@ -3921,7 +3981,7 @@
     </message>
     <message>
       <source>Please enter a valid back office sync interval!</source>
-      <translation type="unfinished"/>
+      <translation>لطفا یک فاصله همگام درست بخش مدیریت وارد کنید!</translation>
     </message>
     <message>
       <source>Please enter a valid new messages sync interval!</source>
@@ -3948,19 +4008,19 @@
     </message>
     <message>
       <source>Thumbs up</source>
-      <translation type="unfinished"/>
+      <translation>شست بالا</translation>
     </message>
     <message>
       <source>Number of Thumbs Up</source>
-      <translation type="unfinished"/>
+      <translation>تعداد شست بالا</translation>
     </message>
     <message>
       <source>Thumbs down</source>
-      <translation type="unfinished"/>
+      <translation>شست پایین</translation>
     </message>
     <message>
       <source>Number of Thumbs Down</source>
-      <translation type="unfinished"/>
+      <translation>تعداد شست پایین</translation>
     </message>
     <message>
       <source>Country</source>
@@ -4028,7 +4088,7 @@
     </message>
     <message>
       <source>Visitors initiated</source>
-      <translation type="unfinished"/>
+      <translation>بازدید کنندگان وارد شده</translation>
     </message>
     <message>
       <source>Proactive</source>
@@ -4036,7 +4096,7 @@
     </message>
     <message>
       <source>Proactive chats number vs visitors initiated</source>
-      <translation type="unfinished"/>
+      <translation>تعداد گفتگوهای فعال در مقابل بازدیدکنندگان وارد شده</translation>
     </message>
     <message>
       <source>Visitors</source>
@@ -4539,15 +4599,15 @@
     </message>
     <message>
       <source>On highlight scroll user window location to match my</source>
-      <translation type="unfinished"/>
+      <translation>در برجسته، جایگاه پنجره کاربر را اسکرول کن مانند من</translation>
     </message>
     <message>
       <source>Follow user scroll position</source>
-      <translation type="unfinished"/>
+      <translation>دنبال کردن اسکرول کاربر</translation>
     </message>
     <message>
       <source>On click navigate user browser</source>
-      <translation type="unfinished"/>
+      <translation>در کلیک، مزوزگر کاربر را هدایت کن</translation>
     </message>
     <message>
       <source>Click blue eye at the top to request screen share</source>
@@ -5067,7 +5127,7 @@
     </message>
     <message>
       <source>Intro</source>
-      <translation type="unfinished"/>
+      <translation>معرفی</translation>
     </message>
     <message>
       <source>Time</source>
@@ -6711,7 +6771,7 @@
     </message>
     <message>
       <source>has accepted a chat!</source>
-      <translation type="unfinished"/>
+      <translation>گفتگو را پذیرفت!</translation>
     </message>
   </context>
   <context>
@@ -6772,15 +6832,15 @@
     <name>chat/voteaction</name>
     <message>
       <source>Thumbs up</source>
-      <translation type="unfinished"/>
+      <translation>شست بالا</translation>
     </message>
     <message>
       <source>Thumbs down</source>
-      <translation type="unfinished"/>
+      <translation>شست پایین</translation>
     </message>
     <message>
       <source>Removed thumb vote</source>
-      <translation type="unfinished"/>
+      <translation>رای شستی حذف شده</translation>
     </message>
   </context>
   <context>
@@ -6840,6 +6900,49 @@
     <message>
       <source>Permissions were not provided</source>
       <translation>امکان دسترسی فراهم نشد!</translation>
+    </message>
+  </context>
+  <context>
+    <name>users/autologin</name>
+    <message>
+      <source>Auto login settings</source>
+      <translation>پیکربندی ورود خودکار</translation>
+    </message>
+    <message>
+      <source>This module can be used if you are generating autologin link. See site for code examples</source>
+      <translation>اگر لینک ورود خودکار را تولید کردید، این ماژول می تواند استفاده شود. برای کد‌های مثال سایت را ببیند</translation>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation>فعال شده</translation>
+    </message>
+    <message>
+      <source>Secret hash used for authentification token generation, min 10 characters</source>
+      <translation>هش راز برای تصدیق تولید توکن، حداقل 10 کارکتر</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>پیکربندی به روز شد</translation>
+    </message>
+    <message>
+      <source>Autologin hash has expired</source>
+      <translation>ورود خودکار منقضی شد</translation>
+    </message>
+    <message>
+      <source>Could not find a user</source>
+      <translation>نمی توان یک کاربر یافت</translation>
+    </message>
+    <message>
+      <source>Could not find a provided user</source>
+      <translation>نمی توان کاربر ارائه شده را یافت</translation>
+    </message>
+    <message>
+      <source>Invalid autologin hash</source>
+      <translation>هش ورود خودکار نادرست</translation>
+    </message>
+    <message>
+      <source>Auto login module is not enabled</source>
+      <translation>ماژول ورود خودکار فعال نیست</translation>
     </message>
   </context>
 </TS>

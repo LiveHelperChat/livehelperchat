@@ -74,7 +74,7 @@ class erLhcoreClassModule{
                 	$Params['user_object'] = $access;
                 }
             }
-            
+          
             try {
             	
             	if (isset($currentUser) && $currentUser->isLogged() && ($timeZone = $currentUser->getUserTimeZone()) != '') {    
@@ -83,17 +83,24 @@ class erLhcoreClassModule{
             	} elseif (self::$defaultTimeZone != '') {            	
             		date_default_timezone_set(self::$defaultTimeZone);
             	}
-
-            	self::attatchExtensionListeners();
-            	
-            	$includeStatus = @include(self::getModuleFile());
-            	
+          	            	
+            	if (self::$debugEnabled == false) {
+            	    self::attatchExtensionListeners();
+            	    $includeStatus = @include(self::getModuleFile());
+            	} else {            	    
+            	    @ini_set('error_reporting', E_ALL);
+            	    @ini_set('display_errors', 1);
+            	                	    
+            	    self::attatchExtensionListeners();
+            	    $includeStatus = include(self::getModuleFile());
+            	}
+            	            	
             	// Inclusion failed
             	if ($includeStatus === false) {
             		$CacheManager = erConfigClassLhCacheConfig::getInstance();
             		$CacheManager->expireCache();
 
-            		if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) == true) {
+            		if (self::$debugEnabled == true) {
 	            		// Just try reinclude
 	            		include(self::getModuleFile(true));
             		} else {
@@ -415,7 +422,9 @@ class erLhcoreClassModule{
     {
         $url = erLhcoreClassURL::getInstance();
         $cfg = erConfigClassLhConfig::getInstance();
-
+        
+        self::$debugEnabled = $cfg->getSetting('site', 'debug_output');
+        
         self::$currentModuleName = preg_replace('/[^a-zA-Z0-9\-_]/', '', $url->getParam( 'module' ));
         self::$currentView = preg_replace('/[^a-zA-Z0-9\-_]/', '', $url->getParam( 'function' ));
 
@@ -457,6 +466,7 @@ class erLhcoreClassModule{
     static private $moduleCacheEnabled = NULL;
     static private $cacheInstance = NULL;
     static private $cacheVersionSite = NULL;
+    static private $debugEnabled = false;
     
     static private $extensionsBootstraps = array();
     

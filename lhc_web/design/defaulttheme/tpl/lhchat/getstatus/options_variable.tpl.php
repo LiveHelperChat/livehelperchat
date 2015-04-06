@@ -1,0 +1,1 @@
+<?php $chatOptionsVariable = 'LHCChatOptions'?>

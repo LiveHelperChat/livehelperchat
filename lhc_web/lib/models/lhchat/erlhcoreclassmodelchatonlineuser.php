@@ -40,8 +40,10 @@ class erLhcoreClassModelChatOnlineUser {
                'dep_id'   			=> $this->dep_id,
                'reopen_chat'   		=> $this->reopen_chat,
 	       	   'operation'   		=> $this->operation,
+	       	   'operation_chat'     => $this->operation_chat,
 	       	   'screenshot_id'   	=> $this->screenshot_id,
 	       	   'online_attr'   		=> $this->online_attr,
+	       	   'online_attr_system' => $this->online_attr_system,
 	       	   'visitor_tz'   		=> $this->visitor_tz,
 	       	   'last_check_time'	=> $this->last_check_time,
 	       	   'notes'	            => $this->notes
@@ -233,7 +235,15 @@ class erLhcoreClassModelChatOnlineUser {
        		
        		return $this->screenshot;
        		break;
-       			
+
+       	case 'online_attr_system_array':
+       	        $this->online_attr_system_array = array();
+       	        if ($this->online_attr_system != '') {
+       	            $this->online_attr_system_array = json_decode($this->online_attr_system,true);
+       	        }
+       	        return $this->online_attr_system_array;
+       	    break;
+       		
        	default:
        		break;
        }
@@ -716,7 +726,9 @@ class erLhcoreClassModelChatOnlineUser {
    public $invitation_seen_count = 0;
    public $screenshot_id = 0;
    public $operation = '';
+   public $operation_chat = '';
    public $online_attr = '';
+   public $online_attr_system = '';
    public $visitor_tz = '';
    public $notes = '';
    public $requires_phone = 0;

@@ -1,4 +1,4 @@
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Statistic');?></h1>
+<?php include(erLhcoreClassDesign::designtpl('lhchat/lists_titles/statistic.tpl.php'));?>
 
 <div role="tabpanel">
 	<!-- Nav tabs -->

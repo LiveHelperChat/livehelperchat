@@ -66,6 +66,10 @@
       <translation>Sambungkan ke NodeJs dalam mode https</translation>
     </message>
     <message>
+      <source>socket.io path, optional</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>NodeJS support enabled</source>
       <translation>Bantuan NodeJS diaktifkan</translation>
     </message>
@@ -327,6 +331,10 @@
       <translation>Widget butuh bantuan</translation>
     </message>
     <message>
+      <source>Main widget text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Custom CSS</source>
       <translation>CSS kustom</translation>
     </message>
@@ -336,7 +344,7 @@
     </message>
     <message>
       <source>Name of the company</source>
-      <translation type="unfinished"/>
+      <translation>Nama perusahaan</translation>
     </message>
     <message>
       <source>Need help header text</source>
@@ -445,6 +453,26 @@
     <message>
       <source>Need help text color</source>
       <translation>Warna teks butuh bantuan</translation>
+    </message>
+    <message>
+      <source>Text then user starts chat based on proactive invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then operator closes a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then user starts a chat and is waiting for operator to join a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then user starts a chat but department is offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Leave a message form text</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Need help border color</source>
@@ -823,16 +851,16 @@
       <translation>Bantu kami untuk berkembang</translation>
     </message>
     <message>
+      <source>Embed code</source>
+      <translation>Kode pencantuman</translation>
+    </message>
+    <message>
       <source>Widget embed code</source>
       <translation>Kode pencantuman widget</translation>
     </message>
     <message>
       <source>Page embed code</source>
       <translation>Kode pencantuman halaman</translation>
-    </message>
-    <message>
-      <source>Embed code</source>
-      <translation>Kode pencantuman</translation>
     </message>
     <message>
       <source>Set default speech recognition language</source>
@@ -1591,6 +1619,14 @@
       <translation>Berbagi layar</translation>
     </message>
     <message>
+      <source>Choose other than default recognition language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transfer chat</source>
+      <translation>Memindahkan percakapan</translation>
+    </message>
+    <message>
       <source>Footprint</source>
       <translation>Jejak kaki</translation>
     </message>
@@ -1643,10 +1679,6 @@
       <translation>Hapus percakapan</translation>
     </message>
     <message>
-      <source>Transfer chat</source>
-      <translation>Memindahkan percakapan</translation>
-    </message>
-    <message>
       <source>Mail was send</source>
       <translation>Surat telah terkirim</translation>
     </message>
@@ -1669,10 +1701,6 @@
     <message>
       <source>Redirect user to another url</source>
       <translation>Mengarahkan pengguna ke URL lain</translation>
-    </message>
-    <message>
-      <source>Choose other than default recognition language</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Department</source>
@@ -1767,10 +1795,6 @@
       <translation>Kirim</translation>
     </message>
     <message>
-      <source>Send delayed canned message instantly</source>
-      <translation>Kirim pesan kaleng tertunda secara langsung</translation>
-    </message>
-    <message>
       <source>Reopen chat</source>
       <translation>Membuka kembali percakapan</translation>
     </message>
@@ -1781,6 +1805,10 @@
     <message>
       <source>Fill textarea with canned message</source>
       <translation>Isi area teks dengan pesan kaleng</translation>
+    </message>
+    <message>
+      <source>Send delayed canned message instantly</source>
+      <translation>Kirim pesan kaleng tertunda secara langsung</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -1921,6 +1949,10 @@
   <context>
     <name>files/files</name>
     <message>
+      <source>Download file</source>
+      <translation>Unduh berkas</translation>
+    </message>
+    <message>
       <source>Refresh</source>
       <translation>Segarkan</translation>
     </message>
@@ -1929,8 +1961,12 @@
       <translation>Hapus berkas</translation>
     </message>
     <message>
-      <source>Download file</source>
-      <translation>Unduh berkas</translation>
+      <source>Sent by Customer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sent by Operator</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Drop your files here.</source>
@@ -2165,6 +2201,14 @@
       <translation>Ada pertanyaan? Tanyakan kepada kami!</translation>
     </message>
     <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Ketik pesan Anda di sini dan tekan enter untuk mengirim..</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>Kirim</translation>
+    </message>
+    <message>
       <source>Department is offline</source>
       <translation>Departemen sedang offline</translation>
     </message>
@@ -2179,14 +2223,6 @@
     <message>
       <source>characters</source>
       <translation>Karakter</translation>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Ketik pesan Anda di sini dan tekan enter untuk mengirim..</translation>
-    </message>
-    <message>
-      <source>Send</source>
-      <translation>Kirim</translation>
     </message>
     <message>
       <source>Personal assistant</source>
@@ -2263,6 +2299,10 @@
     <message>
       <source>is required</source>
       <translation>diperlukan</translation>
+    </message>
+    <message>
+      <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Invalid file extension</source>
@@ -2628,6 +2668,14 @@
   <context>
     <name>chat/onlineusers</name>
     <message>
+      <source>Status</source>
+      <translation>Status</translation>
+    </message>
+    <message>
+      <source>No one has sent a message to the user yet</source>
+      <translation>Masih belum ada orang yang mengirimkan pesan ke pengguna</translation>
+    </message>
+    <message>
       <source>GEO detection configuration</source>
       <translation>Konfigurasi deteksi GEO</translation>
     </message>
@@ -2980,12 +3028,28 @@
       <translation>Berdasarkan status pengguna di situs</translation>
     </message>
     <message>
-      <source>Status</source>
-      <translation>Status</translation>
-    </message>
-    <message>
       <source>Action</source>
       <translation>Tindakan</translation>
+    </message>
+    <message>
+      <source>User has not seen a message from the operator, or the message window is still open.</source>
+      <translation>Pengguna belum melihat pesan dari operator, atau jendela pesan masih terbuka.</translation>
+    </message>
+    <message>
+      <source>Seen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unseen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User has seen the message from the operator.</source>
+      <translation>Pengguna telah melihat pesan dari operator.</translation>
+    </message>
+    <message>
+      <source>User does not have any messages from the operator</source>
+      <translation>Pengguna tidak memiliki pesan apapun dari operator</translation>
     </message>
     <message>
       <source>first visit</source>
@@ -2996,24 +3060,20 @@
       <translation>kunjungan terakhir</translation>
     </message>
     <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Returning</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>has sent a message to the user</source>
       <translation>telah mengirimkan sebuah pesan ke pengguna</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>Masih belum ada orang yang mengirimkan pesan ke pengguna</translation>
-    </message>
-    <message>
-      <source>User has not seen a message from the operator, or the message window is still open.</source>
-      <translation>Pengguna belum melihat pesan dari operator, atau jendela pesan masih terbuka.</translation>
-    </message>
-    <message>
-      <source>User has seen the message from the operator.</source>
-      <translation>Pengguna telah melihat pesan dari operator.</translation>
-    </message>
-    <message>
-      <source>User does not have any messages from the operator</source>
-      <translation>Pengguna tidak memiliki pesan apapun dari operator</translation>
     </message>
     <message>
       <source>Files upload for users is active</source>
@@ -3182,14 +3242,6 @@
       <translation>Pengaturan zona waktu</translation>
     </message>
     <message>
-      <source>Update information</source>
-      <translation>Perbarui informasi</translation>
-    </message>
-    <message>
-      <source>Mail settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>E-mail templates</source>
       <translation>Template e-mail</translation>
     </message>
@@ -3210,10 +3262,6 @@
       <translation>Daftar peran</translation>
     </message>
     <message>
-      <source>Live help embed code</source>
-      <translation>Kode pencantuman bantuan langsung</translation>
-    </message>
-    <message>
       <source>Departments</source>
       <translation>Departemen</translation>
     </message>
@@ -3222,24 +3270,12 @@
       <translation>Konfigurasi percakapan</translation>
     </message>
     <message>
-      <source>GEO detection configuration</source>
-      <translation>Konfigurasi deteksi GEO</translation>
-    </message>
-    <message>
-      <source>GEO adjustment</source>
-      <translation>Penyesuaian GEO</translation>
-    </message>
-    <message>
       <source>Synchronization and sound settings</source>
       <translation>Pengaturan sinkronisasi dan suara</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
       <translation>Pengaturan Formulir &quot;Mulai Percakapan&quot;</translation>
-    </message>
-    <message>
-      <source>Auto responder</source>
-      <translation>Balasan secara otomatis</translation>
     </message>
     <message>
       <source>XMPP settings</source>
@@ -3270,6 +3306,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>GEO detection configuration</source>
+      <translation>Konfigurasi deteksi GEO</translation>
+    </message>
+    <message>
+      <source>Auto responder</source>
+      <translation>Balasan secara otomatis</translation>
+    </message>
+    <message>
       <source>Blocked users</source>
       <translation>Pengguna diblokir</translation>
     </message>
@@ -3282,8 +3326,16 @@
       <translation>Pesan kaleng</translation>
     </message>
     <message>
+      <source>Live help embed code</source>
+      <translation>Kode pencantuman bantuan langsung</translation>
+    </message>
+    <message>
       <source>Chatbox embed code</source>
       <translation>Kode pencantuman kotak percakapan</translation>
+    </message>
+    <message>
+      <source>Mail settings</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>FAQ embed code</source>
@@ -3302,8 +3354,16 @@
       <translation>Daftar berkas</translation>
     </message>
     <message>
+      <source>GEO adjustment</source>
+      <translation>Penyesuaian GEO</translation>
+    </message>
+    <message>
       <source>Maintenance</source>
       <translation>Perbaikan &amp; Pemeliharaan</translation>
+    </message>
+    <message>
+      <source>Update information</source>
+      <translation>Perbarui informasi</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -3368,16 +3428,16 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
+      <source>Clean cache</source>
+      <translation>Bersihkan cache</translation>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>Kosong...</translation>
     </message>
     <message>
       <source>Assigned operator</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Clean cache</source>
-      <translation>Bersihkan cache</translation>
     </message>
     <message>
       <source>Home</source>
@@ -3432,16 +3492,16 @@
       <translation>Menu</translation>
     </message>
     <message>
+      <source>Extra modules</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chats list</source>
       <translation>Daftar percakapan</translation>
     </message>
     <message>
       <source>Online visitors</source>
       <translation>Pengunjung online</translation>
-    </message>
-    <message>
-      <source>Extra modules</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Account</source>
@@ -6839,6 +6899,49 @@
     </message>
     <message>
       <source>Permissions were not provided</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>users/autologin</name>
+    <message>
+      <source>Auto login settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This module can be used if you are generating autologin link. See site for code examples</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Secret hash used for authentification token generation, min 10 characters</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Autologin hash has expired</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not find a user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not find a provided user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid autologin hash</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Auto login module is not enabled</source>
       <translation type="unfinished"/>
     </message>
   </context>

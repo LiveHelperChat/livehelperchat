@@ -70,6 +70,7 @@ if (key_exists($position, $positionArgument)){
 }
 
 ?>
+<?php include(erLhcoreClassDesign::designtpl('lhquestionary/getstatus/options_variable.tpl.php')); ?>
 
 var lhc_Questionary = {
 	JSON : {
@@ -185,7 +186,7 @@ var lhc_Questionary = {
     },
 
     showStatusWidget : function() {
-       var statusTEXT = '<a id="questionary-icon" class="status-icon" href="#" onclick="return lh_inst.lh_openchatWindow()" >'+LHCVotingOptions.status_text+'</a>';
+       var statusTEXT = '<a id="questionary-icon" class="status-icon" href="#" onclick="return lh_inst.lh_openchatWindow()" >'+<?php echo $questionaryOptionsVariable?>.status_text+'</a>';
        var raw_css = "#lhc_questionary_container * {direction:<?php (erConfigClassLhConfig::getInstance()->getOverrideValue('site', 'dir_language') == 'ltr' || erConfigClassLhConfig::getInstance()->getOverrideValue('site', 'dir_language') == '') ? print 'ltr;text-align:left;' : print 'rtl;text-align:right;'; ?>;font-family:arial;line-height:100%;font-size:12px;box-sizing: content-box;zoom:1;margin:0;padding:0}\n#lhc_questionary_container .status-icon{text-decoration:none;font-size:12px;font-weight:bold;color:#<?php $theme !== false ? print $theme->text_color : print '000' ?>;display:block;padding:<?php echo $currentPosition['padding_text']?>;background:url('<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('images/icons/plant.png');?>') no-repeat <?php echo $currentPosition['background_position']?> center}\n#lhc_questionary_container:hover{<?php echo $currentPosition['widget_hover']?>}\n#lhc_questionary_container{box-sizing: content-box;<?php echo $currentPosition['widget_radius']?>-webkit-box-shadow: <?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);-moz-box-shadow: <?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);box-shadow: <?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);<?php echo $currentPosition['border_widget']?>;padding:5px 0px 3px 5px;width:190px;font-family:arial;font-size:12px;transition: 1s;position:fixed;<?php echo $currentPosition['position']?>;background-color:#<?php $theme !== false ? print $theme->onl_bcolor : print 'f6f6f6' ?>;z-index:9989;}\n<?php if ($noresponse == false) : ?>@media only screen and (max-width : 640px) {#lhc_questionary_container{position:relative;top:0;right:0;bottom:0;left:0;width:auto;border-radius:2px;box-shadow:none;border:1px solid #e3e3e3;margin-bottom:5px;}}\n<?php endif;?>";
        this.addCss(raw_css<?php ($theme !== false && $theme->custom_status_css !== '') ? print '+\''.str_replace(array("\n","\r"), '', $theme->custom_status_css).'\'' : '' ?>);
        var htmlStatus = '<div id="lhc_questionary_container">'+statusTEXT+'</div>';

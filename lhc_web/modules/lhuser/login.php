@@ -31,6 +31,11 @@ if (isset($_POST['redirect'])){
 
 if (isset($_POST['Login']))
 {    
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+        erLhcoreClassModule::redirect('user/login');
+        exit;
+    }
+    
     if (!$currentUser->authenticate($_POST['Username'], $_POST['Password'], isset($_POST['rememberMe']) && $_POST['rememberMe'] == 1 ? true : false))
     {
         $Error = erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Incorrect username or password');

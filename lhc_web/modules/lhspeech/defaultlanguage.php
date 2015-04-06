@@ -51,3 +51,5 @@ $Result['path'] = array(
     array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('speech/language','Default speech recognition language')));
     
 $Result['content'] = $tpl->fetch();
+
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.speech_defaultlanguage_path',array('result' => & $Result));

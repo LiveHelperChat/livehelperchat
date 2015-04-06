@@ -1,0 +1,1 @@
+<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Statistic');?></h1>

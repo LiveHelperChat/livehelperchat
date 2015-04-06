@@ -1,4 +1,4 @@
-<h1><?php echo htmlspecialchars($object_trans['name'])?></h1>
+<?php include(erLhcoreClassDesign::designtpl('lhabstract/parts/abstract_new_title.tpl.php'));?>
 
 <form method="post" enctype="multipart/form-data" action="">
 	

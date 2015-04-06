@@ -66,6 +66,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>socket.io path, optional</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>NodeJS support enabled</source>
       <translation type="unfinished"/>
     </message>
@@ -327,6 +331,10 @@
       <translation>Hilfe benötigt? Widget</translation>
     </message>
     <message>
+      <source>Main widget text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Custom CSS</source>
       <translation>Benutzerdefinierte CSS</translation>
     </message>
@@ -445,6 +453,26 @@
     <message>
       <source>Need help text color</source>
       <translation>Hilfe benötigt? Textfarbe</translation>
+    </message>
+    <message>
+      <source>Text then user starts chat based on proactive invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then operator closes a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then user starts a chat and is waiting for operator to join a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then user starts a chat but department is offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Leave a message form text</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Need help border color</source>
@@ -823,16 +851,16 @@
       <translation>Helfen Sie uns zu wachsen</translation>
     </message>
     <message>
+      <source>Embed code</source>
+      <translation>Einbettungscode</translation>
+    </message>
+    <message>
       <source>Widget embed code</source>
       <translation>Code zum einbetten als Widget</translation>
     </message>
     <message>
       <source>Page embed code</source>
       <translation>Einbettungscode für Seiten</translation>
-    </message>
-    <message>
-      <source>Embed code</source>
-      <translation>Einbettungscode</translation>
     </message>
     <message>
       <source>Set default speech recognition language</source>
@@ -1591,6 +1619,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Choose other than default recognition language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transfer chat</source>
+      <translation>Chat zuweisen</translation>
+    </message>
+    <message>
       <source>Footprint</source>
       <translation>Besuchte Seiten</translation>
     </message>
@@ -1643,10 +1679,6 @@
       <translation>Chat löschen</translation>
     </message>
     <message>
-      <source>Transfer chat</source>
-      <translation>Chat zuweisen</translation>
-    </message>
-    <message>
       <source>Mail was send</source>
       <translation>Nachricht wurde gesendet</translation>
     </message>
@@ -1668,10 +1700,6 @@
     </message>
     <message>
       <source>Redirect user to another url</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose other than default recognition language</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1767,10 +1795,6 @@
       <translation>Senden</translation>
     </message>
     <message>
-      <source>Send delayed canned message instantly</source>
-      <translation>Zeitverzögerte, vorgefertigte Nachricht sofort senden</translation>
-    </message>
-    <message>
       <source>Reopen chat</source>
       <translation>Chat wiedereröffnen</translation>
     </message>
@@ -1781,6 +1805,10 @@
     <message>
       <source>Fill textarea with canned message</source>
       <translation>Text-Bereich mit vorgefertigter Nachrichten füllen</translation>
+    </message>
+    <message>
+      <source>Send delayed canned message instantly</source>
+      <translation>Zeitverzögerte, vorgefertigte Nachricht sofort senden</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -1921,6 +1949,10 @@
   <context>
     <name>files/files</name>
     <message>
+      <source>Download file</source>
+      <translation>Datei Download</translation>
+    </message>
+    <message>
       <source>Refresh</source>
       <translation>Aktualisieren</translation>
     </message>
@@ -1929,8 +1961,12 @@
       <translation>Lösche Datei</translation>
     </message>
     <message>
-      <source>Download file</source>
-      <translation>Datei Download</translation>
+      <source>Sent by Customer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sent by Operator</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Drop your files here.</source>
@@ -2165,6 +2201,14 @@
       <translation>Sie haben eine Frage? Fragen Sie uns!</translation>
     </message>
     <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Hier die Nachricht eingeben und für das Senden auf Enter drücken...</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>Senden</translation>
+    </message>
+    <message>
       <source>Department is offline</source>
       <translation>Abteilung ist offline</translation>
     </message>
@@ -2179,14 +2223,6 @@
     <message>
       <source>characters</source>
       <translation>Zeichen</translation>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Hier die Nachricht eingeben und für das Senden auf Enter drücken...</translation>
-    </message>
-    <message>
-      <source>Send</source>
-      <translation>Senden</translation>
     </message>
     <message>
       <source>Personal assistant</source>
@@ -2263,6 +2299,10 @@
     <message>
       <source>is required</source>
       <translation>wird benötigt</translation>
+    </message>
+    <message>
+      <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Invalid file extension</source>
@@ -2628,6 +2668,14 @@
   <context>
     <name>chat/onlineusers</name>
     <message>
+      <source>Status</source>
+      <translation>Status</translation>
+    </message>
+    <message>
+      <source>No one has sent a message to the user yet</source>
+      <translation>Bis jetzt hat noch niemand eine Nachricht an den Besucher gesendet</translation>
+    </message>
+    <message>
       <source>GEO detection configuration</source>
       <translation>GEO-Abfrage konfigurieren</translation>
     </message>
@@ -2980,12 +3028,28 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Status</source>
-      <translation>Status</translation>
-    </message>
-    <message>
       <source>Action</source>
       <translation>Aktion</translation>
+    </message>
+    <message>
+      <source>User has not seen a message from the operator, or the message window is still open.</source>
+      <translation>Besucher hat die Nachricht von einem Operator noch nicht gesehen oder die Nachricht ist noch geöffnet.</translation>
+    </message>
+    <message>
+      <source>Seen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unseen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User has seen the message from the operator.</source>
+      <translation>Besucher hat die Nachricht von einem Operator gelesen.</translation>
+    </message>
+    <message>
+      <source>User does not have any messages from the operator</source>
+      <translation>Besucher hat noch keine Nachricht von einem Operator erhalten</translation>
     </message>
     <message>
       <source>first visit</source>
@@ -2996,24 +3060,20 @@
       <translation>letzter Besuch</translation>
     </message>
     <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Returning</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>has sent a message to the user</source>
       <translation>hat eine Nachricht an den Besucher gesendet</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>Bis jetzt hat noch niemand eine Nachricht an den Besucher gesendet</translation>
-    </message>
-    <message>
-      <source>User has not seen a message from the operator, or the message window is still open.</source>
-      <translation>Besucher hat die Nachricht von einem Operator noch nicht gesehen oder die Nachricht ist noch geöffnet.</translation>
-    </message>
-    <message>
-      <source>User has seen the message from the operator.</source>
-      <translation>Besucher hat die Nachricht von einem Operator gelesen.</translation>
-    </message>
-    <message>
-      <source>User does not have any messages from the operator</source>
-      <translation>Besucher hat noch keine Nachricht von einem Operator erhalten</translation>
     </message>
     <message>
       <source>Files upload for users is active</source>
@@ -3182,14 +3242,6 @@
       <translation>Zeitzonen-Einstellungen</translation>
     </message>
     <message>
-      <source>Update information</source>
-      <translation>Update Informationen</translation>
-    </message>
-    <message>
-      <source>Mail settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>E-mail templates</source>
       <translation>E-Mail Template</translation>
     </message>
@@ -3210,10 +3262,6 @@
       <translation>Liste der Rollen</translation>
     </message>
     <message>
-      <source>Live help embed code</source>
-      <translation>Code zum einbetten der Live Hilfe</translation>
-    </message>
-    <message>
       <source>Departments</source>
       <translation>Abteilungen</translation>
     </message>
@@ -3222,24 +3270,12 @@
       <translation>Chat-Einstellungen</translation>
     </message>
     <message>
-      <source>GEO detection configuration</source>
-      <translation>GEO-Identifikation entdecken</translation>
-    </message>
-    <message>
-      <source>GEO adjustment</source>
-      <translation>GEO Anpassung</translation>
-    </message>
-    <message>
       <source>Synchronization and sound settings</source>
       <translation>Synchronisation und Sound-Einstellungen</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
       <translation>Chat Einstellungen</translation>
-    </message>
-    <message>
-      <source>Auto responder</source>
-      <translation>Automatische Antwort</translation>
     </message>
     <message>
       <source>XMPP settings</source>
@@ -3270,6 +3306,14 @@
       <translation>Standard - Theme</translation>
     </message>
     <message>
+      <source>GEO detection configuration</source>
+      <translation>GEO-Identifikation entdecken</translation>
+    </message>
+    <message>
+      <source>Auto responder</source>
+      <translation>Automatische Antwort</translation>
+    </message>
+    <message>
       <source>Blocked users</source>
       <translation>Geblockte Besucher</translation>
     </message>
@@ -3282,8 +3326,16 @@
       <translation>Vorgefertigte Nachrichten</translation>
     </message>
     <message>
+      <source>Live help embed code</source>
+      <translation>Code zum einbetten der Live Hilfe</translation>
+    </message>
+    <message>
       <source>Chatbox embed code</source>
       <translation>Code zum Einbetten der Chat-Box</translation>
+    </message>
+    <message>
+      <source>Mail settings</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>FAQ embed code</source>
@@ -3302,8 +3354,16 @@
       <translation>Datei Liste</translation>
     </message>
     <message>
+      <source>GEO adjustment</source>
+      <translation>GEO Anpassung</translation>
+    </message>
+    <message>
       <source>Maintenance</source>
       <translation>Wartung</translation>
+    </message>
+    <message>
+      <source>Update information</source>
+      <translation>Update Informationen</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -3368,16 +3428,16 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
+      <source>Clean cache</source>
+      <translation>Cache löschen</translation>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>Leer...</translation>
     </message>
     <message>
       <source>Assigned operator</source>
       <translation>Zugewiesenen Operator</translation>
-    </message>
-    <message>
-      <source>Clean cache</source>
-      <translation>Cache löschen</translation>
     </message>
     <message>
       <source>Home</source>
@@ -3432,16 +3492,16 @@
       <translation>Menü</translation>
     </message>
     <message>
+      <source>Extra modules</source>
+      <translation>Extra Module</translation>
+    </message>
+    <message>
       <source>Chats list</source>
       <translation>Chat-Listen</translation>
     </message>
     <message>
       <source>Online visitors</source>
       <translation>Besucher online</translation>
-    </message>
-    <message>
-      <source>Extra modules</source>
-      <translation>Extra Module</translation>
     </message>
     <message>
       <source>Account</source>
@@ -6839,6 +6899,49 @@
     </message>
     <message>
       <source>Permissions were not provided</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>users/autologin</name>
+    <message>
+      <source>Auto login settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This module can be used if you are generating autologin link. See site for code examples</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Secret hash used for authentification token generation, min 10 characters</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Autologin hash has expired</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not find a user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not find a provided user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid autologin hash</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Auto login module is not enabled</source>
       <translation type="unfinished"/>
     </message>
   </context>

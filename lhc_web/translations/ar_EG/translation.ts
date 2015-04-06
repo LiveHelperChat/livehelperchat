@@ -66,6 +66,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>socket.io path, optional</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>NodeJS support enabled</source>
       <translation type="unfinished"/>
     </message>
@@ -327,6 +331,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Main widget text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Custom CSS</source>
       <translation type="unfinished"/>
     </message>
@@ -444,6 +452,26 @@
     </message>
     <message>
       <source>Need help text color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then user starts chat based on proactive invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then operator closes a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then user starts a chat and is waiting for operator to join a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then user starts a chat but department is offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Leave a message form text</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -823,16 +851,16 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Widget embed code</source>
       <translation>شفرة تضمين الودجة</translation>
     </message>
     <message>
       <source>Page embed code</source>
       <translation>شفرة تضمين الصفحة</translation>
-    </message>
-    <message>
-      <source>Embed code</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Set default speech recognition language</source>
@@ -1591,6 +1619,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Choose other than default recognition language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transfer chat</source>
+      <translation>حَوِّل المحادثة</translation>
+    </message>
+    <message>
       <source>Footprint</source>
       <translation type="unfinished"/>
     </message>
@@ -1643,10 +1679,6 @@
       <translation>أزِل المحادثة</translation>
     </message>
     <message>
-      <source>Transfer chat</source>
-      <translation>حَوِّل المحادثة</translation>
-    </message>
-    <message>
       <source>Mail was send</source>
       <translation type="unfinished"/>
     </message>
@@ -1668,10 +1700,6 @@
     </message>
     <message>
       <source>Redirect user to another url</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose other than default recognition language</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1767,10 +1795,6 @@
       <translation>أرسِل</translation>
     </message>
     <message>
-      <source>Send delayed canned message instantly</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Reopen chat</source>
       <translation type="unfinished"/>
     </message>
@@ -1780,6 +1804,10 @@
     </message>
     <message>
       <source>Fill textarea with canned message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send delayed canned message instantly</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1921,6 +1949,10 @@
   <context>
     <name>files/files</name>
     <message>
+      <source>Download file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Refresh</source>
       <translation type="unfinished"/>
     </message>
@@ -1929,7 +1961,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Download file</source>
+      <source>Sent by Customer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sent by Operator</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2165,6 +2201,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department is offline</source>
       <translation type="unfinished"/>
     </message>
@@ -2178,14 +2222,6 @@
     </message>
     <message>
       <source>characters</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Send</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2262,6 +2298,10 @@
     </message>
     <message>
       <source>is required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2628,6 +2668,14 @@
   <context>
     <name>chat/onlineusers</name>
     <message>
+      <source>Status</source>
+      <translation>الحالة</translation>
+    </message>
+    <message>
+      <source>No one has sent a message to the user yet</source>
+      <translation>لم يتم ارسال رسالة لهذا العضو</translation>
+    </message>
+    <message>
       <source>GEO detection configuration</source>
       <translation>ضبط التقاط المكان الجيوغرافي</translation>
     </message>
@@ -2980,12 +3028,28 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Status</source>
-      <translation>الحالة</translation>
-    </message>
-    <message>
       <source>Action</source>
       <translation>الإجراء</translation>
+    </message>
+    <message>
+      <source>User has not seen a message from the operator, or the message window is still open.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Seen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unseen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User has seen the message from the operator.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User does not have any messages from the operator</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>first visit</source>
@@ -2996,23 +3060,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Returning</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>has sent a message to the user</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>لم يتم ارسال رسالة لهذا العضو</translation>
-    </message>
-    <message>
-      <source>User has not seen a message from the operator, or the message window is still open.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User has seen the message from the operator.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User does not have any messages from the operator</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3182,14 +3242,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Update information</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Mail settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>E-mail templates</source>
       <translation>قوالب البريد الإلكتروني</translation>
     </message>
@@ -3210,10 +3262,6 @@
       <translation>قائمة الأدوار</translation>
     </message>
     <message>
-      <source>Live help embed code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Departments</source>
       <translation>القسم</translation>
     </message>
@@ -3222,24 +3270,12 @@
       <translation>ضبط المحادثة</translation>
     </message>
     <message>
-      <source>GEO detection configuration</source>
-      <translation>ضبط التقاط الموضع الجيوغرافي GEO</translation>
-    </message>
-    <message>
-      <source>GEO adjustment</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Synchronization and sound settings</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Start chat form settings</source>
       <translation>اعدادات نموذج بدء المحادثة</translation>
-    </message>
-    <message>
-      <source>Auto responder</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>XMPP settings</source>
@@ -3270,6 +3306,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>GEO detection configuration</source>
+      <translation>ضبط التقاط الموضع الجيوغرافي GEO</translation>
+    </message>
+    <message>
+      <source>Auto responder</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Blocked users</source>
       <translation>المستخدمون المحجوبون</translation>
     </message>
@@ -3282,7 +3326,15 @@
       <translation>الرسائل الجاهزة</translation>
     </message>
     <message>
+      <source>Live help embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chatbox embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail settings</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3302,7 +3354,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>GEO adjustment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Maintenance</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update information</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3368,16 +3428,16 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
+      <source>Clean cache</source>
+      <translation>أفْرِغ الخبيئة</translation>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>فارغ...</translation>
     </message>
     <message>
       <source>Assigned operator</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Clean cache</source>
-      <translation>أفْرِغ الخبيئة</translation>
     </message>
     <message>
       <source>Home</source>
@@ -3432,16 +3492,16 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Extra modules</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chats list</source>
       <translation>قائمة الدردشات</translation>
     </message>
     <message>
       <source>Online visitors</source>
       <translation>المستخدمون المتصلون</translation>
-    </message>
-    <message>
-      <source>Extra modules</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Account</source>
@@ -6839,6 +6899,49 @@
     </message>
     <message>
       <source>Permissions were not provided</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>users/autologin</name>
+    <message>
+      <source>Auto login settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This module can be used if you are generating autologin link. See site for code examples</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Secret hash used for authentification token generation, min 10 characters</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Autologin hash has expired</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not find a user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not find a provided user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid autologin hash</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Auto login module is not enabled</source>
       <translation type="unfinished"/>
     </message>
   </context>

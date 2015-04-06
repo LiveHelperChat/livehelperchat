@@ -24,13 +24,35 @@ class erLhcoreClassCoBrowse {
 		return $coBrowseSession;
 	}
 	
-	public static function addModifications(erLhcoreClassModelChat $chat, $data, $params = array()) {
+	public static function getBrowseInstanceByOnlineUser(erLhcoreClassModelChatOnlineUser $ouser)
+	{
+		$coBrowseSession = null;
+		$cobrowse = erLhcoreClassModelCoBrowse::getList(array('filter' => array('online_user_id' => $ouser->id)));
+			
+		if (empty($cobrowse)) {
+			$coBrowseSession = new erLhcoreClassModelCoBrowse();
+			$coBrowseSession->online_user_id = $ouser->id;			
+		} else {
+			$coBrowseSession = array_pop($cobrowse);
+		}
+		
+		return $coBrowseSession;
+	}
+	
+	
+	
+	public static function addModifications($object, $data, $params = array()) {
 		$db = ezcDbInstance::get();
 		$db->beginTransaction();
 		
 		try {
 			
-			$coBrowseSession = self::getBrowseInstance($chat);
+		    if ($object instanceof erLhcoreClassModelChat){
+			     $coBrowseSession = self::getBrowseInstance($object);
+		    } elseif ($object instanceof erLhcoreClassModelChatOnlineUser) {
+		        $coBrowseSession = self::getBrowseInstanceByOnlineUser($object);
+		    };
+		    
 			$jsonDatas = json_decode($data);
 			
 			if (is_array($jsonDatas)) {
@@ -68,7 +90,22 @@ class erLhcoreClassCoBrowse {
 					$coBrowseSession->url = $params['base'];
 				}
 				
-				$coBrowseSession->chat_id = $chat->id;				
+				/**
+				 * Set attributes depending on provided object type
+				 * */
+				if ($object instanceof erLhcoreClassModelChat){
+				    $coBrowseSession->chat_id = $object->id;	
+				    
+				    if ($object->online_user_id > 0){
+				        $coBrowseSession->online_user_id = $object->online_user_id;
+				    }
+				} elseif ($object instanceof erLhcoreClassModelChatOnlineUser) {
+				    $coBrowseSession->online_user_id = $object->id;				    
+				    if ($object->chat_id > 0){
+				        $coBrowseSession->chat_id = $object->chat_id;
+				    }
+				}
+				
 				$coBrowseSession->saveThis();
 			}
 			

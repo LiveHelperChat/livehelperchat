@@ -115,7 +115,8 @@ class erLhAbstractModelWidgetTheme {
 			$response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('theme.edit.store_'.$attr,array(
 					'theme' => & $this, 
 					'path_attr' => $attr.'_path', 
-					'name' => $this->$attr,					
+					'name' => $this->$attr,
+			        'name_attr' => $attr,				
 					'file_path' => $this->{$attr.'_path'} . $this->$attr));
 			
 		} else {
@@ -146,7 +147,11 @@ class erLhAbstractModelWidgetTheme {
 	
 	public function getModuleTranslations()
 	{
-		return array('path' => array('url' => erLhcoreClassDesign::baseurl('theme/index'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('theme/index','Themes')), 'permission_delete' => array('module' => 'lhchat','function' => 'administratethemes'),'permission' => array('module' => 'lhchat','function' => 'administratethemes'),'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Widget themes'));
+	    $metaData = array('path' => array('url' => erLhcoreClassDesign::baseurl('theme/index'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('theme/index','Themes')), 'permission_delete' => array('module' => 'lhchat','function' => 'administratethemes'),'permission' => array('module' => 'lhchat','function' => 'administratethemes'),'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Widget themes'));
+	    
+	    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('feature.can_use_themes', array('object_meta_data' => & $metaData));
+	    
+	    return $metaData;
 	}
 	
 	public function saveThis() {

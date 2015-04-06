@@ -6,14 +6,15 @@
 <div role="tabpanel">
 
 	<ul class="nav nav-tabs" role="tablist">
-		<li role="presentation" class="active"><a href="#system" aria-controls="system" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','System');?></a></li>
+		<li role="presentation" class="active"><a href="#system" aria-controls="system" role="tab" data-toggle="tab">
+		<?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_titles/system_title.tpl.php'));?></a></li>
     
         <?php if ($currentUser->hasAccessTo('lhsystem','generate_js_tab')) : ?>
-        <li role="presentation"><a href="#embed" aria-controls="embed" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Embed code');?></a></li>
+        <li role="presentation"><a href="#embed" aria-controls="embed" role="tab" data-toggle="tab"><?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_titles/embed_code_title.tpl.php'));?></a></li>
         <?php endif; ?>
         
         <?php if ($currentUser->hasAccessTo('lhchat','use')) : ?>
-        <li role="presentation"><a href="#chatconfiguration" aria-controls="chatconfiguration" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Live help configuration');?></a></li>
+        <li role="presentation"><a href="#chatconfiguration" aria-controls="chatconfiguration" role="tab" data-toggle="tab"><?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_titles/live_help_configuration.tpl.php'));?></a></li>
         <?php endif; ?>
         
         <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_tabs/speech.tpl.php'));?>
@@ -24,7 +25,9 @@
 
 			<div class="row">
 				<div class="col-md-6">
-					<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','System');?></h4>
+					
+					<h4><?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_titles/system_title.tpl.php'));?></h4>
+					
 					<ul>
         	      		<?php if ($currentUser->hasAccessTo('lhsystem','timezone')) : ?>
         			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('system/timezone')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Time zone settings');?></a></li>
@@ -56,7 +59,11 @@
 				    <?php if ($currentUser->hasAccessTo('lhuser','userlist')) : ?>
 				    <li><a href="<?php echo erLhcoreClassDesign::baseurl('user/userlist')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Users');?></a></li>
 				    <?php endif; ?>
-				
+				    
+				    <?php if ($currentUser->hasAccessTo('lhuser','userautologin')) : ?>
+				    <li><a href="<?php echo erLhcoreClassDesign::baseurl('user/autologinconfig')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Auto login settings');?></a></li>
+				    <?php endif; ?>
+				    
 				    <?php if ($currentUser->hasAccessTo('lhuser','grouplist')) : ?>
 				    <li><a href="<?php echo erLhcoreClassDesign::baseurl('user/grouplist')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','List of groups');?></a></li>
 				    <?php endif; ?>
@@ -74,17 +81,9 @@
     <?php if ($currentUser->hasAccessTo('lhsystem','generate_js_tab')) : ?>
     <div role="tabpanel" class="tab-pane" id="embed">
 			<div class="row">
-      
-      	<?php if ($currentUser->hasAccessTo('lhsystem','generatejs')) : ?>
-      	<div class="col-md-6">
-					<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Live help embed code');?></h4>
-					<ul>
-						<li><a href="<?php echo erLhcoreClassDesign::baseurl('system/htmlcode')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Widget embed code');?></a></li>
-						<li><a href="<?php echo erLhcoreClassDesign::baseurl('system/embedcode')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Page embed code');?></a></li>
-					</ul>
-				</div>
-		<?php endif; ?>
-	
+      	
+	    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/chat_embed.tpl.php'));?>
+	    	    
 	    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/faq_embed.tpl.php'));?>
 	
 	    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/questionary_embed.tpl.php'));?>
@@ -92,6 +91,8 @@
 	    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/chatbox_embed.tpl.php'));?>
 	    
 	    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/browse_offers_embed.tpl.php'));?>
+	    
+	    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/embed_multiinclude.tpl.php'));?>
 		
   	  </div>
 		</div>	
@@ -108,15 +109,18 @@
 			   
 			    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/blockusers.tpl.php'));?>
 			    
-			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/listchatconfig')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Chat configuration');?></a></li>
-			    
+			    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/chat_configuration.tpl.php'));?>
+					    
 			    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/administrategeoconfig.tpl.php'));?>
 			    
 			    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/geoadjustment.tpl.php'));?>
 				
+				<?php if ($currentUser->hasAccessTo('lhchat','administrateconfig')) : ?>
 			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/syncandsoundesetting')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Synchronization and sound settings');?></a></li>
-				<li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/startchatformsettings')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Start chat form settings');?></a></li>
-			   			    
+			    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/start_chat_form_settings.tpl.php'));?>
+			    
+			    <?php endif;?>
+			    		    
 	 			<?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/translation.tpl.php'));?>
 			    
 	            <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/cannedmsg.tpl.php'));?>
@@ -133,10 +137,10 @@
 			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('xmp/configuration')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','XMPP settings');?></a></li>
 			    <?php endif; ?>
 		
-			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/lists')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Chats list');?></a></li>
+		        <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/chat_list.tpl.php'));?>
 	
 			    <?php if ($currentUser->hasAccessTo('lhchatarchive','archive')) : ?>
-			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chatarchive/archive')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Chat archive');?></a></li>
+			    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/chat_archive.tpl.php'));?>
 			    <?php endif; ?>
 				
 				<?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/statistic.tpl.php'));?>
@@ -147,18 +151,8 @@
 			</div>
 
 			<div class="col-md-6">
-			 
 			    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/files.tpl.php'));?>
-			     
-				<?php if ($currentUser->hasAccessTo('lhabstract','use') && $currentUser->hasAccessTo('lhtheme','administratethemes')) : ?>
-			    <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Theming');?></h5>
-				<ul>
-					<li><a href="<?php echo erLhcoreClassDesign::baseurl('abstract/list')?>/WidgetTheme"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Widget themes');?></a></li>
-					<li><a href="<?php echo erLhcoreClassDesign::baseurl('theme/import')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Import new themes');?></a></li>
-					<li><a href="<?php echo erLhcoreClassDesign::baseurl('theme/default')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Default theme');?></a></li>
-				</ul>
-				<?php endif; ?>
-			    
+			    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/theming.tpl.php'));?>
 			</div>
 
 		</div>

@@ -75,8 +75,10 @@ function generateEmbedCode(){
 	var topposition = '/(units)/'+$('#UnitsTop').val();
 	var id_disable_responsive = $('#id_disable_responsive').is(':checked') ? '/(noresponse)/true' : '';
 	var id_theme = $('#ThemeID').val() > 0 ? '/(theme)/'+$('#ThemeID').val() : '';
+
+	<?php include(erLhcoreClassDesign::designtpl('lhfaq/getstatus/options_variable.tpl.php')); ?>
 	  
-    var script = '<script type="text/javascript">'+"\nvar LHCFAQOptions = {status_text:'"+textStatus+"',url:'replace_me_with_dynamic_url',identifier:''};\n"+
+    var script = '<script type="text/javascript">'+"\nvar <?php echo $faqOptionsVariable;?> = {status_text:'"+textStatus+"',url:'replace_me_with_dynamic_url',identifier:''};\n"+
       '(function() {'+"\n"+
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
         'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'faq/getstatus'+id_position+top+topposition+id_theme+id_disable_responsive+"';\n"+

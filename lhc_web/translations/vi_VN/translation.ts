@@ -66,6 +66,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>socket.io path, optional</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>NodeJS support enabled</source>
       <translation type="unfinished"/>
     </message>
@@ -327,6 +331,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Main widget text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Custom CSS</source>
       <translation>Tùy chỉnh CSS</translation>
     </message>
@@ -444,6 +452,26 @@
     </message>
     <message>
       <source>Need help text color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then user starts chat based on proactive invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then operator closes a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then user starts a chat and is waiting for operator to join a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then user starts a chat but department is offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Leave a message form text</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -823,16 +851,16 @@
       <translation>Giúp chúng tôi phát triển</translation>
     </message>
     <message>
+      <source>Embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Widget embed code</source>
       <translation>Mã nhúng tiện ích</translation>
     </message>
     <message>
       <source>Page embed code</source>
       <translation>Trang nhúng mã</translation>
-    </message>
-    <message>
-      <source>Embed code</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Set default speech recognition language</source>
@@ -1591,6 +1619,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Choose other than default recognition language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transfer chat</source>
+      <translation> Chuyển hướng trò chuyện</translation>
+    </message>
+    <message>
       <source>Footprint</source>
       <translation>Dấu chân</translation>
     </message>
@@ -1643,10 +1679,6 @@
       <translation>Xoá trò chuyện</translation>
     </message>
     <message>
-      <source>Transfer chat</source>
-      <translation> Chuyển hướng trò chuyện</translation>
-    </message>
-    <message>
       <source>Mail was send</source>
       <translation>Thư đã được gửi</translation>
     </message>
@@ -1668,10 +1700,6 @@
     </message>
     <message>
       <source>Redirect user to another url</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose other than default recognition language</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1767,10 +1795,6 @@
       <translation>Gửi</translation>
     </message>
     <message>
-      <source>Send delayed canned message instantly</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Reopen chat</source>
       <translation>Mở lại trò chuyện</translation>
     </message>
@@ -1781,6 +1805,10 @@
     <message>
       <source>Fill textarea with canned message</source>
       <translation>Điền vào vùng văn bản với hộp thư mẫu</translation>
+    </message>
+    <message>
+      <source>Send delayed canned message instantly</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Messages</source>
@@ -1921,6 +1949,10 @@
   <context>
     <name>files/files</name>
     <message>
+      <source>Download file</source>
+      <translation>Tải tập tin</translation>
+    </message>
+    <message>
       <source>Refresh</source>
       <translation type="unfinished"/>
     </message>
@@ -1929,8 +1961,12 @@
       <translation>Xóa tập tin</translation>
     </message>
     <message>
-      <source>Download file</source>
-      <translation>Tải tập tin</translation>
+      <source>Sent by Customer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sent by Operator</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Drop your files here.</source>
@@ -2165,6 +2201,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Nhập tin nhắn của bạn ở đây và nhấn Enter để gửi ...</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>Gửi</translation>
+    </message>
+    <message>
       <source>Department is offline</source>
       <translation type="unfinished"/>
     </message>
@@ -2179,14 +2223,6 @@
     <message>
       <source>characters</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Nhập tin nhắn của bạn ở đây và nhấn Enter để gửi ...</translation>
-    </message>
-    <message>
-      <source>Send</source>
-      <translation>Gửi</translation>
     </message>
     <message>
       <source>Personal assistant</source>
@@ -2263,6 +2299,10 @@
     <message>
       <source>is required</source>
       <translation>được yêu cầu</translation>
+    </message>
+    <message>
+      <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Invalid file extension</source>
@@ -2628,6 +2668,14 @@
   <context>
     <name>chat/onlineusers</name>
     <message>
+      <source>Status</source>
+      <translation>tình trạng</translation>
+    </message>
+    <message>
+      <source>No one has sent a message to the user yet</source>
+      <translation>Không ai có thể gửi một tin nhắn cho người chưa sử dụng </translation>
+    </message>
+    <message>
       <source>GEO detection configuration</source>
       <translation>Cấu hình phát hiện GEO</translation>
     </message>
@@ -2980,12 +3028,28 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Status</source>
-      <translation>tình trạng</translation>
-    </message>
-    <message>
       <source>Action</source>
       <translation>hành động</translation>
+    </message>
+    <message>
+      <source>User has not seen a message from the operator, or the message window is still open.</source>
+      <translation>Người sử dụng đã không nhìn thấy một tin nhắn từ các nhà điều hành, hoặc các cửa sổ thông báo là vẫn còn mở.</translation>
+    </message>
+    <message>
+      <source>Seen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unseen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User has seen the message from the operator.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User does not have any messages from the operator</source>
+      <translation>Người sử dụng không có bất kỳ tin nhắn từ các nhà điều hành</translation>
     </message>
     <message>
       <source>first visit</source>
@@ -2996,24 +3060,20 @@
       <translation>lần thăm cuối</translation>
     </message>
     <message>
-      <source>has sent a message to the user</source>
-      <translation>Đã gửi một thông điệp cho người sử dụng</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>Không ai có thể gửi một tin nhắn cho người chưa sử dụng </translation>
-    </message>
-    <message>
-      <source>User has not seen a message from the operator, or the message window is still open.</source>
-      <translation>Người sử dụng đã không nhìn thấy một tin nhắn từ các nhà điều hành, hoặc các cửa sổ thông báo là vẫn còn mở.</translation>
-    </message>
-    <message>
-      <source>User has seen the message from the operator.</source>
+      <source>Chat</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>User does not have any messages from the operator</source>
-      <translation>Người sử dụng không có bất kỳ tin nhắn từ các nhà điều hành</translation>
+      <source>Returning</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>has sent a message to the user</source>
+      <translation>Đã gửi một thông điệp cho người sử dụng</translation>
     </message>
     <message>
       <source>Files upload for users is active</source>
@@ -3182,14 +3242,6 @@
       <translation>Cài đặt múi giờ</translation>
     </message>
     <message>
-      <source>Update information</source>
-      <translation>Cập nhật thông tin</translation>
-    </message>
-    <message>
-      <source>Mail settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>E-mail templates</source>
       <translation>E-mail mẫu</translation>
     </message>
@@ -3210,10 +3262,6 @@
       <translation>Danh sách các vai trò</translation>
     </message>
     <message>
-      <source>Live help embed code</source>
-      <translation>Mã nhúng Live help</translation>
-    </message>
-    <message>
       <source>Departments</source>
       <translation>Bộ phận</translation>
     </message>
@@ -3222,24 +3270,12 @@
       <translation>Cấu hình trò chuyện</translation>
     </message>
     <message>
-      <source>GEO detection configuration</source>
-      <translation>Cấu hình phát hiện GEO</translation>
-    </message>
-    <message>
-      <source>GEO adjustment</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Synchronization and sound settings</source>
       <translation>Đồng bộ hóa âm thanh và thiết lập</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
       <translation>Bắt đầu trò chuyện thiết lập hình thức</translation>
-    </message>
-    <message>
-      <source>Auto responder</source>
-      <translation>Tự động trả lời</translation>
     </message>
     <message>
       <source>XMPP settings</source>
@@ -3270,6 +3306,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>GEO detection configuration</source>
+      <translation>Cấu hình phát hiện GEO</translation>
+    </message>
+    <message>
+      <source>Auto responder</source>
+      <translation>Tự động trả lời</translation>
+    </message>
+    <message>
       <source>Blocked users</source>
       <translation>Người dùng bị chặn</translation>
     </message>
@@ -3282,8 +3326,16 @@
       <translation>Đóng thông điệp</translation>
     </message>
     <message>
+      <source>Live help embed code</source>
+      <translation>Mã nhúng Live help</translation>
+    </message>
+    <message>
       <source>Chatbox embed code</source>
       <translation>Mã nhúng Chatbox</translation>
+    </message>
+    <message>
+      <source>Mail settings</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>FAQ embed code</source>
@@ -3302,8 +3354,16 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>GEO adjustment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Maintenance</source>
       <translation>Bảo trì</translation>
+    </message>
+    <message>
+      <source>Update information</source>
+      <translation>Cập nhật thông tin</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -3368,16 +3428,16 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
+      <source>Clean cache</source>
+      <translation>Xoá sạch bộ nhớ cache </translation>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>Rỗng...</translation>
     </message>
     <message>
       <source>Assigned operator</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Clean cache</source>
-      <translation>Xoá sạch bộ nhớ cache </translation>
     </message>
     <message>
       <source>Home</source>
@@ -3432,16 +3492,16 @@
       <translation>Menu</translation>
     </message>
     <message>
+      <source>Extra modules</source>
+      <translation>Mô-đun phụ</translation>
+    </message>
+    <message>
       <source>Chats list</source>
       <translation>Danh sách trò chuyện</translation>
     </message>
     <message>
       <source>Online visitors</source>
       <translation>Khách trực tuyến</translation>
-    </message>
-    <message>
-      <source>Extra modules</source>
-      <translation>Mô-đun phụ</translation>
     </message>
     <message>
       <source>Account</source>
@@ -6839,6 +6899,49 @@
     </message>
     <message>
       <source>Permissions were not provided</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>users/autologin</name>
+    <message>
+      <source>Auto login settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This module can be used if you are generating autologin link. See site for code examples</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Secret hash used for authentification token generation, min 10 characters</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Autologin hash has expired</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not find a user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not find a provided user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid autologin hash</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Auto login module is not enabled</source>
       <translation type="unfinished"/>
     </message>
   </context>

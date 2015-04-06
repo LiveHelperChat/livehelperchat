@@ -9,6 +9,11 @@ $ViewList['login'] = array(
     'uparams' => array('r'),
 );
 
+$ViewList['autologin'] = array(
+    'params' => array('hash'),
+    'uparams' => array('r','u','l','t'),
+);
+
 $ViewList['logout'] = array(
     'params' => array()
 );
@@ -94,6 +99,12 @@ $ViewList['setinvisible'] = array (
 		'params' => array('status')
 );
 
+$ViewList['autologinconfig'] = array(
+    'params' => array(),
+    'uparams' => array('csfr'),
+    'functions' => array( 'userautologin' )
+);
+
 $FunctionList['groupassignuser'] = array('explain' => 'Allow user to assign user to group');
 $FunctionList['editgroup'] = array('explain' => 'Allow user to edit group');
 $FunctionList['creategroup'] = array('explain' => 'Allow user to create group');
@@ -115,5 +126,6 @@ $FunctionList['change_visibility_list'] = array('explain' => 'Allow user to choo
 $FunctionList['see_assigned_departments'] = array('explain' => 'Allow user to see departments assigned to him');
 $FunctionList['allowtochoosependingmode'] = array('explain' => 'Allow user to choose what pending chats he can see, only assigned to him or all.');
 $FunctionList['receivepermissionrequest'] = array('explain' => 'Allow user to choose should he receive other operators permissions requests');
+$FunctionList['userautologin'] = array('explain' => 'Allow user to configure autologin');
 
 ?>

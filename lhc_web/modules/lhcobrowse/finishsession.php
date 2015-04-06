@@ -8,8 +8,13 @@ if ($Params['user_parameters_unordered']['hash'] != '' || $Params['user_paramete
 
 	$checkHash = true;
 	$vid = false;
+	$chatID = 0;
+	$chat = false;
 	
-	if ($Params['user_parameters_unordered']['hash'] != '') {
+	if ($Params['user_parameters_unordered']['sharemode'] == 'onlineuser' && $Params['user_parameters_unordered']['vid'] != '') {
+	    $vid = erLhcoreClassModelChatOnlineUser::fetchByVid($Params['user_parameters_unordered']['vid']);
+	    $checkHash = false;
+	} elseif ($Params['user_parameters_unordered']['hash'] != '') {
 		list($chatID,$hash) = explode('_',$Params['user_parameters_unordered']['hash']);
 	} else if ($Params['user_parameters_unordered']['hash_resume'] != '') {		
 		list($chatID,$hash) = explode('_',$Params['user_parameters_unordered']['hash_resume']);
@@ -32,7 +37,12 @@ if ($Params['user_parameters_unordered']['hash'] != '' || $Params['user_paramete
 		}
 
 		if ( (($checkHash == true && $chat !== false && $chat->hash == $hash) || $checkHash == false) && ( is_object($vid) || ($chat !== false && $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT || $chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT))) {
-			$instance = erLhcoreClassCoBrowse::getBrowseInstance($chat);
+            if ($chat !== false) {
+                $instance = erLhcoreClassCoBrowse::getBrowseInstance($chat);
+            } else {
+                $instance = erLhcoreClassCoBrowse::getBrowseInstanceByOnlineUser($vid);
+            }
+		    
 			if ($instance->id > 0) {
 				$instance->initialize = '';
 				$instance->modifications = '';

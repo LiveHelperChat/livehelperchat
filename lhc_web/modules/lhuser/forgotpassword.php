@@ -2,6 +2,7 @@
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhuser/forgotpassword.tpl.php');
 
+$currentUser = erLhcoreClassUser::instance();
 
 if (isset($_POST['Forgotpassword'])) {
 
@@ -14,7 +15,12 @@ if (isset($_POST['Forgotpassword'])) {
     $form = new ezcInputForm( INPUT_POST, $definition );
 
     $Errors = array();
-
+    
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+        erLhcoreClassModule::redirect('user/forgotpassword');
+        exit;
+    }
+    
     if ( !$form->hasValidData( 'Email' ) )
     {
         $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/forgotpassword','Invalid e-mail address!');

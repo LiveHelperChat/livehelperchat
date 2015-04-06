@@ -51,8 +51,6 @@ if (is_numeric($Params['user_parameters']['chat_id']))
     }
 }
 
-$tpl->set('dataSpeech',$data);
-
 echo $tpl->fetch();
 exit;
 

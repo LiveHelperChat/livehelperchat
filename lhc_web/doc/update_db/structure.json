@@ -1186,6 +1186,14 @@
                 "extra": ""
             },
             {
+                "field": "online_user_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "mtime",
                 "type": "int(11)",
                 "null": "NO",
@@ -1918,6 +1926,14 @@
                 "extra": ""
             },
             {
+                "field": "online_user_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "user_id",
                 "type": "int(11)",
                 "null": "NO",
@@ -2241,7 +2257,23 @@
             },
             {
                 "field": "operation",
-                "type": "varchar(200)",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "online_attr_system",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "operation_chat",
+                "type": "text",
                 "null": "NO",
                 "key": "",
                 "default": null,
@@ -3800,6 +3832,13 @@
                 "hidden": "1"
             },
             {
+                "identifier": "autologin_data",
+                "value": "a:3:{i:0;b:0;s:11:\"secret_hash\";s:16:\"please_change_me\";s:7:\"enabled\";i:0;}",
+                "type": "0",
+                "explain": "Autologin configuration data",
+                "hidden": "1"
+            },
+            {
                 "identifier": "hide_disabled_department",
                 "value": "1",
                 "type": "0",
@@ -4734,6 +4773,14 @@
     	},
     	"lh_users" : {
     		"new" : {"rec_per_req" : "ALTER TABLE `lh_users` ADD INDEX `rec_per_req` (`rec_per_req`);"},
+    		"old" : []
+    	},
+    	"lh_cobrowse" : {
+    		"new" : {"online_user_id" : "ALTER TABLE `lh_cobrowse` ADD INDEX `online_user_id` (`online_user_id`);"},
+    		"old" : []
+    	},
+    	"lh_chat_file" : {
+    		"new" : {"online_user_id" : "ALTER TABLE `lh_chat_file` ADD INDEX `online_user_id` (`online_user_id`)"},
     		"old" : []
     	}
     },

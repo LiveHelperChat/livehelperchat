@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * These operations are executed directly in an iframe. Most of the time it's postMessage
+ * */
 $definition = array(
         'operation' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::REQUIRED, 'unsafe_raw'

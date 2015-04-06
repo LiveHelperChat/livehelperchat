@@ -429,6 +429,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_cobrowse` (
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
         	   `chat_id` int(11) NOT NULL,
+        	   `online_user_id` int(11) NOT NULL,
         	   `mtime` int(11) NOT NULL,
         	   `url` varchar(250) NOT NULL,
         	   `initialize` longtext NOT NULL,
@@ -439,7 +440,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
 			   `x` int NOT NULL,
 			   `y` int NOT NULL,        	   		
         	   PRIMARY KEY (`id`),
-        	   KEY `chat_id` (`chat_id`)
+        	   KEY `chat_id` (`chat_id`),
+        	   KEY `online_user_id` (`online_user_id`)
         	   ) DEFAULT CHARSET=utf8");
         	   
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_speech_language` (
@@ -573,10 +575,12 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   `file_path` varchar(255) NOT NULL,
         	   `extension` varchar(255) NOT NULL,
         	   `chat_id` int(11) NOT NULL,
+        	   `online_user_id` int(11) NOT NULL,
         	   `user_id` int(11) NOT NULL,
         	   `date` int(11) NOT NULL,
         	   PRIMARY KEY (`id`),
         	   KEY `chat_id` (`chat_id`),
+        	   KEY `online_user_id` (`online_user_id`),
         	   KEY `user_id` (`user_id`)
         	   ) DEFAULT CHARSET=utf8;");
 
@@ -855,6 +859,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('sharing_auto_allow','0',0,'Do not ask permission for users to see their screen',0),
                 ('sharing_nodejs_enabled','0',0,'NodeJs support enabled',0),
                 ('sharing_nodejs_path','',0,'socket.io path, optional',0),
+                ('autologin_data','a:3:{i:0;b:0;s:11:\"secret_hash\";s:16:\"please_change_me\";s:7:\"enabled\";i:0;}',0,'Autologin configuration data',	1),
                 ('sharing_nodejs_secure','0',0,'Connect to NodeJs in https mode',0),
                 ('disable_js_execution','1',0,'Disable JS execution in Co-Browsing operator window',0),
                 ('sharing_nodejs_socket_host','',0,'Host where NodeJs is running',0),
@@ -907,7 +912,9 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   	  `requires_phone` int(11) NOT NULL,
         	   	  `screenshot_id` int(11) NOT NULL,
         	   	  `identifier` varchar(50) NOT NULL,
-        	   	  `operation` varchar(200) NOT NULL,
+        	   	  `operation` text NOT NULL,
+        	   	  `online_attr_system` text NOT NULL,
+        	   	  `operation_chat` text NOT NULL,
         	   	  `online_attr` varchar(250) NOT NULL,
                   PRIMARY KEY (`id`),
                   KEY `vid` (`vid`),

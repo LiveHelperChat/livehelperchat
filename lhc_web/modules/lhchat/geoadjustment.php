@@ -100,4 +100,6 @@ $Result['content'] = $tpl->fetch();
 $Result['path'] = array(array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','System configuration')),
 array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/geoadjustment','GEO adjustment')));
 
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.geoadjustment_path',array('result' => & $Result));
+
 ?>

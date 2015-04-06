@@ -77,8 +77,10 @@ function generateEmbedCode(){
 	var id_show_overlay = $('#id_show_overlay').is(':checked') ? '/(showoverlay)/true' : '';
 	var id_canreopen = $('#id_canreopen').is(':checked') ? '/(canreopen)/true' : '';
 	var id_embed_domain = $('#id_embed_domain').val() != '' ? 'domain:\''+$('#id_embed_domain').val()+'\'' : '';
+
+	<?php include(erLhcoreClassDesign::designtpl('lhbrowseoffer/getstatus/options_variable.tpl.php')); ?>
 	
-    var script = '<script type="text/javascript">'+"\nvar LHCBROWSEOFFEROptions = {"+id_embed_domain+"};\n"+
+    var script = '<script type="text/javascript">'+"\nvar <?php echo $browseofferOptionsVariable;?> = {"+id_embed_domain+"};\n"+
     
       '(function() {'+"\n"+
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+

@@ -66,6 +66,10 @@
       <translation>Conectare la NodeJs prin https</translation>
     </message>
     <message>
+      <source>socket.io path, optional</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>NodeJS support enabled</source>
       <translation>Suport NodeJS activat</translation>
     </message>
@@ -327,6 +331,10 @@
       <translation>Widget pentru suport</translation>
     </message>
     <message>
+      <source>Main widget text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Custom CSS</source>
       <translation>CSS personalizat</translation>
     </message>
@@ -445,6 +453,26 @@
     <message>
       <source>Need help text color</source>
       <translation>Aveţi nevoie de ajutor culoarea textului</translation>
+    </message>
+    <message>
+      <source>Text then user starts chat based on proactive invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then operator closes a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then user starts a chat and is waiting for operator to join a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then user starts a chat but department is offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Leave a message form text</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Need help border color</source>
@@ -823,16 +851,16 @@
       <translation>Ajutaţi-ne să crească</translation>
     </message>
     <message>
+      <source>Embed code</source>
+      <translation>Codul embed</translation>
+    </message>
+    <message>
       <source>Widget embed code</source>
       <translation>Widget codul embed</translation>
     </message>
     <message>
       <source>Page embed code</source>
       <translation>Pagina de codul embed</translation>
-    </message>
-    <message>
-      <source>Embed code</source>
-      <translation>Codul embed</translation>
     </message>
     <message>
       <source>Set default speech recognition language</source>
@@ -1591,6 +1619,14 @@
       <translation>Partajare ecran</translation>
     </message>
     <message>
+      <source>Choose other than default recognition language</source>
+      <translation>Alege o alta limba in afara de limba standard pentru recunoastere vocala</translation>
+    </message>
+    <message>
+      <source>Transfer chat</source>
+      <translation>Transfera conversatia</translation>
+    </message>
+    <message>
       <source>Footprint</source>
       <translation>Amprenta</translation>
     </message>
@@ -1643,10 +1679,6 @@
       <translation>Sterge conversatia</translation>
     </message>
     <message>
-      <source>Transfer chat</source>
-      <translation>Transfera conversatia</translation>
-    </message>
-    <message>
       <source>Mail was send</source>
       <translation>E-mail trimis</translation>
     </message>
@@ -1669,10 +1701,6 @@
     <message>
       <source>Redirect user to another url</source>
       <translation>Redirectioneaza utilizatorul catre un alt URL</translation>
-    </message>
-    <message>
-      <source>Choose other than default recognition language</source>
-      <translation>Alege o alta limba in afara de limba standard pentru recunoastere vocala</translation>
     </message>
     <message>
       <source>Department</source>
@@ -1767,10 +1795,6 @@
       <translation>Trimite</translation>
     </message>
     <message>
-      <source>Send delayed canned message instantly</source>
-      <translation>Trimite mesajul predefinit instant</translation>
-    </message>
-    <message>
       <source>Reopen chat</source>
       <translation>Redeschide discutia</translation>
     </message>
@@ -1781,6 +1805,10 @@
     <message>
       <source>Fill textarea with canned message</source>
       <translation>Umple campul cu mesajul predefinit</translation>
+    </message>
+    <message>
+      <source>Send delayed canned message instantly</source>
+      <translation>Trimite mesajul predefinit instant</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -1921,6 +1949,10 @@
   <context>
     <name>files/files</name>
     <message>
+      <source>Download file</source>
+      <translation>Downloadeaza fisier</translation>
+    </message>
+    <message>
       <source>Refresh</source>
       <translation>Actualizare</translation>
     </message>
@@ -1929,8 +1961,12 @@
       <translation>Sterge fisier</translation>
     </message>
     <message>
-      <source>Download file</source>
-      <translation>Downloadeaza fisier</translation>
+      <source>Sent by Customer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sent by Operator</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Drop your files here.</source>
@@ -2165,6 +2201,14 @@
       <translation>Ai o întrebare? Intreaba-ne!</translation>
     </message>
     <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Scrie un mesaj aici si apasa enter pentru a trimite...</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>Trimite</translation>
+    </message>
+    <message>
       <source>Department is offline</source>
       <translation>Departamentul este offline</translation>
     </message>
@@ -2179,14 +2223,6 @@
     <message>
       <source>characters</source>
       <translation>caractere</translation>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Scrie un mesaj aici si apasa enter pentru a trimite...</translation>
-    </message>
-    <message>
-      <source>Send</source>
-      <translation>Trimite</translation>
     </message>
     <message>
       <source>Personal assistant</source>
@@ -2263,6 +2299,10 @@
     <message>
       <source>is required</source>
       <translation>este obligatoriu</translation>
+    </message>
+    <message>
+      <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Invalid file extension</source>
@@ -2628,6 +2668,14 @@
   <context>
     <name>chat/onlineusers</name>
     <message>
+      <source>Status</source>
+      <translation>Text pentr stare</translation>
+    </message>
+    <message>
+      <source>No one has sent a message to the user yet</source>
+      <translation>Nimeni nu a transmis vreun mesaj utilizatorului</translation>
+    </message>
+    <message>
       <source>GEO detection configuration</source>
       <translation>Configurarea detectarii pozitiei geografice</translation>
     </message>
@@ -2980,12 +3028,28 @@
       <translation>Dupa statusul vizitatorului, online/offline</translation>
     </message>
     <message>
-      <source>Status</source>
-      <translation>Text pentr stare</translation>
-    </message>
-    <message>
       <source>Action</source>
       <translation>Actiune</translation>
+    </message>
+    <message>
+      <source>User has not seen a message from the operator, or the message window is still open.</source>
+      <translation>Utilizatorul nu a citit mesajul de la operator, sau fereastra de mesaje este inca deschisa.</translation>
+    </message>
+    <message>
+      <source>Seen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unseen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User has seen the message from the operator.</source>
+      <translation>Vizitatorul a vazut mesajul de la operator.</translation>
+    </message>
+    <message>
+      <source>User does not have any messages from the operator</source>
+      <translation>Utilizatorul nu are niciun mesaj de la operator</translation>
     </message>
     <message>
       <source>first visit</source>
@@ -2996,24 +3060,20 @@
       <translation>ultima vizita</translation>
     </message>
     <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Returning</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>has sent a message to the user</source>
       <translation>a transmis un mesaj utilizatorului</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>Nimeni nu a transmis vreun mesaj utilizatorului</translation>
-    </message>
-    <message>
-      <source>User has not seen a message from the operator, or the message window is still open.</source>
-      <translation>Utilizatorul nu a citit mesajul de la operator, sau fereastra de mesaje este inca deschisa.</translation>
-    </message>
-    <message>
-      <source>User has seen the message from the operator.</source>
-      <translation>Vizitatorul a vazut mesajul de la operator.</translation>
-    </message>
-    <message>
-      <source>User does not have any messages from the operator</source>
-      <translation>Utilizatorul nu are niciun mesaj de la operator</translation>
     </message>
     <message>
       <source>Files upload for users is active</source>
@@ -3182,14 +3242,6 @@
       <translation>Setari fus orar</translation>
     </message>
     <message>
-      <source>Update information</source>
-      <translation>Informatii actualizate</translation>
-    </message>
-    <message>
-      <source>Mail settings</source>
-      <translation>Setari email</translation>
-    </message>
-    <message>
       <source>E-mail templates</source>
       <translation>Template-uri pentru e-mail</translation>
     </message>
@@ -3210,10 +3262,6 @@
       <translation>Lista rolurilor</translation>
     </message>
     <message>
-      <source>Live help embed code</source>
-      <translation>Cod pentru embed sistem conversatii</translation>
-    </message>
-    <message>
       <source>Departments</source>
       <translation>Departamente</translation>
     </message>
@@ -3222,24 +3270,12 @@
       <translation>Setari conversatii</translation>
     </message>
     <message>
-      <source>GEO detection configuration</source>
-      <translation>Setari pentru detectarea pozitiei geografice</translation>
-    </message>
-    <message>
-      <source>GEO adjustment</source>
-      <translation>Ajustare localizare GEO</translation>
-    </message>
-    <message>
       <source>Synchronization and sound settings</source>
       <translation>Setari de sincronizare si sunet</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
       <translation>Setari pentru formularul de incepere a unei conversatii</translation>
-    </message>
-    <message>
-      <source>Auto responder</source>
-      <translation>Raspuns automat</translation>
     </message>
     <message>
       <source>XMPP settings</source>
@@ -3270,6 +3306,14 @@
       <translation>Tema default</translation>
     </message>
     <message>
+      <source>GEO detection configuration</source>
+      <translation>Setari pentru detectarea pozitiei geografice</translation>
+    </message>
+    <message>
+      <source>Auto responder</source>
+      <translation>Raspuns automat</translation>
+    </message>
+    <message>
       <source>Blocked users</source>
       <translation>Utilizatori blocati</translation>
     </message>
@@ -3282,8 +3326,16 @@
       <translation>Mesaje predefinite</translation>
     </message>
     <message>
+      <source>Live help embed code</source>
+      <translation>Cod pentru embed sistem conversatii</translation>
+    </message>
+    <message>
       <source>Chatbox embed code</source>
       <translation>Cod pentru embed fereastra de conversatii</translation>
+    </message>
+    <message>
+      <source>Mail settings</source>
+      <translation>Setari email</translation>
     </message>
     <message>
       <source>FAQ embed code</source>
@@ -3302,8 +3354,16 @@
       <translation>Lista fisierelor</translation>
     </message>
     <message>
+      <source>GEO adjustment</source>
+      <translation>Ajustare localizare GEO</translation>
+    </message>
+    <message>
       <source>Maintenance</source>
       <translation>Mentenanta</translation>
+    </message>
+    <message>
+      <source>Update information</source>
+      <translation>Informatii actualizate</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -3368,16 +3428,16 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
+      <source>Clean cache</source>
+      <translation>Curata memoria cache</translation>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>Gol...</translation>
     </message>
     <message>
       <source>Assigned operator</source>
       <translation>Operator activ</translation>
-    </message>
-    <message>
-      <source>Clean cache</source>
-      <translation>Curata memoria cache</translation>
     </message>
     <message>
       <source>Home</source>
@@ -3432,16 +3492,16 @@
       <translation>Meniu</translation>
     </message>
     <message>
+      <source>Extra modules</source>
+      <translation>Module extra</translation>
+    </message>
+    <message>
       <source>Chats list</source>
       <translation>Lista de conversatii</translation>
     </message>
     <message>
       <source>Online visitors</source>
       <translation>Vizitatoritori online</translation>
-    </message>
-    <message>
-      <source>Extra modules</source>
-      <translation>Module extra</translation>
     </message>
     <message>
       <source>Account</source>
@@ -6839,6 +6899,49 @@
     </message>
     <message>
       <source>Permissions were not provided</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>users/autologin</name>
+    <message>
+      <source>Auto login settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This module can be used if you are generating autologin link. See site for code examples</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Secret hash used for authentification token generation, min 10 characters</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Autologin hash has expired</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not find a user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not find a provided user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid autologin hash</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Auto login module is not enabled</source>
       <translation type="unfinished"/>
     </message>
   </context>

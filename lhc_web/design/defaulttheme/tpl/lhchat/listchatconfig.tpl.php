@@ -1,4 +1,4 @@
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Chat configuration');?></h1>
+<?php include(erLhcoreClassDesign::designtpl('lhchat/lists_titles/listchatconfig.tpl.php'));?>
 
 <?php if (isset($updated) && $updated == 'done') : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Settings updated'); ?>
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>

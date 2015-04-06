@@ -66,6 +66,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>socket.io path, optional</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>NodeJS support enabled</source>
       <translation type="unfinished"/>
     </message>
@@ -327,6 +331,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Main widget text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Custom CSS</source>
       <translation type="unfinished"/>
     </message>
@@ -444,6 +452,26 @@
     </message>
     <message>
       <source>Need help text color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then user starts chat based on proactive invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then operator closes a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then user starts a chat and is waiting for operator to join a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text then user starts a chat but department is offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Leave a message form text</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -823,16 +851,16 @@
       <translation>ช่วยให้เราเติบโต</translation>
     </message>
     <message>
+      <source>Embed code</source>
+      <translation>ฝังรหัส</translation>
+    </message>
+    <message>
       <source>Widget embed code</source>
       <translation>เครื่องมือฝังรหัส</translation>
     </message>
     <message>
       <source>Page embed code</source>
       <translation>หน้าฝังรหัส</translation>
-    </message>
-    <message>
-      <source>Embed code</source>
-      <translation>ฝังรหัส</translation>
     </message>
     <message>
       <source>Set default speech recognition language</source>
@@ -1591,6 +1619,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Choose other than default recognition language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transfer chat</source>
+      <translation>โอนย้ายแชท</translation>
+    </message>
+    <message>
       <source>Footprint</source>
       <translation>รอยเท้า</translation>
     </message>
@@ -1643,10 +1679,6 @@
       <translation>ลบการสนทนา</translation>
     </message>
     <message>
-      <source>Transfer chat</source>
-      <translation>โอนย้ายแชท</translation>
-    </message>
-    <message>
       <source>Mail was send</source>
       <translation type="unfinished"/>
     </message>
@@ -1668,10 +1700,6 @@
     </message>
     <message>
       <source>Redirect user to another url</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose other than default recognition language</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1767,10 +1795,6 @@
       <translation>ส่ง</translation>
     </message>
     <message>
-      <source>Send delayed canned message instantly</source>
-      <translation>ส่งกระป๋องความล่าช้าได้ทันที</translation>
-    </message>
-    <message>
       <source>Reopen chat</source>
       <translation>เปิดสนทนา</translation>
     </message>
@@ -1781,6 +1805,10 @@
     <message>
       <source>Fill textarea with canned message</source>
       <translation>เติมพื้นที่ข้อความกับข้อความที่บรรจุกระป๋อง</translation>
+    </message>
+    <message>
+      <source>Send delayed canned message instantly</source>
+      <translation>ส่งกระป๋องความล่าช้าได้ทันที</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -1921,6 +1949,10 @@
   <context>
     <name>files/files</name>
     <message>
+      <source>Download file</source>
+      <translation>ดาวน์โหลดไฟล์</translation>
+    </message>
+    <message>
       <source>Refresh</source>
       <translation>รีเฟรช</translation>
     </message>
@@ -1929,8 +1961,12 @@
       <translation>ลบแฟ้ม</translation>
     </message>
     <message>
-      <source>Download file</source>
-      <translation>ดาวน์โหลดไฟล์</translation>
+      <source>Sent by Customer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sent by Operator</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Drop your files here.</source>
@@ -2165,6 +2201,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>พิมพ์ข้อความ และป้อนตีส่ง...</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>ส่ง</translation>
+    </message>
+    <message>
       <source>Department is offline</source>
       <translation type="unfinished"/>
     </message>
@@ -2179,14 +2223,6 @@
     <message>
       <source>characters</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>พิมพ์ข้อความ และป้อนตีส่ง...</translation>
-    </message>
-    <message>
-      <source>Send</source>
-      <translation>ส่ง</translation>
     </message>
     <message>
       <source>Personal assistant</source>
@@ -2263,6 +2299,10 @@
     <message>
       <source>is required</source>
       <translation>จำเป็นต้องมี</translation>
+    </message>
+    <message>
+      <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Invalid file extension</source>
@@ -2628,6 +2668,14 @@
   <context>
     <name>chat/onlineusers</name>
     <message>
+      <source>Status</source>
+      <translation>สถานะ</translation>
+    </message>
+    <message>
+      <source>No one has sent a message to the user yet</source>
+      <translation>ไม่ได้ส่งข้อความไปยังผู้ใช้ยัง</translation>
+    </message>
+    <message>
       <source>GEO detection configuration</source>
       <translation>กำหนดค่าตรวจสอบ GEO</translation>
     </message>
@@ -2980,12 +3028,28 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Status</source>
-      <translation>สถานะ</translation>
-    </message>
-    <message>
       <source>Action</source>
       <translation>การดำเนินการ</translation>
+    </message>
+    <message>
+      <source>User has not seen a message from the operator, or the message window is still open.</source>
+      <translation>ผู้ใช้ยังไม่เห็นข้อความจากตัวดำเนินการ หรือหน้าต่างข้อความยังคงเปิดอยู่</translation>
+    </message>
+    <message>
+      <source>Seen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unseen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User has seen the message from the operator.</source>
+      <translation>ผู้ใช้ได้เห็นข้อความจากตัวดำเนินการ</translation>
+    </message>
+    <message>
+      <source>User does not have any messages from the operator</source>
+      <translation>ผู้ใช้ที่มีข้อความใด ๆ จากตัวดำเนินการ</translation>
     </message>
     <message>
       <source>first visit</source>
@@ -2996,24 +3060,20 @@
       <translation>เยี่ยมชมล่าสุด</translation>
     </message>
     <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Returning</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>has sent a message to the user</source>
       <translation>ส่งข้อความไปยังผู้ใช้</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>ไม่ได้ส่งข้อความไปยังผู้ใช้ยัง</translation>
-    </message>
-    <message>
-      <source>User has not seen a message from the operator, or the message window is still open.</source>
-      <translation>ผู้ใช้ยังไม่เห็นข้อความจากตัวดำเนินการ หรือหน้าต่างข้อความยังคงเปิดอยู่</translation>
-    </message>
-    <message>
-      <source>User has seen the message from the operator.</source>
-      <translation>ผู้ใช้ได้เห็นข้อความจากตัวดำเนินการ</translation>
-    </message>
-    <message>
-      <source>User does not have any messages from the operator</source>
-      <translation>ผู้ใช้ที่มีข้อความใด ๆ จากตัวดำเนินการ</translation>
     </message>
     <message>
       <source>Files upload for users is active</source>
@@ -3182,14 +3242,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Update information</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Mail settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>E-mail templates</source>
       <translation>แม่แบบอีเมล</translation>
     </message>
@@ -3210,10 +3262,6 @@
       <translation>รายการของบทบาท</translation>
     </message>
     <message>
-      <source>Live help embed code</source>
-      <translation>สดช่วยฝังรหัส</translation>
-    </message>
-    <message>
       <source>Departments</source>
       <translation>แผนก</translation>
     </message>
@@ -3222,24 +3270,12 @@
       <translation>การกำหนดค่าแชท</translation>
     </message>
     <message>
-      <source>GEO detection configuration</source>
-      <translation>กำหนดค่าตรวจสอบ GEO</translation>
-    </message>
-    <message>
-      <source>GEO adjustment</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Synchronization and sound settings</source>
       <translation>การตั้งค่าการซิงโครไนส์และเสียง</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
       <translation>เริ่มต้นการตั้งค่าแบบฟอร์มสนทนา</translation>
-    </message>
-    <message>
-      <source>Auto responder</source>
-      <translation>ผู้ตอบสนองโดยอัตโนมัติ</translation>
     </message>
     <message>
       <source>XMPP settings</source>
@@ -3270,6 +3306,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>GEO detection configuration</source>
+      <translation>กำหนดค่าตรวจสอบ GEO</translation>
+    </message>
+    <message>
+      <source>Auto responder</source>
+      <translation>ผู้ตอบสนองโดยอัตโนมัติ</translation>
+    </message>
+    <message>
       <source>Blocked users</source>
       <translation>ผู้ใช้ที่ถูกบล็อค</translation>
     </message>
@@ -3282,8 +3326,16 @@
       <translation>ข้อความที่บรรจุกระป๋อง</translation>
     </message>
     <message>
+      <source>Live help embed code</source>
+      <translation>สดช่วยฝังรหัส</translation>
+    </message>
+    <message>
       <source>Chatbox embed code</source>
       <translation>Chatbox ฝังรหัส</translation>
+    </message>
+    <message>
+      <source>Mail settings</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>FAQ embed code</source>
@@ -3302,7 +3354,15 @@
       <translation>รายการของแฟ้ม</translation>
     </message>
     <message>
+      <source>GEO adjustment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Maintenance</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update information</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3368,16 +3428,16 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
+      <source>Clean cache</source>
+      <translation>ดีแคช</translation>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>ว่างเปล่า...</translation>
     </message>
     <message>
       <source>Assigned operator</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Clean cache</source>
-      <translation>ดีแคช</translation>
     </message>
     <message>
       <source>Home</source>
@@ -3432,16 +3492,16 @@
       <translation>เมนู</translation>
     </message>
     <message>
+      <source>Extra modules</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chats list</source>
       <translation>รายการสนทนา</translation>
     </message>
     <message>
       <source>Online visitors</source>
       <translation>ผู้เยี่ยมชมออนไลน์</translation>
-    </message>
-    <message>
-      <source>Extra modules</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Account</source>
@@ -6839,6 +6899,49 @@
     </message>
     <message>
       <source>Permissions were not provided</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>users/autologin</name>
+    <message>
+      <source>Auto login settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This module can be used if you are generating autologin link. See site for code examples</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Secret hash used for authentification token generation, min 10 characters</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Autologin hash has expired</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not find a user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not find a provided user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid autologin hash</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Auto login module is not enabled</source>
       <translation type="unfinished"/>
     </message>
   </context>

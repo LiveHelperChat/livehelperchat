@@ -75,6 +75,7 @@ try {
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'userchat';
 $Result['is_sync_required'] = true;
+$Result['dynamic_height'] = true;
 
 $Result['path'] = array(array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Chat started')))
 

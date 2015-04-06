@@ -23,6 +23,7 @@
 <?php if (isset($Result['dynamic_height'])) : ?>
 <script>
 var wasFocused = false;
+lhinst.isWidgetMode = true;
 $('input[type="text"]').first().click(function(){if (wasFocused == false){wasFocused=true;$(this).select().focus();}});
 $('textarea').first().click(function(){if (wasFocused == false){wasFocused=true;$(this).select();}});
 if (!!window.postMessage) {

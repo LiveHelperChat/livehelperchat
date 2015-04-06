@@ -20,7 +20,7 @@
 	    <hr>
 
 		<h2><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Assigned functions');?></h2>
-		<table class="table" cellpadding="0" cellspacing="0">
+		<table class="table">
 		<thead>
 		<tr>
 		     <th width="1%">&nbsp;</th>

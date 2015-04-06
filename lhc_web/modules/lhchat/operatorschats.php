@@ -47,5 +47,5 @@ $Result['path'] = array(
 array('url' =>erLhcoreClassDesign::baseurl('chat/lists'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closedchats','Chats list')),
 array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorschats','Operators chats')));
 
-
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.operatorschats_path',array('result' => & $Result));
 ?>

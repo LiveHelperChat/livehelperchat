@@ -7,8 +7,13 @@ header("Content-type: text/css", true);
  * This script is required if LHC is hosted on HTTPS but site itself is hosted on HTTP, because browser forbids downloading content from insecure site except images
  * themself
  * */
-$chat = erLhcoreClassChat::getSession()->load('erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
-$browse = erLhcoreClassCoBrowse::getBrowseInstance($chat);
+if ($Params['user_parameters_unordered']['cobrowsemode'] == 'onlineuser'){
+    $ouser = erLhcoreClassModelChatOnlineUser::fetch($Params['user_parameters']['chat_id']);
+    $browse = erLhcoreClassCoBrowse::getBrowseInstanceByOnlineUser($ouser);
+} else {
+    $chat = erLhcoreClassChat::getSession()->load('erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
+    $browse = erLhcoreClassCoBrowse::getBrowseInstance($chat);
+}
 
 $url = parse_url($_GET['base']);
 

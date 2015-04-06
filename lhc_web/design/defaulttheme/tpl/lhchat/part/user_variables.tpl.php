@@ -9,21 +9,21 @@ foreach ($input_data->name_items as $item) : ?>
 	<input type="hidden" name="name_items[]" value="<?php echo htmlspecialchars($item)?>" />
 <?php endforeach;?>
 
-<?php foreach ($input_data->value_sizes as $item) : ?>
+<?php if (isset($input_data->value_sizes)) : foreach ($input_data->value_sizes as $item) : ?>
 	<input type="hidden" name="value_sizes[]" value="<?php echo htmlspecialchars($item)?>" />
-<?php endforeach;?>
+<?php endforeach;endif;?>
 
-<?php foreach ($input_data->values_req as $item) : ?>
+<?php if (isset($input_data->values_req)) : foreach ($input_data->values_req as $item) : ?>
 	<input type="hidden" name="values_req[]" value="<?php echo htmlspecialchars($item)?>" />
-<?php endforeach;?>
+<?php endforeach;endif;?>
 
-<?php foreach ($input_data->value_show as $item) : ?>
+<?php if (isset($input_data->value_show)) : foreach ($input_data->value_show as $item) : ?>
 	<input type="hidden" name="value_show[]" value="<?php echo htmlspecialchars($item)?>" />
-<?php endforeach;?>
+<?php endforeach;endif;?>
 
-<?php foreach ($input_data->hattr as $item) : ?>
+<?php if (isset($input_data->hattr)) : foreach ($input_data->hattr as $item) : ?>
 	<input type="hidden" name="hattr[]" value="<?php echo htmlspecialchars($item)?>" />
-<?php endforeach;?>
+<?php endforeach;endif;?>
 
 <?php
 $hasVisibleField = false;

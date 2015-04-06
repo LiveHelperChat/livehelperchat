@@ -1,4 +1,4 @@
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Start a chat form settings');?></h1>
+<?php include(erLhcoreClassDesign::designtpl('lhchat/lists_titles/startchatformsettings.tpl.php'));?>
 
 <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','At least one field has to be visible and required in the popup and page widget');?></p>
 

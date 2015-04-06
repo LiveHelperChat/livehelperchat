@@ -32,7 +32,12 @@ $inputData->name_items = array();
 $inputData->value_items = array();
 $inputData->value_types = array();
 $inputData->value_sizes = array();
+$inputData->ua = $Params['user_parameters_unordered']['ua'];
 $inputData->hattr = array();
+
+if ((string)$Params['user_parameters_unordered']['vid'] != '') {
+    $inputData->vid = (string)$Params['user_parameters_unordered']['vid'];
+}
 
 // Assign department instantly
 if ($inputData->departament_id > 0) {
@@ -441,6 +446,7 @@ if (isset($_POST['r']))
 	$tpl->set('referer_site',$_POST['r']);
 }
 
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.readoperatormessage',array('tpl' => $tpl, 'params' => & $Params));
 
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'widget';
