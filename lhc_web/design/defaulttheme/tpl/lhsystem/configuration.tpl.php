@@ -18,6 +18,8 @@
         <?php endif; ?>
         
         <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_tabs/speech.tpl.php'));?>
+        
+        <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_tabs/tab_multiinclude.tpl.php'));?>
 	</ul>
 
 	<div class="tab-content">
@@ -163,5 +165,7 @@
     
     <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_tabs_content/speech.tpl.php'));?>
     
+    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_tabs/tab_content_multiinclude.tpl.php'));?>
+     
     </div>    
 </div>
