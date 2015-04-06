@@ -6,6 +6,7 @@ $ott = '';
 $ru = '';
 
 $tpl = erLhcoreClassTemplate::getInstance('lhchat/checkchatstatus.tpl.php');
+$tpl->set('theme',false);
 
 if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
     try {
