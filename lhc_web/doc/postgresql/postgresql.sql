@@ -515,10 +515,13 @@ CREATE TABLE "lh_departament" (
     "active_balancing" smallint NOT NULL,
     "max_active_chats" integer NOT NULL,
     "max_timeout_seconds" integer NOT NULL,
+    "attr_int_1" integer NOT NULL,
+    "attr_int_2" integer NOT NULL,
+    "attr_int_3" integer NOT NULL,
     PRIMARY KEY ("id")
 );
 
-INSERT INTO "lh_departament" VALUES (1,'Support','','','',0,0,0,0,0,0,0,0,'',0,0,0,0,0,0,0,0,0,0,'',0,0,0,0,0,0,0);
+INSERT INTO "lh_departament" VALUES (1,'Support','','','',0,0,0,0,0,0,0,0,'',0,0,0,0,0,0,0,0,0,0,'',0,0,0,0,0,0,0,0,0,0);
 
 CREATE TABLE "lh_abstract_browse_offer_invitation" (
   "id" integer NOT NULL,
@@ -982,5 +985,8 @@ CREATE INDEX form_id ON lh_abstract_form_collected USING btree (form_id);
 CREATE INDEX chat_id ON lh_cobrowse USING btree (chat_id);
 CREATE INDEX lh_cobrowse_online_user_id ON lh_cobrowse USING btree (online_user_id);
 CREATE INDEX lh_group_disabled ON lh_group USING btree (disabled);
+CREATE INDEX lh_departament_attr_int_1 ON lh_departament USING btree (attr_int_1);
+CREATE INDEX lh_departament_attr_int_2 ON lh_departament USING btree (attr_int_2);
+CREATE INDEX lh_departament_attr_int_3 ON lh_departament USING btree (attr_int_3);
 
 COMMIT;
