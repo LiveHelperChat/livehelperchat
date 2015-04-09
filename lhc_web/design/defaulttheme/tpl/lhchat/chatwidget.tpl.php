@@ -98,6 +98,9 @@ if ($theme !== false && $theme->explain_text != '') : ?>
 <?php endif; ?>
 <?php else : $hasExtraField = true; endif; ?>
 
+<?php $adminCustomFieldsMode = 'on';?>
+<?php include(erLhcoreClassDesign::designtpl('lhchat/part/admin_form_variables.tpl.php'));?>
+
 <?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/user_variables.tpl.php'));?>
 
 <?php if ($department === false) : ?>

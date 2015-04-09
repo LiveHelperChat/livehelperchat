@@ -66,6 +66,9 @@
 	<?php endif; ?>
 	<?php endif; ?>
 	
+	<?php $adminCustomFieldsMode = 'off';?>
+    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/admin_form_variables.tpl.php'));?>
+
 	<?php $modeUserVariables = 'off'; ?>
 	<?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/user_variables.tpl.php'));?>
 

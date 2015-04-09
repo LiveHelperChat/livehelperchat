@@ -78,7 +78,10 @@
 	<?php endif; ?>
 <?php endif; ?>
 
-<?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/user_variables.tpl.php'));?>
+<?php $adminCustomFieldsMode = 'on';?>
+<?php include(erLhcoreClassDesign::designtpl('lhchat/part/admin_form_variables.tpl.php'));?>
+
+<?php include(erLhcoreClassDesign::designtpl('lhchat/part/user_variables.tpl.php'));?>
 
 <?php include(erLhcoreClassDesign::designtpl('lhchat/part/user_timezone.tpl.php'));?>
 

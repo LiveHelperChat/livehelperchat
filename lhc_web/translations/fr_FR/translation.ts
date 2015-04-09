@@ -151,7 +151,7 @@
     </message>
     <message>
       <source>Home page tabs order</source>
-      <translation type="unfinished"/>
+      <translation>Ordre des onglets de la page principale</translation>
     </message>
     <message>
       <source>Is visitor e-mail required for FAQ</source>
@@ -412,7 +412,7 @@
     </message>
     <message>
       <source>Header height (px)</source>
-      <translation type="unfinished"/>
+      <translation>Hauteur de l&apos;entête (px)</translation>
     </message>
     <message>
       <source>Header padding (px)</source>
@@ -420,7 +420,7 @@
     </message>
     <message>
       <source>Site URL</source>
-      <translation type="unfinished"/>
+      <translation>URL du site</translation>
     </message>
     <message>
       <source>Text above start chat form fields</source>
@@ -695,6 +695,10 @@
   <context>
     <name>system/htmlcode</name>
     <message>
+      <source>Popup window size</source>
+      <translation>Taille de la fenêtre popup</translation>
+    </message>
+    <message>
       <source>HTML code</source>
       <translation>Code HTML</translation>
     </message>
@@ -871,6 +875,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>General</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Design</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide status when offline</source>
       <translation>Masquer le statut si hors ligne</translation>
     </message>
@@ -915,12 +927,36 @@
       <translation>Désactiver les invitations pro actives, utile si vous voulez les désactiver de la partie du site.</translation>
     </message>
     <message>
-      <source>Popup window size</source>
-      <translation>Taille de la fenêtre popup</translation>
+      <source>Minimize action, applies only if status widget is at the bottom</source>
+      <translation>Action minimiser, s&apos;applique uniquement si le widget de statut est en bas</translation>
+    </message>
+    <message>
+      <source>Keep where it was</source>
+      <translation>Garder où c&apos;était</translation>
+    </message>
+    <message>
+      <source>Minimize to bottom of the screen</source>
+      <translation>Minimisez au bas de l&apos;écran</translation>
+    </message>
+    <message>
+      <source>Native placement - it will be shown where the html is embedded</source>
+      <translation>Placement d&apos;origine - affiché où le html est intégré</translation>
+    </message>
+    <message>
+      <source>Invisible, only JS API will be included</source>
+      <translation>Invisible, seule l&apos;API JS sera incluse</translation>
+    </message>
+    <message>
+      <source>Popup window width</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Popup window width in pixels</source>
       <translation>Largeur de la fenêtre popup en pixels</translation>
+    </message>
+    <message>
+      <source>height</source>
+      <translation>hauteur</translation>
     </message>
     <message>
       <source>Popup window height in pixels</source>
@@ -935,32 +971,8 @@
       <translation>Largeur du widget en pixels</translation>
     </message>
     <message>
-      <source>height</source>
-      <translation>hauteur</translation>
-    </message>
-    <message>
       <source>Widget height in pixels</source>
       <translation>Hauteur du widget en pixels</translation>
-    </message>
-    <message>
-      <source>Native placement - it will be shown where the html is embedded</source>
-      <translation>Placement d&apos;origine - affiché où le html est intégré</translation>
-    </message>
-    <message>
-      <source>Invisible, only JS API will be included</source>
-      <translation>Invisible, seule l&apos;API JS sera incluse</translation>
-    </message>
-    <message>
-      <source>Minimize action, applies only if status widget is at the bottom</source>
-      <translation>Action minimiser, s&apos;applique uniquement si le widget de statut est en bas</translation>
-    </message>
-    <message>
-      <source>Keep where it was</source>
-      <translation>Garder où c&apos;était</translation>
-    </message>
-    <message>
-      <source>Minimize to bottom of the screen</source>
-      <translation>Minimisez au bas de l&apos;écran</translation>
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>
@@ -1788,7 +1800,7 @@
     </message>
     <message>
       <source>Notes</source>
-      <translation type="unfinished"/>
+      <translation>Notes</translation>
     </message>
     <message>
       <source>Send</source>
@@ -1831,11 +1843,11 @@
     </message>
     <message>
       <source>Auto translate</source>
-      <translation type="unfinished"/>
+      <translation>Traduction automatique</translation>
     </message>
     <message>
       <source>Translating</source>
-      <translation type="unfinished"/>
+      <translation>Traduction</translation>
     </message>
     <message>
       <source>Automatically detected</source>
@@ -1855,7 +1867,7 @@
     </message>
     <message>
       <source>Translated text</source>
-      <translation type="unfinished"/>
+      <translation>Texte traduit</translation>
     </message>
     <message>
       <source>Detected language</source>
@@ -1867,7 +1879,7 @@
     </message>
     <message>
       <source>Translate</source>
-      <translation type="unfinished"/>
+      <translation>Traduire</translation>
     </message>
     <message>
       <source>Enable translation service</source>
@@ -1875,11 +1887,11 @@
     </message>
     <message>
       <source>Bing</source>
-      <translation type="unfinished"/>
+      <translation>Bing</translation>
     </message>
     <message>
       <source>Google</source>
-      <translation type="unfinished"/>
+      <translation>Google</translation>
     </message>
     <message>
       <source>Use Bing service</source>
@@ -1962,11 +1974,11 @@
     </message>
     <message>
       <source>Sent by Customer</source>
-      <translation type="unfinished"/>
+      <translation>Envoyé par le client</translation>
     </message>
     <message>
       <source>Sent by Operator</source>
-      <translation type="unfinished"/>
+      <translation>Envoyé par l&apos;opérateur</translation>
     </message>
     <message>
       <source>Drop your files here.</source>
@@ -2119,7 +2131,7 @@
     </message>
     <message>
       <source>SMTP</source>
-      <translation type="unfinished"/>
+      <translation>SMTP</translation>
     </message>
   </context>
   <context>
@@ -2925,7 +2937,7 @@
     </message>
     <message>
       <source>Online visitors list</source>
-      <translation type="unfinished"/>
+      <translation>Liste des visiteurs en ligne</translation>
     </message>
     <message>
       <source>Online users on map</source>

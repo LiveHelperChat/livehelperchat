@@ -695,6 +695,10 @@
   <context>
     <name>system/htmlcode</name>
     <message>
+      <source>Popup window size</source>
+      <translation>Dimensiunea de fereastra pop-up</translation>
+    </message>
+    <message>
       <source>HTML code</source>
       <translation>Codul HTML</translation>
     </message>
@@ -871,6 +875,14 @@
       <translation>Limba vorbire</translation>
     </message>
     <message>
+      <source>General</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Design</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide status when offline</source>
       <translation>Ascunde starea când offline</translation>
     </message>
@@ -915,12 +927,36 @@
       <translation>Dezactivaţi pro activ invitatii, util dacă doriţi să dezactivaţi-le din partea site-ului.</translation>
     </message>
     <message>
-      <source>Popup window size</source>
-      <translation>Dimensiunea de fereastra pop-up</translation>
+      <source>Minimize action, applies only if status widget is at the bottom</source>
+      <translation>Minimiza de acţiune, se aplică numai în cazul în care statutul widget-ul este în partea de jos</translation>
+    </message>
+    <message>
+      <source>Keep where it was</source>
+      <translation>Păstraţi în cazul în care a fost</translation>
+    </message>
+    <message>
+      <source>Minimize to bottom of the screen</source>
+      <translation>Minimizare la partea de jos a ecranului</translation>
+    </message>
+    <message>
+      <source>Native placement - it will be shown where the html is embedded</source>
+      <translation>Plasarea nativ - va fi indicat în cazul în care este încorporat html</translation>
+    </message>
+    <message>
+      <source>Invisible, only JS API will be included</source>
+      <translation>Invizibil, doar JS API va fi inclus</translation>
+    </message>
+    <message>
+      <source>Popup window width</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Popup window width in pixels</source>
       <translation>Pop-up fereastra lăţimea în pixeli</translation>
+    </message>
+    <message>
+      <source>height</source>
+      <translation>înălțime</translation>
     </message>
     <message>
       <source>Popup window height in pixels</source>
@@ -935,32 +971,8 @@
       <translation>Widget lăţimea în pixeli</translation>
     </message>
     <message>
-      <source>height</source>
-      <translation>înălțime</translation>
-    </message>
-    <message>
       <source>Widget height in pixels</source>
       <translation>Widget inaltimea in pixeli</translation>
-    </message>
-    <message>
-      <source>Native placement - it will be shown where the html is embedded</source>
-      <translation>Plasarea nativ - va fi indicat în cazul în care este încorporat html</translation>
-    </message>
-    <message>
-      <source>Invisible, only JS API will be included</source>
-      <translation>Invizibil, doar JS API va fi inclus</translation>
-    </message>
-    <message>
-      <source>Minimize action, applies only if status widget is at the bottom</source>
-      <translation>Minimiza de acţiune, se aplică numai în cazul în care statutul widget-ul este în partea de jos</translation>
-    </message>
-    <message>
-      <source>Keep where it was</source>
-      <translation>Păstraţi în cazul în care a fost</translation>
-    </message>
-    <message>
-      <source>Minimize to bottom of the screen</source>
-      <translation>Minimizare la partea de jos a ecranului</translation>
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>

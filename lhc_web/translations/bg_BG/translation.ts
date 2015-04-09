@@ -695,6 +695,10 @@
   <context>
     <name>system/htmlcode</name>
     <message>
+      <source>Popup window size</source>
+      <translation>Размер на изкачащия прозорец</translation>
+    </message>
+    <message>
       <source>HTML code</source>
       <translation>HTML код</translation>
     </message>
@@ -871,6 +875,14 @@
       <translation>Език на разговор</translation>
     </message>
     <message>
+      <source>General</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Design</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide status when offline</source>
       <translation>Скрийте статуса, когато не сте на линия</translation>
     </message>
@@ -915,12 +927,36 @@
       <translation>Изключване на активните покани, полезно е, ако искате да ги изключите и от сайта</translation>
     </message>
     <message>
-      <source>Popup window size</source>
-      <translation>Размер на изкачащия прозорец</translation>
+      <source>Minimize action, applies only if status widget is at the bottom</source>
+      <translation>Действие при минимизиране, прилага се само ако модула е на дъното на прозореца</translation>
+    </message>
+    <message>
+      <source>Keep where it was</source>
+      <translation>Да остане където е</translation>
+    </message>
+    <message>
+      <source>Minimize to bottom of the screen</source>
+      <translation>Да се минимизира на дъното на прозореца</translation>
+    </message>
+    <message>
+      <source>Native placement - it will be shown where the html is embedded</source>
+      <translation>Местно позициониране - ще се покаже където html адреса е вграден</translation>
+    </message>
+    <message>
+      <source>Invisible, only JS API will be included</source>
+      <translation>Невидим, само JS API ще бъдат включени</translation>
+    </message>
+    <message>
+      <source>Popup window width</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Popup window width in pixels</source>
       <translation>Ширина на изкачащия прозорец в пиксели</translation>
+    </message>
+    <message>
+      <source>height</source>
+      <translation>Височина</translation>
     </message>
     <message>
       <source>Popup window height in pixels</source>
@@ -935,32 +971,8 @@
       <translation>Ширина на модула в пиксели</translation>
     </message>
     <message>
-      <source>height</source>
-      <translation>Височина</translation>
-    </message>
-    <message>
       <source>Widget height in pixels</source>
       <translation>Височина на модула в пиксели</translation>
-    </message>
-    <message>
-      <source>Native placement - it will be shown where the html is embedded</source>
-      <translation>Местно позициониране - ще се покаже където html адреса е вграден</translation>
-    </message>
-    <message>
-      <source>Invisible, only JS API will be included</source>
-      <translation>Невидим, само JS API ще бъдат включени</translation>
-    </message>
-    <message>
-      <source>Minimize action, applies only if status widget is at the bottom</source>
-      <translation>Действие при минимизиране, прилага се само ако модула е на дъното на прозореца</translation>
-    </message>
-    <message>
-      <source>Keep where it was</source>
-      <translation>Да остане където е</translation>
-    </message>
-    <message>
-      <source>Minimize to bottom of the screen</source>
-      <translation>Да се минимизира на дъното на прозореца</translation>
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>

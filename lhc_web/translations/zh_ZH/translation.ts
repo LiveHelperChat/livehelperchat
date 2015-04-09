@@ -695,6 +695,10 @@
   <context>
     <name>system/htmlcode</name>
     <message>
+      <source>Popup window size</source>
+      <translation>弹出窗口的大小</translation>
+    </message>
+    <message>
       <source>HTML code</source>
       <translation>HTML代码</translation>
     </message>
@@ -871,6 +875,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>General</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Design</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide status when offline</source>
       <translation>隐藏状态离线</translation>
     </message>
@@ -915,12 +927,36 @@
       <translation>禁用積極邀請，有用的，如果你想禁止他們從現場部分。</translation>
     </message>
     <message>
-      <source>Popup window size</source>
-      <translation>弹出窗口的大小</translation>
+      <source>Minimize action, applies only if status widget is at the bottom</source>
+      <translation>最小化操作，仅当状态插件位于页面底部时启用</translation>
+    </message>
+    <message>
+      <source>Keep where it was</source>
+      <translation>保持当前位置</translation>
+    </message>
+    <message>
+      <source>Minimize to bottom of the screen</source>
+      <translation>最小化到屏幕底部</translation>
+    </message>
+    <message>
+      <source>Native placement - it will be shown where the html is embedded</source>
+      <translation>母语的位置 - 它会显示HTML嵌入</translation>
+    </message>
+    <message>
+      <source>Invisible, only JS API will be included</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Popup window width</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Popup window width in pixels</source>
       <translation>弹出窗口的宽度像素</translation>
+    </message>
+    <message>
+      <source>height</source>
+      <translation>高度</translation>
     </message>
     <message>
       <source>Popup window height in pixels</source>
@@ -935,32 +971,8 @@
       <translation>插件宽度的像素</translation>
     </message>
     <message>
-      <source>height</source>
-      <translation>高度</translation>
-    </message>
-    <message>
       <source>Widget height in pixels</source>
       <translation>小工具以像素为单位的高度</translation>
-    </message>
-    <message>
-      <source>Native placement - it will be shown where the html is embedded</source>
-      <translation>母语的位置 - 它会显示HTML嵌入</translation>
-    </message>
-    <message>
-      <source>Invisible, only JS API will be included</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Minimize action, applies only if status widget is at the bottom</source>
-      <translation>最小化操作，仅当状态插件位于页面底部时启用</translation>
-    </message>
-    <message>
-      <source>Keep where it was</source>
-      <translation>保持当前位置</translation>
-    </message>
-    <message>
-      <source>Minimize to bottom of the screen</source>
-      <translation>最小化到屏幕底部</translation>
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>

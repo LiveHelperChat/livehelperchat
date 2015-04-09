@@ -135,9 +135,11 @@ $inputData->name_items = array();
 $inputData->value_items = array();
 $inputData->value_types = array();
 $inputData->value_sizes = array();
+$inputData->value_items_admin = array(); // These variables get's filled from start chat form settings
 $inputData->hattr = array();
 $inputData->hash_resume = false;
 $inputData->vid = false;
+
 
 // Perhaps it's direct argument
 if ((string)$Params['user_parameters_unordered']['hash_resume'] != '') {

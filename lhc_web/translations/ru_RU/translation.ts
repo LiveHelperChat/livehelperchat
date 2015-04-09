@@ -695,6 +695,10 @@
   <context>
     <name>system/htmlcode</name>
     <message>
+      <source>Popup window size</source>
+      <translation>Размер всплывающего окна</translation>
+    </message>
+    <message>
       <source>HTML code</source>
       <translation>HTML код</translation>
     </message>
@@ -871,6 +875,14 @@
       <translation>Диалект</translation>
     </message>
     <message>
+      <source>General</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Design</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide status when offline</source>
       <translation>Скрыть статус если оффлайн</translation>
     </message>
@@ -915,12 +927,36 @@
       <translation>Отключить проактивные приглашения (требуется только если Вы не хотите их использовать)</translation>
     </message>
     <message>
-      <source>Popup window size</source>
-      <translation>Размер всплывающего окна</translation>
+      <source>Minimize action, applies only if status widget is at the bottom</source>
+      <translation>Действие свернуть, применяется только если виджет находится внизу</translation>
+    </message>
+    <message>
+      <source>Keep where it was</source>
+      <translation>Оставить где было</translation>
+    </message>
+    <message>
+      <source>Minimize to bottom of the screen</source>
+      <translation>Минимизировать вниз экрана</translation>
+    </message>
+    <message>
+      <source>Native placement - it will be shown where the html is embedded</source>
+      <translation>Отображать виджет в там, где он встроен в HTML код</translation>
+    </message>
+    <message>
+      <source>Invisible, only JS API will be included</source>
+      <translation>Невидимо, только JS API будет включено</translation>
+    </message>
+    <message>
+      <source>Popup window width</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Popup window width in pixels</source>
       <translation>Ширина всплывающего окна в пикселях</translation>
+    </message>
+    <message>
+      <source>height</source>
+      <translation>Высота</translation>
     </message>
     <message>
       <source>Popup window height in pixels</source>
@@ -935,32 +971,8 @@
       <translation>Ширина виджета в пикселях</translation>
     </message>
     <message>
-      <source>height</source>
-      <translation>Высота</translation>
-    </message>
-    <message>
       <source>Widget height in pixels</source>
       <translation>Высота выбжета в пикселях</translation>
-    </message>
-    <message>
-      <source>Native placement - it will be shown where the html is embedded</source>
-      <translation>Отображать виджет в там, где он встроен в HTML код</translation>
-    </message>
-    <message>
-      <source>Invisible, only JS API will be included</source>
-      <translation>Невидимо, только JS API будет включено</translation>
-    </message>
-    <message>
-      <source>Minimize action, applies only if status widget is at the bottom</source>
-      <translation>Действие свернуть, применяется только если виджет находится внизу</translation>
-    </message>
-    <message>
-      <source>Keep where it was</source>
-      <translation>Оставить где было</translation>
-    </message>
-    <message>
-      <source>Minimize to bottom of the screen</source>
-      <translation>Минимизировать вниз экрана</translation>
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>

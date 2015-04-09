@@ -695,6 +695,10 @@
   <context>
     <name>system/htmlcode</name>
     <message>
+      <source>Popup window size</source>
+      <translation>ჩამოშლადი ფანჯრის ზომა</translation>
+    </message>
+    <message>
       <source>HTML code</source>
       <translation>HTML კოდი</translation>
     </message>
@@ -871,6 +875,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>General</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Design</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide status when offline</source>
       <translation>სტატუსის დამალვა როდესაც კავშირგარეშეა</translation>
     </message>
@@ -915,12 +927,36 @@
       <translation>პრო აქტიური მოწვევების გათიშვა, სასარგებლოა თუ  მათი გათიშვა გსურთ საიტის ნაწილიდან.</translation>
     </message>
     <message>
-      <source>Popup window size</source>
-      <translation>ჩამოშლადი ფანჯრის ზომა</translation>
+      <source>Minimize action, applies only if status widget is at the bottom</source>
+      <translation>მოქმედების მინიმიზაცია, გამოიყენება მხოლოდ მაშინ, თუ სტატუსის ვიდჯეტი არის ქვემოთ</translation>
+    </message>
+    <message>
+      <source>Keep where it was</source>
+      <translation>შეინარჩუნე, სადაც იყო</translation>
+    </message>
+    <message>
+      <source>Minimize to bottom of the screen</source>
+      <translation>მინიმიზაცია ეკრანის ქვემოთ</translation>
+    </message>
+    <message>
+      <source>Native placement - it will be shown where the html is embedded</source>
+      <translation>მშობლიური მდებარეობა- ეს ნაჩვენები იქნება როდესაც html არის ჩაშენებული</translation>
+    </message>
+    <message>
+      <source>Invisible, only JS API will be included</source>
+      <translation>უხილავი,   მხოლოდ JS API  იქნება ჩასმული</translation>
+    </message>
+    <message>
+      <source>Popup window width</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Popup window width in pixels</source>
       <translation>ჩამოშლადი ფანჯრის სიგანე პიქსელებში</translation>
+    </message>
+    <message>
+      <source>height</source>
+      <translation>სიმაღლე</translation>
     </message>
     <message>
       <source>Popup window height in pixels</source>
@@ -935,32 +971,8 @@
       <translation>ვიჯეტის სიგანე პიქსელებში</translation>
     </message>
     <message>
-      <source>height</source>
-      <translation>სიმაღლე</translation>
-    </message>
-    <message>
       <source>Widget height in pixels</source>
       <translation>ვიჯეტის სიმაღლე პიქსელებში</translation>
-    </message>
-    <message>
-      <source>Native placement - it will be shown where the html is embedded</source>
-      <translation>მშობლიური მდებარეობა- ეს ნაჩვენები იქნება როდესაც html არის ჩაშენებული</translation>
-    </message>
-    <message>
-      <source>Invisible, only JS API will be included</source>
-      <translation>უხილავი,   მხოლოდ JS API  იქნება ჩასმული</translation>
-    </message>
-    <message>
-      <source>Minimize action, applies only if status widget is at the bottom</source>
-      <translation>მოქმედების მინიმიზაცია, გამოიყენება მხოლოდ მაშინ, თუ სტატუსის ვიდჯეტი არის ქვემოთ</translation>
-    </message>
-    <message>
-      <source>Keep where it was</source>
-      <translation>შეინარჩუნე, სადაც იყო</translation>
-    </message>
-    <message>
-      <source>Minimize to bottom of the screen</source>
-      <translation>მინიმიზაცია ეკრანის ქვემოთ</translation>
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>

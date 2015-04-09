@@ -150,7 +150,27 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
         ),    		
         'HideMessageLabel' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
-        )    		
+        ),
+
+        // Custom fields from back office
+        'customFieldLabel' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY
+        ),
+        'customFieldType' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY
+        ),
+        'customFieldSize' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY
+        ),
+        'customFieldVisibility' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY
+        ),
+        'customFieldIsrequired' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY
+        ),
+        'customFieldDefaultValue' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY
+        ),
     );
 
     $form = new ezcInputForm( INPUT_POST, $definition );
@@ -436,6 +456,22 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
         $data['offline_message_require_option'] = 'required';
     }
     
+    if ( $form->hasValidData( 'customFieldType' ) && !empty($form->customFieldType)) {        
+        $customFields = array();
+        foreach ($form->customFieldType as $key => $customFieldType) {
+           $customFields[] = array(
+               'fieldname' => $form->customFieldLabel[$key],               
+               'defaultvalue' => $form->customFieldDefaultValue[$key],               
+               'fieldtype' => $customFieldType,               
+               'size' => $form->customFieldSize[$key],               
+               'visibility' => $form->customFieldVisibility[$key],               
+               'isrequired' => $form->customFieldIsrequired[$key],               
+           );
+        }
+        $data['custom_fields'] = json_encode($customFields,JSON_HEX_APOS);
+    } else {
+        $data['custom_fields'] = '';
+    }
     
     if ($data['message_visible_in_popup'] == true && $data['message_require_option'] == 'required') {
         $hasValidPopupData = true;
@@ -477,6 +513,7 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
 $tpl->set('start_chat_data',$data);
 
 $Result['content'] = $tpl->fetch();
+$Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.lhc.startchatformgenerator.js').'"></script>';
 
 $Result['path'] = array(array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','System configuration')),
 array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Start chat form settings')));
