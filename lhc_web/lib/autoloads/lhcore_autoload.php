@@ -35,6 +35,7 @@ return array_merge(array (
         'erLhcoreClassChat'         => 'lib/core/lhchat/lhchat.php',
 		'erLhcoreClassChatWorkflow' => 'lib/core/lhchat/lhchatworkflow.php',
         'erLhcoreClassChatValidator'=> 'lib/core/lhchat/lhchatvalidator.php',
+        'erLhcoreClassAdminChatValidatorHelper'=> 'lib/core/lhchat/lhchatadminvalidatorhelper.php',
 
 
         'erLhcoreClassBBCode'       => 'lib/core/lhbbcode/lhbbcode.php',
