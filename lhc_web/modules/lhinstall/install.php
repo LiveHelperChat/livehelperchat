@@ -999,8 +999,14 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `inform_options` varchar(250) NOT NULL,
 				  `online_hours_active` tinyint(1) NOT NULL,
 				  `inform_delay` int(11) NOT NULL,
+				  `attr_int_1` int(11) NOT NULL,
+				  `attr_int_2` int(11) NOT NULL,
+				  `attr_int_3` int(11) NOT NULL,
 				  PRIMARY KEY (`id`),
 				  KEY `identifier` (`identifier`),
+				  KEY `attr_int_1` (`attr_int_1`),
+				  KEY `attr_int_2` (`attr_int_2`),
+				  KEY `attr_int_3` (`attr_int_3`),
 				  KEY `disabled_hidden` (`disabled`, `hidden`),
 				  KEY `oha_sh_eh` (`online_hours_active`,`start_hour`,`end_hour`)
 				) DEFAULT CHARSET=utf8;");

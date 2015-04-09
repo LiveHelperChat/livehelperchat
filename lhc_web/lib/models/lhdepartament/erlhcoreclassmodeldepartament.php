@@ -36,7 +36,10 @@ class erLhcoreClassModelDepartament {
                'nc_cb_execute' 			=> $this->nc_cb_execute,
                'active_balancing' 		=> $this->active_balancing,
                'max_active_chats' 		=> $this->max_active_chats,
-               'max_timeout_seconds' 	=> $this->max_timeout_seconds
+               'max_timeout_seconds' 	=> $this->max_timeout_seconds,
+               'attr_int_1' 	        => $this->attr_int_1,
+               'attr_int_2' 	        => $this->attr_int_2,
+               'attr_int_3' 	        => $this->attr_int_3,
        );
    }
 
@@ -248,6 +251,9 @@ class erLhcoreClassModelDepartament {
     public $active_balancing = 0;
     public $max_active_chats = 0;
     public $max_timeout_seconds = 0;
+    public $attr_int_1 = 0;
+    public $attr_int_2 = 0;
+    public $attr_int_3 = 0;
     
     // 0 - disabled
     // > 0 - delay in seconds

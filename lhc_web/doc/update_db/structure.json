@@ -2628,6 +2628,30 @@
                 "key": "",
                 "default": null,
                 "extra": ""
+            },
+            {
+                "field": "attr_int_1",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": 0,
+                "extra": ""
+            },
+            {
+                "field": "attr_int_2",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": 0,
+                "extra": ""
+            },
+            {
+                "field": "attr_int_3",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": 0,
+                "extra": ""
             }
         ],
         "lh_faq": [
@@ -4781,6 +4805,14 @@
     	},
     	"lh_chat_file" : {
     		"new" : {"online_user_id" : "ALTER TABLE `lh_chat_file` ADD INDEX `online_user_id` (`online_user_id`)"},
+    		"old" : []
+    	},
+    	"lh_departament" : {
+    		"new" : {
+    			"attr_int_1" : "ALTER TABLE `lh_departament` ADD INDEX `attr_int_1` (`attr_int_1`)",
+    			"attr_int_2" : "ALTER TABLE `lh_departament` ADD INDEX `attr_int_2` (`attr_int_2`)",
+    			"attr_int_3" : "ALTER TABLE `lh_departament` ADD INDEX `attr_int_3` (`attr_int_3`)"
+    		},
     		"old" : []
     	}
     },
