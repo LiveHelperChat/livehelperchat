@@ -1046,10 +1046,6 @@
   <context>
     <name>chat/activechats</name>
     <message>
-      <source>Active chats list</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Information</source>
       <translation type="unfinished"/>
     </message>
@@ -1067,6 +1063,10 @@
     </message>
     <message>
       <source>Empty...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats list</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1262,10 +1262,6 @@
   <context>
     <name>chat/blockedusers</name>
     <message>
-      <source>Blocked users</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>IP</source>
       <translation type="unfinished"/>
     </message>
@@ -1283,6 +1279,10 @@
     </message>
     <message>
       <source>Empty...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Blocked users</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1307,10 +1307,6 @@
   </context>
   <context>
     <name>chat/cannedmsg</name>
-    <message>
-      <source>Canned messages</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>Message</source>
       <translation type="unfinished"/>
@@ -1344,10 +1340,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Edit canned message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Automatically send this message to user then chat is accepted</source>
       <translation type="unfinished"/>
     </message>
@@ -1357,6 +1349,14 @@
     </message>
     <message>
       <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Canned messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit canned message</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2373,10 +2373,6 @@
   <context>
     <name>chat/closedchats</name>
     <message>
-      <source>Closed chats list</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Information</source>
       <translation type="unfinished"/>
     </message>
@@ -2390,6 +2386,10 @@
     </message>
     <message>
       <source>Empty...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chats list</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2472,10 +2472,6 @@
   <context>
     <name>chat/geoadjustment</name>
     <message>
-      <source>GEO adjustment</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
       <translation type="unfinished"/>
     </message>
@@ -2517,6 +2513,10 @@
     </message>
     <message>
       <source>normal status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>GEO adjustment</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -3169,10 +3169,6 @@
   <context>
     <name>chat/listchatconfig</name>
     <message>
-      <source>Chat configuration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Notifications about new chats</source>
       <translation type="unfinished"/>
     </message>
@@ -3221,6 +3217,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chat configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>List chat configuration</source>
       <translation type="unfinished"/>
     </message>
@@ -3237,18 +3237,6 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>System</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Embed code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Live help configuration</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3280,43 +3268,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Chat configuration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Synchronization and sound settings</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Start chat form settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>XMPP settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chats list</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat archive</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Theming</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Widget themes</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Import new themes</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Default theme</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3340,7 +3296,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chat archive</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Live help embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats list</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3388,7 +3356,27 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Start chat form settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Theming</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget themes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Import new themes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default theme</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3397,6 +3385,18 @@
     </message>
     <message>
       <source>Speech</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live help configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>System</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3482,6 +3482,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Extra modules</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Browse offers</source>
       <translation type="unfinished"/>
     </message>
@@ -3503,10 +3507,6 @@
     </message>
     <message>
       <source>Menu</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Extra modules</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3779,6 +3779,82 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Custom fields generator, these fields will be visible in start chat forms</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Field label</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default value</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Type</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hidden</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visible on</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline and online form</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Size (between 1 and 12)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Is required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add a field</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>left</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>right</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visible only in offline form</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visible only in online form</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Size</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Remove</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Enable leave a message functionality automatically if there are no online operators</source>
       <translation type="unfinished"/>
     </message>
@@ -3792,6 +3868,10 @@
     </message>
     <message>
       <source>Additional form settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom fields</source>
       <translation type="unfinished"/>
     </message>
     <message>
