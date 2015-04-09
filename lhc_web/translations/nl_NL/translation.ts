@@ -695,6 +695,10 @@
   <context>
     <name>system/htmlcode</name>
     <message>
+      <source>Popup window size</source>
+      <translation>Grootte popup-scherm</translation>
+    </message>
+    <message>
       <source>HTML code</source>
       <translation>HTML code</translation>
     </message>
@@ -871,6 +875,14 @@
       <translation>Spreektaal</translation>
     </message>
     <message>
+      <source>General</source>
+      <translation>Algemeen</translation>
+    </message>
+    <message>
+      <source>Design</source>
+      <translation>Ontwerp</translation>
+    </message>
+    <message>
       <source>Hide status when offline</source>
       <translation>Verberg status wanneer offline</translation>
     </message>
@@ -915,12 +927,36 @@
       <translation>Schakel pro-actieve uitnodigingen uit, handig voor als je ze wilt uitschakelen vanaf de site-kant.</translation>
     </message>
     <message>
-      <source>Popup window size</source>
-      <translation>Grootte popup-scherm</translation>
+      <source>Minimize action, applies only if status widget is at the bottom</source>
+      <translation>Minimaliseer actie, alleen toepasbaar als de status widget beneden staat</translation>
+    </message>
+    <message>
+      <source>Keep where it was</source>
+      <translation>Laat staan waar het stond</translation>
+    </message>
+    <message>
+      <source>Minimize to bottom of the screen</source>
+      <translation>Minimaliseer naar de bodem van het scherm</translation>
+    </message>
+    <message>
+      <source>Native placement - it will be shown where the html is embedded</source>
+      <translation>Native positionering - het zal getoond worden waar de html geplaatst is</translation>
+    </message>
+    <message>
+      <source>Invisible, only JS API will be included</source>
+      <translation>Onzichtbaar, alleen JS API wordt bijgevoegd</translation>
+    </message>
+    <message>
+      <source>Popup window width</source>
+      <translation>Breedte van het popup scherm</translation>
     </message>
     <message>
       <source>Popup window width in pixels</source>
       <translation>Breedte popup-scherm in pixels</translation>
+    </message>
+    <message>
+      <source>height</source>
+      <translation>hoogte</translation>
     </message>
     <message>
       <source>Popup window height in pixels</source>
@@ -935,32 +971,8 @@
       <translation>Breedte widget in pixels</translation>
     </message>
     <message>
-      <source>height</source>
-      <translation>hoogte</translation>
-    </message>
-    <message>
       <source>Widget height in pixels</source>
       <translation>Hoogte widget in pixels</translation>
-    </message>
-    <message>
-      <source>Native placement - it will be shown where the html is embedded</source>
-      <translation>Native positionering - het zal getoond worden waar de html geplaatst is</translation>
-    </message>
-    <message>
-      <source>Invisible, only JS API will be included</source>
-      <translation>Onzichtbaar, alleen JS API wordt bijgevoegd</translation>
-    </message>
-    <message>
-      <source>Minimize action, applies only if status widget is at the bottom</source>
-      <translation>Minimaliseer actie, alleen toepasbaar als de status widget beneden staat</translation>
-    </message>
-    <message>
-      <source>Keep where it was</source>
-      <translation>Laat staan waar het stond</translation>
-    </message>
-    <message>
-      <source>Minimize to bottom of the screen</source>
-      <translation>Minimaliseer naar de bodem van het scherm</translation>
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>
@@ -2302,7 +2314,7 @@
     </message>
     <message>
       <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
-      <translation type="unfinished"/>
+      <translation>Uw aanvraag is niet succesvol behandeld, geen zorgen dit was een probleem vanuit ons. Probeer het alstublieft opnieuw. Mocht het nog niet lukken kunt u contact opnemen via een andere manier.</translation>
     </message>
     <message>
       <source>Invalid file extension</source>

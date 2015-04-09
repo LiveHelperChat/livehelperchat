@@ -695,6 +695,10 @@
   <context>
     <name>system/htmlcode</name>
     <message>
+      <source>Popup window size</source>
+      <translation>Kích thước cửa sổ popup</translation>
+    </message>
+    <message>
       <source>HTML code</source>
       <translation>Mã HTML </translation>
     </message>
@@ -871,6 +875,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>General</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Design</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide status when offline</source>
       <translation>Ẩn trạng thái khi offline</translation>
     </message>
@@ -915,12 +927,36 @@
       <translation>Vô hiệu hóa lời mời hoạt động chuyên nghiệp, hữu ích nếu bạn muốn vô hiệu hóa chúng từ một phần trang web. </translation>
     </message>
     <message>
-      <source>Popup window size</source>
-      <translation>Kích thước cửa sổ popup</translation>
+      <source>Minimize action, applies only if status widget is at the bottom</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Keep where it was</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimize to bottom of the screen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Native placement - it will be shown where the html is embedded</source>
+      <translation>Vị trí bản đồ - nó sẽ được hiển thị, nơi html được nhúng</translation>
+    </message>
+    <message>
+      <source>Invisible, only JS API will be included</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Popup window width</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Popup window width in pixels</source>
       <translation> Độ rộng cửa sổ Popup bằng pixel</translation>
+    </message>
+    <message>
+      <source>height</source>
+      <translation>cao</translation>
     </message>
     <message>
       <source>Popup window height in pixels</source>
@@ -935,32 +971,8 @@
       <translation>Tiện ích chiều rộng bằng pixel</translation>
     </message>
     <message>
-      <source>height</source>
-      <translation>cao</translation>
-    </message>
-    <message>
       <source>Widget height in pixels</source>
       <translation>Chiều cao tiện ích bằng pixel</translation>
-    </message>
-    <message>
-      <source>Native placement - it will be shown where the html is embedded</source>
-      <translation>Vị trí bản đồ - nó sẽ được hiển thị, nơi html được nhúng</translation>
-    </message>
-    <message>
-      <source>Invisible, only JS API will be included</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Minimize action, applies only if status widget is at the bottom</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Keep where it was</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Minimize to bottom of the screen</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>

@@ -695,6 +695,10 @@
   <context>
     <name>system/htmlcode</name>
     <message>
+      <source>Popup window size</source>
+      <translation>Tamanho da janela do popup</translation>
+    </message>
+    <message>
       <source>HTML code</source>
       <translation>Código HTML</translation>
     </message>
@@ -871,6 +875,14 @@
       <translation>Falar no idioma</translation>
     </message>
     <message>
+      <source>General</source>
+      <translation>Geral</translation>
+    </message>
+    <message>
+      <source>Design</source>
+      <translation>Design</translation>
+    </message>
+    <message>
       <source>Hide status when offline</source>
       <translation>Ocultar status quando offline</translation>
     </message>
@@ -915,12 +927,36 @@
       <translation>Desativar convites pró-ativos, útil se você quiser desativá-los de parte do site.</translation>
     </message>
     <message>
-      <source>Popup window size</source>
+      <source>Minimize action, applies only if status widget is at the bottom</source>
+      <translation>Ação minimizar, só se aplica se o widget está na parte inferior</translation>
+    </message>
+    <message>
+      <source>Keep where it was</source>
+      <translation>Manter onde estava</translation>
+    </message>
+    <message>
+      <source>Minimize to bottom of the screen</source>
+      <translation>Minimizar para a parte inferior da tela</translation>
+    </message>
+    <message>
+      <source>Native placement - it will be shown where the html is embedded</source>
+      <translation>Localização nativa - será mostrado onde o html é incorporado</translation>
+    </message>
+    <message>
+      <source>Invisible, only JS API will be included</source>
+      <translation>Invisível, somente JS API será incluída</translation>
+    </message>
+    <message>
+      <source>Popup window width</source>
       <translation>Tamanho da janela do popup</translation>
     </message>
     <message>
       <source>Popup window width in pixels</source>
       <translation>Largura da janela do popup em pixels</translation>
+    </message>
+    <message>
+      <source>height</source>
+      <translation>altura</translation>
     </message>
     <message>
       <source>Popup window height in pixels</source>
@@ -935,32 +971,8 @@
       <translation>Largura do widget em pixels</translation>
     </message>
     <message>
-      <source>height</source>
-      <translation>altura</translation>
-    </message>
-    <message>
       <source>Widget height in pixels</source>
       <translation>Altura do widget em pixels</translation>
-    </message>
-    <message>
-      <source>Native placement - it will be shown where the html is embedded</source>
-      <translation>Localização nativa - será mostrado onde o html é incorporado</translation>
-    </message>
-    <message>
-      <source>Invisible, only JS API will be included</source>
-      <translation>Invisível, somente JS API será incluída</translation>
-    </message>
-    <message>
-      <source>Minimize action, applies only if status widget is at the bottom</source>
-      <translation>Ação minimizar, só se aplica se o widget está na parte inferior</translation>
-    </message>
-    <message>
-      <source>Keep where it was</source>
-      <translation>Manter onde estava</translation>
-    </message>
-    <message>
-      <source>Minimize to bottom of the screen</source>
-      <translation>Minimizar para a parte inferior da tela</translation>
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>

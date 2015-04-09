@@ -34,6 +34,7 @@ $inputData->value_types = array();
 $inputData->value_sizes = array();
 $inputData->ua = $Params['user_parameters_unordered']['ua'];
 $inputData->hattr = array();
+$inputData->value_items_admin = array(); // These variables get's filled from start chat form settings
 
 if ((string)$Params['user_parameters_unordered']['vid'] != '') {
     $inputData->vid = (string)$Params['user_parameters_unordered']['vid'];
@@ -53,6 +54,10 @@ if ($userInstance->visitor_tz != '') {
 }
 
 $tpl->set('playsound',(string)$Params['user_parameters_unordered']['playsound'] == 'true' && !isset($_POST['askQuestion']) && erLhcoreClassModelChatConfig::fetch('sound_invitation')->current_value == 1);
+
+$startData = erLhcoreClassModelChatConfig::fetch('start_chat_data');
+$startDataFields = (array)$startData->data;
+
 
 $chat = new erLhcoreClassModelChat();
 
@@ -98,7 +103,14 @@ if (isset($_POST['askQuestion']))
 	$validationFields['value_sizes'] = new ezcInputFormDefinitionElement ( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY );
 	$validationFields['value_show'] = new ezcInputFormDefinitionElement ( ezcInputFormDefinitionElement::OPTIONAL, 'string', null, FILTER_REQUIRE_ARRAY );
 	$validationFields['hattr'] = new ezcInputFormDefinitionElement ( ezcInputFormDefinitionElement::OPTIONAL, 'string', null, FILTER_REQUIRE_ARRAY );
-    
+	// Custom start chat fields
+	$validationFields['value_items_admin'] = new ezcInputFormDefinitionElement(
+	    ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
+	    null,
+	    FILTER_REQUIRE_ARRAY
+	);
+	
+	
     if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
     	// Start session if required only
     	$currentUser = erLhcoreClassUser::instance();
@@ -149,6 +161,8 @@ if (isset($_POST['askQuestion']))
     	}
     }
     
+    $stringParts = array();
+    
     // validate and insert additional_data code in proactive chat
 	if ($form->hasValidData ( 'name_items' ) && ! empty ( $form->name_items )) {
 		$valuesArray = array ();
@@ -188,11 +202,37 @@ if (isset($_POST['askQuestion']))
 					'value' => (isset ( $valuesArray [$key] ) ? trim ( $valuesArray [$key] ) : '') 
 			);
 		}
-		
-		$chat->additional_data = json_encode ( $stringParts );
 	}
-
+		
+	// Admin custom fields
+	if (isset($startDataFields['custom_fields']) && $startDataFields['custom_fields'] != '') {
+	    $customAdminfields = json_decode($startDataFields['custom_fields'],true);
 	
+	    $valuesArray = array();
+	
+	    // Fill values if exists
+	    if ($form->hasValidData( 'value_items_admin' )){
+	        $inputData->value_items_admin = $valuesArray = $form->value_items_admin;
+	    }
+	
+	    if (is_array($customAdminfields)){
+	        foreach ($customAdminfields as $key => $adminField) {
+	
+	            if (isset($form->value_items_admin[$key]) && isset($adminField['isrequired']) && $adminField['isrequired'] == 'true' && ($adminField['visibility'] == 'all' || $adminField['visibility'] == 'on') && (!isset($valuesArray[$key]) || trim($valuesArray[$key]) == '')) {
+	                $Errors[] = trim($adminField['fieldname']).': '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','is required');
+	            }
+	
+	            if (isset($valuesArray[$key]) && $valuesArray[$key] != '') {
+	                $stringParts[] = array('key' => $adminField['fieldname'], 'value' => (isset($valuesArray[$key]) ? trim($valuesArray[$key]) : ''));
+	            }
+	        }
+	    }
+	}
+		
+	if (!empty($stringParts)) {
+	   $chat->additional_data = json_encode ( $stringParts );
+	}
+		
     if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
     	if ( !$form->hasValidData( $nameField ) || $form->$nameField == '' || $form->$nameField < time()-600 || $hashCaptcha != sha1($_SERVER['REMOTE_ADDR'].$form->$nameField.erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ))){
     		$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Invalid captcha code, please enable Javascript!');
@@ -346,6 +386,8 @@ if (isset($_POST['askQuestion']))
     }
 }
 
+$tpl->set('start_data_fields',$startDataFields);
+
 // User this only if not post
 if (!ezcInputForm::hasPostData()) {
 	$definition = array(
@@ -445,6 +487,9 @@ if (isset($_POST['r']))
 {
 	$tpl->set('referer_site',$_POST['r']);
 }
+
+
+
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.readoperatormessage',array('tpl' => $tpl, 'params' => & $Params));
 

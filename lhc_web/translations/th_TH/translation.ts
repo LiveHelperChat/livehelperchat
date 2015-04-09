@@ -695,6 +695,10 @@
   <context>
     <name>system/htmlcode</name>
     <message>
+      <source>Popup window size</source>
+      <translation>ขนาดหน้าต่างแบบผุดขึ้น</translation>
+    </message>
+    <message>
       <source>HTML code</source>
       <translation>โค้ด HTML</translation>
     </message>
@@ -871,6 +875,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>General</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Design</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide status when offline</source>
       <translation>ซ่อนสถานะเมื่อคุณออฟไลน์</translation>
     </message>
@@ -915,12 +927,36 @@
       <translation>ปิดใช้งาน pro เชิญ ประโยชน์ถ้าคุณต้องการปิดใช้งานจากเว็บไซต์ส่วน</translation>
     </message>
     <message>
-      <source>Popup window size</source>
-      <translation>ขนาดหน้าต่างแบบผุดขึ้น</translation>
+      <source>Minimize action, applies only if status widget is at the bottom</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Keep where it was</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimize to bottom of the screen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Native placement - it will be shown where the html is embedded</source>
+      <translation>แม่วาง - จะแสดงที่ html ถูกฝัง</translation>
+    </message>
+    <message>
+      <source>Invisible, only JS API will be included</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Popup window width</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Popup window width in pixels</source>
       <translation>ความกว้างของหน้าต่างแบบผุดขึ้นเป็นพิกเซล</translation>
+    </message>
+    <message>
+      <source>height</source>
+      <translation>ความสูง</translation>
     </message>
     <message>
       <source>Popup window height in pixels</source>
@@ -935,32 +971,8 @@
       <translation>เครื่องมือความกว้างเป็นพิกเซล</translation>
     </message>
     <message>
-      <source>height</source>
-      <translation>ความสูง</translation>
-    </message>
-    <message>
       <source>Widget height in pixels</source>
       <translation>เครื่องมือความสูงเป็นพิกเซล</translation>
-    </message>
-    <message>
-      <source>Native placement - it will be shown where the html is embedded</source>
-      <translation>แม่วาง - จะแสดงที่ html ถูกฝัง</translation>
-    </message>
-    <message>
-      <source>Invisible, only JS API will be included</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Minimize action, applies only if status widget is at the bottom</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Keep where it was</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Minimize to bottom of the screen</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>

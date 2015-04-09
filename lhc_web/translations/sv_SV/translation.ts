@@ -695,6 +695,10 @@
   <context>
     <name>system/htmlcode</name>
     <message>
+      <source>Popup window size</source>
+      <translation>Storlek popup ruta </translation>
+    </message>
+    <message>
       <source>HTML code</source>
       <translation>HTML kod</translation>
     </message>
@@ -871,6 +875,14 @@
       <translation>Talspråk</translation>
     </message>
     <message>
+      <source>General</source>
+      <translation>Allmänt</translation>
+    </message>
+    <message>
+      <source>Design</source>
+      <translation>Design</translation>
+    </message>
+    <message>
       <source>Hide status when offline</source>
       <translation>Göm status när ej tillgänglig</translation>
     </message>
@@ -915,12 +927,36 @@
       <translation>Avaktivera proaktiva inbjudningar, användbart om du vill avaktivera dem från webbplatsen.</translation>
     </message>
     <message>
-      <source>Popup window size</source>
-      <translation>Storlek popup ruta </translation>
+      <source>Minimize action, applies only if status widget is at the bottom</source>
+      <translation>Minimera handling, tillämpas endast om statuswidgeten är i botten</translation>
+    </message>
+    <message>
+      <source>Keep where it was</source>
+      <translation>Behåll där den var</translation>
+    </message>
+    <message>
+      <source>Minimize to bottom of the screen</source>
+      <translation>Minimera till botten av skärmen</translation>
+    </message>
+    <message>
+      <source>Native placement - it will be shown where the html is embedded</source>
+      <translation>Direkt placering - den visas där html koden läggs in</translation>
+    </message>
+    <message>
+      <source>Invisible, only JS API will be included</source>
+      <translation>Osynlig, endast JS API kommer att inkluderas</translation>
+    </message>
+    <message>
+      <source>Popup window width</source>
+      <translation>Bredd på popup-fönstret</translation>
     </message>
     <message>
       <source>Popup window width in pixels</source>
       <translation>Popup ruta bredd i pixlar</translation>
+    </message>
+    <message>
+      <source>height</source>
+      <translation>höjd</translation>
     </message>
     <message>
       <source>Popup window height in pixels</source>
@@ -935,32 +971,8 @@
       <translation>Widget bredd i pixlar</translation>
     </message>
     <message>
-      <source>height</source>
-      <translation>höjd</translation>
-    </message>
-    <message>
       <source>Widget height in pixels</source>
       <translation>Widget höjd i pixlar</translation>
-    </message>
-    <message>
-      <source>Native placement - it will be shown where the html is embedded</source>
-      <translation>Direkt placering - den visas där html koden läggs in</translation>
-    </message>
-    <message>
-      <source>Invisible, only JS API will be included</source>
-      <translation>Osynlig, endast JS API kommer att inkluderas</translation>
-    </message>
-    <message>
-      <source>Minimize action, applies only if status widget is at the bottom</source>
-      <translation>Minimera handling, tillämpas endast om statuswidgeten är i botten</translation>
-    </message>
-    <message>
-      <source>Keep where it was</source>
-      <translation>Behåll där den var</translation>
-    </message>
-    <message>
-      <source>Minimize to bottom of the screen</source>
-      <translation>Minimera till botten av skärmen</translation>
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>
@@ -2302,7 +2314,7 @@
     </message>
     <message>
       <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
-      <translation type="unfinished"/>
+      <translation>Din förfrågan behandlades inte som förväntat - men oroa dig inte, det var inte ditt fel. Var vänlig skicka din förfrågan igen. Om du upplever samma fel så är du välkommen att kontakta oss.</translation>
     </message>
     <message>
       <source>Invalid file extension</source>

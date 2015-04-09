@@ -166,6 +166,14 @@ class erLhcoreClassChatValidator {
 	        $validationFields[$nameField] = new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'string' );
         }
 
+        // Custom start chat fields
+        $validationFields['value_items_admin'] = new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
+            null,
+            FILTER_REQUIRE_ARRAY
+        );
+        
+        
         $form = new ezcInputForm( INPUT_POST, $validationFields );
         $Errors = array();
 
@@ -218,7 +226,7 @@ class erLhcoreClassChatValidator {
                 $chat->email = $inputForm->email = $_POST['Email'];
             }
         }
-
+        
         // Validate question
         if (isset($validationFields['Question'])) {
 
@@ -339,6 +347,7 @@ class erLhcoreClassChatValidator {
         	}
         }
 
+        $stringParts = array();
         
         if ( $form->hasValidData( 'name_items' ) && !empty($form->name_items))
         {
@@ -374,17 +383,44 @@ class erLhcoreClassChatValidator {
         	}
 
         	$inputForm->name_items = $form->name_items;
-
-        	$stringParts = array();
+        	
         	foreach ($form->name_items as $key => $name_item) {    
         		if (isset($inputForm->values_req[$key]) && $inputForm->values_req[$key] == 't' && ($inputForm->value_show[$key] == 'b' || $inputForm->value_show[$key] == (isset($additionalParams['offline']) ? 'off' : 'on')) && (!isset($valuesArray[$key]) || trim($valuesArray[$key]) == '')) {
         			$Errors[] = trim($name_item).' : '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','is required');
         		}
         		$stringParts[] = array('key' => $name_item,'value' => (isset($valuesArray[$key]) ? trim($valuesArray[$key]) : ''));
-        	}
-
-        	$chat->additional_data = json_encode($stringParts);
+        	}        	
         }
+        
+
+        if (isset($start_data_fields['custom_fields']) && $start_data_fields['custom_fields'] != '') {
+            $customAdminfields = json_decode($start_data_fields['custom_fields'],true);
+            
+            $valuesArray = array();
+            
+            // Fill values if exists
+            if ($form->hasValidData( 'value_items_admin' )){
+                $inputForm->value_items_admin = $valuesArray = $form->value_items_admin;
+            }
+
+            if (is_array($customAdminfields)){
+                foreach ($customAdminfields as $key => $adminField) {
+            
+                    if (isset($inputForm->value_items_admin[$key]) && isset($adminField['isrequired']) && $adminField['isrequired'] == 'true' && ($adminField['visibility'] == 'all' || $adminField['visibility'] == (isset($additionalParams['offline']) ? 'off' : 'on')) && (!isset($valuesArray[$key]) || trim($valuesArray[$key]) == '')) {
+            			$Errors[] = trim($adminField['fieldname']).': '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','is required');
+            		}
+            		
+            		if (isset($valuesArray[$key]) && $valuesArray[$key] != '') {
+            		    $stringParts[] = array('key' => $adminField['fieldname'], 'value' => (isset($valuesArray[$key]) ? trim($valuesArray[$key]) : ''));
+            		}       
+                }
+            }
+        }
+        
+        if (!empty($stringParts)) {
+            $chat->additional_data = json_encode($stringParts);
+        }
+        
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.validate_start_chat',array('errors' => & $Errors, 'input_form' => & $inputForm, 'start_data_fields' => & $start_data_fields, 'chat' => & $chat,'additional_params' => & $additionalParams));
         

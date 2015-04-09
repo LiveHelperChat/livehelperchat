@@ -695,6 +695,10 @@
   <context>
     <name>system/htmlcode</name>
     <message>
+      <source>Popup window size</source>
+      <translation>Velikost vyskakovacího okna</translation>
+    </message>
+    <message>
       <source>HTML code</source>
       <translation>HTML kód</translation>
     </message>
@@ -871,6 +875,14 @@
       <translation>Jazyk řeči</translation>
     </message>
     <message>
+      <source>General</source>
+      <translation>Obecné</translation>
+    </message>
+    <message>
+      <source>Design</source>
+      <translation>Návrh</translation>
+    </message>
+    <message>
       <source>Hide status when offline</source>
       <translation>Nezobrazovat stav pokud je operátor offline</translation>
     </message>
@@ -915,12 +927,36 @@
       <translation>Deaktivace proaktivních pozvánek k rozhovoru. Použijte, pokud chcete vypnout jejich použití na webu.</translation>
     </message>
     <message>
-      <source>Popup window size</source>
-      <translation>Velikost vyskakovacího okna</translation>
+      <source>Minimize action, applies only if status widget is at the bottom</source>
+      <translation>Minimalizace, použije se pouze pokud je widget stavu dole</translation>
+    </message>
+    <message>
+      <source>Keep where it was</source>
+      <translation>Pamatuj si, kde byl</translation>
+    </message>
+    <message>
+      <source>Minimize to bottom of the screen</source>
+      <translation>Minimalizovat na obrazovce dolů</translation>
+    </message>
+    <message>
+      <source>Native placement - it will be shown where the html is embedded</source>
+      <translation>Původní umístění - zobrazí se v místě, kde se nachází kód v HTML stránky</translation>
+    </message>
+    <message>
+      <source>Invisible, only JS API will be included</source>
+      <translation>Neviditelný, bude vloženo pouze JS API</translation>
+    </message>
+    <message>
+      <source>Popup window width</source>
+      <translation>Šířka vyskakovacího okna</translation>
     </message>
     <message>
       <source>Popup window width in pixels</source>
       <translation>Šířka vyskakovacího okna v pixelech</translation>
+    </message>
+    <message>
+      <source>height</source>
+      <translation>výška</translation>
     </message>
     <message>
       <source>Popup window height in pixels</source>
@@ -935,32 +971,8 @@
       <translation>Šířka Widgetu v pixelech</translation>
     </message>
     <message>
-      <source>height</source>
-      <translation>výška</translation>
-    </message>
-    <message>
       <source>Widget height in pixels</source>
       <translation>Výška widgetu v pixelech</translation>
-    </message>
-    <message>
-      <source>Native placement - it will be shown where the html is embedded</source>
-      <translation>Původní umístění - zobrazí se v místě, kde se nachází kód v HTML stránky</translation>
-    </message>
-    <message>
-      <source>Invisible, only JS API will be included</source>
-      <translation>Neviditelný, bude vloženo pouze JS API</translation>
-    </message>
-    <message>
-      <source>Minimize action, applies only if status widget is at the bottom</source>
-      <translation>Minimalizace, použije se pouze pokud je widget stavu dole</translation>
-    </message>
-    <message>
-      <source>Keep where it was</source>
-      <translation>Pamatuj si, kde byl</translation>
-    </message>
-    <message>
-      <source>Minimize to bottom of the screen</source>
-      <translation>Minimalizovat na obrazovce dolů</translation>
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>

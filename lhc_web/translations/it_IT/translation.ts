@@ -696,6 +696,10 @@
   <context>
     <name>system/htmlcode</name>
     <message>
+      <source>Popup window size</source>
+      <translation>Popup window size</translation>
+    </message>
+    <message>
       <source>HTML code</source>
       <translation>HTML-Code</translation>
     </message>
@@ -872,6 +876,14 @@
       <translation>Lingua parlata</translation>
     </message>
     <message>
+      <source>General</source>
+      <translation>Generale</translation>
+    </message>
+    <message>
+      <source>Design</source>
+      <translation>Aspetto</translation>
+    </message>
+    <message>
       <source>Hide status when offline</source>
       <translation>Nascondi stato quando offline</translation>
     </message>
@@ -916,12 +928,36 @@
       <translation>Disabilita invito pro attivo, utile se vuoi disabilitarlo dal lato sito.</translation>
     </message>
     <message>
-      <source>Popup window size</source>
-      <translation>Popup window size</translation>
+      <source>Minimize action, applies only if status widget is at the bottom</source>
+      <translation>Minimizza l&apos;azione, disponibile solo se il widget status è in basso</translation>
+    </message>
+    <message>
+      <source>Keep where it was</source>
+      <translation>Tienilo dov&apos;era</translation>
+    </message>
+    <message>
+      <source>Minimize to bottom of the screen</source>
+      <translation>Minimizza in fondo allo schermo</translation>
+    </message>
+    <message>
+      <source>Native placement - it will be shown where the html is embedded</source>
+      <translation>Posizione nativa - sarà mostrato dove il codice html sarà incorporato</translation>
+    </message>
+    <message>
+      <source>Invisible, only JS API will be included</source>
+      <translation>Invisibile, solo gli API JS verranno inclusi</translation>
+    </message>
+    <message>
+      <source>Popup window width</source>
+      <translation>Larghezza finestra popup</translation>
     </message>
     <message>
       <source>Popup window width in pixels</source>
       <translation>Popup window width in pixels</translation>
+    </message>
+    <message>
+      <source>height</source>
+      <translation>altezza</translation>
     </message>
     <message>
       <source>Popup window height in pixels</source>
@@ -936,32 +972,8 @@
       <translation>Widget width in pixels</translation>
     </message>
     <message>
-      <source>height</source>
-      <translation>altezza</translation>
-    </message>
-    <message>
       <source>Widget height in pixels</source>
       <translation>Altezza in pixel del widget</translation>
-    </message>
-    <message>
-      <source>Native placement - it will be shown where the html is embedded</source>
-      <translation>Posizione nativa - sarà mostrato dove il codice html sarà incorporato</translation>
-    </message>
-    <message>
-      <source>Invisible, only JS API will be included</source>
-      <translation>Invisibile, solo gli API JS verranno inclusi</translation>
-    </message>
-    <message>
-      <source>Minimize action, applies only if status widget is at the bottom</source>
-      <translation>Minimizza l&apos;azione, disponibile solo se il widget status è in basso</translation>
-    </message>
-    <message>
-      <source>Keep where it was</source>
-      <translation>Tienilo dov&apos;era</translation>
-    </message>
-    <message>
-      <source>Minimize to bottom of the screen</source>
-      <translation>Minimizza in fondo allo schermo</translation>
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>
@@ -2303,7 +2315,7 @@
     </message>
     <message>
       <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
-      <translation type="unfinished"/>
+      <translation>La richiesta non è stata elaborata come previsto - ma non ti preoccupare non era colpa tua. Si prega di inviare nuovamente la richiesta. Se si verifica lo stesso problema devi contattarci tramite altri mezzi.</translation>
     </message>
     <message>
       <source>Invalid file extension</source>

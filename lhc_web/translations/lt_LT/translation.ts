@@ -695,6 +695,10 @@
   <context>
     <name>system/htmlcode</name>
     <message>
+      <source>Popup window size</source>
+      <translation>Iššokančio lango dydis</translation>
+    </message>
+    <message>
       <source>HTML code</source>
       <translation>HTML kodas</translation>
     </message>
@@ -871,6 +875,14 @@
       <translation>Jūsų kalba</translation>
     </message>
     <message>
+      <source>General</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Design</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide status when offline</source>
       <translation>Nerodyti būsenos, kai nėra prisijungusių operatorių</translation>
     </message>
@@ -915,12 +927,36 @@
       <translation>Išjungti pro active kvietimus, naudinga jei norite juos valdyti iš puslapio.</translation>
     </message>
     <message>
-      <source>Popup window size</source>
-      <translation>Iššokančio lango dydis</translation>
+      <source>Minimize action, applies only if status widget is at the bottom</source>
+      <translation>Sumažinimo veiksmas, taikoma jeigu widgetas rodomas apačioje.</translation>
+    </message>
+    <message>
+      <source>Keep where it was</source>
+      <translation>Palikti kur buvo</translation>
+    </message>
+    <message>
+      <source>Minimize to bottom of the screen</source>
+      <translation>Sumažinti prie apačios ekrano</translation>
+    </message>
+    <message>
+      <source>Native placement - it will be shown where the html is embedded</source>
+      <translation>Įerpimo pozicija - bus rodoma ten kur įdėtas HTML kodas</translation>
+    </message>
+    <message>
+      <source>Invisible, only JS API will be included</source>
+      <translation>Nematomas, tik JS API bus įtrauktą</translation>
+    </message>
+    <message>
+      <source>Popup window width</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Popup window width in pixels</source>
       <translation>Iššokančio lango plotis pikseliais</translation>
+    </message>
+    <message>
+      <source>height</source>
+      <translation>aukštis</translation>
     </message>
     <message>
       <source>Popup window height in pixels</source>
@@ -935,32 +971,8 @@
       <translation>Widgeto plotis pikseliais</translation>
     </message>
     <message>
-      <source>height</source>
-      <translation>aukštis</translation>
-    </message>
-    <message>
       <source>Widget height in pixels</source>
       <translation>Widget aukštis pikseliais</translation>
-    </message>
-    <message>
-      <source>Native placement - it will be shown where the html is embedded</source>
-      <translation>Įerpimo pozicija - bus rodoma ten kur įdėtas HTML kodas</translation>
-    </message>
-    <message>
-      <source>Invisible, only JS API will be included</source>
-      <translation>Nematomas, tik JS API bus įtrauktą</translation>
-    </message>
-    <message>
-      <source>Minimize action, applies only if status widget is at the bottom</source>
-      <translation>Sumažinimo veiksmas, taikoma jeigu widgetas rodomas apačioje.</translation>
-    </message>
-    <message>
-      <source>Keep where it was</source>
-      <translation>Palikti kur buvo</translation>
-    </message>
-    <message>
-      <source>Minimize to bottom of the screen</source>
-      <translation>Sumažinti prie apačios ekrano</translation>
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>

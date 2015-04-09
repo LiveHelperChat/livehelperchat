@@ -695,6 +695,10 @@
   <context>
     <name>system/htmlcode</name>
     <message>
+      <source>Popup window size</source>
+      <translation>Popup-ikkunan koko</translation>
+    </message>
+    <message>
       <source>HTML code</source>
       <translation>HTML koodi</translation>
     </message>
@@ -871,6 +875,14 @@
       <translation>Puheen kieli</translation>
     </message>
     <message>
+      <source>General</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Design</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide status when offline</source>
       <translation>Piilota, jos ei käsittelijöitä </translation>
     </message>
@@ -915,12 +927,36 @@
       <translation>Estä proaktiiviset kutsut.</translation>
     </message>
     <message>
-      <source>Popup window size</source>
-      <translation>Popup-ikkunan koko</translation>
+      <source>Minimize action, applies only if status widget is at the bottom</source>
+      <translation>Pienennykseen liittyvä toimenpide, käytetään vain jos status widget on alareunassa</translation>
+    </message>
+    <message>
+      <source>Keep where it was</source>
+      <translation>Pidä missä se oli</translation>
+    </message>
+    <message>
+      <source>Minimize to bottom of the screen</source>
+      <translation>Pienennä ruudun alareunaan</translation>
+    </message>
+    <message>
+      <source>Native placement - it will be shown where the html is embedded</source>
+      <translation>Natiivi sijoitus - näytetään siinä kohdassa missä html sijaitsee</translation>
+    </message>
+    <message>
+      <source>Invisible, only JS API will be included</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Popup window width</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Popup window width in pixels</source>
       <translation>Popup-ikkunan leveys (px)</translation>
+    </message>
+    <message>
+      <source>height</source>
+      <translation>Korkeus</translation>
     </message>
     <message>
       <source>Popup window height in pixels</source>
@@ -935,32 +971,8 @@
       <translation>Widgetin leveys (px)</translation>
     </message>
     <message>
-      <source>height</source>
-      <translation>Korkeus</translation>
-    </message>
-    <message>
       <source>Widget height in pixels</source>
       <translation>Widgetin korkeus (px)</translation>
-    </message>
-    <message>
-      <source>Native placement - it will be shown where the html is embedded</source>
-      <translation>Natiivi sijoitus - näytetään siinä kohdassa missä html sijaitsee</translation>
-    </message>
-    <message>
-      <source>Invisible, only JS API will be included</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Minimize action, applies only if status widget is at the bottom</source>
-      <translation>Pienennykseen liittyvä toimenpide, käytetään vain jos status widget on alareunassa</translation>
-    </message>
-    <message>
-      <source>Keep where it was</source>
-      <translation>Pidä missä se oli</translation>
-    </message>
-    <message>
-      <source>Minimize to bottom of the screen</source>
-      <translation>Pienennä ruudun alareunaan</translation>
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>

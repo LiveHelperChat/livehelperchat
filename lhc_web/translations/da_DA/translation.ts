@@ -695,6 +695,10 @@
   <context>
     <name>system/htmlcode</name>
     <message>
+      <source>Popup window size</source>
+      <translation>Popup vinduesstørrelse</translation>
+    </message>
+    <message>
       <source>HTML code</source>
       <translation>HTML-kode</translation>
     </message>
@@ -871,6 +875,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>General</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Design</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide status when offline</source>
       <translation>Skjul status når du arbejder offline</translation>
     </message>
@@ -915,12 +927,36 @@
       <translation>Deaktivere proaktive invitationer, nyttigt hvis du vil deaktivere dem fra del af webstedet.</translation>
     </message>
     <message>
-      <source>Popup window size</source>
-      <translation>Popup vinduesstørrelse</translation>
+      <source>Minimize action, applies only if status widget is at the bottom</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Keep where it was</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimize to bottom of the screen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Native placement - it will be shown where the html is embedded</source>
+      <translation>Oprindelig placering - det bliver vist, hvor html er integreret</translation>
+    </message>
+    <message>
+      <source>Invisible, only JS API will be included</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Popup window width</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Popup window width in pixels</source>
       <translation>Popup vinduesbredde i pixels</translation>
+    </message>
+    <message>
+      <source>height</source>
+      <translation>højde</translation>
     </message>
     <message>
       <source>Popup window height in pixels</source>
@@ -935,32 +971,8 @@
       <translation>Widget bredde i pixels</translation>
     </message>
     <message>
-      <source>height</source>
-      <translation>højde</translation>
-    </message>
-    <message>
       <source>Widget height in pixels</source>
       <translation>Widget højde i pixels</translation>
-    </message>
-    <message>
-      <source>Native placement - it will be shown where the html is embedded</source>
-      <translation>Oprindelig placering - det bliver vist, hvor html er integreret</translation>
-    </message>
-    <message>
-      <source>Invisible, only JS API will be included</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Minimize action, applies only if status widget is at the bottom</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Keep where it was</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Minimize to bottom of the screen</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>

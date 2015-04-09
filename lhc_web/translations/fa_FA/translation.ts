@@ -695,6 +695,10 @@
   <context>
     <name>system/htmlcode</name>
     <message>
+      <source>Popup window size</source>
+      <translation>اندازه پنجره Popup </translation>
+    </message>
+    <message>
       <source>HTML code</source>
       <translation>کد HTML</translation>
     </message>
@@ -871,6 +875,14 @@
       <translation>زبان</translation>
     </message>
     <message>
+      <source>General</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Design</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide status when offline</source>
       <translation>عدم نمایش وضعیت در حالت آفلاین</translation>
     </message>
@@ -915,12 +927,36 @@
       <translation>غیرفعال کردن دعوت به چت</translation>
     </message>
     <message>
-      <source>Popup window size</source>
-      <translation>اندازه پنجره Popup </translation>
+      <source>Minimize action, applies only if status widget is at the bottom</source>
+      <translation>عملیات کمینه کردن، فقط زمانی اعمال می شود که ابزارک وضعیت در پایین صفحه است</translation>
+    </message>
+    <message>
+      <source>Keep where it was</source>
+      <translation>جایی که بود نگه داشته شود *</translation>
+    </message>
+    <message>
+      <source>Minimize to bottom of the screen</source>
+      <translation>کمینه شدن به پایین صفحه</translation>
+    </message>
+    <message>
+      <source>Native placement - it will be shown where the html is embedded</source>
+      <translation>محل قرارگیری - محل html داخلی را نمایش می دهد.</translation>
+    </message>
+    <message>
+      <source>Invisible, only JS API will be included</source>
+      <translation>غیرقابل مشاهده، فقط JS API شامل خواهد شد</translation>
+    </message>
+    <message>
+      <source>Popup window width</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Popup window width in pixels</source>
       <translation>عرض پنجره Popup بر حسب پیکسل</translation>
+    </message>
+    <message>
+      <source>height</source>
+      <translation>ارتفاع</translation>
     </message>
     <message>
       <source>Popup window height in pixels</source>
@@ -935,32 +971,8 @@
       <translation>عرض ابزارک بر حسب پیکسل</translation>
     </message>
     <message>
-      <source>height</source>
-      <translation>ارتفاع</translation>
-    </message>
-    <message>
       <source>Widget height in pixels</source>
       <translation>ارتفاع ابزارک بر حسب پیکسل</translation>
-    </message>
-    <message>
-      <source>Native placement - it will be shown where the html is embedded</source>
-      <translation>محل قرارگیری - محل html داخلی را نمایش می دهد.</translation>
-    </message>
-    <message>
-      <source>Invisible, only JS API will be included</source>
-      <translation>غیرقابل مشاهده، فقط JS API شامل خواهد شد</translation>
-    </message>
-    <message>
-      <source>Minimize action, applies only if status widget is at the bottom</source>
-      <translation>عملیات کمینه کردن، فقط زمانی اعمال می شود که ابزارک وضعیت در پایین صفحه است</translation>
-    </message>
-    <message>
-      <source>Keep where it was</source>
-      <translation>جایی که بود نگه داشته شود *</translation>
-    </message>
-    <message>
-      <source>Minimize to bottom of the screen</source>
-      <translation>کمینه شدن به پایین صفحه</translation>
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>

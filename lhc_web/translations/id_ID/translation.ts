@@ -695,6 +695,10 @@
   <context>
     <name>system/htmlcode</name>
     <message>
+      <source>Popup window size</source>
+      <translation>Ukuran jendela popup</translation>
+    </message>
+    <message>
       <source>HTML code</source>
       <translation>Kode HTML</translation>
     </message>
@@ -871,6 +875,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>General</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Design</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide status when offline</source>
       <translation>Sembunyikan status ketika offline</translation>
     </message>
@@ -915,12 +927,36 @@
       <translation>Nonaktifkan undangan pro aktif, berguna jika Anda ingin menonaktifkan mereka dari bagian situs.</translation>
     </message>
     <message>
-      <source>Popup window size</source>
-      <translation>Ukuran jendela popup</translation>
+      <source>Minimize action, applies only if status widget is at the bottom</source>
+      <translation>Tindakan meminimalkan, hanya berlaku jika widget status di bagian bawah</translation>
+    </message>
+    <message>
+      <source>Keep where it was</source>
+      <translation>Tetap di mana itu berada</translation>
+    </message>
+    <message>
+      <source>Minimize to bottom of the screen</source>
+      <translation>Minimalkan ke bawah layar</translation>
+    </message>
+    <message>
+      <source>Native placement - it will be shown where the html is embedded</source>
+      <translation>Penempatan asli - akan ditampilkan di mana html tercantum</translation>
+    </message>
+    <message>
+      <source>Invisible, only JS API will be included</source>
+      <translation>Tidak terlihat, hanya JS API yang akan diikutsertakan</translation>
+    </message>
+    <message>
+      <source>Popup window width</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Popup window width in pixels</source>
       <translation>Lebar jendela popup dalam piksel</translation>
+    </message>
+    <message>
+      <source>height</source>
+      <translation>tinggi</translation>
     </message>
     <message>
       <source>Popup window height in pixels</source>
@@ -935,32 +971,8 @@
       <translation>Lebar widget dalam piksel</translation>
     </message>
     <message>
-      <source>height</source>
-      <translation>tinggi</translation>
-    </message>
-    <message>
       <source>Widget height in pixels</source>
       <translation>Tinggi widget dalam piksel</translation>
-    </message>
-    <message>
-      <source>Native placement - it will be shown where the html is embedded</source>
-      <translation>Penempatan asli - akan ditampilkan di mana html tercantum</translation>
-    </message>
-    <message>
-      <source>Invisible, only JS API will be included</source>
-      <translation>Tidak terlihat, hanya JS API yang akan diikutsertakan</translation>
-    </message>
-    <message>
-      <source>Minimize action, applies only if status widget is at the bottom</source>
-      <translation>Tindakan meminimalkan, hanya berlaku jika widget status di bagian bawah</translation>
-    </message>
-    <message>
-      <source>Keep where it was</source>
-      <translation>Tetap di mana itu berada</translation>
-    </message>
-    <message>
-      <source>Minimize to bottom of the screen</source>
-      <translation>Minimalkan ke bawah layar</translation>
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>
