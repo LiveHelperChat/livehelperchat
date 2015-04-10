@@ -264,13 +264,21 @@ if (isset($_POST['askQuestion']))
     if ($form->hasValidData( 'DepartamentID' ) && erLhcoreClassModelDepartament::getCount(array('filter' => array('id' => $form->DepartamentID,'disabled' => 0))) > 0) {
     	$inputData->departament_id = $chat->dep_id = $form->DepartamentID;
     } elseif ($chat->dep_id == 0 || erLhcoreClassModelDepartament::getCount(array('filter' => array('id' => $chat->dep_id,'disabled' => 0))) == 0) {
-    	$departments = erLhcoreClassModelDepartament::getList(array('limit' => 1,'filter' => array('disabled' => 0)));
-    	if (!empty($departments) ) {
-    		$department = array_shift($departments);
-    		$chat->dep_id = $department->id;
-    	} else {
-    		$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Could not determine a default department!');
-    	}
+        
+        // Perhaps extension overrides default department?
+        $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.validate_department', array('input_form' => $inputData));
+        
+        if ($response === false) {
+        	$departments = erLhcoreClassModelDepartament::getList(array('limit' => 1,'filter' => array('disabled' => 0)));
+        	if (!empty($departments) ) {
+        		$department = array_shift($departments);
+        		$chat->dep_id = $department->id;
+        	} else {
+        		$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Could not determine a default department!');
+        	}
+         } else {
+                $chat->dep_id = $response['department_id'];
+         }
     }
         
     if (count($Errors) == 0)
