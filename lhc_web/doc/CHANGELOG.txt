@@ -1,3 +1,12 @@
+2.29v
+
+1. One more flow of internal changes and flexibility enhancements. Basically while building commercial plugins I'm extending core with more templates overrides and 
+events
+2. Three new attributes in departments which can be used in extensions.
+3. Few fixed regarding user arguments variables. It was lost during form submitting. It was effecting only extensions.
+
+execute doc/update_db/update_105.sql for update
+
 2.28v
 
 1. Internal changes regarding co-browsing. Support for co-browsing session based on online visitor. These changes were done to allow plugin initiate co-browsing session without a chat. This is pure for extensions purposes. No UX changes.
