@@ -32,6 +32,10 @@ if (isset($Params['user_parameters_unordered']['er']) && (int)$Params['user_para
     $themeAppend .= '/(er)/1';
 }
 
+if (is_array($Params['user_parameters_unordered']['ua']) && !empty($Params['user_parameters_unordered']['ua'])) {
+    $themeAppend .= '/(ua)/'.implode('/', $Params['user_parameters_unordered']['ua']);
+}
+
 // Perhaps it's direct argument
 if ((string)$Params['user_parameters_unordered']['hash'] != '') {
 	list($chatID,$hash) = explode('_',$Params['user_parameters_unordered']['hash']);
