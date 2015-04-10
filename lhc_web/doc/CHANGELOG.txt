@@ -4,6 +4,7 @@
 events
 2. Three new attributes in departments which can be used in extensions.
 3. Few fixed regarding user arguments variables. It was lost during form submitting. It was effecting only extensions.
+4. Custom forms field can be managed from back office. Basically admin can add custom fields directly from back office. No need to use Javascript.
 
 execute doc/update_db/update_105.sql for update
 
