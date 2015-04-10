@@ -10,6 +10,10 @@ if ((string)$Params['user_parameters_unordered']['mode'] == 'embed') {
 	$modeAppend = '/(mode)/embed';
 }
 
+if (is_array($Params['user_parameters_unordered']['ua']) && !empty($Params['user_parameters_unordered']['ua'])) {
+    $modeAppend .= '/(ua)/'.implode('/', $Params['user_parameters_unordered']['ua']);
+}
+
 $theme = false;
 $modeAppendTheme = '';
 if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
