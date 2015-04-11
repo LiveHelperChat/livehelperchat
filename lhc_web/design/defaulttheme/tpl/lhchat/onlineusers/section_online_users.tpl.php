@@ -86,7 +86,7 @@
 </thead>
 <tbody ng-repeat="group in onlineusersGrouped track by group.id">
 	<tr ng-show="group.label != ''">
-		<td colspan="6"><h5>{{group.label}} ({{group.ou.length}})</h5></td>
+		<td colspan="6"><h5 class="group-by-{{groupByField}}">{{group.label}} ({{group.ou.length}})</h5></td>
 	</tr>
 	
 	<?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/section_online_users_row.tpl.php')); ?>

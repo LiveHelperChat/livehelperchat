@@ -48,6 +48,7 @@ img{max-height:100%}
 	padding:6px;	
 }
 
+.group-by-user_country_name,
 .up-case-first{
 	text-transform: capitalize;
 }
