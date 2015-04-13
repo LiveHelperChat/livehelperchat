@@ -280,7 +280,9 @@ if (isset($_POST['askQuestion']))
                 $chat->dep_id = $response['department_id'];
          }
     }
-        
+
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.validate_read_opeartor_message',array('errors' => & $Errors, 'input_form' => & $inputData, 'chat' => & $chat));
+    
     if (count($Errors) == 0)
     {
        $chat->time = time();
