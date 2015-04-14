@@ -3,7 +3,7 @@
 <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/online_user_info_pre.tpl.php'));?>	
 
 <?php if ($information_tab_online_user_info_enabled == true) : ?>
-<div role="tabpanel" class="tab-pane" id="online-user-info-tab-<?php echo $chat->id?>">
+<div role="tabpanel" class="tab-pane<?php if ($chatTabsOrderDefault == 'online_user_info_tab') print ' active';?>" id="online-user-info-tab-<?php echo $chat->id?>">
 	<a class="btn btn-default btn-xs" rel="<?php echo $chat->id?>" onclick="lhinst.refreshOnlineUserInfo($(this))"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Refresh')?></a>
 
 	<div id="online-user-info-<?php echo $chat->id?>">
