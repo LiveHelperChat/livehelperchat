@@ -3,7 +3,7 @@
     <?php 
     // This values comes from tab template
     if ($dataChatTranslation['enable_translations'] && $dataChatTranslation['enable_translations'] == true) : ?>
-    <div role="tabpanel" class="tab-pane" id="main-user-info-translation-<?php echo $chat->id?>">
+    <div role="tabpanel" class="tab-pane<?php if ($chatTabsOrderDefault == 'chat_translation_tab') print ' active';?>" id="main-user-info-translation-<?php echo $chat->id?>">
         <div class="row">
             <div class="col-xs-6">
                 <div class="form-group">
