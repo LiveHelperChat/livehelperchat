@@ -88,6 +88,9 @@ if ($theme !== false && $theme->explain_text != '') : ?>
 
 <?php $canReopen = erLhcoreClassModelChatConfig::fetch('reopen_chat_enabled')->current_value == 1 && ($reopenData = erLhcoreClassChat::canReopenDirectly(array('reopen_closed' => erLhcoreClassModelChatConfig::fetch('allow_reopen_closed')->current_value))) !== false; ?>
 
+<?php $adminCustomFieldsMode = 'on';?>
+<?php include(erLhcoreClassDesign::designtpl('lhchat/part/admin_form_variables.tpl.php'));?>
+
 <?php if (isset($start_data_fields['message_visible_in_page_widget']) && $start_data_fields['message_visible_in_page_widget'] == true) : ?>
 <?php if (isset($start_data_fields['message_hidden']) && $start_data_fields['message_hidden'] == true) : $hasExtraField = true; ?>
 <textarea class="hide" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your message');?>" name="Question"><?php echo htmlspecialchars($input_data->question);?></textarea>
@@ -97,9 +100,6 @@ if ($theme !== false && $theme->explain_text != '') : ?>
 <textarea class="form-control form-group <?php if ($hasExtraField !== true && $canReopen !== true) : ?>btrad-reset<?php endif;?>" <?php if (isset($start_data_fields['user_msg_height']) && $start_data_fields['user_msg_height'] > 0) : ?>style="height: <?php echo $start_data_fields['user_msg_height']?>px"<?php endif;?> placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a message...');?>" id="id_Question" name="Question"><?php echo htmlspecialchars($input_data->question);?></textarea>
 <?php endif; ?>
 <?php else : $hasExtraField = true; endif; ?>
-
-<?php $adminCustomFieldsMode = 'on';?>
-<?php include(erLhcoreClassDesign::designtpl('lhchat/part/admin_form_variables.tpl.php'));?>
 
 <?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/user_variables.tpl.php'));?>
 
