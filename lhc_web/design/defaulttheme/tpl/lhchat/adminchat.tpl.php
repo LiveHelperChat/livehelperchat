@@ -2,6 +2,8 @@
 	<div class="col-sm-7 chat-main-left-column" id="chat-main-column-<?php echo $chat->id;?>">
 		<a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Show/Hide right column')?>" href="#" class="icon-right-circled collapse-right" onclick="lhinst.processCollapse('<?php echo $chat->id;?>')"></a>
 
+		<?php include(erLhcoreClassDesign::designtpl('lhchat/part/above_messages_block.tpl.php')); ?>
+		
 		<div class="message-block">
 			<div class="msgBlock msgBlock-admin" id="messagesBlock-<?php echo $chat->id?>">
 				<?php
