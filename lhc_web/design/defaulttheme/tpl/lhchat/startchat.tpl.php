@@ -67,6 +67,9 @@
 
 <?php endif; ?>
 
+<?php $adminCustomFieldsMode = 'on';?>
+<?php include(erLhcoreClassDesign::designtpl('lhchat/part/admin_form_variables.tpl.php'));?>
+
 <?php if (isset($start_data_fields['message_visible_in_popup']) && $start_data_fields['message_visible_in_popup'] == true) : ?>
 	<?php if (isset($start_data_fields['message_hidden']) && $start_data_fields['message_hidden'] == true) : ?>
 	<textarea class="hide" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your message');?>" name="Question"><?php echo htmlspecialchars($input_data->question);?></textarea>
@@ -77,9 +80,6 @@
 	</div>
 	<?php endif; ?>
 <?php endif; ?>
-
-<?php $adminCustomFieldsMode = 'on';?>
-<?php include(erLhcoreClassDesign::designtpl('lhchat/part/admin_form_variables.tpl.php'));?>
 
 <?php include(erLhcoreClassDesign::designtpl('lhchat/part/user_variables.tpl.php'));?>
 
