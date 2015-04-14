@@ -84,6 +84,8 @@ $tpl->set('append_mode_theme',$themeAppend);
 $startData = erLhcoreClassModelChatConfig::fetch('start_chat_data');
 $startDataFields = (array)$startData->data;
 
+// Allow extension override start chat fields
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.startchat_data_fields',array('data_fields' => & $startDataFields));
 
 $inputData = new stdClass();
 $inputData->chatprefill = '';

@@ -58,6 +58,8 @@ $tpl->set('playsound',(string)$Params['user_parameters_unordered']['playsound'] 
 $startData = erLhcoreClassModelChatConfig::fetch('start_chat_data');
 $startDataFields = (array)$startData->data;
 
+// Allow extension override start chat fields
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.readoperatormessage_data_field',array('data_fields' => & $startDataFields));
 
 $chat = new erLhcoreClassModelChat();
 
