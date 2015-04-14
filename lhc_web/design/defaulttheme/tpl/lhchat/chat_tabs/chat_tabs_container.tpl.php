@@ -44,3 +44,5 @@
        <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/extension_chat_tab_content_multiinclude.tpl.php'));?>  	
 	</div>
 </div>
+
+<?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/extension_post_chat_tabs_conatiner_multiinclude.tpl.php'));?>  	
