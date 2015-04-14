@@ -85,7 +85,7 @@ $startData = erLhcoreClassModelChatConfig::fetch('start_chat_data');
 $startDataFields = (array)$startData->data;
 
 // Allow extension override start chat fields
-erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.startchat_data_fields',array('data_fields' => & $startDataFields));
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.startchat_data_fields',array('data_fields' => & $startDataFields, 'params' => $Params));
 
 $inputData = new stdClass();
 $inputData->chatprefill = '';
