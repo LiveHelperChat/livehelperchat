@@ -174,6 +174,9 @@ class erLhcoreClassXMP {
 		
 		$data = (array) erLhcoreClassModelChatConfig::fetch('xmp_data')->data;
 		
+		// Allows extension to override xmpp settings, let say disable it :)
+		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('xml.send_xmp_message',array('params' => & $data));
+				
 		$templateMessage = 'xmp_message';
 		if (isset($params['template'])) {
 			$templateMessage = $params['template'];

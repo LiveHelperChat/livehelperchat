@@ -1,3 +1,7 @@
+<?php include(erLhcoreClassDesign::designtpl('lhchat/part/offline_from_startchat_pre.tpl.php'));?>
+
+<?php if ($chat_part_offline_form_start_chat_enabled == true) : ?>
+
 <?php if (isset($request_send)) : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Your request was sent!');?>
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php else : ?>
@@ -76,4 +80,8 @@
 <input type="hidden" value="1" name="StartChat"/>
 
 </form>
+<?php endif;?>
+
+<?php else : ?>
+    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/offline_form_startchat_disabled.tpl.php'));?>
 <?php endif;?>

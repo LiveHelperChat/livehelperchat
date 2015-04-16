@@ -1,3 +1,6 @@
+<?php include(erLhcoreClassDesign::designtpl('lhchat/part/offline_form_pre.tpl.php'));?>
+
+<?php if ($chat_part_offline_form_enabled == true) : ?>
 <p><b>
 <?php if (isset($theme) && $theme !== false && $theme->noonline_operators_offline) : ?>
     <?php echo htmlspecialchars($theme->noonline_operators_offline)?>
@@ -91,5 +94,9 @@
 	<input type="hidden" value="1" name="StartChat"/>
 
 	</form>
+<?php endif;?>
+
+<?php else : ?>
+<?php include(erLhcoreClassDesign::designtpl('lhchat/part/offline_form_disabled.tpl.php'));?>
 <?php endif;?>
 

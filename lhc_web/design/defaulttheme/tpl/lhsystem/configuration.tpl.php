@@ -135,9 +135,7 @@
 		    
 			    <?php endif; ?>
 	
-			    <?php if ($currentUser->hasAccessTo('lhxmp','configurexmp')) : ?>
-			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('xmp/configuration')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','XMPP settings');?></a></li>
-			    <?php endif; ?>
+	            <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/xmpp.tpl.php'));?>
 		
 		        <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/chat_list.tpl.php'));?>
 	
