@@ -42,7 +42,8 @@ if (ezcInputForm::hasPostData()) {
         $permissionsRequestedData = array();
         foreach ($permissionsCombinations as $combination) {
             list($module,$function) = explode('_f_', $combination);                        
-            $moduleName = erLhcoreClassModules::getModuleName($module);
+            $moduleName = erLhcoreClassModules::getModuleName($module);            
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('lhpermission.getmodulename',array('module' => $module, 'name' => & $moduleName));                        
             $functionName = erLhcoreClassModules::getFunctionName($module,$function);
             $permissionsRequestedData[] = $moduleName.' - '.$functionName;
         }    

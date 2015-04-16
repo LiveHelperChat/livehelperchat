@@ -13,7 +13,7 @@
 	     <select class="form-control" id="ModuleSelectedID" name="Module">
 	         <option value="*">---<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newpolicy','All modules');?>---</option>
 		     <?php foreach (erLhcoreClassModules::getModuleList() as $key => $Module) : ?>
-		         <option value="<?php echo $key?>"><?php echo htmlspecialchars($Module['name']);?></option>
+		         <?php include(erLhcoreClassDesign::designtpl('lhpermission/newpolicy_row.tpl.php'));?>
 		     <?php endforeach; ?>
 	     </select>
 		
