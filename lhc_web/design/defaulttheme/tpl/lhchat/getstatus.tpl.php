@@ -259,7 +259,7 @@ var lh_inst  = {
         this.removeCookieAttr('hash');
         this.removeCookieAttr('pos');
         this.removeCookieAttr('m');      
-        <?php if ($check_operator_messages == 'true') : ?>
+        <?php if ($check_operator_messages == 'true' && $disable_pro_active == false) : ?>
         this.startNewMessageCheck();
         <?php endif; ?>
         this.checkStatusChat();
