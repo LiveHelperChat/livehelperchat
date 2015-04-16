@@ -1,68 +1,78 @@
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','HTML code');?></h1>
 
 <div class="row">
-    <div class="col-md-6">
-		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Popup width');?></label>
-	    <div class="row">
-	      <div class="col-md-8">
-	        <input class="form-control" type="text" id="id_size_text" value="450" />
-	      </div>
-	      <div class="col-md-4">
-	      	<select class="form-control" id="UnitsTop">
-	            <option value="pixels">Pixels</option>
-	            <option value="percents">Percents</option>
-	        </select>
-	      </div>
-	    </div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Popup width');?></label>
+			<div class="row">
+				<div class="col-md-8">
+					<input class="form-control" type="text" id="id_size_text" value="450" />
+				</div>
+				<div class="col-md-4">
+					<select class="form-control" id="UnitsTop">
+						<option value="pixels">Pixels</option>
+						<option value="percents">Percents</option>
+					</select>
+				</div>
+			</div>
+		</div>
 	</div>
-    <div class="col-md-6">
-		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Popup height, used only if iframe is used');?></label>	    
-	    <input type="text" class="form-control" id="id_size_height" value="450" />	     
+	<div class="col-md-6">
+		<div class="form-group">
+			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Popup height, used only if iframe is used');?></label> <input type="text" class="form-control" id="id_size_height" value="450" />
+		</div>
 	</div>
 	<div class="col-md-12">
-    	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.');?></label>
-    	<input type="text" class="form-control" id="id_site_identifier" maxlength="50" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Leave empty if it is not important to you');?>" value="" />
+		<div class="form-group">
+			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.');?></label> <input type="text" class="form-control" id="id_site_identifier" maxlength="50" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Leave empty if it is not important to you');?>" value="" />
+		</div>
 	</div>
-	
+
 	<div class="col-md-6">
-		<label for="id_show_overlay"><input type="checkbox" id="id_show_overlay" value="on" checked="checked"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/htmlcode','Show overlay');?></label>
+		<div class="form-group">
+			<label for="id_show_overlay"><input type="checkbox" id="id_show_overlay" value="on" checked="checked"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/htmlcode','Show overlay');?></label>
+		</div>
 	</div>
-	
+
 	<div class="col-md-6">
-		<label for="id_canreopen"><input type="checkbox" id="id_canreopen" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/htmlcode','Show different offers for the same user');?></label>
+		<div class="form-group">
+			<label for="id_canreopen"><input type="checkbox" id="id_canreopen" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/htmlcode','Show different offers for the same user');?></label>
+		</div>
 	</div>
 	<div class="col-md-12">
-    	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Offer timeout in days, after how many days show offers for the same visitor again, leave empty for session');?></label>
-    	<input type="text" class="form-control" id="offer_timeout" maxlength="50" value="" />
+		<div class="form-group">
+			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Offer timeout in days, after how many days show offers for the same visitor again, leave empty for session');?></label> <input type="text" class="form-control" id="offer_timeout" maxlength="50" value="" />
+		</div>
 	</div>
 </div>
 
-
-
 <div class="row">
-    <div class="col-md-6">               
-        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','For what domain you are generating embed code?');?></label>
-    	<input class="form-control" type="text" id="id_embed_domain" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','example.com');?>" value="" />
-    	
-    	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Choose prefered http mode');?></label>
-		<select class="form-control" id="HttpMode">         
-		      <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Based on site (default)');?></option>
-		      <option value="http:">http:</option>
-		      <option value="https:">https:</option>      
-		</select>
-    </div>  
-    <div class="col-md-6 end">
-	  	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Choose a language');?></label>
-        <select class="form-control" id="LocaleID">
+	<div class="col-md-6">
+		<div class="form-group">
+			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','For what domain you are generating embed code?');?></label> 
+			<input class="form-control" type="text" id="id_embed_domain" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','example.com');?>" value="" /> 
+		</div>	
+		<div class="form-group">
+			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Choose prefered http mode');?></label> <select class="form-control" id="HttpMode">
+				<option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Based on site (default)');?></option>
+				<option value="http:">http:</option>
+				<option value="https:">https:</option>
+			</select>
+		</div>
+	</div>
+	<div class="col-md-6 end">
+		<div class="form-group">
+			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Choose a language');?></label> <select class="form-control" id="LocaleID">
             <?php foreach ($locales as $locale ) : ?>
             <option value="<?php echo $locale?>/"><?php echo $locale?></option>
             <?php endforeach; ?>
         </select>
-    </div>
+		</div>
+	</div>
 </div>
 
 <p class="explain"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/htmlcode','Copy the code from the text area to the page header or footer');?></p>
-<textarea style="width:100%;height:180px;font-size:12px;" id="HMLTContent" ></textarea>
+<textarea style="width: 100%; height: 180px; font-size: 12px;" id="HMLTContent"></textarea>
 
 <script type="text/javascript">
 var default_site_access = '<?php echo erConfigClassLhConfig::getInstance()->getSetting( 'site', 'default_site_access' ); ?>/';
