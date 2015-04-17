@@ -39,6 +39,21 @@ $def->properties['auto_send']->columnName   = 'auto_send';
 $def->properties['auto_send']->propertyName = 'auto_send';
 $def->properties['auto_send']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['attr_int_1'] = new ezcPersistentObjectProperty();
+$def->properties['attr_int_1']->columnName   = 'attr_int_1';
+$def->properties['attr_int_1']->propertyName = 'attr_int_1';
+$def->properties['attr_int_1']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['attr_int_2'] = new ezcPersistentObjectProperty();
+$def->properties['attr_int_2']->columnName   = 'attr_int_2';
+$def->properties['attr_int_2']->propertyName = 'attr_int_2';
+$def->properties['attr_int_2']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['attr_int_3'] = new ezcPersistentObjectProperty();
+$def->properties['attr_int_3']->columnName   = 'attr_int_3';
+$def->properties['attr_int_3']->propertyName = 'attr_int_3';
+$def->properties['attr_int_3']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

@@ -11,7 +11,10 @@ class erLhcoreClassModelCannedMsg {
                'delay'     		=> $this->delay,
                'department_id'  => $this->department_id,
                'user_id'  		=> $this->user_id,
-               'auto_send'  	=> $this->auto_send
+               'auto_send'  	=> $this->auto_send,
+               'attr_int_1'  	=> $this->attr_int_1,
+               'attr_int_2'  	=> $this->attr_int_2,
+               'attr_int_3'  	=> $this->attr_int_3,
               );
    }
 
@@ -176,6 +179,9 @@ class erLhcoreClassModelCannedMsg {
    public $department_id = 0;
    public $user_id = 0;
    public $auto_send = 0;
+   public $attr_int_1 = 0;
+   public $attr_int_2 = 0;
+   public $attr_int_3 = 0;   
 }
 
 ?>
