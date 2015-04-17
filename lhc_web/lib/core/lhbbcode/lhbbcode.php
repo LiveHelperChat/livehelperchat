@@ -50,12 +50,18 @@ class erLhcoreClassBBCode
     	// And replace them by...
     	$out = self::getOutArray();
     	
+    	$in[] = '[/*]';
+    	$in[] = '[*]';
+    	$out[] = '</li>';
+    	$out[] = '<li>';
+    	    	
     	$text = str_replace($in, $out, $text);
 
     	// BBCode to find...
     	$in = array( 	 '/\[b\](.*?)\[\/b\]/ms',
     					 '/\[i\](.*?)\[\/i\]/ms',
     					 '/\[u\](.*?)\[\/u\]/ms',
+    					 '/\[s\](.*?)\[\/s\]/ms',
     					 '/\[list\=(.*?)\](.*?)\[\/list\]/ms',
     					 '/\[list\](.*?)\[\/list\]/ms',
     					 '/\[\*\]\s?(.*?)\n/ms'
@@ -64,6 +70,7 @@ class erLhcoreClassBBCode
     	$out = array(	 '<strong>\1</strong>',
     					 '<em>\1</em>',
     					 '<u>\1</u>',
+    					 '<strike>\1</strike>',
     					 '<ol start="\1">\2</ol>',
     					 '<ul>\1</ul>',
     					 '<li>\1</li>'
