@@ -269,6 +269,9 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        'customFieldDefaultValue' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY
 	        ),
+	        'customFieldIdentifier' => new ezcInputFormDefinitionElement(
+	            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY
+	        ),
 	    );
 	    
 	    $form = new ezcInputForm( INPUT_POST, $definition );
@@ -559,6 +562,7 @@ class erLhcoreClassAdminChatValidatorHelper {
 	                'size' => $form->customFieldSize[$key],
 	                'visibility' => $form->customFieldVisibility[$key],
 	                'isrequired' => $form->customFieldIsrequired[$key],
+	                'fieldidentifier' => $form->customFieldIdentifier[$key],
 	            );
 	        }
 	        $data['custom_fields'] = json_encode($customFields,JSON_HEX_APOS);
