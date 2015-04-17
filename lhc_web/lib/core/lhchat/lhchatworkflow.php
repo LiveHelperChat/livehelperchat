@@ -316,8 +316,18 @@ class erLhcoreClassChatWorkflow {
      	$items = $session->find( $q );
      	
      	if (!empty($items)){
-     		$cannedMsg = array_shift($items);     		
-     		$cannedMsg->setReplaceData(array('{nick}' => $chat->nick, '{operator}' => (string)$chat->user->name_support));
+     		$cannedMsg = array_shift($items);
+     		
+     		$replaceArray = array(
+     		    '{nick}' => $chat->nick, 
+     		    '{email}' => $chat->email,
+     		    '{phone}' => $chat->phone,
+     		    '{operator}' => (string)$chat->user->name_support     		    
+     		);
+     		
+     		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow.canned_message_replace',array('replace_array' => & $replaceArray));
+     		
+     		$cannedMsg->setReplaceData($replaceArray);
      		
      		$msg = new erLhcoreClassModelmsg();
      		$msg->msg = $cannedMsg->msg_to_user;
