@@ -420,7 +420,7 @@ class erLhcoreClassChatValidator {
             		}
             		
             		if (isset($valuesArray[$key]) && $valuesArray[$key] != '') {
-            		    $stringParts[] = array('key' => $adminField['fieldname'], 'value' => (isset($valuesArray[$key]) ? trim($valuesArray[$key]) : ''));
+            		    $stringParts[] = array('identifer' => $adminField['fieldidentifier'], 'key' => $adminField['fieldname'], 'value' => (isset($valuesArray[$key]) ? trim($valuesArray[$key]) : ''));
             		}       
                 }
             }

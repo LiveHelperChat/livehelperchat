@@ -36,9 +36,13 @@
 			</div>
 		</div>
 		<div class="col-xs-3">
+			<div class="form-group">
+				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Field identifier')?></label> <input ng-model="startChat.fieldidentifier" class="form-control" ng-model="" type="text" name="" value="" />
+			</div>
+		</div>
+		<div class="col-xs-3">
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Is required')?> <input ng-model="startChat.isrequired" type="checkbox" name="isRequired" /></label>
 		</div>
-
 		<div class="col-xs-6">
 			<input type="button" class="btn btn-default col-xs-12" ng-click="startChat.addField()" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Add a field')?>" />
 		</div>
@@ -58,11 +62,13 @@
 					<li ng-if="field.visibility == 'on'"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Visible only in online form')?></li>
 					<li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Size')?> - {{field.size}}</li>
 					<li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Type')?> - {{field.fieldtype}}</li>
+					<li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Identifier')?> - {{field.fieldidentifier}}</li>
 				</ul>
 				<button type="button" class="btn btn-danger btn-xs" ng-click="startChat.deleteField(field)"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Remove')?></button>
 			</div>
 			<input type="hidden" name="customFieldLabel[]" value="{{field.fieldname}}" />
 			<input type="hidden" name="customFieldType[]" value="{{field.fieldtype}}" />
+			<input type="hidden" name="customFieldIdentifier[]" value="{{field.fieldidentifier}}" />
 			<input type="hidden" name="customFieldSize[]" value="{{field.size}}" />
 			<input type="hidden" name="customFieldVisibility[]" value="{{field.visibility}}" />
 			<input type="hidden" name="customFieldIsrequired[]" value="{{field.isrequired}}" />
