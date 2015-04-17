@@ -316,10 +316,11 @@ class erLhcoreClassChatWorkflow {
      	$items = $session->find( $q );
      	
      	if (!empty($items)){
-     		$cannedMsg = array_shift($items);
+     		$cannedMsg = array_shift($items);     		
+     		$cannedMsg->setReplaceData(array('{nick}' => $chat->nick, '{operator}' => (string)$chat->user->name_support));
      		
      		$msg = new erLhcoreClassModelmsg();
-     		$msg->msg = str_replace(array('{nick}','{operator}'), array($chat->nick,(string)$chat->user->name_support),$cannedMsg->msg);
+     		$msg->msg = $cannedMsg->msg_to_user;
      		$msg->chat_id = $chat->id;
      		$msg->user_id = $chat->user_id;
      		$msg->name_support = $chat->user->name_support;
