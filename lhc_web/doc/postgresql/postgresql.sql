@@ -162,11 +162,17 @@ CREATE TABLE "lh_abstract_proactive_chat_invitation" (
 CREATE TABLE "lh_canned_msg" (
     "id" integer NOT NULL,
     "msg" text NOT NULL,
+    "fallback_msg" text NOT NULL,
+    "title" varchar(200) NOT NULL,
+    "explain" varchar(200) NOT NULL,
     "position" integer NOT NULL,
     "department_id" integer NOT NULL,
     "user_id" integer NOT NULL,
     "delay" integer NOT NULL,
     "auto_send" integer NOT NULL,
+    "attr_int_1" integer NOT NULL,
+    "attr_int_2" integer NOT NULL,
+    "attr_int_3" integer NOT NULL,
     PRIMARY KEY ("id")
 );
 
@@ -926,6 +932,9 @@ CREATE INDEX abstract_time_ositepsp ON lh_abstract_proactive_chat_invitation USI
 CREATE INDEX abstract_pro_inv_identifier ON lh_abstract_proactive_chat_invitation USING btree (identifier);
 CREATE INDEX abstract_pro_inv_dep_id ON lh_abstract_proactive_chat_invitation USING btree (dep_id);
 CREATE INDEX canned_msg_department_id ON lh_canned_msg USING btree (department_id);
+CREATE INDEX canned_msg_attr_int_1 ON lh_canned_msg USING btree (attr_int_1);
+CREATE INDEX canned_msg_attr_int_2 ON lh_canned_msg USING btree (attr_int_2);
+CREATE INDEX canned_msg_attr_int_3 ON lh_canned_msg USING btree (attr_int_3);
 CREATE INDEX canned_msg_user_id ON lh_canned_msg USING btree (user_id);
 CREATE INDEX status_user_id ON lh_chat USING btree (status,user_id);
 CREATE INDEX chat_user_id ON lh_chat USING btree (user_id);

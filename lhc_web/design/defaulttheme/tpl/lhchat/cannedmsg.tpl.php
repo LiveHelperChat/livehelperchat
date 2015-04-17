@@ -4,7 +4,7 @@
 <thead>
 <tr>
     <th width="1%">ID</th>
-    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Message');?></th>
+    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Title/Message');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','User');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Delay');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Position');?></th>
@@ -13,16 +13,16 @@
     <th width="1%">&nbsp;</th>
 </tr>
 </thead>
-<?php foreach ($items as $departament) : ?>
+<?php foreach ($items as $item) : ?>
     <tr>
-        <td><?php echo $departament->id?></td>
-        <td><?php echo nl2br(htmlspecialchars($departament->msg))?></td>
-        <td><?php echo htmlspecialchars($departament->user)?></td>
-        <td><?php echo $departament->delay?></td>
-        <td><?php echo $departament->position?></td>
-        <td><?php echo $departament->auto_send?></td>
-        <td nowrap><a class="btn btn-default btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('chat/cannedmsgedit')?>/<?php echo $departament->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Edit message');?></a></td>
-        <td nowrap><a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="csfr-required btn btn-danger btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('chat/cannedmsg')?>/(action)/delete/(id)/<?php echo $departament->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Delete message');?></a></td>
+        <td><?php echo $item->id?></td>
+        <td><?php echo nl2br(htmlspecialchars($item->title != '' ? $item->title : $item->msg))?></td>
+        <td><?php echo htmlspecialchars($item->user)?></td>
+        <td><?php echo $item->delay?></td>
+        <td><?php echo $item->position?></td>
+        <td><?php echo $item->auto_send?></td>
+        <td nowrap><a class="btn btn-default btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('chat/cannedmsgedit')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Edit message');?></a></td>
+        <td nowrap><a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="csfr-required btn btn-danger btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('chat/cannedmsg')?>/(action)/delete/(id)/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Delete message');?></a></td>
     </tr>
 <?php endforeach; ?>
 </table>
