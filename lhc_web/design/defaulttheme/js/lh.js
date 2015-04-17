@@ -948,7 +948,7 @@ function lh(){
 	        if (delayMiliseconds > 0) {
 	        	setTimeout(function(){
 	        		var pdata = {
-		    				msg	: $('#id_CannedMessage-'+chat_id).find(':selected').text()
+		    				msg	: $('#id_CannedMessage-'+chat_id).find(':selected').attr('data-msg')
 		    		};
 		    		$('#CSChatMessage-'+chat_id).val('');
 		    		$.postJSON(www_dir + inst.addmsgurl + chat_id, pdata , function(data){
@@ -961,7 +961,7 @@ function lh(){
 	        	},delayMiliseconds);
 	        } else {
 	        	var pdata = {
-	    				msg	: $('#id_CannedMessage-'+chat_id).find(':selected').text()
+	    				msg	: $('#id_CannedMessage-'+chat_id).find(':selected').attr('data-msg')
 	    		};
 	    		$('#CSChatMessage-'+chat_id).val('');
 	    		$.postJSON(this.wwwDir + this.addmsgurl + chat_id, pdata , function(data){
