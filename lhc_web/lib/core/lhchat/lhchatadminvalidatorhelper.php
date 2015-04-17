@@ -6,6 +6,108 @@
 
 class erLhcoreClassAdminChatValidatorHelper {
 
+    
+    public static function validateCannedMessage(erLhcoreClassModelCannedMsg & $cannedMessage, $userDepartments) {
+        $definition = array(
+            'Message' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'FallbackMessage' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'Title' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'ExplainHover' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'Position' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0)
+            ),
+            'Delay' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0)
+            ),
+            'DepartmentID' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1)
+            ),
+            'AutoSend' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            )
+        );
+        
+        $form = new ezcInputForm( INPUT_POST, $definition );
+        $Errors = array();
+        
+        if ( !$form->hasValidData( 'Message' ) || $form->Message == '' )
+        {
+            $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please enter a canned message');
+        } else {
+            $cannedMessage->msg = $form->Message;
+        }
+        
+        if ( $form->hasValidData( 'FallbackMessage' ) )
+        {
+            $cannedMessage->fallback_msg = $form->FallbackMessage;
+        }
+        
+        if ( $form->hasValidData( 'Title' ) )
+        {
+            $cannedMessage->title = $form->Title;
+        }
+        
+        if ( $form->hasValidData( 'ExplainHover' ) )
+        {
+            $cannedMessage->explain = $form->ExplainHover;
+        }
+        
+        if ( $form->hasValidData( 'AutoSend' ) && $form->AutoSend == true )
+        {
+            $cannedMessage->auto_send = 1;
+        } else {
+            $cannedMessage->auto_send = 0;
+        }
+        
+        if ( $form->hasValidData( 'Position' )  )
+        {
+            $cannedMessage->position = $form->Position;
+        }
+        
+        if ( $form->hasValidData( 'Delay' )  )
+        {
+            $cannedMessage->delay = $form->Delay;
+        }
+        
+        if ( $form->hasValidData( 'DepartmentID' )  ) {
+            $cannedMessage->department_id = $form->DepartmentID;
+            if ($userDepartments !== true) {
+                if (!in_array($cannedMessage->department_id, $userDepartments)) {
+                    $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please choose a department');
+                }
+            }
+        } else {
+            
+            $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.validate_canned_msg_user_departments',array('canned_msg' => & $cannedMessage, 'errors' => & $Errors));
+            
+            // Perhaps extension did some internal validation and we don't need anymore validate internaly
+            if ($response === false) {            
+                // User has to choose a department
+                if ($userDepartments !== true) {
+                    $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please choose a department');
+                } else {
+                    $cannedMessage->department_id = 0;
+                }
+            }
+        }
+        
+        return $Errors;
+    }
+    
+    /**
+     * 
+     * @param array $data
+     * 
+     * @return array
+     */
 	public static function validateStartChatForm(& $data)
 	{
 	    $definition = array(

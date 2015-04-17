@@ -15,6 +15,9 @@ class erLhcoreClassModelCannedMsg {
                'attr_int_1'  	=> $this->attr_int_1,
                'attr_int_2'  	=> $this->attr_int_2,
                'attr_int_3'  	=> $this->attr_int_3,
+               'title'  	    => $this->title,
+               'explain'  => $this->explain,
+               'fallback_msg'  	=> $this->fallback_msg,
               );
    }
 
@@ -174,6 +177,9 @@ class erLhcoreClassModelCannedMsg {
 
    public $id = null;
    public $msg = '';
+   public $title = '';
+   public $explain = '';
+   public $fallback_msg = '';      
    public $position = 0;
    public $delay = 0;
    public $department_id = 0;

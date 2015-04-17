@@ -720,10 +720,13 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  PRIMARY KEY (`id`),
 				  KEY `identifier` (`identifier`)
 				) DEFAULT CHARSET=utf8;");
-
+        	   
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_canned_msg` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
                   `msg` text NOT NULL,
+                  `fallback_msg` text NOT NULL,
+                  `title` varchar(250) NOT NULL,
+                  `explain` varchar(250) NOT NULL,
         	   	  `position` int(11) NOT NULL,
         	   	  `department_id` int(11) NOT NULL,
         	   	  `user_id` int(11) NOT NULL,

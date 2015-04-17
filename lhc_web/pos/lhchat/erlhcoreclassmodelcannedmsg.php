@@ -9,10 +9,37 @@ $def->idProperty->columnName = 'id';
 $def->idProperty->propertyName = 'id';
 $def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentNativeGenerator' );
 
+/**
+ * Explain for canned messages
+ * */
+$def->properties['title'] = new ezcPersistentObjectProperty();
+$def->properties['title']->columnName   = 'title';
+$def->properties['title']->propertyName = 'title';
+$def->properties['title']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+/**
+ * Can be used as explain for extensions
+ * */
+$def->properties['explain'] = new ezcPersistentObjectProperty();
+$def->properties['explain']->columnName   = 'explain';
+$def->properties['explain']->propertyName = 'explain';
+$def->properties['explain']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+/**
+ * Main message text
+ * */
 $def->properties['msg'] = new ezcPersistentObjectProperty();
 $def->properties['msg']->columnName   = 'msg';
 $def->properties['msg']->propertyName = 'msg';
 $def->properties['msg']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+/**
+ * If some of the main message replacable variables is not found this one is used
+ * */
+$def->properties['fallback_msg'] = new ezcPersistentObjectProperty();
+$def->properties['fallback_msg']->columnName   = 'fallback_msg';
+$def->properties['fallback_msg']->propertyName = 'fallback_msg';
+$def->properties['fallback_msg']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 $def->properties['position'] = new ezcPersistentObjectProperty();
 $def->properties['position']->columnName   = 'position';
