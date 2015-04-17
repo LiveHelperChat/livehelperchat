@@ -628,7 +628,7 @@ class erLhcoreClassChat {
        		}
 			
 			if ($rowsNumber == 0) { // Perhaps auto active is turned on for some of departments							
-				$daysColumns = array('`mod`','`tud`','`wed`','`thd`','`frd`','`sad`','`sud`');
+				$daysColumns = array('mod','tud','wed','thd','frd','sad','sud');
 				$columns = date('N')-1;
 				
 				if (is_numeric($dep_id)) {
