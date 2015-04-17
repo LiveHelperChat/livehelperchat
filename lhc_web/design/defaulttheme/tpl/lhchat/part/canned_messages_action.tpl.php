@@ -14,7 +14,7 @@
             '{operator}' => $nameSupport            
         );
         
-        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow.canned_message_replace',array('replace_array' => & $replaceArray));
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow.canned_message_replace',array('chat' => $chat, 'replace_array' => & $replaceArray));
         
         foreach (erLhcoreClassModelCannedMsg::getCannedMessages($chat->dep_id,erLhcoreClassUser::instance()->getUserID()) as $item) :         
         $item->setReplaceData($replaceArray); ?>
