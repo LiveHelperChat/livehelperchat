@@ -1,5 +1,7 @@
 <?php
 
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('xmp.configuration', array());
+
 $tpl = erLhcoreClassTemplate::getInstance( 'lhxmp/xmp.tpl.php');
 
 $xmpData = erLhcoreClassModelChatConfig::fetch('xmp_data');

@@ -90,8 +90,8 @@ function generateEmbedCode() {
     var id_theme = $('#ThemeID').val() > 0 ? '/(theme)/'+$('#ThemeID').val() : '';
     var id_operator = $('#id_operator').val() > 0 ? '/(operator)/'+$('#id_operator').val() : '';
     
-    var id_tag = '<!-- Place this tag where you want the Live Helper Plugin to render. -->'+"\n"+
-        '<div id="lhc_status_container_page" ></div>'+"\n\n<!-- Place this tag after the Live Helper Plugin tag. -->\n";
+    var id_tag =  <?php include(erLhcoreClassDesign::designtpl('lhsystem/embedcode_title.tpl.php'));?>+"\n"+
+        '<div id="lhc_status_container_page" ></div>'+"\n\n"+<?php include(erLhcoreClassDesign::designtpl('lhsystem/embedcode_title_after.tpl.php'));?>+"\n";
 
     var uaArguments = '';
         

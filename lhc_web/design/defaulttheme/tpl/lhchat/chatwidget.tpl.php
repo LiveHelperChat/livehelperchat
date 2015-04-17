@@ -7,7 +7,7 @@
 <?php else : ?>
 
 <?php if (!isset($start_data_fields['show_operator_profile']) || $start_data_fields['show_operator_profile'] == false) : ?>
-<div class="pl10 pos-rel max-width-180 pull-right">
+<div class="pl10 max-width-180 pull-right absolute-language-top-right">
 	<?php $rightLanguage = true;?>
 	<?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/switch_language.tpl.php'));?>
 </div>

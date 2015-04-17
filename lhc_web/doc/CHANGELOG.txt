@@ -1,3 +1,11 @@
+2.30v
+
+1. Canned messages have three additional integere attributes which can be used in extensions
+2. https://github.com/LiveHelperChat/livehelperchat/issues/670
+3. A lot of override options. Usefull for extesnions
+
+execute doc/update_db/update_107.sql for update
+
 2.29v
 
 1. One more flow of internal changes and flexibility enhancements. Basically while building commercial plugins I'm extending core with more templates overrides and 
@@ -6,7 +14,7 @@ events
 3. Few fixed regarding user arguments variables. It was lost during form submitting. It was effecting only extensions.
 4. Custom forms field can be managed from back office. Basically admin can add custom fields directly from back office. No need to use Javascript.
 
-execute doc/update_db/update_105.sql for update
+execute doc/update_db/update_106.sql for update
 
 2.28v
 

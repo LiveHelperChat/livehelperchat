@@ -1160,6 +1160,30 @@
                 "extra": ""
             },
             {
+                "field": "attr_int_1",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "attr_int_2",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "attr_int_3",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "auto_send",
                 "type": "tinyint(1)",
                 "null": "NO",
@@ -4812,6 +4836,14 @@
     			"attr_int_1" : "ALTER TABLE `lh_departament` ADD INDEX `attr_int_1` (`attr_int_1`)",
     			"attr_int_2" : "ALTER TABLE `lh_departament` ADD INDEX `attr_int_2` (`attr_int_2`)",
     			"attr_int_3" : "ALTER TABLE `lh_departament` ADD INDEX `attr_int_3` (`attr_int_3`)"
+    		},
+    		"old" : []
+    	},
+    	"lh_canned_msg" : {
+    		"new" : {
+    			"attr_int_1" : "ALTER TABLE `lh_canned_msg` ADD INDEX `attr_int_1` (`attr_int_1`)",
+    			"attr_int_2" : "ALTER TABLE `lh_canned_msg` ADD INDEX `attr_int_2` (`attr_int_2`)",
+    			"attr_int_3" : "ALTER TABLE `lh_canned_msg` ADD INDEX `attr_int_3` (`attr_int_3`)"
     		},
     		"old" : []
     	}

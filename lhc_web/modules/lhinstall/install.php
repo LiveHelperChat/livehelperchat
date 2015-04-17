@@ -729,8 +729,14 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   	  `user_id` int(11) NOT NULL,
   				  `delay` int(11) NOT NULL,
         	   	  `auto_send` tinyint(1) NOT NULL,
+        	   	  `attr_int_1` int(11) NOT NULL,
+        	   	  `attr_int_2` int(11) NOT NULL,
+        	   	  `attr_int_3` int(11) NOT NULL,
                   PRIMARY KEY (`id`),
         	   	  KEY `department_id` (`department_id`),
+        	   	  KEY `attr_int_1` (`attr_int_1`),
+        	   	  KEY `attr_int_2` (`attr_int_2`),
+        	   	  KEY `attr_int_3` (`attr_int_3`),
         	   	  KEY `user_id` (`user_id`)
                 ) DEFAULT CHARSET=utf8;");
 

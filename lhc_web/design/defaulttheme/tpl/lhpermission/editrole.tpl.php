@@ -31,8 +31,7 @@
 		     <?php foreach (erLhcoreClassRoleFunction::getRoleFunctions($role->id) as $Function) : ?>
 		     <tr>
 			     <td><input type="checkbox" class="mb0" name="PolicyID[]" value="<?php echo $Function['id']?>" /></td>
-			     <td><?php echo htmlspecialchars(erLhcoreClassModules::getModuleName($Function['module']))?>&nbsp;(<b><?php echo htmlspecialchars($Function['module'])?></b>)</td>
-			     <td><?php echo htmlspecialchars(erLhcoreClassModules::getFunctionName($Function['module'],$Function['function']))?>&nbsp;(<b><?php echo htmlspecialchars($Function['function'])?></b>)</td>
+			     <?php include(erLhcoreClassDesign::designtpl('lhpermission/role_row.tpl.php'));?>
 		     </tr>
 		     <?php endforeach; ?>
 		</table>

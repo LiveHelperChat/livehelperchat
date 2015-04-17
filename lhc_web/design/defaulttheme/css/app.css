@@ -18,6 +18,19 @@ body {
     outline: 0;
 }
 
+.absolute-language-top-right{
+	position:fixed;
+	top:0;
+	right:0;
+	z-index:9999;
+}
+.absolute-language-top-right .btn-default{
+	border-top:0;
+	border-right:0;
+	border-radius:0;
+	border-bottom-left-radius:3px;
+}
+
 #myModal,
 .modal-open{
 	padding-right:0px !important;

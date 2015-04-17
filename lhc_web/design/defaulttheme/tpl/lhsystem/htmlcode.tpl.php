@@ -193,8 +193,8 @@ function generateEmbedCode(){
 	var topposition = '/(units)/'+$('#UnitsTop').val();
 
     if ($('#PositionID').val() == 'original'){
-        id_tag = '<!-- Place this tag where you want the Live Helper Status to render. -->'+"\n"+
-        '<div id="lhc_status_container" ></div>'+"\n\n<!-- Place this tag after the Live Helper status tag. -->\n";
+        id_tag = <?php include(erLhcoreClassDesign::designtpl('lhsystem/htmlcode_title.tpl.php'));?>+"\n"+
+        '<div id="lhc_status_container" ></div>'+"\n\n"+<?php include(erLhcoreClassDesign::designtpl('lhsystem/htmlcode_title_after.tpl.php'));?>+"\n";
     };
     
     var id_embed_domain = $('#id_embed_domain').val() != '' ? ',domain:\''+$('#id_embed_domain').val()+'\'' : '';

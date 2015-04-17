@@ -6,11 +6,12 @@
     <div class="panel-heading" role="tab" id="heading<?php echo $key?>One">     
         <a data-toggle="collapse" data-parent="#accordion" href="#<?php echo $key?>One" aria-expanded="true" aria-controls="collapseOne">
             <?php if (count($moduleFunctions) > 0) : $hasFunctions = true;?>
-            [<?php echo $key?>] <?php echo htmlspecialchars($Module['name']);?>            
-            <?php else : $hasFunctions = false; // There is no custom functions that means user can use all module functions ?>
-            [<?php echo $key?>] <?php echo htmlspecialchars($Module['name']);?><label class="pull-right label label-success">Y</label>            
+            <?php include(erLhcoreClassDesign::designtpl('lhpermission/gerpermissionsummary_module.tpl.php'));?>                      
+            <?php else : $hasFunctions = false; // There is no custom functions that means user can use all module functions ?>                       
+            <?php include(erLhcoreClassDesign::designtpl('lhpermission/gerpermissionsummary_module.tpl.php'));?>            
+            <label class="pull-right label label-success">Y</label>            
             <?php endif;?>
-        </a>     
+        </a>
     </div>    
     <?php if ($hasFunctions == true) : ?>
     <div id="<?php echo $key?>One" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<?php echo $key?>One">

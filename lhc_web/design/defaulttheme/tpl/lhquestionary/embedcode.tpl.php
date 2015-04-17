@@ -39,7 +39,7 @@ function generateEmbedCode(){
     var siteAccess = $('#LocaleID').val() == default_site_access ? '' : $('#LocaleID').val();
     var id_theme = $('#ThemeID').val() > 0 ? '/(theme)/'+$('#ThemeID').val() : '';
     
-    var id_tag = '<!-- Place this tag where you want the Live Helper Questionary module to render. -->'+"\n"+'<div id="lhc_questionary_embed_container" ></div>'+"\n\n<!-- Place this tag after the Live Helper Questionary module tag. -->\n";
+    var id_tag = <?php include(erLhcoreClassDesign::designtpl('lhquestionary/embedcode_title.tpl.php'));?>+"\n"+'<div id="lhc_questionary_embed_container" ></div>'+"\n\n"+<?php include(erLhcoreClassDesign::designtpl('lhquestionary/embedcode_title_after.tpl.php'));?>+"\n";
 	
     var script = '<script type="text/javascript">'+"\n"+
       '(function() {'+"\n"+
