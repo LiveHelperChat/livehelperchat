@@ -42,7 +42,7 @@ $params = array (
 		'list_function_params'  => array_merge(array('limit' => '1000000'),$limitDepartments)
 );
 
-if (empty($limitDepartments)) {
+if (empty($limitDepartments) || (isset($showAnyDepartment) && $showAnyDepartment == true)) {
 	$params['optional_field'] = erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Any');
 }
 
