@@ -308,6 +308,8 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
 	       		}
 
 	       		$chat->saveThis();
+	       		
+	       		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.auto_responder_triggered',array('chat' => & $chat));
 	       }
     	       	       
 	       // Redirect user

@@ -227,6 +227,8 @@ if ( isset($_POST['send']) )
 		$item_new = new erLhcoreClassFaq();
 		$tpl->set('success',true);
 
+		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('faq.filled_by_user', array('faq' => & $item_new));
+		
 		if (isset($_SESSION[erLhcoreClassIPDetect::getIP()]['form'])) {
 			unset($_SESSION[erLhcoreClassIPDetect::getIP()]['form']);
 		}

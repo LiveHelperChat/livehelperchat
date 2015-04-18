@@ -278,7 +278,9 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
 		       			$chat->last_msg_id = $msg->id;
 		       		}
 		       	}
-
+		       	
+		       	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.auto_responder_triggered',array('chat' => & $chat));
+		       	
 		       	$chat->saveThis();
 	       }
 

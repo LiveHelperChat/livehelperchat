@@ -17,6 +17,9 @@ if ( isset($_POST['Save']) )
 
 	if (count($Errors) == 0) {
 		$faq->saveThis();
+		
+		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('faq.created', array('faq' => & $faq));
+		
 		erLhcoreClassModule::redirect('faq/list');
 		exit;
 	} else {
