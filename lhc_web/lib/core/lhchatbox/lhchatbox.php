@@ -38,6 +38,8 @@ class erLhcoreClassChatbox {
 				$chatbox->chat_id = $chat->id;
 				$chatbox->saveThis();
 
+				erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chatbox.created', array('chatbox' => & $chatbox));
+				
 				return $chatbox;
 			} else {
 				return array_shift($items);
@@ -78,7 +80,9 @@ class erLhcoreClassChatbox {
 
     				$chatbox->chat_id = $chat->id;
     				$chatbox->saveThis();
-
+    				
+    				erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chatbox.created', array('chatbox' => & $chatbox));
+    				
     				return $chatbox;
     			} else {
 					return array_shift($items);

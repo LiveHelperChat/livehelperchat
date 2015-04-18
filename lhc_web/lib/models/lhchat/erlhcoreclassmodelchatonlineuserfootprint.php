@@ -98,6 +98,8 @@ class erLhcoreClassModelChatOnlineUserFootprint {
    		$item->vtime = time();
    		$item->page = $_SERVER['HTTP_REFERER'];
    		erLhcoreClassChat::getSession()->save( $item );
+   		
+   		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('onlinefootprint.created', array('item' => & $item));
    }
 
    public static function assignChatToPageviews(erLhcoreClassModelChatOnlineUser $onlineUser) {
