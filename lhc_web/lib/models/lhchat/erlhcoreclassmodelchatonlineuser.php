@@ -558,7 +558,8 @@ class erLhcoreClassModelChatOnlineUser {
    public static function handleRequest($paramsHandle = array()) {
 
 	   	if (isset($_SERVER['HTTP_USER_AGENT']) && !self::isBot($_SERVER['HTTP_USER_AGENT'])) {
-
+               $newVisitor = false;
+               
 	           if ( isset($paramsHandle['vid']) && !empty($paramsHandle['vid']) ) {
 	               $items = erLhcoreClassModelChatOnlineUser::getList(array('filter' => array('vid' => $paramsHandle['vid'])));
 	               if (!empty($items)) {
@@ -618,6 +619,8 @@ class erLhcoreClassModelChatOnlineUser {
 	                   self::cleanupOnlineUsers();
 
 	                   $item->store_chat = true;
+	                   
+	                   $newVisitor = true;
 	               }
 	           } else {
 		               self::cleanupOnlineUsers();
@@ -669,6 +672,10 @@ class erLhcoreClassModelChatOnlineUser {
 	           if ($item->store_chat == true) {
 	           		$item->last_check_time = time();
 	           		$item->saveThis();
+	           		
+	           		if ($newVisitor == true) {
+	           		    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('onlineuser.created', array('ou' => & $item));
+	           		}
 	           }
 
 	           return $item;

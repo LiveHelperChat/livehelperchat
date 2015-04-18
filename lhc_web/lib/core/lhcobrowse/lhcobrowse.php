@@ -106,6 +106,10 @@ class erLhcoreClassCoBrowse {
 				    }
 				}
 				
+				if ($coBrowseSession->id === null) {
+				    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('cobrowse.started', array('co_browse' => & $coBrowseSession));
+				}
+				
 				$coBrowseSession->saveThis();
 			}
 			
