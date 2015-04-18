@@ -124,6 +124,9 @@ if ($votingRelative !== false) {
 
 		if ( count($Errors) == 0) {
 			$votingAnswer->saveThis();
+			
+			erLhcoreClassChatEventDispatcher::getInstance()->dispatch('questionaire.option_chosen', array('voting' => & $votingAnswer));
+			
 			$tpl->set('received',true);
 		} else {
 	        $tpl->set('errors',$Errors);
@@ -172,6 +175,9 @@ if ($votingRelative !== false) {
 
 		if ( count($Errors) == 0) {
 			$answer->saveThis();
+			
+			erLhcoreClassChatEventDispatcher::getInstance()->dispatch('questionaire.feedback_left', array('feedback' => & $answer));
+			
 			$tpl->set('received',true);
 		} else {
 			$tpl->set('errors',$Errors);
