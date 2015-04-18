@@ -67,7 +67,7 @@
     </message>
     <message>
       <source>socket.io path, optional</source>
-      <translation type="unfinished"/>
+      <translation>socket.io 路径(可选)</translation>
     </message>
     <message>
       <source>NodeJS support enabled</source>
@@ -75,7 +75,7 @@
     </message>
     <message>
       <source>Do not ask permission for users to see their screen</source>
-      <translation type="unfinished"/>
+      <translation>不询问批准下查看用户屏幕</translation>
     </message>
     <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
@@ -5755,11 +5755,11 @@
     </message>
     <message>
       <source>Language</source>
-      <translation type="unfinished"/>
+      <translation>语音</translation>
     </message>
     <message>
       <source>Dialect</source>
-      <translation type="unfinished"/>
+      <translation>方言</translation>
     </message>
     <message>
       <source>Default speech recognition language</source>
@@ -5844,11 +5844,11 @@
     <name>system/smtp</name>
     <message>
       <source>Mail settings</source>
-      <translation type="unfinished"/>
+      <translation>电邮设置</translation>
     </message>
     <message>
       <source>Sender address</source>
-      <translation type="unfinished"/>
+      <translation>发送者地址</translation>
     </message>
     <message>
       <source>Default from e-mail address</source>
@@ -6124,11 +6124,11 @@
     </message>
     <message>
       <source>I receive other operators permissions request</source>
-      <translation type="unfinished"/>
+      <translation>我接收其他操作员的权限请求</translation>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
-      <translation type="unfinished"/>
+      <translation>用户接收到其他操作员的权限请求</translation>
     </message>
     <message>
       <source>User group</source>
@@ -6235,7 +6235,7 @@
     </message>
     <message>
       <source>Disabled</source>
-      <translation type="unfinished"/>
+      <translation>禁用</translation>
     </message>
     <message>
       <source>Update</source>
@@ -6740,7 +6740,7 @@
     </message>
     <message>
       <source>From e-mail</source>
-      <translation type="unfinished"/>
+      <translation>从电邮</translation>
     </message>
     <message>
       <source>Allow to change from e-mail</source>
@@ -6748,7 +6748,7 @@
     </message>
     <message>
       <source>Use user e-mail as from address</source>
-      <translation>用户的电子邮件地址</translation>
+      <translation>使用用户电邮作为表单地址</translation>
     </message>
     <message>
       <source>Reply to</source>
@@ -6873,14 +6873,14 @@
     <name>permission/getpermissionsummary</name>
     <message>
       <source>Module/Function</source>
-      <translation>模型/方法</translation>
+      <translation>模型/函数</translation>
     </message>
   </context>
   <context>
     <name>permission/getpermissionssummary</name>
     <message>
       <source>Request permission</source>
-      <translation type="unfinished"/>
+      <translation>请求权限</translation>
     </message>
     <message>
       <source>Please choose at least one permission</source>
@@ -6895,11 +6895,11 @@
     </message>
     <message>
       <source>Request permissions</source>
-      <translation type="unfinished"/>
+      <translation>请求权限</translation>
     </message>
     <message>
       <source>Permission requested</source>
-      <translation type="unfinished"/>
+      <translation>已请求权限</translation>
     </message>
     <message>
       <source>Please choose a user!</source>
@@ -6911,38 +6911,38 @@
     </message>
     <message>
       <source>Permissions were not provided</source>
-      <translation type="unfinished"/>
+      <translation>并无提供权限</translation>
     </message>
   </context>
   <context>
     <name>users/autologin</name>
     <message>
       <source>Auto login settings</source>
-      <translation type="unfinished"/>
+      <translation>自动登录设置</translation>
     </message>
     <message>
       <source>This module can be used if you are generating autologin link. See site for code examples</source>
-      <translation type="unfinished"/>
+      <translation>此模块可用语产生自动登录链接，例子请看网站</translation>
     </message>
     <message>
       <source>Enabled</source>
-      <translation type="unfinished"/>
+      <translation>启用</translation>
     </message>
     <message>
       <source>Secret hash used for authentification token generation, min 10 characters</source>
-      <translation type="unfinished"/>
+      <translation>用于产生身份验证令牌的秘密散列，最小10个字符</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>设置已更新</translation>
     </message>
     <message>
       <source>Autologin hash has expired</source>
-      <translation type="unfinished"/>
+      <translation>自动登录散列已过期</translation>
     </message>
     <message>
       <source>Could not find a user</source>
-      <translation type="unfinished"/>
+      <translation>无法找到用戶</translation>
     </message>
     <message>
       <source>Could not find a provided user</source>
@@ -6950,11 +6950,11 @@
     </message>
     <message>
       <source>Invalid autologin hash</source>
-      <translation type="unfinished"/>
+      <translation>自动登录散列不合法</translation>
     </message>
     <message>
       <source>Auto login module is not enabled</source>
-      <translation type="unfinished"/>
+      <translation>自动登录模块当前不可用</translation>
     </message>
   </context>
 </TS>

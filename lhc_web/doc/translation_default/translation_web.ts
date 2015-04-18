@@ -761,6 +761,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Place this tag where you want the Live Helper Chatbox module to render.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Place this tag after the Live Helper Chatbox module tag.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chatbox</source>
       <translation type="unfinished"/>
     </message>
@@ -833,6 +841,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Place this tag where you want the Live Helper FAQ module to render.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Place this tag after the Live Helper FAQ module tag.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Status text</source>
       <translation type="unfinished"/>
     </message>
@@ -850,6 +866,14 @@
     </message>
     <message>
       <source>Identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Place this tag where you want the Live Helper Questionary module to render.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Place this tag after the Live Helper Questionary module tag.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -910,6 +934,14 @@
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want your status to appear</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Place this tag where you want the Live Helper Plugin to render.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Place this tag after the Live Helper Plugin tag.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -978,6 +1010,14 @@
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Place this tag where you want the Live Helper Status to render.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Place this tag after the Live Helper status tag.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1308,7 +1348,7 @@
   <context>
     <name>chat/cannedmsg</name>
     <message>
-      <source>Message</source>
+      <source>Title/Message</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1340,6 +1380,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Title</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Explain</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Fallback message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Automatically send this message to user then chat is accepted</source>
       <translation type="unfinished"/>
     </message>
@@ -1368,11 +1424,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>System configuration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter canned message</source>
+      <source>Please enter a canned message</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1380,7 +1432,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Please enter a canned message</source>
+      <source>System configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter canned message</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -3272,10 +3328,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>XMPP settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>GEO detection configuration</source>
       <translation type="unfinished"/>
     </message>
@@ -3381,6 +3433,10 @@
     </message>
     <message>
       <source>Automatic translations</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP settings</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3823,6 +3879,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Field identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Is required</source>
       <translation type="unfinished"/>
     </message>
@@ -3848,6 +3908,10 @@
     </message>
     <message>
       <source>Size</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier</source>
       <translation type="unfinished"/>
     </message>
     <message>
