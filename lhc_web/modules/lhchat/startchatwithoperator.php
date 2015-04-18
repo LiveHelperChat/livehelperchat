@@ -65,6 +65,10 @@ if ( isset($_POST['SendMessage']) ) {
 
     	erLhcoreClassTransfer::getSession()->save($transfer);
 
+    	
+    	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.startchatwithoperator_started',array('chat' => & $chat, 'transfer' => & $transfer));
+    	
+    	
     	// Redirect user
     	erLhcoreClassModule::redirect('chat/single/' . $chat->id);
     	exit;

@@ -382,49 +382,10 @@ if ( erLhcoreClassUser::instance()->hasAccessTo('lhuser','personalcannedmsg') ) 
 	}
 	
 	if (isset($_POST['Save_canned_action']))
-	{
-		$definition = array(
-				'Message' => new ezcInputFormDefinitionElement(
-						ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-				),
-				'Position' => new ezcInputFormDefinitionElement(
-						ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0)
-				),
-				'Delay' => new ezcInputFormDefinitionElement(
-						ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0)
-				),
-		        'AutoSend' => new ezcInputFormDefinitionElement(
-		            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
-		        )
-		);
-		
-		$form = new ezcInputForm( INPUT_POST, $definition );
-		$Errors = array();
-		
-		if ( !$form->hasValidData( 'Message' ) || $form->Message == '' )
-		{
-			$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please enter canned message');
-		}
-		
-		if ( $form->hasValidData( 'Position' )  )
-		{
-			$cannedMessage->position = $form->Position;
-		}
-		
-		if ( $form->hasValidData( 'Delay' )  )
-		{
-			$cannedMessage->delay = $form->Delay;
-		}
-		
-		if ( $form->hasValidData( 'AutoSend' ) && $form->AutoSend == true )
-		{
-			$cannedMessage->auto_send = 1;
-		} else {
-			$cannedMessage->auto_send = 0;
-		}
-		
-		if (count($Errors) == 0) {
-			$cannedMessage->msg = $form->Message;
+	{	
+		$Errors = erLhcoreClassAdminChatValidatorHelper::validateCannedMessage($cannedMessage, true);
+				
+		if (count($Errors) == 0) {		
 			$cannedMessage->user_id = $UserData->id;
 			$cannedMessage->saveThis();			
 			$tpl->set('updated_canned',true);

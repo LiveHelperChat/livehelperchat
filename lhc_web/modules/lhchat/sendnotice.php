@@ -53,6 +53,8 @@ if ( isset($_POST['SendMessage']) ) {
         $visitor->operator_user_id = $currentUser->getUserID();
         $visitor->saveThis();
         
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('onlineuser.proactive_send_invitation', array('ou' => & $visitor));
+        
         $tpl->set('message_saved',true);    
     } else {        
         $tpl->set('errors',$Errors);

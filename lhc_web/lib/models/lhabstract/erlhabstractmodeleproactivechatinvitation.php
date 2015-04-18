@@ -465,6 +465,8 @@ class erLhAbstractModelProactiveChatInvitation {
 
 			$message->executed_times += 1;
 			$message->updateThis();
+			
+			erLhcoreClassChatEventDispatcher::getInstance()->dispatch('onlineuser.proactive_triggered', array('message' => & $message, 'ou' => & $item));
 		}
 	}
 

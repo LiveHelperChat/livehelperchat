@@ -493,7 +493,7 @@
     </message>
     <message>
       <source>Status widget additional CSS, takes effect after save</source>
-      <translation>CSS aggiuntivo del widget status, ha effetto dopo il salvataggio</translation>
+      <translation>Widget di stato CSS addizionale, ha effetto dopo il salvataggio</translation>
     </message>
     <message>
       <source>Widget container additional CSS, takes effect after save</source>
@@ -697,7 +697,7 @@
     <name>system/htmlcode</name>
     <message>
       <source>Popup window size</source>
-      <translation>Popup window size</translation>
+      <translation>Dimensione della finestra popup</translation>
     </message>
     <message>
       <source>HTML code</source>
@@ -809,7 +809,7 @@
     </message>
     <message>
       <source>Disable responsive layout for status widget.</source>
-      <translation>Disabilita layout responsive per il widget status</translation>
+      <translation>Disabilita layout responsive per il widget di stato</translation>
     </message>
     <message>
       <source>Disable minimize icon</source>
@@ -929,7 +929,7 @@
     </message>
     <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
-      <translation>Minimizza l&apos;azione, disponibile solo se il widget status è in basso</translation>
+      <translation>Minimizza l&apos;azione, disponibile solo se il widget di stato è ridotto in basso</translation>
     </message>
     <message>
       <source>Keep where it was</source>
@@ -953,7 +953,7 @@
     </message>
     <message>
       <source>Popup window width in pixels</source>
-      <translation>Popup window width in pixels</translation>
+      <translation>Larghezza in pixel della finestra popup</translation>
     </message>
     <message>
       <source>height</source>
@@ -961,15 +961,15 @@
     </message>
     <message>
       <source>Popup window height in pixels</source>
-      <translation>Popup window height in pixels</translation>
+      <translation>Altezza in pixel della finestra popup</translation>
     </message>
     <message>
       <source>Widget width</source>
-      <translation>Widget larghezza</translation>
+      <translation>Larghezza del widget</translation>
     </message>
     <message>
       <source>Widget width in pixels</source>
-      <translation>Widget width in pixels</translation>
+      <translation>Larghezza del widget in pixel</translation>
     </message>
     <message>
       <source>Widget height in pixels</source>
@@ -1000,7 +1000,7 @@
     </message>
     <message>
       <source>Status text</source>
-      <translation>Status-Text</translation>
+      <translation>Testo di stato</translation>
     </message>
     <message>
       <source>Expand the widget automatically for new users</source>
@@ -2476,7 +2476,7 @@
     </message>
     <message>
       <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
-      <translation>Applica queste regole all&apos;indicatore status del widget chat? la performance potrebbe diminuire se si seleziona questa opzione</translation>
+      <translation>Applicare queste regole all&apos;indicatore nel widget di stato chat? la performance potrebbe diminuire se si seleziona questa opzione</translation>
     </message>
     <message>
       <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
@@ -2512,7 +2512,7 @@
     </message>
     <message>
       <source>For unmatched countries put chat status to</source>
-      <translation>Per altri paesi imposta lo status chat a</translation>
+      <translation>Per altri paesi imposta lo stato chat a</translation>
     </message>
     <message>
       <source>normal status</source>
@@ -2682,7 +2682,7 @@
     <name>chat/onlineusers</name>
     <message>
       <source>Status</source>
-      <translation>Status</translation>
+      <translation>Stato</translation>
     </message>
     <message>
       <source>No one has sent a message to the user yet</source>
@@ -3062,7 +3062,7 @@
     </message>
     <message>
       <source>User does not have any messages from the operator</source>
-      <translation>Utente non ha messun messaggio dall&apos;operatore</translation>
+      <translation>L&apos;utente non ha ricevuto messaggi dall&apos;operatore</translation>
     </message>
     <message>
       <source>first visit</source>

@@ -16,7 +16,7 @@ if ($pages->items_total > 0) {
 <thead>
 <tr>
     <th width="1%">ID</th>
-    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Message');?></th>
+    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Title/Message');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Delay');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Position');?></th>
     <th width="1%">&nbsp;</th>
@@ -26,10 +26,10 @@ if ($pages->items_total > 0) {
 <?php foreach ($cannedMessages as $message) : ?>
     <tr>
         <td><?php echo $message->id?></td>
-        <td><?php echo nl2br(htmlspecialchars($message->msg))?></td>
+        <td><?php echo nl2br(htmlspecialchars($message->title != '' ? $message->title : $message->msg))?></td>
         <td><?php echo $message->delay?></td>
         <td><?php echo $message->position?></td>
-        <td nowrap><a class="btn btn-default btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('user/account')?>/(msg)/<?php echo $message->id?>#canned"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Edit message');?></a></td>
+        <td nowrap><a class="btn btn-default btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('user/account')?>/(msg)/<?php echo $message->id?>/(tab)/canned"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Edit message');?></a></td>
         <td nowrap><a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="csfr-required btn btn-danger btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('user/account')?>/(action)/delete/(tab)/canned/(msg)/<?php echo $message->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Delete message');?></a></td>
     </tr>
 <?php endforeach; ?>
@@ -55,9 +55,25 @@ if ($pages->items_total > 0) {
 <?php endif; ?>
 
 <form action="<?php if ($canned_msg->id > 0) : ?><?php echo erLhcoreClassDesign::baseurl('user/account')?>/(msg)/<?php echo $canned_msg->id?><?php endif;?>#canned" method="post">
+    
     <div class="form-group">
-	   <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Message');?></label>
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Title');?></label>
+        <input type="text" class="form-control" name="Title" value="<?php echo htmlspecialchars($canned_msg->title);?>" />
+    </div>
+    
+    <div class="form-group">
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Explain');?></label>
+        <input type="text" class="form-control" name="ExplainHover" value="<?php echo htmlspecialchars($canned_msg->explain);?>" />
+    </div>
+
+    <div class="form-group">
+	    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Message');?></label>
         <textarea class="form-control" name="Message"><?php echo htmlspecialchars($canned_msg->msg);?></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Fallback message');?></label>
+        <textarea class="form-control" name="FallbackMessage"><?php echo htmlspecialchars($canned_msg->fallback_msg);?></textarea>
     </div>
 
     <div class="form-group">
@@ -73,6 +89,8 @@ if ($pages->items_total > 0) {
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Position');?></label>
         <input type="text" class="form-control" name="Position" value="<?php echo $canned_msg->position?>" />
     </div>
+ 	    
+ 	    
  	    
 	<div class="btn-group" role="group" aria-label="...">
 		<input type="submit" class="btn btn-default" name="Save_canned_action" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>"/>

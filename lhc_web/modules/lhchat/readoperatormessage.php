@@ -373,6 +373,8 @@ if (isset($_POST['askQuestion']))
 	       			$msg->time = time()+5;
 	       			erLhcoreClassChat::getSession()->save($msg);
 	       		}
+	       		
+	       		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.auto_responder_triggered',array('chat' => & $chat));
 	       	}
        }
 

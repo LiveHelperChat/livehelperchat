@@ -546,7 +546,9 @@ class erLhcoreClassFormRenderer {
     	
     	$formCollected->content = serialize($collectedInformation);    	
     	$formCollected->saveThis();
-    	    	
+
+    	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('form.filled',array('form' => & $formCollected));
+    	
     	// Inform user about filled form
     	erLhcoreClassChatMail::informFormFilled($formCollected,array('email' => self::$mainEmail));
     }

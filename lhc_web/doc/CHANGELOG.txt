@@ -2,7 +2,10 @@
 
 1. Canned messages have three additional integere attributes which can be used in extensions
 2. https://github.com/LiveHelperChat/livehelperchat/issues/670
-3. A lot of override options. Usefull for extesnions
+3. Canned messages now has fallback option. Let say if original message does not have a replacable variable canned message will be the fallback one.
+4. In custom form fields there is new field "Field identifier" it can be used in canned messages.
+5. A lot of override options. Usefull for extesnions.
+6. Bunch of dispatches events around a places. Just gives more flexibility without overriding all module file.
 
 execute doc/update_db/update_107.sql for update
 

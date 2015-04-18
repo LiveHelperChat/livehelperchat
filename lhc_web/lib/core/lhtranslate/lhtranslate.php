@@ -137,12 +137,16 @@ class erLhcoreClassTranslate {
         } else {
             // Only last 10 messages are translated
             $msgs = erLhcoreClassModelmsg::getList(array('filter' => array('chat_id' => $chat->id),'limit' => 10,'sort' => 'id DESC'));
-                         
+
+            $length = 0;
+            
             foreach ($msgs as $msg) {
                 // Visitor message
                 // Remove old Translation
                 $msg->msg = preg_replace('#\[translation\](.*?)\[/translation\]#is', '',  $msg->msg);
             
+                $length += mb_strlen($msgTranslated);
+                
                 if ($msg->user_id == 0) {
                     $msgTranslated = erLhcoreClassTranslateGoogle::translate($translationData['google_api_key'], $msg->msg, $chat->chat_locale, $chat->chat_locale_to);
                 } else { // Operator message
@@ -152,9 +156,13 @@ class erLhcoreClassTranslate {
                 // If translation was successfull store it
                 if (!empty($msgTranslated)) {
                     $msg->msg .= "[translation]{$msgTranslated}[/translation]";
-                    $msg->saveThis();
+                    $msg->saveThis();                    
                 }
-            } 
+            }
+
+            if ($length > 0) {
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translate.messagetranslated', array('length' => $length, 'chat' => & $chat));
+            }            
         }
     }
     
