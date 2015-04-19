@@ -23,12 +23,9 @@ ini_set("max_execution_time", "3600");
 
 require_once dirname(__FILE__)."/ezcomponents/Base/src/base.php";
 
-function __autoload( $className )
-{
-        ezcBase::autoload( $className );
-}
-
 ezcBase::addClassRepository( dirname(__FILE__).'/', dirname(__FILE__).'/lib/autoloads');
+
+spl_autoload_register(array('ezcBase','autoload'), true, false);
 
 $input = new ezcConsoleInput();
 
