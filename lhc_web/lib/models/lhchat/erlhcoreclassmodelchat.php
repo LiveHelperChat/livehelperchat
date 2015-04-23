@@ -185,6 +185,11 @@ class erLhcoreClassModelChat {
        		   return $this->wait_time_front;
        		break;
 
+       	case 'wait_time_pending':
+       		   $this->wait_time_pending = erLhcoreClassChat::formatSeconds(time() - $this->time);
+       		   return $this->wait_time_pending;
+       		break;
+
        	case 'chat_duration_front':
        		   $this->chat_duration_front = erLhcoreClassChat::formatSeconds($this->chat_duration);
        		   return $this->chat_duration_front;
