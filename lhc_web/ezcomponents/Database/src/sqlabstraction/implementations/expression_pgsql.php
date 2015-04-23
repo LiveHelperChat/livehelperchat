@@ -37,7 +37,24 @@ class ezcQueryExpressionPgsql extends ezcQueryExpression
         $version = $db->getAttribute( PDO::ATTR_SERVER_VERSION );
         $this->version = substr( $version, 0, 1 );
     }
-
+    
+    /**
+     * Match a partial string in a column case insensitive.
+     *
+     * Like will look for the pattern in the column given. Like accepts
+     * the wildcards '_' matching a single character and '%' matching
+     * any number of characters.
+     *
+     * @param string $expression the name of the expression to match on
+     * @param string $pattern the pattern to match with.
+     */
+    public function ilike( $expression, $pattern )
+    {
+        $expression = $this->getIdentifier( $expression );
+        return "{$expression} ILIKE {$pattern}";
+    }
+    
+    
     /**
      * Returns the md5 sum of the field $column.
      *

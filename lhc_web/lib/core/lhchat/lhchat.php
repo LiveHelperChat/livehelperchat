@@ -156,6 +156,14 @@ class erLhcoreClassChat {
 			      	   }
 			      }
 
+			      if (isset($params['filterilike']) && count($params['filterilike']) > 0)
+			      {
+			          foreach ($params['filterilike'] as $field => $fieldValue)
+			          {
+			              $conditions[] = $q->expr->ilike( $field, $q->bindValue('%'.$fieldValue.'%') );
+			          }
+			      }
+			      
 			      if (isset($params['filterlt']) && count($params['filterlt']) > 0)
 			      {
 			           foreach ($params['filterlt'] as $field => $fieldValue)
@@ -223,10 +231,18 @@ class erLhcoreClassChat {
 		      	{
 		      		foreach ($params['filterlike'] as $field => $fieldValue)
 		      		{
-		      			$conditions[] = $q->expr->like( $field, $q->bindValue('%'.$fieldValue.'%') );
+		      			$conditions[] = $q2->expr->like( $field, $q->bindValue('%'.$fieldValue.'%') );
 		      		}
 		      	}
-
+		      	
+		      	if (isset($params['filterilike']) && count($params['filterilike']) > 0)
+		      	{
+		      	    foreach ($params['filterilike'] as $field => $fieldValue)
+		      	    {
+		      	        $conditions[] = $q2->expr->ilike( $field, $q->bindValue('%'.$fieldValue.'%') );
+		      	    }
+		      	}
+		      	
 		      	if (isset($params['filterin']) && count($params['filterin']) > 0)
 		      	{
 		      		foreach ($params['filterin'] as $field => $fieldValue)
@@ -355,6 +371,14 @@ class erLhcoreClassChat {
     		foreach ($params['filterlike'] as $field => $fieldValue)
     		{
     			$conditions[] = $q->expr->like( $field, $q->bindValue('%'.$fieldValue.'%') );
+    		}
+    	}
+
+    	if (isset($params['filterilike']) && count($params['filterilike']) > 0)
+    	{
+    		foreach ($params['filterilike'] as $field => $fieldValue)
+    		{
+    			$conditions[] = $q->expr->ilike( $field, $q->bindValue('%'.$fieldValue.'%') );
     		}
     	}
 

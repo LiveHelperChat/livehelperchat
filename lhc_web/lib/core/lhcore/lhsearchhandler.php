@@ -181,6 +181,8 @@ class erLhcoreClassSearchHandler {
 
                     } elseif ($field['filter_type'] == 'like') {
                         $filter['filterlike'][$field['filter_table_field']] = $inputParams->$key;
+                    } elseif ($field['filter_type'] == 'ilike') {
+                        $filter['filterilike'][$field['filter_table_field']] = $inputParams->$key;
                     } elseif ($field['filter_type'] == 'filterkeyword') {
 
                      	if (isset($field['filter_transform_to_search']) && $field['filter_transform_to_search'] == true) {
