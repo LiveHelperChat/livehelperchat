@@ -9,7 +9,7 @@ class erLhcoreClassLhRedis
         try {
             $params = erConfigClassLhConfig::getInstance()->getSetting( 'redis', 'server');
             $this->redis = new Redis();
-	        $this->redis->connect($params['host'], $params['port'], 2.5);
+	        $this->redis->pconnect($params['host'], $params['port'], 2.5);
 	        $this->redis->setOption(Redis::OPT_SERIALIZER, Redis::SERIALIZER_PHP);
 
             //select database by index
