@@ -54,31 +54,31 @@
 
             <div class="panel panel-default panel-lhc" ng-show="pending_chats.list.length > 0 || active_chats.list.length > 0 || unread_chats.list.length > 0 || closed_chats.list.length > 0<?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/right_column_angular_conditions_multiinclude.tpl.php'));?>">
             <?php if ($pendingTabEnabled == true) : ?>
-            <div class="panel-heading" ng-if="pending_chats.list.length > 0"><a href="<?php echo erLhcoreClassDesign::baseurl('chat/pendingchats')?>"><i class="icon-chat chat-pending"></i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Pending chats');?></a></div>
-            <div class="panel-body" id="right-pending-chats" ng-if="pending_chats.list.length > 0">
+            <div class="panel-heading" ng-if="pending_chats.list.length > 0"><a href="<?php echo erLhcoreClassDesign::baseurl('chat/pendingchats')?>"><i class="icon-chat chat-pending"></i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Pending chats');?> ({{pending_chats.list.length}}{{pending_chats.list.length == 10 ? '+' : ''}})</a><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','collapse/expand')?>" ng-click="lhc.toggleList('pending_chats_expanded')" ng-class="pending_chats_expanded == true ? 'icon-up' : 'icon-down'" class="pull-right"></a></div>
+            <div class="panel-body" id="right-pending-chats" ng-if="pending_chats.list.length > 0 && pending_chats_expanded == true">
         			<?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_pending_list.tpl.php'));?>
             </div>
             <?php endif;?>
         
-        <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/right_panel_post_pending_multiinclude.tpl.php'));?>
+            <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/right_panel_post_pending_multiinclude.tpl.php'));?>
         
         	<?php if ($activeTabEnabled == true) : ?> 
-            <div class="panel-heading" ng-if="active_chats.list.length > 0"><a href="<?php echo erLhcoreClassDesign::baseurl('chat/activechats')?>"><i class="icon-chat chat-active"></i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Active chats');?></a></div>
-            <div class="panel-body"  id="right-active-chats" ng-show="active_chats.list.length > 0">
+            <div class="panel-heading" ng-if="active_chats.list.length > 0"><a href="<?php echo erLhcoreClassDesign::baseurl('chat/activechats')?>"><i class="icon-chat chat-active"></i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Active chats');?> ({{active_chats.list.length}}{{active_chats.list.length == 10 ? '+' : ''}})</a><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','collapse/expand')?>" ng-click="lhc.toggleList('active_chats_expanded')" ng-class="active_chats_expanded == true ? 'icon-up' : 'icon-down'" class="pull-right"></a></div>
+            <div class="panel-body"  id="right-active-chats" ng-show="active_chats.list.length > 0 && active_chats_expanded == true">
         			<?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_active_list.tpl.php'));?>
             </div>                     
         	<?php endif;?>
         	
         	<?php if ($unreadTabEnabled == true) : ?>			
-            <div class="panel-heading" ng-if="unread_chats.list.length > 0"><a href="<?php echo erLhcoreClassDesign::baseurl('chat/unreadchats')?>"><i class="icon-comment chat-unread"></i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Unread messages');?></a></div>
-            <div class="panel-body" ng-if="unread_chats.list.length > 0" id="right-unread-chats">
+            <div class="panel-heading" ng-if="unread_chats.list.length > 0"><a href="<?php echo erLhcoreClassDesign::baseurl('chat/unreadchats')?>"><i class="icon-comment chat-unread"></i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Unread messages');?> ({{unread_chats.list.length}}{{unread_chats.list.length == 10 ? '+' : ''}})</a><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','collapse/expand')?>" ng-click="lhc.toggleList('unread_chats_expanded')" ng-class="unread_chats_expanded == true ? 'icon-up' : 'icon-down'" class="pull-right"></a></div>
+            <div class="panel-body" ng-if="unread_chats.list.length > 0 && unread_chats_expanded == true" id="right-unread-chats">
     			<?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_unread_list.tpl.php'));?>
             </div>                        
 			<?php endif;?>
 			
 			<?php if ($closedTabEnabled == true) : ?>        	
-            <div class="panel-heading" ng-if="closed_chats.list.length > 0"><a href="<?php echo erLhcoreClassDesign::baseurl('chat/closedchats')?>"><i class="icon-cancel-circled chat-closed"></i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Closed chats');?></a></div>
-            <div class="panel-body" id="right-closed-chats" ng-if="closed_chats.list.length > 0">
+            <div class="panel-heading" ng-if="closed_chats.list.length > 0"><a href="<?php echo erLhcoreClassDesign::baseurl('chat/closedchats')?>"><i class="icon-cancel-circled chat-closed"></i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Closed chats');?> ({{closed_chats.list.length}}{{closed_chats.list.length == 10 ? '+' : ''}})</a><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','collapse/expand')?>" ng-click="lhc.toggleList('closed_chats_expanded')" ng-class="closed_chats_expanded == true ? 'icon-up' : 'icon-down'" class="pull-right"></a></div>
+            <div class="panel-body" id="right-closed-chats" ng-if="closed_chats.list.length > 0 && closed_chats_expanded == true">
         			<?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_closed_list.tpl.php'));?>  
             </div>            
         	<?php endif;?>        			

@@ -48,16 +48,41 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 
 	$scope.predicate = 'last_visit';
 	$scope.pending_chats = {};
+	$scope.pending_chats_expanded = true;
 	$scope.active_chats = {};
+	$scope.active_chats_expanded = true;
 	$scope.closed_chats = {};
+	$scope.closed_chats_expanded = true;
 	$scope.unread_chats = {};
+	$scope.unread_chats_expanded = true;
 	$scope.transfer_dep_chats = {};
 	$scope.transfer_chats = {};
 	$scope.timeoutControl = null;
 	$scope.setTimeoutEnabled = true;
 	
+	this.toggleList = function(variable) {
+		$scope[variable] = !$scope[variable];		
+		if (localStorage) {
+    		try {
+    			localStorage.setItem(variable,$scope[variable]);
+    		} catch(err) {    			   		
+    		};
+    	}		
+	};
 	
 	$scope.loadChatList = function() {
+		
+		if (localStorage) {
+			try {
+				$scope.pending_chats_expanded = localStorage.getItem('pending_chats_expanded') != 'false';
+				$scope.active_chats_expanded = localStorage.getItem('active_chats_expanded') != 'false';
+				$scope.closed_chats_expanded = localStorage.getItem('closed_chats_expanded') != 'false';
+				$scope.unread_chats_expanded = localStorage.getItem('unread_chats_expanded') != 'false';
+			} catch(err) { 
+				
+			};
+		}
+		
 		clearTimeout($scope.timeoutControl);
 		LiveHelperChatFactory.loadChatList().then(function(data){	
 						
