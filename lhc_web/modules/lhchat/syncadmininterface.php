@@ -27,7 +27,7 @@ if ($activeTabEnabled == true) {
 	 * Active chats
 	 * */
 	$chats = erLhcoreClassChat::getActiveChats(10,0,array('ignore_fields' => erLhcoreClassChat::$chatListIgnoreField));
-	erLhcoreClassChat::prefillGetAttributes($chats,array('time_created_front','department_name','user_name'),array('department','time','status','dep_id','user_id','user'));	
+	erLhcoreClassChat::prefillGetAttributes($chats,array('time_created_front','department_name','user_name'),array('department','time','status','user_id','user'));	
 	$ReturnMessages['active_chats'] = array('list' => array_values($chats));
 }
 
@@ -36,7 +36,7 @@ if ($closedTabEnabled == true) {
 	 * Closed chats
 	 * */
 	$chats = erLhcoreClassChat::getClosedChats(10,0,array('ignore_fields' => erLhcoreClassChat::$chatListIgnoreField));
-	erLhcoreClassChat::prefillGetAttributes($chats,array('time_created_front','department_name'),array('department','time','status','dep_id','user_id'));
+	erLhcoreClassChat::prefillGetAttributes($chats,array('time_created_front','department_name'),array('department','time','status','user_id'));
 	$ReturnMessages['closed_chats'] = array('list' => array_values($chats));
 }
 
@@ -66,7 +66,7 @@ if ($pendingTabEnabled == true) {
 		$lastMessage = erLhcoreClassChat::getGetLastChatMessagePending($chatRecent->id);
 	}
 	
-	erLhcoreClassChat::prefillGetAttributes($pendingChats,array('time_created_front','department_name','user_name','wait_time_pending'), array('department','time','status','dep_id','user_id','user'));
+	erLhcoreClassChat::prefillGetAttributes($pendingChats,array('time_created_front','department_name','user_name','wait_time_pending'), array('department','time','status','user_id','user'));
 	$ReturnMessages['pending_chats'] = array('list' => array_values($pendingChats),'nick' => $lastChatNick,'msg' => $lastMessage, 'last_id_identifier' => 'pending_chat', 'last_id' => $lastPendingChatID);
 }
 
@@ -123,7 +123,7 @@ if ($unreadTabEnabled == true) {
 		$lastMessage = erLhcoreClassChat::getGetLastChatMessagePending($chatRecent->id);
 	}
 	
-	erLhcoreClassChat::prefillGetAttributes($unreadChats,array('time_created_front','department_name','unread_time'),array('department','time','status','dep_id','user_id'));
+	erLhcoreClassChat::prefillGetAttributes($unreadChats,array('time_created_front','department_name','unread_time'),array('department','time','status','user_id'));
 	$ReturnMessages['unread_chats'] = array('msg' => $lastMessage, 'nick' => $lastChatNick, 'last_id' => $lastPendingChatID, 'last_id_identifier' => 'unread_chat', 'list' => array_values($unreadChats));
 }
 
