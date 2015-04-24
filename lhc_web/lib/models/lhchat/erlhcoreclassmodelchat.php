@@ -180,6 +180,10 @@ class erLhcoreClassModelChat {
        		   return $this->is_user_typing;
        		break;
 
+       	case 'wait_time_seconds':
+       		   $this->wait_time_seconds = time() - $this->time;
+       		   return $this->wait_time_seconds;
+
        	case 'wait_time_front':
        		   $this->wait_time_front = erLhcoreClassChat::formatSeconds($this->wait_time);
        		   return $this->wait_time_front;
