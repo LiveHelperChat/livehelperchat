@@ -51,6 +51,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	$scope.pending_chats_expanded = true;
 	$scope.active_chats = {};
 	$scope.active_chats_expanded = true;
+	$scope.my_active_chats_expanded = true;
 	$scope.closed_chats = {};
 	$scope.closed_chats_expanded = true;
 	$scope.unread_chats = {};
@@ -76,6 +77,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 			try {
 				$scope.pending_chats_expanded = localStorage.getItem('pending_chats_expanded') != 'false';
 				$scope.active_chats_expanded = localStorage.getItem('active_chats_expanded') != 'false';
+				$scope.my_active_chats_expanded = localStorage.getItem('my_active_chats_expanded') != 'false';
 				$scope.closed_chats_expanded = localStorage.getItem('closed_chats_expanded') != 'false';
 				$scope.unread_chats_expanded = localStorage.getItem('unread_chats_expanded') != 'false';
 			} catch(err) { 
