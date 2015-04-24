@@ -147,8 +147,12 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		return lhinst.startChatNewWindow(chat_id,name);	
 	};
 		
-	this.startChat = function (chat_id,name) {		
-		return lhinst.startChat(chat_id,$('#tabs'),LiveHelperChatFactory.truncate(name,10));				
+	this.startChat = function (chat_id,name) {	
+		if ($('#tabs').size() > 0){
+			return lhinst.startChat(chat_id,$('#tabs'),LiveHelperChatFactory.truncate(name,10));	
+		} else {
+			lhinst.startChatNewWindow(chat_id,name);	
+		}
 	};
 	
 	this.startChatNewWindowTransfer = function(chat_id,name,transfer_id) {
