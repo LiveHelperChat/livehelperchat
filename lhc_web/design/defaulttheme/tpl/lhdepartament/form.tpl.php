@@ -82,7 +82,7 @@
 			
 			<div role="tabpanel" class="tab-pane" id="notifications">
 			
-			     <?php include(erLhcoreClassDesign::designtpl('lhdepartment/xmpp_enabled.tpl.php'));?>
+			     <?php include(erLhcoreClassDesign::designtpl('lhdepartament/xmpp_enabled.tpl.php'));?>
 			     
 			     <?php if ($department_xmpp_enabled == true) : ?>	
 			     <div class="row form-group">
