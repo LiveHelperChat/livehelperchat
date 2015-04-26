@@ -180,6 +180,10 @@ class erLhcoreClassModelChat {
        		   return $this->is_user_typing;
        		break;
 
+       	case 'wait_time_seconds':
+       		   $this->wait_time_seconds = time() - $this->time;
+       		   return $this->wait_time_seconds;
+
        	case 'wait_time_front':
        		   $this->wait_time_front = erLhcoreClassChat::formatSeconds($this->wait_time);
        		   return $this->wait_time_front;
@@ -197,6 +201,15 @@ class erLhcoreClassModelChat {
 
        	case 'user_name':
        			return $this->user_name = (string)$this->user;
+       		break;	
+
+       	case 'plain_user_name':
+       	        $this->plain_user_name = false;
+       	        
+       	        if ($this->user !== false) {
+       	            $this->plain_user_name = (string)$this->user->name_support;
+       	        }
+       			return $this->plain_user_name;
        		break;	
        		
        	case 'user':

@@ -51,6 +51,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	$scope.pending_chats_expanded = true;
 	$scope.active_chats = {};
 	$scope.active_chats_expanded = true;
+	$scope.my_active_chats_expanded = true;
 	$scope.closed_chats = {};
 	$scope.closed_chats_expanded = true;
 	$scope.unread_chats = {};
@@ -76,6 +77,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 			try {
 				$scope.pending_chats_expanded = localStorage.getItem('pending_chats_expanded') != 'false';
 				$scope.active_chats_expanded = localStorage.getItem('active_chats_expanded') != 'false';
+				$scope.my_active_chats_expanded = localStorage.getItem('my_active_chats_expanded') != 'false';
 				$scope.closed_chats_expanded = localStorage.getItem('closed_chats_expanded') != 'false';
 				$scope.unread_chats_expanded = localStorage.getItem('unread_chats_expanded') != 'false';
 			} catch(err) { 
@@ -147,8 +149,12 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		return lhinst.startChatNewWindow(chat_id,name);	
 	};
 		
-	this.startChat = function (chat_id,name) {		
-		return lhinst.startChat(chat_id,$('#tabs'),LiveHelperChatFactory.truncate(name,10));				
+	this.startChat = function (chat_id,name) {	
+		if ($('#tabs').size() > 0){
+			return lhinst.startChat(chat_id,$('#tabs'),LiveHelperChatFactory.truncate(name,10));	
+		} else {
+			lhinst.startChatNewWindow(chat_id,name);	
+		}
 	};
 	
 	this.startChatNewWindowTransfer = function(chat_id,name,transfer_id) {
