@@ -9,6 +9,7 @@ $msg = new erLhcoreClassModelmsg();
 
 $tpl->set('user',$user);
 
+
 if ( isset($_POST['SendMessage']) ) {
 
     $validationFields = array();
@@ -77,6 +78,8 @@ if ( isset($_POST['SendMessage']) ) {
         $tpl->set('errors',$Errors);
     }
 }
+
+$tpl->set('msg',$msg);
 
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'popup';
