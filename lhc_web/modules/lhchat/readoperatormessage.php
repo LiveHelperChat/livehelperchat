@@ -13,6 +13,7 @@ $inputData = new stdClass();
 $inputData->username = '';
 $inputData->question = '';
 $inputData->email = '';
+$inputData->phone = '';
 
 if (is_array($Params['user_parameters_unordered']['department']) && count($Params['user_parameters_unordered']['department']) == 1){
 	erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);
