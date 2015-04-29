@@ -10,10 +10,10 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<div class="row">
-					<div class="col-xs-5">
+					<div class="col-xs-6">
             		  <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_logo.tpl.php'));?>
             		</div>
-					<div class="col-xs-7">
+					<div class="col-xs-6">
 						<div class="btn-group pull-right" role="group" aria-label="...">
                         <?php if (!isset($Result['hide_close_window'])) : ?>
                                               
