@@ -199,7 +199,9 @@ class erLhcoreClassXMP {
 						$emailRecipient = explode(',', $data['recipients']);
 					}
 
-					if (isset($data['xmp_users']) && $data['xmp_users'] == 1) {					 					    
+					$settingsXMPPGlobal = isset($params['recipients_setting']) ? $params['recipients_setting'] : 'xmp_users';
+					
+					if (isset($data[$settingsXMPPGlobal]) && $data[$settingsXMPPGlobal] == 1) {					 					    
 					    $db = ezcDbInstance::get();
                         $stmt = $db->prepare("SELECT xmpp_username FROM lh_users WHERE id IN (SELECT user_id FROM lh_userdep WHERE dep_id = 0 OR dep_id = :dep_id) AND xmpp_username != ''");
                         $stmt->bindValue( ':dep_id',$chat->dep_id,PDO::PARAM_INT);
@@ -279,7 +281,9 @@ class erLhcoreClassXMP {
 							$emailRecipient = explode(',', $data['recipients']);
 						}
 						
-						if (isset($data['xmp_users']) && $data['xmp_users'] == 1) {
+						$settingsXMPPGlobal = isset($params['recipients_setting']) ? $params['recipients_setting'] : 'xmp_users';
+						
+						if (isset($data[$settingsXMPPGlobal]) && $data[$settingsXMPPGlobal] == 1) {
 						    $db = ezcDbInstance::get();
 						    $stmt = $db->prepare("SELECT xmpp_username FROM lh_users WHERE id IN (SELECT user_id FROM lh_userdep WHERE dep_id = 0 OR dep_id = :dep_id) AND xmpp_username != ''");
 						    $stmt->bindValue( ':dep_id',$chat->dep_id,PDO::PARAM_INT);
