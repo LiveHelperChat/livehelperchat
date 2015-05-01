@@ -4,6 +4,8 @@ $tpl = erLhcoreClassTemplate::getInstance('lhuser/edit.tpl.php');
 
 $UserData = erLhcoreClassUser::getSession()->load( 'erLhcoreClassModelUser', (int)$Params['user_parameters']['user_id'] );
 
+$tpl->set('tab',$Params['user_parameters_unordered']['tab'] == 'canned' ? 'tab_canned' : '');
+
 if (isset($_POST['Update_account']) || isset($_POST['Save_account']))
 {
    $definition = array(

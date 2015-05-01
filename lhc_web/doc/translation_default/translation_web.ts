@@ -1348,6 +1348,10 @@
   <context>
     <name>chat/cannedmsg</name>
     <message>
+      <source>Please enter canned message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Title/Message</source>
       <translation type="unfinished"/>
     </message>
@@ -1433,10 +1437,6 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter canned message</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -1592,6 +1592,10 @@
     </message>
     <message>
       <source>XMPP messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send XMPP messages to all department operators</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2223,10 +2227,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Start chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Live support is not available in your country</source>
       <translation type="unfinished"/>
     </message>
@@ -2256,6 +2256,10 @@
     </message>
     <message>
       <source>our terms and to the Law</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start chat</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3510,7 +3514,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Home</source>
+      <source>Active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>collapse/expand</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3522,19 +3538,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Pending chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Active chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Unread messages</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Closed chats</source>
+      <source>Home</source>
       <translation type="unfinished"/>
     </message>
     <message>

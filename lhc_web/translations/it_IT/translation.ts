@@ -2163,7 +2163,7 @@
     </message>
     <message>
       <source>Please enter a message...</source>
-      <translation>Scrivi un messaggio e premi invio | Enter a message and hit enter</translation>
+      <translation>Scrivi un messaggio... | Please enter a message...</translation>
     </message>
     <message>
       <source>Start chat</source>

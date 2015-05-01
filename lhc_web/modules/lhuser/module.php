@@ -37,6 +37,7 @@ $ViewList['grouplist'] = array(
 
 $ViewList['edit'] = array(
     'params' => array('user_id'),
+    'uparams' => array('tab'),
     'functions' => array( 'edituser' )
 );
 
