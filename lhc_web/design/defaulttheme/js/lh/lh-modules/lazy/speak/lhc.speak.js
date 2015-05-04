@@ -195,8 +195,13 @@ module.exports = (function() {
 					this.getChatDialectAndStart();
 				}
 				
+				if (lhinst.speechHandler === false){
+					lhinst.speechHandler = this;
+				}
+				
 			} else {
-				this.stopSpeech();				
+				this.stopSpeech();	
+				lhinst.speechHandler = false;
 			}
 		}
 	};
