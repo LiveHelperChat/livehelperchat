@@ -12,17 +12,8 @@ class erLhcoreClassModule{
             $Params['module']['view'] = self::$currentView;
 
             $urlCfgDefault = ezcUrlConfiguration::getInstance();
-            
-            // Enable errors output before extensions intialization
-            if (self::$debugEnabled == true) {
-                @ini_set('error_reporting', E_ALL);
-                @ini_set('display_errors', 1);
-            }
-            
-            // Attatch extension listeners
-            self::attatchExtensionListeners();
-                        
             $url = erLhcoreClassURL::getInstance();
+            
             self::$currentModule[self::$currentView]['uparams'][] = 'page';
 
             foreach (self::$currentModule[self::$currentView]['params'] as $userParameter)
@@ -429,24 +420,31 @@ class erLhcoreClassModule{
     }
 
     public static function moduleInit()
-    {
-        $url = erLhcoreClassURL::getInstance();
+    {        
         $cfg = erConfigClassLhConfig::getInstance();
         
         self::$debugEnabled = $cfg->getSetting('site', 'debug_output');
         
-        self::$currentModuleName = preg_replace('/[^a-zA-Z0-9\-_]/', '', $url->getParam( 'module' ));
-        self::$currentView = preg_replace('/[^a-zA-Z0-9\-_]/', '', $url->getParam( 'function' ));
+        // Enable errors output before extensions intialization
+        if (self::$debugEnabled == true) {
+            @ini_set('error_reporting', E_ALL);
+            @ini_set('display_errors', 1);
+        }
 
         self::$cacheInstance = CSCacheAPC::getMem();
         self::$cacheVersionSite = self::$cacheInstance->getCacheVersion('site_version');
-        
         self::$defaultTimeZone = $cfg->getSetting('site', 'time_zone', false);
-        
         self::$dateFormat = $cfg->getSetting('site', 'date_format', false);
         self::$dateHourFormat = $cfg->getSetting('site', 'date_hour_format', false);
         self::$dateDateHourFormat = $cfg->getSetting('site', 'date_date_hour_format', false);
-
+        
+        // Attatch extension listeners
+        self::attatchExtensionListeners();
+                
+        $url = erLhcoreClassURL::getInstance();
+        self::$currentModuleName = preg_replace('/[^a-zA-Z0-9\-_]/', '', $url->getParam( 'module' ));
+        self::$currentView = preg_replace('/[^a-zA-Z0-9\-_]/', '', $url->getParam( 'function' ));
+                
         if (self::$currentModuleName == '' || (self::$currentModule = self::getModule(self::$currentModuleName)) === false) {
             $params = $cfg->getOverrideValue('site','default_url');
 
