@@ -4,6 +4,8 @@ $currentUser = erLhcoreClassUser::instance();
 
 $instance = erLhcoreClassSystem::instance();
 
+
+
 if ($instance->SiteAccess != 'site_admin') {
 
 	if ($currentUser->isLogged() && !empty($Params['user_parameters_unordered']['r'])) {		
@@ -20,6 +22,12 @@ if ($instance->SiteAccess != 'site_admin') {
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhuser/login.tpl.php');
 
+if (isset($_SESSION['logout_reason'])) {
+    if ($_SESSION['logout_reason'] == 1) {
+        $tpl->set('errors',array(erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','You were logged out because another user logged under same account')));
+    }
+}
+
 $redirect = '';
 if (isset($_POST['redirect'])){
 	$redirect = $_POST['redirect'];
@@ -31,6 +39,10 @@ if (isset($_POST['redirect'])){
 
 if (isset($_POST['Login']))
 {    
+    if (isset($_SESSION['logout_reason'])) {
+        unset($_SESSION['logout_reason']);
+    }
+        
     if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
         erLhcoreClassModule::redirect('user/login');
         exit;

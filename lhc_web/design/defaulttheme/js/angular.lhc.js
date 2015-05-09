@@ -18,7 +18,11 @@ services.factory('LiveHelperChatFactory', ['$http','$q',function ($http, $q) {
 	this.loadChatList = function(params){
 		var deferred = $q.defer();		
 		$http.get(WWW_DIR_JAVASCRIPT + 'chat/syncadmininterface').success(function(data) {
-			 deferred.resolve(data);			 
+			 if (typeof data.error_url !== 'undefined') {
+				 document.location = data.error_url;
+			 } else {
+				 deferred.resolve(data);
+			 }			 
 		}).error(function(){
 			deferred.reject('error');
 		});		

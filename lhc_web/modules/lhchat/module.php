@@ -111,6 +111,7 @@ $ViewList['delete'] = array(
 
 $ViewList['syncadmininterface'] = array(
     'params' => array(),
+    'ajax' => true,
     'functions' => array( 'use' )
     );
 
@@ -380,6 +381,7 @@ $ViewList['userclosechat'] = array(
 
 $ViewList['onlineusers'] = array(
     'params' => array(),
+    'ajax' => true,
     'uparams' => array('clear_list','method','deletevisitor','timeout','csfr','department','maxrows'),
     'functions' => array( 'use_onlineusers' )
 );

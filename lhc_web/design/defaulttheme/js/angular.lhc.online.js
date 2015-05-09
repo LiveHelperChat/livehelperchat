@@ -11,7 +11,11 @@ services.factory('OnlineUsersFactory', ['$http','$q',function ($http, $q) {
 	this.deleteOnlineUser = function(params){
 		var deferred = $q.defer();		
 		$http.post(WWW_DIR_JAVASCRIPT +'chat/onlineusers/(deletevisitor)/'+params.user_id + '/(csfr)/'+confLH.csrf_token).success(function(data) {
-			 deferred.resolve(data);		
+			if (typeof data.error_url !== 'undefined') {
+				document.location = data.error_url;
+			} else {
+				deferred.resolve(data);
+			}		
 		});		
 		return deferred.promise;
 	};

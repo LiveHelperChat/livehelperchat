@@ -1,3 +1,16 @@
+2.31v
+
+1. Option to enable only one logged user under same account in settings/settings.ini.php
+Please add under "site" section 
+'one_login_per_account' => false,
+2. Automatic translations kept recording old translation settings.
+3. Visitor will be able to see chat for rest half hour once it was closed.
+4. Responsive logo
+5. Collapse expand right panels
+6. And a lot of other internal small changes.
+
+execute doc/update_db/update_107.sql for update
+
 2.30v
 
 1. Canned messages have three additional integere attributes which can be used in extensions

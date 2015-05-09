@@ -3394,6 +3394,14 @@
                 "extra": ""
             },
             {
+                "field": "session_id",
+                "type": "varchar(40)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "email",
                 "type": "varchar(100)",
                 "null": "NO",

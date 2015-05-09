@@ -33,20 +33,40 @@ class erLhcoreClassUser{
 
 	       	if ($logged == false) {
 	       		$this->authenticated = false;
-
+	       			       		
 	       		if ( isset($_SESSION['lhc_user_id']) )
 	       		{
 	       			unset($_SESSION['lhc_user_id']);
+	       		}
+	       			       		
+	       		if ( isset($_SESSION['lhc_access_array']) )
+	       		{
 	       			unset($_SESSION['lhc_access_array']);
+	       		}
+	       			       		
+	       		if ( isset($_SESSION['lhc_access_timestamp']) )
+	       		{
 	       			unset($_SESSION['lhc_access_timestamp']);
 	       		}
 	       	}
-
+	       	
        } else {
 
           $this->session->save( $this->session->load() );
           $this->userid = $_SESSION['lhc_user_id'];
           $this->authenticated = true;
+          
+          // Check that session is valid
+          if (self::$oneLoginPerAccount == true || erConfigClassLhConfig::getInstance()->getSetting( 'site', 'one_login_per_account', false ) == true) {              
+              $sesid = $this->getUserData(true)->session_id;             
+              if ($sesid != $_COOKIE['PHPSESSID'] && $sesid != '') {
+                  $this->authenticated = false;
+                  self::logout();   
+                  $_SESSION['logout_reason'] = 1;
+              } else {
+                  $this->authenticated = true;
+              }
+          }
        }
    }
 
@@ -63,7 +83,7 @@ class erLhcoreClassUser{
        $this->authentication = new ezcAuthentication( $this->credentials );
 
        $this->filter = new ezcAuthenticationDatabaseFilter( $database );
-       $this->filter->registerFetchData(array('id','username','email','disabled'));
+       $this->filter->registerFetchData(array('id','username','email','disabled','session_id'));
 
        $this->authentication->addFilter( $this->filter );
        $this->authentication->session = $this->session;
@@ -92,6 +112,16 @@ class erLhcoreClassUser{
                 }
 
                 $this->authenticated = true;
+                
+                // Limit number per of logins under same user
+                if ((self::$oneLoginPerAccount == true || $cfgSite->getSetting( 'site', 'one_login_per_account', false ) == true) && $_COOKIE['PHPSESSID'] !='') {
+                    $db = ezcDbInstance::get();
+                    $stmt = $db->prepare('UPDATE lh_users SET session_id = :session_id WHERE id = :id');
+                    $stmt->bindValue(':session_id',$_COOKIE['PHPSESSID'],PDO::PARAM_STR);
+                    $stmt->bindValue(':id',$this->userid,PDO::PARAM_INT);
+                    $stmt->execute();
+                }
+                
                 return true;
             }
 
@@ -157,6 +187,16 @@ class erLhcoreClassUser{
    					$this->userid = $data['id'][0];
 
    					$this->authenticated = true;
+   					
+   					// Limit number per of logins under same user
+   					if ((self::$oneLoginPerAccount == true || $cfgSite->getSetting( 'site', 'one_login_per_account', false ) == true) && $_COOKIE['PHPSESSID'] !='') {
+   					    $db = ezcDbInstance::get();
+   					    $stmt = $db->prepare('UPDATE lh_users SET session_id = :session_id WHERE id = :id');
+   					    $stmt->bindValue(':session_id',$_COOKIE['PHPSESSID'],PDO::PARAM_STR);
+   					    $stmt->bindValue(':id',$this->userid,PDO::PARAM_INT);
+   					    $stmt->execute();
+   					}
+   					
    					return true;
    				}
 
@@ -165,6 +205,10 @@ class erLhcoreClassUser{
 	   	}
    }
 
+   /**
+    * 
+    * @param string $url url where after logout user should be redirecter
+    */
    function logout()
    {
        if (isset($_SESSION['lhc_access_array'])){ unset($_SESSION['lhc_access_array']); }
@@ -188,6 +232,8 @@ class erLhcoreClassUser{
 	
 	       $this->session->destroy();
 	
+	       session_regenerate_id(true);
+	       
 	       $db = ezcDbInstance::get();
 	       $db->query('UPDATE lh_userdep SET last_activity = 0 WHERE user_id = '.$this->userid);
        }
@@ -381,7 +427,9 @@ class erLhcoreClassUser{
    private $AccessArray = false;
    private $AccessTimestamp = false;
 
-
+   // This variable will be set to true based on online hosting record
+   public static $oneLoginPerAccount = false;
+   
    // Authentification things
    public $authentication;
    public $session;

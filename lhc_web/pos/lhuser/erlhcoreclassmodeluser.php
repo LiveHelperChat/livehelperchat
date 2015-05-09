@@ -92,6 +92,11 @@ $def->properties['time_zone']->columnName   = 'time_zone';
 $def->properties['time_zone']->propertyName = 'time_zone';
 $def->properties['time_zone']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['session_id'] = new ezcPersistentObjectProperty();
+$def->properties['session_id']->columnName   = 'session_id';
+$def->properties['session_id']->propertyName = 'session_id';
+$def->properties['session_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 return $def;
 
 ?>

@@ -45,8 +45,13 @@ class erLhcoreClassModule{
 	                 	$Result['pagelayout'] = 'login';
 	                   	return $Result;
                    	} else {
-                   		self::redirect('user/login');
-                   		exit;
+                   	    if (isset($Params['module']['ajax']) && $Params['module']['ajax'] == true){
+                   	        echo json_encode(array('error_url' => erLhcoreClassDesign::baseurl('user/login')));
+                   	        exit;
+                   	    } else {
+                       		self::redirect('user/login');
+                       		exit;
+                   	    }
                    	}
                 }
             }
