@@ -32,6 +32,9 @@ class erLhcoreClassModule{
                 $Params[in_array($userParameter,self::$currentModule[self::$currentView]['params']) ? 'user_parameters' : 'user_parameters_unordered'][$userParameter] = $url->getParam($userParameter);
             }
 
+            // Attatch extension listeners
+            self::attatchExtensionListeners();
+            
             // Function set, check permission
             if (isset($Params['module']['functions']))
             {
@@ -90,13 +93,11 @@ class erLhcoreClassModule{
             	}
           	            	
             	if (self::$debugEnabled == false) {
-            	    self::attatchExtensionListeners();
             	    $includeStatus = @include(self::getModuleFile());
             	} else {            	    
             	    @ini_set('error_reporting', E_ALL);
             	    @ini_set('display_errors', 1);
             	                	    
-            	    self::attatchExtensionListeners();
             	    $includeStatus = include(self::getModuleFile());
             	}
             	            	
