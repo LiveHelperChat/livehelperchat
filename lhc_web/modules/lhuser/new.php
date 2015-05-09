@@ -6,6 +6,8 @@ $UserData = new erLhcoreClassModelUser();
 $UserDepartaments = isset($_POST['UserDepartament']) ? $_POST['UserDepartament'] : array();
 $show_all_pending = 1;
 
+$tpl->set('tab',$Params['user_parameters_unordered']['tab'] == 'canned' ? 'tab_canned' : '');
+
 if (isset($_POST['Update_account']))
 {
    $definition = array(

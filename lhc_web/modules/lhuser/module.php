@@ -44,6 +44,7 @@ $ViewList['edit'] = array(
 $ViewList['delete'] = array(
     'params' => array('user_id'),
     'uparams' => array('csfr'),
+    'uparams' => array('tab'),
     'functions' => array( 'deleteuser' )
 );
 
