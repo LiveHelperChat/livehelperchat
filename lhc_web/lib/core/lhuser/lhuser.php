@@ -52,19 +52,21 @@ class erLhcoreClassUser{
 	       	
        } else {
 
-          $this->session->save( $this->session->load() );
-          $this->userid = $_SESSION['lhc_user_id'];
-          $this->authenticated = true;
-          
-          // Check that session is valid
-          if (self::$oneLoginPerAccount == true || erConfigClassLhConfig::getInstance()->getSetting( 'site', 'one_login_per_account', false ) == true) {              
-              $sesid = $this->getUserData(true)->session_id;             
-              if ($sesid != $_COOKIE['PHPSESSID'] && $sesid != '') {
-                  $this->authenticated = false;
-                  self::logout();   
-                  $_SESSION['logout_reason'] = 1;
-              } else {
-                  $this->authenticated = true;
+          if (isset($_SESSION['lhc_user_id']) && is_numeric($_SESSION['lhc_user_id'])){
+              $this->session->save( $this->session->load() );
+              $this->userid = $_SESSION['lhc_user_id'];
+              $this->authenticated = true;
+              
+              // Check that session is valid
+              if (self::$oneLoginPerAccount == true || erConfigClassLhConfig::getInstance()->getSetting( 'site', 'one_login_per_account', false ) == true) {              
+                  $sesid = $this->getUserData(true)->session_id;             
+                  if ($sesid != $_COOKIE['PHPSESSID'] && $sesid != '') {
+                      $this->authenticated = false;
+                      self::logout();
+                      $_SESSION['logout_reason'] = 1;
+                  } else {
+                      $this->authenticated = true;
+                  }
               }
           }
        }
