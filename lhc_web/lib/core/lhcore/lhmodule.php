@@ -31,7 +31,13 @@ class erLhcoreClassModule{
             {
                 $Params[in_array($userParameter,self::$currentModule[self::$currentView]['params']) ? 'user_parameters' : 'user_parameters_unordered'][$userParameter] = $url->getParam($userParameter);
             }
-
+            
+            // Enable errors output before extensions intialization
+            if (self::$debugEnabled == true) {
+                @ini_set('error_reporting', E_ALL);
+                @ini_set('display_errors', 1);
+            }
+            
             // Attatch extension listeners
             self::attatchExtensionListeners();
             
@@ -94,10 +100,7 @@ class erLhcoreClassModule{
           	            	
             	if (self::$debugEnabled == false) {
             	    $includeStatus = @include(self::getModuleFile());
-            	} else {            	    
-            	    @ini_set('error_reporting', E_ALL);
-            	    @ini_set('display_errors', 1);
-            	                	    
+            	} else {              	    
             	    $includeStatus = include(self::getModuleFile());
             	}
             	            	
