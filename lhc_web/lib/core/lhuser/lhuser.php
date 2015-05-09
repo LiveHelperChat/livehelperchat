@@ -231,14 +231,14 @@ class erLhcoreClassUser{
 	       $q->deleteFrom( 'lh_users_remember' )->where( $q->expr->eq( 'user_id', $q->bindValue($this->userid) ) );
 	       $stmt = $q->prepare();
 	       $stmt->execute();
-	
-	       $this->session->destroy();
-	
-	       session_regenerate_id(true);
 	       
 	       $db = ezcDbInstance::get();
 	       $db->query('UPDATE lh_userdep SET last_activity = 0 WHERE user_id = '.$this->userid);
        }
+       
+       $this->session->destroy();
+       
+       session_regenerate_id(true);
    }
 
    public static function getSession()
