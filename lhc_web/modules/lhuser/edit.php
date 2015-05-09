@@ -196,6 +196,9 @@ if (isset($_POST['Update_account']) || isset($_POST['Save_account']))
     	}
     }
 
+    // Allow extension to do extra validation
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.edit_user',array('userData' => & $UserData, 'errors' => & $Errors));
+    
     if (count($Errors) == 0)
     {
         // Update password if neccesary

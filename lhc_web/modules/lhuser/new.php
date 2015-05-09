@@ -177,6 +177,9 @@ if (isset($_POST['Update_account']))
     	$UserData->all_departments = 0;
     }
     
+    // Allow extension to do extra validation
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.new_user',array('userData' => & $UserData, 'errors' => & $Errors));
+    
     if (count($Errors) == 0)
     {
         $UserData->setPassword($form->Password);
