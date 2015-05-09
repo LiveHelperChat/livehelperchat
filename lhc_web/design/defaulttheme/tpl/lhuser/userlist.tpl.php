@@ -34,5 +34,5 @@
 <br />
 
 <?php if ($currentUser->hasAccessTo('lhuser','createuser')) : ?>
-<div><a class="btn btn-default" href="<?php echo erLhcoreClassDesign::baseurl('user/new')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','New user');?></a></div>
+    <?php include(erLhcoreClassDesign::designtpl('lhuser/userlist/new.tpl.php')); ?>
 <?php endif; ?>
