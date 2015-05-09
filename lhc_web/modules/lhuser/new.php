@@ -240,7 +240,9 @@ if (isset($_POST['Update_account']))
         }
 
         erLhcoreClassModelUserSetting::setSetting('show_all_pending',$show_all_pending,$UserData->id);
-              
+        
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.user_created',array('userData' => & $UserData));
+        
         erLhcoreClassModule::redirect('user/userlist');
         exit;
 

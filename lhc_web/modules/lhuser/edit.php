@@ -226,7 +226,9 @@ if (isset($_POST['Update_account']) || isset($_POST['Save_account']))
 
         $CacheManager = erConfigClassLhCacheConfig::getInstance();
         $CacheManager->expireCache();
-
+       
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.user_modified',array('userData' => & $UserData));
+        
         if (isset($_POST['Save_account'])) {
             erLhcoreClassModule::redirect('user/userlist');
             exit;
