@@ -62,7 +62,7 @@ class erLhcoreClassUser{
                   $sesid = $this->getUserData(true)->session_id;             
                   if ($sesid != $_COOKIE['PHPSESSID'] && $sesid != '') {
                       $this->authenticated = false;
-                      self::logout();
+                      $this->logout();
                       $_SESSION['logout_reason'] = 1;
                   } else {
                       $this->authenticated = true;
