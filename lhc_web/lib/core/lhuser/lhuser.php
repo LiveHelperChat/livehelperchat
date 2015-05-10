@@ -190,6 +190,8 @@ class erLhcoreClassUser{
 
    					$this->authenticated = true;
    					
+   					$cfgSite = erConfigClassLhConfig::getInstance();
+   					
    					// Limit number per of logins under same user
    					if ((self::$oneLoginPerAccount == true || $cfgSite->getSetting( 'site', 'one_login_per_account', false ) == true) && $_COOKIE['PHPSESSID'] !='') {
    					    $db = ezcDbInstance::get();
