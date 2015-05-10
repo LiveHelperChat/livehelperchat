@@ -2243,11 +2243,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Leave a message</source>
+      <source>Your request was sent!</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Your request was sent!</source>
+      <source>Leave a message</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3324,14 +3324,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Departments</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Synchronization and sound settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>GEO detection configuration</source>
       <translation type="unfinished"/>
     </message>
@@ -3445,6 +3437,14 @@
     </message>
     <message>
       <source>Speech</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Synchronization and sound settings</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6563,6 +6563,10 @@
     </message>
     <message>
       <source>Password reminder</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You were logged out because another user logged under same account</source>
       <translation type="unfinished"/>
     </message>
     <message>

@@ -9,7 +9,7 @@ Please add under "site" section
 5. Collapse expand right panels
 6. And a lot of other internal small changes.
 
-execute doc/update_db/update_107.sql for update
+execute doc/update_db/update_108.sql for update
 
 2.30v
 
