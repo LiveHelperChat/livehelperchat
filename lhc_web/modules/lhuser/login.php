@@ -22,11 +22,7 @@ if ($instance->SiteAccess != 'site_admin') {
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhuser/login.tpl.php');
 
-if (isset($_SESSION['logout_reason'])) {
-    if ($_SESSION['logout_reason'] == 1) {
-        $tpl->set('errors',array(erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','You were logged out because another user logged under same account')));
-    }
-}
+
 
 $redirect = '';
 if (isset($_POST['redirect'])){
@@ -60,6 +56,12 @@ if (isset($_POST['Login']))
 	        exit;
     	}
     }
+}
+
+if (isset($_SESSION['logout_reason'])) {
+	if ($_SESSION['logout_reason'] == 1) {
+		$tpl->set('logout_reason',$_SESSION['logout_reason']);
+	}
 }
 
 $pagelayout = erConfigClassLhConfig::getInstance()->getOverrideValue('site','login_pagelayout');

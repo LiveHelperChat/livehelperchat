@@ -1,0 +1,2 @@
+<?php $errors = array(erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','You were logged out because another user logged under same account')); ?>
+<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
