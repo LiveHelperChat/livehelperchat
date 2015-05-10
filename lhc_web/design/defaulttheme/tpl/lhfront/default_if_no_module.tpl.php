@@ -1,0 +1,1 @@
+<?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration.tpl.php')); ?>

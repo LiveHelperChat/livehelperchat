@@ -1,0 +1,1 @@
+<?php $online_chat_enabled_pre = true; ?>

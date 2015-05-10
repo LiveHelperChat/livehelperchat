@@ -1,3 +1,7 @@
+<?php include(erLhcoreClassDesign::designtpl('lhfront/online_chat_enabled_pre.tpl.php')); ?>
+
+<?php if ($online_chat_enabled_pre == true) : ?>
+
 <?php
 $canListOnlineUsers = false;
 $canListOnlineUsersAll = false;
@@ -123,3 +127,8 @@ $( document ).ready(function() {
 });
 <?php include(erLhcoreClassDesign::designtpl('lhchat/part/opened_chats_js.tpl.php')); ?>
 </script>
+<?php else : ?>
+
+<?php include(erLhcoreClassDesign::designtpl('lhfront/default_if_no_module.tpl.php')); ?>
+
+<?php endif;?>
