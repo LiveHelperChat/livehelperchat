@@ -10,8 +10,9 @@
 
 <div class="container-fluid">
 
-<?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/path.tpl.php'));?>
-<?php $canUseChat = erLhcoreClassUser::instance()->hasAccessTo('lhchat','use'); ?>
+<?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/path.tpl.php'));?>
+
+<?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/can_use_chat.tpl.php'));?>
 
 <div class="row">
 
