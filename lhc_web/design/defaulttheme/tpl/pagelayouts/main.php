@@ -26,7 +26,13 @@
     $closedTabEnabled = (int)erLhcoreClassModelUserSetting::getSetting('enable_close_list',0);
     $unreadTabEnabled = (int)erLhcoreClassModelUserSetting::getSetting('enable_unread_list',1); ?>
     <div class="columns col-sm-4 col-md-3" id="right-column-page" ng-cloak>
-        <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_panels/transfer_panel_container.tpl.php'));?>
+    	
+        <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_panels/transfer_panel_container_pre.tpl.php'));?>
+        
+        <?php if ($transfer_panel_container_pre_enabled == true) : ?>
+        	<?php include(erLhcoreClassDesign::designtpl('lhchat/lists_panels/transfer_panel_container.tpl.php'));?>
+        <?php endif;?>
+        
         <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_panels/right_panel_container.tpl.php'));?>
     </div>
     <?php endif; ?>

@@ -1,6 +1,6 @@
 <?php include(erLhcoreClassDesign::designtpl('lhfront/online_chat_enabled_pre.tpl.php')); ?>
 
-<?php if ($online_chat_enabled_pre == true) : ?>
+<?php if ($online_chat_enabled_pre == true || $online_visitors_enabled_pre == true) : ?>
 
 <?php
 $canListOnlineUsers = false;
@@ -28,24 +28,24 @@ $frontTabsOrder = explode(',', erLhcoreClassModelChatConfig::fetch('front_tabs')
     <div role="tabpanel" id="tabs" ng-cloak>
         <ul class="nav nav-pills" role="tablist">
             <?php foreach ($frontTabsOrder as $frontTab) : ?>
-            		<?php if (trim($frontTab) == 'online_users') : ?> 
+            		<?php if (trim($frontTab) == 'online_users' && $online_visitors_enabled_pre == true) : ?> 
             		      <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/section_online_users_tab.tpl.php')); ?>
-            		<?php elseif (trim($frontTab) == 'online_map') : ?>
+            		<?php elseif (trim($frontTab) == 'online_map' && $online_visitors_enabled_pre == true) : ?>
             		      <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/section_map_online_tab.tpl.php')); ?> 
             		<?php elseif (trim($frontTab) == 'pending_chats') : ?>
-            		      <?php if ($pendingTabEnabled == true) : ?>
+            		      <?php if ($pendingTabEnabled == true && $online_chat_enabled_pre == true) : ?>
             		          <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_pending_list_tab.tpl.php'));?>
             		      <?php endif;?>
             		<?php elseif (trim($frontTab) == 'active_chats') : ?>
-            		      <?php if ($activeTabEnabled == true) : ?>
+            		      <?php if ($activeTabEnabled == true && $online_chat_enabled_pre == true) : ?>
             		          <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_active_list_tab.tpl.php'));?>
             		      <?php endif;?>
             	    <?php elseif (trim($frontTab) == 'unread_chats') : ?>
-                           <?php if ($unreadTabEnabled == true) : ?>
+                           <?php if ($unreadTabEnabled == true && $online_chat_enabled_pre == true) : ?>
                                <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_unread_list_tab.tpl.php'));?>
             		       <?php endif;?>
             		<?php elseif (trim($frontTab) == 'closed_chats') : ?>    
-                            <?php if ($closedTabEnabled == true) : ?>
+                            <?php if ($closedTabEnabled == true && $online_chat_enabled_pre == true) : ?>
                                 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_closed_list_tab.tpl.php'));?>
             		        <?php endif;?>
             		<?php elseif (trim($frontTab) == 'online_operators') : ?>    
@@ -58,15 +58,15 @@ $frontTabsOrder = explode(',', erLhcoreClassModelChatConfig::fetch('front_tabs')
         
         <div class="tab-content" ng-cloak>    		
     		      <?php foreach ($frontTabsOrder as $frontTab) : ?>    
-                      <?php if (trim($frontTab) == 'online_users') : ?>    
+                      <?php if (trim($frontTab) == 'online_users' && $online_visitors_enabled_pre == true) : ?>    
                       <div role="tabpanel" class="tab-pane form-group" id="onlineusers">
                             <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/section_online_users.tpl.php')); ?>
                       </div>
-                      <?php elseif (trim($frontTab) == 'online_map') : ?>
+                      <?php elseif (trim($frontTab) == 'online_map' && $online_visitors_enabled_pre == true) : ?>
                       <div role="tabpanel" class="tab-pane form-group" id="map">
                             <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/section_map_online.tpl.php')); ?>   
                         </div>   
-                      <?php elseif (trim($frontTab) == 'pending_chats') : ?>
+                      <?php elseif (trim($frontTab) == 'pending_chats' && $online_chat_enabled_pre == true) : ?>
                           <?php if ($pendingTabEnabled == true) : ?>
                           <div role="tabpanel" class="tab-pane form-group" id="pendingchats">
                                 <div id="pending-chat-list">
@@ -75,7 +75,7 @@ $frontTabsOrder = explode(',', erLhcoreClassModelChatConfig::fetch('front_tabs')
                 				<a class="btn btn-default btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('chat/pendingchats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','All pending chats');?></a>
                           </div>
                           <?php endif;?>     
-                     <?php elseif (trim($frontTab) == 'active_chats') : ?>
+                     <?php elseif (trim($frontTab) == 'active_chats' && $online_chat_enabled_pre == true) : ?>
                      
                       <?php if ($activeTabEnabled == true) : ?>
                       <div role="tabpanel" class="tab-pane form-group" id="activechats">
@@ -86,7 +86,7 @@ $frontTabsOrder = explode(',', erLhcoreClassModelChatConfig::fetch('front_tabs')
                       </div>                      
                       <?php endif;?>
                       
-                    <?php elseif (trim($frontTab) == 'unread_chats') : ?>
+                    <?php elseif (trim($frontTab) == 'unread_chats' && $online_chat_enabled_pre == true) : ?>
                     
                       <?php if ($unreadTabEnabled == true) : ?>
                       <div role="tabpanel" class="tab-pane form-group" id="unreadchats">
@@ -95,7 +95,7 @@ $frontTabsOrder = explode(',', erLhcoreClassModelChatConfig::fetch('front_tabs')
                       </div>
                       <?php endif;?>
                       
-                    <?php elseif (trim($frontTab) == 'closed_chats') : ?>
+                    <?php elseif (trim($frontTab) == 'closed_chats' && $online_chat_enabled_pre == true) : ?>
                     
                       <?php if ($closedTabEnabled == true) : ?>
                       <div role="tabpanel" class="tab-pane form-group" id="closedchats">
