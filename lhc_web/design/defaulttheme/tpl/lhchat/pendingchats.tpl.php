@@ -14,6 +14,7 @@
         	<th width="1%"><input class="mb0" type="checkbox" ng-model="check_all_items" /></th>
             <th width="1%">ID</th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Information');?></th>
+            <th width="1%"></th>
         </tr>
     </thead>
     <?php foreach ($items as $chat) : ?>
@@ -26,6 +27,7 @@
 	      <a class="csfr-required icon-cancel-squared" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Reject chat');?>" href="<?php echo erLhcoreClassDesign::baseurl('chat/delete')?>/<?php echo $chat->id?>"></a>
 	      <?php echo $chat->id;?>. <?php echo htmlspecialchars($chat->nick);?> (<?php echo date(erLhcoreClassModule::$dateDateHourFormat,$chat->time);?>) (<?php echo $chat->department;?>)
         </td>
+        <td><?php if ($chat->fbst == 1) : ?><i class="icon-thumbs-up up-voted"></i><?php elseif ($chat->fbst == 2) : ?><i class="icon-thumbs-down down-voted"><?php endif;?></td>
     </tr>
     <?php endforeach; ?>
 </table>

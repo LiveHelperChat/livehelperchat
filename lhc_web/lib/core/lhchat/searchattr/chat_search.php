@@ -76,6 +76,18 @@ $fieldsSearch['user_id'] = array (
 	)
 );
 
+$fieldsSearch['fbst'] = array (
+	'type' => 'text',
+	'trans' => 'Feedback status',
+	'required' => false,
+	'valid_if_filled' => false,
+	'filter_type' => 'filter',
+	'filter_table_field' => 'fbst',
+	'validation_definition' => new ezcInputFormDefinitionElement(
+		ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 0)
+	)
+);
+
 
 $fieldSortAttr = array (
 'field'      => false,

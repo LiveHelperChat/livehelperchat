@@ -31,9 +31,10 @@ class erLhcoreClassChatExport {
 		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(7, 1, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Operator'));
 		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(8, 1, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Department'));
 		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(9, 1, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Date'));
-		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(10, 1, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Mail send'));
-		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(11, 1, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Referrer'));
-		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(12, 1, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Link'));
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(10, 1, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Vote status'));
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(11, 1, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Mail send'));
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(12, 1, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Referrer'));
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(13, 1, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Link'));
 		
 		$attributes = array(
 			'id',
@@ -54,6 +55,9 @@ class erLhcoreClassChatExport {
 			}
 			$key++;
 			$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($key, $i,  date(erLhcoreClassModule::$dateFormat,$item->time));
+			
+			$key++;
+			$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($key, $i,  ($item->fbst == 1 ? 'UP' : ($item->fbst == 2 ? 'DOWN' : 'NONE')));
 			
 			$key++;
 			$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($key, $i, $item->mail_send == 1 ? 'Yes' : 'No');

@@ -1145,6 +1145,26 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Vote status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Any</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Not Noted</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Up Voted</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Down vote</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Search</source>
       <translation type="unfinished"/>
     </message>
@@ -6702,6 +6722,10 @@
     </message>
     <message>
       <source>Date</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Vote status</source>
       <translation type="unfinished"/>
     </message>
     <message>

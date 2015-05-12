@@ -654,6 +654,8 @@ class erLhcoreClassModelChatOnlineUser {
 	           		}
 	           }
 
+	           $logPageView = false;
+	           
 	           // Update variables only if it's not JS to check for operator message
 	           if (!isset($paramsHandle['check_message_operator']) || (isset($paramsHandle['pages_count']) && $paramsHandle['pages_count'] == true)) {
 	           		$item->user_agent = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '';
@@ -661,6 +663,7 @@ class erLhcoreClassModelChatOnlineUser {
 	           		$item->page_title = isset($_GET['dt']) ? (string)rawurldecode($_GET['dt']) : '';
 	           		$item->last_visit = time();
 	           		$item->store_chat = true;
+	           		$logPageView = true;
 	           }
 
 	           if ($item->operator_message == '' && isset($paramsHandle['pro_active_invite']) && $paramsHandle['pro_active_invite'] == 1 && isset($paramsHandle['pro_active_limitation']) && ($paramsHandle['pro_active_limitation'] == -1 || erLhcoreClassChat::getPendingChatsCountPublic($item->dep_id > 0 ? $item->dep_id : false) <= $paramsHandle['pro_active_limitation']) ) {
@@ -675,6 +678,8 @@ class erLhcoreClassModelChatOnlineUser {
 	           		
 	           		if ($newVisitor == true) {
 	           		    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('onlineuser.created', array('ou' => & $item));
+	           		} elseif ($logPageView == true) {
+	           			erLhcoreClassChatEventDispatcher::getInstance()->dispatch('onlineuser.pageview_logged', array('ou' => & $item));
 	           		}
 	           }
 

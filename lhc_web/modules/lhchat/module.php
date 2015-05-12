@@ -168,32 +168,32 @@ $ViewList['syncadmin'] = array(
 
 $ViewList['activechats'] = array(
     'params' => array(),
-    'uparams' => array('nick','email','timefrom','timeto','department_id','user_id','print','xls'),
+    'uparams' => array('nick','email','timefrom','timeto','department_id','user_id','print','xls','fbst'),
     'functions' => array( 'use' )
 );
 
 $ViewList['closedchats'] = array(
     'params' => array(),
-    'uparams' => array('nick','email','timefrom','timeto','department_id','user_id','print','xls'),
+    'uparams' => array('nick','email','timefrom','timeto','department_id','user_id','print','xls','fbst'),
     'functions' => array( 'use' )
 );
 
 $ViewList['operatorschats'] = array(
     'params' => array(),
-	'uparams' => array('nick','email','timefrom','timeto','department_id','user_id','print','xls'),
+	'uparams' => array('nick','email','timefrom','timeto','department_id','user_id','print','xls','fbst'),
     'functions' => array( 'use' )
 );
 
 $ViewList['unreadchats'] = array(
     'script' => 'unreadchats.php',
     'params' => array(),
-	'uparams' => array('nick','email','timefrom','timeto','department_id','user_id','print','xls'),
+	'uparams' => array('nick','email','timefrom','timeto','department_id','user_id','print','xls','fbst'),
     'functions' => array( 'use' )
 );
 
 $ViewList['pendingchats'] = array(
     'params' => array(),
-    'uparams' => array('nick','email','timefrom','timeto','department_id','user_id','print','xls'),
+    'uparams' => array('nick','email','timefrom','timeto','department_id','user_id','print','xls','fbst'),
     'functions' => array( 'use' )
     );
 
