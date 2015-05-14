@@ -128,7 +128,9 @@ function lh(){
     			inst.find('.msg-nm').remove();
     			inst.removeClass('has-pm');    			
     			$('#messagesBlock-'+chat_id).animate({ scrollTop: $('#messagesBlock-'+chat_id).prop('scrollHeight') }, 1000);
+    			$('#CSChatMessage-'+chat_id).focus();
     		},500);
+    		
     	});
     	
     	$.get(url, function(data) {
@@ -137,6 +139,7 @@ function lh(){
     		tabs.find('> div.tab-content > div.active').removeClass('active');
     		tabs.find('> div.tab-content').append('<div role="tabpanel" class="tab-pane active" id="chat-id-'+chat_id+'"></div>');    		
     		$('#chat-id-'+chat_id).html(data);  
+    		$('#CSChatMessage-'+chat_id).focus();
     	});
     };
 
