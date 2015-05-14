@@ -151,7 +151,7 @@ class erLhcoreClassChatWorkflow {
     	}
     	
     	if (in_array('xmp_accepted', $options['options'])) {    	
-    		erLhcoreClassXMP::sendXMPMessage($chat,array('template' => 'xmp_accepted_message'));
+    		erLhcoreClassXMP::sendXMPMessage($chat,array('template' => 'xmp_accepted_message','recipients_setting' => 'xmp_users_accepted'));
     	}
     	
     	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_accepted',array('chat' => & $chat));

@@ -948,7 +948,7 @@
     </message>
     <message>
       <source>Popup window width</source>
-      <translation>Tamanho da janela do popup</translation>
+      <translation>Largura da janela do popup</translation>
     </message>
     <message>
       <source>Popup window width in pixels</source>

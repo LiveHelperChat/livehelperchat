@@ -1145,6 +1145,26 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Vote status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Any</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Not Noted</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Up Voted</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Down vote</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Search</source>
       <translation type="unfinished"/>
     </message>
@@ -1348,6 +1368,10 @@
   <context>
     <name>chat/cannedmsg</name>
     <message>
+      <source>Please enter canned message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Title/Message</source>
       <translation type="unfinished"/>
     </message>
@@ -1433,10 +1457,6 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter canned message</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -1592,6 +1612,10 @@
     </message>
     <message>
       <source>XMPP messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send XMPP messages to all department operators</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2223,10 +2247,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Start chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Live support is not available in your country</source>
       <translation type="unfinished"/>
     </message>
@@ -2243,11 +2263,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Leave a message</source>
+      <source>Your request was sent!</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Your request was sent!</source>
+      <source>Leave a message</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2256,6 +2276,10 @@
     </message>
     <message>
       <source>our terms and to the Law</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start chat</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3320,14 +3344,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Departments</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Synchronization and sound settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>GEO detection configuration</source>
       <translation type="unfinished"/>
     </message>
@@ -3444,6 +3460,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Synchronization and sound settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Embed code</source>
       <translation type="unfinished"/>
     </message>
@@ -3510,7 +3534,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Home</source>
+      <source>Active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>collapse/expand</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3522,19 +3558,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Pending chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Active chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Unread messages</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Closed chats</source>
+      <source>Home</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6558,6 +6586,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>You were logged out because another user logged under same account</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Incorrect username or password</source>
       <translation type="unfinished"/>
     </message>
@@ -6690,6 +6722,10 @@
     </message>
     <message>
       <source>Date</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Vote status</source>
       <translation type="unfinished"/>
     </message>
     <message>

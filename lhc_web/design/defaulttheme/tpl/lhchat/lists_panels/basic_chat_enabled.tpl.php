@@ -1,0 +1,1 @@
+  <?php $basicChatEnabled = erLhcoreClassUser::instance()->hasAccessTo('lhchat','use');?>

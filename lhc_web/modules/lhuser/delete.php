@@ -32,6 +32,8 @@ $q->deleteFrom( 'lh_users_remember' )->where( $q->expr->eq( 'user_id', $Params['
 $stmt = $q->prepare();
 $stmt->execute();
 
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.deleted',array('userData' => $departament));
+
 erLhcoreClassModule::redirect('user/userlist');
 exit;
 

@@ -6,6 +6,8 @@ $UserData = new erLhcoreClassModelUser();
 $UserDepartaments = isset($_POST['UserDepartament']) ? $_POST['UserDepartament'] : array();
 $show_all_pending = 1;
 
+$tpl->set('tab',$Params['user_parameters_unordered']['tab'] == 'canned' ? 'tab_canned' : '');
+
 if (isset($_POST['Update_account']))
 {
    $definition = array(
@@ -177,6 +179,9 @@ if (isset($_POST['Update_account']))
     	$UserData->all_departments = 0;
     }
     
+    // Allow extension to do extra validation
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.new_user',array('userData' => & $UserData, 'errors' => & $Errors));
+    
     if (count($Errors) == 0)
     {
         $UserData->setPassword($form->Password);
@@ -237,7 +242,9 @@ if (isset($_POST['Update_account']))
         }
 
         erLhcoreClassModelUserSetting::setSetting('show_all_pending',$show_all_pending,$UserData->id);
-              
+        
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.user_created',array('userData' => & $UserData));
+        
         erLhcoreClassModule::redirect('user/userlist');
         exit;
 

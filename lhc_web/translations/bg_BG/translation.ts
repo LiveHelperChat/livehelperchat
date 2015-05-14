@@ -67,7 +67,7 @@
     </message>
     <message>
       <source>socket.io path, optional</source>
-      <translation type="unfinished"/>
+      <translation>Socket.io път, по избор</translation>
     </message>
     <message>
       <source>NodeJS support enabled</source>
@@ -179,7 +179,7 @@
     </message>
     <message>
       <source>Disable JS execution in Co-Browsing operator window</source>
-      <translation type="unfinished"/>
+      <translation>Забраняване на JS изпълнение в Co-Browsing - търся операторски прозорец</translation>
     </message>
     <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
@@ -456,23 +456,23 @@
     </message>
     <message>
       <source>Text then user starts chat based on proactive invitation</source>
-      <translation type="unfinished"/>
+      <translation>Текст, тогава потребителя започва чат на базата на проактивна покана</translation>
     </message>
     <message>
       <source>Text then operator closes a chat</source>
-      <translation type="unfinished"/>
+      <translation>Текст тогава оператор затваря чат</translation>
     </message>
     <message>
       <source>Text then user starts a chat and is waiting for operator to join a chat</source>
-      <translation type="unfinished"/>
+      <translation>Текст, след това потребителят започва чат и чака за оператора, за да се присъединят към чат</translation>
     </message>
     <message>
       <source>Text then user starts a chat but department is offline</source>
-      <translation type="unfinished"/>
+      <translation>Текст, след това потребителят започва чат, но отдела на операторите е офлайн</translation>
     </message>
     <message>
       <source>Leave a message form text</source>
-      <translation type="unfinished"/>
+      <translation>Оставете съобщение като текст</translation>
     </message>
     <message>
       <source>Need help border color</source>
@@ -876,11 +876,11 @@
     </message>
     <message>
       <source>General</source>
-      <translation type="unfinished"/>
+      <translation>Общи</translation>
     </message>
     <message>
       <source>Design</source>
-      <translation type="unfinished"/>
+      <translation>Дизайн</translation>
     </message>
     <message>
       <source>Hide status when offline</source>
@@ -948,7 +948,7 @@
     </message>
     <message>
       <source>Popup window width</source>
-      <translation type="unfinished"/>
+      <translation>Ширина на изскачащ прозорец</translation>
     </message>
     <message>
       <source>Popup window width in pixels</source>
@@ -1903,7 +1903,7 @@
     </message>
     <message>
       <source>Bing client secret, key is never shown for security purposes</source>
-      <translation type="unfinished"/>
+      <translation>Ключ, никога не е показана с цел сигурност</translation>
     </message>
     <message>
       <source>Bing access token expires</source>
@@ -1974,11 +1974,11 @@
     </message>
     <message>
       <source>Sent by Customer</source>
-      <translation type="unfinished"/>
+      <translation>Изпратено от клиент</translation>
     </message>
     <message>
       <source>Sent by Operator</source>
-      <translation type="unfinished"/>
+      <translation>Изпратен от оператора</translation>
     </message>
     <message>
       <source>Drop your files here.</source>
@@ -2314,7 +2314,7 @@
     </message>
     <message>
       <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
-      <translation type="unfinished"/>
+      <translation>Заявката ви не е обработена, както се очаква - но не се притеснявайте, това не е ваша вина. Моля изпратете отново вашата заявка. Ако имате същия проблем трябва да се свържете с нас чрез други средства.</translation>
     </message>
     <message>
       <source>Invalid file extension</source>
@@ -3049,11 +3049,11 @@
     </message>
     <message>
       <source>Seen</source>
-      <translation type="unfinished"/>
+      <translation>Видян</translation>
     </message>
     <message>
       <source>Unseen</source>
-      <translation type="unfinished"/>
+      <translation>Невидим</translation>
     </message>
     <message>
       <source>User has seen the message from the operator.</source>
@@ -3073,15 +3073,15 @@
     </message>
     <message>
       <source>Chat</source>
-      <translation type="unfinished"/>
+      <translation>Чат</translation>
     </message>
     <message>
       <source>Returning</source>
-      <translation type="unfinished"/>
+      <translation>Връщане</translation>
     </message>
     <message>
       <source>New</source>
-      <translation type="unfinished"/>
+      <translation>Нов</translation>
     </message>
     <message>
       <source>has sent a message to the user</source>
@@ -4753,7 +4753,7 @@
     </message>
     <message>
       <source>I receive other operators permissions request</source>
-      <translation type="unfinished"/>
+      <translation>Щв получите заявка за разрешаване от други оператори</translation>
     </message>
     <message>
       <source>Skype</source>
@@ -4813,7 +4813,7 @@
     </message>
     <message>
       <source>User receives other operators permissions request</source>
-      <translation type="unfinished"/>
+      <translation>Потребителят получава заявка от други оератори</translation>
     </message>
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
@@ -6124,11 +6124,11 @@
     </message>
     <message>
       <source>I receive other operators permissions request</source>
-      <translation type="unfinished"/>
+      <translation>Ще получите завка от други оператори</translation>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
-      <translation type="unfinished"/>
+      <translation>Потребителят получава други заявки</translation>
     </message>
     <message>
       <source>User group</source>
@@ -6884,7 +6884,7 @@
     </message>
     <message>
       <source>Please choose at least one permission</source>
-      <translation type="unfinished"/>
+      <translation>Моля, изберете поне едно разрешение</translation>
     </message>
   </context>
   <context>
@@ -6907,50 +6907,50 @@
     </message>
     <message>
       <source>This user can not receive permision request!</source>
-      <translation type="unfinished"/>
+      <translation>Този потребител все още не може да получи покана!</translation>
     </message>
     <message>
       <source>Permissions were not provided</source>
-      <translation type="unfinished"/>
+      <translation>Заявките не са предвидени</translation>
     </message>
   </context>
   <context>
     <name>users/autologin</name>
     <message>
       <source>Auto login settings</source>
-      <translation type="unfinished"/>
+      <translation>Настройки за автоматично влизане</translation>
     </message>
     <message>
       <source>This module can be used if you are generating autologin link. See site for code examples</source>
-      <translation type="unfinished"/>
+      <translation>Този модул може да се използва, ако сте генериране автоматичен вход - връзка. Вижте сайта за код, примери</translation>
     </message>
     <message>
       <source>Enabled</source>
-      <translation type="unfinished"/>
+      <translation>Разрешено</translation>
     </message>
     <message>
       <source>Secret hash used for authentification token generation, min 10 characters</source>
-      <translation type="unfinished"/>
+      <translation>Таен хеш, използван за удостоверяване, минимум 10 знака</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>Настройка за актуализиция</translation>
     </message>
     <message>
       <source>Autologin hash has expired</source>
-      <translation type="unfinished"/>
+      <translation>Автоматичния вход на хеш е изтекъл</translation>
     </message>
     <message>
       <source>Could not find a user</source>
-      <translation type="unfinished"/>
+      <translation>Не намирам потребител</translation>
     </message>
     <message>
       <source>Could not find a provided user</source>
-      <translation type="unfinished"/>
+      <translation>При тези условия не намирам потребител</translation>
     </message>
     <message>
       <source>Invalid autologin hash</source>
-      <translation type="unfinished"/>
+      <translation>Невалиден автоматичен вход на хеш</translation>
     </message>
     <message>
       <source>Auto login module is not enabled</source>

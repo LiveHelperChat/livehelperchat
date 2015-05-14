@@ -18,7 +18,11 @@ services.factory('LiveHelperChatFactory', ['$http','$q',function ($http, $q) {
 	this.loadChatList = function(params){
 		var deferred = $q.defer();		
 		$http.get(WWW_DIR_JAVASCRIPT + 'chat/syncadmininterface').success(function(data) {
-			 deferred.resolve(data);			 
+			 if (typeof data.error_url !== 'undefined') {
+				 document.location = data.error_url;
+			 } else {
+				 deferred.resolve(data);
+			 }			 
 		}).error(function(){
 			deferred.reject('error');
 		});		
@@ -61,6 +65,12 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	$scope.timeoutControl = null;
 	$scope.setTimeoutEnabled = true;
 	
+	// Just for extension reserved keywords
+	$scope.custom_list_1_expanded = true;
+	$scope.custom_list_2_expanded = true;
+	$scope.custom_list_3_expanded = true;
+	$scope.custom_list_4_expanded = true;
+	
 	this.toggleList = function(variable) {
 		$scope[variable] = !$scope[variable];		
 		if (localStorage) {
@@ -80,6 +90,12 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 				$scope.my_active_chats_expanded = localStorage.getItem('my_active_chats_expanded') != 'false';
 				$scope.closed_chats_expanded = localStorage.getItem('closed_chats_expanded') != 'false';
 				$scope.unread_chats_expanded = localStorage.getItem('unread_chats_expanded') != 'false';
+				
+				// Just for extension reserved keywords
+				$scope.custom_list_1_expanded = localStorage.getItem('custom_list_1_expanded') != 'false';
+				$scope.custom_list_2_expanded = localStorage.getItem('custom_list_2_expanded') != 'false';
+				$scope.custom_list_3_expanded = localStorage.getItem('custom_list_3_expanded') != 'false';
+				$scope.custom_list_4_expanded = localStorage.getItem('custom_list_4_expanded') != 'false';
 			} catch(err) { 
 				
 			};
