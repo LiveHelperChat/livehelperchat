@@ -1,5 +1,7 @@
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','New user');?></h1>
 
+<?php include(erLhcoreClassDesign::designtpl('lhuser/pre_user_form.tpl.php'));?>
+
 <?php if (isset($errors)) : ?>
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>

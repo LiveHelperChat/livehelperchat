@@ -1096,6 +1096,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `filename` varchar(200) NOT NULL,
                   `job_title` varchar(100) NOT NULL,
                   `xmpp_username` varchar(200) NOT NULL,
+                  `session_id` varchar(40) NOT NULL,
                   `skype` varchar(50) NOT NULL,
                   `disabled` tinyint(4) NOT NULL,
                   `hide_online` tinyint(1) NOT NULL,

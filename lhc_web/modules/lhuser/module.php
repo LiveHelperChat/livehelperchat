@@ -37,6 +37,7 @@ $ViewList['grouplist'] = array(
 
 $ViewList['edit'] = array(
     'params' => array('user_id'),
+    'uparams' => array('tab'),
     'functions' => array( 'edituser' )
 );
 
@@ -48,6 +49,7 @@ $ViewList['delete'] = array(
 
 $ViewList['new'] = array(
     'params' => array(),
+    'uparams' => array('tab'),
     'functions' => array( 'createuser' )
 );
 

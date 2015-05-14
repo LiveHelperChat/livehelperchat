@@ -14,6 +14,7 @@
     	<th width="1%"><input type="checkbox" ng-model="check_all_items" /></th>
         <th width="1%">ID</th>
         <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/activechats','Information');?></th>
+        <th width="1%"></th>
     </tr>
 </thead>
     <?php foreach ($items as $chat) : ?>
@@ -26,10 +27,11 @@
            <a class="csfr-required icon-cancel-circled" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/activechats','Close chat');?>" href="<?php echo erLhcoreClassDesign::baseurl('chat/closechat')?>/<?php echo $chat->id?>"></a>
 	       <a class="csfr-required icon-cancel-squared" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/activechats','Delete chat');?>" href="<?php echo erLhcoreClassDesign::baseurl('chat/delete')?>/<?php echo $chat->id?>"></a> <?php echo $chat->id;?>. <?php echo htmlspecialchars($chat->nick);?> (<?php echo date(erLhcoreClassModule::$dateDateHourFormat,$chat->time);?>) (<?php echo htmlspecialchars($chat->department);?>)
         </td>
+        <td><?php if ($chat->fbst == 1) : ?><i class="icon-thumbs-up up-voted"></i><?php elseif ($chat->fbst == 2) : ?><i class="icon-thumbs-down down-voted"><?php endif;?></td>
     </tr>
     <?php endforeach; ?>
 </table>
-
+	
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/secure_links.tpl.php')); ?>
 
 <?php if (isset($pages)) : ?>

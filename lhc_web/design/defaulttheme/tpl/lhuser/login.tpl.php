@@ -4,6 +4,10 @@
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
 
+<?php if (isset($logout_reason)) : ?>
+	<?php include(erLhcoreClassDesign::designtpl('lhuser/logout_reason.tpl.php'));?>
+<?php endif;?>
+
 <form id="form-start-chat" method="post" action="<?php echo erLhcoreClassDesign::baseurl('user/login')?>">
 
 <div class="form-group">

@@ -8,7 +8,9 @@
     	<ul class="nav nav-tabs" role="tablist">
     		<li role="presentation" class="active"><a href="#panel1" aria-controls="panel1" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Visitor')?></a></li>
     		
-    		<?php if ( erLhcoreClassModelChatConfig::fetch('track_footprint')->current_value == 1) : ?>
+    		<?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/footprint_tab_tab_pre.tpl.php')); ?>
+    		
+    		<?php if ($chat_chat_tabs_footprint_tab_tab_enabled == true && erLhcoreClassModelChatConfig::fetch('track_footprint')->current_value == 1) : ?>
     		<li role="presentation"><a href="#panel2" aria-controls="panel2" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Footprint')?></a></li>
     		<?php endif;?>
     		
@@ -26,7 +28,7 @@
     		  <input type="button" class="btn btn-default" onclick="lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('chat/sendnotice')?>/<?php echo $online_user->id?>'});" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Send message');?>"/>
     		</div>
     		
-    		<?php if ( erLhcoreClassModelChatConfig::fetch('track_footprint')->current_value == 1) : ?>
+    		<?php if ( $chat_chat_tabs_footprint_tab_tab_enabled == true && erLhcoreClassModelChatConfig::fetch('track_footprint')->current_value == 1) : ?>
     		<div role="tabpanel" class="tab-pane" id="panel2">
         		<ul class="foot-print-content list-unstyled mb0" style="max-height: 170px;">
         		<?php foreach (erLhcoreClassModelChatOnlineUserFootprint::getList(array('filter' => array('online_user_id' => $online_user->id))) as $footprintItems) : ?>

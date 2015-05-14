@@ -4,6 +4,8 @@ $tpl = erLhcoreClassTemplate::getInstance('lhuser/edit.tpl.php');
 
 $UserData = erLhcoreClassUser::getSession()->load( 'erLhcoreClassModelUser', (int)$Params['user_parameters']['user_id'] );
 
+$tpl->set('tab',$Params['user_parameters_unordered']['tab'] == 'canned' ? 'tab_canned' : '');
+
 if (isset($_POST['Update_account']) || isset($_POST['Save_account']))
 {
    $definition = array(
@@ -194,6 +196,9 @@ if (isset($_POST['Update_account']) || isset($_POST['Save_account']))
     	}
     }
 
+    // Allow extension to do extra validation
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.edit_user',array('userData' => & $UserData, 'errors' => & $Errors));
+    
     if (count($Errors) == 0)
     {
         // Update password if neccesary
@@ -221,7 +226,9 @@ if (isset($_POST['Update_account']) || isset($_POST['Save_account']))
 
         $CacheManager = erConfigClassLhCacheConfig::getInstance();
         $CacheManager->expireCache();
-
+       
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.user_modified',array('userData' => & $UserData));
+        
         if (isset($_POST['Save_account'])) {
             erLhcoreClassModule::redirect('user/userlist');
             exit;

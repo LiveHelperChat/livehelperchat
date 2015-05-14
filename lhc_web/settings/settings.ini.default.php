@@ -15,6 +15,7 @@ return array (
       'templatecompile' => false,
       'modulecompile' => false,
       'force_virtual_host' => false,
+      'one_login_per_account' => false,
       'time_zone' => '',
       'date_format' => 'Y-m-d',
       'date_hour_format' => 'H:i:s',

@@ -2,7 +2,7 @@
 
 	<input type="hidden" name="doSearch" value="1">
 
-	<div class="row form-group">
+	<div class="row">
 		<div class="col-md-3">
 		   <div class="form-group">
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Nick');?></label>
@@ -31,7 +31,7 @@
 	</div>
 			
 	<div class="row">
-		<div class="col-md-6">
+		<div class="col-md-4">
 		  <div class="form-group">
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department');?></label>
 				<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
@@ -43,7 +43,7 @@
 	            )); ?>            	
 		  </div>
 		</div>
-		<div class="col-md-6">
+		<div class="col-md-4">
 		   <div class="form-group">
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','User');?></label>
 			<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
@@ -53,6 +53,17 @@
 			            'css_class'      => 'form-control',
 	                    'list_function'  => 'erLhcoreClassModelUser::getUserList'
 	            )); ?>            	
+		  </div>
+		</div>
+		<div class="col-md-4">
+		   <div class="form-group">
+			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Vote status');?></label>
+			<select name="fbst" class="form-control">
+				<option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Any');?></option>
+				<option value="0" <?php if ($input->fbst === 0) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Not Noted');?></option>
+				<option value="1" <?php if ($input->fbst === 1) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Up Voted');?></option>
+				<option value="2" <?php if ($input->fbst === 2) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Down vote');?></option>
+			</select>           	
 		  </div>
 		</div>
 	</div>

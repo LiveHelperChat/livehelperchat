@@ -83,10 +83,10 @@
 	<?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/accept_tos.tpl.php'));?>
 
 	<div class="btn-group" role="group" aria-label="...">
-  		<input type="submit" class="btn btn-default btn-sm" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Leave a message');?>" name="StartChatAction" />
+  		<?php include(erLhcoreClassDesign::designtpl('lhchat/part/buttons/leave_a_message_button_widget.tpl.php'));?>
   		<?php include(erLhcoreClassDesign::designtpl('lhchat/part/offline_button_multiinclude.tpl.php'));?>
 		<?php if ( erLhcoreClassModelChatConfig::fetch('reopen_chat_enabled')->current_value == 1 && ($reopenData = erLhcoreClassChat::canReopenDirectly(array('reopen_closed' => erLhcoreClassModelChatConfig::fetch('allow_reopen_closed')->current_value))) !== false ) : ?>
-	  		<input type="button" class="btn btn-default btn-sm"  value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatnotexists','Resume chat');?>" onclick="document.location = '<?php echo erLhcoreClassDesign::baseurl('chat/reopen')?>/<?php echo $reopenData['id']?>/<?php echo $reopenData['hash']?>/(mode)/widget<?php if ( isset($append_mode) && $append_mode != '' ) : ?>/(embedmode)/embed<?php endif;?>'">
+		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/buttons/reopen_offline_button_widget.tpl.php'));?>
 	  	<?php endif; ?>
 	</div>
 	

@@ -1,0 +1,1 @@
+<?php $system_configuration_tabs_chat_enabled = true;?>

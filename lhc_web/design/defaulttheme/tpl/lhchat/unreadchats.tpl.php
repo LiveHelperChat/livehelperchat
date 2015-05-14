@@ -8,6 +8,7 @@
     <tr>
         <th width="1%">ID</th>
         <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/unreadchats','Information');?></th>
+        <th width="1%"></th>
     </tr>
 </thead>
     <?php foreach ($items as $chat) : ?>
@@ -24,6 +25,7 @@
 	      $seconds = ($diff - ($hours * 3600) - ($minits * 60));
 	      ?><b><?php echo $hours?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','h.');?> <?php echo $minits ?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','m.');?> <?php echo $seconds?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','s.');?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','ago');?>.</b>
         </td>
+        <td><?php if ($chat->fbst == 1) : ?><i class="icon-thumbs-up up-voted"></i><?php elseif ($chat->fbst == 2) : ?><i class="icon-thumbs-down down-voted"><?php endif;?></td>
     </tr>
     <?php endforeach; ?>
 </table>

@@ -4,6 +4,8 @@ $currentUser = erLhcoreClassUser::instance();
 
 $instance = erLhcoreClassSystem::instance();
 
+
+
 if ($instance->SiteAccess != 'site_admin') {
 
 	if ($currentUser->isLogged() && !empty($Params['user_parameters_unordered']['r'])) {		
@@ -20,6 +22,8 @@ if ($instance->SiteAccess != 'site_admin') {
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhuser/login.tpl.php');
 
+
+
 $redirect = '';
 if (isset($_POST['redirect'])){
 	$redirect = $_POST['redirect'];
@@ -31,6 +35,10 @@ if (isset($_POST['redirect'])){
 
 if (isset($_POST['Login']))
 {    
+    if (isset($_SESSION['logout_reason'])) {
+        unset($_SESSION['logout_reason']);
+    }
+        
     if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
         erLhcoreClassModule::redirect('user/login');
         exit;
@@ -48,6 +56,12 @@ if (isset($_POST['Login']))
 	        exit;
     	}
     }
+}
+
+if (isset($_SESSION['logout_reason'])) {
+	if ($_SESSION['logout_reason'] == 1) {
+		$tpl->set('logout_reason',$_SESSION['logout_reason']);
+	}
 }
 
 $pagelayout = erConfigClassLhConfig::getInstance()->getOverrideValue('site','login_pagelayout');

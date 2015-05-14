@@ -22,6 +22,7 @@ class erLhcoreClassModelUser {
 			   'invisible_mode'  => $this->invisible_mode,
 			   'xmpp_username'   => $this->xmpp_username,
 			   'rec_per_req'     => $this->rec_per_req,
+			   'session_id'      => $this->session_id,
        );
    }
 
@@ -175,7 +176,7 @@ class erLhcoreClassModelUser {
 
    public static function getUserList($paramsSearch = array())
    {
-       $paramsDefault = array('limit' => 32, 'offset' => 0);
+       $paramsDefault = array('limit' => 500000, 'offset' => 0);
 
        $params = array_merge($paramsDefault,$paramsSearch);
 
@@ -352,6 +353,7 @@ class erLhcoreClassModelUser {
     public $invisible_mode = 0;
     public $time_zone = '';
     public $rec_per_req = '';
+    public $session_id = '';
 }
 
 ?>

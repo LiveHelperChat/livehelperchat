@@ -720,7 +720,7 @@
     </message>
     <message>
       <source>Offer timeout in days, after how many days show offers for the same visitor again, leave empty for session</source>
-      <translation>Timeout van aanbieding in dagen, na hoeveel dagen dezelfde bezoeker de aanbiedingen weer krijgt, laat leeg voor sessie</translation>
+      <translation>Timeout van pop-up in dagen, na hoeveel dagen krijgt dezelfde bezoeker de pop-up weer te zien?, laat leeg voor iedere sessie</translation>
     </message>
     <message>
       <source>For what domain you are generating embed code?</source>
@@ -888,7 +888,7 @@
     </message>
     <message>
       <source>Show a leave a message form when there are no online operators</source>
-      <translation>Laat een bericht-achterlaat-scherm zien als er geen online operators zijn</translation>
+      <translation>Laat een bericht-achterlaat-scherm zien als er geen operators online zijn</translation>
     </message>
     <message>
       <source>Department</source>
@@ -991,7 +991,7 @@
     </message>
     <message>
       <source>Show different offers for the same user</source>
-      <translation>Toon verschillende aanbiedingen voor dezelfde gebruiker</translation>
+      <translation>Toon verschillende pop-ups voor dezelfde bezoeker</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page header or footer</source>
@@ -1018,7 +1018,7 @@
     <name>browseoffer/index</name>
     <message>
       <source>Browse offers</source>
-      <translation>Blader aanbiedingen door</translation>
+      <translation>Pop-ups</translation>
     </message>
     <message>
       <source>General</source>
@@ -1026,7 +1026,7 @@
     </message>
     <message>
       <source>Browse your offers</source>
-      <translation>Blader uw aanbiedingen door</translation>
+      <translation>Bekijk uw pop-ups</translation>
     </message>
     <message>
       <source>HTML Code</source>
@@ -2178,7 +2178,7 @@
     </message>
     <message>
       <source>There are no online operators at the moment, please leave a message</source>
-      <translation>Er zijn op dit moment geen ondersteuningsmedewerkers online, Laat een bericht achter.</translation>
+      <translation>Er zijn op dit moment geen medewerkers online, Laat een bericht achter.</translation>
     </message>
     <message>
       <source>File</source>
@@ -2246,7 +2246,7 @@
     </message>
     <message>
       <source>There are no online operators at the moment, please leave your message</source>
-      <translation>Er zijn op dit moment geen ondersteuningsmedewerkers online, Laat een bericht achter.</translation>
+      <translation>Er zijn op dit moment geen medewerkers online, Laat een bericht achter.</translation>
     </message>
     <message>
       <source>Choose your language</source>
@@ -2365,7 +2365,7 @@
     </message>
     <message>
       <source>Visitor has been redirected to contact form</source>
-      <translation>Gebruiker is doorgestuurd naar het contactformulier</translation>
+      <translation>Bezoeker is doorgestuurd naar het contactformulier</translation>
     </message>
   </context>
   <context>
@@ -2925,7 +2925,7 @@
     </message>
     <message>
       <source>Online visitors</source>
-      <translation>Online gebruikers</translation>
+      <translation>Online bezoekers</translation>
     </message>
     <message>
       <source>User tracking is disabled, enable it at</source>
@@ -3033,7 +3033,7 @@
     </message>
     <message>
       <source>Visitor local time</source>
-      <translation>Gebruiker zijn lokale tijd</translation>
+      <translation>Bezoeker zijn lokale tijd</translation>
     </message>
     <message>
       <source>By user status on site</source>
@@ -3331,7 +3331,7 @@
     </message>
     <message>
       <source>Browse offers embed code</source>
-      <translation>Embed code aanbiedingen doorbladeren</translation>
+      <translation>Embed code pop-ups doorzoeken</translation>
     </message>
     <message>
       <source>Canned messages</source>
@@ -3481,7 +3481,7 @@
     </message>
     <message>
       <source>Browse offers</source>
-      <translation>Blader aanbiedingen door</translation>
+      <translation>Bekijk de pop-ups</translation>
     </message>
     <message>
       <source>Chatbox</source>
@@ -3513,7 +3513,7 @@
     </message>
     <message>
       <source>Online visitors</source>
-      <translation>Online gebruikers</translation>
+      <translation>Online bezoekers</translation>
     </message>
     <message>
       <source>Account</source>
@@ -4056,7 +4056,7 @@
     </message>
     <message>
       <source>AVG visitor wait time by operator</source>
-      <translation>Gemiddelde wachttijd</translation>
+      <translation>Gemiddelde wachttijd per operator</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -4108,7 +4108,7 @@
     </message>
     <message>
       <source>Proactive chats number vs visitors initiated</source>
-      <translation>Proac</translation>
+      <translation>Proactieve chats versus chats van de bezoeker</translation>
     </message>
     <message>
       <source>Visitors</source>
@@ -4607,7 +4607,7 @@
     </message>
     <message>
       <source>Show my mouse position to visitor</source>
-      <translation>Laat mijn muis zien aan de gebruiker</translation>
+      <translation>Laat mijn muis zien aan de bezoeker</translation>
     </message>
     <message>
       <source>On highlight scroll user window location to match my</source>
@@ -6681,7 +6681,7 @@
     </message>
     <message>
       <source>Browser offer invitations</source>
-      <translation>Blader aanbiedings-uitnodigingen door</translation>
+      <translation>Bekijk pop-up uitnodigingen</translation>
     </message>
     <message>
       <source>Content</source>

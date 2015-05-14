@@ -3049,11 +3049,11 @@
     </message>
     <message>
       <source>Seen</source>
-      <translation type="unfinished"/>
+      <translation>Mesaj vazut</translation>
     </message>
     <message>
       <source>Unseen</source>
-      <translation type="unfinished"/>
+      <translation>Mesaj nevazut</translation>
     </message>
     <message>
       <source>User has seen the message from the operator.</source>
@@ -3073,15 +3073,15 @@
     </message>
     <message>
       <source>Chat</source>
-      <translation type="unfinished"/>
+      <translation>Conversatie</translation>
     </message>
     <message>
       <source>Returning</source>
-      <translation type="unfinished"/>
+      <translation>Vizitator recurent</translation>
     </message>
     <message>
       <source>New</source>
-      <translation type="unfinished"/>
+      <translation>Vizitator nou</translation>
     </message>
     <message>
       <source>has sent a message to the user</source>
@@ -3513,7 +3513,7 @@
     </message>
     <message>
       <source>Online visitors</source>
-      <translation>Vizitatoritori online</translation>
+      <translation>Vizitatori online</translation>
     </message>
     <message>
       <source>Account</source>
@@ -6880,7 +6880,7 @@
     <name>permission/getpermissionssummary</name>
     <message>
       <source>Request permission</source>
-      <translation type="unfinished"/>
+      <translation>Cere permisii</translation>
     </message>
     <message>
       <source>Please choose at least one permission</source>
