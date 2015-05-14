@@ -691,8 +691,9 @@ CREATE TABLE "lh_users" (
     "email" varchar(200) NOT NULL,
     "time_zone" varchar(200) NOT NULL,
     "name" varchar(200) NOT NULL,
-    "surname" varchar(200) NOT NULL,
+    "surname" varchar(200) NOT NULL,    
     "job_title" varchar(100) NOT NULL,
+    "session_id" varchar(40) NOT NULL,
     "filepath" varchar(400) NOT NULL,
     "filename" varchar(400) NOT NULL,
     "xmpp_username" varchar(400) NOT NULL,
@@ -705,7 +706,7 @@ CREATE TABLE "lh_users" (
     PRIMARY KEY ("id")
 );
 
-INSERT INTO "lh_users" VALUES (1,'admin','44f7fa28bdd2ffbd74dbde0684728bb6dc132178','admin@example.com','','Support','','','','','','',0,0,0,1,0);
+INSERT INTO "lh_users" VALUES (1,'admin','44f7fa28bdd2ffbd74dbde0684728bb6dc132178','admin@example.com','','Support','','','','','','','',0,0,0,1,0);
 
 CREATE TABLE "lh_users_remember" (
     "id" integer NOT NULL,
