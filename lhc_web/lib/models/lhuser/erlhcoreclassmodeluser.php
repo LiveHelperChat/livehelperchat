@@ -176,7 +176,7 @@ class erLhcoreClassModelUser {
 
    public static function getUserList($paramsSearch = array())
    {
-       $paramsDefault = array('limit' => 32, 'offset' => 0);
+       $paramsDefault = array('limit' => 500000, 'offset' => 0);
 
        $params = array_merge($paramsDefault,$paramsSearch);
 
