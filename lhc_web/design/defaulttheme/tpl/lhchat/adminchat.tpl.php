@@ -40,11 +40,7 @@
 		lhinst.initTypingMonitoringAdmin('<?php echo $chat->id?>');
 		</script>
 
-		<div class="form-group">
-		<?php include(erLhcoreClassDesign::designtpl('lhchat/part/action_block.tpl.php')); ?>
-
-		<?php include(erLhcoreClassDesign::designtpl('lhchat/part/below_action_block.tpl.php')); ?>
-		</div>
+		<?php include(erLhcoreClassDesign::designtpl('lhchat/part/after_text_area_block.tpl.php')); ?>
 		
 	</div>
 	<div class="col-sm-5 chat-main-right-column" id="chat-right-column-<?php echo $chat->id;?>">
