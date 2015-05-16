@@ -297,7 +297,6 @@ option.offline-dep{
 	height:120px;
 	overflow-y:auto;
 	border: 1px solid #CCCCCC;
-	padding:2px;
 	resize: vertical;
 	background-color:#FFF;
 }
@@ -315,19 +314,85 @@ textarea[name=ChatMessage]{
 	font-size:11px;
 }
 
-.usr-tit {
-	font-weight:bold;
-}
-
 div.system-response {
 	color:rgb(100, 100, 100);
 }
 
+.usr-tit {
+	font-weight:bold;
+	background-color:rgb(66, 65, 65);
+	color:#FFF;
+	margin-right:5px;
+	padding:2px 5px;
+	border-bottom-right-radius: 7px;
+	display:inline-block;
+	margin-top:-1px;
+	font-size:11px;
+	-webkit-box-shadow: 2px 2px 4px 0px rgba(50, 50, 50, 0.3);
+	-moz-box-shadow:    2px 2px 4px 0px rgba(50, 50, 50, 0.3);
+	box-shadow:         2px 2px 4px 0px rgba(50, 50, 50, 0.3);
+}
+
+.op-tit{
+	background-color:#54ADCF;
+}
+
+.vis-tit{
+	background-color:#5da423;
+}
+
 div.message-row {
-	padding:2px 2px;
-	line-height:130%;
+	padding:0px 2px 0px 0px;
+	line-height:140%;
 	transition: background-color 2000ms linear;	
 }
+
+/*style message according to senders*/
+div.message-admin + div.message-row.response,
+div.system-response + div.message-row.response
+{
+	margin-top:5px;
+	border-top:1px solid #D6E8C9;
+}
+
+div.system-response + div.message-admin,
+div.message-row.response+div.message-admin{
+	margin-top:5px;
+	border-top:1px solid #CCE2F2;
+}
+
+div.message-row.response+div.system-response{
+	margin-top:5px;
+	border-top:1px solid rgb(66, 65, 65);
+}
+
+div.message-admin+div.system-response{
+	margin-top:5px;
+	border-top:1px solid rgb(66, 65, 65);
+}
+
+
+div.system-response+div.system-response .usr-tit,
+div.message-admin+div.message-admin .usr-tit,
+div.message-row.response+div.message-row.response .usr-tit{
+	width:5px;
+	visibility:hidden;
+	overflow:hidden;
+	height:10px;
+	padding:0;
+	display:inline-block;
+	white-space:no-wrap;
+	margin:0;
+}
+
+div.message-admin{
+	background-color:#FAFAFA;
+}
+
+div.message-row.response{
+	background-color:#FAFDFA;
+}
+
 
 div.message-row-in {
 	padding:0px 2px 4px 2px;
@@ -352,20 +417,27 @@ div.message-row-in {
 #messages{position:relative;}
 .message-block{
 	font-size: 12px;
+
 }
 
+div.message-admin+div.message-admin .msg-date,div.message-row.response+div.message-row.response .msg-date,
 #messagesBlock .message-row .msg-date{
 	display:none;
 }
 
+
+.message-block .message-row:hover .msg-date,
 #messagesBlock .message-row:hover .msg-date{
 	display:inherit;
 }
 
-
 #messages {
 	font-size: 12px;
 }
+
+
+
+
 
 .start-chat-intro{
 	font-weight:bold;
