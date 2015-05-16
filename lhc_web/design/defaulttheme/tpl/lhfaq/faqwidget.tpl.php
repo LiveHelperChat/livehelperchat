@@ -41,7 +41,7 @@
 				<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 			<?php endif;?>
 
-		  <form action="<?php echo erLhcoreClassDesign::baseurl('faq/faqwidget')?><?php echo $dynamic_url_append?>" method="post" onsubmit="return lhinst.addCaptcha('<?php echo time()?>',$(this))">
+		  <form action="<?php echo erLhcoreClassDesign::baseurl('faq/faqwidget')?><?php isset($dynamic_url_append) ? print $dynamic_url_append : ''?>" method="post" onsubmit="return lhinst.addCaptcha('<?php echo time()?>',$(this))">
 			  <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/faqwidget','Type your question');?></h4>
               <div class="form-group">
 			     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/faqwidget','E-mail')?>:<?php if (erLhcoreClassModelChatConfig::fetch('faq_email_required')->current_value == 1) : ?>*<?php endif;?></label>
