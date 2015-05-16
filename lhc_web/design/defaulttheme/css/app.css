@@ -328,13 +328,13 @@ div.system-response {
 	display:inline-block;
 	margin-top:-1px;
 	font-size:11px;
-	-webkit-box-shadow: 2px 2px 4px 0px rgba(50, 50, 50, 0.3);
-	-moz-box-shadow:    2px 2px 4px 0px rgba(50, 50, 50, 0.3);
-	box-shadow:         2px 2px 4px 0px rgba(50, 50, 50, 0.3);
+-webkit-box-shadow: inset 10px 10px 7px -9px rgba(0,0,0,0.34);
+-moz-box-shadow: inset 10px 10px 7px -9px rgba(0,0,0,0.34);
+box-shadow: inset 10px 10px 7px -9px rgba(0,0,0,0.34);
 }
 
 .op-tit{
-	background-color:#54ADCF;
+	background-color:#54ADCF;	
 }
 
 .vis-tit{
@@ -352,23 +352,23 @@ div.message-admin + div.message-row.response,
 div.system-response + div.message-row.response
 {
 	margin-top:5px;
-	border-top:1px solid #D6E8C9;
+	border-top:1px dashed #E4E4E4;
 }
 
 div.system-response + div.message-admin,
 div.message-row.response+div.message-admin{
 	margin-top:5px;
-	border-top:1px solid #CCE2F2;
+	border-top:1px dashed #E4E4E4;
 }
 
 div.message-row.response+div.system-response{
 	margin-top:5px;
-	border-top:1px solid rgb(66, 65, 65);
+	border-top:1px dashed #E4E4E4;
 }
 
 div.message-admin+div.system-response{
 	margin-top:5px;
-	border-top:1px solid rgb(66, 65, 65);
+	border-top:1px dashed #E4E4E4;
 }
 
 
@@ -384,15 +384,6 @@ div.message-row.response+div.message-row.response .usr-tit{
 	white-space:no-wrap;
 	margin:0;
 }
-
-div.message-admin{
-	background-color:#FAFAFA;
-}
-
-div.message-row.response{
-	background-color:#FAFDFA;
-}
-
 
 div.message-row-in {
 	padding:0px 2px 4px 2px;
@@ -434,10 +425,6 @@ div.message-admin+div.message-admin .msg-date,div.message-row.response+div.messa
 #messages {
 	font-size: 12px;
 }
-
-
-
-
 
 .start-chat-intro{
 	font-weight:bold;
