@@ -188,6 +188,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Home page dashboard widgets order</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Your site URL address</source>
       <translation type="unfinished"/>
     </message>
@@ -2125,6 +2129,38 @@
       <source>Empty...</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Visitor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nothing found</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last activity ago</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time ago</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/screenshot</name>
@@ -2219,6 +2255,10 @@
   <context>
     <name>chat/startchat</name>
     <message>
+      <source>Invalid captcha code, please enable Javascript!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department is disabled</source>
       <translation type="unfinished"/>
     </message>
@@ -2248,10 +2288,6 @@
     </message>
     <message>
       <source>Live support is not available in your country</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Live Support</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2351,10 +2387,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Invalid captcha code, please enable Javascript!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Please enter your name</source>
       <translation type="unfinished"/>
     </message>
@@ -2396,6 +2428,10 @@
     </message>
     <message>
       <source>Your request was not processed as expected - but don't worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live Support</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2883,6 +2919,10 @@
     </message>
     <message>
       <source>Send message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Dashboard</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3559,6 +3599,22 @@
     </message>
     <message>
       <source>Unread messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Departments stats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>All departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of elements in list</source>
       <translation type="unfinished"/>
     </message>
     <message>

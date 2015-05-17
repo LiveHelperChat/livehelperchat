@@ -19,7 +19,7 @@
     </message>
     <message>
       <source>Track is user still on site, chat status checks also has to be enabled</source>
-      <translation type="unfinished"/>
+      <translation>Потребител все още е активен , чат проверки за състоянието също трябва да бъде разрешена</translation>
     </message>
     <message>
       <source>Track online visitors even if there is no online operators</source>
@@ -4611,7 +4611,7 @@
     </message>
     <message>
       <source>On highlight scroll user window location to match my</source>
-      <translation type="unfinished"/>
+      <translation>Превъртете потребителския прозорец до мястото, за да съвпадне с моето</translation>
     </message>
     <message>
       <source>Follow user scroll position</source>
