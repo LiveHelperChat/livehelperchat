@@ -4,7 +4,7 @@ var phonecatApp = angular.module('lhcApp', [
 ]);
 
 var services = angular.module('lhcAppServices', []);
-var lhcAppControllers = angular.module('lhcAppControllers', []);
+var lhcAppControllers = angular.module('lhcAppControllers', ["checklist-model"]);
 
 angular.element(document).ready(function(){
     var element = angular.element(document.querySelector("form"));
@@ -15,9 +15,9 @@ angular.element(document).ready(function(){
 
 services.factory('LiveHelperChatFactory', ['$http','$q',function ($http, $q) {
 	
-	this.loadChatList = function(params){
+	this.loadChatList = function(filter){
 		var deferred = $q.defer();		
-		$http.get(WWW_DIR_JAVASCRIPT + 'chat/syncadmininterface').success(function(data) {
+		$http.get(WWW_DIR_JAVASCRIPT + 'chat/syncadmininterface' + filter).success(function(data) {
 			 if (typeof data.error_url !== 'undefined') {
 				 document.location = data.error_url;
 			 } else {
@@ -71,6 +71,57 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	$scope.custom_list_3_expanded = true;
 	$scope.custom_list_4_expanded = true;
 	
+	// Parameters for back office sync
+	
+	var _that = this;
+	
+	this.restoreLocalSetting = function(variable,defaultValue,split) {
+		if (localStorage) {
+			var value = localStorage.getItem(variable);
+			if (value !== null){
+				if (split == true){
+					return value.split('/');
+				} else {
+					return value;
+				}
+			} else {
+				return defaultValue;
+			}
+		}
+	};
+			
+	// Active chat limit
+	this.limita = this.restoreLocalSetting('limita',10,false); // Number of elements for active chats list
+	this.limitu = this.restoreLocalSetting('limitu',10,false); // Number of elements for active chats list
+	this.limitp = this.restoreLocalSetting('limitp',10,false); // Number of elements for active chats list
+	this.limito = this.restoreLocalSetting('limito',10,false); // Number of elements for active chats list
+	this.limitc = this.restoreLocalSetting('limitc',10,false); // Number of elements for active chats list
+	this.limitd = this.restoreLocalSetting('limitd',10,false); // Number of elements for active chats list
+	
+	this.actived = this.restoreLocalSetting('actived',[],true); // All departments
+	this.activedNames = [];	
+	
+	this.departmentd = this.restoreLocalSetting('departmentd',[],true); // All departments
+	this.departmentdNames = [];	
+		
+	this.unreadd = this.restoreLocalSetting('unreadd',[],true); // All departments
+	this.unreaddNames = [];
+	
+	this.pendingd = this.restoreLocalSetting('pendingd',[],true); // All departments
+	this.pendingdNames = [];
+	
+	this.operatord = this.restoreLocalSetting('operatord',[],true); // All departments
+	this.operatordNames = [];
+	
+	this.closedd = this.restoreLocalSetting('closedd',[],true); // All departments
+	this.closeddNames = [];
+	
+	this.storeLocalSetting = function(variable, value) {
+		if (localStorage) {
+			var value = localStorage.setItem(variable, value);			
+		}
+	};
+	
 	this.toggleList = function(variable) {
 		$scope[variable] = !$scope[variable];		
 		if (localStorage) {
@@ -81,6 +132,119 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
     	}		
 	};
 	
+	$scope.getSyncFilter = function()
+	{
+		var filter = '/(limita)/'+parseInt(_that.limita);
+		filter += '/(limitu)/'+parseInt(_that.limitu);
+		filter += '/(limitp)/'+parseInt(_that.limitp);
+		filter += '/(limito)/'+parseInt(_that.limito);
+		filter += '/(limitc)/'+parseInt(_that.limitc);
+		filter += '/(limitd)/'+parseInt(_that.limitd);
+				
+		if (typeof _that.actived == 'object' && _that.actived.length > 0) {			
+			filter += '/(actived)/'+_that.actived.join('/');
+		}
+		
+		if (typeof _that.unreadd == 'object' && _that.unreadd.length > 0) {	
+			filter += '/(unreadd)/'+_that.unreadd.join('/');
+		}
+		
+		if (typeof _that.pendingd == 'object' && _that.pendingd.length > 0) {	
+			filter += '/(pendingd)/'+_that.pendingd.join('/');
+		}
+		
+		if (typeof _that.operatord == 'object' && _that.operatord.length > 0) {	
+			filter += '/(operatord)/'+_that.operatord.join('/');
+		}
+		
+		if (typeof _that.closedd == 'object' && _that.closedd.length > 0) {	
+			filter += '/(closedd)/'+_that.closedd.join('/');
+		}
+		
+		if (typeof _that.departmentd == 'object' && _that.departmentd.length > 0) {	
+			filter += '/(departmentd)/'+_that.departmentd.join('/');
+		}
+				
+		return filter;
+	}
+	
+	$scope.$watch('lhc.limita', function(newVal,oldVal) {       
+		if (newVal != oldVal) {							
+			_that.storeLocalSetting('limita',newVal);
+			$scope.loadChatList();
+		};
+	});
+	
+	this.setUpListNames = function(lists) {				
+		angular.forEach(lists, function(listId) {
+			_that[listId + 'Names'] = [];
+			angular.forEach(_that[listId], function(value) {
+				 _that[listId + 'Names'].push(_that.userDepartmentsNames[value]);
+			});
+		});		
+	};
+	
+	this.setDepartmentNames = function(listId) {
+		_that[listId + 'Names'] = [];			
+		angular.forEach(_that[listId], function(value) {
+			 _that[listId + 'Names'].push(_that.userDepartmentsNames[value]);
+		});	
+	};
+	
+	this.departmentChanged = function(listId) {		
+		if (_that[listId].length > 0){
+			var listValue = _that[listId].join("/");
+			if (listValue != ''){
+				_that.storeLocalSetting(listId,listValue);			
+				_that.setDepartmentNames(listId);	
+			}
+		} else {
+			if (localStorage) {
+	    		try {
+	    			localStorage.removeItem(listId);
+	    		} catch(err) {    			   		
+	    		};
+	    	}	
+		}
+		
+		$scope.loadChatList();
+	};
+		
+	$scope.$watch('lhc.limitu', function(newVal,oldVal) {       
+		if (newVal != oldVal) {	
+			_that.storeLocalSetting('limitu',newVal);
+			$scope.loadChatList();
+		};
+	});
+	
+	$scope.$watch('lhc.limitc', function(newVal,oldVal) {       
+		if (newVal != oldVal) {	
+			_that.storeLocalSetting('limitc',newVal);
+			$scope.loadChatList();
+		};
+	});
+	
+	$scope.$watch('lhc.unreadd', function(newVal,oldVal) {       
+		if (newVal != oldVal) {	
+			_that.storeLocalSetting('unreadd',newVal);
+			$scope.loadChatList();
+		};
+	});
+	
+	$scope.$watch('lhc.limitp', function(newVal,oldVal) {       
+		if (newVal != oldVal) {	
+			_that.storeLocalSetting('limitp',newVal);
+			$scope.loadChatList();
+		};
+	});
+	
+	$scope.$watch('lhc.limito', function(newVal,oldVal) {       
+		if (newVal != oldVal) {	
+			_that.storeLocalSetting('limito',newVal);
+			$scope.loadChatList();
+		};
+	});
+		
 	$scope.loadChatList = function() {
 		
 		if (localStorage) {
@@ -100,9 +264,9 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 				
 			};
 		}
-		
+				
 		clearTimeout($scope.timeoutControl);
-		LiveHelperChatFactory.loadChatList().then(function(data){	
+		LiveHelperChatFactory.loadChatList($scope.getSyncFilter()).then(function(data){	
 						
 				var hasPendingItems = false;
 				var lastNotifiedId = 0;

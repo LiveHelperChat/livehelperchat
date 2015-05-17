@@ -1039,11 +1039,31 @@ class erLhcoreClassChat {
 	   	
 	   	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.close',array('chat' => & $chat, 'user_data' => $operator));
 	   	
-	   	if ( ($dep = $chat->department) !== false && $dep->inform_close == 1) {
+	   	$dep = $chat->department;
+	   	
+	   	if ( $dep !== false) {
+	   	    self::updateDepartmentStats($dep);
+	   	}
+	   	
+	   	if ( $dep !== false && $dep->inform_close == 1) {
 	   		erLhcoreClassChatMail::informChatClosed($chat, $operator);
 	   	}
    }
 
+   /**
+    * Update department main statistic for frontend
+    * */
+   public static function updateDepartmentStats($dep) {
+       $db = ezcDbInstance::get();
+       $stmt = $db->prepare('UPDATE lh_departament SET active_chats_counter = :active_chats_counter, pending_chats_counter = :pending_chats_counter, closed_chats_counter = :closed_chats_counter WHERE id = :id');
+       $stmt->bindValue(':active_chats_counter',erLhcoreClassChat::getCount(array('filter' => array('dep_id' => $dep->id, 'status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT))),PDO::PARAM_INT);
+       $stmt->bindValue(':pending_chats_counter',erLhcoreClassChat::getCount(array('filter' => array('dep_id' => $dep->id, 'status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT))),PDO::PARAM_INT);
+       $stmt->bindValue(':closed_chats_counter',erLhcoreClassChat::getCount(array('filter' => array('dep_id' => $dep->id, 'status' => erLhcoreClassModelChat::STATUS_CLOSED_CHAT))),PDO::PARAM_INT);
+       $stmt->bindValue(':id',$dep->id,PDO::PARAM_INT);
+       $stmt->execute();
+       
+   }
+   
    public static function canReopen(erLhcoreClassModelChat $chat, $skipStatusCheck = false) {
    		if ( ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT || $skipStatusCheck == true)) {
 			if ($chat->last_user_msg_time > time()-600 || $chat->last_user_msg_time == 0){
@@ -1087,6 +1107,14 @@ class erLhcoreClassChat {
    			foreach ($attrRemove as $attr) {
    				$object->{$attr} = null;
    			};
+   			
+   			if (isset($params['remove_all']) && $params['remove_all'] == true) {
+   			    foreach ($object as $attr => $value) {
+   			        if (!in_array($attr, $attrs)) {
+   			            $object->$attr = null;
+   			        }
+   			    }
+   			}
    			
    			if (!isset($params['do_not_clean']))
    			$object = (object)array_filter((array)$object);

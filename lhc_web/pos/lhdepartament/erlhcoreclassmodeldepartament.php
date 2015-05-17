@@ -135,6 +135,21 @@ $def->properties['hidden']->columnName   = 'hidden';
 $def->properties['hidden']->propertyName = 'hidden';
 $def->properties['hidden']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['active_chats_counter'] = new ezcPersistentObjectProperty();
+$def->properties['active_chats_counter']->columnName   = 'active_chats_counter';
+$def->properties['active_chats_counter']->propertyName = 'active_chats_counter';
+$def->properties['active_chats_counter']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['pending_chats_counter'] = new ezcPersistentObjectProperty();
+$def->properties['pending_chats_counter']->columnName   = 'pending_chats_counter';
+$def->properties['pending_chats_counter']->propertyName = 'pending_chats_counter';
+$def->properties['pending_chats_counter']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['closed_chats_counter'] = new ezcPersistentObjectProperty();
+$def->properties['closed_chats_counter']->columnName   = 'closed_chats_counter';
+$def->properties['closed_chats_counter']->propertyName = 'closed_chats_counter';
+$def->properties['closed_chats_counter']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 /**
  * Reset new chat callback execution
  * */

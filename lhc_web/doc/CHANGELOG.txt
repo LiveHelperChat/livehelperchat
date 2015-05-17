@@ -1,3 +1,11 @@
+2.32v
+
+1. Brand new dashboard. Sponsored feature...
+2. Few optimizations in back office sync calls.
+3. Dashboard has new widget for department statistic.
+
+execute doc/update_db/update_109.sql for update
+
 2.31v
 
 1. Option to enable only one logged user under same account in settings/settings.ini.php

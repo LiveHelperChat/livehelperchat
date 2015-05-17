@@ -35,6 +35,10 @@ if ($chat->user_id == $currentUser->getUserID() || $currentUser->hasAccessTo('lh
 	    
 	    erLhcoreClassChat::updateActiveChats($chat->user_id);
 	    
+	    if ($chat->department !== false) {
+	        erLhcoreClassChat::updateDepartmentStats($chat->department);
+	    }
+	    
 	    // Execute callback for close chat
 	    erLhcoreClassChat::closeChatCallback($chat,$userData);
 	}

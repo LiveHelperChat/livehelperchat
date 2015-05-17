@@ -2700,6 +2700,30 @@
                 "key": "",
                 "default": 0,
                 "extra": ""
+            },
+            {
+                "field": "active_chats_counter",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": 0,
+                "extra": ""
+            },
+            {
+                "field": "pending_chats_counter",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": 0,
+                "extra": ""
+            },
+            {
+                "field": "closed_chats_counter",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": 0,
+                "extra": ""
             }
         ],
         "lh_faq": [
@@ -3474,6 +3498,14 @@
                 "extra": ""
             },
             {
+                "field": "departments_ids",
+                "type": "varchar(100)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "disabled",
                 "type": "tinyint(4)",
                 "null": "NO",
@@ -3508,6 +3540,30 @@
             {
                 "field": "invisible_mode",
                 "type": "tinyint(1)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "active_chats_counter",
+                "type": "int(10)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "closed_chats_counter",
+                "type": "int(10)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "pending_chats_counter",
+                "type": "int(10)",
                 "null": "NO",
                 "key": "",
                 "default": null,
@@ -3680,6 +3736,13 @@
             }
         ],
         "lh_chat_config": [
+            {
+                "identifier": "dashboard_order",
+                "value": "online_operators,active_chats|departments_stats,pending_chats,unread_chats|closed_chats",
+                "type": "0",
+                "explain": "Home page dashboard widgets order",
+                "hidden": "0"
+            },
             {
                 "identifier": "accept_chat_link_timeout",
                 "value": "300",

@@ -49,6 +49,11 @@ body {
 	border-bottom-left-radius:3px;
 }
 
+.m10{
+	margin:10px;
+}
+
+
 #myModal,
 .modal-open{
 	padding-right:0px !important;
@@ -795,3 +800,67 @@ input[type="file"]{
 .f-dropdown-lang:before {left:auto;right:10px;}
 .f-dropdown-lang:after {left:auto;right:9px;}
 
+.borderless tbody tr td, .borderless tbody tr th, .borderless thead tr th {
+    border: none;
+}
+
+.pr10{
+	padding-right:10px;
+}
+
+.panel-list{
+	max-height:310px;
+	overflow-y:auto;
+}
+
+.abbr-list{
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow:hidden; 
+	table-layout:fixed;
+}
+
+.table-fixed {
+	table-layout:fixed;
+}
+
+.table-small{
+	font-size:12px;
+}
+
+.popover{
+	font-size:12px;
+}
+
+.popover .popover-title{
+	font-size:12px;
+	font-weight:bold;
+}
+
+.dropdown-menu>li>label>input{
+	margin:0;
+	vertical-align:middle;
+}
+
+.dropdown-menu>li>label:hover{
+	background-color:#F0F0F0;
+}
+
+.dropdown-menu>li>label{
+	padding:5px;
+	margin:0;
+	font-weight:normal;
+	display:block;
+	cursor:pointer;
+	font-size:12px;
+}
+
+.btn-block-department,
+.btn-block-department .dropdown-toggle{
+	width:100%;
+	text-align:left;
+	text-overflow: ellipsis;	
+}
+.btn-block-department .dropdown-toggle{
+	overflow:hidden;
+}

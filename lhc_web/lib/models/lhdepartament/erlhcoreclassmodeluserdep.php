@@ -29,6 +29,16 @@ class erLhcoreClassModelUserDep {
 					$this->user = erLhcoreClassModelUser::fetch($this->user_id);
 					return $this->user;
 				break;
+				
+			case 'lastactivity_ago':
+					$this->lastactivity_ago = $this->user->lastactivity_ago;
+					return $this->lastactivity_ago;
+				break;
+				
+			case 'name_support':
+					$this->name_support = $this->user->name_support;
+					return $this->name_support;
+				break;
 
 			default:
 				break;
@@ -107,14 +117,13 @@ class erLhcoreClassModelUserDep {
 	   	return $objects;
    }
 
-   public static function getOnlineOperators($currentUser, $canListOnlineUsersAll = false) {
+   public static function getOnlineOperators($currentUser, $canListOnlineUsersAll = false, $params = array(), $limit = 10) {
 
 	   	$LimitationDepartament = '';
 	   	$userData = $currentUser->getUserData(true);
 	   	$filter = array();
-
 	   	
-	   	if ( $userData->all_departments == 0 && $canListOnlineUsersAll == false)
+	   	if ($userData->all_departments == 0 && $canListOnlineUsersAll == false)
 	   	{
 	   		$userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID());
 
@@ -127,14 +136,14 @@ class erLhcoreClassModelUserDep {
 	   		
 	   		$filter['customfilter'][] = '(dep_id IN ('.implode(',',$userDepartaments). ') OR user_id = ' . $currentUser->getUserID() . ')';
 	   	};
-
 	   	
 	   	$filter['filtergt']['last_activity'] = time()-120;
-	   	$filter['limit'] = 10;
-	   	$filter['sort'] = 'last_activity DESC';
+	   	$filter['limit'] = $limit;
+	   	$filter['sort'] = 'active_chats DESC';
 	   	$filter['groupby'] = 'user_id';
 
-	   	
+	   	$filter = array_merge_recursive($filter,$params);
+	   	   	
 	   	return self::getList($filter);
 
    }

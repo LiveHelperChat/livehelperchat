@@ -62,7 +62,12 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
 	    
 	    if ($operatorAccepted == true) {	 	    	
 	    	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.accept',array('chat' => & $chat,'user' => $currentUser));	    	
-	    	erLhcoreClassChat::updateActiveChats($chat->user_id);	    	
+	    	erLhcoreClassChat::updateActiveChats($chat->user_id);	
+
+	    	if ($chat->department !== false) {
+	    	    erLhcoreClassChat::updateDepartmentStats($chat->department);
+	    	}
+	    	
 	    	erLhcoreClassChatWorkflow::presendCannedMsg($chat);
 	    	$options = $chat->department->inform_options_array;
 	    	erLhcoreClassChatWorkflow::chatAcceptedWorkflow(array('department' => $chat->department,'options' => $options),$chat);
