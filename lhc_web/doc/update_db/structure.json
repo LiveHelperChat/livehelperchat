@@ -3547,7 +3547,7 @@
             },
             {
                 "field": "active_chats_counter",
-                "type": "int(10)",
+                "type": "int(11)",
                 "null": "NO",
                 "key": "",
                 "default": null,
@@ -3555,7 +3555,7 @@
             },
             {
                 "field": "closed_chats_counter",
-                "type": "int(10)",
+                "type": "int(11)",
                 "null": "NO",
                 "key": "",
                 "default": null,
@@ -3563,7 +3563,7 @@
             },
             {
                 "field": "pending_chats_counter",
-                "type": "int(10)",
+                "type": "int(11)",
                 "null": "NO",
                 "key": "",
                 "default": null,
