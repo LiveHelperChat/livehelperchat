@@ -1126,7 +1126,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 $UserData->surname = $form->AdminSurname;
                 $UserData->username = $form->AdminUsername;
                 $UserData->all_departments = 1;
-
+                $UserData->departments_ids = 0;
+                
                 erLhcoreClassUser::getSession()->save($UserData);
 
                 // User departaments

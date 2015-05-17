@@ -39,7 +39,30 @@ class erLhcoreClassModelUserDep {
 					$this->name_support = $this->user->name_support;
 					return $this->name_support;
 				break;
-
+							
+			case 'departments_names':
+			         $this->departments_names = array();
+			         $ids = $this->user->departments_ids;			         
+			         if (!empty($ids)){
+    			         $parts = explode(',', $ids);
+    			         sort($parts);
+    			         		         
+    			         foreach ($parts as $depId) {
+    			             if ($depId == 0) {
+    			                 $this->departments_names[] = '∞';
+    			             } else {
+    			                 try {
+    			                     $dep = erLhcoreClassModelDepartament::fetch($depId,true);
+    			                     $this->departments_names[] = $dep->name;
+    			                 } catch (Exception $e) {
+    			                     
+    			                 }
+    			             }
+    			         }
+			         }			         
+			         return $this->departments_names;
+			    break;
+			    
 			default:
 				break;
 		}

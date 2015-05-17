@@ -190,7 +190,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 			 _that[listId + 'Names'].push(_that.userDepartmentsNames[value]);
 		});	
 	};
-	
+			
 	this.departmentChanged = function(listId) {		
 		if (_that[listId].length > 0){
 			var listValue = _that[listId].join("/");

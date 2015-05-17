@@ -176,7 +176,7 @@ if (isset($_POST['Update_account']))
     	$UserData->all_departments = 1;
     	$globalDepartament[] = 0;
     } else {
-    	$UserData->all_departments = 0;
+    	$UserData->all_departments = 0;    	
     }
     
     // Allow extension to do extra validation
@@ -200,7 +200,11 @@ if (isset($_POST['Update_account']))
         {
            erLhcoreClassUserDep::addUserDepartaments($globalDepartament,$UserData->id,$UserData);
         }
-
+        
+        $UserData->departments_ids = implode(',', $globalDepartament);
+        erLhcoreClassUser::getSession()->update($UserData);
+        
+        
         erLhcoreClassModelGroupUser::removeUserFromGroups($UserData->id);
 
         foreach ($UserData->user_groups_id as $group_id) {
