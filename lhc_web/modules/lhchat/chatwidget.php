@@ -321,7 +321,9 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
 	       if ( function_exists('fastcgi_finish_request') ) {
 	           fastcgi_finish_request();
 	       };
-	       	       
+
+	       erLhcoreClassChat::updateDepartmentStats($chat->department);
+	       
 	       erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started',array('chat' => & $chat));	       
 	       exit;
    	   }
