@@ -91,29 +91,29 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	};
 			
 	// Active chat limit
-	this.limita = this.restoreLocalSetting('limita',10,false); // Number of elements for active chats list
-	this.limitu = this.restoreLocalSetting('limitu',10,false); // Number of elements for active chats list
-	this.limitp = this.restoreLocalSetting('limitp',10,false); // Number of elements for active chats list
-	this.limito = this.restoreLocalSetting('limito',10,false); // Number of elements for active chats list
-	this.limitc = this.restoreLocalSetting('limitc',10,false); // Number of elements for active chats list
-	this.limitd = this.restoreLocalSetting('limitd',10,false); // Number of elements for active chats list
+	this.limita = this.restoreLocalSetting('limita',10,false);
+	this.limitu = this.restoreLocalSetting('limitu',10,false);
+	this.limitp = this.restoreLocalSetting('limitp',10,false);
+	this.limito = this.restoreLocalSetting('limito',10,false);
+	this.limitc = this.restoreLocalSetting('limitc',10,false);
+	this.limitd = this.restoreLocalSetting('limitd',10,false);
 	
-	this.actived = this.restoreLocalSetting('actived',[],true); // All departments
+	this.actived = this.restoreLocalSetting('actived',[],true);
 	this.activedNames = [];	
 	
-	this.departmentd = this.restoreLocalSetting('departmentd',[],true); // All departments
+	this.departmentd = this.restoreLocalSetting('departmentd',[],true);
 	this.departmentdNames = [];	
 		
-	this.unreadd = this.restoreLocalSetting('unreadd',[],true); // All departments
+	this.unreadd = this.restoreLocalSetting('unreadd',[],true);
 	this.unreaddNames = [];
 	
-	this.pendingd = this.restoreLocalSetting('pendingd',[],true); // All departments
+	this.pendingd = this.restoreLocalSetting('pendingd',[],true);
 	this.pendingdNames = [];
 	
-	this.operatord = this.restoreLocalSetting('operatord',[],true); // All departments
+	this.operatord = this.restoreLocalSetting('operatord',[],true);
 	this.operatordNames = [];
 	
-	this.closedd = this.restoreLocalSetting('closedd',[],true); // All departments
+	this.closedd = this.restoreLocalSetting('closedd',[],true);
 	this.closeddNames = [];
 	
 	this.storeLocalSetting = function(variable, value) {
@@ -223,14 +223,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 			$scope.loadChatList();
 		};
 	});
-	
-	$scope.$watch('lhc.unreadd', function(newVal,oldVal) {       
-		if (newVal != oldVal) {	
-			_that.storeLocalSetting('unreadd',newVal);
-			$scope.loadChatList();
-		};
-	});
-	
+			
 	$scope.$watch('lhc.limitp', function(newVal,oldVal) {       
 		if (newVal != oldVal) {	
 			_that.storeLocalSetting('limitp',newVal);
