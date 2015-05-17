@@ -14,4 +14,4 @@ ADD `pending_chats_counter` int(11) NOT NULL AFTER `active_chats_counter`,
 ADD `closed_chats_counter` int(11) NOT NULL AFTER `pending_chats_counter`,
 COMMENT='';
 
-INSERT INTO `lh_chat_config` (`identifier`, `value`, `type`, `explain`, `hidden`) VALUES ('dashboard_order', 'online_operators,active_chats|departments_stats,pending_chats,unread_chats|closed_chats', '0', 'Home page dashboard widgets order', '0');
+INSERT INTO `lh_chat_config` (`identifier`, `value`, `type`, `explain`, `hidden`) VALUES ('dashboard_order', 'online_operators,departments_stats|pending_chats,unread_chats|active_chats,closed_chats', '0', 'Home page dashboard widgets order', '0');
