@@ -40,6 +40,10 @@ if ($pages->items_total > 0) {
 
 $filterParams['input_form']->form_action = erLhcoreClassDesign::baseurl('chat/operatorschats');
 $tpl->set('input',$filterParams['input_form']);
+$tpl->set('can_delete_global',$currentUser->hasAccessTo('lhchat','deleteglobalchat'));
+$tpl->set('can_delete_general',$currentUser->hasAccessTo('lhchat','deletechat'));
+$tpl->set('current_user_id',$currentUser->getUserID());
+
 
 $Result['content'] = $tpl->fetch();
 
