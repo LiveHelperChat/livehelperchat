@@ -14,9 +14,10 @@ if (($user = $visitor->operator_user) !== false) : ?>
 <form action="" id="ReadOperatorMessage" method="post" onsubmit="return lhinst.addCaptcha('<?php echo time()?>',$(this))">
 
 <?php if (isset($errors)) : ?>
+<div class="pt10">
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
+</div>
 <?php endif; ?>
-
 
 <?php 
 $hasExtraField = false;
