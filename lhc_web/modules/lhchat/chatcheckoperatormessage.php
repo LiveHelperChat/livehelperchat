@@ -28,7 +28,7 @@ if ( $ignorable_ip == '' || !erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDet
 	
 	$proactiveInviteActive = erLhcoreClassModelChatConfig::fetch('pro_active_invite')->current_value;
 	
-	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chatcheckoperatormessage', array('proactive_active' => $proactiveInviteActive));
+	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chatcheckoperatormessage', array('proactive_active' => & $proactiveInviteActive));
 
 	$userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('tz' => $Params['user_parameters_unordered']['tz'], 'message_seen_timeout' => erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value, 'department' => $department, 'identifier' => (string)$Params['user_parameters_unordered']['identifier'], 'pages_count' => ((int)$Params['user_parameters_unordered']['count_page'] == 1 ? true : false), 'vid' => (string)$Params['user_parameters_unordered']['vid'], 'check_message_operator' => true, 'pro_active_limitation' =>  erLhcoreClassModelChatConfig::fetch('pro_active_limitation')->current_value, 'pro_active_invite' => $proactiveInviteActive));
 	
