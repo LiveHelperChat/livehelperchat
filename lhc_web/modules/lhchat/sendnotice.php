@@ -44,7 +44,9 @@ if ( isset($_POST['SendMessage']) ) {
     } else {
     	$visitor->requires_phone = 0;
     }
-    
+   
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.sendnotice', array('errors' => & $Errors));
+            
     if (count($Errors) == 0) { 
                
         $currentUser = erLhcoreClassUser::instance();   
