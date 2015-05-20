@@ -23,6 +23,7 @@ $checkStatus = 'f';
 $breakSync = false;
 $saveChat = false;
 $operation = '';
+$operatorId = 0;
 
 if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 {
@@ -79,8 +80,18 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 				        	}
 				        }
 		
-				        $LastMessageIDs = array_pop($Messages);
+				        // Get first message opertor id
+				        reset($Messages);
+				        $firstNewMessage = current($Messages);
+				        $operatorId = $firstNewMessage['user_id'];
+				        
+				        // Get Last message ID
+				        end($Messages);
+				        $LastMessageIDs = current($Messages);
 				        $LastMessageID = $LastMessageIDs['id'];
+				        
+				        
+				        
 				        $breakSync = true;
 				    }
 				}
@@ -149,7 +160,7 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
     $blocked = 'true';
 }
 
-echo json_encode(array('error' => 'false','op' => $operation, 'uw' => $userOwner, 'cs'=> $checkStatus, 'ott' => $ott, 'message_id' => $LastMessageID, 'result' => trim($content) == '' ? 'false' : trim($content), 'status' => $status, 'blocked' => $blocked ));
+echo json_encode(array('error' => 'false','op' => $operation, 'uw' => $userOwner, 'msop' => $operatorId, 'cs'=> $checkStatus, 'ott' => $ott, 'message_id' => $LastMessageID, 'result' => trim($content) == '' ? 'false' : trim($content), 'status' => $status, 'blocked' => $blocked ));
 exit;
 
 ?>

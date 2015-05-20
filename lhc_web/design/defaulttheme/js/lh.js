@@ -475,6 +475,12 @@ function lh(){
                 			     inst.playNewMessageSound();
                 			};
                 			
+                			if (inst.last_message_id > 0) {
+                				if ($('#msg-'+inst.last_message_id).attr('data-op-id') != data.msop) {
+                					$('#msg-'+inst.last_message_id).next().addClass('operator-changes');
+                				}
+                			}
+                			
                 			// Set last message ID                			
                 			inst.last_message_id = data.message_id;
                 			
@@ -1121,6 +1127,8 @@ function lh(){
 	        	        {
 	        	            if (data.result != 'false')
 	        	            {
+	        	            	
+	        	            	
 	        	                $.each(data.result,function(i,item) {
 	                                  $('#messagesBlock-'+item.chat_id).append(item.content);
 	        		                  $('#messagesBlock-'+item.chat_id).animate({ scrollTop: $("#messagesBlock-"+item.chat_id).prop("scrollHeight") }, 1000);
@@ -1140,10 +1148,17 @@ function lh(){
 	        		                  
 	        		                  if ( confLH.new_message_browser_notification == 1 && data.uw == 'false') {	        		                	 
 	        		                	  lhinst.showNewMessageNotification(item.chat_id,item.msg,item.nck);
-	  	                			  };
-	  	                			
+	  	                			  }; 
+	  	                			  
+	  	                			  if (item.msfrom > 0) {	  	                				
+	  	                				if ($('#msg-'+item.msfrom).attr('data-op-id') != item.msop) {
+	  	                					$('#msg-'+item.msfrom).next().addClass('operator-changes');
+	  	                				}
+	  	                			  }	  	                			
 	                            });
 	
+	        	               
+	        	                
 	                            if ( confLH.new_message_sound_admin_enabled == 1  && data.uw == 'false') {
 	                            	lhinst.playNewMessageSound();
 	                            };

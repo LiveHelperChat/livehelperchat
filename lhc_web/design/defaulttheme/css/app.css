@@ -333,9 +333,9 @@ div.system-response {
 	display:inline-block;
 	margin-top:-1px;
 	font-size:11px;
--webkit-box-shadow: inset 10px 10px 7px -9px rgba(0,0,0,0.34);
--moz-box-shadow: inset 10px 10px 7px -9px rgba(0,0,0,0.34);
-box-shadow: inset 10px 10px 7px -9px rgba(0,0,0,0.34);
+	-webkit-box-shadow: inset 10px 10px 7px -9px rgba(0,0,0,0.34);
+	-moz-box-shadow: inset 10px 10px 7px -9px rgba(0,0,0,0.34);
+	box-shadow: inset 10px 10px 7px -9px rgba(0,0,0,0.34);
 }
 
 .op-tit{
@@ -360,6 +360,7 @@ div.system-response + div.message-row.response
 	border-top:1px dashed #E4E4E4;
 }
 
+div.message-row.operator-changes,
 div.system-response + div.message-admin,
 div.message-row.response+div.message-admin{
 	margin-top:5px;
@@ -388,6 +389,16 @@ div.message-row.response+div.message-row.response .usr-tit{
 	display:inline-block;
 	white-space:no-wrap;
 	margin:0;
+}
+
+div.message-row.operator-changes .usr-tit{
+	width:auto!important;
+	visibility:visible!important;
+	overflow:inherit!important;
+	height:auto!important;
+	margin-right:5px!important;
+	padding:2px 5px!important;
+	margin-top:-1px!important;
 }
 
 div.message-row-in {

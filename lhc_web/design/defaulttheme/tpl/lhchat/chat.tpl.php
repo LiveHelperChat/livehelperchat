@@ -29,9 +29,22 @@
     <div id="messages" >
         <div class="msgBlock" <?php if (erLhcoreClassModelChatConfig::fetch('mheight')->current_value > 0) : ?>style="height:<?php echo (int)erLhcoreClassModelChatConfig::fetch('mheight')->current_value?>px"<?php endif?> id="messagesBlock"><?php
         $lastMessageID = 0;
-        foreach (erLhcoreClassChat::getChatMessages($chat_id) as $msg) : ?>        		
-        	<?php include(erLhcoreClassDesign::designtpl('lhchat/lists/user_msg_row.tpl.php'));?>	        	
-         <?php $lastMessageID = $msg['id']; endforeach; ?>
+        $lastOperatorChanged = false;
+        $lastOperatorId = 0;
+        
+        foreach (erLhcoreClassChat::getChatMessages($chat_id) as $msg) : 
+        
+        if ($msg['user_id'] > 0 && $lastOperatorId > 0 && $lastOperatorId != $msg['user_id']) {
+            $lastOperatorChanged = true;
+        } else {
+            $lastOperatorChanged = false;
+        }
+        
+        $lastOperatorId = $msg['user_id'];        
+        ?>        		
+        <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/user_msg_row.tpl.php'));?>	        	
+        <?php $lastMessageID = $msg['id']; 
+         endforeach; ?>
        </div>
     </div>
     <div id="id-operator-typing"></div>
