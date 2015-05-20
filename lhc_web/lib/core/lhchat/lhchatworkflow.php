@@ -11,7 +11,7 @@ class erLhcoreClassChatWorkflow {
     	$msg->msg = trim($chat->timeout_message);
     	$msg->chat_id = $chat->id;
     	$msg->name_support = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
-    	$msg->user_id = 1;
+    	$msg->user_id = 999999999;
     	$msg->time = time();
     	erLhcoreClassChat::getSession()->save($msg);
 
