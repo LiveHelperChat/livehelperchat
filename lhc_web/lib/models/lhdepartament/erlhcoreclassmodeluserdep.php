@@ -140,7 +140,7 @@ class erLhcoreClassModelUserDep {
 	   	return $objects;
    }
 
-   public static function getOnlineOperators($currentUser, $canListOnlineUsersAll = false, $params = array(), $limit = 10) {
+   public static function getOnlineOperators($currentUser, $canListOnlineUsersAll = false, $params = array(), $limit = 10, $onlineTimeout = 120) {
 
 	   	$LimitationDepartament = '';
 	   	$userData = $currentUser->getUserData(true);
@@ -160,7 +160,7 @@ class erLhcoreClassModelUserDep {
 	   		$filter['customfilter'][] = '(dep_id IN ('.implode(',',$userDepartaments). ') OR user_id = ' . $currentUser->getUserID() . ')';
 	   	};
 	   	
-	   	$filter['filtergt']['last_activity'] = time()-120;
+	   	$filter['filtergt']['last_activity'] = time()-$onlineTimeout;
 	   	$filter['limit'] = $limit;
 	   	$filter['sort'] = 'active_chats DESC';
 	   	$filter['groupby'] = 'user_id';
