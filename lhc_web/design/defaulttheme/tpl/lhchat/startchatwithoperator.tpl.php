@@ -1,6 +1,4 @@
-<div class="p10 wb border-grey">
-
-<h2><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Start chat with operator');?> - <?php echo htmlspecialchars($user->name.' '.$user->surname)?></h2>
+<h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Start chat with operator');?> - <?php echo htmlspecialchars($user->name.' '.$user->surname)?></h3>
 
 <?php if (isset($errors)) : ?>
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
@@ -8,9 +6,11 @@
 
 <form action="" method="post">
 
-<textarea name="Message" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Type your message to the operator');?>"><?php echo htmlspecialchars($msg->msg) ?></textarea>
-<input type="submit" class="button small mb0 radius" name="SendMessage" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Start chat with operator');?>" />
+<div class="form-group">
+<textarea class="form-control" name="Message" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Type your message to the operator');?>"><?php echo htmlspecialchars($msg->msg) ?></textarea>
+</div>
+
+<input type="submit" class="btn btn-default" name="SendMessage" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Start chat with operator');?>" />
 
 </form>
 
-</div>
