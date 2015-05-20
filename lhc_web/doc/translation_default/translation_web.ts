@@ -2291,6 +2291,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Live Support</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>There are no online operators at the moment, please leave a message</source>
       <translation type="unfinished"/>
     </message>
@@ -2428,10 +2432,6 @@
     </message>
     <message>
       <source>Your request was not processed as expected - but don't worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Live Support</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6800,6 +6800,10 @@
   <context>
     <name>chat/syncuser</name>
     <message>
+      <source>You do not have permission to view this chat, or chat was deleted</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat was automatically transferred to</source>
       <translation type="unfinished"/>
     </message>
@@ -6816,7 +6820,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>You do not have permission to view this chat, or chat was deleted</source>
+      <source>The operator has closed this chat session</source>
       <translation type="unfinished"/>
     </message>
     <message>
