@@ -156,7 +156,7 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 
 } else {
     $content = 'false';
-    $status = '<h4>'.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','You do not have permission to view this chat, or chat was deleted').'</h4>';
+    $status = '<h4>'.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','The operator has closed this chat session').'</h4>';
     $blocked = 'true';
 }
 
