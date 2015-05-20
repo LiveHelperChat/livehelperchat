@@ -69,6 +69,7 @@
 		  	    	    	
 	    </div>
        
+        <?php if ($chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?>
         <textarea class="form-control" rows="4" name="ChatMessage" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Enter your message')?>" id="CSChatMessage" class="live-chat-message"></textarea>
 	    
         <script type="text/javascript">        
@@ -81,6 +82,8 @@
 		});		
         lhinst.initTypingMonitoringUser('<?php echo $chat_id?>');
         </script>
+        <?php endif;?>
+        
     </div>
     
 <script type="text/javascript">
