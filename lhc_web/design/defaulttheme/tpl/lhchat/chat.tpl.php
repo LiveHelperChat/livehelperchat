@@ -49,6 +49,7 @@
     </div>
     <div id="id-operator-typing"></div>
  
+    <?php if ($chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?>
     <div id="ChatMessageContainer">    
 		<div class="user-chatwidget-buttons" id="ChatSendButtonContainer">     
 		
@@ -69,7 +70,6 @@
 		  	    	    	
 	    </div>
        
-        <?php if ($chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?>
         <textarea class="form-control" rows="4" name="ChatMessage" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Enter your message')?>" id="CSChatMessage" class="live-chat-message"></textarea>
 	    
         <script type="text/javascript">        
@@ -82,10 +82,10 @@
 		});		
         lhinst.initTypingMonitoringUser('<?php echo $chat_id?>');
         </script>
-        <?php endif;?>
+       
         
     </div>
-    
+     <?php endif;?>
 <script type="text/javascript">
     lhinst.setChatID('<?php echo $chat_id?>');
     lhinst.setChatHash('<?php echo $hash?>');
