@@ -876,7 +876,7 @@ var lh_inst  = {
     	} else if (action == 'lhc_close') {
     		lh_inst.hide();
                 lh_inst.chatClosedCallback('message')
-    	}
+    	} <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/handlemessage_multiinclude.tpl.php')); ?>
     }
 };
 

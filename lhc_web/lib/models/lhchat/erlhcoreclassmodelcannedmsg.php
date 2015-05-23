@@ -108,7 +108,7 @@ class erLhcoreClassModelCannedMsg
     public static function getList($paramsSearch = array())
     {
         $paramsDefault = array(
-            'limit' => 32,
+            'limit' => 5000,
             'offset' => 0
         );
         
@@ -168,7 +168,7 @@ class erLhcoreClassModelCannedMsg
         $q = $session->createFindQuery('erLhcoreClassModelCannedMsg');
         $q->where($q->expr->lOr($q->expr->eq('department_id', $q->bindValue($department_id)), $q->expr->lAnd($q->expr->eq('department_id', $q->bindValue(0)), $q->expr->eq('user_id', $q->bindValue(0))), $q->expr->eq('user_id', $q->bindValue($user_id))));
         
-        $q->limit(50, 0);
+        $q->limit(5000, 0);
         $q->orderBy('position ASC, id ASC'); // Questions with matched URL has higher priority
         $items = $session->find($q);
         return $items;
