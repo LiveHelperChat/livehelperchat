@@ -53,8 +53,6 @@ class erLhcoreClassChatExport {
 	    $objWriter->save('php://output');
 	}
 	
-	
-	
 	public static function chatListExportXLS($chats, $params = array()) {
 		include 'lib/core/lhform/PHPExcel.php';		
 		$objPHPExcel = new PHPExcel();		

@@ -30,11 +30,11 @@
         <div class="msgBlock" <?php if (erLhcoreClassModelChatConfig::fetch('mheight')->current_value > 0) : ?>style="height:<?php echo (int)erLhcoreClassModelChatConfig::fetch('mheight')->current_value?>px"<?php endif?> id="messagesBlock"><?php
         $lastMessageID = 0;
         $lastOperatorChanged = false;
-        $lastOperatorId = 0;
+        $lastOperatorId = false;
         
         foreach (erLhcoreClassChat::getChatMessages($chat_id) as $msg) : 
         
-        if ($msg['user_id'] > 0 && $lastOperatorId > 0 && $lastOperatorId != $msg['user_id']) {
+        if ($lastOperatorId !== false && $lastOperatorId != $msg['user_id']) {
             $lastOperatorChanged = true;
         } else {
             $lastOperatorChanged = false;

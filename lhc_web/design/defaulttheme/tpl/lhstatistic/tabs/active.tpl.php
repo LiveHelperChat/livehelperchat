@@ -13,6 +13,7 @@
 			drawChartWorkload();
 			drawChartUserMessages();
 			drawChartUserAVGWaitTime();
+			drawChartUserAverage();
 		},ts);
 	};
 	
@@ -85,13 +86,32 @@
 		    	<?php $obUser = erLhcoreClassModelUser::fetch($data['user_id'],true); echo ',[\''.htmlspecialchars((is_object($obUser) ? $obUser->username : $data['user_id']),ENT_QUOTES).'\','.$data['number_of_chats'].']'?>
 		    <?php endforeach;?>
 		  ]);   
-		  var options = {
-		    title: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of chats by user')?>',
+		  var options = {		    
 		    hAxis: {titleTextStyle: {color: 'red'}},
+		    chartArea:{top:20},
 	        width: '100%',
 	        height: '100%'
 		  };
 		  var chartUp = new google.visualization.ColumnChart(document.getElementById('chart_div_user'));
+		  chartUp.draw(data, options);	
+		  <?php endif;?>						  
+	};
+	
+	function drawChartUserAverage() {	
+		<?php if (!empty($userChatsAverageStats)) : ?>			
+		  var data = google.visualization.arrayToDataTable([
+		    ['<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','User');?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Average in seconds');?>']
+		    <?php foreach ($userChatsAverageStats as $data) : ?>
+		    	<?php $obUser = erLhcoreClassModelUser::fetch($data['user_id'],true); echo ',[\''.htmlspecialchars((is_object($obUser) ? $obUser->username : $data['user_id']),ENT_QUOTES).'\','.$data['avg_chat_duration'].']'?>
+		    <?php endforeach;?>
+		  ]);   
+		  var options = {		    
+		    hAxis: {titleTextStyle: {color: 'red'}},		   
+		    chartArea:{top:20},
+	        width: '100%',
+	        height: '100%'
+		  };
+		  var chartUp = new google.visualization.ColumnChart(document.getElementById('chart_div_avg_user'));
 		  chartUp.draw(data, options);	
 		  <?php endif;?>						  
 	};
@@ -105,9 +125,9 @@
 		    <?php endforeach;?>
 		  ]);   
 		  var options = {
-		    title: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','AVG visitor wait time by operator')?>',
 		    hAxis: {titleTextStyle: {color: 'red'}},
 	        width: '100%',
+	        chartArea:{top:20},
 	        height: '100%'
 		  };
 		  var chartUp = new google.visualization.ColumnChart(document.getElementById('chart_div_user_wait_time'));
@@ -125,8 +145,8 @@
 		    	$operator = 'Visitor';
 		    } elseif ($data['user_id'] == -1) {
 		    	$operator = 'System assistant';
-		    } elseif ($data['user_id'] == '999999999') {
-		    	$operator = 'Invitation service';
+		    } elseif ($data['user_id'] == -2) {
+		    	$operator = 'Virtual assistant';
 		    } else {				        				    
 		        $operatorObj = erLhcoreClassModelUser::fetch($data['user_id'],true);				        
 		        if (is_object($operatorObj) ) {
@@ -136,13 +156,13 @@
 		        }
 		    }				    
 		    ?>
-		    	<?php echo ',[\''.htmlspecialchars($operator,ENT_QUOTES).'\','.$data['number_of_chats'].']'?>
+		    <?php echo ',[\''.htmlspecialchars($operator,ENT_QUOTES).'\','.$data['number_of_chats'].']'?>
 		    <?php endforeach;?>
 		  ]);	   
 		  var options = {
-		    title: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of messages by user');?>',
 		    hAxis: {titleTextStyle: {color: 'red'}},
 	        width: '100%',
+	        chartArea:{top:20},
 	        height: '100%'
 		  };
 		  var chartUp = new google.visualization.ColumnChart(document.getElementById('chart_div_user_msg'));
@@ -309,10 +329,30 @@
  
 <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Users statisic');?></h5>
 <hr>
+
+<?php if (!empty($userChatsStats)) : ?>	
+<div class="pl20"><strong><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of chats by user')?></strong></div>
 <div id="chart_div_user" style="width: 100%; height: 300px;"></div>
+<?php endif;?>
+
+<?php if (!empty($numberOfMsgByUser)) : ?>	
+<div class="pl20"><strong><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of messages by user');?></strong></div>
 <div id="chart_div_user_msg" style="width: 100%; height: 300px;"></div> 		
-<div id="chart_div_user_wait_time" style="width: 100%; height: 300px;"></div> 		
+<?php endif;?>
+
+<?php if (!empty($userChatsAverageStats)) : ?>
+<div class="pl20"><strong><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Average chat duration by user')?></strong>
+    <a href="<?php echo erLhcoreClassDesign::baseurl('statistic/statistic')?><?php echo $urlappend?>?xmlavguser=1" target="_blank" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','All operators statistic will be downloaded')?>"><span class="icon-download"></span></a>
+</div>
+<div id="chart_div_avg_user" style="width: 100%; height: 300px;"></div> 
+<?php endif;?>
+
+<?php if (!empty($userWaitTimeByOperator)) : ?>	
+<div class="pl20"><strong><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','AVG visitor wait time by operator')?></strong></div>
+<div id="chart_div_user_wait_time" style="width: 100%; height: 300px;"></div> 	
+<?php endif;?>
+
 <div class="row">
-	<div class="columns small-6"><div id="chart_div_upvotes" style="width: 100%; height: 300px;"></div></div>
-	<div class="columns small-6"><div id="chart_div_downvotes" style="width: 100%; height: 300px;"></div></div>
+	<div class="col-xs-6"><div id="chart_div_upvotes" style="width: 100%; height: 300px;"></div></div>
+	<div class="col-xs-6"><div id="chart_div_downvotes" style="width: 100%; height: 300px;"></div></div>
 </div>

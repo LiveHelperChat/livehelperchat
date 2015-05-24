@@ -1,11 +1,11 @@
 <?php 
 
 $lastOperatorChanged = false;
-$lastOperatorId = 0;
+$lastOperatorId = false;
 
-foreach ($messages as $msg ) : if ($msg->user_id > -1) : 
+foreach ($messages as $msg ) : if ($msg->user_id > -1 || $msg->user_id == -2) : 
 
-if ($msg->user_id > 0 && $lastOperatorId > 0 && $lastOperatorId != $msg->user_id) {
+if ($lastOperatorId !== false && $lastOperatorId != $msg->user_id) {
     $lastOperatorChanged = true;
 } else {
     $lastOperatorChanged = false;

@@ -74,7 +74,7 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 				        $content = $tpl->fetch();
 		
 				        foreach ($Messages as $msg) {
-				        	if ($msg['user_id'] > 0) {
+				        	if ($msg['user_id'] > 0 || $msg['user_id'] == -2) {
 				        		$userOwner = 'false';
 				        		break;
 				        	}

@@ -151,6 +151,8 @@ class erLhcoreClassChatStatistic {
             $filter['filtergt']['time'] = $dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
         }
         
+        $filter['filtergt']['user_id'] = 0;
+        
     	return erLhcoreClassChat::getCount(array_merge_recursive($filter,array('filtergt' => array('chat_duration' => 0),'filter' =>  array('status' => erLhcoreClassModelChat::STATUS_CLOSED_CHAT))),'lh_chat','AVG(chat_duration)');
     }
     
@@ -183,7 +185,85 @@ class erLhcoreClassChatStatistic {
     	$stmt->execute();
     	return $stmt->fetchAll();
     }
+
+    public static function exportAverageOfChatsDialogsByUser($days = 30, $filter = array()) {
+        
+        $data = self::averageOfChatsDialogsByUser($days,$filter,5000);   
+        
+        include 'lib/core/lhform/PHPExcel.php';
+        $objPHPExcel = new PHPExcel();
+        $objPHPExcel->setActiveSheetIndex(0);
+        $objPHPExcel->getActiveSheet()->getStyle('A1:AW1')->getFont()->setBold(true);
+        $objPHPExcel->getActiveSheet()->setTitle('Report');
+         
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(0, 1, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','User ID'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, 1, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Operator'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(2, 1, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Chat average in seconds'));
+         
+        $i = 2;
+        foreach ($data as $item) {
+            
+            $key = 0;      
+            $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($key, $i, (string)$item['user_id']);
+
+            $key++; 
+            $obUser = erLhcoreClassModelUser::fetch($item['user_id'],true);
+            $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($key, $i, (is_object($obUser) ? $obUser->username : $item['user_id']));
+         
+            
+            $key++;      
+            $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($key, $i, (string)$item['avg_chat_duration']);
+                     
+            $i++;
+        }
+
+        $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+
+        // We'll be outputting an excel file
+        header('Content-type: application/vnd.ms-excel');
+         
+        // It will be called file.xls
+        header('Content-Disposition: attachment; filename="report.xlsx"');
+         
+        // Write file to the browser
+        $objWriter->save('php://output');
+    }
     
+    
+    public static function averageOfChatsDialogsByUser($days = 30, $filter = array(), $limit = 20) 
+    {    	    
+    	$dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
+    	    	
+    	$filter['filter']['status'] = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
+    	$filter['filtergt']['chat_duration'] = 0;
+    	$filter['filtergt']['user_id'] = 0;
+    	    	
+    	$generalFilter = self::formatFilter($filter);
+    	
+    	$useTimeFilter = !isset($filter['filtergte']['time']) && !isset($filter['filterlte']['time']);
+    	$appendFilterTime = '';
+    	
+    	if ($useTimeFilter == true) {
+    		$appendFilterTime = 'time > :time ';
+    	}
+    	 
+    	if ($generalFilter != '' && $useTimeFilter == true) {
+    		$generalFilter = ' AND '.$generalFilter;
+    	}
+    	
+    	$sql = "SELECT AVG(chat_duration) AS avg_chat_duration,user_id FROM lh_chat WHERE {$appendFilterTime} {$generalFilter} GROUP BY user_id ORDER BY avg_chat_duration DESC LIMIT ".$limit;
+    	$db = ezcDbInstance::get();
+    	$stmt = $db->prepare($sql);
+
+    	if ($useTimeFilter == true) {
+    		$stmt->bindValue(':time',$dateUnixPast);
+    	}
+
+    	$stmt->setFetchMode(PDO::FETCH_ASSOC);
+    	$stmt->execute();
+    	return $stmt->fetchAll();
+    }
+
     public static function numberOfChatsDialogsByUser($days = 30, $filter = array()) 
     {    	    
     	$dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
@@ -307,8 +387,12 @@ class erLhcoreClassChatStatistic {
     				$returnFilter[] = $field.' = '.$db->quote($value);
     			} elseif ($type == 'filterlte') {
     				$returnFilter[] = $field.' <= '.$db->quote($value);
+    			} elseif ($type == 'filterlt') {
+    				$returnFilter[] = $field.' < '.$db->quote($value);
     			} elseif ($type == 'filtergte') {
-    				$returnFilter[] = $field.' >= '.$db->quote($value);
+    				$returnFilter[] = $field.' >= '.$db->quote($value);    			
+    			} elseif ($type == 'filtergt') {
+    				$returnFilter[] = $field.' > '.$db->quote($value);
     			}
     		}    		
     	}
