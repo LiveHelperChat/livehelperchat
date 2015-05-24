@@ -1259,6 +1259,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                     array('module' => 'lhcobrowse',   	'function' => 'browse'),
                     array('module' => 'lhfile',   		'function' => 'use_operator'),
                     array('module' => 'lhfile',   		'function' => 'file_delete_chat'),
+                    array('module' => 'lhstatistic',   	'function' => 'use'),
                     array('module' => 'lhspeech', 'function' => 'changedefaultlanguage'),
                     array('module' => 'lhspeech', 'function' => 'use'),
                     array('module' => 'lhspeech', 'function' => 'change_chat_recognition'),

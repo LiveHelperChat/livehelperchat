@@ -51,6 +51,18 @@ class erLhcoreClassModelCannedMsg
                 return $this->user;
                 break;
                 
+            case 'department':
+                $this->department = false;
+                if ($this->department_id > 0) {
+                    try {
+                        $this->department = erLhcoreClassModelDepartament::fetch($this->department_id,true);
+                    } catch (Exception $e) {
+                        $this->department = false;
+                    }
+                }
+                return $this->department;
+                break;
+                
             case 'msg_to_user':
                     $this->msg_to_user = str_replace(array_keys($this->replaceData), array_values($this->replaceData), $this->msg);
                     
