@@ -82,7 +82,7 @@
 		  var data = google.visualization.arrayToDataTable([
 		    ['<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','User');?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Chats');?>']
 		    <?php foreach ($userChatsStats as $data) : ?>
-		    	<?php echo ',[\''.htmlspecialchars(erLhcoreClassModelUser::fetch($data['user_id'],true)->username,ENT_QUOTES).'\','.$data['number_of_chats'].']'?>
+		    	<?php $obUser = erLhcoreClassModelUser::fetch($data['user_id'],true); echo ',[\''.htmlspecialchars((is_object($obUser) ? $obUser->username : $data['user_id']),ENT_QUOTES).'\','.$data['number_of_chats'].']'?>
 		    <?php endforeach;?>
 		  ]);   
 		  var options = {
@@ -101,7 +101,7 @@
 		  var data = google.visualization.arrayToDataTable([
 		    ['<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','User');?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Wait time');?>']
 		    <?php foreach ($userWaitTimeByOperator as $data) : ?>
-		    	<?php echo ',[\''.htmlspecialchars(erLhcoreClassModelUser::fetch($data['user_id'],true)->username,ENT_QUOTES).'\','.$data['avg_wait_time'].']'?>
+		    	<?php $obUser = erLhcoreClassModelUser::fetch($data['user_id'],true); echo ',[\''.htmlspecialchars((is_object($obUser) ? $obUser->username : $data['user_id']),ENT_QUOTES).'\','.$data['avg_wait_time'].']'?>
 		    <?php endforeach;?>
 		  ]);   
 		  var options = {
@@ -223,7 +223,7 @@
 		  ]);					                  		  
 		  var view = new google.visualization.DataView(data);			                    
 		  var options = {
-			title: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of chats per hour, average chat duration');?> <?php echo erLhcoreClassChat::formatSeconds(erLhcoreClassChatStatistic::getAverageChatduration())?>',
+			title: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of chats per hour, average chat duration');?> <?php echo $averageChatTime != null ? erLhcoreClassChat::formatSeconds($averageChatTime) : '(-)';?>',
 	        width: '100%',
 	        height: '100%',
 	        isStacked: true
@@ -240,7 +240,7 @@
 	});
 				
 </script> 
-
+		
 <form action="" method="get">
 
 <div class="row form-group">

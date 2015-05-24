@@ -145,9 +145,13 @@ class erLhcoreClassChatStatistic {
     	return $numberOfChats;
     }
     
-    public static function getAverageChatduration($days = 30) {
-    	$dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
-    	return erLhcoreClassChat::getCount(array('filtergt' => array('time' => $dateUnixPast,'chat_duration' => 0),'filter' =>  array('status' => erLhcoreClassModelChat::STATUS_CLOSED_CHAT)),'lh_chat','AVG(chat_duration)');
+    public static function getAverageChatduration($days = 30, $filter = array()) {
+    	
+        if (empty($filter)) {
+            $filter['filtergt']['time'] = $dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
+        }
+        
+    	return erLhcoreClassChat::getCount(array_merge_recursive($filter,array('filtergt' => array('chat_duration' => 0),'filter' =>  array('status' => erLhcoreClassModelChat::STATUS_CLOSED_CHAT))),'lh_chat','AVG(chat_duration)');
     }
     
     public static function getTopChatsByCountry($days = 30, $filter = array()) 
