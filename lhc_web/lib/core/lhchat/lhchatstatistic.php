@@ -120,6 +120,80 @@ class erLhcoreClassChatStatistic {
     	return $numberOfChats;
     }
     
+    public static function getNumberOfChatsPerDay($filter = array())
+    {	
+    	$numberOfChats = array();
+    	$departmentFilter = array();
+    	$departmentMsgFilter = array();
+    	
+    	// Message filter
+    	$msgFilter = $filter;
+    	       	
+    	/**
+    	 * If department filter provided we have to use strict filter with table names
+    	 * */    	
+    	$departmentMsgFilter['innerjoin']['lh_chat'] = array('lh_msg.chat_id','lh_chat.id');
+    	    	
+    	/**
+    	 * If user ID provided only provided user chat's has to take effect
+    	 * */
+    	if (isset($msgFilter['filter']['user_id'])){
+    	    unset($msgFilter['filter']['user_id']);
+    	    $msgFilter['filter']['lh_chat.user_id'] = $filter['filter']['user_id'];    	  
+    	}
+    	
+    	if (isset($msgFilter['filtergte']['time'])){
+    	    unset($msgFilter['filtergte']['time']);
+    	    $msgFilter['filtergte']['lh_msg.time'] = $filter['filtergte']['time'];
+    	}
+    		
+    	if (isset($msgFilter['filterlte']['time'])){
+    	    unset($msgFilter['filterlte']['time']);
+    	    $msgFilter['filterlte']['lh_msg.time'] = $filter['filterlte']['time'];
+    	}
+
+    	$startTimestamp = time()-(31*24*3600);
+    	
+    	$limitDays = 31;
+    	
+    	if (isset($filter['filterlte']['time']) && isset($filter['filtergte']['time'])) {
+    	    $daysDifference = ceil(($filter['filterlte']['time'] - $filter['filtergte']['time'])/(24*3600));
+    	    if ($daysDifference <= 31 && $daysDifference > 0) {
+    	        $limitDays = $daysDifference;
+    	        $startTimestamp = $filter['filtergte']['time'];
+    	    }
+    	    
+    	} elseif (isset($filter['filtergte']['time'])) {    	    
+    	    $daysDifference = ceil((time() - $filter['filtergte']['time'])/(24*3600));
+    	    if ($daysDifference <= 31 && $daysDifference > 0) {
+    	        $limitDays = $daysDifference;
+    	        $startTimestamp = $filter['filtergte']['time'];
+    	    }    	        	    
+    	} elseif (isset($filter['filterlte']['time'])) { 
+    	        $limitDays = 31;
+    	        $startTimestamp = $filter['filterlte']['time']-(31*24*3600);
+    	}
+
+    	for ($i = 0; $i < $limitDays;$i++) {
+    		$dateUnix = mktime(0,0,0,date('m',$startTimestamp),date('d',$startTimestamp)+$i,date('y',$startTimestamp));
+    		$numberOfChats[$dateUnix] = array (
+    				'closed' 			=> (int)erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filter' => array('status' => erLhcoreClassModelChat::STATUS_CLOSED_CHAT),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m%d\') = '. date('Ymd',$dateUnix))))),    		
+    				'active' 			=> (int)erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filter' => array('status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m%d\') = '. date('Ymd',$dateUnix))))),    		
+    				'operators' 		=> (int)erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filter' => array('status' => erLhcoreClassModelChat::STATUS_OPERATORS_CHAT),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m%d\') = '. date('Ymd',$dateUnix))))),    		
+    				'pending' 			=> (int)erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filter' => array('status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m%d\') = '. date('Ymd',$dateUnix))))),    		
+    				
+    				'msg_user' 			=> (int)erLhcoreClassChat::getCount(array_merge_recursive(array('filter' 	=> array('lh_msg.user_id' => 0),'customfilter' =>  array('FROM_UNIXTIME(lh_msg.time,\'%Y%m%d\') = '. date('Ymd',$dateUnix))),$msgFilter,$departmentMsgFilter),'lh_msg','count(lh_msg.id)'),    		
+    				'msg_operator' 		=> (int)erLhcoreClassChat::getCount(array('filtergt' => array('lh_msg.user_id' => 0),'customfilter' =>  array('FROM_UNIXTIME(lh_msg.time,\'%Y%m%d\') = '. date('Ym',$dateUnix)))+$msgFilter+$departmentMsgFilter,'lh_msg','count(lh_msg.id)'),    		
+    				'msg_system' 		=> (int)erLhcoreClassChat::getCount(array_merge_recursive(array('filter' => array('lh_msg.user_id' => -1),'customfilter' =>  array('FROM_UNIXTIME(lh_msg.time,\'%Y%m%d\') = '. date('Ymd',$dateUnix))),$msgFilter,$departmentMsgFilter),'lh_msg','count(lh_msg.id)'),    		
+    				
+    				'chatinitdefault' 	=> (int)erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filter' => array('chat_initiator' => erLhcoreClassModelChat::CHAT_INITIATOR_DEFAULT),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m%d\') = '. date('Ymd',$dateUnix))))),    		
+    				'chatinitproact' 	=> (int)erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filter' => array('chat_initiator' => erLhcoreClassModelChat::CHAT_INITIATOR_PROACTIVE),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m%d\') = '. date('Ymd',$dateUnix))))),    		
+    		);
+    	}
+    	
+    	return array_reverse($numberOfChats,true);
+    }
+    
     
     public static function getNumberOfChatsWaitTime($filter = array())
     {	
@@ -132,6 +206,42 @@ class erLhcoreClassChatStatistic {
     	    	
     	return $numberOfChats;
     }
+        
+    public static function getNumberOfChatsWaitTimePerDay($filter = array())
+    {	
+        
+        $startTimestamp = time()-(31*24*3600);
+         
+        $limitDays = 31;
+         
+        if (isset($filter['filterlte']['time']) && isset($filter['filtergte']['time'])) {
+            $daysDifference = ceil(($filter['filterlte']['time'] - $filter['filtergte']['time'])/(24*3600));
+            if ($daysDifference <= 31 && $daysDifference > 0) {
+                $limitDays = $daysDifference;
+                $startTimestamp = $filter['filtergte']['time'];
+            }
+            	
+        } elseif (isset($filter['filtergte']['time'])) {
+            $daysDifference = ceil((time() - $filter['filtergte']['time'])/(24*3600));
+            if ($daysDifference <= 31 && $daysDifference > 0) {
+                $limitDays = $daysDifference;
+                $startTimestamp = $filter['filtergte']['time'];
+            }
+        } elseif (isset($filter['filterlte']['time'])) {
+            $limitDays = 31;
+            $startTimestamp = $filter['filterlte']['time']-(31*24*3600);
+        }
+        
+    	$numberOfChats = array();
+    	    	 	    	    	    
+    	for ($i = 0; $i < $limitDays;$i++) {
+    		$dateUnix = mktime(0,0,0,date('m',$startTimestamp),date('d',$startTimestamp)+$i,date('y',$startTimestamp));
+    		$numberOfChats[$dateUnix] = (int)erLhcoreClassChat::getCount(array_merge_recursive($filter,array('customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m%d\') = '. date('Ymd',$dateUnix)),'filtergt' => array('chat_duration' => 0),'filterlt' =>  array('wait_time' => 600),'filtergt' =>  array('wait_time' => 0))),'lh_chat','AVG(wait_time)');
+    	}
+    	    	
+    	return array_reverse($numberOfChats,true);
+    }
+    
     
     public static function getWorkLoadStatistic($filter = array()) 
     {

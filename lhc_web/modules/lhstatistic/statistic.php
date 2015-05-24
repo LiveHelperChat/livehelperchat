@@ -8,7 +8,7 @@ $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.stat
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhstatistic/statistic.tpl.php');
 
-$validTabs = array('active','total','last24');
+$validTabs = array('active','total','last24','chatsstatistic');
 
 $tab = isset($Params['user_parameters_unordered']['tab']) && in_array($Params['user_parameters_unordered']['tab'],$validTabs) ? $Params['user_parameters_unordered']['tab'] : 'active';
 
@@ -41,8 +41,34 @@ if ($tab == 'active') {
         'urlappend' => erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form'])
     ));
     
+} elseif ($tab == 'chatsstatistic') {
     
+    if (isset($_GET['doSearch'])) {
+    	$filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'chatsstatistic_tab','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']));
+    } else {
+    	$filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'chatsstatistic_tab','format_filter' => true, 'uparams' => $Params['user_parameters_unordered']));
+    }
     
+    $tpl->set('input',$filterParams['input_form']);
+
+    $tpl->set('groupby',$filterParams['input_form']->groupby == 1 ? 'Y.m.d' : 'Y.m');
+    
+    if ($filterParams['input_form']->groupby == 1) {
+        $tpl->setArray(array(
+            'numberOfChatsPerMonth' => erLhcoreClassChatStatistic::getNumberOfChatsPerDay($filterParams['filter']),
+            'numberOfChatsPerWaitTimeMonth' => erLhcoreClassChatStatistic::getNumberOfChatsWaitTimePerDay($filterParams['filter']),
+            'urlappend' => erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form'])
+        ));
+    } else {
+        $tpl->setArray(array(
+            'numberOfChatsPerMonth' => erLhcoreClassChatStatistic::getNumberOfChatsPerMonth($filterParams['filter']),
+            'numberOfChatsPerWaitTimeMonth' => erLhcoreClassChatStatistic::getNumberOfChatsWaitTime($filterParams['filter']),
+            'urlappend' => erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form'])
+        ));
+    }
+    
+   
+     
 } else if ($tab == 'last24') {
     
     if (isset($_GET['doSearch'])) {
