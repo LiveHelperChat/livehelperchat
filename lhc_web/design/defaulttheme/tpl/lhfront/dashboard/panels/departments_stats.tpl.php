@@ -1,7 +1,7 @@
 <div class="panel panel-default panel-dashboard">
 	<div class="panel-heading">
 		<i class="icon-home chat-active"></i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Departments stats');?> ({{departments_stats.list.length}}{{departments_stats.list.length == lhc.limitd ? '+' : ''}})</a>
-		<?php if ($currentUser->hasAccessTo('lhstatistic', 'use')) : ?><a class="pull-right icon-download" target="_blank" href="<?php echo erLhcoreClassDesign::baseurl('statistic/departmentstatusxls')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Download XLS');?>"></a><?php endif;?>
+		<?php if ($currentUser->hasAccessTo('lhstatistic', 'exportxls')) : ?><a class="pull-right icon-download" target="_blank" href="<?php echo erLhcoreClassDesign::baseurl('statistic/departmentstatusxls')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Download XLS');?>"></a><?php endif;?>
 	</div>
 	<div>
 	    <?php $optinsPanel = array('panelid' => 'departmentd','limitid' => 'limitd'); ?>

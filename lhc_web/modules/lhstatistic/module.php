@@ -7,10 +7,17 @@ $ViewList = array();
 
 $ViewList['departmentstatusxls'] = array(
     'params' => array(),
-    'functions' => array( 'use' ),
+    'functions' => array( 'exportxls' ),
     'uparams' => array()
 );
 
-$FunctionList['use'] = array('explain' => 'Allow to use statistic module');
+$ViewList['statistic'] = array(
+    'params' => array(),
+    'uparams' => array('tab'),
+    'functions' => array( 'viewstatistic' )
+);
+
+$FunctionList['exportxls'] = array('explain' => 'Allow to operator to export departments statistic in XLS');
+$FunctionList['viewstatistic'] = array('explain' =>'Allow operator to view statistic');
 
 ?>
