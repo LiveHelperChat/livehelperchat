@@ -66,8 +66,6 @@ if ($tab == 'active') {
             'urlappend' => erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form'])
         ));
     }
-    
-   
      
 } else if ($tab == 'last24') {
     
