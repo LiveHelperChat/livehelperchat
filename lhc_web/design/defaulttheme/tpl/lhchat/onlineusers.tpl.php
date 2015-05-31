@@ -9,9 +9,7 @@
       <?php endif; ?>
 </div>
 
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Online visitors');?></h1>
-
-
+<?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/online_users_title.tpl.php')); ?>
 
 <?php if ($tracking_enabled == false) : ?>
 <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User tracking is disabled, enable it at');?>&nbsp;-&nbsp;<a href="<?php echo erLhcoreClassDesign::baseurl('chat/editchatconfig')?>/track_online_visitors"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Chat configuration');?></a></p>

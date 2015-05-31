@@ -1,6 +1,6 @@
 <div class="panel panel-default panel-dashboard">
 	<div class="panel-heading">
-		<i class="icon-user chat-active"></i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Online operators');?> ({{online_op.list.length}}{{online_op.list.length == lhc.limito ? '+' : ''}})</a>
+		<i class="icon-user chat-active"></i> <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/online_operators.tpl.php'));?> ({{online_op.list.length}}{{online_op.list.length == lhc.limito ? '+' : ''}})</a>
 	</div>
 	<div>  
   

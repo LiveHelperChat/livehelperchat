@@ -1,6 +1,6 @@
 <div class="panel panel-default panel-dashboard">
 	<div class="panel-heading">
-		<a href="<?php echo erLhcoreClassDesign::baseurl('chat/closedchats')?>"><i class="icon-cancel-circled chat-closed""></i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Closed chats');?> ({{closed_chats.list.length}}{{closed_chats.list.length == lhc.limitc ? '+' : ''}})</a>
+		<a href="<?php echo erLhcoreClassDesign::baseurl('chat/closedchats')?>"><i class="icon-cancel-circled chat-closed"></i> <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/closed_chats.tpl.php'));?> ({{closed_chats.list.length}}{{closed_chats.list.length == lhc.limitc ? '+' : ''}})</a>
 	</div>
 	<div>           
           <?php $optinsPanel = array('panelid' => 'closedd','limitid' => 'limitc'); ?>
