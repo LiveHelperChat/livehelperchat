@@ -336,7 +336,9 @@ if (isset($_POST['askQuestion']))
        $msg->user_id = 0;
        $msg->time = time();
        erLhcoreClassChat::getSession()->save($msg);
-
+       
+       $messageInitial = $msg;
+       
        if ($userInstance->invitation !== false) {
 
        		if ($userInstance->invitation->wait_message != '') {
@@ -390,7 +392,7 @@ if (isset($_POST['askQuestion']))
        $chat->last_user_msg_time = time();
        $chat->saveThis();
 
-       erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started',array('chat' => & $chat));
+       erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started',array('chat' => & $chat, 'msg' => $messageInitial));
        
        erLhcoreClassChat::updateDepartmentStats($chat->department);
        

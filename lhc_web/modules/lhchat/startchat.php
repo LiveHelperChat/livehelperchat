@@ -240,6 +240,8 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
 	            }
 	       }
 
+	       $messageInitial = false;
+	       
 	       // Store message if required
 	       if (isset($startDataFields['message_visible_in_popup']) && $startDataFields['message_visible_in_popup'] == true) {
 	           if ( $inputData->question != '' ) {
@@ -250,7 +252,9 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
 	               $msg->user_id = 0;
 	               $msg->time = time();
 	               erLhcoreClassChat::getSession()->save($msg);
-
+	               
+	               $messageInitial = $msg;
+	               
 	               $chat->last_msg_id = $msg->id;
 	               $chat->saveThis();
 	           }
@@ -284,7 +288,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
 		       	$chat->saveThis();
 	       }
 
-	       erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started',array('chat' => & $chat));
+	       erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started',array('chat' => & $chat, 'msg' => $messageInitial));
 	       
 	       erLhcoreClassChat::updateDepartmentStats($chat->department);
 	       	       
