@@ -186,6 +186,10 @@
       <translation>HMTL5 opslag uitschakelen, selecteer dit als uw site wisselt tussen http en https</translation>
     </message>
     <message>
+      <source>Home page dashboard widgets order</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Your site URL address</source>
       <translation>Uw site URL adres</translation>
     </message>
@@ -759,6 +763,14 @@
       <translation>Kopieer de code uit het tekstvak naar de pagina waar je het getoond wilt hebben</translation>
     </message>
     <message>
+      <source>Place this tag where you want the Live Helper Chatbox module to render.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Place this tag after the Live Helper Chatbox module tag.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chatbox</source>
       <translation>Chatbox</translation>
     </message>
@@ -831,6 +843,14 @@
       <translation>Kopieer de code uit het tekstvak naar de pagina waar je het getoond wilt hebben</translation>
     </message>
     <message>
+      <source>Place this tag where you want the Live Helper FAQ module to render.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Place this tag after the Live Helper FAQ module tag.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Status text</source>
       <translation>Statustekst</translation>
     </message>
@@ -849,6 +869,14 @@
     <message>
       <source>Identifier</source>
       <translation>Identificator</translation>
+    </message>
+    <message>
+      <source>Place this tag where you want the Live Helper Questionary module to render.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Place this tag after the Live Helper Questionary module tag.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Help us to grow</source>
@@ -909,6 +937,14 @@
     <message>
       <source>Copy the code from the text area to the page where you want your status to appear</source>
       <translation>Kopieer de code uit het tekstvak naar de pagina waar u uw status getoond wilt hebben</translation>
+    </message>
+    <message>
+      <source>Place this tag where you want the Live Helper Plugin to render.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Place this tag after the Live Helper Plugin tag.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>On a mouse click show the page widget</source>
@@ -979,6 +1015,14 @@
       <translation>Geen protocol toevoegen, alleen de domeinnaam is verplicht.</translation>
     </message>
     <message>
+      <source>Place this tag where you want the Live Helper Status to render.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Place this tag after the Live Helper status tag.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>System configuration</source>
       <translation>Systeem configuratie</translation>
     </message>
@@ -1044,10 +1088,6 @@
   <context>
     <name>chat/activechats</name>
     <message>
-      <source>Active chats list</source>
-      <translation>Actieve chat lijst</translation>
-    </message>
-    <message>
       <source>Information</source>
       <translation>Informatie</translation>
     </message>
@@ -1066,6 +1106,10 @@
     <message>
       <source>Empty...</source>
       <translation>Leeg</translation>
+    </message>
+    <message>
+      <source>Active chats list</source>
+      <translation>Actieve chat lijst</translation>
     </message>
     <message>
       <source>Chats lists</source>
@@ -1101,6 +1145,26 @@
     <message>
       <source>User</source>
       <translation>Gebruiker</translation>
+    </message>
+    <message>
+      <source>Vote status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Any</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Not Noted</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Up Voted</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Down vote</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Search</source>
@@ -1260,10 +1324,6 @@
   <context>
     <name>chat/blockedusers</name>
     <message>
-      <source>Blocked users</source>
-      <translation>Geblokkeerde gebruikers</translation>
-    </message>
-    <message>
       <source>IP</source>
       <translation>IP</translation>
     </message>
@@ -1282,6 +1342,10 @@
     <message>
       <source>Empty...</source>
       <translation>Leeg...</translation>
+    </message>
+    <message>
+      <source>Blocked users</source>
+      <translation>Geblokkeerde gebruikers</translation>
     </message>
     <message>
       <source>Please enter an IP to block</source>
@@ -1306,12 +1370,12 @@
   <context>
     <name>chat/cannedmsg</name>
     <message>
-      <source>Canned messages</source>
-      <translation>Voorgeprogrammeerde berichten</translation>
+      <source>Please enter canned message</source>
+      <translation>Voer s.v.p. voorgeprogrammeerd bericht in</translation>
     </message>
     <message>
-      <source>Message</source>
-      <translation>Bericht</translation>
+      <source>Title/Message</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User</source>
@@ -1342,8 +1406,20 @@
       <translation>Nieuw voorgeprogrammeerd bericht</translation>
     </message>
     <message>
-      <source>Edit canned message</source>
-      <translation>Bewerk voorgeprogrammeerde berichten</translation>
+      <source>Title</source>
+      <translation>Titel</translation>
+    </message>
+    <message>
+      <source>Explain</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message</source>
+      <translation>Bericht</translation>
+    </message>
+    <message>
+      <source>Fallback message</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Automatically send this message to user then chat is accepted</source>
@@ -1358,6 +1434,14 @@
       <translation>Afdeling</translation>
     </message>
     <message>
+      <source>Canned messages</source>
+      <translation>Voorgeprogrammeerde berichten</translation>
+    </message>
+    <message>
+      <source>Edit canned message</source>
+      <translation>Bewerk voorgeprogrammeerde berichten</translation>
+    </message>
+    <message>
       <source>Personal canned message</source>
       <translation>Persoonlijk voorgeprogrammeerd bericht</translation>
     </message>
@@ -1366,20 +1450,16 @@
       <translation>Voorgeprogrammeerd bericht is opgeslagen</translation>
     </message>
     <message>
-      <source>System configuration</source>
-      <translation>Systeem configuratie</translation>
-    </message>
-    <message>
-      <source>Please enter canned message</source>
-      <translation>Voer s.v.p. voorgeprogrammeerd bericht in</translation>
+      <source>Please enter a canned message</source>
+      <translation>Nieuw voorgeprogrammeerd bericht</translation>
     </message>
     <message>
       <source>Please choose a department</source>
       <translation>Kies s.v.p. een afdeling</translation>
     </message>
     <message>
-      <source>Please enter a canned message</source>
-      <translation>Nieuw voorgeprogrammeerd bericht</translation>
+      <source>System configuration</source>
+      <translation>Systeem configuratie</translation>
     </message>
   </context>
   <context>
@@ -1430,7 +1510,7 @@
     </message>
     <message>
       <source>Chat transfer worklow</source>
-      <translation>Chat doorzettings-workflow</translation>
+      <translation>Chat doorschakel-workflow</translation>
     </message>
     <message>
       <source>Auto assignment</source>
@@ -1537,6 +1617,10 @@
       <translation>XMPP berichten</translation>
     </message>
     <message>
+      <source>Send XMPP messages to all department operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Mail messages</source>
       <translation>Mail berichten</translation>
     </message>
@@ -1566,7 +1650,7 @@
     </message>
     <message>
       <source>To what department chat should be transfered if it is not accepted</source>
-      <translation>Naar welke afdeling de chat moet worden doorgezet als hij niet geaccepteerd wordt</translation>
+      <translation>Naar welke afdeling de chat moet worden doorgeschakeld als hij niet geaccepteerd wordt</translation>
     </message>
     <message>
       <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
@@ -1636,7 +1720,7 @@
     </message>
     <message>
       <source>Transfer chat</source>
-      <translation>Zet chat door</translation>
+      <translation>Schakel de chat door</translation>
     </message>
     <message>
       <source>Footprint</source>
@@ -2043,6 +2127,38 @@
       <source>Empty...</source>
       <translation>Leeg...</translation>
     </message>
+    <message>
+      <source>Visitor</source>
+      <translation>Bezoeker</translation>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation>Operator</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Afdeling</translation>
+    </message>
+    <message>
+      <source>Nothing found</source>
+      <translation>Niets gevonden</translation>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation>Wachtende chats</translation>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Actieve chats</translation>
+    </message>
+    <message>
+      <source>Last activity ago</source>
+      <translation>Laatste activiteit</translation>
+    </message>
+    <message>
+      <source>Time ago</source>
+      <translation>Tijd geleden</translation>
+    </message>
   </context>
   <context>
     <name>chat/screenshot</name>
@@ -2137,6 +2253,10 @@
   <context>
     <name>chat/startchat</name>
     <message>
+      <source>Invalid captcha code, please enable Javascript!</source>
+      <translation>Onjuiste captcha code, schakel s.v.p. Javascript in!</translation>
+    </message>
+    <message>
       <source>Department is disabled</source>
       <translation>Afdeling is uitgeschakeld</translation>
     </message>
@@ -2165,10 +2285,6 @@
       <translation>Voer hier uw bericht in...</translation>
     </message>
     <message>
-      <source>Start chat</source>
-      <translation>Begin chat</translation>
-    </message>
-    <message>
       <source>Live support is not available in your country</source>
       <translation>Live chat is niet beschikbaar in uw land</translation>
     </message>
@@ -2185,12 +2301,12 @@
       <translation>Bestand</translation>
     </message>
     <message>
-      <source>Leave a message</source>
-      <translation>Laat een bericht achter</translation>
-    </message>
-    <message>
       <source>Your request was sent!</source>
       <translation>Uw verzoek is verzonden!</translation>
+    </message>
+    <message>
+      <source>Leave a message</source>
+      <translation>Laat een bericht achter</translation>
     </message>
     <message>
       <source>I accept my personal data will be handled according to</source>
@@ -2199,6 +2315,10 @@
     <message>
       <source>our terms and to the Law</source>
       <translation>onze voorwaarden en de wet</translation>
+    </message>
+    <message>
+      <source>Start chat</source>
+      <translation>Begin chat</translation>
     </message>
     <message>
       <source>Department</source>
@@ -2267,10 +2387,6 @@
     <message>
       <source>You do not have permission to chat! Please contact site owner.</source>
       <translation>U heeft geen rechten om te chatten, neem contact op met de eigenaar van de website.</translation>
-    </message>
-    <message>
-      <source>Invalid captcha code, please enable Javascript!</source>
-      <translation>Onjuiste captcha code, schakel s.v.p. Javascript in!</translation>
     </message>
     <message>
       <source>Please enter your name</source>
@@ -2371,10 +2487,6 @@
   <context>
     <name>chat/closedchats</name>
     <message>
-      <source>Closed chats list</source>
-      <translation>Gesloten chat lijst</translation>
-    </message>
-    <message>
       <source>Information</source>
       <translation>Informatie</translation>
     </message>
@@ -2389,6 +2501,10 @@
     <message>
       <source>Empty...</source>
       <translation>Leeg...</translation>
+    </message>
+    <message>
+      <source>Closed chats list</source>
+      <translation>Gesloten chat lijst</translation>
     </message>
     <message>
       <source>Chats list</source>
@@ -2470,10 +2586,6 @@
   <context>
     <name>chat/geoadjustment</name>
     <message>
-      <source>GEO adjustment</source>
-      <translation>GEO aanpassingen</translation>
-    </message>
-    <message>
       <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
       <translation>Deze regels ook op de chatstatus indicator toepassen? Systeem kan hierdoor trager worden</translation>
     </message>
@@ -2516,6 +2628,10 @@
     <message>
       <source>normal status</source>
       <translation>normale status</translation>
+    </message>
+    <message>
+      <source>GEO adjustment</source>
+      <translation>GEO aanpassingen</translation>
     </message>
   </context>
   <context>
@@ -2802,6 +2918,10 @@
     <message>
       <source>Send message</source>
       <translation>Stuur bericht</translation>
+    </message>
+    <message>
+      <source>Dashboard</source>
+      <translation>Dashboard</translation>
     </message>
     <message>
       <source>City</source>
@@ -3167,10 +3287,6 @@
   <context>
     <name>chat/listchatconfig</name>
     <message>
-      <source>Chat configuration</source>
-      <translation>Chat configuratie</translation>
-    </message>
-    <message>
       <source>Notifications about new chats</source>
       <translation>Notificatie over nieuwe chats</translation>
     </message>
@@ -3219,6 +3335,10 @@
       <translation>Scherm delen</translation>
     </message>
     <message>
+      <source>Chat configuration</source>
+      <translation>Chat configuratie</translation>
+    </message>
+    <message>
       <source>List chat configuration</source>
       <translation>Lijst chat configuratie</translation>
     </message>
@@ -3236,18 +3356,6 @@
     <message>
       <source>System configuration</source>
       <translation>Systeemconfiguratie</translation>
-    </message>
-    <message>
-      <source>System</source>
-      <translation>Systeem</translation>
-    </message>
-    <message>
-      <source>Embed code</source>
-      <translation>Code insluiten</translation>
-    </message>
-    <message>
-      <source>Live help configuration</source>
-      <translation>Live help configuratie</translation>
     </message>
     <message>
       <source>Time zone settings</source>
@@ -3274,50 +3382,6 @@
       <translation>Rollen lijst</translation>
     </message>
     <message>
-      <source>Departments</source>
-      <translation>Afdelingen</translation>
-    </message>
-    <message>
-      <source>Chat configuration</source>
-      <translation>Chat configuratie</translation>
-    </message>
-    <message>
-      <source>Synchronization and sound settings</source>
-      <translation>Synchronisatie en geluidsinstellingen</translation>
-    </message>
-    <message>
-      <source>Start chat form settings</source>
-      <translation>Welkomstscherm instellingen</translation>
-    </message>
-    <message>
-      <source>XMPP settings</source>
-      <translation>XMPP instellingen</translation>
-    </message>
-    <message>
-      <source>Chats list</source>
-      <translation>Chats lijst</translation>
-    </message>
-    <message>
-      <source>Chat archive</source>
-      <translation>Chat archief</translation>
-    </message>
-    <message>
-      <source>Theming</source>
-      <translation>Thema&apos;s</translation>
-    </message>
-    <message>
-      <source>Widget themes</source>
-      <translation>Widget thema&apos;s</translation>
-    </message>
-    <message>
-      <source>Import new themes</source>
-      <translation>Importeer nieuwe thema&apos;s</translation>
-    </message>
-    <message>
-      <source>Default theme</source>
-      <translation>Standaard thema</translation>
-    </message>
-    <message>
       <source>GEO detection configuration</source>
       <translation>GEO detectie en configuratie</translation>
     </message>
@@ -3338,8 +3402,20 @@
       <translation>Voorgeprogrammeerde berichten</translation>
     </message>
     <message>
+      <source>Chat archive</source>
+      <translation>Chat archief</translation>
+    </message>
+    <message>
+      <source>Chat configuration</source>
+      <translation>Chat configuratie</translation>
+    </message>
+    <message>
       <source>Live help embed code</source>
       <translation>Live help embed code</translation>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>Chats lijst</translation>
     </message>
     <message>
       <source>Chatbox embed code</source>
@@ -3386,16 +3462,60 @@
       <translation>Vragenlijst embed code</translation>
     </message>
     <message>
+      <source>Start chat form settings</source>
+      <translation>Welkomstscherm instellingen</translation>
+    </message>
+    <message>
       <source>Statistic</source>
       <translation>Statistiek</translation>
+    </message>
+    <message>
+      <source>Theming</source>
+      <translation>Thema&apos;s</translation>
+    </message>
+    <message>
+      <source>Widget themes</source>
+      <translation>Widget thema&apos;s</translation>
+    </message>
+    <message>
+      <source>Import new themes</source>
+      <translation>Importeer nieuwe thema&apos;s</translation>
+    </message>
+    <message>
+      <source>Default theme</source>
+      <translation>Standaard thema</translation>
     </message>
     <message>
       <source>Automatic translations</source>
       <translation>Automatische veralingen</translation>
     </message>
     <message>
+      <source>XMPP settings</source>
+      <translation>XMPP instellingen</translation>
+    </message>
+    <message>
       <source>Speech</source>
       <translation>Spraak</translation>
+    </message>
+    <message>
+      <source>Departments</source>
+      <translation>Afdelingen</translation>
+    </message>
+    <message>
+      <source>Synchronization and sound settings</source>
+      <translation>Synchronisatie en geluidsinstellingen</translation>
+    </message>
+    <message>
+      <source>Embed code</source>
+      <translation>Code insluiten</translation>
+    </message>
+    <message>
+      <source>Live help configuration</source>
+      <translation>Live help configuratie</translation>
+    </message>
+    <message>
+      <source>System</source>
+      <translation>Systeem</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -3452,32 +3572,56 @@
       <translation>Toegewezen operator</translation>
     </message>
     <message>
-      <source>Home</source>
-      <translation>Home</translation>
+      <source>Active chats</source>
+      <translation>Actieve chats</translation>
     </message>
     <message>
-      <source>Chats transferred to you directly</source>
-      <translation>Chats direkt naar jou doorgezet</translation>
+      <source>collapse/expand</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Transferred to your department</source>
-      <translation>Doorgezet naar jouw afdeling</translation>
+      <source>Closed chats</source>
+      <translation>Gesloten chats</translation>
     </message>
     <message>
       <source>Pending chats</source>
       <translation>Chats wachtend</translation>
     </message>
     <message>
-      <source>Active chats</source>
-      <translation>Actieve chats</translation>
+      <source>Chats transferred to you directly</source>
+      <translation>Chats direct naar jou doorgeschakeld</translation>
+    </message>
+    <message>
+      <source>Transferred to your department</source>
+      <translation>Doorgeschakeld naar jouw afdeling</translation>
     </message>
     <message>
       <source>Unread messages</source>
       <translation>Ongelezen berichten</translation>
     </message>
     <message>
-      <source>Closed chats</source>
-      <translation>Gesloten chats</translation>
+      <source>Departments stats</source>
+      <translation>Statistieken van afdeling</translation>
+    </message>
+    <message>
+      <source>Online operators</source>
+      <translation>Online operators</translation>
+    </message>
+    <message>
+      <source>All departments</source>
+      <translation>Alle afdelingen</translation>
+    </message>
+    <message>
+      <source>Number of elements in list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Home</source>
+      <translation>Home</translation>
+    </message>
+    <message>
+      <source>Extra modules</source>
+      <translation>Extra modules</translation>
     </message>
     <message>
       <source>Browse offers</source>
@@ -3502,10 +3646,6 @@
     <message>
       <source>Menu</source>
       <translation>Menu</translation>
-    </message>
-    <message>
-      <source>Extra modules</source>
-      <translation>Extra modules</translation>
     </message>
     <message>
       <source>Chats list</source>
@@ -3777,6 +3917,90 @@
       <translation>Tenminste één veld moet zichtbaar en verplicht zijn in de popup- en paginawidget</translation>
     </message>
     <message>
+      <source>Custom fields generator, these fields will be visible in start chat forms</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Field label</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default value</source>
+      <translation>Standaardwaarde</translation>
+    </message>
+    <message>
+      <source>Type</source>
+      <translation>Type</translation>
+    </message>
+    <message>
+      <source>Text</source>
+      <translation>Tekst</translation>
+    </message>
+    <message>
+      <source>Hidden</source>
+      <translation>Verborgen</translation>
+    </message>
+    <message>
+      <source>Visible on</source>
+      <translation>Zichtbaar op</translation>
+    </message>
+    <message>
+      <source>Offline and online form</source>
+      <translation>Offline en online formulier</translation>
+    </message>
+    <message>
+      <source>Only offline</source>
+      <translation>Alleen offline</translation>
+    </message>
+    <message>
+      <source>Only online</source>
+      <translation>Alleen online</translation>
+    </message>
+    <message>
+      <source>Size (between 1 and 12)</source>
+      <translation>Grootte (tussen 1 en 12)</translation>
+    </message>
+    <message>
+      <source>Field identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Is required</source>
+      <translation>is verplicht</translation>
+    </message>
+    <message>
+      <source>Add a field</source>
+      <translation>Voeg een veld toe</translation>
+    </message>
+    <message>
+      <source>left</source>
+      <translation>links</translation>
+    </message>
+    <message>
+      <source>right</source>
+      <translation>rechts</translation>
+    </message>
+    <message>
+      <source>Visible only in offline form</source>
+      <translation>Alleen zichtbaar in offline formulier</translation>
+    </message>
+    <message>
+      <source>Visible only in online form</source>
+      <translation>Alleen zichtbaar in online formulier</translation>
+    </message>
+    <message>
+      <source>Size</source>
+      <translation>Grootte</translation>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Remove</source>
+      <translation>Verwijder</translation>
+    </message>
+    <message>
       <source>Enable leave a message functionality automatically if there are no online operators</source>
       <translation>Laat automatisch een bericht-achterlaat-scherm zien als er geen operators online zijn.</translation>
     </message>
@@ -3791,6 +4015,10 @@
     <message>
       <source>Additional form settings</source>
       <translation>Aanvullende formulier instellingen</translation>
+    </message>
+    <message>
+      <source>Custom fields</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Name</source>
@@ -4219,11 +4447,11 @@
     <name>chat/transferchat</name>
     <message>
       <source>Transfer to a user</source>
-      <translation>Zet door naar een gebruiker</translation>
+      <translation>Schakel door naar een operator</translation>
     </message>
     <message>
       <source>Transfer to a department</source>
-      <translation>Zet door naar een afdeling</translation>
+      <translation>Schakel door naar een afdeling</translation>
     </message>
     <message>
       <source>Logged in users</source>
@@ -4231,11 +4459,11 @@
     </message>
     <message>
       <source>Transfer a chat to one of your departments users</source>
-      <translation>Zet een chat door naar één van de gebruikers in jouw afdeling</translation>
+      <translation>Schakel een chat door naar één van de operators in jouw afdeling</translation>
     </message>
     <message>
       <source>Transfer</source>
-      <translation>Zet door</translation>
+      <translation>Schakel door</translation>
     </message>
     <message>
       <source>Departments</source>
@@ -6412,6 +6640,10 @@
       <translation>Wachtwoord herinnering</translation>
     </message>
     <message>
+      <source>You were logged out because another user logged under same account</source>
+      <translation>Je bent uitgelogd omdat er iemand anders op het zelfde account is ingelogd.</translation>
+    </message>
+    <message>
       <source>Incorrect username or password</source>
       <translation>Gebruikersnaam of wachtwoord onjuist</translation>
     </message>
@@ -6547,6 +6779,10 @@
       <translation>Datum</translation>
     </message>
     <message>
+      <source>Vote status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Mail send</source>
       <translation>E-mail is verzonden</translation>
     </message>
@@ -6562,8 +6798,12 @@
   <context>
     <name>chat/syncuser</name>
     <message>
+      <source>You do not have permission to view this chat, or chat was deleted</source>
+      <translation>U heeft geen toestemming deze chat te bekijken, of de chat is verwijderd.</translation>
+    </message>
+    <message>
       <source>Chat was automatically transferred to</source>
-      <translation>De chat werd automatisch doorgezet naar</translation>
+      <translation>De chat werd automatisch doorgeschakeld naar</translation>
     </message>
     <message>
       <source>from</source>
@@ -6578,8 +6818,8 @@
       <translation>De ondersteuningsmedewerker heeft deze chat gesloten</translation>
     </message>
     <message>
-      <source>You do not have permission to view this chat, or chat was deleted</source>
-      <translation>U heeft geen toestemming deze chat te bekijken, of de chat is verwijderd.</translation>
+      <source>The operator has closed this chat session</source>
+      <translation>De operator heeft deze chat gesloten</translation>
     </message>
     <message>
       <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
@@ -6602,7 +6842,7 @@
     </message>
     <message>
       <source>Transfer department has to be different one than self</source>
-      <translation>De afdeling waarnaar wordt doorgezet mag niet de eigen afdeling zijn</translation>
+      <translation>De afdeling waarnaar wordt doorgeschakeld mag niet dezelfde afdeling zijn</translation>
     </message>
     <message>
       <source>Please enter a valid from date range!</source>

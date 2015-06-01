@@ -268,6 +268,8 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
 	            }
 	       }
 
+	       $messageInitial = false;
+	       
 	       // Store message if required
 	       if (isset($startDataFields['message_visible_in_page_widget']) && $startDataFields['message_visible_in_page_widget'] == true) {
 	           if ( $inputData->question != '' ) {
@@ -279,6 +281,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
 	               $msg->time = time();
 	               erLhcoreClassChat::getSession()->save($msg);
 
+	               $messageInitial = $msg;	               
 	               $chat->last_msg_id = $msg->id;
 	               $chat->saveThis();
 	           }
@@ -298,7 +301,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
 		       		$msg->msg = trim($responder->wait_message);
 		       		$msg->chat_id = $chat->id;
 		       		$msg->name_support = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
-		       		$msg->user_id = 1;
+		       		$msg->user_id = -2;
 		       		$msg->time = time()+5;
 		       		erLhcoreClassChat::getSession()->save($msg);
 
@@ -321,11 +324,13 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
 	       if ( function_exists('fastcgi_finish_request') ) {
 	           fastcgi_finish_request();
 	       };
-	       	       
-	       erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started',array('chat' => & $chat));	       
+
+	       erLhcoreClassChat::updateDepartmentStats($chat->department);
+	       	
+	       
+	       erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started',array('chat' => & $chat, 'msg' => $messageInitial));	       
 	       exit;
    	   }
-
 
     } else {
     	// Show errors only if user is not switching form mode and not swithing language

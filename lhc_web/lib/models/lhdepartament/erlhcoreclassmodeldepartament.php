@@ -40,6 +40,9 @@ class erLhcoreClassModelDepartament {
                'attr_int_1' 	        => $this->attr_int_1,
                'attr_int_2' 	        => $this->attr_int_2,
                'attr_int_3' 	        => $this->attr_int_3,
+               'active_chats_counter' 	=> $this->active_chats_counter,
+               'pending_chats_counter' 	=> $this->pending_chats_counter,
+               'closed_chats_counter' 	=> $this->closed_chats_counter,
        );
    }
 
@@ -254,6 +257,10 @@ class erLhcoreClassModelDepartament {
     public $attr_int_1 = 0;
     public $attr_int_2 = 0;
     public $attr_int_3 = 0;
+    
+    public $active_chats_counter = 0;
+    public $pending_chats_counter = 0;
+    public $closed_chats_counter = 0;
     
     // 0 - disabled
     // > 0 - delay in seconds

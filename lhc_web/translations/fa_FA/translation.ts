@@ -186,6 +186,10 @@
       <translation>ذخیره سازی HMTL5 را غیرفعال می کند. تغییر سایت از http به https و یا بالعکس را چک کنید.</translation>
     </message>
     <message>
+      <source>Home page dashboard widgets order</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Your site URL address</source>
       <translation>آدرس وب سایت شما</translation>
     </message>
@@ -759,6 +763,14 @@
       <translation>کد را از ناحیه متنی به صفحه مورد نظر کپی کنید</translation>
     </message>
     <message>
+      <source>Place this tag where you want the Live Helper Chatbox module to render.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Place this tag after the Live Helper Chatbox module tag.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chatbox</source>
       <translation>باکس چت</translation>
     </message>
@@ -831,6 +843,14 @@
       <translation>کد را از ناحیه متنی به صفحه مورد نظر کپی کنید</translation>
     </message>
     <message>
+      <source>Place this tag where you want the Live Helper FAQ module to render.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Place this tag after the Live Helper FAQ module tag.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Status text</source>
       <translation>متن وضعیت</translation>
     </message>
@@ -849,6 +869,14 @@
     <message>
       <source>Identifier</source>
       <translation>شناسه</translation>
+    </message>
+    <message>
+      <source>Place this tag where you want the Live Helper Questionary module to render.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Place this tag after the Live Helper Questionary module tag.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Help us to grow</source>
@@ -909,6 +937,14 @@
     <message>
       <source>Copy the code from the text area to the page where you want your status to appear</source>
       <translation>کد را از ناحیه متنی به صفحه مورد نظر برای نمایش وضعیت کپی کنید</translation>
+    </message>
+    <message>
+      <source>Place this tag where you want the Live Helper Plugin to render.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Place this tag after the Live Helper Plugin tag.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>On a mouse click show the page widget</source>
@@ -979,6 +1015,14 @@
       <translation>لطفاً پروتکل را وارد نکنید، فقط نام دامنه الزامی است</translation>
     </message>
     <message>
+      <source>Place this tag where you want the Live Helper Status to render.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Place this tag after the Live Helper status tag.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>System configuration</source>
       <translation>تنظیمات سیستم</translation>
     </message>
@@ -1044,10 +1088,6 @@
   <context>
     <name>chat/activechats</name>
     <message>
-      <source>Active chats list</source>
-      <translation>فهرست چت های فعال</translation>
-    </message>
-    <message>
       <source>Information</source>
       <translation>اطلاعات</translation>
     </message>
@@ -1066,6 +1106,10 @@
     <message>
       <source>Empty...</source>
       <translation>خالی ...</translation>
+    </message>
+    <message>
+      <source>Active chats list</source>
+      <translation>فهرست چت های فعال</translation>
     </message>
     <message>
       <source>Chats lists</source>
@@ -1101,6 +1145,26 @@
     <message>
       <source>User</source>
       <translation>کاربر</translation>
+    </message>
+    <message>
+      <source>Vote status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Any</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Not Noted</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Up Voted</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Down vote</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Search</source>
@@ -1260,10 +1324,6 @@
   <context>
     <name>chat/blockedusers</name>
     <message>
-      <source>Blocked users</source>
-      <translation>کاربران مسدود شده</translation>
-    </message>
-    <message>
       <source>IP</source>
       <translation>IP</translation>
     </message>
@@ -1282,6 +1342,10 @@
     <message>
       <source>Empty...</source>
       <translation>خالی...</translation>
+    </message>
+    <message>
+      <source>Blocked users</source>
+      <translation>کاربران مسدود شده</translation>
     </message>
     <message>
       <source>Please enter an IP to block</source>
@@ -1306,12 +1370,12 @@
   <context>
     <name>chat/cannedmsg</name>
     <message>
-      <source>Canned messages</source>
-      <translation>پیام های از پیش تعریف شده</translation>
+      <source>Please enter canned message</source>
+      <translation>لطفا پیام تعریف شده را وارد کنید</translation>
     </message>
     <message>
-      <source>Message</source>
-      <translation>پیام</translation>
+      <source>Title/Message</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User</source>
@@ -1342,8 +1406,20 @@
       <translation>پیام جدید تعریف شده</translation>
     </message>
     <message>
-      <source>Edit canned message</source>
-      <translation>ویرایش پیام تعریف شده</translation>
+      <source>Title</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Explain</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message</source>
+      <translation>پیام</translation>
+    </message>
+    <message>
+      <source>Fallback message</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Automatically send this message to user then chat is accepted</source>
@@ -1358,6 +1434,14 @@
       <translation>دپارتمان</translation>
     </message>
     <message>
+      <source>Canned messages</source>
+      <translation>پیام های از پیش تعریف شده</translation>
+    </message>
+    <message>
+      <source>Edit canned message</source>
+      <translation>ویرایش پیام تعریف شده</translation>
+    </message>
+    <message>
       <source>Personal canned message</source>
       <translation>پیام شخصی تعریف شده</translation>
     </message>
@@ -1366,20 +1450,16 @@
       <translation>پیام ذخیره شد</translation>
     </message>
     <message>
-      <source>System configuration</source>
-      <translation>تنظیمات سیستم</translation>
-    </message>
-    <message>
-      <source>Please enter canned message</source>
-      <translation>لطفا پیام تعریف شده را وارد کنید</translation>
+      <source>Please enter a canned message</source>
+      <translation>لطفا یک پیام تعریف شده وارد کنید</translation>
     </message>
     <message>
       <source>Please choose a department</source>
       <translation>لطفا یک دپارتمان انتخاب کنید</translation>
     </message>
     <message>
-      <source>Please enter a canned message</source>
-      <translation>لطفا یک پیام تعریف شده وارد کنید</translation>
+      <source>System configuration</source>
+      <translation>تنظیمات سیستم</translation>
     </message>
   </context>
   <context>
@@ -1535,6 +1615,10 @@
     <message>
       <source>XMPP messages</source>
       <translation>پیام های XMPP</translation>
+    </message>
+    <message>
+      <source>Send XMPP messages to all department operators</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Mail messages</source>
@@ -2043,6 +2127,38 @@
       <source>Empty...</source>
       <translation>خالی...</translation>
     </message>
+    <message>
+      <source>Visitor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nothing found</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last activity ago</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time ago</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/screenshot</name>
@@ -2137,6 +2253,10 @@
   <context>
     <name>chat/startchat</name>
     <message>
+      <source>Invalid captcha code, please enable Javascript!</source>
+      <translation>کد امنیتی نامعتبر است، لطفاً جاوا اسکریپت را فعال کنید!</translation>
+    </message>
+    <message>
       <source>Department is disabled</source>
       <translation>دپارتمان غیرفعال شده</translation>
     </message>
@@ -2165,10 +2285,6 @@
       <translation>لطفا&quot; پیام خود را وارد نمایید</translation>
     </message>
     <message>
-      <source>Start chat</source>
-      <translation>شروع چت</translation>
-    </message>
-    <message>
       <source>Live support is not available in your country</source>
       <translation>پشتیبانی آنلاین در کشور شما در دسترس نمی باشد</translation>
     </message>
@@ -2185,12 +2301,12 @@
       <translation>فایل</translation>
     </message>
     <message>
-      <source>Leave a message</source>
-      <translation>وارد کردن پیام</translation>
-    </message>
-    <message>
       <source>Your request was sent!</source>
       <translation>درخواست شما ارسال شد!</translation>
+    </message>
+    <message>
+      <source>Leave a message</source>
+      <translation>وارد کردن پیام</translation>
     </message>
     <message>
       <source>I accept my personal data will be handled according to</source>
@@ -2199,6 +2315,10 @@
     <message>
       <source>our terms and to the Law</source>
       <translation>شرایط و ضوابط ما</translation>
+    </message>
+    <message>
+      <source>Start chat</source>
+      <translation>شروع چت</translation>
     </message>
     <message>
       <source>Department</source>
@@ -2267,10 +2387,6 @@
     <message>
       <source>You do not have permission to chat! Please contact site owner.</source>
       <translation>شما نمی توانید چت کنید، لطفا با مالک سایت تماس بگیرید.</translation>
-    </message>
-    <message>
-      <source>Invalid captcha code, please enable Javascript!</source>
-      <translation>کد امنیتی نامعتبر است، لطفاً جاوا اسکریپت را فعال کنید!</translation>
     </message>
     <message>
       <source>Please enter your name</source>
@@ -2371,10 +2487,6 @@
   <context>
     <name>chat/closedchats</name>
     <message>
-      <source>Closed chats list</source>
-      <translation>فهرست چت های بسته شده</translation>
-    </message>
-    <message>
       <source>Information</source>
       <translation>اطلاعات</translation>
     </message>
@@ -2389,6 +2501,10 @@
     <message>
       <source>Empty...</source>
       <translation>خالی ...</translation>
+    </message>
+    <message>
+      <source>Closed chats list</source>
+      <translation>فهرست چت های بسته شده</translation>
     </message>
     <message>
       <source>Chats list</source>
@@ -2470,10 +2586,6 @@
   <context>
     <name>chat/geoadjustment</name>
     <message>
-      <source>GEO adjustment</source>
-      <translation>تنظیم GEO </translation>
-    </message>
-    <message>
       <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
       <translation>آیا این قوانین به وضعیت ابزارک چت نیز اعمال شود؟ کاهش عملکرد با این گزینه مرتبط است</translation>
     </message>
@@ -2516,6 +2628,10 @@
     <message>
       <source>normal status</source>
       <translation>وضعیت نرمال</translation>
+    </message>
+    <message>
+      <source>GEO adjustment</source>
+      <translation>تنظیم GEO </translation>
     </message>
   </context>
   <context>
@@ -2802,6 +2918,10 @@
     <message>
       <source>Send message</source>
       <translation>ارسال پیام</translation>
+    </message>
+    <message>
+      <source>Dashboard</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>City</source>
@@ -3167,10 +3287,6 @@
   <context>
     <name>chat/listchatconfig</name>
     <message>
-      <source>Chat configuration</source>
-      <translation>پیکربندی چت</translation>
-    </message>
-    <message>
       <source>Notifications about new chats</source>
       <translation>آگاه کننده در مورد چت های جدید</translation>
     </message>
@@ -3219,6 +3335,10 @@
       <translation>به اشتراک گذاری صفحه نمایش</translation>
     </message>
     <message>
+      <source>Chat configuration</source>
+      <translation>پیکربندی چت</translation>
+    </message>
+    <message>
       <source>List chat configuration</source>
       <translation>فهرست تنظیمات چت</translation>
     </message>
@@ -3236,18 +3356,6 @@
     <message>
       <source>System configuration</source>
       <translation>تنظیمات سیستم</translation>
-    </message>
-    <message>
-      <source>System</source>
-      <translation>سیتم</translation>
-    </message>
-    <message>
-      <source>Embed code</source>
-      <translation>کد داخلی</translation>
-    </message>
-    <message>
-      <source>Live help configuration</source>
-      <translation>تنظیمات چت</translation>
     </message>
     <message>
       <source>Time zone settings</source>
@@ -3274,50 +3382,6 @@
       <translation>فهرست نقش ها</translation>
     </message>
     <message>
-      <source>Departments</source>
-      <translation>دپارتمان ها</translation>
-    </message>
-    <message>
-      <source>Chat configuration</source>
-      <translation>تنظیمات چت</translation>
-    </message>
-    <message>
-      <source>Synchronization and sound settings</source>
-      <translation>تنظیمات هماهنگی و صدا</translation>
-    </message>
-    <message>
-      <source>Start chat form settings</source>
-      <translation>تنظیمات فرم شروع چت</translation>
-    </message>
-    <message>
-      <source>XMPP settings</source>
-      <translation>تنظیمات XMPP</translation>
-    </message>
-    <message>
-      <source>Chats list</source>
-      <translation>فهرست چت ها</translation>
-    </message>
-    <message>
-      <source>Chat archive</source>
-      <translation>بایگانی چت</translation>
-    </message>
-    <message>
-      <source>Theming</source>
-      <translation>قالب ها</translation>
-    </message>
-    <message>
-      <source>Widget themes</source>
-      <translation>قالب های ابزارک</translation>
-    </message>
-    <message>
-      <source>Import new themes</source>
-      <translation>وارد کردن قالب های جدید</translation>
-    </message>
-    <message>
-      <source>Default theme</source>
-      <translation>قالب پیش فرض</translation>
-    </message>
-    <message>
       <source>GEO detection configuration</source>
       <translation>تنظیمات شناسایی موقعیت جغرافیایی</translation>
     </message>
@@ -3338,8 +3402,20 @@
       <translation>پیام های از پیش تعریف شده</translation>
     </message>
     <message>
+      <source>Chat archive</source>
+      <translation>بایگانی چت</translation>
+    </message>
+    <message>
+      <source>Chat configuration</source>
+      <translation>تنظیمات چت</translation>
+    </message>
+    <message>
       <source>Live help embed code</source>
       <translation>کد داخلی پشتیبانی آنلاین</translation>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>فهرست چت ها</translation>
     </message>
     <message>
       <source>Chatbox embed code</source>
@@ -3386,16 +3462,60 @@
       <translation>کد داخلی پرسش نامه</translation>
     </message>
     <message>
+      <source>Start chat form settings</source>
+      <translation>تنظیمات فرم شروع چت</translation>
+    </message>
+    <message>
       <source>Statistic</source>
       <translation>آمار</translation>
+    </message>
+    <message>
+      <source>Theming</source>
+      <translation>قالب ها</translation>
+    </message>
+    <message>
+      <source>Widget themes</source>
+      <translation>قالب های ابزارک</translation>
+    </message>
+    <message>
+      <source>Import new themes</source>
+      <translation>وارد کردن قالب های جدید</translation>
+    </message>
+    <message>
+      <source>Default theme</source>
+      <translation>قالب پیش فرض</translation>
     </message>
     <message>
       <source>Automatic translations</source>
       <translation>ترجمه های خودکار</translation>
     </message>
     <message>
+      <source>XMPP settings</source>
+      <translation>تنظیمات XMPP</translation>
+    </message>
+    <message>
       <source>Speech</source>
       <translation>گفتار</translation>
+    </message>
+    <message>
+      <source>Departments</source>
+      <translation>دپارتمان ها</translation>
+    </message>
+    <message>
+      <source>Synchronization and sound settings</source>
+      <translation>تنظیمات هماهنگی و صدا</translation>
+    </message>
+    <message>
+      <source>Embed code</source>
+      <translation>کد داخلی</translation>
+    </message>
+    <message>
+      <source>Live help configuration</source>
+      <translation>تنظیمات چت</translation>
+    </message>
+    <message>
+      <source>System</source>
+      <translation>سیتم</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -3452,8 +3572,20 @@
       <translation>اپراتور اختصاص داده شده</translation>
     </message>
     <message>
-      <source>Home</source>
-      <translation>صفحه اصلی</translation>
+      <source>Active chats</source>
+      <translation>چت های فعال</translation>
+    </message>
+    <message>
+      <source>collapse/expand</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation>چت های بسته شده</translation>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation>چت های در انتظار</translation>
     </message>
     <message>
       <source>Chats transferred to you directly</source>
@@ -3464,20 +3596,32 @@
       <translation>به دپارتمان شما منتقل شد</translation>
     </message>
     <message>
-      <source>Pending chats</source>
-      <translation>چت های در انتظار</translation>
-    </message>
-    <message>
-      <source>Active chats</source>
-      <translation>چت های فعال</translation>
-    </message>
-    <message>
       <source>Unread messages</source>
       <translation>پیام های خوانده نشده</translation>
     </message>
     <message>
-      <source>Closed chats</source>
-      <translation>چت های بسته شده</translation>
+      <source>Departments stats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>All departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of elements in list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Home</source>
+      <translation>صفحه اصلی</translation>
+    </message>
+    <message>
+      <source>Extra modules</source>
+      <translation>سایر ماژول ها</translation>
     </message>
     <message>
       <source>Browse offers</source>
@@ -3502,10 +3646,6 @@
     <message>
       <source>Menu</source>
       <translation>منو</translation>
-    </message>
-    <message>
-      <source>Extra modules</source>
-      <translation>سایر ماژول ها</translation>
     </message>
     <message>
       <source>Chats list</source>
@@ -3777,6 +3917,90 @@
       <translation>حداقل یک فیلد باید قابل مشاهده باشد و در popup و ابزارک صفحه لازم است</translation>
     </message>
     <message>
+      <source>Custom fields generator, these fields will be visible in start chat forms</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Field label</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default value</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Type</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hidden</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visible on</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline and online form</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Size (between 1 and 12)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Field identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Is required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add a field</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>left</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>right</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visible only in offline form</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visible only in online form</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Size</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Remove</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Enable leave a message functionality automatically if there are no online operators</source>
       <translation>در صورتی که اپراتوری آنلاین نباشد، قابلیت گذاشتن پیام را به طور خودکار فعال می کند</translation>
     </message>
@@ -3791,6 +4015,10 @@
     <message>
       <source>Additional form settings</source>
       <translation>سایر تنظیمات فرم</translation>
+    </message>
+    <message>
+      <source>Custom fields</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Name</source>
@@ -6412,6 +6640,10 @@
       <translation>یادآوری رمز عبور</translation>
     </message>
     <message>
+      <source>You were logged out because another user logged under same account</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Incorrect username or password</source>
       <translation>نام کاربری و یا رمز عبور صحیح نیست</translation>
     </message>
@@ -6547,6 +6779,10 @@
       <translation>تاریخ</translation>
     </message>
     <message>
+      <source>Vote status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Mail send</source>
       <translation>ارسال ایمیل</translation>
     </message>
@@ -6561,6 +6797,10 @@
   </context>
   <context>
     <name>chat/syncuser</name>
+    <message>
+      <source>You do not have permission to view this chat, or chat was deleted</source>
+      <translation>شما برای مشاهده این چت دسترسی ندارید و یا اینکه چت حذف شده است</translation>
+    </message>
     <message>
       <source>Chat was automatically transferred to</source>
       <translation>انتقال خودکار چت به</translation>
@@ -6578,8 +6818,8 @@
       <translation>پشتیبان، چت را بسته است</translation>
     </message>
     <message>
-      <source>You do not have permission to view this chat, or chat was deleted</source>
-      <translation>شما برای مشاهده این چت دسترسی ندارید و یا اینکه چت حذف شده است</translation>
+      <source>The operator has closed this chat session</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>

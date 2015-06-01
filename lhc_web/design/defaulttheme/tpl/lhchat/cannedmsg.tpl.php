@@ -5,6 +5,7 @@
 <tr>
     <th width="1%">ID</th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Title/Message');?></th>
+    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Department');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','User');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Delay');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Position');?></th>
@@ -17,6 +18,7 @@
     <tr>
         <td><?php echo $item->id?></td>
         <td><?php echo nl2br(htmlspecialchars($item->title != '' ? $item->title : $item->msg))?></td>
+        <td><?php if ($item->department !== false) : ?><?php echo htmlspecialchars($item->department)?><?php else : ?>-<?php endif;?></td>
         <td><?php echo htmlspecialchars($item->user)?></td>
         <td><?php echo $item->delay?></td>
         <td><?php echo $item->position?></td>

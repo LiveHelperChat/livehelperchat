@@ -27,6 +27,8 @@ $frontTabsOrder = explode(',', erLhcoreClassModelChatConfig::fetch('front_tabs')
        
     <div role="tabpanel" id="tabs" ng-cloak>
         <ul class="nav nav-pills" role="tablist">
+            
+            
             <?php foreach ($frontTabsOrder as $frontTab) : ?>
             		<?php if (trim($frontTab) == 'online_users' && $online_visitors_enabled_pre == true) : ?> 
             		      <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/section_online_users_tab.tpl.php')); ?>
@@ -48,6 +50,10 @@ $frontTabsOrder = explode(',', erLhcoreClassModelChatConfig::fetch('front_tabs')
                             <?php if ($closedTabEnabled == true && $online_chat_enabled_pre == true) : ?>
                                 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_closed_list_tab.tpl.php'));?>
             		        <?php endif;?>
+            		<?php elseif (trim($frontTab) == 'dashboard') : ?>   
+                            <?php if ($online_chat_enabled_pre == true) : ?>
+                                <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_dashboard_tab.tpl.php'));?>
+            		        <?php endif;?>
             		<?php elseif (trim($frontTab) == 'online_operators') : ?>    
                             <?php if ($canListOnlineUsers == true || $canListOnlineUsersAll == true) : ?>
                                 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_online_op_list_tab.tpl.php'));?>
@@ -56,7 +62,10 @@ $frontTabsOrder = explode(',', erLhcoreClassModelChatConfig::fetch('front_tabs')
             <?php endforeach;?>
         </ul>
         
-        <div class="tab-content" ng-cloak>    		
+        <div class="tab-content" ng-cloak> 
+           
+        	
+                      
     		      <?php foreach ($frontTabsOrder as $frontTab) : ?>    
                       <?php if (trim($frontTab) == 'online_users' && $online_visitors_enabled_pre == true) : ?>    
                       <div role="tabpanel" class="tab-pane form-group" id="onlineusers">
@@ -103,6 +112,12 @@ $frontTabsOrder = explode(',', erLhcoreClassModelChatConfig::fetch('front_tabs')
                 		  <a class="btn btn-default btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('chat/closedchats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','All closed chats');?></a>
                       </div>                     
                       <?php endif;?>
+                      
+                    <?php elseif (trim($frontTab) == 'dashboard' && $online_chat_enabled_pre == true) : ?>
+                    
+                    <div role="tabpanel" class="tab-pane form-group" id="dashboard">
+                          <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/index.tpl.php')); ?>
+                    </div>           
                                           
                     <?php elseif (trim($frontTab) == 'online_operators') : ?>
                     

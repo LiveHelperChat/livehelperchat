@@ -19,8 +19,8 @@ if ($Params['user_parameters_unordered']['print'] == 1){
 	return;
 }
 
-if ($Params['user_parameters_unordered']['xls'] == 1){
-	erLhcoreClassChatExport::chatListExportXLS(erLhcoreClassChat::getUnreadMessagesChats(10000,0,$filterParams['filter']));
+if (in_array($Params['user_parameters_unordered']['xls'], array(1,2))) {
+	erLhcoreClassChatExport::chatListExportXLS(erLhcoreClassChat::getUnreadMessagesChats(10000,0,$filterParams['filter']),array('type' => (int)$Params['user_parameters_unordered']['xls']));
 	exit;
 }
 
@@ -39,6 +39,10 @@ if ($pages->items_total > 0) {
 }
 $filterParams['input_form']->form_action = erLhcoreClassDesign::baseurl('chat/unreadchats');
 $tpl->set('input',$filterParams['input_form']);
+$tpl->set('can_close_global',$currentUser->hasAccessTo('lhchat','allowcloseremote'));
+$tpl->set('can_delete_global',$currentUser->hasAccessTo('lhchat','deleteglobalchat'));
+$tpl->set('can_delete_general',$currentUser->hasAccessTo('lhchat','deletechat'));
+$tpl->set('current_user_id',$currentUser->getUserID());
 
 $Result['content'] = $tpl->fetch();
 

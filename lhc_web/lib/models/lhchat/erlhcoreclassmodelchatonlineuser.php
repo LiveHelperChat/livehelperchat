@@ -575,8 +575,14 @@ class erLhcoreClassModelChatOnlineUser {
 	                   		$item->total_visits++;
 	                   		$item->last_visit = time();
 	                   		$item->pages_count = 0;
-	                   		$item->chat_id = 0; // Reset chat id to no chat
-
+	                   		
+	                   		// Reset chat_id only if chat is not active or pending
+	                   		if ($item->chat_id > 0) {
+	                   		    if ($item->chat === false || !in_array($item->chat->status, array(erLhcoreClassModelChat::STATUS_ACTIVE_CHAT,erLhcoreClassModelChat::STATUS_PENDING_CHAT))){
+	                   		        $item->chat_id = 0;
+	                   		    }
+	                   		} 
+	                   			                   		
 	                   		if ($item->message_seen == 1 && $item->message_seen_ts < (time() - ((int)$paramsHandle['message_seen_timeout']*3600))) {
 	                   			$item->message_seen = 0;
 	                   			$item->message_seen_ts = 0;

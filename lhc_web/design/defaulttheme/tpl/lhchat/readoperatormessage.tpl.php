@@ -1,5 +1,7 @@
-<?php if (($user = $visitor->operator_user) !== false) : ?>
-<?php $hideThumbs = true;$extraMessage = $user->job_title != '' ? htmlspecialchars($user->job_title) : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Personal assistant');?>
+<?php 
+$profileShown = false;
+if (($user = $visitor->operator_user) !== false) : ?>
+<?php $profileShown = true; $hideThumbs = true;$extraMessage = $user->job_title != '' ? htmlspecialchars($user->job_title) : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Personal assistant');?>
 <?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile.tpl.php'));?>
 <?php endif;?>
 
@@ -12,9 +14,10 @@
 <form action="" id="ReadOperatorMessage" method="post" onsubmit="return lhinst.addCaptcha('<?php echo time()?>',$(this))">
 
 <?php if (isset($errors)) : ?>
+<div class="pt10">
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
+</div>
 <?php endif; ?>
-
 
 <?php 
 $hasExtraField = false;

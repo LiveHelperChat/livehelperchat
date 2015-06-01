@@ -51,6 +51,18 @@ class erLhcoreClassModelCannedMsg
                 return $this->user;
                 break;
                 
+            case 'department':
+                $this->department = false;
+                if ($this->department_id > 0) {
+                    try {
+                        $this->department = erLhcoreClassModelDepartament::fetch($this->department_id,true);
+                    } catch (Exception $e) {
+                        $this->department = false;
+                    }
+                }
+                return $this->department;
+                break;
+                
             case 'msg_to_user':
                     $this->msg_to_user = str_replace(array_keys($this->replaceData), array_values($this->replaceData), $this->msg);
                     
@@ -108,7 +120,7 @@ class erLhcoreClassModelCannedMsg
     public static function getList($paramsSearch = array())
     {
         $paramsDefault = array(
-            'limit' => 32,
+            'limit' => 5000,
             'offset' => 0
         );
         
@@ -168,7 +180,7 @@ class erLhcoreClassModelCannedMsg
         $q = $session->createFindQuery('erLhcoreClassModelCannedMsg');
         $q->where($q->expr->lOr($q->expr->eq('department_id', $q->bindValue($department_id)), $q->expr->lAnd($q->expr->eq('department_id', $q->bindValue(0)), $q->expr->eq('user_id', $q->bindValue(0))), $q->expr->eq('user_id', $q->bindValue($user_id))));
         
-        $q->limit(50, 0);
+        $q->limit(5000, 0);
         $q->orderBy('position ASC, id ASC'); // Questions with matched URL has higher priority
         $items = $session->find($q);
         return $items;

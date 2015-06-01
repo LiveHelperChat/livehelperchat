@@ -48,6 +48,15 @@ gulp.task('js-angular-online', function() {
 	.pipe(gulp.dest('design/defaulttheme/js'));
 });
 
+gulp.task('js-angular-checkmodel', function() {
+	var stylePath = ['design/defaulttheme/js/checklist-model.js'];
+	
+	return gulp.src(stylePath)
+	.pipe(concat('checklist-model.min.js'))
+	.pipe(uglify({preserveComments: 'some'}))
+	.pipe(gulp.dest('design/defaulttheme/js'));
+});
+
 gulp.task('js-main-fileupload', function() {
 	var stylePath = [
 	                 'design/defaulttheme/js/fileupload/jquery.ui.widget.js',
@@ -124,7 +133,7 @@ gulp.task('js-cobrowse',['js-cobrowse-operator','js-cobrowse-visitor'], function
 
 });
 
-gulp.task('default', ['js-cobrowse-operator','js-cobrowse-visitor','js-angular-main','js-main-fileupload','js-datepicker','js-lhc-speak-js','js-lh','js-angular-online','js-lh-npm','bower-setup'], function() {
+gulp.task('default', ['js-cobrowse-operator','js-cobrowse-visitor','js-angular-main','js-main-fileupload','js-datepicker','js-lhc-speak-js','js-lh','js-angular-checkmodel','js-angular-online','js-lh-npm','bower-setup'], function() {
 	// Just execute all the tasks	
 });
 

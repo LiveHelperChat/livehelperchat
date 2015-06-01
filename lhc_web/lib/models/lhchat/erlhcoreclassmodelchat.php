@@ -126,6 +126,10 @@ class erLhcoreClassModelChat {
 	   	erLhcoreClassChat::getSession()->delete($this);
 	   	
 	   	erLhcoreClassChat::updateActiveChats($this->user_id);
+	   	
+	   	if ($this->department !== false) {
+	   	    erLhcoreClassChat::updateDepartmentStats($this->department);
+	   	}
    }
 
    public static function fetch($chat_id) {

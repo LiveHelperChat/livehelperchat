@@ -29,7 +29,40 @@ class erLhcoreClassModelUserDep {
 					$this->user = erLhcoreClassModelUser::fetch($this->user_id);
 					return $this->user;
 				break;
-
+				
+			case 'lastactivity_ago':
+					$this->lastactivity_ago = $this->user->lastactivity_ago;
+					return $this->lastactivity_ago;
+				break;
+				
+			case 'name_support':
+					$this->name_support = $this->user->name_support;
+					return $this->name_support;
+				break;
+							
+			case 'departments_names':
+			         $this->departments_names = array();
+			         $ids = $this->user->departments_ids;			         
+			         if (!empty($ids)){
+    			         $parts = explode(',', $ids);
+    			         sort($parts);
+    			         		         
+    			         foreach ($parts as $depId) {
+    			             if ($depId == 0) {
+    			                 $this->departments_names[] = '∞';
+    			             } else {
+    			                 try {
+    			                     $dep = erLhcoreClassModelDepartament::fetch($depId,true);
+    			                     $this->departments_names[] = $dep->name;
+    			                 } catch (Exception $e) {
+    			                     
+    			                 }
+    			             }
+    			         }
+			         }			         
+			         return $this->departments_names;
+			    break;
+			    
 			default:
 				break;
 		}
@@ -107,43 +140,73 @@ class erLhcoreClassModelUserDep {
 	   	return $objects;
    }
 
-   public static function getOnlineOperators($currentUser, $canListOnlineUsersAll = false) {
-
-	   	$LimitationDepartament = '';
-	   	$userData = $currentUser->getUserData(true);
-	   
-	   	$sqlAppend = '';
-	   	if ( $userData->all_departments == 0 && $canListOnlineUsersAll == false)
-	   	{
-	   		$userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID());
-
-	   		if (count($userDepartaments) == 0) return array();
-
-	   		$index = array_search(-1, $userDepartaments);
-	   		if ($index !== false){
-	   			unset($userDepartaments[$index]);
-	   		}
-	   		
-	   		$sqlAppend = 'AND (dep_id IN ('.implode(',',$userDepartaments). ') OR user_id = ' . $currentUser->getUserID() . ')';
-	   	};
-		      		
-   		$db = ezcDbInstance::get();
-   		$stmt = $db->prepare("SELECT user_id,last_activity FROM lh_userdep WHERE last_activity > :last_activity {$sqlAppend} GROUP BY user_id,last_activity ORDER BY last_activity DESC LIMIT 10;");
-   		$stmt->bindValue( ':last_activity',(time()-120),PDO::PARAM_INT);   			
-   		$stmt->execute();
-   		$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-   		
-   		$returnObjects = array();
-   		foreach ($rows as $row) {
-   			$stdObject = new erLhcoreClassModelUserDep();
-   			$stdObject->user_id = $row['user_id'];
-   			$stdObject->last_activity = $row['last_activity'];
-   			$returnObjects[] = $stdObject;
-   		}
-
-   		return $returnObjects;
-
+   /* public static function getOnlineOperators($currentUser, $canListOnlineUsersAll = false, $params = array(), $limit = 10, $onlineTimeout = 120) {
+   
+       $LimitationDepartament = '';
+       $userData = $currentUser->getUserData(true);
+       $filter = array();
+        
+       if ($userData->all_departments == 0 && $canListOnlineUsersAll == false)
+       {
+           $userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID());
+   
+           if (count($userDepartaments) == 0) return array();
+   
+           $index = array_search(-1, $userDepartaments);
+           if ($index !== false){
+               unset($userDepartaments[$index]);
+           }
+   
+           $filter['customfilter'][] = '(dep_id IN ('.implode(',',$userDepartaments). ') OR user_id = ' . $currentUser->getUserID() . ')';
+       };
+        
+       $filter['filtergt']['last_activity'] = time()-$onlineTimeout;
+       $filter['limit'] = $limit;
+       $filter['sort'] = 'active_chats DESC';
+       $filter['groupby'] = 'user_id';
+   
+       $filter = array_merge_recursive($filter,$params);
+       	
+       return self::getList($filter);   
+   } */
+   
+   // todo @redo with new dashboard
+   public static function getOnlineOperators($currentUser, $canListOnlineUsersAll = false, $params = array(), $limit = 10, $onlineTimeout = 120) {
+       $LimitationDepartament = '';
+       $userData = $currentUser->getUserData(true);
+   
+       $sqlAppend = '';
+       if ( $userData->all_departments == 0 && $canListOnlineUsersAll == false)
+       {
+           $userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID());
+           if (count($userDepartaments) == 0) return array();
+           $index = array_search(-1, $userDepartaments);
+           if ($index !== false){
+               unset($userDepartaments[$index]);
+           }
+   
+           $sqlAppend = 'AND (dep_id IN ('.implode(',',$userDepartaments). ') OR user_id = ' . $currentUser->getUserID() . ')';
+       };
+   
+       $db = ezcDbInstance::get();
+       $stmt = $db->prepare("SELECT user_id,last_activity,active_chats FROM lh_userdep WHERE last_activity > :last_activity {$sqlAppend} GROUP BY user_id,last_activity,active_chats ORDER BY active_chats DESC LIMIT {$limit};");
+       $stmt->bindValue( ':last_activity',(time()-$onlineTimeout),PDO::PARAM_INT);
+       $stmt->execute();
+       $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
+       $returnObjects = array();
+       foreach ($rows as $row) {
+           $stdObject = new erLhcoreClassModelUserDep();
+           $stdObject->user_id = $row['user_id'];
+           $stdObject->last_activity = $row['last_activity'];
+           $stdObject->active_chats = $row['active_chats'];
+           $returnObjects[] = $stdObject;
+       }
+       return $returnObjects;
    }
+   
+   
+   
 
    public $id = null;
    public $user_id = 0;

@@ -23,6 +23,7 @@ $checkStatus = 'f';
 $breakSync = false;
 $saveChat = false;
 $operation = '';
+$operatorId = 0;
 
 if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 {
@@ -73,14 +74,24 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 				        $content = $tpl->fetch();
 		
 				        foreach ($Messages as $msg) {
-				        	if ($msg['user_id'] > 0) {
+				        	if ($msg['user_id'] > 0 || $msg['user_id'] == -2) {
 				        		$userOwner = 'false';
 				        		break;
 				        	}
 				        }
 		
-				        $LastMessageIDs = array_pop($Messages);
+				        // Get first message opertor id
+				        reset($Messages);
+				        $firstNewMessage = current($Messages);
+				        $operatorId = $firstNewMessage['user_id'];
+				        
+				        // Get Last message ID
+				        end($Messages);
+				        $LastMessageIDs = current($Messages);
 				        $LastMessageID = $LastMessageIDs['id'];
+				        
+				        
+				        
 				        $breakSync = true;
 				    }
 				}
@@ -145,11 +156,11 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 
 } else {
     $content = 'false';
-    $status = '<h4>'.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','You do not have permission to view this chat, or chat was deleted').'</h4>';
+    $status = '<h4>'.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','The operator has closed this chat session').'</h4>';
     $blocked = 'true';
 }
 
-echo json_encode(array('error' => 'false','op' => $operation, 'uw' => $userOwner, 'cs'=> $checkStatus, 'ott' => $ott, 'message_id' => $LastMessageID, 'result' => trim($content) == '' ? 'false' : trim($content), 'status' => $status, 'blocked' => $blocked ));
+echo json_encode(array('error' => 'false','op' => $operation, 'uw' => $userOwner, 'msop' => $operatorId, 'cs'=> $checkStatus, 'ott' => $ott, 'message_id' => $LastMessageID, 'result' => trim($content) == '' ? 'false' : trim($content), 'status' => $status, 'blocked' => $blocked ));
 exit;
 
 ?>

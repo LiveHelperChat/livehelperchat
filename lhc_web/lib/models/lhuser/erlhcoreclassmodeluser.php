@@ -3,29 +3,33 @@
 class erLhcoreClassModelUser {
 
     public function getState()
-   {
-       return array(
-               'id'              => $this->id,
-               'username'        => $this->username,
-               'password'        => $this->password,
-               'email'           => $this->email,
-               'name'            => $this->name,
-               'surname'         => $this->surname,
-               'disabled'        => $this->disabled,
-               'hide_online'     => $this->hide_online,
-               'all_departments' => $this->all_departments,
-               'filepath'     	 => $this->filepath,
-			   'filename'     	 => $this->filename,
-			   'skype'     	 	 => $this->skype,
-			   'job_title'     	 => $this->job_title,
-			   'time_zone'     	 => $this->time_zone,
-			   'invisible_mode'  => $this->invisible_mode,
-			   'xmpp_username'   => $this->xmpp_username,
-			   'rec_per_req'     => $this->rec_per_req,
-			   'session_id'      => $this->session_id,
-       );
+    {
+        return array(
+            'id' => $this->id,
+            'username' => $this->username,
+            'password' => $this->password,
+            'email' => $this->email,
+            'name' => $this->name,
+            'surname' => $this->surname,
+            'disabled' => $this->disabled,
+            'hide_online' => $this->hide_online,
+            'all_departments' => $this->all_departments,
+            'filepath' => $this->filepath,
+            'filename' => $this->filename,
+            'skype' => $this->skype,
+            'job_title' => $this->job_title,
+            'time_zone' => $this->time_zone,
+            'invisible_mode' => $this->invisible_mode,
+            'xmpp_username' => $this->xmpp_username,
+            'rec_per_req' => $this->rec_per_req,
+            'session_id' => $this->session_id,
+            'active_chats_counter' => $this->active_chats_counter,
+            'closed_chats_counter' => $this->closed_chats_counter,
+            'pending_chats_counter' => $this->pending_chats_counter,
+            'departments_ids' => $this->departments_ids
+        );
    }
-
+      
    public function setState( array $properties )
    {
        foreach ( $properties as $key => $val )
@@ -345,6 +349,7 @@ class erLhcoreClassModelUser {
     public $filename = '';
     public $surname = '';
     public $job_title = '';
+    public $departments_ids = '';
     public $skype = '';
     public $xmpp_username = '';
     public $disabled = 0;
@@ -354,6 +359,9 @@ class erLhcoreClassModelUser {
     public $time_zone = '';
     public $rec_per_req = '';
     public $session_id = '';
+    public $active_chats_counter = 0;
+    public $closed_chats_counter = 0;
+    public $pending_chats_counter = 0;
 }
 
 ?>

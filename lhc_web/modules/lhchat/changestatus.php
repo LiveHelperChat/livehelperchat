@@ -75,6 +75,10 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) ) {
 		 	
 		 	 erLhcoreClassChat::updateActiveChats($chat->user_id);
 		 	 
+		 	 if ($chat->department !== false) {
+		 	     erLhcoreClassChat::updateDepartmentStats($chat->department);
+		 	 }
+		 	 
 			 echo json_encode(array('error' => 'false'));
 			 exit;
 		 } else {

@@ -111,9 +111,11 @@ $ViewList['delete'] = array(
 
 $ViewList['syncadmininterface'] = array(
     'params' => array(),
+    'uparams' => array('departmentd','operatord','actived','pendingd','closedd','unreadd','limita','limitp','limitc','limitu','limito','limitd'),
     'ajax' => true,
-    'functions' => array( 'use' )
-    );
+    'functions' => array( 'use' ),
+    'multiple_arguments' => array ( 'operatord', 'actived', 'closedd' , 'pendingd', 'unreadd','departmentd')
+);
 
 $ViewList['lists'] = array(
     'params' => array(),
@@ -456,11 +458,6 @@ $ViewList['geoadjustment'] = array(
     'functions' => array( 'geoadjustment' )
 );
 
-$ViewList['statistic'] = array(
-    'params' => array(),
-    'functions' => array( 'viewstatistic' )
-);
-
 $ViewList['accept'] = array(
     'params' => array('hash','validation_hash','email')
 );
@@ -483,7 +480,6 @@ $FunctionList['administratecannedmsg'] = array('explain' =>'Allow operator chang
 $FunctionList['allowopenremotechat'] = array('explain' =>'Allow operator to open other operators chats from same department');
 $FunctionList['allowreopenremote'] = array('explain' =>'Allow operator to reopen other operators chats');
 $FunctionList['allowtransfertoanyuser'] = array('explain' =>'Allow operator to transfer chat to any online operator, not only his own department users');
-$FunctionList['viewstatistic'] = array('explain' =>'Allow operator to view statistic');
 $FunctionList['use_onlineusers'] = array('explain' =>'Allow operator to view online visitors');
 $FunctionList['chattabschrome'] = array('explain' =>'Allow operator to use chrome extension');
 $FunctionList['canchangechatstatus'] = array('explain' =>'Allow operator to change chat status');

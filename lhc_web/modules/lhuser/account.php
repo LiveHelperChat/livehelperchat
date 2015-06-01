@@ -333,13 +333,14 @@ if ($allowEditDepartaments && isset($_POST['UpdateDepartaments_account']))
        $UserData->all_departments = 0;
    }
 
-   erLhcoreClassUser::getSession()->update($UserData);
-
    if (isset($_POST['UserDepartament']) && count($_POST['UserDepartament']) > 0)
    {
        $globalDepartament = array_merge($_POST['UserDepartament'],$globalDepartament);
    }
-
+      
+   $UserData->departments_ids = implode(',', $globalDepartament);
+   erLhcoreClassUser::getSession()->update($UserData);
+      
    if (count($globalDepartament) > 0) {
        erLhcoreClassUserDep::addUserDepartaments($globalDepartament,false,$UserData);
    } else {

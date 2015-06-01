@@ -29,13 +29,27 @@
     <div id="messages" >
         <div class="msgBlock" <?php if (erLhcoreClassModelChatConfig::fetch('mheight')->current_value > 0) : ?>style="height:<?php echo (int)erLhcoreClassModelChatConfig::fetch('mheight')->current_value?>px"<?php endif?> id="messagesBlock"><?php
         $lastMessageID = 0;
-        foreach (erLhcoreClassChat::getChatMessages($chat_id) as $msg) : ?>        		
-        	<?php include(erLhcoreClassDesign::designtpl('lhchat/lists/user_msg_row.tpl.php'));?>	        	
-         <?php $lastMessageID = $msg['id']; endforeach; ?>
+        $lastOperatorChanged = false;
+        $lastOperatorId = false;
+        
+        foreach (erLhcoreClassChat::getChatMessages($chat_id) as $msg) : 
+        
+        if ($lastOperatorId !== false && $lastOperatorId != $msg['user_id']) {
+            $lastOperatorChanged = true;
+        } else {
+            $lastOperatorChanged = false;
+        }
+        
+        $lastOperatorId = $msg['user_id'];        
+        ?>        		
+        <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/user_msg_row.tpl.php'));?>	        	
+        <?php $lastMessageID = $msg['id']; 
+         endforeach; ?>
        </div>
     </div>
     <div id="id-operator-typing"></div>
  
+    <?php if ($chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?>
     <div id="ChatMessageContainer">    
 		<div class="user-chatwidget-buttons" id="ChatSendButtonContainer">     
 		
@@ -68,8 +82,10 @@
 		});		
         lhinst.initTypingMonitoringUser('<?php echo $chat_id?>');
         </script>
+       
+        
     </div>
-    
+     <?php endif;?>
 <script type="text/javascript">
     lhinst.setChatID('<?php echo $chat_id?>');
     lhinst.setChatHash('<?php echo $hash?>');

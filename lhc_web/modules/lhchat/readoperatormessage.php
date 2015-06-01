@@ -324,7 +324,7 @@ if (isset($_POST['askQuestion']))
        $msg->msg = trim($userInstance->operator_message);
        $msg->chat_id = $chat->id;
        $msg->name_support = $userInstance->operator_user !== false ? trim($userInstance->operator_user->name.' '.$userInstance->operator_user->surname) : (!empty($userInstance->operator_user_proactive) ? $userInstance->operator_user_proactive : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support'));
-       $msg->user_id = $userInstance->operator_user_id > 0 ? $userInstance->operator_user_id : 1;
+       $msg->user_id = $userInstance->operator_user_id > 0 ? $userInstance->operator_user_id : -2;
        $msg->time = time()-7; // Deduct 7 seconds so for user all looks more natural
 
        erLhcoreClassChat::getSession()->save($msg);
@@ -336,7 +336,9 @@ if (isset($_POST['askQuestion']))
        $msg->user_id = 0;
        $msg->time = time();
        erLhcoreClassChat::getSession()->save($msg);
-
+       
+       $messageInitial = $msg;
+       
        if ($userInstance->invitation !== false) {
 
        		if ($userInstance->invitation->wait_message != '') {
@@ -344,7 +346,7 @@ if (isset($_POST['askQuestion']))
 		       	$msg->msg = trim($userInstance->invitation->wait_message);
 		       	$msg->chat_id = $chat->id;
 		       	$msg->name_support = $userInstance->operator_user !== false ? $userInstance->operator_user->name_support : (!empty($userInstance->operator_user_proactive) ? $userInstance->operator_user_proactive : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support'));
-		       	$msg->user_id = $userInstance->operator_user_id > 0 ? $userInstance->operator_user_id : 1;
+		       	$msg->user_id = $userInstance->operator_user_id > 0 ? $userInstance->operator_user_id : -2;
 		       	$msg->time = time()+5;
 		       	erLhcoreClassChat::getSession()->save($msg);
        		}
@@ -370,7 +372,7 @@ if (isset($_POST['askQuestion']))
 	       			$msg->msg = trim($responder->wait_message);
 	       			$msg->chat_id = $chat->id;
 	       			$msg->name_support = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
-	       			$msg->user_id = 1;
+	       			$msg->user_id = -2;
 	       			$msg->time = time()+5;
 	       			erLhcoreClassChat::getSession()->save($msg);
 	       		}
@@ -390,7 +392,9 @@ if (isset($_POST['askQuestion']))
        $chat->last_user_msg_time = time();
        $chat->saveThis();
 
-       erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started',array('chat' => & $chat));
+       erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started',array('chat' => & $chat, 'msg' => $messageInitial));
+       
+       erLhcoreClassChat::updateDepartmentStats($chat->department);
        
        // Redirect user
        erLhcoreClassModule::redirect('chat/chatwidgetchat/' . $chat->id . '/' . $chat->hash . $modeAppendTheme .  '/(cstarted)/chat_started_by_invitation_cb');

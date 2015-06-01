@@ -67,12 +67,18 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
 		                		}
 		                	}
 		                }
-		
-		                $LastMessageIDs = array_pop($Messages);
-		
+		                // Get first message opertor id
+		                reset($Messages);
+		                $firstNewMessage = current($Messages);
+		                  
+		                // Get last message
+		                end($Messages);
+		                $LastMessageIDs = current($Messages);
+		                
+		                // Fetch content
 		                $templateResult = $tpl->fetch();
-		
-		                $ReturnMessages[] = array('chat_id' => $chat_id,'nck' => $Chat->nick, 'mn' => $newMessagesNumber,'msg' => $msgText, 'content' => $templateResult, 'message_id' => $LastMessageIDs['id']);
+		                
+		                $ReturnMessages[] = array('chat_id' => $chat_id,'nck' => $Chat->nick, 'msfrom' => $MessageID, 'msop' => $firstNewMessage['user_id'], 'mn' => $newMessagesNumber, 'msg' => $msgText, 'content' => $templateResult, 'message_id' => $LastMessageIDs['id']);
 		            }
 			          
 		            if ($Chat->is_user_typing == true) {
