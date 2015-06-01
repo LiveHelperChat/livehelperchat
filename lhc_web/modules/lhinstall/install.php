@@ -873,6 +873,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('sharing_nodejs_secure','0',0,'Connect to NodeJs in https mode',0),
                 ('disable_js_execution','1',0,'Disable JS execution in Co-Browsing operator window',0),
                 ('sharing_nodejs_socket_host','',0,'Host where NodeJs is running',0),
+                ('hide_right_column_frontpage','0','0','Hide right column in frontpage','0'),
                 ('front_tabs', 'dashboard,online_users,online_map', '0', 'Home page tabs order', '0'),
                 ('speech_data',	'a:3:{i:0;b:0;s:8:\"language\";i:7;s:7:\"dialect\";s:5:\"en-US\";}',	1,	'',	1),
                 ('sharing_nodejs_sllocation','https://cdn.socket.io/socket.io-1.1.0.js',0,'Location of SocketIO JS library',0),
