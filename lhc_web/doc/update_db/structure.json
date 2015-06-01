@@ -3751,6 +3751,13 @@
                 "hidden": "0"
             },
             {
+                "identifier": "hide_right_column_frontpage",
+                "value": "0",
+                "type": "0",
+                "explain": "Hide right column in frontpage",
+                "hidden": "0"
+            },
+            {
                 "identifier": "accept_tos_link",
                 "value": "#",
                 "type": "0",
