@@ -2447,7 +2447,7 @@
             },
             {
                 "field": "xmpp_recipients",
-                "type": "varchar(250)",
+                "type": "text",
                 "null": "NO",
                 "key": "",
                 "default": null,
@@ -2455,7 +2455,7 @@
             },
             {
                 "field": "xmpp_group_recipients",
-                "type": "varchar(250)",
+                "type": "text",
                 "null": "NO",
                 "key": "",
                 "default": null,
