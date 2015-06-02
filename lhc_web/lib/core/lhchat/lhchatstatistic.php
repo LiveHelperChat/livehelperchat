@@ -301,6 +301,10 @@ class erLhcoreClassChatStatistic {
         $data = self::averageOfChatsDialogsByUser($days,$filter,5000);   
         
         include 'lib/core/lhform/PHPExcel.php';
+        $cacheMethod = PHPExcel_CachedObjectStorageFactory::cache_to_phpTemp;
+        $cacheSettings = array( 'memoryCacheSize ' => '64MB');
+        PHPExcel_Settings::setCacheStorageMethod($cacheMethod, $cacheSettings);
+
         $objPHPExcel = new PHPExcel();
         $objPHPExcel->setActiveSheetIndex(0);
         $objPHPExcel->getActiveSheet()->getStyle('A1:AW1')->getFont()->setBold(true);
