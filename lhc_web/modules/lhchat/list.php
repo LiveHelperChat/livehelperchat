@@ -53,7 +53,7 @@ if ($limitation !== false) {
 
 if ($Params['user_parameters_unordered']['print'] == 1){
 	$tpl = erLhcoreClassTemplate::getInstance('lhchat/printchats.tpl.php');
-	$items = erLhcoreClassChat::getList(array_merge($filterParams['filter'],array('limit' => 10000,'offset' => 0)));
+	$items = erLhcoreClassChat::getList(array_merge($filterParams['filter'],array('limit' => 100000,'offset' => 0)));
 	$tpl->set('items',$items);
 	$Result['content'] = $tpl->fetch();
 	$Result['pagelayout'] = 'popup';
@@ -61,7 +61,7 @@ if ($Params['user_parameters_unordered']['print'] == 1){
 }
 
 if (in_array($Params['user_parameters_unordered']['xls'], array(1,2))) {
-	erLhcoreClassChatExport::chatListExportXLS(erLhcoreClassChat::getList(array_merge($filterParams['filter'],array('limit' => 10000,'offset' => 0))),array('type' => (int)$Params['user_parameters_unordered']['xls']));
+	erLhcoreClassChatExport::chatListExportXLS(erLhcoreClassChat::getList(array_merge($filterParams['filter'],array('limit' => 100000,'offset' => 0))),array('type' => (int)$Params['user_parameters_unordered']['xls']));
 	exit;
 }
 
