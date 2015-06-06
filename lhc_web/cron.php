@@ -85,6 +85,9 @@ $instance->Language = $optionsSiteAccess['locale'];
 $instance->ThemeSite = $optionsSiteAccess['theme'];
 $instance->WWWDirLang = '/'.$helpOption->value;
 
+// Attatch extensions events listeners
+erLhcoreClassModule::attatchExtensionListeners();
+
 // php cron.php -s site_admin -c cron/workflow
 // php cron.php -s site_admin -e customstatus -c cron/customcron
 if ($extensionPartOption->value) {
