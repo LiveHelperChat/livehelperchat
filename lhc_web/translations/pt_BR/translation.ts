@@ -1179,6 +1179,10 @@
       <translation>XLS</translation>
     </message>
     <message>
+      <source>XLS (with content)</source>
+      <translation>XLS (com conteúdo)</translation>
+    </message>
+    <message>
       <source>Select department</source>
       <translation>Selecionar departamento</translation>
     </message>
@@ -1193,6 +1197,18 @@
     <message>
       <source>Choose department</source>
       <translation>Escolher departamento</translation>
+    </message>
+    <message>
+      <source>Group by</source>
+      <translation>Agrupado por</translation>
+    </message>
+    <message>
+      <source>Month</source>
+      <translation>Mês</translation>
+    </message>
+    <message>
+      <source>Day</source>
+      <translation>Dia</translation>
     </message>
   </context>
   <context>
@@ -1378,6 +1394,10 @@
       <translation>Titulo/Mensagem</translation>
     </message>
     <message>
+      <source>Department</source>
+      <translation>Departamento</translation>
+    </message>
+    <message>
       <source>User</source>
       <translation>Usuário</translation>
     </message>
@@ -1428,10 +1448,6 @@
     <message>
       <source>Delay in seconds</source>
       <translation>Atraso em segundos</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Departamento</translation>
     </message>
     <message>
       <source>Canned messages</source>
@@ -2257,6 +2273,18 @@
       <translation>Código captcha inválido, por favor ative o javascript!</translation>
     </message>
     <message>
+      <source>Invalid file extension</source>
+      <translation>Extensão de arquivo inválida</translation>
+    </message>
+    <message>
+      <source>Invalid file extension!</source>
+      <translation>Extensão de arquivo inválida!</translation>
+    </message>
+    <message>
+      <source>To big file!</source>
+      <translation>Arquivo muito grande!</translation>
+    </message>
+    <message>
       <source>Department is disabled</source>
       <translation>Departamento está desabilitado</translation>
     </message>
@@ -2431,18 +2459,6 @@
     <message>
       <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
       <translation>Sua solicitação não foi processada como esperado - mas não se preocupe isso não foi sua culpa. Por favor reenvie sua solicitação. Se você experimentar o mesmo problema, você precisará nos contactar por outros meios.</translation>
-    </message>
-    <message>
-      <source>Invalid file extension</source>
-      <translation>Extensão de arquivo inválida</translation>
-    </message>
-    <message>
-      <source>Invalid file extension!</source>
-      <translation>Extensão de arquivo inválida!</translation>
-    </message>
-    <message>
-      <source>To big file!</source>
-      <translation>Arquivo muito grande!</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -3604,6 +3620,10 @@
       <translation>Status dos departamentos</translation>
     </message>
     <message>
+      <source>Download XLS</source>
+      <translation>Baixar XLS</translation>
+    </message>
+    <message>
       <source>Online operators</source>
       <translation>Operadores online</translation>
     </message>
@@ -4235,12 +4255,28 @@
   <context>
     <name>chat/statistic</name>
     <message>
+      <source>General</source>
+      <translation>Geral</translation>
+    </message>
+    <message>
+      <source>Operators last 24h statistic, top 100 by chats number</source>
+      <translation>Últimas 24h de estatística de operadores, Top 100 por chats</translation>
+    </message>
+    <message>
       <source>Statistic</source>
       <translation>Estatística</translation>
     </message>
     <message>
-      <source>General</source>
-      <translation>Geral</translation>
+      <source>Chats statistic</source>
+      <translation>Estatísticas do chat</translation>
+    </message>
+    <message>
+      <source>Total statistic</source>
+      <translation>Estatística completa</translation>
+    </message>
+    <message>
+      <source>Last 24 hours statistic</source>
+      <translation>Estatísticas das últimas 24 horas</translation>
     </message>
     <message>
       <source>User</source>
@@ -4275,24 +4311,16 @@
       <translation>Número de chats por país</translation>
     </message>
     <message>
-      <source>Number of chats by user</source>
-      <translation>Número de chats por usuário</translation>
+      <source>Average in seconds</source>
+      <translation>Média em segundos</translation>
     </message>
     <message>
       <source>Wait time</source>
       <translation>Tempo de espera</translation>
     </message>
     <message>
-      <source>AVG visitor wait time by operator</source>
-      <translation>Tempo de espera médio dos visitantes por operador</translation>
-    </message>
-    <message>
       <source>Messages</source>
       <translation>Mensagens</translation>
-    </message>
-    <message>
-      <source>Number of messages by user</source>
-      <translation>Número de mensagens por usuário</translation>
     </message>
     <message>
       <source>Month</source>
@@ -4355,10 +4383,6 @@
       <translation>Número de chats por hora, duração média do chat</translation>
     </message>
     <message>
-      <source>Chats statistic</source>
-      <translation>Estatísticas do chat</translation>
-    </message>
-    <message>
       <source>Hourly statistic</source>
       <translation>Estatísticas por hora</translation>
     </message>
@@ -4371,8 +4395,28 @@
       <translation>Estatísticas de usuários</translation>
     </message>
     <message>
-      <source>Total statistic</source>
-      <translation>Estatística completa</translation>
+      <source>Number of chats by user</source>
+      <translation>Número de chats por usuário</translation>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation>Número de mensagens por usuário</translation>
+    </message>
+    <message>
+      <source>Average chat duration by user</source>
+      <translation>Média de duração do bate-papo por usuário</translation>
+    </message>
+    <message>
+      <source>All operators statistic will be downloaded</source>
+      <translation>Todos os operadores de estatística serão baixados</translation>
+    </message>
+    <message>
+      <source>AVG visitor wait time by operator</source>
+      <translation>Tempo de espera médio dos visitantes por operador</translation>
+    </message>
+    <message>
+      <source>Last 24h statistic</source>
+      <translation>Estatística das últimas 24 horas</translation>
     </message>
     <message>
       <source>Parameter</source>
@@ -4419,12 +4463,8 @@
       <translation>Total de mensagens (somente operadores)</translation>
     </message>
     <message>
-      <source>Last 24h statistic</source>
-      <translation>Estatística das últimas 24 horas</translation>
-    </message>
-    <message>
-      <source>Operators last 24h statistic, top 100 by chats number</source>
-      <translation>Últimas 24h de estatística de operadores, Top 100 por chats</translation>
+      <source>Operators statistic, top 100 by chats number</source>
+      <translation>Operadores de estatística, top 100 por número de bate-papo</translation>
     </message>
     <message>
       <source>Total messages</source>
@@ -6743,6 +6783,22 @@
   <context>
     <name>chat/chatexport</name>
     <message>
+      <source>Referrer</source>
+      <translation>Referenciador</translation>
+    </message>
+    <message>
+      <source>Department name</source>
+      <translation>Nome do departamento</translation>
+    </message>
+    <message>
+      <source>Pending chats number</source>
+      <translation>Quantidade de bate-papos pendentes</translation>
+    </message>
+    <message>
+      <source>Active chats number</source>
+      <translation>Quantidade de bate-papos ativos</translation>
+    </message>
+    <message>
       <source>Visitor Name</source>
       <translation>Nome do visitante</translation>
     </message>
@@ -6753,6 +6809,10 @@
     <message>
       <source>Phone</source>
       <translation>Telefone</translation>
+    </message>
+    <message>
+      <source>Wait time</source>
+      <translation>Tempo de espera</translation>
     </message>
     <message>
       <source>Country</source>
@@ -6779,6 +6839,10 @@
       <translation>Data</translation>
     </message>
     <message>
+      <source>Minutes</source>
+      <translation>Minutos</translation>
+    </message>
+    <message>
       <source>Vote status</source>
       <translation>Status da votação</translation>
     </message>
@@ -6787,12 +6851,28 @@
       <translation>Enviar e-mail</translation>
     </message>
     <message>
-      <source>Referrer</source>
-      <translation>Referenciador</translation>
+      <source>Page</source>
+      <translation>Página</translation>
+    </message>
+    <message>
+      <source>Came from</source>
+      <translation>Veio de</translation>
     </message>
     <message>
       <source>Link</source>
       <translation>Link</translation>
+    </message>
+    <message>
+      <source>Chat content</source>
+      <translation>Conteúdo do bate-papo</translation>
+    </message>
+    <message>
+      <source>User ID</source>
+      <translation>Identificação do Usuário </translation>
+    </message>
+    <message>
+      <source>Chat average in seconds</source>
+      <translation>Média de bate-papos em segundos</translation>
     </message>
   </context>
   <context>

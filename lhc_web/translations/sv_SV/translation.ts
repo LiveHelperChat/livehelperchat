@@ -1156,15 +1156,15 @@
     </message>
     <message>
       <source>Not Noted</source>
-      <translation type="unfinished"/>
+      <translation>Inte noterat</translation>
     </message>
     <message>
       <source>Up Voted</source>
-      <translation type="unfinished"/>
+      <translation>Uppröstad</translation>
     </message>
     <message>
       <source>Down vote</source>
-      <translation type="unfinished"/>
+      <translation>Rösta ner</translation>
     </message>
     <message>
       <source>Search</source>
@@ -1177,6 +1177,10 @@
     <message>
       <source>XLS</source>
       <translation>XLS</translation>
+    </message>
+    <message>
+      <source>XLS (with content)</source>
+      <translation>XLS (med innehåll)</translation>
     </message>
     <message>
       <source>Select department</source>
@@ -1193,6 +1197,18 @@
     <message>
       <source>Choose department</source>
       <translation>Välj avdelning</translation>
+    </message>
+    <message>
+      <source>Group by</source>
+      <translation>Gruppera efter</translation>
+    </message>
+    <message>
+      <source>Month</source>
+      <translation>Månad</translation>
+    </message>
+    <message>
+      <source>Day</source>
+      <translation>Dag</translation>
     </message>
   </context>
   <context>
@@ -1375,7 +1391,11 @@
     </message>
     <message>
       <source>Title/Message</source>
-      <translation type="unfinished"/>
+      <translation>Rubrik/Meddelande</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Avdelning</translation>
     </message>
     <message>
       <source>User</source>
@@ -1407,11 +1427,11 @@
     </message>
     <message>
       <source>Title</source>
-      <translation type="unfinished"/>
+      <translation>Rubrik</translation>
     </message>
     <message>
       <source>Explain</source>
-      <translation type="unfinished"/>
+      <translation>Förklara</translation>
     </message>
     <message>
       <source>Message</source>
@@ -1419,7 +1439,7 @@
     </message>
     <message>
       <source>Fallback message</source>
-      <translation type="unfinished"/>
+      <translation>Meddelande att falla tillbaka på</translation>
     </message>
     <message>
       <source>Automatically send this message to user then chat is accepted</source>
@@ -1428,10 +1448,6 @@
     <message>
       <source>Delay in seconds</source>
       <translation>Fördröjning i sekunder</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Avdelning</translation>
     </message>
     <message>
       <source>Canned messages</source>
@@ -1618,7 +1634,7 @@
     </message>
     <message>
       <source>Send XMPP messages to all department operators</source>
-      <translation type="unfinished"/>
+      <translation>Skicka XMPP-meddelanden till alla avdelningsoperatörer</translation>
     </message>
     <message>
       <source>Mail messages</source>
@@ -2129,35 +2145,35 @@
     </message>
     <message>
       <source>Visitor</source>
-      <translation type="unfinished"/>
+      <translation>Besökare</translation>
     </message>
     <message>
       <source>Operator</source>
-      <translation type="unfinished"/>
+      <translation>Operatör</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Avdelning</translation>
     </message>
     <message>
       <source>Nothing found</source>
-      <translation type="unfinished"/>
+      <translation>Ingenting funnet</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation type="unfinished"/>
+      <translation>Väntande chattar</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation type="unfinished"/>
+      <translation>Aktiva chattar</translation>
     </message>
     <message>
       <source>Last activity ago</source>
-      <translation type="unfinished"/>
+      <translation>Senaste aktivitet</translation>
     </message>
     <message>
       <source>Time ago</source>
-      <translation type="unfinished"/>
+      <translation>Tid sedan</translation>
     </message>
   </context>
   <context>
@@ -2255,6 +2271,18 @@
     <message>
       <source>Invalid captcha code, please enable Javascript!</source>
       <translation>Ogiltig captcha-kod, vänligen aktivera Javascript!</translation>
+    </message>
+    <message>
+      <source>Invalid file extension</source>
+      <translation>Ogiltig filändelse</translation>
+    </message>
+    <message>
+      <source>Invalid file extension!</source>
+      <translation>Ogiltig filändelse!</translation>
+    </message>
+    <message>
+      <source>To big file!</source>
+      <translation>Filen är för stor!</translation>
     </message>
     <message>
       <source>Department is disabled</source>
@@ -2431,18 +2459,6 @@
     <message>
       <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
       <translation>Din förfrågan behandlades inte som förväntat - men oroa dig inte, det var inte ditt fel. Var vänlig skicka din förfrågan igen. Om du upplever samma fel så är du välkommen att kontakta oss.</translation>
-    </message>
-    <message>
-      <source>Invalid file extension</source>
-      <translation>Ogiltig filändelse</translation>
-    </message>
-    <message>
-      <source>Invalid file extension!</source>
-      <translation>Ogiltig filändelse!</translation>
-    </message>
-    <message>
-      <source>To big file!</source>
-      <translation>Filen är för stor!</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -2921,7 +2937,7 @@
     </message>
     <message>
       <source>Dashboard</source>
-      <translation type="unfinished"/>
+      <translation>Kontrollpanel</translation>
     </message>
     <message>
       <source>City</source>
@@ -3577,7 +3593,7 @@
     </message>
     <message>
       <source>collapse/expand</source>
-      <translation type="unfinished"/>
+      <translation>minimera/expandera</translation>
     </message>
     <message>
       <source>Closed chats</source>
@@ -3601,15 +3617,19 @@
     </message>
     <message>
       <source>Departments stats</source>
-      <translation type="unfinished"/>
+      <translation>Statistik för avdelningar</translation>
+    </message>
+    <message>
+      <source>Download XLS</source>
+      <translation>Ladda ner XLS</translation>
     </message>
     <message>
       <source>Online operators</source>
-      <translation type="unfinished"/>
+      <translation>Operatörer online</translation>
     </message>
     <message>
       <source>All departments</source>
-      <translation type="unfinished"/>
+      <translation>Alla avdelningar</translation>
     </message>
     <message>
       <source>Number of elements in list</source>
@@ -3922,83 +3942,83 @@
     </message>
     <message>
       <source>Field label</source>
-      <translation type="unfinished"/>
+      <translation>Fältetikett</translation>
     </message>
     <message>
       <source>Default value</source>
-      <translation type="unfinished"/>
+      <translation>Standardvärde</translation>
     </message>
     <message>
       <source>Type</source>
-      <translation type="unfinished"/>
+      <translation>Typ</translation>
     </message>
     <message>
       <source>Text</source>
-      <translation type="unfinished"/>
+      <translation>Text</translation>
     </message>
     <message>
       <source>Hidden</source>
-      <translation type="unfinished"/>
+      <translation>Dold</translation>
     </message>
     <message>
       <source>Visible on</source>
-      <translation type="unfinished"/>
+      <translation>Synlig på</translation>
     </message>
     <message>
       <source>Offline and online form</source>
-      <translation type="unfinished"/>
+      <translation>Offline- och onlineformulär</translation>
     </message>
     <message>
       <source>Only offline</source>
-      <translation type="unfinished"/>
+      <translation>Endast offline</translation>
     </message>
     <message>
       <source>Only online</source>
-      <translation type="unfinished"/>
+      <translation>Endast online</translation>
     </message>
     <message>
       <source>Size (between 1 and 12)</source>
-      <translation type="unfinished"/>
+      <translation>Storlek (mellan 1 och 12)</translation>
     </message>
     <message>
       <source>Field identifier</source>
-      <translation type="unfinished"/>
+      <translation>Fältidentifierare</translation>
     </message>
     <message>
       <source>Is required</source>
-      <translation type="unfinished"/>
+      <translation>Är obligatorisk</translation>
     </message>
     <message>
       <source>Add a field</source>
-      <translation type="unfinished"/>
+      <translation>Lägg till ett fält</translation>
     </message>
     <message>
       <source>left</source>
-      <translation type="unfinished"/>
+      <translation>vänster</translation>
     </message>
     <message>
       <source>right</source>
-      <translation type="unfinished"/>
+      <translation>höger</translation>
     </message>
     <message>
       <source>Visible only in offline form</source>
-      <translation type="unfinished"/>
+      <translation>Synlig endast i offlineformulär</translation>
     </message>
     <message>
       <source>Visible only in online form</source>
-      <translation type="unfinished"/>
+      <translation>Synlig endast i onlineformulär</translation>
     </message>
     <message>
       <source>Size</source>
-      <translation type="unfinished"/>
+      <translation>Storlek</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>Identifierare</translation>
     </message>
     <message>
       <source>Remove</source>
-      <translation type="unfinished"/>
+      <translation>Radera</translation>
     </message>
     <message>
       <source>Enable leave a message functionality automatically if there are no online operators</source>
@@ -4018,7 +4038,7 @@
     </message>
     <message>
       <source>Custom fields</source>
-      <translation type="unfinished"/>
+      <translation>Egna fält</translation>
     </message>
     <message>
       <source>Name</source>
@@ -4235,12 +4255,28 @@
   <context>
     <name>chat/statistic</name>
     <message>
+      <source>General</source>
+      <translation>Allmänt</translation>
+    </message>
+    <message>
+      <source>Operators last 24h statistic, top 100 by chats number</source>
+      <translation>Operatörsstatistik senaste 24h, top 100 på antal chattar</translation>
+    </message>
+    <message>
       <source>Statistic</source>
       <translation>Statistik</translation>
     </message>
     <message>
-      <source>General</source>
-      <translation>Allmänt</translation>
+      <source>Chats statistic</source>
+      <translation>Chattstatistik</translation>
+    </message>
+    <message>
+      <source>Total statistic</source>
+      <translation>Total statistik</translation>
+    </message>
+    <message>
+      <source>Last 24 hours statistic</source>
+      <translation>Statistik för de senaste 24 timmarna</translation>
     </message>
     <message>
       <source>User</source>
@@ -4275,24 +4311,16 @@
       <translation>Antal chattar per land</translation>
     </message>
     <message>
-      <source>Number of chats by user</source>
-      <translation>Antal chattar från användare</translation>
+      <source>Average in seconds</source>
+      <translation>Sekunder i genomsnitt</translation>
     </message>
     <message>
       <source>Wait time</source>
       <translation>Väntetid</translation>
     </message>
     <message>
-      <source>AVG visitor wait time by operator</source>
-      <translation>Genomsnittlig väntetid för besökare från operatören</translation>
-    </message>
-    <message>
       <source>Messages</source>
       <translation>Meddelanden</translation>
-    </message>
-    <message>
-      <source>Number of messages by user</source>
-      <translation>Antal meddelanden per användare</translation>
     </message>
     <message>
       <source>Month</source>
@@ -4355,10 +4383,6 @@
       <translation>Antal chattar per timme, chattlängd i genomsnitt</translation>
     </message>
     <message>
-      <source>Chats statistic</source>
-      <translation>Chattstatistik</translation>
-    </message>
-    <message>
       <source>Hourly statistic</source>
       <translation>Timvis statistik</translation>
     </message>
@@ -4371,8 +4395,28 @@
       <translation>Statistik, användare</translation>
     </message>
     <message>
-      <source>Total statistic</source>
-      <translation>Total statistik</translation>
+      <source>Number of chats by user</source>
+      <translation>Antal chattar från användare</translation>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation>Antal meddelanden per användare</translation>
+    </message>
+    <message>
+      <source>Average chat duration by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>All operators statistic will be downloaded</source>
+      <translation>All operatörsstatistik kommer att laddas ner</translation>
+    </message>
+    <message>
+      <source>AVG visitor wait time by operator</source>
+      <translation>Genomsnittlig väntetid för besökare från operatören</translation>
+    </message>
+    <message>
+      <source>Last 24h statistic</source>
+      <translation>Statistik de senaste 24 timmarna</translation>
     </message>
     <message>
       <source>Parameter</source>
@@ -4419,12 +4463,8 @@
       <translation>Totalt antal meddelande (enbart operatörer)</translation>
     </message>
     <message>
-      <source>Last 24h statistic</source>
-      <translation>Statistik de senaste 24 timmarna</translation>
-    </message>
-    <message>
-      <source>Operators last 24h statistic, top 100 by chats number</source>
-      <translation>Operatörsstatistik senaste 24h, top 100 på antal chattar</translation>
+      <source>Operators statistic, top 100 by chats number</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Total messages</source>
@@ -6641,7 +6681,7 @@
     </message>
     <message>
       <source>You were logged out because another user logged under same account</source>
-      <translation type="unfinished"/>
+      <translation>Du loggades ut eftersom en annan användare loggade in under samma konto</translation>
     </message>
     <message>
       <source>Incorrect username or password</source>
@@ -6743,6 +6783,22 @@
   <context>
     <name>chat/chatexport</name>
     <message>
+      <source>Referrer</source>
+      <translation>Referens</translation>
+    </message>
+    <message>
+      <source>Department name</source>
+      <translation>Namn på avdelningen</translation>
+    </message>
+    <message>
+      <source>Pending chats number</source>
+      <translation>Antal väntande chattar</translation>
+    </message>
+    <message>
+      <source>Active chats number</source>
+      <translation>Antal aktiva chattar</translation>
+    </message>
+    <message>
       <source>Visitor Name</source>
       <translation>Besökarens namn</translation>
     </message>
@@ -6753,6 +6809,10 @@
     <message>
       <source>Phone</source>
       <translation>Telefon</translation>
+    </message>
+    <message>
+      <source>Wait time</source>
+      <translation>Väntetid</translation>
     </message>
     <message>
       <source>Country</source>
@@ -6779,20 +6839,40 @@
       <translation>Datum</translation>
     </message>
     <message>
+      <source>Minutes</source>
+      <translation>Minuter</translation>
+    </message>
+    <message>
       <source>Vote status</source>
-      <translation type="unfinished"/>
+      <translation>Status för röstningen</translation>
     </message>
     <message>
       <source>Mail send</source>
       <translation>Mejl skickat</translation>
     </message>
     <message>
-      <source>Referrer</source>
-      <translation>Referens</translation>
+      <source>Page</source>
+      <translation>Sida</translation>
+    </message>
+    <message>
+      <source>Came from</source>
+      <translation>Kom från</translation>
     </message>
     <message>
       <source>Link</source>
       <translation>Länk</translation>
+    </message>
+    <message>
+      <source>Chat content</source>
+      <translation>Chattinnehåll</translation>
+    </message>
+    <message>
+      <source>User ID</source>
+      <translation>Användar-ID</translation>
+    </message>
+    <message>
+      <source>Chat average in seconds</source>
+      <translation>Genomsnittlig chattid i sekunder</translation>
     </message>
   </context>
   <context>
@@ -6819,7 +6899,7 @@
     </message>
     <message>
       <source>The operator has closed this chat session</source>
-      <translation type="unfinished"/>
+      <translation>Operatören har stängt ner denna chattsession</translation>
     </message>
     <message>
       <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>

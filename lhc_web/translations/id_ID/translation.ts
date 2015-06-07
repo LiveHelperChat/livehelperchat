@@ -67,7 +67,7 @@
     </message>
     <message>
       <source>socket.io path, optional</source>
-      <translation type="unfinished"/>
+      <translation>socket.io jalan, opsional</translation>
     </message>
     <message>
       <source>NodeJS support enabled</source>
@@ -151,7 +151,7 @@
     </message>
     <message>
       <source>Home page tabs order</source>
-      <translation type="unfinished"/>
+      <translation>Tab pesanan halaman beranda</translation>
     </message>
     <message>
       <source>Is visitor e-mail required for FAQ</source>
@@ -179,7 +179,7 @@
     </message>
     <message>
       <source>Disable JS execution in Co-Browsing operator window</source>
-      <translation type="unfinished"/>
+      <translation>Menonaktifkan eksekusi JS di jendela operator Co-Browsing</translation>
     </message>
     <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
@@ -187,7 +187,7 @@
     </message>
     <message>
       <source>Home page dashboard widgets order</source>
-      <translation type="unfinished"/>
+      <translation>Pesanan widget dashboard halaman beranda</translation>
     </message>
     <message>
       <source>Your site URL address</source>
@@ -336,7 +336,7 @@
     </message>
     <message>
       <source>Main widget text</source>
-      <translation type="unfinished"/>
+      <translation>Teks utama widget</translation>
     </message>
     <message>
       <source>Custom CSS</source>
@@ -360,7 +360,7 @@
     </message>
     <message>
       <source>Widget border width (px)</source>
-      <translation type="unfinished"/>
+      <translation>Lebar batas widget (px)</translation>
     </message>
     <message>
       <source>Online status text</source>
@@ -408,15 +408,15 @@
     </message>
     <message>
       <source>Hide widget close button</source>
-      <translation type="unfinished"/>
+      <translation>Sembunyikan tombol tutup widget</translation>
     </message>
     <message>
       <source>Hide popup option</source>
-      <translation type="unfinished"/>
+      <translation>Sembunyikan pilihan popup</translation>
     </message>
     <message>
       <source>Header height (px)</source>
-      <translation type="unfinished"/>
+      <translation>Tinggi header (px)</translation>
     </message>
     <message>
       <source>Header padding (px)</source>
@@ -424,7 +424,7 @@
     </message>
     <message>
       <source>Site URL</source>
-      <translation type="unfinished"/>
+      <translation>URL Situs</translation>
     </message>
     <message>
       <source>Text above start chat form fields</source>
@@ -516,11 +516,11 @@
     </message>
     <message>
       <source>Close image</source>
-      <translation type="unfinished"/>
+      <translation>Tutup gambar</translation>
     </message>
     <message>
       <source>Popup image</source>
-      <translation type="unfinished"/>
+      <translation>Gambar popup</translation>
     </message>
     <message>
       <source>Widget themes</source>
@@ -904,11 +904,11 @@
     </message>
     <message>
       <source>General</source>
-      <translation type="unfinished"/>
+      <translation>Umum</translation>
     </message>
     <message>
       <source>Design</source>
-      <translation type="unfinished"/>
+      <translation>Desain</translation>
     </message>
     <message>
       <source>Hide status when offline</source>
@@ -1179,6 +1179,10 @@
       <translation>XLS</translation>
     </message>
     <message>
+      <source>XLS (with content)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Select department</source>
       <translation>Pilih departemen</translation>
     </message>
@@ -1192,6 +1196,18 @@
     </message>
     <message>
       <source>Choose department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Group by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Month</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Day</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -1378,6 +1394,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Department</source>
+      <translation>Departemen</translation>
+    </message>
+    <message>
       <source>User</source>
       <translation>Pengguna</translation>
     </message>
@@ -1428,10 +1448,6 @@
     <message>
       <source>Delay in seconds</source>
       <translation>Jeda dalam detik</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Departemen</translation>
     </message>
     <message>
       <source>Canned messages</source>
@@ -2257,6 +2273,18 @@
       <translation>Kode captcha tidak sah, silakan aktifkan Javascript!</translation>
     </message>
     <message>
+      <source>Invalid file extension</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid file extension!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To big file!</source>
+      <translation>File terlalu besar!</translation>
+    </message>
+    <message>
       <source>Department is disabled</source>
       <translation>Departemen nonaktif</translation>
     </message>
@@ -2431,18 +2459,6 @@
     <message>
       <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invalid file extension</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invalid file extension!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>To big file!</source>
-      <translation>File terlalu besar!</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -3604,6 +3620,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Download XLS</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Online operators</source>
       <translation type="unfinished"/>
     </message>
@@ -4235,11 +4255,27 @@
   <context>
     <name>chat/statistic</name>
     <message>
+      <source>General</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators last 24h statistic, top 100 by chats number</source>
+      <translation>Statistik operator 24jam terakhir, 100 tertinggi berdasarkan jumlah percakapan</translation>
+    </message>
+    <message>
       <source>Statistic</source>
       <translation>Statistik</translation>
     </message>
     <message>
-      <source>General</source>
+      <source>Chats statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total statistic</source>
+      <translation>Total statistik</translation>
+    </message>
+    <message>
+      <source>Last 24 hours statistic</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4275,7 +4311,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Number of chats by user</source>
+      <source>Average in seconds</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4283,15 +4319,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>AVG visitor wait time by operator</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Messages</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Number of messages by user</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4355,10 +4383,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Chats statistic</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Hourly statistic</source>
       <translation type="unfinished"/>
     </message>
@@ -4371,8 +4395,28 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Total statistic</source>
-      <translation>Total statistik</translation>
+      <source>Number of chats by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Average chat duration by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>All operators statistic will be downloaded</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>AVG visitor wait time by operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last 24h statistic</source>
+      <translation>Statistik 24jam terakhir</translation>
     </message>
     <message>
       <source>Parameter</source>
@@ -4419,12 +4463,8 @@
       <translation>Total percakapan (hanya operator)</translation>
     </message>
     <message>
-      <source>Last 24h statistic</source>
-      <translation>Statistik 24jam terakhir</translation>
-    </message>
-    <message>
-      <source>Operators last 24h statistic, top 100 by chats number</source>
-      <translation>Statistik operator 24jam terakhir, 100 tertinggi berdasarkan jumlah percakapan</translation>
+      <source>Operators statistic, top 100 by chats number</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Total messages</source>
@@ -6743,6 +6783,22 @@
   <context>
     <name>chat/chatexport</name>
     <message>
+      <source>Referrer</source>
+      <translation>Pengarah</translation>
+    </message>
+    <message>
+      <source>Department name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitor Name</source>
       <translation>Nama pengunjung</translation>
     </message>
@@ -6753,6 +6809,10 @@
     <message>
       <source>Phone</source>
       <translation>Telepon</translation>
+    </message>
+    <message>
+      <source>Wait time</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Country</source>
@@ -6779,6 +6839,10 @@
       <translation>Tanggal</translation>
     </message>
     <message>
+      <source>Minutes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Vote status</source>
       <translation type="unfinished"/>
     </message>
@@ -6787,12 +6851,28 @@
       <translation>Surat terkirim</translation>
     </message>
     <message>
-      <source>Referrer</source>
-      <translation>Pengarah</translation>
+      <source>Page</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Came from</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Link</source>
       <translation>Tautan</translation>
+    </message>
+    <message>
+      <source>Chat content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat average in seconds</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

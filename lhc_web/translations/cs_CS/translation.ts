@@ -1179,6 +1179,10 @@
       <translation>XLS</translation>
     </message>
     <message>
+      <source>XLS (with content)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Select department</source>
       <translation>Zvolte oddělení</translation>
     </message>
@@ -1193,6 +1197,18 @@
     <message>
       <source>Choose department</source>
       <translation>Zvolte oddělení</translation>
+    </message>
+    <message>
+      <source>Group by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Month</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Day</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -1378,6 +1394,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Department</source>
+      <translation>Oddělení</translation>
+    </message>
+    <message>
       <source>User</source>
       <translation>Uživatel</translation>
     </message>
@@ -1428,10 +1448,6 @@
     <message>
       <source>Delay in seconds</source>
       <translation>Zpoždění v sekundách</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Oddělení</translation>
     </message>
     <message>
       <source>Canned messages</source>
@@ -2257,6 +2273,18 @@
       <translation>Nesprávný captcha kód, povolte používání Javascriptu ve vašem prohlížeči!</translation>
     </message>
     <message>
+      <source>Invalid file extension</source>
+      <translation>Neplatný typ souboru</translation>
+    </message>
+    <message>
+      <source>Invalid file extension!</source>
+      <translation>Neplatný typ souboru!</translation>
+    </message>
+    <message>
+      <source>To big file!</source>
+      <translation>Soubor je příliš velký!</translation>
+    </message>
+    <message>
       <source>Department is disabled</source>
       <translation>Oddělení je neaktivní</translation>
     </message>
@@ -2431,18 +2459,6 @@
     <message>
       <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
       <translation>Vaše žádost nebyl zpracována podle očekávání - ale neboj, nebyla to Vaše chyba. Odešlete, prosím, svou žádost znovu. Pokud narazíte stejný problém, budete nás muset kontaktovat jiným způsobem.</translation>
-    </message>
-    <message>
-      <source>Invalid file extension</source>
-      <translation>Neplatný typ souboru</translation>
-    </message>
-    <message>
-      <source>Invalid file extension!</source>
-      <translation>Neplatný typ souboru!</translation>
-    </message>
-    <message>
-      <source>To big file!</source>
-      <translation>Soubor je příliš velký!</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -3604,6 +3620,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Download XLS</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Online operators</source>
       <translation type="unfinished"/>
     </message>
@@ -4235,12 +4255,28 @@
   <context>
     <name>chat/statistic</name>
     <message>
+      <source>General</source>
+      <translation>Obecné</translation>
+    </message>
+    <message>
+      <source>Operators last 24h statistic, top 100 by chats number</source>
+      <translation>Statistika operátorů posledních 24 hodin, TOP 100 podle počtu rozhovorů</translation>
+    </message>
+    <message>
       <source>Statistic</source>
       <translation>Statistika</translation>
     </message>
     <message>
-      <source>General</source>
-      <translation>Obecné</translation>
+      <source>Chats statistic</source>
+      <translation>Statistiky rozhovorů</translation>
+    </message>
+    <message>
+      <source>Total statistic</source>
+      <translation>Celková statistika</translation>
+    </message>
+    <message>
+      <source>Last 24 hours statistic</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User</source>
@@ -4275,24 +4311,16 @@
       <translation>Počet rozhovorů podle země</translation>
     </message>
     <message>
-      <source>Number of chats by user</source>
-      <translation>Počet rozhovorů podle uživatele</translation>
+      <source>Average in seconds</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Wait time</source>
       <translation>Čekací doba</translation>
     </message>
     <message>
-      <source>AVG visitor wait time by operator</source>
-      <translation>Průměrný čas čekání návštěvníka podle operátora</translation>
-    </message>
-    <message>
       <source>Messages</source>
       <translation>Zprávy</translation>
-    </message>
-    <message>
-      <source>Number of messages by user</source>
-      <translation>Počet zpráv podle uživatele</translation>
     </message>
     <message>
       <source>Month</source>
@@ -4355,10 +4383,6 @@
       <translation>Počet rozhovorů za hodinu, průměrná délka rozhovoru</translation>
     </message>
     <message>
-      <source>Chats statistic</source>
-      <translation>Statistiky rozhovorů</translation>
-    </message>
-    <message>
       <source>Hourly statistic</source>
       <translation>Hodinová statistika</translation>
     </message>
@@ -4371,8 +4395,28 @@
       <translation>Statistika uživatelů</translation>
     </message>
     <message>
-      <source>Total statistic</source>
-      <translation>Celková statistika</translation>
+      <source>Number of chats by user</source>
+      <translation>Počet rozhovorů podle uživatele</translation>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation>Počet zpráv podle uživatele</translation>
+    </message>
+    <message>
+      <source>Average chat duration by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>All operators statistic will be downloaded</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>AVG visitor wait time by operator</source>
+      <translation>Průměrný čas čekání návštěvníka podle operátora</translation>
+    </message>
+    <message>
+      <source>Last 24h statistic</source>
+      <translation>Statistika za posledních 24 hodin</translation>
     </message>
     <message>
       <source>Parameter</source>
@@ -4419,12 +4463,8 @@
       <translation>Celkem zpráv (pouze od operátorů)</translation>
     </message>
     <message>
-      <source>Last 24h statistic</source>
-      <translation>Statistika za posledních 24 hodin</translation>
-    </message>
-    <message>
-      <source>Operators last 24h statistic, top 100 by chats number</source>
-      <translation>Statistika operátorů posledních 24 hodin, TOP 100 podle počtu rozhovorů</translation>
+      <source>Operators statistic, top 100 by chats number</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Total messages</source>
@@ -6743,6 +6783,22 @@
   <context>
     <name>chat/chatexport</name>
     <message>
+      <source>Referrer</source>
+      <translation>Zdroj</translation>
+    </message>
+    <message>
+      <source>Department name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitor Name</source>
       <translation>Jméno návštěvníka</translation>
     </message>
@@ -6753,6 +6809,10 @@
     <message>
       <source>Phone</source>
       <translation>Telefon</translation>
+    </message>
+    <message>
+      <source>Wait time</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Country</source>
@@ -6779,6 +6839,10 @@
       <translation>Datum</translation>
     </message>
     <message>
+      <source>Minutes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Vote status</source>
       <translation type="unfinished"/>
     </message>
@@ -6787,12 +6851,28 @@
       <translation>E-mail odeslán</translation>
     </message>
     <message>
-      <source>Referrer</source>
-      <translation>Zdroj</translation>
+      <source>Page</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Came from</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Link</source>
       <translation>Odkaz</translation>
+    </message>
+    <message>
+      <source>Chat content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat average in seconds</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

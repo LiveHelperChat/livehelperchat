@@ -1179,6 +1179,10 @@
       <translation>XLS</translation>
     </message>
     <message>
+      <source>XLS (with content)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Select department</source>
       <translation>Pasirinkite departamentą</translation>
     </message>
@@ -1193,6 +1197,18 @@
     <message>
       <source>Choose department</source>
       <translation>Pasirinkite departamentą</translation>
+    </message>
+    <message>
+      <source>Group by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Month</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Day</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -1378,6 +1394,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Department</source>
+      <translation>Departamentas</translation>
+    </message>
+    <message>
       <source>User</source>
       <translation>Vartotojas</translation>
     </message>
@@ -1428,10 +1448,6 @@
     <message>
       <source>Delay in seconds</source>
       <translation>Uždelsimas sekundėmis</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Departamentas</translation>
     </message>
     <message>
       <source>Canned messages</source>
@@ -2257,6 +2273,18 @@
       <translation>Nekorektiškas apsaugos kodas, prašome įjungti Javascript palaikymą!</translation>
     </message>
     <message>
+      <source>Invalid file extension</source>
+      <translation>Nekorektiška failo galunė</translation>
+    </message>
+    <message>
+      <source>Invalid file extension!</source>
+      <translation>Nekorektiška failo galunė!</translation>
+    </message>
+    <message>
+      <source>To big file!</source>
+      <translation>Per didelis failas!</translation>
+    </message>
+    <message>
       <source>Department is disabled</source>
       <translation>Departamentas išjungtas</translation>
     </message>
@@ -2431,18 +2459,6 @@
     <message>
       <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invalid file extension</source>
-      <translation>Nekorektiška failo galunė</translation>
-    </message>
-    <message>
-      <source>Invalid file extension!</source>
-      <translation>Nekorektiška failo galunė!</translation>
-    </message>
-    <message>
-      <source>To big file!</source>
-      <translation>Per didelis failas!</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -3604,6 +3620,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Download XLS</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Online operators</source>
       <translation type="unfinished"/>
     </message>
@@ -4235,12 +4255,28 @@
   <context>
     <name>chat/statistic</name>
     <message>
+      <source>General</source>
+      <translation>Bendra</translation>
+    </message>
+    <message>
+      <source>Operators last 24h statistic, top 100 by chats number</source>
+      <translation>Operatorių paskutinių 24 val. statistika, top 100 pagal pokalbių skaičių</translation>
+    </message>
+    <message>
       <source>Statistic</source>
       <translation>Statistika</translation>
     </message>
     <message>
-      <source>General</source>
-      <translation>Bendra</translation>
+      <source>Chats statistic</source>
+      <translation>Pokalbių statistika</translation>
+    </message>
+    <message>
+      <source>Total statistic</source>
+      <translation>Bendra statistika</translation>
+    </message>
+    <message>
+      <source>Last 24 hours statistic</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User</source>
@@ -4275,24 +4311,16 @@
       <translation>Pokalbių skaičius pagal šalį</translation>
     </message>
     <message>
-      <source>Number of chats by user</source>
-      <translation>Pokalbių skaičius per vartotoją</translation>
+      <source>Average in seconds</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Wait time</source>
       <translation>Laukimo laikas</translation>
     </message>
     <message>
-      <source>AVG visitor wait time by operator</source>
-      <translation>Vidutinis lankytojo laukimo laikas pagal operatorių</translation>
-    </message>
-    <message>
       <source>Messages</source>
       <translation>Žinutės</translation>
-    </message>
-    <message>
-      <source>Number of messages by user</source>
-      <translation>Žinučių skaičius pagal operatorių</translation>
     </message>
     <message>
       <source>Month</source>
@@ -4355,10 +4383,6 @@
       <translation>Pokalbių skaičius per valandą, vidutinė pokalbių trukmė</translation>
     </message>
     <message>
-      <source>Chats statistic</source>
-      <translation>Pokalbių statistika</translation>
-    </message>
-    <message>
       <source>Hourly statistic</source>
       <translation>Valandinė statistika</translation>
     </message>
@@ -4371,8 +4395,28 @@
       <translation>Vartotojų statistika</translation>
     </message>
     <message>
-      <source>Total statistic</source>
-      <translation>Bendra statistika</translation>
+      <source>Number of chats by user</source>
+      <translation>Pokalbių skaičius per vartotoją</translation>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation>Žinučių skaičius pagal operatorių</translation>
+    </message>
+    <message>
+      <source>Average chat duration by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>All operators statistic will be downloaded</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>AVG visitor wait time by operator</source>
+      <translation>Vidutinis lankytojo laukimo laikas pagal operatorių</translation>
+    </message>
+    <message>
+      <source>Last 24h statistic</source>
+      <translation>Paskutinių 24 val. statistika</translation>
     </message>
     <message>
       <source>Parameter</source>
@@ -4419,12 +4463,8 @@
       <translation>Viso žinučių (tik operatorių žinutės)</translation>
     </message>
     <message>
-      <source>Last 24h statistic</source>
-      <translation>Paskutinių 24 val. statistika</translation>
-    </message>
-    <message>
-      <source>Operators last 24h statistic, top 100 by chats number</source>
-      <translation>Operatorių paskutinių 24 val. statistika, top 100 pagal pokalbių skaičių</translation>
+      <source>Operators statistic, top 100 by chats number</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Total messages</source>
@@ -6743,6 +6783,22 @@
   <context>
     <name>chat/chatexport</name>
     <message>
+      <source>Referrer</source>
+      <translation>Atėjo iš</translation>
+    </message>
+    <message>
+      <source>Department name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitor Name</source>
       <translation>Lankytojo vardas</translation>
     </message>
@@ -6753,6 +6809,10 @@
     <message>
       <source>Phone</source>
       <translation>Telefonas</translation>
+    </message>
+    <message>
+      <source>Wait time</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Country</source>
@@ -6779,6 +6839,10 @@
       <translation>Data</translation>
     </message>
     <message>
+      <source>Minutes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Vote status</source>
       <translation type="unfinished"/>
     </message>
@@ -6787,12 +6851,28 @@
       <translation>El. laiškas išsiųstas</translation>
     </message>
     <message>
-      <source>Referrer</source>
-      <translation>Atėjo iš</translation>
+      <source>Page</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Came from</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Link</source>
       <translation>Nuoroda</translation>
+    </message>
+    <message>
+      <source>Chat content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat average in seconds</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

@@ -320,7 +320,7 @@
     </message>
     <message>
       <source>Download theme</source>
-      <translation>Свали темата</translation>
+      <translation>Сваляне на темата</translation>
     </message>
     <message>
       <source>Status widget style</source>
@@ -1179,6 +1179,10 @@
       <translation>XLS</translation>
     </message>
     <message>
+      <source>XLS (with content)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Select department</source>
       <translation>Изберете отдел</translation>
     </message>
@@ -1193,6 +1197,18 @@
     <message>
       <source>Choose department</source>
       <translation>Избери отдел</translation>
+    </message>
+    <message>
+      <source>Group by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Month</source>
+      <translation>Месец</translation>
+    </message>
+    <message>
+      <source>Day</source>
+      <translation>Ден</translation>
     </message>
   </context>
   <context>
@@ -1378,6 +1394,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Department</source>
+      <translation>Отдел</translation>
+    </message>
+    <message>
       <source>User</source>
       <translation>Потребител</translation>
     </message>
@@ -1428,10 +1448,6 @@
     <message>
       <source>Delay in seconds</source>
       <translation>Забавяне в секунди</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Отдел</translation>
     </message>
     <message>
       <source>Canned messages</source>
@@ -2129,7 +2145,7 @@
     </message>
     <message>
       <source>Visitor</source>
-      <translation type="unfinished"/>
+      <translation>Посетител</translation>
     </message>
     <message>
       <source>Operator</source>
@@ -2255,6 +2271,18 @@
     <message>
       <source>Invalid captcha code, please enable Javascript!</source>
       <translation>Невалиден captcha код, активирайте Javascript!</translation>
+    </message>
+    <message>
+      <source>Invalid file extension</source>
+      <translation>Невалидно разширение на файл</translation>
+    </message>
+    <message>
+      <source>Invalid file extension!</source>
+      <translation>Невалидно  разширение na файл!</translation>
+    </message>
+    <message>
+      <source>To big file!</source>
+      <translation>Прекалено голям файл!</translation>
     </message>
     <message>
       <source>Department is disabled</source>
@@ -2431,18 +2459,6 @@
     <message>
       <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
       <translation>Заявката ви не е обработена, както се очаква - но не се притеснявайте, това не е ваша вина. Моля изпратете отново вашата заявка. Ако имате същия проблем трябва да се свържете с нас чрез други средства.</translation>
-    </message>
-    <message>
-      <source>Invalid file extension</source>
-      <translation>Невалидно разширение на файл</translation>
-    </message>
-    <message>
-      <source>Invalid file extension!</source>
-      <translation>Невалидно  разширение na файл!</translation>
-    </message>
-    <message>
-      <source>To big file!</source>
-      <translation>Прекалено голям файл!</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -3604,6 +3620,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Download XLS</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Online operators</source>
       <translation type="unfinished"/>
     </message>
@@ -3990,7 +4010,7 @@
     </message>
     <message>
       <source>Size</source>
-      <translation type="unfinished"/>
+      <translation>Размер</translation>
     </message>
     <message>
       <source>Identifier</source>
@@ -4235,12 +4255,28 @@
   <context>
     <name>chat/statistic</name>
     <message>
+      <source>General</source>
+      <translation>Общи</translation>
+    </message>
+    <message>
+      <source>Operators last 24h statistic, top 100 by chats number</source>
+      <translation>Статистика на операторите през последните 24 часа, топ 100 по брой чатове</translation>
+    </message>
+    <message>
       <source>Statistic</source>
       <translation>Статистика</translation>
     </message>
     <message>
-      <source>General</source>
-      <translation>Общи</translation>
+      <source>Chats statistic</source>
+      <translation>Чат статистики</translation>
+    </message>
+    <message>
+      <source>Total statistic</source>
+      <translation>Обща статистика</translation>
+    </message>
+    <message>
+      <source>Last 24 hours statistic</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User</source>
@@ -4275,24 +4311,16 @@
       <translation>Брой чатове по държава</translation>
     </message>
     <message>
-      <source>Number of chats by user</source>
-      <translation>Брой разговори по потребители</translation>
+      <source>Average in seconds</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Wait time</source>
       <translation>Време за изчакване</translation>
     </message>
     <message>
-      <source>AVG visitor wait time by operator</source>
-      <translation>Средно изчакващо време на посетителя от оператора</translation>
-    </message>
-    <message>
       <source>Messages</source>
       <translation>Съобщения</translation>
-    </message>
-    <message>
-      <source>Number of messages by user</source>
-      <translation>Брой съобщения по потребител</translation>
     </message>
     <message>
       <source>Month</source>
@@ -4355,10 +4383,6 @@
       <translation>Брой чатове по часове, средна продължителност на чат</translation>
     </message>
     <message>
-      <source>Chats statistic</source>
-      <translation>Чат статистики</translation>
-    </message>
-    <message>
       <source>Hourly statistic</source>
       <translation>Статистика по час</translation>
     </message>
@@ -4371,8 +4395,28 @@
       <translation>Статистика по потребители</translation>
     </message>
     <message>
-      <source>Total statistic</source>
-      <translation>Обща статистика</translation>
+      <source>Number of chats by user</source>
+      <translation>Брой разговори по потребители</translation>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation>Брой съобщения по потребител</translation>
+    </message>
+    <message>
+      <source>Average chat duration by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>All operators statistic will be downloaded</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>AVG visitor wait time by operator</source>
+      <translation>Средно изчакващо време на посетителя от оператора</translation>
+    </message>
+    <message>
+      <source>Last 24h statistic</source>
+      <translation>Статистика за последните 24 часа</translation>
     </message>
     <message>
       <source>Parameter</source>
@@ -4419,12 +4463,8 @@
       <translation>Общо съобщения (само оператори)</translation>
     </message>
     <message>
-      <source>Last 24h statistic</source>
-      <translation>Статистика за последните 24 часа</translation>
-    </message>
-    <message>
-      <source>Operators last 24h statistic, top 100 by chats number</source>
-      <translation>Статистика на операторите през последните 24 часа, топ 100 по брой чатове</translation>
+      <source>Operators statistic, top 100 by chats number</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Total messages</source>
@@ -6743,6 +6783,22 @@
   <context>
     <name>chat/chatexport</name>
     <message>
+      <source>Referrer</source>
+      <translation>Пренасочил</translation>
+    </message>
+    <message>
+      <source>Department name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitor Name</source>
       <translation>Име на посетителя</translation>
     </message>
@@ -6753,6 +6809,10 @@
     <message>
       <source>Phone</source>
       <translation>Телефон</translation>
+    </message>
+    <message>
+      <source>Wait time</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Country</source>
@@ -6779,6 +6839,10 @@
       <translation>Дата</translation>
     </message>
     <message>
+      <source>Minutes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Vote status</source>
       <translation type="unfinished"/>
     </message>
@@ -6787,12 +6851,28 @@
       <translation>Пощата е изпратена</translation>
     </message>
     <message>
-      <source>Referrer</source>
-      <translation>Пренасочил</translation>
+      <source>Page</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Came from</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Link</source>
       <translation>Връзка</translation>
+    </message>
+    <message>
+      <source>Chat content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat average in seconds</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

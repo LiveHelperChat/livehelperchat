@@ -159,7 +159,7 @@
     </message>
     <message>
       <source>Chats export secret hash</source>
-      <translation>hash خروجی چت ها</translation>
+      <translation>خروجی چت هاهش شده وامن</translation>
     </message>
     <message>
       <source>Please enter explicit http mode. Either http: or https:, do not forget : at the end.</source>
@@ -1179,6 +1179,10 @@
       <translation>XLS </translation>
     </message>
     <message>
+      <source>XLS (with content)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Select department</source>
       <translation>انتخاب دپارتمان</translation>
     </message>
@@ -1193,6 +1197,18 @@
     <message>
       <source>Choose department</source>
       <translation>انتخاب دپارتمان</translation>
+    </message>
+    <message>
+      <source>Group by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Month</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Day</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -1378,6 +1394,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Department</source>
+      <translation>دپارتمان</translation>
+    </message>
+    <message>
       <source>User</source>
       <translation>کاربر</translation>
     </message>
@@ -1428,10 +1448,6 @@
     <message>
       <source>Delay in seconds</source>
       <translation>تاخیر بر حسب ثانیه</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>دپارتمان</translation>
     </message>
     <message>
       <source>Canned messages</source>
@@ -2257,6 +2273,18 @@
       <translation>کد امنیتی نامعتبر است، لطفاً جاوا اسکریپت را فعال کنید!</translation>
     </message>
     <message>
+      <source>Invalid file extension</source>
+      <translation>پسوند فایل نامعتبر است</translation>
+    </message>
+    <message>
+      <source>Invalid file extension!</source>
+      <translation>پسوند فایل نامعتبر است</translation>
+    </message>
+    <message>
+      <source>To big file!</source>
+      <translation>فایل بسیار حجیم است!</translation>
+    </message>
+    <message>
       <source>Department is disabled</source>
       <translation>دپارتمان غیرفعال شده</translation>
     </message>
@@ -2431,18 +2459,6 @@
     <message>
       <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invalid file extension</source>
-      <translation>پسوند فایل نامعتبر است</translation>
-    </message>
-    <message>
-      <source>Invalid file extension!</source>
-      <translation>پسوند فایل نامعتبر است</translation>
-    </message>
-    <message>
-      <source>To big file!</source>
-      <translation>فایل بسیار حجیم است!</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -3604,6 +3620,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Download XLS</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Online operators</source>
       <translation type="unfinished"/>
     </message>
@@ -4235,12 +4255,28 @@
   <context>
     <name>chat/statistic</name>
     <message>
+      <source>General</source>
+      <translation>عمومی</translation>
+    </message>
+    <message>
+      <source>Operators last 24h statistic, top 100 by chats number</source>
+      <translation>آمار 24 ساعت اخیر اپراتورها، 100 تای اول بر اساس تعداد چت</translation>
+    </message>
+    <message>
       <source>Statistic</source>
       <translation>آمار</translation>
     </message>
     <message>
-      <source>General</source>
-      <translation>عمومی</translation>
+      <source>Chats statistic</source>
+      <translation>آمار چت ها</translation>
+    </message>
+    <message>
+      <source>Total statistic</source>
+      <translation>آمار کلی</translation>
+    </message>
+    <message>
+      <source>Last 24 hours statistic</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User</source>
@@ -4275,24 +4311,16 @@
       <translation>تعداد چت ها بر اساس کشور</translation>
     </message>
     <message>
-      <source>Number of chats by user</source>
-      <translation>تعداد چت ها بر اساس کاربر</translation>
+      <source>Average in seconds</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Wait time</source>
       <translation>زمان انتظار</translation>
     </message>
     <message>
-      <source>AVG visitor wait time by operator</source>
-      <translation>زمان انتظار بازدیدکننده AVG بر اساس اپراتور</translation>
-    </message>
-    <message>
       <source>Messages</source>
       <translation>پیام ها</translation>
-    </message>
-    <message>
-      <source>Number of messages by user</source>
-      <translation>تعداد پیام ها براساس کاربران</translation>
     </message>
     <message>
       <source>Month</source>
@@ -4355,10 +4383,6 @@
       <translation>تعداد چت ها در هر ساعت، میانگین مدت زمان چت</translation>
     </message>
     <message>
-      <source>Chats statistic</source>
-      <translation>آمار چت ها</translation>
-    </message>
-    <message>
       <source>Hourly statistic</source>
       <translation>آمار ساعتی</translation>
     </message>
@@ -4371,8 +4395,28 @@
       <translation>آمار کاربران</translation>
     </message>
     <message>
-      <source>Total statistic</source>
-      <translation>آمار کلی</translation>
+      <source>Number of chats by user</source>
+      <translation>تعداد چت ها بر اساس کاربر</translation>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation>تعداد پیام ها براساس کاربران</translation>
+    </message>
+    <message>
+      <source>Average chat duration by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>All operators statistic will be downloaded</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>AVG visitor wait time by operator</source>
+      <translation>زمان انتظار بازدیدکننده AVG بر اساس اپراتور</translation>
+    </message>
+    <message>
+      <source>Last 24h statistic</source>
+      <translation>آمار روز اخیر</translation>
     </message>
     <message>
       <source>Parameter</source>
@@ -4419,12 +4463,8 @@
       <translation>کل پیام ها (فقط اپراتورها)</translation>
     </message>
     <message>
-      <source>Last 24h statistic</source>
-      <translation>آمار روز اخیر</translation>
-    </message>
-    <message>
-      <source>Operators last 24h statistic, top 100 by chats number</source>
-      <translation>آمار 24 ساعت اخیر اپراتورها، 100 تای اول بر اساس تعداد چت</translation>
+      <source>Operators statistic, top 100 by chats number</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Total messages</source>
@@ -6743,6 +6783,22 @@
   <context>
     <name>chat/chatexport</name>
     <message>
+      <source>Referrer</source>
+      <translation>ارجاع دهنده</translation>
+    </message>
+    <message>
+      <source>Department name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitor Name</source>
       <translation>نام بازدید کننده</translation>
     </message>
@@ -6753,6 +6809,10 @@
     <message>
       <source>Phone</source>
       <translation>شماره تلفن</translation>
+    </message>
+    <message>
+      <source>Wait time</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Country</source>
@@ -6779,6 +6839,10 @@
       <translation>تاریخ</translation>
     </message>
     <message>
+      <source>Minutes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Vote status</source>
       <translation type="unfinished"/>
     </message>
@@ -6787,12 +6851,28 @@
       <translation>ارسال ایمیل</translation>
     </message>
     <message>
-      <source>Referrer</source>
-      <translation>ارجاع دهنده</translation>
+      <source>Page</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Came from</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Link</source>
       <translation>لینک</translation>
+    </message>
+    <message>
+      <source>Chat content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat average in seconds</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
