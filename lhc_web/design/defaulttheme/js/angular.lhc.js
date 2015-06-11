@@ -98,6 +98,9 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	this.limitc = this.restoreLocalSetting('limitc',10,false);
 	this.limitd = this.restoreLocalSetting('limitd',10,false);
 	
+	// Stores last ID of unread/pending chat id
+	this.lastidEvent = 0;
+	
 	this.actived = this.restoreLocalSetting('actived',[],true);
 	this.activedNames = [];	
 	
@@ -274,6 +277,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	                    	if (lastNotifiedId != lhinst.trackLastIDS[item.last_id_identifier]) {
 	                    		lastNotifiedId = lhinst.trackLastIDS[item.last_id_identifier];
 	                    		lhinst.playSoundNewAction(item.last_id_identifier,parseInt(item.last_id),(item.nick ? item.nick : 'Live Help'),(item.msg ? item.msg : confLH.transLation.new_chat));
+	                    		_that.lastidEvent = parseInt(item.last_id);
 	                    	}
 	                    } else if (lhinst.trackLastIDS[item.last_id_identifier] > parseInt(item.last_id)) {
 	                    	lhinst.trackLastIDS[item.last_id_identifier] = parseInt(item.last_id);
@@ -283,12 +287,13 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	                    	lhinst.trackLastIDS[item.last_id_identifier] = 0;
 	                    };
 	                    
-	                    if (parseInt(item.last_id) > 0) {
-	                    	hasPendingItems = true;                        	
-	                    };	                   
+	                    if (parseInt(item.last_id) > 0 && _that.lastidEvent == item.last_id) {
+	                    	hasPendingItems = true;
+	                    };	                    
+	                    
 	                };
 				});
-				
+												 
 				if (hasPendingItems == false) {
 					lhinst.hideNotifications();
                 };
