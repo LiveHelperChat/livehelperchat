@@ -6024,26 +6024,26 @@ pokazywany</translation>
     </message>
     <message>
       <source>Language</source>
-      <translation type="unfinished"/>
+      <translation>Język</translation>
     </message>
     <message>
       <source>Dialect</source>
-      <translation type="unfinished"/>
+      <translation>Dialekt</translation>
     </message>
     <message>
       <source>Default speech recognition language</source>
-      <translation type="unfinished"/>
+      <translation>Domyślny język rozpoznawania mowy</translation>
     </message>
   </context>
   <context>
     <name>speech/speech</name>
     <message>
       <source>Use application default recognition language</source>
-      <translation type="unfinished"/>
+      <translation>Użyj domyślnego języka rozpoznawania mowy aplikacji</translation>
     </message>
     <message>
       <source>Use application default recognition dialect</source>
-      <translation type="unfinished"/>
+      <translation>Użyj domyślnego dialektu rozpoznawania mowy aplikacji</translation>
     </message>
   </context>
   <context>
@@ -6113,7 +6113,7 @@ pokazywany</translation>
     <name>system/smtp</name>
     <message>
       <source>Mail settings</source>
-      <translation type="unfinished"/>
+      <translation>Ustawienia poczty</translation>
     </message>
     <message>
       <source>Sender address</source>
@@ -6682,7 +6682,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>You were logged out because another user logged under same account</source>
-      <translation type="unfinished"/>
+      <translation>Zostałeś wylogowany, ponieważ inny użytkownik zalogował się na to samo konto</translation>
     </message>
     <message>
       <source>Incorrect username or password</source>
@@ -6813,7 +6813,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Wait time</source>
-      <translation type="unfinished"/>
+      <translation>Czas oczekiwania</translation>
     </message>
     <message>
       <source>Country</source>
@@ -6853,7 +6853,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Page</source>
-      <translation type="unfinished"/>
+      <translation>Strona</translation>
     </message>
     <message>
       <source>Came from</source>
@@ -7255,7 +7255,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>Ustawienia zaktualizowano</translation>
     </message>
     <message>
       <source>Autologin hash has expired</source>
@@ -7263,7 +7263,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Could not find a user</source>
-      <translation type="unfinished"/>
+      <translation>Nie mogę znaleźć użytkownika</translation>
     </message>
     <message>
       <source>Could not find a provided user</source>

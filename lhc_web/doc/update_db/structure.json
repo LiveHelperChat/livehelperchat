@@ -3738,7 +3738,7 @@
         "lh_chat_config": [
             {
                 "identifier": "dashboard_order",
-                "value": "online_operators,departments_stats|pending_chats,unread_chats|active_chats,closed_chats",
+                "value": "online_operators,departments_stats|pending_chats,unread_chats,transfered_chats|active_chats,closed_chats",
                 "type": "0",
                 "explain": "Home page dashboard widgets order",
                 "hidden": "0"

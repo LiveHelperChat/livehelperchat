@@ -420,7 +420,7 @@
     </message>
     <message>
       <source>Header padding (px)</source>
-      <translation type="unfinished"/>
+      <translation>Lapisan header (px)</translation>
     </message>
     <message>
       <source>Site URL</source>
@@ -460,19 +460,19 @@
     </message>
     <message>
       <source>Text then user starts chat based on proactive invitation</source>
-      <translation type="unfinished"/>
+      <translation>Teks setelah pengguna mulai percakapan berdasarkan undangan proaktif</translation>
     </message>
     <message>
       <source>Text then operator closes a chat</source>
-      <translation type="unfinished"/>
+      <translation>Teks setelah operator menutup percakapan</translation>
     </message>
     <message>
       <source>Text then user starts a chat and is waiting for operator to join a chat</source>
-      <translation type="unfinished"/>
+      <translation>Teks setelah pengguna mulai percakapan dan menunggu operator untuk bergabung dalam percakapan</translation>
     </message>
     <message>
       <source>Text then user starts a chat but department is offline</source>
-      <translation type="unfinished"/>
+      <translation>Teks setelah pengguna mulai percakapan tapi departemen offline</translation>
     </message>
     <message>
       <source>Leave a message form text</source>
@@ -764,11 +764,11 @@
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Chatbox module to render.</source>
-      <translation type="unfinished"/>
+      <translation>Tempatkan tag ini di mana Anda ingin untuk membuat modul Live Helper Chatbox.</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper Chatbox module tag.</source>
-      <translation type="unfinished"/>
+      <translation>Tempatkan tag ini setelah tag modul Live Helper Chatbox.</translation>
     </message>
     <message>
       <source>Chatbox</source>
@@ -2047,7 +2047,7 @@
     </message>
     <message>
       <source>Chat messages automatic translations has been stopped</source>
-      <translation type="unfinished"/>
+      <translation>Terjemahan otomatis pesan percakapan telah dihentikan</translation>
     </message>
     <message>
       <source>Messages has been translated</source>
@@ -2161,11 +2161,11 @@
     </message>
     <message>
       <source>Pending chats</source>
-      <translation type="unfinished"/>
+      <translation>Percakapan tertunda</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation type="unfinished"/>
+      <translation>Percakapan aktif</translation>
     </message>
     <message>
       <source>Last activity ago</source>
@@ -2639,7 +2639,7 @@
     </message>
     <message>
       <source>For unmatched countries put chat status to</source>
-      <translation type="unfinished"/>
+      <translation>Untuk negara yang tak tertandingi menempatkan percakapan status</translation>
     </message>
     <message>
       <source>normal status</source>
@@ -3209,7 +3209,7 @@
     </message>
     <message>
       <source>Chat</source>
-      <translation type="unfinished"/>
+      <translation>Percakapan</translation>
     </message>
     <message>
       <source>Returning</source>
@@ -3730,7 +3730,7 @@
     <name>chat/modifychat</name>
     <message>
       <source>Modify chat</source>
-      <translation type="unfinished"/>
+      <translation>Modifikasi percakapan</translation>
     </message>
     <message>
       <source>E-mail</source>
@@ -3750,11 +3750,11 @@
     </message>
     <message>
       <source>Update chat</source>
-      <translation type="unfinished"/>
+      <translation>Perbarui percakapan</translation>
     </message>
     <message>
       <source>Chat information was updated</source>
-      <translation type="unfinished"/>
+      <translation>Informasi percakapan telah diperbarui</translation>
     </message>
   </context>
   <context>
@@ -4268,7 +4268,7 @@
     </message>
     <message>
       <source>Chats statistic</source>
-      <translation type="unfinished"/>
+      <translation>Statistik percakapan</translation>
     </message>
     <message>
       <source>Total statistic</source>
@@ -4304,11 +4304,11 @@
     </message>
     <message>
       <source>Chats</source>
-      <translation type="unfinished"/>
+      <translation>Percakapan</translation>
     </message>
     <message>
       <source>Number of chats by country</source>
-      <translation type="unfinished"/>
+      <translation>Jumlah percakapan berdasarkan negara</translation>
     </message>
     <message>
       <source>Average in seconds</source>

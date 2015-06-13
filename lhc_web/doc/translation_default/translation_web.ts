@@ -148,6 +148,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Hide right column in frontpage</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide disabled department widget</source>
       <translation type="unfinished"/>
     </message>
@@ -3062,10 +3066,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Online visitors</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>User tracking is disabled, enable it at</source>
       <translation type="unfinished"/>
     </message>
@@ -3087,6 +3087,10 @@
     </message>
     <message>
       <source>Enable/Disable browser notifications about new visitor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online visitors</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3590,11 +3594,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Active chats</source>
+      <source>collapse/expand</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>collapse/expand</source>
+      <source>Active chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3606,6 +3610,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Unread messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chats transferred to you directly</source>
       <translation type="unfinished"/>
     </message>
@@ -3614,19 +3622,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Unread messages</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Departments stats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Download XLS</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online operators</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3635,6 +3631,18 @@
     </message>
     <message>
       <source>Number of elements in list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Departments stats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transfered chats</source>
       <translation type="unfinished"/>
     </message>
     <message>

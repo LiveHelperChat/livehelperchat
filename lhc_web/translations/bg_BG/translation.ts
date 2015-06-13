@@ -187,7 +187,7 @@
     </message>
     <message>
       <source>Home page dashboard widgets order</source>
-      <translation type="unfinished"/>
+      <translation>Начална страница управление на поръчка</translation>
     </message>
     <message>
       <source>Your site URL address</source>
@@ -764,11 +764,11 @@
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Chatbox module to render.</source>
-      <translation type="unfinished"/>
+      <translation>Поставете този маркер, където искате за активация на Chatbox модул.</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper Chatbox module tag.</source>
-      <translation type="unfinished"/>
+      <translation>Поставете този маркер след Chatbox модул.</translation>
     </message>
     <message>
       <source>Chatbox</source>
@@ -844,11 +844,11 @@
     </message>
     <message>
       <source>Place this tag where you want the Live Helper FAQ module to render.</source>
-      <translation type="unfinished"/>
+      <translation>Поставете този маркер, където искате за активиране на FAQ модул.</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper FAQ module tag.</source>
-      <translation type="unfinished"/>
+      <translation>Поставете този маркер след FAQ модул.</translation>
     </message>
     <message>
       <source>Status text</source>
@@ -872,11 +872,11 @@
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Questionary module to render.</source>
-      <translation type="unfinished"/>
+      <translation>Поставете този маркер, където искате за активиране на Questionary модул.</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper Questionary module tag.</source>
-      <translation type="unfinished"/>
+      <translation>Поставете този маркер Questionary модул.</translation>
     </message>
     <message>
       <source>Help us to grow</source>
@@ -940,11 +940,11 @@
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Plugin to render.</source>
-      <translation type="unfinished"/>
+      <translation>Поставете този маркер, където искате на живо помощник плъгин за рендиране.</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper Plugin tag.</source>
-      <translation type="unfinished"/>
+      <translation>Поставете този маркер след живеят помощник плъгин етикет.</translation>
     </message>
     <message>
       <source>On a mouse click show the page widget</source>
@@ -1016,11 +1016,11 @@
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Status to render.</source>
-      <translation type="unfinished"/>
+      <translation>Поставете този маркер където искате състоянието на живо помощник за рендиране.</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper status tag.</source>
-      <translation type="unfinished"/>
+      <translation>Поставете този маркер след живеят помощник статус етикет.</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -1148,23 +1148,23 @@
     </message>
     <message>
       <source>Vote status</source>
-      <translation type="unfinished"/>
+      <translation>Гласуване статус</translation>
     </message>
     <message>
       <source>Any</source>
-      <translation type="unfinished"/>
+      <translation>Всеки</translation>
     </message>
     <message>
       <source>Not Noted</source>
-      <translation type="unfinished"/>
+      <translation>Не отбелязва</translation>
     </message>
     <message>
       <source>Up Voted</source>
-      <translation type="unfinished"/>
+      <translation>Нагоре гласували</translation>
     </message>
     <message>
       <source>Down vote</source>
-      <translation type="unfinished"/>
+      <translation>Надолу гласуване</translation>
     </message>
     <message>
       <source>Search</source>
@@ -1180,7 +1180,7 @@
     </message>
     <message>
       <source>XLS (with content)</source>
-      <translation type="unfinished"/>
+      <translation>XLS (със съдържание)</translation>
     </message>
     <message>
       <source>Select department</source>
@@ -1200,7 +1200,7 @@
     </message>
     <message>
       <source>Group by</source>
-      <translation type="unfinished"/>
+      <translation>Групиране по</translation>
     </message>
     <message>
       <source>Month</source>
@@ -1391,7 +1391,7 @@
     </message>
     <message>
       <source>Title/Message</source>
-      <translation type="unfinished"/>
+      <translation>Заглавие/съобщение</translation>
     </message>
     <message>
       <source>Department</source>
@@ -1427,11 +1427,11 @@
     </message>
     <message>
       <source>Title</source>
-      <translation type="unfinished"/>
+      <translation>Заглавие</translation>
     </message>
     <message>
       <source>Explain</source>
-      <translation type="unfinished"/>
+      <translation>Обясни</translation>
     </message>
     <message>
       <source>Message</source>
@@ -1439,7 +1439,7 @@
     </message>
     <message>
       <source>Fallback message</source>
-      <translation type="unfinished"/>
+      <translation>Резервно съобщение</translation>
     </message>
     <message>
       <source>Automatically send this message to user then chat is accepted</source>
@@ -1634,7 +1634,7 @@
     </message>
     <message>
       <source>Send XMPP messages to all department operators</source>
-      <translation type="unfinished"/>
+      <translation>Изпрати XMPP съобщения до всички оператори на отдел</translation>
     </message>
     <message>
       <source>Mail messages</source>
@@ -2149,31 +2149,31 @@
     </message>
     <message>
       <source>Operator</source>
-      <translation type="unfinished"/>
+      <translation>Оператор</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Отдел</translation>
     </message>
     <message>
       <source>Nothing found</source>
-      <translation type="unfinished"/>
+      <translation>Не намирам нищо</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation type="unfinished"/>
+      <translation>Чакащи чатове</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation type="unfinished"/>
+      <translation>Активни чатове</translation>
     </message>
     <message>
       <source>Last activity ago</source>
-      <translation type="unfinished"/>
+      <translation>Последна активност преди</translation>
     </message>
     <message>
       <source>Time ago</source>
-      <translation type="unfinished"/>
+      <translation>Преди време</translation>
     </message>
   </context>
   <context>
@@ -2937,7 +2937,7 @@
     </message>
     <message>
       <source>Dashboard</source>
-      <translation type="unfinished"/>
+      <translation>Табло</translation>
     </message>
     <message>
       <source>City</source>
@@ -3593,7 +3593,7 @@
     </message>
     <message>
       <source>collapse/expand</source>
-      <translation type="unfinished"/>
+      <translation>свиване/разгъване</translation>
     </message>
     <message>
       <source>Closed chats</source>
@@ -3617,23 +3617,23 @@
     </message>
     <message>
       <source>Departments stats</source>
-      <translation type="unfinished"/>
+      <translation>Отдели статистика</translation>
     </message>
     <message>
       <source>Download XLS</source>
-      <translation type="unfinished"/>
+      <translation>Изтегляне XLS</translation>
     </message>
     <message>
       <source>Online operators</source>
-      <translation type="unfinished"/>
+      <translation>Онлайн оператори</translation>
     </message>
     <message>
       <source>All departments</source>
-      <translation type="unfinished"/>
+      <translation>Всички отдели</translation>
     </message>
     <message>
       <source>Number of elements in list</source>
-      <translation type="unfinished"/>
+      <translation>Брой елементи в списък</translation>
     </message>
     <message>
       <source>Home</source>
@@ -3938,75 +3938,75 @@
     </message>
     <message>
       <source>Custom fields generator, these fields will be visible in start chat forms</source>
-      <translation type="unfinished"/>
+      <translation>Генератор на потребителски полета, тези полета ще бъдат видими в началото на чат формата</translation>
     </message>
     <message>
       <source>Field label</source>
-      <translation type="unfinished"/>
+      <translation>Етикет на поле</translation>
     </message>
     <message>
       <source>Default value</source>
-      <translation type="unfinished"/>
+      <translation>Стойността по подразбиране</translation>
     </message>
     <message>
       <source>Type</source>
-      <translation type="unfinished"/>
+      <translation>Тип</translation>
     </message>
     <message>
       <source>Text</source>
-      <translation type="unfinished"/>
+      <translation>Текст</translation>
     </message>
     <message>
       <source>Hidden</source>
-      <translation type="unfinished"/>
+      <translation>Скрити</translation>
     </message>
     <message>
       <source>Visible on</source>
-      <translation type="unfinished"/>
+      <translation>Видими на</translation>
     </message>
     <message>
       <source>Offline and online form</source>
-      <translation type="unfinished"/>
+      <translation>Офлайн и онлайн формуляр</translation>
     </message>
     <message>
       <source>Only offline</source>
-      <translation type="unfinished"/>
+      <translation>Само офлайн</translation>
     </message>
     <message>
       <source>Only online</source>
-      <translation type="unfinished"/>
+      <translation>Само онлайн</translation>
     </message>
     <message>
       <source>Size (between 1 and 12)</source>
-      <translation type="unfinished"/>
+      <translation>Размер (между 1 и 12)</translation>
     </message>
     <message>
       <source>Field identifier</source>
-      <translation type="unfinished"/>
+      <translation>Идентификатор на поле</translation>
     </message>
     <message>
       <source>Is required</source>
-      <translation type="unfinished"/>
+      <translation>Изисква се</translation>
     </message>
     <message>
       <source>Add a field</source>
-      <translation type="unfinished"/>
+      <translation>Добавяне на поле</translation>
     </message>
     <message>
       <source>left</source>
-      <translation type="unfinished"/>
+      <translation>ляв</translation>
     </message>
     <message>
       <source>right</source>
-      <translation type="unfinished"/>
+      <translation>десен</translation>
     </message>
     <message>
       <source>Visible only in offline form</source>
-      <translation type="unfinished"/>
+      <translation>Видими само под формата на офлайн</translation>
     </message>
     <message>
       <source>Visible only in online form</source>
-      <translation type="unfinished"/>
+      <translation>Видими само в онлайн формуляра</translation>
     </message>
     <message>
       <source>Size</source>
@@ -4014,11 +4014,11 @@
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>Идентификатор</translation>
     </message>
     <message>
       <source>Remove</source>
-      <translation type="unfinished"/>
+      <translation>Премахване</translation>
     </message>
     <message>
       <source>Enable leave a message functionality automatically if there are no online operators</source>
@@ -4038,7 +4038,7 @@
     </message>
     <message>
       <source>Custom fields</source>
-      <translation type="unfinished"/>
+      <translation>Потребителски полета</translation>
     </message>
     <message>
       <source>Name</source>
@@ -4276,7 +4276,7 @@
     </message>
     <message>
       <source>Last 24 hours statistic</source>
-      <translation type="unfinished"/>
+      <translation>Последните 24 часа статистика</translation>
     </message>
     <message>
       <source>User</source>
@@ -4312,7 +4312,7 @@
     </message>
     <message>
       <source>Average in seconds</source>
-      <translation type="unfinished"/>
+      <translation>Средно в секунди</translation>
     </message>
     <message>
       <source>Wait time</source>
@@ -4404,11 +4404,11 @@
     </message>
     <message>
       <source>Average chat duration by user</source>
-      <translation type="unfinished"/>
+      <translation>Средна продължителност потребителски чат</translation>
     </message>
     <message>
       <source>All operators statistic will be downloaded</source>
-      <translation type="unfinished"/>
+      <translation>Всички операторски статистика ще бъдат изтеглени</translation>
     </message>
     <message>
       <source>AVG visitor wait time by operator</source>
@@ -4464,7 +4464,7 @@
     </message>
     <message>
       <source>Operators statistic, top 100 by chats number</source>
-      <translation type="unfinished"/>
+      <translation>Операторска статистика, Топ 100 по чатове номер</translation>
     </message>
     <message>
       <source>Total messages</source>
@@ -6681,7 +6681,7 @@
     </message>
     <message>
       <source>You were logged out because another user logged under same account</source>
-      <translation type="unfinished"/>
+      <translation>Излезли сте, защото друг потребител се е логнал със същия профил</translation>
     </message>
     <message>
       <source>Incorrect username or password</source>
@@ -6788,15 +6788,15 @@
     </message>
     <message>
       <source>Department name</source>
-      <translation type="unfinished"/>
+      <translation>Име на отдел</translation>
     </message>
     <message>
       <source>Pending chats number</source>
-      <translation type="unfinished"/>
+      <translation>Чакащ чатове номер</translation>
     </message>
     <message>
       <source>Active chats number</source>
-      <translation type="unfinished"/>
+      <translation>Брой активни чатове</translation>
     </message>
     <message>
       <source>Visitor Name</source>
@@ -6812,7 +6812,7 @@
     </message>
     <message>
       <source>Wait time</source>
-      <translation type="unfinished"/>
+      <translation>Времето за технологичен престой</translation>
     </message>
     <message>
       <source>Country</source>
@@ -6840,11 +6840,11 @@
     </message>
     <message>
       <source>Minutes</source>
-      <translation type="unfinished"/>
+      <translation>Минути</translation>
     </message>
     <message>
       <source>Vote status</source>
-      <translation type="unfinished"/>
+      <translation>Гласуване статус</translation>
     </message>
     <message>
       <source>Mail send</source>
@@ -6852,11 +6852,11 @@
     </message>
     <message>
       <source>Page</source>
-      <translation type="unfinished"/>
+      <translation>Страница</translation>
     </message>
     <message>
       <source>Came from</source>
-      <translation type="unfinished"/>
+      <translation>Дойде от</translation>
     </message>
     <message>
       <source>Link</source>
@@ -6864,15 +6864,15 @@
     </message>
     <message>
       <source>Chat content</source>
-      <translation type="unfinished"/>
+      <translation>Чат съдържание</translation>
     </message>
     <message>
       <source>User ID</source>
-      <translation type="unfinished"/>
+      <translation>ИД на потребител</translation>
     </message>
     <message>
       <source>Chat average in seconds</source>
-      <translation type="unfinished"/>
+      <translation>Чат средно в секунди</translation>
     </message>
   </context>
   <context>
@@ -6899,7 +6899,7 @@
     </message>
     <message>
       <source>The operator has closed this chat session</source>
-      <translation type="unfinished"/>
+      <translation>Операторът е затворил тази чат сесия</translation>
     </message>
     <message>
       <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>

@@ -187,7 +187,7 @@
     </message>
     <message>
       <source>Home page dashboard widgets order</source>
-      <translation type="unfinished"/>
+      <translation>Ordre des widgets dans le tableau de bord de la page principale</translation>
     </message>
     <message>
       <source>Your site URL address</source>
@@ -336,7 +336,7 @@
     </message>
     <message>
       <source>Main widget text</source>
-      <translation type="unfinished"/>
+      <translation>Texte du widget principal</translation>
     </message>
     <message>
       <source>Custom CSS</source>
@@ -348,7 +348,7 @@
     </message>
     <message>
       <source>Name of the company</source>
-      <translation type="unfinished"/>
+      <translation>Nom de la compagnie</translation>
     </message>
     <message>
       <source>Need help header text</source>
@@ -360,7 +360,7 @@
     </message>
     <message>
       <source>Widget border width (px)</source>
-      <translation type="unfinished"/>
+      <translation>Largeur de la bordure du widget (px)</translation>
     </message>
     <message>
       <source>Online status text</source>
@@ -408,7 +408,7 @@
     </message>
     <message>
       <source>Hide widget close button</source>
-      <translation type="unfinished"/>
+      <translation>Masquer le bouton permettant de fermer le widget</translation>
     </message>
     <message>
       <source>Hide popup option</source>
@@ -508,15 +508,15 @@
     </message>
     <message>
       <source>Minimize image</source>
-      <translation type="unfinished"/>
+      <translation>Minimiser l&apos;image</translation>
     </message>
     <message>
       <source>Restore image</source>
-      <translation type="unfinished"/>
+      <translation>Restaurer l&apos;image</translation>
     </message>
     <message>
       <source>Close image</source>
-      <translation type="unfinished"/>
+      <translation>Fermer l&apos;image</translation>
     </message>
     <message>
       <source>Popup image</source>
@@ -896,7 +896,7 @@
     </message>
     <message>
       <source>Set default speech recognition language</source>
-      <translation type="unfinished"/>
+      <translation>Définir la langue par défaut pour la reconnaissance vocale</translation>
     </message>
     <message>
       <source>Speech language</source>
@@ -904,7 +904,7 @@
     </message>
     <message>
       <source>General</source>
-      <translation type="unfinished"/>
+      <translation>Général</translation>
     </message>
     <message>
       <source>Design</source>
@@ -984,7 +984,7 @@
     </message>
     <message>
       <source>Popup window width</source>
-      <translation type="unfinished"/>
+      <translation>Largeur de la fenêtre popup</translation>
     </message>
     <message>
       <source>Popup window width in pixels</source>
@@ -1012,7 +1012,7 @@
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>
-      <translation type="unfinished"/>
+      <translation>Veuillez ne pas saisir le protocole. Seul le nom de domaine est requis.</translation>
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Status to render.</source>
@@ -1148,7 +1148,7 @@
     </message>
     <message>
       <source>Vote status</source>
-      <translation type="unfinished"/>
+      <translation>Statut du vote</translation>
     </message>
     <message>
       <source>Any</source>
@@ -1180,7 +1180,7 @@
     </message>
     <message>
       <source>XLS (with content)</source>
-      <translation type="unfinished"/>
+      <translation>XLS (avec contenu)</translation>
     </message>
     <message>
       <source>Select department</source>
@@ -1196,19 +1196,19 @@
     </message>
     <message>
       <source>Choose department</source>
-      <translation type="unfinished"/>
+      <translation>Veuillez choisir un département</translation>
     </message>
     <message>
       <source>Group by</source>
-      <translation type="unfinished"/>
+      <translation>Grouper par</translation>
     </message>
     <message>
       <source>Month</source>
-      <translation type="unfinished"/>
+      <translation>Mois</translation>
     </message>
     <message>
       <source>Day</source>
-      <translation type="unfinished"/>
+      <translation>Jour</translation>
     </message>
   </context>
   <context>
@@ -1391,7 +1391,7 @@
     </message>
     <message>
       <source>Title/Message</source>
-      <translation type="unfinished"/>
+      <translation>Titre / Message</translation>
     </message>
     <message>
       <source>Department</source>
@@ -1427,11 +1427,11 @@
     </message>
     <message>
       <source>Title</source>
-      <translation type="unfinished"/>
+      <translation>Titre</translation>
     </message>
     <message>
       <source>Explain</source>
-      <translation type="unfinished"/>
+      <translation>Explication</translation>
     </message>
     <message>
       <source>Message</source>
@@ -1634,7 +1634,7 @@
     </message>
     <message>
       <source>Send XMPP messages to all department operators</source>
-      <translation type="unfinished"/>
+      <translation>Envoyer un message XMPP à tous les opérateurs du département</translation>
     </message>
     <message>
       <source>Mail messages</source>
@@ -1732,7 +1732,7 @@
     </message>
     <message>
       <source>Choose other than default recognition language</source>
-      <translation type="unfinished"/>
+      <translation>Choisir une autre langue que celle par défaut pour la reconnaissance vocale</translation>
     </message>
     <message>
       <source>Transfer chat</source>
@@ -1888,7 +1888,7 @@
     </message>
     <message>
       <source>User browsing information</source>
-      <translation type="unfinished"/>
+      <translation>Informations de navigation de l&apos;utilisateur</translation>
     </message>
     <message>
       <source>Chats</source>
@@ -1935,11 +1935,11 @@
     <name>chat/translation</name>
     <message>
       <source>Visitor language</source>
-      <translation type="unfinished"/>
+      <translation>Langue du visiteur</translation>
     </message>
     <message>
       <source>My language</source>
-      <translation type="unfinished"/>
+      <translation>Ma langue</translation>
     </message>
     <message>
       <source>Auto translate</source>
@@ -1951,15 +1951,15 @@
     </message>
     <message>
       <source>Automatically detected</source>
-      <translation type="unfinished"/>
+      <translation>Détectée automatiquement</translation>
     </message>
     <message>
       <source>Automatic translation</source>
-      <translation type="unfinished"/>
+      <translation>Traduction automatique</translation>
     </message>
     <message>
       <source>Translation settings</source>
-      <translation type="unfinished"/>
+      <translation>Paramètres des traductions</translation>
     </message>
     <message>
       <source>Enter text for testing purposes</source>
@@ -1971,11 +1971,11 @@
     </message>
     <message>
       <source>Detected language</source>
-      <translation type="unfinished"/>
+      <translation>Langue détectée</translation>
     </message>
     <message>
       <source>Detect language</source>
-      <translation type="unfinished"/>
+      <translation>Détecter la langue</translation>
     </message>
     <message>
       <source>Translate</source>
@@ -1983,7 +1983,7 @@
     </message>
     <message>
       <source>Enable translation service</source>
-      <translation type="unfinished"/>
+      <translation>Activer le service de traduction</translation>
     </message>
     <message>
       <source>Bing</source>
@@ -1995,11 +1995,11 @@
     </message>
     <message>
       <source>Use Bing service</source>
-      <translation type="unfinished"/>
+      <translation>Utiliser le service Bing</translation>
     </message>
     <message>
       <source>Bing client ID</source>
-      <translation type="unfinished"/>
+      <translation>Identifiant du client Bing</translation>
     </message>
     <message>
       <source>Bing client secret, key is never shown for security purposes</source>
@@ -2011,7 +2011,7 @@
     </message>
     <message>
       <source>Use Google service</source>
-      <translation type="unfinished"/>
+      <translation>Utiliser le service Google</translation>
     </message>
     <message>
       <source>API key, key is never shown for security purposes</source>
@@ -2019,23 +2019,23 @@
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>Paramètres mis à jour</translation>
     </message>
     <message>
       <source>Missing text to translate</source>
-      <translation type="unfinished"/>
+      <translation>Aucun texte à traduire</translation>
     </message>
     <message>
       <source>Could not detect language</source>
-      <translation type="unfinished"/>
+      <translation>Langue non détectée</translation>
     </message>
     <message>
       <source>Could not translate</source>
-      <translation type="unfinished"/>
+      <translation>Traduction non réussie</translation>
     </message>
     <message>
       <source>We could not detect operator language</source>
-      <translation type="unfinished"/>
+      <translation>Langue de l&apos;opérateur non détectée</translation>
     </message>
     <message>
       <source>Detected operator and visitor languages matches, please choose languages manually</source>
@@ -2047,7 +2047,7 @@
     </message>
     <message>
       <source>Chat messages automatic translations has been stopped</source>
-      <translation type="unfinished"/>
+      <translation>Traduction automatique des messages du chat arrêtée</translation>
     </message>
     <message>
       <source>Messages has been translated</source>
@@ -2145,27 +2145,27 @@
     </message>
     <message>
       <source>Visitor</source>
-      <translation type="unfinished"/>
+      <translation>Visiteur</translation>
     </message>
     <message>
       <source>Operator</source>
-      <translation type="unfinished"/>
+      <translation>Opérateur</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Département</translation>
     </message>
     <message>
       <source>Nothing found</source>
-      <translation type="unfinished"/>
+      <translation>Rien n&apos;a été trouvé</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation type="unfinished"/>
+      <translation>Chats en attente</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation type="unfinished"/>
+      <translation>Chats actifs</translation>
     </message>
     <message>
       <source>Last activity ago</source>
@@ -2937,7 +2937,7 @@
     </message>
     <message>
       <source>Dashboard</source>
-      <translation type="unfinished"/>
+      <translation>Tableau de bord</translation>
     </message>
     <message>
       <source>City</source>
@@ -3077,7 +3077,7 @@
     </message>
     <message>
       <source>Online users on map</source>
-      <translation type="unfinished"/>
+      <translation>Carte des utilisateurs en ligne</translation>
     </message>
     <message>
       <source>Enable/Disable sound about new visitor</source>
@@ -3209,7 +3209,7 @@
     </message>
     <message>
       <source>Chat</source>
-      <translation type="unfinished"/>
+      <translation>Chat</translation>
     </message>
     <message>
       <source>Returning</source>
@@ -3503,7 +3503,7 @@
     </message>
     <message>
       <source>Automatic translations</source>
-      <translation type="unfinished"/>
+      <translation>Traductions automatiques</translation>
     </message>
     <message>
       <source>XMPP settings</source>
@@ -3617,23 +3617,23 @@
     </message>
     <message>
       <source>Departments stats</source>
-      <translation type="unfinished"/>
+      <translation>Statistiques des départements</translation>
     </message>
     <message>
       <source>Download XLS</source>
-      <translation type="unfinished"/>
+      <translation>Télécharger le XLS</translation>
     </message>
     <message>
       <source>Online operators</source>
-      <translation type="unfinished"/>
+      <translation>Opérateurs en ligne</translation>
     </message>
     <message>
       <source>All departments</source>
-      <translation type="unfinished"/>
+      <translation>Tous les départements</translation>
     </message>
     <message>
       <source>Number of elements in list</source>
-      <translation type="unfinished"/>
+      <translation>Nombre d&apos;éléments dans la liste</translation>
     </message>
     <message>
       <source>Home</source>
@@ -3942,23 +3942,23 @@
     </message>
     <message>
       <source>Field label</source>
-      <translation type="unfinished"/>
+      <translation>Étiquette du champ</translation>
     </message>
     <message>
       <source>Default value</source>
-      <translation type="unfinished"/>
+      <translation>Valeur par défaut</translation>
     </message>
     <message>
       <source>Type</source>
-      <translation type="unfinished"/>
+      <translation>Type</translation>
     </message>
     <message>
       <source>Text</source>
-      <translation type="unfinished"/>
+      <translation>Texte</translation>
     </message>
     <message>
       <source>Hidden</source>
-      <translation type="unfinished"/>
+      <translation>Caché</translation>
     </message>
     <message>
       <source>Visible on</source>
@@ -3970,55 +3970,55 @@
     </message>
     <message>
       <source>Only offline</source>
-      <translation type="unfinished"/>
+      <translation>Hors ligne seulement</translation>
     </message>
     <message>
       <source>Only online</source>
-      <translation type="unfinished"/>
+      <translation>En ligne seulement</translation>
     </message>
     <message>
       <source>Size (between 1 and 12)</source>
-      <translation type="unfinished"/>
+      <translation>Taille (entre 1 et 12)</translation>
     </message>
     <message>
       <source>Field identifier</source>
-      <translation type="unfinished"/>
+      <translation>Identifiant du champ</translation>
     </message>
     <message>
       <source>Is required</source>
-      <translation type="unfinished"/>
+      <translation>Est obligatoire</translation>
     </message>
     <message>
       <source>Add a field</source>
-      <translation type="unfinished"/>
+      <translation>Ajouter un champ</translation>
     </message>
     <message>
       <source>left</source>
-      <translation type="unfinished"/>
+      <translation>gauche</translation>
     </message>
     <message>
       <source>right</source>
-      <translation type="unfinished"/>
+      <translation>droite</translation>
     </message>
     <message>
       <source>Visible only in offline form</source>
-      <translation type="unfinished"/>
+      <translation>Visible seulement dans le formulaire hors ligne</translation>
     </message>
     <message>
       <source>Visible only in online form</source>
-      <translation type="unfinished"/>
+      <translation>Visible seulement dans le formulaire en ligne</translation>
     </message>
     <message>
       <source>Size</source>
-      <translation type="unfinished"/>
+      <translation>Taille</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>Identifiant</translation>
     </message>
     <message>
       <source>Remove</source>
-      <translation type="unfinished"/>
+      <translation>Supprimer</translation>
     </message>
     <message>
       <source>Enable leave a message functionality automatically if there are no online operators</source>
@@ -4038,7 +4038,7 @@
     </message>
     <message>
       <source>Custom fields</source>
-      <translation type="unfinished"/>
+      <translation>Champs personnalisés</translation>
     </message>
     <message>
       <source>Name</source>
@@ -4256,7 +4256,7 @@
     <name>chat/statistic</name>
     <message>
       <source>General</source>
-      <translation type="unfinished"/>
+      <translation>Général</translation>
     </message>
     <message>
       <source>Operators last 24h statistic, top 100 by chats number</source>
@@ -4276,7 +4276,7 @@
     </message>
     <message>
       <source>Last 24 hours statistic</source>
-      <translation type="unfinished"/>
+      <translation>Statistiques des dernières 24 heures</translation>
     </message>
     <message>
       <source>User</source>
@@ -4312,11 +4312,11 @@
     </message>
     <message>
       <source>Average in seconds</source>
-      <translation type="unfinished"/>
+      <translation>Moyenne en seconde</translation>
     </message>
     <message>
       <source>Wait time</source>
-      <translation type="unfinished"/>
+      <translation>Temps d&apos;attente</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -4348,11 +4348,11 @@
     </message>
     <message>
       <source>Time</source>
-      <translation type="unfinished"/>
+      <translation>Durée</translation>
     </message>
     <message>
       <source>AVG wait time in seconds, max 10 mininutes</source>
-      <translation type="unfinished"/>
+      <translation>Temps d&apos;attente moyen, 10 minutes maximum</translation>
     </message>
     <message>
       <source>Visitors initiated</source>
@@ -4396,7 +4396,7 @@
     </message>
     <message>
       <source>Number of chats by user</source>
-      <translation type="unfinished"/>
+      <translation>Nombre de chats par utilisateur</translation>
     </message>
     <message>
       <source>Number of messages by user</source>
@@ -4404,15 +4404,15 @@
     </message>
     <message>
       <source>Average chat duration by user</source>
-      <translation type="unfinished"/>
+      <translation>Durée moyenne d&apos;un chat par utilisateur</translation>
     </message>
     <message>
       <source>All operators statistic will be downloaded</source>
-      <translation type="unfinished"/>
+      <translation>Toutes les statistiques sur les opérateurs seront téléchargées</translation>
     </message>
     <message>
       <source>AVG visitor wait time by operator</source>
-      <translation type="unfinished"/>
+      <translation>Temps d&apos;attente moyen d&apos;un visiteur par opérateur</translation>
     </message>
     <message>
       <source>Last 24h statistic</source>
@@ -4464,7 +4464,7 @@
     </message>
     <message>
       <source>Operators statistic, top 100 by chats number</source>
-      <translation type="unfinished"/>
+      <translation>Statistiques des opérateurs, top 100 par nombre de chats</translation>
     </message>
     <message>
       <source>Total messages</source>
@@ -4969,7 +4969,7 @@
     </message>
     <message>
       <source>Permissions</source>
-      <translation type="unfinished"/>
+      <translation>Permissions</translation>
     </message>
     <message>
       <source>Do not enter a password unless you want to change it</source>
@@ -5073,7 +5073,7 @@
     </message>
     <message>
       <source>Show permissions</source>
-      <translation type="unfinished"/>
+      <translation>Afficher les permissions</translation>
     </message>
     <message>
       <source>Account updated</source>
@@ -6019,26 +6019,26 @@
     <name>speech/language</name>
     <message>
       <source>Choose speech recognition language for this chat</source>
-      <translation type="unfinished"/>
+      <translation>Veuillez choisir la langue de la reconnaissance vocale pour ce chat</translation>
     </message>
     <message>
       <source>Language</source>
-      <translation type="unfinished"/>
+      <translation>Langue</translation>
     </message>
     <message>
       <source>Dialect</source>
-      <translation type="unfinished"/>
+      <translation>Dialecte</translation>
     </message>
     <message>
       <source>Default speech recognition language</source>
-      <translation type="unfinished"/>
+      <translation>Langue par défaut pour la reconnaissance vocale</translation>
     </message>
   </context>
   <context>
     <name>speech/speech</name>
     <message>
       <source>Use application default recognition language</source>
-      <translation type="unfinished"/>
+      <translation>Utilisaer la langue par défaut pour la reconnaissance vocale</translation>
     </message>
     <message>
       <source>Use application default recognition dialect</source>
@@ -6116,7 +6116,7 @@
     </message>
     <message>
       <source>Sender address</source>
-      <translation type="unfinished"/>
+      <translation>Adresse de l&apos;expéditeur</translation>
     </message>
     <message>
       <source>Default from e-mail address</source>
@@ -6681,7 +6681,7 @@
     </message>
     <message>
       <source>You were logged out because another user logged under same account</source>
-      <translation type="unfinished"/>
+      <translation>Vous êtes maintenant déconnecté puisqu&apos;un autre utilisateur s&apos;est connecté avec ce compte</translation>
     </message>
     <message>
       <source>Incorrect username or password</source>
@@ -6788,15 +6788,15 @@
     </message>
     <message>
       <source>Department name</source>
-      <translation type="unfinished"/>
+      <translation>Nom du département</translation>
     </message>
     <message>
       <source>Pending chats number</source>
-      <translation type="unfinished"/>
+      <translation>Nombre de chats en attente</translation>
     </message>
     <message>
       <source>Active chats number</source>
-      <translation type="unfinished"/>
+      <translation>Nombre de chats actifs</translation>
     </message>
     <message>
       <source>Visitor Name</source>
@@ -6812,7 +6812,7 @@
     </message>
     <message>
       <source>Wait time</source>
-      <translation type="unfinished"/>
+      <translation>Temps d&apos;attente</translation>
     </message>
     <message>
       <source>Country</source>
@@ -6840,7 +6840,7 @@
     </message>
     <message>
       <source>Minutes</source>
-      <translation type="unfinished"/>
+      <translation>Minutes</translation>
     </message>
     <message>
       <source>Vote status</source>
@@ -6852,7 +6852,7 @@
     </message>
     <message>
       <source>Page</source>
-      <translation type="unfinished"/>
+      <translation>Page</translation>
     </message>
     <message>
       <source>Came from</source>
@@ -6864,11 +6864,11 @@
     </message>
     <message>
       <source>Chat content</source>
-      <translation type="unfinished"/>
+      <translation>Contenu du chat</translation>
     </message>
     <message>
       <source>User ID</source>
-      <translation type="unfinished"/>
+      <translation>Identifiant de l&apos;utilisateur</translation>
     </message>
     <message>
       <source>Chat average in seconds</source>
@@ -6899,7 +6899,7 @@
     </message>
     <message>
       <source>The operator has closed this chat session</source>
-      <translation type="unfinished"/>
+      <translation>L&apos;opérateur a fermé ce chat</translation>
     </message>
     <message>
       <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
@@ -7193,37 +7193,37 @@
     <name>permission/getpermissionsummary</name>
     <message>
       <source>Module/Function</source>
-      <translation type="unfinished"/>
+      <translation>Module / Fonction</translation>
     </message>
   </context>
   <context>
     <name>permission/getpermissionssummary</name>
     <message>
       <source>Request permission</source>
-      <translation type="unfinished"/>
+      <translation>Demander la permission</translation>
     </message>
     <message>
       <source>Please choose at least one permission</source>
-      <translation type="unfinished"/>
+      <translation>Veuillez choisir au moins une permission</translation>
     </message>
   </context>
   <context>
     <name>permission/request</name>
     <message>
       <source>Request permission</source>
-      <translation type="unfinished"/>
+      <translation>Demander la permission</translation>
     </message>
     <message>
       <source>Request permissions</source>
-      <translation type="unfinished"/>
+      <translation>Demander les permissions</translation>
     </message>
     <message>
       <source>Permission requested</source>
-      <translation type="unfinished"/>
+      <translation>Permission demandée</translation>
     </message>
     <message>
       <source>Please choose a user!</source>
-      <translation type="unfinished"/>
+      <translation>Veuillez choisir un utilisateur!</translation>
     </message>
     <message>
       <source>This user can not receive permision request!</source>
@@ -7238,7 +7238,7 @@
     <name>users/autologin</name>
     <message>
       <source>Auto login settings</source>
-      <translation type="unfinished"/>
+      <translation>Paramètres de connexion automatique</translation>
     </message>
     <message>
       <source>This module can be used if you are generating autologin link. See site for code examples</source>
@@ -7254,7 +7254,7 @@
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>Paramètres mis à jour</translation>
     </message>
     <message>
       <source>Autologin hash has expired</source>
@@ -7274,7 +7274,7 @@
     </message>
     <message>
       <source>Auto login module is not enabled</source>
-      <translation type="unfinished"/>
+      <translation>Le module de connexion automatique n&apos;est pas activé</translation>
     </message>
   </context>
 </TS>

@@ -861,7 +861,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('track_if_offline',	'0',	0,	'Track online visitors even if there is no online operators',0),
                 ('min_phone_length','8',0,'Minimum phone number length',0),
                 ('mheight','',0,'Messages box height',0),
-                ('dashboard_order', 'online_operators,departments_stats|pending_chats,unread_chats|active_chats,closed_chats', '0', 'Home page dashboard widgets order', '0'),
+                ('dashboard_order', 'online_operators,departments_stats|pending_chats,unread_chats,transfered_chats|active_chats,closed_chats', '0', 'Home page dashboard widgets order', '0'),
                 ('banned_ip_range','',0,'Which ip should not be allowed to chat',0),
                 ('suggest_leave_msg','1',0,'Suggest user to leave a message then user chooses offline department',0),
                 ('checkstatus_timeout','0',0,'Interval between chat status checks in seconds, 0 disabled.',0),
