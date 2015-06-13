@@ -21,4 +21,7 @@
     <input class="form-control" type="text" name="<?php echo $attribute?>ValueParam" value="<?php echo htmlspecialchars($systemconfig->value);?>" />
     <?php else : unset($boolValue);?> <?php endif;?>
 <?php endif;?>
+<?php if (isset($configExplain)) : ?>
+<small><?php echo $configExplain?></small>
+<?php unset($configExplain);endif;?>
 </div>
