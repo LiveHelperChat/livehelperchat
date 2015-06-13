@@ -129,7 +129,10 @@ class erLhcoreClassTranslate {
                 }
                 
                 // If translation was successfull store it
-                if (!empty($msgTranslated)) {                                    
+                if (!empty($msgTranslated)) {     
+                    
+                    $msgTranslated = str_ireplace(array('[/ ','Url = http: //','[IMG] ',' [/img]','[/ url]','[/ i]','[Img]'), array('[/','url=http://','[img]','[/img]','[/url]','[/i]','[img]'), $msgTranslated);
+                    
                     $msg->msg .= "[translation]{$msgTranslated}[/translation]";
                     $msg->saveThis();
                 }
@@ -155,6 +158,9 @@ class erLhcoreClassTranslate {
             
                 // If translation was successfull store it
                 if (!empty($msgTranslated)) {
+                    
+                    $msgTranslated = str_ireplace(array('[/ ','Url = http: //','[IMG] ',' [/img]','[/ url]','[/ i]','[Img]'), array('[/','url=http://','[img]','[/img]','[/url]','[/i]','[img]'), $msgTranslated);
+                    
                     $msg->msg .= "[translation]{$msgTranslated}[/translation]";
                     $msg->saveThis();                    
                 }
