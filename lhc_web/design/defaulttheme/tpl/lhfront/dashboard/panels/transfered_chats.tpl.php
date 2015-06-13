@@ -19,8 +19,8 @@
             	      		<table class="table table-condensed mb0 table-small table-fixed" ng-if="transfer_chats.list.length > 0">
                         		<thead>
                         			<tr>
-                        				<th width="60%"><i title="Visitor" class="icon-user"></i></th>
-                        				<th width="40%"><i title="Transfer time" class="icon-clock"></i></th>
+                        				<th width="60%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Visitor');?>" class="icon-user"></i></th>
+                        				<th width="40%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Created');?>" class="icon-clock"></i></th>
                         			</tr>
                         		</thead>
                         		<tr ng-repeat="chat in transfer_chats.list">

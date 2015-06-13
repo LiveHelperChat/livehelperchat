@@ -327,6 +327,10 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		return lhinst.startChatNewWindow(chat_id,name);	
 	};
 		
+	this.deleteChat = function(chat_id, tabs, hidetab) {
+		return lhinst.deleteChat(chat_id, tabs, hidetab);
+	};
+	
 	this.startChat = function (chat_id,name) {	
 		if ($('#tabs').size() > 0){
 			return lhinst.startChat(chat_id,$('#tabs'),LiveHelperChatFactory.truncate(name,10));	
