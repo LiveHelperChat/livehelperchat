@@ -1,3 +1,21 @@
+2.33v
+
+1. Transfered chats as widget.
+2. Updates required for XMPP support.
+3. New algorithm for sound and notifications. Sound stops after pending chat is gone.
+4. Option to delete pending chat instantly.
+5. Position queue. https://github.com/LiveHelperChat/livehelperchat/issues/635
+6. Option to set automatically checkd Terms Of Service checkbox
+7. Desktop client will show only only visitors which user has permission to see.
+8. E-mail templates supports {chat_id}
+9. Permission UX https://github.com/LiveHelperChat/livehelperchat/issues/690
+10. Optimizations for excel generation https://github.com/LiveHelperChat/livehelperchat/pull/688
+11. Option to hide right column in frontpage.
+12. Department XMPP recipients column change to text https://github.com/LiveHelperChat/livehelperchat/issues/686
+13. Statistic improvements.
+
+There is no required database update for this release.
+
 2.32v
 
 1. Brand new dashboard. Sponsored feature...
