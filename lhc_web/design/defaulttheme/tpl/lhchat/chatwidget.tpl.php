@@ -109,7 +109,7 @@ if ($theme !== false && $theme->explain_text != '') : ?>
 
 <?php include(erLhcoreClassDesign::designtpl('lhchat/part/user_timezone.tpl.php'));?>
 
-<?php $tosVariable = 'tos_visible_in_page_widget'?>
+<?php $tosVariable = 'tos_visible_in_page_widget';$tosCheckedVariable = 'tos_checked_online';?>
 <?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/accept_tos.tpl.php'));?>
 
 <?php if ($hasExtraField == true || $canReopen == true) : ?>

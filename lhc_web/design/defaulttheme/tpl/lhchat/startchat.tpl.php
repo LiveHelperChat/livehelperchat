@@ -89,7 +89,7 @@
 <?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/department.tpl.php'));?>
 <?php endif;?>
 
-<?php $tosVariable = 'tos_visible_in_popup'?>
+<?php $tosVariable = 'tos_visible_in_popup';$tosCheckedVariable = 'tos_checked_online';?>
 <?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/accept_tos.tpl.php'));?>
 
 <div class="btn-group" role="group" aria-label="...">
