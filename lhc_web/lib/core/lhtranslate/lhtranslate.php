@@ -144,14 +144,14 @@ class erLhcoreClassTranslate {
                 // Visitor message
                 // Remove old Translation
                 $msg->msg = preg_replace('#\[translation\](.*?)\[/translation\]#is', '',  $msg->msg);
-            
-                $length += mb_strlen($msgTranslated);
                 
                 if ($msg->user_id == 0) {
                     $msgTranslated = erLhcoreClassTranslateGoogle::translate($translationData['google_api_key'], $msg->msg, $chat->chat_locale, $chat->chat_locale_to);
                 } else { // Operator message
                     $msgTranslated = erLhcoreClassTranslateGoogle::translate($translationData['google_api_key'], $msg->msg, $chat->chat_locale_to, $chat->chat_locale);
                 }
+                
+                $length += mb_strlen($msgTranslated);
             
                 // If translation was successfull store it
                 if (!empty($msgTranslated)) {
@@ -423,6 +423,9 @@ class erLhcoreClassTranslate {
 	       
 	       // If translation was successfull store it
 	       if (!empty($translation)) {
+	           
+	           $translation = str_ireplace(array('[/ ','Url = http: //','[IMG] ',' [/img]','[/ url]','[/ i]','[Img]'), array('[/','url=http://','[img]','[/img]','[/url]','[/i]','[img]'), $translation);
+	           
 	           $msg->msg .= "[translation]{$translation}[/translation]";
 	       }
 	       
@@ -450,6 +453,9 @@ class erLhcoreClassTranslate {
 	    
 	        // If translation was successfull store it
 	        if (!empty($translation)) {
+	            
+	            $translation = str_ireplace(array('[/ ','Url = http: //','[IMG] ',' [/img]','[/ url]','[/ i]','[Img]'), array('[/','url=http://','[img]','[/img]','[/url]','[/i]','[img]'), $translation);
+	            
 	            $msg->msg .= "[translation]{$translation}[/translation]";
 	        }
 	        
