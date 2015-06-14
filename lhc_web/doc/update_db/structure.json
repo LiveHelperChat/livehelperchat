@@ -3773,7 +3773,7 @@
             }, 
             {
                 "identifier": "front_tabs",
-                "value": "online_users,online_map,pending_chats,active_chats,unread_chats,closed_chats,online_operators",
+                "value": "dashboard,online_users,online_map,pending_chats,active_chats,unread_chats,closed_chats,online_operators",
                 "type": "0",
                 "explain": "Home page tabs order",
                 "hidden": "0"
