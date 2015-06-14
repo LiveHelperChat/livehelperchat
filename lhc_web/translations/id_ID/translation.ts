@@ -146,6 +146,10 @@
       <translation>IP yang harus diabaikan dalam daftar pengguna online, terpisah dengan koma</translation>
     </message>
     <message>
+      <source>Hide right column in frontpage</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide disabled department widget</source>
       <translation>Sembunyikan mengnonaktifkan widget departemen</translation>
     </message>
@@ -2172,6 +2176,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Wait time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Time ago</source>
       <translation type="unfinished"/>
     </message>
@@ -2486,6 +2502,14 @@
     <message>
       <source>A support staff member has closed this chat</source>
       <translation>Anggota personel pendukung telah menutup percakapan ini</translation>
+    </message>
+    <message>
+      <source>You are number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>in the queue. Please wait...</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
@@ -3060,10 +3084,6 @@
       <translation>Bersihkan daftar</translation>
     </message>
     <message>
-      <source>Online visitors</source>
-      <translation>Pengunjung online</translation>
-    </message>
-    <message>
       <source>User tracking is disabled, enable it at</source>
       <translation>Pelacakan pengguna dimatikan, aktifkan pada</translation>
     </message>
@@ -3086,6 +3106,10 @@
     <message>
       <source>Enable/Disable browser notifications about new visitor</source>
       <translation>Aktifkan/Nonaktifkan pemberitahuan browser tentang pengunjung baru</translation>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation>Pengunjung online</translation>
     </message>
     <message>
       <source>User has message from operator</source>
@@ -3366,6 +3390,10 @@
       <translation>Meminta izin notifikasi</translation>
     </message>
     <message>
+      <source>Supported: online_operators, departments_stats, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>New chat notification settings</source>
       <translation>Pengaturan notifikasi pesan baru</translation>
     </message>
@@ -3588,12 +3616,12 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Active chats</source>
-      <translation>Percakapan aktif</translation>
-    </message>
-    <message>
       <source>collapse/expand</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Percakapan aktif</translation>
     </message>
     <message>
       <source>Closed chats</source>
@@ -3604,6 +3632,10 @@
       <translation>Percakapan tertunda</translation>
     </message>
     <message>
+      <source>Unread messages</source>
+      <translation>Pesan belum terbaca</translation>
+    </message>
+    <message>
       <source>Chats transferred to you directly</source>
       <translation>Percakapan dipindahkan ke anda secara langsung</translation>
     </message>
@@ -3612,19 +3644,7 @@
       <translation>Dipindahkan ke departemen anda</translation>
     </message>
     <message>
-      <source>Unread messages</source>
-      <translation>Pesan belum terbaca</translation>
-    </message>
-    <message>
-      <source>Departments stats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Download XLS</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online operators</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3633,6 +3653,18 @@
     </message>
     <message>
       <source>Number of elements in list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Departments stats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transfered chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4083,6 +4115,10 @@
     <message>
       <source>Terms of service acceptance checkbox</source>
       <translation>Centang kotak menerima syarat dan ketentuan</translation>
+    </message>
+    <message>
+      <source>Checked by default</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>E-mail is always required</source>

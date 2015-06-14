@@ -146,6 +146,10 @@
       <translation>IP адреси, които да бъдат игнорирани в списъка с онлайн потребители, отделете ги със запетайка</translation>
     </message>
     <message>
+      <source>Hide right column in frontpage</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide disabled department widget</source>
       <translation>Да се скрие модул за неактивен отдел</translation>
     </message>
@@ -2172,6 +2176,18 @@
       <translation>Последна активност преди</translation>
     </message>
     <message>
+      <source>Wait time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Time ago</source>
       <translation>Преди време</translation>
     </message>
@@ -2486,6 +2502,14 @@
     <message>
       <source>A support staff member has closed this chat</source>
       <translation>Оператор на e-2print затвори чата.</translation>
+    </message>
+    <message>
+      <source>You are number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>in the queue. Please wait...</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
@@ -3060,10 +3084,6 @@
       <translation>Изчистване на списъка</translation>
     </message>
     <message>
-      <source>Online visitors</source>
-      <translation>Посетители онлайн</translation>
-    </message>
-    <message>
       <source>User tracking is disabled, enable it at</source>
       <translation>Следенето на потребители е изключено, активирайте го от</translation>
     </message>
@@ -3086,6 +3106,10 @@
     <message>
       <source>Enable/Disable browser notifications about new visitor</source>
       <translation>Включване/Изключване на известия в прозореца за нови посетители</translation>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation>Посетители онлайн</translation>
     </message>
     <message>
       <source>User has message from operator</source>
@@ -3366,6 +3390,10 @@
       <translation>Позволяване на искане за известия</translation>
     </message>
     <message>
+      <source>Supported: online_operators, departments_stats, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>New chat notification settings</source>
       <translation>Настройки за известяване при нов чат</translation>
     </message>
@@ -3588,12 +3616,12 @@
       <translation>Прикачен оператор</translation>
     </message>
     <message>
-      <source>Active chats</source>
-      <translation>Активни чатове</translation>
-    </message>
-    <message>
       <source>collapse/expand</source>
       <translation>свиване/разгъване</translation>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Активни чатове</translation>
     </message>
     <message>
       <source>Closed chats</source>
@@ -3604,6 +3632,10 @@
       <translation>Изчакващи чатове</translation>
     </message>
     <message>
+      <source>Unread messages</source>
+      <translation>Непрочетени съобщения</translation>
+    </message>
+    <message>
       <source>Chats transferred to you directly</source>
       <translation>Чатът е пренасочен директно към вас</translation>
     </message>
@@ -3612,20 +3644,8 @@
       <translation>Прехвърляне към вашия отдел</translation>
     </message>
     <message>
-      <source>Unread messages</source>
-      <translation>Непрочетени съобщения</translation>
-    </message>
-    <message>
-      <source>Departments stats</source>
-      <translation>Отдели статистика</translation>
-    </message>
-    <message>
       <source>Download XLS</source>
       <translation>Изтегляне XLS</translation>
-    </message>
-    <message>
-      <source>Online operators</source>
-      <translation>Онлайн оператори</translation>
     </message>
     <message>
       <source>All departments</source>
@@ -3634,6 +3654,18 @@
     <message>
       <source>Number of elements in list</source>
       <translation>Брой елементи в списък</translation>
+    </message>
+    <message>
+      <source>Departments stats</source>
+      <translation>Отдели статистика</translation>
+    </message>
+    <message>
+      <source>Online operators</source>
+      <translation>Онлайн оператори</translation>
+    </message>
+    <message>
+      <source>Transfered chats</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Home</source>
@@ -4083,6 +4115,10 @@
     <message>
       <source>Terms of service acceptance checkbox</source>
       <translation>Отметка &quot;Приемам Условията за ползване&quot;</translation>
+    </message>
+    <message>
+      <source>Checked by default</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>E-mail is always required</source>

@@ -146,6 +146,10 @@
       <translation>Jakie adresy IP ignorować przy liście dostępnych operatorów, adresy oddzielone przecinkami</translation>
     </message>
     <message>
+      <source>Hide right column in frontpage</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide disabled department widget</source>
       <translation>Ukryj widżet dla nieaktywnego wydziału</translation>
     </message>
@@ -2173,6 +2177,18 @@ pokazywany</translation>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Wait time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Time ago</source>
       <translation type="unfinished"/>
     </message>
@@ -2487,6 +2503,14 @@ pokazywany</translation>
     <message>
       <source>A support staff member has closed this chat</source>
       <translation>Pracownik wsparcia zamknął tą rozmowę</translation>
+    </message>
+    <message>
+      <source>You are number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>in the queue. Please wait...</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
@@ -3061,10 +3085,6 @@ pokazywany</translation>
       <translation>Wyczyść listę</translation>
     </message>
     <message>
-      <source>Online visitors</source>
-      <translation>Goście on-line</translation>
-    </message>
-    <message>
       <source>User tracking is disabled, enable it at</source>
       <translation>Śledzenie użytkownika jest wyłączone, włącz go</translation>
     </message>
@@ -3087,6 +3107,10 @@ pokazywany</translation>
     <message>
       <source>Enable/Disable browser notifications about new visitor</source>
       <translation>Włącz/wyłącz powiadomienia przeglądarki o nowym gościu</translation>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation>Goście on-line</translation>
     </message>
     <message>
       <source>User has message from operator</source>
@@ -3367,6 +3391,10 @@ pokazywany</translation>
       <translation>Nadanie uprawnień do wyświetlania wiadomości</translation>
     </message>
     <message>
+      <source>Supported: online_operators, departments_stats, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>New chat notification settings</source>
       <translation>Nowe ustawienia powiadomień o rozmowie</translation>
     </message>
@@ -3589,12 +3617,12 @@ pokazywany</translation>
       <translation>Przypisany operator</translation>
     </message>
     <message>
-      <source>Active chats</source>
-      <translation>Aktywne rozmowy</translation>
-    </message>
-    <message>
       <source>collapse/expand</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Aktywne rozmowy</translation>
     </message>
     <message>
       <source>Closed chats</source>
@@ -3605,6 +3633,10 @@ pokazywany</translation>
       <translation>Oczekujące rozmowy</translation>
     </message>
     <message>
+      <source>Unread messages</source>
+      <translation>Nieprzeczytane wiadomości</translation>
+    </message>
+    <message>
       <source>Chats transferred to you directly</source>
       <translation>Rozmowy przekazywane bezpośrednio do Ciebie</translation>
     </message>
@@ -3613,19 +3645,7 @@ pokazywany</translation>
       <translation>Przekazywane do twojego działu</translation>
     </message>
     <message>
-      <source>Unread messages</source>
-      <translation>Nieprzeczytane wiadomości</translation>
-    </message>
-    <message>
-      <source>Departments stats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Download XLS</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online operators</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3634,6 +3654,18 @@ pokazywany</translation>
     </message>
     <message>
       <source>Number of elements in list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Departments stats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transfered chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4084,6 +4116,10 @@ pokazywany</translation>
     <message>
       <source>Terms of service acceptance checkbox</source>
       <translation>Pole akceptacji warunków świadczenia usług</translation>
+    </message>
+    <message>
+      <source>Checked by default</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>E-mail is always required</source>

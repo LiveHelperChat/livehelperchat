@@ -146,6 +146,10 @@
       <translation>Vilka IP ska ignoreras i listan för onlineanvändare, separera med komma</translation>
     </message>
     <message>
+      <source>Hide right column in frontpage</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide disabled department widget</source>
       <translation>Dölj inaktiverad avdelningswidget</translation>
     </message>
@@ -2172,6 +2176,18 @@
       <translation>Senaste aktivitet</translation>
     </message>
     <message>
+      <source>Wait time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Time ago</source>
       <translation>Tid sedan</translation>
     </message>
@@ -2486,6 +2502,14 @@
     <message>
       <source>A support staff member has closed this chat</source>
       <translation>En support medarbetare har stängt chatten</translation>
+    </message>
+    <message>
+      <source>You are number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>in the queue. Please wait...</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
@@ -3060,10 +3084,6 @@
       <translation>Rensa lista</translation>
     </message>
     <message>
-      <source>Online visitors</source>
-      <translation>Besökare online</translation>
-    </message>
-    <message>
       <source>User tracking is disabled, enable it at</source>
       <translation>Användarspårning är avaktiverad, aktivera den på</translation>
     </message>
@@ -3086,6 +3106,10 @@
     <message>
       <source>Enable/Disable browser notifications about new visitor</source>
       <translation>Aktivera/inaktivera webbläsarnotifikation om ny besökare</translation>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation>Besökare online</translation>
     </message>
     <message>
       <source>User has message from operator</source>
@@ -3366,6 +3390,10 @@
       <translation>Begär notifieringsrättighet</translation>
     </message>
     <message>
+      <source>Supported: online_operators, departments_stats, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>New chat notification settings</source>
       <translation>Inställningar för notifiering av ny chatt</translation>
     </message>
@@ -3588,12 +3616,12 @@
       <translation>Tilldelad operatör</translation>
     </message>
     <message>
-      <source>Active chats</source>
-      <translation>Aktiva chattar</translation>
-    </message>
-    <message>
       <source>collapse/expand</source>
       <translation>minimera/expandera</translation>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Aktiva chattar</translation>
     </message>
     <message>
       <source>Closed chats</source>
@@ -3604,6 +3632,10 @@
       <translation>Väntande chattar</translation>
     </message>
     <message>
+      <source>Unread messages</source>
+      <translation>Olästa meddelanden</translation>
+    </message>
+    <message>
       <source>Chats transferred to you directly</source>
       <translation>Chattar som vidarebefordrats direkt till dig</translation>
     </message>
@@ -3612,20 +3644,8 @@
       <translation>Vidarebefodrad till din avdelning</translation>
     </message>
     <message>
-      <source>Unread messages</source>
-      <translation>Olästa meddelanden</translation>
-    </message>
-    <message>
-      <source>Departments stats</source>
-      <translation>Statistik för avdelningar</translation>
-    </message>
-    <message>
       <source>Download XLS</source>
       <translation>Ladda ner XLS</translation>
-    </message>
-    <message>
-      <source>Online operators</source>
-      <translation>Operatörer online</translation>
     </message>
     <message>
       <source>All departments</source>
@@ -3633,6 +3653,18 @@
     </message>
     <message>
       <source>Number of elements in list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Departments stats</source>
+      <translation>Statistik för avdelningar</translation>
+    </message>
+    <message>
+      <source>Online operators</source>
+      <translation>Operatörer online</translation>
+    </message>
+    <message>
+      <source>Transfered chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4083,6 +4115,10 @@
     <message>
       <source>Terms of service acceptance checkbox</source>
       <translation>Användarvillkor, kryssruta</translation>
+    </message>
+    <message>
+      <source>Checked by default</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>E-mail is always required</source>

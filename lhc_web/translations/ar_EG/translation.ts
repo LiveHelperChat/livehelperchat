@@ -146,6 +146,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Hide right column in frontpage</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide disabled department widget</source>
       <translation type="unfinished"/>
     </message>
@@ -2172,6 +2176,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Wait time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Time ago</source>
       <translation type="unfinished"/>
     </message>
@@ -2485,6 +2501,14 @@
     </message>
     <message>
       <source>A support staff member has closed this chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You are number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>in the queue. Please wait...</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3060,10 +3084,6 @@
       <translation>أفرِغ القائمة</translation>
     </message>
     <message>
-      <source>Online visitors</source>
-      <translation>المستخدمون المتصلون</translation>
-    </message>
-    <message>
       <source>User tracking is disabled, enable it at</source>
       <translation>تَتَبُّع المستخدم مُعَطَّل، فَعِّله في</translation>
     </message>
@@ -3086,6 +3106,10 @@
     <message>
       <source>Enable/Disable browser notifications about new visitor</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation>المستخدمون المتصلون</translation>
     </message>
     <message>
       <source>User has message from operator</source>
@@ -3366,6 +3390,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Supported: online_operators, departments_stats, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>New chat notification settings</source>
       <translation type="unfinished"/>
     </message>
@@ -3588,12 +3616,12 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Active chats</source>
-      <translation>المحادثات الفعالة</translation>
-    </message>
-    <message>
       <source>collapse/expand</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>المحادثات الفعالة</translation>
     </message>
     <message>
       <source>Closed chats</source>
@@ -3604,6 +3632,10 @@
       <translation>المحادثات المعلقة</translation>
     </message>
     <message>
+      <source>Unread messages</source>
+      <translation>الرسائل غير المقروءة</translation>
+    </message>
+    <message>
       <source>Chats transferred to you directly</source>
       <translation>تم تحويل الشات لك</translation>
     </message>
@@ -3612,19 +3644,7 @@
       <translation>تحويل لقسمك</translation>
     </message>
     <message>
-      <source>Unread messages</source>
-      <translation>الرسائل غير المقروءة</translation>
-    </message>
-    <message>
-      <source>Departments stats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Download XLS</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online operators</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3633,6 +3653,18 @@
     </message>
     <message>
       <source>Number of elements in list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Departments stats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transfered chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4082,6 +4114,10 @@
     </message>
     <message>
       <source>Terms of service acceptance checkbox</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Checked by default</source>
       <translation type="unfinished"/>
     </message>
     <message>

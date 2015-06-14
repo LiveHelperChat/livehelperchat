@@ -146,6 +146,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Hide right column in frontpage</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide disabled department widget</source>
       <translation type="unfinished"/>
     </message>
@@ -2172,6 +2176,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Wait time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Time ago</source>
       <translation type="unfinished"/>
     </message>
@@ -2486,6 +2502,14 @@
     <message>
       <source>A support staff member has closed this chat</source>
       <translation>Nhân viên hỗ trợ đã đóng cuộc trò chuyện này</translation>
+    </message>
+    <message>
+      <source>You are number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>in the queue. Please wait...</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
@@ -3060,10 +3084,6 @@
       <translation>Xoá danh sách</translation>
     </message>
     <message>
-      <source>Online visitors</source>
-      <translation>Khách trực tuyến</translation>
-    </message>
-    <message>
       <source>User tracking is disabled, enable it at</source>
       <translation>Theo dõi người dùng bị vô hiệu hóa, kích hoạt nó tại</translation>
     </message>
@@ -3086,6 +3106,10 @@
     <message>
       <source>Enable/Disable browser notifications about new visitor</source>
       <translation>Bật/tắt thông báo của trình duyệt khi có khách truy cập mới</translation>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation>Khách trực tuyến</translation>
     </message>
     <message>
       <source>User has message from operator</source>
@@ -3366,6 +3390,10 @@
       <translation>Yêu cầu sự cho phép thông báo</translation>
     </message>
     <message>
+      <source>Supported: online_operators, departments_stats, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>New chat notification settings</source>
       <translation>Mới thiết lập thông báo trò chuyện</translation>
     </message>
@@ -3588,12 +3616,12 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Active chats</source>
-      <translation>Các cuộc trò chuyện</translation>
-    </message>
-    <message>
       <source>collapse/expand</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Các cuộc trò chuyện</translation>
     </message>
     <message>
       <source>Closed chats</source>
@@ -3604,6 +3632,10 @@
       <translation>Cuộc trò chuyện đang chờ</translation>
     </message>
     <message>
+      <source>Unread messages</source>
+      <translation>Tin nhắn chưa đọc</translation>
+    </message>
+    <message>
       <source>Chats transferred to you directly</source>
       <translation>Cuộc trò chuyện chuyển giao cho bạn trực tiếp</translation>
     </message>
@@ -3612,19 +3644,7 @@
       <translation>Chuyển giao cho bộ phận của bạn</translation>
     </message>
     <message>
-      <source>Unread messages</source>
-      <translation>Tin nhắn chưa đọc</translation>
-    </message>
-    <message>
-      <source>Departments stats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Download XLS</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online operators</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3633,6 +3653,18 @@
     </message>
     <message>
       <source>Number of elements in list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Departments stats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transfered chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4083,6 +4115,10 @@
     <message>
       <source>Terms of service acceptance checkbox</source>
       <translation>Checkbox Các điều khoản thỏa thuận dịch vụ</translation>
+    </message>
+    <message>
+      <source>Checked by default</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>E-mail is always required</source>

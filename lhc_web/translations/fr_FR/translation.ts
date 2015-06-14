@@ -146,6 +146,10 @@
       <translation>Quelles adresses IP seront ignorées dans la liste des utilisateurs en ligne, séparer par des virgules</translation>
     </message>
     <message>
+      <source>Hide right column in frontpage</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide disabled department widget</source>
       <translation>Masquer le widget des départements désactivés</translation>
     </message>
@@ -2172,6 +2176,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Wait time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Time ago</source>
       <translation type="unfinished"/>
     </message>
@@ -2486,6 +2502,14 @@
     <message>
       <source>A support staff member has closed this chat</source>
       <translation>Un membre du personnel de soutien a fermé ce chat</translation>
+    </message>
+    <message>
+      <source>You are number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>in the queue. Please wait...</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
@@ -3060,10 +3084,6 @@
       <translation>Effacer la liste</translation>
     </message>
     <message>
-      <source>Online visitors</source>
-      <translation>Visiteurs en ligne</translation>
-    </message>
-    <message>
       <source>User tracking is disabled, enable it at</source>
       <translation>Le suivi des visiteurs est désactivé, activez le sur</translation>
     </message>
@@ -3086,6 +3106,10 @@
     <message>
       <source>Enable/Disable browser notifications about new visitor</source>
       <translation>Activer/désactiver les notifications de navigateur pour un nouveau visiteur</translation>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation>Visiteurs en ligne</translation>
     </message>
     <message>
       <source>User has message from operator</source>
@@ -3366,6 +3390,10 @@
       <translation>Demander l&apos;autorisation des notifications sur le bureau</translation>
     </message>
     <message>
+      <source>Supported: online_operators, departments_stats, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>New chat notification settings</source>
       <translation>Paramètres de notification de nouveau chat</translation>
     </message>
@@ -3588,12 +3616,12 @@
       <translation>Opérateur assigné</translation>
     </message>
     <message>
-      <source>Active chats</source>
-      <translation>Chats actifs</translation>
-    </message>
-    <message>
       <source>collapse/expand</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Chats actifs</translation>
     </message>
     <message>
       <source>Closed chats</source>
@@ -3604,6 +3632,10 @@
       <translation>Chats en attente</translation>
     </message>
     <message>
+      <source>Unread messages</source>
+      <translation>Messages non lus</translation>
+    </message>
+    <message>
       <source>Chats transferred to you directly</source>
       <translation>Chats transférés directement à vous</translation>
     </message>
@@ -3612,20 +3644,8 @@
       <translation>Transféré vers votre département</translation>
     </message>
     <message>
-      <source>Unread messages</source>
-      <translation>Messages non lus</translation>
-    </message>
-    <message>
-      <source>Departments stats</source>
-      <translation>Statistiques des départements</translation>
-    </message>
-    <message>
       <source>Download XLS</source>
       <translation>Télécharger le XLS</translation>
-    </message>
-    <message>
-      <source>Online operators</source>
-      <translation>Opérateurs en ligne</translation>
     </message>
     <message>
       <source>All departments</source>
@@ -3634,6 +3654,18 @@
     <message>
       <source>Number of elements in list</source>
       <translation>Nombre d&apos;éléments dans la liste</translation>
+    </message>
+    <message>
+      <source>Departments stats</source>
+      <translation>Statistiques des départements</translation>
+    </message>
+    <message>
+      <source>Online operators</source>
+      <translation>Opérateurs en ligne</translation>
+    </message>
+    <message>
+      <source>Transfered chats</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Home</source>
@@ -4083,6 +4115,10 @@
     <message>
       <source>Terms of service acceptance checkbox</source>
       <translation>Case à cocher d&apos;acceptation des termes d&apos;utilisation</translation>
+    </message>
+    <message>
+      <source>Checked by default</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>E-mail is always required</source>
