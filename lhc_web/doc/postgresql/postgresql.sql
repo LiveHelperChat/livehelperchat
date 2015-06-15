@@ -530,7 +530,7 @@ CREATE TABLE "lh_departament" (
     PRIMARY KEY ("id")
 );
 
-INSERT INTO "lh_departament" VALUES (1,'Support','','','',0,0,0,0,0,0,0,0,'',0,0,0,0,0,0,0,0,0,0,'',0,0,0,0,0,0,0,0,0,0);
+INSERT INTO "lh_departament" VALUES (1,'Support','','','',0,0,0,0,0,0,0,0,'',0,0,0,0,0,0,0,0,0,0,'',0,0,0,0,0,0,0,0,0,0,0,0,0);
 
 CREATE TABLE "lh_abstract_browse_offer_invitation" (
   "id" integer NOT NULL,
@@ -713,7 +713,7 @@ CREATE TABLE "lh_users" (
     PRIMARY KEY ("id")
 );
 
-INSERT INTO "lh_users" VALUES (1,'admin','44f7fa28bdd2ffbd74dbde0684728bb6dc132178','admin@example.com','','Support','','','','','','','',0,0,0,1,0);
+INSERT INTO "lh_users" VALUES (1,'admin','44f7fa28bdd2ffbd74dbde0684728bb6dc132178','admin@example.com','','Support','','','','','','','','',0,0,0,0,0,0,1,0);
 
 CREATE TABLE "lh_users_remember" (
     "id" integer NOT NULL,
