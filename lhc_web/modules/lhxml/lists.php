@@ -18,8 +18,20 @@ erLhcoreClassChat::prefillGetAttributes($pendingChats,array('department_name'),a
 erLhcoreClassChat::prefillGetAttributes($unreadChats,array('department_name'),array('updateIgnoreColumns','department'));
 
 $onlineUsers = array();
-if ($currentUser->hasAccessTo('lhchat','use_onlineusers')){
-	$onlineUsers = erLhcoreClassModelChatOnlineUser::getList();
+if ($currentUser->hasAccessTo('lhchat','use_onlineusers')) {
+    
+    $filter = array('offset' => 0, 'limit' => 50, 'sort' => 'last_visit DESC','filtergt' => array('last_visit' => (time()-3600)));
+    
+    $departmentParams = array();
+    $userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID());
+    if ($userDepartments !== true) {
+        $departmentParams['filterin']['id'] = $userDepartments;
+        if (!$currentUser->hasAccessTo('lhchat','sees_all_online_visitors')) {
+            $filter['filterin']['dep_id'] = $userDepartments;
+        }
+    }
+    
+	$onlineUsers = erLhcoreClassModelChatOnlineUser::getList($filter);	
 }
 
 $columnsToHide = array('user_closed_ts','tslasign','reinform_timeout','unread_messages_informed','wait_timeout','wait_timeout_send','status_sub','timeout_message','nc_cb_executed','fbst','user_id','transfer_timeout_ts','operator_typing_id','transfer_timeout_ac','transfer_if_na','na_cb_executed','status','remarks','operation','operation_admin','screenshot_id','mail_send','online_user_id','dep_id','last_msg_id','hash','user_status','support_informed','support_informed','country_code','user_typing','user_typing_txt','lat','lon','chat_initiator','chat_variables','chat_duration','operator_typing','has_unread_messages','last_user_msg_time','additional_data');

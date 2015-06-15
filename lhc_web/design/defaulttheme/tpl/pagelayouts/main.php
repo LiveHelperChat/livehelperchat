@@ -16,11 +16,11 @@
 
 <div class="row">
 
-    <div class="col-sm-<?php $canUseChat == true ? print '8' : print '12'; ?> col-md-<?php $canUseChat == true ? print '9' : print '12'; ?>">
+    <div class="col-sm-<?php $canUseChat == true && (!isset($Result['hide_right_column']) || $Result['hide_right_column'] == false) ? print '8' : print '12'; ?> col-md-<?php $canUseChat == true && (!isset($Result['hide_right_column']) || $Result['hide_right_column'] == false) ? print '9' : print '12'; ?>">
     	<?php echo $Result['content']; ?>
     </div>
-
-    <?php if ($canUseChat == true) :    
+    
+    <?php if ($canUseChat == true && (!isset($Result['hide_right_column']) || $Result['hide_right_column'] == false)) :    
     $pendingTabEnabled = (int)erLhcoreClassModelUserSetting::getSetting('enable_pending_list',1);
     $activeTabEnabled = (int)erLhcoreClassModelUserSetting::getSetting('enable_active_list',1);
     $closedTabEnabled = (int)erLhcoreClassModelUserSetting::getSetting('enable_close_list',0);

@@ -2447,7 +2447,7 @@
             },
             {
                 "field": "xmpp_recipients",
-                "type": "varchar(250)",
+                "type": "text",
                 "null": "NO",
                 "key": "",
                 "default": null,
@@ -2455,7 +2455,7 @@
             },
             {
                 "field": "xmpp_group_recipients",
-                "type": "varchar(250)",
+                "type": "text",
                 "null": "NO",
                 "key": "",
                 "default": null,
@@ -3738,7 +3738,7 @@
         "lh_chat_config": [
             {
                 "identifier": "dashboard_order",
-                "value": "online_operators,departments_stats|pending_chats,unread_chats|active_chats,closed_chats",
+                "value": "online_operators,departments_stats|pending_chats,unread_chats,transfered_chats|active_chats,closed_chats",
                 "type": "0",
                 "explain": "Home page dashboard widgets order",
                 "hidden": "0"
@@ -3748,6 +3748,13 @@
                 "value": "300",
                 "type": "0",
                 "explain": "How many seconds chat accept link is valid. Set 0 to force login all the time manually.",
+                "hidden": "0"
+            },
+            {
+                "identifier": "hide_right_column_frontpage",
+                "value": "0",
+                "type": "0",
+                "explain": "Hide right column in frontpage",
                 "hidden": "0"
             },
             {
@@ -3766,7 +3773,7 @@
             }, 
             {
                 "identifier": "front_tabs",
-                "value": "online_users,online_map,pending_chats,active_chats,unread_chats,closed_chats,online_operators",
+                "value": "dashboard,online_users,online_map,pending_chats,active_chats,unread_chats,closed_chats,online_operators",
                 "type": "0",
                 "explain": "Home page tabs order",
                 "hidden": "0"

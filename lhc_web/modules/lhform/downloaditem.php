@@ -6,7 +6,12 @@ try {
 	$form = $item->form;
 	
 	include 'lib/core/lhform/PHPExcel.php';
-	 
+
+
+	$cacheMethod = PHPExcel_CachedObjectStorageFactory::cache_to_phpTemp;
+	$cacheSettings = array( 'memoryCacheSize ' => '64MB');
+	PHPExcel_Settings::setCacheStorageMethod($cacheMethod, $cacheSettings);
+
 	$objPHPExcel = new PHPExcel();
 	
 	$objPHPExcel->setActiveSheetIndex(0);

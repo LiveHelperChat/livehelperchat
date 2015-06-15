@@ -146,6 +146,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Hide right column in frontpage</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide disabled department widget</source>
       <translation type="unfinished"/>
     </message>
@@ -1179,6 +1183,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>XLS (with content)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Select department</source>
       <translation>Seçili departman</translation>
     </message>
@@ -1192,6 +1200,18 @@
     </message>
     <message>
       <source>Choose department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Group by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Month</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Day</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -1378,6 +1398,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Department</source>
+      <translation>Departman</translation>
+    </message>
+    <message>
       <source>User</source>
       <translation>Kullanıcı</translation>
     </message>
@@ -1428,10 +1452,6 @@
     <message>
       <source>Delay in seconds</source>
       <translation>Gecikme (saniye)</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Departman</translation>
     </message>
     <message>
       <source>Canned messages</source>
@@ -2156,6 +2176,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Wait time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Time ago</source>
       <translation type="unfinished"/>
     </message>
@@ -2255,6 +2287,18 @@
     <message>
       <source>Invalid captcha code, please enable Javascript!</source>
       <translation>Geçersiz eşleme kodu, lütfen Javascripti etkinleştirin!</translation>
+    </message>
+    <message>
+      <source>Invalid file extension</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid file extension!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To big file!</source>
+      <translation>Dosya boyutu çok büyük!</translation>
     </message>
     <message>
       <source>Department is disabled</source>
@@ -2433,18 +2477,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Invalid file extension</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invalid file extension!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>To big file!</source>
-      <translation>Dosya boyutu çok büyük!</translation>
-    </message>
-    <message>
       <source>Please enter a message, max characters</source>
       <translation type="unfinished"/>
     </message>
@@ -2470,6 +2502,14 @@
     <message>
       <source>A support staff member has closed this chat</source>
       <translation>Bir destek takımı üyesi bu konuşmayı kapadı</translation>
+    </message>
+    <message>
+      <source>You are number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>in the queue. Please wait...</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
@@ -3045,10 +3085,6 @@
       <translation>Listeyi boşalt</translation>
     </message>
     <message>
-      <source>Online visitors</source>
-      <translation>Çevrimiçi Kullanıcılar</translation>
-    </message>
-    <message>
       <source>User tracking is disabled, enable it at</source>
       <translation>Kullanıcı izleme etkin değil, etkinleştirin</translation>
     </message>
@@ -3071,6 +3107,10 @@
     <message>
       <source>Enable/Disable browser notifications about new visitor</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation>Çevrimiçi Kullanıcılar</translation>
     </message>
     <message>
       <source>User has message from operator</source>
@@ -3352,6 +3392,10 @@
       <translation>İstek bildirim izni</translation>
     </message>
     <message>
+      <source>Supported: online_operators, departments_stats, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>New chat notification settings</source>
       <translation>Yeni konuşma bildirimi ayarları</translation>
     </message>
@@ -3574,12 +3618,12 @@
       <translation>Atanmış operatör</translation>
     </message>
     <message>
-      <source>Active chats</source>
-      <translation>Aktif konuşmalar</translation>
-    </message>
-    <message>
       <source>collapse/expand</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Aktif konuşmalar</translation>
     </message>
     <message>
       <source>Closed chats</source>
@@ -3590,6 +3634,10 @@
       <translation>Beklemede olan konuşmalar</translation>
     </message>
     <message>
+      <source>Unread messages</source>
+      <translation>Okunmamış mesajlar</translation>
+    </message>
+    <message>
       <source>Chats transferred to you directly</source>
       <translation>Doğrudan size aktarılan konuşmalar</translation>
     </message>
@@ -3598,8 +3646,16 @@
       <translation>Sizin departmanınıza aktarıldı </translation>
     </message>
     <message>
-      <source>Unread messages</source>
-      <translation>Okunmamış mesajlar</translation>
+      <source>Download XLS</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>All departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of elements in list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Departments stats</source>
@@ -3610,11 +3666,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>All departments</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Number of elements in list</source>
+      <source>Transfered chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4067,6 +4119,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Checked by default</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>E-mail is always required</source>
       <translation>E-posta herzaman gerekli</translation>
     </message>
@@ -4237,11 +4293,27 @@
   <context>
     <name>chat/statistic</name>
     <message>
+      <source>General</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators last 24h statistic, top 100 by chats number</source>
+      <translation>Son 24 saatlik operatör istatistiği, en çok görüşülen 100 kişi</translation>
+    </message>
+    <message>
       <source>Statistic</source>
       <translation>İstatistik</translation>
     </message>
     <message>
-      <source>General</source>
+      <source>Chats statistic</source>
+      <translation>Konuşma istatistikleri</translation>
+    </message>
+    <message>
+      <source>Total statistic</source>
+      <translation>Toplam istatistik</translation>
+    </message>
+    <message>
+      <source>Last 24 hours statistic</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4277,7 +4349,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Number of chats by user</source>
+      <source>Average in seconds</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4285,16 +4357,8 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>AVG visitor wait time by operator</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Messages</source>
       <translation>Mesajlar</translation>
-    </message>
-    <message>
-      <source>Number of messages by user</source>
-      <translation>Kullanıcının mesaj sayısı</translation>
     </message>
     <message>
       <source>Month</source>
@@ -4357,10 +4421,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Chats statistic</source>
-      <translation>Konuşma istatistikleri</translation>
-    </message>
-    <message>
       <source>Hourly statistic</source>
       <translation>Saatlik istatistik</translation>
     </message>
@@ -4373,8 +4433,28 @@
       <translation>Kullanıcı istatistikleri</translation>
     </message>
     <message>
-      <source>Total statistic</source>
-      <translation>Toplam istatistik</translation>
+      <source>Number of chats by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation>Kullanıcının mesaj sayısı</translation>
+    </message>
+    <message>
+      <source>Average chat duration by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>All operators statistic will be downloaded</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>AVG visitor wait time by operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last 24h statistic</source>
+      <translation>Son 24 saatlik istatistik</translation>
     </message>
     <message>
       <source>Parameter</source>
@@ -4421,12 +4501,8 @@
       <translation>Tüm mesajlar (operatörler)</translation>
     </message>
     <message>
-      <source>Last 24h statistic</source>
-      <translation>Son 24 saatlik istatistik</translation>
-    </message>
-    <message>
-      <source>Operators last 24h statistic, top 100 by chats number</source>
-      <translation>Son 24 saatlik operatör istatistiği, en çok görüşülen 100 kişi</translation>
+      <source>Operators statistic, top 100 by chats number</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Total messages</source>
@@ -6745,6 +6821,22 @@
   <context>
     <name>chat/chatexport</name>
     <message>
+      <source>Referrer</source>
+      <translation>Yönlendirme</translation>
+    </message>
+    <message>
+      <source>Department name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitor Name</source>
       <translation>Ziyaretçi adı</translation>
     </message>
@@ -6755,6 +6847,10 @@
     <message>
       <source>Phone</source>
       <translation>Telefon</translation>
+    </message>
+    <message>
+      <source>Wait time</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Country</source>
@@ -6781,6 +6877,10 @@
       <translation>Tarih</translation>
     </message>
     <message>
+      <source>Minutes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Vote status</source>
       <translation type="unfinished"/>
     </message>
@@ -6789,12 +6889,28 @@
       <translation>Posta gönder</translation>
     </message>
     <message>
-      <source>Referrer</source>
-      <translation>Yönlendirme</translation>
+      <source>Page</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Came from</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Link</source>
       <translation>Bağlantı</translation>
+    </message>
+    <message>
+      <source>Chat content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat average in seconds</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

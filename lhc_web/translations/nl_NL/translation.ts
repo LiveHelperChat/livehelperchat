@@ -146,6 +146,10 @@
       <translation>Welke IP adressen moeten worden genegeerd in de lijst van online bezoekers, gescheiden door komma&apos;s</translation>
     </message>
     <message>
+      <source>Hide right column in frontpage</source>
+      <translation>Verberg rechterkolom in de frontpage. </translation>
+    </message>
+    <message>
       <source>Hide disabled department widget</source>
       <translation>Verberg een uitgeschakelde afdeling widget</translation>
     </message>
@@ -1156,7 +1160,7 @@
     </message>
     <message>
       <source>Not Noted</source>
-      <translation type="unfinished"/>
+      <translation>Niet genoteerd </translation>
     </message>
     <message>
       <source>Up Voted</source>
@@ -1179,6 +1183,10 @@
       <translation>XLS</translation>
     </message>
     <message>
+      <source>XLS (with content)</source>
+      <translation>XLS (met inhoud) </translation>
+    </message>
+    <message>
       <source>Select department</source>
       <translation>Selecteer afdeling</translation>
     </message>
@@ -1193,6 +1201,18 @@
     <message>
       <source>Choose department</source>
       <translation>Kies afdeling</translation>
+    </message>
+    <message>
+      <source>Group by</source>
+      <translation>Gegroepeerd door</translation>
+    </message>
+    <message>
+      <source>Month</source>
+      <translation>Maand</translation>
+    </message>
+    <message>
+      <source>Day</source>
+      <translation>Dag</translation>
     </message>
   </context>
   <context>
@@ -1375,7 +1395,11 @@
     </message>
     <message>
       <source>Title/Message</source>
-      <translation type="unfinished"/>
+      <translation>Titel/bericht</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Afdeling</translation>
     </message>
     <message>
       <source>User</source>
@@ -1411,7 +1435,7 @@
     </message>
     <message>
       <source>Explain</source>
-      <translation type="unfinished"/>
+      <translation>Leg uit</translation>
     </message>
     <message>
       <source>Message</source>
@@ -1428,10 +1452,6 @@
     <message>
       <source>Delay in seconds</source>
       <translation>Vertraging in seconden</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Afdeling</translation>
     </message>
     <message>
       <source>Canned messages</source>
@@ -1618,7 +1638,7 @@
     </message>
     <message>
       <source>Send XMPP messages to all department operators</source>
-      <translation type="unfinished"/>
+      <translation>Stuur XMPP berichten naar alle afdelingen</translation>
     </message>
     <message>
       <source>Mail messages</source>
@@ -2156,6 +2176,18 @@
       <translation>Laatste activiteit</translation>
     </message>
     <message>
+      <source>Wait time</source>
+      <translation>Wachttijd</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Verwijder chat</translation>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation>Aangemaakt </translation>
+    </message>
+    <message>
       <source>Time ago</source>
       <translation>Tijd geleden</translation>
     </message>
@@ -2255,6 +2287,18 @@
     <message>
       <source>Invalid captcha code, please enable Javascript!</source>
       <translation>Onjuiste captcha code, schakel s.v.p. Javascript in!</translation>
+    </message>
+    <message>
+      <source>Invalid file extension</source>
+      <translation>Ongeldige bestandsextensie</translation>
+    </message>
+    <message>
+      <source>Invalid file extension!</source>
+      <translation>Ongeldige bestandsextensie</translation>
+    </message>
+    <message>
+      <source>To big file!</source>
+      <translation>Te groot bestand!</translation>
     </message>
     <message>
       <source>Department is disabled</source>
@@ -2433,18 +2477,6 @@
       <translation>Uw aanvraag is niet succesvol behandeld, geen zorgen dit was een probleem vanuit ons. Probeer het alstublieft opnieuw. Mocht het nog niet lukken kunt u contact opnemen via een andere manier.</translation>
     </message>
     <message>
-      <source>Invalid file extension</source>
-      <translation>Ongeldige bestandsextensie</translation>
-    </message>
-    <message>
-      <source>Invalid file extension!</source>
-      <translation>Ongeldige bestandsextensie</translation>
-    </message>
-    <message>
-      <source>To big file!</source>
-      <translation>Te groot bestand!</translation>
-    </message>
-    <message>
       <source>Please enter a message, max characters</source>
       <translation>Voer s.v.p. een bericht in, maximaal aantal tekens</translation>
     </message>
@@ -2470,6 +2502,14 @@
     <message>
       <source>A support staff member has closed this chat</source>
       <translation>De ondersteunings medewerker heeft deze chat gesloten</translation>
+    </message>
+    <message>
+      <source>You are number</source>
+      <translation>U bent nummer </translation>
+    </message>
+    <message>
+      <source>in the queue. Please wait...</source>
+      <translation>In de wachtrij, ogenblik alstublieft... </translation>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
@@ -3044,10 +3084,6 @@
       <translation>Leeg lijst</translation>
     </message>
     <message>
-      <source>Online visitors</source>
-      <translation>Online bezoekers</translation>
-    </message>
-    <message>
       <source>User tracking is disabled, enable it at</source>
       <translation>Gebruiker tracking is uit, zet het aan</translation>
     </message>
@@ -3070,6 +3106,10 @@
     <message>
       <source>Enable/Disable browser notifications about new visitor</source>
       <translation>Browser notificatie, nieuwe bezoeker, aan/uit</translation>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation>Online bezoekers</translation>
     </message>
     <message>
       <source>User has message from operator</source>
@@ -3350,6 +3390,10 @@
       <translation>Request notificatie toestemming</translation>
     </message>
     <message>
+      <source>Supported: online_operators, departments_stats, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>New chat notification settings</source>
       <translation>Nieuwe chat notificatie-instellingen</translation>
     </message>
@@ -3572,12 +3616,12 @@
       <translation>Toegewezen operator</translation>
     </message>
     <message>
-      <source>Active chats</source>
-      <translation>Actieve chats</translation>
-    </message>
-    <message>
       <source>collapse/expand</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Actieve chats</translation>
     </message>
     <message>
       <source>Closed chats</source>
@@ -3588,6 +3632,10 @@
       <translation>Chats wachtend</translation>
     </message>
     <message>
+      <source>Unread messages</source>
+      <translation>Ongelezen berichten</translation>
+    </message>
+    <message>
       <source>Chats transferred to you directly</source>
       <translation>Chats direct naar jou doorgeschakeld</translation>
     </message>
@@ -3596,8 +3644,16 @@
       <translation>Doorgeschakeld naar jouw afdeling</translation>
     </message>
     <message>
-      <source>Unread messages</source>
-      <translation>Ongelezen berichten</translation>
+      <source>Download XLS</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>All departments</source>
+      <translation>Alle afdelingen</translation>
+    </message>
+    <message>
+      <source>Number of elements in list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Departments stats</source>
@@ -3608,12 +3664,8 @@
       <translation>Online operators</translation>
     </message>
     <message>
-      <source>All departments</source>
-      <translation>Alle afdelingen</translation>
-    </message>
-    <message>
-      <source>Number of elements in list</source>
-      <translation type="unfinished"/>
+      <source>Transfered chats</source>
+      <translation>Doorgeschakelde chats</translation>
     </message>
     <message>
       <source>Home</source>
@@ -4065,6 +4117,10 @@
       <translation>Gebruiksersvoorwaarden checkbox</translation>
     </message>
     <message>
+      <source>Checked by default</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>E-mail is always required</source>
       <translation>E-mail is altijd verplicht</translation>
     </message>
@@ -4235,12 +4291,28 @@
   <context>
     <name>chat/statistic</name>
     <message>
+      <source>General</source>
+      <translation>Algemeen</translation>
+    </message>
+    <message>
+      <source>Operators last 24h statistic, top 100 by chats number</source>
+      <translation>Operator statistieken laatste 24u, top 100 op aantal chats</translation>
+    </message>
+    <message>
       <source>Statistic</source>
       <translation>Statistiek</translation>
     </message>
     <message>
-      <source>General</source>
-      <translation>Algemeen</translation>
+      <source>Chats statistic</source>
+      <translation>Chat statistieken</translation>
+    </message>
+    <message>
+      <source>Total statistic</source>
+      <translation>Totaal statistiek</translation>
+    </message>
+    <message>
+      <source>Last 24 hours statistic</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User</source>
@@ -4275,24 +4347,16 @@
       <translation>Aantal chats gefilterd op land</translation>
     </message>
     <message>
-      <source>Number of chats by user</source>
-      <translation>Aantal chats gefilterd op gebruiker</translation>
+      <source>Average in seconds</source>
+      <translation>Gemiddelde in seconden </translation>
     </message>
     <message>
       <source>Wait time</source>
       <translation>Wachttijd</translation>
     </message>
     <message>
-      <source>AVG visitor wait time by operator</source>
-      <translation>Gemiddelde wachttijd per operator</translation>
-    </message>
-    <message>
       <source>Messages</source>
       <translation>Berichten</translation>
-    </message>
-    <message>
-      <source>Number of messages by user</source>
-      <translation>Aantal berichten door gebruiker</translation>
     </message>
     <message>
       <source>Month</source>
@@ -4355,10 +4419,6 @@
       <translation>Aantal chats per uur, gemiddelde tijdsduur</translation>
     </message>
     <message>
-      <source>Chats statistic</source>
-      <translation>Chat statistieken</translation>
-    </message>
-    <message>
       <source>Hourly statistic</source>
       <translation>Statistieken per uur</translation>
     </message>
@@ -4371,8 +4431,28 @@
       <translation>Gebruikersstatistieken</translation>
     </message>
     <message>
-      <source>Total statistic</source>
-      <translation>Totaal statistiek</translation>
+      <source>Number of chats by user</source>
+      <translation>Aantal chats gefilterd op gebruiker</translation>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation>Aantal berichten door gebruiker</translation>
+    </message>
+    <message>
+      <source>Average chat duration by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>All operators statistic will be downloaded</source>
+      <translation>Alle operator statistieken zullen gedownload worden</translation>
+    </message>
+    <message>
+      <source>AVG visitor wait time by operator</source>
+      <translation>Gemiddelde wachttijd per operator</translation>
+    </message>
+    <message>
+      <source>Last 24h statistic</source>
+      <translation>Laatste 24u statistiek</translation>
     </message>
     <message>
       <source>Parameter</source>
@@ -4419,12 +4499,8 @@
       <translation>Totaal berichten (alleen operators)</translation>
     </message>
     <message>
-      <source>Last 24h statistic</source>
-      <translation>Laatste 24u statistiek</translation>
-    </message>
-    <message>
-      <source>Operators last 24h statistic, top 100 by chats number</source>
-      <translation>Operator statistieken laatste 24u, top 100 op aantal chats</translation>
+      <source>Operators statistic, top 100 by chats number</source>
+      <translation>Operator statistieken, top 100 aan de hand van aantal chats</translation>
     </message>
     <message>
       <source>Total messages</source>
@@ -6743,6 +6819,22 @@
   <context>
     <name>chat/chatexport</name>
     <message>
+      <source>Referrer</source>
+      <translation>Verwijzer</translation>
+    </message>
+    <message>
+      <source>Department name</source>
+      <translation>Afdelingsnaam</translation>
+    </message>
+    <message>
+      <source>Pending chats number</source>
+      <translation>Wachtende chats</translation>
+    </message>
+    <message>
+      <source>Active chats number</source>
+      <translation>Actieve chats</translation>
+    </message>
+    <message>
       <source>Visitor Name</source>
       <translation>Gebruikersnaam</translation>
     </message>
@@ -6753,6 +6845,10 @@
     <message>
       <source>Phone</source>
       <translation>Telefoonnummer</translation>
+    </message>
+    <message>
+      <source>Wait time</source>
+      <translation>Wacht tijd</translation>
     </message>
     <message>
       <source>Country</source>
@@ -6779,20 +6875,40 @@
       <translation>Datum</translation>
     </message>
     <message>
+      <source>Minutes</source>
+      <translation>Minuten</translation>
+    </message>
+    <message>
       <source>Vote status</source>
-      <translation type="unfinished"/>
+      <translation>Stem status</translation>
     </message>
     <message>
       <source>Mail send</source>
       <translation>E-mail is verzonden</translation>
     </message>
     <message>
-      <source>Referrer</source>
-      <translation>Verwijzer</translation>
+      <source>Page</source>
+      <translation>Pagina</translation>
+    </message>
+    <message>
+      <source>Came from</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Link</source>
       <translation>Link</translation>
+    </message>
+    <message>
+      <source>Chat content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User ID</source>
+      <translation>Gebruikers ID</translation>
+    </message>
+    <message>
+      <source>Chat average in seconds</source>
+      <translation>Gemiddelde chattijd in seconden </translation>
     </message>
   </context>
   <context>

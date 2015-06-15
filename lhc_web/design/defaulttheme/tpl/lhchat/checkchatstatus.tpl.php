@@ -19,13 +19,18 @@
     	<?php endif; ?>	
     </h4>
     <?php elseif ($is_online == true) : ?>
+     
     <h4>
-         <?php if ($theme !== false  && $theme->pending_join != '') : ?>
-    	   <?php echo htmlspecialchars($theme->pending_join)?>
-    	<?php else : ?>
-           <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages'); ?>
+         <?php if ($chat->number_in_queue > 1) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','You are number')?> <b><?php echo $chat->number_in_queue?></b> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','in the queue. Please wait...')?>
+         <?php else : ?>
+             <?php if ($theme !== false  && $theme->pending_join != '') : ?>
+        	   <?php echo htmlspecialchars($theme->pending_join)?>
+        	<?php else : ?>
+               <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages'); ?>
+            <?php endif;?>
         <?php endif;?>
     </h4>
+   
     <?php else : ?>
     <h4>
     <?php if ($theme !== false  && $theme->noonline_operators != '') : ?>

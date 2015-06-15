@@ -146,6 +146,10 @@
       <translation>რომელი ip უნდა იყოს იგნორირებული, მძიმით გამოყოფილ  ონლაინ მომხმარებელთა სიაში</translation>
     </message>
     <message>
+      <source>Hide right column in frontpage</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide disabled department widget</source>
       <translation>გამორთული დეპარტამენტის ვიდჯეტის დამალვა</translation>
     </message>
@@ -1179,6 +1183,10 @@
       <translation>XLS</translation>
     </message>
     <message>
+      <source>XLS (with content)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Select department</source>
       <translation>დეპარტამენტის მონიშვნა</translation>
     </message>
@@ -1192,6 +1200,18 @@
     </message>
     <message>
       <source>Choose department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Group by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Month</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Day</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -1378,6 +1398,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Department</source>
+      <translation>დეპარტამენტი</translation>
+    </message>
+    <message>
       <source>User</source>
       <translation>მომხმარებელი</translation>
     </message>
@@ -1428,10 +1452,6 @@
     <message>
       <source>Delay in seconds</source>
       <translation>შეკავება წამებში</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>დეპარტამენტი</translation>
     </message>
     <message>
       <source>Canned messages</source>
@@ -2156,6 +2176,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Wait time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Time ago</source>
       <translation type="unfinished"/>
     </message>
@@ -2255,6 +2287,18 @@
     <message>
       <source>Invalid captcha code, please enable Javascript!</source>
       <translation>არასწორი captcha  კოდი, გთხოვთ, ჩართეთ Javascript!</translation>
+    </message>
+    <message>
+      <source>Invalid file extension</source>
+      <translation>ფაილის არასწორი გაფართოება</translation>
+    </message>
+    <message>
+      <source>Invalid file extension!</source>
+      <translation>ფაილის არასწორი გაფართოება!</translation>
+    </message>
+    <message>
+      <source>To big file!</source>
+      <translation>დიდი ფაილისთვის!</translation>
     </message>
     <message>
       <source>Department is disabled</source>
@@ -2433,18 +2477,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Invalid file extension</source>
-      <translation>ფაილის არასწორი გაფართოება</translation>
-    </message>
-    <message>
-      <source>Invalid file extension!</source>
-      <translation>ფაილის არასწორი გაფართოება!</translation>
-    </message>
-    <message>
-      <source>To big file!</source>
-      <translation>დიდი ფაილისთვის!</translation>
-    </message>
-    <message>
       <source>Please enter a message, max characters</source>
       <translation>გთხოვთ, შეიტანეთ შეტყობინება, მაქსიმალური სიმბოლოები</translation>
     </message>
@@ -2470,6 +2502,14 @@
     <message>
       <source>A support staff member has closed this chat</source>
       <translation>მხარდაჭერის თანამშრომელმა დახურა თავისი ჩეთი</translation>
+    </message>
+    <message>
+      <source>You are number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>in the queue. Please wait...</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
@@ -3044,10 +3084,6 @@
       <translation>სიის გასუფთავება </translation>
     </message>
     <message>
-      <source>Online visitors</source>
-      <translation>ონლაინ ვიზიტორები</translation>
-    </message>
-    <message>
       <source>User tracking is disabled, enable it at</source>
       <translation>მომხმარებელთათვის თვალის მიდევნება გამორთულია,  ჩართეთ ის --ზე</translation>
     </message>
@@ -3070,6 +3106,10 @@
     <message>
       <source>Enable/Disable browser notifications about new visitor</source>
       <translation>ახალი ვიზიტორების შესახებ ბრაუზერის შეტყობინებების ჩართვა/გამორთვა </translation>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation>ონლაინ ვიზიტორები</translation>
     </message>
     <message>
       <source>User has message from operator</source>
@@ -3350,6 +3390,10 @@
       <translation>მოთხოვნის შეტყობინების ნებართვა</translation>
     </message>
     <message>
+      <source>Supported: online_operators, departments_stats, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>New chat notification settings</source>
       <translation>ახალი ჩეთის შეტყობინების პარამეტრები</translation>
     </message>
@@ -3572,12 +3616,12 @@
       <translation>მიკუთვნებული ოპერატორები</translation>
     </message>
     <message>
-      <source>Active chats</source>
-      <translation>აქტიური ჩეთები</translation>
-    </message>
-    <message>
       <source>collapse/expand</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>აქტიური ჩეთები</translation>
     </message>
     <message>
       <source>Closed chats</source>
@@ -3588,6 +3632,10 @@
       <translation>მომლოდინე ჩეთები</translation>
     </message>
     <message>
+      <source>Unread messages</source>
+      <translation>წაუკითხავი შეტყობინებები</translation>
+    </message>
+    <message>
       <source>Chats transferred to you directly</source>
       <translation>პირდაპირ თვენთვის გადმოცემული ჩეთები</translation>
     </message>
@@ -3596,8 +3644,16 @@
       <translation> თქვენი დეპარტანებტისთვის გადაცემული</translation>
     </message>
     <message>
-      <source>Unread messages</source>
-      <translation>წაუკითხავი შეტყობინებები</translation>
+      <source>Download XLS</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>All departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of elements in list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Departments stats</source>
@@ -3608,11 +3664,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>All departments</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Number of elements in list</source>
+      <source>Transfered chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4065,6 +4117,10 @@
       <translation>მომსახურების ირობებზე დასათანხმებელი მონიშვნის უჯრა</translation>
     </message>
     <message>
+      <source>Checked by default</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>E-mail is always required</source>
       <translation>ელ. ფოსტა ყოველთვის საჭიროა</translation>
     </message>
@@ -4235,11 +4291,27 @@
   <context>
     <name>chat/statistic</name>
     <message>
+      <source>General</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators last 24h statistic, top 100 by chats number</source>
+      <translation>ოპერატორების ბოლო 24 საათის სტატისტიკა,  ტოპ 100 ჩეთის რაოდენობის მიხედვით</translation>
+    </message>
+    <message>
       <source>Statistic</source>
       <translation>სტატისტიკა</translation>
     </message>
     <message>
-      <source>General</source>
+      <source>Chats statistic</source>
+      <translation>ჩეთების სტატისტიკა</translation>
+    </message>
+    <message>
+      <source>Total statistic</source>
+      <translation>ჯამური სტატისტიკა</translation>
+    </message>
+    <message>
+      <source>Last 24 hours statistic</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4275,7 +4347,7 @@
       <translation>ჩეთების რაოდენობა ქვეყნის მიხედვით</translation>
     </message>
     <message>
-      <source>Number of chats by user</source>
+      <source>Average in seconds</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4283,16 +4355,8 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>AVG visitor wait time by operator</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Messages</source>
       <translation>შეტყობინებები</translation>
-    </message>
-    <message>
-      <source>Number of messages by user</source>
-      <translation>შეტყობინებების რაოდენობა მომხმარებლისგან</translation>
     </message>
     <message>
       <source>Month</source>
@@ -4355,10 +4419,6 @@
       <translation>ჩეთების რაოდენობა თითოეული საათისთვის, ჩეთის საშუალო ხანგრძლივობა</translation>
     </message>
     <message>
-      <source>Chats statistic</source>
-      <translation>ჩეთების სტატისტიკა</translation>
-    </message>
-    <message>
       <source>Hourly statistic</source>
       <translation>საათობრივი სტატისტიკა</translation>
     </message>
@@ -4371,8 +4431,28 @@
       <translation>მომხმარებლის სტატისტიკა</translation>
     </message>
     <message>
-      <source>Total statistic</source>
-      <translation>ჯამური სტატისტიკა</translation>
+      <source>Number of chats by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation>შეტყობინებების რაოდენობა მომხმარებლისგან</translation>
+    </message>
+    <message>
+      <source>Average chat duration by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>All operators statistic will be downloaded</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>AVG visitor wait time by operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last 24h statistic</source>
+      <translation>ბოლო 24 სთ. სტატისტიკა</translation>
     </message>
     <message>
       <source>Parameter</source>
@@ -4419,12 +4499,8 @@
       <translation>ჯამური შეტყობინებები (მხოლოდ ოპერატორები)</translation>
     </message>
     <message>
-      <source>Last 24h statistic</source>
-      <translation>ბოლო 24 სთ. სტატისტიკა</translation>
-    </message>
-    <message>
-      <source>Operators last 24h statistic, top 100 by chats number</source>
-      <translation>ოპერატორების ბოლო 24 საათის სტატისტიკა,  ტოპ 100 ჩეთის რაოდენობის მიხედვით</translation>
+      <source>Operators statistic, top 100 by chats number</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Total messages</source>
@@ -6743,6 +6819,22 @@
   <context>
     <name>chat/chatexport</name>
     <message>
+      <source>Referrer</source>
+      <translation>რეფერერი</translation>
+    </message>
+    <message>
+      <source>Department name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitor Name</source>
       <translation>ვიზიტორის სახელი</translation>
     </message>
@@ -6753,6 +6845,10 @@
     <message>
       <source>Phone</source>
       <translation>ტელეფონი</translation>
+    </message>
+    <message>
+      <source>Wait time</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Country</source>
@@ -6779,6 +6875,10 @@
       <translation>თარიღი</translation>
     </message>
     <message>
+      <source>Minutes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Vote status</source>
       <translation type="unfinished"/>
     </message>
@@ -6787,12 +6887,28 @@
       <translation>წერილის გაგზავნა</translation>
     </message>
     <message>
-      <source>Referrer</source>
-      <translation>რეფერერი</translation>
+      <source>Page</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Came from</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Link</source>
       <translation>ბმული</translation>
+    </message>
+    <message>
+      <source>Chat content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat average in seconds</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

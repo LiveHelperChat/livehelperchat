@@ -239,7 +239,14 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        'TOSVisibleInPageWidget' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	        ),
-	    
+	        'TOSCheckByDefaultOffline' => new ezcInputFormDefinitionElement(
+	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	        ),
+	        'TOSCheckByDefaultOnline' => new ezcInputFormDefinitionElement(
+	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	        ),
+	        
+	        // Extra
 	        'ShowOperatorProfile' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	        ),
@@ -297,6 +304,18 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        $data['tos_visible_in_page_widget'] = true;
 	    } else {
 	        $data['tos_visible_in_page_widget'] = false;
+	    }
+	    
+	    if ( $form->hasValidData( 'TOSCheckByDefaultOffline' ) && $form->TOSCheckByDefaultOffline == true ) {
+	        $data['tos_checked_offline'] = true;
+	    } else {
+	        $data['tos_checked_offline'] = false;
+	    }
+	    
+	    if ( $form->hasValidData( 'TOSCheckByDefaultOnline' ) && $form->TOSCheckByDefaultOnline == true ) {
+	        $data['tos_checked_online'] = true;
+	    } else {
+	        $data['tos_checked_online'] = false;
 	    }
 	    
 	    if ( $form->hasValidData( 'OfflineTOSVisibleInPopup' ) && $form->OfflineTOSVisibleInPopup == true ) {

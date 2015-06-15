@@ -146,6 +146,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Hide right column in frontpage</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide disabled department widget</source>
       <translation type="unfinished"/>
     </message>
@@ -1179,6 +1183,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>XLS (with content)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Select department</source>
       <translation>Zgjidh departamentin</translation>
     </message>
@@ -1192,6 +1200,18 @@
     </message>
     <message>
       <source>Choose department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Group by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Month</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Day</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -1378,6 +1398,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Department</source>
+      <translation>Departament</translation>
+    </message>
+    <message>
       <source>User</source>
       <translation>Perdorues</translation>
     </message>
@@ -1428,10 +1452,6 @@
     <message>
       <source>Delay in seconds</source>
       <translation>Vonesa ne sekonda</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Departament</translation>
     </message>
     <message>
       <source>Canned messages</source>
@@ -2157,6 +2177,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Wait time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Time ago</source>
       <translation type="unfinished"/>
     </message>
@@ -2256,6 +2288,18 @@
     <message>
       <source>Invalid captcha code, please enable Javascript!</source>
       <translation>Kodi eshte i pavlefshem,ju lutem aktivizoni Javascript!</translation>
+    </message>
+    <message>
+      <source>Invalid file extension</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid file extension!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To big file!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Department is disabled</source>
@@ -2434,18 +2478,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Invalid file extension</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invalid file extension!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>To big file!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Please enter a message, max characters</source>
       <translation>Ju lutem vendosni nje mesazhin,max karaktere</translation>
     </message>
@@ -2471,6 +2503,14 @@
     <message>
       <source>A support staff member has closed this chat</source>
       <translation>Një anëtar i personelit ndihmës e ka mbyllur këtë chat</translation>
+    </message>
+    <message>
+      <source>You are number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>in the queue. Please wait...</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
@@ -3045,10 +3085,6 @@
       <translation>Pastro listen</translation>
     </message>
     <message>
-      <source>Online visitors</source>
-      <translation>Vizitore ne linje</translation>
-    </message>
-    <message>
       <source>User tracking is disabled, enable it at</source>
       <translation>Gjurmimi i perdoruesit eshte i c&apos;aktivizuar,aktivizoje ate tek</translation>
     </message>
@@ -3071,6 +3107,10 @@
     <message>
       <source>Enable/Disable browser notifications about new visitor</source>
       <translation>Aktivio/C&apos;aktivizo njoftimet nga shfletuesi per vizitore te ri</translation>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation>Vizitore ne linje</translation>
     </message>
     <message>
       <source>User has message from operator</source>
@@ -3351,6 +3391,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Supported: online_operators, departments_stats, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>New chat notification settings</source>
       <translation type="unfinished"/>
     </message>
@@ -3573,12 +3617,12 @@
       <translation>Operator i caktuar</translation>
     </message>
     <message>
-      <source>Active chats</source>
-      <translation>Bisedat aktive</translation>
-    </message>
-    <message>
       <source>collapse/expand</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Bisedat aktive</translation>
     </message>
     <message>
       <source>Closed chats</source>
@@ -3589,6 +3633,10 @@
       <translation>Bisedat ne pritje</translation>
     </message>
     <message>
+      <source>Unread messages</source>
+      <translation>Mesazhet e pa lexuara</translation>
+    </message>
+    <message>
       <source>Chats transferred to you directly</source>
       <translation>Transfero biseden direkte tek ti</translation>
     </message>
@@ -3597,8 +3645,16 @@
       <translation>Transferuar tek departamenti jot</translation>
     </message>
     <message>
-      <source>Unread messages</source>
-      <translation>Mesazhet e pa lexuara</translation>
+      <source>Download XLS</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>All departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of elements in list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Departments stats</source>
@@ -3609,11 +3665,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>All departments</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Number of elements in list</source>
+      <source>Transfered chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4066,6 +4118,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Checked by default</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>E-mail is always required</source>
       <translation>E-Mail eshte gjithmone i detyrueshem</translation>
     </message>
@@ -4236,11 +4292,27 @@
   <context>
     <name>chat/statistic</name>
     <message>
+      <source>General</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators last 24h statistic, top 100 by chats number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Statistic</source>
       <translation>Statistikat</translation>
     </message>
     <message>
-      <source>General</source>
+      <source>Chats statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total statistic</source>
+      <translation>Statistikat totale</translation>
+    </message>
+    <message>
+      <source>Last 24 hours statistic</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4276,7 +4348,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Number of chats by user</source>
+      <source>Average in seconds</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4284,15 +4356,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>AVG visitor wait time by operator</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Messages</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Number of messages by user</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4356,10 +4420,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Chats statistic</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Hourly statistic</source>
       <translation type="unfinished"/>
     </message>
@@ -4372,8 +4432,28 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Total statistic</source>
-      <translation>Statistikat totale</translation>
+      <source>Number of chats by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Average chat duration by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>All operators statistic will be downloaded</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>AVG visitor wait time by operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last 24h statistic</source>
+      <translation>Statistikat e 24 orevete fundit</translation>
     </message>
     <message>
       <source>Parameter</source>
@@ -4420,11 +4500,7 @@
       <translation>Totali i mesazheve(vetem operatoret)</translation>
     </message>
     <message>
-      <source>Last 24h statistic</source>
-      <translation>Statistikat e 24 orevete fundit</translation>
-    </message>
-    <message>
-      <source>Operators last 24h statistic, top 100 by chats number</source>
+      <source>Operators statistic, top 100 by chats number</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6744,6 +6820,22 @@
   <context>
     <name>chat/chatexport</name>
     <message>
+      <source>Referrer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitor Name</source>
       <translation type="unfinished"/>
     </message>
@@ -6753,6 +6845,10 @@
     </message>
     <message>
       <source>Phone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wait time</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6780,6 +6876,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Minutes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Vote status</source>
       <translation type="unfinished"/>
     </message>
@@ -6788,11 +6888,27 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Referrer</source>
+      <source>Page</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Came from</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Link</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat average in seconds</source>
       <translation type="unfinished"/>
     </message>
   </context>

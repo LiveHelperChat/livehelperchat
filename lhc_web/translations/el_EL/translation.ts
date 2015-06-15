@@ -146,6 +146,10 @@
       <translation>Ποια ip πρέπει να αγνοηθεί στη λίστα σε απευθείας σύνδεση χρήστες, ξεχωριστό από το κόμμα</translation>
     </message>
     <message>
+      <source>Hide right column in frontpage</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide disabled department widget</source>
       <translation>Απόκρυψη απενεργοποιημένη τμήμα widget</translation>
     </message>
@@ -1179,6 +1183,10 @@
       <translation>XLS</translation>
     </message>
     <message>
+      <source>XLS (with content)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Select department</source>
       <translation>Επέλεξε τμήμα</translation>
     </message>
@@ -1193,6 +1201,18 @@
     <message>
       <source>Choose department</source>
       <translation>Επιλέξτε τμήμα</translation>
+    </message>
+    <message>
+      <source>Group by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Month</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Day</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -1378,6 +1398,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Department</source>
+      <translation>Τμήμα</translation>
+    </message>
+    <message>
       <source>User</source>
       <translation>Χρήστη</translation>
     </message>
@@ -1428,10 +1452,6 @@
     <message>
       <source>Delay in seconds</source>
       <translation>Καθυστέρηση σε δευτερόλεπτα</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Τμήμα</translation>
     </message>
     <message>
       <source>Canned messages</source>
@@ -2156,6 +2176,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Wait time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Time ago</source>
       <translation type="unfinished"/>
     </message>
@@ -2255,6 +2287,18 @@
     <message>
       <source>Invalid captcha code, please enable Javascript!</source>
       <translation>Μη έγκυρη captcha κωδικό, παρακαλώ ενεργοποιήστε την Javascript!</translation>
+    </message>
+    <message>
+      <source>Invalid file extension</source>
+      <translation>Μη έγκυρο αρχείο επέκταση</translation>
+    </message>
+    <message>
+      <source>Invalid file extension!</source>
+      <translation>Επέκταση αρχείο δεν είναι έγκυρο!</translation>
+    </message>
+    <message>
+      <source>To big file!</source>
+      <translation>Μεγάλο αρχείο!</translation>
     </message>
     <message>
       <source>Department is disabled</source>
@@ -2433,18 +2477,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Invalid file extension</source>
-      <translation>Μη έγκυρο αρχείο επέκταση</translation>
-    </message>
-    <message>
-      <source>Invalid file extension!</source>
-      <translation>Επέκταση αρχείο δεν είναι έγκυρο!</translation>
-    </message>
-    <message>
-      <source>To big file!</source>
-      <translation>Μεγάλο αρχείο!</translation>
-    </message>
-    <message>
       <source>Please enter a message, max characters</source>
       <translation>Παρακαλούμε εισάγετε ένα μήνυμα, max χαρακτήρες</translation>
     </message>
@@ -2470,6 +2502,14 @@
     <message>
       <source>A support staff member has closed this chat</source>
       <translation>Ένα μέλος του προσωπικού υποστήριξης έχει κλείσει αυτήν τη συζήτηση</translation>
+    </message>
+    <message>
+      <source>You are number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>in the queue. Please wait...</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
@@ -3044,10 +3084,6 @@
       <translation>Καθαρισμός λίστας</translation>
     </message>
     <message>
-      <source>Online visitors</source>
-      <translation>Συνδεδεμένοι χρήστες</translation>
-    </message>
-    <message>
       <source>User tracking is disabled, enable it at</source>
       <translation>Παρακολούθησης του χρήστη είναι απενεργοποιημένη, ενεργοποιήσετε στο</translation>
     </message>
@@ -3070,6 +3106,10 @@
     <message>
       <source>Enable/Disable browser notifications about new visitor</source>
       <translation>Ενεργοποίηση/απενεργοποίηση προγράμματος περιήγησης ειδοποιήσεις σχετικά με νέα επισκέπτης</translation>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation>Συνδεδεμένοι χρήστες</translation>
     </message>
     <message>
       <source>User has message from operator</source>
@@ -3350,6 +3390,10 @@
       <translation>Ζητήσει άδεια κοινοποίησης</translation>
     </message>
     <message>
+      <source>Supported: online_operators, departments_stats, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>New chat notification settings</source>
       <translation>Νέες ρυθμίσεις ειδοποιήσεων συνομιλίας</translation>
     </message>
@@ -3572,12 +3616,12 @@
       <translation>Ειδικό φορέα</translation>
     </message>
     <message>
-      <source>Active chats</source>
-      <translation>Ενεργές συνομιλίες</translation>
-    </message>
-    <message>
       <source>collapse/expand</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Ενεργές συνομιλίες</translation>
     </message>
     <message>
       <source>Closed chats</source>
@@ -3588,6 +3632,10 @@
       <translation>Συνομιλίες σε αναμονή</translation>
     </message>
     <message>
+      <source>Unread messages</source>
+      <translation>Μη αναγνωσμένα μηνύματα</translation>
+    </message>
+    <message>
       <source>Chats transferred to you directly</source>
       <translation>Συνομιλίες να σας παραχωρήσει άμεσα</translation>
     </message>
@@ -3596,8 +3644,16 @@
       <translation>Μεταφορά στο τμήμα σας</translation>
     </message>
     <message>
-      <source>Unread messages</source>
-      <translation>Μη αναγνωσμένα μηνύματα</translation>
+      <source>Download XLS</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>All departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of elements in list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Departments stats</source>
@@ -3608,11 +3664,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>All departments</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Number of elements in list</source>
+      <source>Transfered chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4065,6 +4117,10 @@
       <translation>Όροι της Υπηρεσίας κουτάκι αποδοχή</translation>
     </message>
     <message>
+      <source>Checked by default</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>E-mail is always required</source>
       <translation>Το email απαιτείται πάντα</translation>
     </message>
@@ -4235,11 +4291,27 @@
   <context>
     <name>chat/statistic</name>
     <message>
+      <source>General</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators last 24h statistic, top 100 by chats number</source>
+      <translation>Φορείς τελευταία 24h στατιστική, κορυφή 100 από αριθμό συνομιλίες</translation>
+    </message>
+    <message>
       <source>Statistic</source>
       <translation>Στατιστικά</translation>
     </message>
     <message>
-      <source>General</source>
+      <source>Chats statistic</source>
+      <translation>Συνομιλίες στατιστικής</translation>
+    </message>
+    <message>
+      <source>Total statistic</source>
+      <translation>Συνολικά στατιστικά</translation>
+    </message>
+    <message>
+      <source>Last 24 hours statistic</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4275,7 +4347,7 @@
       <translation>Αριθμός των συνομιλιών ανά χώρα</translation>
     </message>
     <message>
-      <source>Number of chats by user</source>
+      <source>Average in seconds</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4283,16 +4355,8 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>AVG visitor wait time by operator</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Messages</source>
       <translation>Μηνύματα</translation>
-    </message>
-    <message>
-      <source>Number of messages by user</source>
-      <translation>Αριθμός μηνυμάτων από τον χρήστη</translation>
     </message>
     <message>
       <source>Month</source>
@@ -4355,10 +4419,6 @@
       <translation>Αριθμός των συνομιλιών ανά ώρα, διάρκεια μέση συνομιλίας</translation>
     </message>
     <message>
-      <source>Chats statistic</source>
-      <translation>Συνομιλίες στατιστικής</translation>
-    </message>
-    <message>
       <source>Hourly statistic</source>
       <translation>Ωριαία στατιστικής</translation>
     </message>
@@ -4371,8 +4431,28 @@
       <translation>Statisic χρήστες</translation>
     </message>
     <message>
-      <source>Total statistic</source>
-      <translation>Συνολικά στατιστικά</translation>
+      <source>Number of chats by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation>Αριθμός μηνυμάτων από τον χρήστη</translation>
+    </message>
+    <message>
+      <source>Average chat duration by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>All operators statistic will be downloaded</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>AVG visitor wait time by operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last 24h statistic</source>
+      <translation>Στατιστικά τελευταίων 24 ωρών</translation>
     </message>
     <message>
       <source>Parameter</source>
@@ -4419,12 +4499,8 @@
       <translation>Συνολικά μηνύματα (μόνο φορείς)</translation>
     </message>
     <message>
-      <source>Last 24h statistic</source>
-      <translation>Στατιστικά τελευταίων 24 ωρών</translation>
-    </message>
-    <message>
-      <source>Operators last 24h statistic, top 100 by chats number</source>
-      <translation>Φορείς τελευταία 24h στατιστική, κορυφή 100 από αριθμό συνομιλίες</translation>
+      <source>Operators statistic, top 100 by chats number</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Total messages</source>
@@ -6743,6 +6819,22 @@
   <context>
     <name>chat/chatexport</name>
     <message>
+      <source>Referrer</source>
+      <translation>Referrer</translation>
+    </message>
+    <message>
+      <source>Department name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitor Name</source>
       <translation>Όνομα του επισκέπτη</translation>
     </message>
@@ -6753,6 +6845,10 @@
     <message>
       <source>Phone</source>
       <translation>Τηλέφωνο</translation>
+    </message>
+    <message>
+      <source>Wait time</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Country</source>
@@ -6779,6 +6875,10 @@
       <translation>Ημερομηνία</translation>
     </message>
     <message>
+      <source>Minutes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Vote status</source>
       <translation type="unfinished"/>
     </message>
@@ -6787,12 +6887,28 @@
       <translation>Αποστολή αλληλογραφίας</translation>
     </message>
     <message>
-      <source>Referrer</source>
-      <translation>Referrer</translation>
+      <source>Page</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Came from</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Link</source>
       <translation>Σύνδεση</translation>
+    </message>
+    <message>
+      <source>Chat content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat average in seconds</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

@@ -10,9 +10,9 @@
 			<table class="table table-condensed mb0 table-small table-fixed">
 				<thead>
 					<tr>
-						<th width="60%"><i title="Visitor" class="icon-user"></i></th>
-						<th width="20%"><i title="Operator" class="icon-user"></i></th>
-						<th width="20%"><i title="Department" class="icon-home"></i></th>
+						<th width="60%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Visitor')?>" class="icon-user"></i></th>
+						<th width="20%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Operator')?>" class="icon-user"></i></th>
+						<th width="20%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Department')?>" class="icon-home"></i></th>
 					</tr>
 				</thead>
 				<tr ng-repeat="chat in closed_chats.list track by chat.id">

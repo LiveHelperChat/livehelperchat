@@ -55,27 +55,27 @@
     </message>
     <message>
       <source>Host where NodeJs is running</source>
-      <translation type="unfinished"/>
+      <translation>Serwer na którym jest uruchomiony NodeJS</translation>
     </message>
     <message>
       <source>Location of SocketIO JS library</source>
-      <translation type="unfinished"/>
+      <translation>Lokalizacja biblioteki SocketIO JS</translation>
     </message>
     <message>
       <source>Connect to NodeJs in https mode</source>
-      <translation type="unfinished"/>
+      <translation>Łącz się z NodeJs w trybie https</translation>
     </message>
     <message>
       <source>socket.io path, optional</source>
-      <translation type="unfinished"/>
+      <translation>ścieżka do socket.io, opcjonalna</translation>
     </message>
     <message>
       <source>NodeJS support enabled</source>
-      <translation type="unfinished"/>
+      <translation>wsparcie dla NodeJS włączone</translation>
     </message>
     <message>
       <source>Do not ask permission for users to see their screen</source>
-      <translation type="unfinished"/>
+      <translation>Nie proś o pozwolenie użytkowników aby zobaczyć ich ekran</translation>
     </message>
     <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
@@ -146,12 +146,16 @@
       <translation>Jakie adresy IP ignorować przy liście dostępnych operatorów, adresy oddzielone przecinkami</translation>
     </message>
     <message>
+      <source>Hide right column in frontpage</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide disabled department widget</source>
       <translation>Ukryj widżet dla nieaktywnego wydziału</translation>
     </message>
     <message>
       <source>Home page tabs order</source>
-      <translation type="unfinished"/>
+      <translation>Kolejność zakładek na głównej stronie</translation>
     </message>
     <message>
       <source>Is visitor e-mail required for FAQ</source>
@@ -348,7 +352,7 @@
     </message>
     <message>
       <source>Name of the company</source>
-      <translation type="unfinished"/>
+      <translation>Nazwa firmy</translation>
     </message>
     <message>
       <source>Need help header text</source>
@@ -416,7 +420,7 @@
     </message>
     <message>
       <source>Header height (px)</source>
-      <translation type="unfinished"/>
+      <translation>Wysokość nagłówka (px)</translation>
     </message>
     <message>
       <source>Header padding (px)</source>
@@ -1180,6 +1184,10 @@ pokazywany</translation>
       <translation>XLS</translation>
     </message>
     <message>
+      <source>XLS (with content)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Select department</source>
       <translation>Wybierz wydział</translation>
     </message>
@@ -1193,6 +1201,18 @@ pokazywany</translation>
     </message>
     <message>
       <source>Choose department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Group by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Month</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Day</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -1379,6 +1399,10 @@ pokazywany</translation>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Department</source>
+      <translation>Wydział</translation>
+    </message>
+    <message>
       <source>User</source>
       <translation>Użytkownik</translation>
     </message>
@@ -1429,10 +1453,6 @@ pokazywany</translation>
     <message>
       <source>Delay in seconds</source>
       <translation>Opóźnienie w sekundach</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Wydział</translation>
     </message>
     <message>
       <source>Canned messages</source>
@@ -2157,6 +2177,18 @@ pokazywany</translation>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Wait time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Time ago</source>
       <translation type="unfinished"/>
     </message>
@@ -2256,6 +2288,18 @@ pokazywany</translation>
     <message>
       <source>Invalid captcha code, please enable Javascript!</source>
       <translation>Nieprawidłowy kod captcha, włącz obsługę JavaScript!</translation>
+    </message>
+    <message>
+      <source>Invalid file extension</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid file extension!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To big file!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Department is disabled</source>
@@ -2434,18 +2478,6 @@ pokazywany</translation>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Invalid file extension</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invalid file extension!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>To big file!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Please enter a message, max characters</source>
       <translation>Wpisz wiadomość, max znaków</translation>
     </message>
@@ -2471,6 +2503,14 @@ pokazywany</translation>
     <message>
       <source>A support staff member has closed this chat</source>
       <translation>Pracownik wsparcia zamknął tą rozmowę</translation>
+    </message>
+    <message>
+      <source>You are number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>in the queue. Please wait...</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
@@ -3045,10 +3085,6 @@ pokazywany</translation>
       <translation>Wyczyść listę</translation>
     </message>
     <message>
-      <source>Online visitors</source>
-      <translation>Goście on-line</translation>
-    </message>
-    <message>
       <source>User tracking is disabled, enable it at</source>
       <translation>Śledzenie użytkownika jest wyłączone, włącz go</translation>
     </message>
@@ -3071,6 +3107,10 @@ pokazywany</translation>
     <message>
       <source>Enable/Disable browser notifications about new visitor</source>
       <translation>Włącz/wyłącz powiadomienia przeglądarki o nowym gościu</translation>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation>Goście on-line</translation>
     </message>
     <message>
       <source>User has message from operator</source>
@@ -3351,6 +3391,10 @@ pokazywany</translation>
       <translation>Nadanie uprawnień do wyświetlania wiadomości</translation>
     </message>
     <message>
+      <source>Supported: online_operators, departments_stats, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>New chat notification settings</source>
       <translation>Nowe ustawienia powiadomień o rozmowie</translation>
     </message>
@@ -3573,12 +3617,12 @@ pokazywany</translation>
       <translation>Przypisany operator</translation>
     </message>
     <message>
-      <source>Active chats</source>
-      <translation>Aktywne rozmowy</translation>
-    </message>
-    <message>
       <source>collapse/expand</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Aktywne rozmowy</translation>
     </message>
     <message>
       <source>Closed chats</source>
@@ -3589,6 +3633,10 @@ pokazywany</translation>
       <translation>Oczekujące rozmowy</translation>
     </message>
     <message>
+      <source>Unread messages</source>
+      <translation>Nieprzeczytane wiadomości</translation>
+    </message>
+    <message>
       <source>Chats transferred to you directly</source>
       <translation>Rozmowy przekazywane bezpośrednio do Ciebie</translation>
     </message>
@@ -3597,8 +3645,16 @@ pokazywany</translation>
       <translation>Przekazywane do twojego działu</translation>
     </message>
     <message>
-      <source>Unread messages</source>
-      <translation>Nieprzeczytane wiadomości</translation>
+      <source>Download XLS</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>All departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of elements in list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Departments stats</source>
@@ -3609,11 +3665,7 @@ pokazywany</translation>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>All departments</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Number of elements in list</source>
+      <source>Transfered chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4066,6 +4118,10 @@ pokazywany</translation>
       <translation>Pole akceptacji warunków świadczenia usług</translation>
     </message>
     <message>
+      <source>Checked by default</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>E-mail is always required</source>
       <translation>Pole E-mail jest zawsze wymagane</translation>
     </message>
@@ -4236,11 +4292,27 @@ pokazywany</translation>
   <context>
     <name>chat/statistic</name>
     <message>
+      <source>General</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators last 24h statistic, top 100 by chats number</source>
+      <translation>Operatorzy, ostatnie 24 godziny statystyk, 100 pierwszych po ilości rozmów</translation>
+    </message>
+    <message>
       <source>Statistic</source>
       <translation>Statystyki</translation>
     </message>
     <message>
-      <source>General</source>
+      <source>Chats statistic</source>
+      <translation>Statystyki rozmów</translation>
+    </message>
+    <message>
+      <source>Total statistic</source>
+      <translation>Łączna statystyka</translation>
+    </message>
+    <message>
+      <source>Last 24 hours statistic</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4276,7 +4348,7 @@ pokazywany</translation>
       <translation>Ilość rozmów według kraju</translation>
     </message>
     <message>
-      <source>Number of chats by user</source>
+      <source>Average in seconds</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4284,16 +4356,8 @@ pokazywany</translation>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>AVG visitor wait time by operator</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Messages</source>
       <translation>Wiadomości</translation>
-    </message>
-    <message>
-      <source>Number of messages by user</source>
-      <translation>Ilość wiadomości według użytkownika</translation>
     </message>
     <message>
       <source>Month</source>
@@ -4356,10 +4420,6 @@ pokazywany</translation>
       <translation>Ilość rozmów na godzinę, średni czas trwania rozmowy</translation>
     </message>
     <message>
-      <source>Chats statistic</source>
-      <translation>Statystyki rozmów</translation>
-    </message>
-    <message>
       <source>Hourly statistic</source>
       <translation>Statystyki godzinowe</translation>
     </message>
@@ -4372,8 +4432,28 @@ pokazywany</translation>
       <translation>Statystyki użytkowników</translation>
     </message>
     <message>
-      <source>Total statistic</source>
-      <translation>Łączna statystyka</translation>
+      <source>Number of chats by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation>Ilość wiadomości według użytkownika</translation>
+    </message>
+    <message>
+      <source>Average chat duration by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>All operators statistic will be downloaded</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>AVG visitor wait time by operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last 24h statistic</source>
+      <translation>Statystyka z ostatnich 24 godzin</translation>
     </message>
     <message>
       <source>Parameter</source>
@@ -4420,12 +4500,8 @@ pokazywany</translation>
       <translation>Wszystkie wiadomości (jedynie od operatorów)</translation>
     </message>
     <message>
-      <source>Last 24h statistic</source>
-      <translation>Statystyka z ostatnich 24 godzin</translation>
-    </message>
-    <message>
-      <source>Operators last 24h statistic, top 100 by chats number</source>
-      <translation>Operatorzy, ostatnie 24 godziny statystyk, 100 pierwszych po ilości rozmów</translation>
+      <source>Operators statistic, top 100 by chats number</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Total messages</source>
@@ -5984,26 +6060,26 @@ pokazywany</translation>
     </message>
     <message>
       <source>Language</source>
-      <translation type="unfinished"/>
+      <translation>Język</translation>
     </message>
     <message>
       <source>Dialect</source>
-      <translation type="unfinished"/>
+      <translation>Dialekt</translation>
     </message>
     <message>
       <source>Default speech recognition language</source>
-      <translation type="unfinished"/>
+      <translation>Domyślny język rozpoznawania mowy</translation>
     </message>
   </context>
   <context>
     <name>speech/speech</name>
     <message>
       <source>Use application default recognition language</source>
-      <translation type="unfinished"/>
+      <translation>Użyj domyślnego języka rozpoznawania mowy aplikacji</translation>
     </message>
     <message>
       <source>Use application default recognition dialect</source>
-      <translation type="unfinished"/>
+      <translation>Użyj domyślnego dialektu rozpoznawania mowy aplikacji</translation>
     </message>
   </context>
   <context>
@@ -6073,7 +6149,7 @@ pokazywany</translation>
     <name>system/smtp</name>
     <message>
       <source>Mail settings</source>
-      <translation type="unfinished"/>
+      <translation>Ustawienia poczty</translation>
     </message>
     <message>
       <source>Sender address</source>
@@ -6642,7 +6718,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>You were logged out because another user logged under same account</source>
-      <translation type="unfinished"/>
+      <translation>Zostałeś wylogowany, ponieważ inny użytkownik zalogował się na to samo konto</translation>
     </message>
     <message>
       <source>Incorrect username or password</source>
@@ -6744,6 +6820,22 @@ pokazywany</translation>
   <context>
     <name>chat/chatexport</name>
     <message>
+      <source>Referrer</source>
+      <translation>Adres źrodłowy</translation>
+    </message>
+    <message>
+      <source>Department name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitor Name</source>
       <translation>Nazwa gościa</translation>
     </message>
@@ -6754,6 +6846,10 @@ pokazywany</translation>
     <message>
       <source>Phone</source>
       <translation>Telefon</translation>
+    </message>
+    <message>
+      <source>Wait time</source>
+      <translation>Czas oczekiwania</translation>
     </message>
     <message>
       <source>Country</source>
@@ -6780,6 +6876,10 @@ pokazywany</translation>
       <translation>Data</translation>
     </message>
     <message>
+      <source>Minutes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Vote status</source>
       <translation type="unfinished"/>
     </message>
@@ -6788,12 +6888,28 @@ pokazywany</translation>
       <translation>Wiadomość wysłana</translation>
     </message>
     <message>
-      <source>Referrer</source>
-      <translation>Adres źrodłowy</translation>
+      <source>Page</source>
+      <translation>Strona</translation>
+    </message>
+    <message>
+      <source>Came from</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Link</source>
       <translation>Link</translation>
+    </message>
+    <message>
+      <source>Chat content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat average in seconds</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -7175,15 +7291,15 @@ pokazywany</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>Ustawienia zaktualizowano</translation>
     </message>
     <message>
       <source>Autologin hash has expired</source>
-      <translation type="unfinished"/>
+      <translation>Hash autologowania wygasł</translation>
     </message>
     <message>
       <source>Could not find a user</source>
-      <translation type="unfinished"/>
+      <translation>Nie mogę znaleźć użytkownika</translation>
     </message>
     <message>
       <source>Could not find a provided user</source>
@@ -7191,11 +7307,11 @@ pokazywany</translation>
     </message>
     <message>
       <source>Invalid autologin hash</source>
-      <translation type="unfinished"/>
+      <translation>Nieprawidłowy hash autologowania</translation>
     </message>
     <message>
       <source>Auto login module is not enabled</source>
-      <translation type="unfinished"/>
+      <translation>Moduł autologowania jest wyłączony</translation>
     </message>
   </context>
 </TS>
