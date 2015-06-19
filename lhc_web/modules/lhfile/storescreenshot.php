@@ -100,6 +100,20 @@ if ($Params['user_parameters_unordered']['hash'] != '' || $Params['user_paramete
 							erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.storescreenshot.store',array('chat_file' => & $fileUpload));
 							
 							if ($chat !== false) {
+							    
+							    $msg = new erLhcoreClassModelmsg();
+							    $msg->msg = '[file='.$fileUpload->id.'_'.md5($fileUpload->name.'_'.$fileUpload->chat_id).']';
+							    $msg->chat_id = $chat->id;
+							    $msg->user_id = -1;
+							    
+							    $chat->last_user_msg_time = $msg->time = time();
+							     
+							    erLhcoreClassChat::getSession()->save($msg);
+							     
+							    if ($chat->last_msg_id < $msg->id) {
+							        $chat->last_msg_id = $msg->id;
+							    }
+							    							    
 								$chat->user_typing_txt = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/screenshot','Screenshot ready...');
 								$chat->user_typing = time();
 								

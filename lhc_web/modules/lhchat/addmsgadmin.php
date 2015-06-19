@@ -28,15 +28,25 @@ if (trim($form->msg) != '')
 	        }
 	
 	        $userData = $currentUser->getUserData();
-	
+		      
+	        $messageUserId = $userData->id;
+	        $msgText = trim($form->msg);
+	        
+	        if (strpos(trim($form->msg), '!') === 0) {
+	            if (erLhcoreClassChatCommand::processCommand(array('msg' => $msgText,'chat' => & $Chat)) === true) {
+	                $messageUserId = -1; // Message was processed set as internal message
+	                $msgText =  '[b]'.$userData->name_support.'[/b]: '.$msgText;
+	            };
+	        }
+	        
 	        $msg = new erLhcoreClassModelmsg();
-	        $msg->msg = trim($form->msg);
+	        $msg->msg = $msgText;
 	        $msg->chat_id = $Params['user_parameters']['chat_id'];
-	        $msg->user_id = $userData->id;
+	        $msg->user_id = $messageUserId;
 	        $msg->time = time();
 	        $msg->name_support = $userData->name_support;
 	        
-	        if ($Chat->chat_locale != '' && $Chat->chat_locale_to != '') {
+	        if ($messageUserId != -1 && $Chat->chat_locale != '' && $Chat->chat_locale_to != '') {
 	            erLhcoreClassTranslate::translateChatMsgOperator($Chat, $msg);
 	        }
 	        

@@ -802,7 +802,7 @@ function lh(){
 	};
 
 	this.blockUser = function(chat_id,msg) {
-		if (confirm(msg)) {
+		if (typeof msg === 'undefined' || confirm(msg)) {
 			$.postJSON(this.wwwDir + 'chat/blockuser/' + chat_id,{}, function(data){
 				alert(data.msg);
 			});
@@ -841,7 +841,7 @@ function lh(){
 	};
 
 	this.redirectContact = function(chat_id,message){		
-		if (confirm(message)){	
+		if (typeof message === 'undefined' || confirm(message)){	
 			$.postJSON(this.wwwDir + 'chat/redirectcontact/' + chat_id, function(data){				
 				lhinst.syncadmininterfacestatic();				
 				if (LHCCallbacks.userRedirectedContact) {
