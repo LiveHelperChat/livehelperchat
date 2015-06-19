@@ -1,11 +1,8 @@
 <?php
 
 /**
- * Status -
- * 0 - Pending
- * 1 - Active
- * 2 - Closed
- * 3 - Blocked
+ * Responsible for executing !<command> based queries
+ * 
  * */
 class erLhcoreClassChatCommand
 {
@@ -45,6 +42,12 @@ class erLhcoreClassChatCommand
             return call_user_func_array(self::$supportedCommands[$commandData['command']], array(
                 $params
             ));
+        } else { // Perhaps some extension has implemented this command?            
+            $commandResponse = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.customcommand.'.$commandData['command'], $params);
+            
+            if (isset($commandResponse['executed']) && $commandResponse['executed'] == true) {
+                return true;
+            }            
         }
         
         return false;
