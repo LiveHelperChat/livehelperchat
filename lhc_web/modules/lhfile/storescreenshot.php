@@ -119,6 +119,11 @@ if ($Params['user_parameters_unordered']['hash'] != '' || $Params['user_paramete
 								
 								$chat->screenshot_id = $fileUpload->id;
 								$chat->updateThis();
+								
+								// Force operators to check for new messages
+								erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.messages_added_passive', array(
+								    'chat' => & $chat
+								));															
 							}
 							
 							if ($chat !== false && $chat->online_user !== false) {
@@ -130,6 +135,8 @@ if ($Params['user_parameters_unordered']['hash'] != '' || $Params['user_paramete
 							}
 							
 						$db->commit();
+						
+						
 						
 						echo json_encode(array('stored' => 'true'));
 						exit;
