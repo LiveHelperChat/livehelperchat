@@ -207,7 +207,7 @@ class erLhcoreClassChatCommand
             $stmt->execute();
         }
         
-        return array('processed' => true, 'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand','Screenshot was scheduled!'));        
+        return array('processed' => true, 'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand','User was redirected to contact form!'));        
     }
     
     public static function blockUser($params)
