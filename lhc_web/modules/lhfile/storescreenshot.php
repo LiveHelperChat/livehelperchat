@@ -122,7 +122,8 @@ if ($Params['user_parameters_unordered']['hash'] != '' || $Params['user_paramete
 								
 								// Force operators to check for new messages
 								erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.messages_added_passive', array(
-								    'chat' => & $chat
+								    'chat' => & $chat,
+								    'msg' => & $msg,
 								));	
 																						
 								// Force operators to check for new messages
