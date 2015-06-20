@@ -123,6 +123,13 @@ if ($Params['user_parameters_unordered']['hash'] != '' || $Params['user_paramete
 								// Force operators to check for new messages
 								erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.messages_added_passive', array(
 								    'chat' => & $chat
+								));	
+																						
+								// Force operators to check for new messages
+								erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.screenshot_ready', array(
+								    'chat' => & $chat,
+								    'msg' => & $msg,
+								    'file' => & $fileUpload
 								));															
 							}
 							
