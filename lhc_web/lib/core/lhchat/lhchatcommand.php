@@ -45,12 +45,15 @@ class erLhcoreClassChatCommand
         } else { // Perhaps some extension has implemented this command?            
             $commandResponse = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.customcommand.'.$commandData['command'], $params);
             
-            if (isset($commandResponse['executed']) && $commandResponse['executed'] == true) {
-                return true;
+            if (isset($commandResponse['processed']) && $commandResponse['processed'] == true) {
+                return $commandResponse;
             }            
         }
         
-        return false;
+        return array (
+            'processed' => false,
+            'process_status' => ''
+        );
     }
 
     /**
@@ -73,7 +76,7 @@ class erLhcoreClassChatCommand
         $stmt->bindValue(':nick', $params['chat']->nick, PDO::PARAM_STR);
         $stmt->execute();
         
-        return true;
+        return array('processed' => true, 'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand','Nick changed!'));
     }
 
     /**
@@ -89,8 +92,10 @@ class erLhcoreClassChatCommand
         // Update object attribute
         $params['chat']->email = $params['argument'];
         
-        // Schedule interface update
-        $params['chat']->operation_admin .= "lhinst.updateVoteStatus(" . $params['chat']->id . ");";
+        if (!isset($params['no_ui_update'])) {
+            // Schedule interface update
+            $params['chat']->operation_admin .= "lhinst.updateVoteStatus(" . $params['chat']->id . ");";
+        }
         
         // Update only
         $db = ezcDbInstance::get();
@@ -100,7 +105,7 @@ class erLhcoreClassChatCommand
         $stmt->bindValue(':operation_admin', $params['chat']->operation_admin, PDO::PARAM_STR);
         $stmt->execute();
         
-        return true;
+        return array('processed' => true, 'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand','E-mail changed!'));
     }
 
     /**
@@ -116,8 +121,10 @@ class erLhcoreClassChatCommand
         // Update object attribute
         $params['chat']->phone = $params['argument'];
         
-        // Schedule interface update
-        $params['chat']->operation_admin .= "lhinst.updateVoteStatus(" . $params['chat']->id . ");";
+        if (!isset($params['no_ui_update'])) {
+            // Schedule interface update
+            $params['chat']->operation_admin .= "lhinst.updateVoteStatus(" . $params['chat']->id . ");";
+        }
         
         // Update only
         $db = ezcDbInstance::get();
@@ -127,7 +134,7 @@ class erLhcoreClassChatCommand
         $stmt->bindValue(':operation_admin', $params['chat']->operation_admin, PDO::PARAM_STR);
         $stmt->execute();
         
-        return true;
+        return  array('processed' => true, 'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand','Phone changed!'));
     }
 
     /**
@@ -150,11 +157,9 @@ class erLhcoreClassChatCommand
         $stmt->bindValue(':operation', $params['chat']->operation, PDO::PARAM_STR);
         $stmt->execute();
         
-        return true;
+        return array('processed' => true, 'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand','User was redirected!'));
     }
-
-   
-    
+       
     public static function startTranslation($params)
     {
         // Schedule interface update
@@ -167,7 +172,7 @@ class erLhcoreClassChatCommand
         $stmt->bindValue(':operation_admin', $params['chat']->operation_admin, PDO::PARAM_STR);
         $stmt->execute();
         
-        return true;
+        return array('processed' => true, 'process_status' => '');
     }
     
     public static function takeScreenshot($params)
@@ -182,67 +187,86 @@ class erLhcoreClassChatCommand
         $stmt->bindValue(':operation', $params['chat']->operation, PDO::PARAM_STR);
         $stmt->execute();
         
-        return true;
+        return array('processed' => true, 'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand','Screenshot was scheduled!'));
     }
     
     public static function contactForm($params)
     {
-        // Schedule interface update
-        $params['chat']->operation_admin .= "lhinst.redirectContact('{$params['chat']->id}');";
+        if (isset($params['no_ui_update'])) {
+            erLhcoreClassChatHelper::redirectToContactForm($params);     
+        } else {
         
-        // Update only
-        $db = ezcDbInstance::get();
-        $stmt = $db->prepare('UPDATE lh_chat SET operation_admin = :operation_admin WHERE id = :id');
-        $stmt->bindValue(':id', $params['chat']->id, PDO::PARAM_INT);
-        $stmt->bindValue(':operation_admin', $params['chat']->operation_admin, PDO::PARAM_STR);
-        $stmt->execute();
+            // Schedule interface update
+            $params['chat']->operation_admin .= "lhinst.redirectContact('{$params['chat']->id}');";
+            
+            // Update only
+            $db = ezcDbInstance::get();
+            $stmt = $db->prepare('UPDATE lh_chat SET operation_admin = :operation_admin WHERE id = :id');
+            $stmt->bindValue(':id', $params['chat']->id, PDO::PARAM_INT);
+            $stmt->bindValue(':operation_admin', $params['chat']->operation_admin, PDO::PARAM_STR);
+            $stmt->execute();
+        }
         
-        return true;        
+        return array('processed' => true, 'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand','Screenshot was scheduled!'));        
     }
     
     public static function blockUser($params)
-    {
-        // Schedule interface update
-        $params['chat']->operation_admin .= "lhinst.blockUser('{$params['chat']->id}');";
+    {        
+        if (isset($params['no_ui_update'])) {
+            $params['chat']->blockUser();
+        } else {
+            
+            // Schedule interface update
+            $params['chat']->operation_admin .= "lhinst.blockUser('{$params['chat']->id}');";
+            
+            // Update only
+            $db = ezcDbInstance::get();
+            $stmt = $db->prepare('UPDATE lh_chat SET operation_admin = :operation_admin WHERE id = :id');
+            $stmt->bindValue(':id', $params['chat']->id, PDO::PARAM_INT);
+            $stmt->bindValue(':operation_admin', $params['chat']->operation_admin, PDO::PARAM_STR);
+            $stmt->execute();
+        }
         
-        // Update only
-        $db = ezcDbInstance::get();
-        $stmt = $db->prepare('UPDATE lh_chat SET operation_admin = :operation_admin WHERE id = :id');
-        $stmt->bindValue(':id', $params['chat']->id, PDO::PARAM_INT);
-        $stmt->bindValue(':operation_admin', $params['chat']->operation_admin, PDO::PARAM_STR);
-        $stmt->execute();
-        
-        return true;        
+        return array('processed' => true, 'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand','User was blocked!'));          
     }
     
     public static function closeChat($params)
     {
-        // Schedule interface update
-        $params['chat']->operation_admin .= "lhinst.closeActiveChatDialog('{$params['chat']->id}',$('#tabs'),true);";
+        if (isset($params['no_ui_update'])) {
+            erLhcoreClassChatHelper::closeChat($params);
+        } else {                    
+            // Schedule interface update
+            $params['chat']->operation_admin .= "lhinst.closeActiveChatDialog('{$params['chat']->id}',$('#tabs'),true);";
+            
+            // Update only
+            $db = ezcDbInstance::get();
+            $stmt = $db->prepare('UPDATE lh_chat SET operation_admin = :operation_admin WHERE id = :id');
+            $stmt->bindValue(':id', $params['chat']->id, PDO::PARAM_INT);
+            $stmt->bindValue(':operation_admin', $params['chat']->operation_admin, PDO::PARAM_STR);
+            $stmt->execute();
+        }
         
-        // Update only
-        $db = ezcDbInstance::get();
-        $stmt = $db->prepare('UPDATE lh_chat SET operation_admin = :operation_admin WHERE id = :id');
-        $stmt->bindValue(':id', $params['chat']->id, PDO::PARAM_INT);
-        $stmt->bindValue(':operation_admin', $params['chat']->operation_admin, PDO::PARAM_STR);
-        $stmt->execute();
-        
-        return true;        
+        return array('processed' => true, 'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand','Chat was closed!'));          
     }
     
     public static function deleteChat($params)
     {
-        // Schedule interface update
-        $params['chat']->operation_admin .= "lhinst.deleteChat('{$params['chat']->id}',$('#tabs'),true);";
-                
-        // Update only
-        $db = ezcDbInstance::get();
-        $stmt = $db->prepare('UPDATE lh_chat SET operation_admin = :operation_admin WHERE id = :id');
-        $stmt->bindValue(':id', $params['chat']->id, PDO::PARAM_INT);
-        $stmt->bindValue(':operation_admin', $params['chat']->operation_admin, PDO::PARAM_STR);
-        $stmt->execute();
+        if (isset($params['no_ui_update'])) {
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.delete',array('chat' => & $params['chat'], 'user' => $params['user']));
+            $params['chat']->removeThis();
+        } else {
+            // Schedule interface update
+            $params['chat']->operation_admin .= "lhinst.deleteChat('{$params['chat']->id}',$('#tabs'),true);";
+                    
+            // Update only
+            $db = ezcDbInstance::get();
+            $stmt = $db->prepare('UPDATE lh_chat SET operation_admin = :operation_admin WHERE id = :id');
+            $stmt->bindValue(':id', $params['chat']->id, PDO::PARAM_INT);
+            $stmt->bindValue(':operation_admin', $params['chat']->operation_admin, PDO::PARAM_STR);
+            $stmt->execute();
+        }
         
-        return true;        
+        return array('processed' => true, 'process_status' =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand','Chat was deleted!'));            
     }
 }
 
