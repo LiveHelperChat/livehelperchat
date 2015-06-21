@@ -17,6 +17,7 @@ class erLhcoreClassChatCommand
         '!contactform' => 'self::contactForm',
         '!block' => 'self::blockUser',
         '!close' => 'self::closeChat',
+        '!closed' => 'self::closeChatDialog',
         '!delete' => 'self::deleteChat',
         '!pending' => 'self::pendingChat',
         '!active' => 'self::activeChat',
@@ -292,7 +293,31 @@ class erLhcoreClassChatCommand
             );
         }
     }
-
+    
+    /**
+     * 
+     * @param array $params
+     * 
+     * @return multitype:boolean string
+     */
+    public static function closeChatDialog($params)
+    {
+        // Schedule interface update
+        $params['chat']->operation_admin .= "lhinst.removeDialogTab('{$params['chat']->id}',$('#tabs'),true);";
+                
+        // Update only
+        $db = ezcDbInstance::get();
+        $stmt = $db->prepare('UPDATE lh_chat SET operation_admin = :operation_admin WHERE id = :id');
+        $stmt->bindValue(':id', $params['chat']->id, PDO::PARAM_INT);
+        $stmt->bindValue(':operation_admin', $params['chat']->operation_admin, PDO::PARAM_STR);
+        $stmt->execute();
+        
+        return array(
+            'processed' => true,
+            'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'Chat was closed!')
+        );        
+    }
+    
     /**
      * Deletes a chat
      */
