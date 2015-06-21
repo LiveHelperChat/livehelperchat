@@ -19,7 +19,8 @@ class erLhcoreClassChatCommand
         '!close' => 'self::closeChat',
         '!delete' => 'self::deleteChat',
         '!pending' => 'self::pendingChat',
-        '!active' => 'self::activeChat'
+        '!active' => 'self::activeChat',
+        '!remark' => 'self::addRemark'
     );
 
     private static function extractCommand($message)
@@ -388,6 +389,31 @@ class erLhcoreClassChatCommand
         return array(
             'processed' => true,
             'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'Chat status was changed to active!')
+        );
+    }
+    
+    /**
+     * Add remarks to chat
+     * */
+    public static function addRemark($params)
+    {     
+        $params['chat']->remarks = $params['argument'];
+        
+        if (! isset($params['no_ui_update'])) {
+            $params['chat']->operation_admin .= "lhinst.updateVoteStatus(" . $params['chat']->id . ");";
+        }
+      
+        // Update only
+        $db = ezcDbInstance::get();
+        $stmt = $db->prepare('UPDATE lh_chat SET operation_admin = :operation_admin,remarks = :remarks WHERE id = :id');
+        $stmt->bindValue(':id', $params['chat']->id, PDO::PARAM_INT);
+        $stmt->bindValue(':operation_admin', $params['chat']->operation_admin, PDO::PARAM_STR);
+        $stmt->bindValue(':remarks', $params['chat']->remarks, PDO::PARAM_STR);
+        $stmt->execute();
+              
+        return array(
+            'processed' => true,
+            'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'Remarks were saved!')
         );
     }
 }

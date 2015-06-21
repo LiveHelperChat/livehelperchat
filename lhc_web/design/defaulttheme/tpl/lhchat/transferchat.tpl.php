@@ -25,7 +25,7 @@
     
       		<?php foreach (erLhcoreClassDepartament::getDepartaments() as $departament) :
       		if ($departament['id'] !== $chat->dep_id) : ?>
-    	    <label><input type="radio" name="DepartamentID<?php echo $chat->id?>" value="<?php echo $departament['id']?>"<?php in_array($departament['id'],$userDepartaments) ? print 'checked="checked"' : '';?>/> <?php echo htmlspecialchars($departament['name'])?></label><br/>
+    	    <label><input type="radio" name="DepartamentID<?php echo $chat->id?>" value="<?php echo $departament['id']?>"/> <?php echo htmlspecialchars($departament['name'])?></label><br/>
     	    <?php endif; endforeach; ?>
     
     		<input type="button" onclick="lhinst.transferChatDep('<?php echo $chat->id;?>')" class="btn btn-default" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer');?>" />
