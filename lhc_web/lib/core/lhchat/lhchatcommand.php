@@ -17,7 +17,9 @@ class erLhcoreClassChatCommand
         '!contactform' => 'self::contactForm',
         '!block' => 'self::blockUser',
         '!close' => 'self::closeChat',
-        '!delete' => 'self::deleteChat'
+        '!delete' => 'self::deleteChat',
+        '!pending' => 'self::pendingChat',
+        '!active' => 'self::activeChat'
     );
 
     private static function extractCommand($message)
@@ -42,15 +44,15 @@ class erLhcoreClassChatCommand
             return call_user_func_array(self::$supportedCommands[$commandData['command']], array(
                 $params
             ));
-        } else { // Perhaps some extension has implemented this command?            
-            $commandResponse = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.customcommand.'.$commandData['command'], $params);
+        } else { // Perhaps some extension has implemented this command?
+            $commandResponse = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.customcommand.' . $commandData['command'], $params);
             
             if (isset($commandResponse['processed']) && $commandResponse['processed'] == true) {
                 return $commandResponse;
-            }            
+            }
         }
         
-        return array (
+        return array(
             'processed' => false,
             'process_status' => ''
         );
@@ -76,7 +78,10 @@ class erLhcoreClassChatCommand
         $stmt->bindValue(':nick', $params['chat']->nick, PDO::PARAM_STR);
         $stmt->execute();
         
-        return array('processed' => true, 'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand','Nick changed!'));
+        return array(
+            'processed' => true,
+            'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'Nick changed!')
+        );
     }
 
     /**
@@ -92,7 +97,7 @@ class erLhcoreClassChatCommand
         // Update object attribute
         $params['chat']->email = $params['argument'];
         
-        if (!isset($params['no_ui_update'])) {
+        if (! isset($params['no_ui_update'])) {
             // Schedule interface update
             $params['chat']->operation_admin .= "lhinst.updateVoteStatus(" . $params['chat']->id . ");";
         }
@@ -105,7 +110,10 @@ class erLhcoreClassChatCommand
         $stmt->bindValue(':operation_admin', $params['chat']->operation_admin, PDO::PARAM_STR);
         $stmt->execute();
         
-        return array('processed' => true, 'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand','E-mail changed!'));
+        return array(
+            'processed' => true,
+            'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'E-mail changed!')
+        );
     }
 
     /**
@@ -121,7 +129,7 @@ class erLhcoreClassChatCommand
         // Update object attribute
         $params['chat']->phone = $params['argument'];
         
-        if (!isset($params['no_ui_update'])) {
+        if (! isset($params['no_ui_update'])) {
             // Schedule interface update
             $params['chat']->operation_admin .= "lhinst.updateVoteStatus(" . $params['chat']->id . ");";
         }
@@ -134,7 +142,10 @@ class erLhcoreClassChatCommand
         $stmt->bindValue(':operation_admin', $params['chat']->operation_admin, PDO::PARAM_STR);
         $stmt->execute();
         
-        return  array('processed' => true, 'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand','Phone changed!'));
+        return array(
+            'processed' => true,
+            'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'Phone changed!')
+        );
     }
 
     /**
@@ -157,9 +168,12 @@ class erLhcoreClassChatCommand
         $stmt->bindValue(':operation', $params['chat']->operation, PDO::PARAM_STR);
         $stmt->execute();
         
-        return array('processed' => true, 'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand','User was redirected!'));
+        return array(
+            'processed' => true,
+            'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'User was redirected!')
+        );
     }
-       
+
     public static function startTranslation($params)
     {
         // Schedule interface update
@@ -172,9 +186,12 @@ class erLhcoreClassChatCommand
         $stmt->bindValue(':operation_admin', $params['chat']->operation_admin, PDO::PARAM_STR);
         $stmt->execute();
         
-        return array('processed' => true, 'process_status' => '');
+        return array(
+            'processed' => true,
+            'process_status' => ''
+        );
     }
-    
+
     public static function takeScreenshot($params)
     {
         // Update object attribute
@@ -187,15 +204,18 @@ class erLhcoreClassChatCommand
         $stmt->bindValue(':operation', $params['chat']->operation, PDO::PARAM_STR);
         $stmt->execute();
         
-        return array('processed' => true, 'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand','Screenshot was scheduled!'));
+        return array(
+            'processed' => true,
+            'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'Screenshot was scheduled!')
+        );
     }
-    
+
     public static function contactForm($params)
     {
         if (isset($params['no_ui_update'])) {
-            erLhcoreClassChatHelper::redirectToContactForm($params);     
+            erLhcoreClassChatHelper::redirectToContactForm($params);
         } else {
-        
+            
             // Schedule interface update
             $params['chat']->operation_admin .= "lhinst.redirectContact('{$params['chat']->id}');";
             
@@ -207,11 +227,14 @@ class erLhcoreClassChatCommand
             $stmt->execute();
         }
         
-        return array('processed' => true, 'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand','User was redirected to contact form!'));        
+        return array(
+            'processed' => true,
+            'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'User was redirected to contact form!')
+        );
     }
-    
+
     public static function blockUser($params)
-    {        
+    {
         if (isset($params['no_ui_update'])) {
             $params['chat']->blockUser();
         } else {
@@ -227,14 +250,31 @@ class erLhcoreClassChatCommand
             $stmt->execute();
         }
         
-        return array('processed' => true, 'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand','User was blocked!'));          
+        return array(
+            'processed' => true,
+            'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'User was blocked!')
+        );
     }
-    
+
     public static function closeChat($params)
     {
         if (isset($params['no_ui_update'])) {
-            erLhcoreClassChatHelper::closeChat($params);
-        } else {                    
+            
+            $permissionsArray = erLhcoreClassRole::accessArrayByUserID($params['user']->id);
+            
+            if ($params['chat']->user_id == $params['user']->id || erLhcoreClassRole::canUseByModuleAndFunction($permissionsArray, 'lhchat', 'allowcloseremote')) {
+                erLhcoreClassChatHelper::closeChat($params);
+                return array(
+                    'processed' => true,
+                    'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'Chat was closed!')
+                );
+            } else {
+                return array(
+                    'processed' => true,
+                    'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'You do not have permission to close a chat!')
+                );
+            }
+        } else {
             // Schedule interface update
             $params['chat']->operation_admin .= "lhinst.closeActiveChatDialog('{$params['chat']->id}',$('#tabs'),true);";
             
@@ -244,20 +284,73 @@ class erLhcoreClassChatCommand
             $stmt->bindValue(':id', $params['chat']->id, PDO::PARAM_INT);
             $stmt->bindValue(':operation_admin', $params['chat']->operation_admin, PDO::PARAM_STR);
             $stmt->execute();
+            
+            return array(
+                'processed' => true,
+                'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'Chat was closed!')
+            );
         }
-        
-        return array('processed' => true, 'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand','Chat was closed!'));          
     }
-    
+
+    /**
+     * Deletes a chat
+     */
     public static function deleteChat($params)
     {
         if (isset($params['no_ui_update'])) {
-            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.delete',array('chat' => & $params['chat'], 'user' => $params['user']));
-            $params['chat']->removeThis();
+            
+            $permissionsArray = erLhcoreClassRole::accessArrayByUserID($params['user']->id);
+            
+            if (erLhcoreClassRole::canUseByModuleAndFunction($permissionsArray, 'lhchat', 'deleteglobalchat') || (erLhcoreClassRole::canUseByModuleAndFunction($permissionsArray, 'lhchat', 'deletechat') && $params['chat']->user_id == $params['user']->id)) {
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.delete', array(
+                    'chat' => & $params['chat'],
+                    'user' => $params['user']
+                ));
+                $params['chat']->removeThis();
+                
+                return array(
+                    'processed' => true,
+                    'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'Chat was deleted!')
+                );
+            } else {
+                return array(
+                    'processed' => true,
+                    'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'You do not have permission to delete a chat!')
+                );
+            }
         } else {
             // Schedule interface update
             $params['chat']->operation_admin .= "lhinst.deleteChat('{$params['chat']->id}',$('#tabs'),true);";
-                    
+            
+            // Update only
+            $db = ezcDbInstance::get();
+            $stmt = $db->prepare('UPDATE lh_chat SET operation_admin = :operation_admin WHERE id = :id');
+            $stmt->bindValue(':id', $params['chat']->id, PDO::PARAM_INT);
+            $stmt->bindValue(':operation_admin', $params['chat']->operation_admin, PDO::PARAM_STR);
+            $stmt->execute();
+            
+            return array(
+                'processed' => true,
+                'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'Chat was deleted!')
+            );
+        }
+    }
+
+    /**
+     * Changes stat status to pending
+     */
+    public static function pendingChat($params)
+    {
+        erLhcoreClassChatHelper::changeStatus(array(
+            'user' => $params['user'],
+            'chat' => & $params['chat'],
+            'status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT,
+            'allow_close_remote' => erLhcoreClassRole::canUseByModuleAndFunction(erLhcoreClassRole::accessArrayByUserID($params['user']->id), 'lhchat', 'allowcloseremote')
+        ));
+        
+        if (! isset($params['no_ui_update'])) {
+            $params['chat']->operation_admin .= "lhinst.updateVoteStatus(" . $params['chat']->id . ");";
+            
             // Update only
             $db = ezcDbInstance::get();
             $stmt = $db->prepare('UPDATE lh_chat SET operation_admin = :operation_admin WHERE id = :id');
@@ -266,7 +359,36 @@ class erLhcoreClassChatCommand
             $stmt->execute();
         }
         
-        return array('processed' => true, 'process_status' =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand','Chat was deleted!'));            
+        return array(
+            'processed' => true,
+            'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'Chat status was changed to pending!')
+        );
+    }
+    
+    public static function activeChat($params)
+    {
+        erLhcoreClassChatHelper::changeStatus(array(
+            'user' => $params['user'],
+            'chat' => & $params['chat'],
+            'status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT,
+            'allow_close_remote' => erLhcoreClassRole::canUseByModuleAndFunction(erLhcoreClassRole::accessArrayByUserID($params['user']->id), 'lhchat', 'allowcloseremote')
+        ));
+        
+        if (! isset($params['no_ui_update'])) {
+            $params['chat']->operation_admin .= "lhinst.updateVoteStatus(" . $params['chat']->id . ");";
+            
+            // Update only
+            $db = ezcDbInstance::get();
+            $stmt = $db->prepare('UPDATE lh_chat SET operation_admin = :operation_admin WHERE id = :id');
+            $stmt->bindValue(':id', $params['chat']->id, PDO::PARAM_INT);
+            $stmt->bindValue(':operation_admin', $params['chat']->operation_admin, PDO::PARAM_STR);
+            $stmt->execute();
+        }
+        
+        return array(
+            'processed' => true,
+            'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'Chat status was changed to active!')
+        );
     }
 }
 

@@ -60,7 +60,7 @@ if (trim($form->msg) != '')
 	        	$stmt->bindValue(':id',$Chat->id,PDO::PARAM_INT);
 	        	$stmt->bindValue(':last_msg_id',$msg->id,PDO::PARAM_INT);
 	        		        	
-	        	if ($userData->invisible_mode == 0) {
+	        	if ($userData->invisible_mode == 0 && $messageUserId > 0) { // Change status only if it's not internal command
 		        	if ($Chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
 		        		$Chat->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;        		
 		        	}
