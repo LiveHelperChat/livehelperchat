@@ -1159,7 +1159,7 @@
       <translation>Visi</translation>
     </message>
     <message>
-      <source>Not Noted</source>
+      <source>Not Voted</source>
       <translation>Neįvertintas</translation>
     </message>
     <message>

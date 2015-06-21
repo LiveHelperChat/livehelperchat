@@ -1159,8 +1159,8 @@
       <translation>Kuka tahansa</translation>
     </message>
     <message>
-      <source>Not Noted</source>
-      <translation>Ei kommentoitu</translation>
+      <source>Not Voted</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Up Voted</source>

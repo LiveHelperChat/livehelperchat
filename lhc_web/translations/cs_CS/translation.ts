@@ -1159,7 +1159,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Not Noted</source>
+      <source>Not Voted</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1204,15 +1204,15 @@
     </message>
     <message>
       <source>Group by</source>
-      <translation type="unfinished"/>
+      <translation>Seskupit podle</translation>
     </message>
     <message>
       <source>Month</source>
-      <translation type="unfinished"/>
+      <translation>Měsíc</translation>
     </message>
     <message>
       <source>Day</source>
-      <translation type="unfinished"/>
+      <translation>Den</translation>
     </message>
   </context>
   <context>
@@ -1395,7 +1395,7 @@
     </message>
     <message>
       <source>Title/Message</source>
-      <translation type="unfinished"/>
+      <translation>Název/Zpráva</translation>
     </message>
     <message>
       <source>Department</source>
@@ -1431,7 +1431,7 @@
     </message>
     <message>
       <source>Title</source>
-      <translation type="unfinished"/>
+      <translation>Název</translation>
     </message>
     <message>
       <source>Explain</source>
@@ -2149,27 +2149,27 @@
     </message>
     <message>
       <source>Visitor</source>
-      <translation type="unfinished"/>
+      <translation>Návštěvník</translation>
     </message>
     <message>
       <source>Operator</source>
-      <translation type="unfinished"/>
+      <translation>Operator</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Oddělení</translation>
     </message>
     <message>
       <source>Nothing found</source>
-      <translation type="unfinished"/>
+      <translation>Nebylo nic nalezeno</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation type="unfinished"/>
+      <translation>Čekající rozhovory</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation type="unfinished"/>
+      <translation>Aktivní rozhovor</translation>
     </message>
     <message>
       <source>Last activity ago</source>
@@ -2181,11 +2181,11 @@
     </message>
     <message>
       <source>Delete chat</source>
-      <translation type="unfinished"/>
+      <translation>Smazat rozhovor</translation>
     </message>
     <message>
       <source>Created</source>
-      <translation type="unfinished"/>
+      <translation>Vytvořeno</translation>
     </message>
     <message>
       <source>Time ago</source>
@@ -2505,11 +2505,11 @@
     </message>
     <message>
       <source>You are number</source>
-      <translation type="unfinished"/>
+      <translation>Jste číslo</translation>
     </message>
     <message>
       <source>in the queue. Please wait...</source>
-      <translation type="unfinished"/>
+      <translation>v pořadí. Vyčkejte...</translation>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
@@ -2961,7 +2961,7 @@
     </message>
     <message>
       <source>Dashboard</source>
-      <translation type="unfinished"/>
+      <translation>Dashboard</translation>
     </message>
     <message>
       <source>City</source>
@@ -3617,7 +3617,7 @@
     </message>
     <message>
       <source>collapse/expand</source>
-      <translation type="unfinished"/>
+      <translation>rozbalit/sbalit</translation>
     </message>
     <message>
       <source>Active chats</source>
@@ -3645,11 +3645,11 @@
     </message>
     <message>
       <source>Download XLS</source>
-      <translation type="unfinished"/>
+      <translation>Stáhnout XLS</translation>
     </message>
     <message>
       <source>All departments</source>
-      <translation type="unfinished"/>
+      <translation>Všechna oddělen</translation>
     </message>
     <message>
       <source>Number of elements in list</source>
@@ -3661,7 +3661,7 @@
     </message>
     <message>
       <source>Online operators</source>
-      <translation type="unfinished"/>
+      <translation>Operátoři online</translation>
     </message>
     <message>
       <source>Transfered chats</source>
@@ -3986,7 +3986,7 @@
     </message>
     <message>
       <source>Text</source>
-      <translation type="unfinished"/>
+      <translation>Text</translation>
     </message>
     <message>
       <source>Hidden</source>
@@ -4002,11 +4002,11 @@
     </message>
     <message>
       <source>Only offline</source>
-      <translation type="unfinished"/>
+      <translation>Jen offline</translation>
     </message>
     <message>
       <source>Only online</source>
-      <translation type="unfinished"/>
+      <translation>Jen online</translation>
     </message>
     <message>
       <source>Size (between 1 and 12)</source>
@@ -4042,15 +4042,15 @@
     </message>
     <message>
       <source>Size</source>
-      <translation type="unfinished"/>
+      <translation>Velikost</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>Identifikátor</translation>
     </message>
     <message>
       <source>Remove</source>
-      <translation type="unfinished"/>
+      <translation>Odstranit</translation>
     </message>
     <message>
       <source>Enable leave a message functionality automatically if there are no online operators</source>
@@ -6824,7 +6824,7 @@
     </message>
     <message>
       <source>Department name</source>
-      <translation type="unfinished"/>
+      <translation>Název oddělení</translation>
     </message>
     <message>
       <source>Pending chats number</source>
@@ -6832,7 +6832,7 @@
     </message>
     <message>
       <source>Active chats number</source>
-      <translation type="unfinished"/>
+      <translation>Počet aktivních rozhovorů</translation>
     </message>
     <message>
       <source>Visitor Name</source>
@@ -6848,7 +6848,7 @@
     </message>
     <message>
       <source>Wait time</source>
-      <translation type="unfinished"/>
+      <translation>Čas čekání</translation>
     </message>
     <message>
       <source>Country</source>
@@ -6876,7 +6876,7 @@
     </message>
     <message>
       <source>Minutes</source>
-      <translation type="unfinished"/>
+      <translation>Minut</translation>
     </message>
     <message>
       <source>Vote status</source>
@@ -6888,7 +6888,7 @@
     </message>
     <message>
       <source>Page</source>
-      <translation type="unfinished"/>
+      <translation>Strana</translation>
     </message>
     <message>
       <source>Came from</source>
@@ -6904,7 +6904,7 @@
     </message>
     <message>
       <source>User ID</source>
-      <translation type="unfinished"/>
+      <translation>Uživatelské ID</translation>
     </message>
     <message>
       <source>Chat average in seconds</source>

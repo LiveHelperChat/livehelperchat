@@ -1159,8 +1159,8 @@
       <translation>Alle</translation>
     </message>
     <message>
-      <source>Not Noted</source>
-      <translation>nicht Bekannt</translation>
+      <source>Not Voted</source>
+      <translation>Nicht bewertet</translation>
     </message>
     <message>
       <source>Up Voted</source>
@@ -2177,15 +2177,15 @@
     </message>
     <message>
       <source>Wait time</source>
-      <translation type="unfinished"/>
+      <translation>Wartezeit</translation>
     </message>
     <message>
       <source>Delete chat</source>
-      <translation type="unfinished"/>
+      <translation>Chat löschen</translation>
     </message>
     <message>
       <source>Created</source>
-      <translation type="unfinished"/>
+      <translation>Erstellt</translation>
     </message>
     <message>
       <source>Time ago</source>
@@ -2505,11 +2505,11 @@
     </message>
     <message>
       <source>You are number</source>
-      <translation type="unfinished"/>
+      <translation>Sie haben Platz</translation>
     </message>
     <message>
       <source>in the queue. Please wait...</source>
-      <translation type="unfinished"/>
+      <translation>in der Warteschleife, Bitte warten.....</translation>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>

@@ -147,7 +147,7 @@
     </message>
     <message>
       <source>Hide right column in frontpage</source>
-      <translation type="unfinished"/>
+      <translation>Sembunyikan kolom kanan di halaman depan</translation>
     </message>
     <message>
       <source>Hide disabled department widget</source>
@@ -480,7 +480,7 @@
     </message>
     <message>
       <source>Leave a message form text</source>
-      <translation type="unfinished"/>
+      <translation>Tinggalkan formulir pesan teks</translation>
     </message>
     <message>
       <source>Need help border color</source>
@@ -512,11 +512,11 @@
     </message>
     <message>
       <source>Minimize image</source>
-      <translation type="unfinished"/>
+      <translation>Kecilkan gambar</translation>
     </message>
     <message>
       <source>Restore image</source>
-      <translation type="unfinished"/>
+      <translation>Kembalikan gambar</translation>
     </message>
     <message>
       <source>Close image</source>
@@ -610,7 +610,7 @@
     </message>
     <message>
       <source>How many times repeat message?</source>
-      <translation type="unfinished"/>
+      <translation>Berapa kali mengulang pesan?</translation>
     </message>
     <message>
       <source>Show visitor this message then wait timeout passes.</source>
@@ -1159,7 +1159,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Not Noted</source>
+      <source>Not Voted</source>
       <translation type="unfinished"/>
     </message>
     <message>

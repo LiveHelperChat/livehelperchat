@@ -1159,8 +1159,8 @@
       <translation>Всеки</translation>
     </message>
     <message>
-      <source>Not Noted</source>
-      <translation>Не отбелязва</translation>
+      <source>Not Voted</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Up Voted</source>

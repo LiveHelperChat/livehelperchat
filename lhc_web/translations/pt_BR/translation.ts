@@ -147,7 +147,7 @@
     </message>
     <message>
       <source>Hide right column in frontpage</source>
-      <translation type="unfinished"/>
+      <translation>Esconder coluna da direita na página principal</translation>
     </message>
     <message>
       <source>Hide disabled department widget</source>
@@ -1159,8 +1159,8 @@
       <translation>Qualquer</translation>
     </message>
     <message>
-      <source>Not Noted</source>
-      <translation>Não Anotado</translation>
+      <source>Not Voted</source>
+      <translation>Nenhum  Voto</translation>
     </message>
     <message>
       <source>Up Voted</source>

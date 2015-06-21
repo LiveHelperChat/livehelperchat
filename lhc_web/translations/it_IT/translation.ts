@@ -1160,8 +1160,8 @@
       <translation>Qualsiasi</translation>
     </message>
     <message>
-      <source>Not Noted</source>
-      <translation>Non rilevato</translation>
+      <source>Not Voted</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Up Voted</source>

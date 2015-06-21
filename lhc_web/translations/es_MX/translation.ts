@@ -1159,7 +1159,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Not Noted</source>
+      <source>Not Voted</source>
       <translation type="unfinished"/>
     </message>
     <message>
