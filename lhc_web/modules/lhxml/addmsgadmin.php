@@ -28,7 +28,7 @@ if (trim($form->msg) != '')
         $messageUserId = $userData->id;
         
         if (strpos($msgText, '!') === 0) {
-            $statusCommand = erLhcoreClassChatCommand::processCommand(array('user' => $userData, 'msg' => $msgText, 'chat' => & $Chat));
+            $statusCommand = erLhcoreClassChatCommand::processCommand(array('no_ui_update' => true, 'user' => $userData, 'msg' => $msgText, 'chat' => & $Chat));
             if ($statusCommand['processed'] === true) {
                 $messageUserId = -1; // Message was processed set as internal message
                 $msgText =  trim('[b]'.$userData->name_support.'[/b]: '.$msgText .' '. $statusCommand['process_status']);
