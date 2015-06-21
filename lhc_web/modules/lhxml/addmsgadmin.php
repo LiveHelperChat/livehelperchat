@@ -23,14 +23,24 @@ if (trim($form->msg) != '')
     {
         $currentUser = erLhcoreClassUser::instance();
         $userData = $currentUser->getUserData();
-
-        $msg = new erLhcoreClassModelmsg();
-        $msg->nick = $userData->name.' '.$userData->surname;
-        $msg->msg = $form->msg;
+        
+        $msgText = trim($form->msg);
+        $messageUserId = $userData->id;
+        
+        if (strpos(trim($form->msg), '!') === 0) {
+            $statusCommand = erLhcoreClassChatCommand::processCommand(array('user' => $userData, 'msg' => $msgText, 'chat' => & $Chat));
+            if ($statusCommand['processed'] === true) {
+                $messageUserId = -1; // Message was processed set as internal message
+                $msgText =  trim('[b]'.$userData->name_support.'[/b]: '.$msgText .' '. $statusCommand['process_status']);
+            };
+        }
+        
+        $msg = new erLhcoreClassModelmsg();    
+        $msg->msg = $msgText;
         $msg->chat_id = $Params['user_parameters']['chat_id'];
-        $msg->user_id = $userData->id;
+        $msg->user_id = $messageUserId;
         $msg->time = time();
-        $msg->name_support = $userData->name.' '.$userData->surname;
+        $msg->name_support = $userData->name_support;
         erLhcoreClassChat::getSession()->save($msg);
 
         // Set last message ID

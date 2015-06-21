@@ -36,7 +36,7 @@ if (trim($form->msg) != '')
 	            $statusCommand = erLhcoreClassChatCommand::processCommand(array('user' => $userData, 'msg' => $msgText, 'chat' => & $Chat));
 	            if ($statusCommand['processed'] === true) {
 	                $messageUserId = -1; // Message was processed set as internal message
-	                $msgText =  '[b]'.$userData->name_support.'[/b]: '.$msgText . $statusCommand['process_status'];
+	                $msgText =  trim('[b]'.$userData->name_support.'[/b]: '.$msgText .' '. $statusCommand['process_status']);
 	            };
 	        }
 	        
