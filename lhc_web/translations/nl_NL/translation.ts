@@ -1938,6 +1938,14 @@
   <context>
     <name>chat/translation</name>
     <message>
+      <source>We could not detect operator language</source>
+      <translation>De operator zijn taal kan niet herkend worden</translation>
+    </message>
+    <message>
+      <source>Detected operator and visitor languages matches, please choose languages manually</source>
+      <translation>Gedetecteerde operator en bezoeker zijn talen matchen, kies s.v.p. handmatig een taal</translation>
+    </message>
+    <message>
       <source>Visitor language</source>
       <translation>Bezoeker zijn taal</translation>
     </message>
@@ -2036,14 +2044,6 @@
     <message>
       <source>Could not translate</source>
       <translation>Kon niet vertalen</translation>
-    </message>
-    <message>
-      <source>We could not detect operator language</source>
-      <translation>De operator zijn taal kan niet herkend worden</translation>
-    </message>
-    <message>
-      <source>Detected operator and visitor languages matches, please choose languages manually</source>
-      <translation>Gedetecteerde operator en bezoeker zijn talen matchen, kies s.v.p. handmatig een taal</translation>
     </message>
     <message>
       <source>Translation configuration</source>
@@ -7145,12 +7145,12 @@
   <context>
     <name>chat/closechatadmin</name>
     <message>
-      <source>has closed the chat!</source>
-      <translation>heeft de chat gesloten!</translation>
-    </message>
-    <message>
       <source>has redirected user to contact form!</source>
       <translation>heeft de gebruiker doorgestuurd naar het contactformulier!</translation>
+    </message>
+    <message>
+      <source>has closed the chat!</source>
+      <translation>heeft de chat gesloten!</translation>
     </message>
   </context>
   <context>
@@ -7311,6 +7311,45 @@
     <message>
       <source>Auto login module is not enabled</source>
       <translation>Autologin module is niet ingeschakeld</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/chatcommand</name>
+    <message>
+      <source>Nick changed!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail changed!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Phone changed!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User was redirected!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Screenshot was scheduled!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User was redirected to contact form!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User was blocked!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was closed!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was deleted!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

@@ -1938,6 +1938,14 @@
   <context>
     <name>chat/translation</name>
     <message>
+      <source>We could not detect operator language</source>
+      <translation>Operaattorin kieltä ei tunnistettu</translation>
+    </message>
+    <message>
+      <source>Detected operator and visitor languages matches, please choose languages manually</source>
+      <translation>Tunnistettu operaattorin ja vierailijan kieli ovat samat, valitse kieli käsin</translation>
+    </message>
+    <message>
       <source>Visitor language</source>
       <translation>Vierailijan kieli</translation>
     </message>
@@ -2036,14 +2044,6 @@
     <message>
       <source>Could not translate</source>
       <translation>En voinut kääntää</translation>
-    </message>
-    <message>
-      <source>We could not detect operator language</source>
-      <translation>Operaattorin kieltä ei tunnistettu</translation>
-    </message>
-    <message>
-      <source>Detected operator and visitor languages matches, please choose languages manually</source>
-      <translation>Tunnistettu operaattorin ja vierailijan kieli ovat samat, valitse kieli käsin</translation>
     </message>
     <message>
       <source>Translation configuration</source>
@@ -7145,12 +7145,12 @@
   <context>
     <name>chat/closechatadmin</name>
     <message>
-      <source>has closed the chat!</source>
-      <translation>on sulkenut keskustelun!</translation>
-    </message>
-    <message>
       <source>has redirected user to contact form!</source>
       <translation>on ohjattu kontaktilomakkeelle!</translation>
+    </message>
+    <message>
+      <source>has closed the chat!</source>
+      <translation>on sulkenut keskustelun!</translation>
     </message>
   </context>
   <context>
@@ -7311,6 +7311,45 @@
     <message>
       <source>Auto login module is not enabled</source>
       <translation>Automaattisen kirjautumisen moduli ei ole päällä</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/chatcommand</name>
+    <message>
+      <source>Nick changed!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail changed!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Phone changed!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User was redirected!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Screenshot was scheduled!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User was redirected to contact form!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User was blocked!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was closed!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was deleted!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

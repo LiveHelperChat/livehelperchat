@@ -1938,6 +1938,14 @@
   <context>
     <name>chat/translation</name>
     <message>
+      <source>We could not detect operator language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Detected operator and visitor languages matches, please choose languages manually</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitor language</source>
       <translation>Kullanıcı dili</translation>
     </message>
@@ -2036,14 +2044,6 @@
     <message>
       <source>Could not translate</source>
       <translation>Çevrilemedi</translation>
-    </message>
-    <message>
-      <source>We could not detect operator language</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Detected operator and visitor languages matches, please choose languages manually</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Translation configuration</source>
@@ -7147,12 +7147,12 @@
   <context>
     <name>chat/closechatadmin</name>
     <message>
-      <source>has closed the chat!</source>
-      <translation>konuşmayı kapattı!</translation>
-    </message>
-    <message>
       <source>has redirected user to contact form!</source>
       <translation>kullanıcı iletişim formuna yönlendirildi.</translation>
+    </message>
+    <message>
+      <source>has closed the chat!</source>
+      <translation>konuşmayı kapattı!</translation>
     </message>
   </context>
   <context>
@@ -7312,6 +7312,45 @@
     </message>
     <message>
       <source>Auto login module is not enabled</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/chatcommand</name>
+    <message>
+      <source>Nick changed!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail changed!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Phone changed!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User was redirected!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Screenshot was scheduled!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User was redirected to contact form!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User was blocked!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was closed!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was deleted!</source>
       <translation type="unfinished"/>
     </message>
   </context>
