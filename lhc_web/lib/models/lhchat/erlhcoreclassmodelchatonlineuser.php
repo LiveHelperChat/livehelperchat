@@ -683,9 +683,9 @@ class erLhcoreClassModelChatOnlineUser {
 	           		$item->saveThis();
 	           		
 	           		if ($newVisitor == true) {
-	           		    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('onlineuser.created', array('ou' => & $item));
+	           		    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('onlineuser.created', array('tpl' => (isset($paramsHandle['tpl']) ? $paramsHandle['tpl'] : false), 'ou' => & $item));
 	           		} elseif ($logPageView == true) {
-	           			erLhcoreClassChatEventDispatcher::getInstance()->dispatch('onlineuser.pageview_logged', array('ou' => & $item));
+	           			erLhcoreClassChatEventDispatcher::getInstance()->dispatch('onlineuser.pageview_logged', array('tpl' => (isset($paramsHandle['tpl']) ? $paramsHandle['tpl'] : false), 'ou' => & $item));
 	           		}
 	           }
 
