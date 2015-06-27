@@ -310,6 +310,16 @@ var lh_inst  = {
 	    		};
 	    	};
 
+	    	if (typeof <?php echo $chatOptionsVariable?>.attr_prefill_admin != 'undefined') {
+	    		if (<?php echo $chatOptionsVariable?>.attr_prefill_admin.length > 0){
+					for (var index in <?php echo $chatOptionsVariable?>.attr_prefill_admin) {
+						if (typeof <?php echo $chatOptionsVariable?>.attr_prefill_admin[index] != 'undefined') {
+							argumentsQuery.push('value_items_admin['+<?php echo $chatOptionsVariable?>.attr_prefill_admin[index].index+']='+encodeURIComponent(<?php echo $chatOptionsVariable?>.attr_prefill_admin[index].value));							
+						};
+					};
+	    		};
+	    	};
+	    	
 	    	if (argumentsQuery.length > 0) {
 	    		paramsReturn = '&'+argumentsQuery.join('&');
 	    	};
