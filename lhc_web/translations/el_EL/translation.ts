@@ -1719,6 +1719,10 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>Invalid chat status</source>
+      <translation>Μη έγκυρη chat κατάσταση</translation>
+    </message>
+    <message>
       <source>Attach uploaded file</source>
       <translation>Επισυνάψετε το αρχείο</translation>
     </message>
@@ -1931,8 +1935,8 @@
       <translation>Μηνύματα</translation>
     </message>
     <message>
-      <source>Invalid chat status</source>
-      <translation>Μη έγκυρη chat κατάσταση</translation>
+      <source>has accepted the chat!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

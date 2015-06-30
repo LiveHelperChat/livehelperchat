@@ -1720,6 +1720,10 @@ pokazywany</translation>
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>Invalid chat status</source>
+      <translation>Nieprawidłowy status rozmowy</translation>
+    </message>
+    <message>
       <source>Attach uploaded file</source>
       <translation>Dołącz przesłany plik </translation>
     </message>
@@ -1932,8 +1936,8 @@ pokazywany</translation>
       <translation>Wiadomości</translation>
     </message>
     <message>
-      <source>Invalid chat status</source>
-      <translation>Nieprawidłowy status rozmowy</translation>
+      <source>has accepted the chat!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

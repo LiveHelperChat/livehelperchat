@@ -21,7 +21,9 @@ class erLhcoreClassChatCommand
         '!delete' => 'self::deleteChat',
         '!pending' => 'self::pendingChat',
         '!active' => 'self::activeChat',
-        '!remark' => 'self::addRemark'
+        '!remark' => 'self::addRemark',
+        '!info' => 'self::info',
+        '!help' => 'self::help'
     );
 
     private static function extractCommand($message)
@@ -255,6 +257,53 @@ class erLhcoreClassChatCommand
         return array(
             'processed' => true,
             'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'User was blocked!')
+        );
+    }
+    
+    public static function info($params)
+    {
+        $infoArray = array();
+        $infoArray[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'Department').' - '.(string)$params['chat']->department;
+        
+        if ($params['chat']->referrer != '') {
+            $infoArray[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'Started chat from').' - '.(string)$params['chat']->referrer;
+        }
+        
+        if ($params['chat']->session_referrer != '') {
+            $infoArray[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'Refered from').' - '.(string)$params['chat']->session_referrer;
+        }
+        
+        if ($params['chat']->online_user !== false && $params['chat']->online_user->current_page != '') {
+            $infoArray[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'Current page').' - '.(string)$params['chat']->online_user->current_page;
+        }
+        
+        if ($params['chat']->email != '') {
+            $infoArray[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'E-mail').' - '.(string)$params['chat']->email;
+        }
+        
+        if ($params['chat']->phone != '') {
+            $infoArray[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'Phone').' - '.(string)$params['chat']->phone;
+        }
+        
+        if ($params['chat']->country_name != '') {
+            $infoArray[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'Country').' - '.(string)$params['chat']->country_name;
+        }
+        
+        return array(
+            'processed' => true,
+            'process_status' => '',
+            'ignore' => true,
+            'info' => implode("\n", array_filter($infoArray))
+        );
+    }
+    
+    public static function help()
+    {                    
+        return array(
+            'processed' => true,
+            'process_status' => '',
+            'ignore' => true,
+            'info' => implode("\n", array_keys(self::$supportedCommands))
         );
     }
 

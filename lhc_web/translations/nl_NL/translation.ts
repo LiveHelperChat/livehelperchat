@@ -768,11 +768,11 @@
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Chatbox module to render.</source>
-      <translation type="unfinished"/>
+      <translation>Plaats deze tag waar je de Livechat chatbox module wil renderen.</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper Chatbox module tag.</source>
-      <translation type="unfinished"/>
+      <translation>Plaats deze tag na de Livechat Chatbox module tag.</translation>
     </message>
     <message>
       <source>Chatbox</source>
@@ -848,11 +848,11 @@
     </message>
     <message>
       <source>Place this tag where you want the Live Helper FAQ module to render.</source>
-      <translation type="unfinished"/>
+      <translation>Plaats deze tag waar je de Livechat FAQ module wil renderen.</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper FAQ module tag.</source>
-      <translation type="unfinished"/>
+      <translation>Plaats deze tag na de Livechat FAQ module tag.</translation>
     </message>
     <message>
       <source>Status text</source>
@@ -876,11 +876,11 @@
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Questionary module to render.</source>
-      <translation type="unfinished"/>
+      <translation>Plaats deze tag waar je de Livechat Enquete module wil renderen</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper Questionary module tag.</source>
-      <translation type="unfinished"/>
+      <translation>Plaats deze tag na de Livechat Enquete module tag.</translation>
     </message>
     <message>
       <source>Help us to grow</source>
@@ -944,11 +944,11 @@
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Plugin to render.</source>
-      <translation type="unfinished"/>
+      <translation>Plaats deze tag waar je de Livechat plugin wil renderen.</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper Plugin tag.</source>
-      <translation type="unfinished"/>
+      <translation>Plaats deze tag na de Livechat plugin tag.</translation>
     </message>
     <message>
       <source>On a mouse click show the page widget</source>
@@ -1020,11 +1020,11 @@
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Status to render.</source>
-      <translation type="unfinished"/>
+      <translation>Plaats deze tag waar je de Livechat status wil renderen.</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper status tag.</source>
-      <translation type="unfinished"/>
+      <translation>Plaats deze tag na de Livechat status tag.</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -1719,6 +1719,10 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>Invalid chat status</source>
+      <translation>Onjuiste chat status</translation>
+    </message>
+    <message>
       <source>Attach uploaded file</source>
       <translation>Voeg geupload bestand toe</translation>
     </message>
@@ -1931,8 +1935,8 @@
       <translation>Berichten</translation>
     </message>
     <message>
-      <source>Invalid chat status</source>
-      <translation>Onjuiste chat status</translation>
+      <source>has accepted the chat!</source>
+      <translation>heeft de chat geopend!</translation>
     </message>
   </context>
   <context>
@@ -7317,39 +7321,39 @@
     <name>chat/chatcommand</name>
     <message>
       <source>Nick changed!</source>
-      <translation type="unfinished"/>
+      <translation>Naam gewijzigd</translation>
     </message>
     <message>
       <source>E-mail changed!</source>
-      <translation type="unfinished"/>
+      <translation>Email gewijzigd!</translation>
     </message>
     <message>
       <source>Phone changed!</source>
-      <translation type="unfinished"/>
+      <translation>Telefoonnummer gewijzigd!</translation>
     </message>
     <message>
       <source>User was redirected!</source>
-      <translation type="unfinished"/>
+      <translation>Gebruiker is doorgestuurd!</translation>
     </message>
     <message>
       <source>Screenshot was scheduled!</source>
-      <translation type="unfinished"/>
+      <translation>Screenshot is ingepland!</translation>
     </message>
     <message>
       <source>User was redirected to contact form!</source>
-      <translation type="unfinished"/>
+      <translation>Gebruiker is doorgestuurd naar het contactformulier!</translation>
     </message>
     <message>
       <source>User was blocked!</source>
-      <translation type="unfinished"/>
+      <translation>Gebruiker is geblokkeerd!</translation>
     </message>
     <message>
       <source>Chat was closed!</source>
-      <translation type="unfinished"/>
+      <translation>Chat is gesloten!</translation>
     </message>
     <message>
       <source>Chat was deleted!</source>
-      <translation type="unfinished"/>
+      <translation>Chat is verwijderd!</translation>
     </message>
   </context>
 </TS>

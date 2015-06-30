@@ -1719,6 +1719,10 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>Invalid chat status</source>
+      <translation>ჩეთის არასწორი სტატუსი</translation>
+    </message>
+    <message>
       <source>Attach uploaded file</source>
       <translation>ატვირთული ფაილების დართვა</translation>
     </message>
@@ -1931,8 +1935,8 @@
       <translation>შეტყობინებები</translation>
     </message>
     <message>
-      <source>Invalid chat status</source>
-      <translation>ჩეთის არასწორი სტატუსი</translation>
+      <source>has accepted the chat!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

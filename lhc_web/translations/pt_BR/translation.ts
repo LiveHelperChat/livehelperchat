@@ -1719,6 +1719,10 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>Invalid chat status</source>
+      <translation>Status do chat inválido</translation>
+    </message>
+    <message>
       <source>Attach uploaded file</source>
       <translation>Anexar arquivo carregado</translation>
     </message>
@@ -1931,8 +1935,8 @@
       <translation>Mensagens</translation>
     </message>
     <message>
-      <source>Invalid chat status</source>
-      <translation>Status do chat inválido</translation>
+      <source>has accepted the chat!</source>
+      <translation>aceitou um chat!</translation>
     </message>
   </context>
   <context>
@@ -4118,7 +4122,7 @@
     </message>
     <message>
       <source>Checked by default</source>
-      <translation type="unfinished"/>
+      <translation>Assinalado como padrão</translation>
     </message>
     <message>
       <source>E-mail is always required</source>
@@ -7333,7 +7337,7 @@
     </message>
     <message>
       <source>Screenshot was scheduled!</source>
-      <translation type="unfinished"/>
+      <translation>A capitura de tela estava programada!</translation>
     </message>
     <message>
       <source>User was redirected to contact form!</source>

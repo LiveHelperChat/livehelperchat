@@ -1719,6 +1719,10 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>Invalid chat status</source>
+      <translation>Stare conversatie invalida</translation>
+    </message>
+    <message>
       <source>Attach uploaded file</source>
       <translation>Atașați fișierul încărcat</translation>
     </message>
@@ -1931,8 +1935,8 @@
       <translation>Mesaje</translation>
     </message>
     <message>
-      <source>Invalid chat status</source>
-      <translation>Stare conversatie invalida</translation>
+      <source>has accepted the chat!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

@@ -1719,6 +1719,10 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>Invalid chat status</source>
+      <translation>Trạng thái trò chuyện không hợp lệ</translation>
+    </message>
+    <message>
       <source>Attach uploaded file</source>
       <translation type="unfinished"/>
     </message>
@@ -1931,8 +1935,8 @@
       <translation>Tin nhắn</translation>
     </message>
     <message>
-      <source>Invalid chat status</source>
-      <translation>Trạng thái trò chuyện không hợp lệ</translation>
+      <source>has accepted the chat!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

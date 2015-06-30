@@ -1719,6 +1719,10 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>Invalid chat status</source>
+      <translation>Nekorektiškas pokalbio statusas</translation>
+    </message>
+    <message>
       <source>Attach uploaded file</source>
       <translation>Prisegti nusiųstą failą</translation>
     </message>
@@ -1931,8 +1935,8 @@
       <translation>Žinutės</translation>
     </message>
     <message>
-      <source>Invalid chat status</source>
-      <translation>Nekorektiškas pokalbio statusas</translation>
+      <source>has accepted the chat!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

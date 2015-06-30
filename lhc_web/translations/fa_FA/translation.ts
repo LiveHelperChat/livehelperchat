@@ -1719,6 +1719,10 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>Invalid chat status</source>
+      <translation>وضعیت چت نامعتبر است</translation>
+    </message>
+    <message>
       <source>Attach uploaded file</source>
       <translation>ضمیمه کردن فایل آپلود شده</translation>
     </message>
@@ -1931,8 +1935,8 @@
       <translation>پیام ها</translation>
     </message>
     <message>
-      <source>Invalid chat status</source>
-      <translation>وضعیت چت نامعتبر است</translation>
+      <source>has accepted the chat!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

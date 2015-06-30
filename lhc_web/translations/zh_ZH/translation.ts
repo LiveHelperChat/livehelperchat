@@ -1719,6 +1719,10 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>Invalid chat status</source>
+      <translation>无效聊天状态</translation>
+    </message>
+    <message>
       <source>Attach uploaded file</source>
       <translation>上传的附件</translation>
     </message>
@@ -1931,8 +1935,8 @@
       <translation>消息</translation>
     </message>
     <message>
-      <source>Invalid chat status</source>
-      <translation>无效聊天状态</translation>
+      <source>has accepted the chat!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

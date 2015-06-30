@@ -1719,6 +1719,10 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>Invalid chat status</source>
+      <translation>Neplatný stav rozhovoru</translation>
+    </message>
+    <message>
       <source>Attach uploaded file</source>
       <translation>Přiložit nahraný soubor</translation>
     </message>
@@ -1931,8 +1935,8 @@
       <translation>Zprávy</translation>
     </message>
     <message>
-      <source>Invalid chat status</source>
-      <translation>Neplatný stav rozhovoru</translation>
+      <source>has accepted the chat!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

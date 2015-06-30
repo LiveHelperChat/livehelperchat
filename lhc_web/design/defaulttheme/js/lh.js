@@ -1453,6 +1453,11 @@ function lh(){
 	        		LHCCallbacks.addmsgadmin(chat_id);
 	        	};
 	        	
+	        	if (data.r != '') {
+            		$('#messagesBlock-'+chat_id).append(data.r);
+	                $('#messagesBlock-'+chat_id).animate({ scrollTop: $("#messagesBlock-"+chat_id).prop("scrollHeight") }, 1000);
+            	};
+            	
 				lhinst.syncadmincall();				
 				return true;
 			});

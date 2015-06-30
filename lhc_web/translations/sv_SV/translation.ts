@@ -1719,6 +1719,10 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>Invalid chat status</source>
+      <translation>Ogiltig status på chatten</translation>
+    </message>
+    <message>
       <source>Attach uploaded file</source>
       <translation>Bifoga uppladdad fil</translation>
     </message>
@@ -1931,8 +1935,8 @@
       <translation>Meddelanden</translation>
     </message>
     <message>
-      <source>Invalid chat status</source>
-      <translation>Ogiltig status på chatten</translation>
+      <source>has accepted the chat!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

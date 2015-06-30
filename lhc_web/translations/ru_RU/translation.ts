@@ -1720,6 +1720,10 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>Invalid chat status</source>
+      <translation>Неправильный статус чата</translation>
+    </message>
+    <message>
       <source>Attach uploaded file</source>
       <translation>Прикрепить загруженный файл</translation>
     </message>
@@ -1932,8 +1936,8 @@
       <translation>Сообщения</translation>
     </message>
     <message>
-      <source>Invalid chat status</source>
-      <translation>Неправильный статус чата</translation>
+      <source>has accepted the chat!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

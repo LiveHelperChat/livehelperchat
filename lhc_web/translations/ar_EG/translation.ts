@@ -1719,6 +1719,10 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>Invalid chat status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Attach uploaded file</source>
       <translation type="unfinished"/>
     </message>
@@ -1931,7 +1935,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Invalid chat status</source>
+      <source>has accepted the chat!</source>
       <translation type="unfinished"/>
     </message>
   </context>

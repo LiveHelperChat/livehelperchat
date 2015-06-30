@@ -1719,6 +1719,10 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>Invalid chat status</source>
+      <translation>Status percakapan tidak sah</translation>
+    </message>
+    <message>
       <source>Attach uploaded file</source>
       <translation>Lampirkan berkas terunggahan</translation>
     </message>
@@ -1931,8 +1935,8 @@
       <translation>Pesan</translation>
     </message>
     <message>
-      <source>Invalid chat status</source>
-      <translation>Status percakapan tidak sah</translation>
+      <source>has accepted the chat!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

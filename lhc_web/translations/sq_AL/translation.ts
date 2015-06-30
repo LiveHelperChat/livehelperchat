@@ -1719,6 +1719,10 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>Invalid chat status</source>
+      <translation>Status chati i papranueshem</translation>
+    </message>
+    <message>
       <source>Attach uploaded file</source>
       <translation>Bashkangjit skedarin e ngarkuar</translation>
     </message>
@@ -1932,8 +1936,8 @@
       <translation>Mesazhet</translation>
     </message>
     <message>
-      <source>Invalid chat status</source>
-      <translation>Status chati i papranueshem</translation>
+      <source>has accepted the chat!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
