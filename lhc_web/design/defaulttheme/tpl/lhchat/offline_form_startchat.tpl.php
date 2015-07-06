@@ -18,7 +18,6 @@
 <?php endif; ?>
 <?php endif; ?>
 
-
 <?php if (isset($start_data_fields['offline_email_hidden']) && $start_data_fields['offline_email_hidden'] == true) : ?>
 <input type="hidden" name="Email" value="<?php echo htmlspecialchars($input_data->email);?>" />
 <?php else : ?>
@@ -51,8 +50,7 @@
 <textarea class="hide" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your message');?>" name="Question"><?php echo htmlspecialchars($input_data->question);?></textarea>
 <?php else : ?>
 <div class="form-group <?php if(!empty($_POST) && empty($_POST[Question])){echo "has-error";}?>">
-<!-- Changed Message Text -->
-	<label class="control-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Your issue / question');?><?php if (isset($start_data_fields['offline_message_require_option']) && $start_data_fields['offline_message_require_option'] == 'required') : ?>*<?php endif;?></label>
+	<label class="control-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Your Question');?><?php if (isset($start_data_fields['offline_message_require_option']) && $start_data_fields['offline_message_require_option'] == 'required') : ?>*<?php endif;?></label>
 	<textarea class="form-control" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your message');?>" name="Question"><?php echo htmlspecialchars($input_data->question);?></textarea>
 </div>
 <?php endif;?>
@@ -67,7 +65,7 @@
 <?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/department.tpl.php'));?>
 <?php endif;?>
 
-<?php $tosVariable = 'offline_tos_visible_in_popup'?>
+<?php $tosVariable = 'offline_tos_visible_in_popup';$tosCheckedVariable = 'tos_checked_offline';?>
 <?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/accept_tos.tpl.php'));?>
 
 <div class="btn-group" role="group" aria-label="...">
