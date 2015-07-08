@@ -43,8 +43,8 @@ if ($theme !== false && $theme->explain_text != '') : ?>
 		<?php if (in_array('username', $input_data->hattr)) : ?>
 			<input type="hidden" name="Username" value="<?php echo htmlspecialchars($input_data->username);?>" />
 		<?php else : ?>
-	    <div class="col-xs-6 form-group">
-	        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Name');?><?php if (isset($start_data_fields['name_require_option']) && $start_data_fields['name_require_option'] == 'required') : ?>*<?php endif;?></label>
+	    <div class="col-xs-6 form-group<?php if (isset($errors['nick'])) : ?> has-error<?php endif;?>">
+	        <label class="control-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Name');?><?php if (isset($start_data_fields['name_require_option']) && $start_data_fields['name_require_option'] == 'required') : ?>*<?php endif;?></label>
 	        <input type="text" class="form-control" name="Username" value="<?php echo htmlspecialchars($input_data->username);?>" />
 	    </div>    
 	    <?php endif; ?>    
@@ -60,8 +60,8 @@ if ($theme !== false && $theme->explain_text != '') : ?>
 		<?php if (in_array('email', $input_data->hattr)) : ?>
 			<input type="hidden" name="Email" value="<?php echo htmlspecialchars($input_data->email);?>" />
 		<?php else : ?>
-	    <div class="col-xs-6 form-group">
-	        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','E-mail');?><?php if (isset($start_data_fields['email_require_option']) && $start_data_fields['email_require_option'] == 'required') : ?>*<?php endif;?></label>
+	    <div class="col-xs-6 form-group<?php if (isset($errors['email'])) : ?> has-error<?php endif;?>">
+	        <label class="control-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','E-mail');?><?php if (isset($start_data_fields['email_require_option']) && $start_data_fields['email_require_option'] == 'required') : ?>*<?php endif;?></label>
 	        <input class="form-control" type="text" name="Email" value="<?php echo htmlspecialchars($input_data->email);?>" />
 	    </div>
 	    <?php endif; ?>
@@ -78,8 +78,8 @@ if ($theme !== false && $theme->explain_text != '') : ?>
 		<?php if (in_array('phone', $input_data->hattr)) : ?>
 		<input type="hidden" name="Phone" value="<?php echo htmlspecialchars($input_data->phone);?>" />
 		<?php else : ?>
-		<div class="form-group">
-		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Phone');?><?php if (isset($start_data_fields['phone_require_option']) && $start_data_fields['phone_require_option'] == 'required') : ?>*<?php endif;?></label>
+		<div class="form-group<?php if (isset($errors['phone'])) : ?> has-error<?php endif;?>">
+		  <label class="control-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Phone');?><?php if (isset($start_data_fields['phone_require_option']) && $start_data_fields['phone_require_option'] == 'required') : ?>*<?php endif;?></label>
 		  <input class="form-control" type="text" name="Phone" value="<?php echo htmlspecialchars($input_data->phone);?>" />
 		</div>
 		<?php endif; ?>
@@ -95,9 +95,10 @@ if ($theme !== false && $theme->explain_text != '') : ?>
 <?php if (isset($start_data_fields['message_hidden']) && $start_data_fields['message_hidden'] == true) : $hasExtraField = true; ?>
 <textarea class="hide" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your message');?>" name="Question"><?php echo htmlspecialchars($input_data->question);?></textarea>
 <?php else : ?>
-<?php if (!isset($start_data_fields['hide_message_label']) || $start_data_fields['hide_message_label'] == false) : ?>
-<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Your question');?><?php if (isset($start_data_fields['message_require_option']) && $start_data_fields['message_require_option'] == 'required') : ?>*<?php endif;?></label><?php endif;?>
+<div class="<?php if (isset($errors['question'])) : ?> has-error<?php endif;?>">
+<?php if (!isset($start_data_fields['hide_message_label']) || $start_data_fields['hide_message_label'] == false) : ?><label class="control-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Your question');?><?php if (isset($start_data_fields['message_require_option']) && $start_data_fields['message_require_option'] == 'required') : ?>*<?php endif;?></label><?php endif;?>
 <textarea class="form-control form-group <?php if ($hasExtraField !== true && $canReopen !== true) : ?>btrad-reset<?php endif;?>" <?php if (isset($start_data_fields['user_msg_height']) && $start_data_fields['user_msg_height'] > 0) : ?>style="height: <?php echo $start_data_fields['user_msg_height']?>px"<?php endif;?> placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a message...');?>" id="id_Question" name="Question"><?php echo htmlspecialchars($input_data->question);?></textarea>
+</div>
 <?php endif; ?>
 <?php else : $hasExtraField = true; endif; ?>
 

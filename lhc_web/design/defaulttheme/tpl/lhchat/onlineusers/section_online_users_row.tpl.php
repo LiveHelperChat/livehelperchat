@@ -24,7 +24,6 @@
     	   </ul>    	
     	</div>
     	        	 
-    	        	 
     	<div class="page-url"><span><a target="_blank" href="{{ou.current_page}}" title="{{ou.current_page}}">{{ou.page_title || ou.current_page}}</a></span></div></td>
         <td><div class="page-url"><span><a target="_blank" href="http:{{ou.referrer}}">{{ou.referrer}}</a></span></div></td>                
         <td>

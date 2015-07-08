@@ -11,8 +11,8 @@
 <?php if (isset($start_data_fields['offline_name_hidden']) && $start_data_fields['offline_name_hidden'] == true) : ?>
 <input type="hidden" name="Username" value="<?php echo htmlspecialchars($input_data->username);?>" />
 <?php else : ?>
-<div class="form-group">
-<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Name');?><?php if (isset($start_data_fields['offline_name_require_option']) && $start_data_fields['offline_name_require_option'] == 'required') : ?>*<?php endif;?></label>
+<div class="form-group<?php if (isset($errors['nick'])) : ?> has-error<?php endif;?>">
+<label class="control-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Name');?><?php if (isset($start_data_fields['offline_name_require_option']) && $start_data_fields['offline_name_require_option'] == 'required') : ?>*<?php endif;?></label>
 <input class="form-control" type="text" name="Username" value="<?php echo htmlspecialchars($input_data->username);?>" />
 </div>
 <?php endif; ?>
@@ -21,8 +21,8 @@
 <?php if (isset($start_data_fields['offline_email_hidden']) && $start_data_fields['offline_email_hidden'] == true) : ?>
 <input type="hidden" name="Email" value="<?php echo htmlspecialchars($input_data->email);?>" />
 <?php else : ?>
-<div class="form-group">
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','E-mail');?>*</label>
+<div class="form-group<?php if (isset($errors['email'])) : ?> has-error<?php endif;?>">
+    <label class="control-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','E-mail');?>*</label>
     <input class="form-control" type="text" name="Email" value="<?php echo htmlspecialchars($input_data->email);?>" />
 </div>
 <?php endif;?>
@@ -31,8 +31,8 @@
 <?php if (isset($start_data_fields['offline_phone_hidden']) && $start_data_fields['offline_phone_hidden'] == true) : ?>
 <input type="hidden" name="Phone" value="<?php echo htmlspecialchars($input_data->phone);?>" />
 <?php else : ?>
-<div class="form-group">
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Phone');?><?php if (isset($start_data_fields['offline_phone_require_option']) && $start_data_fields['offline_phone_require_option'] == 'required') : ?>*<?php endif;?></label>
+<div class="form-group<?php if (isset($errors['phone'])) : ?> has-error<?php endif;?>">
+    <label class="control-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Phone');?><?php if (isset($start_data_fields['offline_phone_require_option']) && $start_data_fields['offline_phone_require_option'] == 'required') : ?>*<?php endif;?></label>
     <input class="form-control" type="text" name="Phone" value="<?php echo htmlspecialchars($input_data->phone);?>" />
 </div>
 <?php endif;?>
@@ -40,7 +40,7 @@
 
 <?php if (isset($start_data_fields['offline_file_visible_in_popup']) && $start_data_fields['offline_file_visible_in_popup'] == true) : ?>
 <div class="form-group">
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','File');?></label>
+    <label class="control-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','File');?></label>
     <input type="file" name="File" value="" />
 </div>
 <?php endif; ?>
@@ -49,8 +49,8 @@
 <?php if (isset($start_data_fields['offline_message_hidden']) && $start_data_fields['offline_message_hidden'] == true) : ?>
 <textarea class="hide" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your message');?>" name="Question"><?php echo htmlspecialchars($input_data->question);?></textarea>
 <?php else : ?>
-<div class="form-group">
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Your question');?><?php if (isset($start_data_fields['offline_message_require_option']) && $start_data_fields['offline_message_require_option'] == 'required') : ?>*<?php endif;?></label>
+<div class="form-group<?php if (isset($errors['question'])) : ?> has-error<?php endif;?>">
+    <label class="control-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Your question');?><?php if (isset($start_data_fields['offline_message_require_option']) && $start_data_fields['offline_message_require_option'] == 'required') : ?>*<?php endif;?></label>
     <textarea class="form-control" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your message');?>" name="Question"><?php echo htmlspecialchars($input_data->question);?></textarea>
 </div>
 <?php endif;?>
