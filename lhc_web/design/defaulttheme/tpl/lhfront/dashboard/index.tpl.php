@@ -72,10 +72,10 @@ $columnSize = 12 / $columnsTotal;
      <?php endfor;?>
 </div>
 
+<?php $popoverInitialized = true; ?>
 <script>
 $( document ).ready(function() {
-	$('#dashboard-body').tooltip({ selector: '[data-toggle="tooltip"]' });
-	$('#dashboard-body').popover({
+	$('#dashboard-body, #onlineusers, #map').popover({
 		  trigger:'hover',
 		  html : true, 
 		  selector: '[data-toggle="popover"]',
