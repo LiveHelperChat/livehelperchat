@@ -1160,7 +1160,7 @@ pokazywany</translation>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Not Noted</source>
+      <source>Not Voted</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1720,6 +1720,10 @@ pokazywany</translation>
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>Invalid chat status</source>
+      <translation>Nieprawidłowy status rozmowy</translation>
+    </message>
+    <message>
       <source>Attach uploaded file</source>
       <translation>Dołącz przesłany plik </translation>
     </message>
@@ -1932,12 +1936,20 @@ pokazywany</translation>
       <translation>Wiadomości</translation>
     </message>
     <message>
-      <source>Invalid chat status</source>
-      <translation>Nieprawidłowy status rozmowy</translation>
+      <source>has accepted the chat!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>chat/translation</name>
+    <message>
+      <source>We could not detect operator language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Detected operator and visitor languages matches, please choose languages manually</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Visitor language</source>
       <translation type="unfinished"/>
@@ -2036,14 +2048,6 @@ pokazywany</translation>
     </message>
     <message>
       <source>Could not translate</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>We could not detect operator language</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Detected operator and visitor languages matches, please choose languages manually</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7146,12 +7150,12 @@ pokazywany</translation>
   <context>
     <name>chat/closechatadmin</name>
     <message>
-      <source>has closed the chat!</source>
-      <translation>zamknięta rozmowa!</translation>
-    </message>
-    <message>
       <source>has redirected user to contact form!</source>
       <translation>przekierował użytkownika do formularza kontaktowego!</translation>
+    </message>
+    <message>
+      <source>has closed the chat!</source>
+      <translation>zamknięta rozmowa!</translation>
     </message>
   </context>
   <context>
@@ -7312,6 +7316,45 @@ pokazywany</translation>
     <message>
       <source>Auto login module is not enabled</source>
       <translation>Moduł autologowania jest wyłączony</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/chatcommand</name>
+    <message>
+      <source>Nick changed!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail changed!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Phone changed!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User was redirected!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Screenshot was scheduled!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User was redirected to contact form!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User was blocked!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was closed!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was deleted!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

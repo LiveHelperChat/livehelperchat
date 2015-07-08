@@ -72,10 +72,20 @@ $columnSize = 12 / $columnsTotal;
      <?php endfor;?>
 </div>
 
+<?php $popoverInitialized = true; ?>
 <script>
 $( document ).ready(function() {
-	$('#dashboard-body').tooltip({ selector: '[data-toggle="tooltip"]' });
-	$('#dashboard-body').popover({trigger:'hover',html : true, selector: '[data-toggle="popover"]'});
+	$('#dashboard-body, #onlineusers, #map').popover({
+		  trigger:'hover',
+		  html : true, 
+		  selector: '[data-toggle="popover"]',
+		  content: function () {
+			 return $('#popover-content-'+$(this).attr('data-chat-id')).html();
+		  },
+		  title: function () {
+			 return  $('#popover-title-'+$(this).attr('data-chat-id')).html();
+		  }
+		});
     $(".btn-block-department").on("click", "[data-stopPropagation]", function(e) {
         e.stopPropagation();
     });

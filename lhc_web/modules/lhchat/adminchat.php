@@ -43,9 +43,27 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
 	    	$chatDataChanged = true;
 	    }
 	    
+	    // Store who has acceped a chat so other operators will be able easily indicate this
+	    if ($operatorAccepted == true) {
+	    	         	        
+	        $msg = new erLhcoreClassModelmsg();
+	        $msg->msg = (string)$currentUser->getUserData(true)->name_support.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','has accepted the chat!');
+	        $msg->chat_id = $chat->id;
+	        $msg->user_id = -1;
+	        $msg->time = time();
+	        	       
+	        if ($chat->last_msg_id < $msg->id) {
+	            $chat->last_msg_id = $msg->id;
+	        }
+
+	        erLhcoreClassChat::getSession()->save($msg);
+	    }
+	    
+	    // Update general chat attributes
 	    $chat->support_informed = 1;
 	    $chat->has_unread_messages = 0;
 	    $chat->unread_messages_informed = 0;
+	    
 	    erLhcoreClassChat::getSession()->update($chat);
 		
 	    echo $tpl->fetch();	  

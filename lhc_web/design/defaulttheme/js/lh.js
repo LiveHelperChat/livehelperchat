@@ -802,7 +802,7 @@ function lh(){
 	};
 
 	this.blockUser = function(chat_id,msg) {
-		if (confirm(msg)) {
+		if (typeof msg === 'undefined' || confirm(msg)) {
 			$.postJSON(this.wwwDir + 'chat/blockuser/' + chat_id,{}, function(data){
 				alert(data.msg);
 			});
@@ -841,7 +841,7 @@ function lh(){
 	};
 
 	this.redirectContact = function(chat_id,message){		
-		if (confirm(message)){	
+		if (typeof message === 'undefined' || confirm(message)){	
 			$.postJSON(this.wwwDir + 'chat/redirectcontact/' + chat_id, function(data){				
 				lhinst.syncadmininterfacestatic();				
 				if (LHCCallbacks.userRedirectedContact) {
@@ -1453,6 +1453,11 @@ function lh(){
 	        		LHCCallbacks.addmsgadmin(chat_id);
 	        	};
 	        	
+	        	if (data.r != '') {
+            		$('#messagesBlock-'+chat_id).append(data.r);
+	                $('#messagesBlock-'+chat_id).animate({ scrollTop: $("#messagesBlock-"+chat_id).prop("scrollHeight") }, 1000);
+            	};
+            	
 				lhinst.syncadmincall();				
 				return true;
 			});

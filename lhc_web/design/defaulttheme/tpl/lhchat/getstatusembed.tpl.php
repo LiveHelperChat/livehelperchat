@@ -47,6 +47,16 @@ var lh_inst_page  = {
 					};
 	    		};
 	    	};
+	    	
+	    	if (typeof <?php echo $chatOptionsVariablePage?>.attr_prefill_admin != 'undefined') {
+	    		if (<?php echo $chatOptionsVariablePage?>.attr_prefill_admin.length > 0){
+					for (var index in <?php echo $chatOptionsVariablePage?>.attr_prefill_admin) {
+						if (typeof <?php echo $chatOptionsVariablePage?>.attr_prefill_admin[index] != 'undefined') {
+							argumentsQuery.push('value_items_admin['+<?php echo $chatOptionsVariablePage?>.attr_prefill_admin[index].index+']='+encodeURIComponent(<?php echo $chatOptionsVariablePage?>.attr_prefill_admin[index].value));							
+						};
+					};
+	    		};
+	    	};
 
 	    	if (argumentsQuery.length > 0) {
 	    		return '&'+argumentsQuery.join('&');

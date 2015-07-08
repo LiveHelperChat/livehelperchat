@@ -147,7 +147,7 @@
     </message>
     <message>
       <source>Hide right column in frontpage</source>
-      <translation type="unfinished"/>
+      <translation>Göm högerkolumnen på förstasidan</translation>
     </message>
     <message>
       <source>Hide disabled department widget</source>
@@ -191,7 +191,7 @@
     </message>
     <message>
       <source>Home page dashboard widgets order</source>
-      <translation type="unfinished"/>
+      <translation>Ordning av widgetsen på kontrollpanelen på startsidan</translation>
     </message>
     <message>
       <source>Your site URL address</source>
@@ -768,11 +768,11 @@
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Chatbox module to render.</source>
-      <translation type="unfinished"/>
+      <translation>Placera denna taggen där du vill att Live Helper Chattbox-modulen ska visas.</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper Chatbox module tag.</source>
-      <translation type="unfinished"/>
+      <translation>Placera denna taggen efter Live Helper Chattbox-modulens tagg.</translation>
     </message>
     <message>
       <source>Chatbox</source>
@@ -848,11 +848,11 @@
     </message>
     <message>
       <source>Place this tag where you want the Live Helper FAQ module to render.</source>
-      <translation type="unfinished"/>
+      <translation>Placera denna taggen där du vill att Live Helper FAQ-modulen ska visas.</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper FAQ module tag.</source>
-      <translation type="unfinished"/>
+      <translation>Placera denna taggen efter Live Helper FAQ-modulens tagg.</translation>
     </message>
     <message>
       <source>Status text</source>
@@ -876,11 +876,11 @@
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Questionary module to render.</source>
-      <translation type="unfinished"/>
+      <translation>Placera denna taggen där du vill att Live Helper Questionary-modulen ska visas.</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper Questionary module tag.</source>
-      <translation type="unfinished"/>
+      <translation>Placera denna taggen efter Live Helper Questionary-modulens tagg.</translation>
     </message>
     <message>
       <source>Help us to grow</source>
@@ -944,11 +944,11 @@
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Plugin to render.</source>
-      <translation type="unfinished"/>
+      <translation>Placera denna taggen där du vill att Live Helper Plugin ska visas.</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper Plugin tag.</source>
-      <translation type="unfinished"/>
+      <translation>Placera denna taggen efter taggen för Live Helper Plugin.</translation>
     </message>
     <message>
       <source>On a mouse click show the page widget</source>
@@ -1020,11 +1020,11 @@
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Status to render.</source>
-      <translation type="unfinished"/>
+      <translation>Placera denna taggen där du vill att Live Helper Status ska visas.</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper status tag.</source>
-      <translation type="unfinished"/>
+      <translation>Placera denna taggen efter statustaggen för Live Helper.</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -1152,15 +1152,15 @@
     </message>
     <message>
       <source>Vote status</source>
-      <translation type="unfinished"/>
+      <translation>Röstningsstatus</translation>
     </message>
     <message>
       <source>Any</source>
-      <translation type="unfinished"/>
+      <translation>Valfri</translation>
     </message>
     <message>
-      <source>Not Noted</source>
-      <translation>Inte noterat</translation>
+      <source>Not Voted</source>
+      <translation>Inte röstat</translation>
     </message>
     <message>
       <source>Up Voted</source>
@@ -1719,6 +1719,10 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>Invalid chat status</source>
+      <translation>Ogiltig status på chatten</translation>
+    </message>
+    <message>
       <source>Attach uploaded file</source>
       <translation>Bifoga uppladdad fil</translation>
     </message>
@@ -1931,12 +1935,20 @@
       <translation>Meddelanden</translation>
     </message>
     <message>
-      <source>Invalid chat status</source>
-      <translation>Ogiltig status på chatten</translation>
+      <source>has accepted the chat!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>chat/translation</name>
+    <message>
+      <source>We could not detect operator language</source>
+      <translation>Vi kunde inte identifiera operatörens språk</translation>
+    </message>
+    <message>
+      <source>Detected operator and visitor languages matches, please choose languages manually</source>
+      <translation>Samma språk har identifierats hos operatören och besökaren, var vänlig välj språken manuellt</translation>
+    </message>
     <message>
       <source>Visitor language</source>
       <translation>Besökarens språk</translation>
@@ -2036,14 +2048,6 @@
     <message>
       <source>Could not translate</source>
       <translation>Kunde inte översätta</translation>
-    </message>
-    <message>
-      <source>We could not detect operator language</source>
-      <translation>Vi kunde inte identifiera operatörens språk</translation>
-    </message>
-    <message>
-      <source>Detected operator and visitor languages matches, please choose languages manually</source>
-      <translation>Samma språk har identifierats hos operatören och besökaren, var vänlig välj språken manuellt</translation>
     </message>
     <message>
       <source>Translation configuration</source>
@@ -2177,15 +2181,15 @@
     </message>
     <message>
       <source>Wait time</source>
-      <translation type="unfinished"/>
+      <translation>Väntetid</translation>
     </message>
     <message>
       <source>Delete chat</source>
-      <translation type="unfinished"/>
+      <translation>Radera chatt</translation>
     </message>
     <message>
       <source>Created</source>
-      <translation type="unfinished"/>
+      <translation>Skapad</translation>
     </message>
     <message>
       <source>Time ago</source>
@@ -2505,11 +2509,11 @@
     </message>
     <message>
       <source>You are number</source>
-      <translation type="unfinished"/>
+      <translation>Du är nummer</translation>
     </message>
     <message>
       <source>in the queue. Please wait...</source>
-      <translation type="unfinished"/>
+      <translation>i kö. Var vänlig vänta...</translation>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
@@ -3391,7 +3395,7 @@
     </message>
     <message>
       <source>Supported: online_operators, departments_stats, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
-      <translation type="unfinished"/>
+      <translation>Stöds: online_operators, departments_stats, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</translation>
     </message>
     <message>
       <source>New chat notification settings</source>
@@ -3653,7 +3657,7 @@
     </message>
     <message>
       <source>Number of elements in list</source>
-      <translation type="unfinished"/>
+      <translation>Antal element i listan</translation>
     </message>
     <message>
       <source>Departments stats</source>
@@ -3665,7 +3669,7 @@
     </message>
     <message>
       <source>Transfered chats</source>
-      <translation type="unfinished"/>
+      <translation>Överförda chattar</translation>
     </message>
     <message>
       <source>Home</source>
@@ -3970,7 +3974,7 @@
     </message>
     <message>
       <source>Custom fields generator, these fields will be visible in start chat forms</source>
-      <translation type="unfinished"/>
+      <translation>Generering av egna fält, dessa fält kommer att vara synliga när en chatt ska startas</translation>
     </message>
     <message>
       <source>Field label</source>
@@ -4118,7 +4122,7 @@
     </message>
     <message>
       <source>Checked by default</source>
-      <translation type="unfinished"/>
+      <translation>Kontrollerat av standard</translation>
     </message>
     <message>
       <source>E-mail is always required</source>
@@ -4440,7 +4444,7 @@
     </message>
     <message>
       <source>Average chat duration by user</source>
-      <translation type="unfinished"/>
+      <translation>Genomsnittlig chattlängd av användare</translation>
     </message>
     <message>
       <source>All operators statistic will be downloaded</source>
@@ -4500,7 +4504,7 @@
     </message>
     <message>
       <source>Operators statistic, top 100 by chats number</source>
-      <translation type="unfinished"/>
+      <translation>Operatörsstatistik, topp 100 av antal chattar</translation>
     </message>
     <message>
       <source>Total messages</source>
@@ -7145,12 +7149,12 @@
   <context>
     <name>chat/closechatadmin</name>
     <message>
-      <source>has closed the chat!</source>
-      <translation>har stängt chatten!</translation>
-    </message>
-    <message>
       <source>has redirected user to contact form!</source>
       <translation>har vidarebefordrat användare till kontaktformulär!</translation>
+    </message>
+    <message>
+      <source>has closed the chat!</source>
+      <translation>har stängt chatten!</translation>
     </message>
   </context>
   <context>
@@ -7311,6 +7315,45 @@
     <message>
       <source>Auto login module is not enabled</source>
       <translation>Modulen för den automatiska inloggningen är inte aktiverad</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/chatcommand</name>
+    <message>
+      <source>Nick changed!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail changed!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Phone changed!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User was redirected!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Screenshot was scheduled!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User was redirected to contact form!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User was blocked!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was closed!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was deleted!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

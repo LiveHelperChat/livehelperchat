@@ -12,13 +12,15 @@ $error = 'f';
 
 if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && mb_strlen($form->msg) < (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value)
 {
-	$db = ezcDbInstance::get();
-	$db->beginTransaction();	
 	try {
 	    $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);	
 	    
 	    if ($chat->hash == $Params['user_parameters']['hash'] && ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT || $chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)) // Allow add messages only if chat is active
 	    {
+	        $db = ezcDbInstance::get();
+	        
+	        $db->beginTransaction();
+	        
 	        $msg = new erLhcoreClassModelmsg();
 	        $msg->msg = trim($form->msg);
 	        $msg->chat_id = $Params['user_parameters']['chat_id'];
@@ -48,9 +50,22 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && mb_strlen($form->m
 	        	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.unread_chat',array('chat' => & $chat));
 	        }
 	        
-	        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.addmsguser',array('chat' => & $chat, 'msg' => & $msg));
+	        $db->commit();
 	    }	    
-	    $db->commit();
+	    
+	    echo json_encode(array('error' => $error, 'r' => $r));
+	   	
+	    flush();
+	    
+	    session_write_close();
+	    
+	    if ( function_exists('fastcgi_finish_request') ) {
+	        fastcgi_finish_request();
+	    };
+	    	     	    
+	    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.addmsguser',array('chat' => & $chat, 'msg' => & $msg));
+	    exit;
+	    
 	} catch (Exception $e) {
    		$db->rollback();
     }
@@ -58,9 +73,10 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && mb_strlen($form->m
 } else {
 	$error = 't';
 	$r = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a message, max characters').' - '.(int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value;
+	echo json_encode(array('error' => $error, 'r' => $r));
+	exit;
 }
 
-echo json_encode(array('error' => $error, 'r' => $r));
-exit;
+
 
 ?>

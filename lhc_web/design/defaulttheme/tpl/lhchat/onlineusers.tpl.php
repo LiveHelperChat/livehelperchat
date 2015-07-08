@@ -27,7 +27,7 @@
 	</ul>
 
 	<!-- Tab panes -->
-	<div class="tab-content">
+	<div class="tab-content" id="online-users-dashboard">
 		<div role="tabpanel" class="tab-pane active" id="onlineusers">
 		      <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/section_online_users.tpl.php')); ?>
 		</div>
@@ -41,7 +41,22 @@
 </div>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/secure_links.tpl.php')); ?>
 <script>
+
 $( document ).ready(function() {
+	<?php if (!isset($popoverInitialized) || $popoverInitialized == false) : ?>
+	$('#dashboard-body, #onlineusers, #map').popover({
+		  trigger:'hover',
+		  html : true, 
+		  selector: '[data-toggle="popover"]',
+		  content: function () {
+			 return $('#popover-content-'+$(this).attr('data-chat-id')).html();
+		  },
+		  title: function () {
+			 return  $('#popover-title-'+$(this).attr('data-chat-id')).html();
+		  }
+	});
+	<?php endif; ?>
+		
 	lhinst.attachTabNavigator();
 	$('#right-column-page').removeAttr('id');	
 });

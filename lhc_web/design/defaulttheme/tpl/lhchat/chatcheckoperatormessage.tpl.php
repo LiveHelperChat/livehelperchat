@@ -11,3 +11,5 @@ if (window.innerWidth > 1023) {
 };
 <?php endif; ?>
 <?php if (isset($operation)) : ?><?php echo $operation;?><?php endif;?>
+
+<?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/chatcheckoperatormessage_multiinclude.tpl.php')); ?>	

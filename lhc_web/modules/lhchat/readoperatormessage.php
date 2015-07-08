@@ -444,7 +444,12 @@ if (!ezcInputForm::hasPostData()) {
 					ezcInputFormDefinitionElement::OPTIONAL, 'string',
 					null,
 					FILTER_REQUIRE_ARRAY
-			)
+			),
+            'value_items_admin' => new ezcInputFormDefinitionElement(
+                    ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
+                    null,
+                    FILTER_REQUIRE_ARRAY
+            )
 	);
 	
 	$form = new ezcInputForm( INPUT_GET, $definition );
@@ -482,6 +487,12 @@ if (!ezcInputForm::hasPostData()) {
 	if ( $form->hasValidData( 'size' ) && !empty($form->size))
 	{
 		$inputData->value_sizes = $form->size;
+	}
+	
+	// Fill back office values ir prefilled
+	if ($form->hasValidData( 'value_items_admin' ))
+	{
+	    $inputData->value_items_admin = $form->value_items_admin;
 	}
 }
 

@@ -147,7 +147,7 @@
     </message>
     <message>
       <source>Hide right column in frontpage</source>
-      <translation type="unfinished"/>
+      <translation>Ocultar a coluna da direita na página principal</translation>
     </message>
     <message>
       <source>Hide disabled department widget</source>
@@ -1159,8 +1159,8 @@
       <translation>Qualquer</translation>
     </message>
     <message>
-      <source>Not Noted</source>
-      <translation>Não Anotado</translation>
+      <source>Not Voted</source>
+      <translation>Nenhum  Voto</translation>
     </message>
     <message>
       <source>Up Voted</source>
@@ -1719,6 +1719,10 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>Invalid chat status</source>
+      <translation>Status do chat inválido</translation>
+    </message>
+    <message>
       <source>Attach uploaded file</source>
       <translation>Anexar arquivo carregado</translation>
     </message>
@@ -1931,12 +1935,20 @@
       <translation>Mensagens</translation>
     </message>
     <message>
-      <source>Invalid chat status</source>
-      <translation>Status do chat inválido</translation>
+      <source>has accepted the chat!</source>
+      <translation>aceitou um chat!</translation>
     </message>
   </context>
   <context>
     <name>chat/translation</name>
+    <message>
+      <source>We could not detect operator language</source>
+      <translation>Não foi possível detectar o idioma do operador</translation>
+    </message>
+    <message>
+      <source>Detected operator and visitor languages matches, please choose languages manually</source>
+      <translation>Idiomas detectados para o operador e visitante são iguais, por favor, escolha os idiomas manualmente</translation>
+    </message>
     <message>
       <source>Visitor language</source>
       <translation>Idioma do visitante</translation>
@@ -2036,14 +2048,6 @@
     <message>
       <source>Could not translate</source>
       <translation>Não foi possível traduzir</translation>
-    </message>
-    <message>
-      <source>We could not detect operator language</source>
-      <translation>Não foi possível detectar o idioma do operador</translation>
-    </message>
-    <message>
-      <source>Detected operator and visitor languages matches, please choose languages manually</source>
-      <translation>Idiomas detectados para o operador e visitante são iguais, por favor, escolha os idiomas manualmente</translation>
     </message>
     <message>
       <source>Translation configuration</source>
@@ -2177,15 +2181,15 @@
     </message>
     <message>
       <source>Wait time</source>
-      <translation type="unfinished"/>
+      <translation>Tempo de espera</translation>
     </message>
     <message>
       <source>Delete chat</source>
-      <translation type="unfinished"/>
+      <translation>Apagar conversa</translation>
     </message>
     <message>
       <source>Created</source>
-      <translation type="unfinished"/>
+      <translation>Criado</translation>
     </message>
     <message>
       <source>Time ago</source>
@@ -2505,11 +2509,11 @@
     </message>
     <message>
       <source>You are number</source>
-      <translation type="unfinished"/>
+      <translation>Você é o número</translation>
     </message>
     <message>
       <source>in the queue. Please wait...</source>
-      <translation type="unfinished"/>
+      <translation>na fila. Por favor, aguarde...</translation>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
@@ -3391,7 +3395,7 @@
     </message>
     <message>
       <source>Supported: online_operators, departments_stats, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
-      <translation type="unfinished"/>
+      <translation>Suportado: atendentes_online, departamentos_stats, conversas_pendentes, conversas_naoLidas, conversas_transferidas, conversas_ativas, conversas_finalizadas</translation>
     </message>
     <message>
       <source>New chat notification settings</source>
@@ -3665,7 +3669,7 @@
     </message>
     <message>
       <source>Transfered chats</source>
-      <translation type="unfinished"/>
+      <translation>Conversas transferidas</translation>
     </message>
     <message>
       <source>Home</source>
@@ -4118,7 +4122,7 @@
     </message>
     <message>
       <source>Checked by default</source>
-      <translation type="unfinished"/>
+      <translation>Assinalado como padrão</translation>
     </message>
     <message>
       <source>E-mail is always required</source>
@@ -7145,12 +7149,12 @@
   <context>
     <name>chat/closechatadmin</name>
     <message>
-      <source>has closed the chat!</source>
-      <translation>fechou o chat!</translation>
-    </message>
-    <message>
       <source>has redirected user to contact form!</source>
       <translation>redirecionou o usuário para o formulário de contato!</translation>
+    </message>
+    <message>
+      <source>has closed the chat!</source>
+      <translation>fechou o chat!</translation>
     </message>
   </context>
   <context>
@@ -7311,6 +7315,45 @@
     <message>
       <source>Auto login module is not enabled</source>
       <translation>O módulo Auto Login não está habilitado</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/chatcommand</name>
+    <message>
+      <source>Nick changed!</source>
+      <translation>O apelido foi alterado!</translation>
+    </message>
+    <message>
+      <source>E-mail changed!</source>
+      <translation>O endereço de email foi alterado!</translation>
+    </message>
+    <message>
+      <source>Phone changed!</source>
+      <translation>Número de telefone alterado!</translation>
+    </message>
+    <message>
+      <source>User was redirected!</source>
+      <translation>O usuário foi redirecionado!</translation>
+    </message>
+    <message>
+      <source>Screenshot was scheduled!</source>
+      <translation>A capitura de tela estava programada!</translation>
+    </message>
+    <message>
+      <source>User was redirected to contact form!</source>
+      <translation>O usuário foi redirecionado para o formulário de contato!</translation>
+    </message>
+    <message>
+      <source>User was blocked!</source>
+      <translation>O usuário foi bloqueado!</translation>
+    </message>
+    <message>
+      <source>Chat was closed!</source>
+      <translation>A conversa foi finalizada!</translation>
+    </message>
+    <message>
+      <source>Chat was deleted!</source>
+      <translation>A conversa foi apagada!</translation>
     </message>
   </context>
 </TS>

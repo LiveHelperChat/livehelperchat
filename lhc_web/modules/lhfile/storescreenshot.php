@@ -100,11 +100,38 @@ if ($Params['user_parameters_unordered']['hash'] != '' || $Params['user_paramete
 							erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.storescreenshot.store',array('chat_file' => & $fileUpload));
 							
 							if ($chat !== false) {
+							    
+							    $msg = new erLhcoreClassModelmsg();
+							    $msg->msg = '[file='.$fileUpload->id.'_'.md5($fileUpload->name.'_'.$fileUpload->chat_id).']';
+							    $msg->chat_id = $chat->id;
+							    $msg->user_id = -1;
+							    
+							    $chat->last_user_msg_time = $msg->time = time();
+							     
+							    erLhcoreClassChat::getSession()->save($msg);
+							     
+							    if ($chat->last_msg_id < $msg->id) {
+							        $chat->last_msg_id = $msg->id;
+							    }
+							    							    
 								$chat->user_typing_txt = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/screenshot','Screenshot ready...');
 								$chat->user_typing = time();
 								
 								$chat->screenshot_id = $fileUpload->id;
 								$chat->updateThis();
+								
+								// Force operators to check for new messages
+								erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.messages_added_passive', array(
+								    'chat' => & $chat,
+								    'msg' => & $msg,
+								));	
+																						
+								// Force operators to check for new messages
+								erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.screenshot_ready', array(
+								    'chat' => & $chat,
+								    'msg' => & $msg,
+								    'file' => & $fileUpload
+								));															
 							}
 							
 							if ($chat !== false && $chat->online_user !== false) {
@@ -116,6 +143,8 @@ if ($Params['user_parameters_unordered']['hash'] != '' || $Params['user_paramete
 							}
 							
 						$db->commit();
+						
+						
 						
 						echo json_encode(array('stored' => 'true'));
 						exit;

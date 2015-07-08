@@ -11,7 +11,7 @@
     </message>
     <message>
       <source>Which ip should be allowed to update DB by executing http request, separate by comma?</source>
-      <translation>Welke IP-adressen mogen de database updaten door http aanvragen te doen? (gescheiden door komma&apos;s)</translation>
+      <translation>Welke IP-adressen mogen de database updaten door HTTP aanvragen te doen? (gescheiden door komma&apos;s)</translation>
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
@@ -115,7 +115,7 @@
     </message>
     <message>
       <source>Show need help tooltip?</source>
-      <translation>Hulp tooltip tonen?</translation>
+      <translation>Laat de &apos;hulp nodig&apos; tooltip zien?</translation>
     </message>
     <message>
       <source>Minimum phone number length</source>
@@ -163,7 +163,7 @@
     </message>
     <message>
       <source>Chats export secret hash</source>
-      <translation>Chats exporteren geheime hash</translation>
+      <translation>Geheime hash om chats te exporteren</translation>
     </message>
     <message>
       <source>Please enter explicit http mode. Either http: or https:, do not forget : at the end.</source>
@@ -191,7 +191,7 @@
     </message>
     <message>
       <source>Home page dashboard widgets order</source>
-      <translation type="unfinished"/>
+      <translation>Startpagina dashboard-widgets volgorde</translation>
     </message>
     <message>
       <source>Your site URL address</source>
@@ -235,7 +235,7 @@
     </message>
     <message>
       <source>Change to your site Terms of Service</source>
-      <translation>Wijzigen naar uw site Terms of Service</translation>
+      <translation>Wijzigen naar uw algemene voorwaarden</translation>
     </message>
     <message>
       <source>How many seconds chat accept link is valid. Set 0 to force login all the time manually.</source>
@@ -740,7 +740,7 @@
     </message>
     <message>
       <source>Choose prefered http mode</source>
-      <translation>Kies geprefereerde http modus</translation>
+      <translation>Kies geprefereerde HTTP modus</translation>
     </message>
     <message>
       <source>Based on site (default)</source>
@@ -768,11 +768,11 @@
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Chatbox module to render.</source>
-      <translation type="unfinished"/>
+      <translation>Plaats deze tag waar je de Livechat chatbox module wil renderen.</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper Chatbox module tag.</source>
-      <translation type="unfinished"/>
+      <translation>Plaats deze tag na de Livechat Chatbox module tag.</translation>
     </message>
     <message>
       <source>Chatbox</source>
@@ -848,11 +848,11 @@
     </message>
     <message>
       <source>Place this tag where you want the Live Helper FAQ module to render.</source>
-      <translation type="unfinished"/>
+      <translation>Plaats deze tag waar je de Livechat FAQ module wil renderen.</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper FAQ module tag.</source>
-      <translation type="unfinished"/>
+      <translation>Plaats deze tag na de Livechat FAQ module tag.</translation>
     </message>
     <message>
       <source>Status text</source>
@@ -876,11 +876,11 @@
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Questionary module to render.</source>
-      <translation type="unfinished"/>
+      <translation>Plaats deze tag waar je de Livechat Enquete module wil renderen</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper Questionary module tag.</source>
-      <translation type="unfinished"/>
+      <translation>Plaats deze tag na de Livechat Enquete module tag.</translation>
     </message>
     <message>
       <source>Help us to grow</source>
@@ -944,11 +944,11 @@
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Plugin to render.</source>
-      <translation type="unfinished"/>
+      <translation>Plaats deze tag waar je de Livechat plugin wil renderen.</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper Plugin tag.</source>
-      <translation type="unfinished"/>
+      <translation>Plaats deze tag na de Livechat plugin tag.</translation>
     </message>
     <message>
       <source>On a mouse click show the page widget</source>
@@ -1020,11 +1020,11 @@
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Status to render.</source>
-      <translation type="unfinished"/>
+      <translation>Plaats deze tag waar je de Livechat status wil renderen.</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper status tag.</source>
-      <translation type="unfinished"/>
+      <translation>Plaats deze tag na de Livechat status tag.</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -1152,23 +1152,23 @@
     </message>
     <message>
       <source>Vote status</source>
-      <translation type="unfinished"/>
+      <translation>Stem status</translation>
     </message>
     <message>
       <source>Any</source>
-      <translation type="unfinished"/>
+      <translation>Elke</translation>
     </message>
     <message>
-      <source>Not Noted</source>
-      <translation>Niet genoteerd </translation>
+      <source>Not Voted</source>
+      <translation>Niet gestemd</translation>
     </message>
     <message>
       <source>Up Voted</source>
-      <translation type="unfinished"/>
+      <translation>Leuk gevonden</translation>
     </message>
     <message>
       <source>Down vote</source>
-      <translation type="unfinished"/>
+      <translation>Niet leuk gevonden</translation>
     </message>
     <message>
       <source>Search</source>
@@ -1443,7 +1443,7 @@
     </message>
     <message>
       <source>Fallback message</source>
-      <translation type="unfinished"/>
+      <translation>Terugval bericht</translation>
     </message>
     <message>
       <source>Automatically send this message to user then chat is accepted</source>
@@ -1719,6 +1719,10 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>Invalid chat status</source>
+      <translation>Onjuiste chat status</translation>
+    </message>
+    <message>
       <source>Attach uploaded file</source>
       <translation>Voeg geupload bestand toe</translation>
     </message>
@@ -1784,7 +1788,7 @@
     </message>
     <message>
       <source>Close dialog</source>
-      <translation>Sluit chat</translation>
+      <translation>Sluit chatdialoog</translation>
     </message>
     <message>
       <source>Close chat</source>
@@ -1908,7 +1912,7 @@
     </message>
     <message>
       <source>Send</source>
-      <translation>Zend</translation>
+      <translation>Verstuur</translation>
     </message>
     <message>
       <source>Reopen chat</source>
@@ -1931,12 +1935,20 @@
       <translation>Berichten</translation>
     </message>
     <message>
-      <source>Invalid chat status</source>
-      <translation>Onjuiste chat status</translation>
+      <source>has accepted the chat!</source>
+      <translation>heeft de chat geopend!</translation>
     </message>
   </context>
   <context>
     <name>chat/translation</name>
+    <message>
+      <source>We could not detect operator language</source>
+      <translation>De operator zijn taal kan niet herkend worden</translation>
+    </message>
+    <message>
+      <source>Detected operator and visitor languages matches, please choose languages manually</source>
+      <translation>Gedetecteerde operator en bezoeker zijn talen matchen, kies s.v.p. handmatig een taal</translation>
+    </message>
     <message>
       <source>Visitor language</source>
       <translation>Bezoeker zijn taal</translation>
@@ -2036,14 +2048,6 @@
     <message>
       <source>Could not translate</source>
       <translation>Kon niet vertalen</translation>
-    </message>
-    <message>
-      <source>We could not detect operator language</source>
-      <translation>De operator zijn taal kan niet herkend worden</translation>
-    </message>
-    <message>
-      <source>Detected operator and visitor languages matches, please choose languages manually</source>
-      <translation>Gedetecteerde operator en bezoeker zijn talen matchen, kies s.v.p. handmatig een taal</translation>
     </message>
     <message>
       <source>Translation configuration</source>
@@ -2263,7 +2267,7 @@
     </message>
     <message>
       <source>Please</source>
-      <translation>S.v.p.</translation>
+      <translation>Alstublieft</translation>
     </message>
     <message>
       <source>login first.</source>
@@ -2318,7 +2322,7 @@
     </message>
     <message>
       <source>Enter your message</source>
-      <translation>Type uw bericht</translation>
+      <translation>Typ uw bericht</translation>
     </message>
     <message>
       <source>Your question</source>
@@ -2442,7 +2446,7 @@
     </message>
     <message>
       <source>Maximum</source>
-      <translation>Maximum</translation>
+      <translation>Maximaal</translation>
     </message>
     <message>
       <source>characters for a message</source>
@@ -2544,7 +2548,7 @@
     </message>
     <message>
       <source>Closed chats list</source>
-      <translation>Gesloten chat lijst</translation>
+      <translation>Gesloten chats lijst</translation>
     </message>
     <message>
       <source>Chats list</source>
@@ -2841,7 +2845,7 @@
     </message>
     <message>
       <source>No one has sent a message to the user yet</source>
-      <translation>Niemand heeft nog een bericht naar deze gebruiker verstuurd</translation>
+      <translation>Nog niemand heeft een bericht naar deze gebruiker verstuurd</translation>
     </message>
     <message>
       <source>GEO detection configuration</source>
@@ -2849,7 +2853,7 @@
     </message>
     <message>
       <source>Map location</source>
-      <translation>Kaart lokatie</translation>
+      <translation>Locatie op map</translation>
     </message>
     <message>
       <source>GEO Enabled</source>
@@ -2901,7 +2905,7 @@
     </message>
     <message>
       <source>Location of city database</source>
-      <translation>Lokatie van stadsdatabase</translation>
+      <translation>Locatie van stadsdatabase</translation>
     </message>
     <message>
       <source>User country based detection, faster</source>
@@ -3391,7 +3395,7 @@
     </message>
     <message>
       <source>Supported: online_operators, departments_stats, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
-      <translation type="unfinished"/>
+      <translation>Ondersteund: online_operators, departments_stats, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</translation>
     </message>
     <message>
       <source>New chat notification settings</source>
@@ -3511,7 +3515,7 @@
     </message>
     <message>
       <source>Statistic</source>
-      <translation>Statistiek</translation>
+      <translation>Statistieken</translation>
     </message>
     <message>
       <source>Theming</source>
@@ -3531,7 +3535,7 @@
     </message>
     <message>
       <source>Automatic translations</source>
-      <translation>Automatische veralingen</translation>
+      <translation>Automatische vertalen</translation>
     </message>
     <message>
       <source>XMPP settings</source>
@@ -3605,7 +3609,7 @@
     <name>pagelayout/pagelayout</name>
     <message>
       <source>Clean cache</source>
-      <translation>Cache opschonen</translation>
+      <translation>Cache verversen</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -3617,7 +3621,7 @@
     </message>
     <message>
       <source>collapse/expand</source>
-      <translation type="unfinished"/>
+      <translation>Minimaliseren/maximaliseren</translation>
     </message>
     <message>
       <source>Active chats</source>
@@ -3645,7 +3649,7 @@
     </message>
     <message>
       <source>Download XLS</source>
-      <translation type="unfinished"/>
+      <translation>Download XLS bestand</translation>
     </message>
     <message>
       <source>All departments</source>
@@ -3653,7 +3657,7 @@
     </message>
     <message>
       <source>Number of elements in list</source>
-      <translation type="unfinished"/>
+      <translation>Aantal elementen in de lijst</translation>
     </message>
     <message>
       <source>Departments stats</source>
@@ -3735,15 +3739,15 @@
     </message>
     <message>
       <source>Automatic chats close, click to close old chats</source>
-      <translation>Automatisch chats sluiten, click om oude chats te sluiten</translation>
+      <translation>Klik hier om automatisch oude chats te sluiten</translation>
     </message>
     <message>
       <source>Automatic chats purge, click to purge old chats</source>
-      <translation>Automatisch chats opschonen, klik om oude chats op te schonen</translation>
+      <translation>Klik hier om automatisch alle oude chats te verwijderen</translation>
     </message>
     <message>
       <source>Update chats duration by using new algorithm</source>
-      <translation>Bijwerken chats duur met behulp van nieuwe algoritme</translation>
+      <translation>Werk automatisch alle chats bij aan de hand van het nieuwe algoritme</translation>
     </message>
     <message>
       <source>Closed chats</source>
@@ -3970,11 +3974,11 @@
     </message>
     <message>
       <source>Custom fields generator, these fields will be visible in start chat forms</source>
-      <translation type="unfinished"/>
+      <translation>Eigen veld generator, deze velden zijn zichtbaar als de gebruiker een chat wil starten</translation>
     </message>
     <message>
       <source>Field label</source>
-      <translation type="unfinished"/>
+      <translation>Veld label</translation>
     </message>
     <message>
       <source>Default value</source>
@@ -4014,7 +4018,7 @@
     </message>
     <message>
       <source>Field identifier</source>
-      <translation type="unfinished"/>
+      <translation>Veld identificatie</translation>
     </message>
     <message>
       <source>Is required</source>
@@ -4046,7 +4050,7 @@
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>Identificatie</translation>
     </message>
     <message>
       <source>Remove</source>
@@ -4070,7 +4074,7 @@
     </message>
     <message>
       <source>Custom fields</source>
-      <translation type="unfinished"/>
+      <translation>Eigen veld</translation>
     </message>
     <message>
       <source>Name</source>
@@ -4118,7 +4122,7 @@
     </message>
     <message>
       <source>Checked by default</source>
-      <translation type="unfinished"/>
+      <translation>Standaard aangevinkt</translation>
     </message>
     <message>
       <source>E-mail is always required</source>
@@ -4300,7 +4304,7 @@
     </message>
     <message>
       <source>Statistic</source>
-      <translation>Statistiek</translation>
+      <translation>Statistieken</translation>
     </message>
     <message>
       <source>Chats statistic</source>
@@ -4312,7 +4316,7 @@
     </message>
     <message>
       <source>Last 24 hours statistic</source>
-      <translation type="unfinished"/>
+      <translation>Statistieken van de laatste 24 uur</translation>
     </message>
     <message>
       <source>User</source>
@@ -4440,7 +4444,7 @@
     </message>
     <message>
       <source>Average chat duration by user</source>
-      <translation type="unfinished"/>
+      <translation>Gemiddelde chattijd per gebruiker</translation>
     </message>
     <message>
       <source>All operators statistic will be downloaded</source>
@@ -4452,7 +4456,7 @@
     </message>
     <message>
       <source>Last 24h statistic</source>
-      <translation>Laatste 24u statistiek</translation>
+      <translation>Statistieken van de laatste 24 uur</translation>
     </message>
     <message>
       <source>Parameter</source>
@@ -4500,7 +4504,7 @@
     </message>
     <message>
       <source>Operators statistic, top 100 by chats number</source>
-      <translation>Operator statistieken, top 100 aan de hand van aantal chats</translation>
+      <translation>Top 100 operators aan de hand van het aantal chats</translation>
     </message>
     <message>
       <source>Total messages</source>
@@ -6892,7 +6896,7 @@
     </message>
     <message>
       <source>Came from</source>
-      <translation type="unfinished"/>
+      <translation>Komt vanaf</translation>
     </message>
     <message>
       <source>Link</source>
@@ -6900,7 +6904,7 @@
     </message>
     <message>
       <source>Chat content</source>
-      <translation type="unfinished"/>
+      <translation>Chat inhoud</translation>
     </message>
     <message>
       <source>User ID</source>
@@ -7145,12 +7149,12 @@
   <context>
     <name>chat/closechatadmin</name>
     <message>
-      <source>has closed the chat!</source>
-      <translation>heeft de chat gesloten!</translation>
-    </message>
-    <message>
       <source>has redirected user to contact form!</source>
       <translation>heeft de gebruiker doorgestuurd naar het contactformulier!</translation>
+    </message>
+    <message>
+      <source>has closed the chat!</source>
+      <translation>heeft de chat gesloten!</translation>
     </message>
   </context>
   <context>
@@ -7200,15 +7204,15 @@
     <name>chat/voteaction</name>
     <message>
       <source>Thumbs up</source>
-      <translation>Thumbs up</translation>
+      <translation>Vind ik leuk</translation>
     </message>
     <message>
       <source>Thumbs down</source>
-      <translation>Thumbs down</translation>
+      <translation>Vind ik niet leuk</translation>
     </message>
     <message>
       <source>Removed thumb vote</source>
-      <translation>Verwijder thumb stem</translation>
+      <translation>Verwijder mijn stem</translation>
     </message>
   </context>
   <context>
@@ -7306,11 +7310,50 @@
     </message>
     <message>
       <source>Invalid autologin hash</source>
-      <translation>Ongeldig autologin code</translation>
+      <translation>Ongeldige autologin code</translation>
     </message>
     <message>
       <source>Auto login module is not enabled</source>
       <translation>Autologin module is niet ingeschakeld</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/chatcommand</name>
+    <message>
+      <source>Nick changed!</source>
+      <translation>Naam gewijzigd</translation>
+    </message>
+    <message>
+      <source>E-mail changed!</source>
+      <translation>Email gewijzigd!</translation>
+    </message>
+    <message>
+      <source>Phone changed!</source>
+      <translation>Telefoonnummer gewijzigd!</translation>
+    </message>
+    <message>
+      <source>User was redirected!</source>
+      <translation>Gebruiker is doorgestuurd!</translation>
+    </message>
+    <message>
+      <source>Screenshot was scheduled!</source>
+      <translation>Screenshot is ingepland!</translation>
+    </message>
+    <message>
+      <source>User was redirected to contact form!</source>
+      <translation>Gebruiker is doorgestuurd naar het contactformulier!</translation>
+    </message>
+    <message>
+      <source>User was blocked!</source>
+      <translation>Gebruiker is geblokkeerd!</translation>
+    </message>
+    <message>
+      <source>Chat was closed!</source>
+      <translation>Chat is gesloten!</translation>
+    </message>
+    <message>
+      <source>Chat was deleted!</source>
+      <translation>Chat is verwijderd!</translation>
     </message>
   </context>
 </TS>
