@@ -1365,7 +1365,7 @@
     </message>
     <message>
       <source>Blocked users</source>
-      <translation>Geblokkeerde gebruikers</translation>
+      <translation>Geblokkeerd door</translation>
     </message>
     <message>
       <source>Please enter an IP to block</source>
