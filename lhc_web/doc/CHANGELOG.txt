@@ -1,3 +1,18 @@
+2.34v
+
+1. Unfilled forms fields will be highlighted
+2. Security improvements
+3. Option to prefill custom fields which were added from back office.
+4. https://github.com/LiveHelperChat/livehelperchat/issues/701
+5. https://github.com/LiveHelperChat/livehelperchat/issues/700
+6. https://github.com/LiveHelperChat/livehelperchat/issues/699
+7. https://github.com/LiveHelperChat/livehelperchat/issues/694
+8. Tooltips changed to bootstrap popovers
+9. https://github.com/LiveHelperChat/livehelperchat/issues/702
+10. Translations won't translate BBCode
+
+There is no required database update for this release.
+
 2.33v
 
 1. Transfered chats as widget.
