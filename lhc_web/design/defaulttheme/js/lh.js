@@ -1490,33 +1490,36 @@ function lh(){
     {
     	var inst = this;
     	
-    	if (this.addingUserMessage == false && this.addUserMessageQueue.length > 0) {
+    	if (this.addingUserMessage == false) {
     		
-    		var elementAdd = this.addUserMessageQueue.shift();
-    		this.addingUserMessage = true;
+    		if (this.addUserMessageQueue.length > 0)
+    		{
+	    		var elementAdd = this.addUserMessageQueue.shift();
+	    		this.addingUserMessage = true;
+	    		
+		        $.postJSON(elementAdd.url, elementAdd.pdata , function(data) {
+		        		        	
+		        	if (LHCCallbacks.addmsgadmin) {
+		        		LHCCallbacks.addmsgadmin(chat_id);
+		        	};
+		        	
+		        	if (data.r != '') {
+	            		$('#messagesBlock-'+chat_id).append(data.r);
+		                $('#messagesBlock-'+chat_id).animate({ scrollTop: $("#messagesBlock-"+chat_id).prop("scrollHeight") }, 1000);
+	            	};
+	            	
+	            	lhinst.syncadmincall();	
+	            	
+		        	inst.addingUserMessage = false;
+		        	
+		        	// There is still pending messages, add them
+		        	if (inst.addUserMessageQueue.length > 0) {
+		        		clearTimeout(inst.addDelayedTimeout);	        		
+		            	inst.addDelayedMessageAdmin();	            	
+		        	}
+				});
+    		}
     		
-	        $.postJSON(elementAdd.url, elementAdd.pdata , function(data) {
-	        		        	
-	        	if (LHCCallbacks.addmsgadmin) {
-	        		LHCCallbacks.addmsgadmin(chat_id);
-	        	};
-	        	
-	        	if (data.r != '') {
-            		$('#messagesBlock-'+chat_id).append(data.r);
-	                $('#messagesBlock-'+chat_id).animate({ scrollTop: $("#messagesBlock-"+chat_id).prop("scrollHeight") }, 1000);
-            	};
-            	
-            	lhinst.syncadmincall();	
-            	
-	        	inst.addingUserMessage = false;
-	        	
-	        	// There is still pending messages, add them
-	        	if (inst.addUserMessageQueue.length > 0) {
-	        		clearTimeout(inst.addDelayedTimeout);	        		
-	            	inst.addDelayedMessageAdmin();	            	
-	        	}
-			});
-	        
     	} else {
     		clearTimeout(this.addDelayedTimeout);
         	this.addDelayedTimeout = setTimeout(function(){
@@ -1685,31 +1688,34 @@ function lh(){
     {
     	var inst = this;
     	
-    	if (this.addingUserMessage == false && this.addUserMessageQueue.length > 0) {
+    	if (this.addingUserMessage == false) {
     		
-    		var elementAdd = this.addUserMessageQueue.shift();
-    		this.addingUserMessage = true;
-    		
-	        $.postJSON(elementAdd.url, elementAdd.pdata , function(data) {
-	        		        	
-	        	if (data.error == 'f') {
-		        	if (LHCCallbacks.addmsguser) {
-		        		LHCCallbacks.addmsguser(inst,data);
-		        	};
+    		if (this.addUserMessageQueue.length > 0)
+    		{
+	    		var elementAdd = this.addUserMessageQueue.shift();
+	    		this.addingUserMessage = true;
+	    		
+		        $.postJSON(elementAdd.url, elementAdd.pdata , function(data) {
+		        		        	
+		        	if (data.error == 'f') {
+			        	if (LHCCallbacks.addmsguser) {
+			        		LHCCallbacks.addmsguser(inst,data);
+			        	};
+			        	
+			        	inst.syncusercall();
+		        	}
 		        	
-		        	inst.syncusercall();
-	        	}
-	        	
-	        	inst.addingUserMessage = false;
-	        	
-	        	// There is still pending messages, add them
-	        	if (inst.addUserMessageQueue.length > 0) {
-	        		clearTimeout(inst.addDelayedTimeout);
-	        		inst.addDelayedMessage();	            	
-	        	}
-	        	
-			});
-	        
+		        	inst.addingUserMessage = false;
+		        	
+		        	// There is still pending messages, add them
+		        	if (inst.addUserMessageQueue.length > 0) {
+		        		clearTimeout(inst.addDelayedTimeout);
+		        		inst.addDelayedMessage();	            	
+		        	}
+		        	
+				});
+    		}
+    		
     	} else {
     		clearTimeout(this.addDelayedTimeout);
         	this.addDelayedTimeout = setTimeout(function(){
