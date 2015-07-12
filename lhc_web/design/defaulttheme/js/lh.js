@@ -1616,10 +1616,6 @@ function lh(){
 		});
     };
     
-    this.addingUserMessage = false;
-    this.addUserMessageQueue = [];
-    this.addDelayedTimeout = null;
-    
     this.addmsguser = function ()
     {
     	if (LHCCallbacks.addmsguserbefore) {
