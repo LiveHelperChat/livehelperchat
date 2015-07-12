@@ -57,9 +57,14 @@ class erLhcoreClassUpdate
 					if ($typeMatch == false) {
 						$tablesStatus[$table]['error'] = true;
 						$status[] = "[{$columnDesired['field']}] column type is not correct";
-												
+
+						$extra = '';
+						if ($columnDesired['extra'] == 'auto_increment') {
+						    $extra = ' AUTO_INCREMENT';
+						}
+						
 						$tablesStatus[$table]['queries'][] = "ALTER TABLE `{$table}`
-						CHANGE `{$columnDesired['field']}` `{$columnDesired['field']}` {$columnDesired['type']} NOT NULL;";
+						CHANGE `{$columnDesired['field']}` `{$columnDesired['field']}` {$columnDesired['type']} NOT NULL{$extra};";
 					}
 					
 					if ($columnFound == false) {
