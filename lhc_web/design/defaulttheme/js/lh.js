@@ -498,7 +498,7 @@ function lh(){
     	            
         			if ( data.ott != '' && data.ott != 'f') {
         				var instStatus = $('#id-operator-typing');
-        				instStatus.html(data.ott);
+        				instStatus.text(data.ott);
         				instStatus.css('visibility','visible');
         				inst.operatorTyping = true;
         			} else if (data.ott == 'f') {
