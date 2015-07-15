@@ -550,7 +550,9 @@ function lh(){
 		    this.syncroRequestSend = true;
 		    var modeWindow = this.isWidgetMode == true ? '/(mode)/widget' : '';
 		    var operatorTyping = this.operatorTyping == true ? '/(ot)/t' : '';
-		    $.getJSON(this.wwwDir + this.syncuser + this.chat_id + '/'+ this.last_message_id + '/' + this.hash + modeWindow + operatorTyping ,{ }, function(data){
+		    var themeWindow = this.theme !== null ? '/(theme)/'+this.theme : '';
+		    
+		    $.getJSON(this.wwwDir + this.syncuser + this.chat_id + '/'+ this.last_message_id + '/' + this.hash + modeWindow + operatorTyping + themeWindow ,{ }, function(data){
 		    			    	
 		    	inst.updateUserSyncInterface(inst,data);
 		        
