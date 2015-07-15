@@ -516,6 +516,8 @@ function lh(){
 	               $('#status-chat').html(data.status);
 	               $('#ChatMessageContainer').remove();
 	               $('#ChatSendButtonContainer').remove();
+	               $('#id-operator-typing').css('visibility','hidden');
+	               inst.operatorTyping = false;
 	           }
 	        };
         } catch(err) {		     
