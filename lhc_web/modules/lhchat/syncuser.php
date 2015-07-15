@@ -134,7 +134,9 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 		        } else {
 		            $status = '<h4>'.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Support staff member has closed this chat').'</h4>';
 		        }
-		    	
+		        
+		        $status .= '<input type="button" class="btn btn-default mb10" value="'.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close and Start a new one').'" onclick="lhinst.userclosedchatembed();" />';
+		        
 		    	$blocked = 'true';
 		    	$breakSync = true;
 		    }
@@ -207,7 +209,11 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
     } else {
         $status = '<h4>'.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Support staff member has closed this chat').'</h4>';
     }
-        
+
+    if ($Params['user_parameters_unordered']['modeembed'] == 'embed') {
+        $status .= '<input type="button" class="btn btn-default mb10" value="'.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close and Start a new one').'" onclick="lhinst.userclosedchatembed();" />';
+    }
+    
     $blocked = 'true';
 }
 

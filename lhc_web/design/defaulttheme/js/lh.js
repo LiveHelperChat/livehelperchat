@@ -50,16 +50,23 @@ function lh(){
 
     // Is synchronization under progress
     this.isSinchronizing = false;
-
+    
     // is Widget mode
     this.isWidgetMode = false;
+
+    // is Embed mode
+    this.isEmbedMode = false;
 
     this.syncroRequestSend = false;
 
     this.currentMessageText = '';
-
+    
     this.setWidgetMode = function(status) {
     	this.isWidgetMode = status;
+    };
+
+    this.setEmbedMode = function(status) {
+    	this.isEmbedMode = status;
     };
 
     this.setSynchronizationRequestSend = function(status)
@@ -551,8 +558,9 @@ function lh(){
 		    var modeWindow = this.isWidgetMode == true ? '/(mode)/widget' : '';
 		    var operatorTyping = this.operatorTyping == true ? '/(ot)/t' : '';
 		    var themeWindow = this.theme !== null ? '/(theme)/'+this.theme : '';
+		    var modeEmbed = this.isEmbedMode == true ? '/(modeembed)/embed' : '';
 		    
-		    $.getJSON(this.wwwDir + this.syncuser + this.chat_id + '/'+ this.last_message_id + '/' + this.hash + modeWindow + operatorTyping + themeWindow ,{ }, function(data){
+		    $.getJSON(this.wwwDir + this.syncuser + this.chat_id + '/'+ this.last_message_id + '/' + this.hash + modeWindow + operatorTyping + themeWindow + modeEmbed ,{ }, function(data){
 		    			    	
 		    	inst.updateUserSyncInterface(inst,data);
 		        

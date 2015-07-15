@@ -1264,6 +1264,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Close and Start a new one</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Close</source>
       <translation type="unfinished"/>
     </message>
@@ -3230,14 +3234,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>first visit</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>last visit</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Chat</source>
       <translation type="unfinished"/>
     </message>
@@ -3251,6 +3247,14 @@
     </message>
     <message>
       <source>has sent a message to the user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>first visit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>last visit</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6924,6 +6928,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>The operator has closed this chat session</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat was automatically transferred to</source>
       <translation type="unfinished"/>
     </message>
@@ -6937,10 +6945,6 @@
     </message>
     <message>
       <source>Support staff member has closed this chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>The operator has closed this chat session</source>
       <translation type="unfinished"/>
     </message>
     <message>

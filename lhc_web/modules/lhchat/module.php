@@ -268,7 +268,7 @@ $ViewList['voteaction'] = array(
 
 $ViewList['syncuser'] = array(
     'params' => array('chat_id','message_id','hash'),
-	'uparams' => array('mode','ot','theme')
+	'uparams' => array('mode','ot','theme','modeembed')
 );
 
 $ViewList['usertyping'] = array(

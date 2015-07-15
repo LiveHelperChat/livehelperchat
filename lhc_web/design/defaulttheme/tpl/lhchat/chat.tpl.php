@@ -13,8 +13,8 @@
 			<a href="<?php echo erLhcoreClassDesign::baseurl('chat/reopen')?>/<?php echo $chat->id?>/<?php echo $chat->hash?><?php if ( isset($chat_widget_mode) && $chat_widget_mode == true ) : ?>/(mode)/widget<?php endif; ?><?php if ( isset($chat_embed_mode) && $chat_embed_mode == true ) : ?>/(embedmode)/embed<?php endif;?>" class="btn btn-default" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatnotexists','Resume chat');?></a>
 		<?php endif; ?>
 				
-		<?php if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT && isset($chat_widget_mode) && $chat_widget_mode == true && $chat->time < time()-1800) : ?>
-			<input type="button" class="btn btn-default" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close')?>" onclick="lhinst.userclosedchatembed();" />
+		<?php if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT && ( (isset($chat_widget_mode) && $chat_widget_mode == true && $chat->time < time()-1800) || (isset($chat_embed_mode) && $chat_embed_mode == true)) ) : ?>
+			<input type="button" class="btn btn-default mb10" value="<?php if (isset($chat_embed_mode) && $chat_embed_mode == true) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close and Start a new one')?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close')?><?php endif;?>" onclick="lhinst.userclosedchatembed();" />
 		<?php endif;?>
 		
 	</div>
@@ -63,7 +63,7 @@
 	    		<input type="button" class="btn btn-default btn-xs invisible-button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','BB Code')?>" onclick="return lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('chat/bbcodeinsert')?>'})" />
 	    		<?php endif; ?>
 	    		
-	    		<?php if ( isset($chat_embed_mode) && $chat_embed_mode == true ) : ?>
+	    		<?php if ( (isset($chat_embed_mode) && $chat_embed_mode == true) || (isset($chat_embed_mode) && $chat_embed_mode == true)) : ?>
 	    		<input type="button" class="btn btn-default btn-xs invisible-button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close')?>" onclick="lhinst.userclosedchatembed();" />
 	    		<?php endif;?>
 		   	</div>
@@ -99,7 +99,9 @@
     lhinst.setTheme('<?php echo $theme->id?>');
 	<?php endif; ?>
 
-	
+	<?php if (isset($chat_embed_mode) && $chat_embed_mode == true) : ?>
+	lhinst.setEmbedMode(true);
+    <?php endif;?>
 	
 	setTimeout(function(){
 			$('#messagesBlock').scrollTop($('#messagesBlock').prop('scrollHeight'));
