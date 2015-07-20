@@ -14,7 +14,7 @@
 		<?php endif; ?>
 				
 		<?php if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT && ( (isset($chat_widget_mode) && $chat_widget_mode == true && $chat->time < time()-1800) || (isset($chat_embed_mode) && $chat_embed_mode == true)) ) : ?>
-			<input type="button" class="btn btn-default mb10" value="<?php if (isset($chat_embed_mode) && $chat_embed_mode == true) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close and Start a new one')?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close')?><?php endif;?>" onclick="lhinst.userclosedchatembed();" />
+			<input type="button" class="btn btn-default mb10" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close')?>" onclick="lhinst.userclosedchatembed();" />
 		<?php endif;?>
 		
 	</div>

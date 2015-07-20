@@ -135,7 +135,7 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 		            $status = '<h4>'.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Support staff member has closed this chat').'</h4>';
 		        }
 		        
-		        $status .= '<input type="button" class="btn btn-default mb10" value="'.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close and Start a new one').'" onclick="lhinst.userclosedchatembed();" />';
+		        $status .= '<input type="button" class="btn btn-default mb10" value="'.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close').'" onclick="lhinst.userclosedchatembed();" />';
 		        
 		    	$blocked = 'true';
 		    	$breakSync = true;
