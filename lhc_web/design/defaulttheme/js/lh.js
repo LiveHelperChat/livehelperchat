@@ -474,8 +474,11 @@ function lh(){
 	           {
     	            if (data.result != 'false' && data.status == 'true')
     	            {
-                			$('#messagesBlock').append(data.result);
-                			$('#messagesBlock').animate({ scrollTop: $('#messagesBlock').prop('scrollHeight') }, 1000);
+    	            		var messageBlock = $('#messagesBlock');
+    	            	
+    	            		messageBlock.find('.pending-storage').remove();
+    	            		messageBlock.append(data.result);
+    	            		messageBlock.animate({ scrollTop: messageBlock.prop('scrollHeight') }, 1000);
 
                 			// If one the message owner is not current user play sound
                 			if ( confLH.new_message_sound_user_enabled == 1 && data.uw == 'false') {
@@ -1140,10 +1143,14 @@ function lh(){
 	        	            if (data.result != 'false')
 	        	            {
 	        	            	
-	        	            	
 	        	                $.each(data.result,function(i,item) {
-	                                  $('#messagesBlock-'+item.chat_id).append(item.content);
-	        		                  $('#messagesBlock-'+item.chat_id).animate({ scrollTop: $("#messagesBlock-"+item.chat_id).prop("scrollHeight") }, 1000);
+	        	                	
+	        	                	  var messageBlock = $('#messagesBlock-'+item.chat_id);
+	        	                	
+	        	                	  messageBlock.find('.pending-storage').remove();
+	        	                	  messageBlock.append(item.content);
+	        	                	  messageBlock.animate({ scrollTop: messageBlock.prop("scrollHeight") }, 1000);
+	        	                	  
 	        		                  lhinst.updateChatLastMessageID(item.chat_id,item.message_id);
 	
 	        		                  var mainElement = $('#chat-tab-link-'+item.chat_id);
@@ -1465,6 +1472,14 @@ function lh(){
 		} else {
 			
 			var inst = this;
+						
+			var messagesBlock = $('#messagesBlock-'+chat_id);
+			jQuery('<div/>', {
+			    'class': 'message-row pending-storage',					   
+			    text: pdata.msg
+			}).appendTo(messagesBlock);
+			
+			messagesBlock.animate({ scrollTop: messagesBlock.prop('scrollHeight') }, 500);
 			
 			if (this.addingUserMessage == false && this.addUserMessageQueue.length == 0)
 			{
@@ -1665,7 +1680,15 @@ function lh(){
 			});			
 						
 		} else { 
+					
+			var messagesBlock = $('#messagesBlock');
 			
+			jQuery('<div/>', {
+			    'class': 'message-row pending-storage',					   
+			    text: pdata.msg
+			}).appendTo(messagesBlock);
+			messagesBlock.animate({ scrollTop: messagesBlock.prop('scrollHeight') }, 500);
+						
 			if (this.addingUserMessage == false && this.addUserMessageQueue.length == 0)
 			{
 				this.addingUserMessage = true;

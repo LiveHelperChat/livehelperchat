@@ -404,6 +404,12 @@ div.message-row-in {
 	padding:0px 2px 4px 2px;
 }
 
+div.pending-storage {
+	padding-left:6px;
+	color:#a6a6a6;
+	font-style: italic;
+}
+
 .pt10 {
 	padding-top:10px;
 }
