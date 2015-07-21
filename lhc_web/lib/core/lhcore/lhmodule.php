@@ -155,6 +155,15 @@ class erLhcoreClassModule{
         }
     }
 
+    public static function reRun($url) {
+              
+        $sysConfiguration = erLhcoreClassSystem::instance()->RequestURI = $url;
+        
+        erLhcoreClassURL::resetInstance();
+        
+        return self::moduleInit(array('ignore_extensions' => false));
+    }
+    
     public static function attatchExtensionListeners(){
     	$cfg = erConfigClassLhConfig::getInstance();
     	$extensions = $cfg->getSetting('site','extensions');
@@ -419,7 +428,7 @@ class erLhcoreClassModule{
 
     }
 
-    public static function moduleInit()
+    public static function moduleInit($params = array())
     {        
         $cfg = erConfigClassLhConfig::getInstance();
         
@@ -438,9 +447,11 @@ class erLhcoreClassModule{
         self::$dateHourFormat = $cfg->getSetting('site', 'date_hour_format', false);
         self::$dateDateHourFormat = $cfg->getSetting('site', 'date_date_hour_format', false);
         
-        // Attatch extension listeners
-        self::attatchExtensionListeners();
-                
+        if (!isset($params['ignore_extensions'])){
+            // Attatch extension listeners
+            self::attatchExtensionListeners();
+        }
+        
         $url = erLhcoreClassURL::getInstance();
         self::$currentModuleName = preg_replace('/[^a-zA-Z0-9\-_]/', '', $url->getParam( 'module' ));
         self::$currentView = preg_replace('/[^a-zA-Z0-9\-_]/', '', $url->getParam( 'function' ));

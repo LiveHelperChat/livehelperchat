@@ -448,13 +448,11 @@ var lh_inst  = {
 
           var lhc_obj = this;
           
-		  if (typeof delayShow !== 'undefined') {         		
-         		this.addClass(document.getElementById('lhc_container'),'lhc-delayed');
-         		setTimeout(function(){
-         			lhc_obj.removeClass(document.getElementById('lhc_container'),'lhc-delayed');
-         			lhc_obj.toggleStatusWidget(true);
-         		},900);
-          }
+     		this.addClass(document.getElementById('lhc_container'),'lhc-delayed');
+     		setTimeout(function(){
+     			lhc_obj.removeClass(document.getElementById('lhc_container'),'lhc-delayed');
+     			lhc_obj.toggleStatusWidget(true);
+     		},250);
                     
           var closeHandler = document.getElementById('lhc_close');
           if (closeHandler !== null){

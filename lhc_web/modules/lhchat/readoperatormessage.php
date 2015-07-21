@@ -395,10 +395,9 @@ if (isset($_POST['askQuestion']))
        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started',array('chat' => & $chat, 'msg' => $messageInitial));
        
        erLhcoreClassChat::updateDepartmentStats($chat->department);
-       
-       // Redirect user
-       erLhcoreClassModule::redirect('chat/chatwidgetchat/' . $chat->id . '/' . $chat->hash . $modeAppendTheme .  '/(cstarted)/chat_started_by_invitation_cb');
-       exit;
+                 
+       $Result = erLhcoreClassModule::reRun(erLhcoreClassDesign::baseurlRerun('chat/chatwidgetchat') . '/' . $chat->id . '/' . $chat->hash . $modeAppendTheme .  '/(cstarted)/chat_started_by_invitation_cb');
+       return true;
 
     } else {
         $tpl->set('errors',$Errors);
