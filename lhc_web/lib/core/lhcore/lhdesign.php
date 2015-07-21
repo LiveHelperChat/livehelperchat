@@ -176,7 +176,7 @@ class erLhcoreClassDesign
     public static function baseurlRerun($link = '') {
         $instance = erLhcoreClassSystem::instance();
         $link = ltrim($link,'/');       
-        return $instance->IndexFile .  $instance->WWWDirLang  . '/' . $link;
+        return $instance->WWWDirLang  . '/' . $link;
     }
     
     public static function baseurl($link = '')
