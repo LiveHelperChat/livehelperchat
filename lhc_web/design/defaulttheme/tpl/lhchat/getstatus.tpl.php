@@ -452,7 +452,7 @@ var lh_inst  = {
      		setTimeout(function(){
      			lhc_obj.removeClass(document.getElementById('lhc_container'),'lhc-delayed');
      			lhc_obj.toggleStatusWidget(true);
-     		},(typeof delayShow !== 'undefined') ? 900 : 250);
+     		},(typeof delayShow !== 'undefined') ? 900 : 290);
                     
           var closeHandler = document.getElementById('lhc_close');
           if (closeHandler !== null){
