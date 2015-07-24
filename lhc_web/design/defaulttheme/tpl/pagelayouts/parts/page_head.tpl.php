@@ -2,7 +2,7 @@
 <?php
 $ReverseOrder = $Result['path'];
 krsort($ReverseOrder);
-foreach ($ReverseOrder as $pathItem) : ?><?php echo htmlspecialchars($pathItem['title']).' '?>&laquo;<?php echo ' ';endforeach;?>
+foreach ($ReverseOrder as $pathItem) : ?><?php echo htmlspecialchars($pathItem['title']).' '?><?php echo ' ';endforeach;?>
 <?php endif; ?>
 <?php echo htmlspecialchars(erLhcoreClassModelChatConfig::fetch('application_name')->current_value)?></title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
