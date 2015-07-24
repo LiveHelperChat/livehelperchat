@@ -309,7 +309,8 @@ class erLhcoreClassSystem{
         $wwwDir         = '';
         $IndexFile      = '';
         $queryString    = '';
-
+        $lhcForceVirtualHost = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'force_virtual_host', false);
+        
         // see if we can use phpSelf to determin wwwdir
         $tempwwwDir = self::getValidwwwDir( $phpSelf, $scriptFileName, $index );
         if ( $tempwwwDir !== null && $tempwwwDir !== false )
@@ -343,7 +344,9 @@ class erLhcoreClassSystem{
                 $indexDirPos = strpos( $requestUri, $indexDir );
                 if ( $indexDirPos !== false )
                 {
-                    $requestUri = substr( $requestUri, $indexDirPos + strlen($indexDir) );
+                    if ($lhcForceVirtualHost === false) {                     
+                        $requestUri = substr( $requestUri, $indexDirPos + strlen($indexDir) );
+                    }
                 }
                 elseif ( $wwwDir )
                 {
@@ -392,7 +395,7 @@ class erLhcoreClassSystem{
 
         $instance->SiteDir    = $siteDir;
         $instance->WWWDirImages = $instance->WWWDir = $wwwDir;
-        $instance->IndexFile  = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'force_virtual_host', false) === false ? '/index.php' : '';
+        $instance->IndexFile  = $lhcForceVirtualHost === false ? '/index.php' : '';
         $instance->RequestURI = str_replace('//','/',$requestUri);
         $instance->QueryString = $queryString;
         $instance->WWWDirLang = '';

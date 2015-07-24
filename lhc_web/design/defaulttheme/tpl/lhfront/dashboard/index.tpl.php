@@ -80,7 +80,11 @@ $( document ).ready(function() {
 		  html : true, 
 		  selector: '[data-toggle="popover"]',
 		  content: function () {
-			 return $('#popover-content-'+$(this).attr('data-chat-id')).html();
+			 if ($(this).is('[data-popover-content]')) {
+				 return $('#'+$(this).attr('data-popover-content')+'-'+$(this).attr('data-chat-id')).html();
+		     } else {
+		    	 return $('#popover-content-'+$(this).attr('data-chat-id')).html();
+			 }
 		  },
 		  title: function () {
 			 return  $('#popover-title-'+$(this).attr('data-chat-id')).html();

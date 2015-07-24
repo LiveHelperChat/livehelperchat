@@ -3,7 +3,7 @@
 class erLhcoreClassUpdate
 {
 	const DB_VERSION = 109;
-	const LHC_RELEASE = 233;
+	const LHC_RELEASE = 234;
 		
 	public static function doTablesUpdate($definition){
 		$updateInformation = self::getTablesStatus($definition);
@@ -57,9 +57,14 @@ class erLhcoreClassUpdate
 					if ($typeMatch == false) {
 						$tablesStatus[$table]['error'] = true;
 						$status[] = "[{$columnDesired['field']}] column type is not correct";
-												
+
+						$extra = '';
+						if ($columnDesired['extra'] == 'auto_increment') {
+						    $extra = ' AUTO_INCREMENT';
+						}
+						
 						$tablesStatus[$table]['queries'][] = "ALTER TABLE `{$table}`
-						CHANGE `{$columnDesired['field']}` `{$columnDesired['field']}` {$columnDesired['type']} NOT NULL;";
+						CHANGE `{$columnDesired['field']}` `{$columnDesired['field']}` {$columnDesired['type']} NOT NULL{$extra};";
 					}
 					
 					if ($columnFound == false) {

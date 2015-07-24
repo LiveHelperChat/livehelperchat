@@ -1161,7 +1161,7 @@
     </message>
     <message>
       <source>Not Voted</source>
-      <translation type="unfinished"/>
+      <translation>Non votato</translation>
     </message>
     <message>
       <source>Up Voted</source>
@@ -1937,7 +1937,7 @@
     </message>
     <message>
       <source>has accepted the chat!</source>
-      <translation type="unfinished"/>
+      <translation>ha accettato la chat!</translation>
     </message>
   </context>
   <context>
@@ -7322,39 +7322,39 @@
     <name>chat/chatcommand</name>
     <message>
       <source>Nick changed!</source>
-      <translation type="unfinished"/>
+      <translation>Nome modificato!</translation>
     </message>
     <message>
       <source>E-mail changed!</source>
-      <translation type="unfinished"/>
+      <translation>E-Mail modificata!</translation>
     </message>
     <message>
       <source>Phone changed!</source>
-      <translation type="unfinished"/>
+      <translation>Telefono modificato!</translation>
     </message>
     <message>
       <source>User was redirected!</source>
-      <translation type="unfinished"/>
+      <translation>L&apos;utente è stato reindirizzato</translation>
     </message>
     <message>
       <source>Screenshot was scheduled!</source>
-      <translation type="unfinished"/>
+      <translation>Lo screenshot è stato programmato!</translation>
     </message>
     <message>
       <source>User was redirected to contact form!</source>
-      <translation type="unfinished"/>
+      <translation>L&apos;utente è stato reindirizzato al modulo di contatto!</translation>
     </message>
     <message>
       <source>User was blocked!</source>
-      <translation type="unfinished"/>
+      <translation>L&apos;utente è stato bloccato!</translation>
     </message>
     <message>
       <source>Chat was closed!</source>
-      <translation type="unfinished"/>
+      <translation>La chat è stata chiusa!</translation>
     </message>
     <message>
       <source>Chat was deleted!</source>
-      <translation type="unfinished"/>
+      <translation>La chat è stata cancellata!</translation>
     </message>
   </context>
 </TS>

@@ -50,16 +50,23 @@ function lh(){
 
     // Is synchronization under progress
     this.isSinchronizing = false;
-
+    
     // is Widget mode
     this.isWidgetMode = false;
+
+    // is Embed mode
+    this.isEmbedMode = false;
 
     this.syncroRequestSend = false;
 
     this.currentMessageText = '';
-
+    
     this.setWidgetMode = function(status) {
     	this.isWidgetMode = status;
+    };
+
+    this.setEmbedMode = function(status) {
+    	this.isEmbedMode = status;
     };
 
     this.setSynchronizationRequestSend = function(status)
@@ -467,8 +474,11 @@ function lh(){
 	           {
     	            if (data.result != 'false' && data.status == 'true')
     	            {
-                			$('#messagesBlock').append(data.result);
-                			$('#messagesBlock').animate({ scrollTop: $('#messagesBlock').prop('scrollHeight') }, 1000);
+    	            		var messageBlock = $('#messagesBlock');
+    	            	
+    	            		messageBlock.find('.pending-storage').remove();
+    	            		messageBlock.append(data.result);
+    	            		messageBlock.animate({ scrollTop: messageBlock.prop('scrollHeight') }, 1000);
 
                 			// If one the message owner is not current user play sound
                 			if ( confLH.new_message_sound_user_enabled == 1 && data.uw == 'false') {
@@ -498,7 +508,7 @@ function lh(){
     	            
         			if ( data.ott != '' && data.ott != 'f') {
         				var instStatus = $('#id-operator-typing');
-        				instStatus.html(data.ott);
+        				instStatus.text(data.ott);
         				instStatus.css('visibility','visible');
         				inst.operatorTyping = true;
         			} else if (data.ott == 'f') {
@@ -516,6 +526,8 @@ function lh(){
 	               $('#status-chat').html(data.status);
 	               $('#ChatMessageContainer').remove();
 	               $('#ChatSendButtonContainer').remove();
+	               $('#id-operator-typing').css('visibility','hidden');
+	               inst.operatorTyping = false;
 	           }
 	        };
         } catch(err) {		     
@@ -548,7 +560,10 @@ function lh(){
 		    this.syncroRequestSend = true;
 		    var modeWindow = this.isWidgetMode == true ? '/(mode)/widget' : '';
 		    var operatorTyping = this.operatorTyping == true ? '/(ot)/t' : '';
-		    $.getJSON(this.wwwDir + this.syncuser + this.chat_id + '/'+ this.last_message_id + '/' + this.hash + modeWindow + operatorTyping ,{ }, function(data){
+		    var themeWindow = this.theme !== null ? '/(theme)/'+this.theme : '';
+		    var modeEmbed = this.isEmbedMode == true ? '/(modeembed)/embed' : '';
+		    
+		    $.getJSON(this.wwwDir + this.syncuser + this.chat_id + '/'+ this.last_message_id + '/' + this.hash + modeWindow + operatorTyping + themeWindow + modeEmbed ,{ }, function(data){
 		    			    	
 		    	inst.updateUserSyncInterface(inst,data);
 		        
@@ -1128,10 +1143,14 @@ function lh(){
 	        	            if (data.result != 'false')
 	        	            {
 	        	            	
-	        	            	
 	        	                $.each(data.result,function(i,item) {
-	                                  $('#messagesBlock-'+item.chat_id).append(item.content);
-	        		                  $('#messagesBlock-'+item.chat_id).animate({ scrollTop: $("#messagesBlock-"+item.chat_id).prop("scrollHeight") }, 1000);
+	        	                	
+	        	                	  var messageBlock = $('#messagesBlock-'+item.chat_id);
+	        	                	
+	        	                	  messageBlock.find('.pending-storage').remove();
+	        	                	  messageBlock.append(item.content);
+	        	                	  messageBlock.animate({ scrollTop: messageBlock.prop("scrollHeight") }, 1000);
+	        	                	  
 	        		                  lhinst.updateChatLastMessageID(item.chat_id,item.message_id);
 	
 	        		                  var mainElement = $('#chat-tab-link-'+item.chat_id);
@@ -1413,7 +1432,11 @@ function lh(){
         	//
         };
 	};
-			
+	
+	this.addingUserMessage = false;
+	this.addUserMessageQueue = [];
+	this.addDelayedTimeout = null;
+	    
 	this.addmsgadmin = function (chat_id)
 	{
 		var textArea = $("#CSChatMessage-"+chat_id);
@@ -1447,22 +1470,90 @@ function lh(){
 			});
 			
 		} else {
-			$.postJSON(this.wwwDir + this.addmsgurl + chat_id, pdata , function(data){
+			
+			var inst = this;
+						
+			var messagesBlock = $('#messagesBlock-'+chat_id);
+			jQuery('<div/>', {
+			    'class': 'message-row pending-storage',					   
+			    text: pdata.msg
+			}).appendTo(messagesBlock);
+			
+			messagesBlock.animate({ scrollTop: messagesBlock.prop('scrollHeight') }, 500);
+			
+			if (this.addingUserMessage == false && this.addUserMessageQueue.length == 0)
+			{
+				this.addingUserMessage = true;
 				
-				if (LHCCallbacks.addmsgadmin) {
-	        		LHCCallbacks.addmsgadmin(chat_id);
-	        	};
-	        	
-	        	if (data.r != '') {
-            		$('#messagesBlock-'+chat_id).append(data.r);
-	                $('#messagesBlock-'+chat_id).animate({ scrollTop: $("#messagesBlock-"+chat_id).prop("scrollHeight") }, 1000);
-            	};
-            	
-				lhinst.syncadmincall();				
-				return true;
-			});
+				$.postJSON(this.wwwDir + this.addmsgurl + chat_id, pdata , function(data){
+					
+					if (LHCCallbacks.addmsgadmin) {
+		        		LHCCallbacks.addmsgadmin(chat_id);
+		        	};
+		        	
+		        	if (data.r != '') {
+	            		$('#messagesBlock-'+chat_id).append(data.r);
+		                $('#messagesBlock-'+chat_id).animate({ scrollTop: $("#messagesBlock-"+chat_id).prop("scrollHeight") }, 1000);
+	            	};
+	            	
+					lhinst.syncadmincall();		
+					
+					inst.addingUserMessage = false;
+					
+					return true;
+				});
+				
+			} else {
+				this.addUserMessageQueue.push({'pdata':pdata,'url':this.wwwDir + this.addmsgurl + chat_id,'chat_id':chat_id});
+	        	clearTimeout(this.addDelayedTimeout);
+	        	this.addDelayedTimeout = setTimeout(function(){
+	        		inst.addDelayedMessageAdmin();
+	        	},50);
+			}
 		}
 	};
+	
+	this.addDelayedMessageAdmin = function()
+    {
+    	var inst = this;
+    	
+    	if (this.addingUserMessage == false) {
+    		
+    		if (this.addUserMessageQueue.length > 0)
+    		{
+	    		var elementAdd = this.addUserMessageQueue.shift();
+	    		this.addingUserMessage = true;
+	    		
+		        $.postJSON(elementAdd.url, elementAdd.pdata , function(data) {
+		        		        	
+		        	if (LHCCallbacks.addmsgadmin) {
+		        		LHCCallbacks.addmsgadmin(elementAdd.chat_id);
+		        	};
+		        	
+		        	if (data.r != '') {
+	            		$('#messagesBlock-'+elementAdd.chat_id).append(data.r);
+		                $('#messagesBlock-'+elementAdd.chat_id).animate({ scrollTop: $("#messagesBlock-"+elementAdd.chat_id).prop("scrollHeight") }, 1000);
+	            	};
+	            	
+	            	lhinst.syncadmincall();	
+	            	
+		        	inst.addingUserMessage = false;
+		        	
+		        	// There is still pending messages, add them
+		        	if (inst.addUserMessageQueue.length > 0) {
+		        		clearTimeout(inst.addDelayedTimeout);	        		
+		            	inst.addDelayedMessageAdmin();	            	
+		        	}
+				});
+    		}
+    		
+    	} else {
+    		clearTimeout(this.addDelayedTimeout);
+        	this.addDelayedTimeout = setTimeout(function(){
+        		inst.addDelayedMessageAdmin();
+        	},50);	        		        	
+    	}
+    }
 	
 	this.editPrevious = function(chat_id) {	
 		var textArea = $('#CSChatMessage-'+chat_id);
@@ -1589,24 +1680,85 @@ function lh(){
 			});			
 						
 		} else { 
-	        $.postJSON(this.wwwDir + this.addmsgurluser + this.chat_id + '/' + this.hash + modeWindow, pdata , function(data) {
-	        	
-	        	if (data.error == 'f') {
-		        	if (LHCCallbacks.addmsguser) {
-		        		LHCCallbacks.addmsguser(inst,data);
-		        	};
+					
+			var messagesBlock = $('#messagesBlock');
+			
+			jQuery('<div/>', {
+			    'class': 'message-row pending-storage',					   
+			    text: pdata.msg
+			}).appendTo(messagesBlock);
+			messagesBlock.animate({ scrollTop: messagesBlock.prop('scrollHeight') }, 500);
+						
+			if (this.addingUserMessage == false && this.addUserMessageQueue.length == 0)
+			{
+				this.addingUserMessage = true;
+		        $.postJSON(this.wwwDir + this.addmsgurluser + this.chat_id + '/' + this.hash + modeWindow, pdata , function(data) {
 		        	
-		        	inst.syncusercall();
-	        	} else {
-	        		$('#CSChatMessage').val(pdata.msg);
-	        		var instStatus = $('#id-operator-typing');
-					instStatus.html(data.r);
-					instStatus.css('visibility','visible');				
-	        	}
-			});
+		        	if (data.error == 'f') {
+			        	if (LHCCallbacks.addmsguser) {
+			        		LHCCallbacks.addmsguser(inst,data);
+			        	};
+			        	
+			        	inst.syncusercall();
+		        	} else {
+		        		$('#CSChatMessage').val(pdata.msg);
+		        		var instStatus = $('#id-operator-typing');
+						instStatus.html(data.r);
+						instStatus.css('visibility','visible');				
+		        	}
+		        	
+		        	inst.addingUserMessage = false;
+				});
+	        } else {
+	        	this.addUserMessageQueue.push({'pdata':pdata,'url':this.wwwDir + this.addmsgurluser + this.chat_id + '/' + this.hash + modeWindow});
+	        	clearTimeout(this.addDelayedTimeout);
+	        	this.addDelayedTimeout = setTimeout(function(){
+	        		inst.addDelayedMessage();
+	        	},50);	        		        	
+	        }
         }
     };
 
+    this.addDelayedMessage = function()
+    {
+    	var inst = this;
+    	
+    	if (this.addingUserMessage == false) {
+    		
+    		if (this.addUserMessageQueue.length > 0)
+    		{
+	    		var elementAdd = this.addUserMessageQueue.shift();
+	    		this.addingUserMessage = true;
+	    		
+		        $.postJSON(elementAdd.url, elementAdd.pdata , function(data) {
+		        		        	
+		        	if (data.error == 'f') {
+			        	if (LHCCallbacks.addmsguser) {
+			        		LHCCallbacks.addmsguser(inst,data);
+			        	};
+			        	
+			        	inst.syncusercall();
+		        	}
+		        	
+		        	inst.addingUserMessage = false;
+		        	
+		        	// There is still pending messages, add them
+		        	if (inst.addUserMessageQueue.length > 0) {
+		        		clearTimeout(inst.addDelayedTimeout);
+		        		inst.addDelayedMessage();	            	
+		        	}
+		        	
+				});
+    		}
+    		
+    	} else {
+    		clearTimeout(this.addDelayedTimeout);
+        	this.addDelayedTimeout = setTimeout(function(){
+        		inst.addDelayedMessage();
+        	},50);	        		        	
+    	}
+    }
+    
     this.startSyncAdmin = function()
     {
         if (this.isSinchronizing == false)

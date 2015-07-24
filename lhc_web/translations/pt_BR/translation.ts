@@ -4448,7 +4448,7 @@
     </message>
     <message>
       <source>All operators statistic will be downloaded</source>
-      <translation>Todos os operadores de estatística serão baixados</translation>
+      <translation>Todas as estatísticas de operadores serão baixadas</translation>
     </message>
     <message>
       <source>AVG visitor wait time by operator</source>
@@ -4504,7 +4504,7 @@
     </message>
     <message>
       <source>Operators statistic, top 100 by chats number</source>
-      <translation>Operadores de estatística, top 100 por número de bate-papo</translation>
+      <translation>Estatística dos operadores, top 100 por números de bate-papos</translation>
     </message>
     <message>
       <source>Total messages</source>

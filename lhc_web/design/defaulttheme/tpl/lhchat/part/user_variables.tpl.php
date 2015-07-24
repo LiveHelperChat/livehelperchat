@@ -39,10 +39,10 @@ $showField = ($input_data->value_show[$key] == $modeUserVariables || $input_data
 $showField = ($input_data->value_show[$key] == $modeUserVariables || $input_data->value_show[$key] == 'b');
 
 $visibleItem = (isset($input_data->value_types[$key]) && $input_data->value_types[$key] == 'text' && isset($input_data->name_items[$key])); ?>
-<?php if ($visibleItem == true && $showField == true) : ?>
-<div class="form-group col-xs-<?php isset($input_data->value_sizes[$key]) ? print (int)$input_data->value_sizes[$key] : print 6?>"><label><?php echo htmlspecialchars($input_data->name_items[$key])?><?php isset($input_data->values_req[$key]) && $input_data->values_req[$key] == 't' ? print '*' : ''?></label>
-<?php endif;?>
 
+<?php if ($visibleItem == true && $showField == true) : ?>
+<div class="form-group col-xs-<?php isset($input_data->value_sizes[$key]) ? print (int)$input_data->value_sizes[$key] : print 6?><?php if (isset($errors['additional_'.$key])) : ?> has-error<?php endif;?>"><label class="control-label"><?php echo htmlspecialchars($input_data->name_items[$key])?><?php isset($input_data->values_req[$key]) && $input_data->values_req[$key] == 't' ? print '*' : ''?></label>
+<?php endif;?>
 
 <input class="form-control" type="<?php isset($input_data->value_types[$key]) && $showField == true ? print htmlspecialchars($input_data->value_types[$key]) : print 'hidden' ?>" name="value_items[]" value="<?php echo htmlspecialchars($item)?>" />
 

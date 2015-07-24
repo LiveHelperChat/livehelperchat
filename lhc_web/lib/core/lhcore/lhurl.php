@@ -10,6 +10,10 @@ class erLhcoreClassURL extends ezcUrl {
         parent::__construct($urlString, $urlCfgDefault);
     }
 
+    public static function resetInstance(){
+        self::$instance = null;
+    }
+    
     public static function getInstance()
     {
         if ( is_null( self::$instance ) )

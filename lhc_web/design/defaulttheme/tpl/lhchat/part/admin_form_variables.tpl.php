@@ -7,8 +7,8 @@ if (is_array($customAdminfields)) : ?>
             <input class="form-control" type="hidden" name="value_items_admin[<?php echo $key?>]" value="<?php isset($input_data->value_items_admin[$key]) ? print htmlspecialchars($input_data->value_items_admin[$key]) : print htmlspecialchars($adminField['defaultvalue'])?>" />
         <?php else : $hasExtraField = true; ?>        
         <div class="col-xs-<?php echo htmlspecialchars($adminField['size'])?>">
-            <div class="form-group">
-                <label><?php echo htmlspecialchars($adminField['fieldname'])?>&nbsp;<?php $adminField['isrequired'] == 'true' ? print '*' : ''?></label>
+            <div class="form-group<?php if (isset($errors['additional_admin_'.$key])) : ?> has-error<?php endif;?>">
+                <label class="control-label"><?php echo htmlspecialchars($adminField['fieldname'])?>&nbsp;<?php $adminField['isrequired'] == 'true' ? print '*' : ''?></label>
                 <input class="form-control" type="text" name="value_items_admin[<?php echo $key?>]" value="<?php isset($input_data->value_items_admin[$key]) ? print htmlspecialchars($input_data->value_items_admin[$key]) : print htmlspecialchars($adminField['defaultvalue'])?>" />
             </div>
         </div>

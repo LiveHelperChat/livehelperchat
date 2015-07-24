@@ -57,9 +57,10 @@ if ((string)$Params['user_parameters_unordered']['hash'] != '') {
 	} catch (Exception $e) {
 		
 	}
-	// Redirect user
-	erLhcoreClassModule::redirect('chat/chatwidgetchat','/' . $chatID . '/' . $hash . $modeAppend . $modeAppendTheme . $sound );
-	exit;
+	
+	// Rerun module
+	$Result = erLhcoreClassModule::reRun(erLhcoreClassDesign::baseurlRerun('chat/chatwidgetchat') . '/' . $chatID . '/' . $hash . $modeAppend . $modeAppendTheme . $sound);
+	return true;
 }
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/chatwidget.tpl.php');
