@@ -25,6 +25,8 @@ class erLhcoreClassURL extends ezcUrl {
             $urlCfgDefault->basedir = $sysConfiguration->WWWDir;
             $urlCfgDefault->script  = $sysConfiguration->IndexFile;
             $urlCfgDefault->unorderedDelimiters = array( '(', ')' );
+            $urlCfgDefault->orderedParameters = array();
+            $urlCfgDefault->unorderedParameters = array();
             $urlCfgDefault->addOrderedParameter( 'siteaccess' );
             $urlCfgDefault->addOrderedParameter( 'module' );
             $urlCfgDefault->addOrderedParameter( 'function' );
