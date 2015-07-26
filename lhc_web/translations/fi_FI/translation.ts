@@ -319,10 +319,6 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
-      <source>Widget copyright link</source>
-      <translation>Widgetin copyright -linkki</translation>
-    </message>
-    <message>
       <source>Download theme</source>
       <translation>Tallenna teema</translation>
     </message>
@@ -702,10 +698,6 @@
   </context>
   <context>
     <name>system/htmlcode</name>
-    <message>
-      <source>Popup window size</source>
-      <translation>Popup-ikkunan koko</translation>
-    </message>
     <message>
       <source>HTML code</source>
       <translation>HTML koodi</translation>
@@ -1305,6 +1297,10 @@
       <source>Operator is typing now...</source>
       <translation>Operaattori kirjoittaa nyt...</translation>
     </message>
+    <message>
+      <source>Close and Start a new one</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/bbcodeinsert</name>
@@ -1389,10 +1385,6 @@
   </context>
   <context>
     <name>chat/cannedmsg</name>
-    <message>
-      <source>Please enter canned message</source>
-      <translation>Kirjoita esivalmisteltu viesti</translation>
-    </message>
     <message>
       <source>Title/Message</source>
       <translation>Otsikko/Viesti</translation>
@@ -1719,10 +1711,6 @@
   <context>
     <name>chat/adminchat</name>
     <message>
-      <source>Invalid chat status</source>
-      <translation>Virheellinen viesti tila</translation>
-    </message>
-    <message>
       <source>Attach uploaded file</source>
       <translation>Liitä tiedosto</translation>
     </message>
@@ -1942,14 +1930,6 @@
   <context>
     <name>chat/translation</name>
     <message>
-      <source>We could not detect operator language</source>
-      <translation>Operaattorin kieltä ei tunnistettu</translation>
-    </message>
-    <message>
-      <source>Detected operator and visitor languages matches, please choose languages manually</source>
-      <translation>Tunnistettu operaattorin ja vierailijan kieli ovat samat, valitse kieli käsin</translation>
-    </message>
-    <message>
       <source>Visitor language</source>
       <translation>Vierailijan kieli</translation>
     </message>
@@ -2068,10 +2048,6 @@
   </context>
   <context>
     <name>files/files</name>
-    <message>
-      <source>Download file</source>
-      <translation>Lataa tiedosto</translation>
-    </message>
     <message>
       <source>Refresh</source>
       <translation>Lataa uudelleen</translation>
@@ -2288,22 +2264,6 @@
   </context>
   <context>
     <name>chat/startchat</name>
-    <message>
-      <source>Invalid captcha code, please enable Javascript!</source>
-      <translation>Väärä capatcha tunniste, varmista että javascript on päällä!</translation>
-    </message>
-    <message>
-      <source>Invalid file extension</source>
-      <translation>Virheellinen tiedostotyyppi</translation>
-    </message>
-    <message>
-      <source>Invalid file extension!</source>
-      <translation>Virheellinen tiedostotyyppi!</translation>
-    </message>
-    <message>
-      <source>To big file!</source>
-      <translation>Liian suuri tiedosto</translation>
-    </message>
     <message>
       <source>Department is disabled</source>
       <translation>Yksikkö on estetty</translation>
@@ -2628,57 +2588,6 @@
     </message>
   </context>
   <context>
-    <name>chat/geoadjustment</name>
-    <message>
-      <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
-      <translation>Käytä näitä sääntöjä myös keskusteluwidgetin tilaindikaattoriin ? Vaikuttaa alentavasti suorituskykyyn </translation>
-    </message>
-    <message>
-      <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>For</source>
-      <translation>Kenelle</translation>
-    </message>
-    <message>
-      <source>all</source>
-      <translation>kaikki</translation>
-    </message>
-    <message>
-      <source>custom</source>
-      <translation>kustomi</translation>
-    </message>
-    <message>
-      <source>E.g. ar,pl</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Other countries, put widget/chat status to</source>
-      <translation>Muille maille, laita widget/keskustelustatus</translation>
-    </message>
-    <message>
-      <source>offline status</source>
-      <translation>offline status</translation>
-    </message>
-    <message>
-      <source>hidden/disabled, widget will not be shown</source>
-      <translation>piilossa/pois käytöstä, widgettiä ei näytetä</translation>
-    </message>
-    <message>
-      <source>For unmatched countries put chat status to</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>normal status</source>
-      <translation>normaali tila</translation>
-    </message>
-    <message>
-      <source>GEO adjustment</source>
-      <translation>GEO säätö</translation>
-    </message>
-  </context>
-  <context>
     <name>system/xmpp</name>
     <message>
       <source>Geo adjustments active</source>
@@ -2838,15 +2747,58 @@
     </message>
   </context>
   <context>
+    <name>chat/geoadjustment</name>
+    <message>
+      <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
+      <translation>Käytä näitä sääntöjä myös keskusteluwidgetin tilaindikaattoriin ? Vaikuttaa alentavasti suorituskykyyn </translation>
+    </message>
+    <message>
+      <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For</source>
+      <translation>Kenelle</translation>
+    </message>
+    <message>
+      <source>all</source>
+      <translation>kaikki</translation>
+    </message>
+    <message>
+      <source>custom</source>
+      <translation>kustomi</translation>
+    </message>
+    <message>
+      <source>E.g. ar,pl</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Other countries, put widget/chat status to</source>
+      <translation>Muille maille, laita widget/keskustelustatus</translation>
+    </message>
+    <message>
+      <source>offline status</source>
+      <translation>offline status</translation>
+    </message>
+    <message>
+      <source>hidden/disabled, widget will not be shown</source>
+      <translation>piilossa/pois käytöstä, widgettiä ei näytetä</translation>
+    </message>
+    <message>
+      <source>For unmatched countries put chat status to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>normal status</source>
+      <translation>normaali tila</translation>
+    </message>
+    <message>
+      <source>GEO adjustment</source>
+      <translation>GEO säätö</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/onlineusers</name>
-    <message>
-      <source>Status</source>
-      <translation>Tila</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>Kukaan ei ole lähettänyt viestiä käyttäjälle vielä</translation>
-    </message>
     <message>
       <source>GEO detection configuration</source>
       <translation>GEO tunnistus asetukset</translation>
@@ -3228,14 +3180,6 @@
       <translation>Käyttäjälle ei ole viestejä operaattorilta</translation>
     </message>
     <message>
-      <source>first visit</source>
-      <translation>ensimmäinen vierailu</translation>
-    </message>
-    <message>
-      <source>last visit</source>
-      <translation>viimeisin vierailu</translation>
-    </message>
-    <message>
       <source>Chat</source>
       <translation>Chat</translation>
     </message>
@@ -3250,6 +3194,14 @@
     <message>
       <source>has sent a message to the user</source>
       <translation>on lähettänyt viestin käyttäjälle</translation>
+    </message>
+    <message>
+      <source>first visit</source>
+      <translation>ensimmäinen vierailu</translation>
+    </message>
+    <message>
+      <source>last visit</source>
+      <translation>viimeisin vierailu</translation>
     </message>
     <message>
       <source>Files upload for users is active</source>
@@ -3608,10 +3560,6 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
-      <source>Clean cache</source>
-      <translation>Tyhjennä välimuisti</translation>
-    </message>
-    <message>
       <source>Empty...</source>
       <translation>Tyhjä...</translation>
     </message>
@@ -3763,37 +3711,6 @@
     </message>
   </context>
   <context>
-    <name>chat/modifychat</name>
-    <message>
-      <source>Modify chat</source>
-      <translation>Muokkaa keskustelua</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>Sähköposti</translation>
-    </message>
-    <message>
-      <source>Recipient e-mail</source>
-      <translation>Vastaanottajan sähköposti</translation>
-    </message>
-    <message>
-      <source>Nick</source>
-      <translation>Nimimerkki</translation>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>Puhelin</translation>
-    </message>
-    <message>
-      <source>Update chat</source>
-      <translation>Päivitä keskustelu</translation>
-    </message>
-    <message>
-      <source>Chat information was updated</source>
-      <translation>Keskustelun tiedot päivitettiin</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/operatorschats</name>
     <message>
       <source>Operators chats list</source>
@@ -3802,13 +3719,6 @@
     <message>
       <source>Operators chats</source>
       <translation>Operaattorein keskustelut</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/part/operator_profile</name>
-    <message>
-      <source>Skype call</source>
-      <translation>Skype-puhelu</translation>
     </message>
   </context>
   <context>
@@ -3840,126 +3750,6 @@
     <message>
       <source>Pending chats</source>
       <translation>Odottavat keskustelut</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/previewchat</name>
-    <message>
-      <source>Last 100 messages rows</source>
-      <translation>Viimeiset 100 viestiä</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/sendchat</name>
-    <message>
-      <source>Enter your e-mail</source>
-      <translation>Anna sähköpostiosoitteesi</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/sendmail</name>
-    <message>
-      <source>Send mail to the user</source>
-      <translation>Lähetä sähköpostia asiakkaalle</translation>
-    </message>
-    <message>
-      <source>Recipient</source>
-      <translation>Vastaanottaja</translation>
-    </message>
-    <message>
-      <source>Recipient e-mail</source>
-      <translation>Vastaanottajan sähköposti</translation>
-    </message>
-    <message>
-      <source>Subject</source>
-      <translation>Aihe</translation>
-    </message>
-    <message>
-      <source>From name</source>
-      <translation>Lähettäjän nimi</translation>
-    </message>
-    <message>
-      <source>Reply e-mail</source>
-      <translation>Lähettäjän sähköposti</translation>
-    </message>
-    <message>
-      <source>From e-mail</source>
-      <translation>Lähettäjän sähköposti</translation>
-    </message>
-    <message>
-      <source>Type your message to the user</source>
-      <translation>Kirjoita viesti käyttäjälle</translation>
-    </message>
-    <message>
-      <source>Send the mail</source>
-      <translation>Lähetä viesti</translation>
-    </message>
-    <message>
-      <source>Embed link to file</source>
-      <translation>Liitä linkki tiedostoon</translation>
-    </message>
-    <message>
-      <source>Mail was sent to the user</source>
-      <translation>Sähköposti lähetettiin käyttäjälle</translation>
-    </message>
-    <message>
-      <source>Please enter recipient e-mail!</source>
-      <translation>Anna vastaanottajan sähköposti!</translation>
-    </message>
-    <message>
-      <source>From e-mail is missing!</source>
-      <translation>Lähettäjän sähköposti puuttuu!</translation>
-    </message>
-    <message>
-      <source>Reply e-mail is missing!</source>
-      <translation>Lähettäjän sähköpostiosoite puuttuu!</translation>
-    </message>
-    <message>
-      <source>Subject is missing!</source>
-      <translation>Aihe puuttuu!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/sendnotice</name>
-    <message>
-      <source>Send a message to the user</source>
-      <translation>Lähetä viesti asiakkaalle</translation>
-    </message>
-    <message>
-      <source>If the message was already sent, this will mark it as not delivered and the user will be shown the chat message again.</source>
-      <translation>Jos viesti on jo lähetetty, se merkitään lähettämättömäksi ja käyttäjä näkee sen viestin uudelleen.</translation>
-    </message>
-    <message>
-      <source>Type your message to the user</source>
-      <translation>Kirjoita viestisi käyttäjälle</translation>
-    </message>
-    <message>
-      <source>Requires e-mail</source>
-      <translation>Vaatii sähköpostin</translation>
-    </message>
-    <message>
-      <source>Requires name</source>
-      <translation>Vaatii nimen</translation>
-    </message>
-    <message>
-      <source>Requires phone</source>
-      <translation>Vaatii puhelinnumeron</translation>
-    </message>
-    <message>
-      <source>Send the message</source>
-      <translation>Lähetä viesti</translation>
-    </message>
-    <message>
-      <source>Message was sent to the user</source>
-      <translation>Viesti lähetettiin asiakkalle</translation>
-    </message>
-    <message>
-      <source>Start chat with operator</source>
-      <translation>Aloita keskustelu operaattorin kanssa</translation>
-    </message>
-    <message>
-      <source>Type your message to the operator</source>
-      <translation>Anna viestisi operaattorille</translation>
     </message>
   </context>
   <context>
@@ -4162,146 +3952,7 @@
     </message>
   </context>
   <context>
-    <name>chat/syncandsoundesetting</name>
-    <message>
-      <source>Save</source>
-      <translation>Tallenna</translation>
-    </message>
-    <message>
-      <source>Update</source>
-      <translation>Päivitä</translation>
-    </message>
-    <message>
-      <source>Cancel</source>
-      <translation>Peru</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Asetukset päivitetty</translation>
-    </message>
-    <message>
-      <source>Synchronisation and sound settings</source>
-      <translation>Synkronointi- ja ääniasetukset</translation>
-    </message>
-    <message>
-      <source>How many seconds for a user to be considered as being online</source>
-      <translation>Kuinka monta sekunttia käyttäjän arvioidaan olevan online</translation>
-    </message>
-    <message>
-      <source>Value in seconds</source>
-      <translation>Arvo sekunneissa</translation>
-    </message>
-    <message>
-      <source>Sync for new chats, interval in seconds</source>
-      <translation>Synkronoidaan uudet keskustelut, väli sekuntteina.</translation>
-    </message>
-    <message>
-      <source>Check for messages from the operators, interval in seconds</source>
-      <translation>Tarkista operaattoriviestit, väli sekuntteina.</translation>
-    </message>
-    <message>
-      <source>Messages settings</source>
-      <translation>Viestien asetukset</translation>
-    </message>
-    <message>
-      <source>Sync for a new user message, interval in seconds</source>
-      <translation>Synkronoidaan uudet käyttäjäviestit, väli sekuntteina.</translation>
-    </message>
-    <message>
-      <source>Show browser notification for new messages</source>
-      <translation>Näytä selaimen ilmoitus uusista viesteistä</translation>
-    </message>
-    <message>
-      <source>Long polling (experimental)</source>
-      <translation>Hidas pollaus (kokeellinen)</translation>
-    </message>
-    <message>
-      <source>Enable long polling</source>
-      <translation>Aktivoi pitkä pollaus</translation>
-    </message>
-    <message>
-      <source>How many seconds keep connection to server?</source>
-      <translation>Kuinka monta sekunttia pidetään yhteyttä palvelimeen?</translation>
-    </message>
-    <message>
-      <source>New chat request notification settings</source>
-      <translation>Uudet keskustelupyyntöasetukset</translation>
-    </message>
-    <message>
-      <source>Play a new pending chat sound on a new chat request</source>
-      <translation>Soita uusi odottava viesti uusista keskustelupyynnöistä.</translation>
-    </message>
-    <message>
-      <source>Play a sound on a new message for a back office user</source>
-      <translation>Soita ääni uusista viesteistä palvelijoille</translation>
-    </message>
-    <message>
-      <source>Play a sound on a new message for a front end user</source>
-      <translation>Soita ääni uusista viesteistä käyttäjille</translation>
-    </message>
-    <message>
-      <source>Show alert message on a new chat request</source>
-      <translation>Näytä hälytys uusista keskusteluista</translation>
-    </message>
-    <message>
-      <source>How many times play sound notification</source>
-      <translation>Kuinka monta kertaa huomioääni soitetaan</translation>
-    </message>
-    <message>
-      <source>Number</source>
-      <translation>Numero</translation>
-    </message>
-    <message>
-      <source>Delay between sound notifications in seconds</source>
-      <translation>Viive sekunneissa äänien välillä</translation>
-    </message>
-    <message>
-      <source>delay in seconds</source>
-      <translation>Viive sekunneissa</translation>
-    </message>
-    <message>
-      <source>Seconds</source>
-      <translation>Sekunttia</translation>
-    </message>
-    <message>
-      <source>Please enter a valid online timeout value!</source>
-      <translation>Anna kelvollinen odotusaika-arvo!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid server connection timeout value!</source>
-      <translation>Anna kelvollinen palvelimen odotusaika-arvo!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid operator message timeout value!</source>
-      <translation>Anna kelvollinen arvo!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid new messages polling sync interval!</source>
-      <translation>Anna kelvollinen uusien viestien hakuväli!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid back office sync interval!</source>
-      <translation>Anna kelvollinen palvelupuolen synkronointiväli!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid new messages sync interval!</source>
-      <translation>Anna kelvollinen uusien viestien synkronointiväli!</translation>
-    </message>
-    <message>
-      <source>Synchronization and sound settings</source>
-      <translation>Synkronointi ja ääniasetukset</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/statistic</name>
-    <message>
-      <source>General</source>
-      <translation>Yleinen</translation>
-    </message>
-    <message>
-      <source>Operators last 24h statistic, top 100 by chats number</source>
-      <translation>Operaattorien 24 tunnin tilasto, top 100</translation>
-    </message>
     <message>
       <source>Statistic</source>
       <translation>Tilasto</translation>
@@ -4524,6 +4175,310 @@
     </message>
   </context>
   <context>
+    <name>chat/unreadchats</name>
+    <message>
+      <source>Unread chats list</source>
+      <translation>Lukematta olevat keskustelut</translation>
+    </message>
+    <message>
+      <source>Information</source>
+      <translation>Informaatio</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Tyhjä...</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/modifychat</name>
+    <message>
+      <source>Modify chat</source>
+      <translation>Muokkaa keskustelua</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>Sähköposti</translation>
+    </message>
+    <message>
+      <source>Recipient e-mail</source>
+      <translation>Vastaanottajan sähköposti</translation>
+    </message>
+    <message>
+      <source>Nick</source>
+      <translation>Nimimerkki</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Puhelin</translation>
+    </message>
+    <message>
+      <source>Update chat</source>
+      <translation>Päivitä keskustelu</translation>
+    </message>
+    <message>
+      <source>Chat information was updated</source>
+      <translation>Keskustelun tiedot päivitettiin</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/part/operator_profile</name>
+    <message>
+      <source>Skype call</source>
+      <translation>Skype-puhelu</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/previewchat</name>
+    <message>
+      <source>Last 100 messages rows</source>
+      <translation>Viimeiset 100 viestiä</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/sendchat</name>
+    <message>
+      <source>Enter your e-mail</source>
+      <translation>Anna sähköpostiosoitteesi</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/sendmail</name>
+    <message>
+      <source>Send mail to the user</source>
+      <translation>Lähetä sähköpostia asiakkaalle</translation>
+    </message>
+    <message>
+      <source>Recipient</source>
+      <translation>Vastaanottaja</translation>
+    </message>
+    <message>
+      <source>Recipient e-mail</source>
+      <translation>Vastaanottajan sähköposti</translation>
+    </message>
+    <message>
+      <source>Subject</source>
+      <translation>Aihe</translation>
+    </message>
+    <message>
+      <source>From name</source>
+      <translation>Lähettäjän nimi</translation>
+    </message>
+    <message>
+      <source>Reply e-mail</source>
+      <translation>Lähettäjän sähköposti</translation>
+    </message>
+    <message>
+      <source>From e-mail</source>
+      <translation>Lähettäjän sähköposti</translation>
+    </message>
+    <message>
+      <source>Type your message to the user</source>
+      <translation>Kirjoita viesti käyttäjälle</translation>
+    </message>
+    <message>
+      <source>Send the mail</source>
+      <translation>Lähetä viesti</translation>
+    </message>
+    <message>
+      <source>Embed link to file</source>
+      <translation>Liitä linkki tiedostoon</translation>
+    </message>
+    <message>
+      <source>Mail was sent to the user</source>
+      <translation>Sähköposti lähetettiin käyttäjälle</translation>
+    </message>
+    <message>
+      <source>Please enter recipient e-mail!</source>
+      <translation>Anna vastaanottajan sähköposti!</translation>
+    </message>
+    <message>
+      <source>From e-mail is missing!</source>
+      <translation>Lähettäjän sähköposti puuttuu!</translation>
+    </message>
+    <message>
+      <source>Reply e-mail is missing!</source>
+      <translation>Lähettäjän sähköpostiosoite puuttuu!</translation>
+    </message>
+    <message>
+      <source>Subject is missing!</source>
+      <translation>Aihe puuttuu!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/sendnotice</name>
+    <message>
+      <source>Send a message to the user</source>
+      <translation>Lähetä viesti asiakkaalle</translation>
+    </message>
+    <message>
+      <source>If the message was already sent, this will mark it as not delivered and the user will be shown the chat message again.</source>
+      <translation>Jos viesti on jo lähetetty, se merkitään lähettämättömäksi ja käyttäjä näkee sen viestin uudelleen.</translation>
+    </message>
+    <message>
+      <source>Type your message to the user</source>
+      <translation>Kirjoita viestisi käyttäjälle</translation>
+    </message>
+    <message>
+      <source>Requires e-mail</source>
+      <translation>Vaatii sähköpostin</translation>
+    </message>
+    <message>
+      <source>Requires name</source>
+      <translation>Vaatii nimen</translation>
+    </message>
+    <message>
+      <source>Requires phone</source>
+      <translation>Vaatii puhelinnumeron</translation>
+    </message>
+    <message>
+      <source>Send the message</source>
+      <translation>Lähetä viesti</translation>
+    </message>
+    <message>
+      <source>Message was sent to the user</source>
+      <translation>Viesti lähetettiin asiakkalle</translation>
+    </message>
+    <message>
+      <source>Start chat with operator</source>
+      <translation>Aloita keskustelu operaattorin kanssa</translation>
+    </message>
+    <message>
+      <source>Type your message to the operator</source>
+      <translation>Anna viestisi operaattorille</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/syncandsoundesetting</name>
+    <message>
+      <source>Save</source>
+      <translation>Tallenna</translation>
+    </message>
+    <message>
+      <source>Update</source>
+      <translation>Päivitä</translation>
+    </message>
+    <message>
+      <source>Cancel</source>
+      <translation>Peru</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Asetukset päivitetty</translation>
+    </message>
+    <message>
+      <source>Synchronisation and sound settings</source>
+      <translation>Synkronointi- ja ääniasetukset</translation>
+    </message>
+    <message>
+      <source>How many seconds for a user to be considered as being online</source>
+      <translation>Kuinka monta sekunttia käyttäjän arvioidaan olevan online</translation>
+    </message>
+    <message>
+      <source>Value in seconds</source>
+      <translation>Arvo sekunneissa</translation>
+    </message>
+    <message>
+      <source>Sync for new chats, interval in seconds</source>
+      <translation>Synkronoidaan uudet keskustelut, väli sekuntteina.</translation>
+    </message>
+    <message>
+      <source>Check for messages from the operators, interval in seconds</source>
+      <translation>Tarkista operaattoriviestit, väli sekuntteina.</translation>
+    </message>
+    <message>
+      <source>Messages settings</source>
+      <translation>Viestien asetukset</translation>
+    </message>
+    <message>
+      <source>Sync for a new user message, interval in seconds</source>
+      <translation>Synkronoidaan uudet käyttäjäviestit, väli sekuntteina.</translation>
+    </message>
+    <message>
+      <source>Show browser notification for new messages</source>
+      <translation>Näytä selaimen ilmoitus uusista viesteistä</translation>
+    </message>
+    <message>
+      <source>Long polling (experimental)</source>
+      <translation>Hidas pollaus (kokeellinen)</translation>
+    </message>
+    <message>
+      <source>Enable long polling</source>
+      <translation>Aktivoi pitkä pollaus</translation>
+    </message>
+    <message>
+      <source>How many seconds keep connection to server?</source>
+      <translation>Kuinka monta sekunttia pidetään yhteyttä palvelimeen?</translation>
+    </message>
+    <message>
+      <source>New chat request notification settings</source>
+      <translation>Uudet keskustelupyyntöasetukset</translation>
+    </message>
+    <message>
+      <source>Play a new pending chat sound on a new chat request</source>
+      <translation>Soita uusi odottava viesti uusista keskustelupyynnöistä.</translation>
+    </message>
+    <message>
+      <source>Play a sound on a new message for a back office user</source>
+      <translation>Soita ääni uusista viesteistä palvelijoille</translation>
+    </message>
+    <message>
+      <source>Play a sound on a new message for a front end user</source>
+      <translation>Soita ääni uusista viesteistä käyttäjille</translation>
+    </message>
+    <message>
+      <source>Show alert message on a new chat request</source>
+      <translation>Näytä hälytys uusista keskusteluista</translation>
+    </message>
+    <message>
+      <source>How many times play sound notification</source>
+      <translation>Kuinka monta kertaa huomioääni soitetaan</translation>
+    </message>
+    <message>
+      <source>Number</source>
+      <translation>Numero</translation>
+    </message>
+    <message>
+      <source>Delay between sound notifications in seconds</source>
+      <translation>Viive sekunneissa äänien välillä</translation>
+    </message>
+    <message>
+      <source>delay in seconds</source>
+      <translation>Viive sekunneissa</translation>
+    </message>
+    <message>
+      <source>Seconds</source>
+      <translation>Sekunttia</translation>
+    </message>
+    <message>
+      <source>Please enter a valid online timeout value!</source>
+      <translation>Anna kelvollinen odotusaika-arvo!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid server connection timeout value!</source>
+      <translation>Anna kelvollinen palvelimen odotusaika-arvo!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid operator message timeout value!</source>
+      <translation>Anna kelvollinen arvo!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid new messages polling sync interval!</source>
+      <translation>Anna kelvollinen uusien viestien hakuväli!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid back office sync interval!</source>
+      <translation>Anna kelvollinen palvelupuolen synkronointiväli!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid new messages sync interval!</source>
+      <translation>Anna kelvollinen uusien viestien synkronointiväli!</translation>
+    </message>
+    <message>
+      <source>Synchronization and sound settings</source>
+      <translation>Synkronointi ja ääniasetukset</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/transferchat</name>
     <message>
       <source>Transfer to a user</source>
@@ -4548,21 +4503,6 @@
     <message>
       <source>Departments</source>
       <translation>Yksiköt</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/unreadchats</name>
-    <message>
-      <source>Unread chats list</source>
-      <translation>Lukematta olevat keskustelut</translation>
-    </message>
-    <message>
-      <source>Information</source>
-      <translation>Informaatio</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Tyhjä...</translation>
     </message>
   </context>
   <context>
@@ -5657,6 +5597,17 @@
     </message>
   </context>
   <context>
+    <name>permission/getpermissionssummary</name>
+    <message>
+      <source>Request permission</source>
+      <translation>Pyydä oikeutta</translation>
+    </message>
+    <message>
+      <source>Please choose at least one permission</source>
+      <translation>Valitse vähintään yksi oikeus</translation>
+    </message>
+  </context>
+  <context>
     <name>permission/groupassignrole</name>
     <message>
       <source>Title</source>
@@ -5750,6 +5701,33 @@
     <message>
       <source>List of roles</source>
       <translation>Roolilista</translation>
+    </message>
+  </context>
+  <context>
+    <name>permission/request</name>
+    <message>
+      <source>Request permission</source>
+      <translation>Pyydä oikeutta</translation>
+    </message>
+    <message>
+      <source>Request permissions</source>
+      <translation>Pyydä oikeuksia</translation>
+    </message>
+    <message>
+      <source>Permission requested</source>
+      <translation>Oikeuksia pyydetty</translation>
+    </message>
+    <message>
+      <source>Please choose a user!</source>
+      <translation>Valitse käyttäjä!</translation>
+    </message>
+    <message>
+      <source>This user can not receive permision request!</source>
+      <translation>Tämä käyttäjä ei voi vastaanottaa oikeuspyyntöä!</translation>
+    </message>
+    <message>
+      <source>Permissions were not provided</source>
+      <translation>Oikeuksia ei saatu</translation>
     </message>
   </context>
   <context>
@@ -6083,6 +6061,49 @@
     <message>
       <source>Use application default recognition dialect</source>
       <translation>Käytä ohjelman oletus murretta puheen tunnistamiseen</translation>
+    </message>
+  </context>
+  <context>
+    <name>users/autologin</name>
+    <message>
+      <source>Auto login settings</source>
+      <translation>Automaattisen kirjautumisen asetukset</translation>
+    </message>
+    <message>
+      <source>This module can be used if you are generating autologin link. See site for code examples</source>
+      <translation>Tätä modulia voi käyttää jos luota automaattisen kirjautumisen linkin. Katso sivustolta koodiesimerkkejä</translation>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation>Päällä</translation>
+    </message>
+    <message>
+      <source>Secret hash used for authentification token generation, min 10 characters</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Asetukset päivitetty</translation>
+    </message>
+    <message>
+      <source>Autologin hash has expired</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not find a user</source>
+      <translation>En löytänyt käyttäjää</translation>
+    </message>
+    <message>
+      <source>Could not find a provided user</source>
+      <translation>En löytänyt annettua käyttäjää</translation>
+    </message>
+    <message>
+      <source>Invalid autologin hash</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Auto login module is not enabled</source>
+      <translation>Automaattisen kirjautumisen moduli ei ole päällä</translation>
     </message>
   </context>
   <context>
@@ -6823,10 +6844,6 @@
   <context>
     <name>chat/chatexport</name>
     <message>
-      <source>Referrer</source>
-      <translation>Viittaaja</translation>
-    </message>
-    <message>
       <source>Department name</source>
       <translation>Yksikön nimi</translation>
     </message>
@@ -6916,11 +6933,14 @@
     </message>
   </context>
   <context>
-    <name>chat/syncuser</name>
+    <name>chat/closechatadmin</name>
     <message>
-      <source>You do not have permission to view this chat, or chat was deleted</source>
-      <translation>Oikeutesi eivät riitä tai keskustelu on poistettu</translation>
+      <source>has closed the chat!</source>
+      <translation>on sulkenut keskustelun!</translation>
     </message>
+  </context>
+  <context>
+    <name>chat/syncuser</name>
     <message>
       <source>Chat was automatically transferred to</source>
       <translation>Keskustelu on automaattisesti siirretty -&gt; </translation>
@@ -6936,10 +6956,6 @@
     <message>
       <source>Support staff member has closed this chat</source>
       <translation>Tukihenkilö on sulkenut keskustelun</translation>
-    </message>
-    <message>
-      <source>The operator has closed this chat session</source>
-      <translation>Operattori lopetti keskustelun</translation>
     </message>
     <message>
       <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
@@ -7147,17 +7163,6 @@
     </message>
   </context>
   <context>
-    <name>chat/closechatadmin</name>
-    <message>
-      <source>has redirected user to contact form!</source>
-      <translation>on ohjattu kontaktilomakkeelle!</translation>
-    </message>
-    <message>
-      <source>has closed the chat!</source>
-      <translation>on sulkenut keskustelun!</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/deletechatadmin</name>
     <message>
       <source>You do not have rights to delete a chat</source>
@@ -7227,133 +7232,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Anna kelvollinen tiedoston tyyppi!</translation>
-    </message>
-  </context>
-  <context>
-    <name>permission/getpermissionsummary</name>
-    <message>
-      <source>Module/Function</source>
-      <translation>Moduli/Toiminto</translation>
-    </message>
-  </context>
-  <context>
-    <name>permission/getpermissionssummary</name>
-    <message>
-      <source>Request permission</source>
-      <translation>Pyydä oikeutta</translation>
-    </message>
-    <message>
-      <source>Please choose at least one permission</source>
-      <translation>Valitse vähintään yksi oikeus</translation>
-    </message>
-  </context>
-  <context>
-    <name>permission/request</name>
-    <message>
-      <source>Request permission</source>
-      <translation>Pyydä oikeutta</translation>
-    </message>
-    <message>
-      <source>Request permissions</source>
-      <translation>Pyydä oikeuksia</translation>
-    </message>
-    <message>
-      <source>Permission requested</source>
-      <translation>Oikeuksia pyydetty</translation>
-    </message>
-    <message>
-      <source>Please choose a user!</source>
-      <translation>Valitse käyttäjä!</translation>
-    </message>
-    <message>
-      <source>This user can not receive permision request!</source>
-      <translation>Tämä käyttäjä ei voi vastaanottaa oikeuspyyntöä!</translation>
-    </message>
-    <message>
-      <source>Permissions were not provided</source>
-      <translation>Oikeuksia ei saatu</translation>
-    </message>
-  </context>
-  <context>
-    <name>users/autologin</name>
-    <message>
-      <source>Auto login settings</source>
-      <translation>Automaattisen kirjautumisen asetukset</translation>
-    </message>
-    <message>
-      <source>This module can be used if you are generating autologin link. See site for code examples</source>
-      <translation>Tätä modulia voi käyttää jos luota automaattisen kirjautumisen linkin. Katso sivustolta koodiesimerkkejä</translation>
-    </message>
-    <message>
-      <source>Enabled</source>
-      <translation>Päällä</translation>
-    </message>
-    <message>
-      <source>Secret hash used for authentification token generation, min 10 characters</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Asetukset päivitetty</translation>
-    </message>
-    <message>
-      <source>Autologin hash has expired</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Could not find a user</source>
-      <translation>En löytänyt käyttäjää</translation>
-    </message>
-    <message>
-      <source>Could not find a provided user</source>
-      <translation>En löytänyt annettua käyttäjää</translation>
-    </message>
-    <message>
-      <source>Invalid autologin hash</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Auto login module is not enabled</source>
-      <translation>Automaattisen kirjautumisen moduli ei ole päällä</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/chatcommand</name>
-    <message>
-      <source>Nick changed!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>E-mail changed!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Phone changed!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User was redirected!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Screenshot was scheduled!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User was redirected to contact form!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User was blocked!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat was closed!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat was deleted!</source>
-      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

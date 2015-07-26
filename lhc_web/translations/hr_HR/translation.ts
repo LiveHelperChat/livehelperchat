@@ -319,10 +319,6 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
-      <source>Widget copyright link</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Download theme</source>
       <translation type="unfinished"/>
     </message>
@@ -702,10 +698,6 @@
   </context>
   <context>
     <name>system/htmlcode</name>
-    <message>
-      <source>Popup window size</source>
-      <translation>Veličina popup prozora</translation>
-    </message>
     <message>
       <source>HTML code</source>
       <translation>HTML kod</translation>
@@ -1305,6 +1297,10 @@
       <source>Operator is typing now...</source>
       <translation>Oprater upravo piše...</translation>
     </message>
+    <message>
+      <source>Close and Start a new one</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/bbcodeinsert</name>
@@ -1389,10 +1385,6 @@
   </context>
   <context>
     <name>chat/cannedmsg</name>
-    <message>
-      <source>Please enter canned message</source>
-      <translation>Molimo upišite automatiziranu poruku</translation>
-    </message>
     <message>
       <source>Title/Message</source>
       <translation type="unfinished"/>
@@ -1719,10 +1711,6 @@
   <context>
     <name>chat/adminchat</name>
     <message>
-      <source>Invalid chat status</source>
-      <translation>Neispravan status razgovora</translation>
-    </message>
-    <message>
       <source>Attach uploaded file</source>
       <translation type="unfinished"/>
     </message>
@@ -1942,14 +1930,6 @@
   <context>
     <name>chat/translation</name>
     <message>
-      <source>We could not detect operator language</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Detected operator and visitor languages matches, please choose languages manually</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Visitor language</source>
       <translation type="unfinished"/>
     </message>
@@ -2068,10 +2048,6 @@
   </context>
   <context>
     <name>files/files</name>
-    <message>
-      <source>Download file</source>
-      <translation>Preuzmi datoteku</translation>
-    </message>
     <message>
       <source>Refresh</source>
       <translation>Osvježi</translation>
@@ -2288,22 +2264,6 @@
   </context>
   <context>
     <name>chat/startchat</name>
-    <message>
-      <source>Invalid captcha code, please enable Javascript!</source>
-      <translation>Neispravan kod captche, molimo omogućite javascript!</translation>
-    </message>
-    <message>
-      <source>Invalid file extension</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invalid file extension!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>To big file!</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>Department is disabled</source>
       <translation>Odjel je onemogućen</translation>
@@ -2628,57 +2588,6 @@
     </message>
   </context>
   <context>
-    <name>chat/geoadjustment</name>
-    <message>
-      <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>For</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>all</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>custom</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>E.g. ar,pl</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Other countries, put widget/chat status to</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>offline status</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>hidden/disabled, widget will not be shown</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>For unmatched countries put chat status to</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>normal status</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>GEO adjustment</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
     <name>system/xmpp</name>
     <message>
       <source>Geo adjustments active</source>
@@ -2838,15 +2747,58 @@
     </message>
   </context>
   <context>
+    <name>chat/geoadjustment</name>
+    <message>
+      <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>all</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>custom</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E.g. ar,pl</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Other countries, put widget/chat status to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>offline status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>hidden/disabled, widget will not be shown</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For unmatched countries put chat status to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>normal status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>GEO adjustment</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>chat/onlineusers</name>
-    <message>
-      <source>Status</source>
-      <translation>Status</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>Nitko još nije poslao poruku korisniku</translation>
-    </message>
     <message>
       <source>GEO detection configuration</source>
       <translation>Postavke GEO detekcije</translation>
@@ -3228,14 +3180,6 @@
       <translation>Korisnik nema poruka od operatera</translation>
     </message>
     <message>
-      <source>first visit</source>
-      <translation>prvi posjet</translation>
-    </message>
-    <message>
-      <source>last visit</source>
-      <translation>zadnji posjet</translation>
-    </message>
-    <message>
       <source>Chat</source>
       <translation type="unfinished"/>
     </message>
@@ -3250,6 +3194,14 @@
     <message>
       <source>has sent a message to the user</source>
       <translation>poslao je poruku korisniku</translation>
+    </message>
+    <message>
+      <source>first visit</source>
+      <translation>prvi posjet</translation>
+    </message>
+    <message>
+      <source>last visit</source>
+      <translation>zadnji posjet</translation>
     </message>
     <message>
       <source>Files upload for users is active</source>
@@ -3608,10 +3560,6 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
-      <source>Clean cache</source>
-      <translation>Počisti memoriju</translation>
-    </message>
-    <message>
       <source>Empty...</source>
       <translation>Prazno...</translation>
     </message>
@@ -3763,37 +3711,6 @@
     </message>
   </context>
   <context>
-    <name>chat/modifychat</name>
-    <message>
-      <source>Modify chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Recipient e-mail</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Nick</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Update chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat information was updated</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
     <name>chat/operatorschats</name>
     <message>
       <source>Operators chats list</source>
@@ -3802,13 +3719,6 @@
     <message>
       <source>Operators chats</source>
       <translation>Razgovori operatera</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/part/operator_profile</name>
-    <message>
-      <source>Skype call</source>
-      <translation>Skype poziv</translation>
     </message>
   </context>
   <context>
@@ -3840,126 +3750,6 @@
     <message>
       <source>Pending chats</source>
       <translation>Razgovori na čekanju</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/previewchat</name>
-    <message>
-      <source>Last 100 messages rows</source>
-      <translation>Zadnjih 100 redova poruka</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/sendchat</name>
-    <message>
-      <source>Enter your e-mail</source>
-      <translation>Unesite svoj e-mail</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/sendmail</name>
-    <message>
-      <source>Send mail to the user</source>
-      <translation>Pošalji mail korisniku</translation>
-    </message>
-    <message>
-      <source>Recipient</source>
-      <translation>Primatelj</translation>
-    </message>
-    <message>
-      <source>Recipient e-mail</source>
-      <translation>E-mail primatelja</translation>
-    </message>
-    <message>
-      <source>Subject</source>
-      <translation>Naslov</translation>
-    </message>
-    <message>
-      <source>From name</source>
-      <translation>Od ime</translation>
-    </message>
-    <message>
-      <source>Reply e-mail</source>
-      <translation>E-mail za odgovor</translation>
-    </message>
-    <message>
-      <source>From e-mail</source>
-      <translation>Od e-mail</translation>
-    </message>
-    <message>
-      <source>Type your message to the user</source>
-      <translation>Upiši svoju poruku korisniku</translation>
-    </message>
-    <message>
-      <source>Send the mail</source>
-      <translation>Pošalji mail</translation>
-    </message>
-    <message>
-      <source>Embed link to file</source>
-      <translation>Ugradi link u datoteku</translation>
-    </message>
-    <message>
-      <source>Mail was sent to the user</source>
-      <translation>Mail je poslan korisniku</translation>
-    </message>
-    <message>
-      <source>Please enter recipient e-mail!</source>
-      <translation>Molim unesite e-mail adresu primatelja!</translation>
-    </message>
-    <message>
-      <source>From e-mail is missing!</source>
-      <translation>Od e-mail adresa nedostaje!</translation>
-    </message>
-    <message>
-      <source>Reply e-mail is missing!</source>
-      <translation>E-mail adresa za odgovor nedostaje!</translation>
-    </message>
-    <message>
-      <source>Subject is missing!</source>
-      <translation>Naslov nedostaje!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/sendnotice</name>
-    <message>
-      <source>Send a message to the user</source>
-      <translation>Pošalji poruku korisniku</translation>
-    </message>
-    <message>
-      <source>If the message was already sent, this will mark it as not delivered and the user will be shown the chat message again.</source>
-      <translation>Ako je poruka već poslana, bit će označena kao neisporučena i korisniku će biti ponovo prikazana poruka razgovora.</translation>
-    </message>
-    <message>
-      <source>Type your message to the user</source>
-      <translation>Upišite svoju poruku korisniku</translation>
-    </message>
-    <message>
-      <source>Requires e-mail</source>
-      <translation>E-mail je obvezan</translation>
-    </message>
-    <message>
-      <source>Requires name</source>
-      <translation>Ime je obvezn</translation>
-    </message>
-    <message>
-      <source>Requires phone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Send the message</source>
-      <translation>Pošalji poruku</translation>
-    </message>
-    <message>
-      <source>Message was sent to the user</source>
-      <translation>Poruka je poslana korisniku</translation>
-    </message>
-    <message>
-      <source>Start chat with operator</source>
-      <translation>Započnite razgovor s operaterom</translation>
-    </message>
-    <message>
-      <source>Type your message to the operator</source>
-      <translation>Unesite svoju poruku operateru</translation>
     </message>
   </context>
   <context>
@@ -4162,146 +3952,7 @@
     </message>
   </context>
   <context>
-    <name>chat/syncandsoundesetting</name>
-    <message>
-      <source>Save</source>
-      <translation>Pohrani</translation>
-    </message>
-    <message>
-      <source>Update</source>
-      <translation>Ažuriraj</translation>
-    </message>
-    <message>
-      <source>Cancel</source>
-      <translation>Odustani</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Postavke ažurirane</translation>
-    </message>
-    <message>
-      <source>Synchronisation and sound settings</source>
-      <translation>Postavke za sinkronizaciju i zvuk</translation>
-    </message>
-    <message>
-      <source>How many seconds for a user to be considered as being online</source>
-      <translation>Koliko se sekundi korisnik smatra online</translation>
-    </message>
-    <message>
-      <source>Value in seconds</source>
-      <translation>Vrijednost u sekundama</translation>
-    </message>
-    <message>
-      <source>Sync for new chats, interval in seconds</source>
-      <translation>Sinkronizacija novih razgovora. Interval u sekundama</translation>
-    </message>
-    <message>
-      <source>Check for messages from the operators, interval in seconds</source>
-      <translation>Provjera ima li poruka operatera. Interval u sekudama.</translation>
-    </message>
-    <message>
-      <source>Messages settings</source>
-      <translation>Postavke poruka</translation>
-    </message>
-    <message>
-      <source>Sync for a new user message, interval in seconds</source>
-      <translation>Sinkroniziranje novih korisničkih poruka. Interval u sekundama</translation>
-    </message>
-    <message>
-      <source>Show browser notification for new messages</source>
-      <translation>Pokaži obavijesti preglednika za nove poruke</translation>
-    </message>
-    <message>
-      <source>Long polling (experimental)</source>
-      <translation>Long polling (eksperimentalno)</translation>
-    </message>
-    <message>
-      <source>Enable long polling</source>
-      <translation>Omogući long polling</translation>
-    </message>
-    <message>
-      <source>How many seconds keep connection to server?</source>
-      <translation>Koliko sekundi zadržati vezu sa serverom?</translation>
-    </message>
-    <message>
-      <source>New chat request notification settings</source>
-      <translation>Postavke obavijesti zahtjeva za novi razgovor</translation>
-    </message>
-    <message>
-      <source>Play a new pending chat sound on a new chat request</source>
-      <translation>Pusti novi zvuk za razgovor na čekanju po zahtjevu za novi razgovor</translation>
-    </message>
-    <message>
-      <source>Play a sound on a new message for a back office user</source>
-      <translation>Pusti zvuk za poruku za back office korisnika</translation>
-    </message>
-    <message>
-      <source>Play a sound on a new message for a front end user</source>
-      <translation>Pusti zvuk za novu poruku za front end korisnika</translation>
-    </message>
-    <message>
-      <source>Show alert message on a new chat request</source>
-      <translation>Prikaži poruku po zahtjevu za novi razgovor</translation>
-    </message>
-    <message>
-      <source>How many times play sound notification</source>
-      <translation>Koliko puta pustiti zvuk notifikacije</translation>
-    </message>
-    <message>
-      <source>Number</source>
-      <translation>Broj</translation>
-    </message>
-    <message>
-      <source>Delay between sound notifications in seconds</source>
-      <translation>Vrijeme između obavijesti u sekundama</translation>
-    </message>
-    <message>
-      <source>delay in seconds</source>
-      <translation>vrijeme u sekundama</translation>
-    </message>
-    <message>
-      <source>Seconds</source>
-      <translation>Sekunde</translation>
-    </message>
-    <message>
-      <source>Please enter a valid online timeout value!</source>
-      <translation>Molimo unesite ispravnu vrijednost isteka vremena!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid server connection timeout value!</source>
-      <translation>Molimo unesite ispravnu vrijednost isteka vremena s vezom sa serverom</translation>
-    </message>
-    <message>
-      <source>Please enter a valid operator message timeout value!</source>
-      <translation>Molimo upišite ispravnu vrijednost timeouta poruke operatera!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid new messages polling sync interval!</source>
-      <translation>Molimo unesite valjan novi interva sinkronizacije za polling poruka!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid back office sync interval!</source>
-      <translation>Molimo unesite valjani back office interval sinkronizacije!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid new messages sync interval!</source>
-      <translation>Molimo unesite valjani interval sinkronizacije za novu poruku!</translation>
-    </message>
-    <message>
-      <source>Synchronization and sound settings</source>
-      <translation>Postavke sinkronizacije i zvuka</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/statistic</name>
-    <message>
-      <source>General</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Operators last 24h statistic, top 100 by chats number</source>
-      <translation>Statistike operatera u zadnja 24 sata, top 100 po broju razgovora</translation>
-    </message>
     <message>
       <source>Statistic</source>
       <translation>Statistika</translation>
@@ -4524,6 +4175,310 @@
     </message>
   </context>
   <context>
+    <name>chat/unreadchats</name>
+    <message>
+      <source>Unread chats list</source>
+      <translation>Popis nepročitanih razgovora</translation>
+    </message>
+    <message>
+      <source>Information</source>
+      <translation>Informacija</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Prazno...</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/modifychat</name>
+    <message>
+      <source>Modify chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Recipient e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nick</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat information was updated</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/part/operator_profile</name>
+    <message>
+      <source>Skype call</source>
+      <translation>Skype poziv</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/previewchat</name>
+    <message>
+      <source>Last 100 messages rows</source>
+      <translation>Zadnjih 100 redova poruka</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/sendchat</name>
+    <message>
+      <source>Enter your e-mail</source>
+      <translation>Unesite svoj e-mail</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/sendmail</name>
+    <message>
+      <source>Send mail to the user</source>
+      <translation>Pošalji mail korisniku</translation>
+    </message>
+    <message>
+      <source>Recipient</source>
+      <translation>Primatelj</translation>
+    </message>
+    <message>
+      <source>Recipient e-mail</source>
+      <translation>E-mail primatelja</translation>
+    </message>
+    <message>
+      <source>Subject</source>
+      <translation>Naslov</translation>
+    </message>
+    <message>
+      <source>From name</source>
+      <translation>Od ime</translation>
+    </message>
+    <message>
+      <source>Reply e-mail</source>
+      <translation>E-mail za odgovor</translation>
+    </message>
+    <message>
+      <source>From e-mail</source>
+      <translation>Od e-mail</translation>
+    </message>
+    <message>
+      <source>Type your message to the user</source>
+      <translation>Upiši svoju poruku korisniku</translation>
+    </message>
+    <message>
+      <source>Send the mail</source>
+      <translation>Pošalji mail</translation>
+    </message>
+    <message>
+      <source>Embed link to file</source>
+      <translation>Ugradi link u datoteku</translation>
+    </message>
+    <message>
+      <source>Mail was sent to the user</source>
+      <translation>Mail je poslan korisniku</translation>
+    </message>
+    <message>
+      <source>Please enter recipient e-mail!</source>
+      <translation>Molim unesite e-mail adresu primatelja!</translation>
+    </message>
+    <message>
+      <source>From e-mail is missing!</source>
+      <translation>Od e-mail adresa nedostaje!</translation>
+    </message>
+    <message>
+      <source>Reply e-mail is missing!</source>
+      <translation>E-mail adresa za odgovor nedostaje!</translation>
+    </message>
+    <message>
+      <source>Subject is missing!</source>
+      <translation>Naslov nedostaje!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/sendnotice</name>
+    <message>
+      <source>Send a message to the user</source>
+      <translation>Pošalji poruku korisniku</translation>
+    </message>
+    <message>
+      <source>If the message was already sent, this will mark it as not delivered and the user will be shown the chat message again.</source>
+      <translation>Ako je poruka već poslana, bit će označena kao neisporučena i korisniku će biti ponovo prikazana poruka razgovora.</translation>
+    </message>
+    <message>
+      <source>Type your message to the user</source>
+      <translation>Upišite svoju poruku korisniku</translation>
+    </message>
+    <message>
+      <source>Requires e-mail</source>
+      <translation>E-mail je obvezan</translation>
+    </message>
+    <message>
+      <source>Requires name</source>
+      <translation>Ime je obvezn</translation>
+    </message>
+    <message>
+      <source>Requires phone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send the message</source>
+      <translation>Pošalji poruku</translation>
+    </message>
+    <message>
+      <source>Message was sent to the user</source>
+      <translation>Poruka je poslana korisniku</translation>
+    </message>
+    <message>
+      <source>Start chat with operator</source>
+      <translation>Započnite razgovor s operaterom</translation>
+    </message>
+    <message>
+      <source>Type your message to the operator</source>
+      <translation>Unesite svoju poruku operateru</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/syncandsoundesetting</name>
+    <message>
+      <source>Save</source>
+      <translation>Pohrani</translation>
+    </message>
+    <message>
+      <source>Update</source>
+      <translation>Ažuriraj</translation>
+    </message>
+    <message>
+      <source>Cancel</source>
+      <translation>Odustani</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Postavke ažurirane</translation>
+    </message>
+    <message>
+      <source>Synchronisation and sound settings</source>
+      <translation>Postavke za sinkronizaciju i zvuk</translation>
+    </message>
+    <message>
+      <source>How many seconds for a user to be considered as being online</source>
+      <translation>Koliko se sekundi korisnik smatra online</translation>
+    </message>
+    <message>
+      <source>Value in seconds</source>
+      <translation>Vrijednost u sekundama</translation>
+    </message>
+    <message>
+      <source>Sync for new chats, interval in seconds</source>
+      <translation>Sinkronizacija novih razgovora. Interval u sekundama</translation>
+    </message>
+    <message>
+      <source>Check for messages from the operators, interval in seconds</source>
+      <translation>Provjera ima li poruka operatera. Interval u sekudama.</translation>
+    </message>
+    <message>
+      <source>Messages settings</source>
+      <translation>Postavke poruka</translation>
+    </message>
+    <message>
+      <source>Sync for a new user message, interval in seconds</source>
+      <translation>Sinkroniziranje novih korisničkih poruka. Interval u sekundama</translation>
+    </message>
+    <message>
+      <source>Show browser notification for new messages</source>
+      <translation>Pokaži obavijesti preglednika za nove poruke</translation>
+    </message>
+    <message>
+      <source>Long polling (experimental)</source>
+      <translation>Long polling (eksperimentalno)</translation>
+    </message>
+    <message>
+      <source>Enable long polling</source>
+      <translation>Omogući long polling</translation>
+    </message>
+    <message>
+      <source>How many seconds keep connection to server?</source>
+      <translation>Koliko sekundi zadržati vezu sa serverom?</translation>
+    </message>
+    <message>
+      <source>New chat request notification settings</source>
+      <translation>Postavke obavijesti zahtjeva za novi razgovor</translation>
+    </message>
+    <message>
+      <source>Play a new pending chat sound on a new chat request</source>
+      <translation>Pusti novi zvuk za razgovor na čekanju po zahtjevu za novi razgovor</translation>
+    </message>
+    <message>
+      <source>Play a sound on a new message for a back office user</source>
+      <translation>Pusti zvuk za poruku za back office korisnika</translation>
+    </message>
+    <message>
+      <source>Play a sound on a new message for a front end user</source>
+      <translation>Pusti zvuk za novu poruku za front end korisnika</translation>
+    </message>
+    <message>
+      <source>Show alert message on a new chat request</source>
+      <translation>Prikaži poruku po zahtjevu za novi razgovor</translation>
+    </message>
+    <message>
+      <source>How many times play sound notification</source>
+      <translation>Koliko puta pustiti zvuk notifikacije</translation>
+    </message>
+    <message>
+      <source>Number</source>
+      <translation>Broj</translation>
+    </message>
+    <message>
+      <source>Delay between sound notifications in seconds</source>
+      <translation>Vrijeme između obavijesti u sekundama</translation>
+    </message>
+    <message>
+      <source>delay in seconds</source>
+      <translation>vrijeme u sekundama</translation>
+    </message>
+    <message>
+      <source>Seconds</source>
+      <translation>Sekunde</translation>
+    </message>
+    <message>
+      <source>Please enter a valid online timeout value!</source>
+      <translation>Molimo unesite ispravnu vrijednost isteka vremena!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid server connection timeout value!</source>
+      <translation>Molimo unesite ispravnu vrijednost isteka vremena s vezom sa serverom</translation>
+    </message>
+    <message>
+      <source>Please enter a valid operator message timeout value!</source>
+      <translation>Molimo upišite ispravnu vrijednost timeouta poruke operatera!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid new messages polling sync interval!</source>
+      <translation>Molimo unesite valjan novi interva sinkronizacije za polling poruka!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid back office sync interval!</source>
+      <translation>Molimo unesite valjani back office interval sinkronizacije!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid new messages sync interval!</source>
+      <translation>Molimo unesite valjani interval sinkronizacije za novu poruku!</translation>
+    </message>
+    <message>
+      <source>Synchronization and sound settings</source>
+      <translation>Postavke sinkronizacije i zvuka</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/transferchat</name>
     <message>
       <source>Transfer to a user</source>
@@ -4548,21 +4503,6 @@
     <message>
       <source>Departments</source>
       <translation>Odjeli</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/unreadchats</name>
-    <message>
-      <source>Unread chats list</source>
-      <translation>Popis nepročitanih razgovora</translation>
-    </message>
-    <message>
-      <source>Information</source>
-      <translation>Informacija</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Prazno...</translation>
     </message>
   </context>
   <context>
@@ -5657,6 +5597,17 @@
     </message>
   </context>
   <context>
+    <name>permission/getpermissionssummary</name>
+    <message>
+      <source>Request permission</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose at least one permission</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>permission/groupassignrole</name>
     <message>
       <source>Title</source>
@@ -5750,6 +5701,33 @@
     <message>
       <source>List of roles</source>
       <translation>Lista uloga</translation>
+    </message>
+  </context>
+  <context>
+    <name>permission/request</name>
+    <message>
+      <source>Request permission</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Request permissions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Permission requested</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a user!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This user can not receive permision request!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Permissions were not provided</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -6082,6 +6060,49 @@
     </message>
     <message>
       <source>Use application default recognition dialect</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>users/autologin</name>
+    <message>
+      <source>Auto login settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This module can be used if you are generating autologin link. See site for code examples</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Secret hash used for authentification token generation, min 10 characters</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Autologin hash has expired</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not find a user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not find a provided user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid autologin hash</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Auto login module is not enabled</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -6823,10 +6844,6 @@
   <context>
     <name>chat/chatexport</name>
     <message>
-      <source>Referrer</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Department name</source>
       <translation type="unfinished"/>
     </message>
@@ -6916,11 +6933,14 @@
     </message>
   </context>
   <context>
-    <name>chat/syncuser</name>
+    <name>chat/closechatadmin</name>
     <message>
-      <source>You do not have permission to view this chat, or chat was deleted</source>
-      <translation>Nemate dozvolu za gledanje ovog razgovora ili je razgovor obrisan</translation>
+      <source>has closed the chat!</source>
+      <translation>je zatvorio razgovor!</translation>
     </message>
+  </context>
+  <context>
+    <name>chat/syncuser</name>
     <message>
       <source>Chat was automatically transferred to</source>
       <translation>Razgovor je automatski upućen</translation>
@@ -6936,10 +6956,6 @@
     <message>
       <source>Support staff member has closed this chat</source>
       <translation>Član osoblja je ugasio ovaj razgovor</translation>
-    </message>
-    <message>
-      <source>The operator has closed this chat session</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
@@ -7147,17 +7163,6 @@
     </message>
   </context>
   <context>
-    <name>chat/closechatadmin</name>
-    <message>
-      <source>has redirected user to contact form!</source>
-      <translation>je preusmjerio korisnika na obrazac za kontakt!</translation>
-    </message>
-    <message>
-      <source>has closed the chat!</source>
-      <translation>je zatvorio razgovor!</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/deletechatadmin</name>
     <message>
       <source>You do not have rights to delete a chat</source>
@@ -7227,133 +7232,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Molimo unesite ispravnu vrstu datoteke </translation>
-    </message>
-  </context>
-  <context>
-    <name>permission/getpermissionsummary</name>
-    <message>
-      <source>Module/Function</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>permission/getpermissionssummary</name>
-    <message>
-      <source>Request permission</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please choose at least one permission</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>permission/request</name>
-    <message>
-      <source>Request permission</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Request permissions</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Permission requested</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please choose a user!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>This user can not receive permision request!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Permissions were not provided</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>users/autologin</name>
-    <message>
-      <source>Auto login settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>This module can be used if you are generating autologin link. See site for code examples</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Enabled</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Secret hash used for authentification token generation, min 10 characters</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Autologin hash has expired</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Could not find a user</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Could not find a provided user</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invalid autologin hash</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Auto login module is not enabled</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/chatcommand</name>
-    <message>
-      <source>Nick changed!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>E-mail changed!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Phone changed!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User was redirected!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Screenshot was scheduled!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User was redirected to contact form!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User was blocked!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat was closed!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat was deleted!</source>
-      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

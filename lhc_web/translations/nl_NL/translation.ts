@@ -319,10 +319,6 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
-      <source>Widget copyright link</source>
-      <translation>Widget copyright link</translation>
-    </message>
-    <message>
       <source>Download theme</source>
       <translation>Download thema</translation>
     </message>
@@ -702,10 +698,6 @@
   </context>
   <context>
     <name>system/htmlcode</name>
-    <message>
-      <source>Popup window size</source>
-      <translation>Grootte popup-scherm</translation>
-    </message>
     <message>
       <source>HTML code</source>
       <translation>HTML code</translation>
@@ -1305,6 +1297,10 @@
       <source>Operator is typing now...</source>
       <translation>Medewerker is aan het typen...</translation>
     </message>
+    <message>
+      <source>Close and Start a new one</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/bbcodeinsert</name>
@@ -1389,10 +1385,6 @@
   </context>
   <context>
     <name>chat/cannedmsg</name>
-    <message>
-      <source>Please enter canned message</source>
-      <translation>Voer s.v.p. voorgeprogrammeerd bericht in</translation>
-    </message>
     <message>
       <source>Title/Message</source>
       <translation>Titel/bericht</translation>
@@ -1719,10 +1711,6 @@
   <context>
     <name>chat/adminchat</name>
     <message>
-      <source>Invalid chat status</source>
-      <translation>Onjuiste chat status</translation>
-    </message>
-    <message>
       <source>Attach uploaded file</source>
       <translation>Voeg geupload bestand toe</translation>
     </message>
@@ -1942,14 +1930,6 @@
   <context>
     <name>chat/translation</name>
     <message>
-      <source>We could not detect operator language</source>
-      <translation>De operator zijn taal kan niet herkend worden</translation>
-    </message>
-    <message>
-      <source>Detected operator and visitor languages matches, please choose languages manually</source>
-      <translation>Gedetecteerde operator en bezoeker zijn talen matchen, kies s.v.p. handmatig een taal</translation>
-    </message>
-    <message>
       <source>Visitor language</source>
       <translation>Bezoeker zijn taal</translation>
     </message>
@@ -2068,10 +2048,6 @@
   </context>
   <context>
     <name>files/files</name>
-    <message>
-      <source>Download file</source>
-      <translation>Download bestand</translation>
-    </message>
     <message>
       <source>Refresh</source>
       <translation>Ververs</translation>
@@ -2288,22 +2264,6 @@
   </context>
   <context>
     <name>chat/startchat</name>
-    <message>
-      <source>Invalid captcha code, please enable Javascript!</source>
-      <translation>Onjuiste captcha code, schakel s.v.p. Javascript in!</translation>
-    </message>
-    <message>
-      <source>Invalid file extension</source>
-      <translation>Ongeldige bestandsextensie</translation>
-    </message>
-    <message>
-      <source>Invalid file extension!</source>
-      <translation>Ongeldige bestandsextensie</translation>
-    </message>
-    <message>
-      <source>To big file!</source>
-      <translation>Te groot bestand!</translation>
-    </message>
     <message>
       <source>Department is disabled</source>
       <translation>Afdeling is uitgeschakeld</translation>
@@ -2628,57 +2588,6 @@
     </message>
   </context>
   <context>
-    <name>chat/geoadjustment</name>
-    <message>
-      <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
-      <translation>Deze regels ook op de chatstatus indicator toepassen? Systeem kan hierdoor trager worden</translation>
-    </message>
-    <message>
-      <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
-      <translation>Gebruik de normale chatstatus voor de volgende landen (bijvoorbeeld: nl,be,de,gb)</translation>
-    </message>
-    <message>
-      <source>For</source>
-      <translation>Voor</translation>
-    </message>
-    <message>
-      <source>all</source>
-      <translation>alle</translation>
-    </message>
-    <message>
-      <source>custom</source>
-      <translation>aangepast</translation>
-    </message>
-    <message>
-      <source>E.g. ar,pl</source>
-      <translation>Bijvoorbeeld: ar,pl</translation>
-    </message>
-    <message>
-      <source>Other countries, put widget/chat status to</source>
-      <translation>Zet de widget/chat status voor andere landen op</translation>
-    </message>
-    <message>
-      <source>offline status</source>
-      <translation>offline status</translation>
-    </message>
-    <message>
-      <source>hidden/disabled, widget will not be shown</source>
-      <translation>verborgen widgets worden niet weergegeven</translation>
-    </message>
-    <message>
-      <source>For unmatched countries put chat status to</source>
-      <translation>Voor landen die niet aan het filter voldoen, stel de chatstatus in als</translation>
-    </message>
-    <message>
-      <source>normal status</source>
-      <translation>normale status</translation>
-    </message>
-    <message>
-      <source>GEO adjustment</source>
-      <translation>GEO aanpassingen</translation>
-    </message>
-  </context>
-  <context>
     <name>system/xmpp</name>
     <message>
       <source>Geo adjustments active</source>
@@ -2838,15 +2747,58 @@
     </message>
   </context>
   <context>
+    <name>chat/geoadjustment</name>
+    <message>
+      <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
+      <translation>Deze regels ook op de chatstatus indicator toepassen? Systeem kan hierdoor trager worden</translation>
+    </message>
+    <message>
+      <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
+      <translation>Gebruik de normale chatstatus voor de volgende landen (bijvoorbeeld: nl,be,de,gb)</translation>
+    </message>
+    <message>
+      <source>For</source>
+      <translation>Voor</translation>
+    </message>
+    <message>
+      <source>all</source>
+      <translation>alle</translation>
+    </message>
+    <message>
+      <source>custom</source>
+      <translation>aangepast</translation>
+    </message>
+    <message>
+      <source>E.g. ar,pl</source>
+      <translation>Bijvoorbeeld: ar,pl</translation>
+    </message>
+    <message>
+      <source>Other countries, put widget/chat status to</source>
+      <translation>Zet de widget/chat status voor andere landen op</translation>
+    </message>
+    <message>
+      <source>offline status</source>
+      <translation>offline status</translation>
+    </message>
+    <message>
+      <source>hidden/disabled, widget will not be shown</source>
+      <translation>verborgen widgets worden niet weergegeven</translation>
+    </message>
+    <message>
+      <source>For unmatched countries put chat status to</source>
+      <translation>Voor landen die niet aan het filter voldoen, stel de chatstatus in als</translation>
+    </message>
+    <message>
+      <source>normal status</source>
+      <translation>normale status</translation>
+    </message>
+    <message>
+      <source>GEO adjustment</source>
+      <translation>GEO aanpassingen</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/onlineusers</name>
-    <message>
-      <source>Status</source>
-      <translation>Status</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>Nog niemand heeft een bericht naar deze gebruiker verstuurd</translation>
-    </message>
     <message>
       <source>GEO detection configuration</source>
       <translation>GEO detectie configuratie</translation>
@@ -3228,14 +3180,6 @@
       <translation>Gebruiker heeft geen berichten van de operator</translation>
     </message>
     <message>
-      <source>first visit</source>
-      <translation>eerste bezoek</translation>
-    </message>
-    <message>
-      <source>last visit</source>
-      <translation>laatste bezoek</translation>
-    </message>
-    <message>
       <source>Chat</source>
       <translation>Chat</translation>
     </message>
@@ -3250,6 +3194,14 @@
     <message>
       <source>has sent a message to the user</source>
       <translation>heeft een bericht verstuurd naar de gebruiker</translation>
+    </message>
+    <message>
+      <source>first visit</source>
+      <translation>eerste bezoek</translation>
+    </message>
+    <message>
+      <source>last visit</source>
+      <translation>laatste bezoek</translation>
     </message>
     <message>
       <source>Files upload for users is active</source>
@@ -3608,10 +3560,6 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
-      <source>Clean cache</source>
-      <translation>Cache verversen</translation>
-    </message>
-    <message>
       <source>Empty...</source>
       <translation>Leeg</translation>
     </message>
@@ -3763,37 +3711,6 @@
     </message>
   </context>
   <context>
-    <name>chat/modifychat</name>
-    <message>
-      <source>Modify chat</source>
-      <translation>Bewerk chat</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-mail</translation>
-    </message>
-    <message>
-      <source>Recipient e-mail</source>
-      <translation>Ontvanger e-mail</translation>
-    </message>
-    <message>
-      <source>Nick</source>
-      <translation>Naam</translation>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>Telefoon</translation>
-    </message>
-    <message>
-      <source>Update chat</source>
-      <translation>Update chat</translation>
-    </message>
-    <message>
-      <source>Chat information was updated</source>
-      <translation>chat informatie is geupdated</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/operatorschats</name>
     <message>
       <source>Operators chats list</source>
@@ -3802,13 +3719,6 @@
     <message>
       <source>Operators chats</source>
       <translation>Operator chats</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/part/operator_profile</name>
-    <message>
-      <source>Skype call</source>
-      <translation>Skype gesprek</translation>
     </message>
   </context>
   <context>
@@ -3840,126 +3750,6 @@
     <message>
       <source>Pending chats</source>
       <translation>Open chats</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/previewchat</name>
-    <message>
-      <source>Last 100 messages rows</source>
-      <translation>Laatste 100 berichten</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/sendchat</name>
-    <message>
-      <source>Enter your e-mail</source>
-      <translation>Voer uw emailadres in</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/sendmail</name>
-    <message>
-      <source>Send mail to the user</source>
-      <translation>Stuur bericht aan gebruiker</translation>
-    </message>
-    <message>
-      <source>Recipient</source>
-      <translation>Ontvanger</translation>
-    </message>
-    <message>
-      <source>Recipient e-mail</source>
-      <translation>Ontvanger email</translation>
-    </message>
-    <message>
-      <source>Subject</source>
-      <translation>Onderwerp</translation>
-    </message>
-    <message>
-      <source>From name</source>
-      <translation>Van naam</translation>
-    </message>
-    <message>
-      <source>Reply e-mail</source>
-      <translation>Antwoordadres</translation>
-    </message>
-    <message>
-      <source>From e-mail</source>
-      <translation>Van email</translation>
-    </message>
-    <message>
-      <source>Type your message to the user</source>
-      <translation>Typ uw bericht aan de gebruiker</translation>
-    </message>
-    <message>
-      <source>Send the mail</source>
-      <translation>Verstuur mail</translation>
-    </message>
-    <message>
-      <source>Embed link to file</source>
-      <translation>Embed link naar file</translation>
-    </message>
-    <message>
-      <source>Mail was sent to the user</source>
-      <translation>Email verstuurd aan de gebruiker</translation>
-    </message>
-    <message>
-      <source>Please enter recipient e-mail!</source>
-      <translation>Vul het email adres van een ontvanger in!</translation>
-    </message>
-    <message>
-      <source>From e-mail is missing!</source>
-      <translation>Vanaf email mist!</translation>
-    </message>
-    <message>
-      <source>Reply e-mail is missing!</source>
-      <translation>Antwoord email mist!</translation>
-    </message>
-    <message>
-      <source>Subject is missing!</source>
-      <translation>Onderwerp mist!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/sendnotice</name>
-    <message>
-      <source>Send a message to the user</source>
-      <translation>Stuur bericht aan gebruiker</translation>
-    </message>
-    <message>
-      <source>If the message was already sent, this will mark it as not delivered and the user will be shown the chat message again.</source>
-      <translation>Als het bericht al werd verzonden, dan markeert dit het als niet verzonden en de gebruiker zal het chat bericht nogmaals te zien krijgen.</translation>
-    </message>
-    <message>
-      <source>Type your message to the user</source>
-      <translation>Typ uw bericht aan de gebruiker</translation>
-    </message>
-    <message>
-      <source>Requires e-mail</source>
-      <translation>Email verplicht</translation>
-    </message>
-    <message>
-      <source>Requires name</source>
-      <translation>Naam verplicht</translation>
-    </message>
-    <message>
-      <source>Requires phone</source>
-      <translation>Telefoonnummer is verplicht</translation>
-    </message>
-    <message>
-      <source>Send the message</source>
-      <translation>Stuur bericht</translation>
-    </message>
-    <message>
-      <source>Message was sent to the user</source>
-      <translation>Bericht verstuurd aan de gebruiker</translation>
-    </message>
-    <message>
-      <source>Start chat with operator</source>
-      <translation>Start chat met de operator</translation>
-    </message>
-    <message>
-      <source>Type your message to the operator</source>
-      <translation>Typ uw bericht aan de operator</translation>
     </message>
   </context>
   <context>
@@ -4162,146 +3952,7 @@
     </message>
   </context>
   <context>
-    <name>chat/syncandsoundesetting</name>
-    <message>
-      <source>Save</source>
-      <translation>Opslaan</translation>
-    </message>
-    <message>
-      <source>Update</source>
-      <translation>Update</translation>
-    </message>
-    <message>
-      <source>Cancel</source>
-      <translation>Annuleren</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Instellingen opgeslagen</translation>
-    </message>
-    <message>
-      <source>Synchronisation and sound settings</source>
-      <translation>Synchronisatie en geluidsinstellingen</translation>
-    </message>
-    <message>
-      <source>How many seconds for a user to be considered as being online</source>
-      <translation>Hoeveel seconden voordat een gebruiker als online gezien wordt</translation>
-    </message>
-    <message>
-      <source>Value in seconds</source>
-      <translation>Waarde in seconden</translation>
-    </message>
-    <message>
-      <source>Sync for new chats, interval in seconds</source>
-      <translation>Synchronisatie van chat berichten, interval in seconden</translation>
-    </message>
-    <message>
-      <source>Check for messages from the operators, interval in seconds</source>
-      <translation>Check op berichten van de operators, interval in seconden</translation>
-    </message>
-    <message>
-      <source>Messages settings</source>
-      <translation>Berichten instellingen</translation>
-    </message>
-    <message>
-      <source>Sync for a new user message, interval in seconds</source>
-      <translation>Synchronisatie van nieuwe gebruikersberichten, interval in seconden</translation>
-    </message>
-    <message>
-      <source>Show browser notification for new messages</source>
-      <translation>Toon browser notificatie voor nieuwe berichten</translation>
-    </message>
-    <message>
-      <source>Long polling (experimental)</source>
-      <translation>Lange polling (experimenteel)</translation>
-    </message>
-    <message>
-      <source>Enable long polling</source>
-      <translation>Schakel long polling in</translation>
-    </message>
-    <message>
-      <source>How many seconds keep connection to server?</source>
-      <translation>Hoeveel seconden verbinding houden met de server?</translation>
-    </message>
-    <message>
-      <source>New chat request notification settings</source>
-      <translation>Nieuw chatverzoek nofiticatie instellingen</translation>
-    </message>
-    <message>
-      <source>Play a new pending chat sound on a new chat request</source>
-      <translation>Speel een nieuw-wachtende-chat geluid bij een nieuw chatverzoek</translation>
-    </message>
-    <message>
-      <source>Play a sound on a new message for a back office user</source>
-      <translation>Speel een geluid bij een nieuw bericht voor een back office gebruiker</translation>
-    </message>
-    <message>
-      <source>Play a sound on a new message for a front end user</source>
-      <translation>Speel een geluid bij een nieuw bericht voor een front-end gebruiker</translation>
-    </message>
-    <message>
-      <source>Show alert message on a new chat request</source>
-      <translation>Toon waarschuwingsbericht bij een nieuw chatverzoek</translation>
-    </message>
-    <message>
-      <source>How many times play sound notification</source>
-      <translation>Hoe vaak geluidsnotificatie spelen</translation>
-    </message>
-    <message>
-      <source>Number</source>
-      <translation>Aantal</translation>
-    </message>
-    <message>
-      <source>Delay between sound notifications in seconds</source>
-      <translation>Tijd tussen geluidsnotificatie in seconden</translation>
-    </message>
-    <message>
-      <source>delay in seconds</source>
-      <translation>tijd in seconden</translation>
-    </message>
-    <message>
-      <source>Seconds</source>
-      <translation>Seconden</translation>
-    </message>
-    <message>
-      <source>Please enter a valid online timeout value!</source>
-      <translation>Voer s.v.p. een geldige online timeout waarde in!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid server connection timeout value!</source>
-      <translation>Voer s.v.p. een geldige server-connectie-timout waarde in!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid operator message timeout value!</source>
-      <translation>Voer s.v.p. een geldige waarde in voor operator-bericht-timeout!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid new messages polling sync interval!</source>
-      <translation>Voer s.v.p. een geldig nieuwe-berichten-polling-interval in!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid back office sync interval!</source>
-      <translation>Voer s.v.p. een geldige back office synchronisatie interval in!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid new messages sync interval!</source>
-      <translation>Voer s.v.p. een geldige nieuwe berichten synchronisatie interval in!</translation>
-    </message>
-    <message>
-      <source>Synchronization and sound settings</source>
-      <translation>Synchronisatie en geluidsinstellingen</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/statistic</name>
-    <message>
-      <source>General</source>
-      <translation>Algemeen</translation>
-    </message>
-    <message>
-      <source>Operators last 24h statistic, top 100 by chats number</source>
-      <translation>Operator statistieken laatste 24u, top 100 op aantal chats</translation>
-    </message>
     <message>
       <source>Statistic</source>
       <translation>Statistieken</translation>
@@ -4524,6 +4175,310 @@
     </message>
   </context>
   <context>
+    <name>chat/unreadchats</name>
+    <message>
+      <source>Unread chats list</source>
+      <translation>Ongelezen chats lijst</translation>
+    </message>
+    <message>
+      <source>Information</source>
+      <translation>Informatie</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Leeg...</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/modifychat</name>
+    <message>
+      <source>Modify chat</source>
+      <translation>Bewerk chat</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Recipient e-mail</source>
+      <translation>Ontvanger e-mail</translation>
+    </message>
+    <message>
+      <source>Nick</source>
+      <translation>Naam</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Telefoon</translation>
+    </message>
+    <message>
+      <source>Update chat</source>
+      <translation>Update chat</translation>
+    </message>
+    <message>
+      <source>Chat information was updated</source>
+      <translation>chat informatie is geupdated</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/part/operator_profile</name>
+    <message>
+      <source>Skype call</source>
+      <translation>Skype gesprek</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/previewchat</name>
+    <message>
+      <source>Last 100 messages rows</source>
+      <translation>Laatste 100 berichten</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/sendchat</name>
+    <message>
+      <source>Enter your e-mail</source>
+      <translation>Voer uw emailadres in</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/sendmail</name>
+    <message>
+      <source>Send mail to the user</source>
+      <translation>Stuur bericht aan gebruiker</translation>
+    </message>
+    <message>
+      <source>Recipient</source>
+      <translation>Ontvanger</translation>
+    </message>
+    <message>
+      <source>Recipient e-mail</source>
+      <translation>Ontvanger email</translation>
+    </message>
+    <message>
+      <source>Subject</source>
+      <translation>Onderwerp</translation>
+    </message>
+    <message>
+      <source>From name</source>
+      <translation>Van naam</translation>
+    </message>
+    <message>
+      <source>Reply e-mail</source>
+      <translation>Antwoordadres</translation>
+    </message>
+    <message>
+      <source>From e-mail</source>
+      <translation>Van email</translation>
+    </message>
+    <message>
+      <source>Type your message to the user</source>
+      <translation>Typ uw bericht aan de gebruiker</translation>
+    </message>
+    <message>
+      <source>Send the mail</source>
+      <translation>Verstuur mail</translation>
+    </message>
+    <message>
+      <source>Embed link to file</source>
+      <translation>Embed link naar file</translation>
+    </message>
+    <message>
+      <source>Mail was sent to the user</source>
+      <translation>Email verstuurd aan de gebruiker</translation>
+    </message>
+    <message>
+      <source>Please enter recipient e-mail!</source>
+      <translation>Vul het email adres van een ontvanger in!</translation>
+    </message>
+    <message>
+      <source>From e-mail is missing!</source>
+      <translation>Vanaf email mist!</translation>
+    </message>
+    <message>
+      <source>Reply e-mail is missing!</source>
+      <translation>Antwoord email mist!</translation>
+    </message>
+    <message>
+      <source>Subject is missing!</source>
+      <translation>Onderwerp mist!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/sendnotice</name>
+    <message>
+      <source>Send a message to the user</source>
+      <translation>Stuur bericht aan gebruiker</translation>
+    </message>
+    <message>
+      <source>If the message was already sent, this will mark it as not delivered and the user will be shown the chat message again.</source>
+      <translation>Als het bericht al werd verzonden, dan markeert dit het als niet verzonden en de gebruiker zal het chat bericht nogmaals te zien krijgen.</translation>
+    </message>
+    <message>
+      <source>Type your message to the user</source>
+      <translation>Typ uw bericht aan de gebruiker</translation>
+    </message>
+    <message>
+      <source>Requires e-mail</source>
+      <translation>Email verplicht</translation>
+    </message>
+    <message>
+      <source>Requires name</source>
+      <translation>Naam verplicht</translation>
+    </message>
+    <message>
+      <source>Requires phone</source>
+      <translation>Telefoonnummer is verplicht</translation>
+    </message>
+    <message>
+      <source>Send the message</source>
+      <translation>Stuur bericht</translation>
+    </message>
+    <message>
+      <source>Message was sent to the user</source>
+      <translation>Bericht verstuurd aan de gebruiker</translation>
+    </message>
+    <message>
+      <source>Start chat with operator</source>
+      <translation>Start chat met de operator</translation>
+    </message>
+    <message>
+      <source>Type your message to the operator</source>
+      <translation>Typ uw bericht aan de operator</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/syncandsoundesetting</name>
+    <message>
+      <source>Save</source>
+      <translation>Opslaan</translation>
+    </message>
+    <message>
+      <source>Update</source>
+      <translation>Update</translation>
+    </message>
+    <message>
+      <source>Cancel</source>
+      <translation>Annuleren</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Instellingen opgeslagen</translation>
+    </message>
+    <message>
+      <source>Synchronisation and sound settings</source>
+      <translation>Synchronisatie en geluidsinstellingen</translation>
+    </message>
+    <message>
+      <source>How many seconds for a user to be considered as being online</source>
+      <translation>Hoeveel seconden voordat een gebruiker als online gezien wordt</translation>
+    </message>
+    <message>
+      <source>Value in seconds</source>
+      <translation>Waarde in seconden</translation>
+    </message>
+    <message>
+      <source>Sync for new chats, interval in seconds</source>
+      <translation>Synchronisatie van chat berichten, interval in seconden</translation>
+    </message>
+    <message>
+      <source>Check for messages from the operators, interval in seconds</source>
+      <translation>Check op berichten van de operators, interval in seconden</translation>
+    </message>
+    <message>
+      <source>Messages settings</source>
+      <translation>Berichten instellingen</translation>
+    </message>
+    <message>
+      <source>Sync for a new user message, interval in seconds</source>
+      <translation>Synchronisatie van nieuwe gebruikersberichten, interval in seconden</translation>
+    </message>
+    <message>
+      <source>Show browser notification for new messages</source>
+      <translation>Toon browser notificatie voor nieuwe berichten</translation>
+    </message>
+    <message>
+      <source>Long polling (experimental)</source>
+      <translation>Lange polling (experimenteel)</translation>
+    </message>
+    <message>
+      <source>Enable long polling</source>
+      <translation>Schakel long polling in</translation>
+    </message>
+    <message>
+      <source>How many seconds keep connection to server?</source>
+      <translation>Hoeveel seconden verbinding houden met de server?</translation>
+    </message>
+    <message>
+      <source>New chat request notification settings</source>
+      <translation>Nieuw chatverzoek nofiticatie instellingen</translation>
+    </message>
+    <message>
+      <source>Play a new pending chat sound on a new chat request</source>
+      <translation>Speel een nieuw-wachtende-chat geluid bij een nieuw chatverzoek</translation>
+    </message>
+    <message>
+      <source>Play a sound on a new message for a back office user</source>
+      <translation>Speel een geluid bij een nieuw bericht voor een back office gebruiker</translation>
+    </message>
+    <message>
+      <source>Play a sound on a new message for a front end user</source>
+      <translation>Speel een geluid bij een nieuw bericht voor een front-end gebruiker</translation>
+    </message>
+    <message>
+      <source>Show alert message on a new chat request</source>
+      <translation>Toon waarschuwingsbericht bij een nieuw chatverzoek</translation>
+    </message>
+    <message>
+      <source>How many times play sound notification</source>
+      <translation>Hoe vaak geluidsnotificatie spelen</translation>
+    </message>
+    <message>
+      <source>Number</source>
+      <translation>Aantal</translation>
+    </message>
+    <message>
+      <source>Delay between sound notifications in seconds</source>
+      <translation>Tijd tussen geluidsnotificatie in seconden</translation>
+    </message>
+    <message>
+      <source>delay in seconds</source>
+      <translation>tijd in seconden</translation>
+    </message>
+    <message>
+      <source>Seconds</source>
+      <translation>Seconden</translation>
+    </message>
+    <message>
+      <source>Please enter a valid online timeout value!</source>
+      <translation>Voer s.v.p. een geldige online timeout waarde in!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid server connection timeout value!</source>
+      <translation>Voer s.v.p. een geldige server-connectie-timout waarde in!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid operator message timeout value!</source>
+      <translation>Voer s.v.p. een geldige waarde in voor operator-bericht-timeout!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid new messages polling sync interval!</source>
+      <translation>Voer s.v.p. een geldig nieuwe-berichten-polling-interval in!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid back office sync interval!</source>
+      <translation>Voer s.v.p. een geldige back office synchronisatie interval in!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid new messages sync interval!</source>
+      <translation>Voer s.v.p. een geldige nieuwe berichten synchronisatie interval in!</translation>
+    </message>
+    <message>
+      <source>Synchronization and sound settings</source>
+      <translation>Synchronisatie en geluidsinstellingen</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/transferchat</name>
     <message>
       <source>Transfer to a user</source>
@@ -4548,21 +4503,6 @@
     <message>
       <source>Departments</source>
       <translation>Afdelingen</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/unreadchats</name>
-    <message>
-      <source>Unread chats list</source>
-      <translation>Ongelezen chats lijst</translation>
-    </message>
-    <message>
-      <source>Information</source>
-      <translation>Informatie</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Leeg...</translation>
     </message>
   </context>
   <context>
@@ -5657,6 +5597,17 @@
     </message>
   </context>
   <context>
+    <name>permission/getpermissionssummary</name>
+    <message>
+      <source>Request permission</source>
+      <translation>Vraag permissies aan</translation>
+    </message>
+    <message>
+      <source>Please choose at least one permission</source>
+      <translation>Kies tenminste één permissie</translation>
+    </message>
+  </context>
+  <context>
     <name>permission/groupassignrole</name>
     <message>
       <source>Title</source>
@@ -5750,6 +5701,33 @@
     <message>
       <source>List of roles</source>
       <translation>Lijst rollen</translation>
+    </message>
+  </context>
+  <context>
+    <name>permission/request</name>
+    <message>
+      <source>Request permission</source>
+      <translation>Vraag permissie aan</translation>
+    </message>
+    <message>
+      <source>Request permissions</source>
+      <translation>Vraag permissies aan</translation>
+    </message>
+    <message>
+      <source>Permission requested</source>
+      <translation>Permissie aangevraagd</translation>
+    </message>
+    <message>
+      <source>Please choose a user!</source>
+      <translation>Kies een gebruiker!</translation>
+    </message>
+    <message>
+      <source>This user can not receive permision request!</source>
+      <translation>Deze gebruiker kan de aanvraag niet ontvangen!</translation>
+    </message>
+    <message>
+      <source>Permissions were not provided</source>
+      <translation>Permissies zijn niet gegeven</translation>
     </message>
   </context>
   <context>
@@ -6083,6 +6061,49 @@
     <message>
       <source>Use application default recognition dialect</source>
       <translation>Gebruik standaard spraakherkenning dialect</translation>
+    </message>
+  </context>
+  <context>
+    <name>users/autologin</name>
+    <message>
+      <source>Auto login settings</source>
+      <translation>Autologin instellingen</translation>
+    </message>
+    <message>
+      <source>This module can be used if you are generating autologin link. See site for code examples</source>
+      <translation>Deze module kan gebruikt worden om een autologin link te genereren</translation>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation>Ingeschakeld</translation>
+    </message>
+    <message>
+      <source>Secret hash used for authentification token generation, min 10 characters</source>
+      <translation>Geheime code voor authenticatie, minimaal 10 karakters</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Instellingen opgeslagen</translation>
+    </message>
+    <message>
+      <source>Autologin hash has expired</source>
+      <translation>Autologin code is verlopen</translation>
+    </message>
+    <message>
+      <source>Could not find a user</source>
+      <translation>Kan geen gebruiker vinden</translation>
+    </message>
+    <message>
+      <source>Could not find a provided user</source>
+      <translation>Kan de gebruiker niet vinden</translation>
+    </message>
+    <message>
+      <source>Invalid autologin hash</source>
+      <translation>Ongeldige autologin code</translation>
+    </message>
+    <message>
+      <source>Auto login module is not enabled</source>
+      <translation>Autologin module is niet ingeschakeld</translation>
     </message>
   </context>
   <context>
@@ -6823,10 +6844,6 @@
   <context>
     <name>chat/chatexport</name>
     <message>
-      <source>Referrer</source>
-      <translation>Verwijzer</translation>
-    </message>
-    <message>
       <source>Department name</source>
       <translation>Afdelingsnaam</translation>
     </message>
@@ -6916,11 +6933,14 @@
     </message>
   </context>
   <context>
-    <name>chat/syncuser</name>
+    <name>chat/closechatadmin</name>
     <message>
-      <source>You do not have permission to view this chat, or chat was deleted</source>
-      <translation>U heeft geen toestemming deze chat te bekijken, of de chat is verwijderd.</translation>
+      <source>has closed the chat!</source>
+      <translation>heeft de chat gesloten!</translation>
     </message>
+  </context>
+  <context>
+    <name>chat/syncuser</name>
     <message>
       <source>Chat was automatically transferred to</source>
       <translation>De chat werd automatisch doorgeschakeld naar</translation>
@@ -6936,10 +6956,6 @@
     <message>
       <source>Support staff member has closed this chat</source>
       <translation>De ondersteuningsmedewerker heeft deze chat gesloten</translation>
-    </message>
-    <message>
-      <source>The operator has closed this chat session</source>
-      <translation>De operator heeft deze chat gesloten</translation>
     </message>
     <message>
       <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
@@ -7147,17 +7163,6 @@
     </message>
   </context>
   <context>
-    <name>chat/closechatadmin</name>
-    <message>
-      <source>has redirected user to contact form!</source>
-      <translation>heeft de gebruiker doorgestuurd naar het contactformulier!</translation>
-    </message>
-    <message>
-      <source>has closed the chat!</source>
-      <translation>heeft de chat gesloten!</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/deletechatadmin</name>
     <message>
       <source>You do not have rights to delete a chat</source>
@@ -7227,133 +7232,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Voer s.v.p. een geldig bestandstype in!</translation>
-    </message>
-  </context>
-  <context>
-    <name>permission/getpermissionsummary</name>
-    <message>
-      <source>Module/Function</source>
-      <translation>Module/Functie</translation>
-    </message>
-  </context>
-  <context>
-    <name>permission/getpermissionssummary</name>
-    <message>
-      <source>Request permission</source>
-      <translation>Vraag permissies aan</translation>
-    </message>
-    <message>
-      <source>Please choose at least one permission</source>
-      <translation>Kies tenminste één permissie</translation>
-    </message>
-  </context>
-  <context>
-    <name>permission/request</name>
-    <message>
-      <source>Request permission</source>
-      <translation>Vraag permissie aan</translation>
-    </message>
-    <message>
-      <source>Request permissions</source>
-      <translation>Vraag permissies aan</translation>
-    </message>
-    <message>
-      <source>Permission requested</source>
-      <translation>Permissie aangevraagd</translation>
-    </message>
-    <message>
-      <source>Please choose a user!</source>
-      <translation>Kies een gebruiker!</translation>
-    </message>
-    <message>
-      <source>This user can not receive permision request!</source>
-      <translation>Deze gebruiker kan de aanvraag niet ontvangen!</translation>
-    </message>
-    <message>
-      <source>Permissions were not provided</source>
-      <translation>Permissies zijn niet gegeven</translation>
-    </message>
-  </context>
-  <context>
-    <name>users/autologin</name>
-    <message>
-      <source>Auto login settings</source>
-      <translation>Autologin instellingen</translation>
-    </message>
-    <message>
-      <source>This module can be used if you are generating autologin link. See site for code examples</source>
-      <translation>Deze module kan gebruikt worden om een autologin link te genereren</translation>
-    </message>
-    <message>
-      <source>Enabled</source>
-      <translation>Ingeschakeld</translation>
-    </message>
-    <message>
-      <source>Secret hash used for authentification token generation, min 10 characters</source>
-      <translation>Geheime code voor authenticatie, minimaal 10 karakters</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Instellingen opgeslagen</translation>
-    </message>
-    <message>
-      <source>Autologin hash has expired</source>
-      <translation>Autologin code is verlopen</translation>
-    </message>
-    <message>
-      <source>Could not find a user</source>
-      <translation>Kan geen gebruiker vinden</translation>
-    </message>
-    <message>
-      <source>Could not find a provided user</source>
-      <translation>Kan de gebruiker niet vinden</translation>
-    </message>
-    <message>
-      <source>Invalid autologin hash</source>
-      <translation>Ongeldige autologin code</translation>
-    </message>
-    <message>
-      <source>Auto login module is not enabled</source>
-      <translation>Autologin module is niet ingeschakeld</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/chatcommand</name>
-    <message>
-      <source>Nick changed!</source>
-      <translation>Naam gewijzigd</translation>
-    </message>
-    <message>
-      <source>E-mail changed!</source>
-      <translation>Email gewijzigd!</translation>
-    </message>
-    <message>
-      <source>Phone changed!</source>
-      <translation>Telefoonnummer gewijzigd!</translation>
-    </message>
-    <message>
-      <source>User was redirected!</source>
-      <translation>Gebruiker is doorgestuurd!</translation>
-    </message>
-    <message>
-      <source>Screenshot was scheduled!</source>
-      <translation>Screenshot is ingepland!</translation>
-    </message>
-    <message>
-      <source>User was redirected to contact form!</source>
-      <translation>Gebruiker is doorgestuurd naar het contactformulier!</translation>
-    </message>
-    <message>
-      <source>User was blocked!</source>
-      <translation>Gebruiker is geblokkeerd!</translation>
-    </message>
-    <message>
-      <source>Chat was closed!</source>
-      <translation>Chat is gesloten!</translation>
-    </message>
-    <message>
-      <source>Chat was deleted!</source>
-      <translation>Chat is verwijderd!</translation>
     </message>
   </context>
 </TS>

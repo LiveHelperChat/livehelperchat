@@ -319,10 +319,6 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
-      <source>Widget copyright link</source>
-      <translation>لینک کپی رایت ابزارک</translation>
-    </message>
-    <message>
       <source>Download theme</source>
       <translation>دانلود قالب</translation>
     </message>
@@ -702,10 +698,6 @@
   </context>
   <context>
     <name>system/htmlcode</name>
-    <message>
-      <source>Popup window size</source>
-      <translation>اندازه پنجره Popup </translation>
-    </message>
     <message>
       <source>HTML code</source>
       <translation>کد HTML</translation>
@@ -1305,6 +1297,10 @@
       <source>Operator is typing now...</source>
       <translation>اپراتور در حال تایپ کردن است...</translation>
     </message>
+    <message>
+      <source>Close and Start a new one</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/bbcodeinsert</name>
@@ -1389,10 +1385,6 @@
   </context>
   <context>
     <name>chat/cannedmsg</name>
-    <message>
-      <source>Please enter canned message</source>
-      <translation>لطفا پیام تعریف شده را وارد کنید</translation>
-    </message>
     <message>
       <source>Title/Message</source>
       <translation type="unfinished"/>
@@ -1719,10 +1711,6 @@
   <context>
     <name>chat/adminchat</name>
     <message>
-      <source>Invalid chat status</source>
-      <translation>وضعیت چت نامعتبر است</translation>
-    </message>
-    <message>
       <source>Attach uploaded file</source>
       <translation>ضمیمه کردن فایل آپلود شده</translation>
     </message>
@@ -1942,14 +1930,6 @@
   <context>
     <name>chat/translation</name>
     <message>
-      <source>We could not detect operator language</source>
-      <translation>شناسایی زبان اپراتور امکان پذیر نیست</translation>
-    </message>
-    <message>
-      <source>Detected operator and visitor languages matches, please choose languages manually</source>
-      <translation>زبان  بازدیدکننده و اپراتور یکسان است. لطفاً زبانها را دستی وارد کنید</translation>
-    </message>
-    <message>
       <source>Visitor language</source>
       <translation>زبان بازدیدکننده</translation>
     </message>
@@ -2068,10 +2048,6 @@
   </context>
   <context>
     <name>files/files</name>
-    <message>
-      <source>Download file</source>
-      <translation>دانلود فایل</translation>
-    </message>
     <message>
       <source>Refresh</source>
       <translation>رفرش</translation>
@@ -2288,22 +2264,6 @@
   </context>
   <context>
     <name>chat/startchat</name>
-    <message>
-      <source>Invalid captcha code, please enable Javascript!</source>
-      <translation>کد امنیتی نامعتبر است، لطفاً جاوا اسکریپت را فعال کنید!</translation>
-    </message>
-    <message>
-      <source>Invalid file extension</source>
-      <translation>پسوند فایل نامعتبر است</translation>
-    </message>
-    <message>
-      <source>Invalid file extension!</source>
-      <translation>پسوند فایل نامعتبر است</translation>
-    </message>
-    <message>
-      <source>To big file!</source>
-      <translation>فایل بسیار حجیم است!</translation>
-    </message>
     <message>
       <source>Department is disabled</source>
       <translation>دپارتمان غیرفعال شده</translation>
@@ -2628,57 +2588,6 @@
     </message>
   </context>
   <context>
-    <name>chat/geoadjustment</name>
-    <message>
-      <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
-      <translation>آیا این قوانین به وضعیت ابزارک چت نیز اعمال شود؟ کاهش عملکرد با این گزینه مرتبط است</translation>
-    </message>
-    <message>
-      <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
-      <translation>در مورد این کشورها، وضعیت چت را به حالت عادی تنظیم نمایید. کشورهای مورد نظر را با کاما جدا کنید &quot;de,gb,us,fr&quot;. </translation>
-    </message>
-    <message>
-      <source>For</source>
-      <translation>برای</translation>
-    </message>
-    <message>
-      <source>all</source>
-      <translation>همه</translation>
-    </message>
-    <message>
-      <source>custom</source>
-      <translation>سفارشی</translation>
-    </message>
-    <message>
-      <source>E.g. ar,pl</source>
-      <translation>مثال: ar,pl</translation>
-    </message>
-    <message>
-      <source>Other countries, put widget/chat status to</source>
-      <translation>سایر کشورها، قرار دادن وضعیت چت / ابزارک در</translation>
-    </message>
-    <message>
-      <source>offline status</source>
-      <translation>وضعیت آفلاین</translation>
-    </message>
-    <message>
-      <source>hidden/disabled, widget will not be shown</source>
-      <translation>عدم نمایش / غیرفعال شده، ابزارک نمایش داده نخواهد شد</translation>
-    </message>
-    <message>
-      <source>For unmatched countries put chat status to</source>
-      <translation>در مورد کشورهایی که مطابقت نمی کنند، تنظیم وضعیت چت به   </translation>
-    </message>
-    <message>
-      <source>normal status</source>
-      <translation>وضعیت نرمال</translation>
-    </message>
-    <message>
-      <source>GEO adjustment</source>
-      <translation>تنظیم GEO </translation>
-    </message>
-  </context>
-  <context>
     <name>system/xmpp</name>
     <message>
       <source>Geo adjustments active</source>
@@ -2838,15 +2747,58 @@
     </message>
   </context>
   <context>
+    <name>chat/geoadjustment</name>
+    <message>
+      <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
+      <translation>آیا این قوانین به وضعیت ابزارک چت نیز اعمال شود؟ کاهش عملکرد با این گزینه مرتبط است</translation>
+    </message>
+    <message>
+      <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
+      <translation>در مورد این کشورها، وضعیت چت را به حالت عادی تنظیم نمایید. کشورهای مورد نظر را با کاما جدا کنید &quot;de,gb,us,fr&quot;. </translation>
+    </message>
+    <message>
+      <source>For</source>
+      <translation>برای</translation>
+    </message>
+    <message>
+      <source>all</source>
+      <translation>همه</translation>
+    </message>
+    <message>
+      <source>custom</source>
+      <translation>سفارشی</translation>
+    </message>
+    <message>
+      <source>E.g. ar,pl</source>
+      <translation>مثال: ar,pl</translation>
+    </message>
+    <message>
+      <source>Other countries, put widget/chat status to</source>
+      <translation>سایر کشورها، قرار دادن وضعیت چت / ابزارک در</translation>
+    </message>
+    <message>
+      <source>offline status</source>
+      <translation>وضعیت آفلاین</translation>
+    </message>
+    <message>
+      <source>hidden/disabled, widget will not be shown</source>
+      <translation>عدم نمایش / غیرفعال شده، ابزارک نمایش داده نخواهد شد</translation>
+    </message>
+    <message>
+      <source>For unmatched countries put chat status to</source>
+      <translation>در مورد کشورهایی که مطابقت نمی کنند، تنظیم وضعیت چت به   </translation>
+    </message>
+    <message>
+      <source>normal status</source>
+      <translation>وضعیت نرمال</translation>
+    </message>
+    <message>
+      <source>GEO adjustment</source>
+      <translation>تنظیم GEO </translation>
+    </message>
+  </context>
+  <context>
     <name>chat/onlineusers</name>
-    <message>
-      <source>Status</source>
-      <translation>وضعیت</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>پیامی برای کاربر ارسال نشده است</translation>
-    </message>
     <message>
       <source>GEO detection configuration</source>
       <translation>تنظیمات شناسایی موقعیت جغرافیایی</translation>
@@ -3228,14 +3180,6 @@
       <translation>کاربر پیامی از اپراتور ندارد</translation>
     </message>
     <message>
-      <source>first visit</source>
-      <translation>اولین بازدید</translation>
-    </message>
-    <message>
-      <source>last visit</source>
-      <translation>آخرین بازدید</translation>
-    </message>
-    <message>
       <source>Chat</source>
       <translation type="unfinished"/>
     </message>
@@ -3250,6 +3194,14 @@
     <message>
       <source>has sent a message to the user</source>
       <translation>پیام به کاربر ارسال شد</translation>
+    </message>
+    <message>
+      <source>first visit</source>
+      <translation>اولین بازدید</translation>
+    </message>
+    <message>
+      <source>last visit</source>
+      <translation>آخرین بازدید</translation>
     </message>
     <message>
       <source>Files upload for users is active</source>
@@ -3608,10 +3560,6 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
-      <source>Clean cache</source>
-      <translation>پاک سازی کش</translation>
-    </message>
-    <message>
       <source>Empty...</source>
       <translation>خالی ...</translation>
     </message>
@@ -3763,37 +3711,6 @@
     </message>
   </context>
   <context>
-    <name>chat/modifychat</name>
-    <message>
-      <source>Modify chat</source>
-      <translation>ویرایش چت</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>ایمیل</translation>
-    </message>
-    <message>
-      <source>Recipient e-mail</source>
-      <translation>ایمیل گیرنده</translation>
-    </message>
-    <message>
-      <source>Nick</source>
-      <translation>نام</translation>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>شماره تلفن</translation>
-    </message>
-    <message>
-      <source>Update chat</source>
-      <translation>به روز رسانی چت</translation>
-    </message>
-    <message>
-      <source>Chat information was updated</source>
-      <translation>جزئیات چت به روز شد</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/operatorschats</name>
     <message>
       <source>Operators chats list</source>
@@ -3802,13 +3719,6 @@
     <message>
       <source>Operators chats</source>
       <translation>چت های اپراتورها</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/part/operator_profile</name>
-    <message>
-      <source>Skype call</source>
-      <translation>تماس اسکایپی</translation>
     </message>
   </context>
   <context>
@@ -3840,126 +3750,6 @@
     <message>
       <source>Pending chats</source>
       <translation>چت های در انتظار</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/previewchat</name>
-    <message>
-      <source>Last 100 messages rows</source>
-      <translation>100 پیام آخر</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/sendchat</name>
-    <message>
-      <source>Enter your e-mail</source>
-      <translation>ایمیل خود را وارد کنید</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/sendmail</name>
-    <message>
-      <source>Send mail to the user</source>
-      <translation>ارسال ایمیل به کاربر</translation>
-    </message>
-    <message>
-      <source>Recipient</source>
-      <translation>گیرنده</translation>
-    </message>
-    <message>
-      <source>Recipient e-mail</source>
-      <translation>گیرنده ایمیل</translation>
-    </message>
-    <message>
-      <source>Subject</source>
-      <translation>موضوع</translation>
-    </message>
-    <message>
-      <source>From name</source>
-      <translation>نام فرستنده</translation>
-    </message>
-    <message>
-      <source>Reply e-mail</source>
-      <translation>ایمیل دریافت کننده پاسخ</translation>
-    </message>
-    <message>
-      <source>From e-mail</source>
-      <translation>ایمیل فرستنده</translation>
-    </message>
-    <message>
-      <source>Type your message to the user</source>
-      <translation>پیام خود را برای کاربر وارد کنید</translation>
-    </message>
-    <message>
-      <source>Send the mail</source>
-      <translation>ارسال ایمیل</translation>
-    </message>
-    <message>
-      <source>Embed link to file</source>
-      <translation>وارد کردن لینک به فایل</translation>
-    </message>
-    <message>
-      <source>Mail was sent to the user</source>
-      <translation>ایمیل به کاربر ارسال شد.</translation>
-    </message>
-    <message>
-      <source>Please enter recipient e-mail!</source>
-      <translation>لطفا آدرس ایمیل گیرنده را وارد کنید!</translation>
-    </message>
-    <message>
-      <source>From e-mail is missing!</source>
-      <translation>آدرس ایمیل فرستنده وجود ندارد!</translation>
-    </message>
-    <message>
-      <source>Reply e-mail is missing!</source>
-      <translation>ایمیل دریافت کننده پاسخ وجود ندارد!</translation>
-    </message>
-    <message>
-      <source>Subject is missing!</source>
-      <translation>موضوع وجود ندارد!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/sendnotice</name>
-    <message>
-      <source>Send a message to the user</source>
-      <translation>ارسال پیام به کاربر</translation>
-    </message>
-    <message>
-      <source>If the message was already sent, this will mark it as not delivered and the user will be shown the chat message again.</source>
-      <translation>اگر پیام ارسال شده باشد، این گزینه آن را به عنوان دریافت نشده علامت گذاری کرده و مجدداً پیام چت برای کاربر نمایش داده می شود.</translation>
-    </message>
-    <message>
-      <source>Type your message to the user</source>
-      <translation>پیام خود را برای کاربر وارد کنید</translation>
-    </message>
-    <message>
-      <source>Requires e-mail</source>
-      <translation>ایمیل الزامی است</translation>
-    </message>
-    <message>
-      <source>Requires name</source>
-      <translation>نام الزامی است</translation>
-    </message>
-    <message>
-      <source>Requires phone</source>
-      <translation>شماره تلفن الزامی است</translation>
-    </message>
-    <message>
-      <source>Send the message</source>
-      <translation>ارسال پیام</translation>
-    </message>
-    <message>
-      <source>Message was sent to the user</source>
-      <translation>پیام برای کاربر ارسال شد</translation>
-    </message>
-    <message>
-      <source>Start chat with operator</source>
-      <translation>شروع چت با اپراتور</translation>
-    </message>
-    <message>
-      <source>Type your message to the operator</source>
-      <translation>پیام خود را برای اپراتور تایپ کنید</translation>
     </message>
   </context>
   <context>
@@ -4162,146 +3952,7 @@
     </message>
   </context>
   <context>
-    <name>chat/syncandsoundesetting</name>
-    <message>
-      <source>Save</source>
-      <translation>ذخیره</translation>
-    </message>
-    <message>
-      <source>Update</source>
-      <translation>به روزرسانی</translation>
-    </message>
-    <message>
-      <source>Cancel</source>
-      <translation>لغو</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>تنظیمات به روزشد</translation>
-    </message>
-    <message>
-      <source>Synchronisation and sound settings</source>
-      <translation>تنظیمات هماهنگی و صدا</translation>
-    </message>
-    <message>
-      <source>How many seconds for a user to be considered as being online</source>
-      <translation>چند ثانیه طول می کشد تا کاربر به عنوان آنلاین شناخته شود</translation>
-    </message>
-    <message>
-      <source>Value in seconds</source>
-      <translation>مقدار بر حسب ثانیه</translation>
-    </message>
-    <message>
-      <source>Sync for new chats, interval in seconds</source>
-      <translation>هماهنگی برای چت های جدید، فاصله زمانی بر حسب ثانیه</translation>
-    </message>
-    <message>
-      <source>Check for messages from the operators, interval in seconds</source>
-      <translation>بررسی پیام ها از اپراتورها بر حسب ثانیه</translation>
-    </message>
-    <message>
-      <source>Messages settings</source>
-      <translation>تنظیمات پیام ها</translation>
-    </message>
-    <message>
-      <source>Sync for a new user message, interval in seconds</source>
-      <translation>هماهنگی برای پیام جدید کاربر، فاصله زمانی بر حسب ثانیه</translation>
-    </message>
-    <message>
-      <source>Show browser notification for new messages</source>
-      <translation>نمایش آگاه کننده مرورگر برای پیام های جدید</translation>
-    </message>
-    <message>
-      <source>Long polling (experimental)</source>
-      <translation>رای گیری طولانی (تجربی)</translation>
-    </message>
-    <message>
-      <source>Enable long polling</source>
-      <translation>فعال کردن رای گیری طولانی</translation>
-    </message>
-    <message>
-      <source>How many seconds keep connection to server?</source>
-      <translation>اتصال به سرور، چند ثانیه به طول انجامد؟</translation>
-    </message>
-    <message>
-      <source>New chat request notification settings</source>
-      <translation>تنظیمات آگاه کننده درخواست چت جدید</translation>
-    </message>
-    <message>
-      <source>Play a new pending chat sound on a new chat request</source>
-      <translation>برای درخواست چت جدید، صدای چت در وضعیت انتظار را اجرا کن</translation>
-    </message>
-    <message>
-      <source>Play a sound on a new message for a back office user</source>
-      <translation>در زمان دریافت پیام برای کاربر اداری، صدا اجرا کن</translation>
-    </message>
-    <message>
-      <source>Play a sound on a new message for a front end user</source>
-      <translation>در زمان دریافت پیام جدید برای کاربر، صدا اجرا کن</translation>
-    </message>
-    <message>
-      <source>Show alert message on a new chat request</source>
-      <translation>نمایش هشدار برای درخواست چت جدید</translation>
-    </message>
-    <message>
-      <source>How many times play sound notification</source>
-      <translation>صدای آگاه کننده چند مرتبه پخش شود</translation>
-    </message>
-    <message>
-      <source>Number</source>
-      <translation>تعداد</translation>
-    </message>
-    <message>
-      <source>Delay between sound notifications in seconds</source>
-      <translation>تاخیر بین آگاه کننده های صوتی بر حسب ثانیه</translation>
-    </message>
-    <message>
-      <source>delay in seconds</source>
-      <translation>تاخیر بر حسب ثانیه</translation>
-    </message>
-    <message>
-      <source>Seconds</source>
-      <translation>ثانیه</translation>
-    </message>
-    <message>
-      <source>Please enter a valid online timeout value!</source>
-      <translation>لطفا مقدار صحیح برای فاصله زمانی وارد کنید.</translation>
-    </message>
-    <message>
-      <source>Please enter a valid server connection timeout value!</source>
-      <translation>لطفا مقدار درستی برای زمان قطع ارتباط با سرور وارد کنید</translation>
-    </message>
-    <message>
-      <source>Please enter a valid operator message timeout value!</source>
-      <translation>لطفا یک مقدار صحیح برای فاصله زمانی پیام اپراتور وارد کنید</translation>
-    </message>
-    <message>
-      <source>Please enter a valid new messages polling sync interval!</source>
-      <translation>لطفا یک فاصله زمانی درست برای هماهنگ سازی پیام های جدید وارد کنید</translation>
-    </message>
-    <message>
-      <source>Please enter a valid back office sync interval!</source>
-      <translation>لطفا یک فاصله همگام درست بخش مدیریت وارد کنید!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid new messages sync interval!</source>
-      <translation>لطفا فاصله زمانی صحیح را برای هماهنگ سازی پیام های جدید وارد کنید!!</translation>
-    </message>
-    <message>
-      <source>Synchronization and sound settings</source>
-      <translation>تنظیمات صدا و هماهنگ سازی</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/statistic</name>
-    <message>
-      <source>General</source>
-      <translation>عمومی</translation>
-    </message>
-    <message>
-      <source>Operators last 24h statistic, top 100 by chats number</source>
-      <translation>آمار 24 ساعت اخیر اپراتورها، 100 تای اول بر اساس تعداد چت</translation>
-    </message>
     <message>
       <source>Statistic</source>
       <translation>آمار</translation>
@@ -4524,6 +4175,310 @@
     </message>
   </context>
   <context>
+    <name>chat/unreadchats</name>
+    <message>
+      <source>Unread chats list</source>
+      <translation>فهرست چت های خوانده نشده</translation>
+    </message>
+    <message>
+      <source>Information</source>
+      <translation>اطلاعات</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>خالی ...</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/modifychat</name>
+    <message>
+      <source>Modify chat</source>
+      <translation>ویرایش چت</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>ایمیل</translation>
+    </message>
+    <message>
+      <source>Recipient e-mail</source>
+      <translation>ایمیل گیرنده</translation>
+    </message>
+    <message>
+      <source>Nick</source>
+      <translation>نام</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>شماره تلفن</translation>
+    </message>
+    <message>
+      <source>Update chat</source>
+      <translation>به روز رسانی چت</translation>
+    </message>
+    <message>
+      <source>Chat information was updated</source>
+      <translation>جزئیات چت به روز شد</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/part/operator_profile</name>
+    <message>
+      <source>Skype call</source>
+      <translation>تماس اسکایپی</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/previewchat</name>
+    <message>
+      <source>Last 100 messages rows</source>
+      <translation>100 پیام آخر</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/sendchat</name>
+    <message>
+      <source>Enter your e-mail</source>
+      <translation>ایمیل خود را وارد کنید</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/sendmail</name>
+    <message>
+      <source>Send mail to the user</source>
+      <translation>ارسال ایمیل به کاربر</translation>
+    </message>
+    <message>
+      <source>Recipient</source>
+      <translation>گیرنده</translation>
+    </message>
+    <message>
+      <source>Recipient e-mail</source>
+      <translation>گیرنده ایمیل</translation>
+    </message>
+    <message>
+      <source>Subject</source>
+      <translation>موضوع</translation>
+    </message>
+    <message>
+      <source>From name</source>
+      <translation>نام فرستنده</translation>
+    </message>
+    <message>
+      <source>Reply e-mail</source>
+      <translation>ایمیل دریافت کننده پاسخ</translation>
+    </message>
+    <message>
+      <source>From e-mail</source>
+      <translation>ایمیل فرستنده</translation>
+    </message>
+    <message>
+      <source>Type your message to the user</source>
+      <translation>پیام خود را برای کاربر وارد کنید</translation>
+    </message>
+    <message>
+      <source>Send the mail</source>
+      <translation>ارسال ایمیل</translation>
+    </message>
+    <message>
+      <source>Embed link to file</source>
+      <translation>وارد کردن لینک به فایل</translation>
+    </message>
+    <message>
+      <source>Mail was sent to the user</source>
+      <translation>ایمیل به کاربر ارسال شد.</translation>
+    </message>
+    <message>
+      <source>Please enter recipient e-mail!</source>
+      <translation>لطفا آدرس ایمیل گیرنده را وارد کنید!</translation>
+    </message>
+    <message>
+      <source>From e-mail is missing!</source>
+      <translation>آدرس ایمیل فرستنده وجود ندارد!</translation>
+    </message>
+    <message>
+      <source>Reply e-mail is missing!</source>
+      <translation>ایمیل دریافت کننده پاسخ وجود ندارد!</translation>
+    </message>
+    <message>
+      <source>Subject is missing!</source>
+      <translation>موضوع وجود ندارد!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/sendnotice</name>
+    <message>
+      <source>Send a message to the user</source>
+      <translation>ارسال پیام به کاربر</translation>
+    </message>
+    <message>
+      <source>If the message was already sent, this will mark it as not delivered and the user will be shown the chat message again.</source>
+      <translation>اگر پیام ارسال شده باشد، این گزینه آن را به عنوان دریافت نشده علامت گذاری کرده و مجدداً پیام چت برای کاربر نمایش داده می شود.</translation>
+    </message>
+    <message>
+      <source>Type your message to the user</source>
+      <translation>پیام خود را برای کاربر وارد کنید</translation>
+    </message>
+    <message>
+      <source>Requires e-mail</source>
+      <translation>ایمیل الزامی است</translation>
+    </message>
+    <message>
+      <source>Requires name</source>
+      <translation>نام الزامی است</translation>
+    </message>
+    <message>
+      <source>Requires phone</source>
+      <translation>شماره تلفن الزامی است</translation>
+    </message>
+    <message>
+      <source>Send the message</source>
+      <translation>ارسال پیام</translation>
+    </message>
+    <message>
+      <source>Message was sent to the user</source>
+      <translation>پیام برای کاربر ارسال شد</translation>
+    </message>
+    <message>
+      <source>Start chat with operator</source>
+      <translation>شروع چت با اپراتور</translation>
+    </message>
+    <message>
+      <source>Type your message to the operator</source>
+      <translation>پیام خود را برای اپراتور تایپ کنید</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/syncandsoundesetting</name>
+    <message>
+      <source>Save</source>
+      <translation>ذخیره</translation>
+    </message>
+    <message>
+      <source>Update</source>
+      <translation>به روزرسانی</translation>
+    </message>
+    <message>
+      <source>Cancel</source>
+      <translation>لغو</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>تنظیمات به روزشد</translation>
+    </message>
+    <message>
+      <source>Synchronisation and sound settings</source>
+      <translation>تنظیمات هماهنگی و صدا</translation>
+    </message>
+    <message>
+      <source>How many seconds for a user to be considered as being online</source>
+      <translation>چند ثانیه طول می کشد تا کاربر به عنوان آنلاین شناخته شود</translation>
+    </message>
+    <message>
+      <source>Value in seconds</source>
+      <translation>مقدار بر حسب ثانیه</translation>
+    </message>
+    <message>
+      <source>Sync for new chats, interval in seconds</source>
+      <translation>هماهنگی برای چت های جدید، فاصله زمانی بر حسب ثانیه</translation>
+    </message>
+    <message>
+      <source>Check for messages from the operators, interval in seconds</source>
+      <translation>بررسی پیام ها از اپراتورها بر حسب ثانیه</translation>
+    </message>
+    <message>
+      <source>Messages settings</source>
+      <translation>تنظیمات پیام ها</translation>
+    </message>
+    <message>
+      <source>Sync for a new user message, interval in seconds</source>
+      <translation>هماهنگی برای پیام جدید کاربر، فاصله زمانی بر حسب ثانیه</translation>
+    </message>
+    <message>
+      <source>Show browser notification for new messages</source>
+      <translation>نمایش آگاه کننده مرورگر برای پیام های جدید</translation>
+    </message>
+    <message>
+      <source>Long polling (experimental)</source>
+      <translation>رای گیری طولانی (تجربی)</translation>
+    </message>
+    <message>
+      <source>Enable long polling</source>
+      <translation>فعال کردن رای گیری طولانی</translation>
+    </message>
+    <message>
+      <source>How many seconds keep connection to server?</source>
+      <translation>اتصال به سرور، چند ثانیه به طول انجامد؟</translation>
+    </message>
+    <message>
+      <source>New chat request notification settings</source>
+      <translation>تنظیمات آگاه کننده درخواست چت جدید</translation>
+    </message>
+    <message>
+      <source>Play a new pending chat sound on a new chat request</source>
+      <translation>برای درخواست چت جدید، صدای چت در وضعیت انتظار را اجرا کن</translation>
+    </message>
+    <message>
+      <source>Play a sound on a new message for a back office user</source>
+      <translation>در زمان دریافت پیام برای کاربر اداری، صدا اجرا کن</translation>
+    </message>
+    <message>
+      <source>Play a sound on a new message for a front end user</source>
+      <translation>در زمان دریافت پیام جدید برای کاربر، صدا اجرا کن</translation>
+    </message>
+    <message>
+      <source>Show alert message on a new chat request</source>
+      <translation>نمایش هشدار برای درخواست چت جدید</translation>
+    </message>
+    <message>
+      <source>How many times play sound notification</source>
+      <translation>صدای آگاه کننده چند مرتبه پخش شود</translation>
+    </message>
+    <message>
+      <source>Number</source>
+      <translation>تعداد</translation>
+    </message>
+    <message>
+      <source>Delay between sound notifications in seconds</source>
+      <translation>تاخیر بین آگاه کننده های صوتی بر حسب ثانیه</translation>
+    </message>
+    <message>
+      <source>delay in seconds</source>
+      <translation>تاخیر بر حسب ثانیه</translation>
+    </message>
+    <message>
+      <source>Seconds</source>
+      <translation>ثانیه</translation>
+    </message>
+    <message>
+      <source>Please enter a valid online timeout value!</source>
+      <translation>لطفا مقدار صحیح برای فاصله زمانی وارد کنید.</translation>
+    </message>
+    <message>
+      <source>Please enter a valid server connection timeout value!</source>
+      <translation>لطفا مقدار درستی برای زمان قطع ارتباط با سرور وارد کنید</translation>
+    </message>
+    <message>
+      <source>Please enter a valid operator message timeout value!</source>
+      <translation>لطفا یک مقدار صحیح برای فاصله زمانی پیام اپراتور وارد کنید</translation>
+    </message>
+    <message>
+      <source>Please enter a valid new messages polling sync interval!</source>
+      <translation>لطفا یک فاصله زمانی درست برای هماهنگ سازی پیام های جدید وارد کنید</translation>
+    </message>
+    <message>
+      <source>Please enter a valid back office sync interval!</source>
+      <translation>لطفا یک فاصله همگام درست بخش مدیریت وارد کنید!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid new messages sync interval!</source>
+      <translation>لطفا فاصله زمانی صحیح را برای هماهنگ سازی پیام های جدید وارد کنید!!</translation>
+    </message>
+    <message>
+      <source>Synchronization and sound settings</source>
+      <translation>تنظیمات صدا و هماهنگ سازی</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/transferchat</name>
     <message>
       <source>Transfer to a user</source>
@@ -4548,21 +4503,6 @@
     <message>
       <source>Departments</source>
       <translation>دپارتمان ها</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/unreadchats</name>
-    <message>
-      <source>Unread chats list</source>
-      <translation>فهرست چت های خوانده نشده</translation>
-    </message>
-    <message>
-      <source>Information</source>
-      <translation>اطلاعات</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>خالی ...</translation>
     </message>
   </context>
   <context>
@@ -5657,6 +5597,17 @@
     </message>
   </context>
   <context>
+    <name>permission/getpermissionssummary</name>
+    <message>
+      <source>Request permission</source>
+      <translation>درخواست دسترسی</translation>
+    </message>
+    <message>
+      <source>Please choose at least one permission</source>
+      <translation>لطفاً حداقل یک سطح دسترسی انتخاب کنید</translation>
+    </message>
+  </context>
+  <context>
     <name>permission/groupassignrole</name>
     <message>
       <source>Title</source>
@@ -5750,6 +5701,33 @@
     <message>
       <source>List of roles</source>
       <translation>فهرست نقش ها</translation>
+    </message>
+  </context>
+  <context>
+    <name>permission/request</name>
+    <message>
+      <source>Request permission</source>
+      <translation>درخواست دسترسی</translation>
+    </message>
+    <message>
+      <source>Request permissions</source>
+      <translation>درخواست دسترسی</translation>
+    </message>
+    <message>
+      <source>Permission requested</source>
+      <translation>دسترسی درخواست شد</translation>
+    </message>
+    <message>
+      <source>Please choose a user!</source>
+      <translation>لطفاً یک کاربر انتخاب کنید!</translation>
+    </message>
+    <message>
+      <source>This user can not receive permision request!</source>
+      <translation>این کاربر نمی تواند درخواست دسترسی را دریافت کند!</translation>
+    </message>
+    <message>
+      <source>Permissions were not provided</source>
+      <translation>امکان دسترسی فراهم نشد!</translation>
     </message>
   </context>
   <context>
@@ -6083,6 +6061,49 @@
     <message>
       <source>Use application default recognition dialect</source>
       <translation>استفاده از لهجه پیش فرض تشخیص</translation>
+    </message>
+  </context>
+  <context>
+    <name>users/autologin</name>
+    <message>
+      <source>Auto login settings</source>
+      <translation>پیکربندی ورود خودکار</translation>
+    </message>
+    <message>
+      <source>This module can be used if you are generating autologin link. See site for code examples</source>
+      <translation>اگر لینک ورود خودکار را تولید کردید، این ماژول می تواند استفاده شود. برای کد‌های مثال سایت را ببیند</translation>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation>فعال شده</translation>
+    </message>
+    <message>
+      <source>Secret hash used for authentification token generation, min 10 characters</source>
+      <translation>هش راز برای تصدیق تولید توکن، حداقل 10 کارکتر</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>پیکربندی به روز شد</translation>
+    </message>
+    <message>
+      <source>Autologin hash has expired</source>
+      <translation>ورود خودکار منقضی شد</translation>
+    </message>
+    <message>
+      <source>Could not find a user</source>
+      <translation>نمی توان یک کاربر یافت</translation>
+    </message>
+    <message>
+      <source>Could not find a provided user</source>
+      <translation>نمی توان کاربر ارائه شده را یافت</translation>
+    </message>
+    <message>
+      <source>Invalid autologin hash</source>
+      <translation>هش ورود خودکار نادرست</translation>
+    </message>
+    <message>
+      <source>Auto login module is not enabled</source>
+      <translation>ماژول ورود خودکار فعال نیست</translation>
     </message>
   </context>
   <context>
@@ -6823,10 +6844,6 @@
   <context>
     <name>chat/chatexport</name>
     <message>
-      <source>Referrer</source>
-      <translation>ارجاع دهنده</translation>
-    </message>
-    <message>
       <source>Department name</source>
       <translation type="unfinished"/>
     </message>
@@ -6916,11 +6933,14 @@
     </message>
   </context>
   <context>
-    <name>chat/syncuser</name>
+    <name>chat/closechatadmin</name>
     <message>
-      <source>You do not have permission to view this chat, or chat was deleted</source>
-      <translation>شما برای مشاهده این چت دسترسی ندارید و یا اینکه چت حذف شده است</translation>
+      <source>has closed the chat!</source>
+      <translation>چت بسته شده است!</translation>
     </message>
+  </context>
+  <context>
+    <name>chat/syncuser</name>
     <message>
       <source>Chat was automatically transferred to</source>
       <translation>انتقال خودکار چت به</translation>
@@ -6936,10 +6956,6 @@
     <message>
       <source>Support staff member has closed this chat</source>
       <translation>پشتیبان، چت را بسته است</translation>
-    </message>
-    <message>
-      <source>The operator has closed this chat session</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
@@ -7147,17 +7163,6 @@
     </message>
   </context>
   <context>
-    <name>chat/closechatadmin</name>
-    <message>
-      <source>has redirected user to contact form!</source>
-      <translation>کاربر به فرم تماس منتقل شد</translation>
-    </message>
-    <message>
-      <source>has closed the chat!</source>
-      <translation>چت بسته شده است!</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/deletechatadmin</name>
     <message>
       <source>You do not have rights to delete a chat</source>
@@ -7227,133 +7232,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>لطفا نوع معتبر فایل را وارد کنید!</translation>
-    </message>
-  </context>
-  <context>
-    <name>permission/getpermissionsummary</name>
-    <message>
-      <source>Module/Function</source>
-      <translation>ماژول/تابع</translation>
-    </message>
-  </context>
-  <context>
-    <name>permission/getpermissionssummary</name>
-    <message>
-      <source>Request permission</source>
-      <translation>درخواست دسترسی</translation>
-    </message>
-    <message>
-      <source>Please choose at least one permission</source>
-      <translation>لطفاً حداقل یک سطح دسترسی انتخاب کنید</translation>
-    </message>
-  </context>
-  <context>
-    <name>permission/request</name>
-    <message>
-      <source>Request permission</source>
-      <translation>درخواست دسترسی</translation>
-    </message>
-    <message>
-      <source>Request permissions</source>
-      <translation>درخواست دسترسی</translation>
-    </message>
-    <message>
-      <source>Permission requested</source>
-      <translation>دسترسی درخواست شد</translation>
-    </message>
-    <message>
-      <source>Please choose a user!</source>
-      <translation>لطفاً یک کاربر انتخاب کنید!</translation>
-    </message>
-    <message>
-      <source>This user can not receive permision request!</source>
-      <translation>این کاربر نمی تواند درخواست دسترسی را دریافت کند!</translation>
-    </message>
-    <message>
-      <source>Permissions were not provided</source>
-      <translation>امکان دسترسی فراهم نشد!</translation>
-    </message>
-  </context>
-  <context>
-    <name>users/autologin</name>
-    <message>
-      <source>Auto login settings</source>
-      <translation>پیکربندی ورود خودکار</translation>
-    </message>
-    <message>
-      <source>This module can be used if you are generating autologin link. See site for code examples</source>
-      <translation>اگر لینک ورود خودکار را تولید کردید، این ماژول می تواند استفاده شود. برای کد‌های مثال سایت را ببیند</translation>
-    </message>
-    <message>
-      <source>Enabled</source>
-      <translation>فعال شده</translation>
-    </message>
-    <message>
-      <source>Secret hash used for authentification token generation, min 10 characters</source>
-      <translation>هش راز برای تصدیق تولید توکن، حداقل 10 کارکتر</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>پیکربندی به روز شد</translation>
-    </message>
-    <message>
-      <source>Autologin hash has expired</source>
-      <translation>ورود خودکار منقضی شد</translation>
-    </message>
-    <message>
-      <source>Could not find a user</source>
-      <translation>نمی توان یک کاربر یافت</translation>
-    </message>
-    <message>
-      <source>Could not find a provided user</source>
-      <translation>نمی توان کاربر ارائه شده را یافت</translation>
-    </message>
-    <message>
-      <source>Invalid autologin hash</source>
-      <translation>هش ورود خودکار نادرست</translation>
-    </message>
-    <message>
-      <source>Auto login module is not enabled</source>
-      <translation>ماژول ورود خودکار فعال نیست</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/chatcommand</name>
-    <message>
-      <source>Nick changed!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>E-mail changed!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Phone changed!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User was redirected!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Screenshot was scheduled!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User was redirected to contact form!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User was blocked!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat was closed!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat was deleted!</source>
-      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

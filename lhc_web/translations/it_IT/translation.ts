@@ -319,10 +319,6 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
-      <source>Widget copyright link</source>
-      <translation>Link copyright del widget</translation>
-    </message>
-    <message>
       <source>Download theme</source>
       <translation>Scarica tema</translation>
     </message>
@@ -703,10 +699,6 @@
   </context>
   <context>
     <name>system/htmlcode</name>
-    <message>
-      <source>Popup window size</source>
-      <translation>Dimensione della finestra popup</translation>
-    </message>
     <message>
       <source>HTML code</source>
       <translation>HTML-Code</translation>
@@ -1306,6 +1298,10 @@
       <source>Operator is typing now...</source>
       <translation>Operatore sta scrivendo...</translation>
     </message>
+    <message>
+      <source>Close and Start a new one</source>
+      <translation>Chiudere per avviare una nuova chat</translation>
+    </message>
   </context>
   <context>
     <name>chat/bbcodeinsert</name>
@@ -1390,10 +1386,6 @@
   </context>
   <context>
     <name>chat/cannedmsg</name>
-    <message>
-      <source>Please enter canned message</source>
-      <translation>Inserisci messaggi già preparati</translation>
-    </message>
     <message>
       <source>Title/Message</source>
       <translation>Titolo/messaggio</translation>
@@ -1720,10 +1712,6 @@
   <context>
     <name>chat/adminchat</name>
     <message>
-      <source>Invalid chat status</source>
-      <translation>Stato chat non valido</translation>
-    </message>
-    <message>
       <source>Attach uploaded file</source>
       <translation>Allega file caricato</translation>
     </message>
@@ -1943,14 +1931,6 @@
   <context>
     <name>chat/translation</name>
     <message>
-      <source>We could not detect operator language</source>
-      <translation>Non posso rilevare la lingua operatore</translation>
-    </message>
-    <message>
-      <source>Detected operator and visitor languages matches, please choose languages manually</source>
-      <translation>Lingua operatore e visitatore uguale, si prega di scegliere lingue manualmente</translation>
-    </message>
-    <message>
       <source>Visitor language</source>
       <translation>Lingua del visitatore</translation>
     </message>
@@ -2069,10 +2049,6 @@
   </context>
   <context>
     <name>files/files</name>
-    <message>
-      <source>Download file</source>
-      <translation>Scarica file</translation>
-    </message>
     <message>
       <source>Refresh</source>
       <translation>Aggiorna</translation>
@@ -2289,22 +2265,6 @@
   </context>
   <context>
     <name>chat/startchat</name>
-    <message>
-      <source>Invalid captcha code, please enable Javascript!</source>
-      <translation>Codice captcha invalido, prego abilita javascript!</translation>
-    </message>
-    <message>
-      <source>Invalid file extension</source>
-      <translation>Estensione di file non valida</translation>
-    </message>
-    <message>
-      <source>Invalid file extension!</source>
-      <translation>Estensione di file non valida!</translation>
-    </message>
-    <message>
-      <source>To big file!</source>
-      <translation>File troppo grande!</translation>
-    </message>
     <message>
       <source>Department is disabled</source>
       <translation>Dipartimento disattivato</translation>
@@ -2629,57 +2589,6 @@
     </message>
   </context>
   <context>
-    <name>chat/geoadjustment</name>
-    <message>
-      <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
-      <translation>Applicare queste regole all&apos;indicatore nel widget di stato chat? la performance potrebbe diminuire se si seleziona questa opzione</translation>
-    </message>
-    <message>
-      <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
-      <translation>Rendi stato chat normale per queste nazioni, le nazioni possono essere separate da virgole &quot;it,dk,jp&quot; significa che la chat verrà mostrata normalmente solo per le nazioni indicate</translation>
-    </message>
-    <message>
-      <source>For</source>
-      <translation>Per</translation>
-    </message>
-    <message>
-      <source>all</source>
-      <translation>tutti</translation>
-    </message>
-    <message>
-      <source>custom</source>
-      <translation>personalizzato</translation>
-    </message>
-    <message>
-      <source>E.g. ar,pl</source>
-      <translation>Es. </translation>
-    </message>
-    <message>
-      <source>Other countries, put widget/chat status to</source>
-      <translation>Altri paesi, inserisci widget/stato chat a</translation>
-    </message>
-    <message>
-      <source>offline status</source>
-      <translation>stato offline</translation>
-    </message>
-    <message>
-      <source>hidden/disabled, widget will not be shown</source>
-      <translation>nascosto/disabilitato, il widget non verrà mostrato</translation>
-    </message>
-    <message>
-      <source>For unmatched countries put chat status to</source>
-      <translation>Per altri paesi imposta lo stato chat a</translation>
-    </message>
-    <message>
-      <source>normal status</source>
-      <translation>Stato normale</translation>
-    </message>
-    <message>
-      <source>GEO adjustment</source>
-      <translation>Aggiustamento GEO</translation>
-    </message>
-  </context>
-  <context>
     <name>system/xmpp</name>
     <message>
       <source>Geo adjustments active</source>
@@ -2839,15 +2748,58 @@
     </message>
   </context>
   <context>
+    <name>chat/geoadjustment</name>
+    <message>
+      <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
+      <translation>Applicare queste regole all&apos;indicatore nel widget di stato chat? la performance potrebbe diminuire se si seleziona questa opzione</translation>
+    </message>
+    <message>
+      <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
+      <translation>Rendi stato chat normale per queste nazioni, le nazioni possono essere separate da virgole &quot;it,dk,jp&quot; significa che la chat verrà mostrata normalmente solo per le nazioni indicate</translation>
+    </message>
+    <message>
+      <source>For</source>
+      <translation>Per</translation>
+    </message>
+    <message>
+      <source>all</source>
+      <translation>tutti</translation>
+    </message>
+    <message>
+      <source>custom</source>
+      <translation>personalizzato</translation>
+    </message>
+    <message>
+      <source>E.g. ar,pl</source>
+      <translation>Es. </translation>
+    </message>
+    <message>
+      <source>Other countries, put widget/chat status to</source>
+      <translation>Altri paesi, inserisci widget/stato chat a</translation>
+    </message>
+    <message>
+      <source>offline status</source>
+      <translation>stato offline</translation>
+    </message>
+    <message>
+      <source>hidden/disabled, widget will not be shown</source>
+      <translation>nascosto/disabilitato, il widget non verrà mostrato</translation>
+    </message>
+    <message>
+      <source>For unmatched countries put chat status to</source>
+      <translation>Per altri paesi imposta lo stato chat a</translation>
+    </message>
+    <message>
+      <source>normal status</source>
+      <translation>Stato normale</translation>
+    </message>
+    <message>
+      <source>GEO adjustment</source>
+      <translation>Aggiustamento GEO</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/onlineusers</name>
-    <message>
-      <source>Status</source>
-      <translation>Stato</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>Nessuno ha ancora inviato messaggi all&apos;utente</translation>
-    </message>
     <message>
       <source>GEO detection configuration</source>
       <translation>Configurazione rilevamento GEO</translation>
@@ -3229,14 +3181,6 @@
       <translation>L&apos;utente non ha ricevuto messaggi dall&apos;operatore</translation>
     </message>
     <message>
-      <source>first visit</source>
-      <translation>prima visita</translation>
-    </message>
-    <message>
-      <source>last visit</source>
-      <translation>ultima visita</translation>
-    </message>
-    <message>
       <source>Chat</source>
       <translation>Chat</translation>
     </message>
@@ -3251,6 +3195,14 @@
     <message>
       <source>has sent a message to the user</source>
       <translation>ha inviato un messaggio all&apos;utente</translation>
+    </message>
+    <message>
+      <source>first visit</source>
+      <translation>prima visita</translation>
+    </message>
+    <message>
+      <source>last visit</source>
+      <translation>ultima visita</translation>
     </message>
     <message>
       <source>Files upload for users is active</source>
@@ -3609,10 +3561,6 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
-      <source>Clean cache</source>
-      <translation>Svuota cache</translation>
-    </message>
-    <message>
       <source>Empty...</source>
       <translation>Vuoto...</translation>
     </message>
@@ -3764,37 +3712,6 @@
     </message>
   </context>
   <context>
-    <name>chat/modifychat</name>
-    <message>
-      <source>Modify chat</source>
-      <translation>Modificare la chat</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-mail</translation>
-    </message>
-    <message>
-      <source>Recipient e-mail</source>
-      <translation>Posta elettronica del destinatario</translation>
-    </message>
-    <message>
-      <source>Nick</source>
-      <translation>Nick</translation>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>Telefono</translation>
-    </message>
-    <message>
-      <source>Update chat</source>
-      <translation>Aggiorna la chat</translation>
-    </message>
-    <message>
-      <source>Chat information was updated</source>
-      <translation>Iinformazioni di chat aggiornate</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/operatorschats</name>
     <message>
       <source>Operators chats list</source>
@@ -3803,13 +3720,6 @@
     <message>
       <source>Operators chats</source>
       <translation>Chat operatori</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/part/operator_profile</name>
-    <message>
-      <source>Skype call</source>
-      <translation>Chiamata Skype</translation>
     </message>
   </context>
   <context>
@@ -3841,126 +3751,6 @@
     <message>
       <source>Pending chats</source>
       <translation>Chat in attesa</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/previewchat</name>
-    <message>
-      <source>Last 100 messages rows</source>
-      <translation>Ultimi 100 messaggi</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/sendchat</name>
-    <message>
-      <source>Enter your e-mail</source>
-      <translation>Scrivi la tua email</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/sendmail</name>
-    <message>
-      <source>Send mail to the user</source>
-      <translation>Invia email</translation>
-    </message>
-    <message>
-      <source>Recipient</source>
-      <translation>Destinatario</translation>
-    </message>
-    <message>
-      <source>Recipient e-mail</source>
-      <translation>Indirizzo e-mail</translation>
-    </message>
-    <message>
-      <source>Subject</source>
-      <translation>Oggetto</translation>
-    </message>
-    <message>
-      <source>From name</source>
-      <translation>Da nome</translation>
-    </message>
-    <message>
-      <source>Reply e-mail</source>
-      <translation>Rispondi e-mail</translation>
-    </message>
-    <message>
-      <source>From e-mail</source>
-      <translation>Da e-mail</translation>
-    </message>
-    <message>
-      <source>Type your message to the user</source>
-      <translation>Scrivi il tuo messaggio per l&apos;utente</translation>
-    </message>
-    <message>
-      <source>Send the mail</source>
-      <translation>Invia email</translation>
-    </message>
-    <message>
-      <source>Embed link to file</source>
-      <translation>Incorporare il collegamento al file.</translation>
-    </message>
-    <message>
-      <source>Mail was sent to the user</source>
-      <translation>e-mail inviata con successo all&apos;utente</translation>
-    </message>
-    <message>
-      <source>Please enter recipient e-mail!</source>
-      <translation>Per favore inserisci il destinatario email!</translation>
-    </message>
-    <message>
-      <source>From e-mail is missing!</source>
-      <translation>Indirizzo email non inserito!</translation>
-    </message>
-    <message>
-      <source>Reply e-mail is missing!</source>
-      <translation>Rispondi e-mail manca!</translation>
-    </message>
-    <message>
-      <source>Subject is missing!</source>
-      <translation>Oggetto non inserito!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/sendnotice</name>
-    <message>
-      <source>Send a message to the user</source>
-      <translation>Invia un messaggio all&apos;utente</translation>
-    </message>
-    <message>
-      <source>If the message was already sent, this will mark it as not delivered and the user will be shown the chat message again.</source>
-      <translation>Se il messaggio è stato già inviato, questo segnerà come non consegnato e all&apos;utente verrà visualizzato nuovamente il messaggio di chat.</translation>
-    </message>
-    <message>
-      <source>Type your message to the user</source>
-      <translation>Scrivi il tuo messaggio</translation>
-    </message>
-    <message>
-      <source>Requires e-mail</source>
-      <translation>Richiede e-mai</translation>
-    </message>
-    <message>
-      <source>Requires name</source>
-      <translation>Richiede nome</translation>
-    </message>
-    <message>
-      <source>Requires phone</source>
-      <translation>Richiede il telefono</translation>
-    </message>
-    <message>
-      <source>Send the message</source>
-      <translation>Invia messaggio</translation>
-    </message>
-    <message>
-      <source>Message was sent to the user</source>
-      <translation>Messaggio inviato</translation>
-    </message>
-    <message>
-      <source>Start chat with operator</source>
-      <translation>inizia chat con operatore</translation>
-    </message>
-    <message>
-      <source>Type your message to the operator</source>
-      <translation>Scrivi il tuo messaggio all&apos;operatore</translation>
     </message>
   </context>
   <context>
@@ -4163,146 +3953,7 @@
     </message>
   </context>
   <context>
-    <name>chat/syncandsoundesetting</name>
-    <message>
-      <source>Save</source>
-      <translation>Salva</translation>
-    </message>
-    <message>
-      <source>Update</source>
-      <translation>Aggiorna</translation>
-    </message>
-    <message>
-      <source>Cancel</source>
-      <translation>Cancella</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Impostazioni aggiornate</translation>
-    </message>
-    <message>
-      <source>Synchronisation and sound settings</source>
-      <translation>Sincronizzazione e impostazioni suoni</translation>
-    </message>
-    <message>
-      <source>How many seconds for a user to be considered as being online</source>
-      <translation>quanti secondi affinchè un utente sia considerato come diventato online</translation>
-    </message>
-    <message>
-      <source>Value in seconds</source>
-      <translation>Valore in secondi</translation>
-    </message>
-    <message>
-      <source>Sync for new chats, interval in seconds</source>
-      <translation>Sincronizza per le vuove chat, intervallo in secondi</translation>
-    </message>
-    <message>
-      <source>Check for messages from the operators, interval in seconds</source>
-      <translation>Verificare la presenza di messaggi da parte dell&apos;operatore, intervallo in secondi</translation>
-    </message>
-    <message>
-      <source>Messages settings</source>
-      <translation>Impostazioni messaggi</translation>
-    </message>
-    <message>
-      <source>Sync for a new user message, interval in seconds</source>
-      <translation>Sincronizza per le vuove chat, intervallo in secondi</translation>
-    </message>
-    <message>
-      <source>Show browser notification for new messages</source>
-      <translation>Visualizza notifica nel browser per nuovi messaggi</translation>
-    </message>
-    <message>
-      <source>Long polling (experimental)</source>
-      <translation>Polling lungo (sperimentale)</translation>
-    </message>
-    <message>
-      <source>Enable long polling</source>
-      <translation>Abilitare il polling lungo</translation>
-    </message>
-    <message>
-      <source>How many seconds keep connection to server?</source>
-      <translation>Quanti secondi tenere la connessione al server?</translation>
-    </message>
-    <message>
-      <source>New chat request notification settings</source>
-      <translation>Impostazioni di notifica nuove richieste di chat</translation>
-    </message>
-    <message>
-      <source>Play a new pending chat sound on a new chat request</source>
-      <translation>Suona una melodia quando una nuova richiesta di chat è in attesa</translation>
-    </message>
-    <message>
-      <source>Play a sound on a new message for a back office user</source>
-      <translation>Attiva un suono quando arriva un nuovo messaggio da utente</translation>
-    </message>
-    <message>
-      <source>Play a sound on a new message for a front end user</source>
-      <translation>Attiva un suono quando arriva un nuovo messaggio utente dal lato pubblico</translation>
-    </message>
-    <message>
-      <source>Show alert message on a new chat request</source>
-      <translation>Visualizza un messaggio di alert per una nuova richiesta di chat</translation>
-    </message>
-    <message>
-      <source>How many times play sound notification</source>
-      <translation>Quante volte ascoltare il suono delle notifiche</translation>
-    </message>
-    <message>
-      <source>Number</source>
-      <translation>Numero</translation>
-    </message>
-    <message>
-      <source>Delay between sound notifications in seconds</source>
-      <translation>Ritardo tra le notifiche audio in secondi</translation>
-    </message>
-    <message>
-      <source>delay in seconds</source>
-      <translation>Attesa in secondi</translation>
-    </message>
-    <message>
-      <source>Seconds</source>
-      <translation>Secondi</translation>
-    </message>
-    <message>
-      <source>Please enter a valid online timeout value!</source>
-      <translation>Si prega di inserire un valore di timeout in linea valido!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid server connection timeout value!</source>
-      <translation>Immettere un valore di timeout di connessione server valido!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid operator message timeout value!</source>
-      <translation>Inserire un messaggio valore di timeout valido!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid new messages polling sync interval!</source>
-      <translation>Per favore inserisci un valore valido per nuovi messaggi di polling intervallo di sincronizzazione!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid back office sync interval!</source>
-      <translation>Si prega di inserire un intervallo di sincronizzazione back office valido!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid new messages sync interval!</source>
-      <translation>Si prega di inserire un nuovo intervallo di sincronizzazione dei messaggi validi!</translation>
-    </message>
-    <message>
-      <source>Synchronization and sound settings</source>
-      <translation>Sincronizzazione e settaggio suoni</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/statistic</name>
-    <message>
-      <source>General</source>
-      <translation>Generale</translation>
-    </message>
-    <message>
-      <source>Operators last 24h statistic, top 100 by chats number</source>
-      <translation>Ultime 24h di statistiche operatori, top 100 ordinato dal numero chat</translation>
-    </message>
     <message>
       <source>Statistic</source>
       <translation>Statistica</translation>
@@ -4525,6 +4176,310 @@
     </message>
   </context>
   <context>
+    <name>chat/unreadchats</name>
+    <message>
+      <source>Unread chats list</source>
+      <translation>Elenco chat non letto</translation>
+    </message>
+    <message>
+      <source>Information</source>
+      <translation>Informazioni</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Vuoto...</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/modifychat</name>
+    <message>
+      <source>Modify chat</source>
+      <translation>Modificare la chat</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Recipient e-mail</source>
+      <translation>Posta elettronica del destinatario</translation>
+    </message>
+    <message>
+      <source>Nick</source>
+      <translation>Nick</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Telefono</translation>
+    </message>
+    <message>
+      <source>Update chat</source>
+      <translation>Aggiorna la chat</translation>
+    </message>
+    <message>
+      <source>Chat information was updated</source>
+      <translation>Iinformazioni di chat aggiornate</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/part/operator_profile</name>
+    <message>
+      <source>Skype call</source>
+      <translation>Chiamata Skype</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/previewchat</name>
+    <message>
+      <source>Last 100 messages rows</source>
+      <translation>Ultimi 100 messaggi</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/sendchat</name>
+    <message>
+      <source>Enter your e-mail</source>
+      <translation>Scrivi la tua email</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/sendmail</name>
+    <message>
+      <source>Send mail to the user</source>
+      <translation>Invia email</translation>
+    </message>
+    <message>
+      <source>Recipient</source>
+      <translation>Destinatario</translation>
+    </message>
+    <message>
+      <source>Recipient e-mail</source>
+      <translation>Indirizzo e-mail</translation>
+    </message>
+    <message>
+      <source>Subject</source>
+      <translation>Oggetto</translation>
+    </message>
+    <message>
+      <source>From name</source>
+      <translation>Da nome</translation>
+    </message>
+    <message>
+      <source>Reply e-mail</source>
+      <translation>Rispondi e-mail</translation>
+    </message>
+    <message>
+      <source>From e-mail</source>
+      <translation>Da e-mail</translation>
+    </message>
+    <message>
+      <source>Type your message to the user</source>
+      <translation>Scrivi il tuo messaggio per l&apos;utente</translation>
+    </message>
+    <message>
+      <source>Send the mail</source>
+      <translation>Invia email</translation>
+    </message>
+    <message>
+      <source>Embed link to file</source>
+      <translation>Incorporare il collegamento al file.</translation>
+    </message>
+    <message>
+      <source>Mail was sent to the user</source>
+      <translation>e-mail inviata con successo all&apos;utente</translation>
+    </message>
+    <message>
+      <source>Please enter recipient e-mail!</source>
+      <translation>Per favore inserisci il destinatario email!</translation>
+    </message>
+    <message>
+      <source>From e-mail is missing!</source>
+      <translation>Indirizzo email non inserito!</translation>
+    </message>
+    <message>
+      <source>Reply e-mail is missing!</source>
+      <translation>Rispondi e-mail manca!</translation>
+    </message>
+    <message>
+      <source>Subject is missing!</source>
+      <translation>Oggetto non inserito!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/sendnotice</name>
+    <message>
+      <source>Send a message to the user</source>
+      <translation>Invia un messaggio all&apos;utente</translation>
+    </message>
+    <message>
+      <source>If the message was already sent, this will mark it as not delivered and the user will be shown the chat message again.</source>
+      <translation>Se il messaggio è stato già inviato, questo segnerà come non consegnato e all&apos;utente verrà visualizzato nuovamente il messaggio di chat.</translation>
+    </message>
+    <message>
+      <source>Type your message to the user</source>
+      <translation>Scrivi il tuo messaggio</translation>
+    </message>
+    <message>
+      <source>Requires e-mail</source>
+      <translation>Richiede e-mai</translation>
+    </message>
+    <message>
+      <source>Requires name</source>
+      <translation>Richiede nome</translation>
+    </message>
+    <message>
+      <source>Requires phone</source>
+      <translation>Richiede il telefono</translation>
+    </message>
+    <message>
+      <source>Send the message</source>
+      <translation>Invia messaggio</translation>
+    </message>
+    <message>
+      <source>Message was sent to the user</source>
+      <translation>Messaggio inviato</translation>
+    </message>
+    <message>
+      <source>Start chat with operator</source>
+      <translation>inizia chat con operatore</translation>
+    </message>
+    <message>
+      <source>Type your message to the operator</source>
+      <translation>Scrivi il tuo messaggio all&apos;operatore</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/syncandsoundesetting</name>
+    <message>
+      <source>Save</source>
+      <translation>Salva</translation>
+    </message>
+    <message>
+      <source>Update</source>
+      <translation>Aggiorna</translation>
+    </message>
+    <message>
+      <source>Cancel</source>
+      <translation>Cancella</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Impostazioni aggiornate</translation>
+    </message>
+    <message>
+      <source>Synchronisation and sound settings</source>
+      <translation>Sincronizzazione e impostazioni suoni</translation>
+    </message>
+    <message>
+      <source>How many seconds for a user to be considered as being online</source>
+      <translation>quanti secondi affinchè un utente sia considerato come diventato online</translation>
+    </message>
+    <message>
+      <source>Value in seconds</source>
+      <translation>Valore in secondi</translation>
+    </message>
+    <message>
+      <source>Sync for new chats, interval in seconds</source>
+      <translation>Sincronizza per le vuove chat, intervallo in secondi</translation>
+    </message>
+    <message>
+      <source>Check for messages from the operators, interval in seconds</source>
+      <translation>Verificare la presenza di messaggi da parte dell&apos;operatore, intervallo in secondi</translation>
+    </message>
+    <message>
+      <source>Messages settings</source>
+      <translation>Impostazioni messaggi</translation>
+    </message>
+    <message>
+      <source>Sync for a new user message, interval in seconds</source>
+      <translation>Sincronizza per le vuove chat, intervallo in secondi</translation>
+    </message>
+    <message>
+      <source>Show browser notification for new messages</source>
+      <translation>Visualizza notifica nel browser per nuovi messaggi</translation>
+    </message>
+    <message>
+      <source>Long polling (experimental)</source>
+      <translation>Polling lungo (sperimentale)</translation>
+    </message>
+    <message>
+      <source>Enable long polling</source>
+      <translation>Abilitare il polling lungo</translation>
+    </message>
+    <message>
+      <source>How many seconds keep connection to server?</source>
+      <translation>Quanti secondi tenere la connessione al server?</translation>
+    </message>
+    <message>
+      <source>New chat request notification settings</source>
+      <translation>Impostazioni di notifica nuove richieste di chat</translation>
+    </message>
+    <message>
+      <source>Play a new pending chat sound on a new chat request</source>
+      <translation>Suona una melodia quando una nuova richiesta di chat è in attesa</translation>
+    </message>
+    <message>
+      <source>Play a sound on a new message for a back office user</source>
+      <translation>Attiva un suono quando arriva un nuovo messaggio da utente</translation>
+    </message>
+    <message>
+      <source>Play a sound on a new message for a front end user</source>
+      <translation>Attiva un suono quando arriva un nuovo messaggio utente dal lato pubblico</translation>
+    </message>
+    <message>
+      <source>Show alert message on a new chat request</source>
+      <translation>Visualizza un messaggio di alert per una nuova richiesta di chat</translation>
+    </message>
+    <message>
+      <source>How many times play sound notification</source>
+      <translation>Quante volte ascoltare il suono delle notifiche</translation>
+    </message>
+    <message>
+      <source>Number</source>
+      <translation>Numero</translation>
+    </message>
+    <message>
+      <source>Delay between sound notifications in seconds</source>
+      <translation>Ritardo tra le notifiche audio in secondi</translation>
+    </message>
+    <message>
+      <source>delay in seconds</source>
+      <translation>Attesa in secondi</translation>
+    </message>
+    <message>
+      <source>Seconds</source>
+      <translation>Secondi</translation>
+    </message>
+    <message>
+      <source>Please enter a valid online timeout value!</source>
+      <translation>Si prega di inserire un valore di timeout in linea valido!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid server connection timeout value!</source>
+      <translation>Immettere un valore di timeout di connessione server valido!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid operator message timeout value!</source>
+      <translation>Inserire un messaggio valore di timeout valido!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid new messages polling sync interval!</source>
+      <translation>Per favore inserisci un valore valido per nuovi messaggi di polling intervallo di sincronizzazione!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid back office sync interval!</source>
+      <translation>Si prega di inserire un intervallo di sincronizzazione back office valido!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid new messages sync interval!</source>
+      <translation>Si prega di inserire un nuovo intervallo di sincronizzazione dei messaggi validi!</translation>
+    </message>
+    <message>
+      <source>Synchronization and sound settings</source>
+      <translation>Sincronizzazione e settaggio suoni</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/transferchat</name>
     <message>
       <source>Transfer to a user</source>
@@ -4549,21 +4504,6 @@
     <message>
       <source>Departments</source>
       <translation>Dipartimenti</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/unreadchats</name>
-    <message>
-      <source>Unread chats list</source>
-      <translation>Elenco chat non letto</translation>
-    </message>
-    <message>
-      <source>Information</source>
-      <translation>Informazioni</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Vuoto...</translation>
     </message>
   </context>
   <context>
@@ -5658,6 +5598,17 @@
     </message>
   </context>
   <context>
+    <name>permission/getpermissionssummary</name>
+    <message>
+      <source>Request permission</source>
+      <translation>Richiesta autorizzazione</translation>
+    </message>
+    <message>
+      <source>Please choose at least one permission</source>
+      <translation>Si prega di scegliere almeno un permesso</translation>
+    </message>
+  </context>
+  <context>
     <name>permission/groupassignrole</name>
     <message>
       <source>Title</source>
@@ -5751,6 +5702,33 @@
     <message>
       <source>List of roles</source>
       <translation>Lista ruoli</translation>
+    </message>
+  </context>
+  <context>
+    <name>permission/request</name>
+    <message>
+      <source>Request permission</source>
+      <translation>Richiesta autorizzazione</translation>
+    </message>
+    <message>
+      <source>Request permissions</source>
+      <translation>Richiesta autorizzazioni</translation>
+    </message>
+    <message>
+      <source>Permission requested</source>
+      <translation>Permesso richiesto</translation>
+    </message>
+    <message>
+      <source>Please choose a user!</source>
+      <translation>Si prega di scegliere un utente!</translation>
+    </message>
+    <message>
+      <source>This user can not receive permision request!</source>
+      <translation>Questo utente non può ricevere la richiesta di permessi!</translation>
+    </message>
+    <message>
+      <source>Permissions were not provided</source>
+      <translation>Le autorizzazioni non sono state fornite</translation>
     </message>
   </context>
   <context>
@@ -6084,6 +6062,49 @@
     <message>
       <source>Use application default recognition dialect</source>
       <translation>Utilizzare il dialetto riconoscimento di applicazione predefinita</translation>
+    </message>
+  </context>
+  <context>
+    <name>users/autologin</name>
+    <message>
+      <source>Auto login settings</source>
+      <translation>Impostazioni di login automatico</translation>
+    </message>
+    <message>
+      <source>This module can be used if you are generating autologin link. See site for code examples</source>
+      <translation>Questo modulo può essere utilizzato se si desidera creare il collegamento autologin. Vedere sito per esempi di codice</translation>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation>Abilitato</translation>
+    </message>
+    <message>
+      <source>Secret hash used for authentification token generation, min 10 characters</source>
+      <translation>Hash segreto utilizzato per la generazione token di autenticazione, min 10 caratteri</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Impostazioni aggiornate</translation>
+    </message>
+    <message>
+      <source>Autologin hash has expired</source>
+      <translation>Hash di autologin scaduto</translation>
+    </message>
+    <message>
+      <source>Could not find a user</source>
+      <translation>Non riesco a trovare l&apos;utente</translation>
+    </message>
+    <message>
+      <source>Could not find a provided user</source>
+      <translation>Non riusco a trovare l&apos;utente indicato</translation>
+    </message>
+    <message>
+      <source>Invalid autologin hash</source>
+      <translation>Hash di autologin non valido</translation>
+    </message>
+    <message>
+      <source>Auto login module is not enabled</source>
+      <translation>Il modulo di login automatico non è abilitato</translation>
     </message>
   </context>
   <context>
@@ -6824,10 +6845,6 @@
   <context>
     <name>chat/chatexport</name>
     <message>
-      <source>Referrer</source>
-      <translation>Referrer</translation>
-    </message>
-    <message>
       <source>Department name</source>
       <translation>Nome del dipartimento</translation>
     </message>
@@ -6917,11 +6934,14 @@
     </message>
   </context>
   <context>
-    <name>chat/syncuser</name>
+    <name>chat/closechatadmin</name>
     <message>
-      <source>You do not have permission to view this chat, or chat was deleted</source>
-      <translation>Non avete i permessi per visualizzare questa chat, o la chat è stata rimossa.</translation>
+      <source>has closed the chat!</source>
+      <translation>ha chiuso la chat!</translation>
     </message>
+  </context>
+  <context>
+    <name>chat/syncuser</name>
     <message>
       <source>Chat was automatically transferred to</source>
       <translation>La chat è stata automaticamente trasferita a</translation>
@@ -6937,10 +6957,6 @@
     <message>
       <source>Support staff member has closed this chat</source>
       <translation>Un operatore della chat ha chiuso questa sessione</translation>
-    </message>
-    <message>
-      <source>The operator has closed this chat session</source>
-      <translation>L&apos;operatore ha chiuso questa sessione di chat</translation>
     </message>
     <message>
       <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
@@ -7148,17 +7164,6 @@
     </message>
   </context>
   <context>
-    <name>chat/closechatadmin</name>
-    <message>
-      <source>has redirected user to contact form!</source>
-      <translation>ha reindirizzato l&apos;utente al modulo di contatto!</translation>
-    </message>
-    <message>
-      <source>has closed the chat!</source>
-      <translation>ha chiuso la chat!</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/deletechatadmin</name>
     <message>
       <source>You do not have rights to delete a chat</source>
@@ -7228,133 +7233,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Inserisci un formato file valido!</translation>
-    </message>
-  </context>
-  <context>
-    <name>permission/getpermissionsummary</name>
-    <message>
-      <source>Module/Function</source>
-      <translation>Moduli/Funzioni</translation>
-    </message>
-  </context>
-  <context>
-    <name>permission/getpermissionssummary</name>
-    <message>
-      <source>Request permission</source>
-      <translation>Richiesta autorizzazione</translation>
-    </message>
-    <message>
-      <source>Please choose at least one permission</source>
-      <translation>Si prega di scegliere almeno un permesso</translation>
-    </message>
-  </context>
-  <context>
-    <name>permission/request</name>
-    <message>
-      <source>Request permission</source>
-      <translation>Richiesta autorizzazione</translation>
-    </message>
-    <message>
-      <source>Request permissions</source>
-      <translation>Richiesta autorizzazioni</translation>
-    </message>
-    <message>
-      <source>Permission requested</source>
-      <translation>Permesso richiesto</translation>
-    </message>
-    <message>
-      <source>Please choose a user!</source>
-      <translation>Si prega di scegliere un utente!</translation>
-    </message>
-    <message>
-      <source>This user can not receive permision request!</source>
-      <translation>Questo utente non può ricevere la richiesta di permessi!</translation>
-    </message>
-    <message>
-      <source>Permissions were not provided</source>
-      <translation>Le autorizzazioni non sono state fornite</translation>
-    </message>
-  </context>
-  <context>
-    <name>users/autologin</name>
-    <message>
-      <source>Auto login settings</source>
-      <translation>Impostazioni di login automatico</translation>
-    </message>
-    <message>
-      <source>This module can be used if you are generating autologin link. See site for code examples</source>
-      <translation>Questo modulo può essere utilizzato se si desidera creare il collegamento autologin. Vedere sito per esempi di codice</translation>
-    </message>
-    <message>
-      <source>Enabled</source>
-      <translation>Abilitato</translation>
-    </message>
-    <message>
-      <source>Secret hash used for authentification token generation, min 10 characters</source>
-      <translation>Hash segreto utilizzato per la generazione token di autenticazione, min 10 caratteri</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Impostazioni aggiornate</translation>
-    </message>
-    <message>
-      <source>Autologin hash has expired</source>
-      <translation>Hash di autologin scaduto</translation>
-    </message>
-    <message>
-      <source>Could not find a user</source>
-      <translation>Non riesco a trovare l&apos;utente</translation>
-    </message>
-    <message>
-      <source>Could not find a provided user</source>
-      <translation>Non riusco a trovare l&apos;utente indicato</translation>
-    </message>
-    <message>
-      <source>Invalid autologin hash</source>
-      <translation>Hash di autologin non valido</translation>
-    </message>
-    <message>
-      <source>Auto login module is not enabled</source>
-      <translation>Il modulo di login automatico non è abilitato</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/chatcommand</name>
-    <message>
-      <source>Nick changed!</source>
-      <translation>Nome modificato!</translation>
-    </message>
-    <message>
-      <source>E-mail changed!</source>
-      <translation>E-Mail modificata!</translation>
-    </message>
-    <message>
-      <source>Phone changed!</source>
-      <translation>Telefono modificato!</translation>
-    </message>
-    <message>
-      <source>User was redirected!</source>
-      <translation>L&apos;utente è stato reindirizzato</translation>
-    </message>
-    <message>
-      <source>Screenshot was scheduled!</source>
-      <translation>Lo screenshot è stato programmato!</translation>
-    </message>
-    <message>
-      <source>User was redirected to contact form!</source>
-      <translation>L&apos;utente è stato reindirizzato al modulo di contatto!</translation>
-    </message>
-    <message>
-      <source>User was blocked!</source>
-      <translation>L&apos;utente è stato bloccato!</translation>
-    </message>
-    <message>
-      <source>Chat was closed!</source>
-      <translation>La chat è stata chiusa!</translation>
-    </message>
-    <message>
-      <source>Chat was deleted!</source>
-      <translation>La chat è stata cancellata!</translation>
     </message>
   </context>
 </TS>

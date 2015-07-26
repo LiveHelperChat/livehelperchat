@@ -319,10 +319,6 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
-      <source>Widget copyright link</source>
-      <translation>Link de copyright pentru widget</translation>
-    </message>
-    <message>
       <source>Download theme</source>
       <translation>Descarca tema</translation>
     </message>
@@ -702,10 +698,6 @@
   </context>
   <context>
     <name>system/htmlcode</name>
-    <message>
-      <source>Popup window size</source>
-      <translation>Dimensiunea de fereastra pop-up</translation>
-    </message>
     <message>
       <source>HTML code</source>
       <translation>Codul HTML</translation>
@@ -1305,6 +1297,10 @@
       <source>Operator is typing now...</source>
       <translation>Operatorul este tastarea acum...</translation>
     </message>
+    <message>
+      <source>Close and Start a new one</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/bbcodeinsert</name>
@@ -1389,10 +1385,6 @@
   </context>
   <context>
     <name>chat/cannedmsg</name>
-    <message>
-      <source>Please enter canned message</source>
-      <translation>Vă rugăm să introduceţi mesajul conserve</translation>
-    </message>
     <message>
       <source>Title/Message</source>
       <translation type="unfinished"/>
@@ -1719,10 +1711,6 @@
   <context>
     <name>chat/adminchat</name>
     <message>
-      <source>Invalid chat status</source>
-      <translation>Stare conversatie invalida</translation>
-    </message>
-    <message>
       <source>Attach uploaded file</source>
       <translation>Atașați fișierul încărcat</translation>
     </message>
@@ -1942,14 +1930,6 @@
   <context>
     <name>chat/translation</name>
     <message>
-      <source>We could not detect operator language</source>
-      <translation>Nu am putut detecta limba operatorului</translation>
-    </message>
-    <message>
-      <source>Detected operator and visitor languages matches, please choose languages manually</source>
-      <translation>Limbile detectate pentru operator si vizitator se potrivesc, te rog sa alegi limbile manual</translation>
-    </message>
-    <message>
       <source>Visitor language</source>
       <translation>Limba vizitatorului</translation>
     </message>
@@ -2068,10 +2048,6 @@
   </context>
   <context>
     <name>files/files</name>
-    <message>
-      <source>Download file</source>
-      <translation>Downloadeaza fisier</translation>
-    </message>
     <message>
       <source>Refresh</source>
       <translation>Actualizare</translation>
@@ -2288,22 +2264,6 @@
   </context>
   <context>
     <name>chat/startchat</name>
-    <message>
-      <source>Invalid captcha code, please enable Javascript!</source>
-      <translation>Cod captcha invalid. Activati javascript</translation>
-    </message>
-    <message>
-      <source>Invalid file extension</source>
-      <translation>Extensie fisier invalida</translation>
-    </message>
-    <message>
-      <source>Invalid file extension!</source>
-      <translation>Extensie fisier invalida!</translation>
-    </message>
-    <message>
-      <source>To big file!</source>
-      <translation>Fisier prea mare!</translation>
-    </message>
     <message>
       <source>Department is disabled</source>
       <translation>Departamentul este dezactivat</translation>
@@ -2628,57 +2588,6 @@
     </message>
   </context>
   <context>
-    <name>chat/geoadjustment</name>
-    <message>
-      <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
-      <translation>Aplica si aceste reguli indicatorului de stare a widget-ului? Scăderea performanței este asociată cu această opțiune.</translation>
-    </message>
-    <message>
-      <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
-      <translation>Setați statusul normal al chat-ului pentru aceste țări, țările pot fi separate prin virgula &quot;de, gb, ne, fr, ro&quot; înseamnă că chat-ul va fi prezentat cu setarile implicite doar pentru aceste țări.</translation>
-    </message>
-    <message>
-      <source>For</source>
-      <translation>Pentru</translation>
-    </message>
-    <message>
-      <source>all</source>
-      <translation>toate</translation>
-    </message>
-    <message>
-      <source>custom</source>
-      <translation>personalizat</translation>
-    </message>
-    <message>
-      <source>E.g. ar,pl</source>
-      <translation>Ex. ar, pl, ro</translation>
-    </message>
-    <message>
-      <source>Other countries, put widget/chat status to</source>
-      <translation>Pentru celelalte tari, seteaza statusul chat-ului la</translation>
-    </message>
-    <message>
-      <source>offline status</source>
-      <translation>offline status</translation>
-    </message>
-    <message>
-      <source>hidden/disabled, widget will not be shown</source>
-      <translation>ascuns / dezactivat, widget-ul nu va fi afișat</translation>
-    </message>
-    <message>
-      <source>For unmatched countries put chat status to</source>
-      <translation>Pentru restul tarilor seteaza statusul chat-ului la</translation>
-    </message>
-    <message>
-      <source>normal status</source>
-      <translation>normal status</translation>
-    </message>
-    <message>
-      <source>GEO adjustment</source>
-      <translation>Ajustare localizare GEO</translation>
-    </message>
-  </context>
-  <context>
     <name>system/xmpp</name>
     <message>
       <source>Geo adjustments active</source>
@@ -2838,15 +2747,58 @@
     </message>
   </context>
   <context>
+    <name>chat/geoadjustment</name>
+    <message>
+      <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
+      <translation>Aplica si aceste reguli indicatorului de stare a widget-ului? Scăderea performanței este asociată cu această opțiune.</translation>
+    </message>
+    <message>
+      <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
+      <translation>Setați statusul normal al chat-ului pentru aceste țări, țările pot fi separate prin virgula &quot;de, gb, ne, fr, ro&quot; înseamnă că chat-ul va fi prezentat cu setarile implicite doar pentru aceste țări.</translation>
+    </message>
+    <message>
+      <source>For</source>
+      <translation>Pentru</translation>
+    </message>
+    <message>
+      <source>all</source>
+      <translation>toate</translation>
+    </message>
+    <message>
+      <source>custom</source>
+      <translation>personalizat</translation>
+    </message>
+    <message>
+      <source>E.g. ar,pl</source>
+      <translation>Ex. ar, pl, ro</translation>
+    </message>
+    <message>
+      <source>Other countries, put widget/chat status to</source>
+      <translation>Pentru celelalte tari, seteaza statusul chat-ului la</translation>
+    </message>
+    <message>
+      <source>offline status</source>
+      <translation>offline status</translation>
+    </message>
+    <message>
+      <source>hidden/disabled, widget will not be shown</source>
+      <translation>ascuns / dezactivat, widget-ul nu va fi afișat</translation>
+    </message>
+    <message>
+      <source>For unmatched countries put chat status to</source>
+      <translation>Pentru restul tarilor seteaza statusul chat-ului la</translation>
+    </message>
+    <message>
+      <source>normal status</source>
+      <translation>normal status</translation>
+    </message>
+    <message>
+      <source>GEO adjustment</source>
+      <translation>Ajustare localizare GEO</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/onlineusers</name>
-    <message>
-      <source>Status</source>
-      <translation>Text pentr stare</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>Nimeni nu a transmis vreun mesaj utilizatorului</translation>
-    </message>
     <message>
       <source>GEO detection configuration</source>
       <translation>Configurarea detectarii pozitiei geografice</translation>
@@ -3228,14 +3180,6 @@
       <translation>Utilizatorul nu are niciun mesaj de la operator</translation>
     </message>
     <message>
-      <source>first visit</source>
-      <translation>prima vizita</translation>
-    </message>
-    <message>
-      <source>last visit</source>
-      <translation>ultima vizita</translation>
-    </message>
-    <message>
       <source>Chat</source>
       <translation>Conversatie</translation>
     </message>
@@ -3250,6 +3194,14 @@
     <message>
       <source>has sent a message to the user</source>
       <translation>a transmis un mesaj utilizatorului</translation>
+    </message>
+    <message>
+      <source>first visit</source>
+      <translation>prima vizita</translation>
+    </message>
+    <message>
+      <source>last visit</source>
+      <translation>ultima vizita</translation>
     </message>
     <message>
       <source>Files upload for users is active</source>
@@ -3608,10 +3560,6 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
-      <source>Clean cache</source>
-      <translation>Curata memoria cache</translation>
-    </message>
-    <message>
       <source>Empty...</source>
       <translation>Gol...</translation>
     </message>
@@ -3763,37 +3711,6 @@
     </message>
   </context>
   <context>
-    <name>chat/modifychat</name>
-    <message>
-      <source>Modify chat</source>
-      <translation>Modifica conversatie</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-mail</translation>
-    </message>
-    <message>
-      <source>Recipient e-mail</source>
-      <translation>Adresa de e-mail destinatar</translation>
-    </message>
-    <message>
-      <source>Nick</source>
-      <translation>Alias</translation>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>Telefon</translation>
-    </message>
-    <message>
-      <source>Update chat</source>
-      <translation>Actualizeaza conversatie</translation>
-    </message>
-    <message>
-      <source>Chat information was updated</source>
-      <translation>Informatiile conversatiei au fost actualizate</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/operatorschats</name>
     <message>
       <source>Operators chats list</source>
@@ -3802,13 +3719,6 @@
     <message>
       <source>Operators chats</source>
       <translation>Conversatii ale operatorului</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/part/operator_profile</name>
-    <message>
-      <source>Skype call</source>
-      <translation>Apel Skype</translation>
     </message>
   </context>
   <context>
@@ -3840,126 +3750,6 @@
     <message>
       <source>Pending chats</source>
       <translation>Conversatii in asteptare</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/previewchat</name>
-    <message>
-      <source>Last 100 messages rows</source>
-      <translation>Randuri cu ultimele 100 mesaje</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/sendchat</name>
-    <message>
-      <source>Enter your e-mail</source>
-      <translation>Te rog sa introduci adresa ta de e-mai</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/sendmail</name>
-    <message>
-      <source>Send mail to the user</source>
-      <translation>Transmite utilizatorului un e-mail</translation>
-    </message>
-    <message>
-      <source>Recipient</source>
-      <translation>Destinatar</translation>
-    </message>
-    <message>
-      <source>Recipient e-mail</source>
-      <translation>E-mail destinatar</translation>
-    </message>
-    <message>
-      <source>Subject</source>
-      <translation>Subiect</translation>
-    </message>
-    <message>
-      <source>From name</source>
-      <translation>De la</translation>
-    </message>
-    <message>
-      <source>Reply e-mail</source>
-      <translation>E-mail pentru raspuns</translation>
-    </message>
-    <message>
-      <source>From e-mail</source>
-      <translation>E-mail expeditor</translation>
-    </message>
-    <message>
-      <source>Type your message to the user</source>
-      <translation>Scrie mesajul catre utilizator</translation>
-    </message>
-    <message>
-      <source>Send the mail</source>
-      <translation>Transmite E-mail</translation>
-    </message>
-    <message>
-      <source>Embed link to file</source>
-      <translation>Adauga link catre fisier</translation>
-    </message>
-    <message>
-      <source>Mail was sent to the user</source>
-      <translation>Mesajul a fost transmis utilizatorului</translation>
-    </message>
-    <message>
-      <source>Please enter recipient e-mail!</source>
-      <translation>Va rog sa scrieti mailul destinatarului</translation>
-    </message>
-    <message>
-      <source>From e-mail is missing!</source>
-      <translation>E-mailul expeditorului nu exista</translation>
-    </message>
-    <message>
-      <source>Reply e-mail is missing!</source>
-      <translation>E-mailul de raspuns nu exista</translation>
-    </message>
-    <message>
-      <source>Subject is missing!</source>
-      <translation>Lipseste subiectul</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/sendnotice</name>
-    <message>
-      <source>Send a message to the user</source>
-      <translation>Transmite utilizatorului un mesaj</translation>
-    </message>
-    <message>
-      <source>If the message was already sent, this will mark it as not delivered and the user will be shown the chat message again.</source>
-      <translation>Daca mesajul a fost deja trimis, aceasta optiune il va marca netransmis si utilizatorul il va primi inca o data</translation>
-    </message>
-    <message>
-      <source>Type your message to the user</source>
-      <translation>Scrie mesajul catre utilizator</translation>
-    </message>
-    <message>
-      <source>Requires e-mail</source>
-      <translation>E nevoie de o adresa de e-mail</translation>
-    </message>
-    <message>
-      <source>Requires name</source>
-      <translation>E nevoie de un nume</translation>
-    </message>
-    <message>
-      <source>Requires phone</source>
-      <translation>Telefonul e musai...</translation>
-    </message>
-    <message>
-      <source>Send the message</source>
-      <translation>Transmite mesajul</translation>
-    </message>
-    <message>
-      <source>Message was sent to the user</source>
-      <translation>Mesajul a fost transmis utilizatorului</translation>
-    </message>
-    <message>
-      <source>Start chat with operator</source>
-      <translation>Porneste discutie cu operator</translation>
-    </message>
-    <message>
-      <source>Type your message to the operator</source>
-      <translation>Scrie mesajul catre operator</translation>
     </message>
   </context>
   <context>
@@ -4162,146 +3952,7 @@
     </message>
   </context>
   <context>
-    <name>chat/syncandsoundesetting</name>
-    <message>
-      <source>Save</source>
-      <translation>Salveaza</translation>
-    </message>
-    <message>
-      <source>Update</source>
-      <translation>Actualizeaza</translation>
-    </message>
-    <message>
-      <source>Cancel</source>
-      <translation>Abandon</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Setarile au fost actualizate</translation>
-    </message>
-    <message>
-      <source>Synchronisation and sound settings</source>
-      <translation>Setari sincronizare si sunet</translation>
-    </message>
-    <message>
-      <source>How many seconds for a user to be considered as being online</source>
-      <translation>Cate secunde pentru ca un operator sa fie considerat online</translation>
-    </message>
-    <message>
-      <source>Value in seconds</source>
-      <translation>Valoare in secunde</translation>
-    </message>
-    <message>
-      <source>Sync for new chats, interval in seconds</source>
-      <translation>Sincronizare cu noile conversatii - secunde</translation>
-    </message>
-    <message>
-      <source>Check for messages from the operators, interval in seconds</source>
-      <translation>Verifica existenta mesajelor de la operator - secunde</translation>
-    </message>
-    <message>
-      <source>Messages settings</source>
-      <translation>Setari mesaje</translation>
-    </message>
-    <message>
-      <source>Sync for a new user message, interval in seconds</source>
-      <translation>Sincronizare pentru un nou mesaj de la utilizatori - secumnde</translation>
-    </message>
-    <message>
-      <source>Show browser notification for new messages</source>
-      <translation>Afiseaza notificari in browser pentru mesaje noi</translation>
-    </message>
-    <message>
-      <source>Long polling (experimental)</source>
-      <translation>Polling lung (experimental)</translation>
-    </message>
-    <message>
-      <source>Enable long polling</source>
-      <translation>Activeaza polling lung</translation>
-    </message>
-    <message>
-      <source>How many seconds keep connection to server?</source>
-      <translation>Cate secunde trebuie mentinuta conexiunea la server?</translation>
-    </message>
-    <message>
-      <source>New chat request notification settings</source>
-      <translation>Setari pentru cererile noi de conversatii</translation>
-    </message>
-    <message>
-      <source>Play a new pending chat sound on a new chat request</source>
-      <translation>Emite un semnal sonor pentru solicitare conversatie noua</translation>
-    </message>
-    <message>
-      <source>Play a sound on a new message for a back office user</source>
-      <translation>Emite un semnal sonor pentru mesaj nou pentru administrator</translation>
-    </message>
-    <message>
-      <source>Play a sound on a new message for a front end user</source>
-      <translation>Emite un semnal sonor pentru mesaj nou catre utilizator</translation>
-    </message>
-    <message>
-      <source>Show alert message on a new chat request</source>
-      <translation>Afiseaza mesaj de alerta la deschiderea unei conversatii noi</translation>
-    </message>
-    <message>
-      <source>How many times play sound notification</source>
-      <translation>De cate ori sa se repete sunetul de notificare</translation>
-    </message>
-    <message>
-      <source>Number</source>
-      <translation>Numar</translation>
-    </message>
-    <message>
-      <source>Delay between sound notifications in seconds</source>
-      <translation>Intarziere intre sunet de notificare in secunde</translation>
-    </message>
-    <message>
-      <source>delay in seconds</source>
-      <translation>intarziere in secunde</translation>
-    </message>
-    <message>
-      <source>Seconds</source>
-      <translation>Secunde</translation>
-    </message>
-    <message>
-      <source>Please enter a valid online timeout value!</source>
-      <translation>Introduceti o valoare corecta pentru timpul de expirare!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid server connection timeout value!</source>
-      <translation>Te rog sa introduci o valoare pentru timeout conexiune server!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid operator message timeout value!</source>
-      <translation>Introduceti o valoare corecta pentru timpul in care mesajul operatorilor expira</translation>
-    </message>
-    <message>
-      <source>Please enter a valid new messages polling sync interval!</source>
-      <translation>Te rog sa introduci o valoare pentru intervalul de sincronizare mesaje!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid back office sync interval!</source>
-      <translation>Introduceti o valoare corecta pentru timpul de sincronizare zona de adminstrare</translation>
-    </message>
-    <message>
-      <source>Please enter a valid new messages sync interval!</source>
-      <translation>Introduceti o valoare corecta pentru timpul de sincronizare a noilor mesaje</translation>
-    </message>
-    <message>
-      <source>Synchronization and sound settings</source>
-      <translation>Setari pentru sincronizare si semnale sonore</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/statistic</name>
-    <message>
-      <source>General</source>
-      <translation>General</translation>
-    </message>
-    <message>
-      <source>Operators last 24h statistic, top 100 by chats number</source>
-      <translation>Statistica activitatii operatorilor, top 100 operatori functie de numarul de conversatii</translation>
-    </message>
     <message>
       <source>Statistic</source>
       <translation>Statistici</translation>
@@ -4524,6 +4175,310 @@
     </message>
   </context>
   <context>
+    <name>chat/unreadchats</name>
+    <message>
+      <source>Unread chats list</source>
+      <translation>Liste de conversatii necitite</translation>
+    </message>
+    <message>
+      <source>Information</source>
+      <translation>Informatii</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Gol...</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/modifychat</name>
+    <message>
+      <source>Modify chat</source>
+      <translation>Modifica conversatie</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Recipient e-mail</source>
+      <translation>Adresa de e-mail destinatar</translation>
+    </message>
+    <message>
+      <source>Nick</source>
+      <translation>Alias</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Telefon</translation>
+    </message>
+    <message>
+      <source>Update chat</source>
+      <translation>Actualizeaza conversatie</translation>
+    </message>
+    <message>
+      <source>Chat information was updated</source>
+      <translation>Informatiile conversatiei au fost actualizate</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/part/operator_profile</name>
+    <message>
+      <source>Skype call</source>
+      <translation>Apel Skype</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/previewchat</name>
+    <message>
+      <source>Last 100 messages rows</source>
+      <translation>Randuri cu ultimele 100 mesaje</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/sendchat</name>
+    <message>
+      <source>Enter your e-mail</source>
+      <translation>Te rog sa introduci adresa ta de e-mai</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/sendmail</name>
+    <message>
+      <source>Send mail to the user</source>
+      <translation>Transmite utilizatorului un e-mail</translation>
+    </message>
+    <message>
+      <source>Recipient</source>
+      <translation>Destinatar</translation>
+    </message>
+    <message>
+      <source>Recipient e-mail</source>
+      <translation>E-mail destinatar</translation>
+    </message>
+    <message>
+      <source>Subject</source>
+      <translation>Subiect</translation>
+    </message>
+    <message>
+      <source>From name</source>
+      <translation>De la</translation>
+    </message>
+    <message>
+      <source>Reply e-mail</source>
+      <translation>E-mail pentru raspuns</translation>
+    </message>
+    <message>
+      <source>From e-mail</source>
+      <translation>E-mail expeditor</translation>
+    </message>
+    <message>
+      <source>Type your message to the user</source>
+      <translation>Scrie mesajul catre utilizator</translation>
+    </message>
+    <message>
+      <source>Send the mail</source>
+      <translation>Transmite E-mail</translation>
+    </message>
+    <message>
+      <source>Embed link to file</source>
+      <translation>Adauga link catre fisier</translation>
+    </message>
+    <message>
+      <source>Mail was sent to the user</source>
+      <translation>Mesajul a fost transmis utilizatorului</translation>
+    </message>
+    <message>
+      <source>Please enter recipient e-mail!</source>
+      <translation>Va rog sa scrieti mailul destinatarului</translation>
+    </message>
+    <message>
+      <source>From e-mail is missing!</source>
+      <translation>E-mailul expeditorului nu exista</translation>
+    </message>
+    <message>
+      <source>Reply e-mail is missing!</source>
+      <translation>E-mailul de raspuns nu exista</translation>
+    </message>
+    <message>
+      <source>Subject is missing!</source>
+      <translation>Lipseste subiectul</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/sendnotice</name>
+    <message>
+      <source>Send a message to the user</source>
+      <translation>Transmite utilizatorului un mesaj</translation>
+    </message>
+    <message>
+      <source>If the message was already sent, this will mark it as not delivered and the user will be shown the chat message again.</source>
+      <translation>Daca mesajul a fost deja trimis, aceasta optiune il va marca netransmis si utilizatorul il va primi inca o data</translation>
+    </message>
+    <message>
+      <source>Type your message to the user</source>
+      <translation>Scrie mesajul catre utilizator</translation>
+    </message>
+    <message>
+      <source>Requires e-mail</source>
+      <translation>E nevoie de o adresa de e-mail</translation>
+    </message>
+    <message>
+      <source>Requires name</source>
+      <translation>E nevoie de un nume</translation>
+    </message>
+    <message>
+      <source>Requires phone</source>
+      <translation>Telefonul e musai...</translation>
+    </message>
+    <message>
+      <source>Send the message</source>
+      <translation>Transmite mesajul</translation>
+    </message>
+    <message>
+      <source>Message was sent to the user</source>
+      <translation>Mesajul a fost transmis utilizatorului</translation>
+    </message>
+    <message>
+      <source>Start chat with operator</source>
+      <translation>Porneste discutie cu operator</translation>
+    </message>
+    <message>
+      <source>Type your message to the operator</source>
+      <translation>Scrie mesajul catre operator</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/syncandsoundesetting</name>
+    <message>
+      <source>Save</source>
+      <translation>Salveaza</translation>
+    </message>
+    <message>
+      <source>Update</source>
+      <translation>Actualizeaza</translation>
+    </message>
+    <message>
+      <source>Cancel</source>
+      <translation>Abandon</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Setarile au fost actualizate</translation>
+    </message>
+    <message>
+      <source>Synchronisation and sound settings</source>
+      <translation>Setari sincronizare si sunet</translation>
+    </message>
+    <message>
+      <source>How many seconds for a user to be considered as being online</source>
+      <translation>Cate secunde pentru ca un operator sa fie considerat online</translation>
+    </message>
+    <message>
+      <source>Value in seconds</source>
+      <translation>Valoare in secunde</translation>
+    </message>
+    <message>
+      <source>Sync for new chats, interval in seconds</source>
+      <translation>Sincronizare cu noile conversatii - secunde</translation>
+    </message>
+    <message>
+      <source>Check for messages from the operators, interval in seconds</source>
+      <translation>Verifica existenta mesajelor de la operator - secunde</translation>
+    </message>
+    <message>
+      <source>Messages settings</source>
+      <translation>Setari mesaje</translation>
+    </message>
+    <message>
+      <source>Sync for a new user message, interval in seconds</source>
+      <translation>Sincronizare pentru un nou mesaj de la utilizatori - secumnde</translation>
+    </message>
+    <message>
+      <source>Show browser notification for new messages</source>
+      <translation>Afiseaza notificari in browser pentru mesaje noi</translation>
+    </message>
+    <message>
+      <source>Long polling (experimental)</source>
+      <translation>Polling lung (experimental)</translation>
+    </message>
+    <message>
+      <source>Enable long polling</source>
+      <translation>Activeaza polling lung</translation>
+    </message>
+    <message>
+      <source>How many seconds keep connection to server?</source>
+      <translation>Cate secunde trebuie mentinuta conexiunea la server?</translation>
+    </message>
+    <message>
+      <source>New chat request notification settings</source>
+      <translation>Setari pentru cererile noi de conversatii</translation>
+    </message>
+    <message>
+      <source>Play a new pending chat sound on a new chat request</source>
+      <translation>Emite un semnal sonor pentru solicitare conversatie noua</translation>
+    </message>
+    <message>
+      <source>Play a sound on a new message for a back office user</source>
+      <translation>Emite un semnal sonor pentru mesaj nou pentru administrator</translation>
+    </message>
+    <message>
+      <source>Play a sound on a new message for a front end user</source>
+      <translation>Emite un semnal sonor pentru mesaj nou catre utilizator</translation>
+    </message>
+    <message>
+      <source>Show alert message on a new chat request</source>
+      <translation>Afiseaza mesaj de alerta la deschiderea unei conversatii noi</translation>
+    </message>
+    <message>
+      <source>How many times play sound notification</source>
+      <translation>De cate ori sa se repete sunetul de notificare</translation>
+    </message>
+    <message>
+      <source>Number</source>
+      <translation>Numar</translation>
+    </message>
+    <message>
+      <source>Delay between sound notifications in seconds</source>
+      <translation>Intarziere intre sunet de notificare in secunde</translation>
+    </message>
+    <message>
+      <source>delay in seconds</source>
+      <translation>intarziere in secunde</translation>
+    </message>
+    <message>
+      <source>Seconds</source>
+      <translation>Secunde</translation>
+    </message>
+    <message>
+      <source>Please enter a valid online timeout value!</source>
+      <translation>Introduceti o valoare corecta pentru timpul de expirare!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid server connection timeout value!</source>
+      <translation>Te rog sa introduci o valoare pentru timeout conexiune server!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid operator message timeout value!</source>
+      <translation>Introduceti o valoare corecta pentru timpul in care mesajul operatorilor expira</translation>
+    </message>
+    <message>
+      <source>Please enter a valid new messages polling sync interval!</source>
+      <translation>Te rog sa introduci o valoare pentru intervalul de sincronizare mesaje!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid back office sync interval!</source>
+      <translation>Introduceti o valoare corecta pentru timpul de sincronizare zona de adminstrare</translation>
+    </message>
+    <message>
+      <source>Please enter a valid new messages sync interval!</source>
+      <translation>Introduceti o valoare corecta pentru timpul de sincronizare a noilor mesaje</translation>
+    </message>
+    <message>
+      <source>Synchronization and sound settings</source>
+      <translation>Setari pentru sincronizare si semnale sonore</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/transferchat</name>
     <message>
       <source>Transfer to a user</source>
@@ -4548,21 +4503,6 @@
     <message>
       <source>Departments</source>
       <translation>Departamente</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/unreadchats</name>
-    <message>
-      <source>Unread chats list</source>
-      <translation>Liste de conversatii necitite</translation>
-    </message>
-    <message>
-      <source>Information</source>
-      <translation>Informatii</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Gol...</translation>
     </message>
   </context>
   <context>
@@ -5657,6 +5597,17 @@
     </message>
   </context>
   <context>
+    <name>permission/getpermissionssummary</name>
+    <message>
+      <source>Request permission</source>
+      <translation>Cere permisii</translation>
+    </message>
+    <message>
+      <source>Please choose at least one permission</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>permission/groupassignrole</name>
     <message>
       <source>Title</source>
@@ -5750,6 +5701,33 @@
     <message>
       <source>List of roles</source>
       <translation>Lista de roluri</translation>
+    </message>
+  </context>
+  <context>
+    <name>permission/request</name>
+    <message>
+      <source>Request permission</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Request permissions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Permission requested</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a user!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This user can not receive permision request!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Permissions were not provided</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -6083,6 +6061,49 @@
     <message>
       <source>Use application default recognition dialect</source>
       <translation>Foloseste setarile standard pentru dialectul pentru recunoastere vocala</translation>
+    </message>
+  </context>
+  <context>
+    <name>users/autologin</name>
+    <message>
+      <source>Auto login settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This module can be used if you are generating autologin link. See site for code examples</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Secret hash used for authentification token generation, min 10 characters</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Autologin hash has expired</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not find a user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not find a provided user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid autologin hash</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Auto login module is not enabled</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -6823,10 +6844,6 @@
   <context>
     <name>chat/chatexport</name>
     <message>
-      <source>Referrer</source>
-      <translation>Referrer</translation>
-    </message>
-    <message>
       <source>Department name</source>
       <translation type="unfinished"/>
     </message>
@@ -6916,11 +6933,14 @@
     </message>
   </context>
   <context>
-    <name>chat/syncuser</name>
+    <name>chat/closechatadmin</name>
     <message>
-      <source>You do not have permission to view this chat, or chat was deleted</source>
-      <translation>Nu ai dreptul de a vizualiza aceasta discutie sau conversatia a fost stearsa</translation>
+      <source>has closed the chat!</source>
+      <translation>a inchis conversatia!</translation>
     </message>
+  </context>
+  <context>
+    <name>chat/syncuser</name>
     <message>
       <source>Chat was automatically transferred to</source>
       <translation>Discutia a fost transferata automat catre</translation>
@@ -6936,10 +6956,6 @@
     <message>
       <source>Support staff member has closed this chat</source>
       <translation>Un operator a inchis aceasta conversatie</translation>
-    </message>
-    <message>
-      <source>The operator has closed this chat session</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
@@ -7147,17 +7163,6 @@
     </message>
   </context>
   <context>
-    <name>chat/closechatadmin</name>
-    <message>
-      <source>has redirected user to contact form!</source>
-      <translation>a redirectionat utilizatorul catre formularul de contact!</translation>
-    </message>
-    <message>
-      <source>has closed the chat!</source>
-      <translation>a inchis conversatia!</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/deletechatadmin</name>
     <message>
       <source>You do not have rights to delete a chat</source>
@@ -7227,133 +7232,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Te rog sa introduci un tip de fisier valid!</translation>
-    </message>
-  </context>
-  <context>
-    <name>permission/getpermissionsummary</name>
-    <message>
-      <source>Module/Function</source>
-      <translation>Modul/functie</translation>
-    </message>
-  </context>
-  <context>
-    <name>permission/getpermissionssummary</name>
-    <message>
-      <source>Request permission</source>
-      <translation>Cere permisii</translation>
-    </message>
-    <message>
-      <source>Please choose at least one permission</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>permission/request</name>
-    <message>
-      <source>Request permission</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Request permissions</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Permission requested</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please choose a user!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>This user can not receive permision request!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Permissions were not provided</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>users/autologin</name>
-    <message>
-      <source>Auto login settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>This module can be used if you are generating autologin link. See site for code examples</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Enabled</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Secret hash used for authentification token generation, min 10 characters</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Autologin hash has expired</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Could not find a user</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Could not find a provided user</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invalid autologin hash</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Auto login module is not enabled</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/chatcommand</name>
-    <message>
-      <source>Nick changed!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>E-mail changed!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Phone changed!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User was redirected!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Screenshot was scheduled!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User was redirected to contact form!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User was blocked!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat was closed!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat was deleted!</source>
-      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

@@ -319,10 +319,6 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
-      <source>Widget copyright link</source>
-      <translation>Widgeto autorystės nuoroda</translation>
-    </message>
-    <message>
       <source>Download theme</source>
       <translation>Parsisiųsti temą</translation>
     </message>
@@ -702,10 +698,6 @@
   </context>
   <context>
     <name>system/htmlcode</name>
-    <message>
-      <source>Popup window size</source>
-      <translation>Iššokančio lango dydis</translation>
-    </message>
     <message>
       <source>HTML code</source>
       <translation>HTML kodas</translation>
@@ -1305,6 +1297,10 @@
       <source>Operator is typing now...</source>
       <translation>Operatorius šiuo metu rašo žinutę...</translation>
     </message>
+    <message>
+      <source>Close and Start a new one</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/bbcodeinsert</name>
@@ -1389,10 +1385,6 @@
   </context>
   <context>
     <name>chat/cannedmsg</name>
-    <message>
-      <source>Please enter canned message</source>
-      <translation>Prašome įvesti paruoštą pranešimą</translation>
-    </message>
     <message>
       <source>Title/Message</source>
       <translation>Pavadinimas/Žinutė</translation>
@@ -1719,10 +1711,6 @@
   <context>
     <name>chat/adminchat</name>
     <message>
-      <source>Invalid chat status</source>
-      <translation>Nekorektiškas pokalbio statusas</translation>
-    </message>
-    <message>
       <source>Attach uploaded file</source>
       <translation>Prisegti nusiųstą failą</translation>
     </message>
@@ -1942,14 +1930,6 @@
   <context>
     <name>chat/translation</name>
     <message>
-      <source>We could not detect operator language</source>
-      <translation>Negalėjome nustatyti operatoriaus kalbos</translation>
-    </message>
-    <message>
-      <source>Detected operator and visitor languages matches, please choose languages manually</source>
-      <translation>Nustatyta operatoriaus ir lankytojo kalba sutampa, prašome pasirinkti kalbas rankiniu būdu</translation>
-    </message>
-    <message>
       <source>Visitor language</source>
       <translation>Lankytojo kalba</translation>
     </message>
@@ -2068,10 +2048,6 @@
   </context>
   <context>
     <name>files/files</name>
-    <message>
-      <source>Download file</source>
-      <translation>Parsisiųsti failą</translation>
-    </message>
     <message>
       <source>Refresh</source>
       <translation>Atnaujinti</translation>
@@ -2288,22 +2264,6 @@
   </context>
   <context>
     <name>chat/startchat</name>
-    <message>
-      <source>Invalid captcha code, please enable Javascript!</source>
-      <translation>Nekorektiškas apsaugos kodas, prašome įjungti Javascript palaikymą!</translation>
-    </message>
-    <message>
-      <source>Invalid file extension</source>
-      <translation>Nekorektiška failo galunė</translation>
-    </message>
-    <message>
-      <source>Invalid file extension!</source>
-      <translation>Nekorektiška failo galunė!</translation>
-    </message>
-    <message>
-      <source>To big file!</source>
-      <translation>Per didelis failas!</translation>
-    </message>
     <message>
       <source>Department is disabled</source>
       <translation>Departamentas išjungtas</translation>
@@ -2628,57 +2588,6 @@
     </message>
   </context>
   <context>
-    <name>chat/geoadjustment</name>
-    <message>
-      <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
-      <translation>Taikyti šias taisykles widgetui taip pat? sumažėja sistemos našumas pažymėjus.</translation>
-    </message>
-    <message>
-      <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
-      <translation>Palikti pokalbių būseną normalią šioms šalims, šalys gali būti atskirtos kableliu &quot;de,gb,us,fr&quot; reiškia, kad pokalbių būsena bus rodoma normali šioms šalims.</translation>
-    </message>
-    <message>
-      <source>For</source>
-      <translation>Šioms</translation>
-    </message>
-    <message>
-      <source>all</source>
-      <translation>visoms</translation>
-    </message>
-    <message>
-      <source>custom</source>
-      <translation>įvestom</translation>
-    </message>
-    <message>
-      <source>E.g. ar,pl</source>
-      <translation>Pvz. ar,pl</translation>
-    </message>
-    <message>
-      <source>Other countries, put widget/chat status to</source>
-      <translation>Kitoms šalims, pakeisti widgeto būseną į</translation>
-    </message>
-    <message>
-      <source>offline status</source>
-      <translation>neprisijungęs</translation>
-    </message>
-    <message>
-      <source>hidden/disabled, widget will not be shown</source>
-      <translation>paslėptas/išjungtas, widgetas gali būti neparodytas</translation>
-    </message>
-    <message>
-      <source>For unmatched countries put chat status to</source>
-      <translation>Neatitikusioms jokio filtro šalims pakeisti chato būseną į</translation>
-    </message>
-    <message>
-      <source>normal status</source>
-      <translation>standartinę</translation>
-    </message>
-    <message>
-      <source>GEO adjustment</source>
-      <translation>GEO tinkinimas</translation>
-    </message>
-  </context>
-  <context>
     <name>system/xmpp</name>
     <message>
       <source>Geo adjustments active</source>
@@ -2838,15 +2747,58 @@
     </message>
   </context>
   <context>
+    <name>chat/geoadjustment</name>
+    <message>
+      <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
+      <translation>Taikyti šias taisykles widgetui taip pat? sumažėja sistemos našumas pažymėjus.</translation>
+    </message>
+    <message>
+      <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
+      <translation>Palikti pokalbių būseną normalią šioms šalims, šalys gali būti atskirtos kableliu &quot;de,gb,us,fr&quot; reiškia, kad pokalbių būsena bus rodoma normali šioms šalims.</translation>
+    </message>
+    <message>
+      <source>For</source>
+      <translation>Šioms</translation>
+    </message>
+    <message>
+      <source>all</source>
+      <translation>visoms</translation>
+    </message>
+    <message>
+      <source>custom</source>
+      <translation>įvestom</translation>
+    </message>
+    <message>
+      <source>E.g. ar,pl</source>
+      <translation>Pvz. ar,pl</translation>
+    </message>
+    <message>
+      <source>Other countries, put widget/chat status to</source>
+      <translation>Kitoms šalims, pakeisti widgeto būseną į</translation>
+    </message>
+    <message>
+      <source>offline status</source>
+      <translation>neprisijungęs</translation>
+    </message>
+    <message>
+      <source>hidden/disabled, widget will not be shown</source>
+      <translation>paslėptas/išjungtas, widgetas gali būti neparodytas</translation>
+    </message>
+    <message>
+      <source>For unmatched countries put chat status to</source>
+      <translation>Neatitikusioms jokio filtro šalims pakeisti chato būseną į</translation>
+    </message>
+    <message>
+      <source>normal status</source>
+      <translation>standartinę</translation>
+    </message>
+    <message>
+      <source>GEO adjustment</source>
+      <translation>GEO tinkinimas</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/onlineusers</name>
-    <message>
-      <source>Status</source>
-      <translation>Būsena</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>Niekas dar neišsiuntė žinutės vartotojui</translation>
-    </message>
     <message>
       <source>GEO detection configuration</source>
       <translation>GEO detekcijos nustatymai</translation>
@@ -3228,14 +3180,6 @@
       <translation>Vartotojas neturi jokių žinučių iš operatoriaus</translation>
     </message>
     <message>
-      <source>first visit</source>
-      <translation>pirmas apsilankymas</translation>
-    </message>
-    <message>
-      <source>last visit</source>
-      <translation>paskutinis apsilankymas</translation>
-    </message>
-    <message>
       <source>Chat</source>
       <translation>Pokalbis</translation>
     </message>
@@ -3250,6 +3194,14 @@
     <message>
       <source>has sent a message to the user</source>
       <translation>išsiuntė žinutę vartotojui</translation>
+    </message>
+    <message>
+      <source>first visit</source>
+      <translation>pirmas apsilankymas</translation>
+    </message>
+    <message>
+      <source>last visit</source>
+      <translation>paskutinis apsilankymas</translation>
     </message>
     <message>
       <source>Files upload for users is active</source>
@@ -3608,10 +3560,6 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
-      <source>Clean cache</source>
-      <translation>Išvalyti podėlius</translation>
-    </message>
-    <message>
       <source>Empty...</source>
       <translation>Tuščia...</translation>
     </message>
@@ -3763,37 +3711,6 @@
     </message>
   </context>
   <context>
-    <name>chat/modifychat</name>
-    <message>
-      <source>Modify chat</source>
-      <translation>Koreguoti pokalbio informaciją</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-paštas</translation>
-    </message>
-    <message>
-      <source>Recipient e-mail</source>
-      <translation>Gavėjo el-paštas</translation>
-    </message>
-    <message>
-      <source>Nick</source>
-      <translation>Nikas</translation>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>Telefonas</translation>
-    </message>
-    <message>
-      <source>Update chat</source>
-      <translation>Atnaujinti pokalbį</translation>
-    </message>
-    <message>
-      <source>Chat information was updated</source>
-      <translation>Pokalbio informacija buvo atnaujinta</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/operatorschats</name>
     <message>
       <source>Operators chats list</source>
@@ -3802,13 +3719,6 @@
     <message>
       <source>Operators chats</source>
       <translation>Operatorių pokalbiai</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/part/operator_profile</name>
-    <message>
-      <source>Skype call</source>
-      <translation>Skype skambutis</translation>
     </message>
   </context>
   <context>
@@ -3840,126 +3750,6 @@
     <message>
       <source>Pending chats</source>
       <translation>Laukiantys pokalbiai</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/previewchat</name>
-    <message>
-      <source>Last 100 messages rows</source>
-      <translation>Paskutinės 100 pokalbio žinučių</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/sendchat</name>
-    <message>
-      <source>Enter your e-mail</source>
-      <translation>Įveskite savo el. pašto adresą</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/sendmail</name>
-    <message>
-      <source>Send mail to the user</source>
-      <translation>Siųsti laišką vartotojui</translation>
-    </message>
-    <message>
-      <source>Recipient</source>
-      <translation>Gavėjas</translation>
-    </message>
-    <message>
-      <source>Recipient e-mail</source>
-      <translation>Gavėjo el. pašto adresas</translation>
-    </message>
-    <message>
-      <source>Subject</source>
-      <translation>Antraštė</translation>
-    </message>
-    <message>
-      <source>From name</source>
-      <translation>Nuo ko</translation>
-    </message>
-    <message>
-      <source>Reply e-mail</source>
-      <translation>Kam atsakyti, el. paštas</translation>
-    </message>
-    <message>
-      <source>From e-mail</source>
-      <translation>Nuo ko, el. paštas</translation>
-    </message>
-    <message>
-      <source>Type your message to the user</source>
-      <translation>Įveskite savo žinutę vartotojui</translation>
-    </message>
-    <message>
-      <source>Send the mail</source>
-      <translation>Siųsti laišką</translation>
-    </message>
-    <message>
-      <source>Embed link to file</source>
-      <translation>Įterpti nuorodą į failą</translation>
-    </message>
-    <message>
-      <source>Mail was sent to the user</source>
-      <translation>Laiškas buvo išsiųstas vartotojui</translation>
-    </message>
-    <message>
-      <source>Please enter recipient e-mail!</source>
-      <translation>Prašome įvesti gavėjo el. pašto adresą!</translation>
-    </message>
-    <message>
-      <source>From e-mail is missing!</source>
-      <translation>Trūksta siuntėjo el. pašto adreso!</translation>
-    </message>
-    <message>
-      <source>Reply e-mail is missing!</source>
-      <translation>Trūksta atsakovo el. pašto adreso</translation>
-    </message>
-    <message>
-      <source>Subject is missing!</source>
-      <translation>Neįvesta antraštė</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/sendnotice</name>
-    <message>
-      <source>Send a message to the user</source>
-      <translation>Siųsti žinutę vartotojui</translation>
-    </message>
-    <message>
-      <source>If the message was already sent, this will mark it as not delivered and the user will be shown the chat message again.</source>
-      <translation>Jei žinutė buvo jau išsiųsta, tai pažymės žinutę kaip nepristatytą ir vartotojui bus parodytas naujas pranešimas.</translation>
-    </message>
-    <message>
-      <source>Type your message to the user</source>
-      <translation>Parašykite savo žinutę vartotojui</translation>
-    </message>
-    <message>
-      <source>Requires e-mail</source>
-      <translation>Reikalaujama el. pašto adreso</translation>
-    </message>
-    <message>
-      <source>Requires name</source>
-      <translation>Reikalaujama vardo</translation>
-    </message>
-    <message>
-      <source>Requires phone</source>
-      <translation>Reikalauja telefono</translation>
-    </message>
-    <message>
-      <source>Send the message</source>
-      <translation>Siųsti žinutę</translation>
-    </message>
-    <message>
-      <source>Message was sent to the user</source>
-      <translation>Žinutė buvo išsiųsta vartotojui</translation>
-    </message>
-    <message>
-      <source>Start chat with operator</source>
-      <translation>Pradėti pokalbį su operatoriumi</translation>
-    </message>
-    <message>
-      <source>Type your message to the operator</source>
-      <translation>įveskite savo žinutė operatoriui</translation>
     </message>
   </context>
   <context>
@@ -4162,146 +3952,7 @@
     </message>
   </context>
   <context>
-    <name>chat/syncandsoundesetting</name>
-    <message>
-      <source>Save</source>
-      <translation>Saugoti</translation>
-    </message>
-    <message>
-      <source>Update</source>
-      <translation>Atnaujinti</translation>
-    </message>
-    <message>
-      <source>Cancel</source>
-      <translation>Atšaukti</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Nustatymai atnaujinti</translation>
-    </message>
-    <message>
-      <source>Synchronisation and sound settings</source>
-      <translation>Sinchronizacijos ir garso nustatymai</translation>
-    </message>
-    <message>
-      <source>How many seconds for a user to be considered as being online</source>
-      <translation>Kiek sekundžių vartotojas laikomas, kaip prisijungęs</translation>
-    </message>
-    <message>
-      <source>Value in seconds</source>
-      <translation>Reikšmė sekundėmis</translation>
-    </message>
-    <message>
-      <source>Sync for new chats, interval in seconds</source>
-      <translation>Tikrinti ar nėra naujų užklausų, kas nurodytą intervalą</translation>
-    </message>
-    <message>
-      <source>Check for messages from the operators, interval in seconds</source>
-      <translation>Tikrint ar nėra žinučių iš operatorių, intervalas sekundėmis</translation>
-    </message>
-    <message>
-      <source>Messages settings</source>
-      <translation>Žinučių nustatymai</translation>
-    </message>
-    <message>
-      <source>Sync for a new user message, interval in seconds</source>
-      <translation>Tikrinti ar neparašė vartotojas, kas nurodytą sekundžių skaičių</translation>
-    </message>
-    <message>
-      <source>Show browser notification for new messages</source>
-      <translation>Rodyti naršyklės pranešimą naujoms žinutėms</translation>
-    </message>
-    <message>
-      <source>Long polling (experimental)</source>
-      <translation>Ilgas tikrinimas (beta)</translation>
-    </message>
-    <message>
-      <source>Enable long polling</source>
-      <translation>Įgalinti ilgas užklausas</translation>
-    </message>
-    <message>
-      <source>How many seconds keep connection to server?</source>
-      <translation>Kiek sekundžių palaikyti ryši su serveriu</translation>
-    </message>
-    <message>
-      <source>New chat request notification settings</source>
-      <translation>Naujų pokalbių pranešimų nustatymai</translation>
-    </message>
-    <message>
-      <source>Play a new pending chat sound on a new chat request</source>
-      <translation>Groti pranešimo garsą apie naują užklausimą</translation>
-    </message>
-    <message>
-      <source>Play a sound on a new message for a back office user</source>
-      <translation>Groti garsą apie naują žinutę konsultantui</translation>
-    </message>
-    <message>
-      <source>Play a sound on a new message for a front end user</source>
-      <translation>Groti garsą apie naują žinutę klientui</translation>
-    </message>
-    <message>
-      <source>Show alert message on a new chat request</source>
-      <translation>Rodyti alert pranešimus apie naujas užklausas</translation>
-    </message>
-    <message>
-      <source>How many times play sound notification</source>
-      <translation>Kiek kartų groti garso pranešimą?</translation>
-    </message>
-    <message>
-      <source>Number</source>
-      <translation>Skaičius</translation>
-    </message>
-    <message>
-      <source>Delay between sound notifications in seconds</source>
-      <translation>Uždelsimas tarp garso pranešimų sekundėmis</translation>
-    </message>
-    <message>
-      <source>delay in seconds</source>
-      <translation>uždelsimas sekundėmis</translation>
-    </message>
-    <message>
-      <source>Seconds</source>
-      <translation>Sekundės</translation>
-    </message>
-    <message>
-      <source>Please enter a valid online timeout value!</source>
-      <translation>Prašome įvesti validų būvimo prisijungus intervalą!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid server connection timeout value!</source>
-      <translation>Prašome įvesti validų serverio prisijungimo laiką!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid operator message timeout value!</source>
-      <translation>Prašome įvesti validų žinučių iš operatoriaus tikrinimo intervalą!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid new messages polling sync interval!</source>
-      <translation>Prašome įvesti validų naujų žinučių sinchronizacijos laiką</translation>
-    </message>
-    <message>
-      <source>Please enter a valid back office sync interval!</source>
-      <translation>Prašome įvesti validų naujų užklausų sinchronizavimo intervalą!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid new messages sync interval!</source>
-      <translation>Prašome įvesti korektišką naujų žinučių sinchronizavimo intervalą!</translation>
-    </message>
-    <message>
-      <source>Synchronization and sound settings</source>
-      <translation>Sinchronizacijos ir garso nustatymai</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/statistic</name>
-    <message>
-      <source>General</source>
-      <translation>Bendra</translation>
-    </message>
-    <message>
-      <source>Operators last 24h statistic, top 100 by chats number</source>
-      <translation>Operatorių paskutinių 24 val. statistika, top 100 pagal pokalbių skaičių</translation>
-    </message>
     <message>
       <source>Statistic</source>
       <translation>Statistika</translation>
@@ -4524,6 +4175,310 @@
     </message>
   </context>
   <context>
+    <name>chat/unreadchats</name>
+    <message>
+      <source>Unread chats list</source>
+      <translation>Neperskaitytų pokalbių sąrašas</translation>
+    </message>
+    <message>
+      <source>Information</source>
+      <translation>Informacija</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Tuščia...</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/modifychat</name>
+    <message>
+      <source>Modify chat</source>
+      <translation>Koreguoti pokalbio informaciją</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-paštas</translation>
+    </message>
+    <message>
+      <source>Recipient e-mail</source>
+      <translation>Gavėjo el-paštas</translation>
+    </message>
+    <message>
+      <source>Nick</source>
+      <translation>Nikas</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Telefonas</translation>
+    </message>
+    <message>
+      <source>Update chat</source>
+      <translation>Atnaujinti pokalbį</translation>
+    </message>
+    <message>
+      <source>Chat information was updated</source>
+      <translation>Pokalbio informacija buvo atnaujinta</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/part/operator_profile</name>
+    <message>
+      <source>Skype call</source>
+      <translation>Skype skambutis</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/previewchat</name>
+    <message>
+      <source>Last 100 messages rows</source>
+      <translation>Paskutinės 100 pokalbio žinučių</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/sendchat</name>
+    <message>
+      <source>Enter your e-mail</source>
+      <translation>Įveskite savo el. pašto adresą</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/sendmail</name>
+    <message>
+      <source>Send mail to the user</source>
+      <translation>Siųsti laišką vartotojui</translation>
+    </message>
+    <message>
+      <source>Recipient</source>
+      <translation>Gavėjas</translation>
+    </message>
+    <message>
+      <source>Recipient e-mail</source>
+      <translation>Gavėjo el. pašto adresas</translation>
+    </message>
+    <message>
+      <source>Subject</source>
+      <translation>Antraštė</translation>
+    </message>
+    <message>
+      <source>From name</source>
+      <translation>Nuo ko</translation>
+    </message>
+    <message>
+      <source>Reply e-mail</source>
+      <translation>Kam atsakyti, el. paštas</translation>
+    </message>
+    <message>
+      <source>From e-mail</source>
+      <translation>Nuo ko, el. paštas</translation>
+    </message>
+    <message>
+      <source>Type your message to the user</source>
+      <translation>Įveskite savo žinutę vartotojui</translation>
+    </message>
+    <message>
+      <source>Send the mail</source>
+      <translation>Siųsti laišką</translation>
+    </message>
+    <message>
+      <source>Embed link to file</source>
+      <translation>Įterpti nuorodą į failą</translation>
+    </message>
+    <message>
+      <source>Mail was sent to the user</source>
+      <translation>Laiškas buvo išsiųstas vartotojui</translation>
+    </message>
+    <message>
+      <source>Please enter recipient e-mail!</source>
+      <translation>Prašome įvesti gavėjo el. pašto adresą!</translation>
+    </message>
+    <message>
+      <source>From e-mail is missing!</source>
+      <translation>Trūksta siuntėjo el. pašto adreso!</translation>
+    </message>
+    <message>
+      <source>Reply e-mail is missing!</source>
+      <translation>Trūksta atsakovo el. pašto adreso</translation>
+    </message>
+    <message>
+      <source>Subject is missing!</source>
+      <translation>Neįvesta antraštė</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/sendnotice</name>
+    <message>
+      <source>Send a message to the user</source>
+      <translation>Siųsti žinutę vartotojui</translation>
+    </message>
+    <message>
+      <source>If the message was already sent, this will mark it as not delivered and the user will be shown the chat message again.</source>
+      <translation>Jei žinutė buvo jau išsiųsta, tai pažymės žinutę kaip nepristatytą ir vartotojui bus parodytas naujas pranešimas.</translation>
+    </message>
+    <message>
+      <source>Type your message to the user</source>
+      <translation>Parašykite savo žinutę vartotojui</translation>
+    </message>
+    <message>
+      <source>Requires e-mail</source>
+      <translation>Reikalaujama el. pašto adreso</translation>
+    </message>
+    <message>
+      <source>Requires name</source>
+      <translation>Reikalaujama vardo</translation>
+    </message>
+    <message>
+      <source>Requires phone</source>
+      <translation>Reikalauja telefono</translation>
+    </message>
+    <message>
+      <source>Send the message</source>
+      <translation>Siųsti žinutę</translation>
+    </message>
+    <message>
+      <source>Message was sent to the user</source>
+      <translation>Žinutė buvo išsiųsta vartotojui</translation>
+    </message>
+    <message>
+      <source>Start chat with operator</source>
+      <translation>Pradėti pokalbį su operatoriumi</translation>
+    </message>
+    <message>
+      <source>Type your message to the operator</source>
+      <translation>įveskite savo žinutė operatoriui</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/syncandsoundesetting</name>
+    <message>
+      <source>Save</source>
+      <translation>Saugoti</translation>
+    </message>
+    <message>
+      <source>Update</source>
+      <translation>Atnaujinti</translation>
+    </message>
+    <message>
+      <source>Cancel</source>
+      <translation>Atšaukti</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Nustatymai atnaujinti</translation>
+    </message>
+    <message>
+      <source>Synchronisation and sound settings</source>
+      <translation>Sinchronizacijos ir garso nustatymai</translation>
+    </message>
+    <message>
+      <source>How many seconds for a user to be considered as being online</source>
+      <translation>Kiek sekundžių vartotojas laikomas, kaip prisijungęs</translation>
+    </message>
+    <message>
+      <source>Value in seconds</source>
+      <translation>Reikšmė sekundėmis</translation>
+    </message>
+    <message>
+      <source>Sync for new chats, interval in seconds</source>
+      <translation>Tikrinti ar nėra naujų užklausų, kas nurodytą intervalą</translation>
+    </message>
+    <message>
+      <source>Check for messages from the operators, interval in seconds</source>
+      <translation>Tikrint ar nėra žinučių iš operatorių, intervalas sekundėmis</translation>
+    </message>
+    <message>
+      <source>Messages settings</source>
+      <translation>Žinučių nustatymai</translation>
+    </message>
+    <message>
+      <source>Sync for a new user message, interval in seconds</source>
+      <translation>Tikrinti ar neparašė vartotojas, kas nurodytą sekundžių skaičių</translation>
+    </message>
+    <message>
+      <source>Show browser notification for new messages</source>
+      <translation>Rodyti naršyklės pranešimą naujoms žinutėms</translation>
+    </message>
+    <message>
+      <source>Long polling (experimental)</source>
+      <translation>Ilgas tikrinimas (beta)</translation>
+    </message>
+    <message>
+      <source>Enable long polling</source>
+      <translation>Įgalinti ilgas užklausas</translation>
+    </message>
+    <message>
+      <source>How many seconds keep connection to server?</source>
+      <translation>Kiek sekundžių palaikyti ryši su serveriu</translation>
+    </message>
+    <message>
+      <source>New chat request notification settings</source>
+      <translation>Naujų pokalbių pranešimų nustatymai</translation>
+    </message>
+    <message>
+      <source>Play a new pending chat sound on a new chat request</source>
+      <translation>Groti pranešimo garsą apie naują užklausimą</translation>
+    </message>
+    <message>
+      <source>Play a sound on a new message for a back office user</source>
+      <translation>Groti garsą apie naują žinutę konsultantui</translation>
+    </message>
+    <message>
+      <source>Play a sound on a new message for a front end user</source>
+      <translation>Groti garsą apie naują žinutę klientui</translation>
+    </message>
+    <message>
+      <source>Show alert message on a new chat request</source>
+      <translation>Rodyti alert pranešimus apie naujas užklausas</translation>
+    </message>
+    <message>
+      <source>How many times play sound notification</source>
+      <translation>Kiek kartų groti garso pranešimą?</translation>
+    </message>
+    <message>
+      <source>Number</source>
+      <translation>Skaičius</translation>
+    </message>
+    <message>
+      <source>Delay between sound notifications in seconds</source>
+      <translation>Uždelsimas tarp garso pranešimų sekundėmis</translation>
+    </message>
+    <message>
+      <source>delay in seconds</source>
+      <translation>uždelsimas sekundėmis</translation>
+    </message>
+    <message>
+      <source>Seconds</source>
+      <translation>Sekundės</translation>
+    </message>
+    <message>
+      <source>Please enter a valid online timeout value!</source>
+      <translation>Prašome įvesti validų būvimo prisijungus intervalą!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid server connection timeout value!</source>
+      <translation>Prašome įvesti validų serverio prisijungimo laiką!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid operator message timeout value!</source>
+      <translation>Prašome įvesti validų žinučių iš operatoriaus tikrinimo intervalą!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid new messages polling sync interval!</source>
+      <translation>Prašome įvesti validų naujų žinučių sinchronizacijos laiką</translation>
+    </message>
+    <message>
+      <source>Please enter a valid back office sync interval!</source>
+      <translation>Prašome įvesti validų naujų užklausų sinchronizavimo intervalą!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid new messages sync interval!</source>
+      <translation>Prašome įvesti korektišką naujų žinučių sinchronizavimo intervalą!</translation>
+    </message>
+    <message>
+      <source>Synchronization and sound settings</source>
+      <translation>Sinchronizacijos ir garso nustatymai</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/transferchat</name>
     <message>
       <source>Transfer to a user</source>
@@ -4548,21 +4503,6 @@
     <message>
       <source>Departments</source>
       <translation>Departamentai</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/unreadchats</name>
-    <message>
-      <source>Unread chats list</source>
-      <translation>Neperskaitytų pokalbių sąrašas</translation>
-    </message>
-    <message>
-      <source>Information</source>
-      <translation>Informacija</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Tuščia...</translation>
     </message>
   </context>
   <context>
@@ -5657,6 +5597,17 @@
     </message>
   </context>
   <context>
+    <name>permission/getpermissionssummary</name>
+    <message>
+      <source>Request permission</source>
+      <translation>Leidimo užklausimas</translation>
+    </message>
+    <message>
+      <source>Please choose at least one permission</source>
+      <translation>Prašome pasirinkti bent vieną teisę</translation>
+    </message>
+  </context>
+  <context>
     <name>permission/groupassignrole</name>
     <message>
       <source>Title</source>
@@ -5750,6 +5701,33 @@
     <message>
       <source>List of roles</source>
       <translation>Rolių sąrašas</translation>
+    </message>
+  </context>
+  <context>
+    <name>permission/request</name>
+    <message>
+      <source>Request permission</source>
+      <translation>Leidimo užklausimas</translation>
+    </message>
+    <message>
+      <source>Request permissions</source>
+      <translation>Leidimo užklausimas</translation>
+    </message>
+    <message>
+      <source>Permission requested</source>
+      <translation>Užklausimas išsiųstas</translation>
+    </message>
+    <message>
+      <source>Please choose a user!</source>
+      <translation>Prašome pasirinkti vartotoją!</translation>
+    </message>
+    <message>
+      <source>This user can not receive permision request!</source>
+      <translation>Šis vartotojas negali gauti leidimų užklausimų!</translation>
+    </message>
+    <message>
+      <source>Permissions were not provided</source>
+      <translation>Teisės nebuvo pateiktos</translation>
     </message>
   </context>
   <context>
@@ -6083,6 +6061,49 @@
     <message>
       <source>Use application default recognition dialect</source>
       <translation>Naudoti numatytają dialekto atpažinimą</translation>
+    </message>
+  </context>
+  <context>
+    <name>users/autologin</name>
+    <message>
+      <source>Auto login settings</source>
+      <translation>Automatinio prisijungimo nustatymai</translation>
+    </message>
+    <message>
+      <source>This module can be used if you are generating autologin link. See site for code examples</source>
+      <translation>Šis modulis gali būti naudojamas jei generuojate automatinio prisijungimo nuorodas.</translation>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation>Įjungtas</translation>
+    </message>
+    <message>
+      <source>Secret hash used for authentification token generation, min 10 characters</source>
+      <translation>Maišos raktas naudojamas autentifikacijos tokeno generavimui, minimum 10 ženklų.</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Nustatymai atnaujinti</translation>
+    </message>
+    <message>
+      <source>Autologin hash has expired</source>
+      <translation>Automatinio prisijungimo kodo galiojimas baigėsi</translation>
+    </message>
+    <message>
+      <source>Could not find a user</source>
+      <translation>Rasti vartotojo nepavyko</translation>
+    </message>
+    <message>
+      <source>Could not find a provided user</source>
+      <translation>Negalėjomo rasti pateikto vartotojo</translation>
+    </message>
+    <message>
+      <source>Invalid autologin hash</source>
+      <translation>Nekorektiškas automatinio prisijungimo maišos kodas</translation>
+    </message>
+    <message>
+      <source>Auto login module is not enabled</source>
+      <translation>Automatinio prisijungimo modulis yra išjungtas</translation>
     </message>
   </context>
   <context>
@@ -6823,10 +6844,6 @@
   <context>
     <name>chat/chatexport</name>
     <message>
-      <source>Referrer</source>
-      <translation>Atėjo iš</translation>
-    </message>
-    <message>
       <source>Department name</source>
       <translation>Departamento pavadinimas</translation>
     </message>
@@ -6916,11 +6933,14 @@
     </message>
   </context>
   <context>
-    <name>chat/syncuser</name>
+    <name>chat/closechatadmin</name>
     <message>
-      <source>You do not have permission to view this chat, or chat was deleted</source>
-      <translation>Jūs neturite teisės peržiūrėti šio pokalbio, arba pokalbis buvo ištrintas</translation>
+      <source>has closed the chat!</source>
+      <translation>uždarė pokalbį!</translation>
     </message>
+  </context>
+  <context>
+    <name>chat/syncuser</name>
     <message>
       <source>Chat was automatically transferred to</source>
       <translation>Pokalbis buvo automatiškai pervestas</translation>
@@ -6936,10 +6956,6 @@
     <message>
       <source>Support staff member has closed this chat</source>
       <translation>Atsakingas asmuo uždarė šį pokalbį</translation>
-    </message>
-    <message>
-      <source>The operator has closed this chat session</source>
-      <translation>Operatorius uždarė pokalbį</translation>
     </message>
     <message>
       <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
@@ -7147,17 +7163,6 @@
     </message>
   </context>
   <context>
-    <name>chat/closechatadmin</name>
-    <message>
-      <source>has redirected user to contact form!</source>
-      <translation>nukreipė vartotoją į kontaktų formą!</translation>
-    </message>
-    <message>
-      <source>has closed the chat!</source>
-      <translation>uždarė pokalbį!</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/deletechatadmin</name>
     <message>
       <source>You do not have rights to delete a chat</source>
@@ -7227,133 +7232,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Prašome pasirinkti korektišką failo tipą!</translation>
-    </message>
-  </context>
-  <context>
-    <name>permission/getpermissionsummary</name>
-    <message>
-      <source>Module/Function</source>
-      <translation>Modulis/Funkcija</translation>
-    </message>
-  </context>
-  <context>
-    <name>permission/getpermissionssummary</name>
-    <message>
-      <source>Request permission</source>
-      <translation>Leidimo užklausimas</translation>
-    </message>
-    <message>
-      <source>Please choose at least one permission</source>
-      <translation>Prašome pasirinkti bent vieną teisę</translation>
-    </message>
-  </context>
-  <context>
-    <name>permission/request</name>
-    <message>
-      <source>Request permission</source>
-      <translation>Leidimo užklausimas</translation>
-    </message>
-    <message>
-      <source>Request permissions</source>
-      <translation>Leidimo užklausimas</translation>
-    </message>
-    <message>
-      <source>Permission requested</source>
-      <translation>Užklausimas išsiųstas</translation>
-    </message>
-    <message>
-      <source>Please choose a user!</source>
-      <translation>Prašome pasirinkti vartotoją!</translation>
-    </message>
-    <message>
-      <source>This user can not receive permision request!</source>
-      <translation>Šis vartotojas negali gauti leidimų užklausimų!</translation>
-    </message>
-    <message>
-      <source>Permissions were not provided</source>
-      <translation>Teisės nebuvo pateiktos</translation>
-    </message>
-  </context>
-  <context>
-    <name>users/autologin</name>
-    <message>
-      <source>Auto login settings</source>
-      <translation>Automatinio prisijungimo nustatymai</translation>
-    </message>
-    <message>
-      <source>This module can be used if you are generating autologin link. See site for code examples</source>
-      <translation>Šis modulis gali būti naudojamas jei generuojate automatinio prisijungimo nuorodas.</translation>
-    </message>
-    <message>
-      <source>Enabled</source>
-      <translation>Įjungtas</translation>
-    </message>
-    <message>
-      <source>Secret hash used for authentification token generation, min 10 characters</source>
-      <translation>Maišos raktas naudojamas autentifikacijos tokeno generavimui, minimum 10 ženklų.</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Nustatymai atnaujinti</translation>
-    </message>
-    <message>
-      <source>Autologin hash has expired</source>
-      <translation>Automatinio prisijungimo kodo galiojimas baigėsi</translation>
-    </message>
-    <message>
-      <source>Could not find a user</source>
-      <translation>Rasti vartotojo nepavyko</translation>
-    </message>
-    <message>
-      <source>Could not find a provided user</source>
-      <translation>Negalėjomo rasti pateikto vartotojo</translation>
-    </message>
-    <message>
-      <source>Invalid autologin hash</source>
-      <translation>Nekorektiškas automatinio prisijungimo maišos kodas</translation>
-    </message>
-    <message>
-      <source>Auto login module is not enabled</source>
-      <translation>Automatinio prisijungimo modulis yra išjungtas</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/chatcommand</name>
-    <message>
-      <source>Nick changed!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>E-mail changed!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Phone changed!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User was redirected!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Screenshot was scheduled!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User was redirected to contact form!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User was blocked!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat was closed!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat was deleted!</source>
-      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

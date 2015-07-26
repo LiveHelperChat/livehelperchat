@@ -319,10 +319,6 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
-      <source>Widget copyright link</source>
-      <translation>Widget, πνευματικής ιδιοκτησίας σύνδεση</translation>
-    </message>
-    <message>
       <source>Download theme</source>
       <translation>Κατεβάστε θέμα</translation>
     </message>
@@ -702,10 +698,6 @@
   </context>
   <context>
     <name>system/htmlcode</name>
-    <message>
-      <source>Popup window size</source>
-      <translation>Αναδυόμενο παράθυρο μέγεθος</translation>
-    </message>
     <message>
       <source>HTML code</source>
       <translation>Κώδικα HTML</translation>
@@ -1305,6 +1297,10 @@
       <source>Operator is typing now...</source>
       <translation>Χειριστής είναι πληκτρολογώντας τώρα...</translation>
     </message>
+    <message>
+      <source>Close and Start a new one</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/bbcodeinsert</name>
@@ -1389,10 +1385,6 @@
   </context>
   <context>
     <name>chat/cannedmsg</name>
-    <message>
-      <source>Please enter canned message</source>
-      <translation>Παρακαλώ πληκτρολογήστε το προκαθορισμένο μήνυμα σας</translation>
-    </message>
     <message>
       <source>Title/Message</source>
       <translation type="unfinished"/>
@@ -1719,10 +1711,6 @@
   <context>
     <name>chat/adminchat</name>
     <message>
-      <source>Invalid chat status</source>
-      <translation>Μη έγκυρη chat κατάσταση</translation>
-    </message>
-    <message>
       <source>Attach uploaded file</source>
       <translation>Επισυνάψετε το αρχείο</translation>
     </message>
@@ -1942,14 +1930,6 @@
   <context>
     <name>chat/translation</name>
     <message>
-      <source>We could not detect operator language</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Detected operator and visitor languages matches, please choose languages manually</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Visitor language</source>
       <translation type="unfinished"/>
     </message>
@@ -2068,10 +2048,6 @@
   </context>
   <context>
     <name>files/files</name>
-    <message>
-      <source>Download file</source>
-      <translation>Κατεβάστε το αρχείο</translation>
-    </message>
     <message>
       <source>Refresh</source>
       <translation>Ανανέωση</translation>
@@ -2288,22 +2264,6 @@
   </context>
   <context>
     <name>chat/startchat</name>
-    <message>
-      <source>Invalid captcha code, please enable Javascript!</source>
-      <translation>Μη έγκυρη captcha κωδικό, παρακαλώ ενεργοποιήστε την Javascript!</translation>
-    </message>
-    <message>
-      <source>Invalid file extension</source>
-      <translation>Μη έγκυρο αρχείο επέκταση</translation>
-    </message>
-    <message>
-      <source>Invalid file extension!</source>
-      <translation>Επέκταση αρχείο δεν είναι έγκυρο!</translation>
-    </message>
-    <message>
-      <source>To big file!</source>
-      <translation>Μεγάλο αρχείο!</translation>
-    </message>
     <message>
       <source>Department is disabled</source>
       <translation>Τμήμα είναι άτομα με ειδικές ανάγκες</translation>
@@ -2628,57 +2588,6 @@
     </message>
   </context>
   <context>
-    <name>chat/geoadjustment</name>
-    <message>
-      <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
-      <translation>Εφαρμόσουν chat widget δείκτη κατάστασης τους κανόνες αυτούς επίσης; μείωση της απόδοσης σχετίζεται με αυτήν την επιλογή</translation>
-    </message>
-    <message>
-      <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
-      <translation>Κάνει chat κατάσταση κανονική για αυτές τις χώρες, οι χώρες μπορούν να διαχωριστούν από κόμμα &quot;de, gb, μας, fr&quot; σημαίνει συνομιλία θα εμφανιστεί ως συνήθως μόνο για τις χώρες αυτές.</translation>
-    </message>
-    <message>
-      <source>For</source>
-      <translation>Για</translation>
-    </message>
-    <message>
-      <source>all</source>
-      <translation>όλα</translation>
-    </message>
-    <message>
-      <source>custom</source>
-      <translation>προσαρμοσμένο</translation>
-    </message>
-    <message>
-      <source>E.g. ar,pl</source>
-      <translation>Π.χ. ar, pl</translation>
-    </message>
-    <message>
-      <source>Other countries, put widget/chat status to</source>
-      <translation>Άλλες χώρες, να την κατάσταση της widget/chat</translation>
-    </message>
-    <message>
-      <source>offline status</source>
-      <translation>offline κατάσταση</translation>
-    </message>
-    <message>
-      <source>hidden/disabled, widget will not be shown</source>
-      <translation>κρυμμένο/απενεργοποιημένο, widget δεν θα εμφανίζεται</translation>
-    </message>
-    <message>
-      <source>For unmatched countries put chat status to</source>
-      <translation>Για απαράμιλλη χώρες να κατάστασής της συζήτησής</translation>
-    </message>
-    <message>
-      <source>normal status</source>
-      <translation>κανονική κατάσταση</translation>
-    </message>
-    <message>
-      <source>GEO adjustment</source>
-      <translation>GEO προσαρμογής</translation>
-    </message>
-  </context>
-  <context>
     <name>system/xmpp</name>
     <message>
       <source>Geo adjustments active</source>
@@ -2838,15 +2747,58 @@
     </message>
   </context>
   <context>
+    <name>chat/geoadjustment</name>
+    <message>
+      <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
+      <translation>Εφαρμόσουν chat widget δείκτη κατάστασης τους κανόνες αυτούς επίσης; μείωση της απόδοσης σχετίζεται με αυτήν την επιλογή</translation>
+    </message>
+    <message>
+      <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
+      <translation>Κάνει chat κατάσταση κανονική για αυτές τις χώρες, οι χώρες μπορούν να διαχωριστούν από κόμμα &quot;de, gb, μας, fr&quot; σημαίνει συνομιλία θα εμφανιστεί ως συνήθως μόνο για τις χώρες αυτές.</translation>
+    </message>
+    <message>
+      <source>For</source>
+      <translation>Για</translation>
+    </message>
+    <message>
+      <source>all</source>
+      <translation>όλα</translation>
+    </message>
+    <message>
+      <source>custom</source>
+      <translation>προσαρμοσμένο</translation>
+    </message>
+    <message>
+      <source>E.g. ar,pl</source>
+      <translation>Π.χ. ar, pl</translation>
+    </message>
+    <message>
+      <source>Other countries, put widget/chat status to</source>
+      <translation>Άλλες χώρες, να την κατάσταση της widget/chat</translation>
+    </message>
+    <message>
+      <source>offline status</source>
+      <translation>offline κατάσταση</translation>
+    </message>
+    <message>
+      <source>hidden/disabled, widget will not be shown</source>
+      <translation>κρυμμένο/απενεργοποιημένο, widget δεν θα εμφανίζεται</translation>
+    </message>
+    <message>
+      <source>For unmatched countries put chat status to</source>
+      <translation>Για απαράμιλλη χώρες να κατάστασής της συζήτησής</translation>
+    </message>
+    <message>
+      <source>normal status</source>
+      <translation>κανονική κατάσταση</translation>
+    </message>
+    <message>
+      <source>GEO adjustment</source>
+      <translation>GEO προσαρμογής</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/onlineusers</name>
-    <message>
-      <source>Status</source>
-      <translation>Κατάσταση</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>Κανείς δεν έχει σταλεί ένα μήνυμα στο χρήστη ακόμη</translation>
-    </message>
     <message>
       <source>GEO detection configuration</source>
       <translation>Ρύθμιση παραμέτρων ανίχνευσης GEO</translation>
@@ -3228,14 +3180,6 @@
       <translation>Χρήστης δεν έχει οποιαδήποτε μηνύματα από τον φορέα εκμετάλλευσης</translation>
     </message>
     <message>
-      <source>first visit</source>
-      <translation>πρώτη επίσκεψη</translation>
-    </message>
-    <message>
-      <source>last visit</source>
-      <translation>τελευταία επίσκεψη</translation>
-    </message>
-    <message>
       <source>Chat</source>
       <translation type="unfinished"/>
     </message>
@@ -3250,6 +3194,14 @@
     <message>
       <source>has sent a message to the user</source>
       <translation>απέστειλε ένα μήνυμα στο χρήστη</translation>
+    </message>
+    <message>
+      <source>first visit</source>
+      <translation>πρώτη επίσκεψη</translation>
+    </message>
+    <message>
+      <source>last visit</source>
+      <translation>τελευταία επίσκεψη</translation>
     </message>
     <message>
       <source>Files upload for users is active</source>
@@ -3608,10 +3560,6 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
-      <source>Clean cache</source>
-      <translation>Καθαρισμός προσωρινής μνήμης</translation>
-    </message>
-    <message>
       <source>Empty...</source>
       <translation>Άδειο...</translation>
     </message>
@@ -3763,37 +3711,6 @@
     </message>
   </context>
   <context>
-    <name>chat/modifychat</name>
-    <message>
-      <source>Modify chat</source>
-      <translation>Τροποποιήσετε το chat</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-mail</translation>
-    </message>
-    <message>
-      <source>Recipient e-mail</source>
-      <translation>Ηλεκτρονικού ταχυδρομείου παραλήπτη</translation>
-    </message>
-    <message>
-      <source>Nick</source>
-      <translation>Nick</translation>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>Τηλέφωνο</translation>
-    </message>
-    <message>
-      <source>Update chat</source>
-      <translation>Ενημέρωση συνομιλίας</translation>
-    </message>
-    <message>
-      <source>Chat information was updated</source>
-      <translation>Ενημερώθηκε chat πληροφορίες</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/operatorschats</name>
     <message>
       <source>Operators chats list</source>
@@ -3802,13 +3719,6 @@
     <message>
       <source>Operators chats</source>
       <translation>Συνομιλίες διαχειριστή</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/part/operator_profile</name>
-    <message>
-      <source>Skype call</source>
-      <translation>Κλήση skype</translation>
     </message>
   </context>
   <context>
@@ -3840,126 +3750,6 @@
     <message>
       <source>Pending chats</source>
       <translation>Συνομιλίες σε αναμονή</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/previewchat</name>
-    <message>
-      <source>Last 100 messages rows</source>
-      <translation>Τελευταία μηνύματα 100 σειρές</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/sendchat</name>
-    <message>
-      <source>Enter your e-mail</source>
-      <translation>Εισάγεται το ηλεκτρονικό σας ταχυδρομείο</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/sendmail</name>
-    <message>
-      <source>Send mail to the user</source>
-      <translation>Αποστολή μηνύματος στον χρήστη</translation>
-    </message>
-    <message>
-      <source>Recipient</source>
-      <translation>Παραλήπτης</translation>
-    </message>
-    <message>
-      <source>Recipient e-mail</source>
-      <translation>Παραλήπτης ηλεκτρονικής αλληλογραφίας</translation>
-    </message>
-    <message>
-      <source>Subject</source>
-      <translation>Θέμα</translation>
-    </message>
-    <message>
-      <source>From name</source>
-      <translation>Όνομα αποστολέα</translation>
-    </message>
-    <message>
-      <source>Reply e-mail</source>
-      <translation>Ηλεκτρονικό ταχυδρομείο απάντησης</translation>
-    </message>
-    <message>
-      <source>From e-mail</source>
-      <translation>Ηλεκτρονικό ταχυδρομείο αποστολέα</translation>
-    </message>
-    <message>
-      <source>Type your message to the user</source>
-      <translation>Πληκτρολογήστε το μήνυμα σας στον χρήστη</translation>
-    </message>
-    <message>
-      <source>Send the mail</source>
-      <translation>Αποστολή μηνύματος</translation>
-    </message>
-    <message>
-      <source>Embed link to file</source>
-      <translation>Ενσωματώσετε σύνδεση με αρχείο</translation>
-    </message>
-    <message>
-      <source>Mail was sent to the user</source>
-      <translation>Το μήνυμα στάλθηκε στον χρήστη</translation>
-    </message>
-    <message>
-      <source>Please enter recipient e-mail!</source>
-      <translation>Παρακαλώ εισάγεται τον παραλήπτη ηλεκτρονικής αλληλογραφίας!</translation>
-    </message>
-    <message>
-      <source>From e-mail is missing!</source>
-      <translation>Από ηλεκτρονικού ταχυδρομείου λείπει!</translation>
-    </message>
-    <message>
-      <source>Reply e-mail is missing!</source>
-      <translation>Λείπει η διεύθυνση παραλήπτη ηλεκτρονικού ταχυδρομείου!</translation>
-    </message>
-    <message>
-      <source>Subject is missing!</source>
-      <translation>Λείπει το θέμα!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/sendnotice</name>
-    <message>
-      <source>Send a message to the user</source>
-      <translation>Αποστολή μηνύματος στον χρήστη</translation>
-    </message>
-    <message>
-      <source>If the message was already sent, this will mark it as not delivered and the user will be shown the chat message again.</source>
-      <translation>Εάν το μήνυμα έχει σταλεί ήδη, αυτό θα επισημάνετε ως παραδοθείς και ο χρήστης θα εμφανιστεί μήνυμα συνομιλίας και πάλι.</translation>
-    </message>
-    <message>
-      <source>Type your message to the user</source>
-      <translation>Πληκτρολογήστε το μήνυμα σας στον χρήστη</translation>
-    </message>
-    <message>
-      <source>Requires e-mail</source>
-      <translation>Απαιτεί e-mail</translation>
-    </message>
-    <message>
-      <source>Requires name</source>
-      <translation>Απαιτεί όνομα</translation>
-    </message>
-    <message>
-      <source>Requires phone</source>
-      <translation>Απαιτεί τηλέφωνο</translation>
-    </message>
-    <message>
-      <source>Send the message</source>
-      <translation>Αποστολή μηνύματος</translation>
-    </message>
-    <message>
-      <source>Message was sent to the user</source>
-      <translation>Το μήνυμα στάλθηκε στον χρήστη</translation>
-    </message>
-    <message>
-      <source>Start chat with operator</source>
-      <translation>ΖΩΝΤΑΝΗ ΣΥΝΔΕΣΗ με χειριστή</translation>
-    </message>
-    <message>
-      <source>Type your message to the operator</source>
-      <translation>Πληκτρολογήστε το μήνυμά σας στο φορέα</translation>
     </message>
   </context>
   <context>
@@ -4162,146 +3952,7 @@
     </message>
   </context>
   <context>
-    <name>chat/syncandsoundesetting</name>
-    <message>
-      <source>Save</source>
-      <translation>Αποθήκευση</translation>
-    </message>
-    <message>
-      <source>Update</source>
-      <translation>Ενημέρωση</translation>
-    </message>
-    <message>
-      <source>Cancel</source>
-      <translation>&quot;Άκυρο&quot;</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Ρυθμίσεις ενημέρωση</translation>
-    </message>
-    <message>
-      <source>Synchronisation and sound settings</source>
-      <translation>Ρυθμίσεις συγχρονισμού και ήχο</translation>
-    </message>
-    <message>
-      <source>How many seconds for a user to be considered as being online</source>
-      <translation>Πόσα δευτερόλεπτα για ένα χρήστη να θεωρηθεί ως όντας online</translation>
-    </message>
-    <message>
-      <source>Value in seconds</source>
-      <translation>Τιμή σε δευτερόλεπτα</translation>
-    </message>
-    <message>
-      <source>Sync for new chats, interval in seconds</source>
-      <translation>Συγχρονισμού για νέες συνομιλίες, χρονικό διάστημα σε δευτερόλεπτα</translation>
-    </message>
-    <message>
-      <source>Check for messages from the operators, interval in seconds</source>
-      <translation>Ελέγξτε για μηνύματα από τους διαχειριστές, χρονικό διάστημα σε δευτερόλεπτα</translation>
-    </message>
-    <message>
-      <source>Messages settings</source>
-      <translation>Ρυθμίσεις μηνυμάτων</translation>
-    </message>
-    <message>
-      <source>Sync for a new user message, interval in seconds</source>
-      <translation>Συγχρονισμού για ένα νέο μήνυμα του χρήστη, το χρονικό διάστημα σε δευτερόλεπτα</translation>
-    </message>
-    <message>
-      <source>Show browser notification for new messages</source>
-      <translation>Εμφάνιση ειδοποίησης περιήγησης για νέα μηνύματα</translation>
-    </message>
-    <message>
-      <source>Long polling (experimental)</source>
-      <translation>Μακράς σταθμοσκόπησης (πειραματική)</translation>
-    </message>
-    <message>
-      <source>Enable long polling</source>
-      <translation>Ενεργοποίηση μακρά σταθμοσκόπησης</translation>
-    </message>
-    <message>
-      <source>How many seconds keep connection to server?</source>
-      <translation>Πόσα δευτερόλεπτα κρατήσει τη σύνδεση στο διακομιστή;</translation>
-    </message>
-    <message>
-      <source>New chat request notification settings</source>
-      <translation>Νέες ρυθμίσεις κοινοποίηση αίτησης συνομιλίας</translation>
-    </message>
-    <message>
-      <source>Play a new pending chat sound on a new chat request</source>
-      <translation>Παίζουν ένα νέο εν αναμονή συνομιλία ήχου σε μια νέα αίτηση της συνομιλίας</translation>
-    </message>
-    <message>
-      <source>Play a sound on a new message for a back office user</source>
-      <translation>Παίξει έναν ήχο σε ένα νέο μήνυμα για έναν χρήστη πίσω γραφείο</translation>
-    </message>
-    <message>
-      <source>Play a sound on a new message for a front end user</source>
-      <translation>Παίξει έναν ήχο σε ένα νέο μήνυμα για ένα μπροστινό τέλος χρήστη</translation>
-    </message>
-    <message>
-      <source>Show alert message on a new chat request</source>
-      <translation>Εμφάνιση μήνυμα προειδοποίησης σχετικά με μια νέα αίτηση της συνομιλίας</translation>
-    </message>
-    <message>
-      <source>How many times play sound notification</source>
-      <translation>Πόσες φορές να παίξει ήχου γνωστοποίηση</translation>
-    </message>
-    <message>
-      <source>Number</source>
-      <translation>Αριθμός</translation>
-    </message>
-    <message>
-      <source>Delay between sound notifications in seconds</source>
-      <translation>Καθυστέρηση μεταξύ ήχου ειδοποιήσεις σε δευτερόλεπτα</translation>
-    </message>
-    <message>
-      <source>delay in seconds</source>
-      <translation>καθυστέρηση σε δευτερόλεπτα</translation>
-    </message>
-    <message>
-      <source>Seconds</source>
-      <translation>Δευτερόλεπτα</translation>
-    </message>
-    <message>
-      <source>Please enter a valid online timeout value!</source>
-      <translation>Εισαγάγετε μια έγκυρη online timeout τιμή!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid server connection timeout value!</source>
-      <translation>Παρακαλούμε εισάγετε μια τιμή χρονικού ορίου σύνδεσης διακομιστή ισχύει!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid operator message timeout value!</source>
-      <translation>Παρακαλούμε εισάγετε μια τιμή χρονικού ορίου του χειριστή έγκυρο μήνυμα!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid new messages polling sync interval!</source>
-      <translation>Παρακαλώ εισάγετε μια έγκυρη νέα μηνύματα συγχρονισμό χρονικό διάστημα σταθμοσκόπησης!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid back office sync interval!</source>
-      <translation>Παρακαλώ εισάγετε μια έγκυρη πίσω γραφείο διάστημα συγχρονισμού!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid new messages sync interval!</source>
-      <translation>Παρακαλώ εισάγετε μια έγκυρη νέα μηνύματα συγχρονισμό διάστημα!</translation>
-    </message>
-    <message>
-      <source>Synchronization and sound settings</source>
-      <translation>Ρυθμίσεις συγχρονισμού και ήχο</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/statistic</name>
-    <message>
-      <source>General</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Operators last 24h statistic, top 100 by chats number</source>
-      <translation>Φορείς τελευταία 24h στατιστική, κορυφή 100 από αριθμό συνομιλίες</translation>
-    </message>
     <message>
       <source>Statistic</source>
       <translation>Στατιστικά</translation>
@@ -4524,6 +4175,310 @@
     </message>
   </context>
   <context>
+    <name>chat/unreadchats</name>
+    <message>
+      <source>Unread chats list</source>
+      <translation>Μη αναγνωσμένη λίστα συνομιλιών</translation>
+    </message>
+    <message>
+      <source>Information</source>
+      <translation>Πληροφορία</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Άδειο...</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/modifychat</name>
+    <message>
+      <source>Modify chat</source>
+      <translation>Τροποποιήσετε το chat</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Recipient e-mail</source>
+      <translation>Ηλεκτρονικού ταχυδρομείου παραλήπτη</translation>
+    </message>
+    <message>
+      <source>Nick</source>
+      <translation>Nick</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Τηλέφωνο</translation>
+    </message>
+    <message>
+      <source>Update chat</source>
+      <translation>Ενημέρωση συνομιλίας</translation>
+    </message>
+    <message>
+      <source>Chat information was updated</source>
+      <translation>Ενημερώθηκε chat πληροφορίες</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/part/operator_profile</name>
+    <message>
+      <source>Skype call</source>
+      <translation>Κλήση skype</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/previewchat</name>
+    <message>
+      <source>Last 100 messages rows</source>
+      <translation>Τελευταία μηνύματα 100 σειρές</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/sendchat</name>
+    <message>
+      <source>Enter your e-mail</source>
+      <translation>Εισάγεται το ηλεκτρονικό σας ταχυδρομείο</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/sendmail</name>
+    <message>
+      <source>Send mail to the user</source>
+      <translation>Αποστολή μηνύματος στον χρήστη</translation>
+    </message>
+    <message>
+      <source>Recipient</source>
+      <translation>Παραλήπτης</translation>
+    </message>
+    <message>
+      <source>Recipient e-mail</source>
+      <translation>Παραλήπτης ηλεκτρονικής αλληλογραφίας</translation>
+    </message>
+    <message>
+      <source>Subject</source>
+      <translation>Θέμα</translation>
+    </message>
+    <message>
+      <source>From name</source>
+      <translation>Όνομα αποστολέα</translation>
+    </message>
+    <message>
+      <source>Reply e-mail</source>
+      <translation>Ηλεκτρονικό ταχυδρομείο απάντησης</translation>
+    </message>
+    <message>
+      <source>From e-mail</source>
+      <translation>Ηλεκτρονικό ταχυδρομείο αποστολέα</translation>
+    </message>
+    <message>
+      <source>Type your message to the user</source>
+      <translation>Πληκτρολογήστε το μήνυμα σας στον χρήστη</translation>
+    </message>
+    <message>
+      <source>Send the mail</source>
+      <translation>Αποστολή μηνύματος</translation>
+    </message>
+    <message>
+      <source>Embed link to file</source>
+      <translation>Ενσωματώσετε σύνδεση με αρχείο</translation>
+    </message>
+    <message>
+      <source>Mail was sent to the user</source>
+      <translation>Το μήνυμα στάλθηκε στον χρήστη</translation>
+    </message>
+    <message>
+      <source>Please enter recipient e-mail!</source>
+      <translation>Παρακαλώ εισάγεται τον παραλήπτη ηλεκτρονικής αλληλογραφίας!</translation>
+    </message>
+    <message>
+      <source>From e-mail is missing!</source>
+      <translation>Από ηλεκτρονικού ταχυδρομείου λείπει!</translation>
+    </message>
+    <message>
+      <source>Reply e-mail is missing!</source>
+      <translation>Λείπει η διεύθυνση παραλήπτη ηλεκτρονικού ταχυδρομείου!</translation>
+    </message>
+    <message>
+      <source>Subject is missing!</source>
+      <translation>Λείπει το θέμα!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/sendnotice</name>
+    <message>
+      <source>Send a message to the user</source>
+      <translation>Αποστολή μηνύματος στον χρήστη</translation>
+    </message>
+    <message>
+      <source>If the message was already sent, this will mark it as not delivered and the user will be shown the chat message again.</source>
+      <translation>Εάν το μήνυμα έχει σταλεί ήδη, αυτό θα επισημάνετε ως παραδοθείς και ο χρήστης θα εμφανιστεί μήνυμα συνομιλίας και πάλι.</translation>
+    </message>
+    <message>
+      <source>Type your message to the user</source>
+      <translation>Πληκτρολογήστε το μήνυμα σας στον χρήστη</translation>
+    </message>
+    <message>
+      <source>Requires e-mail</source>
+      <translation>Απαιτεί e-mail</translation>
+    </message>
+    <message>
+      <source>Requires name</source>
+      <translation>Απαιτεί όνομα</translation>
+    </message>
+    <message>
+      <source>Requires phone</source>
+      <translation>Απαιτεί τηλέφωνο</translation>
+    </message>
+    <message>
+      <source>Send the message</source>
+      <translation>Αποστολή μηνύματος</translation>
+    </message>
+    <message>
+      <source>Message was sent to the user</source>
+      <translation>Το μήνυμα στάλθηκε στον χρήστη</translation>
+    </message>
+    <message>
+      <source>Start chat with operator</source>
+      <translation>ΖΩΝΤΑΝΗ ΣΥΝΔΕΣΗ με χειριστή</translation>
+    </message>
+    <message>
+      <source>Type your message to the operator</source>
+      <translation>Πληκτρολογήστε το μήνυμά σας στο φορέα</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/syncandsoundesetting</name>
+    <message>
+      <source>Save</source>
+      <translation>Αποθήκευση</translation>
+    </message>
+    <message>
+      <source>Update</source>
+      <translation>Ενημέρωση</translation>
+    </message>
+    <message>
+      <source>Cancel</source>
+      <translation>&quot;Άκυρο&quot;</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Ρυθμίσεις ενημέρωση</translation>
+    </message>
+    <message>
+      <source>Synchronisation and sound settings</source>
+      <translation>Ρυθμίσεις συγχρονισμού και ήχο</translation>
+    </message>
+    <message>
+      <source>How many seconds for a user to be considered as being online</source>
+      <translation>Πόσα δευτερόλεπτα για ένα χρήστη να θεωρηθεί ως όντας online</translation>
+    </message>
+    <message>
+      <source>Value in seconds</source>
+      <translation>Τιμή σε δευτερόλεπτα</translation>
+    </message>
+    <message>
+      <source>Sync for new chats, interval in seconds</source>
+      <translation>Συγχρονισμού για νέες συνομιλίες, χρονικό διάστημα σε δευτερόλεπτα</translation>
+    </message>
+    <message>
+      <source>Check for messages from the operators, interval in seconds</source>
+      <translation>Ελέγξτε για μηνύματα από τους διαχειριστές, χρονικό διάστημα σε δευτερόλεπτα</translation>
+    </message>
+    <message>
+      <source>Messages settings</source>
+      <translation>Ρυθμίσεις μηνυμάτων</translation>
+    </message>
+    <message>
+      <source>Sync for a new user message, interval in seconds</source>
+      <translation>Συγχρονισμού για ένα νέο μήνυμα του χρήστη, το χρονικό διάστημα σε δευτερόλεπτα</translation>
+    </message>
+    <message>
+      <source>Show browser notification for new messages</source>
+      <translation>Εμφάνιση ειδοποίησης περιήγησης για νέα μηνύματα</translation>
+    </message>
+    <message>
+      <source>Long polling (experimental)</source>
+      <translation>Μακράς σταθμοσκόπησης (πειραματική)</translation>
+    </message>
+    <message>
+      <source>Enable long polling</source>
+      <translation>Ενεργοποίηση μακρά σταθμοσκόπησης</translation>
+    </message>
+    <message>
+      <source>How many seconds keep connection to server?</source>
+      <translation>Πόσα δευτερόλεπτα κρατήσει τη σύνδεση στο διακομιστή;</translation>
+    </message>
+    <message>
+      <source>New chat request notification settings</source>
+      <translation>Νέες ρυθμίσεις κοινοποίηση αίτησης συνομιλίας</translation>
+    </message>
+    <message>
+      <source>Play a new pending chat sound on a new chat request</source>
+      <translation>Παίζουν ένα νέο εν αναμονή συνομιλία ήχου σε μια νέα αίτηση της συνομιλίας</translation>
+    </message>
+    <message>
+      <source>Play a sound on a new message for a back office user</source>
+      <translation>Παίξει έναν ήχο σε ένα νέο μήνυμα για έναν χρήστη πίσω γραφείο</translation>
+    </message>
+    <message>
+      <source>Play a sound on a new message for a front end user</source>
+      <translation>Παίξει έναν ήχο σε ένα νέο μήνυμα για ένα μπροστινό τέλος χρήστη</translation>
+    </message>
+    <message>
+      <source>Show alert message on a new chat request</source>
+      <translation>Εμφάνιση μήνυμα προειδοποίησης σχετικά με μια νέα αίτηση της συνομιλίας</translation>
+    </message>
+    <message>
+      <source>How many times play sound notification</source>
+      <translation>Πόσες φορές να παίξει ήχου γνωστοποίηση</translation>
+    </message>
+    <message>
+      <source>Number</source>
+      <translation>Αριθμός</translation>
+    </message>
+    <message>
+      <source>Delay between sound notifications in seconds</source>
+      <translation>Καθυστέρηση μεταξύ ήχου ειδοποιήσεις σε δευτερόλεπτα</translation>
+    </message>
+    <message>
+      <source>delay in seconds</source>
+      <translation>καθυστέρηση σε δευτερόλεπτα</translation>
+    </message>
+    <message>
+      <source>Seconds</source>
+      <translation>Δευτερόλεπτα</translation>
+    </message>
+    <message>
+      <source>Please enter a valid online timeout value!</source>
+      <translation>Εισαγάγετε μια έγκυρη online timeout τιμή!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid server connection timeout value!</source>
+      <translation>Παρακαλούμε εισάγετε μια τιμή χρονικού ορίου σύνδεσης διακομιστή ισχύει!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid operator message timeout value!</source>
+      <translation>Παρακαλούμε εισάγετε μια τιμή χρονικού ορίου του χειριστή έγκυρο μήνυμα!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid new messages polling sync interval!</source>
+      <translation>Παρακαλώ εισάγετε μια έγκυρη νέα μηνύματα συγχρονισμό χρονικό διάστημα σταθμοσκόπησης!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid back office sync interval!</source>
+      <translation>Παρακαλώ εισάγετε μια έγκυρη πίσω γραφείο διάστημα συγχρονισμού!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid new messages sync interval!</source>
+      <translation>Παρακαλώ εισάγετε μια έγκυρη νέα μηνύματα συγχρονισμό διάστημα!</translation>
+    </message>
+    <message>
+      <source>Synchronization and sound settings</source>
+      <translation>Ρυθμίσεις συγχρονισμού και ήχο</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/transferchat</name>
     <message>
       <source>Transfer to a user</source>
@@ -4548,21 +4503,6 @@
     <message>
       <source>Departments</source>
       <translation>Τμήματα</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/unreadchats</name>
-    <message>
-      <source>Unread chats list</source>
-      <translation>Μη αναγνωσμένη λίστα συνομιλιών</translation>
-    </message>
-    <message>
-      <source>Information</source>
-      <translation>Πληροφορία</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Άδειο...</translation>
     </message>
   </context>
   <context>
@@ -5657,6 +5597,17 @@
     </message>
   </context>
   <context>
+    <name>permission/getpermissionssummary</name>
+    <message>
+      <source>Request permission</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose at least one permission</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>permission/groupassignrole</name>
     <message>
       <source>Title</source>
@@ -5750,6 +5701,33 @@
     <message>
       <source>List of roles</source>
       <translation>Λίστα των ρόλων</translation>
+    </message>
+  </context>
+  <context>
+    <name>permission/request</name>
+    <message>
+      <source>Request permission</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Request permissions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Permission requested</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a user!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This user can not receive permision request!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Permissions were not provided</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -6082,6 +6060,49 @@
     </message>
     <message>
       <source>Use application default recognition dialect</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>users/autologin</name>
+    <message>
+      <source>Auto login settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This module can be used if you are generating autologin link. See site for code examples</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Secret hash used for authentification token generation, min 10 characters</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Autologin hash has expired</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not find a user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not find a provided user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid autologin hash</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Auto login module is not enabled</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -6823,10 +6844,6 @@
   <context>
     <name>chat/chatexport</name>
     <message>
-      <source>Referrer</source>
-      <translation>Referrer</translation>
-    </message>
-    <message>
       <source>Department name</source>
       <translation type="unfinished"/>
     </message>
@@ -6916,11 +6933,14 @@
     </message>
   </context>
   <context>
-    <name>chat/syncuser</name>
+    <name>chat/closechatadmin</name>
     <message>
-      <source>You do not have permission to view this chat, or chat was deleted</source>
-      <translation>Δεν έχετε δικαίωμα να δείτε αυτήν τη συζήτηση, ή διαγράφηκε συνομιλίας</translation>
+      <source>has closed the chat!</source>
+      <translation>έκλεισε το chat!</translation>
     </message>
+  </context>
+  <context>
+    <name>chat/syncuser</name>
     <message>
       <source>Chat was automatically transferred to</source>
       <translation>Chat ήταν μεταφέρεται αυτόματα στο</translation>
@@ -6936,10 +6956,6 @@
     <message>
       <source>Support staff member has closed this chat</source>
       <translation>Υποστήριξη υπάλληλος έχει κλείσει αυτήν τη συζήτηση</translation>
-    </message>
-    <message>
-      <source>The operator has closed this chat session</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
@@ -7147,17 +7163,6 @@
     </message>
   </context>
   <context>
-    <name>chat/closechatadmin</name>
-    <message>
-      <source>has redirected user to contact form!</source>
-      <translation>έχει ανακατεύθυνση χρήστη για την φόρμα επικοινωνίας!</translation>
-    </message>
-    <message>
-      <source>has closed the chat!</source>
-      <translation>έκλεισε το chat!</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/deletechatadmin</name>
     <message>
       <source>You do not have rights to delete a chat</source>
@@ -7227,133 +7232,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Παρακαλούμε, εισάγετε έγκυρο αρχείο τύπου!</translation>
-    </message>
-  </context>
-  <context>
-    <name>permission/getpermissionsummary</name>
-    <message>
-      <source>Module/Function</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>permission/getpermissionssummary</name>
-    <message>
-      <source>Request permission</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please choose at least one permission</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>permission/request</name>
-    <message>
-      <source>Request permission</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Request permissions</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Permission requested</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please choose a user!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>This user can not receive permision request!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Permissions were not provided</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>users/autologin</name>
-    <message>
-      <source>Auto login settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>This module can be used if you are generating autologin link. See site for code examples</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Enabled</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Secret hash used for authentification token generation, min 10 characters</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Autologin hash has expired</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Could not find a user</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Could not find a provided user</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invalid autologin hash</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Auto login module is not enabled</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/chatcommand</name>
-    <message>
-      <source>Nick changed!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>E-mail changed!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Phone changed!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User was redirected!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Screenshot was scheduled!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User was redirected to contact form!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User was blocked!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat was closed!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat was deleted!</source>
-      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

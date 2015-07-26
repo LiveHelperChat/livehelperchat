@@ -318,7 +318,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
 	       
 	       erLhcoreClassChat::updateDepartmentStats($params['chat']->department);
 	       erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started',array('chat' => & $chat, 'msg' => $messageInitial));
-	       
+
 	       // Redirect user
 	       $Result = erLhcoreClassModule::reRun(erLhcoreClassDesign::baseurlRerun('chat/chatwidgetchat') . '/' . $chat->id . '/' . $chat->hash . $modeAppend . $modeAppendTheme . '/(cstarted)/online_chat_started_cb');
 	       return true;	              

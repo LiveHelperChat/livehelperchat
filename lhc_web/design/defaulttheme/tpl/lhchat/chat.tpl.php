@@ -107,11 +107,12 @@
 			$('#messagesBlock').scrollTop($('#messagesBlock').prop('scrollHeight'));
 	},100);
 	
-	
     // Start user chat synchronization
     lhinst.chatsyncuserpending();    
     lhinst.scheduleSync();
 
+    $('#CSChatMessage').focus();
+    
     $(window).bind('beforeunload', function(){
         lhinst.userclosedchat();
     });
