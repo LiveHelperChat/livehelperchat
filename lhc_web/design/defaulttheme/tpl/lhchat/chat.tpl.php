@@ -70,7 +70,7 @@
 		  	    	    	
 	    </div>
        
-        <textarea class="form-control" rows="4" name="ChatMessage" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Enter your message')?>" id="CSChatMessage" class="live-chat-message"></textarea>
+        <textarea class="form-control live-chat-message" rows="4" name="ChatMessage" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Enter your message')?>" id="CSChatMessage" ></textarea>
 	    
         <script type="text/javascript">        
         jQuery('#CSChatMessage').bind('keydown', 'return', function (evt){
