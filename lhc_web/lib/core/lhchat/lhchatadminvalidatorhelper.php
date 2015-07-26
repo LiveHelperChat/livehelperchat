@@ -256,6 +256,9 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        'HideMessageLabel' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	        ),
+	        'ShowMessagesBox' => new ezcInputFormDefinitionElement(
+	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	        ),
 	    
 	        // Custom fields from back office
 	        'customFieldLabel' => new ezcInputFormDefinitionElement(
@@ -298,6 +301,12 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        $data['tos_visible_in_popup'] = true;
 	    } else {
 	        $data['tos_visible_in_popup'] = false;
+	    }
+	    
+	    if ( $form->hasValidData( 'ShowMessagesBox' ) && $form->ShowMessagesBox == true ) {
+	        $data['show_messages_box'] = true;
+	    } else {
+	        $data['show_messages_box'] = false;
 	    }
 	    
 	    if ( $form->hasValidData( 'TOSVisibleInPageWidget' ) && $form->TOSVisibleInPageWidget == true ) {
