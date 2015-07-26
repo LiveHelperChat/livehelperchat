@@ -666,10 +666,12 @@ function lh(){
 	    	
 	    	var index = tabs.find('> ul > #chat-tab-li-'+chat_id).index();
 	    	tabs.find('> ul > #chat-tab-li-'+chat_id).remove();
-	    	tabs.find('#chat-id-'+chat_id).remove();	    	
-	    	tabs.find('> ul > li:eq('+ (index - 1)+')').addClass('active');
-	    	tabs.find('> div.tab-content > div:eq(' + (index - 1) + ')').addClass("active");
-	    
+	    	tabs.find('#chat-id-'+chat_id).remove();	
+	    	
+	    	if (!tabs.find('> ul > li.active').length) {
+                tabs.find('> ul > li:eq(' + (index - 1) + ')').addClass('active');
+                tabs.find('> div.tab-content > div:eq(' + (index - 1) + ')').addClass("active");
+            }
 	    	
 	        if (this.closeWindowOnChatCloseDelete == true)
 	        {
