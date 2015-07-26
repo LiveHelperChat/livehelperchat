@@ -45,3 +45,12 @@ if (isset($Result['pagelayout']))
 }
 
 echo $tpl->fetch();
+
+flush();
+session_write_close();
+
+if ( function_exists('fastcgi_finish_request') ) {
+    fastcgi_finish_request();
+};
+
+erLhcoreClassChatEventDispatcher::getInstance()->executeFinishRequest();

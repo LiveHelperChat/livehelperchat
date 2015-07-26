@@ -4,6 +4,8 @@ class erLhcoreClassChatEventDispatcher {
       
    private $listeners = array();
    
+   private $finishListeners = array();
+   
    const STOP_WORKFLOW = 1;
    
    public function listen($event, $callback)
@@ -26,6 +28,22 @@ class erLhcoreClassChatEventDispatcher {
 	   	}
 	   	
 	   	return false;
+   }
+   
+   // Add finish request callbacks
+   public function addFinishRequestEvent($callback, $arguments = array()) {       
+       $this->finishListeners[] = array(
+           $callback,
+           $arguments
+       );
+   }
+   
+   // Executes finish request
+   // These are low priority and executed then content is already pushed to user
+   public function executeFinishRequest() {
+       foreach ($this->finishListeners as $listener) {
+           call_user_func($listener[0],$listener[1]);
+       }
    }
    
    static private $evenDispather = NULL;

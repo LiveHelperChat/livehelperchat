@@ -316,21 +316,18 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
 	       		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.auto_responder_triggered',array('chat' => & $chat));
 	       }
     	       	       
-	       // Redirect user
-	       erLhcoreClassModule::redirect('chat/chatwidgetchat','/' . $chat->id . '/' . $chat->hash . $modeAppend . $modeAppendTheme . '/(cstarted)/online_chat_started_cb');
+	       // Redirect user	     	       
+	       $Result = erLhcoreClassModule::reRun(erLhcoreClassDesign::baseurlRerun('chat/chatwidgetchat') . '/' . $chat->id . '/' . $chat->hash . $modeAppend . $modeAppendTheme . '/(cstarted)/online_chat_started_cb');
 	       
-	       flush();
-	       session_write_close();
+	       erLhcoreClassChatEventDispatcher::getInstance()->addFinishRequestEvent(
+	           function($params = array()) {	               
+	               erLhcoreClassChat::updateDepartmentStats($params['chat']->department);	                
+	               erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started',array('chat' => & $params['chat'], 'msg' => $params['msg']));
+	           },
+	           array('chat' => & $chat, 'msg' => $messageInitial)
+	       );
 	       
-	       if ( function_exists('fastcgi_finish_request') ) {
-	           fastcgi_finish_request();
-	       };
-
-	       erLhcoreClassChat::updateDepartmentStats($chat->department);
-	       	
-	       
-	       erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started',array('chat' => & $chat, 'msg' => $messageInitial));	       
-	       exit;
+	       return true;	            
    	   }
 
     } else {
