@@ -1270,6 +1270,10 @@
       <translation>Nội dung văn bản trao đổi</translation>
     </message>
     <message>
+      <source>Close and Start a new one</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chatbox is disabled.</source>
       <translation>Chatbox bị vô hiệu hóa.</translation>
     </message>
@@ -1296,10 +1300,6 @@
     <message>
       <source>Operator is typing now...</source>
       <translation>Người điều hành đang đánh máy...</translation>
-    </message>
-    <message>
-      <source>Close and Start a new one</source>
-      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -2375,6 +2375,10 @@
     <message>
       <source>There are no online operators at the moment, please leave your message</source>
       <translation>Chúng tôi hiện đang ngoại tuyến tại thời điểm này, xin vui lòng để lại tin nhắn của bạn. Trân trọng cảm ơn!</translation>
+    </message>
+    <message>
+      <source>Me</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Choose your language</source>
@@ -3932,6 +3936,10 @@
     </message>
     <message>
       <source>Hide message label</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show messages box above input fields, usefull for UX combinations.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6942,6 +6950,10 @@
   <context>
     <name>chat/syncuser</name>
     <message>
+      <source>Support staff member has closed this chat</source>
+      <translation>Nhân viên hỗ trợ đã đóng cuộc trò chuyện này</translation>
+    </message>
+    <message>
       <source>Chat was automatically transferred to</source>
       <translation>Cuộc hội thoại đã được tự động chuyển tới</translation>
     </message>
@@ -6952,10 +6964,6 @@
     <message>
       <source>Chat was automatically closed by cron</source>
       <translation>Cuộc trò chuyện đã được đóng tự động bởi cron</translation>
-    </message>
-    <message>
-      <source>Support staff member has closed this chat</source>
-      <translation>Nhân viên hỗ trợ đã đóng cuộc trò chuyện này</translation>
     </message>
     <message>
       <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>

@@ -1270,6 +1270,10 @@
       <translation>Shkruani mesazhin tuaj</translation>
     </message>
     <message>
+      <source>Close and Start a new one</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chatbox is disabled.</source>
       <translation>Kutia e bisedes eshte c&apos;aktivizuar</translation>
     </message>
@@ -1296,10 +1300,6 @@
     <message>
       <source>Operator is typing now...</source>
       <translation>Operatori po shkruan tani...</translation>
-    </message>
-    <message>
-      <source>Close and Start a new one</source>
-      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -2376,6 +2376,10 @@
     <message>
       <source>There are no online operators at the moment, please leave your message</source>
       <translation>Nuk ka operatorë në linjë në këtë moment, ju lutem lini një mesazh</translation>
+    </message>
+    <message>
+      <source>Me</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Choose your language</source>
@@ -3933,6 +3937,10 @@
     </message>
     <message>
       <source>Hide message label</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show messages box above input fields, usefull for UX combinations.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6943,6 +6951,10 @@
   <context>
     <name>chat/syncuser</name>
     <message>
+      <source>Support staff member has closed this chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat was automatically transferred to</source>
       <translation type="unfinished"/>
     </message>
@@ -6952,10 +6964,6 @@
     </message>
     <message>
       <source>Chat was automatically closed by cron</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Support staff member has closed this chat</source>
       <translation type="unfinished"/>
     </message>
     <message>

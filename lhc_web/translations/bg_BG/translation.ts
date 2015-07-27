@@ -1270,6 +1270,10 @@
       <translation>Въведете Вашето съобщение</translation>
     </message>
     <message>
+      <source>Close and Start a new one</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chatbox is disabled.</source>
       <translation>Чат кутията е изключена</translation>
     </message>
@@ -1296,10 +1300,6 @@
     <message>
       <source>Operator is typing now...</source>
       <translation>В момента операторът пише...</translation>
-    </message>
-    <message>
-      <source>Close and Start a new one</source>
-      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -2375,6 +2375,10 @@
     <message>
       <source>There are no online operators at the moment, please leave your message</source>
       <translation>В момента няма оператори онлайн, оставете Вашето съобщение</translation>
+    </message>
+    <message>
+      <source>Me</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Choose your language</source>
@@ -3933,6 +3937,10 @@
     <message>
       <source>Hide message label</source>
       <translation>Скрий етикета на съобщението</translation>
+    </message>
+    <message>
+      <source>Show messages box above input fields, usefull for UX combinations.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Initial user message height in pixels</source>
@@ -6942,6 +6950,10 @@
   <context>
     <name>chat/syncuser</name>
     <message>
+      <source>Support staff member has closed this chat</source>
+      <translation>Екипът за поддръжка е затворил този чат</translation>
+    </message>
+    <message>
       <source>Chat was automatically transferred to</source>
       <translation>Чатът бе автоматично пренасочен към</translation>
     </message>
@@ -6952,10 +6964,6 @@
     <message>
       <source>Chat was automatically closed by cron</source>
       <translation>Чатът бе автоматично затворен</translation>
-    </message>
-    <message>
-      <source>Support staff member has closed this chat</source>
-      <translation>Екипът за поддръжка е затворил този чат</translation>
     </message>
     <message>
       <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>

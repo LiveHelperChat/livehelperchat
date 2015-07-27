@@ -150,9 +150,7 @@ jQuery('#id_Question').bind('keydown', 'return', function (evt){
 	if (formSubmitted == false) {
 		formSubmitted = true;
 		$( "#form-start-chat" ).submit();
-		setTimeout(function(){
-			jQuery('#id_Question').val('');		
-		},300);
+		jQuery('#id_Question').attr('readonly','readonly');		
 	};
 	return false;
 });

@@ -147,7 +147,7 @@
     </message>
     <message>
       <source>Hide right column in frontpage</source>
-      <translation type="unfinished"/>
+      <translation>Piiloita oikea palsta etusivulta</translation>
     </message>
     <message>
       <source>Hide disabled department widget</source>
@@ -203,7 +203,7 @@
     </message>
     <message>
       <source>Interval between chat status checks in seconds, 0 disabled.</source>
-      <translation>Chat -tilan tarkistuksen intervalli sekunteina, 0 pois käytöstä</translation>
+      <translation>Keskustelun tilan tarkistuksen väli sekunteina, 0 pois käytöstä</translation>
     </message>
     <message>
       <source>Show BB Code button</source>
@@ -420,7 +420,7 @@
     </message>
     <message>
       <source>Header padding (px)</source>
-      <translation type="unfinished"/>
+      <translation>Ylätunnisteen väli (px)</translation>
     </message>
     <message>
       <source>Site URL</source>
@@ -460,23 +460,23 @@
     </message>
     <message>
       <source>Text then user starts chat based on proactive invitation</source>
-      <translation type="unfinished"/>
+      <translation>Ennakoivan keskustelun kutsuteksti</translation>
     </message>
     <message>
       <source>Text then operator closes a chat</source>
-      <translation type="unfinished"/>
+      <translation>Operaattori sulki keskustelun - viesti</translation>
     </message>
     <message>
       <source>Text then user starts a chat and is waiting for operator to join a chat</source>
-      <translation type="unfinished"/>
+      <translation>Odottaa operaattoria viesti</translation>
     </message>
     <message>
       <source>Text then user starts a chat but department is offline</source>
-      <translation type="unfinished"/>
+      <translation>Osasto ei ole linjoilla viesti</translation>
     </message>
     <message>
       <source>Leave a message form text</source>
-      <translation type="unfinished"/>
+      <translation>Jätä viesti lomakkeen teksti</translation>
     </message>
     <message>
       <source>Need help border color</source>
@@ -496,15 +496,15 @@
     </message>
     <message>
       <source>Status widget additional CSS, takes effect after save</source>
-      <translation type="unfinished"/>
+      <translation>Status-widgetin lisä-CSS, tulee käyttöön tallennuksen jälkeen</translation>
     </message>
     <message>
       <source>Widget container additional CSS, takes effect after save</source>
-      <translation type="unfinished"/>
+      <translation>Widgetin sisältäjän lisä-CSS, tulee käyttöön tallennuksen jälkeen</translation>
     </message>
     <message>
       <source>Widget body additional CSS, takes effect after save</source>
-      <translation type="unfinished"/>
+      <translation>Widgetin rungon lisä-CSS, tulee käyttöön tallennuksen jälkeen</translation>
     </message>
     <message>
       <source>Minimize image</source>
@@ -598,7 +598,7 @@
     </message>
     <message>
       <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
-      <translation>Odota viestiä. Näkyvissä kun käyttäjä aloittaa chatin ja odotaa joltakin vastausta</translation>
+      <translation>Odota viestiä. Näkyvissä kun käyttäjä aloittaa keskustelun ja odotaa vastausta</translation>
     </message>
     <message>
       <source>Wait timeout. Time in seconds before timeout message is shown.</source>
@@ -678,7 +678,7 @@
     </message>
     <message>
       <source>Nick which will be used if we cannot determine returning user name</source>
-      <translation type="unfinished"/>
+      <translation>Oletusnimi, jota käytetään, jos palaavan käyttäjän nimeä ei tiedetä</translation>
     </message>
     <message>
       <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
@@ -686,7 +686,7 @@
     </message>
     <message>
       <source>Pro active chat invitations</source>
-      <translation>Pro-aktiivisia chat-kutsuja</translation>
+      <translation>Pro-aktiivisia keskustelu-kutsuja</translation>
     </message>
   </context>
   <context>
@@ -892,7 +892,7 @@
     </message>
     <message>
       <source>Set default speech recognition language</source>
-      <translation type="unfinished"/>
+      <translation>Oletus puheentunnistuksen kieli</translation>
     </message>
     <message>
       <source>Speech language</source>
@@ -1152,7 +1152,7 @@
     </message>
     <message>
       <source>Not Voted</source>
-      <translation type="unfinished"/>
+      <translation>Ei äänestetty</translation>
     </message>
     <message>
       <source>Up Voted</source>
@@ -1270,6 +1270,10 @@
       <translation>Kirjoita viestisi</translation>
     </message>
     <message>
+      <source>Close and Start a new one</source>
+      <translation>Sulje ja aloita uusi</translation>
+    </message>
+    <message>
       <source>Chatbox is disabled.</source>
       <translation>Keskustelu on nyt suljettu/estetty</translation>
     </message>
@@ -1296,10 +1300,6 @@
     <message>
       <source>Operator is typing now...</source>
       <translation>Operaattori kirjoittaa nyt...</translation>
-    </message>
-    <message>
-      <source>Close and Start a new one</source>
-      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -1924,7 +1924,7 @@
     </message>
     <message>
       <source>has accepted the chat!</source>
-      <translation type="unfinished"/>
+      <translation>on hyväksynyt keskustelun!</translation>
     </message>
   </context>
   <context>
@@ -1991,7 +1991,7 @@
     </message>
     <message>
       <source>Use Bing service</source>
-      <translation type="unfinished"/>
+      <translation>Käytä Bing-palvelua</translation>
     </message>
     <message>
       <source>Bing client ID</source>
@@ -2007,7 +2007,7 @@
     </message>
     <message>
       <source>Use Google service</source>
-      <translation type="unfinished"/>
+      <translation>Käytä Google-palvelua</translation>
     </message>
     <message>
       <source>API key, key is never shown for security purposes</source>
@@ -2157,15 +2157,15 @@
     </message>
     <message>
       <source>Wait time</source>
-      <translation type="unfinished"/>
+      <translation>Odotusaika</translation>
     </message>
     <message>
       <source>Delete chat</source>
-      <translation type="unfinished"/>
+      <translation>Poista keskustelu</translation>
     </message>
     <message>
       <source>Created</source>
-      <translation type="unfinished"/>
+      <translation>Luotu</translation>
     </message>
     <message>
       <source>Time ago</source>
@@ -2282,7 +2282,7 @@
     </message>
     <message>
       <source>Enter your message</source>
-      <translation>Kijoita viestisi</translation>
+      <translation>Kirjoita viestisi</translation>
     </message>
     <message>
       <source>Your question</source>
@@ -2302,7 +2302,7 @@
     </message>
     <message>
       <source>There are no online operators at the moment, please leave a message</source>
-      <translation>Tällä hetkellä ei ole yhtään opraattoria linjoilla, ole hyvä ja jätä viesti</translation>
+      <translation>Tällä hetkellä ei ole yhtään operaattoria linjoilla, ole hyvä ja jätä viesti</translation>
     </message>
     <message>
       <source>File</source>
@@ -2375,6 +2375,10 @@
     <message>
       <source>There are no online operators at the moment, please leave your message</source>
       <translation>Tällä hetkellä ei ole opraattoreita linjoilla, ole hyvä ja jätä viesti</translation>
+    </message>
+    <message>
+      <source>Me</source>
+      <translation>Minä</translation>
     </message>
     <message>
       <source>Choose your language</source>
@@ -2469,11 +2473,11 @@
     </message>
     <message>
       <source>You are number</source>
-      <translation type="unfinished"/>
+      <translation>Olet numero</translation>
     </message>
     <message>
       <source>in the queue. Please wait...</source>
-      <translation type="unfinished"/>
+      <translation>jonossa, odota...</translation>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
@@ -2508,7 +2512,7 @@
     </message>
     <message>
       <source>Closed chats list</source>
-      <translation>Suljetut Chat-listat</translation>
+      <translation>Suljetut keskustelulistat</translation>
     </message>
     <message>
       <source>Chats list</source>
@@ -3181,7 +3185,7 @@
     </message>
     <message>
       <source>Chat</source>
-      <translation>Chat</translation>
+      <translation>Keskustelu</translation>
     </message>
     <message>
       <source>Returning</source>
@@ -3617,7 +3621,7 @@
     </message>
     <message>
       <source>Transfered chats</source>
-      <translation type="unfinished"/>
+      <translation>Siirretyt keskustelut</translation>
     </message>
     <message>
       <source>Home</source>
@@ -3912,7 +3916,7 @@
     </message>
     <message>
       <source>Checked by default</source>
-      <translation type="unfinished"/>
+      <translation>Valittuna oletuksena</translation>
     </message>
     <message>
       <source>E-mail is always required</source>
@@ -3933,6 +3937,10 @@
     <message>
       <source>Hide message label</source>
       <translation>Piilota viestin otsikko</translation>
+    </message>
+    <message>
+      <source>Show messages box above input fields, usefull for UX combinations.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Initial user message height in pixels</source>
@@ -6942,6 +6950,10 @@
   <context>
     <name>chat/syncuser</name>
     <message>
+      <source>Support staff member has closed this chat</source>
+      <translation>Tukihenkilö on sulkenut keskustelun</translation>
+    </message>
+    <message>
       <source>Chat was automatically transferred to</source>
       <translation>Keskustelu on automaattisesti siirretty -&gt; </translation>
     </message>
@@ -6952,10 +6964,6 @@
     <message>
       <source>Chat was automatically closed by cron</source>
       <translation>Keskustelu on automaattisesti suljettu</translation>
-    </message>
-    <message>
-      <source>Support staff member has closed this chat</source>
-      <translation>Tukihenkilö on sulkenut keskustelun</translation>
     </message>
     <message>
       <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>

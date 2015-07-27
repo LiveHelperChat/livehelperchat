@@ -1270,6 +1270,10 @@
       <translation>Type bericht</translation>
     </message>
     <message>
+      <source>Close and Start a new one</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chatbox is disabled.</source>
       <translation>Chatbox is uitgeschakeld</translation>
     </message>
@@ -1296,10 +1300,6 @@
     <message>
       <source>Operator is typing now...</source>
       <translation>Medewerker is aan het typen...</translation>
-    </message>
-    <message>
-      <source>Close and Start a new one</source>
-      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -2375,6 +2375,10 @@
     <message>
       <source>There are no online operators at the moment, please leave your message</source>
       <translation>Er zijn op dit moment geen medewerkers online, Laat een bericht achter.</translation>
+    </message>
+    <message>
+      <source>Me</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Choose your language</source>
@@ -3933,6 +3937,10 @@
     <message>
       <source>Hide message label</source>
       <translation>Verberg berichtenveld label</translation>
+    </message>
+    <message>
+      <source>Show messages box above input fields, usefull for UX combinations.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Initial user message height in pixels</source>
@@ -6942,6 +6950,10 @@
   <context>
     <name>chat/syncuser</name>
     <message>
+      <source>Support staff member has closed this chat</source>
+      <translation>De ondersteuningsmedewerker heeft deze chat gesloten</translation>
+    </message>
+    <message>
       <source>Chat was automatically transferred to</source>
       <translation>De chat werd automatisch doorgeschakeld naar</translation>
     </message>
@@ -6952,10 +6964,6 @@
     <message>
       <source>Chat was automatically closed by cron</source>
       <translation>Chat is automatisch gesloten door cron</translation>
-    </message>
-    <message>
-      <source>Support staff member has closed this chat</source>
-      <translation>De ondersteuningsmedewerker heeft deze chat gesloten</translation>
     </message>
     <message>
       <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>

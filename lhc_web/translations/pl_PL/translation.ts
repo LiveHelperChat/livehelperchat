@@ -1271,6 +1271,10 @@ pokazywany</translation>
       <translation>Wpisz swoją wiadomość</translation>
     </message>
     <message>
+      <source>Close and Start a new one</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chatbox is disabled.</source>
       <translation>Chatbox jest wyłączony</translation>
     </message>
@@ -1297,10 +1301,6 @@ pokazywany</translation>
     <message>
       <source>Operator is typing now...</source>
       <translation>Operator pisze ...</translation>
-    </message>
-    <message>
-      <source>Close and Start a new one</source>
-      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -2376,6 +2376,10 @@ pokazywany</translation>
     <message>
       <source>There are no online operators at the moment, please leave your message</source>
       <translation>W tej chwili wszyscy operatorzy są niedostępni, proszę zostawić swoją wiadomość</translation>
+    </message>
+    <message>
+      <source>Me</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Choose your language</source>
@@ -3934,6 +3938,10 @@ pokazywany</translation>
     <message>
       <source>Hide message label</source>
       <translation>Ukryj etykiety wiadomości</translation>
+    </message>
+    <message>
+      <source>Show messages box above input fields, usefull for UX combinations.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Initial user message height in pixels</source>
@@ -6943,6 +6951,10 @@ pokazywany</translation>
   <context>
     <name>chat/syncuser</name>
     <message>
+      <source>Support staff member has closed this chat</source>
+      <translation>Pracownik wsparcia zamknął tą rozmowę</translation>
+    </message>
+    <message>
       <source>Chat was automatically transferred to</source>
       <translation>Rozmowa została automatycznie przeniesiona do</translation>
     </message>
@@ -6953,10 +6965,6 @@ pokazywany</translation>
     <message>
       <source>Chat was automatically closed by cron</source>
       <translation>Rozmowa została automatycznie zamknięta przez crona</translation>
-    </message>
-    <message>
-      <source>Support staff member has closed this chat</source>
-      <translation>Pracownik wsparcia zamknął tą rozmowę</translation>
     </message>
     <message>
       <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
