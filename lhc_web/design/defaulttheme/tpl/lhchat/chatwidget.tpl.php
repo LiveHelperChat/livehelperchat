@@ -135,7 +135,9 @@ if ($theme !== false && $theme->explain_text != '') : ?>
 <input type="hidden" value="<?php echo htmlspecialchars($referer_site);?>" name="r" />
 <input type="hidden" value="<?php echo htmlspecialchars($input_data->operator);?>" name="operator" />
 <input type="hidden" value="1" name="StartChat"/>
-
+<?php if ($hasExtraField === true) : ?>
+    <input type="hidden" value="1" id="hasFormExtraField"/>
+<?php endif;?>
 </form>
 
 <?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/switch_to_offline.tpl.php'));?>
@@ -146,7 +148,7 @@ if ($theme !== false && $theme->explain_text != '') : ?>
 jQuery('#id_Question').addClass('mb0');
 <?php endif;?>
 
-<?php if (isset($start_data_fields['message_auto_start']) && $start_data_fields['message_auto_start'] == true && isset($start_data_fields['message_auto_start_key_press']) && $start_data_fields['message_auto_start_key_press'] == true) : ?>
+<?php if ($hasExtraField == false && isset($start_data_fields['message_auto_start']) && $start_data_fields['message_auto_start'] == true && isset($start_data_fields['message_auto_start_key_press']) && $start_data_fields['message_auto_start_key_press'] == true) : ?>
 $('#id_Question').on('keyup', function (e) {
 	if ($( "#form-start-chat").attr("key-up-started") != 1) {
     	$( "#form-start-chat").attr("key-up-started",1);
@@ -154,6 +156,7 @@ $('#id_Question').on('keyup', function (e) {
 	}
 });
 <?php endif;?>
+
 
 var formSubmitted = false;
 jQuery('#id_Question').bind('keydown', 'return', function (evt){

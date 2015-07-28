@@ -1917,7 +1917,13 @@ function lh(){
 		    		 inst.submit();
 		    	 });
 		    	 return false;
-	  	} else {	  		
+	  	} else {
+	  		
+	  		// Avoid users stupidity if they enable it but form has extra field
+	  		if (inst.find('#hasFormExtraField').size() == 1) {
+	  			return true;
+	  		}
+	  		
 	  		if (inst.attr('lhc-form-submitted') != 1) { // Form is not submitted
 		  		inst.attr('lhc-form-submitted',1);
 		  		var instSelf = this;	
@@ -1951,7 +1957,7 @@ function lh(){
 		  					headCurrent.append(script);		  					
 		  				} else {
 		  					if (currentSripts.indexOf(script.attr('src')) == -1) { // Add JS only if it's new
-		  						headCurrent.append(script);
+		  						headCurrent.append("<script src=\""+script.attr('src')+"\"></script>");		  						
 		  					}
 		  				}
 		  			});
