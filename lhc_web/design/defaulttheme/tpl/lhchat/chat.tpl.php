@@ -82,7 +82,6 @@
 		});		
         lhinst.initTypingMonitoringUser('<?php echo $chat_id?>');
         </script>
-       
         
     </div>
      <?php endif;?>
@@ -111,7 +110,10 @@
     lhinst.chatsyncuserpending();    
     lhinst.scheduleSync();
 
-    $('#CSChatMessage').focus();
+    $( document ).ready(function() {
+    	jQuery('#CSChatMessage').focus();    
+    	jQuery('#CSChatMessage')[0].setSelectionRange(1000,1000);
+    });
     
     $(window).bind('beforeunload', function(){
         lhinst.userclosedchat();

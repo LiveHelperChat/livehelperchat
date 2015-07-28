@@ -166,6 +166,9 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        'MessageHidden' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	        ),
+	        'MessageAutoStart' => new ezcInputFormDefinitionElement(
+	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	        ),
 	        'MessageRequireOption' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'string'
 	        ),
@@ -523,6 +526,12 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        $data['message_hidden'] = true;
 	    } else {
 	        $data['message_hidden'] = false;
+	    }
+	    
+	    if ( $form->hasValidData( 'MessageAutoStart' ) && $form->MessageAutoStart == true ) {
+	        $data['message_auto_start'] = true;
+	    } else {
+	        $data['message_auto_start'] = false;
 	    }
 	    
 	    if ( $form->hasValidData( 'MessageVisibleInPageWidget' ) && $form->MessageVisibleInPageWidget == true ) {
