@@ -169,6 +169,9 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        'MessageAutoStart' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	        ),
+	        'MessageAutoStartOnKeyPress' => new ezcInputFormDefinitionElement(
+	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	        ),
 	        'MessageRequireOption' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'string'
 	        ),
@@ -532,6 +535,12 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        $data['message_auto_start'] = true;
 	    } else {
 	        $data['message_auto_start'] = false;
+	    }
+	    
+	    if ( $form->hasValidData( 'MessageAutoStartOnKeyPress' ) && $form->MessageAutoStartOnKeyPress == true ) {
+	        $data['message_auto_start_key_press'] = true;
+	    } else {
+	        $data['message_auto_start_key_press'] = false;
 	    }
 	    
 	    if ( $form->hasValidData( 'MessageVisibleInPageWidget' ) && $form->MessageVisibleInPageWidget == true ) {

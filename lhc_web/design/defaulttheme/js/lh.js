@@ -1920,8 +1920,15 @@ function lh(){
 	  	} else {	  		
 	  		if (inst.attr('lhc-form-submitted') != 1) { // Form is not submitted
 		  		inst.attr('lhc-form-submitted',1);
-		  		var instSelf = this;
-		  		$.post(inst.attr('action'), inst.serialize(), function (response) {		  		
+		  		var instSelf = this;	
+		  				  				  		
+		  		var keyUpStarted = inst.attr('key-up-started') == 1;
+		  		
+		  		if (keyUpStarted == true) {
+		  			inst.append('<input type="hidden" value="1" name="keyUpStarted" />');
+		  		}
+		  				  		
+		  		$.post(inst.attr('action'),inst.serialize(), function (response) {		  		
 		  			var valueQuestion = $('#id_Question').val();
 		  			if (sessionStorage) {
 		        		 sessionStorage.setItem('lhc_ttxt',valueQuestion);
@@ -1954,13 +1961,17 @@ function lh(){
 		         	$('#widget-layout-js').html($('<div>').html(response).find('#widget-layout-js').html()+paramsDocument);		         	
 		         	
 	            });
-		  		$('#id_Question').val('');
+		  		
+		  		if (keyUpStarted == false) {
+		  			$('#id_Question').val('');
+		  		}
+		  		
 	  		} else {	  			
 	  			if ($('#messagesBlock').size() > 0) {
 	            	jQuery('<div/>', {
 	    			    'class': 'message-row response',					   
 	    			    text: $('#id_Question').val()
-	    			}).appendTo('#messagesBlock').prepend('<span class="usr-tit vis-tit"></span>');
+	    			}).appendTo('#messagesBlock').prepend('<span class="usr-tit vis-tit">'+visitorTitle+'</span>');
 				};	  			
 	  			this.pendingMessagesToStore.push($('#id_Question').val());
 	  			$('#id_Question').val('');

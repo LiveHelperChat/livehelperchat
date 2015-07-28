@@ -164,6 +164,10 @@ $inputData->hattr = array();
 $inputData->ua = $Params['user_parameters_unordered']['ua'];
 $inputData->priority = is_numeric($Params['user_parameters_unordered']['priority']) ? (int)$Params['user_parameters_unordered']['priority'] : false;
 
+// If chat was started based on key up, we do not need to store a message
+//  because user is still typing it. We start chat in the background just.
+$inputData->key_up_started = ($_POST['keyUpStarted'] && $_POST['keyUpStarted'] == 1);
+
 // Perhaps it's direct argument
 if ((string)$Params['user_parameters_unordered']['hash_resume'] != '') {
 	CSCacheAPC::getMem()->setSession('chat_hash_widget_resume',(string)$Params['user_parameters_unordered']['hash_resume'],true,true);
@@ -273,7 +277,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
 	       
 	       // Store message if required
 	       if (isset($startDataFields['message_visible_in_page_widget']) && $startDataFields['message_visible_in_page_widget'] == true) {
-	           if ( $inputData->question != '' ) {
+	           if ( $inputData->question != '' && $inputData->key_up_started == false) {
 	               // Store question as message
 	               $msg = new erLhcoreClassModelmsg();
 	               $msg->msg = trim($inputData->question);
@@ -288,37 +292,42 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
 	           }
 	       }
 
-	       // Auto responder
-	       $responder = erLhAbstractModelAutoResponder::processAutoResponder($chat);
-
-	       if ($responder instanceof erLhAbstractModelAutoResponder) {
-	       		$chat->wait_timeout = $responder->wait_timeout;
-	       		$chat->timeout_message = $responder->timeout_message;
-	       		$chat->wait_timeout_send = 1-$responder->repeat_number;
-	       		$chat->wait_timeout_repeat = $responder->repeat_number;
-	       		
-	       		if ($responder->wait_message != '') {
-		       		$msg = new erLhcoreClassModelmsg();
-		       		$msg->msg = trim($responder->wait_message);
-		       		$msg->chat_id = $chat->id;
-		       		$msg->name_support = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
-		       		$msg->user_id = -2;
-		       		$msg->time = time()+5;
-		       		erLhcoreClassChat::getSession()->save($msg);
-
-		       		if ($chat->last_msg_id < $msg->id) {
-		       			$chat->last_msg_id = $msg->id;
-		       		}
-	       		}
-
-	       		$chat->saveThis();
-	       		
-	       		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.auto_responder_triggered',array('chat' => & $chat));
+	       // Auto responder does not make sense in this mode
+	       if ($inputData->key_up_started == false) {
+    	       // Auto responder
+    	       $responder = erLhAbstractModelAutoResponder::processAutoResponder($chat);
+    
+    	       if ($responder instanceof erLhAbstractModelAutoResponder) {
+    	       		$chat->wait_timeout = $responder->wait_timeout;
+    	       		$chat->timeout_message = $responder->timeout_message;
+    	       		$chat->wait_timeout_send = 1-$responder->repeat_number;
+    	       		$chat->wait_timeout_repeat = $responder->repeat_number;
+    	       		
+    	       		if ($responder->wait_message != '') {
+    		       		$msg = new erLhcoreClassModelmsg();
+    		       		$msg->msg = trim($responder->wait_message);
+    		       		$msg->chat_id = $chat->id;
+    		       		$msg->name_support = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
+    		       		$msg->user_id = -2;
+    		       		$msg->time = time()+5;
+    		       		erLhcoreClassChat::getSession()->save($msg);
+    
+    		       		if ($chat->last_msg_id < $msg->id) {
+    		       			$chat->last_msg_id = $msg->id;
+    		       		}
+    	       		}
+    
+    	       		$chat->saveThis();
+    	       		
+    	       		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.auto_responder_triggered',array('chat' => & $chat));
+    	       }
 	       }
 	       
 	       erLhcoreClassChat::updateDepartmentStats($params['chat']->department);
 	       erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started',array('chat' => & $chat, 'msg' => $messageInitial));
-           sleep(2);
+           
+	       sleep(5);
+	       
 	       // Redirect user
 	       $Result = erLhcoreClassModule::reRun(erLhcoreClassDesign::baseurlRerun('chat/chatwidgetchat') . '/' . $chat->id . '/' . $chat->hash . $modeAppend . $modeAppendTheme . '/(cstarted)/online_chat_started_cb');
 	       return true;	              

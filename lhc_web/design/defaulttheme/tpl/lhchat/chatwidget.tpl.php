@@ -145,6 +145,16 @@ if ($theme !== false && $theme->explain_text != '') : ?>
 <?php if ($canReopen == false) : ?>
 jQuery('#id_Question').addClass('mb0');
 <?php endif;?>
+
+<?php if (isset($start_data_fields['message_auto_start']) && $start_data_fields['message_auto_start'] == true && isset($start_data_fields['message_auto_start_key_press']) && $start_data_fields['message_auto_start_key_press'] == true) : ?>
+$('#id_Question').on('keyup', function (e) {
+	if ($( "#form-start-chat").attr("key-up-started") != 1) {
+    	$( "#form-start-chat").attr("key-up-started",1);
+    	$( "#form-start-chat").submit();	
+	}
+});
+<?php endif;?>
+
 var formSubmitted = false;
 jQuery('#id_Question').bind('keydown', 'return', function (evt){
 	if (formSubmitted == false) {
