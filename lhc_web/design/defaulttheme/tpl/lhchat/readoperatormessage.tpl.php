@@ -5,13 +5,17 @@ if (($user = $visitor->operator_user) !== false) : ?>
 <?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile.tpl.php'));?>
 <?php endif;?>
 
+<form action="" id="ReadOperatorMessage" method="post" onsubmit="return <?php if (isset($start_data_fields['message_auto_start']) && $start_data_fields['message_auto_start'] == true) : ?>lhinst.prestartChat('<?php echo time()?>',$(this))<?php else : ?>lhinst.addCaptcha('<?php echo time()?>',$(this))<?php endif?>">
+
 <div id="messages" class="read-operator-message">
      <div class="msgBlock" id="messagesBlock">
      	<?php include(erLhcoreClassDesign::designtpl('lhchat/lists/operator_message_row.tpl.php'));?>
+     	<?php if (isset($start_data_fields['show_messages_box']) && $start_data_fields['show_messages_box'] == true) : ?>
+     	<?php $formIdentifier = '#ReadOperatorMessage';?>
+     	<?php include(erLhcoreClassDesign::designtpl('lhchat/startchatformsettings/presend_script.tpl.php'));?>
+     	<?php endif;?>
      </div>
 </div>
-
-<form action="" id="ReadOperatorMessage" method="post" onsubmit="return lhinst.addCaptcha('<?php echo time()?>',$(this))">
 
 <?php if (isset($errors)) : ?>
 <div class="pt10">
@@ -65,14 +69,31 @@ if ($visitor->requires_username == 1 || $visitor->requires_email == 1 || $visito
 
 <?php include(erLhcoreClassDesign::designtpl('lhchat/part/readoperatormessage_form_bottom.tpl.php'));?>
 
+<?php if ($hasExtraField === true) : ?>
+    <input type="hidden" value="1" id="hasFormExtraField"/>
+<?php endif;?>
+
 </form>
 
 <script>
+
+<?php if ($hasExtraField == false && isset($start_data_fields['message_auto_start']) && $start_data_fields['message_auto_start'] == true && isset($start_data_fields['message_auto_start_key_press']) && $start_data_fields['message_auto_start_key_press'] == true) : ?>
+$('#id_Question').on('keyup', function (e) {
+	if ($( "#ReadOperatorMessage").attr("key-up-started") != 1) {
+    	$( "#ReadOperatorMessage").attr("key-up-started",1);
+    	$( "#ReadOperatorMessage").submit();	
+	}
+});
+<?php endif;?>
+
 var formSubmitted = false;
 jQuery('#id_Question').bind('keydown', 'return', function (evt){
 	if (formSubmitted == false) {
+		$( "#ReadOperatorMessage" ).submit();
+		<?php if (!isset($start_data_fields['message_auto_start']) || $start_data_fields['message_auto_start'] == false) : ?>
 		formSubmitted = true;
-		$( "#ReadOperatorMessage" ).submit();	
+		jQuery('#id_Question').attr('readonly','readonly');		
+		<?php endif;?>
 	};
 	return false;
 });
