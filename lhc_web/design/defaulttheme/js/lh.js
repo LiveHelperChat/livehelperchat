@@ -1978,6 +1978,7 @@ function lh(){
 	    			    'class': 'message-row response',					   
 	    			    text: $('#id_Question').val()
 	    			}).appendTo('#messagesBlock').prepend('<span class="usr-tit vis-tit">'+visitorTitle+'</span>');
+	            	$('#messagesBlock').animate({ scrollTop: $('#messagesBlock').prop('scrollHeight') }, 1000);
 				};	  			
 	  			this.pendingMessagesToStore.push($('#id_Question').val());
 	  			$('#id_Question').val('');

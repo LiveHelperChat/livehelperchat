@@ -37,6 +37,10 @@ $inputData->ua = $Params['user_parameters_unordered']['ua'];
 $inputData->hattr = array();
 $inputData->value_items_admin = array(); // These variables get's filled from start chat form settings
 
+// If chat was started based on key up, we do not need to store a message
+//  because user is still typing it. We start chat in the background just.
+$inputData->key_up_started = ($_POST['keyUpStarted'] && $_POST['keyUpStarted'] == 1);
+
 if ((string)$Params['user_parameters_unordered']['vid'] != '') {
     $inputData->vid = (string)$Params['user_parameters_unordered']['vid'];
 }
@@ -288,6 +292,7 @@ if (isset($_POST['askQuestion']))
     
     if (count($Errors) == 0)
     {
+
        $chat->time = time();
        $chat->status = 0;
        $chat->setIP();
@@ -329,58 +334,64 @@ if (isset($_POST['askQuestion']))
 
        erLhcoreClassChat::getSession()->save($msg);
 
-       // Store User Message
-       $msg = new erLhcoreClassModelmsg();
-       $msg->msg = trim($inputData->question);
-       $msg->chat_id = $chat->id;
-       $msg->user_id = 0;
-       $msg->time = time();
-       erLhcoreClassChat::getSession()->save($msg);
+       // Chat was based on key up, there is no message object
+       $messageInitial = false;
        
-       $messageInitial = $msg;
+       // Do not store anything, like user just started normal chat
+       if ($inputData->key_up_started == false) {
+           // Store User Message
+           $msg = new erLhcoreClassModelmsg();
+           $msg->msg = trim($inputData->question);
+           $msg->chat_id = $chat->id;
+           $msg->user_id = 0;
+           $msg->time = time();
+           erLhcoreClassChat::getSession()->save($msg);
+           
+           $messageInitial = $msg;
        
-       if ($userInstance->invitation !== false) {
-
-       		if ($userInstance->invitation->wait_message != '') {
-		       	$msg = new erLhcoreClassModelmsg();
-		       	$msg->msg = trim($userInstance->invitation->wait_message);
-		       	$msg->chat_id = $chat->id;
-		       	$msg->name_support = $userInstance->operator_user !== false ? $userInstance->operator_user->name_support : (!empty($userInstance->operator_user_proactive) ? $userInstance->operator_user_proactive : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support'));
-		       	$msg->user_id = $userInstance->operator_user_id > 0 ? $userInstance->operator_user_id : -2;
-		       	$msg->time = time()+5;
-		       	erLhcoreClassChat::getSession()->save($msg);
-       		}
-
-	       	// Store wait timeout attribute for future
-	       	$chat->wait_timeout = $userInstance->invitation->wait_timeout;
-	       	$chat->timeout_message = $userInstance->invitation->timeout_message;
-	       	$chat->wait_timeout_send = 1-$userInstance->invitation->repeat_number;
-	       	$chat->wait_timeout_repeat = $userInstance->invitation->repeat_number;
-       } else {
-
-       		// Default auto responder
-	       	$responder = erLhAbstractModelAutoResponder::processAutoResponder($chat);
-
-	       	if ($responder instanceof erLhAbstractModelAutoResponder) {
-	       		$chat->wait_timeout = $responder->wait_timeout;
-	       		$chat->timeout_message = $responder->timeout_message;
-	       		$chat->wait_timeout_send = 1-$responder->repeat_number;	       	
-	       		$chat->wait_timeout_repeat = $responder->repeat_number;
-	       		
-	       		if ($responder->wait_message != '') {
-	       			$msg = new erLhcoreClassModelmsg();
-	       			$msg->msg = trim($responder->wait_message);
-	       			$msg->chat_id = $chat->id;
-	       			$msg->name_support = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
-	       			$msg->user_id = -2;
-	       			$msg->time = time()+5;
-	       			erLhcoreClassChat::getSession()->save($msg);
-	       		}
-	       		
-	       		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.auto_responder_triggered',array('chat' => & $chat));
-	       	}
+           if ($userInstance->invitation !== false) {
+    
+           		if ($userInstance->invitation->wait_message != '') {
+    		       	$msg = new erLhcoreClassModelmsg();
+    		       	$msg->msg = trim($userInstance->invitation->wait_message);
+    		       	$msg->chat_id = $chat->id;
+    		       	$msg->name_support = $userInstance->operator_user !== false ? $userInstance->operator_user->name_support : (!empty($userInstance->operator_user_proactive) ? $userInstance->operator_user_proactive : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support'));
+    		       	$msg->user_id = $userInstance->operator_user_id > 0 ? $userInstance->operator_user_id : -2;
+    		       	$msg->time = time()+5;
+    		       	erLhcoreClassChat::getSession()->save($msg);
+           		}
+    
+    	       	// Store wait timeout attribute for future
+    	       	$chat->wait_timeout = $userInstance->invitation->wait_timeout;
+    	       	$chat->timeout_message = $userInstance->invitation->timeout_message;
+    	       	$chat->wait_timeout_send = 1-$userInstance->invitation->repeat_number;
+    	       	$chat->wait_timeout_repeat = $userInstance->invitation->repeat_number;
+           } else {
+    
+           		// Default auto responder
+    	       	$responder = erLhAbstractModelAutoResponder::processAutoResponder($chat);
+    
+    	       	if ($responder instanceof erLhAbstractModelAutoResponder) {
+    	       		$chat->wait_timeout = $responder->wait_timeout;
+    	       		$chat->timeout_message = $responder->timeout_message;
+    	       		$chat->wait_timeout_send = 1-$responder->repeat_number;	       	
+    	       		$chat->wait_timeout_repeat = $responder->repeat_number;
+    	       		
+    	       		if ($responder->wait_message != '') {
+    	       			$msg = new erLhcoreClassModelmsg();
+    	       			$msg->msg = trim($responder->wait_message);
+    	       			$msg->chat_id = $chat->id;
+    	       			$msg->name_support = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
+    	       			$msg->user_id = -2;
+    	       			$msg->time = time()+5;
+    	       			erLhcoreClassChat::getSession()->save($msg);
+    	       		}
+    	       		
+    	       		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.auto_responder_triggered',array('chat' => & $chat));
+    	       	}
+           }
        }
-
+       
        // Set chat attributes for transfer workflow logic
        if ($chat->department !== false && $chat->department->department_transfer_id > 0) {
 	       	$chat->transfer_if_na = 1;
@@ -391,7 +402,7 @@ if (isset($_POST['askQuestion']))
        $chat->last_msg_id = $msg->id;
        $chat->last_user_msg_time = time();
        $chat->saveThis();
-
+       
        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started',array('chat' => & $chat, 'msg' => $messageInitial));
        
        erLhcoreClassChat::updateDepartmentStats($chat->department);
