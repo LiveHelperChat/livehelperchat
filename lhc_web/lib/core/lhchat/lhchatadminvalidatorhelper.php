@@ -166,6 +166,12 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        'MessageHidden' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	        ),
+	        'MessageAutoStart' => new ezcInputFormDefinitionElement(
+	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	        ),
+	        'MessageAutoStartOnKeyPress' => new ezcInputFormDefinitionElement(
+	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	        ),
 	        'MessageRequireOption' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'string'
 	        ),
@@ -256,6 +262,9 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        'HideMessageLabel' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	        ),
+	        'ShowMessagesBox' => new ezcInputFormDefinitionElement(
+	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	        ),
 	    
 	        // Custom fields from back office
 	        'customFieldLabel' => new ezcInputFormDefinitionElement(
@@ -298,6 +307,12 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        $data['tos_visible_in_popup'] = true;
 	    } else {
 	        $data['tos_visible_in_popup'] = false;
+	    }
+	    
+	    if ( $form->hasValidData( 'ShowMessagesBox' ) && $form->ShowMessagesBox == true ) {
+	        $data['show_messages_box'] = true;
+	    } else {
+	        $data['show_messages_box'] = false;
 	    }
 	    
 	    if ( $form->hasValidData( 'TOSVisibleInPageWidget' ) && $form->TOSVisibleInPageWidget == true ) {
@@ -514,6 +529,18 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        $data['message_hidden'] = true;
 	    } else {
 	        $data['message_hidden'] = false;
+	    }
+	    
+	    if ( $form->hasValidData( 'MessageAutoStart' ) && $form->MessageAutoStart == true ) {
+	        $data['message_auto_start'] = true;
+	    } else {
+	        $data['message_auto_start'] = false;
+	    }
+	    
+	    if ( $form->hasValidData( 'MessageAutoStartOnKeyPress' ) && $form->MessageAutoStartOnKeyPress == true ) {
+	        $data['message_auto_start_key_press'] = true;
+	    } else {
+	        $data['message_auto_start_key_press'] = false;
 	    }
 	    
 	    if ( $form->hasValidData( 'MessageVisibleInPageWidget' ) && $form->MessageVisibleInPageWidget == true ) {

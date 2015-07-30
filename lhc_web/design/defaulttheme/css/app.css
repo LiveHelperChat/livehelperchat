@@ -220,11 +220,15 @@ a:hover{
 }
 
 #CSChatMessage {
-	margin-bottom:0;	
+	margin-bottom:0;
 }
 
-.live-chat-message{
-	padding-right:20px;
+.live-chat-message,.live-chat-message:focus{
+	outline: none;
+	-webkit-box-shadow: none !important;
+	-moz-box-shadow: none !important;
+	box-shadow: none !important;
+	border:1px solid #ccc;
 }
 
 option.offline-dep{

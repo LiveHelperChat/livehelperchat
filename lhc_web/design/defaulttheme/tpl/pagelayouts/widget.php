@@ -20,6 +20,7 @@
      </div>
 </div>
 
+<div id="widget-layout-js">
 <?php if (isset($Result['dynamic_height'])) : ?>
 <script>
 var wasFocused = false;
@@ -58,5 +59,7 @@ if (!!window.postMessage) {
 		$debug = ezcDebug::getInstance();
 		echo $debug->generateOutput();
 } ?>
+</div>
+
 </body>
 </html>

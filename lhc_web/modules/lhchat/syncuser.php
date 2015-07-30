@@ -129,13 +129,11 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 		            }
 		        }
 
-		        if ($theme !== false && $theme->support_closed != ''){
-		            $status = '<h4>'.htmlspecialchars($theme->support_closed).'</h4>';
-		        } else {
-		            $status = '<h4>'.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Support staff member has closed this chat').'</h4>';
-		        }
-		        
-		        $status .= '<input type="button" class="btn btn-default mb10" value="'.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close').'" onclick="lhinst.userclosedchatembed();" />';
+		        // Parse outcome
+		        $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/errors/chatclosed.tpl.php');
+		        $tpl->set('theme',$theme);
+		        $tpl->set('modeembed','embed');
+		        $status = $tpl->fetch();
 		        
 		    	$blocked = 'true';
 		    	$breakSync = true;
@@ -204,15 +202,10 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
         }
     }
     
-    if ($theme !== false && $theme->support_closed != ''){
-        $status = '<h4>'.htmlspecialchars($theme->support_closed).'</h4>';
-    } else {
-        $status = '<h4>'.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Support staff member has closed this chat').'</h4>';
-    }
-
-    if ($Params['user_parameters_unordered']['modeembed'] == 'embed') {
-        $status .= '<input type="button" class="btn btn-default mb10" value="'.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close and Start a new one').'" onclick="lhinst.userclosedchatembed();" />';
-    }
+    $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/errors/chatclosed.tpl.php');
+    $tpl->set('theme',$theme);
+    $tpl->set('modeembed',$Params['user_parameters_unordered']['modeembed']);
+    $status = $tpl->fetch();
     
     $blocked = 'true';
 }

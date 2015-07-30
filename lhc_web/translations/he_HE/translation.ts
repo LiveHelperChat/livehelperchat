@@ -1,730 +1,730 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="sv">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="he">
   <context>
     <name>listchatconfig</name>
     <message>
       <source>How many days voting widget should not be expanded after last show</source>
-      <translation>Hur många dagar som röstwidgeten inte ska expanderas efter senaste visningen</translation>
+      <translation>למשך כמה ימים יש להציג את אפשרות ההצבעה לאחר שהוצגו פעם אחרונה?</translation>
     </message>
     <message>
       <source>Use secure cookie, check this if you want to force SSL all the time</source>
-      <translation>Använd säker cookie, kryssa för detta alternativ om du vill använda SSL hela tiden</translation>
+      <translation>אכוף שימוש בעוגיות מאובטחות. סמן אם אתה רוצה לכפות שימוש ב SSL</translation>
     </message>
     <message>
       <source>Which ip should be allowed to update DB by executing http request, separate by comma?</source>
-      <translation>Vilka IP ska vara tillåtna att uppdatera databasen genom att köra http request, separerade med komma?</translation>
+      <translation>איזה כתובת IP מורשות לעדכן את מסד הנתונים על ידי קריאות HTTP, מופרדות בפסיק?</translation>
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
-      <translation>Aktivera statistik för onlinebesökare</translation>
+      <translation>אפשר מעקב אחר מבקרים באתר</translation>
     </message>
     <message>
       <source>Track is user still on site, chat status checks also has to be enabled</source>
-      <translation>Kontrollera om besökare fortfarande är online på sidan, kontroll för chattstatusar måste vara aktiverat</translation>
+      <translation>עקוב אם המשתמש עדיין באתר. שים לב שיש לאפשר גם בדיקת סטטוס בכדי שאפשרות זו תעבוד.</translation>
     </message>
     <message>
       <source>Track online visitors even if there is no online operators</source>
-      <translation>Samla statistik om onlinebesökare även om det inte finns några operatörer online</translation>
+      <translation>עקוב אחר משתמשים באתר אפילו כאשר אין מפעילי צ&apos;אט זמינים</translation>
     </message>
     <message>
       <source>Track users footprint. For this also online visitors tracking should be enabled</source>
-      <translation>Avancerad statistik över besökare. För att detta ska fungera så måste även statistiken över onlinebesökare vara aktiverad.</translation>
+      <translation>עקוב אחר מסלולי מבקרים. כדי לאפשר זאת יש לוודא שגם מעקב אחר מבקרים מאופשר.</translation>
     </message>
     <message>
       <source>Set your domain to enable user tracking across different domain subdomains.</source>
-      <translation>Ange domän för att aktivera användarstatistik över flera av domänens subdomäner.</translation>
+      <translation>קבע את שם המתחם שלך בכדי לאפשר מעקב אחר משתמשים שעוברים בין תתי שמות מתחם שונים.</translation>
     </message>
     <message>
       <source>How many days keep records of online users.</source>
-      <translation>Hur många dagar att spara statistik över onlinebesökare.</translation>
+      <translation>כמה ימי לשמור היסטוריה של משתמשים אונליין.</translation>
     </message>
     <message>
       <source>Suggest user to leave a message then user chooses offline department</source>
-      <translation>Föreslå till användare att lämna ett meddelande om de väljer offline-avdelningen</translation>
+      <translation>הצע למשתמשים לשלוח הודעה ולבחור מחלקה מתאימה</translation>
     </message>
     <message>
       <source>Play sound on invitation to chat.</source>
-      <translation>Spela upp ljud vid inbjudan till chatt.</translation>
+      <translation>השמע צליל בעת הזמנה לשיחה.</translation>
     </message>
     <message>
       <source>Show users option to switch language at widget</source>
-      <translation>Visa språkval för användaren i widgeten</translation>
+      <translation>הצג למשתמשים אפשרות לשינוי שפה</translation>
     </message>
     <message>
       <source>Between what languages user should be able to switch</source>
-      <translation>Välj vilka språk användaren ska kunna välja mellan</translation>
+      <translation>לאילו שפות המשתמש יכול לעבור</translation>
     </message>
     <message>
       <source>Host where NodeJs is running</source>
-      <translation>Värden där NodeJS körs</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Location of SocketIO JS library</source>
-      <translation>Placering av SocketIO JS-bibliotek</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Connect to NodeJs in https mode</source>
-      <translation>Anslut till NodeJS i https-läge</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>socket.io path, optional</source>
-      <translation>Sökväg för socket.io, frivillig</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>NodeJS support enabled</source>
-      <translation>Stöd för NodeJS är aktiverat</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Do not ask permission for users to see their screen</source>
-      <translation>Fråga inte om lov från användarna för att se deras skärmar</translation>
+      <translation>אל תבקש הרשאות ממשתמשים כדי לראות את המסך שלהם</translation>
     </message>
     <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
-      <translation>Använd sessioncaptcha. LHC måste vara installerat på samma domän eller subdomän.</translation>
+      <translation>השתמש בCAPTCHA. חובה להתקין LHC באותו תת מתחם כדי שאפשרות זו תעבוד כראוי.</translation>
     </message>
     <message>
       <source>Should cronjob run unanswered chats workflow and execute unaswered chats callback, 0 - no, any other number bigger than 0 is a minits how long chat have to be not accepted before executing callback.</source>
-      <translation>Ska cronjob köra obesvarade chattars arbetsflöde och köra obesvarade chattars callback, 0 - nej, andra siffror större än 0 är en minut för hur länge en chatt inte besvaras innan callback körs.</translation>
+      <translation>האם על הCRONJOB לבדוק שיחות שלא נענו לבצע שיחה חוזרת לשיחות שלא נענו? 0 = לא. כל מספר אחר = כמה דקות לחכות לכל שיחה לפני שהיא מסומנת כשיחה שלא נענתה ושיש לחזור אליה.</translation>
     </message>
     <message>
       <source>Should cronjob run departments transfer workflow, even if user leaves a chat</source>
-      <translation>Ska cronjob köra avdelningarnas överförings arbetsflöde, även om en användare lämnar en chatt</translation>
+      <translation>האם על CRONJOB להמשיך ולהעביר שיחה למחלקה גם כאשר המשתמש עזב את השיחה?</translation>
     </message>
     <message>
       <source>Reopen chat functionality enabled</source>
-      <translation>Funktionen för att återöppna en chatt är aktiverad</translation>
+      <translation>אפשר פתיחה מחדש של שיחות</translation>
     </message>
     <message>
       <source>Reopen closed chat as new? Otherwise it will be reopened as active.</source>
-      <translation>Återöppna stängd chatt som ny? Annars kommer den att återöppnas som aktiv.</translation>
+      <translation>האם לפתוח מחדש שיחה שנסגרה כשיחה חדשה? אם לא אז היא תפתח כשיחה פעילה.</translation>
     </message>
     <message>
       <source>Should invitation logic be executed if there is no online operators</source>
-      <translation>Om inbjudansfunktionen ska köras om det inte finns några operatörer online</translation>
+      <translation>האם על המערכת להזמין משתמשים לשיחה גם כאשר אין מפעילי אתר זמינים</translation>
     </message>
     <message>
       <source>Pro active chats invitations limitation based on pending chats, (-1) do not limit, (0,1,n+1) number of pending chats can be for invitation to be shown.</source>
-      <translation>Pro active chattinbjudningars begränsning baserad på väntande chattar, (-1) begränsa ej, (0,1,n+1) antal väntande chattar som kan göra så att inbjudan visas.</translation>
+      <translation>הזמנה פרואקטיבית של משתמשים לשיחה על בסיס שיחות ממתינות.(-1)  = ללא הגבלה,(0,1,n+1) = מספר השיחות הממתינות לפני שהזמנה תוצג למשתמשים.</translation>
     </message>
     <message>
       <source>Is pro active chat invitation active. Online users tracking also has to be enabled</source>
-      <translation>Är pro active chattinbjudan aktiv. Statistik för onlinebesökare måste också vara aktiverad.</translation>
+      <translation>האם לאפשר הזמנת משתמשים לשיחה באופן פרואקטיבי? כדי להפעיל אפשרות זאת יש לאפשר מעקב אחר משתמשים</translation>
     </message>
     <message>
       <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
-      <translation>Hjälptooltip timeout, efter hur många timmar att visa tooltop igen?</translation>
+      <translation>כמה שעות יש להסתיר את הסמלון של קבלת עזרה לאחר שנסגר על ידי המשתמש?</translation>
     </message>
     <message>
       <source>Show need help tooltip?</source>
-      <translation>Visa hjälptooltip?</translation>
+      <translation>להציג סמלון של עזרה?</translation>
     </message>
     <message>
       <source>Minimum phone number length</source>
-      <translation>Minimum antal siffror hos telefonnummer</translation>
+      <translation>אורך מינימאלי של מספר טלפון</translation>
     </message>
     <message>
       <source>Messages box height</source>
-      <translation>Höjd på meddelanderuta</translation>
+      <translation>גובה תיבת ההודעות</translation>
     </message>
     <message>
       <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
-      <translation>Proaktiva meddelanden, timeout i timmar. Efter hur många timmar som proaktiva chattmeddeland ska visas igen.</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Maximum message length in characters</source>
-      <translation>Maximum meddelandelängd i tecken</translation>
+      <translation>אורך ההודעה המרבי של תווים</translation>
     </message>
     <message>
       <source>List online operators.</source>
-      <translation>Lista onlineoperatörer.</translation>
+      <translation>רשימת מפעילים זמינים.</translation>
     </message>
     <message>
       <source>Ignore users online statuses and use departments online hours</source>
-      <translation>Ignorera användarnas onlinestatus och använd istället avdelningarnas onlinetimmer</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Which ip should be ignored in online users list, separate by comma</source>
-      <translation>Vilka IP ska ignoreras i listan för onlineanvändare, separera med komma</translation>
+      <translation>הגדר כתובות IP להתעלמות מרשימת המשתמשים המחוברים, הפרד בפסיקים.</translation>
     </message>
     <message>
       <source>Hide right column in frontpage</source>
-      <translation>Göm högerkolumnen på förstasidan</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Hide disabled department widget</source>
-      <translation>Dölj inaktiverad avdelningswidget</translation>
+      <translation>הסתר מחלקת וידג&apos;ט מנוטרלת</translation>
     </message>
     <message>
       <source>Home page tabs order</source>
-      <translation>Flikordning på startsidan</translation>
+      <translation>סדר כרטיסיות דף הבית</translation>
     </message>
     <message>
       <source>Is visitor e-mail required for FAQ</source>
-      <translation>Är besökar-e-post obligatorisk för FAQ</translation>
+      <translation>האם נדרש אימייל עבור שאילת שאלה?</translation>
     </message>
     <message>
       <source>Chats export secret hash</source>
-      <translation>Chattexport hemlig hash/nyckel</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter explicit http mode. Either http: or https:, do not forget : at the end.</source>
-      <translation>Var vänlig skriv in exakt http läge. Antingen http: eller https:, glöm inte : i slutet.</translation>
+      <translation>נא לבחור פרוטוקול תקשורת ספציפי, HTTP: או HTTPS: ,כולל הנקודתיים</translation>
     </message>
     <message>
       <source>Disable chat transcript send</source>
-      <translation>Inaktivera utskick av chattkopia</translation>
+      <translation>חסום אפשרות  לשליחת תמליל באימייל</translation>
     </message>
     <message>
       <source>Disable chat print</source>
-      <translation>Inaktivera utskrift av chatt</translation>
+      <translation>חסום אפשרות להדפסת שיחה</translation>
     </message>
     <message>
       <source>Disable option in widget to open new window. Restore icon will be hidden</source>
-      <translation>Inaktivera alternativ i widget för att öppna ett nytt fönster. Återställningsikonen kommer att vara dold</translation>
+      <translation>נטרל את האפשרות לפתוח חלון חדש בווידג&apos;ט. סמל שחזור יוסתר</translation>
     </message>
     <message>
       <source>Disable JS execution in Co-Browsing operator window</source>
-      <translation>Inaktivera JS-körning i operatörens fönster i skärmdelningsläge</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
-      <translation>Inaktivera HTML5 lagring, välj detta om din hemsida växlar mellan http och https</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Home page dashboard widgets order</source>
-      <translation>Ordning av widgetsen på kontrollpanelen på startsidan</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Your site URL address</source>
-      <translation>Din URL adress för sidan</translation>
+      <translation>כתובת האתר שלך</translation>
     </message>
     <message>
       <source>Your company name - visible in bottom left corner</source>
-      <translation>Ditt företagsnamn - synligt i nedre vänstra hörnet</translation>
+      <translation>שם החברה שלך - מוצג בפינה השמאלית התחתונה</translation>
     </message>
     <message>
       <source>Interval between chat status checks in seconds, 0 disabled.</source>
-      <translation>Intervall i sekunder mellan kontrollering av chattstatus, 0 för inaktiverat.</translation>
+      <translation>מרווח הזמן בין בדיקות סטטוס צ&apos;אט בשניות, 0 מנוטרל.</translation>
     </message>
     <message>
       <source>Show BB Code button</source>
-      <translation>Visa knapp för BB kod</translation>
+      <translation>הראה לחצן קוד BB</translation>
     </message>
     <message>
       <source>Which ip should not be allowed to chat</source>
-      <translation>Vilka IP som inte ska tillåtas i chatten</translation>
+      <translation>אילו כתובות IP אינן מורשות </translation>
     </message>
     <message>
       <source>Automatic chats purging. 0 - disabled, n &gt; 0 time in minutes before chat is automatically deleted</source>
-      <translation>Automatisk rensning av chattar. 0 - inaktiverad, n &gt; 0 tid i minuter före chatten automatiskt tas bort</translation>
+      <translation>מחיקת צ&apos;אט אוטומטית. 0 - מנוטרל. מספר גדול מאפס בדקות לפני שהצ&apos;אט ימחק אוטומטית</translation>
     </message>
     <message>
       <source>Automatically reopen chat on widget open</source>
-      <translation>Återöppna chatten automatiskt när widgeten öppnas</translation>
+      <translation>פתח מחדש את הצ&apos;אט אוטומטית בפתיחת בווידג&apos;ט</translation>
     </message>
     <message>
       <source>Automatic chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
-      <translation>Automatisk stängning av chattar. 0 - inaktiverad, n &gt; 0 tid i minuter före chatten automatiskt stängs ned</translation>
+      <translation>סגירת צ&apos;אט אוטומטית. 0 - מנוטרל. מספר גדול מאפס בדקות לפני שהצ&apos;אט יסגר אוטומטית</translation>
     </message>
     <message>
       <source>Support application name, visible in browser title.</source>
-      <translation>Support applikationsnamn, synligt i webbläsartiteln.</translation>
+      <translation>שם אפליקציה , נראה בכותרת הדפדפן</translation>
     </message>
     <message>
       <source>Allow user to reopen closed chats?</source>
-      <translation>Tillåt användare att återöppna stängda chattar?</translation>
+      <translation>לאפשר למשתמש לפתוח חלון צ&apos;אט שנסגר ?</translation>
     </message>
     <message>
       <source>Change to your site Terms of Service</source>
-      <translation>Ändra till din sidas användarvillkor</translation>
+      <translation>שנה/י את תנאי השימוש באתר</translation>
     </message>
     <message>
       <source>How many seconds chat accept link is valid. Set 0 to force login all the time manually.</source>
-      <translation>Hur många sekunder en accepteringslänk för en chatt är giltig. Välj 0 för att tvinga logga in manuellt varje gång.</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>system/buttons</name>
     <message>
       <source>Save</source>
-      <translation>Spara</translation>
+      <translation>שמור</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Uppdatera</translation>
+      <translation>לעדכן</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Avbryt</translation>
+      <translation>ביטול</translation>
     </message>
     <message>
       <source>Edit</source>
-      <translation>Redigera</translation>
+      <translation>ערוך</translation>
     </message>
     <message>
       <source>Delete</source>
-      <translation>Ta bort</translation>
+      <translation>מחק</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Tom...</translation>
+      <translation>ריק...</translation>
     </message>
     <message>
       <source>New</source>
-      <translation>Nytt</translation>
+      <translation>חדש</translation>
     </message>
     <message>
       <source>Updated</source>
-      <translation>Uppdaterad</translation>
+      <translation>מעודכן</translation>
     </message>
     <message>
       <source>Send</source>
-      <translation>Skicka</translation>
+      <translation>שלח</translation>
     </message>
     <message>
       <source>Save and continue</source>
-      <translation>Spara och fortsätt</translation>
+      <translation>לשמור ולהמשיך</translation>
     </message>
     <message>
       <source>Continue</source>
-      <translation>Fortsätt</translation>
+      <translation>המשך</translation>
     </message>
     <message>
       <source>Start archiving</source>
-      <translation>Starta arkivering</translation>
+      <translation>התחל שמירה לארכיון</translation>
     </message>
     <message>
       <source>Return</source>
-      <translation>Gå tillbaka</translation>
+      <translation>חזור</translation>
     </message>
     <message>
       <source>Delete department</source>
-      <translation>Ta bort avdelning</translation>
+      <translation>מחק מחלקה</translation>
     </message>
     <message>
       <source>Test</source>
-      <translation>Test</translation>
+      <translation>ניסיון</translation>
     </message>
     <message>
       <source>Send test message</source>
-      <translation>Skicka testmeddelande</translation>
+      <translation>שלח הודעת ניסיון</translation>
     </message>
   </context>
   <context>
     <name>abstract/abstract_form</name>
     <message>
       <source>Updated!</source>
-      <translation>Uppdaterad!</translation>
+      <translation>מעודכן!</translation>
     </message>
   </context>
   <context>
     <name>abstract/widgettheme</name>
     <message>
       <source>Download theme</source>
-      <translation>Ladda ned stil</translation>
+      <translation>הורדת ערכת נושא</translation>
     </message>
     <message>
       <source>Status widget style</source>
-      <translation>Status widgetstil</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Widget container</source>
-      <translation>Widget box</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Need help widget</source>
-      <translation>Hjälpwidget</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Main widget text</source>
-      <translation>Text för huvudwidgeten</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Custom CSS</source>
-      <translation>Egen CSS</translation>
+      <translation>CSS מותאם אישית</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Namn</translation>
+      <translation>שם</translation>
     </message>
     <message>
       <source>Name of the company</source>
-      <translation>Namn på företaget</translation>
+      <translation>שם החברה</translation>
     </message>
     <message>
       <source>Need help header text</source>
-      <translation>Hjälpwidget titeltext</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Need help standard text</source>
-      <translation>Hjälpwidget standard text</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Widget border width (px)</source>
-      <translation>Kantlinjebredd för widgeten (px)</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Online status text</source>
-      <translation>Onlinestatus text</translation>
+      <translation>טקסט מצב מקוון</translation>
     </message>
     <message>
       <source>Offline status text</source>
-      <translation>Offlinestatus text</translation>
+      <translation>טקסט מצב לא מקוון</translation>
     </message>
     <message>
       <source>Operator intro text</source>
-      <translation>Operatör introduktionstext</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Have a question? Ask us!</source>
-      <translation>Har du en fråga? Kontakta oss!</translation>
+      <translation>יש לך שאלה? שאל/י אותנו!</translation>
     </message>
     <message>
       <source>Background color</source>
-      <translation>Bakgrundsfärg</translation>
+      <translation>צבע רקע</translation>
     </message>
     <message>
       <source>Status widget border color</source>
-      <translation>Borderfärg för statuswidgeten</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Text color</source>
-      <translation>Textfärg</translation>
+      <translation>צבע טקסט</translation>
     </message>
     <message>
       <source>Operator image in chat widget</source>
-      <translation>Operatörsbild i chattwidget</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Logo image, visible in popup</source>
-      <translation>Logobild, synlig i popupen</translation>
+      <translation>לוגו, נראה בחלון קופץ</translation>
     </message>
     <message>
       <source>Logo image, visible in widget left corner, 16x16</source>
-      <translation>Logobild, synlig i widgetens vänstra hörn, 16x16 px</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Show copyright widget logo in left corner</source>
-      <translation>Visa copyrightlogo i widgetens vänstra hörn</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Hide widget close button</source>
-      <translation>Glöm stäng-knappen för widgeten</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Hide popup option</source>
-      <translation>Göm popup-alternativet</translation>
+      <translation>הס אפשרות חלון קופץ</translation>
     </message>
     <message>
       <source>Header height (px)</source>
-      <translation>Höjd på headern (px)</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Header padding (px)</source>
-      <translation>Spaltfyllnad för headern (px)</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Site URL</source>
-      <translation>Sidans webbadress</translation>
+      <translation>כתובת האתר</translation>
     </message>
     <message>
       <source>Text above start chat form fields</source>
-      <translation>Text ovanför starta-chatt formulärfält</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Online image</source>
-      <translation>Onlinebild</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Offline image</source>
-      <translation>Offlinebild</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Widget header background color</source>
-      <translation>Widget rubrik bakgrundsfärg</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Widget border color</source>
-      <translation>Widget kantlinjefärg</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Need help background color</source>
-      <translation>Hjälpwidget backgrundsfärg</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Need help hover background color</source>
-      <translation>Hjälpwidget bakgrundsfärg hover</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Need help text color</source>
-      <translation>Hjälpwidget textfärg</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Text then user starts chat based on proactive invitation</source>
-      <translation>Text som ska visas när en användare startar en chatt baserat på proactive inbjudan</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Text then operator closes a chat</source>
-      <translation>Text som ska visas när en operatör stänger en chatt</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Text then user starts a chat and is waiting for operator to join a chat</source>
-      <translation>Text som ska visas när en användare startar en chatt och väntar på att operatören ska ansluta</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Text then user starts a chat but department is offline</source>
-      <translation>Text som ska visas när en användare startar en chatt med avdelningen är offline</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Leave a message form text</source>
-      <translation>Text för &quot;Lämna ett meddelande&quot;-formulär</translation>
+      <translation>טקסט טופס השארת הודעה</translation>
     </message>
     <message>
       <source>Need help border color</source>
-      <translation>Hjälpwidget borderfärg</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Need help close background color</source>
-      <translation>Hjälpwidget backgrundsfärg för stäng</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Need help close hover background color</source>
-      <translation>Hjälpwidget bakgrundsfärg för stäng hover</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Need help operator image</source>
-      <translation>Hjälpwidget operatörsbild</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Status widget additional CSS, takes effect after save</source>
-      <translation>Status widget ytterligare CSS, får effekt efter att det har sparats</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Widget container additional CSS, takes effect after save</source>
-      <translation>Widget box ytterligare CSS, får effekt efter att det har sparats</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Widget body additional CSS, takes effect after save</source>
-      <translation>Widget body ytterligare CSS, får effekt efter att det har sparats</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Minimize image</source>
-      <translation>Minimera bild</translation>
+      <translation>הקטן תמונה</translation>
     </message>
     <message>
       <source>Restore image</source>
-      <translation>Återställ bild</translation>
+      <translation>שחזר תמונה</translation>
     </message>
     <message>
       <source>Close image</source>
-      <translation>Stäng bild</translation>
+      <translation>שחזר תמונה</translation>
     </message>
     <message>
       <source>Popup image</source>
-      <translation>Popup bild</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Widget themes</source>
-      <translation>Widget stilar</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>chat/getstatus</name>
     <message>
       <source>Close</source>
-      <translation>Stäng</translation>
+      <translation>סגור</translation>
     </message>
     <message>
       <source>Open in a new window</source>
-      <translation>Öppna i ett nytt fönster</translation>
+      <translation>פתח בחלון חדש</translation>
     </message>
     <message>
       <source>Minimize/Restore</source>
-      <translation>Minimera/återställ</translation>
+      <translation>מזער/שחזר</translation>
     </message>
     <message>
       <source>Live help is online...</source>
-      <translation>Live hjälpen är online...</translation>
+      <translation>נציג זמין כעת...</translation>
     </message>
     <message>
       <source>Need help?</source>
-      <translation>Behöver du hjälp?</translation>
+      <translation>זקוק/ה לעזרה?</translation>
     </message>
     <message>
       <source>Our staff is always ready to help</source>
-      <translation>Våra operatörer är alltid redo att hjälpa till</translation>
+      <translation>נציגינו מוכנים לעזור תמיד</translation>
     </message>
     <message>
       <source>Live help is offline...</source>
-      <translation>Live hjälpen är otillgänglig...</translation>
+      <translation>אין נציג זמין כרגע...</translation>
     </message>
     <message>
       <source>Allow operator to see your page content?</source>
-      <translation>Tillåt operatören att se ditt sidinnehåll?</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Screen shared, click to finish</source>
-      <translation>Skärmen är delad, klicka för att avsluta</translation>
+      <translation>מסך שותף, לחץ לסיום</translation>
     </message>
   </context>
   <context>
     <name>abstract/proactivechatinvitation</name>
     <message>
       <source>If you want pro active chat invitation to work it has to be enabled in</source>
-      <translation>För att den proaktiva chatt inbjudan ska fungera måste den vara aktiverad i</translation>
+      <translation>על מנת לבצע זימון אקטיבי לצ&apos;ט יש לאפשר את האופציה בהגדרות</translation>
     </message>
     <message>
       <source>chat configuration</source>
-      <translation>chattinställningar</translation>
+      <translation>תצורות צ&apos;אט</translation>
     </message>
     <message>
       <source>also online users tracking has to be</source>
-      <translation>även online användarspårning behöver vara</translation>
+      <translation>גם מעקב משתמשים באונליין צריך להיות</translation>
     </message>
     <message>
       <source>enabled</source>
-      <translation>aktiverad</translation>
+      <translation>מופעל</translation>
     </message>
     <message>
       <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
-      <translation>Språk, t ex. lit, rus, ger osv... lämna blankt för alla</translation>
+      <translation>שפה, השאר ריק לכולן. למשל lit,rus,ger וכו&apos;</translation>
     </message>
     <message>
       <source>Position</source>
-      <translation>Position</translation>
+      <translation>מיקום</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation>Avdelning</translation>
+      <translation>מחלקה</translation>
     </message>
     <message>
       <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
-      <translation>Väntemeddelande. Synligt när användaren startar chatten och väntar på att någon ska acceptera chatten.</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Wait timeout. Time in seconds before timeout message is shown.</source>
-      <translation>Timeout på väntan. Tid i sekunder innan timeout meddelande visas.</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>How many times repeat message?</source>
-      <translation>Hur många gånger ska meddelandet repeteras?</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Show visitor this message then wait timeout passes.</source>
-      <translation>Visa besökaren detta meddelande när timeout tiden passerats.</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Auto responder</source>
-      <translation>Autosvar</translation>
+      <translation>תגובה אוטומטית</translation>
     </message>
     <message>
       <source>Name for personal purposes</source>
-      <translation>Namn för internt bruk</translation>
+      <translation>שם לשימוש פנימי</translation>
     </message>
     <message>
       <source>Operator name</source>
-      <translation>Operatörsnamn</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Time on site in seconds</source>
-      <translation>Tid på webbplatsen i sekunder</translation>
+      <translation>זמן באתר בשניות</translation>
     </message>
     <message>
       <source>Pageviews</source>
-      <translation>Sidan sedd ggr</translation>
+      <translation>צפיות דף</translation>
     </message>
     <message>
       <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
-      <translation>Hänvisningsdomän utan www, exempelvis google sökord matchar alla google domäner</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>How many times user show invitation, 0 - untill users closes it, &gt; 0 limits.</source>
-      <translation>Hur många gånger användare visar inbjudan, 0 - tills användare stänger ned, &gt; 0 gränser.</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Requires e-mail</source>
-      <translation>Kräver e-post</translation>
+      <translation>נדרש אימייל</translation>
     </message>
     <message>
       <source>Requires name</source>
-      <translation>Namn är obligatoriskt</translation>
+      <translation>נדרש שם</translation>
     </message>
     <message>
       <source>Requires phone</source>
-      <translation>Telefonnummer obligatoriskt</translation>
+      <translation>נדרש טלפון</translation>
     </message>
     <message>
       <source>Show random operator profile</source>
-      <translation>Visa slumpad operatörsprofil</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Enter operators IDs from whom random operator should be shown, separated by comma</source>
-      <translation>Ange operatörs ID från vilken en slumpmässig operatör visas, separerat med komma</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
-      <translation>Identifierare, för vilket identitet ska detta meddelande visas för, lämna blankt för alla</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Matched times</source>
-      <translation>Matchad antal</translation>
+      <translation>פריטים תואמים</translation>
     </message>
     <message>
       <source>Message to user</source>
-      <translation>Meddelande till användare</translation>
+      <translation>הודעה למשתמש</translation>
     </message>
     <message>
       <source>Message to returning user</source>
-      <translation>Meddelande till återvändande användare</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Nick which will be used if we cannot determine returning user name</source>
-      <translation>Namn som ska användas om vi inte kan bestämma den återvändande användarens namn</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
-      <translation>Väntemeddelande. Synligt när användaren startar chatten och väntar på att någon ska acceptera chatten.</translation>
+      <translation>הודעת המתנה. מוצג כאשר משתמשים מתחילים צ&apos;אט ומחכים שמישהו יקבל את השיחה</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
-      <translation>Proaktiva chattinbjudningar</translation>
+      <translation>הזמנה פרו אקטיבית לצ&apos;אט</translation>
     </message>
   </context>
   <context>
     <name>abstract/list</name>
     <message>
       <source>Are you sure?</source>
-      <translation>Är du säker?</translation>
+      <translation>האם אתה בטוח?</translation>
     </message>
   </context>
   <context>
     <name>system/htmlcode</name>
     <message>
       <source>HTML code</source>
-      <translation>HTML kod</translation>
+      <translation>קוד HTML</translation>
     </message>
     <message>
       <source>Popup width</source>
-      <translation>Popup bredd</translation>
+      <translation>רוחב חלון קופץ</translation>
     </message>
     <message>
       <source>Popup height, used only if iframe is used</source>
-      <translation>Popup höjd, används endast om iframe används</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
-      <translation>Den här identifieraren kan användas som filter för proaktiva inbjudningar för att ha olika meddelanden för olika domäner. Enbart test utan mellanslag eller specialtecken.</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Leave empty if it is not important to you</source>
-      <translation>Lämna tomt om det inte är viktigt för dig</translation>
+      <translation>תשאיר ריק אם זה לא חשוב לך</translation>
     </message>
     <message>
       <source>Offer timeout in days, after how many days show offers for the same visitor again, leave empty for session</source>
-      <translation>Erbjudande tidsbegränsat i dagar, efter hur många dagar att visa erbjudanden för samma besökare igen, lämna tomt för session</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>For what domain you are generating embed code?</source>
-      <translation>För vilken domän vill du generera inbäddningskoden?</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>example.com</source>
@@ -732,443 +732,443 @@
     </message>
     <message>
       <source>Choose prefered http mode</source>
-      <translation>Välj föredraget http läge</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Based on site (default)</source>
-      <translation>Baserad på sida (standard)</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Choose a language</source>
-      <translation>Väl ett språk</translation>
+      <translation>בחר שפה</translation>
     </message>
     <message>
       <source>Chatbox messages content height</source>
-      <translation>Chattbox meddelanden innehållshöjd</translation>
+      <translation>גובה תוכן הצ&apos;אט</translation>
     </message>
     <message>
       <source>Theme</source>
-      <translation>Stilar</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Default</source>
-      <translation>Standard</translation>
+      <translation>ברירת מחדל</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want it to be rendered</source>
-      <translation>Kopiera koden från textrutan till sidan där du vill att den ska visas</translation>
+      <translation>העתק את הקוד לדף בו אתה רוצה שהצ&apos;אט יוצג</translation>
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Chatbox module to render.</source>
-      <translation>Placera denna taggen där du vill att Live Helper Chattbox-modulen ska visas.</translation>
+      <translation>מקם את התג במקום שבו תרצה שהמודול  Live Helper Chatbox  יוצג</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper Chatbox module tag.</source>
-      <translation>Placera denna taggen efter Live Helper Chattbox-modulens tagg.</translation>
+      <translation>מקם את התג אחרי התג  Live Helper Chatbox </translation>
     </message>
     <message>
       <source>Chatbox</source>
-      <translation>Chattbox</translation>
+      <translation>תיבת צ&apos;אט</translation>
     </message>
     <message>
       <source>Position from the top, is only used if the Middle left or the Middle right side is chosen</source>
-      <translation>Position från toppen, används bara om mitten på vänster eller höger sida är vald</translation>
+      <translation>היסט מלמעלה, בשימוש רק אם אמצע שמאל או ימין נבחר</translation>
     </message>
     <message>
       <source>Pixels</source>
-      <translation>Pixlar</translation>
+      <translation>פיקסלים</translation>
     </message>
     <message>
       <source>Percents</source>
-      <translation>Procent</translation>
+      <translation>אחוזים</translation>
     </message>
     <message>
       <source>Size</source>
-      <translation>Storlek</translation>
+      <translation>גודל</translation>
     </message>
     <message>
       <source>Width</source>
-      <translation>Bredd</translation>
+      <translation>רוחב</translation>
     </message>
     <message>
       <source>Height</source>
-      <translation>Höjd</translation>
+      <translation>גובה</translation>
     </message>
     <message>
       <source>Position</source>
-      <translation>Position</translation>
+      <translation>מיקום</translation>
     </message>
     <message>
       <source>Bottom right corner of the screen</source>
-      <translation>Längst ned till höger på skärmen</translation>
+      <translation>פינה ימנית תחתונה של המסך</translation>
     </message>
     <message>
       <source>Bottom left corner of the screen</source>
-      <translation>Längst ned till vänster på skärmen</translation>
+      <translation>פינה שמאלית תחתונה של המסך</translation>
     </message>
     <message>
       <source>Middle right side of the screen</source>
-      <translation>Mitt på till höger på skärmen</translation>
+      <translation>בצד ימין של המסך</translation>
     </message>
     <message>
       <source>Middle left side of the screen</source>
-      <translation>Mitt på till vänster på skärmen</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Disable responsive layout for status widget.</source>
-      <translation>Inaktivera responsiv layout för statuswidget</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Disable minimize icon</source>
-      <translation>Inaktivera minimerad ikon</translation>
+      <translation>נטרל מזעור</translation>
     </message>
     <message>
       <source>Show chatbox content instead of widget, users will be able only minimize, not close it.</source>
-      <translation>Visa chattboxens innehåll istället för widget, användare kommer endast att kunna minimera, ej stänga fönstret.</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Show chatbox content minimized first time if content is shown.</source>
-      <translation>Visa chattboxens innehåll som minimerat första gången om innehållet visas.</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
-      <translation>Kopiera koden från textrutan till sidfoten före &amp;lt;/body&amp;gt; taggen</translation>
+      <translation>העתק את הקוד לתחתית הדף, לפני סגירת התג &lt;body&gt;</translation>
     </message>
     <message>
       <source>Copy the code from the textarea to page where you want it to be rendered</source>
-      <translation>Kopiera koden från textrutan till sidan där du vill att den ska visas</translation>
+      <translation>העתק את הקוד לדף בו אתה רוצה שהצ&apos;אט יוצג</translation>
     </message>
     <message>
       <source>Place this tag where you want the Live Helper FAQ module to render.</source>
-      <translation>Placera denna taggen där du vill att Live Helper FAQ-modulen ska visas.</translation>
+      <translation>מקם את התג במקום שבו תרצה שהמודול  Live Helper FAQ יוצג</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper FAQ module tag.</source>
-      <translation>Placera denna taggen efter Live Helper FAQ-modulens tagg.</translation>
+      <translation>מקם את התג אחרי התג  FAQ</translation>
     </message>
     <message>
       <source>Status text</source>
-      <translation>Statustext</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>FAQ</source>
-      <translation>FAQ</translation>
+      <translation>שאלות נפוצות</translation>
     </message>
     <message>
       <source>Position from the top, only used if the Middle left or the Middle right side is chosen</source>
-      <translation>Position från toppen, används bara om mitten på vänster eller höger sida är vald</translation>
+      <translation>היסט מלמעלה, בשימוש רק אם אמצע שמאל או ימין נבחר</translation>
     </message>
     <message>
       <source>Choose what form you want to embed</source>
-      <translation>Välj vilket formulär du vill bädda in</translation>
+      <translation>בחר טופס להטמעה</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation>Indentifierare</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Questionary module to render.</source>
-      <translation>Placera denna taggen där du vill att Live Helper Questionary-modulen ska visas.</translation>
+      <translation>מקם את התג במקום שבו תרצה שהמודול  Live Helper Questionary  יוצג</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper Questionary module tag.</source>
-      <translation>Placera denna taggen efter Live Helper Questionary-modulens tagg.</translation>
+      <translation>מקם את התג אחרי התג  Questionary </translation>
     </message>
     <message>
       <source>Help us to grow</source>
-      <translation>Hjälp oss växa</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Embed code</source>
-      <translation>Inbäddad kod</translation>
+      <translation>קוד הטמעה</translation>
     </message>
     <message>
       <source>Widget embed code</source>
-      <translation>Inbäddad kod för widget</translation>
+      <translation>קוד הטמעת ווידג&apos;ט </translation>
     </message>
     <message>
       <source>Page embed code</source>
-      <translation>Inbäddad kod för sida</translation>
+      <translation>קוד הטמעת דף</translation>
     </message>
     <message>
       <source>Set default speech recognition language</source>
-      <translation>Ställ in taligenkänningsspråket som ska användas som standard</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Speech language</source>
-      <translation>Talspråk</translation>
+      <translation>שפת דיבור</translation>
     </message>
     <message>
       <source>General</source>
-      <translation>Allmänt</translation>
+      <translation>כללי</translation>
     </message>
     <message>
       <source>Design</source>
-      <translation>Design</translation>
+      <translation>עיצוב</translation>
     </message>
     <message>
       <source>Hide status when offline</source>
-      <translation>Göm status när ej tillgänglig</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Show a leave a message form when there are no online operators</source>
-      <translation>Visa ett lämna meddelande formulär om det inte finns några operatörer tillgänliga</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Department</source>
-      <translation>Avdelning</translation>
+      <translation>מחלקה</translation>
     </message>
     <message>
       <source>Any</source>
-      <translation>Valfri</translation>
+      <translation>fk</translation>
     </message>
     <message>
       <source>Operator ID</source>
-      <translation>Operatörs-ID</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>To what operator chat should be assigned automatically?</source>
-      <translation>Till vilken operatör ska chatten bli tilldelad automatiskt?</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want your status to appear</source>
-      <translation>Kopiera koden från textrutan till sidan där du vill att din status ska synas</translation>
+      <translation>העתק את הקוד לדף בו אתה רוצה שהסטטוס יוצג</translation>
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Plugin to render.</source>
-      <translation>Placera denna taggen där du vill att Live Helper Plugin ska visas.</translation>
+      <translation>מקם את התג במקום שבו תרצה שהמודול  Live Helper Plugin יוצג</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper Plugin tag.</source>
-      <translation>Placera denna taggen efter taggen för Live Helper Plugin.</translation>
+      <translation>מקם את התג אחרי התג   Live Helper Plugin</translation>
     </message>
     <message>
       <source>On a mouse click show the page widget</source>
-      <translation>Vid en musklickning, visa sid-widgeten</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Automatically check for messages from the operator/invitation messages</source>
-      <translation>Kontrollera automatiskt efter meddelanden från operatör/inbjudning</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>It increases server load, because every 15 seconds is checked for operator message or invitation message.</source>
-      <translation>Det ökar serverbelastningen för varje 15s kontrolleras om det finns operatörs eller inbjudningsmeddelanden.</translation>
+      <translation>זה מעלה את העומס על השרת כי כל 15 שניות נבדקת אם התקבלה הודעה או הזמנה</translation>
     </message>
     <message>
       <source>Disable pro active invitations, usefull if you want disable them from site part.</source>
-      <translation>Avaktivera proaktiva inbjudningar, användbart om du vill avaktivera dem från webbplatsen.</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
-      <translation>Minimera handling, tillämpas endast om statuswidgeten är i botten</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Keep where it was</source>
-      <translation>Behåll där den var</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Minimize to bottom of the screen</source>
-      <translation>Minimera till botten av skärmen</translation>
+      <translation>מזער לתחתית המסך</translation>
     </message>
     <message>
       <source>Native placement - it will be shown where the html is embedded</source>
-      <translation>Direkt placering - den visas där html koden läggs in</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Invisible, only JS API will be included</source>
-      <translation>Osynlig, endast JS API kommer att inkluderas</translation>
+      <translation>בלתי נראה, רק ה JS API יכלל</translation>
     </message>
     <message>
       <source>Popup window width</source>
-      <translation>Bredd på popup-fönstret</translation>
+      <translation>רוחב חלון קופץ</translation>
     </message>
     <message>
       <source>Popup window width in pixels</source>
-      <translation>Popup ruta bredd i pixlar</translation>
+      <translation>רוחב חלון קופץ בפיקסלים</translation>
     </message>
     <message>
       <source>height</source>
-      <translation>höjd</translation>
+      <translation>גובה</translation>
     </message>
     <message>
       <source>Popup window height in pixels</source>
-      <translation>Popup ruta höjd i pixlar</translation>
+      <translation>גוובה חלון קופץ בפיקסלים</translation>
     </message>
     <message>
       <source>Widget width</source>
-      <translation>Widget bredd</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Widget width in pixels</source>
-      <translation>Widget bredd i pixlar</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Widget height in pixels</source>
-      <translation>Widget höjd i pixlar</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>
-      <translation>Var vänlig och utelämna http-protokollet från namnet, endast domännamnet är nödvändigt</translation>
+      <translation>אין צורך בפרוטוקול, רק בשם האתר</translation>
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Status to render.</source>
-      <translation>Placera denna taggen där du vill att Live Helper Status ska visas.</translation>
+      <translation>מקם את התג במקום שבו תרצה שהמודול  Live Helper Status  יוצג</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper status tag.</source>
-      <translation>Placera denna taggen efter statustaggen för Live Helper.</translation>
+      <translation>מקם את התג אחרי התג   Live Helper status </translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Systeminställningar</translation>
+      <translation>תצורת מערכת</translation>
     </message>
   </context>
   <context>
     <name>questionary/htmlcode</name>
     <message>
       <source>Show overlay</source>
-      <translation>Visa överlappande</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Show different offers for the same user</source>
-      <translation>Visa olika erbjudanden för samma användare</translation>
+      <translation>הצג הצעות שונות לאותו משתמש</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page header or footer</source>
-      <translation>Kopiera koden från textrutan till sidhuvudet eller sidfoten</translation>
+      <translation>העתק את הקוד לראש הדף או לתחתיתו</translation>
     </message>
     <message>
       <source>Status text</source>
-      <translation>Statustext</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Expand the widget automatically for new users</source>
-      <translation>Expandera widget&apos;en automatiskt för nya användare</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
-      <translation>Kopiera koden från textrutan till sidfoten före &amp;lt;/body&amp;gt; slut taggen</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>HTML code</source>
-      <translation>HTML-kod</translation>
+      <translation>קוד HTML</translation>
     </message>
   </context>
   <context>
     <name>browseoffer/index</name>
     <message>
       <source>Browse offers</source>
-      <translation>Bläddra bland erbjudanden</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>General</source>
-      <translation>Allmänt</translation>
+      <translation>כללי</translation>
     </message>
     <message>
       <source>Browse your offers</source>
-      <translation>Bläddra bland dina erbjudanden</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>HTML Code</source>
-      <translation>HTML kod</translation>
+      <translation>קוד HTML</translation>
     </message>
     <message>
       <source>Forms</source>
-      <translation>Formulär</translation>
+      <translation>טפסים</translation>
     </message>
     <message>
       <source>Form</source>
-      <translation>Formulär</translation>
+      <translation>טופס</translation>
     </message>
   </context>
   <context>
     <name>chat/activechats</name>
     <message>
       <source>Information</source>
-      <translation>Information</translation>
+      <translation>מידע</translation>
     </message>
     <message>
       <source>Open in a new window</source>
-      <translation>Öppna i ett nytt fönster</translation>
+      <translation>פתח בחלון חדש</translation>
     </message>
     <message>
       <source>Close chat</source>
-      <translation>Stäng chatt</translation>
+      <translation>סגור צ&apos;אט</translation>
     </message>
     <message>
       <source>Delete chat</source>
-      <translation>Ta bort chatt</translation>
+      <translation>מחיקת צ&apos;אט</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Tom...</translation>
+      <translation>ריק...</translation>
     </message>
     <message>
       <source>Active chats list</source>
-      <translation>Lista på aktiva chattar</translation>
+      <translation>רשימת צ&apos;אטים פעילים</translation>
     </message>
     <message>
       <source>Chats lists</source>
-      <translation>Chattlista</translation>
+      <translation>רשימות צ&apos;אט</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation>Aktiva chattar</translation>
+      <translation>צ&apos;אטים פעילים</translation>
     </message>
   </context>
   <context>
     <name>chat/lists/search_panel</name>
     <message>
       <source>Delete selected</source>
-      <translation>Radera valda</translation>
+      <translation>מחק בחירה</translation>
     </message>
     <message>
       <source>Nick</source>
-      <translation>Smeknamn</translation>
+      <translation>כינוי</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-post</translation>
+      <translation>דוא&quot;ל</translation>
     </message>
     <message>
       <source>Date range from to</source>
-      <translation>Datum från</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Department</source>
-      <translation>Avdelning</translation>
+      <translation>מחלקה</translation>
     </message>
     <message>
       <source>User</source>
-      <translation>Användare</translation>
+      <translation>משתמש</translation>
     </message>
     <message>
       <source>Vote status</source>
-      <translation>Röstningsstatus</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Any</source>
-      <translation>Valfri</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Not Voted</source>
-      <translation>Inte röstat</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Up Voted</source>
-      <translation>Uppröstad</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Down vote</source>
-      <translation>Rösta ner</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Search</source>
-      <translation>Sök</translation>
+      <translation>חיפוש</translation>
     </message>
     <message>
       <source>Print</source>
-      <translation>Skriv ut</translation>
+      <translation>הדפס</translation>
     </message>
     <message>
       <source>XLS</source>
@@ -1176,98 +1176,98 @@
     </message>
     <message>
       <source>XLS (with content)</source>
-      <translation>XLS (med innehåll)</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Select department</source>
-      <translation>Välj avdelning</translation>
+      <translation>בחר מחלקה</translation>
     </message>
     <message>
       <source>Select user</source>
-      <translation>Välj användare</translation>
+      <translation>בחר משתמש</translation>
     </message>
     <message>
       <source>Type to search</source>
-      <translation>Skriv in för att söka</translation>
+      <translation>סוג החיפוש</translation>
     </message>
     <message>
       <source>Choose department</source>
-      <translation>Välj avdelning</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Group by</source>
-      <translation>Gruppera efter</translation>
+      <translation>קבץ לפי</translation>
     </message>
     <message>
       <source>Month</source>
-      <translation>Månad</translation>
+      <translation>חודש</translation>
     </message>
     <message>
       <source>Day</source>
-      <translation>Dag</translation>
+      <translation>יום</translation>
     </message>
   </context>
   <context>
     <name>chat/chat</name>
     <message>
       <source>Show/Hide right column</source>
-      <translation>Visa/Dölj höger kolumn</translation>
+      <translation>הצג/הסתר עמודה ימנית</translation>
     </message>
     <message>
       <source>User is typing now...</source>
-      <translation>Användaren skriver...</translation>
+      <translation>משתמש מקליד עכשיו...</translation>
     </message>
     <message>
       <source>Change chat status</source>
-      <translation>Ändra chattens status</translation>
+      <translation>שנה מצב שיחה</translation>
     </message>
     <message>
       <source>Pending</source>
-      <translation>Vänteläge</translation>
+      <translation>ממתין</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation>Aktiv</translation>
+      <translation>פעיל</translation>
     </message>
     <message>
       <source>Closed</source>
-      <translation>Stängd</translation>
+      <translation>סגורים</translation>
     </message>
     <message>
       <source>Chatbox chat</source>
-      <translation>Chattbox chatt</translation>
+      <translation>שיחת צ&apos;אטבוקס</translation>
     </message>
     <message>
       <source>Operators chat</source>
-      <translation>Operatörs chatt</translation>
+      <translation>צ&apos;אט עם מפעיל</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Avbryt</translation>
+      <translation>ביטול</translation>
     </message>
     <message>
       <source>This chat is closed.</source>
-      <translation>Den här chatten är stängd</translation>
+      <translation>צ&apos;אט זה סגור</translation>
     </message>
     <message>
       <source>Pending confirm</source>
-      <translation>Väntar på bekräftelse</translation>
+      <translation>ממתין לאישור</translation>
     </message>
     <message>
       <source>Close</source>
-      <translation>Stäng</translation>
+      <translation>סגור</translation>
     </message>
     <message>
       <source>Send</source>
-      <translation>Skicka</translation>
+      <translation>שלח</translation>
     </message>
     <message>
       <source>BB Code</source>
-      <translation>BB kod</translation>
+      <translation>קוד BB</translation>
     </message>
     <message>
       <source>Enter your message</source>
-      <translation>Skriv in ditt meddelande</translation>
+      <translation>הקלד את הודעתך:</translation>
     </message>
     <message>
       <source>Close and Start a new one</source>
@@ -1275,66 +1275,66 @@
     </message>
     <message>
       <source>Chatbox is disabled.</source>
-      <translation>Chattboxen är avaktiverad</translation>
+      <translation>קופסאת הצ&apos;אט לא מאופשרת</translation>
     </message>
     <message>
       <source>Invalid hash or auto creation is disabled</source>
-      <translation>Felaktig hash eller så är autoskapandet avaktiverat</translation>
+      <translation>קוד HASH לא תקין או שמחולל הקוד האוטומטי לא מופעל</translation>
     </message>
     <message>
       <source>Switch to widget</source>
-      <translation>Växla till widget</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visitor</source>
-      <translation>Besökare</translation>
+      <translation>מבקר</translation>
     </message>
     <message>
       <source>Chat started</source>
-      <translation>Chatt startad</translation>
+      <translation>השיחה התחילה</translation>
     </message>
     <message>
       <source>is typing now...</source>
-      <translation>skriver nu ...</translation>
+      <translation>מקליד כעת...</translation>
     </message>
     <message>
       <source>Operator is typing now...</source>
-      <translation>Operatören skriver...</translation>
+      <translation>מפעיל האתר מקליד כעת...</translation>
     </message>
   </context>
   <context>
     <name>chat/bbcodeinsert</name>
     <message>
       <source>Image</source>
-      <translation>Bild</translation>
+      <translation>תמונה</translation>
     </message>
     <message>
       <source>Link</source>
-      <translation>Länk</translation>
+      <translation>קישור</translation>
     </message>
     <message>
       <source>Link title</source>
-      <translation>Länk rubrik</translation>
+      <translation>כותרת הקישור</translation>
     </message>
     <message>
       <source>Bold</source>
-      <translation>Fetstil</translation>
+      <translation>מודגש</translation>
     </message>
     <message>
       <source>Italic</source>
-      <translation>Kursiv stil</translation>
+      <translation>נטוי</translation>
     </message>
     <message>
       <source>Please enter link to an image</source>
-      <translation>Var vänlig ange en länk till en bild</translation>
+      <translation>אנא הזן קישור לתמונה</translation>
     </message>
     <message>
       <source>Please enter a link</source>
-      <translation>Var vänlig ange en länk</translation>
+      <translation>אנא הזן קישור</translation>
     </message>
     <message>
       <source>Here is a link</source>
-      <translation>Här är en länk</translation>
+      <translation>הנה קישור</translation>
     </message>
   </context>
   <context>
@@ -1345,582 +1345,582 @@
     </message>
     <message>
       <source>Date</source>
-      <translation>Datum</translation>
+      <translation>תאריך</translation>
     </message>
     <message>
       <source>Users who are blocked</source>
-      <translation>Blockerade användare</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Remove block</source>
-      <translation>Ta bort blockering</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Tom...</translation>
+      <translation>ריק...</translation>
     </message>
     <message>
       <source>Blocked users</source>
-      <translation>Blockerade användare</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter an IP to block</source>
-      <translation>Var vänlig skriv in en IP adress att blockera</translation>
+      <translation>אנא הזן כתובת IP לחסימה</translation>
     </message>
     <message>
       <source>User was blocked!</source>
-      <translation>Användare blockerad!</translation>
+      <translation>המשתמש נחסם!</translation>
     </message>
     <message>
       <source>User blocking failed, perhaps you do not have permission to block users?</source>
-      <translation>Det gick inte att blockera användaren, kanske saknar du rättigheter för detta?</translation>
+      <translation>חסימת המשתמש נכשלה. אולי חסרה לך הרשאה מתאימה?</translation>
     </message>
   </context>
   <context>
     <name>kernel/message</name>
     <message>
       <source>Are you sure?</source>
-      <translation>Är du säker?</translation>
+      <translation>האם אתה בטוח?</translation>
     </message>
   </context>
   <context>
     <name>chat/cannedmsg</name>
     <message>
       <source>Title/Message</source>
-      <translation>Rubrik/Meddelande</translation>
+      <translation>כותרת/הודעה</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation>Avdelning</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User</source>
-      <translation>Användare</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Delay</source>
-      <translation>Fördröjning</translation>
+      <translation>השהייה</translation>
     </message>
     <message>
       <source>Position</source>
-      <translation>Position</translation>
+      <translation>מיקום</translation>
     </message>
     <message>
       <source>Auto send</source>
-      <translation>Skicka automatiskt</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Edit message</source>
-      <translation>Redigera meddelande</translation>
+      <translation>ערוך הודעה</translation>
     </message>
     <message>
       <source>Delete message</source>
-      <translation>Ta bort meddelande</translation>
+      <translation>מחיקת הודעה</translation>
     </message>
     <message>
       <source>New canned message</source>
-      <translation>Nytt snabbmeddelande</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Title</source>
-      <translation>Rubrik</translation>
+      <translation>כותרת</translation>
     </message>
     <message>
       <source>Explain</source>
-      <translation>Förklara</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Message</source>
-      <translation>Meddelande</translation>
+      <translation>הודעה</translation>
     </message>
     <message>
       <source>Fallback message</source>
-      <translation>Meddelande att falla tillbaka på</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Automatically send this message to user then chat is accepted</source>
-      <translation>Skicka automatiskt detta meddelande till användaren när chatten accepteras</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Delay in seconds</source>
-      <translation>Fördröjning i sekunder</translation>
+      <translation>עיכוב בשניות</translation>
     </message>
     <message>
       <source>Canned messages</source>
-      <translation>Sparade snabbmeddelanden</translation>
+      <translation>תשובות מוכנות מראש</translation>
     </message>
     <message>
       <source>Edit canned message</source>
-      <translation>Redigera snabbmeddelande</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Personal canned message</source>
-      <translation>Personligt förifyllt meddelande</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Canned message was saved</source>
-      <translation>Förifyllt meddelande sparades</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter a canned message</source>
-      <translation>Skriv in snabbmeddelande</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please choose a department</source>
-      <translation>Var vänlig välj en avdelning</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Systeminställningar</translation>
+      <translation>תצורת מערכת</translation>
     </message>
   </context>
   <context>
     <name>department/edit</name>
     <message>
       <source>Any</source>
-      <translation>Något</translation>
+      <translation>כל</translation>
     </message>
     <message>
       <source>Edit department</source>
-      <translation>Redigera avdelning</translation>
+      <translation>עריכת מחלקה</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Namn</translation>
+      <translation>שם</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-post</translation>
+      <translation>דוא&quot;ל</translation>
     </message>
     <message>
       <source>Disabled</source>
-      <translation>Inaktiverad</translation>
+      <translation>מנוטרל</translation>
     </message>
     <message>
       <source>Will not be visible to visitor</source>
-      <translation>Kommer inte att vara synlig för besökare</translation>
+      <translation>לא יוצג למבקר</translation>
     </message>
     <message>
       <source>Hidden</source>
-      <translation>Gömd</translation>
+      <translation>מוסתר</translation>
     </message>
     <message>
       <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
-      <translation>Fördröjning i sekunder tills lämna ett meddelande formuläret visas. 0 betyder att funktionen är inaktiverad.</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Priority</source>
-      <translation>Prioritet</translation>
+      <translation>עדיפות</translation>
     </message>
     <message>
       <source>Automate online hours</source>
-      <translation>Automatisera onlinetimmar</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Notifications</source>
-      <translation>Notifieringar</translation>
+      <translation>התראות</translation>
     </message>
     <message>
       <source>Chat transfer worklow</source>
-      <translation>Chatt flytt arbetsflöde</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Auto assignment</source>
-      <translation>Automatisk tilldelning</translation>
+      <translation>השמה אוטומטית</translation>
     </message>
     <message>
       <source>Miscellaneous</source>
-      <translation>Blandat</translation>
+      <translation>שונות</translation>
     </message>
     <message>
       <source>Work hours/work days logic is active</source>
-      <translation>Arbetstid/arbetsdagar logik är aktiv</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Workdays/work hours, during these days/hours chat will be active automatically</source>
-      <translation>Arbetsdagar/arbetstimmar, under dessa dagar/timmar kommer chatten automatiskt att vara aktiv</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Monday</source>
-      <translation>Måndag</translation>
+      <translation>יום שני</translation>
     </message>
     <message>
       <source>Tuesday</source>
-      <translation>Tisdag</translation>
+      <translation>יום שלישי</translation>
     </message>
     <message>
       <source>Wednesday</source>
-      <translation>Onsdag</translation>
+      <translation>יום רביעי</translation>
     </message>
     <message>
       <source>Thursday</source>
-      <translation>Torsdag</translation>
+      <translation>יום חמישי</translation>
     </message>
     <message>
       <source>Friday</source>
-      <translation>Fredag</translation>
+      <translation>יום שישי</translation>
     </message>
     <message>
       <source>Saturday</source>
-      <translation>Lördag</translation>
+      <translation>יום שבת</translation>
     </message>
     <message>
       <source>Sunday</source>
-      <translation>Söndag</translation>
+      <translation>יום ראשון</translation>
     </message>
     <message>
       <source>Work hours, 24 hours format, 1 - 24, minutes format 0 - 60</source>
-      <translation>Arbetstid, 24 timmars format, 1 -24, format i minuter, 0 -60</translation>
+      <translation>שעות עבודה, פורמט 24 שעות, 1-24, פורמט דקות 0-60</translation>
     </message>
     <message>
       <source>Hours from</source>
-      <translation>Timmar från</translation>
+      <translation>מהשעה</translation>
     </message>
     <message>
       <source>Hours from, E.g. 8</source>
-      <translation>Timmar från, exempelvis 8</translation>
+      <translation>מהשעה, לדוגמה 8</translation>
     </message>
     <message>
       <source>Minutes from</source>
-      <translation>Minuter från</translation>
+      <translation>מדקה</translation>
     </message>
     <message>
       <source>Minutes from, E.g. 30</source>
-      <translation>Minuter från, exempelvis 30</translation>
+      <translation>מדקה, לדגומה 30</translation>
     </message>
     <message>
       <source>Hours to</source>
-      <translation>Timmar till</translation>
+      <translation>עד לשעה</translation>
     </message>
     <message>
       <source>Hours to, E.g. 17</source>
-      <translation>Timmar till, exempelvis 17</translation>
+      <translation>עד לשעה, לדוגמה 17</translation>
     </message>
     <message>
       <source>Minutes to</source>
-      <translation>Minuter till</translation>
+      <translation>עד לדקה</translation>
     </message>
     <message>
       <source>Minutes to, E.g. 30</source>
-      <translation>Minuter till, exempelvis 30</translation>
+      <translation>עד לדקה, לוגמה 30</translation>
     </message>
     <message>
       <source>XMPP recipients</source>
-      <translation>XMPP mottagare</translation>
+      <translation>נמעני XMPP</translation>
     </message>
     <message>
       <source>XMPP group recipients</source>
-      <translation>XMPP mottagare grupp</translation>
+      <translation>נמעני קבוצה XMPP</translation>
     </message>
     <message>
       <source>E.g somechat@conference.server.org/LiveChat</source>
-      <translation>Exempelvis somechat@conference.server.org/LiveChat</translation>
+      <translation>לדוגמה somechat@conference.server.org/LiveChat</translation>
     </message>
     <message>
       <source>These messages will be send as group messages</source>
-      <translation>Dessa meddelanden kommer att skickas som gruppmeddelanden</translation>
+      <translation>הודעות אלו ישלחו כהודעה קבוצתית</translation>
     </message>
     <message>
       <source>Inform about new chats using</source>
-      <translation>Informera om nya chattar använder</translation>
+      <translation>ידע אודות צ&apos;אטים חדשים באמצעות</translation>
     </message>
     <message>
       <source>XMPP messages</source>
-      <translation>XMPP meddelanden</translation>
+      <translation>הודעות XMPP</translation>
     </message>
     <message>
       <source>Send XMPP messages to all department operators</source>
-      <translation>Skicka XMPP-meddelanden till alla avdelningsoperatörer</translation>
+      <translation>שלח הודעת XMPP לכל מנהלי המחלקות</translation>
     </message>
     <message>
       <source>Mail messages</source>
-      <translation>E-postmeddelanden</translation>
+      <translation>הודעות דוא&quot;ל</translation>
     </message>
     <message>
       <source>How many seconds chat can be pending before about chat is informed a staff</source>
-      <translation>Hur många sekunder en chat kan vara i vänteläge förrän en ny operatör informeras</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Inform about unread messages if from last unread user message have passed (seconds)</source>
-      <translation>Informera om olästa meddelande om från senaste olästa meddelande användare har passerat (sekunder)</translation>
+      <translation>ידע אודות הודעות שלא נקראו אם מההודעה האחרונה שלא נקראה עברו (שניות)</translation>
     </message>
     <message>
       <source>Please enter value in seconds</source>
-      <translation>Var vänlig ange värdet i sekunder</translation>
+      <translation>אנא הזן ערך בשניות</translation>
     </message>
     <message>
       <source>Inform then chat is accepted by one of the staff members using</source>
-      <translation>Informera då chatten är accepterad av en av operatörerna som använder</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Other</source>
-      <translation>Andra</translation>
+      <translation>אחר</translation>
     </message>
     <message>
       <source>Inform then chat is closed by operator, only mail notification is send.</source>
-      <translation>Informera sedan stängs chatten av operatören, endast e-postnotifikation är tillgänglig.</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>To what department chat should be transfered if it is not accepted</source>
-      <translation>Till vilken avdelning chatten ska vidarebefordras om den inte blir accepterad</translation>
+      <translation>לאיזו מחלקה להעביר שיחה אם היא לא התקבלה</translation>
     </message>
     <message>
       <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
-      <translation>Timeout i sekunder innan chatten vidarebefodras till en annan avdelning. Minst 5s.</translation>
+      <translation>זמן להעברת שיחה למחלקה אחרת. מינימום 5 שניות</translation>
     </message>
     <message>
       <source>Execute new chat logic again for recipient department?</source>
-      <translation>Kör ny chattlogik för mottagarens avdelning?</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Execute unanswered chat logic again for recipient department?</source>
-      <translation>Kör obesvarad chattlogik för mottagrens avdelning?</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
-      <translation>Det här fältet kan vara 50 tecken långt och kan användas för tillägg. Det här fältet är även  indexerat.</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>None</source>
-      <translation>Ingen</translation>
+      <translation>כלום</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Systeminställningar</translation>
+      <translation>תצורת מערכת</translation>
     </message>
     <message>
       <source>departments</source>
-      <translation>avdelningar</translation>
+      <translation>מחלקות</translation>
     </message>
     <message>
       <source>Edit a department</source>
-      <translation>Redigera en avdelning</translation>
+      <translation>עריכת מחלקה</translation>
     </message>
   </context>
   <context>
     <name>chat/chatnotexists</name>
     <message>
       <source>Resume chat</source>
-      <translation>Återuppta chatt</translation>
+      <translation>המשך צ&apos;אט</translation>
     </message>
     <message>
       <source>Chat was deleted</source>
-      <translation>Chatt borttagen</translation>
+      <translation>הצ&apos;אט נמחק</translation>
     </message>
   </context>
   <context>
     <name>chat/adminchat</name>
     <message>
       <source>Attach uploaded file</source>
-      <translation>Bifoga uppladdad fil</translation>
+      <translation>צרף קובץ</translation>
     </message>
     <message>
       <source>Are you sure?</source>
-      <translation>Är du säker?</translation>
+      <translation>האם אתה בטוח?</translation>
     </message>
     <message>
       <source>Block user</source>
-      <translation>Blockera användare</translation>
+      <translation>חסימת משתמש</translation>
     </message>
     <message>
       <source>Screen sharing</source>
-      <translation>Skärmdelning</translation>
+      <translation>שיתוף מסך</translation>
     </message>
     <message>
       <source>Choose other than default recognition language</source>
-      <translation>Välj ett annat igenkänningsspråk än det som är standard</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Transfer chat</source>
-      <translation>Vidarebefodra chatten</translation>
+      <translation>העבר שיחה</translation>
     </message>
     <message>
       <source>Footprint</source>
-      <translation>Fotspår</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visitor</source>
-      <translation>Besökare</translation>
+      <translation>מבקר</translation>
     </message>
     <message>
       <source>Files</source>
-      <translation>Filer</translation>
+      <translation>קבצים</translation>
     </message>
     <message>
       <source>Click to change chat status</source>
-      <translation>Klicka för att ändra status</translation>
+      <translation>לחץ לשינוי סטטוס הצ&apos;אט</translation>
     </message>
     <message>
       <source>Pending chat</source>
-      <translation>Väntande chatt</translation>
+      <translation>שיחה ממתינה</translation>
     </message>
     <message>
       <source>Active chat</source>
-      <translation>Aktiv chatt</translation>
+      <translation>שיחה פעילה</translation>
     </message>
     <message>
       <source>Closed chat</source>
-      <translation>Stängd chatt</translation>
+      <translation>סגור שיחה</translation>
     </message>
     <message>
       <source>Chatbox chat</source>
-      <translation>Chattbox chatt</translation>
+      <translation>שיחת צ&apos;אט</translation>
     </message>
     <message>
       <source>Operators chat</source>
-      <translation>Operatörschatt</translation>
+      <translation>צ&apos;אא עם מפעיל</translation>
     </message>
     <message>
       <source>Edit main chat information</source>
-      <translation>Redigera huvudinformationen för chatten</translation>
+      <translation>ערוך את המידע על הצ&apos;אט</translation>
     </message>
     <message>
       <source>Close dialog</source>
-      <translation>Stäng dialogrutan</translation>
+      <translation>סגור חלון</translation>
     </message>
     <message>
       <source>Close chat</source>
-      <translation>Stäng chatt</translation>
+      <translation>סגור צ&apos;אט</translation>
     </message>
     <message>
       <source>Delete chat</source>
-      <translation>Ta bort chatt</translation>
+      <translation>מחיקת צ&apos;אט</translation>
     </message>
     <message>
       <source>Mail was send</source>
-      <translation>Mejlet skickades</translation>
+      <translation>האימייל נשלח</translation>
     </message>
     <message>
       <source>Send mail</source>
-      <translation>Skicka e-post</translation>
+      <translation>שלח אימייל</translation>
     </message>
     <message>
       <source>Redirect user to contact form.</source>
-      <translation>Vidarebefordra användare till kontaktformulär</translation>
+      <translation>הפנה את המשתמש לטופס יצירת קשר</translation>
     </message>
     <message>
       <source>Print</source>
-      <translation>Skriv ut</translation>
+      <translation>הדפס</translation>
     </message>
     <message>
       <source>Please enter a URL</source>
-      <translation>Var vänlig skriv en URL</translation>
+      <translation>אנא הזן כתובת אינטרנט</translation>
     </message>
     <message>
       <source>Redirect user to another url</source>
-      <translation>Vidarebefordra användare till en annan URL</translation>
+      <translation>מפנה משתמש לכתובת אחרת</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation>Avdelning</translation>
+      <translation>מחלקה</translation>
     </message>
     <message>
       <source>Country</source>
-      <translation>Land</translation>
+      <translation>מדינה</translation>
     </message>
     <message>
       <source>Time zone</source>
-      <translation>Tidzon</translation>
+      <translation>אזור זמן</translation>
     </message>
     <message>
       <source>City</source>
-      <translation>Stad</translation>
+      <translation>עיר</translation>
     </message>
     <message>
       <source>Page</source>
-      <translation>Sida</translation>
+      <translation>דף</translation>
     </message>
     <message>
       <source>Came from</source>
-      <translation>Kom från</translation>
+      <translation>הגיע מ</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-post</translation>
+      <translation>דוא&quot;ל</translation>
     </message>
     <message>
       <source>Phone</source>
-      <translation>Telefonnr</translation>
+      <translation>טלפון</translation>
     </message>
     <message>
       <source>Additional data</source>
-      <translation>Extra data</translation>
+      <translation>מידע נוסף</translation>
     </message>
     <message>
       <source>Created</source>
-      <translation>Skapad</translation>
+      <translation>נוצר</translation>
     </message>
     <message>
       <source>User left</source>
-      <translation>Användaren lämnade</translation>
+      <translation>משתמש עזב</translation>
     </message>
     <message>
       <source>Waited</source>
-      <translation>Väntat</translation>
+      <translation>המתין</translation>
     </message>
     <message>
       <source>Chat duration</source>
-      <translation>Chattlängd</translation>
+      <translation>משך השיחה</translation>
     </message>
     <message>
       <source>Chat between operators, chat initializer</source>
-      <translation>Chatt mellan operatörer, initerad av</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chat owner</source>
-      <translation>Chattägare</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
-      <translation>Kunde inte hitta. Kontrollera att GEO spårning är aktiverad.</translation>
+      <translation>לא זוהה. וודא שזיהוי מיקום מאופשר</translation>
     </message>
     <message>
       <source>Map</source>
-      <translation>Karta</translation>
+      <translation>מפה</translation>
     </message>
     <message>
       <source>Refresh</source>
-      <translation>Uppdatera</translation>
+      <translation>רענון</translation>
     </message>
     <message>
       <source>User browsing information</source>
-      <translation>Information om användarens webbläsare</translation>
+      <translation>מידע על דפדפן המשתמש</translation>
     </message>
     <message>
       <source>Chats</source>
-      <translation>Chattar</translation>
+      <translation>שיחות</translation>
     </message>
     <message>
       <source>Remarks</source>
-      <translation>Anmärkningar</translation>
+      <translation>הערות</translation>
     </message>
     <message>
       <source>Notes</source>
-      <translation>Anteckningar</translation>
+      <translation>הערות</translation>
     </message>
     <message>
       <source>Send</source>
-      <translation>Skicka</translation>
+      <translation>שלח</translation>
     </message>
     <message>
       <source>Reopen chat</source>
-      <translation>Återuppta chatten</translation>
+      <translation>פתח שיחה מחדש</translation>
     </message>
     <message>
       <source>Select a canned message</source>
-      <translation>Välj snabbmeddelande</translation>
+      <translation>בחר מענה מוכן מראש</translation>
     </message>
     <message>
       <source>Fill textarea with canned message</source>
-      <translation>Fyll textrutan med snabbmeddelandet</translation>
+      <translation>מלא את תיבת הטקסט במענה מוכן מראש</translation>
     </message>
     <message>
       <source>Send delayed canned message instantly</source>
-      <translation>Skicka snabbmeddelande direkt</translation>
+      <translation>שלח מענה מוכן מראש מושהה באופן מיידי</translation>
     </message>
     <message>
       <source>Messages</source>
-      <translation>Meddelanden</translation>
+      <translation>הודעות</translation>
     </message>
     <message>
       <source>has accepted the chat!</source>
@@ -1931,55 +1931,55 @@
     <name>chat/translation</name>
     <message>
       <source>Visitor language</source>
-      <translation>Besökarens språk</translation>
+      <translation>שפת המבקר</translation>
     </message>
     <message>
       <source>My language</source>
-      <translation>Mitt språk</translation>
+      <translation>השפה שלי</translation>
     </message>
     <message>
       <source>Auto translate</source>
-      <translation>Översätt automatiskt</translation>
+      <translation>תרגום אוטומטי</translation>
     </message>
     <message>
       <source>Translating</source>
-      <translation>Översätter</translation>
+      <translation>מתרגם</translation>
     </message>
     <message>
       <source>Automatically detected</source>
-      <translation>Automatiskt identifierat</translation>
+      <translation>זוהה אוטומטית</translation>
     </message>
     <message>
       <source>Automatic translation</source>
-      <translation>Automatisk översättning</translation>
+      <translation>תרגום אוטומטי</translation>
     </message>
     <message>
       <source>Translation settings</source>
-      <translation>Inställningar för översättning</translation>
+      <translation>הגדרות תרגום</translation>
     </message>
     <message>
       <source>Enter text for testing purposes</source>
-      <translation>Skriv in en text för att testa</translation>
+      <translation>הכנס טקסט למטרת בדיקה</translation>
     </message>
     <message>
       <source>Translated text</source>
-      <translation>Översatt text</translation>
+      <translation>טקסט מתורגם</translation>
     </message>
     <message>
       <source>Detected language</source>
-      <translation>Identifierat språk</translation>
+      <translation>שפה מזוהה</translation>
     </message>
     <message>
       <source>Detect language</source>
-      <translation>Identifiera språk</translation>
+      <translation>זהה שפה</translation>
     </message>
     <message>
       <source>Translate</source>
-      <translation>Översätt</translation>
+      <translation>תרגם</translation>
     </message>
     <message>
       <source>Enable translation service</source>
-      <translation>Aktivera översättningsfunktion</translation>
+      <translation>אפשר שירותי תרגום</translation>
     </message>
     <message>
       <source>Bing</source>
@@ -1991,271 +1991,271 @@
     </message>
     <message>
       <source>Use Bing service</source>
-      <translation>Använd Bing för översättning</translation>
+      <translation>השתמש בשירות Bing</translation>
     </message>
     <message>
       <source>Bing client ID</source>
-      <translation>Bing Client ID</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Bing client secret, key is never shown for security purposes</source>
-      <translation>Bing Client Secret, nyckeln visas aldrig av säkerhetsskäl</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Bing access token expires</source>
-      <translation>Access-nyckeln för Bing har utgått</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Use Google service</source>
-      <translation>Använda Google för översättning</translation>
+      <translation>השתמש בשירותי Google</translation>
     </message>
     <message>
       <source>API key, key is never shown for security purposes</source>
-      <translation>API-nyckel, nyckeln visas aldrig av säkerhetsskäl</translation>
+      <translation>מפתח API, המפתח לא יוצג מטעמי אבטחה</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Inställningar uppdaterade</translation>
+      <translation>ההגדרות עודכנו</translation>
     </message>
     <message>
       <source>Missing text to translate</source>
-      <translation>Saknar text att översätta</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Could not detect language</source>
-      <translation>Kunde inte identifiera språk</translation>
+      <translation>שפה לא זוהתה</translation>
     </message>
     <message>
       <source>Could not translate</source>
-      <translation>Kunde inte översätta</translation>
+      <translation>לא ניתן לתרגם</translation>
     </message>
     <message>
       <source>Translation configuration</source>
-      <translation>Konfiguration för översättning</translation>
+      <translation>הגדרות תרגום</translation>
     </message>
     <message>
       <source>Chat messages automatic translations has been stopped</source>
-      <translation>Automatisk översättning av chattmeddelandena har stoppats</translation>
+      <translation>תרגום אוטומטי של הודעות הצ&apos;אט הופסק</translation>
     </message>
     <message>
       <source>Messages has been translated</source>
-      <translation>Meddelandena har översatts</translation>
+      <translation>הודעה תורגמה</translation>
     </message>
     <message>
       <source>Please choose translation languages manually and click Auto translate</source>
-      <translation>Var vänlig välj språk för översättning manuellt och klicka på automatisk översättning</translation>
+      <translation>אנא בחר ידנית שפת תרגום ולחץ על תרגום אוטומטי</translation>
     </message>
   </context>
   <context>
     <name>files/files</name>
     <message>
       <source>Refresh</source>
-      <translation>Uppdatera</translation>
+      <translation>רענן</translation>
     </message>
     <message>
       <source>Delete file</source>
-      <translation>Ta bort fil</translation>
+      <translation>מחק קובץ</translation>
     </message>
     <message>
       <source>Sent by Customer</source>
-      <translation>Skickat av besökare</translation>
+      <translation>נשלח ע&quot;י לקוח</translation>
     </message>
     <message>
       <source>Sent by Operator</source>
-      <translation>Skickat av operatör</translation>
+      <translation>נשלח ע&quot;י מפעיל</translation>
     </message>
     <message>
       <source>Drop your files here.</source>
-      <translation>Släpp dina filer här.</translation>
+      <translation>גרור את הקבצים לפה</translation>
     </message>
     <message>
       <source>Not an accepted file type</source>
-      <translation>Filtypen är inte godkänd</translation>
+      <translation>סוג קובץ לא נתמך</translation>
     </message>
     <message>
       <source>Filesize is too big</source>
-      <translation>Filstorleken är för stor</translation>
+      <translation>הקובץ גדול מדי</translation>
     </message>
   </context>
   <context>
     <name>chat/syncadmininterface</name>
     <message>
       <source>Open in a new window</source>
-      <translation>Öppna i ett nytt fönster</translation>
+      <translation>פתח בחלון חדש</translation>
     </message>
     <message>
       <source>Add chat</source>
-      <translation>Lägg till en chatt</translation>
+      <translation>הוסף שיחה</translation>
     </message>
     <message>
       <source>Start chat</source>
-      <translation>Starta chatt</translation>
+      <translation>התחל צ&apos;אט</translation>
     </message>
     <message>
       <source>Last activity</source>
-      <translation>Senaste aktivitet</translation>
+      <translation>פעילות אחרונה</translation>
     </message>
     <message>
       <source>ago</source>
-      <translation>sedan</translation>
+      <translation>לפני</translation>
     </message>
     <message>
       <source>Redirect user to contact form.</source>
-      <translation>Vidarebefordra användare till kontaktformulär.</translation>
+      <translation>מפנה את המשתמש לטופס יצירת קשר</translation>
     </message>
     <message>
       <source>Are you sure?</source>
-      <translation>Är du säker?</translation>
+      <translation>האם אתה בטוח?</translation>
     </message>
     <message>
       <source>Accept chat</source>
-      <translation>Acceptera chatt</translation>
+      <translation>קבל צ&apos;אט</translation>
     </message>
     <message>
       <source>h.</source>
-      <translation>h.</translation>
+      <translation>ש.</translation>
     </message>
     <message>
       <source>m.</source>
-      <translation>m.</translation>
+      <translation>ד.</translation>
     </message>
     <message>
       <source>s.</source>
-      <translation>s.</translation>
+      <translation>ש.</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Tom...</translation>
+      <translation>ריק...</translation>
     </message>
     <message>
       <source>Visitor</source>
-      <translation>Besökare</translation>
+      <translation>מבקר</translation>
     </message>
     <message>
       <source>Operator</source>
-      <translation>Operatör</translation>
+      <translation>מפעיל</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation>Avdelning</translation>
+      <translation>מחלקה</translation>
     </message>
     <message>
       <source>Nothing found</source>
-      <translation>Ingenting funnet</translation>
+      <translation>לא נמצא דבר</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation>Väntande chattar</translation>
+      <translation>צ&apos;אטים בהמתנה</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation>Aktiva chattar</translation>
+      <translation>צ&apos;אטים פעילים</translation>
     </message>
     <message>
       <source>Last activity ago</source>
-      <translation>Senaste aktivitet</translation>
+      <translation>פעילות אחרונה לפני</translation>
     </message>
     <message>
       <source>Wait time</source>
-      <translation>Väntetid</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Delete chat</source>
-      <translation>Radera chatt</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Created</source>
-      <translation>Skapad</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Time ago</source>
-      <translation>Tid sedan</translation>
+      <translation>לפני זמן</translation>
     </message>
   </context>
   <context>
     <name>chat/screenshot</name>
     <message>
       <source>Take user screenshot</source>
-      <translation>Ta skärmdump på användare</translation>
+      <translation>צלם מסך משתמש</translation>
     </message>
     <message>
       <source>Refresh</source>
-      <translation>Uppdatera</translation>
+      <translation>רענן</translation>
     </message>
     <message>
       <source>Taken</source>
-      <translation>Tagen</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Tom...</translation>
+      <translation>ריק...</translation>
     </message>
     <message>
       <source>Perhaps screenshot is under way or screenshot is not supported on client browser, click refresh to check for a screenshot</source>
-      <translation>Möjligen försöker en skärmdump att tas eller så stöds inte detta i klient webbläsaren, klicka på uppdaterade för att kontrollera efter en skärmdump</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Screenshot</source>
-      <translation>Skärmdump</translation>
+      <translation>צילום מסך</translation>
     </message>
     <message>
       <source>Screenshot ready...</source>
-      <translation>Skärmdump redo...</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>front/default</name>
     <message>
       <source>Pending confirm</source>
-      <translation>Väntar på bekräftelse</translation>
+      <translation>ממתין לאישור</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation>Aktiva chattar</translation>
+      <translation>צ&apos;אטים פעילים</translation>
     </message>
     <message>
       <source>Unread messages</source>
-      <translation>Olästa meddelanden</translation>
+      <translation>הודעות שלא נקראו</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation>Avslutade chattar</translation>
+      <translation>צ&apos;אטים סגורים</translation>
     </message>
     <message>
       <source>All pending chats</source>
-      <translation>Alla väntande chattar </translation>
+      <translation>כל הצ&apos;אטים בהמתנה</translation>
     </message>
     <message>
       <source>All active chats</source>
-      <translation>Alla aktiva chattar</translation>
+      <translation>כל הצ&apos;אטים הפעילים</translation>
     </message>
     <message>
       <source>All unread chats</source>
-      <translation>Alla olästa chattar</translation>
+      <translation>כל הצ&apos;אטים שלא נקראו</translation>
     </message>
     <message>
       <source>All closed chats</source>
-      <translation>Alla avslutade chattar</translation>
+      <translation>כל הצ&apos;אטים הסגורים</translation>
     </message>
     <message>
       <source>You do not have permission to use chattabschrome function</source>
-      <translation>Du har inte tillåtelse att använda chattabschrome funktion</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please</source>
-      <translation>Var vänlig</translation>
+      <translation>אנא</translation>
     </message>
     <message>
       <source>login first.</source>
-      <translation>logga in först.</translation>
+      <translation>התחבר תחילה</translation>
     </message>
     <message>
       <source>Online operators</source>
-      <translation>Tillgängliga operatörer</translation>
+      <translation>מפעילים פעילים</translation>
     </message>
     <message>
       <source>Mail settings</source>
-      <translation>E-postinställningar</translation>
+      <translation>הגדרות דוא&quot;ל</translation>
     </message>
     <message>
       <source>SMTP</source>
@@ -2266,115 +2266,115 @@
     <name>chat/startchat</name>
     <message>
       <source>Department is disabled</source>
-      <translation>Avdelningen är inaktiverad</translation>
+      <translation>המחלקה מנוטרלת</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Namn</translation>
+      <translation>שם</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-post</translation>
+      <translation>דוא&quot;ל</translation>
     </message>
     <message>
       <source>Phone</source>
-      <translation>Telefon</translation>
+      <translation>טלפון</translation>
     </message>
     <message>
       <source>Enter your message</source>
-      <translation>Lämna ditt meddelande</translation>
+      <translation>הקלד את הודעתך:</translation>
     </message>
     <message>
       <source>Your question</source>
-      <translation>Din fråga</translation>
+      <translation>השאלה שלך</translation>
     </message>
     <message>
       <source>Please enter a message...</source>
-      <translation>Var vänlig skriv ett meddelande...</translation>
+      <translation>הקלד הודעה...</translation>
     </message>
     <message>
       <source>Live support is not available in your country</source>
-      <translation>Live Supporten är inte tillgänglig i ditt land</translation>
+      <translation>תמיכה לא זמינה במדינתך</translation>
     </message>
     <message>
       <source>Live Support</source>
-      <translation>Live support</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>There are no online operators at the moment, please leave a message</source>
-      <translation>Det finns inga operatörer tillgängliga för närvarande, vänligen lämna ett meddelande</translation>
+      <translation>אין כרגע מפעילים זמינים. אנא השאר הודעה</translation>
     </message>
     <message>
       <source>File</source>
-      <translation>Fil</translation>
+      <translation>קובץ</translation>
     </message>
     <message>
       <source>Your request was sent!</source>
-      <translation>Din förfrågan skickades!</translation>
+      <translation>בקשתך נשלחה!</translation>
     </message>
     <message>
       <source>Leave a message</source>
-      <translation>Lämna ett meddelande</translation>
+      <translation>השאר הודעה</translation>
     </message>
     <message>
       <source>I accept my personal data will be handled according to</source>
-      <translation>Jag accepterar att min personliga data kommer att hanteras enligt</translation>
+      <translation>אני מאפשר שהמידע האישי שלי יטופל בהתאם ל</translation>
     </message>
     <message>
       <source>our terms and to the Law</source>
-      <translation>våra användarvillkor och regler</translation>
+      <translation>תנאים שלנו ולחוק</translation>
     </message>
     <message>
       <source>Start chat</source>
-      <translation>Starta chatt</translation>
+      <translation>התחל צ&apos;אט</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation>Avdelning</translation>
+      <translation>מחלקה</translation>
     </message>
     <message>
       <source>Offline</source>
-      <translation>Otillgänglig</translation>
+      <translation>לא מקוון</translation>
     </message>
     <message>
       <source>Have a question? Ask us!</source>
-      <translation>Har du en fråga? Kontakta oss!</translation>
+      <translation>יש לך שאלה? שאל/י אותנו!</translation>
     </message>
     <message>
       <source>Type your message here and hit enter to send...</source>
-      <translation>Skriv in ditt meddelande och tryck enter för att skicka...</translation>
+      <translation>הקלד/י הודעתך ולחץ/י אנטר לשליחה</translation>
     </message>
     <message>
       <source>Send</source>
-      <translation>Skicka</translation>
+      <translation>שלח</translation>
     </message>
     <message>
       <source>Department is offline</source>
-      <translation>Avdelningen är offline</translation>
+      <translation>המחלקה לא מקוונת</translation>
     </message>
     <message>
       <source>Go to leave a message form</source>
-      <translation>Gå till lämna ett meddelande formulär</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Cancel and choose another department</source>
-      <translation>Avbryt och välj en annan avdelning</translation>
+      <translation>בטל ובחר מחלקה אחרת</translation>
     </message>
     <message>
       <source>characters</source>
-      <translation>tecken</translation>
+      <translation>תווים</translation>
     </message>
     <message>
       <source>Personal assistant</source>
-      <translation>Personlig assistans</translation>
+      <translation>עוזר אישי</translation>
     </message>
     <message>
       <source>Fill out this form to start a chat</source>
-      <translation>Fyll i formuläret för att starta en chatt</translation>
+      <translation>מלא/י את הטופס להתחלת שיחה</translation>
     </message>
     <message>
       <source>There are no online operators at the moment, please leave your message</source>
-      <translation>Det finns inga operatörer tillgängliga för närvarande, vänligen lämna ditt meddelande</translation>
+      <translation>אין כרגע מפעילים זמינים. אנא השאר הודעה</translation>
     </message>
     <message>
       <source>Me</source>
@@ -2382,240 +2382,240 @@
     </message>
     <message>
       <source>Choose your language</source>
-      <translation>Välj ditt språk</translation>
+      <translation>בחר שפה</translation>
     </message>
     <message>
       <source>Invalid CSRF token!</source>
-      <translation>Ogiltig CSRF-token!</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter a valid email address</source>
-      <translation>Vänligen ange en giltig e-postadress</translation>
+      <translation>אנא הזן כתובת דוא&quot;ל חוקית</translation>
     </message>
     <message>
       <source>Maximum 50 characters</source>
-      <translation>Max 50 tecken</translation>
+      <translation>מקסימום 50 תווים</translation>
     </message>
     <message>
       <source>You do not have permission to chat! Please contact site owner.</source>
-      <translation>Du har inte rättigheter att chatta, vänligen kontakta webbplatsens ägare.</translation>
+      <translation>אין לך הרשאה לצ&apos;אט, צור קשר עם בעל האתר</translation>
     </message>
     <message>
       <source>Please enter your name</source>
-      <translation>Vänligen skriv in ditt namn</translation>
+      <translation>אנא הזן שם</translation>
     </message>
     <message>
       <source>Please enter your message</source>
-      <translation>Vänligen skriv in ditt meddelande</translation>
+      <translation>הקלד/י הודעה...</translation>
     </message>
     <message>
       <source>Maximum</source>
-      <translation>Maximum</translation>
+      <translation>מקסימום</translation>
     </message>
     <message>
       <source>characters for a message</source>
-      <translation>tecken för ett meddelande</translation>
+      <translation>תווים להודעה</translation>
     </message>
     <message>
       <source>You have to accept our Terms Of Service</source>
-      <translation>Du måste acceptera våra användarvillkor</translation>
+      <translation>עליך לקבל את תנאי השימוש</translation>
     </message>
     <message>
       <source>Please enter your phone</source>
-      <translation>Vänligen ange ditt telefonnummer</translation>
+      <translation>אנא הזן טלפון</translation>
     </message>
     <message>
       <source>Maximum 100 characters for phone</source>
-      <translation>Max 100 tecken för telefonnr</translation>
+      <translation>מקסימום 100 תווים עבור טלפון</translation>
     </message>
     <message>
       <source>Invalid file</source>
-      <translation>Ogiltig fil</translation>
+      <translation>קובץ לא תקין</translation>
     </message>
     <message>
       <source>Could not determine a default department!</source>
-      <translation>Kunde inte avgöra en standard avdelning</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>is required</source>
-      <translation>är obligatorisk</translation>
+      <translation>נדרש</translation>
     </message>
     <message>
       <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
-      <translation>Din förfrågan behandlades inte som förväntat - men oroa dig inte, det var inte ditt fel. Var vänlig skicka din förfrågan igen. Om du upplever samma fel så är du välkommen att kontakta oss.</translation>
+      <translation>בקשתך לא עובדה כראוי, אך אל דאגה, זה לא באשמתך. אנא שלח מחדש את הבקשה. אם נתקלת בבעיה דומה, פנה אלינו באמצעים אחרים.</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
-      <translation>Var vänlig skriv ett meddelande, max tecken</translation>
+      <translation>הקלד/י הודעה..., מקסימום תווים</translation>
     </message>
     <message>
       <source>Visitor</source>
-      <translation>Besökare</translation>
+      <translation>מבקר</translation>
     </message>
     <message>
       <source>Fill in the form to start a chat</source>
-      <translation>Fyll i formuläret för att starta en chatt</translation>
+      <translation>מלא/י את הטופס להתחלת צ&apos;אט</translation>
     </message>
     <message>
       <source>Unread message</source>
-      <translation>Oläst meddelande</translation>
+      <translation>הודעה שלא נקראה</translation>
     </message>
   </context>
   <context>
     <name>chat/checkchatstatus</name>
     <message>
       <source>A support staff member has joined this chat</source>
-      <translation>En support medarbetare har anslutit till chatten</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>A support staff member has closed this chat</source>
-      <translation>En support medarbetare har stängt chatten</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You are number</source>
-      <translation>Du är nummer</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>in the queue. Please wait...</source>
-      <translation>i kö. Var vänlig vänta...</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
-      <translation>I väntan på att en support medarbetare ansluter kan du skriva dina frågor så får han dem när han ansluter till chatten.</translation>
+      <translation>ממתין למענה, אנא כתוב את שאלותיך, בתוך זמן קצר נציג יקבל את השיחה ויענה עליהן</translation>
     </message>
     <message>
       <source>At this moment there are no logged in support staff members, but you can leave your messages</source>
-      <translation>För närvarande finns ingen support medarbetare tillgänglig, men du kan lämnna ett meddelande</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visitor has been redirected to contact form</source>
-      <translation>Besökare har vidarebefordrats till kontaktformuläret</translation>
+      <translation>המשתמש הופנה לטופס יצירת קשר</translation>
     </message>
   </context>
   <context>
     <name>chat/closedchats</name>
     <message>
       <source>Information</source>
-      <translation>Information</translation>
+      <translation>מידע</translation>
     </message>
     <message>
       <source>Open in a new window</source>
-      <translation>Öppna i ett nytt fönster</translation>
+      <translation>פתח בחלון חדש</translation>
     </message>
     <message>
       <source>Delete chat</source>
-      <translation>Ta bort chatt</translation>
+      <translation>מחיקת צ&apos;אט</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Tom...</translation>
+      <translation>ריק...</translation>
     </message>
     <message>
       <source>Closed chats list</source>
-      <translation>Lista på avslutade chattar</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chats list</source>
-      <translation>Chattlista</translation>
+      <translation>רשימות צ&apos;אט</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation>Avslutade chattar</translation>
+      <translation>צ&apos;אטים סגורים</translation>
     </message>
   </context>
   <context>
     <name>chat/user_settings</name>
     <message>
       <source>Enable/Disable sound about new messages from the operator</source>
-      <translation>Av-/aktivera ljud för nya meddelanden från operatören</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Print</source>
-      <translation>Skriv ut</translation>
+      <translation>הדפס</translation>
     </message>
     <message>
       <source>Send chat transcript to your e-mail</source>
-      <translation>Skicka chattloggen till din e-post</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Enable/Disable sound about new messages from users</source>
-      <translation>Av-/aktivera ljud för nya meddelanden från användare</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Enable/Disable sound about new pending chats</source>
-      <translation>Av-/aktivera ljud för väntande chattar</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Change my visibility to visible/invisible</source>
-      <translation>Ändra min status till synlig/ej synlig</translation>
+      <translation>שנה את הנראות לנראה/בלתי נראה</translation>
     </message>
     <message>
       <source>Change my status to online/offline</source>
-      <translation>Ändra min status till tillgänglig/frånvarande</translation>
+      <translation>שנה את מצבי למחובר/לא מחובר</translation>
     </message>
   </context>
   <context>
     <name>chat/editchatconfig</name>
     <message>
       <source>Edit</source>
-      <translation>Redigera</translation>
+      <translation>ערוך</translation>
     </message>
     <message>
       <source>Value in</source>
-      <translation>Värde i</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>site access</source>
-      <translation>webbplatsåtkomst</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Update</source>
-      <translation>Uppdatera</translation>
+      <translation>לעדכן</translation>
     </message>
     <message>
       <source>Data updated</source>
-      <translation>Data uppdaterat</translation>
+      <translation>המידע עודכן</translation>
     </message>
   </context>
   <context>
     <name>chat/errors/adminchatnopermission</name>
     <message>
       <source>You do not have permission to access the current chat!</source>
-      <translation>Du har inte rättigheter att ansluta till den aktuella chatten!</translation>
+      <translation>אין לך הרשאה לגישה לצ&apos;אט הנוכחי</translation>
     </message>
   </context>
   <context>
     <name>chat/errors/entertext</name>
     <message>
       <source>Please enter text!</source>
-      <translation>Vänligen skriv in text</translation>
+      <translation>אנא הקלד/י טקסט!</translation>
     </message>
   </context>
   <context>
     <name>system/xmpp</name>
     <message>
       <source>Geo adjustments active</source>
-      <translation>Geo justering aktiv</translation>
+      <translation>התאמות גיאוגרפיות פעילות</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Inställningar uppdaterade</translation>
+      <translation>ההגדרות עודכנו</translation>
     </message>
     <message>
       <source>XMPP settings</source>
-      <translation>XMPP-inställningar</translation>
+      <translation>הגדרות XMPP</translation>
     </message>
     <message>
       <source>XMPP active</source>
-      <translation>XMPP aktiv</translation>
+      <translation>XMPP פעיל</translation>
     </message>
     <message>
       <source>XMPP Message content</source>
-      <translation>XMPP Meddelande innehåll</translation>
+      <translation>תוכן הודעת XMPP </translation>
     </message>
     <message>
       <source>XMPP Message about accepted chat</source>
-      <translation>XMPP Meddelande om accepterad chatt</translation>
+      <translation>הודעת XMPP אודות קבלת צ&apos;אט</translation>
     </message>
     <message>
       <source>XMPP</source>
@@ -2627,305 +2627,305 @@
     </message>
     <message>
       <source>Use standard XMPP service</source>
-      <translation>Använd standard XMPP tjänst</translation>
+      <translation>השתמש בשירות XMPP סטדנרטי</translation>
     </message>
     <message>
       <source>Host</source>
-      <translation>Värd</translation>
+      <translation>מארח</translation>
     </message>
     <message>
       <source>Port</source>
-      <translation>Port</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Login</source>
-      <translation>Logga in</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Password</source>
-      <translation>Lösenord</translation>
+      <translation>סיסמה</translation>
     </message>
     <message>
       <source>Resource</source>
-      <translation>Resurs</translation>
+      <translation>משאב</translation>
     </message>
     <message>
       <source>Server</source>
-      <translation>Server</translation>
+      <translation>שרת</translation>
     </message>
     <message>
       <source>Recipients</source>
-      <translation>Mottagare</translation>
+      <translation>נמענים</translation>
     </message>
     <message>
       <source>Default recipients</source>
-      <translation>Standard mottagare</translation>
+      <translation>נמעני ברירת מחדל</translation>
     </message>
     <message>
       <source>Test recipients</source>
-      <translation>Testmottagare</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Individual recipients</source>
-      <translation>Enskilda mottagare</translation>
+      <translation>נמענים יחודיים</translation>
     </message>
     <message>
       <source>Test group recipients</source>
-      <translation>Mottagare testgrupp</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Test message will be send to your account e-mail</source>
-      <translation>Textmeddelandet kommer att skickas till e-postadressen för ditt konto</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Use GTalk for messaging</source>
-      <translation>Använd GTalk för meddelanden</translation>
+      <translation>השתמש ב GTalk להודעות</translation>
     </message>
     <message>
       <source>Information for your google app</source>
-      <translation>Information för din google app</translation>
+      <translation>מידע עבור תוכנת Google</translation>
     </message>
     <message>
       <source>Redirect URL, this url you will have to enter in your google app configuration</source>
-      <translation>Vidarebefordra URL, denna URL måste du ange i din konfiguration för din google app</translation>
+      <translation>כתובת אינרנט להפניה, תצטרך להזין כתובת זו בהגדרות אפליקציית Google</translation>
     </message>
     <message>
       <source>Enter your app information bellow</source>
-      <translation>Skriv in din app information nedan</translation>
+      <translation>הקלד מידע על האפליקציה שלך</translation>
     </message>
     <message>
       <source>OAuth 2.0 Client ID</source>
-      <translation>OAuth 2.0 Client ID</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter your Client ID</source>
-      <translation>Var vänlig skriv in ditt Client ID</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Client secret</source>
-      <translation>Client Secret</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter to what gmail address test message should be send?</source>
-      <translation>Var vänlig skriv in den gmail-adress som testmeddelandet ska skickas till.</translation>
+      <translation>הזן לאיזו כתובת GMail ההודעה אמורה להישלח</translation>
     </message>
     <message>
       <source>This message will be send to test e-mail</source>
-      <translation>Detta meddelande kommer att skickas till test-e-postadressen</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Send test message</source>
-      <translation>Skicka testmeddelande</translation>
+      <translation>שלח הודעת ניסיון</translation>
     </message>
     <message>
       <source>Revoke access token</source>
-      <translation>Upphäv access token</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Revoke permission to send a message</source>
-      <translation>Upphäv tillåtelse att skicka ett meddelande</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Authentificate and grant permission to send a message</source>
-      <translation>Verifiera och ge tillåtelse att skicka ett meddelande</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Grant permission to send a message</source>
-      <translation>Ge tillåtelse att skicka ett meddelande</translation>
+      <translation>הענק הרשאות לשליחת הודעה</translation>
     </message>
     <message>
       <source>Succesfully authorised, now you can try to send a message</source>
-      <translation>Verifierad, nu kan du försöka att skicka ett meddelande</translation>
+      <translation>אושר בהצלחה, כעת אתה יכול לנסות לשלוח הודעה</translation>
     </message>
     <message>
       <source>Token was revoked</source>
-      <translation>Token blev upphävd</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>XMPP message was sent succesfuly</source>
-      <translation>XMPP meddelandet skickades</translation>
+      <translation>הודעת XMPP נשלחה בהצלחה</translation>
     </message>
     <message>
       <source>Invalid test e-mail address</source>
-      <translation>Ogiltig test-e-postadress</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>chat/geoadjustment</name>
     <message>
       <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
-      <translation>Lägg till dessa regler till chattwidgetens statusindikator också? Prestandanedsättning kommer eventuellt att förekomma</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
-      <translation>Gör chattstatusen normal för dessa länder, länder kan separeras med kommatecken &quot;se,gb,de,us,fr&quot; vilket betyder att chatten bara visas som den ska för dessa länder.</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>For</source>
-      <translation>För</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>all</source>
-      <translation>alla</translation>
+      <translation>כל</translation>
     </message>
     <message>
       <source>custom</source>
-      <translation>modifierad</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>E.g. ar,pl</source>
-      <translation>Till exempel se,gb</translation>
+      <translation>למשל ar, pl</translation>
     </message>
     <message>
       <source>Other countries, put widget/chat status to</source>
-      <translation>Andra länder, lägg till widget/chattstatus till</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>offline status</source>
-      <translation>offlinestatus</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>hidden/disabled, widget will not be shown</source>
-      <translation>gömd/inaktiverad, widgeten kommer inte att visas</translation>
+      <translation>מוסתר/מנוטרל, ווידג&apos;ט לא יוצג</translation>
     </message>
     <message>
       <source>For unmatched countries put chat status to</source>
-      <translation>För ej matchade länder, lägg till chattstatusen till</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>normal status</source>
-      <translation>normal status</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>GEO adjustment</source>
-      <translation>Geo justering</translation>
+      <translation>התאמה גיאוגרפית</translation>
     </message>
   </context>
   <context>
     <name>chat/onlineusers</name>
     <message>
       <source>GEO detection configuration</source>
-      <translation>Geografisk lokaliseringsinställning</translation>
+      <translation>הגדרות זיהוי גיאוגרפי</translation>
     </message>
     <message>
       <source>Map location</source>
-      <translation>Plats på kartan</translation>
+      <translation>מיקום מפה</translation>
     </message>
     <message>
       <source>GEO Enabled</source>
-      <translation>GEO aktiverad</translation>
+      <translation>GEO מופעל</translation>
     </message>
     <message>
       <source>Use this service</source>
-      <translation>Använd denna tjänst</translation>
+      <translation>השתמש בשירות זה</translation>
     </message>
     <message>
       <source>Use mod_geoip2</source>
-      <translation>Använd mod_geoip2</translation>
+      <translation>השתמש ב mod_geoip2</translation>
     </message>
     <message>
       <source>Country code server variable</source>
-      <translation>Landskod server värde</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Country name server variable</source>
-      <translation>Land namnserver värde</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>City name server variable</source>
-      <translation>Stad namnserver värde</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Region name server variable</source>
-      <translation>Regionsnamn servervariabel</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Latitude variable</source>
-      <translation>Latitude värde</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Longitude variable</source>
-      <translation>Longitude värde</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Use MaxMind, does not depend on any third party remote service</source>
-      <translation>Använd MaxMind, beror inte på någon tredjeparts extern tjänst</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You can download city/country database from.</source>
-      <translation>Du kan ladda ner stad/land-databasen från.</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>bcmath php extension detected</source>
-      <translation>bcmath php tillägg upptäckt</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Location of city database</source>
-      <translation>Lokalisering av stadsdatabasen</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User country based detection, faster</source>
-      <translation>Användare landsbaserad upptäckt, snabbare</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>File exists</source>
-      <translation>Filen existerar</translation>
+      <translation>קובץ קיים</translation>
     </message>
     <message>
       <source>File does not exists</source>
-      <translation>Filen existerar inte</translation>
+      <translation>קובץ לא קיים</translation>
     </message>
     <message>
       <source>User city based detection, slower</source>
-      <translation>Användare stadsbaserad upptäckt, långsammare</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Use PHP-GeoIP module</source>
-      <translation>Använd PHP-GeoIP modul</translation>
+      <translation>השתמש במודול PHP-GeoIP</translation>
     </message>
     <message>
       <source>Support for PHP-GeoIP detected</source>
-      <translation>Kompabilitet med PHP-GeoIP upptäcktes</translation>
+      <translation>זוהתה תמיכה ב PHP-GeoIP</translation>
     </message>
     <message>
       <source>Requests will be comming from</source>
-      <translation>Förfrågningar kommer att komma från</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>API Key</source>
-      <translation>API nyckel</translation>
+      <translation>מפתח API</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation>Användarnamn</translation>
+      <translation>שם משתמש</translation>
     </message>
     <message>
       <source>IP, if your site remote IP is different from detected one, please provide correct remote IP address</source>
-      <translation>IP, om ditt webbplats fjärr ip är skilt från den automatiskt funna, ange korrekt fjärr IP adress</translation>
+      <translation>IP, אם כתובת האתר שונה מזו שזוהתה, ספק כתובת IP נכונה</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Spara</translation>
+      <translation>שמור</translation>
     </message>
     <message>
       <source>Drag a marker where you want to have map centered by default. Zoom is also saved.</source>
-      <translation>Dra markören dit du vill ha kartan centrerad som standard. Även zoom nivå sparas.</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Inställningar uppdaterade</translation>
+      <translation>ההגדרות עודכנו</translation>
     </message>
     <message>
       <source>Send message</source>
-      <translation>Skicka meddelandet</translation>
+      <translation>שלח הודעה</translation>
     </message>
     <message>
       <source>Dashboard</source>
-      <translation>Kontrollpanel</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>City</source>
-      <translation>Stad</translation>
+      <translation>עיר</translation>
     </message>
     <message>
       <source>Lat.</source>
@@ -2937,1006 +2937,1006 @@
     </message>
     <message>
       <source>Time zone</source>
-      <translation>Tidzon</translation>
+      <translation>אזור זמן</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation>Identifierare</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Additional information</source>
-      <translation>Ytterligare information</translation>
+      <translation>מידע נוסף</translation>
     </message>
     <message>
       <source>Last activity</source>
-      <translation>Senaste aktivitet</translation>
+      <translation>פעילות אחרונה</translation>
     </message>
     <message>
       <source>ago</source>
-      <translation>sedan</translation>
+      <translation>לפני</translation>
     </message>
     <message>
       <source>On page</source>
-      <translation>På sidan</translation>
+      <translation>בדף</translation>
     </message>
     <message>
       <source>Yes</source>
-      <translation>Ja</translation>
+      <translation>כן</translation>
     </message>
     <message>
       <source>No</source>
-      <translation>Nej</translation>
+      <translation>לא</translation>
     </message>
     <message>
       <source>User does not have any message from operator</source>
-      <translation>Användaren har inte fått något meddelande från operatör</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User have not seen message from operator, or message window still open.</source>
-      <translation>Användaren har inte sett operatörens meddelande eller så är meddelanderutan fortfarande öppen.</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User has seen message from operator.</source>
-      <translation>Användaren har sett meddelandet från operatören.</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User is chatting</source>
-      <translation>Användaren är i chatten</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User is not having any chat right now</source>
-      <translation>Användaren är f n inte i en chatt</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>has send message to user</source>
-      <translation>har skickat meddelande till användaren</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>No one has send any message to user yet</source>
-      <translation>Ingen har skickat meddelande till användaren ännu</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>First visit</source>
-      <translation>Första besök</translation>
+      <translation>ביקור ראשון</translation>
     </message>
     <message>
       <source>Last visit</source>
-      <translation>Senaste besök</translation>
+      <translation>ביקור אחרון</translation>
     </message>
     <message>
       <source>Total visits</source>
-      <translation>Totalt antal besök</translation>
+      <translation>סה&quot;כ ביקורים</translation>
     </message>
     <message>
       <source>time(s) invitation logic was applied</source>
-      <translation>gång(er) inbjudningslogik var nyttjad</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Pageviews</source>
-      <translation>Sidan sedd ggr</translation>
+      <translation>הצגות דף</translation>
     </message>
     <message>
       <source>Total pageviews</source>
-      <translation>Totalt antal sidvisningar</translation>
+      <translation>סה&quot;כ צפיות דף</translation>
     </message>
     <message>
       <source>Time on site</source>
-      <translation>Tid på webbplatsen</translation>
+      <translation>זמן באתר</translation>
     </message>
     <message>
       <source>Total time on site</source>
-      <translation>Total tid på webbplatsen</translation>
+      <translation>סה&quot;כ זמן באתר</translation>
     </message>
     <message>
       <source>Current page</source>
-      <translation>Aktuell sida</translation>
+      <translation>דף נוכחי</translation>
     </message>
     <message>
       <source>Came from</source>
-      <translation>Kom från</translation>
+      <translation>הגיע מ</translation>
     </message>
     <message>
       <source>Are you sure?</source>
-      <translation>Är du säker?</translation>
+      <translation>האם אתה בטוח?</translation>
     </message>
     <message>
       <source>Clear list</source>
-      <translation>Rensa lista</translation>
+      <translation>נקה רשימה</translation>
     </message>
     <message>
       <source>User tracking is disabled, enable it at</source>
-      <translation>Användarspårning är avaktiverad, aktivera den på</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chat configuration</source>
-      <translation>Chattinställningar</translation>
+      <translation>הגדרות צ&apos;אט</translation>
     </message>
     <message>
       <source>Online visitors list</source>
-      <translation>Lista över besökare som är online</translation>
+      <translation>רשימת מבקרים פעילים</translation>
     </message>
     <message>
       <source>Online users on map</source>
-      <translation>Karta över besökare som är online</translation>
+      <translation>משתמשים מחוברים על מפה</translation>
     </message>
     <message>
       <source>Enable/Disable sound about new visitor</source>
-      <translation>Aktivera/inaktivera ljudnotifikation om ny besökare</translation>
+      <translation>אפשר/נטרל צליל אודות מבקר חדש</translation>
     </message>
     <message>
       <source>Enable/Disable browser notifications about new visitor</source>
-      <translation>Aktivera/inaktivera webbläsarnotifikation om ny besökare</translation>
+      <translation>אפשר/נטרל התראות דפדפן אודות מבקר חדש</translation>
     </message>
     <message>
       <source>Online visitors</source>
-      <translation>Besökare online</translation>
+      <translation>מבקרים פעילים</translation>
     </message>
     <message>
       <source>User has message from operator</source>
-      <translation>Användaren har ett meddelande från operatören</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Marker timeout before it dissapears from map</source>
-      <translation>Tid innan markeringen tas bort från kartan</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>seconds</source>
-      <translation>sekunder</translation>
+      <translation>שניות</translation>
     </message>
     <message>
       <source>minute</source>
-      <translation>minut</translation>
+      <translation>דקה</translation>
     </message>
     <message>
       <source>minutes</source>
-      <translation>minuter</translation>
+      <translation>דקות</translation>
     </message>
     <message>
       <source>online users</source>
-      <translation>online användare</translation>
+      <translation>משתמשים מחוברים</translation>
     </message>
     <message>
       <source>Group list by</source>
-      <translation>Gruppera lista genom</translation>
+      <translation>קבץ רשימה לפי</translation>
     </message>
     <message>
       <source>Group by</source>
-      <translation>Gruppera genom</translation>
+      <translation>קבץ לפי</translation>
     </message>
     <message>
       <source>User country</source>
-      <translation>Användarens land</translation>
+      <translation>מדינת משתמש</translation>
     </message>
     <message>
       <source>Page</source>
-      <translation>Sida</translation>
+      <translation>דף</translation>
     </message>
     <message>
       <source>Page title</source>
-      <translation>Sidrubrik</translation>
+      <translation>כותרת דף</translation>
     </message>
     <message>
       <source>Referrer</source>
-      <translation>Hänvisning</translation>
+      <translation>מפנה</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation>Avdelning</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Refresh list every</source>
-      <translation>Uppdatera listan varje</translation>
+      <translation>רענן רשימה כל</translation>
     </message>
     <message>
       <source>second</source>
-      <translation>sekund</translation>
+      <translation>שניה</translation>
     </message>
     <message>
       <source>Show visitors who visited site in the past</source>
-      <translation>Visa besökare som besökt siten tidigare</translation>
+      <translation>הצג מבקרים שביקרו באתר בעבר</translation>
     </message>
     <message>
       <source>hour</source>
-      <translation>timme</translation>
+      <translation>שעה</translation>
     </message>
     <message>
       <source>day</source>
-      <translation>dag</translation>
+      <translation>יום</translation>
     </message>
     <message>
       <source>days</source>
-      <translation>dagars</translation>
+      <translation>ימים</translation>
     </message>
     <message>
       <source>Max records to return</source>
-      <translation>Max antal historik att återge</translation>
+      <translation>מספר רשומות מקסימלי להחזרה</translation>
     </message>
     <message>
       <source>Visitor local time</source>
-      <translation>Lokal tid för besökare</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>By user status on site</source>
-      <translation>Genom användarstatus på sidan</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Action</source>
-      <translation>Aktivitet</translation>
+      <translation>פעולה</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>
-      <translation>Användaren har inte sett meddelandet från operatören eller så är meddelanderutan fortfarande öppet.</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Seen</source>
-      <translation>Sett</translation>
+      <translation>נקרא</translation>
     </message>
     <message>
       <source>Unseen</source>
-      <translation>Osedda</translation>
+      <translation>לא נקרא</translation>
     </message>
     <message>
       <source>User has seen the message from the operator.</source>
-      <translation>Användaren har sett meddelandet från operatören.</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User does not have any messages from the operator</source>
-      <translation>Användaren har inga meddelanden från operatören</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chat</source>
-      <translation>Chatt</translation>
+      <translation>צ&apos;אט</translation>
     </message>
     <message>
       <source>Returning</source>
-      <translation>Återkommande</translation>
+      <translation>חזור</translation>
     </message>
     <message>
       <source>New</source>
-      <translation>Ny</translation>
+      <translation>חדש</translation>
     </message>
     <message>
       <source>has sent a message to the user</source>
-      <translation>har skickat meddelande till användaren</translation>
+      <translation>שלח הודעה למשתמש</translation>
     </message>
     <message>
       <source>first visit</source>
-      <translation>första besök</translation>
+      <translation>ביקור ראשון</translation>
     </message>
     <message>
       <source>last visit</source>
-      <translation>senaste besök</translation>
+      <translation>ביקור אחרון</translation>
     </message>
     <message>
       <source>Files upload for users is active</source>
-      <translation>Filuppladdning för användare är aktiv</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Files upload for operators is active</source>
-      <translation>Filuppladdning för operatörer är aktiv</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Country code variable does not exist!</source>
-      <translation>Landskoden existerar inte!</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Country name variable does not exist!</source>
-      <translation>Landskoden existerar inte</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter city variable!</source>
-      <translation>Vänligen ange värde för stad!</translation>
+      <translation>אנא הכנס משתנה עיר!</translation>
     </message>
     <message>
       <source>Please enter latitude variable!</source>
-      <translation>Vänligen ange värdet för latituden!</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter longitude variable!</source>
-      <translation>Vänligen ange värdet för longituden!</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages!</source>
-      <translation>Val av tjänsteleverantör misslyckades. Vänligen kontrollera att din tjänsteleverantör tillåter att ställa förfrågningar mot fjärrsidor.</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>MaxMind city file does not exists!</source>
-      <translation>MaxMind stadsfil existerar inte!</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>MaxMind country file does not exists!</source>
-      <translation>MaxMind landsfil existerar inte!</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Setting service provider failed, please check that MaxMind database files exists!</source>
-      <translation>Det gick inte att ställa in tjänsteleverantören, var vänlig kontrollera så att MaxMind databasfil existerar!</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter the API key!</source>
-      <translation>Vänligen skriv in API nyckeln</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter the API username!</source>
-      <translation>Vänligen skriv in API användarnamnet</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter IP!</source>
-      <translation>Vänligen ange IPnummer!</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key and username is correct!</source>
-      <translation>Val av tjänsteleverantör misslyckades, kontrollera att din tjänsteleverantör tillåter dig att göra förfrågningar från fjärrsidor och att din API nyckel och ditt användarnamn stämmer.</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key is correct!</source>
-      <translation>Det gick inte att ställa in tjänsten, kontrollera att din tjänsteleverantör tillåter dig att göra förfrågningar till externa sidor och att din API nyckel är korrekt!</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Setting service provider failed, please check that you have installed php-GeoIP module and GeoIPCity.dat file is available!</source>
-      <translation>Det gick inte att ställa in tjänsteleverantör, var vänlig kontrollera att du har installerat php-GeoIP modulen och att GeoIPCity.dat filen är tillgänglig!</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please choose a service provider!</source>
-      <translation>Vänligen välj en tjänsteleverantör!</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Online users</source>
-      <translation>Användare online</translation>
+      <translation>משתמשים מחוברים</translation>
     </message>
   </context>
   <context>
     <name>chat/listchatconfig</name>
     <message>
       <source>Notifications about new chats</source>
-      <translation>Notifieringar om nya chattar</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Copyright settings</source>
-      <translation>Inställningar för Copyright</translation>
+      <translation>הגדרות זכויות יוצרים</translation>
     </message>
     <message>
       <source>Online tracking</source>
-      <translation>Online spårning</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Misc</source>
-      <translation>Blandat</translation>
+      <translation>שונות</translation>
     </message>
     <message>
       <source>Workflow</source>
-      <translation>Arbetsflöde</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Application name</source>
-      <translation>Applikationens namn</translation>
+      <translation>שם תוכנה</translation>
     </message>
     <message>
       <source>Site settings</source>
-      <translation>Sidinställningar</translation>
+      <translation>הגדרות אתר</translation>
     </message>
     <message>
       <source>Cookie related</source>
-      <translation>Cookierelaterat</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chat related</source>
-      <translation>Chattrelaterat</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Update</source>
-      <translation>Uppdatera</translation>
+      <translation>לעדכן</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Inställningar uppdaterade</translation>
+      <translation>ההגדרות עודכנו</translation>
     </message>
     <message>
       <source>Screen sharing</source>
-      <translation>Skärmdelning</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chat configuration</source>
-      <translation>Chattinställningar</translation>
+      <translation>הגדרות צ&apos;אט</translation>
     </message>
     <message>
       <source>List chat configuration</source>
-      <translation>Lista chatt, inställningar</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>system/configuration</name>
     <message>
       <source>Request notification permission</source>
-      <translation>Begär notifieringsrättighet</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Supported: online_operators, departments_stats, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
-      <translation>Stöds: online_operators, departments_stats, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>New chat notification settings</source>
-      <translation>Inställningar för notifiering av ny chatt</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Systeminställningar</translation>
+      <translation>תצורת מערכת</translation>
     </message>
     <message>
       <source>Time zone settings</source>
-      <translation>Inställningar för tidszon</translation>
+      <translation>הגדרות אזור זמן</translation>
     </message>
     <message>
       <source>E-mail templates</source>
-      <translation>E-postmallar</translation>
+      <translation>תבניות דוא&quot;ל</translation>
     </message>
     <message>
       <source>Languages configuration</source>
-      <translation>Språkinställningar</translation>
+      <translation>תצורת שפות</translation>
     </message>
     <message>
       <source>Users</source>
-      <translation>Användare</translation>
+      <translation>משתמשים</translation>
     </message>
     <message>
       <source>List of groups</source>
-      <translation>Grupplista</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>List of roles</source>
-      <translation>Rollista</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>GEO detection configuration</source>
-      <translation>Geografisk lokaliseringsinställning</translation>
+      <translation>הגדרות זיהוי גיאוגרפי</translation>
     </message>
     <message>
       <source>Auto responder</source>
-      <translation>Automatiskt svar</translation>
+      <translation>מענה אוטומטי</translation>
     </message>
     <message>
       <source>Blocked users</source>
-      <translation>Blockerade användare</translation>
+      <translation>משתמשים חסומים</translation>
     </message>
     <message>
       <source>Browse offers embed code</source>
-      <translation>Bläddra bland erbjudanden inbäddad kod</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Canned messages</source>
-      <translation>Snabbmeddelanden</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chat archive</source>
-      <translation>Chatt arkiv</translation>
+      <translation>ארכיון צ&apos;אט </translation>
     </message>
     <message>
       <source>Chat configuration</source>
-      <translation>Chattinställningar</translation>
+      <translation>הגדרות צ&apos;אט</translation>
     </message>
     <message>
       <source>Live help embed code</source>
-      <translation>Live hjälp inbäddad kod</translation>
+      <translation>קוד הטמעת עזרה</translation>
     </message>
     <message>
       <source>Chats list</source>
-      <translation>Chattlista</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chatbox embed code</source>
-      <translation>Chattbox inbäddad kod</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Mail settings</source>
-      <translation>E-postinställningar</translation>
+      <translation>הגדרות דוא&quot;ל</translation>
     </message>
     <message>
       <source>FAQ embed code</source>
-      <translation>FAQ inbäddad kod</translation>
+      <translation>קוד הטמעת שאלות נפוצות</translation>
     </message>
     <message>
       <source>Files</source>
-      <translation>Filer</translation>
+      <translation>קבצים</translation>
     </message>
     <message>
       <source>Files upload configuration</source>
-      <translation>Inställningar för filuppladdning</translation>
+      <translation>הגדרות העלאת קבצים</translation>
     </message>
     <message>
       <source>List of files</source>
-      <translation>Lista med filer</translation>
+      <translation>רשימת קבצים</translation>
     </message>
     <message>
       <source>GEO adjustment</source>
-      <translation>Geo justering</translation>
+      <translation>התאמה גיאוגרפית</translation>
     </message>
     <message>
       <source>Maintenance</source>
-      <translation>Underhåll</translation>
+      <translation>תחזוקה</translation>
     </message>
     <message>
       <source>Update information</source>
-      <translation>Uppdateringsinformation för Live Helper Chat</translation>
+      <translation>עדכון מידע</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
-      <translation>Proaktiva chatt inbjudningar</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Questionary embed code</source>
-      <translation>Frågeformulär inbäddad kod</translation>
+      <translation>קוד הטמעת שאלה</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
-      <translation>Inställningar för &quot;starta en chatt&quot;-formulär</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Statistic</source>
-      <translation>Statistik</translation>
+      <translation>סטטיסטיקה</translation>
     </message>
     <message>
       <source>Theming</source>
-      <translation>Stilar</translation>
+      <translation>ערכות נושא</translation>
     </message>
     <message>
       <source>Widget themes</source>
-      <translation>Widget stilar</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Import new themes</source>
-      <translation>Importera nya stilar</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Default theme</source>
-      <translation>Standardstil</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Automatic translations</source>
-      <translation>Automatiska översättningar</translation>
+      <translation>תרגום אוטומטי</translation>
     </message>
     <message>
       <source>XMPP settings</source>
-      <translation>XMPP-inställningar</translation>
+      <translation>הגדרות XMPP</translation>
     </message>
     <message>
       <source>Speech</source>
-      <translation>Tal</translation>
+      <translation>דיבור</translation>
     </message>
     <message>
       <source>Departments</source>
-      <translation>Avdelningar</translation>
+      <translation>מחלקות</translation>
     </message>
     <message>
       <source>Synchronization and sound settings</source>
-      <translation>Synkronisering och ljudinställningar</translation>
+      <translation>הגדרות סינכרון וקול</translation>
     </message>
     <message>
       <source>Embed code</source>
-      <translation>Inbäddningskod</translation>
+      <translation>קוד הטמעה</translation>
     </message>
     <message>
       <source>Live help configuration</source>
-      <translation>Live hjälp, inställningar</translation>
+      <translation>תצורת תמיכה</translation>
     </message>
     <message>
       <source>System</source>
-      <translation>System</translation>
+      <translation>מערכת</translation>
     </message>
     <message>
       <source>File configuration</source>
-      <translation>Filinställningar</translation>
+      <translation>הגדרות קובץ</translation>
     </message>
     <message>
       <source>New file</source>
-      <translation>Ny fil</translation>
+      <translation>קובץ חדש</translation>
     </message>
   </context>
   <context>
     <name>chat/lists</name>
     <message>
       <source>Choose what type of list you want to see</source>
-      <translation>Välj vilken typ av lista du vill se</translation>
+      <translation>בחר איזה סוג רשימה ברצונך לראות</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation>Väntande chattar</translation>
+      <translation>צ&apos;אטים בהמתנה</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation>Aktiva chattar</translation>
+      <translation>צ&apos;אטים פעילים</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation>Avslutade chattar</translation>
+      <translation>צ&apos;אטים סגורים</translation>
     </message>
     <message>
       <source>Operators chats</source>
-      <translation>Chattar med operatör</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chats with unread messages</source>
-      <translation>Chattar med olästa meddelanden</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chat lists</source>
-      <translation>Chattlista</translation>
+      <translation>רשימות צ&apos;אט</translation>
     </message>
   </context>
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
       <source>Empty...</source>
-      <translation>Tom...</translation>
+      <translation>ריק...</translation>
     </message>
     <message>
       <source>Assigned operator</source>
-      <translation>Tilldelad operatör</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>collapse/expand</source>
-      <translation>minimera/expandera</translation>
+      <translation>כיווץ/הרחבה</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation>Aktiva chattar</translation>
+      <translation>צ&apos;אטים פעילים</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation>Avslutade chattar</translation>
+      <translation>צ&apos;אטים סגורים</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation>Väntande chattar</translation>
+      <translation>צ&apos;אטים בהמתנה</translation>
     </message>
     <message>
       <source>Unread messages</source>
-      <translation>Olästa meddelanden</translation>
+      <translation>הודעות שלא נקראו</translation>
     </message>
     <message>
       <source>Chats transferred to you directly</source>
-      <translation>Chattar som vidarebefordrats direkt till dig</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Transferred to your department</source>
-      <translation>Vidarebefodrad till din avdelning</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Download XLS</source>
-      <translation>Ladda ner XLS</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>All departments</source>
-      <translation>Alla avdelningar</translation>
+      <translation>כל המחלקות</translation>
     </message>
     <message>
       <source>Number of elements in list</source>
-      <translation>Antal element i listan</translation>
+      <translation>מספר אלמנטים ברשימה</translation>
     </message>
     <message>
       <source>Departments stats</source>
-      <translation>Statistik för avdelningar</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Online operators</source>
-      <translation>Operatörer online</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Transfered chats</source>
-      <translation>Överförda chattar</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Home</source>
-      <translation>Hem</translation>
+      <translation>ראשי</translation>
     </message>
     <message>
       <source>Extra modules</source>
-      <translation>Extra inställningar</translation>
+      <translation>מודולים נוספים</translation>
     </message>
     <message>
       <source>Browse offers</source>
-      <translation>Bläddra bland erbjudanden</translation>
+      <translation>עיין בהצעות</translation>
     </message>
     <message>
       <source>Chatbox</source>
-      <translation>Chattbox</translation>
+      <translation>תיבת צ&apos;אט</translation>
     </message>
     <message>
       <source>FAQ</source>
-      <translation>FAQ - Vanliga frågor och svar</translation>
+      <translation>שאלות נפוצות</translation>
     </message>
     <message>
       <source>Questionary</source>
-      <translation>Frågeformulär</translation>
+      <translation>שאלה</translation>
     </message>
     <message>
       <source>New chat request</source>
-      <translation>Ny chattförfrågan</translation>
+      <translation>בקשה צ&apos;אט חדש</translation>
     </message>
     <message>
       <source>Menu</source>
-      <translation>Meny</translation>
+      <translation>תפריט</translation>
     </message>
     <message>
       <source>Chats list</source>
-      <translation>Chattlista</translation>
+      <translation>רשימות צ&apos;אט</translation>
     </message>
     <message>
       <source>Online visitors</source>
-      <translation>Besökare online</translation>
+      <translation>מבקרים פעילים</translation>
     </message>
     <message>
       <source>Account</source>
-      <translation>Konto</translation>
+      <translation>חשבון</translation>
     </message>
     <message>
       <source>Logout</source>
-      <translation>Logga ut</translation>
+      <translation>יציאה מהמערכת</translation>
     </message>
     <message>
       <source>New unread message</source>
-      <translation>Nytt oläst meddelande</translation>
+      <translation>הודעה חדשה שלא נקראה </translation>
     </message>
   </context>
   <context>
     <name>chat/syncadmin</name>
     <message>
       <source>System assistant</source>
-      <translation>Systemassistent</translation>
+      <translation>עוזר מערכת</translation>
     </message>
   </context>
   <context>
     <name>chat/maintenance</name>
     <message>
       <source>Maintenance</source>
-      <translation>Underhåll</translation>
+      <translation>תחזוקה</translation>
     </message>
     <message>
       <source>Automatic chats close, click to close old chats</source>
-      <translation>Automatisk stängning av chatt, klicka för att stänga gamla chattar</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Automatic chats purge, click to purge old chats</source>
-      <translation>Automatisk rensning av chatt, klicka för att rensa gamla chattar</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Update chats duration by using new algorithm</source>
-      <translation>Uppdatera chattens varaktighet genom att använda en ny algoritm</translation>
+      <translation>עדכון משך השיחות באמצעות אלגוריתם חדש</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation>Stängda chattar</translation>
+      <translation>צ&apos;אטים סגורים</translation>
     </message>
     <message>
       <source>Purged chats</source>
-      <translation>Rensade chattar</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chats duration was updated</source>
-      <translation>Chattens varaktighet uppdaterades</translation>
+      <translation>משך הצ&apos;אטים עודכן</translation>
     </message>
   </context>
   <context>
     <name>chat/operatorschats</name>
     <message>
       <source>Operators chats list</source>
-      <translation>Lista på operatörer i chattar</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Operators chats</source>
-      <translation>Chattar med operatör</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>chat/pendingchats</name>
     <message>
       <source>Pending chats list</source>
-      <translation>Lista på väntande chattar</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Information</source>
-      <translation>Information</translation>
+      <translation>מידע</translation>
     </message>
     <message>
       <source>Open in a new window</source>
-      <translation>Öppna i ett nytt fönster</translation>
+      <translation>פתח בחלון חדש</translation>
     </message>
     <message>
       <source>Reject chat</source>
-      <translation>Neka chatt</translation>
+      <translation>לדחות צ&apos;אט</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Tom...</translation>
+      <translation>ריק...</translation>
     </message>
     <message>
       <source>Chats list</source>
-      <translation>Chattlista</translation>
+      <translation>רשימות צ&apos;אט</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation>Väntande chattar</translation>
+      <translation>צ&apos;אטים בהמתנה</translation>
     </message>
   </context>
   <context>
     <name>chat/startchatformsettings</name>
     <message>
       <source>Start a chat form settings</source>
-      <translation>Inställningar för &quot;starta en chatt&quot;-formulär</translation>
+      <translation>התחל הגדרת טופס צ&apos;אט</translation>
     </message>
     <message>
       <source>At least one field has to be visible and required in the popup and page widget</source>
-      <translation>Minst ett fält måste vara synligt och obligatoriskt för popup&apos;en och sid-widgeten.</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Custom fields generator, these fields will be visible in start chat forms</source>
-      <translation>Generering av egna fält, dessa fält kommer att vara synliga när en chatt ska startas</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Field label</source>
-      <translation>Fältetikett</translation>
+      <translation>תווית השדה</translation>
     </message>
     <message>
       <source>Default value</source>
-      <translation>Standardvärde</translation>
+      <translation>ערך ברירת המחדל</translation>
     </message>
     <message>
       <source>Type</source>
-      <translation>Typ</translation>
+      <translation>סוג</translation>
     </message>
     <message>
       <source>Text</source>
-      <translation>Text</translation>
+      <translation>טקסט</translation>
     </message>
     <message>
       <source>Hidden</source>
-      <translation>Dold</translation>
+      <translation>מוסתר</translation>
     </message>
     <message>
       <source>Visible on</source>
-      <translation>Synlig på</translation>
+      <translation>גלוי</translation>
     </message>
     <message>
       <source>Offline and online form</source>
-      <translation>Offline- och onlineformulär</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Only offline</source>
-      <translation>Endast offline</translation>
+      <translation>רק במצב לא מקוון</translation>
     </message>
     <message>
       <source>Only online</source>
-      <translation>Endast online</translation>
+      <translation>רק במצב מקוון</translation>
     </message>
     <message>
       <source>Size (between 1 and 12)</source>
-      <translation>Storlek (mellan 1 och 12)</translation>
+      <translation>גודל (בין 1 ל- 12)</translation>
     </message>
     <message>
       <source>Field identifier</source>
-      <translation>Fältidentifierare</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Is required</source>
-      <translation>Är obligatorisk</translation>
+      <translation>נדרש</translation>
     </message>
     <message>
       <source>Add a field</source>
-      <translation>Lägg till ett fält</translation>
+      <translation>הוספת שדה</translation>
     </message>
     <message>
       <source>left</source>
-      <translation>vänster</translation>
+      <translation>שמאל</translation>
     </message>
     <message>
       <source>right</source>
-      <translation>höger</translation>
+      <translation>ימין</translation>
     </message>
     <message>
       <source>Visible only in offline form</source>
-      <translation>Synlig endast i offlineformulär</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visible only in online form</source>
-      <translation>Synlig endast i onlineformulär</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Size</source>
-      <translation>Storlek</translation>
+      <translation>גודל</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation>Identifierare</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Remove</source>
-      <translation>Radera</translation>
+      <translation>הסר</translation>
     </message>
     <message>
       <source>Enable leave a message functionality automatically if there are no online operators</source>
-      <translation>Aktivera lämna ett meddelande-funktion automatiskt om det inte finns någon operatör online</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Online form settings</source>
-      <translation>Inställningar för online-formulär</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Offline form settings</source>
-      <translation>Inställningar för offfline-formulär</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Additional form settings</source>
-      <translation>Ytterligare formulärinställningar</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Custom fields</source>
-      <translation>Egna fält</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Name</source>
-      <translation>Namn</translation>
+      <translation>שם</translation>
     </message>
     <message>
       <source>This field is visible in the popup</source>
-      <translation>Det här fältet är synligt i popup&apos;en</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>This field is visible in the page widget</source>
-      <translation>Det här fältet är synligt i sid-widgeten</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>This field is invisible but prefilled data is collected</source>
-      <translation>Detta fält är osynligt men förifylld data samlas in</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>This field is</source>
-      <translation>Det här fältet är</translation>
+      <translation>שדה זה</translation>
     </message>
     <message>
       <source>Required</source>
-      <translation>Obligatoriskt</translation>
+      <translation>נדרש</translation>
     </message>
     <message>
       <source>Optional</source>
-      <translation>Valfri</translation>
+      <translation>אופציונלי</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-post</translation>
+      <translation>דוא&quot;ל</translation>
     </message>
     <message>
       <source>Message</source>
-      <translation>Meddelande</translation>
+      <translation>הודעה</translation>
     </message>
     <message>
       <source>Phone</source>
-      <translation>Telefonnr</translation>
+      <translation>טלפון</translation>
     </message>
     <message>
       <source>Terms of service acceptance checkbox</source>
-      <translation>Användarvillkor, kryssruta</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Checked by default</source>
-      <translation>Kontrollerat av standard</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>E-mail is always required</source>
-      <translation>E-post är alltid obligatorisk</translation>
+      <translation>דוא&quot;ל נדרש תמיד</translation>
     </message>
     <message>
       <source>Allow to attatch a file</source>
-      <translation>Tillåt att bifoga en fil</translation>
+      <translation>אפשר לצרף קובץ</translation>
     </message>
     <message>
       <source>Show operator profile above input fields</source>
-      <translation>Visa operatörsprofil ovanför textrutorna</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Remove space after operator profile</source>
-      <translation>Ta bort utrymme efter operatörsprofil</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Hide message label</source>
-      <translation>Göm meddelandetext</translation>
+      <translation>להסתיר את תווית ההודעה</translation>
     </message>
     <message>
       <source>Show messages box above input fields, usefull for UX combinations.</source>
@@ -3944,1072 +3944,1072 @@
     </message>
     <message>
       <source>Initial user message height in pixels</source>
-      <translation>Första användarmeddelande, höjd i pixlar</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>
-      <translation>Välj minst ett fält till popup&apos;en</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please choose at least one field for a page widget</source>
-      <translation>Välj minst ett fält till sid-widgeten</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Start chat form settings</source>
-      <translation>Inställningar för &quot;starta en chatt&quot;-formulär</translation>
+      <translation>התחל הגדרת טופס צ&apos;אט</translation>
     </message>
   </context>
   <context>
     <name>chat/statistic</name>
     <message>
       <source>Statistic</source>
-      <translation>Statistik</translation>
+      <translation>סטטיסטיקה</translation>
     </message>
     <message>
       <source>Chats statistic</source>
-      <translation>Chattstatistik</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Total statistic</source>
-      <translation>Total statistik</translation>
+      <translation>סטטיסטיקה כוללת</translation>
     </message>
     <message>
       <source>Last 24 hours statistic</source>
-      <translation>Statistik för de senaste 24 timmarna</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User</source>
-      <translation>Användare</translation>
+      <translation>משתמש</translation>
     </message>
     <message>
       <source>Thumbs up</source>
-      <translation>Tummen upp</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Number of Thumbs Up</source>
-      <translation>Antal tummar upp</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Thumbs down</source>
-      <translation>Tummen ner</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Number of Thumbs Down</source>
-      <translation>Antal tummar ner</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Country</source>
-      <translation>Land</translation>
+      <translation>מדינה</translation>
     </message>
     <message>
       <source>Chats</source>
-      <translation>Chattar</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Number of chats by country</source>
-      <translation>Antal chattar per land</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Average in seconds</source>
-      <translation>Sekunder i genomsnitt</translation>
+      <translation>ממוצע בשניות</translation>
     </message>
     <message>
       <source>Wait time</source>
-      <translation>Väntetid</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Messages</source>
-      <translation>Meddelanden</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Month</source>
-      <translation>Månad</translation>
+      <translation>חודש</translation>
     </message>
     <message>
       <source>Closed</source>
-      <translation>Stängd</translation>
+      <translation>סגור</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation>Aktiv</translation>
+      <translation>פעיל</translation>
     </message>
     <message>
       <source>Operators</source>
-      <translation>Operatörer</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Pending</source>
-      <translation>Avvaktar</translation>
+      <translation>ממתין</translation>
     </message>
     <message>
       <source>Chats number by statuses</source>
-      <translation>Chattar per status</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Time</source>
-      <translation>Tid</translation>
+      <translation>זמן</translation>
     </message>
     <message>
       <source>AVG wait time in seconds, max 10 mininutes</source>
-      <translation>Genomsnittlig väntetid i sekunder, max 10 minuter</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visitors initiated</source>
-      <translation>Besökare som accepterats</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Proactive</source>
-      <translation>Proaktiv</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Proactive chats number vs visitors initiated</source>
-      <translation>Proaktiva chattar gentemot besökare som accepterats</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visitors</source>
-      <translation>Besökare</translation>
+      <translation>מבקרים</translation>
     </message>
     <message>
       <source>System</source>
-      <translation>System</translation>
+      <translation>מערכת</translation>
     </message>
     <message>
       <source>Messages types</source>
-      <translation>Meddelandetyper</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Number of chats per hour, average chat duration</source>
-      <translation>Antal chattar per timme, chattlängd i genomsnitt</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Hourly statistic</source>
-      <translation>Timvis statistik</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Country statistic</source>
-      <translation>Statistik, land</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Users statisic</source>
-      <translation>Statistik, användare</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Number of chats by user</source>
-      <translation>Antal chattar från användare</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Number of messages by user</source>
-      <translation>Antal meddelanden per användare</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Average chat duration by user</source>
-      <translation>Genomsnittlig chattlängd av användare</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>All operators statistic will be downloaded</source>
-      <translation>All operatörsstatistik kommer att laddas ner</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>AVG visitor wait time by operator</source>
-      <translation>Genomsnittlig väntetid för besökare från operatören</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Last 24h statistic</source>
-      <translation>Statistik de senaste 24 timmarna</translation>
+      <translation>סטטיסטיקה - 24 שעות אחרונות</translation>
     </message>
     <message>
       <source>Parameter</source>
-      <translation>Parameter</translation>
+      <translation>פרמטר</translation>
     </message>
     <message>
       <source>Value</source>
-      <translation>Värde</translation>
+      <translation>ערך</translation>
     </message>
     <message>
       <source>Total chats</source>
-      <translation>Total antal chattar</translation>
+      <translation>סה&quot;כ צ&apos;אטים</translation>
     </message>
     <message>
       <source>Total pending chats</source>
-      <translation>Totalt antal chattar i väntan</translation>
+      <translation>סה&quot;כ צ&apos;אטים בהמתנה</translation>
     </message>
     <message>
       <source>Total active chats</source>
-      <translation>Totalt antal aktiva chattar</translation>
+      <translation>סה&quot;כ צ&apos;אטים פעילים</translation>
     </message>
     <message>
       <source>Total closed chats</source>
-      <translation>Totalt avslutade chattar</translation>
+      <translation>סה&quot;כ צ&apos;אטים סגורים </translation>
     </message>
     <message>
       <source>Chatbox chats</source>
-      <translation>Chattbox, chattar</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Total messages (including visitors, system and operators messages)</source>
-      <translation>Totalt antal meddelande (inkl besökare, system- och operatörsmeddelanden)</translation>
+      <translation>סה&quot;כ הודעות (כולל מבקרים, והודעות מערכת ומפעילים)</translation>
     </message>
     <message>
       <source>Total messages (only visitors)</source>
-      <translation>Total antal meddelande (enbart besökare)</translation>
+      <translation>סה&quot;כ הודעות (רק מבקרים)</translation>
     </message>
     <message>
       <source>Total messages (only system messages)</source>
-      <translation>Totalt antal meddelande (enbart systemmeddelanden)</translation>
+      <translation>סה&quot;כ הודעות (רק הודעות מערכת)</translation>
     </message>
     <message>
       <source>Total messages (only operators)</source>
-      <translation>Totalt antal meddelande (enbart operatörer)</translation>
+      <translation>סה&quot;כ הודעות (רק מפעילים)</translation>
     </message>
     <message>
       <source>Operators statistic, top 100 by chats number</source>
-      <translation>Operatörsstatistik, topp 100 av antal chattar</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Total messages</source>
-      <translation>Totalt antal meddelanden</translation>
+      <translation>סה&quot;כ הודעות</translation>
     </message>
     <message>
       <source>Votes</source>
-      <translation>Röster</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Last activity</source>
-      <translation>Senaste aktivitet</translation>
+      <translation>פעילות אחרונה</translation>
     </message>
     <message>
       <source>ago</source>
-      <translation>sedan</translation>
+      <translation>לפני</translation>
     </message>
   </context>
   <context>
     <name>chat/unreadchats</name>
     <message>
       <source>Unread chats list</source>
-      <translation>Lista på olästa chattar</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Information</source>
-      <translation>Information</translation>
+      <translation>מידע</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Tom...</translation>
+      <translation>ריק...</translation>
     </message>
   </context>
   <context>
     <name>chat/modifychat</name>
     <message>
       <source>Modify chat</source>
-      <translation>Modifiera chatten</translation>
+      <translation>ערוך צ&apos;אט</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-post</translation>
+      <translation>דוא&quot;ל</translation>
     </message>
     <message>
       <source>Recipient e-mail</source>
-      <translation>Mottagarens e-post</translation>
+      <translation>נמען דוא&quot;ל</translation>
     </message>
     <message>
       <source>Nick</source>
-      <translation>Smeknamn</translation>
+      <translation>כינוי</translation>
     </message>
     <message>
       <source>Phone</source>
-      <translation>Telefon</translation>
+      <translation>טלפון</translation>
     </message>
     <message>
       <source>Update chat</source>
-      <translation>Uppdatera chatten</translation>
+      <translation>עדכן צ&apos;אט</translation>
     </message>
     <message>
       <source>Chat information was updated</source>
-      <translation>Chattinformationen uppdaterades</translation>
+      <translation>מידע על הצ&apos;אט עודכן</translation>
     </message>
   </context>
   <context>
     <name>chat/part/operator_profile</name>
     <message>
       <source>Skype call</source>
-      <translation>Skype samtal</translation>
+      <translation>שיחת סקייפ</translation>
     </message>
   </context>
   <context>
     <name>chat/previewchat</name>
     <message>
       <source>Last 100 messages rows</source>
-      <translation>Senaste 100 meddelande raderna</translation>
+      <translation>100 שורות אחרונות</translation>
     </message>
   </context>
   <context>
     <name>chat/sendchat</name>
     <message>
       <source>Enter your e-mail</source>
-      <translation>Skriv in din e-postadress</translation>
+      <translation>הקלד דוא&quot;ל</translation>
     </message>
   </context>
   <context>
     <name>chat/sendmail</name>
     <message>
       <source>Send mail to the user</source>
-      <translation>Skicka meddelande till användaren</translation>
+      <translation>שלח דוא&quot;ל למשתמש</translation>
     </message>
     <message>
       <source>Recipient</source>
-      <translation>Mottagare</translation>
+      <translation>נמען</translation>
     </message>
     <message>
       <source>Recipient e-mail</source>
-      <translation>E-postmottagare</translation>
+      <translation>נמען דוא&quot;ל</translation>
     </message>
     <message>
       <source>Subject</source>
-      <translation>Ämne</translation>
+      <translation>נושא</translation>
     </message>
     <message>
       <source>From name</source>
-      <translation>Från namn</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Reply e-mail</source>
-      <translation>Svara till e-postadress</translation>
+      <translation>דואר אלקטרוני למשלוח תשובה</translation>
     </message>
     <message>
       <source>From e-mail</source>
-      <translation>Från e-postadress</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Type your message to the user</source>
-      <translation>Skriv in ditt meddelande till användaren</translation>
+      <translation>הקלד הודעה למשתמש</translation>
     </message>
     <message>
       <source>Send the mail</source>
-      <translation>Skicka e-postmeddelandet</translation>
+      <translation>שלח דוא&quot;ל</translation>
     </message>
     <message>
       <source>Embed link to file</source>
-      <translation>Bädda in länk till fil</translation>
+      <translation>הטמע קישור לקובץ</translation>
     </message>
     <message>
       <source>Mail was sent to the user</source>
-      <translation>Meddelande skickat till användaren</translation>
+      <translation>דו&quot;אל נשלח למשתמש</translation>
     </message>
     <message>
       <source>Please enter recipient e-mail!</source>
-      <translation>Vänligen skriv in mottagarens e-postadress!</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>From e-mail is missing!</source>
-      <translation>Den e-postadress som är från-adressen saknas!</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Reply e-mail is missing!</source>
-      <translation>Den e-postadress som till-adressen saknas!</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Subject is missing!</source>
-      <translation>Ämne saknas!</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>chat/sendnotice</name>
     <message>
       <source>Send a message to the user</source>
-      <translation>Skicka meddelande till användaren</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>If the message was already sent, this will mark it as not delivered and the user will be shown the chat message again.</source>
-      <translation>Om meddelandet redan skickats det här kommer markera det som ej levererat och användaren kommer att visas chattmeddelandet igen.</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Type your message to the user</source>
-      <translation>Skriv in ditt meddelande till användaren</translation>
+      <translation>הקלד הודעך למשתמש</translation>
     </message>
     <message>
       <source>Requires e-mail</source>
-      <translation>E-postadress är obligatoriskt</translation>
+      <translation>נדרש אימייל</translation>
     </message>
     <message>
       <source>Requires name</source>
-      <translation>Namn är obligatoriskt</translation>
+      <translation>נדרש שם</translation>
     </message>
     <message>
       <source>Requires phone</source>
-      <translation>Kräver telefon</translation>
+      <translation>נדרש טלפון</translation>
     </message>
     <message>
       <source>Send the message</source>
-      <translation>Skicka meddelandet</translation>
+      <translation>שלח הודעה</translation>
     </message>
     <message>
       <source>Message was sent to the user</source>
-      <translation>Meddelande skickat till användaren</translation>
+      <translation>ההודעה נשלחה למשתמש</translation>
     </message>
     <message>
       <source>Start chat with operator</source>
-      <translation>Starta chatten med operatören</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Type your message to the operator</source>
-      <translation>Skriv in ditt meddelande till operatören</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>chat/syncandsoundesetting</name>
     <message>
       <source>Save</source>
-      <translation>Spara</translation>
+      <translation>שמור</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Uppdatera</translation>
+      <translation>לעדכן</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Avbryt</translation>
+      <translation>ביטול</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Inställningar uppdaterade</translation>
+      <translation>ההגדרות עודכנו</translation>
     </message>
     <message>
       <source>Synchronisation and sound settings</source>
-      <translation>Synkronisering och ljudinställningar</translation>
+      <translation>הגדרות סינכרון וקול</translation>
     </message>
     <message>
       <source>How many seconds for a user to be considered as being online</source>
-      <translation>Hur många sekunder krävs för att en användare ska anses som online</translation>
+      <translation>כמה שניות כדי שמשתמש יוכל להיחשב שהוא מחובר</translation>
     </message>
     <message>
       <source>Value in seconds</source>
-      <translation>Värde i sekunder</translation>
+      <translation>ערך בשניות</translation>
     </message>
     <message>
       <source>Sync for new chats, interval in seconds</source>
-      <translation>Synka efter nya chattar, intervall i sekunder</translation>
+      <translation>סינכרון עבור השיחות החדשות, מרווח זמן בשניות</translation>
     </message>
     <message>
       <source>Check for messages from the operators, interval in seconds</source>
-      <translation>Kontrollera meddelanden från operatörer, intervall i sekunder</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Messages settings</source>
-      <translation>Meddelandeinställningar</translation>
+      <translation>הגדרות ההודעות</translation>
     </message>
     <message>
       <source>Sync for a new user message, interval in seconds</source>
-      <translation>Synka efter nya användarmeddelanden, intervall i sekunder</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Show browser notification for new messages</source>
-      <translation>Visa webbläsarnotifikation för nya meddelanden</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Long polling (experimental)</source>
-      <translation>Realtid notifieringar (experimentalt)</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Enable long polling</source>
-      <translation>Aktivera långa omröstningar</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>How many seconds keep connection to server?</source>
-      <translation>Hur många sekunder att upprätthålla anslutningen till servern?</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>New chat request notification settings</source>
-      <translation> Notifikationsinställningar för ny chattförfrågan</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Play a new pending chat sound on a new chat request</source>
-      <translation>Spela ett nytt väntande chatt ljud vid en ny chattförfrågan</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Play a sound on a new message for a back office user</source>
-      <translation>Spela upp ljud för nytt meddelande till backoffice användare</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Play a sound on a new message for a front end user</source>
-      <translation>Spela upp ljud för nytt meddelande till frontend användare</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Show alert message on a new chat request</source>
-      <translation>Visa notifikationsmeddelande vid en ny chattförfrågan</translation>
+      <translation>הצג התראה על בקש, צ&apos;אט חדשה</translation>
     </message>
     <message>
       <source>How many times play sound notification</source>
-      <translation>Hur många gånger spela ljudnotifikation</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Number</source>
-      <translation>Nummer</translation>
+      <translation>מספר</translation>
     </message>
     <message>
       <source>Delay between sound notifications in seconds</source>
-      <translation>Fördröjning mellan ljudnotifikationer i sekunder</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>delay in seconds</source>
-      <translation>fördröjning i sekunder</translation>
+      <translation>עיכוב בשניות</translation>
     </message>
     <message>
       <source>Seconds</source>
-      <translation>Sekunder</translation>
+      <translation>שניות</translation>
     </message>
     <message>
       <source>Please enter a valid online timeout value!</source>
-      <translation>Vänligen ange ett giltigt timeout värde!</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter a valid server connection timeout value!</source>
-      <translation>Var vänlig ange ett giltigt värde för serveranslutningens timeout!</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter a valid operator message timeout value!</source>
-      <translation>Vänligen ange ett giltigt värde för timeout gällande operatörsmeddelanden.</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter a valid new messages polling sync interval!</source>
-      <translation>Var vänlig ange ett nytt giltigt meddelande omröstning synkintervall!</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter a valid back office sync interval!</source>
-      <translation>Vänligen ange ett giltigt backoffice synkroniserings intervall!</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter a valid new messages sync interval!</source>
-      <translation>Vänligen ange ett giltigt intervall för synkning av nya meddelanden!</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Synchronization and sound settings</source>
-      <translation>Synkronisering och ljudinställningar</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>chat/transferchat</name>
     <message>
       <source>Transfer to a user</source>
-      <translation>Vidarebefodra till en användare</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Transfer to a department</source>
-      <translation>Vidarebefodra till en avdelning</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Logged in users</source>
-      <translation>Inloggade användare</translation>
+      <translation>משתמשים מחוברים</translation>
     </message>
     <message>
       <source>Transfer a chat to one of your departments users</source>
-      <translation>Vidarebefordra chatten till en användare i avdelningen</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Transfer</source>
-      <translation>Vidarebefodra</translation>
+      <translation>העברה</translation>
     </message>
     <message>
       <source>Departments</source>
-      <translation>Avdelningar</translation>
+      <translation>מחלקות</translation>
     </message>
   </context>
   <context>
     <name>chat/userjoined</name>
     <message>
       <source>User has joined the chat!</source>
-      <translation>Användaren har anslutit till chatten!</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User has joined the chat from popup chat window!</source>
-      <translation>Användaren har gått med i chatten från popup-fönstret!</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>chat/userleftchat</name>
     <message>
       <source>User has left the chat!</source>
-      <translation>Användaren har lämnat chatten</translation>
+      <translation>המשתמש עזב את הצ&apos;אט</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/archive</name>
     <message>
       <source>Chat archive</source>
-      <translation>Chatt arkiv</translation>
+      <translation>ארכיון צ&apos;אט</translation>
     </message>
     <message>
       <source>Archives list</source>
-      <translation>Arkivlista</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>New archive</source>
-      <translation>Nytt arkiv</translation>
+      <translation>ארכיון חדש</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/archivechats</name>
     <message>
       <source>Archiving has finished.</source>
-      <translation>Arkivering avslutad</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>See archived chats</source>
-      <translation>Se arkiverade chattar</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>chatarchive/editarchive</name>
     <message>
       <source>Edit archive</source>
-      <translation>Redigera arkiv</translation>
+      <translation>עריכת ארכיון</translation>
     </message>
     <message>
       <source>Archive updated</source>
-      <translation>Arkiv uppdaterat</translation>
+      <translation>ארכיון התעדכן</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/newarchive</name>
     <message>
       <source>Date from</source>
-      <translation>Datum från</translation>
+      <translation>תאריך מ</translation>
     </message>
     <message>
       <source>E.g</source>
-      <translation>t ex</translation>
+      <translation>למשל</translation>
     </message>
     <message>
       <source>Date to</source>
-      <translation>Datum till</translation>
+      <translation>עד לתאריך</translation>
     </message>
     <message>
       <source>New archive</source>
-      <translation>Nytt arkiv</translation>
+      <translation>ארכיון חדש</translation>
     </message>
     <message>
       <source>Please enter a valid from date range!</source>
-      <translation>Vänligen ange ett giltigt från datum!</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter a valid to date range!</source>
-      <translation>Vänligen ange ett giltigt till datum</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>chatarchive/list</name>
     <message>
       <source>Archives list</source>
-      <translation>Arkivlista</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>From date</source>
-      <translation>Från datum</translation>
+      <translation>מתאריך</translation>
     </message>
     <message>
       <source>Till date</source>
-      <translation>Till datum</translation>
+      <translation>עד לתאריך</translation>
     </message>
     <message>
       <source>Chats in archive</source>
-      <translation>Chattar i arkivet</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Messages in archive</source>
-      <translation>Meddelanden i arkivet</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>List chats</source>
-      <translation>Lista chattar</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Process again</source>
-      <translation>Behandla igen</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Edit</source>
-      <translation>Redigera</translation>
+      <translation>ערוך</translation>
     </message>
     <message>
       <source>Archived chats</source>
-      <translation>Arkiverade chattar</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>chatarchive/listarchivechats</name>
     <message>
       <source>Archived chats</source>
-      <translation>Arkiverade chattar</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Information</source>
-      <translation>Information</translation>
+      <translation>מידע</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/process</name>
     <message>
       <source>Process archive</source>
-      <translation>Bearbeta arkiv</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Process</source>
-      <translation>Bearbeta</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>chatarchive/process_content</name>
     <message>
       <source>Date from</source>
-      <translation>Datum från</translation>
+      <translation>מתאריך </translation>
     </message>
     <message>
       <source>Date to</source>
-      <translation>Datum till</translation>
+      <translation>עד לתאריך</translation>
     </message>
     <message>
       <source>Potential chats to archive</source>
-      <translation>Potentiella chattar att arkivera</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Archived chats</source>
-      <translation>Arkiverade chattar</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Archive progress</source>
-      <translation>Arkiveringsframsteg</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Pending for action...</source>
-      <translation>Väntar på aktivitet...</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Terms dictionary</source>
-      <translation>Villkorsordbok</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>first archived chat ID</source>
-      <translation>första arkiverade chatt id</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>last archived chat ID</source>
-      <translation>sista arkiverade chatt id</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>number of archived chats</source>
-      <translation>antal arkiverade chattar</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>number of archived messages</source>
-      <translation>antal arkiverade meddelanden</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Error accoured during archive process</source>
-      <translation>Fel uppstod i arkiveringsprocessen</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>chatbox/configuration</name>
     <message>
       <source>Chatbox</source>
-      <translation>Chattbox</translation>
+      <translation>תיבת צ&apos;אט</translation>
     </message>
     <message>
       <source>General</source>
-      <translation>Allmänt</translation>
+      <translation>כללי</translation>
     </message>
     <message>
       <source>General settings</source>
-      <translation>Allmänna inställningar</translation>
+      <translation>הגדרות כלליות</translation>
     </message>
     <message>
       <source>Chatbox list</source>
-      <translation>Chattboxlista</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>system/messages</name>
     <message>
       <source>Updated</source>
-      <translation>Uppdaterad</translation>
+      <translation>מעודכן</translation>
     </message>
   </context>
   <context>
     <name>chatbox/form</name>
     <message>
       <source>Chatbox name</source>
-      <translation>Chattbox namn</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Name of manager</source>
-      <translation>Namn på ansvarig</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Identifier</source>
-      <translation>Identifierare</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chatbox active</source>
-      <translation>Chattbox aktiv</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>chatbox/generalsettings</name>
     <message>
       <source>Chatbox settings</source>
-      <translation>Inställningar för chattboxen</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Default new chatbox name</source>
-      <translation>Standard namn på ny chattbox</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Default operator name</source>
-      <translation>Standard operatörsnamn</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Messages limit in the chatbox</source>
-      <translation>Gräns för meddelanden i chattboxen</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Auto creation by chatbox identifier is enabled</source>
-      <translation>Autoskapande av chattbox identifierare är aktiv</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Secret hash, this is used when auto creation is disabled</source>
-      <translation>Hemlig hash, den här används när autoskapande är inaktiverat</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>more information on how to use it</source>
-      <translation>mer information om hur man använder det</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>chatbox/list</name>
     <message>
       <source>Chatbox list</source>
-      <translation>Chattboxlista</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Name</source>
-      <translation>Namn</translation>
+      <translation>שם</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation>Identifierare</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chatbox</source>
-      <translation>Chattbox</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>user/userlist</name>
     <message>
       <source>Edit</source>
-      <translation>Redigera</translation>
+      <translation>ערוך</translation>
     </message>
     <message>
       <source>Users</source>
-      <translation>Användare</translation>
+      <translation>משתמשים</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation>Användarnamn</translation>
+      <translation>שם משתמש</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-post</translation>
+      <translation>דוא&quot;ל</translation>
     </message>
     <message>
       <source>Last activity</source>
-      <translation>Senaste aktivitet</translation>
+      <translation>פעילות אחרונה</translation>
     </message>
     <message>
       <source>Delete</source>
-      <translation>Ta bort</translation>
+      <translation>מחק</translation>
     </message>
     <message>
       <source>New user</source>
-      <translation>Ny användare</translation>
+      <translation>משתמש חדש</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Systeminställningar</translation>
+      <translation>תצורת המערכת</translation>
     </message>
   </context>
   <context>
     <name>kernel/messages</name>
     <message>
       <source>Are you sure?</source>
-      <translation>Är du säker?</translation>
+      <translation>האם אתה בטוח?</translation>
     </message>
   </context>
   <context>
     <name>chatbox/new</name>
     <message>
       <source>New chatbox</source>
-      <translation>Ny chattbox</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>New</source>
-      <translation>Nytt</translation>
+      <translation>חדש</translation>
     </message>
   </context>
   <context>
     <name>cobrowse/browse</name>
     <message>
       <source>Request screen share</source>
-      <translation>Begär skärmdelning</translation>
+      <translation>בקשת שיתוף מסך </translation>
     </message>
     <message>
       <source>Show my mouse position to visitor</source>
-      <translation>Visa min muspekares position för besökare</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>On highlight scroll user window location to match my</source>
-      <translation>Vid markering, scrolla användarens skärmposition att matcha min</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Follow user scroll position</source>
-      <translation>Följ användarens scrollposition</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>On click navigate user browser</source>
-      <translation>Klicka för att navigera användarens webbläsare</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Click blue eye at the top to request screen share</source>
-      <translation>Klicka på ikonen med det blåa ögat högst upp för att begära skärmdelning</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Screen sharing session has finished</source>
-      <translation>Skärmdelningssessionen har avslutats</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Screen is shared</source>
-      <translation>Skärmen är delad</translation>
+      <translation>מסך משותף</translation>
     </message>
   </context>
   <context>
     <name>department/departments</name>
     <message>
       <source>Departments</source>
-      <translation>Avdelningar</translation>
+      <translation>מחלקות</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Namn</translation>
+      <translation>שם</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-post</translation>
+      <translation>דוא&quot;ל</translation>
     </message>
     <message>
       <source>Edit department</source>
-      <translation>Redigera avdelning</translation>
+      <translation>עריכת מחלקה</translation>
     </message>
     <message>
       <source>New department</source>
-      <translation>Ny avdelning</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Are you sure?</source>
-      <translation>Är du säker?</translation>
+      <translation>האם אתה בטוח?</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Systeminställningar</translation>
+      <translation>תצורת מערכת</translation>
     </message>
   </context>
   <context>
     <name>user/account</name>
     <message>
       <source>Updated</source>
-      <translation>Uppdaterad</translation>
+      <translation>מעודכן</translation>
     </message>
     <message>
       <source>Updating...</source>
-      <translation>Uppdaterar...</translation>
+      <translation>עדכון...</translation>
     </message>
     <message>
       <source>Logged user</source>
-      <translation>Loggad användare</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Account data</source>
-      <translation>Kontouppgifter</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Assigned departments</source>
-      <translation>Tilldelade avdelningar</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visible lists</source>
-      <translation>Lista över synliga</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation>Väntande chattar</translation>
+      <translation>צ&apos;אטים בהמתנה</translation>
     </message>
     <message>
       <source>Speech</source>
-      <translation>Tal</translation>
+      <translation>דיבור</translation>
     </message>
     <message>
       <source>Permissions</source>
-      <translation>Behörigheter</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Do not enter a password unless you want to change it</source>
-      <translation>Skriv inte in ett lösenord om du inte vill ändra det</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Username</source>
-      <translation>Användarnamn</translation>
+      <translation>שם משתמש</translation>
     </message>
     <message>
       <source>Your username</source>
-      <translation>Ditt användarnamn</translation>
+      <translation>שם המשתמש שלך</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation>Lösenord</translation>
+      <translation>סיסמה</translation>
     </message>
     <message>
       <source>Enter a new password</source>
-      <translation>Skriv in ett nytt lösenord</translation>
+      <translation>הכנס סיסמה חדשה</translation>
     </message>
     <message>
       <source>Repeat password</source>
-      <translation>Repetera lösenord</translation>
+      <translation>חזור על הסיסמה</translation>
     </message>
     <message>
       <source>Repeat the new password</source>
-      <translation>Repetera det nya lösenordet</translation>
+      <translation>חזור על הסיסמה החדשה</translation>
     </message>
     <message>
       <source>Email</source>
-      <translation>E-post</translation>
+      <translation>דוא&quot;ל</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Namn</translation>
+      <translation>שם</translation>
     </message>
     <message>
       <source>Surname</source>
-      <translation>Efternamn</translation>
+      <translation>שם משפחה</translation>
     </message>
     <message>
       <source>Job title</source>
-      <translation>Jobbtitel</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chat status will not change upon pending chat opening</source>
-      <translation>Chattens status kommer inte ändras vid öppning av chatt i vänteläge</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>I receive other operators permissions request</source>
-      <translation>Jag mottager andra operatörers behörighetsförfrågan</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Skype</source>
@@ -5017,774 +5017,774 @@
     </message>
     <message>
       <source>XMPP username</source>
-      <translation>XMPP användarnamn</translation>
+      <translation>שם המשתמש XMPP</translation>
     </message>
     <message>
       <source>Photo</source>
-      <translation>Foto</translation>
+      <translation>תמונה</translation>
     </message>
     <message>
       <source>Delete</source>
-      <translation>Ta bort</translation>
+      <translation>מחק</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Uppdatera</translation>
+      <translation>לעדכן</translation>
     </message>
     <message>
       <source>Return</source>
-      <translation>Gå tillbaka</translation>
+      <translation>חזור</translation>
     </message>
     <message>
       <source>All departments</source>
-      <translation>Alla avdelningar</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Pending chats tab enabled</source>
-      <translation>Väntande chattar flik aktiverad</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Active chats tab enabled</source>
-      <translation>Aktiva chattar flik aktiverad</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Unread chats tab enabled</source>
-      <translation>Olästa chattar flik aktiverad</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Closed chats tab enabled</source>
-      <translation>Stängda chattar flik aktiverad</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>I can see all pending chats, not only assigned to me</source>
-      <translation>Jag kan se alla väntande chattar, inte endast dem som är tilldelade mig</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Show permissions</source>
-      <translation>Visa behörigheter</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Account updated</source>
-      <translation>Konto uppdaterat</translation>
+      <translation>חשבון עודכן</translation>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
-      <translation>Användaren mottager andra operatörers behörighetsförfrågan</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
-      <translation>Användare kan se alla väntande chattar, inte endast dem som är tilldelade användaren</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Personal canned messages</source>
-      <translation>Personligt förifyllda meddelanden</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter a username!</source>
-      <translation>Vänligen skriv in ett användarnamn!</translation>
+      <translation>אנא הכנס שם משתמש!</translation>
     </message>
     <message>
       <source>User exists!</source>
-      <translation>Användaren finns redan!</translation>
+      <translation>משתמש קיים</translation>
     </message>
     <message>
       <source>Wrong email address</source>
-      <translation>Felaktig e-postadress</translation>
+      <translation>כתובת דוא&quot;ל שגויה</translation>
     </message>
     <message>
       <source>Please enter a name</source>
-      <translation>Vänligen skriv in ett namn</translation>
+      <translation>אנא הזן שם</translation>
     </message>
     <message>
       <source>Passwords mismatch</source>
-      <translation>Lösenorden matchar inte</translation>
+      <translation>חוסר התאמת סיסמאות</translation>
     </message>
   </context>
   <context>
     <name>chat/operatorsbalancing</name>
     <message>
       <source>Active</source>
-      <translation>Aktiv</translation>
+      <translation>פעיל</translation>
     </message>
     <message>
       <source>Maximum number of active chats user can have at a time, 0 - unlimited</source>
-      <translation>Maximalt antal chattar som användare kan ha samtidigt, 0 för obegränsat</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Automatically assign chat to another operator if operator did not accepted chat in seconds, 0 - disabled</source>
-      <translation>Automatiskt tilldela en chatt till en annan operatör om operatören inte accepterar chatten inom ett visst antal sekunder, 0 för att inaktivera</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>department/new</name>
     <message>
       <source>New department</source>
-      <translation>Ny avdelning</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Systeminställningar</translation>
+      <translation>תצורת מערכת</translation>
     </message>
     <message>
       <source>Departments</source>
-      <translation>Avdelningar</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>faq/faqwidget</name>
     <message>
       <source>FAQ</source>
-      <translation>FAQ</translation>
+      <translation>שאלות נפוצות</translation>
     </message>
     <message>
       <source>Ask a question</source>
-      <translation>Ställ en fråga</translation>
+      <translation>שאל/י שאלה</translation>
     </message>
     <message>
       <source>Type your question</source>
-      <translation>Skriv din fråga</translation>
+      <translation>הקלד/י שאלתך</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-post</translation>
+      <translation>דוא&quot;ל</translation>
     </message>
     <message>
       <source>Question</source>
-      <translation>Fråga</translation>
+      <translation>שאלה</translation>
     </message>
     <message>
       <source>Send your question</source>
-      <translation>Skicka din fråga</translation>
+      <translation>שלחו שאלתכם</translation>
     </message>
     <message>
       <source>Your question was submitted!</source>
-      <translation>Din fråga skickades!</translation>
+      <translation>שאלתך נשלחה!</translation>
     </message>
     <message>
       <source>Please enter a question!</source>
-      <translation>Vänligen skriv in en fråga!</translation>
+      <translation>אנא הזן שאלה!</translation>
     </message>
     <message>
       <source>Please enter your email address!</source>
-      <translation>Var vänlig ange din e-postadress!</translation>
+      <translation>אנא הזן את כתובת הדוא&quot;ל שלך!</translation>
     </message>
   </context>
   <context>
     <name>faq/new</name>
     <message>
       <source>Question</source>
-      <translation>Fråga</translation>
+      <translation>שאלה</translation>
     </message>
     <message>
       <source>Answer</source>
-      <translation>Svar</translation>
+      <translation>תשובה</translation>
     </message>
     <message>
       <source>URL, enter * at the end for the wildcard</source>
-      <translation>Länk, lägg till * på slutet som wildcard</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>The URL where this question should appear, leave it empty for all</source>
-      <translation>Länk för där frågan ska visas, lämna tomt för alla</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Submitter e-mail</source>
-      <translation>Inlämnare e-post</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Identifier, can be used to filter questions by identifier</source>
-      <translation>Identifierare, kan användas för att filtrera frågor av identifieraren</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Question is active</source>
-      <translation>Frågan är aktiv</translation>
+      <translation>שאלה פעילה</translation>
     </message>
     <message>
       <source>New question</source>
-      <translation>Ny fråga</translation>
+      <translation>שאלה חדשה</translation>
     </message>
   </context>
   <context>
     <name>faq/list</name>
     <message>
       <source>FAQ</source>
-      <translation>FAQ</translation>
+      <translation>שאלות נפוצות</translation>
     </message>
     <message>
       <source>Question</source>
-      <translation>Fråga</translation>
+      <translation>שאלה</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation>Identifierare</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Active</source>
-      <translation>Aktiv</translation>
+      <translation>פעיל</translation>
     </message>
     <message>
       <source>Y</source>
-      <translation>J</translation>
+      <translation>כ</translation>
     </message>
     <message>
       <source>N</source>
-      <translation>N</translation>
+      <translation>ל</translation>
     </message>
     <message>
       <source>Edit</source>
-      <translation>Redigera</translation>
+      <translation>ערוך</translation>
     </message>
     <message>
       <source>Delete this question</source>
-      <translation>Ta bort denna fråga</translation>
+      <translation>למחוק שאלה זו</translation>
     </message>
     <message>
       <source>New question</source>
-      <translation>Ny fråga</translation>
+      <translation>שאלה חדשה</translation>
     </message>
   </context>
   <context>
     <name>faq/view</name>
     <message>
       <source>View</source>
-      <translation>Visa</translation>
+      <translation>תצוגה</translation>
     </message>
     <message>
       <source>Please enter a manager name!</source>
-      <translation>Vänligen ange en ansvarigs namn</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter a chatbox name!</source>
-      <translation>Vänligen skriv in namn på Chattboxen</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter a chatbox identifier!</source>
-      <translation>Vänligen ange en identifierare för chattboxen</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter answer!</source>
-      <translation>Vänligen skriv in svar!</translation>
+      <translation>אנא הכנס את התשובה!</translation>
     </message>
     <message>
       <source>Identifier has to be shorter than 10 characters!</source>
-      <translation>Identifierare måste vara kortare än 10 tecken!</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter question!</source>
-      <translation>Vänligen skriv in en fråga!</translation>
+      <translation>אנא הזן שאלה!</translation>
     </message>
     <message>
       <source>FAQ</source>
-      <translation>FAQ</translation>
+      <translation>שאלות נפוצות</translation>
     </message>
     <message>
       <source>FAQ description</source>
-      <translation>FAQ förklaring</translation>
+      <translation>תיאור שאלות נפוצות</translation>
     </message>
   </context>
   <context>
     <name>file/list</name>
     <message>
       <source>List of files</source>
-      <translation>Fil lista</translation>
+      <translation>רשימת קבצים</translation>
     </message>
     <message>
       <source>Upload a file</source>
-      <translation>Ladda upp en fil</translation>
+      <translation>להעלות קובץ</translation>
     </message>
     <message>
       <source>Upload name</source>
-      <translation>Ladda upp som namn</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>File size</source>
-      <translation>Filstorlek</translation>
+      <translation>גודל הקובץ</translation>
     </message>
     <message>
       <source>Embed BB code</source>
-      <translation>Bädda in BB kod</translation>
+      <translation>הטמע קוד BB</translation>
     </message>
     <message>
       <source>User</source>
-      <translation>Användare</translation>
+      <translation>משתמש</translation>
     </message>
     <message>
       <source>Chat</source>
-      <translation>Chatt</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Extension</source>
-      <translation>Tillägg</translation>
+      <translation>סיומת</translation>
     </message>
     <message>
       <source>Date</source>
-      <translation>Datum</translation>
+      <translation>תאריך</translation>
     </message>
     <message>
       <source>Delete the file</source>
-      <translation>Ta bort filen</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>file/configuration</name>
     <message>
       <source>File configuration</source>
-      <translation>Filinställningar</translation>
+      <translation>הגדרות קובץ</translation>
     </message>
     <message>
       <source>Allowed files types for operators</source>
-      <translation>Tillåtna filtyper för operatörer</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Allowed files types for users</source>
-      <translation>Tillåtna filtyper för användare</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Maximum file size in KB</source>
-      <translation>Max filstorlek i kB</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Inställningar uppdaterade</translation>
+      <translation>ההגדרות עודכנו</translation>
     </message>
     <message>
       <source>Please enter valid file type!</source>
-      <translation>Vänligen ange en giltig filtyp!</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter valid maximum file size!</source>
-      <translation>Vänligen ange max filstorlek!</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>file/new</name>
     <message>
       <source>New file</source>
-      <translation>Ny fil</translation>
+      <translation>קובץ חדש</translation>
     </message>
     <message>
       <source>File name</source>
-      <translation>Filnamn</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Upload</source>
-      <translation>Ladda upp</translation>
+      <translation>להעלות</translation>
     </message>
     <message>
       <source>File uploaded</source>
-      <translation>Filen är uppladdad</translation>
+      <translation>קובץ הועלה</translation>
     </message>
   </context>
   <context>
     <name>form/collected</name>
     <message>
       <source>Download XLS</source>
-      <translation>Ladda ner XLS</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>URL</source>
-      <translation>URL</translation>
+      <translation>כתובת URL</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Namn</translation>
+      <translation>שם</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation>Identifierare</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Intro</source>
-      <translation>Intro</translation>
+      <translation>מבוא</translation>
     </message>
     <message>
       <source>Time</source>
-      <translation>Tid</translation>
+      <translation>זמן</translation>
     </message>
     <message>
       <source>IP</source>
-      <translation>IP</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>View</source>
-      <translation>Visa</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Download</source>
-      <translation>Ladda ner</translation>
+      <translation>הורדה</translation>
     </message>
     <message>
       <source>Delete</source>
-      <translation>Radera</translation>
+      <translation>מחק</translation>
     </message>
   </context>
   <context>
     <name>form/fill</name>
     <message>
       <source>Return</source>
-      <translation>Återvänd</translation>
+      <translation>חזור</translation>
     </message>
     <message>
       <source>Submit</source>
-      <translation>Skicka</translation>
+      <translation>שלח</translation>
     </message>
     <message>
       <source>Information collected</source>
-      <translation>Informationen insamlad</translation>
+      <translation>מידע נאסף</translation>
     </message>
     <message>
       <source>is required</source>
-      <translation>är obligatorisk</translation>
+      <translation>נדרש</translation>
     </message>
     <message>
       <source>invalid date format</source>
-      <translation>Ogiltigt datumformat</translation>
+      <translation>תבנית תאריך לא חוקית</translation>
     </message>
   </context>
   <context>
     <name>form/index</name>
     <message>
       <source>Form</source>
-      <translation>Formulär</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>List of forms</source>
-      <translation>Lista med formulär</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Page embed code</source>
-      <translation>Sida inbäddningskod</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Date</source>
-      <translation>Datum</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Identifier</source>
-      <translation>Identifierare</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>form/viewcollected</name>
     <message>
       <source>collected information</source>
-      <translation>insamlad information</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Identifier</source>
-      <translation>Identifierare</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Download</source>
-      <translation>Ladda ned</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Collected information</source>
-      <translation>Insamlad information</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>kernel/nopermission</name>
     <message>
       <source>Go back</source>
-      <translation>Gå tillbaka</translation>
+      <translation>חזור אחורה</translation>
     </message>
     <message>
       <source>You do not have permission to access the module</source>
-      <translation>Du har inte rättigheter att öppna modulen</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>and use</source>
-      <translation>och använda</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>function</source>
-      <translation>funktionen</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You do not have permission to edit selected object</source>
-      <translation>Du har inte rättighet att redigera det valda objektet</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>core/paginator</name>
     <message>
       <source>Go to page</source>
-      <translation>Gå till sida</translation>
+      <translation>עבור לדף</translation>
     </message>
     <message>
       <source>of</source>
-      <translation>av</translation>
+      <translation>של</translation>
     </message>
     <message>
       <source>Page</source>
-      <translation>Sida</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Found</source>
-      <translation>Funnen</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>permission/editrole</name>
     <message>
       <source>Role edit</source>
-      <translation>Redigera roll</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Title</source>
-      <translation>Titel</translation>
+      <translation>כותרת</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Uppdatera</translation>
+      <translation>לעדכן</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Avbryt</translation>
+      <translation>ביטול</translation>
     </message>
     <message>
       <source>Assigned functions</source>
-      <translation>Tilldelade funktioner</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Module</source>
-      <translation>Modul</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Function</source>
-      <translation>Funktion</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Remove selected policy</source>
-      <translation>Ta bort vald policy</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>New policy</source>
-      <translation>Ny policy</translation>
+      <translation>מדיניות חדשה</translation>
     </message>
     <message>
       <source>Role assigned groups</source>
-      <translation>Roll tilldelad till grupper</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Remove selected role</source>
-      <translation>Ta bort vald roll</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Assign a group</source>
-      <translation>Tilldela en grupp</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>All modules</source>
-      <translation>Alla moduler</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>All functions</source>
-      <translation>Alla funktioner</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter role name</source>
-      <translation>Vänligen skriv in rollens namn</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please choose module</source>
-      <translation>Vänligen välj en modul</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please choose module function</source>
-      <translation>Vänligen välj modulens funktion</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Systeminställningar</translation>
+      <translation>תצורת מערכת</translation>
     </message>
     <message>
       <source>List of roles</source>
-      <translation>Rollista</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>permission/getpermissionssummary</name>
     <message>
       <source>Request permission</source>
-      <translation>Begär behörighet</translation>
+      <translation>בקש הרשאה</translation>
     </message>
     <message>
       <source>Please choose at least one permission</source>
-      <translation>Var vänlig välj minst en behörighet</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>permission/groupassignrole</name>
     <message>
       <source>Title</source>
-      <translation>Titel</translation>
+      <translation>כותרת</translation>
     </message>
     <message>
       <source>Assign</source>
-      <translation>Tilldela</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>permission/modulefunctions</name>
     <message>
       <source>All functions</source>
-      <translation>Alla funktioner</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>permission/newpolicy</name>
     <message>
       <source>New policy</source>
-      <translation>Ny policy</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Choose a module</source>
-      <translation>Välj en modul</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>All modules</source>
-      <translation>Alla moduler</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Choose a module function</source>
-      <translation>Välj modulens funktion</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Save</source>
-      <translation>Spara</translation>
+      <translation>שמור</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Avbryt</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>All functions</source>
-      <translation>Alla funktioner</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>permission/newrole</name>
     <message>
       <source>New role</source>
-      <translation>Ny roll</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Title</source>
-      <translation>Titel</translation>
+      <translation>כותרת</translation>
     </message>
     <message>
       <source>Policy list</source>
-      <translation>Policylista</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Module</source>
-      <translation>Modul</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Function</source>
-      <translation>Funktion</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>New policy</source>
-      <translation>Ny policy</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Save</source>
-      <translation>Spara</translation>
+      <translation>שמור</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Avbryt</translation>
+      <translation>ביטול</translation>
     </message>
     <message>
       <source>Please enter role name</source>
-      <translation>Vänligen skriv in rollens namn</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Systeminställningar</translation>
+      <translation>תצורת מערכת</translation>
     </message>
     <message>
       <source>List of roles</source>
-      <translation>Rollista</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>permission/request</name>
     <message>
       <source>Request permission</source>
-      <translation>Begär behörighet</translation>
+      <translation>בקש הרשאה</translation>
     </message>
     <message>
       <source>Request permissions</source>
-      <translation>Begär behörigheter</translation>
+      <translation>בקש הרשאות</translation>
     </message>
     <message>
       <source>Permission requested</source>
-      <translation>Behörighet begärd</translation>
+      <translation>נדרשת הרשאה</translation>
     </message>
     <message>
       <source>Please choose a user!</source>
-      <translation>Var vänlig välj en användare!</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>This user can not receive permision request!</source>
-      <translation>Denna användare kan inte få behörighetsförfrågan!</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Permissions were not provided</source>
-      <translation>Behörigheter lämnades inte</translation>
+      <translation>לא סופקו הרשאות</translation>
     </message>
   </context>
   <context>
     <name>permission/roleassigngroup</name>
     <message>
       <source>Title</source>
-      <translation>Titel</translation>
+      <translation>כותרת</translation>
     </message>
     <message>
       <source>Assign</source>
-      <translation>Tilldela</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>permission/roles</name>
     <message>
       <source>List of roles</source>
-      <translation>Rollista</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Title</source>
-      <translation>Titel</translation>
+      <translation>כותרת</translation>
     </message>
     <message>
       <source>Edit a role</source>
-      <translation>Redigera roll</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Delete a role</source>
-      <translation>Ta bort roll</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>New role</source>
-      <translation>Ny roll</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Systeminställningar</translation>
+      <translation>תצורת המערכת</translation>
     </message>
   </context>
   <context>
     <name>questionary/answers</name>
     <message>
       <source>Answer</source>
-      <translation>Svar</translation>
+      <translation>תשובה</translation>
     </message>
     <message>
       <source>Date</source>
-      <translation>Datum</translation>
+      <translation>תאריך</translation>
     </message>
     <message>
       <source>IP</source>
@@ -5792,1454 +5792,1454 @@
     </message>
     <message>
       <source>View</source>
-      <translation>Visa</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Delete the answer</source>
-      <translation>Ta bort svaret</translation>
+      <translation>מחק את התשובה</translation>
     </message>
     <message>
       <source>Option name</source>
-      <translation>Inställningsnamn</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Progress</source>
-      <translation>Framsteg</translation>
+      <translation>התקדמות</translation>
     </message>
     <message>
       <source>Votes</source>
-      <translation>Röster</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>questionary/edit</name>
     <message>
       <source>Edit the question</source>
-      <translation>Redigera frågan</translation>
+      <translation>עריכת השאלה</translation>
     </message>
     <message>
       <source>Question</source>
-      <translation>Fråga</translation>
+      <translation>שאלה</translation>
     </message>
     <message>
       <source>Voting options</source>
-      <translation>Röstningsval</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Answers</source>
-      <translation>Svar</translation>
+      <translation>תשובה</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Spara</translation>
+      <translation>שמור</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Uppdatera</translation>
+      <translation>לעדכן</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Avbryt</translation>
+      <translation>ביטול</translation>
     </message>
     <message>
       <source>Updated</source>
-      <translation>Uppdaterad</translation>
+      <translation>מעודכן</translation>
     </message>
     <message>
       <source>If there are no options to choose from, the user will be shown a text field where he will be able to enter his own answer.</source>
-      <translation>Om det inte finns några val att välja från kommer användaren visas en textruta där han kan skriva in sitt eget svar.</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Option</source>
-      <translation>Val</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Enter name...</source>
-      <translation>Skriv in namn...</translation>
+      <translation>הזן שם...</translation>
     </message>
     <message>
       <source>Option position</source>
-      <translation>Valposition</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Position</source>
-      <translation>Position</translation>
+      <translation>מיקום</translation>
     </message>
     <message>
       <source>Edit</source>
-      <translation>Redigera</translation>
+      <translation>ערוך</translation>
     </message>
     <message>
       <source>Delete</source>
-      <translation>Ta bort</translation>
+      <translation>מחק</translation>
     </message>
     <message>
       <source>Please enter a question!</source>
-      <translation>Vänligen skriv in en fråga!</translation>
+      <translation>אנא הזן שאלה!</translation>
     </message>
     <message>
       <source>Please enter an option!</source>
-      <translation>Vänligen skriv in ett val!</translation>
+      <translation>אנא בחר אפשרות!</translation>
     </message>
     <message>
       <source>Edit a question</source>
-      <translation>Redigera en fråga</translation>
+      <translation>עריכת שאלה</translation>
     </message>
   </context>
   <context>
     <name>questionary/list</name>
     <message>
       <source>Questions</source>
-      <translation>Frågor</translation>
+      <translation>שאלות</translation>
     </message>
     <message>
       <source>Question</source>
-      <translation>Fråga</translation>
+      <translation>שאלה</translation>
     </message>
     <message>
       <source>Location</source>
-      <translation>Plats</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Priority</source>
-      <translation>Prioritet</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Active</source>
-      <translation>Aktiv</translation>
+      <translation>פעיל</translation>
     </message>
     <message>
       <source>Revote</source>
-      <translation>Omrösta</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Y</source>
-      <translation>J</translation>
+      <translation>כ</translation>
     </message>
     <message>
       <source>N</source>
-      <translation>N</translation>
+      <translation>ל</translation>
     </message>
     <message>
       <source>Edit the question</source>
-      <translation>Redigera frågan</translation>
+      <translation>עריכת השאלה</translation>
     </message>
     <message>
       <source>Delete the question</source>
-      <translation>Ta bort frågan</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Tom...</translation>
+      <translation>ריק...</translation>
     </message>
     <message>
       <source>New question</source>
-      <translation>Ny fråga</translation>
+      <translation>שאלה חדשה</translation>
     </message>
     <message>
       <source>Off</source>
-      <translation>Av</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Questionary</source>
-      <translation>Frågeformulär</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>questionary/newquestion</name>
     <message>
       <source>Enter a new question</source>
-      <translation>Skriv in en ny fråga</translation>
+      <translation>הכנס שאלה חדשה</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Spara</translation>
+      <translation>שמור</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Avbryt</translation>
+      <translation>ביטול</translation>
     </message>
     <message>
       <source>New question</source>
-      <translation>Ny fråga</translation>
+      <translation>שאלה חדשה</translation>
     </message>
   </context>
   <context>
     <name>questionary/previewanswer</name>
     <message>
       <source>Preview the answer</source>
-      <translation>Förhandsgranska svaret</translation>
+      <translation>להציג תצוגה מקדימה של התשובה</translation>
     </message>
   </context>
   <context>
     <name>questionary/form_question</name>
     <message>
       <source>Question</source>
-      <translation>Fråga</translation>
+      <translation>שאלה</translation>
     </message>
     <message>
       <source>Question intro</source>
-      <translation>Frågeintroduktion</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Show questions for all the URLs containing this string E.g /shop/basket</source>
-      <translation>Visa alla frågor för länkarna som innehåller den här strängen ex /shop/basket</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Priority, if multiple questions match a location, the question with the higher priority will be shown</source>
-      <translation>Prioritering, om flera frågor matchar en plats kommer frågan med den högsta prioriteten att visas</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Revote time (hours), before can revote. Default 0 - never. Higher value allow revote after seconds expire since last vote</source>
-      <translation>Omröstning tid (timmar), före omröstning kan ske. Standard 0 - aldrig. Högre värde tillåter omröstning efter sekunder sedan senaste omröstning</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Active</source>
-      <translation>Aktiv</translation>
+      <translation>פעיל</translation>
     </message>
   </context>
   <context>
     <name>questionary/votingwidget</name>
     <message>
       <source>Questionary</source>
-      <translation>Frågeformulär</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Thank you!</source>
-      <translation>Tack!</translation>
+      <translation>תודה רבה!</translation>
     </message>
     <message>
       <source>You have already voted, thank you!</source>
-      <translation>Tack, du har redan röstat!</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Vote</source>
-      <translation>Rösta</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Send</source>
-      <translation>Skicka</translation>
+      <translation>שלח</translation>
     </message>
     <message>
       <source>We do not have any requests for now.</source>
-      <translation>Vi har inga förfrågningar f n</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please choose one of the options!</source>
-      <translation>Vänligen välj ett av valen!</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>No question was detected</source>
-      <translation>Ingen fråga hittades</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter your feedback!</source>
-      <translation>Vänligen fyll i din feedback</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You have already send your feedback!</source>
-      <translation>Du har redan skickat din feedback!</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>speech/language</name>
     <message>
       <source>Choose speech recognition language for this chat</source>
-      <translation>Välj ett igenkänningstalspråk för denna chatten</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Language</source>
-      <translation>Språk</translation>
+      <translation>שפה</translation>
     </message>
     <message>
       <source>Dialect</source>
-      <translation>Dialekt</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Default speech recognition language</source>
-      <translation>Standard igenkänningstalkspråk</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>speech/speech</name>
     <message>
       <source>Use application default recognition language</source>
-      <translation>Använd applikationens standard igenkänningsskråk</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Use application default recognition dialect</source>
-      <translation>Använd applikationens standard igenkänningsdialekt</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>users/autologin</name>
     <message>
       <source>Auto login settings</source>
-      <translation>Inställningar för automatisk inloggning</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>This module can be used if you are generating autologin link. See site for code examples</source>
-      <translation>Denna modul kan användas om du genererar en länk för automatisk inloggning. Se hemsidan för kodexempel</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Enabled</source>
-      <translation>Aktiverad</translation>
+      <translation>מאופשר</translation>
     </message>
     <message>
       <source>Secret hash used for authentification token generation, min 10 characters</source>
-      <translation>Hemlig hashfunktion som ska användas för autentisering av skapandet av nyckeln, 10 tecken är minimum</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Inställningarna uppdaterades</translation>
+      <translation>הגדרות התעדכנו</translation>
     </message>
     <message>
       <source>Autologin hash has expired</source>
-      <translation>Hashfunktionen för den automatiska inloggningen har utgått</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Could not find a user</source>
-      <translation>Kunde inte hitta en användare</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Could not find a provided user</source>
-      <translation>Kunde inte hitta en försedd användare</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Invalid autologin hash</source>
-      <translation>Ogiltig hashfunktion för automatisk inloggning</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Auto login module is not enabled</source>
-      <translation>Modulen för den automatiska inloggningen är inte aktiverad</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>system/languages</name>
     <message>
       <source>Languages configuration</source>
-      <translation>Språkinställningar</translation>
+      <translation>תצורת שפות</translation>
     </message>
     <message>
       <source>Your language</source>
-      <translation>Ditt språk</translation>
+      <translation>השפה שלך</translation>
     </message>
     <message>
       <source>General language settings</source>
-      <translation>Allmänna språkinställningar</translation>
+      <translation>הגדרות שפה כלליות </translation>
     </message>
     <message>
       <source>Language</source>
-      <translation>Språk</translation>
+      <translation>שפה</translation>
     </message>
     <message>
       <source>Current site access</source>
-      <translation>Aktuell webbplatsåtkomst</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Site access</source>
-      <translation>Webbplatsåtkomst</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>options for</source>
-      <translation>inställningar för</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Theme, separate themes by new line</source>
-      <translation>Teman, separera teman med radbrytning</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Default module</source>
-      <translation>Standard modul</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Default view</source>
-      <translation>Standard vy</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Inställningar uppdaterade</translation>
+      <translation>ההגדרות עודכנו</translation>
     </message>
     <message>
       <source>Please choose correct language</source>
-      <translation>Vänligen välj rätt språk</translation>
+      <translation>נא לבחור שפה נכונה</translation>
     </message>
     <message>
       <source>Please enter theme</source>
-      <translation>Vänligen välj tema</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter module name</source>
-      <translation>Vänligen skriv in modulnamn</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter view name</source>
-      <translation>Vänligen skriv in vy-namn</translation>
+      <translation>אנא הזן שם תצוגה</translation>
     </message>
   </context>
   <context>
     <name>system/smtp</name>
     <message>
       <source>Mail settings</source>
-      <translation>E-postinställningar</translation>
+      <translation>הגדרות דוא&quot;ל</translation>
     </message>
     <message>
       <source>Sender address</source>
-      <translation>E-post avsändaradress</translation>
+      <translation>כתובת שולח</translation>
     </message>
     <message>
       <source>Default from e-mail address</source>
-      <translation>Standard från e-postadress</translation>
+      <translation>כתובת ברירת מחדל של שולח דוא&quot;ל</translation>
     </message>
     <message>
       <source>Default from name</source>
-      <translation>Standard från namn</translation>
+      <translation>שם שולח ברירת מחדל</translation>
     </message>
     <message>
       <source>SMTP enabled</source>
-      <translation>SMTP aktiverad</translation>
+      <translation>SMTP מופעל</translation>
     </message>
     <message>
       <source>Login</source>
-      <translation>Logga in</translation>
+      <translation>התחברות</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation>Lösenord</translation>
+      <translation>סיסמה</translation>
     </message>
     <message>
       <source>Host</source>
-      <translation>Värd</translation>
+      <translation>מארח</translation>
     </message>
     <message>
       <source>Port</source>
-      <translation>Port</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Inställningar uppdaterade</translation>
+      <translation>ההגדרות עודכנו</translation>
     </message>
   </context>
   <context>
     <name>system/timezone</name>
     <message>
       <source>Time zone settings</source>
-      <translation>Inställningar för tidszon</translation>
+      <translation>הגדרות אזור זמן</translation>
     </message>
     <message>
       <source>Set application specific time zone</source>
-      <translation>Ställ in specifik tidszon i applikationen</translation>
+      <translation>הגדר אזור זמן ספציפי</translation>
     </message>
     <message>
       <source>Date format E.g (Y-m-d)</source>
-      <translation>Datumformat, exempelvis (Y-m-d)</translation>
+      <translation>פורמט תאריך (d-m-Y)</translation>
     </message>
     <message>
       <source>Full date format E.g (Y-m-d H:i:s)</source>
-      <translation>Fullständigt datumformat, exempelvis (Y-m-d H:i:s)</translation>
+      <translation>פורמט תאריך מלא (d-m-Y H:is)</translation>
     </message>
     <message>
       <source>Hour format E.g (H:i:s)</source>
-      <translation>Timformat, exempelvis (H:i:s)</translation>
+      <translation>פורמט שעה, לדוגמה (H:i:s)</translation>
     </message>
     <message>
       <source>Live Helper Chat update</source>
-      <translation>Live Helper Chat uppdatering</translation>
+      <translation>עדכן את Live Helper Chat</translation>
     </message>
     <message>
       <source>Comparing current database structure, please wait...</source>
-      <translation>Jämför med nuvarande databasstruktur, var vänlig vänta...</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Time zone</source>
-      <translation>Tidszon</translation>
+      <translation>אזור זמן</translation>
     </message>
   </context>
   <context>
     <name>user/edit</name>
     <message>
       <source>Server default time zone</source>
-      <translation>Serverns standard tidszon</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User edit</source>
-      <translation>Redigera användare</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Do not enter a password unless you want to change it</source>
-      <translation>Skriv inte in ett lösenord om du inte vill ändra det</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Username</source>
-      <translation>Användarnamn</translation>
+      <translation>שם משתמש</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation>Lösenord</translation>
+      <translation>סיסמה</translation>
     </message>
     <message>
       <source>Repeat the new password</source>
-      <translation>Repetera nya lösenordet</translation>
+      <translation>חזור על הסיסמה החדשה</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-post</translation>
+      <translation>דוא&quot;ל</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Namn</translation>
+      <translation>שם</translation>
     </message>
     <message>
       <source>Surname</source>
-      <translation>Efternamn</translation>
+      <translation>שם משפחה</translation>
     </message>
     <message>
       <source>Photo</source>
-      <translation>Foto</translation>
+      <translation>תמונה</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Spara</translation>
+      <translation>שמור</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Uppdatera</translation>
+      <translation>לעדכן</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Avbryt</translation>
+      <translation>ביטול</translation>
     </message>
     <message>
       <source>Assigned departments</source>
-      <translation>Tilldelade avdelningar</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User time zone</source>
-      <translation>Användarens tidszon</translation>
+      <translation>אזור זמן משתמש</translation>
     </message>
     <message>
       <source>Application default time zone</source>
-      <translation>Applikationens standard tidszon</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Wrong email address</source>
-      <translation>Felaktig e-postadress</translation>
+      <translation>כתובת דוא&quot;ל שגויה</translation>
     </message>
     <message>
       <source>Invalid CSRF token!</source>
-      <translation>Ogiltig CSRF token!</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter a name</source>
-      <translation>Vänligen skriv in ett namn</translation>
+      <translation>אנא הזן שם</translation>
     </message>
     <message>
       <source>Passwords mismatch</source>
-      <translation>Lösenorden matchar inte</translation>
+      <translation>חוסר התאמת סיסמאות</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Systeminställningar</translation>
+      <translation>תצורת המערכת</translation>
     </message>
     <message>
       <source>Users</source>
-      <translation>Användare</translation>
+      <translation>משתמשים</translation>
     </message>
   </context>
   <context>
     <name>system/update</name>
     <message>
       <source>Your version</source>
-      <translation>Din version</translation>
+      <translation>הגרסה שלך</translation>
     </message>
     <message>
       <source>Current version</source>
-      <translation>Nuvarande version</translation>
+      <translation>הגירסה העדכנית</translation>
     </message>
     <message>
       <source>News</source>
-      <translation>Nyheter</translation>
+      <translation>חדשות</translation>
     </message>
     <message>
       <source>Update instructions</source>
-      <translation>Instruktioner för uppdatering</translation>
+      <translation>הוראות עדכון</translation>
     </message>
     <message>
       <source>Live Helper Chat update information</source>
-      <translation>Live Helper Chat uppdateringsinformation</translation>
+      <translation>הוראות עדכון Live Helper Chat</translation>
     </message>
   </context>
   <context>
     <name>update/statusdb</name>
     <message>
       <source>Database structure check</source>
-      <translation>Kontrollera databasstrukturen</translation>
+      <translation>בדיקת מבנה מסד נתונים</translation>
     </message>
     <message>
       <source>Your database does not require any updates</source>
-      <translation>Din databas kräver inga uppdateringar</translation>
+      <translation>מסד הנתונים אינו דורש עדכונים כלשהם</translation>
     </message>
     <message>
       <source>Update database</source>
-      <translation>Uppdatera databasen</translation>
+      <translation>עדכון מסד נתונים</translation>
     </message>
     <message>
       <source>Queries which will be executed on update</source>
-      <translation>Frågor i databasen som kommer att köras vid uppdateringen</translation>
+      <translation>שאילתות אשר יבוצעו בעדכון</translation>
     </message>
   </context>
   <context>
     <name>theme/index</name>
     <message>
       <source>Default theme</source>
-      <translation>Standardstil</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Theme</source>
-      <translation>Stil</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Widget themes</source>
-      <translation>Widget stilar</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Import a new theme</source>
-      <translation>Importera en ny stil</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Themes</source>
-      <translation>Stilar</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Import theme</source>
-      <translation>Importera stil</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>theme/default</name>
     <message>
       <source>Set as default theme</source>
-      <translation>Välj som standardstil</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>theme/import</name>
     <message>
       <source>Default theme was set</source>
-      <translation>Standardstilen var vald</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Import theme</source>
-      <translation>Importera stil</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>File</source>
-      <translation>Fil</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Import</source>
-      <translation>Importera</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Theme imported</source>
-      <translation>Stil importerad</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Could not import a new theme!</source>
-      <translation>Kunde inte importera en ny stil!</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Invalid file!</source>
-      <translation>Ogiltig fil!</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>user/new</name>
     <message>
       <source>Invisible mode</source>
-      <translation>Ej synligt läge</translation>
+      <translation>מצב בלתי נראה</translation>
     </message>
     <message>
       <source>I receive other operators permissions request</source>
-      <translation>Jag mottager andra operatörers behörighetsförfrågan</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
-      <translation>Användaren mottager andra operatörers behörighetsförfrågan</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User group</source>
-      <translation>Användargrupp</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Disabled</source>
-      <translation>Avaktiverad</translation>
+      <translation>מנוטרל</translation>
     </message>
     <message>
       <source>Do not show user status as online</source>
-      <translation>Visa inte användarstatus som tillgänglig</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>All departments</source>
-      <translation>Alla avdelningar</translation>
+      <translation>כל המחלקות</translation>
     </message>
     <message>
       <source>New user</source>
-      <translation>Ny användare</translation>
+      <translation>משתמש חדש</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation>Användarnamn</translation>
+      <translation>שם משתמש</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-post</translation>
+      <translation>דוא&quot;ל</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation>Lösenord</translation>
+      <translation>סיסמה</translation>
     </message>
     <message>
       <source>Repeat the new password</source>
-      <translation>Skriv in det nya lösenordet igen</translation>
+      <translation>חזור על הסיסמה החדשה</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Namn</translation>
+      <translation>שם</translation>
     </message>
     <message>
       <source>Surname</source>
-      <translation>Efternamn</translation>
+      <translation>שם משפחה</translation>
     </message>
     <message>
       <source>Photo</source>
-      <translation>Foto</translation>
+      <translation>תמונה</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Spara</translation>
+      <translation>שמור</translation>
     </message>
     <message>
       <source>Departments</source>
-      <translation>Avdelningar</translation>
+      <translation>מחלקות</translation>
     </message>
     <message>
       <source>Please choose a default user group</source>
-      <translation>Vänligen välj en standard användargrupp</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Wrong email address</source>
-      <translation>Felaktig e-postadress</translation>
+      <translation>כתובת דוא&quot;ל שגויה</translation>
     </message>
     <message>
       <source>Please enter a name</source>
-      <translation>Vänligen skriv in ett namn</translation>
+      <translation>אנא הזן שם</translation>
     </message>
     <message>
       <source>Please enter a username</source>
-      <translation>Vänligen skriv in ett användarnamn</translation>
+      <translation>אנא הכנס שם משתמש</translation>
     </message>
     <message>
       <source>User exists</source>
-      <translation>Användaren finns redan</translation>
+      <translation>משתמש קיים</translation>
     </message>
     <message>
       <source>Passwords mismatch</source>
-      <translation>Lösenorden matchar inte</translation>
+      <translation>חוסר התאמת סיסמאות</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Systeminställningar</translation>
+      <translation>תצורת מערכת</translation>
     </message>
     <message>
       <source>Users</source>
-      <translation>Användare</translation>
+      <translation>משתמשים</translation>
     </message>
     <message>
       <source>Please enter a group name</source>
-      <translation>Vänligen skriv in gruppnamn</translation>
+      <translation>אנא הכנס שם קבוצה</translation>
     </message>
   </context>
   <context>
     <name>user/editgroup</name>
     <message>
       <source>Group edit</source>
-      <translation>Redigera grupp</translation>
+      <translation>עריכת קבוצה</translation>
     </message>
     <message>
       <source>Title</source>
-      <translation>Titel</translation>
+      <translation>כותרת</translation>
     </message>
     <message>
       <source>Disabled</source>
-      <translation>Inaktiverad</translation>
+      <translation>מנוטרל</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Uppdatera</translation>
+      <translation>לעדכן</translation>
     </message>
     <message>
       <source>Assigned users</source>
-      <translation>Tilldelade användare</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Username</source>
-      <translation>Användarnamn</translation>
+      <translation>שם משתמש</translation>
     </message>
     <message>
       <source>Remove user from the group</source>
-      <translation>Ta bort användare från gruppen</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Assign user</source>
-      <translation>Tilldela användare</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Assigned roles</source>
-      <translation>Tilldelade roller</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Name</source>
-      <translation>Namn</translation>
+      <translation>שם</translation>
     </message>
     <message>
       <source>Remove role from group</source>
-      <translation>Ta bort roll från grupp</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Assign role</source>
-      <translation>Tilldela roll</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter a group name</source>
-      <translation>Vänligen skriv in gruppnamn</translation>
+      <translation>אנא הכנס שם קבוצה</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Systeminställningar</translation>
+      <translation>תצורת מערכת</translation>
     </message>
     <message>
       <source>Groups</source>
-      <translation>Grupper</translation>
+      <translation>קבוצות</translation>
     </message>
   </context>
   <context>
     <name>user/forgotpassword</name>
     <message>
       <source>Password reminder</source>
-      <translation>Lösenordspåminnelse</translation>
+      <translation>תזכורת סיסמה</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-post</translation>
+      <translation>דוא&quot;ל</translation>
     </message>
     <message>
       <source>Restore password</source>
-      <translation>Återställ lösenord</translation>
+      <translation>לשחזר סיסמה</translation>
     </message>
     <message>
       <source>Invalid e-mail address!</source>
-      <translation>Ogiltig e-postadress!</translation>
+      <translation>כתובת דוא&quot;ל לא תקינה</translation>
     </message>
     <message>
       <source>Password remind</source>
-      <translation>Lösenordspåminnelse</translation>
+      <translation>תזכורת סיסמה</translation>
     </message>
     <message>
       <source>Click this link and You will be sent a new password</source>
-      <translation>Klicka på den här länken och du kommer få ett nytt lösenord skickat till dig</translation>
+      <translation>לחץ על קישור זה וסיסמה חדשה יושלח אליך.</translation>
     </message>
   </context>
   <context>
     <name>user/forgotpasswordsent</name>
     <message>
       <source>Password reminder</source>
-      <translation>Lösenordspåminnelse</translation>
+      <translation>תזכורת סיסמה</translation>
     </message>
     <message>
       <source>E-mail sent. Click the link in the email and You will be sent out a new password.</source>
-      <translation>E-post skickad. Klicka på länken i mailet och du kommer att få ett nytt lösenord skickat.</translation>
+      <translation>דוא&quot;ל נשלח. לחץ על הקישור בהודעת הדוא&quot;ל וסיסמה חדשה יושלח אליך.</translation>
     </message>
   </context>
   <context>
     <name>user/groupassignuser</name>
     <message>
       <source>Username</source>
-      <translation>Användarnamn</translation>
+      <translation>שם משתמש</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-post</translation>
+      <translation>דוא&quot;ל</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Namn</translation>
+      <translation>שם</translation>
     </message>
     <message>
       <source>Surname</source>
-      <translation>Efternamn</translation>
+      <translation>שם משפחה</translation>
     </message>
     <message>
       <source>Assign</source>
-      <translation>Tilldela</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User was assigned to the group!</source>
-      <translation>Användaren knöts till gruppen!</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>user/grouplist</name>
     <message>
       <source>Groups</source>
-      <translation>Grupper</translation>
+      <translation>קבוצות</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Namn</translation>
+      <translation>שם</translation>
     </message>
     <message>
       <source>Edit group</source>
-      <translation>Redigera grupp</translation>
+      <translation>עריכת קבוצה</translation>
     </message>
     <message>
       <source>Delete group</source>
-      <translation>Ta bort grupp</translation>
+      <translation>מחק קבוצה</translation>
     </message>
     <message>
       <source>New group</source>
-      <translation>Ny grupp</translation>
+      <translation>קבוצה חדשה</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Systeminställningar</translation>
+      <translation>תצורת מערכת</translation>
     </message>
   </context>
   <context>
     <name>gallery/album_list_admin</name>
     <message>
       <source>Are you sure?</source>
-      <translation>Är du säker?</translation>
+      <translation>האם אתה בטוח?</translation>
     </message>
   </context>
   <context>
     <name>user/login</name>
     <message>
       <source>Please login</source>
-      <translation>Logga in</translation>
+      <translation>אנא התחבר</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation>Användarnamn</translation>
+      <translation>שם משתמש</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation>Lösenord</translation>
+      <translation>סיסמה</translation>
     </message>
     <message>
       <source>Remember me</source>
-      <translation>Kom ihåg mig</translation>
+      <translation>זכור אותי</translation>
     </message>
     <message>
       <source>Login</source>
-      <translation>Logga in</translation>
+      <translation>התחברות</translation>
     </message>
     <message>
       <source>Password reminder</source>
-      <translation>Glömt lösenord</translation>
+      <translation>תזכורת סיסמה</translation>
     </message>
     <message>
       <source>You were logged out because another user logged under same account</source>
-      <translation>Du loggades ut eftersom en annan användare loggade in under samma konto</translation>
+      <translation>התנתקת כי משתמש אחר נכנס עם פרטים זהים</translation>
     </message>
     <message>
       <source>Incorrect username or password</source>
-      <translation>Felaktigt användarnamn eller lösenord</translation>
+      <translation>שם משתמש או סיסמה שגויה</translation>
     </message>
   </context>
   <context>
     <name>user/newgroup</name>
     <message>
       <source>New group</source>
-      <translation>Ny grupp</translation>
+      <translation>קבוצה חדשה</translation>
     </message>
     <message>
       <source>Title</source>
-      <translation>Titel</translation>
+      <translation>כותרת</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Spara</translation>
+      <translation>שמור</translation>
     </message>
     <message>
       <source>Save and assign the user</source>
-      <translation>Spara och tilldela användaren</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Systeminställningar</translation>
+      <translation>תצורת מערכת</translation>
     </message>
     <message>
       <source>Groups</source>
-      <translation>Grupper</translation>
+      <translation>קבוצות</translation>
     </message>
   </context>
   <context>
     <name>user/remindpassword</name>
     <message>
       <source>New password</source>
-      <translation>Nytt lösenord</translation>
+      <translation>סיסמה חדשה</translation>
     </message>
     <message>
       <source>Hash was not found or was used already</source>
-      <translation>Hash hittades inte eller har redan använts</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Password remind - new password</source>
-      <translation>Lösenordspåminnelse - nytt lösenord</translation>
+      <translation>תזכורת סיסמה - סיסמא חדשה</translation>
     </message>
     <message>
       <source>New password:</source>
-      <translation>Nytt lösenord:</translation>
+      <translation>סיסמה חדשה:</translation>
     </message>
     <message>
       <source>New password has been sent to your email.</source>
-      <translation>Ett nytt lösenord har skickats till din e-post.</translation>
+      <translation>סיסמה חדשה נשלחה לדוא&quot;ל שלך.</translation>
     </message>
   </context>
   <context>
     <name>lhxml/userinfo</name>
     <message>
       <source>ID</source>
-      <translation>ID</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>IP address</source>
-      <translation>IPadress</translation>
+      <translation>כתובת ה-IP</translation>
     </message>
     <message>
       <source>Current page</source>
-      <translation>Aktuell sida</translation>
+      <translation>דף הנוכחי</translation>
     </message>
     <message>
       <source>Last visit</source>
-      <translation>Senaste besök</translation>
+      <translation>ביקור אחרון</translation>
     </message>
     <message>
       <source>User agent</source>
-      <translation>Användaragent</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Country code</source>
-      <translation>Landskod</translation>
+      <translation>קידומת בינלאומית</translation>
     </message>
     <message>
       <source>Country name</source>
-      <translation>Land</translation>
+      <translation>שם מדינה</translation>
     </message>
     <message>
       <source>Message seen</source>
-      <translation>Meddelande sett</translation>
+      <translation>הודעה נקראה</translation>
     </message>
   </context>
   <context>
     <name>file/file</name>
     <message>
       <source>Download file</source>
-      <translation>Ladda ner filen</translation>
+      <translation>הורד קובץ</translation>
     </message>
   </context>
   <context>
     <name>chat/chatexport</name>
     <message>
       <source>Department name</source>
-      <translation>Namn på avdelningen</translation>
+      <translation>שם מחלקה</translation>
     </message>
     <message>
       <source>Pending chats number</source>
-      <translation>Antal väntande chattar</translation>
+      <translation>מספר שיחות ממתינות</translation>
     </message>
     <message>
       <source>Active chats number</source>
-      <translation>Antal aktiva chattar</translation>
+      <translation>מספר שיחות פעילות</translation>
     </message>
     <message>
       <source>Visitor Name</source>
-      <translation>Besökarens namn</translation>
+      <translation>שם מבקר</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-post</translation>
+      <translation>דוא&quot;ל</translation>
     </message>
     <message>
       <source>Phone</source>
-      <translation>Telefon</translation>
+      <translation>טלפון</translation>
     </message>
     <message>
       <source>Wait time</source>
-      <translation>Väntetid</translation>
+      <translation>זמן המתנה</translation>
     </message>
     <message>
       <source>Country</source>
-      <translation>Land</translation>
+      <translation>מדינה</translation>
     </message>
     <message>
       <source>City</source>
-      <translation>Stad</translation>
+      <translation>עיר</translation>
     </message>
     <message>
       <source>IP</source>
-      <translation>IP-nummer</translation>
+      <translation>IP</translation>
     </message>
     <message>
       <source>Operator</source>
-      <translation>Operatör</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Department</source>
-      <translation>Avdelning</translation>
+      <translation>מחלקה</translation>
     </message>
     <message>
       <source>Date</source>
-      <translation>Datum</translation>
+      <translation>תאריך</translation>
     </message>
     <message>
       <source>Minutes</source>
-      <translation>Minuter</translation>
+      <translation>דקות</translation>
     </message>
     <message>
       <source>Vote status</source>
-      <translation>Status för röstningen</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Mail send</source>
-      <translation>Mejl skickat</translation>
+      <translation>האימייל נשלח</translation>
     </message>
     <message>
       <source>Page</source>
-      <translation>Sida</translation>
+      <translation>דף</translation>
     </message>
     <message>
       <source>Came from</source>
-      <translation>Kom från</translation>
+      <translation>הגיע מ</translation>
     </message>
     <message>
       <source>Link</source>
-      <translation>Länk</translation>
+      <translation>קישור</translation>
     </message>
     <message>
       <source>Chat content</source>
-      <translation>Chattinnehåll</translation>
+      <translation>תוכן השיחה</translation>
     </message>
     <message>
       <source>User ID</source>
-      <translation>Användar-ID</translation>
+      <translation>מזהה משתמש</translation>
     </message>
     <message>
       <source>Chat average in seconds</source>
-      <translation>Genomsnittlig chattid i sekunder</translation>
+      <translation>זמן שיחה ממוצע בשניות</translation>
     </message>
   </context>
   <context>
     <name>chat/closechatadmin</name>
     <message>
       <source>has closed the chat!</source>
-      <translation>har stängt chatten!</translation>
+      <translation>סגר את הצ&apos;אט!</translation>
     </message>
   </context>
   <context>
     <name>chat/syncuser</name>
     <message>
       <source>Support staff member has closed this chat</source>
-      <translation>Supportmedarbetaren har stängt chatten</translation>
+      <translation>איש תמיכה סגר את השיחה</translation>
     </message>
     <message>
       <source>Chat was automatically transferred to</source>
-      <translation>Chatten blev automatiskt vidarebefodrad till</translation>
+      <translation>השיחה הועברה אוטומטית ל</translation>
     </message>
     <message>
       <source>from</source>
-      <translation>från</translation>
+      <translation>מ</translation>
     </message>
     <message>
       <source>Chat was automatically closed by cron</source>
-      <translation>Chatten stängdes automatiskt av cron-inställningarna</translation>
+      <translation>השיחה נסגרה אוטמטית </translation>
     </message>
     <message>
       <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
-      <translation>Supporten har stängt chattfönstret men lämna gärna meddelande och så läser administratören dem senare.</translation>
+      <translation>התמיכה סגרה את חלון השיחה, אך באפשרותך להשאיר הודעה ומנהל האתר יקרא אותה מאוחר יותר</translation>
     </message>
     <message>
       <source>You do not have permission to view this chat, or the chat was deleted</source>
-      <translation>Du har inte rättigheter att se på denna chatt eller så är den borttagen</translation>
+      <translation>אין לך הרשאה לראות את השיחה, או שהשיחה נמחקה</translation>
     </message>
   </context>
   <context>
     <name>departament/edit</name>
     <message>
       <source>Please enter a department name</source>
-      <translation>Vänligen skriv in ett avdelningsnamn</translation>
+      <translation>הזן שם מחלקה</translation>
     </message>
     <message>
       <source>Minimum 5 seconds</source>
-      <translation>Minimum 5 sekunder</translation>
+      <translation>לפחות 5 שניות</translation>
     </message>
     <message>
       <source>Transfer department has to be different one than self</source>
-      <translation>Flyttavdelningen måste vara en annan avdelning än den själv</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter a valid from date range!</source>
-      <translation>Vänligen ange ett giltigt från datum!</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter a valid to date range!</source>
-      <translation>Vänligen ange ett giltigt till datum!</translation>
+      <translation>אנא הזן טווח תאריכים חוקי!</translation>
     </message>
   </context>
   <context>
     <name>abstract/browserofferinvitation</name>
     <message>
       <source>Name for personal purposes</source>
-      <translation>Namn för personliga ändamål</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
-      <translation>Språk, lämna tomt för alla. Exempelvis en, rus, ger etc...</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Time on site on single page in seconds</source>
-      <translation>Tid på enskild sida i sekunder</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Priority, the lower the higher</source>
-      <translation>Prioritet, desto lägre desto högre</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Popup width</source>
-      <translation>Popup bredd</translation>
+      <translation>רוחב חלון קופץ</translation>
     </message>
     <message>
       <source>Popup height</source>
-      <translation>Popup höjd</translation>
+      <translation>גובה חלון קופץ</translation>
     </message>
     <message>
       <source>Measure units, px or percents</source>
-      <translation>Måttenheter, px eller procent</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
-      <translation>Hänvisningsdomän utan www, exempelvis google sökord kommer matcha alla google domäner</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>URL, enter * at the end for the wildcard</source>
-      <translation>URL, ange * i slutet för wildcard</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Custom iframe URL, takes priority over default content</source>
-      <translation>Anpassad iframe URL, tar prioritet över standard innehåll</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Default popup content</source>
-      <translation>Standard popup innehåll</translation>
+      <translation>הודעת ברירת מחדל לחלון קופץ</translation>
     </message>
     <message>
       <source>Callback content, must be valid json</source>
-      <translation>Callback innehåll, måste vara giltig json</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Load content in lhc iframe</source>
-      <translation>Ladda innehåll i lhc frame</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Active</source>
-      <translation>Aktiv</translation>
+      <translation>פעיל</translation>
     </message>
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
-      <translation>Identifierare, för vilken identifierare detta meddelande ska visas, lämna tomt för alla</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Matched times</source>
-      <translation>Matchade tider</translation>
+      <translation>פריטים תואמים</translation>
     </message>
     <message>
       <source>Browser offer invitations</source>
-      <translation>Bläddra bland erbjudande om inbjudning</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Content</source>
-      <translation>Innehåll</translation>
+      <translation>תוכן</translation>
     </message>
     <message>
       <source>Name attributes</source>
-      <translation>Namnattribut</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Introduction attributes</source>
-      <translation>Introduktionsattribut</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>XLS Columns</source>
-      <translation>XLS kolumner</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Recipient</source>
-      <translation>Mottagare</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Post content after form is submitted</source>
-      <translation>Posta innehållet efter formuläret är inskickat</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Custom pagelayout</source>
-      <translation>Modifierad sidlayout</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Forms list</source>
-      <translation>Formulärlista</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>abstract/email_template</name>
     <message>
       <source>Name, for personal purposes</source>
-      <translation>Namn, för internt bruk</translation>
+      <translation>שם, לצורך שימוש פרטי</translation>
     </message>
     <message>
       <source>Subject</source>
-      <translation>Ämne</translation>
+      <translation>נושא</translation>
     </message>
     <message>
       <source>Allow user to change subject</source>
-      <translation>Tillåt användare att ändra ämne</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>From name</source>
-      <translation>Från namn</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Allow to change from name</source>
-      <translation>Tillåt ändring av från namn</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>From e-mail</source>
-      <translation>Från e-post</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Allow to change from e-mail</source>
-      <translation>Tillåt ändring av från-adressen</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Use user e-mail as from address</source>
-      <translation>Använd användarens e-postadress som från-adress</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Reply to</source>
-      <translation>Svara till</translation>
+      <translation>השב ל</translation>
     </message>
     <message>
       <source>Allow to change reply e-mail</source>
-      <translation>Tillåt ändring av till-adressen</translation>
+      <translation>אשר לשנות כתובת דוא&quot;ל לתגובה</translation>
     </message>
     <message>
       <source>Recipient email, this is used if the application could not determine who should receive an email.</source>
-      <translation>Mottagaradress, den här adressen används om programmet inte kan avgöra vem som ska ha e-posten</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>BCC recipients, can be separated by comma.</source>
-      <translation>BCC mottagare, kan separeras med ett kommatecken.</translation>
+      <translation>עותקים, מופרדים בפסיקים</translation>
     </message>
     <message>
       <source>Content</source>
-      <translation>Innehåll</translation>
+      <translation>תוכן</translation>
     </message>
     <message>
       <source>E-mail templates</source>
-      <translation>E-postmallar</translation>
+      <translation>תבניות דוא&quot;ל</translation>
     </message>
   </context>
   <context>
     <name>chat/accepttrasnfer</name>
     <message>
       <source>has joined the chat!</source>
-      <translation>har gått med i chatten!</translation>
+      <translation>הצטרף לצ&apos;אט</translation>
     </message>
     <message>
       <source>has accepted a chat!</source>
-      <translation>har accepterat en chatt!</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>chat/deletechatadmin</name>
     <message>
       <source>You do not have rights to delete a chat</source>
-      <translation>Du har inte rättigheter att ta bort en chatt</translation>
+      <translation>אין לך יכולת למחוק צ&apos;אט</translation>
     </message>
   </context>
   <context>
     <name>chat/reopenchat</name>
     <message>
       <source>has reopened the chat!</source>
-      <translation>har återupptagit chatten!</translation>
+      <translation>פתח שיחה מחדש</translation>
     </message>
     <message>
       <source>No permission to reopen the chat!</source>
-      <translation>Rättighet saknas att återuppta chatten!</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>chat/single</name>
     <message>
       <source>Chat started with</source>
-      <translation>Chatt startad med</translation>
+      <translation>השיחה התחילה עם</translation>
     </message>
   </context>
   <context>
     <name>chat/transferuser</name>
     <message>
       <source>Chat was assigned to selected department</source>
-      <translation>Chatten tilldelades vald avdelning</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chat was assigned to selected user</source>
-      <translation>Chatten tilldelades till vald användare</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>chat/updatemsguser</name>
     <message>
       <source>User has edited his last message</source>
-      <translation>Användaren har redigerat det senaste meddelandet</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>chat/voteaction</name>
     <message>
       <source>Thumbs up</source>
-      <translation>Tummen upp</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Thumbs down</source>
-      <translation>Tummen ned</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Removed thumb vote</source>
-      <translation>Tog bort tum-röstning</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>chatarchive/viewarchivedchat</name>
     <message>
       <source>View archived chat</source>
-      <translation>Visa arkiverad chatt</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>file/configurations</name>
     <message>
       <source>Please enter valid file type!</source>
-      <translation>Vänligen ange en giltig filtyp!</translation>
+      <translation>אנא הזן סוג קובץ תקין</translation>
     </message>
   </context>
 </TS>

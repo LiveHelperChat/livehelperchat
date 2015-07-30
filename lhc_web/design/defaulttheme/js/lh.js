@@ -333,7 +333,7 @@ function lh(){
         var inst = this;        
         
         if (sessionStorage && sessionStorage.getItem('lhc_ttxt') && sessionStorage.getItem('lhc_ttxt') != '') {
-        	jQuery('#CSChatMessage').val(sessionStorage.getItem('lhc_ttxt'));
+        	jQuery('#CSChatMessage').val(sessionStorage.getItem('lhc_ttxt'));       
     	}
                 
         jQuery('#CSChatMessage').bind('keyup', function (evt){
@@ -666,10 +666,12 @@ function lh(){
 	    	
 	    	var index = tabs.find('> ul > #chat-tab-li-'+chat_id).index();
 	    	tabs.find('> ul > #chat-tab-li-'+chat_id).remove();
-	    	tabs.find('#chat-id-'+chat_id).remove();	    	
-	    	tabs.find('> ul > li:eq('+ (index - 1)+')').addClass('active');
-	    	tabs.find('> div.tab-content > div:eq(' + (index - 1) + ')').addClass("active");
-	    
+	    	tabs.find('#chat-id-'+chat_id).remove();	
+	    	
+	    	if (!tabs.find('> ul > li.active').length) {
+                tabs.find('> ul > li:eq(' + (index - 1) + ')').addClass('active');
+                tabs.find('> div.tab-content > div:eq(' + (index - 1) + ')').addClass("active");
+            }
 	    	
 	        if (this.closeWindowOnChatCloseDelete == true)
 	        {
@@ -1719,6 +1721,18 @@ function lh(){
         }
     };
 
+    this.addMessagesToStore = function(messages) 
+    {
+    	var modeWindow = this.isWidgetMode == true ? '/(mode)/widget' : '';
+    	
+    	var arrayLength = messages.length;
+    	for (var i = 0; i < arrayLength; i++) {    	    
+    	    this.addUserMessageQueue.push({'pdata':{msg : messages[i]},'url':this.wwwDir + this.addmsgurluser + this.chat_id + '/' + this.hash + modeWindow});
+    	}
+    	
+    	this.addDelayedMessage();
+    };
+    
     this.addDelayedMessage = function()
     {
     	var inst = this;
@@ -1728,9 +1742,21 @@ function lh(){
     		if (this.addUserMessageQueue.length > 0)
     		{
 	    		var elementAdd = this.addUserMessageQueue.shift();
+	    		
 	    		this.addingUserMessage = true;
 	    		
-		        $.postJSON(elementAdd.url, elementAdd.pdata , function(data) {
+	    		// Format message body from pending messages
+	    		var messagesData = [];
+	    		messagesData.push(elementAdd.pdata.msg);
+	    		
+	    		var arrayLength = this.addUserMessageQueue.length;
+	        	for (var i = 0; i < arrayLength; i++) { 
+	        		messagesData.push(this.addUserMessageQueue[i].pdata.msg);
+	        	};
+	        	
+	        	this.addUserMessageQueue = [];
+	        	
+		        $.postJSON(elementAdd.url, {msg:messagesData.join("\n")} , function(data) {
 		        		        	
 		        	if (data.error == 'f') {
 			        	if (LHCCallbacks.addmsguser) {
@@ -1879,7 +1905,88 @@ function lh(){
 
     	return false;
     };
+    
+    this.pendingMessagesToStore = [];
+    
+    this.prestartChat = function(timestamp,inst) {
+    	    	
+    	if (inst.find('.form-protected').size() == 0) {
+				 inst.find('input[type="submit"]').attr('disabled','disabled');
+		    	 $.getJSON(this.wwwDir + 'captcha/captchastring/form/'+timestamp, function(data) {
+		    		 inst.append('<input type="hidden" value="'+timestamp+'" name="captcha_'+data.result+'" /><input type="hidden" value="'+timestamp+'" name="tscaptcha" /><input type="hidden" class="form-protected" value="1" />');
+		    		 inst.submit();
+		    	 });
+		    	 return false;
+	  	} else {
+	  		
+	  		// Avoid users stupidity if they enable it but form has extra field
+	  		if (inst.find('#hasFormExtraField').size() == 1) {
+	  			return true;
+	  		}
+	  		
+	  		if (inst.attr('lhc-form-submitted') != 1) { // Form is not submitted
+		  		inst.attr('lhc-form-submitted',1);
+		  		var instSelf = this;	
+		  				  				  		
+		  		var keyUpStarted = inst.attr('key-up-started') == 1;
+		  		
+		  		if (keyUpStarted == true) {
+		  			inst.append('<input type="hidden" value="1" name="keyUpStarted" />');
+		  		}
+		  				  		
+		  		$.post(inst.attr('action'),inst.serialize(), function (response) {		  		
+		  			var valueQuestion = $('#id_Question').val();
+		  			if (sessionStorage) {
+		        		 sessionStorage.setItem('lhc_ttxt',valueQuestion);
+		         	};
+		         		         	
+		         	var scripts = $('head > script');
+		         	var headCurrent =  $('head');
+		  			var currentSripts = [];
+		         	
+		         	$('head > script').each( function() {
+		         		var script = $(this);
+		         		if (script.attr('src') !== undefined) {
+		         			currentSripts.push(script.attr('src'));
+		         		}
+		         	});
+		         			  		
+		  			$('<div>').html(response).find('> script').each(function(){
+		  				var script = $(this);		  				
+		  				if (script.attr('src') === undefined) {		  					
+		  					headCurrent.append(script);		  					
+		  				} else {
+		  					if (currentSripts.indexOf(script.attr('src')) == -1) { // Add JS only if it's new
+		  						headCurrent.append("<script src=\""+script.attr('src')+"\"></script>");		  						
+		  					}
+		  				}
+		  			});
+		  					  			
+		  			paramsDocument = "<script>lhinst.addMessagesToStore("+JSON.stringify(instSelf.pendingMessagesToStore)+")</script>";		
+		         	$('#widget-layout').html($('<div>').html(response).find('#widget-layout').html());		  			
+		         	$('#widget-layout-js').html($('<div>').html(response).find('#widget-layout-js').html()+paramsDocument);		         	
+		         	
+	            });
+		  		
+		  		if (keyUpStarted == false) {
+		  			$('#id_Question').val('');
+		  		}
+		  		
+	  		} else {	  			
+	  			if ($('#messagesBlock').size() > 0) {
+	            	jQuery('<div/>', {
+	    			    'class': 'message-row response',					   
+	    			    text: $('#id_Question').val()
+	    			}).appendTo('#messagesBlock').prepend('<span class="usr-tit vis-tit">'+visitorTitle+'</span>');
+				};	  			
+	  			this.pendingMessagesToStore.push($('#id_Question').val());
+	  			$('#id_Question').val('');
+	  		}
+	  	}
 
+	  	return false;
+    };
+    
     this.addCaptcha = function(timestamp,inst) {
     	if (inst.find('.form-protected').size() == 0){
     			 inst.find('input[type="submit"]').attr('disabled','disabled');

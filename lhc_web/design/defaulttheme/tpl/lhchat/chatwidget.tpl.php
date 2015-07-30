@@ -32,7 +32,11 @@ if ($theme !== false && $theme->explain_text != '') : ?>
 <p class="start-chat-intro"><?php echo erLhcoreClassBBCode::make_clickable(htmlspecialchars($theme->explain_text))?></p>
 <?php endif;?>
 
-<form method="post" id="form-start-chat" action="<?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?><?php echo $append_mode?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $input_data->priority !== false ? print '/(priority)/'.$input_data->priority : ''?><?php $input_data->vid !== false ? print '/(vid)/'.htmlspecialchars($input_data->vid) : ''?><?php $input_data->hash_resume !== false ? print '/(hash_resume)/'.htmlspecialchars($input_data->hash_resume) : ''?><?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?php $forceoffline == true ? print '/(offline)/true' : ''?><?php echo $append_mode_theme?>" onsubmit="return lhinst.addCaptcha('<?php echo time()?>',$(this))">
+<form method="post" id="form-start-chat" action="<?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?><?php echo $append_mode?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $input_data->priority !== false ? print '/(priority)/'.$input_data->priority : ''?><?php $input_data->vid !== false ? print '/(vid)/'.htmlspecialchars($input_data->vid) : ''?><?php $input_data->hash_resume !== false ? print '/(hash_resume)/'.htmlspecialchars($input_data->hash_resume) : ''?><?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?php $forceoffline == true ? print '/(offline)/true' : ''?><?php echo $append_mode_theme?>" onsubmit="return <?php if (isset($start_data_fields['message_auto_start']) && $start_data_fields['message_auto_start'] == true) : ?>lhinst.prestartChat('<?php echo time()?>',$(this))<?php else : ?>lhinst.addCaptcha('<?php echo time()?>',$(this))<?php endif?>">
+
+<?php if (isset($start_data_fields['message_visible_in_page_widget']) && $start_data_fields['message_visible_in_page_widget'] == true && isset($start_data_fields['show_messages_box']) && $start_data_fields['show_messages_box'] == true) : ?>
+    <?php include(erLhcoreClassDesign::designtpl('lhchat/startchatformsettings/presend.tpl.php'));?>
+<?php endif;?>
 
 <div class="row">
     <?php if (isset($start_data_fields['name_visible_in_page_widget']) && $start_data_fields['name_visible_in_page_widget'] == true) : $hasExtraField = true;?>
@@ -131,7 +135,9 @@ if ($theme !== false && $theme->explain_text != '') : ?>
 <input type="hidden" value="<?php echo htmlspecialchars($referer_site);?>" name="r" />
 <input type="hidden" value="<?php echo htmlspecialchars($input_data->operator);?>" name="operator" />
 <input type="hidden" value="1" name="StartChat"/>
-
+<?php if ($hasExtraField === true) : ?>
+    <input type="hidden" value="1" id="hasFormExtraField"/>
+<?php endif;?>
 </form>
 
 <?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/switch_to_offline.tpl.php'));?>
@@ -141,13 +147,27 @@ if ($theme !== false && $theme->explain_text != '') : ?>
 <?php if ($canReopen == false) : ?>
 jQuery('#id_Question').addClass('mb0');
 <?php endif;?>
+
+<?php if ($hasExtraField == false && isset($start_data_fields['message_auto_start']) && $start_data_fields['message_auto_start'] == true && isset($start_data_fields['message_auto_start_key_press']) && $start_data_fields['message_auto_start_key_press'] == true) : ?>
+$('#id_Question').on('keyup', function (e) {
+	if ($( "#form-start-chat").attr("key-up-started") != 1) {
+    	$( "#form-start-chat").attr("key-up-started",1);
+    	$( "#form-start-chat").submit();	
+	}
+});
+<?php endif;?>
+
+
 var formSubmitted = false;
 jQuery('#id_Question').bind('keydown', 'return', function (evt){
 	if (formSubmitted == false) {
-		formSubmitted = true;
 		$( "#form-start-chat" ).submit();	
+		<?php if (!isset($start_data_fields['message_auto_start']) || $start_data_fields['message_auto_start'] == false) : ?>
+		formSubmitted = true;
+		jQuery('#id_Question').attr('readonly','readonly');		
+		<?php endif;?>
 	};
-	return false;
+	return false;	
 });
 </script>
 <?php endif;?>
