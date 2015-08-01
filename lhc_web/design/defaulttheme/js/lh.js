@@ -339,7 +339,9 @@ function lh(){
         jQuery('#CSChatMessage').bind('keyup', function (evt){
         	
         	 if (sessionStorage) {
-        		 sessionStorage.setItem('lhc_ttxt',$(this).val());
+        		 try {
+        			 sessionStorage.setItem('lhc_ttxt',$(this).val());
+        		 } catch(e) {}
          	 };
         	
             if (inst.is_typing == false) {
