@@ -1762,7 +1762,7 @@ function lh(){
 	        	
 	        	this.addUserMessageQueue = [];
 	        	
-		        $.postJSON(elementAdd.url, {msg:messagesData.join("\n")} , function(data) {
+		        $.postJSON(elementAdd.url, {msg:messagesData.join("[[msgitm]]")} , function(data) {
 		        		        	
 		        	if (data.error == 'f') {
 			        	if (LHCCallbacks.addmsguser) {

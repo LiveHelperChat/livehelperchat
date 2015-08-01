@@ -21,18 +21,23 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && mb_strlen($form->m
 	        
 	        $db->beginTransaction();
 	        
-	        $msg = new erLhcoreClassModelmsg();
-	        $msg->msg = trim($form->msg);
-	        $msg->chat_id = $Params['user_parameters']['chat_id'];
-	        $msg->user_id = 0;
-	        $msg->time = time();
-	
-	        if ($chat->chat_locale != '' && $chat->chat_locale_to != '') {
-	            erLhcoreClassTranslate::translateChatMsgVisitor($chat, $msg);
-	        }
+	        $messagesToStore = explode('[[msgitm]]', trim($form->msg));
 	        
-	        erLhcoreClassChat::getSession()->save($msg);
-
+	        foreach ($messagesToStore as $messageText)
+	        {
+    	        $msg = new erLhcoreClassModelmsg();
+    	        $msg->msg = trim($messageText);
+    	        $msg->chat_id = $Params['user_parameters']['chat_id'];
+    	        $msg->user_id = 0;
+    	        $msg->time = time();
+    	
+    	        if ($chat->chat_locale != '' && $chat->chat_locale_to != '') {
+    	            erLhcoreClassTranslate::translateChatMsgVisitor($chat, $msg);
+    	        }
+    	        
+    	        erLhcoreClassChat::getSession()->save($msg);
+	        }
+	        	        
 	        $stmt = $db->prepare('UPDATE lh_chat SET last_user_msg_time = :last_user_msg_time, last_msg_id = :last_msg_id, has_unread_messages = 1 WHERE id = :id');
 	        $stmt->bindValue(':id',$chat->id,PDO::PARAM_INT);
 	        $stmt->bindValue(':last_user_msg_time',$msg->time,PDO::PARAM_INT);
