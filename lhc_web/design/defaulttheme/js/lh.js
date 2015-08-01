@@ -332,10 +332,12 @@ function lh(){
         var www_dir = this.wwwDir;
         var inst = this;        
         
-        if (sessionStorage && sessionStorage.getItem('lhc_ttxt') && sessionStorage.getItem('lhc_ttxt') != '') {
-        	jQuery('#CSChatMessage').val(sessionStorage.getItem('lhc_ttxt'));       
-    	}
-                
+        try {
+	        if (sessionStorage && sessionStorage.getItem('lhc_ttxt') && sessionStorage.getItem('lhc_ttxt') != '') {
+	        	jQuery('#CSChatMessage').val(sessionStorage.getItem('lhc_ttxt'));       
+	    	}
+        } catch(e) {}
+        
         jQuery('#CSChatMessage').bind('keyup', function (evt){
         	
         	 if (sessionStorage) {
@@ -1667,7 +1669,9 @@ function lh(){
 		var inst = this;
 		
 		if (sessionStorage) {
-   		   sessionStorage.setItem('lhc_ttxt','');
+			try {
+				sessionStorage.setItem('lhc_ttxt','');
+			} catch(e) {}
     	};
     	    			
 		if (textArea.hasClass('edit-mode')) {
@@ -1939,7 +1943,9 @@ function lh(){
 		  		$.post(inst.attr('action'),inst.serialize(), function (response) {		  		
 		  			var valueQuestion = $('#id_Question').val();
 		  			if (sessionStorage) {
-		        		 sessionStorage.setItem('lhc_ttxt',valueQuestion);
+		  				try {
+		  					sessionStorage.setItem('lhc_ttxt',valueQuestion);
+		  				} catch(e) {}
 		         	};
 		         		         	
 		         	var scripts = $('head > script');
