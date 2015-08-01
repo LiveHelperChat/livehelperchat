@@ -8,7 +8,9 @@
 
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
-<table cellpadding="0" cellspacing="0" class="table" width="100%">
+<?php include(erLhcoreClassDesign::designtpl('lhchat/lists_chats_parts/append_table_class.tpl.php'));?>
+
+<table cellpadding="0" cellspacing="0" class="table<?php echo $appendTableClass?>" width="100%">
 <thead>
     <tr>
     	<th width="1%"><input type="checkbox" ng-model="check_all_items" /></th>
