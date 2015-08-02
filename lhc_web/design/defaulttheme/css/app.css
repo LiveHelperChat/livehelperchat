@@ -508,19 +508,6 @@ div.message-admin+div.message-admin .msg-date,div.message-row.response+div.messa
 	color:#a3ff60;
 }
 
-#bs-example-navbar-collapse-1 .icon-user,
-#bs-example-navbar-collapse-1 .icon-cloud,
-.user-settings-list .icon-cloud,
-.user-settings-list .icon-user{
-	color:#a3ff60;
-}
-
-#bs-example-navbar-collapse-1 .user-online-disabled,
-.disabled-icon,
-.user-settings-list .user-online-disabled {
-	color: #ffb3b8 !important;
-}
-
 ul.user-settings-list {
 	margin-bottom:0;
 	margin-left:0;
@@ -980,12 +967,8 @@ input[type="file"]{
     float: right;
 }
 
-.sidebar .fa.arrow:before {
-    content: "\f104";
-}
-
-.sidebar .active>a>.fa.arrow:before {
-    content: "\f107";
+.sidebar .active > a .arrow {
+    
 }
 
 .sidebar .nav-second-level li,

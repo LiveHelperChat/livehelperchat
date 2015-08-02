@@ -1802,28 +1802,28 @@ function lh(){
     
     this.disableChatSoundAdmin = function(inst)
     {
-    	if (inst.hasClass('icon-mute')){
+    	if (inst.text() == 'volume_off'){
     		$.get(this.wwwDir+  'user/setsettingajax/chat_message/1');
     		confLH.new_message_sound_admin_enabled = 1;
-    		inst.removeClass('icon-mute');
+    		inst.text('volume_up');
     	} else {
     		$.get(this.wwwDir+  'user/setsettingajax/chat_message/0');
     		confLH.new_message_sound_admin_enabled = 0;
-    		inst.addClass('icon-mute');
+    		inst.text('volume_off');
     	}
     	return false;
     };
 
     this.disableNewChatSoundAdmin = function(inst)
     {
-    	if (inst.hasClass('icon-mute')){
+    	if (inst.text() == 'volume_off'){
     		$.get(this.wwwDir+  'user/setsettingajax/new_chat_sound/1');
     		confLH.new_chat_sound_enabled = 1;
-    		inst.removeClass('icon-mute');
+    		inst.text('volume_up');
     	} else {
     		$.get(this.wwwDir+  'user/setsettingajax/new_chat_sound/0');
     		confLH.new_chat_sound_enabled = 0;
-    		inst.addClass('icon-mute');
+    		inst.text('volume_off');
     	}
     	return false;
     };
@@ -1838,12 +1838,12 @@ function lh(){
     
     this.disableUserAsOnline = function(inst)
     {
-    	if (inst.hasClass('user-online-disabled')){
+    	if (inst.text() == 'flash_off'){
     		$.get(this.wwwDir+  'user/setoffline/false');
-    		inst.removeClass('user-online-disabled');
+    		inst.text('flash_on');
     	} else {
     		$.get(this.wwwDir+  'user/setoffline/true');
-    		inst.addClass('user-online-disabled');
+    		inst.text('flash_off');
     	}
     	return false;
     };
@@ -1878,12 +1878,12 @@ function lh(){
     
     this.changeVisibility = function(inst)
     {
-    	if (inst.hasClass('user-online-disabled')){
+    	if (inst.text() == 'visibility_off'){
     		$.get(this.wwwDir+  'user/setinvisible/false');
-    		inst.removeClass('user-online-disabled');
+    		inst.text('visibility');
     	} else {
     		$.get(this.wwwDir+  'user/setinvisible/true');
-    		inst.addClass('user-online-disabled');
+    		inst.text('visibility_off');
     	}
     	return false;
     };

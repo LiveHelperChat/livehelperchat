@@ -7,10 +7,10 @@
        
 <?php if (!empty($menuItems)) : ?>
 <li>
-        <a href="#"><i class="icon-chat"></i><?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/sidemenu/chat/chat_title.tpl.php'));?><span class="glyphicon arrow"></span></a>
+        <a href="#"><i class="material-icons">chat</i><?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/sidemenu/chat/chat_title.tpl.php'));?><i class="material-icons arrow">chevron_right</i></a>
         <ul class="nav nav-second-level">       
             <?php foreach ($menuItems as $menuItem) : ?>
-                <li class="li-icon"><a href="<?php echo $menuItem['href']?>" <?php if (isset($menuItem['onclick'])) : ?>onclick="<?php echo $menuItem['onclick']?>"<?php endif;?>><?php if (isset($menuItem['iclass'])) : ?><i class="<?php echo $menuItem['iclass']?>"></i><?php endif;?><?php echo $menuItem['text']?></a></li>
+                <li><a href="<?php echo $menuItem['href']?>" <?php if (isset($menuItem['onclick'])) : ?>onclick="<?php echo $menuItem['onclick']?>"<?php endif;?>><?php if (isset($menuItem['iclass'])) : ?><i class="material-icons"><?php echo $menuItem['iclass']?></i><?php endif;?><?php echo $menuItem['text']?></a></li>
             <?php endforeach;?>
 	   </ul>
 </li>
