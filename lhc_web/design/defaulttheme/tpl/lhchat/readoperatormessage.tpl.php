@@ -78,7 +78,7 @@ if ($visitor->requires_username == 1 || $visitor->requires_email == 1 || $visito
 <script>
 
 <?php if ($hasExtraField == false && isset($start_data_fields['message_auto_start']) && $start_data_fields['message_auto_start'] == true && isset($start_data_fields['message_auto_start_key_press']) && $start_data_fields['message_auto_start_key_press'] == true) : ?>
-$('#id_Question').on('keyup', function (e) {
+$('#id_Question').on('keydown', function (e) {
 	if ($( "#ReadOperatorMessage").attr("key-up-started") != 1) {
     	$( "#ReadOperatorMessage").attr("key-up-started",1);
     	$( "#ReadOperatorMessage").submit();	

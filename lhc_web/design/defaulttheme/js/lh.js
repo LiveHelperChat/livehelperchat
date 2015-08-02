@@ -1917,12 +1917,41 @@ function lh(){
     this.prestartChat = function(timestamp,inst) {
     	    	
     	if (inst.find('.form-protected').size() == 0) {
-				 inst.find('input[type="submit"]').attr('disabled','disabled');
-		    	 $.getJSON(this.wwwDir + 'captcha/captchastring/form/'+timestamp, function(data) {
-		    		 inst.append('<input type="hidden" value="'+timestamp+'" name="captcha_'+data.result+'" /><input type="hidden" value="'+timestamp+'" name="tscaptcha" /><input type="hidden" class="form-protected" value="1" />');
-		    		 inst.submit();
-		    	 });
-		    	 return false;
+    		
+    			if (inst.attr('lhc-captcha-submitted') != 1) {
+    				inst.attr('lhc-captcha-submitted',1);    				
+    				inst.find('input[type="submit"]').attr('disabled','disabled');    				
+    		    	$.getJSON(this.wwwDir + 'captcha/captchastring/form/'+timestamp, function(data) {
+    		    		 inst.append('<input type="hidden" value="'+timestamp+'" name="captcha_'+data.result+'" /><input type="hidden" value="'+timestamp+'" name="tscaptcha" /><input type="hidden" class="form-protected" value="1" />');
+    		    		 inst.submit();
+    		    	});
+    		    	
+    		    	var keyUpStarted = inst.attr('key-up-started') == 1;
+    		    	
+    		  		if (keyUpStarted == false) {
+    		  			jQuery('<div/>', {
+    	    			    'class': 'message-row response',					   
+    	    			    text: $('#id_Question').val()
+    	    			}).appendTo('#messagesBlock').prepend('<span class="usr-tit vis-tit">'+visitorTitle+'</span>');
+    	            	$('#messagesBlock').animate({ scrollTop: $('#messagesBlock').prop('scrollHeight') }, 1000);
+    	            	this.pendingMessagesToStore.push($('#id_Question').val());    	  			
+        	  			$('#id_Question').val('');   
+    		  		}
+    		  		
+    			} else {
+    				// That means it's second submit, and that means user pressed enter
+    				if ($('#messagesBlock').size() > 0) {
+    	            	jQuery('<div/>', {
+    	    			    'class': 'message-row response',					   
+    	    			    text: $('#id_Question').val()
+    	    			}).appendTo('#messagesBlock').prepend('<span class="usr-tit vis-tit">'+visitorTitle+'</span>');
+    	            	$('#messagesBlock').animate({ scrollTop: $('#messagesBlock').prop('scrollHeight') }, 1000);
+    				};
+    	  			this.pendingMessagesToStore.push($('#id_Question').val());    	  			
+    	  			$('#id_Question').val('');    	  			   	  			
+    			}
+		    	
+		    	return false;
 	  	} else {
 	  		
 	  		// Avoid users stupidity if they enable it but form has extra field

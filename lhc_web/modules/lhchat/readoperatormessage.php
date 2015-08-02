@@ -406,7 +406,7 @@ if (isset($_POST['askQuestion']))
        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started',array('chat' => & $chat, 'msg' => $messageInitial));
        
        erLhcoreClassChat::updateDepartmentStats($chat->department);
-                 
+               
        $Result = erLhcoreClassModule::reRun(erLhcoreClassDesign::baseurlRerun('chat/chatwidgetchat') . '/' . $chat->id . '/' . $chat->hash . $modeAppendTheme .  '/(cstarted)/chat_started_by_invitation_cb');
        return true;
 
