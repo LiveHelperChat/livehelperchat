@@ -166,7 +166,7 @@ $inputData->priority = is_numeric($Params['user_parameters_unordered']['priority
 
 // If chat was started based on key up, we do not need to store a message
 //  because user is still typing it. We start chat in the background just.
-$inputData->key_up_started = ($_POST['keyUpStarted'] && $_POST['keyUpStarted'] == 1);
+$inputData->key_up_started = (isset($_POST['keyUpStarted']) && $_POST['keyUpStarted'] == 1);
 
 // Perhaps it's direct argument
 if ((string)$Params['user_parameters_unordered']['hash_resume'] != '') {

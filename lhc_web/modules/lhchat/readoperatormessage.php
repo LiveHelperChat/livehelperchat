@@ -39,7 +39,7 @@ $inputData->value_items_admin = array(); // These variables get's filled from st
 
 // If chat was started based on key up, we do not need to store a message
 //  because user is still typing it. We start chat in the background just.
-$inputData->key_up_started = ($_POST['keyUpStarted'] && $_POST['keyUpStarted'] == 1);
+$inputData->key_up_started = (isset($_POST['keyUpStarted']) && $_POST['keyUpStarted'] == 1);
 
 if ((string)$Params['user_parameters_unordered']['vid'] != '') {
     $inputData->vid = (string)$Params['user_parameters_unordered']['vid'];
