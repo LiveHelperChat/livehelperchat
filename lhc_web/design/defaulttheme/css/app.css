@@ -116,7 +116,7 @@ img{max-height:100%}
 }
 
 h1 {
-	margin-top:10px;
+	margin-top:0px;
 	font-size:28px;
 }
 
@@ -130,7 +130,12 @@ h1 {
 }
 
 .breadcrumb {
-	margin-bottom:5px;
+	margin-bottom:0px;
+	border-radius:0;
+	padding:10px 15px 10px;
+	border-bottom: 1px solid #e7e7e7;
+	z-index:2;
+	position:relative;
 }
 
 .no-wrap{
@@ -888,18 +893,75 @@ input[type="file"]{
 /**
 * Side bar content
 */
-@media(min-width:768px) {
-    #page-wrapper {
-        position: inherit;
-        margin: 0 0 0 250px;
-        padding: 0 0px 0 15px;
-        border-left: 1px solid #e7e7e7;
-    }
+/*!
+ * Start Bootstrap - Simple Sidebar HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+ 
+/* Toggle Styles */
+.navbar-toggle-visible{
+	display:block;
+	float:none;
 }
 
+#wrapper {
+    padding-left: 0;
+    padding-right: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+    padding-left: 220px;
+}
+
+#sidebar-wrapper {
+    z-index: 1;
+    position: absolute;
+    left: 220px;
+    width: 0;
+    height: 100%;
+    margin-left: -220px;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    border-right:1px solid #e7e7e7;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 220px;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+    z-index:2;
+    background-color:#FFF;
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -220px;
+}
+
+/* Sidebar Styles */
 .sidebar .sidebar-nav.navbar-collapse {
     padding-right: 0;
     padding-left: 0;
+}
+
+.sidebar-nav {
+    position: relative;
+    top: 0;
+    width: 220px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 .sidebar .sidebar-search {
@@ -940,16 +1002,30 @@ input[type="file"]{
 }
 
 @media(min-width:768px) {
-    .sidebar {
-        z-index: 1;
-        position: absolute;
-        width: 250px;
-        margin-top: 0px;
+    #wrapper {
+        padding-left: 220px;
     }
 
-    .navbar-top-links .dropdown-messages,
-    .navbar-top-links .dropdown-tasks,
-    .navbar-top-links .dropdown-alerts {
-        margin-left: auto;
+    #wrapper.toggled {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+        width: 220px;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0;
+        overflow:hidden;
+    }
+
+    #page-content-wrapper {
+        padding: 10px;
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
     }
 }

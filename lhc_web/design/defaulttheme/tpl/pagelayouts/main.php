@@ -8,16 +8,15 @@
 
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/top_menu.tpl.php'));?>
 
-<div class="container-fluid">
-
-<?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/path.tpl.php'));?>
-
-<?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/can_use_chat.tpl.php'));?>
+<div class="container-fluid" id="wrapper" ng-class="{toggled: lmtoggle}">
 
 <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/sidemenu/sidemenu.tpl.php'));?>
-
-<div id="page-wrapper">
-
+<?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/path.tpl.php'));?>
+<div id="page-content-wrapper">
+    
+    
+    <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/can_use_chat.tpl.php'));?>
+    
     <div class="row">
     
         <div class="col-sm-<?php $canUseChat == true && (!isset($Result['hide_right_column']) || $Result['hide_right_column'] == false) ? print '8' : print '12'; ?> col-md-<?php $canUseChat == true && (!isset($Result['hide_right_column']) || $Result['hide_right_column'] == false) ? print '9' : print '12'; ?>">

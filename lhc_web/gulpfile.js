@@ -125,7 +125,11 @@ gulp.task('bower-move-jquery',['bower'], function() {
 	gulp.src('./bower_components/jquery/dist/**.*').pipe(gulp.dest('./design/defaulttheme/vendor/jquery'));  
 });
 
-gulp.task('bower-setup',['bower-move-bootstrap','bower-move-jquery','bower-move-bootstrap-font'], function() {
+gulp.task('bower-move-metismenu',['bower'], function() {
+	gulp.src('./bower_components/metisMenu/dist/**.*').pipe(gulp.dest('./design/defaulttheme/vendor/metisMenu'));  
+});
+
+gulp.task('bower-setup',['bower-move-bootstrap','bower-move-jquery','bower-move-bootstrap-font','bower-move-metismenu'], function() {
 	
 });
 
