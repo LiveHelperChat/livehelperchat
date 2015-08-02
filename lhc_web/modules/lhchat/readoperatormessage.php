@@ -137,7 +137,7 @@ if (isset($_POST['askQuestion']))
     	$inputData->departament_id_array = $form->DepartmentIDDefined;
     }
     
-    if ( !$form->hasValidData( 'Question' ) || trim($form->Question) == '' ) {
+    if ( $inputData->key_up_started == false && (!$form->hasValidData( 'Question' ) || trim($form->Question) == '') ) {
         $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your message');
     } elseif ($form->hasValidData( 'Question' )) {
         $inputData->question = $form->Question;
