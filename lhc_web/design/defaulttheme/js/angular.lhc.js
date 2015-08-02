@@ -64,7 +64,8 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	$scope.transfer_chats = {};
 	$scope.timeoutControl = null;
 	$scope.setTimeoutEnabled = true;
-	
+	$scope.lmtoggle = false;
+		
 	// Just for extension reserved keywords
 	$scope.custom_list_1_expanded = true;
 	$scope.custom_list_2_expanded = true;
@@ -100,6 +101,9 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	this.limito = this.restoreLocalSetting('limito',10,false);
 	this.limitc = this.restoreLocalSetting('limitc',10,false);
 	this.limitd = this.restoreLocalSetting('limitd',10,false);
+	
+	// Main left menu of pagelayout
+	$scope.lmtoggle = this.restoreLocalSetting('lmtoggle','false',false) != 'false';
 	
 	// Stores last ID of unread/pending chat id
 	this.lastidEvent = 0;
