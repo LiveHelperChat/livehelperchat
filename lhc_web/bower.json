@@ -3,6 +3,7 @@
   "description": "Live Helper Chat external dependencies",
   "version": "1.0.0",
   "dependencies": {
-    "bootstrap": "*"
+    "bootstrap": "*",
+    "startbootstrap-sb-admin-2" : "*"
   }  
 }

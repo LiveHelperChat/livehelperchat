@@ -39,7 +39,7 @@ $inputData->value_items_admin = array(); // These variables get's filled from st
 
 // If chat was started based on key up, we do not need to store a message
 //  because user is still typing it. We start chat in the background just.
-$inputData->key_up_started = ($_POST['keyUpStarted'] && $_POST['keyUpStarted'] == 1);
+$inputData->key_up_started = (isset($_POST['keyUpStarted']) && $_POST['keyUpStarted'] == 1);
 
 if ((string)$Params['user_parameters_unordered']['vid'] != '') {
     $inputData->vid = (string)$Params['user_parameters_unordered']['vid'];
@@ -137,7 +137,7 @@ if (isset($_POST['askQuestion']))
     	$inputData->departament_id_array = $form->DepartmentIDDefined;
     }
     
-    if ( !$form->hasValidData( 'Question' ) || trim($form->Question) == '' ) {
+    if ( $inputData->key_up_started == false && (!$form->hasValidData( 'Question' ) || trim($form->Question) == '') ) {
         $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your message');
     } elseif ($form->hasValidData( 'Question' )) {
         $inputData->question = $form->Question;
@@ -406,7 +406,7 @@ if (isset($_POST['askQuestion']))
        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started',array('chat' => & $chat, 'msg' => $messageInitial));
        
        erLhcoreClassChat::updateDepartmentStats($chat->department);
-                 
+               
        $Result = erLhcoreClassModule::reRun(erLhcoreClassDesign::baseurlRerun('chat/chatwidgetchat') . '/' . $chat->id . '/' . $chat->hash . $modeAppendTheme .  '/(cstarted)/chat_started_by_invitation_cb');
        return true;
 

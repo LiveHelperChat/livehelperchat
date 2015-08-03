@@ -332,14 +332,18 @@ function lh(){
         var www_dir = this.wwwDir;
         var inst = this;        
         
-        if (sessionStorage && sessionStorage.getItem('lhc_ttxt') && sessionStorage.getItem('lhc_ttxt') != '') {
-        	jQuery('#CSChatMessage').val(sessionStorage.getItem('lhc_ttxt'));       
-    	}
-                
+        try {
+	        if (sessionStorage && sessionStorage.getItem('lhc_ttxt') && sessionStorage.getItem('lhc_ttxt') != '') {
+	        	jQuery('#CSChatMessage').val(sessionStorage.getItem('lhc_ttxt'));       
+	    	}
+        } catch(e) {}
+        
         jQuery('#CSChatMessage').bind('keyup', function (evt){
         	
         	 if (sessionStorage) {
-        		 sessionStorage.setItem('lhc_ttxt',$(this).val());
+        		 try {
+        			 sessionStorage.setItem('lhc_ttxt',$(this).val());
+        		 } catch(e) {}
          	 };
         	
             if (inst.is_typing == false) {
@@ -1665,7 +1669,9 @@ function lh(){
 		var inst = this;
 		
 		if (sessionStorage) {
-   		   sessionStorage.setItem('lhc_ttxt','');
+			try {
+				sessionStorage.setItem('lhc_ttxt','');
+			} catch(e) {}
     	};
     	    			
 		if (textArea.hasClass('edit-mode')) {
@@ -1756,7 +1762,7 @@ function lh(){
 	        	
 	        	this.addUserMessageQueue = [];
 	        	
-		        $.postJSON(elementAdd.url, {msg:messagesData.join("\n")} , function(data) {
+		        $.postJSON(elementAdd.url, {msg:messagesData.join("[[msgitm]]")} , function(data) {
 		        		        	
 		        	if (data.error == 'f') {
 			        	if (LHCCallbacks.addmsguser) {
@@ -1911,12 +1917,41 @@ function lh(){
     this.prestartChat = function(timestamp,inst) {
     	    	
     	if (inst.find('.form-protected').size() == 0) {
-				 inst.find('input[type="submit"]').attr('disabled','disabled');
-		    	 $.getJSON(this.wwwDir + 'captcha/captchastring/form/'+timestamp, function(data) {
-		    		 inst.append('<input type="hidden" value="'+timestamp+'" name="captcha_'+data.result+'" /><input type="hidden" value="'+timestamp+'" name="tscaptcha" /><input type="hidden" class="form-protected" value="1" />');
-		    		 inst.submit();
-		    	 });
-		    	 return false;
+    		
+    			if (inst.attr('lhc-captcha-submitted') != 1) {
+    				inst.attr('lhc-captcha-submitted',1);    				
+    				inst.find('input[type="submit"]').attr('disabled','disabled');    				
+    		    	$.getJSON(this.wwwDir + 'captcha/captchastring/form/'+timestamp, function(data) {
+    		    		 inst.append('<input type="hidden" value="'+timestamp+'" name="captcha_'+data.result+'" /><input type="hidden" value="'+timestamp+'" name="tscaptcha" /><input type="hidden" class="form-protected" value="1" />');
+    		    		 inst.submit();
+    		    	});
+    		    	
+    		    	var keyUpStarted = inst.attr('key-up-started') == 1;
+    		    	
+    		  		if (keyUpStarted == false) {
+    		  			jQuery('<div/>', {
+    	    			    'class': 'message-row response',					   
+    	    			    text: $('#id_Question').val()
+    	    			}).appendTo('#messagesBlock').prepend('<span class="usr-tit vis-tit">'+visitorTitle+'</span>');
+    	            	$('#messagesBlock').animate({ scrollTop: $('#messagesBlock').prop('scrollHeight') }, 1000);
+    	            	this.pendingMessagesToStore.push($('#id_Question').val());    	  			
+        	  			$('#id_Question').val('');   
+    		  		}
+    		  		
+    			} else {
+    				// That means it's second submit, and that means user pressed enter
+    				if ($('#messagesBlock').size() > 0) {
+    	            	jQuery('<div/>', {
+    	    			    'class': 'message-row response',					   
+    	    			    text: $('#id_Question').val()
+    	    			}).appendTo('#messagesBlock').prepend('<span class="usr-tit vis-tit">'+visitorTitle+'</span>');
+    	            	$('#messagesBlock').animate({ scrollTop: $('#messagesBlock').prop('scrollHeight') }, 1000);
+    				};
+    	  			this.pendingMessagesToStore.push($('#id_Question').val());    	  			
+    	  			$('#id_Question').val('');    	  			   	  			
+    			}
+		    	
+		    	return false;
 	  	} else {
 	  		
 	  		// Avoid users stupidity if they enable it but form has extra field
@@ -1937,7 +1972,9 @@ function lh(){
 		  		$.post(inst.attr('action'),inst.serialize(), function (response) {		  		
 		  			var valueQuestion = $('#id_Question').val();
 		  			if (sessionStorage) {
-		        		 sessionStorage.setItem('lhc_ttxt',valueQuestion);
+		  				try {
+		  					sessionStorage.setItem('lhc_ttxt',valueQuestion);
+		  				} catch(e) {}
 		         	};
 		         		         	
 		         	var scripts = $('head > script');

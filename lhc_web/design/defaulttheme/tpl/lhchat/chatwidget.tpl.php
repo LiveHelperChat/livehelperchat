@@ -149,7 +149,7 @@ jQuery('#id_Question').addClass('mb0');
 <?php endif;?>
 
 <?php if ($hasExtraField == false && isset($start_data_fields['message_auto_start']) && $start_data_fields['message_auto_start'] == true && isset($start_data_fields['message_auto_start_key_press']) && $start_data_fields['message_auto_start_key_press'] == true) : ?>
-$('#id_Question').on('keyup', function (e) {
+$('#id_Question').on('keydown', function (e) {
 	if ($( "#form-start-chat").attr("key-up-started") != 1) {
     	$( "#form-start-chat").attr("key-up-started",1);
     	$( "#form-start-chat").submit();	

@@ -64,7 +64,8 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	$scope.transfer_chats = {};
 	$scope.timeoutControl = null;
 	$scope.setTimeoutEnabled = true;
-	
+	$scope.lmtoggle = false;
+		
 	// Just for extension reserved keywords
 	$scope.custom_list_1_expanded = true;
 	$scope.custom_list_2_expanded = true;
@@ -76,18 +77,21 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	var _that = this;
 	
 	this.restoreLocalSetting = function(variable,defaultValue,split) {
-		if (localStorage) {
-			var value = localStorage.getItem(variable);
-			if (value !== null){
-				if (split == true){
-					return value.split('/');
+		try {
+			if (localStorage) {
+				var value = localStorage.getItem(variable);
+				if (value !== null){
+					if (split == true){
+						return value.split('/');
+					} else {
+						return value;
+					}
 				} else {
-					return value;
+					return defaultValue;
 				}
-			} else {
-				return defaultValue;
 			}
-		}
+		} catch(e) {}
+		return defaultValue;
 	};
 			
 	// Active chat limit
@@ -97,6 +101,9 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	this.limito = this.restoreLocalSetting('limito',10,false);
 	this.limitc = this.restoreLocalSetting('limitc',10,false);
 	this.limitd = this.restoreLocalSetting('limitd',10,false);
+	
+	// Main left menu of pagelayout
+	$scope.lmtoggle = this.restoreLocalSetting('lmtoggle','false',false) != 'false';
 	
 	// Stores last ID of unread/pending chat id
 	this.lastidEvent = 0;
@@ -121,7 +128,9 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	
 	this.storeLocalSetting = function(variable, value) {
 		if (localStorage) {
-			var value = localStorage.setItem(variable, value);			
+			try {
+				var value = localStorage.setItem(variable, value);	
+			} catch(e) {}
 		}
 	};
 	
