@@ -32,8 +32,8 @@ html, body {
 	font-size:20px;
 }
 
-#status-icon-sharing{
-	color:#a3ff60;
+.co-browse-toolbar .material-icons{
+	font-size:36px;
 }
 
 #chrome .button,

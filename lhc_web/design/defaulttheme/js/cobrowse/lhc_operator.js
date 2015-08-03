@@ -450,13 +450,13 @@ var LHCCoBrowserOperator = (function() {
 	};
 
 	LHCCoBrowserOperator.prototype.userLeft = function(chat_id) {
-		$('#status-icon-sharing').addClass('eye-not-sharing');
+		$('#status-icon-sharing').text('visibility_off');
 		this.clearPage();
 		
 	};
 
 	LHCCoBrowserOperator.prototype.userJoined = function(chat_id) {
-		$('#status-icon-sharing').removeClass('eye-not-sharing');
+		$('#status-icon-sharing').text('visibility');
 		var _this = this;
 	};
 
@@ -597,9 +597,9 @@ var LHCCoBrowserOperator = (function() {
 		} else if (msg.finished) {
 			$('#status-icon-sharing').attr('title', msg.finished.text);
 			if (msg.finished.status == false) {
-				$('#status-icon-sharing').removeClass('eye-not-sharing');
+				$('#status-icon-sharing').text('visibility');
 			} else {
-				$('#status-icon-sharing').addClass('eye-not-sharing');
+				$('#status-icon-sharing').text('visibility_off');
 			}
 		} else if (msg.url) {
 			this.$awesomebar.value = msg.url;
