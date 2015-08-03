@@ -1,2 +1,2 @@
- <li role="presentation"><a href="#dashboard" aria-controls="dashboard" role="tab" data-toggle="tab" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Dashboard');?>"><i class="material-icons mr-0">info</i></a></li>
+ <li role="presentation"><a href="#dashboard" aria-controls="dashboard" role="tab" data-toggle="tab" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Dashboard');?>"><i class="material-icons mr-0">info_outline</i></a></li>
             
