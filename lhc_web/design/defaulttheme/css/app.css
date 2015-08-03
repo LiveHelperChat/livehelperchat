@@ -294,6 +294,14 @@ option.offline-dep{
 	font-size: 18px;
 }
 
+.fs24 {
+	font-size: 24px;
+}
+
+.fs36 {
+	font-size: 36px;
+}
+
 .icon-user-status{
 	color:#CCC;
 }
@@ -578,11 +586,16 @@ ul.mb0 {
 }
 
 .collapse-right,
+.collapse-right:focus,
+.collapse-right:visited,
 .collapse-right:hover{
 	position:absolute;
 	right:0px;
-	margin-top:-15px;
-	color:#CCC;
+	margin-top: -16px;
+  	margin-right: 0px;
+	color:#000;
+	text-decoration:none;
+	font-size:24px;
 }
 
 .icon-close-chat{
@@ -720,8 +733,9 @@ ul.mb0 {
 }
 
 .icon-assistant{
-	font-size:36px;
+	font-size:50px;
 	color:#CCC;
+	padding-top:5px;
 }
 
 .icon-skype{
@@ -965,6 +979,7 @@ input[type="file"]{
 
 .sidebar .arrow {
     float: right;
+    font-size:24px;
 }
 
 .sidebar .active > a .arrow {
@@ -1011,4 +1026,8 @@ input[type="file"]{
         position: relative;
         margin-right: 0;
     }
+}
+
+.mr-0{
+	margin-right:0!important;
 }

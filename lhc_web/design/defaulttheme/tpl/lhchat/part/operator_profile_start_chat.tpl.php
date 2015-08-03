@@ -3,7 +3,7 @@
      	<?php if ($theme !== false && $theme->operator_image_url != '') : ?>
      			<img src="<?php echo $theme->operator_image_url?>" alt="" />
      	<?php else : ?>
-     		<i class="icon-user icon-assistant"></i>
+     		<i class="icon-assistant material-icons">account_box</i>
      	<?php endif;?> 
      </div>
      <div class="pl10">

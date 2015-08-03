@@ -1,7 +1,7 @@
 <div class="panel panel-default panel-dashboard">
 	<div class="panel-heading">
-		<i class="icon-home chat-active"></i> <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/departmetns_stats.tpl.php'));?> ({{departments_stats.list.length}}{{departments_stats.list.length == lhc.limitd ? '+' : ''}})</a>
-		<?php if ($currentUser->hasAccessTo('lhstatistic', 'exportxls')) : ?><a class="pull-right icon-download" target="_blank" href="<?php echo erLhcoreClassDesign::baseurl('statistic/departmentstatusxls')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Download XLS');?>"></a><?php endif;?>
+		<i class="material-icons chat-active">home</i> <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/departmetns_stats.tpl.php'));?> ({{departments_stats.list.length}}{{departments_stats.list.length == lhc.limitd ? '+' : ''}})</a>
+		<?php if ($currentUser->hasAccessTo('lhstatistic', 'exportxls')) : ?><a class="pull-right material-icons" target="_blank" href="<?php echo erLhcoreClassDesign::baseurl('statistic/departmentstatusxls')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Download XLS');?>">file_download</a><?php endif;?>
 	</div>
 	<div>
 	    <?php $optinsPanel = array('panelid' => 'departmentd','limitid' => 'limitd'); ?>
@@ -11,9 +11,9 @@
 			<table class="table table-condensed mb0 table-small table-fixed">
 				<thead>
 					<tr>
-						<th width="60%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Department');?>" class="icon-home"></i></th>
-						<th width="20%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Pending chats');?>" class="icon-comment  chat-pending"></i></th>
-						<th width="20%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Active chats');?>" class="icon-comment chat-active"></i></th>
+						<th width="60%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Department');?>" class="material-icons">home</i></th>
+						<th width="20%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Pending chats');?>" class="material-icons chat-pending">chat</i></th>
+						<th width="20%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Active chats');?>" class="material-icons chat-active">chat</i></th>
 					</tr>
 				</thead>
 				<tr ng-repeat="department in departments_stats.list track by department.id">

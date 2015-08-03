@@ -6,8 +6,8 @@
        
 <div class="text-center">
 <ul class="bb-list list-inline">	
-	<li><a href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert','Image');?>" class="icon-picture" data-promt="img" data-bb-code="img"></a></li>
-	<li><a href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert','Link');?>" class="icon-link" data-promt="url" data-bb-code=" [url=http://example.com]<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert','Link title');?>[/url] "></a></li>
+	<li><a href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert','Image');?>" class="material-icons" data-promt="img" data-bb-code="img">image</a></li>
+	<li><a href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert','Link');?>" class="material-icons" data-promt="url" data-bb-code=" [url=http://example.com]<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert','Link title');?>[/url] ">link</a></li>
 	<li><a href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert','Bold');?>" data-bb-code=" [b][/b] "><strong>B</strong></a></li>
 	<li><a href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert','Italic');?>" data-bb-code=" [i][/i] "><em>I</em></a></li>
 	<li><a href="#" data-bb-code=" :) "><img src="<?php echo erLhcoreClassDesign::design('images/smileys/emoticon_smile.png');?>" alt=":)" title=":)" /></a></li>

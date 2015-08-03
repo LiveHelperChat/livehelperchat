@@ -22,8 +22,8 @@
 <div role="tabpanel" id="tabs">
 	<!-- Nav tabs -->
 	<ul class="nav nav-pills" role="tablist">
-		<li role="presentation" class="active"><a href="#onlineusers" aria-controls="onlineusers" role="tab" data-toggle="tab" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Online visitors list');?>"><i class="icon-list"></i></a></li>
-		<li role="presentation"><a id="map-activator" href="#map" aria-controls="map" role="tab" data-toggle="tab" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Online users on map');?>"><i class="icon-globe"></i></a></li>
+		<li role="presentation" class="active"><a href="#onlineusers" aria-controls="onlineusers" role="tab" data-toggle="tab" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Online visitors list');?>"><i class="material-icons">face</i></a></li>
+		<li role="presentation"><a id="map-activator" href="#map" aria-controls="map" role="tab" data-toggle="tab" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Online users on map');?>"><i class="material-icons">place</i></a></li>
 	</ul>
 
 	<!-- Tab panes -->

@@ -258,22 +258,22 @@ function lh(){
     this.saveRemarks = function(chat_id) {
     	clearTimeout(this.remarksTimeout);
     	
-    	$('#remarks-status-'+chat_id).addClass('warning-color').html('...');
+    	$('#remarks-status-'+chat_id).addClass('warning-color');
     	var inst = this;
     	this.remarksTimeout = setTimeout(function(){
     		$.postJSON(inst.wwwDir + 'chat/saveremarks/' + chat_id,{'data':$('#ChatRemarks-'+chat_id).val()}, function(data){
-    			$('#remarks-status-'+chat_id).removeClass('warning-color').html('');
+    			$('#remarks-status-'+chat_id).removeClass('warning-color');
     		});
     	},500);    	
     };
     
     this.saveNotes = function(chat_id) {
     	clearTimeout(this.remarksTimeout);    	    	
-    	$('#remarks-status-online-'+chat_id).addClass('warning-color').html('...');
+    	$('#remarks-status-online-'+chat_id).addClass('warning-color');
     	var inst = this;
     	this.remarksTimeout = setTimeout(function(){
     		$.postJSON(inst.wwwDir + 'chat/saveonlinenotes/' + chat_id,{'data':$('#OnlineRemarks-'+chat_id).val()}, function(data){
-    			$('#remarks-status-online-'+chat_id).removeClass('warning-color').html('');
+    			$('#remarks-status-online-'+chat_id).removeClass('warning-color');
             });
     	},500);    	
     };
@@ -425,14 +425,14 @@ function lh(){
 
     this.processCollapse = function(chat_id)
     {
-    	if (!$('#chat-main-column-'+chat_id+' .collapse-right').hasClass('icon-left-circled')){
+    	if ($('#chat-main-column-'+chat_id+' .collapse-right').text() == 'chevron_right'){
 	    	$('#chat-right-column-'+chat_id).hide();
 	    	$('#chat-main-column-'+chat_id).removeClass('col-sm-7').addClass('col-sm-12');
-	    	$('#chat-main-column-'+chat_id+' .collapse-right').addClass('icon-left-circled').removeClass('icon-right-circled');
+	    	$('#chat-main-column-'+chat_id+' .collapse-right').text('chevron_left');
     	} else {
     		$('#chat-right-column-'+chat_id).show();
 	    	$('#chat-main-column-'+chat_id).removeClass('col-sm-12').addClass('col-sm-7');
-	    	$('#chat-main-column-'+chat_id+' .collapse-right').removeClass('icon-left-circled').addClass('icon-right-circled');
+	    	$('#chat-main-column-'+chat_id+' .collapse-right').text('chevron_right');
     	};
     };
 
@@ -1018,14 +1018,14 @@ function lh(){
             	};
 				
 				if (data.status == 0) {
-					$('.icon-thumbs-up').removeClass('up-voted');
-					$('.icon-thumbs-down').removeClass('down-voted');
+					$('.up-vote-action').removeClass('up-voted');
+					$('.down-vote-action').removeClass('down-voted');
 				} else if (data.status == 1) {
-					$('.icon-thumbs-up').addClass('up-voted');
-					$('.icon-thumbs-down').removeClass('down-voted');
+					$('.up-vote-action').addClass('up-voted');
+					$('.down-vote-action').removeClass('down-voted');
 				} else if (data.status == 2) {
-					$('.icon-thumbs-up').removeClass('up-voted');
-					$('.icon-thumbs-down').addClass('down-voted');
+					$('.up-vote-action').removeClass('up-voted');
+					$('.down-vote-action').addClass('down-voted');
 				}
 	        }
     	});
@@ -1891,18 +1891,18 @@ function lh(){
     
     this.disableChatSoundUser = function(inst)
     {
-    	if (inst.hasClass('icon-mute')){
+    	if (inst.text() == 'volume_off') {
     		$.get(this.wwwDir+  'user/setsettingajax/chat_message/1');
     		confLH.new_message_sound_user_enabled = 1;
-    		inst.removeClass('icon-mute');
+    		inst.text('volume_up');
     	} else {
     		$.get(this.wwwDir+  'user/setsettingajax/chat_message/0');
     		confLH.new_message_sound_user_enabled = 0;
-    		inst.addClass('icon-mute');
+    		inst.text('volume_off');
     	};
 
     	if (!!window.postMessage && parent) {
-    		if (inst.hasClass('icon-mute')){
+    		if (inst.text() == 'volume_off') {
     			parent.postMessage("lhc_ch:s:0", '*');
     		} else {
     			parent.postMessage("lhc_ch:s:1", '*');

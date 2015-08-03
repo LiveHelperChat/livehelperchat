@@ -3,7 +3,7 @@
 		<div class="send-row<?php if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?> hide<?php endif;?>">
 		
 		<div class="btn-group btn-group-justified">
-			<a href="#" class="btn btn-default" onclick="return lhinst.addmsgadmin('<?php echo $chat->id?>')"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Send')?></a>
+			<a href="#" class="btn btn-default material-icons" onclick="return lhinst.addmsgadmin('<?php echo $chat->id?>')" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Send')?>">&#xE163;</a>
 			
 			<?php include(erLhcoreClassDesign::designtpl('lhchat/part/speech_action.tpl.php')); ?>
 			

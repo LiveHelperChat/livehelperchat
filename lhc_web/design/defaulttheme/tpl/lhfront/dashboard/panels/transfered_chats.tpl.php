@@ -1,6 +1,6 @@
 <div class="panel panel-default panel-dashboard">
 	<div class="panel-heading">
-		<i class="icon-chat chat-pending"></i> <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/transfered_chats.tpl.php'));?> ({{transfer_dep_chats.list.length}})</a>
+		<i class="material-icons chat-pending">chat</i> <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/transfered_chats.tpl.php'));?> ({{transfer_dep_chats.list.length}})</a>
 	</div>
 	<div>
     	<div class="panel-list">
@@ -55,13 +55,13 @@
                         		</tr>
                         	</table>
                         	
-                        	<div ng-if="transfer_dep_chats.list.length == 0" class="m10 alert alert-info"><i class="icon-search"></i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Nothing found')?>...</div>
+                        	<div ng-if="transfer_dep_chats.list.length == 0" class="m10 alert alert-info"><i class="material-icons">search</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Nothing found')?>...</div>
                        
     				</div>
     			</div>
     		</div>
     		
-    		<div ng-if="transfer_chats.list.length == 0 && transfer_dep_chats.list.length == 0" class="m10 alert alert-info"><i class="icon-search"></i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Nothing found')?>...</div>
+    		<div ng-if="transfer_chats.list.length == 0 && transfer_dep_chats.list.length == 0" class="m10 alert alert-info"><i class="material-icons">search</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Nothing found')?>...</div>
     		
     	</div>
 	</div>
