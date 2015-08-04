@@ -51,6 +51,8 @@
 <div class="form-group">
     <label><input ng-init="enable_translations=<?php if (isset($translation_data['enable_translations']) && $translation_data['enable_translations'] == true ) : ?>true<?php else : ?>false<?php endif;?>" type="checkbox" ng-model="enable_translations" name="enable_translations" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Enable translation service');?></label>
 </div>
+ 
+<input type="submit" ng-show="!enable_translations" class="btn btn-default" name="StoreLanguageSettings" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
 
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 

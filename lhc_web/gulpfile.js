@@ -121,6 +121,13 @@ gulp.task('bower-move-bootstrap-font',['bower'], function() {
 	gulp.src('./bower_components/bootstrap/dist/fonts/**.*').pipe(gulp.dest('./design/defaulttheme/fonts'));
 });
 
+gulp.task('bower-move-material-font',['bower'], function() {
+	gulp.src('./bower_components/material-design-icons/iconfont/MaterialIcons-Regular.eot').pipe(gulp.dest('./design/defaulttheme/fonts'));
+	gulp.src('./bower_components/material-design-icons/iconfont/MaterialIcons-Regular.ttf').pipe(gulp.dest('./design/defaulttheme/fonts'));
+	gulp.src('./bower_components/material-design-icons/iconfont/MaterialIcons-Regular.woff').pipe(gulp.dest('./design/defaulttheme/fonts'));
+	gulp.src('./bower_components/material-design-icons/iconfont/MaterialIcons-Regular.woff2').pipe(gulp.dest('./design/defaulttheme/fonts'));
+});
+
 gulp.task('bower-move-jquery',['bower'], function() {
 	gulp.src('./bower_components/jquery/dist/**.*').pipe(gulp.dest('./design/defaulttheme/vendor/jquery'));  
 });
@@ -129,7 +136,7 @@ gulp.task('bower-move-metismenu',['bower'], function() {
 	gulp.src('./bower_components/metisMenu/dist/**.*').pipe(gulp.dest('./design/defaulttheme/vendor/metisMenu'));  
 });
 
-gulp.task('bower-setup',['bower-move-bootstrap','bower-move-jquery','bower-move-bootstrap-font','bower-move-metismenu'], function() {
+gulp.task('bower-setup',['bower-move-bootstrap','bower-move-jquery','bower-move-bootstrap-font','bower-move-metismenu','bower-move-material-font'], function() {
 	
 });
 
@@ -137,7 +144,10 @@ gulp.task('js-cobrowse',['js-cobrowse-operator','js-cobrowse-visitor'], function
 
 });
 
-gulp.task('default', ['js-cobrowse-operator','js-cobrowse-visitor','js-angular-main','js-main-fileupload','js-datepicker','js-lhc-speak-js','js-lh','js-angular-checkmodel','js-angular-online','js-lh-npm','bower-setup'], function() {
+//bower setup
+gulp.task('bower-setup',[]);
+
+gulp.task('default', ['js-cobrowse-operator','js-cobrowse-visitor','js-angular-main','js-main-fileupload','js-datepicker','js-lhc-speak-js','js-lh','js-angular-checkmodel','js-angular-online','js-lh-npm'], function() {
 	// Just execute all the tasks	
 });
 

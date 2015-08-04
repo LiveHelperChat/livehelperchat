@@ -294,6 +294,14 @@ option.offline-dep{
 	font-size: 18px;
 }
 
+.fs24 {
+	font-size: 24px;
+}
+
+.fs36 {
+	font-size: 36px;
+}
+
 .icon-user-status{
 	color:#CCC;
 }
@@ -508,19 +516,6 @@ div.message-admin+div.message-admin .msg-date,div.message-row.response+div.messa
 	color:#a3ff60;
 }
 
-#bs-example-navbar-collapse-1 .icon-user,
-#bs-example-navbar-collapse-1 .icon-cloud,
-.user-settings-list .icon-cloud,
-.user-settings-list .icon-user{
-	color:#a3ff60;
-}
-
-#bs-example-navbar-collapse-1 .user-online-disabled,
-.disabled-icon,
-.user-settings-list .user-online-disabled {
-	color: #ffb3b8 !important;
-}
-
 ul.user-settings-list {
 	margin-bottom:0;
 	margin-left:0;
@@ -591,11 +586,16 @@ ul.mb0 {
 }
 
 .collapse-right,
+.collapse-right:focus,
+.collapse-right:visited,
 .collapse-right:hover{
 	position:absolute;
 	right:0px;
-	margin-top:-15px;
-	color:#CCC;
+	margin-top: -16px;
+  	margin-right: 0px;
+	color:#000;
+	text-decoration:none;
+	font-size:24px;
 }
 
 .icon-close-chat{
@@ -604,7 +604,7 @@ ul.mb0 {
 	display: inline !important;
 	width: auto !important;
 	right: 0;
-	margin-top: -14px;
+	margin-top: -10px;
 	padding: 0 !important;
 	color:#CCC !important;
 	font-size: 14px !important;
@@ -733,8 +733,9 @@ ul.mb0 {
 }
 
 .icon-assistant{
-	font-size:36px;
+	font-size:50px;
 	color:#CCC;
+	padding-top:5px;
 }
 
 .icon-skype{
@@ -922,8 +923,7 @@ input[type="file"]{
     z-index: 1;
     position: absolute;
     left: 220px;
-    width: 0;
-    height: 100%;
+    width: 0; 
     margin-left: -220px;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
@@ -978,14 +978,11 @@ input[type="file"]{
 
 .sidebar .arrow {
     float: right;
+    font-size:24px;
 }
 
-.sidebar .fa.arrow:before {
-    content: "\f104";
-}
-
-.sidebar .active>a>.fa.arrow:before {
-    content: "\f107";
+.sidebar .active > a .arrow {
+    
 }
 
 .sidebar .nav-second-level li,
@@ -1028,4 +1025,8 @@ input[type="file"]{
         position: relative;
         margin-right: 0;
     }
+}
+
+.mr-0{
+	margin-right:0!important;
 }

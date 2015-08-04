@@ -19,7 +19,7 @@ $columnSize = 12 / $columnsTotal;
 ?>
 <div class="row" id="dashboard-body" ng-init='lhc.userDepartments=<?php echo json_encode($departmentList,JSON_HEX_APOS)?>;lhc.userDepartmentsNames=<?php echo json_encode($departmentNames,JSON_HEX_APOS)?>;lhc.setUpListNames(["actived","closedd","unreadd","pendingd","operatord","departmentd"])'>
      <?php for ($i = 0; $i < $columnsTotal; $i++) : $widgets = explode(',', $dashboardOrder[$i]); ?>
-        <div class="col-md-<?php echo $columnSize?>">
+        <div class="col-md-<?php echo $columnSize+2?> col-lg-<?php echo $columnSize?>">
             <?php foreach ($widgets as $wiget) : ?>
                 <?php if ($wiget == 'online_operators') : ?>
                  

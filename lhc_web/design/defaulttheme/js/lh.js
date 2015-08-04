@@ -127,7 +127,7 @@ function lh(){
     };
 
     this.addTab = function(tabs, url, name, chat_id) {    	    	
-    	tabs.find('> ul').append('<li role="presentation" class="active" id="chat-tab-li-'+chat_id+'" ><a href="#chat-id-'+chat_id+'" id="chat-tab-link-'+chat_id+'" aria-controls="chat-id-'+chat_id+'" role="tab" data-toggle="tab"><i id="user-chat-status-'+chat_id+'" class="icon-user-status icon-user icon-user-online"></i>' + name.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '<span onclick="return lhinst.removeDialogTab('+chat_id+',$(\'#tabs\'),true)" class="icon-cancel icon-close-chat"></span></a></li>')
+    	tabs.find('> ul').append('<li role="presentation" class="active" id="chat-tab-li-'+chat_id+'" ><a href="#chat-id-'+chat_id+'" id="chat-tab-link-'+chat_id+'" aria-controls="chat-id-'+chat_id+'" role="tab" data-toggle="tab"><i id="user-chat-status-'+chat_id+'" class="icon-user-status material-icons icon-user-online">face</i>' + name.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '<span onclick="return lhinst.removeDialogTab('+chat_id+',$(\'#tabs\'),true)" class="material-icons icon-close-chat">close</span></a></li>')
     	
     	$('#chat-tab-link-'+chat_id).click(function() {
     		var inst = $(this);
@@ -258,22 +258,22 @@ function lh(){
     this.saveRemarks = function(chat_id) {
     	clearTimeout(this.remarksTimeout);
     	
-    	$('#remarks-status-'+chat_id).addClass('warning-color').html('...');
+    	$('#remarks-status-'+chat_id).addClass('warning-color');
     	var inst = this;
     	this.remarksTimeout = setTimeout(function(){
     		$.postJSON(inst.wwwDir + 'chat/saveremarks/' + chat_id,{'data':$('#ChatRemarks-'+chat_id).val()}, function(data){
-    			$('#remarks-status-'+chat_id).removeClass('warning-color').html('');
+    			$('#remarks-status-'+chat_id).removeClass('warning-color');
     		});
     	},500);    	
     };
     
     this.saveNotes = function(chat_id) {
     	clearTimeout(this.remarksTimeout);    	    	
-    	$('#remarks-status-online-'+chat_id).addClass('warning-color').html('...');
+    	$('#remarks-status-online-'+chat_id).addClass('warning-color');
     	var inst = this;
     	this.remarksTimeout = setTimeout(function(){
     		$.postJSON(inst.wwwDir + 'chat/saveonlinenotes/' + chat_id,{'data':$('#OnlineRemarks-'+chat_id).val()}, function(data){
-    			$('#remarks-status-online-'+chat_id).removeClass('warning-color').html('');
+    			$('#remarks-status-online-'+chat_id).removeClass('warning-color');
             });
     	},500);    	
     };
@@ -425,14 +425,14 @@ function lh(){
 
     this.processCollapse = function(chat_id)
     {
-    	if (!$('#chat-main-column-'+chat_id+' .collapse-right').hasClass('icon-left-circled')){
+    	if ($('#chat-main-column-'+chat_id+' .collapse-right').text() == 'chevron_right'){
 	    	$('#chat-right-column-'+chat_id).hide();
 	    	$('#chat-main-column-'+chat_id).removeClass('col-sm-7').addClass('col-sm-12');
-	    	$('#chat-main-column-'+chat_id+' .collapse-right').addClass('icon-left-circled').removeClass('icon-right-circled');
+	    	$('#chat-main-column-'+chat_id+' .collapse-right').text('chevron_left');
     	} else {
     		$('#chat-right-column-'+chat_id).show();
 	    	$('#chat-main-column-'+chat_id).removeClass('col-sm-12').addClass('col-sm-7');
-	    	$('#chat-main-column-'+chat_id+' .collapse-right').removeClass('icon-left-circled').addClass('icon-right-circled');
+	    	$('#chat-main-column-'+chat_id+' .collapse-right').text('chevron_right');
     	};
     };
 
@@ -1018,14 +1018,14 @@ function lh(){
             	};
 				
 				if (data.status == 0) {
-					$('.icon-thumbs-up').removeClass('up-voted');
-					$('.icon-thumbs-down').removeClass('down-voted');
+					$('.up-vote-action').removeClass('up-voted');
+					$('.down-vote-action').removeClass('down-voted');
 				} else if (data.status == 1) {
-					$('.icon-thumbs-up').addClass('up-voted');
-					$('.icon-thumbs-down').removeClass('down-voted');
+					$('.up-vote-action').addClass('up-voted');
+					$('.down-vote-action').removeClass('down-voted');
 				} else if (data.status == 2) {
-					$('.icon-thumbs-up').removeClass('up-voted');
-					$('.icon-thumbs-down').addClass('down-voted');
+					$('.up-vote-action').removeClass('up-voted');
+					$('.down-vote-action').addClass('down-voted');
 				}
 	        }
     	});
@@ -1802,28 +1802,28 @@ function lh(){
     
     this.disableChatSoundAdmin = function(inst)
     {
-    	if (inst.hasClass('icon-mute')){
+    	if (inst.text() == 'volume_off'){
     		$.get(this.wwwDir+  'user/setsettingajax/chat_message/1');
     		confLH.new_message_sound_admin_enabled = 1;
-    		inst.removeClass('icon-mute');
+    		inst.text('volume_up');
     	} else {
     		$.get(this.wwwDir+  'user/setsettingajax/chat_message/0');
     		confLH.new_message_sound_admin_enabled = 0;
-    		inst.addClass('icon-mute');
+    		inst.text('volume_off');
     	}
     	return false;
     };
 
     this.disableNewChatSoundAdmin = function(inst)
     {
-    	if (inst.hasClass('icon-mute')){
+    	if (inst.text() == 'volume_off'){
     		$.get(this.wwwDir+  'user/setsettingajax/new_chat_sound/1');
     		confLH.new_chat_sound_enabled = 1;
-    		inst.removeClass('icon-mute');
+    		inst.text('volume_up');
     	} else {
     		$.get(this.wwwDir+  'user/setsettingajax/new_chat_sound/0');
     		confLH.new_chat_sound_enabled = 0;
-    		inst.addClass('icon-mute');
+    		inst.text('volume_off');
     	}
     	return false;
     };
@@ -1838,12 +1838,12 @@ function lh(){
     
     this.disableUserAsOnline = function(inst)
     {
-    	if (inst.hasClass('user-online-disabled')){
+    	if (inst.text() == 'flash_off'){
     		$.get(this.wwwDir+  'user/setoffline/false');
-    		inst.removeClass('user-online-disabled');
+    		inst.text('flash_on');
     	} else {
     		$.get(this.wwwDir+  'user/setoffline/true');
-    		inst.addClass('user-online-disabled');
+    		inst.text('flash_off');
     	}
     	return false;
     };
@@ -1878,12 +1878,12 @@ function lh(){
     
     this.changeVisibility = function(inst)
     {
-    	if (inst.hasClass('user-online-disabled')){
+    	if (inst.text() == 'visibility_off'){
     		$.get(this.wwwDir+  'user/setinvisible/false');
-    		inst.removeClass('user-online-disabled');
+    		inst.text('visibility');
     	} else {
     		$.get(this.wwwDir+  'user/setinvisible/true');
-    		inst.addClass('user-online-disabled');
+    		inst.text('visibility_off');
     	}
     	return false;
     };
@@ -1891,18 +1891,18 @@ function lh(){
     
     this.disableChatSoundUser = function(inst)
     {
-    	if (inst.hasClass('icon-mute')){
+    	if (inst.text() == 'volume_off') {
     		$.get(this.wwwDir+  'user/setsettingajax/chat_message/1');
     		confLH.new_message_sound_user_enabled = 1;
-    		inst.removeClass('icon-mute');
+    		inst.text('volume_up');
     	} else {
     		$.get(this.wwwDir+  'user/setsettingajax/chat_message/0');
     		confLH.new_message_sound_user_enabled = 0;
-    		inst.addClass('icon-mute');
+    		inst.text('volume_off');
     	};
 
     	if (!!window.postMessage && parent) {
-    		if (inst.hasClass('icon-mute')){
+    		if (inst.text() == 'volume_off') {
     			parent.postMessage("lhc_ch:s:0", '*');
     		} else {
     			parent.postMessage("lhc_ch:s:1", '*');

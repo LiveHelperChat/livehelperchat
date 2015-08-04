@@ -57,7 +57,7 @@
 		
 		
 		   	<div class="btn-group" role="group" aria-label="...">
-		   	    <a href="#" class="btn btn-default btn-xs trigger-button"><i class="icon-pencil"></i></a>
+		   	    <a href="#" class="btn btn-default btn-xs trigger-button"><i class="material-icons fs14 mr-0">mode_edit</i></a>
 	    	
 	    		<input type="button" class="btn btn-default btn-xs sendbutton invisible-button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Send')?>" onclick="lhinst.addmsguser()" />
 	    	
