@@ -67,7 +67,10 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && mb_strlen($form->m
 	    if ( function_exists('fastcgi_finish_request') ) {
 	        fastcgi_finish_request();
 	    };
-	    	     	    
+
+	    // Assign to last message all the texts
+	    $msg->msg = trim(implode("\n", $messagesToStore));
+	    
 	    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.addmsguser',array('chat' => & $chat, 'msg' => & $msg));
 	    exit;
 	    
