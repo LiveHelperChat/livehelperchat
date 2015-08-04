@@ -6,6 +6,8 @@ erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.logout',array('u
 
 $lhUser->logout();
 
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.after_logout',array('user' => & $lhUser));
+
 erLhcoreClassModule::redirect('user/login');
 exit;
 

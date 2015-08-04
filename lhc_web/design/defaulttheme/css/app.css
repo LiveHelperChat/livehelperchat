@@ -923,8 +923,7 @@ input[type="file"]{
     z-index: 1;
     position: absolute;
     left: 220px;
-    width: 0;
-    height: 100%;
+    width: 0; 
     margin-left: -220px;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
