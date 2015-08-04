@@ -203,7 +203,7 @@ CREATE TABLE "lh_chat" (
     "operation_admin" varchar(150) NOT NULL,
     "user_typing" integer NOT NULL,
     "wait_timeout_repeat" integer NOT NULL,
-    "user_typing_txt" varchar(100) NOT NULL,
+    "user_typing_txt" varchar(1000) NOT NULL,
     "operator_typing" integer NOT NULL,
     "unread_messages_informed" integer NOT NULL,
     "reinform_timeout" integer NOT NULL,
