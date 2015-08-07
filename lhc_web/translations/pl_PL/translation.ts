@@ -211,7 +211,7 @@
     </message>
     <message>
       <source>Which ip should not be allowed to chat</source>
-      <translation type="unfinished"/>
+      <translation>Adresy IP, dla których czat jest zablokowany</translation>
     </message>
     <message>
       <source>Automatic chats purging. 0 - disabled, n &gt; 0 time in minutes before chat is automatically deleted</source>
@@ -336,7 +336,7 @@
     </message>
     <message>
       <source>Main widget text</source>
-      <translation type="unfinished"/>
+      <translation>Tekst głównego widgeta</translation>
     </message>
     <message>
       <source>Custom CSS</source>
@@ -360,7 +360,7 @@
     </message>
     <message>
       <source>Widget border width (px)</source>
-      <translation type="unfinished"/>
+      <translation>Szerokość ramki widgeta (px)</translation>
     </message>
     <message>
       <source>Online status text</source>
@@ -408,11 +408,11 @@
     </message>
     <message>
       <source>Hide widget close button</source>
-      <translation type="unfinished"/>
+      <translation>Ukryj przycisk Zamknij widgeta</translation>
     </message>
     <message>
       <source>Hide popup option</source>
-      <translation type="unfinished"/>
+      <translation>Ukryj opcję Wyskakującego Okna</translation>
     </message>
     <message>
       <source>Header height (px)</source>
@@ -420,11 +420,11 @@
     </message>
     <message>
       <source>Header padding (px)</source>
-      <translation type="unfinished"/>
+      <translation>Wcięcie nagłówka (px)</translation>
     </message>
     <message>
       <source>Site URL</source>
-      <translation type="unfinished"/>
+      <translation>Adres URL strony</translation>
     </message>
     <message>
       <source>Text above start chat form fields</source>
@@ -508,19 +508,19 @@
     </message>
     <message>
       <source>Minimize image</source>
-      <translation type="unfinished"/>
+      <translation>Grafika przycisku Minimalizuj</translation>
     </message>
     <message>
       <source>Restore image</source>
-      <translation type="unfinished"/>
+      <translation>Grafika przycisku Przywróć</translation>
     </message>
     <message>
       <source>Close image</source>
-      <translation type="unfinished"/>
+      <translation>Grafika przycisku Zamknij</translation>
     </message>
     <message>
       <source>Popup image</source>
-      <translation type="unfinished"/>
+      <translation>Grafika przycisku &quot;Wyświetl w oknie&quot;</translation>
     </message>
     <message>
       <source>Widget themes</source>
@@ -559,11 +559,11 @@
     </message>
     <message>
       <source>Allow operator to see your page content?</source>
-      <translation type="unfinished"/>
+      <translation>Zezwalam konsultantowi na podgląd strony, którą przeglądam?</translation>
     </message>
     <message>
       <source>Screen shared, click to finish</source>
-      <translation type="unfinished"/>
+      <translation>Ekran udostępniony, kliknij aby przerwać</translation>
     </message>
   </context>
   <context>
@@ -2586,6 +2586,33 @@ pokazywany</translation>
     </message>
   </context>
   <context>
+    <name>chat/syncuser</name>
+    <message>
+      <source>Support staff member has closed this chat</source>
+      <translation>Pracownik wsparcia zamknął tą rozmowę</translation>
+    </message>
+    <message>
+      <source>Chat was automatically transferred to</source>
+      <translation>Rozmowa została automatycznie przeniesiona do</translation>
+    </message>
+    <message>
+      <source>from</source>
+      <translation>z</translation>
+    </message>
+    <message>
+      <source>Chat was automatically closed by cron</source>
+      <translation>Rozmowa została automatycznie zamknięta przez crona</translation>
+    </message>
+    <message>
+      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
+      <translation>Pracownik działu pomocy zamknął to okno rozmowy, ale możesz zostawić wiadomość, a administrator odczyta ją później.</translation>
+    </message>
+    <message>
+      <source>You do not have permission to view this chat, or the chat was deleted</source>
+      <translation>Nie masz dostępu do tej rozmowy lub rozmowa została usunięta</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/errors/entertext</name>
     <message>
       <source>Please enter text!</source>
@@ -2922,7 +2949,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Dashboard</source>
-      <translation type="unfinished"/>
+      <translation>Pulpit</translation>
     </message>
     <message>
       <source>City</source>
@@ -3337,7 +3364,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Chat configuration</source>
-      <translation>Konfiguracja rozów</translation>
+      <translation>Konfiguracja rozmów</translation>
     </message>
     <message>
       <source>List chat configuration</source>
@@ -3629,8 +3656,8 @@ pokazywany</translation>
       <translation>Strona główna</translation>
     </message>
     <message>
-      <source>Extra modules</source>
-      <translation>Dodatkowe moduły</translation>
+      <source>Modules</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Browse offers</source>
@@ -3653,8 +3680,28 @@ pokazywany</translation>
       <translation>Nowe prośby o rozmowe</translation>
     </message>
     <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Dashboard</source>
+      <translation>Pulpit</translation>
+    </message>
+    <message>
       <source>Menu</source>
       <translation>Menu</translation>
+    </message>
+    <message>
+      <source>Expand or collapse left menu</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat tabs</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chats list</source>
@@ -3906,6 +3953,14 @@ pokazywany</translation>
     <message>
       <source>Message</source>
       <translation>Wiadomość</translation>
+    </message>
+    <message>
+      <source>Automatically start chat then user starts typing. Only message field has to be required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start chat process in the background as soon user submits form. Only message field has to be required</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Phone</source>
@@ -6946,33 +7001,6 @@ pokazywany</translation>
     <message>
       <source>has closed the chat!</source>
       <translation>zamknięta rozmowa!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/syncuser</name>
-    <message>
-      <source>Support staff member has closed this chat</source>
-      <translation>Pracownik wsparcia zamknął tą rozmowę</translation>
-    </message>
-    <message>
-      <source>Chat was automatically transferred to</source>
-      <translation>Rozmowa została automatycznie przeniesiona do</translation>
-    </message>
-    <message>
-      <source>from</source>
-      <translation>z</translation>
-    </message>
-    <message>
-      <source>Chat was automatically closed by cron</source>
-      <translation>Rozmowa została automatycznie zamknięta przez crona</translation>
-    </message>
-    <message>
-      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
-      <translation>Pracownik działu pomocy zamknął to okno rozmowy, ale możesz zostawić wiadomość, a administrator odczyta ją później.</translation>
-    </message>
-    <message>
-      <source>You do not have permission to view this chat, or the chat was deleted</source>
-      <translation>Nie masz dostępu do tej rozmowy lub rozmowa została usunięta</translation>
     </message>
   </context>
   <context>

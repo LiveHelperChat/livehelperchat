@@ -2585,6 +2585,33 @@
     </message>
   </context>
   <context>
+    <name>chat/syncuser</name>
+    <message>
+      <source>Support staff member has closed this chat</source>
+      <translation>Екипът за поддръжка е затворил този чат</translation>
+    </message>
+    <message>
+      <source>Chat was automatically transferred to</source>
+      <translation>Чатът бе автоматично пренасочен към</translation>
+    </message>
+    <message>
+      <source>from</source>
+      <translation>от</translation>
+    </message>
+    <message>
+      <source>Chat was automatically closed by cron</source>
+      <translation>Чатът бе автоматично затворен</translation>
+    </message>
+    <message>
+      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
+      <translation>Екипът за поддръжка е затворил този чат, но може да оставите съобщения и администратора ще ги прочете.</translation>
+    </message>
+    <message>
+      <source>You do not have permission to view this chat, or the chat was deleted</source>
+      <translation>Нямате право да видите този чат или чатът бе изтрит</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/errors/entertext</name>
     <message>
       <source>Please enter text!</source>
@@ -3628,8 +3655,8 @@
       <translation>Начало</translation>
     </message>
     <message>
-      <source>Extra modules</source>
-      <translation>Екстра модули</translation>
+      <source>Modules</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Browse offers</source>
@@ -3652,8 +3679,28 @@
       <translation>Нова заявка за чат</translation>
     </message>
     <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Dashboard</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Menu</source>
       <translation>Меню</translation>
+    </message>
+    <message>
+      <source>Expand or collapse left menu</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat tabs</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chats list</source>
@@ -3905,6 +3952,14 @@
     <message>
       <source>Message</source>
       <translation>Съобщение</translation>
+    </message>
+    <message>
+      <source>Automatically start chat then user starts typing. Only message field has to be required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start chat process in the background as soon user submits form. Only message field has to be required</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Phone</source>
@@ -6945,33 +7000,6 @@
     <message>
       <source>has closed the chat!</source>
       <translation>затвори чата!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/syncuser</name>
-    <message>
-      <source>Support staff member has closed this chat</source>
-      <translation>Екипът за поддръжка е затворил този чат</translation>
-    </message>
-    <message>
-      <source>Chat was automatically transferred to</source>
-      <translation>Чатът бе автоматично пренасочен към</translation>
-    </message>
-    <message>
-      <source>from</source>
-      <translation>от</translation>
-    </message>
-    <message>
-      <source>Chat was automatically closed by cron</source>
-      <translation>Чатът бе автоматично затворен</translation>
-    </message>
-    <message>
-      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
-      <translation>Екипът за поддръжка е затворил този чат, но може да оставите съобщения и администратора ще ги прочете.</translation>
-    </message>
-    <message>
-      <source>You do not have permission to view this chat, or the chat was deleted</source>
-      <translation>Нямате право да видите този чат или чатът бе изтрит</translation>
     </message>
   </context>
   <context>

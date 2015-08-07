@@ -1271,7 +1271,7 @@
     </message>
     <message>
       <source>Close and Start a new one</source>
-      <translation type="unfinished"/>
+      <translation>Stäng och starta en ny</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -1924,7 +1924,7 @@
     </message>
     <message>
       <source>has accepted the chat!</source>
-      <translation type="unfinished"/>
+      <translation>har accepterat chatten!</translation>
     </message>
   </context>
   <context>
@@ -2378,7 +2378,7 @@
     </message>
     <message>
       <source>Me</source>
-      <translation type="unfinished"/>
+      <translation>Jag</translation>
     </message>
     <message>
       <source>Choose your language</source>
@@ -2582,6 +2582,33 @@
     <message>
       <source>You do not have permission to access the current chat!</source>
       <translation>Du har inte rättigheter att ansluta till den aktuella chatten!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/syncuser</name>
+    <message>
+      <source>Support staff member has closed this chat</source>
+      <translation>Supportmedarbetaren har stängt chatten</translation>
+    </message>
+    <message>
+      <source>Chat was automatically transferred to</source>
+      <translation>Chatten blev automatiskt vidarebefodrad till</translation>
+    </message>
+    <message>
+      <source>from</source>
+      <translation>från</translation>
+    </message>
+    <message>
+      <source>Chat was automatically closed by cron</source>
+      <translation>Chatten stängdes automatiskt av cron-inställningarna</translation>
+    </message>
+    <message>
+      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
+      <translation>Supporten har stängt chattfönstret men lämna gärna meddelande och så läser administratören dem senare.</translation>
+    </message>
+    <message>
+      <source>You do not have permission to view this chat, or the chat was deleted</source>
+      <translation>Du har inte rättigheter att se på denna chatt eller så är den borttagen</translation>
     </message>
   </context>
   <context>
@@ -3628,8 +3655,8 @@
       <translation>Hem</translation>
     </message>
     <message>
-      <source>Extra modules</source>
-      <translation>Extra inställningar</translation>
+      <source>Modules</source>
+      <translation>Moduler</translation>
     </message>
     <message>
       <source>Browse offers</source>
@@ -3652,8 +3679,28 @@
       <translation>Ny chattförfrågan</translation>
     </message>
     <message>
+      <source>Chat</source>
+      <translation>Chatt</translation>
+    </message>
+    <message>
+      <source>Settings</source>
+      <translation>Inställningar</translation>
+    </message>
+    <message>
+      <source>Dashboard</source>
+      <translation>Kontrollpanel</translation>
+    </message>
+    <message>
       <source>Menu</source>
       <translation>Meny</translation>
+    </message>
+    <message>
+      <source>Expand or collapse left menu</source>
+      <translation>Expandera eller dölj vänstermenyn</translation>
+    </message>
+    <message>
+      <source>Chat tabs</source>
+      <translation>Chattflikar</translation>
     </message>
     <message>
       <source>Chats list</source>
@@ -3907,6 +3954,14 @@
       <translation>Meddelande</translation>
     </message>
     <message>
+      <source>Automatically start chat then user starts typing. Only message field has to be required</source>
+      <translation>Starta automatiskt en chatt när en användare börjar skriva. Endast meddelandefältet är obligatoriskt</translation>
+    </message>
+    <message>
+      <source>Start chat process in the background as soon user submits form. Only message field has to be required</source>
+      <translation>Starta chattprocessen i bakgrunden så fort en användare skickar formuläret. Endast meddelandefältet är obligatoriskt</translation>
+    </message>
+    <message>
       <source>Phone</source>
       <translation>Telefonnr</translation>
     </message>
@@ -3940,7 +3995,7 @@
     </message>
     <message>
       <source>Show messages box above input fields, usefull for UX combinations.</source>
-      <translation type="unfinished"/>
+      <translation>Visa meddelanderutor ovanför textfälten, användbart för UX/användarupplevelse kombinationer.</translation>
     </message>
     <message>
       <source>Initial user message height in pixels</source>
@@ -6945,33 +7000,6 @@
     <message>
       <source>has closed the chat!</source>
       <translation>har stängt chatten!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/syncuser</name>
-    <message>
-      <source>Support staff member has closed this chat</source>
-      <translation>Supportmedarbetaren har stängt chatten</translation>
-    </message>
-    <message>
-      <source>Chat was automatically transferred to</source>
-      <translation>Chatten blev automatiskt vidarebefodrad till</translation>
-    </message>
-    <message>
-      <source>from</source>
-      <translation>från</translation>
-    </message>
-    <message>
-      <source>Chat was automatically closed by cron</source>
-      <translation>Chatten stängdes automatiskt av cron-inställningarna</translation>
-    </message>
-    <message>
-      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
-      <translation>Supporten har stängt chattfönstret men lämna gärna meddelande och så läser administratören dem senare.</translation>
-    </message>
-    <message>
-      <source>You do not have permission to view this chat, or the chat was deleted</source>
-      <translation>Du har inte rättigheter att se på denna chatt eller så är den borttagen</translation>
     </message>
   </context>
   <context>

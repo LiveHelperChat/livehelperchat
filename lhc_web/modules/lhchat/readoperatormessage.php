@@ -336,7 +336,7 @@ if (isset($_POST['askQuestion']))
 
        // Chat was based on key up, there is no message object
        $messageInitial = false;
-       
+                     
        // Do not store anything, like user just started normal chat
        if ($inputData->key_up_started == false) {
            // Store User Message

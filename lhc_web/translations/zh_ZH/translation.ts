@@ -2585,6 +2585,33 @@
     </message>
   </context>
   <context>
+    <name>chat/syncuser</name>
+    <message>
+      <source>Support staff member has closed this chat</source>
+      <translation>支持工作人员已经关闭了这个聊天</translation>
+    </message>
+    <message>
+      <source>Chat was automatically transferred to</source>
+      <translation>聊天被自動轉移到</translation>
+    </message>
+    <message>
+      <source>from</source>
+      <translation>從</translation>
+    </message>
+    <message>
+      <source>Chat was automatically closed by cron</source>
+      <translation>通过计划任务 corn 自动关闭聊天</translation>
+    </message>
+    <message>
+      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
+      <translation>支持聊天窗口已经关闭，但是您可以留言，管理员将稍后阅读。</translation>
+    </message>
+    <message>
+      <source>You do not have permission to view this chat, or the chat was deleted</source>
+      <translation>您没有权限查看此聊天，或删除聊天</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/errors/entertext</name>
     <message>
       <source>Please enter text!</source>
@@ -3628,8 +3655,8 @@
       <translation>家</translation>
     </message>
     <message>
-      <source>Extra modules</source>
-      <translation>扩展模块</translation>
+      <source>Modules</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Browse offers</source>
@@ -3652,8 +3679,28 @@
       <translation>新的聊天请求</translation>
     </message>
     <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Dashboard</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Menu</source>
       <translation>菜單</translation>
+    </message>
+    <message>
+      <source>Expand or collapse left menu</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat tabs</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chats list</source>
@@ -3905,6 +3952,14 @@
     <message>
       <source>Message</source>
       <translation>信息</translation>
+    </message>
+    <message>
+      <source>Automatically start chat then user starts typing. Only message field has to be required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start chat process in the background as soon user submits form. Only message field has to be required</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Phone</source>
@@ -6945,33 +7000,6 @@
     <message>
       <source>has closed the chat!</source>
       <translation>已关闭聊天的！</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/syncuser</name>
-    <message>
-      <source>Support staff member has closed this chat</source>
-      <translation>支持工作人员已经关闭了这个聊天</translation>
-    </message>
-    <message>
-      <source>Chat was automatically transferred to</source>
-      <translation>聊天被自動轉移到</translation>
-    </message>
-    <message>
-      <source>from</source>
-      <translation>從</translation>
-    </message>
-    <message>
-      <source>Chat was automatically closed by cron</source>
-      <translation>通过计划任务 corn 自动关闭聊天</translation>
-    </message>
-    <message>
-      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
-      <translation>支持聊天窗口已经关闭，但是您可以留言，管理员将稍后阅读。</translation>
-    </message>
-    <message>
-      <source>You do not have permission to view this chat, or the chat was deleted</source>
-      <translation>您没有权限查看此聊天，或删除聊天</translation>
     </message>
   </context>
   <context>

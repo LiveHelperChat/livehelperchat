@@ -36,10 +36,14 @@ if (is_array($Params['user_parameters_unordered']['ua']) && !empty($Params['user
     $themeAppend .= '/(ua)/'.implode('/', $Params['user_parameters_unordered']['ua']);
 }
 
+if (isset($Params['user_parameters_unordered']['survey']) && is_numeric($Params['user_parameters_unordered']['survey'])) {
+    $themeAppend .= '/(survey)/'. (int)$Params['user_parameters_unordered']['survey'];
+}
+
 // Perhaps it's direct argument
 if ((string)$Params['user_parameters_unordered']['hash'] != '') {
 	list($chatID,$hash) = explode('_',$Params['user_parameters_unordered']['hash']);
-
+	
 	// Redirect user
 	erLhcoreClassModule::redirect('chat/chat/' . $chatID . '/' . $hash . $themeAppend);
 	exit;

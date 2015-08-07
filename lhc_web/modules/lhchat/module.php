@@ -299,7 +299,7 @@ $ViewList['blockedusers'] = array(
 
 $ViewList['getstatus'] = array(
     'params' => array(),
-    'uparams' => array('ua','ma','operator','theme','noresponse','priority','disable_pro_active','click','position','hide_offline','check_operator_messages','top','units','leaveamessage','department','identifier'),
+    'uparams' => array('ua','ma','operator','theme','noresponse','priority','disable_pro_active','click','position','hide_offline','check_operator_messages','top','units','leaveamessage','department','identifier','survey'),
 	'multiple_arguments' => array ( 'department', 'ua' )
 );
 
@@ -311,13 +311,13 @@ $ViewList['chatcheckstatus'] = array(
 
 $ViewList['getstatusembed'] = array(
     'params' => array(),
-    'uparams' => array('ua','operator','theme','hide_offline','leaveamessage','department','priority'),
+    'uparams' => array('ua','operator','theme','hide_offline','leaveamessage','department','priority','survey'),
 	'multiple_arguments' => array ( 'department','ua' )
 );
 
 $ViewList['startchat'] = array (
     'params' => array(),
-    'uparams' => array('ua','switchform','operator','theme','er','vid','hash_resume','sound','hash','offline','leaveamessage','department','priority','chatprefill'),
+    'uparams' => array('ua','switchform','operator','theme','er','vid','hash_resume','sound','hash','offline','leaveamessage','department','priority','chatprefill','survey'),
 	'multiple_arguments' => array ( 'department','ua' )
 );
 
@@ -334,13 +334,13 @@ $ViewList['reopen'] = array(
 
 $ViewList['readoperatormessage'] = array(
     'params' => array(),
-    'uparams' => array('operator','theme','priority','vid','department','playsound','ua'),
+    'uparams' => array('operator','theme','priority','vid','department','playsound','ua','survey'),
 	'multiple_arguments' => array ( 'department', 'ua' )
 );
 
 $ViewList['chatcheckoperatormessage'] = array(
     'params' => array(),
-    'uparams' => array('tz','operator','theme','priority','vid','count_page','identifier','department','ua'),
+    'uparams' => array('tz','operator','theme','priority','vid','count_page','identifier','department','ua','survey'),
 	'multiple_arguments' => array ( 'department','ua' )
 );
 
@@ -357,7 +357,7 @@ $ViewList['chatwidgetclosed'] = array(
 
 $ViewList['chat'] = array(
     'params' => array('chat_id','hash'),
-    'uparams' => array('theme','er')
+    'uparams' => array('theme','er','survey')
 );
 
 $ViewList['printchat'] = array(

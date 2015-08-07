@@ -2585,6 +2585,33 @@
     </message>
   </context>
   <context>
+    <name>chat/syncuser</name>
+    <message>
+      <source>Support staff member has closed this chat</source>
+      <translation>Υποστήριξη υπάλληλος έχει κλείσει αυτήν τη συζήτηση</translation>
+    </message>
+    <message>
+      <source>Chat was automatically transferred to</source>
+      <translation>Chat ήταν μεταφέρεται αυτόματα στο</translation>
+    </message>
+    <message>
+      <source>from</source>
+      <translation>από</translation>
+    </message>
+    <message>
+      <source>Chat was automatically closed by cron</source>
+      <translation>Chat αυτομάτως είχε κλείσει από το cron</translation>
+    </message>
+    <message>
+      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
+      <translation>Υποστήριξη έχει κλείσει το παράθυρο της συνομιλίας, αλλά μπορείτε να αφήσετε τα μηνύματα, και ο διαχειριστής θα τα διαβάσετε αργότερα.</translation>
+    </message>
+    <message>
+      <source>You do not have permission to view this chat, or the chat was deleted</source>
+      <translation>Δεν έχετε δικαίωμα να δείτε αυτήν τη συζήτηση, ή είχε διαγραφεί το chat</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/errors/entertext</name>
     <message>
       <source>Please enter text!</source>
@@ -3628,8 +3655,8 @@
       <translation>Αρχική</translation>
     </message>
     <message>
-      <source>Extra modules</source>
-      <translation>Επιπλέον ενότητες</translation>
+      <source>Modules</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Browse offers</source>
@@ -3652,8 +3679,28 @@
       <translation>Αίτημα νέας συνομιλίας</translation>
     </message>
     <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Dashboard</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Menu</source>
       <translation>Μενού</translation>
+    </message>
+    <message>
+      <source>Expand or collapse left menu</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat tabs</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chats list</source>
@@ -3905,6 +3952,14 @@
     <message>
       <source>Message</source>
       <translation>Μήνυμα</translation>
+    </message>
+    <message>
+      <source>Automatically start chat then user starts typing. Only message field has to be required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start chat process in the background as soon user submits form. Only message field has to be required</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Phone</source>
@@ -6945,33 +7000,6 @@
     <message>
       <source>has closed the chat!</source>
       <translation>έκλεισε το chat!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/syncuser</name>
-    <message>
-      <source>Support staff member has closed this chat</source>
-      <translation>Υποστήριξη υπάλληλος έχει κλείσει αυτήν τη συζήτηση</translation>
-    </message>
-    <message>
-      <source>Chat was automatically transferred to</source>
-      <translation>Chat ήταν μεταφέρεται αυτόματα στο</translation>
-    </message>
-    <message>
-      <source>from</source>
-      <translation>από</translation>
-    </message>
-    <message>
-      <source>Chat was automatically closed by cron</source>
-      <translation>Chat αυτομάτως είχε κλείσει από το cron</translation>
-    </message>
-    <message>
-      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
-      <translation>Υποστήριξη έχει κλείσει το παράθυρο της συνομιλίας, αλλά μπορείτε να αφήσετε τα μηνύματα, και ο διαχειριστής θα τα διαβάσετε αργότερα.</translation>
-    </message>
-    <message>
-      <source>You do not have permission to view this chat, or the chat was deleted</source>
-      <translation>Δεν έχετε δικαίωμα να δείτε αυτήν τη συζήτηση, ή είχε διαγραφεί το chat</translation>
     </message>
   </context>
   <context>

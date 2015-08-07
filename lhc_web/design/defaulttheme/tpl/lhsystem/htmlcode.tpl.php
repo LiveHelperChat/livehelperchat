@@ -28,12 +28,16 @@
 			<div class="col-md-6"><div>
 				<label><input type="checkbox" id="id_show_leave_form" checked="checked" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Show a leave a message form when there are no online operators');?></label>
 			</div></div>
-			<div class="col-md-6"><div>
-			     <label><input type="checkbox" id="id_disable_pro_active_invitations" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Disable pro active invitations, usefull if you want disable them from site part.');?></label>
-			</div></div>
-			<div class="col-md-6">	<div>
-				<label><input type="checkbox" id="id_disable_responsive" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Disable responsive layout for status widget.');?></label>
-			</div></div>
+			<div class="col-md-6">
+    			<div>
+    			     <label><input type="checkbox" id="id_disable_pro_active_invitations" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Disable pro active invitations, usefull if you want disable them from site part.');?></label>
+    			</div>
+			</div>
+			<div class="col-md-6">	
+    			<div>
+    				<label><input type="checkbox" id="id_disable_responsive" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Disable responsive layout for status widget.');?></label>
+    			</div>
+			</div>
 		</div>	
 			
 			<hr>
@@ -55,12 +59,13 @@
 					</div>
 					<div class="col-md-6">
 						<div class="form-group">
-							<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Department')?></label> <select id="DepartmentID" multiple="multiple" size="5" class="form-control">
-								<option value="0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Any');?></option>
-    			<?php foreach (erLhcoreClassModelDepartament::getList($departmentParams) as $departament) : ?>
-    			   <option value="<?php echo $departament->id?>"><?php echo htmlspecialchars($departament->name)?></option>
-    			<?php endforeach; ?>
-    		</select>
+							<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Department')?></label> 
+							<select id="DepartmentID" multiple="multiple" size="5" class="form-control">
+								   <option value="0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Any');?></option>
+                    			<?php foreach (erLhcoreClassModelDepartament::getList($departmentParams) as $departament) : ?>
+                    			   <option value="<?php echo $departament->id?>"><?php echo htmlspecialchars($departament->name)?></option>
+                    			<?php endforeach; ?>
+                    		</select>
 						</div>
 					</div>
 
@@ -72,9 +77,25 @@
                                 <?php endforeach; ?>
                             </select>
 						</div>
-						<div class="form-group">
-							<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Operator ID')?></label> <input type="text" class="form-control" id="id_operator" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','To what operator chat should be assigned automatically?')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','To what operator chat should be assigned automatically?')?>" value="" />
+						
+						<div class="row">
+						  <div class="col-md-6">
+						        <div class="form-group">
+        							<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Operator ID')?></label> <input type="text" class="form-control" id="id_operator" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','To what operator chat should be assigned automatically?')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','To what operator chat should be assigned automatically?')?>" value="" />
+        						</div>
+						  </div>
+						  <div class="col-md-6">
+						        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Survey at the end of chat')?></label> 
+						        <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
+            		                    'input_name'     => 'Survey',
+            		                    'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','no survey'),
+            		                    'selected_id'    => 0,
+            		                    'css_class'     => 'form-control',
+            		                    'list_function'  => 'erLhAbstractModelSurvey::getList'
+            		            )); ?>
+						  </div>
 						</div>
+						
 					</div>
 				</div>
 			
@@ -185,6 +206,7 @@ function generateEmbedCode(){
     var id_identifier = $('#id_site_identifier').val() != '' ? '/(identifier)/'+$('#id_site_identifier').val() : '';
     var id_ma = $('#MinimizeID').val() != '' ? '/(ma)/'+$('#MinimizeID').val() : '';
     var id_operator = $('#id_operator').val() > 0 ? '/(operator)/'+$('#id_operator').val() : '';
+    var id_survey = $('#id_Survey').val() > 0 ? '/(survey)/'+$('#id_Survey').val() : '';
 
     var id_position =  '/(position)/'+$('#PositionID').val();
    
@@ -220,7 +242,7 @@ function generateEmbedCode(){
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
         'var referrer = (document.referrer) ? encodeURIComponent(document.referrer.substr(document.referrer.indexOf(\'://\')+1)) : \'\';'+"\n"+
         'var location  = (document.location) ? encodeURIComponent(window.location.href.substring(window.location.protocol.length)) : \'\';'+"\n"+
-        'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chat/getstatus<?php isset($userArgument) ? print $userArgument : ''?>'+uaArguments+id_internal_popup+id_position+id_ma+id_hide_then_offline+id_check_operator_message+top+topposition+id_show_leave_form+id_department+id_operator+id_identifier+id_disable_pro_active_invitations+id_theme+id_disable_responsive+'?r=\'+referrer+\'&l=\'+location;'+"\n"+
+        'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chat/getstatus<?php isset($userArgument) ? print $userArgument : ''?>'+uaArguments+id_internal_popup+id_position+id_ma+id_hide_then_offline+id_check_operator_message+top+topposition+id_show_leave_form+id_department+id_operator+id_identifier+id_disable_pro_active_invitations+id_theme+id_disable_responsive+id_survey+'?r=\'+referrer+\'&l=\'+location;'+"\n"+
         'var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(po, s);'+"\n"+
       '})();'+"\n"+
     '</scr'+'ipt>';
@@ -228,7 +250,7 @@ function generateEmbedCode(){
     $('#HMLTContent').text(id_tag+script);
 };
 
-$('#LocaleID,#id_embed_domain,#MinimizeID,#id_operator,#DepartmentID,#HttpMode,#ThemeID,#id_disable_pro_active_invitations,#id_site_identifier,#id_internal_popup,#id_disable_responsive,#id_position_bottom,#PositionID,#id_show_leave_form,#id_hide_then_offline,#id_check_operator_message,#UnitsTop,#id_top_text,#id_popup_width,#id_popup_height,#id_widget_width,#id_widget_height').change(function(){
+$('#LocaleID,#id_embed_domain,#MinimizeID,#id_operator,#DepartmentID,#HttpMode,#ThemeID,#id_Survey,#id_disable_pro_active_invitations,#id_site_identifier,#id_internal_popup,#id_disable_responsive,#id_position_bottom,#PositionID,#id_show_leave_form,#id_hide_then_offline,#id_check_operator_message,#UnitsTop,#id_top_text,#id_popup_width,#id_popup_height,#id_widget_width,#id_widget_height').change(function(){
     generateEmbedCode();
 });
 

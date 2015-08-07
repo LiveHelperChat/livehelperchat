@@ -1152,7 +1152,7 @@
     </message>
     <message>
       <source>Not Voted</source>
-      <translation>Nenhum  Voto</translation>
+      <translation>Não votado</translation>
     </message>
     <message>
       <source>Up Voted</source>
@@ -1271,7 +1271,7 @@
     </message>
     <message>
       <source>Close and Start a new one</source>
-      <translation type="unfinished"/>
+      <translation>Fechar e Iniciar novo</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -1924,7 +1924,7 @@
     </message>
     <message>
       <source>has accepted the chat!</source>
-      <translation>aceitou um chat!</translation>
+      <translation>aceitou o chat!</translation>
     </message>
   </context>
   <context>
@@ -2161,7 +2161,7 @@
     </message>
     <message>
       <source>Delete chat</source>
-      <translation>Apagar conversa</translation>
+      <translation>Apagar chat</translation>
     </message>
     <message>
       <source>Created</source>
@@ -2378,7 +2378,7 @@
     </message>
     <message>
       <source>Me</source>
-      <translation type="unfinished"/>
+      <translation>Eu</translation>
     </message>
     <message>
       <source>Choose your language</source>
@@ -2582,6 +2582,33 @@
     <message>
       <source>You do not have permission to access the current chat!</source>
       <translation>Você não possui permissão para acessar este chat</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/syncuser</name>
+    <message>
+      <source>Support staff member has closed this chat</source>
+      <translation>O Membro da equipe fechou este chat</translation>
+    </message>
+    <message>
+      <source>Chat was automatically transferred to</source>
+      <translation>O chat foi automaticamente transferido para</translation>
+    </message>
+    <message>
+      <source>from</source>
+      <translation>para</translation>
+    </message>
+    <message>
+      <source>Chat was automatically closed by cron</source>
+      <translation>O chat foi fechado automaticamente pelo agendamento</translation>
+    </message>
+    <message>
+      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
+      <translation>Suporte fechou a janela de bate-papo, mas você pode deixar mensagens, e o administrador irá lê-las mais tarde.</translation>
+    </message>
+    <message>
+      <source>You do not have permission to view this chat, or the chat was deleted</source>
+      <translation>Você não tem permissão para visualizar este chat ou o chat foi apagado</translation>
     </message>
   </context>
   <context>
@@ -3621,15 +3648,15 @@
     </message>
     <message>
       <source>Transfered chats</source>
-      <translation>Conversas transferidas</translation>
+      <translation>Chats transferidos</translation>
     </message>
     <message>
       <source>Home</source>
       <translation>Página inicial</translation>
     </message>
     <message>
-      <source>Extra modules</source>
-      <translation>Módulos extras</translation>
+      <source>Modules</source>
+      <translation>Módulos</translation>
     </message>
     <message>
       <source>Browse offers</source>
@@ -3652,8 +3679,28 @@
       <translation>Nova requisição de chat</translation>
     </message>
     <message>
+      <source>Chat</source>
+      <translation>Chat</translation>
+    </message>
+    <message>
+      <source>Settings</source>
+      <translation>Configurações</translation>
+    </message>
+    <message>
+      <source>Dashboard</source>
+      <translation>Painel</translation>
+    </message>
+    <message>
       <source>Menu</source>
       <translation>Menu</translation>
+    </message>
+    <message>
+      <source>Expand or collapse left menu</source>
+      <translation>Expandir ou recolher o menu a esquerda</translation>
+    </message>
+    <message>
+      <source>Chat tabs</source>
+      <translation>Abas do chat</translation>
     </message>
     <message>
       <source>Chats list</source>
@@ -3907,6 +3954,14 @@
       <translation>Mensagem</translation>
     </message>
     <message>
+      <source>Automatically start chat then user starts typing. Only message field has to be required</source>
+      <translation>Iniciar o chat automaticamente quando o usuário começa a digitar. Apenas o campo de mensagem deve ser obrigatório</translation>
+    </message>
+    <message>
+      <source>Start chat process in the background as soon user submits form. Only message field has to be required</source>
+      <translation>Iniciar o processo do chat em segundo plano assim que o usuário enviar o form. Apenas o campo de mensagem deve ser obrigatório </translation>
+    </message>
+    <message>
       <source>Phone</source>
       <translation>Telefone</translation>
     </message>
@@ -3916,7 +3971,7 @@
     </message>
     <message>
       <source>Checked by default</source>
-      <translation>Assinalado como padrão</translation>
+      <translation>Marcado por padrão</translation>
     </message>
     <message>
       <source>E-mail is always required</source>
@@ -3940,7 +3995,7 @@
     </message>
     <message>
       <source>Show messages box above input fields, usefull for UX combinations.</source>
-      <translation type="unfinished"/>
+      <translation>Exibir o box de mensagens acima dos campos, util para combinações visuais UX</translation>
     </message>
     <message>
       <source>Initial user message height in pixels</source>
@@ -4103,7 +4158,7 @@
     </message>
     <message>
       <source>Average chat duration by user</source>
-      <translation>Média de duração do bate-papo por usuário</translation>
+      <translation>Média de duração do chat por usuário</translation>
     </message>
     <message>
       <source>All operators statistic will be downloaded</source>
@@ -4163,7 +4218,7 @@
     </message>
     <message>
       <source>Operators statistic, top 100 by chats number</source>
-      <translation>Estatística dos operadores, top 100 por números de bate-papos</translation>
+      <translation>Estatística dos operadores, top 100 por números de chats</translation>
     </message>
     <message>
       <source>Total messages</source>
@@ -6857,11 +6912,11 @@
     </message>
     <message>
       <source>Pending chats number</source>
-      <translation>Quantidade de bate-papos pendentes</translation>
+      <translation>Número de chats pendentes</translation>
     </message>
     <message>
       <source>Active chats number</source>
-      <translation>Quantidade de bate-papos ativos</translation>
+      <translation>Número de chats ativos</translation>
     </message>
     <message>
       <source>Visitor Name</source>
@@ -6929,15 +6984,15 @@
     </message>
     <message>
       <source>Chat content</source>
-      <translation>Conteúdo do bate-papo</translation>
+      <translation>Conteúdo do chat</translation>
     </message>
     <message>
       <source>User ID</source>
-      <translation>Identificação do Usuário </translation>
+      <translation>ID do usuário </translation>
     </message>
     <message>
       <source>Chat average in seconds</source>
-      <translation>Média de bate-papos em segundos</translation>
+      <translation>Média de chats em segundos</translation>
     </message>
   </context>
   <context>
@@ -6945,33 +7000,6 @@
     <message>
       <source>has closed the chat!</source>
       <translation>fechou o chat!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/syncuser</name>
-    <message>
-      <source>Support staff member has closed this chat</source>
-      <translation>O Membro da equipe fechou este chat</translation>
-    </message>
-    <message>
-      <source>Chat was automatically transferred to</source>
-      <translation>O chat foi automaticamente transferido para</translation>
-    </message>
-    <message>
-      <source>from</source>
-      <translation>para</translation>
-    </message>
-    <message>
-      <source>Chat was automatically closed by cron</source>
-      <translation>O chat foi fechado automaticamente pelo agendamento</translation>
-    </message>
-    <message>
-      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
-      <translation>Suporte fechou a janela de bate-papo, mas você pode deixar mensagens, e o administrador irá lê-las mais tarde.</translation>
-    </message>
-    <message>
-      <source>You do not have permission to view this chat, or the chat was deleted</source>
-      <translation>Você não tem permissão para visualizar este chat ou o chat foi apagado</translation>
     </message>
   </context>
   <context>

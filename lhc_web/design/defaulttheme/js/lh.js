@@ -532,6 +532,14 @@ function lh(){
 	               $('#ChatSendButtonContainer').remove();
 	               $('#id-operator-typing').css('visibility','hidden');
 	               inst.operatorTyping = false;
+	               
+	               if (data.closed && data.closed == true) {	            	  
+		   			 	if (inst.isWidgetMode) {		   			 
+		   			 		 parent.postMessage('lhc_chat_closed', '*');
+		   				} else {		   				
+		   					inst.chatClosed();
+		   				}
+	               }
 	           }
 	        };
         } catch(err) {		     
@@ -539,6 +547,16 @@ function lh(){
         };
 
         inst.syncroRequestSend = false;
+    };
+    
+    this.chatClosed = function() {
+    	if (this.survey !== null) {
+    		var modeWindow = this.isWidgetMode == true ? '/(mode)/widget' : '';
+		    var operatorTyping = this.operatorTyping == true ? '/(ot)/t' : '';
+		    var themeWindow = this.theme !== null ? '/(theme)/'+this.theme : '';
+		    var modeEmbed = this.isEmbedMode == true ? '/(modeembed)/embed' : '';
+		    document.location = this.wwwDir + 'survey/fill/(survey)/' + this.survey + '/(chatid)/' +this.chat_id + '/(hash)/'+ this.hash + modeWindow + operatorTyping + themeWindow + modeEmbed;
+    	}
     };
     
     this.executeRemoteCommands = function(operations)
@@ -1057,16 +1075,30 @@ function lh(){
 	               setTimeout(chatsyncuserpending,confLH.chat_message_sinterval);
 
 	            } else {
-	            	$('#status-chat').html(data.result);	                
+	            	$('#status-chat').html(data.result);
+	            	
+	            	 if (data.closed && data.closed == true) {	            	  
+		   			 	if (inst.isWidgetMode) {		   			 
+		   			 		 parent.postMessage('lhc_chat_closed', '*');
+		   				} else {		   				
+		   					inst.chatClosed();
+		   				}
+	            	 }
 	            }
 	        }
     	}).fail(function(){
     		setTimeout(chatsyncuserpending,confLH.chat_message_sinterval);
     	});
 	};
-
+	
 	this.setTheme = function(theme_id) {
 		this.theme = theme_id;
+	};
+	
+	this.survey = null;
+	
+	this.setSurvey = function(survey_id) {
+		this.survey = survey_id;
 	};
 	
 	this.isBlinking = false;

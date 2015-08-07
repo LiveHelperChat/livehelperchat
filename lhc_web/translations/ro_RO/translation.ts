@@ -2585,6 +2585,33 @@
     </message>
   </context>
   <context>
+    <name>chat/syncuser</name>
+    <message>
+      <source>Support staff member has closed this chat</source>
+      <translation>Un operator a inchis aceasta conversatie</translation>
+    </message>
+    <message>
+      <source>Chat was automatically transferred to</source>
+      <translation>Discutia a fost transferata automat catre</translation>
+    </message>
+    <message>
+      <source>from</source>
+      <translation>de la</translation>
+    </message>
+    <message>
+      <source>Chat was automatically closed by cron</source>
+      <translation>Conversatie inchisa automat de cron</translation>
+    </message>
+    <message>
+      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
+      <translation>Echipa de suport a inchis conversatia. Puteti lasa un mesaj ce va fi citit mai tarziu de catre administrator.</translation>
+    </message>
+    <message>
+      <source>You do not have permission to view this chat, or the chat was deleted</source>
+      <translation>Nu aveti permisiuni pentru aceasta conversatie sau a fost stearsa</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/errors/entertext</name>
     <message>
       <source>Please enter text!</source>
@@ -3628,8 +3655,8 @@
       <translation>Acasa</translation>
     </message>
     <message>
-      <source>Extra modules</source>
-      <translation>Module extra</translation>
+      <source>Modules</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Browse offers</source>
@@ -3652,8 +3679,28 @@
       <translation>Cerere conversatie noua</translation>
     </message>
     <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Dashboard</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Menu</source>
       <translation>Meniu</translation>
+    </message>
+    <message>
+      <source>Expand or collapse left menu</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat tabs</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chats list</source>
@@ -3905,6 +3952,14 @@
     <message>
       <source>Message</source>
       <translation>Mesaj</translation>
+    </message>
+    <message>
+      <source>Automatically start chat then user starts typing. Only message field has to be required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start chat process in the background as soon user submits form. Only message field has to be required</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Phone</source>
@@ -6945,33 +7000,6 @@
     <message>
       <source>has closed the chat!</source>
       <translation>a inchis conversatia!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/syncuser</name>
-    <message>
-      <source>Support staff member has closed this chat</source>
-      <translation>Un operator a inchis aceasta conversatie</translation>
-    </message>
-    <message>
-      <source>Chat was automatically transferred to</source>
-      <translation>Discutia a fost transferata automat catre</translation>
-    </message>
-    <message>
-      <source>from</source>
-      <translation>de la</translation>
-    </message>
-    <message>
-      <source>Chat was automatically closed by cron</source>
-      <translation>Conversatie inchisa automat de cron</translation>
-    </message>
-    <message>
-      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
-      <translation>Echipa de suport a inchis conversatia. Puteti lasa un mesaj ce va fi citit mai tarziu de catre administrator.</translation>
-    </message>
-    <message>
-      <source>You do not have permission to view this chat, or the chat was deleted</source>
-      <translation>Nu aveti permisiuni pentru aceasta conversatie sau a fost stearsa</translation>
     </message>
   </context>
   <context>

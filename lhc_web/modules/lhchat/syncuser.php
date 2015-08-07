@@ -25,6 +25,8 @@ $saveChat = false;
 $operation = '';
 $operatorId = 0;
 
+$responseArray = array();
+
 if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 {
        
@@ -137,6 +139,8 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 		        
 		    	$blocked = 'true';
 		    	$breakSync = true;
+		    	
+		    	$responseArray['closed'] = true;
 		    }
 	
 		    if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED) {
@@ -210,7 +214,18 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
     $blocked = 'true';
 }
 
-echo json_encode(array('error' => 'false','op' => $operation, 'uw' => $userOwner, 'msop' => $operatorId, 'cs'=> $checkStatus, 'ott' => $ott, 'message_id' => $LastMessageID, 'result' => trim($content) == '' ? 'false' : trim($content), 'status' => $status, 'blocked' => $blocked ));
+$responseArray['error'] = 'false';
+$responseArray['op'] = $operation;
+$responseArray['uw'] = $userOwner;
+$responseArray['msop'] = $operatorId;
+$responseArray['cs'] = $checkStatus;
+$responseArray['ott'] = $ott;
+$responseArray['message_id'] = $LastMessageID;
+$responseArray['result'] = trim($content) == '' ? 'false' : trim($content);
+$responseArray['status'] = $status;
+$responseArray['blocked'] = $blocked;
+
+echo json_encode($responseArray);
 exit;
 
 ?>

@@ -39,6 +39,8 @@ try {
 
         erLhcoreClassChat::setTimeZoneByChat($chat);
         
+        $tpl->set('survey',is_numeric($Params['user_parameters_unordered']['survey']) ? (int)$Params['user_parameters_unordered']['survey'] : false);
+        
         $Result['chat'] = $chat;
 
         // User online

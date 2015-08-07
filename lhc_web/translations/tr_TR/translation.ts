@@ -2585,6 +2585,33 @@
     </message>
   </context>
   <context>
+    <name>chat/syncuser</name>
+    <message>
+      <source>Support staff member has closed this chat</source>
+      <translation>Destek çalışanı bu görüşmeyi sonlandırdı</translation>
+    </message>
+    <message>
+      <source>Chat was automatically transferred to</source>
+      <translation>Konuşma otomatik olarak aktarılan kişi</translation>
+    </message>
+    <message>
+      <source>from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was automatically closed by cron</source>
+      <translation>Görüşme cron tarafından otomatik olarak kapatıldı</translation>
+    </message>
+    <message>
+      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
+      <translation>Destek konuşma penceresini kapadı, fakat Siz mesajlarınızı bırakabilirsiniz, ve yönetici onları daha sonra okur.</translation>
+    </message>
+    <message>
+      <source>You do not have permission to view this chat, or the chat was deleted</source>
+      <translation>Bu konuşmayı görmeye yetkiniz yok, ta da konuşma silinmiş</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/errors/entertext</name>
     <message>
       <source>Please enter text!</source>
@@ -3630,8 +3657,8 @@
       <translation>Anasayfa</translation>
     </message>
     <message>
-      <source>Extra modules</source>
-      <translation>Ekstra modüller</translation>
+      <source>Modules</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Browse offers</source>
@@ -3654,8 +3681,28 @@
       <translation>Yeni konuşma isteği</translation>
     </message>
     <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Dashboard</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Menu</source>
       <translation>Menü</translation>
+    </message>
+    <message>
+      <source>Expand or collapse left menu</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat tabs</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chats list</source>
@@ -3907,6 +3954,14 @@
     <message>
       <source>Message</source>
       <translation>Mesaj</translation>
+    </message>
+    <message>
+      <source>Automatically start chat then user starts typing. Only message field has to be required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start chat process in the background as soon user submits form. Only message field has to be required</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Phone</source>
@@ -6947,33 +7002,6 @@
     <message>
       <source>has closed the chat!</source>
       <translation>konuşmayı kapattı!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/syncuser</name>
-    <message>
-      <source>Support staff member has closed this chat</source>
-      <translation>Destek çalışanı bu görüşmeyi sonlandırdı</translation>
-    </message>
-    <message>
-      <source>Chat was automatically transferred to</source>
-      <translation>Konuşma otomatik olarak aktarılan kişi</translation>
-    </message>
-    <message>
-      <source>from</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat was automatically closed by cron</source>
-      <translation>Görüşme cron tarafından otomatik olarak kapatıldı</translation>
-    </message>
-    <message>
-      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
-      <translation>Destek konuşma penceresini kapadı, fakat Siz mesajlarınızı bırakabilirsiniz, ve yönetici onları daha sonra okur.</translation>
-    </message>
-    <message>
-      <source>You do not have permission to view this chat, or the chat was deleted</source>
-      <translation>Bu konuşmayı görmeye yetkiniz yok, ta da konuşma silinmiş</translation>
     </message>
   </context>
   <context>

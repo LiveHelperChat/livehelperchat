@@ -100,6 +100,10 @@
     lhinst.setTheme('<?php echo $theme->id?>');
 	<?php endif; ?>
 
+    <?php if ( isset($survey) && $survey !== false ) : ?>
+    lhinst.setSurvey('<?php echo $survey?>');
+	<?php endif; ?>
+
 	<?php if (isset($chat_embed_mode) && $chat_embed_mode == true) : ?>
 	lhinst.setEmbedMode(true);
     <?php endif;?>
@@ -113,8 +117,10 @@
     lhinst.scheduleSync();
 
     $( document ).ready(function() {
-    	jQuery('#CSChatMessage').focus();    
-    	jQuery('#CSChatMessage')[0].setSelectionRange(1000,1000);
+        if (jQuery('#CSChatMessage').size() > 0) {
+        	jQuery('#CSChatMessage').focus();    
+        	jQuery('#CSChatMessage')[0].setSelectionRange(1000,1000);
+    	}
     });
     
     $(window).bind('beforeunload', function(){

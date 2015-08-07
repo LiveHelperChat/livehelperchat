@@ -961,6 +961,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Survey at the end of chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
       <translation type="unfinished"/>
     </message>
@@ -1006,6 +1010,10 @@
     </message>
     <message>
       <source>Widget height in pixels</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>no survey</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1212,6 +1220,10 @@
   <context>
     <name>chat/chat</name>
     <message>
+      <source>Close and Start a new one</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show/Hide right column</source>
       <translation type="unfinished"/>
     </message>
@@ -1269,10 +1281,6 @@
     </message>
     <message>
       <source>Enter your message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Close and Start a new one</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2170,6 +2178,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Transfer time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Time ago</source>
       <translation type="unfinished"/>
     </message>
@@ -2444,6 +2456,10 @@
     </message>
     <message>
       <source>Your request was not processed as expected - but don't worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a star</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3500,6 +3516,10 @@
     </message>
     <message>
       <source>Statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Surveys</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7269,6 +7289,67 @@
     <name>file/configurations</name>
     <message>
       <source>Please enter valid file type!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>survey/collected</name>
+    <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Stars</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>survey/fill</name>
+    <message>
+      <source>star</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>stars</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose stars evaluation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Thank you for your feedback...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Fill survey to evaluate our support</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>abstract/survey</name>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max stars for feedback</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Survey</source>
       <translation type="unfinished"/>
     </message>
   </context>

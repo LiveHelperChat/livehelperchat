@@ -2585,6 +2585,33 @@
     </message>
   </context>
   <context>
+    <name>chat/syncuser</name>
+    <message>
+      <source>Support staff member has closed this chat</source>
+      <translation>De ondersteuningsmedewerker heeft deze chat gesloten</translation>
+    </message>
+    <message>
+      <source>Chat was automatically transferred to</source>
+      <translation>De chat werd automatisch doorgeschakeld naar</translation>
+    </message>
+    <message>
+      <source>from</source>
+      <translation>van</translation>
+    </message>
+    <message>
+      <source>Chat was automatically closed by cron</source>
+      <translation>Chat is automatisch gesloten door cron</translation>
+    </message>
+    <message>
+      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
+      <translation>Support heeft het chatscherm afgesloten, maar u kunt berichten achterlaten. De beheerder zal ze later lezen.</translation>
+    </message>
+    <message>
+      <source>You do not have permission to view this chat, or the chat was deleted</source>
+      <translation>Je hebt geen rechten om deze chat te zien, of de chat is verwijderd</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/errors/entertext</name>
     <message>
       <source>Please enter text!</source>
@@ -3628,8 +3655,8 @@
       <translation>Home</translation>
     </message>
     <message>
-      <source>Extra modules</source>
-      <translation>Extra modules</translation>
+      <source>Modules</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Browse offers</source>
@@ -3652,8 +3679,28 @@
       <translation>Nieuwe chat aanvraag</translation>
     </message>
     <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Dashboard</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Menu</source>
       <translation>Menu</translation>
+    </message>
+    <message>
+      <source>Expand or collapse left menu</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat tabs</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chats list</source>
@@ -3905,6 +3952,14 @@
     <message>
       <source>Message</source>
       <translation>Bericht</translation>
+    </message>
+    <message>
+      <source>Automatically start chat then user starts typing. Only message field has to be required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start chat process in the background as soon user submits form. Only message field has to be required</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Phone</source>
@@ -6945,33 +7000,6 @@
     <message>
       <source>has closed the chat!</source>
       <translation>heeft de chat gesloten!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/syncuser</name>
-    <message>
-      <source>Support staff member has closed this chat</source>
-      <translation>De ondersteuningsmedewerker heeft deze chat gesloten</translation>
-    </message>
-    <message>
-      <source>Chat was automatically transferred to</source>
-      <translation>De chat werd automatisch doorgeschakeld naar</translation>
-    </message>
-    <message>
-      <source>from</source>
-      <translation>van</translation>
-    </message>
-    <message>
-      <source>Chat was automatically closed by cron</source>
-      <translation>Chat is automatisch gesloten door cron</translation>
-    </message>
-    <message>
-      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
-      <translation>Support heeft het chatscherm afgesloten, maar u kunt berichten achterlaten. De beheerder zal ze later lezen.</translation>
-    </message>
-    <message>
-      <source>You do not have permission to view this chat, or the chat was deleted</source>
-      <translation>Je hebt geen rechten om deze chat te zien, of de chat is verwijderd</translation>
     </message>
   </context>
   <context>

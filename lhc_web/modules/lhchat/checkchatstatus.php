@@ -27,6 +27,8 @@ if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_p
     }
 }
 
+$responseArray = array();
+
 try {
     $chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['chat_id']);
 
@@ -99,6 +101,7 @@ try {
 	    if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
 	    	$activated = 'true';
 	    	$tpl->set('is_closed',true);
+	    	$responseArray['closed'] = true;
 	    } else {
 	    	$tpl->set('is_closed',false);
 	    }
@@ -129,6 +132,12 @@ try {
     exit;
 }
 
-echo json_encode(array('error' => 'false','ru' => $ru,'ott' => $ott, 'result' => $tpl->fetch(),'activated' => $activated));
+$responseArray['error'] = 'false';
+$responseArray['ru'] = $ru;
+$responseArray['ott'] = $ott;
+$responseArray['result'] = $tpl->fetch();
+$responseArray['activated'] = $activated;
+
+echo json_encode($responseArray);
 exit;
 ?>

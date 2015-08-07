@@ -25,6 +25,8 @@
          			<?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/translation.tpl.php'));?>
         		    
                     <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/cannedmsg.tpl.php'));?>
+                    
+                    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/survey.tpl.php'));?>
                    
         		    <?php if ($currentUser->hasAccessTo('lhabstract','use')) : ?>
         

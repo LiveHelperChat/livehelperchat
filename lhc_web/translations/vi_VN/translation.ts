@@ -2585,6 +2585,33 @@
     </message>
   </context>
   <context>
+    <name>chat/syncuser</name>
+    <message>
+      <source>Support staff member has closed this chat</source>
+      <translation>Nhân viên hỗ trợ đã đóng cuộc trò chuyện này</translation>
+    </message>
+    <message>
+      <source>Chat was automatically transferred to</source>
+      <translation>Cuộc hội thoại đã được tự động chuyển tới</translation>
+    </message>
+    <message>
+      <source>from</source>
+      <translation>từ</translation>
+    </message>
+    <message>
+      <source>Chat was automatically closed by cron</source>
+      <translation>Cuộc trò chuyện đã được đóng tự động bởi cron</translation>
+    </message>
+    <message>
+      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
+      <translation>Hỗ trợ đã đóng cửa các cửa sổ trò chuyện, nhưng bạn có thể để lại tin nhắn, và các quản trị viên sẽ đọc chúng sau này.</translation>
+    </message>
+    <message>
+      <source>You do not have permission to view this chat, or the chat was deleted</source>
+      <translation>Bạn không được phép xem cuộc trò chuyện này, hoặc trò chuyện đã bị xóa</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/errors/entertext</name>
     <message>
       <source>Please enter text!</source>
@@ -3628,8 +3655,8 @@
       <translation>Trang chủ</translation>
     </message>
     <message>
-      <source>Extra modules</source>
-      <translation>Mô-đun phụ</translation>
+      <source>Modules</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Browse offers</source>
@@ -3652,8 +3679,28 @@
       <translation>Yêu cầu cuộc trò chuyện mới</translation>
     </message>
     <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Dashboard</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Menu</source>
       <translation>Menu</translation>
+    </message>
+    <message>
+      <source>Expand or collapse left menu</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat tabs</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chats list</source>
@@ -3905,6 +3952,14 @@
     <message>
       <source>Message</source>
       <translation>Tin nhắn</translation>
+    </message>
+    <message>
+      <source>Automatically start chat then user starts typing. Only message field has to be required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start chat process in the background as soon user submits form. Only message field has to be required</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Phone</source>
@@ -6945,33 +7000,6 @@
     <message>
       <source>has closed the chat!</source>
       <translation>Đã kết thúc trò chuyện!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/syncuser</name>
-    <message>
-      <source>Support staff member has closed this chat</source>
-      <translation>Nhân viên hỗ trợ đã đóng cuộc trò chuyện này</translation>
-    </message>
-    <message>
-      <source>Chat was automatically transferred to</source>
-      <translation>Cuộc hội thoại đã được tự động chuyển tới</translation>
-    </message>
-    <message>
-      <source>from</source>
-      <translation>từ</translation>
-    </message>
-    <message>
-      <source>Chat was automatically closed by cron</source>
-      <translation>Cuộc trò chuyện đã được đóng tự động bởi cron</translation>
-    </message>
-    <message>
-      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
-      <translation>Hỗ trợ đã đóng cửa các cửa sổ trò chuyện, nhưng bạn có thể để lại tin nhắn, và các quản trị viên sẽ đọc chúng sau này.</translation>
-    </message>
-    <message>
-      <source>You do not have permission to view this chat, or the chat was deleted</source>
-      <translation>Bạn không được phép xem cuộc trò chuyện này, hoặc trò chuyện đã bị xóa</translation>
     </message>
   </context>
   <context>

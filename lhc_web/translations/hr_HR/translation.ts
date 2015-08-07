@@ -2585,6 +2585,33 @@
     </message>
   </context>
   <context>
+    <name>chat/syncuser</name>
+    <message>
+      <source>Support staff member has closed this chat</source>
+      <translation>Član osoblja je ugasio ovaj razgovor</translation>
+    </message>
+    <message>
+      <source>Chat was automatically transferred to</source>
+      <translation>Razgovor je automatski upućen</translation>
+    </message>
+    <message>
+      <source>from</source>
+      <translation>od</translation>
+    </message>
+    <message>
+      <source>Chat was automatically closed by cron</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
+      <translation>Korisnička podrška je zatvorila prozor za razgovor, ali možete poslati poruku administratoru. Administrator će je pročitati kasnije.</translation>
+    </message>
+    <message>
+      <source>You do not have permission to view this chat, or the chat was deleted</source>
+      <translation>Niste ovlašteni vidjeti ovaj razgovor ili je razgovor izbrisan</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/errors/entertext</name>
     <message>
       <source>Please enter text!</source>
@@ -3628,7 +3655,7 @@
       <translation>Naslovnica</translation>
     </message>
     <message>
-      <source>Extra modules</source>
+      <source>Modules</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3652,8 +3679,28 @@
       <translation>Novi zahtjev za razgovor</translation>
     </message>
     <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Dashboard</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Menu</source>
       <translation>Izbornik</translation>
+    </message>
+    <message>
+      <source>Expand or collapse left menu</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat tabs</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chats list</source>
@@ -3905,6 +3952,14 @@
     <message>
       <source>Message</source>
       <translation>Poruka</translation>
+    </message>
+    <message>
+      <source>Automatically start chat then user starts typing. Only message field has to be required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start chat process in the background as soon user submits form. Only message field has to be required</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Phone</source>
@@ -6945,33 +7000,6 @@
     <message>
       <source>has closed the chat!</source>
       <translation>je zatvorio razgovor!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/syncuser</name>
-    <message>
-      <source>Support staff member has closed this chat</source>
-      <translation>Član osoblja je ugasio ovaj razgovor</translation>
-    </message>
-    <message>
-      <source>Chat was automatically transferred to</source>
-      <translation>Razgovor je automatski upućen</translation>
-    </message>
-    <message>
-      <source>from</source>
-      <translation>od</translation>
-    </message>
-    <message>
-      <source>Chat was automatically closed by cron</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
-      <translation>Korisnička podrška je zatvorila prozor za razgovor, ali možete poslati poruku administratoru. Administrator će je pročitati kasnije.</translation>
-    </message>
-    <message>
-      <source>You do not have permission to view this chat, or the chat was deleted</source>
-      <translation>Niste ovlašteni vidjeti ovaj razgovor ili je razgovor izbrisan</translation>
     </message>
   </context>
   <context>

@@ -2585,6 +2585,33 @@
     </message>
   </context>
   <context>
+    <name>chat/syncuser</name>
+    <message>
+      <source>Support staff member has closed this chat</source>
+      <translation>Tukihenkilö on sulkenut keskustelun</translation>
+    </message>
+    <message>
+      <source>Chat was automatically transferred to</source>
+      <translation>Keskustelu on automaattisesti siirretty -&gt; </translation>
+    </message>
+    <message>
+      <source>from</source>
+      <translation>keneltä</translation>
+    </message>
+    <message>
+      <source>Chat was automatically closed by cron</source>
+      <translation>Keskustelu on automaattisesti suljettu</translation>
+    </message>
+    <message>
+      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
+      <translation>Tuki on sulkenut keskusteluikkunan, mutta voit lähettää viestejä ja ne luetaan myöhemmin.</translation>
+    </message>
+    <message>
+      <source>You do not have permission to view this chat, or the chat was deleted</source>
+      <translation>Sinulla ei ole oikeuksia nähdä keskustelua tai se on poistettu.</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/errors/entertext</name>
     <message>
       <source>Please enter text!</source>
@@ -3628,8 +3655,8 @@
       <translation>Etusivulle</translation>
     </message>
     <message>
-      <source>Extra modules</source>
-      <translation>Erillismoduulit</translation>
+      <source>Modules</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Browse offers</source>
@@ -3652,8 +3679,28 @@
       <translation>Uusi keskustelupyyntö</translation>
     </message>
     <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Dashboard</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Menu</source>
       <translation>Valikko</translation>
+    </message>
+    <message>
+      <source>Expand or collapse left menu</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat tabs</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chats list</source>
@@ -3905,6 +3952,14 @@
     <message>
       <source>Message</source>
       <translation>Viesti</translation>
+    </message>
+    <message>
+      <source>Automatically start chat then user starts typing. Only message field has to be required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start chat process in the background as soon user submits form. Only message field has to be required</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Phone</source>
@@ -6945,33 +7000,6 @@
     <message>
       <source>has closed the chat!</source>
       <translation>on sulkenut keskustelun!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/syncuser</name>
-    <message>
-      <source>Support staff member has closed this chat</source>
-      <translation>Tukihenkilö on sulkenut keskustelun</translation>
-    </message>
-    <message>
-      <source>Chat was automatically transferred to</source>
-      <translation>Keskustelu on automaattisesti siirretty -&gt; </translation>
-    </message>
-    <message>
-      <source>from</source>
-      <translation>keneltä</translation>
-    </message>
-    <message>
-      <source>Chat was automatically closed by cron</source>
-      <translation>Keskustelu on automaattisesti suljettu</translation>
-    </message>
-    <message>
-      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
-      <translation>Tuki on sulkenut keskusteluikkunan, mutta voit lähettää viestejä ja ne luetaan myöhemmin.</translation>
-    </message>
-    <message>
-      <source>You do not have permission to view this chat, or the chat was deleted</source>
-      <translation>Sinulla ei ole oikeuksia nähdä keskustelua tai se on poistettu.</translation>
     </message>
   </context>
   <context>

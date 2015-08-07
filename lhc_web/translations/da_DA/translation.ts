@@ -2585,6 +2585,33 @@
     </message>
   </context>
   <context>
+    <name>chat/syncuser</name>
+    <message>
+      <source>Support staff member has closed this chat</source>
+      <translation>Supportmedarbejder har lukket denne chat</translation>
+    </message>
+    <message>
+      <source>Chat was automatically transferred to</source>
+      <translation>Chat blev automatisk overført til</translation>
+    </message>
+    <message>
+      <source>from</source>
+      <translation>fra</translation>
+    </message>
+    <message>
+      <source>Chat was automatically closed by cron</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
+      <translation>Support har lukket chat-vinduet, men du kan efterlade beskeder, og administratoren vil læse dem senere.</translation>
+    </message>
+    <message>
+      <source>You do not have permission to view this chat, or the chat was deleted</source>
+      <translation>Du har ikke tilladelse til at se denne chat, eller chatten blev slettet</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/errors/entertext</name>
     <message>
       <source>Please enter text!</source>
@@ -3628,7 +3655,7 @@
       <translation>Hjem</translation>
     </message>
     <message>
-      <source>Extra modules</source>
+      <source>Modules</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3652,8 +3679,28 @@
       <translation>Ny chatanmodning</translation>
     </message>
     <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Dashboard</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Menu</source>
       <translation>Menu</translation>
+    </message>
+    <message>
+      <source>Expand or collapse left menu</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat tabs</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chats list</source>
@@ -3905,6 +3952,14 @@
     <message>
       <source>Message</source>
       <translation>Meddelelser</translation>
+    </message>
+    <message>
+      <source>Automatically start chat then user starts typing. Only message field has to be required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start chat process in the background as soon user submits form. Only message field has to be required</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Phone</source>
@@ -6945,33 +7000,6 @@
     <message>
       <source>has closed the chat!</source>
       <translation>har lukket chatten!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/syncuser</name>
-    <message>
-      <source>Support staff member has closed this chat</source>
-      <translation>Supportmedarbejder har lukket denne chat</translation>
-    </message>
-    <message>
-      <source>Chat was automatically transferred to</source>
-      <translation>Chat blev automatisk overført til</translation>
-    </message>
-    <message>
-      <source>from</source>
-      <translation>fra</translation>
-    </message>
-    <message>
-      <source>Chat was automatically closed by cron</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
-      <translation>Support har lukket chat-vinduet, men du kan efterlade beskeder, og administratoren vil læse dem senere.</translation>
-    </message>
-    <message>
-      <source>You do not have permission to view this chat, or the chat was deleted</source>
-      <translation>Du har ikke tilladelse til at se denne chat, eller chatten blev slettet</translation>
     </message>
   </context>
   <context>

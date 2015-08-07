@@ -2585,6 +2585,33 @@
     </message>
   </context>
   <context>
+    <name>chat/syncuser</name>
+    <message>
+      <source>Support staff member has closed this chat</source>
+      <translation>پشتیبان، چت را بسته است</translation>
+    </message>
+    <message>
+      <source>Chat was automatically transferred to</source>
+      <translation>انتقال خودکار چت به</translation>
+    </message>
+    <message>
+      <source>from</source>
+      <translation>از</translation>
+    </message>
+    <message>
+      <source>Chat was automatically closed by cron</source>
+      <translation>چت به صورت خودکار از طریق cron بسته شد.</translation>
+    </message>
+    <message>
+      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
+      <translation>پشتیبان، پنجره چت را بسته است، ولی شما می توانید پیام بگذارید تا مدیر پشتیبانی آن را بعداً مشاهده کند.</translation>
+    </message>
+    <message>
+      <source>You do not have permission to view this chat, or the chat was deleted</source>
+      <translation>شما برای مشاهده این چت دسترسی ندارید و یا اینکه چت حذف شده است </translation>
+    </message>
+  </context>
+  <context>
     <name>chat/errors/entertext</name>
     <message>
       <source>Please enter text!</source>
@@ -3628,8 +3655,8 @@
       <translation>صفحه اصلی</translation>
     </message>
     <message>
-      <source>Extra modules</source>
-      <translation>سایر ماژول ها</translation>
+      <source>Modules</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Browse offers</source>
@@ -3652,8 +3679,28 @@
       <translation>درخواست چت جدید</translation>
     </message>
     <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Dashboard</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Menu</source>
       <translation>منو</translation>
+    </message>
+    <message>
+      <source>Expand or collapse left menu</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat tabs</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chats list</source>
@@ -3905,6 +3952,14 @@
     <message>
       <source>Message</source>
       <translation>پیام</translation>
+    </message>
+    <message>
+      <source>Automatically start chat then user starts typing. Only message field has to be required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start chat process in the background as soon user submits form. Only message field has to be required</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Phone</source>
@@ -6945,33 +7000,6 @@
     <message>
       <source>has closed the chat!</source>
       <translation>چت بسته شده است!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/syncuser</name>
-    <message>
-      <source>Support staff member has closed this chat</source>
-      <translation>پشتیبان، چت را بسته است</translation>
-    </message>
-    <message>
-      <source>Chat was automatically transferred to</source>
-      <translation>انتقال خودکار چت به</translation>
-    </message>
-    <message>
-      <source>from</source>
-      <translation>از</translation>
-    </message>
-    <message>
-      <source>Chat was automatically closed by cron</source>
-      <translation>چت به صورت خودکار از طریق cron بسته شد.</translation>
-    </message>
-    <message>
-      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
-      <translation>پشتیبان، پنجره چت را بسته است، ولی شما می توانید پیام بگذارید تا مدیر پشتیبانی آن را بعداً مشاهده کند.</translation>
-    </message>
-    <message>
-      <source>You do not have permission to view this chat, or the chat was deleted</source>
-      <translation>شما برای مشاهده این چت دسترسی ندارید و یا اینکه چت حذف شده است </translation>
     </message>
   </context>
   <context>
