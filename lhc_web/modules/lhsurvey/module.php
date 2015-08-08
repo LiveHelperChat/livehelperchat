@@ -6,7 +6,7 @@ $ViewList = array();
 
 $ViewList['fillwidget'] = array(
     'params' => array(),
-    'uparams' => array('ua','switchform','operator','theme','vid','sound','hash','hash_resume','mode','offline','leaveamessage','department','priority','chatprefill','survey')
+    'uparams' => array('chatid','ua','switchform','operator','theme','vid','sound','hash','hash_resume','mode','offline','leaveamessage','department','priority','chatprefill','survey')
 );
 
 $ViewList['fill'] = array(

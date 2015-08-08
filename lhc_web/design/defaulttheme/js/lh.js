@@ -278,9 +278,16 @@ function lh(){
     	},500);    	
     };
     
+    this.surveyShowed = false;
+    
     this.closeWindow  = function() {
-    	window.open('','_self','');
-    	window.close();
+    	if (this.survey !== null && this.surveyShowed == false) {
+    		this.surveyShowed = true;
+    		this.chatClosed();
+    	} else {
+	    	window.open('','_self','');
+	    	window.close();
+    	}
     };
 
     this.typingStoppedOperator = function(chat_id) {
@@ -534,7 +541,7 @@ function lh(){
 	               inst.operatorTyping = false;
 	               
 	               if (data.closed && data.closed == true) {	            	  
-		   			 	if (inst.isWidgetMode) {		   			 
+		   			 	if (inst.isWidgetMode && typeof(parent) !== 'undefined' && window.location !== window.parent.location) {		   			 
 		   			 		 parent.postMessage('lhc_chat_closed', '*');
 		   				} else {		   				
 		   					inst.chatClosed();
@@ -555,7 +562,9 @@ function lh(){
 		    var operatorTyping = this.operatorTyping == true ? '/(ot)/t' : '';
 		    var themeWindow = this.theme !== null ? '/(theme)/'+this.theme : '';
 		    var modeEmbed = this.isEmbedMode == true ? '/(modeembed)/embed' : '';
-		    document.location = this.wwwDir + 'survey/fill/(survey)/' + this.survey + '/(chatid)/' +this.chat_id + '/(hash)/'+ this.hash + modeWindow + operatorTyping + themeWindow + modeEmbed;
+		    var fillType = this.isWidgetMode == true ? 'fillwidget' : 'fill';
+		    
+		    document.location = this.wwwDir + 'survey/'+fillType+'/(survey)/' + this.survey + '/(chatid)/' +this.chat_id + '/(hash)/'+ this.hash + modeWindow + operatorTyping + themeWindow + modeEmbed;
     	}
     };
     
@@ -1078,7 +1087,7 @@ function lh(){
 	            	$('#status-chat').html(data.result);
 	            	
 	            	 if (data.closed && data.closed == true) {	            	  
-		   			 	if (inst.isWidgetMode) {		   			 
+		   			 	if (inst.isWidgetMode && typeof(parent) !== 'undefined' && window.location !== window.parent.location) {		   			 
 		   			 		 parent.postMessage('lhc_chat_closed', '*');
 		   				} else {		   				
 		   					inst.chatClosed();

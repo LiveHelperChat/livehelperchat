@@ -323,7 +323,7 @@ $ViewList['startchat'] = array (
 
 $ViewList['chatwidget'] = array(
     'params' => array(),
-    'uparams' => array('ua','switchform','operator','theme','vid','sound','hash','hash_resume','mode','offline','leaveamessage','department','priority','chatprefill'),
+    'uparams' => array('ua','switchform','operator','theme','vid','sound','hash','hash_resume','mode','offline','leaveamessage','department','priority','chatprefill','survey'),
 	'multiple_arguments' => array ( 'department', 'ua' )
 );
 
@@ -374,7 +374,7 @@ $ViewList['bbcodeinsert'] = array(
 
 $ViewList['chatwidgetchat'] = array(
     'params' => array('chat_id','hash'),
-	'uparams' => array('sound','mode','theme','cstarted')
+	'uparams' => array('sound','mode','theme','cstarted','survey')
 );
 
 $ViewList['userclosechat'] = array(

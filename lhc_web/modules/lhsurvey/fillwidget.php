@@ -22,7 +22,17 @@ if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_p
 
 try {
   
-    if ((string)$Params['user_parameters_unordered']['hash'] != '') {
+    if (is_numeric((string)$Params['user_parameters_unordered']['chatid']) && $Params['user_parameters_unordered']['chatid'] > 0) {
+        
+        if ((string)$Params['user_parameters_unordered']['hash'] != '') {
+            $hash = $Params['user_parameters_unordered']['hash'];
+        }
+        
+        if (is_numeric($Params['user_parameters_unordered']['chatid'])) {
+            $chat = erLhcoreClassModelChat::fetch($Params['user_parameters_unordered']['chatid']);
+        }
+        
+    } else if ((string)$Params['user_parameters_unordered']['hash'] != '') {
         list($chatID,$hash) = explode('_',$Params['user_parameters_unordered']['hash']);    
         try {
             $chat = erLhcoreClassModelChat::fetch($chatID);            

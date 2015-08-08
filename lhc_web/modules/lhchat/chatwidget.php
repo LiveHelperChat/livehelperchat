@@ -37,6 +37,8 @@ if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_p
 	}
 }
 
+
+
 // Perhaps it's direct argument
 if ((string)$Params['user_parameters_unordered']['hash'] != '') {
 	list($chatID,$hash) = explode('_',$Params['user_parameters_unordered']['hash']);
@@ -56,6 +58,10 @@ if ((string)$Params['user_parameters_unordered']['hash'] != '') {
 		}
 	} catch (Exception $e) {
 		
+	}
+	
+	if (isset($Params['user_parameters_unordered']['survey']) && is_numeric($Params['user_parameters_unordered']['survey'])){
+	    $modeAppendTheme .= '/(survey)/' . $Params['user_parameters_unordered']['survey'];
 	}
 	
 	// Rerun module
