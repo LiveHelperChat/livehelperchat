@@ -7,12 +7,14 @@
     
     <?php include(erLhcoreClassDesign::designtpl('lhsurvey/forms/fill.tpl.php'));?>
     
+    <hr class="mt10 mb10">
+    
     <?php if ($survey_item->is_filled == false) : ?>
-        <input type="submit" class="btn btn-default btn-sm" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save')?>" name="Vote" />
+        <input type="submit" class="btn btn-success btn-sm" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save')?>" name="Vote" />
     <?php else : ?>
         <?php $timeout = 1500; 
         if (isset($just_stored) && $just_stored == true) : $timeout = 3000;?>
-            <input type="button" class="btn btn-default mb10" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close')?>" onclick="lhinst.userclosedchatembed();" />
+            <input type="button" class="btn btn-success mb10" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close')?>" onclick="lhinst.userclosedchatembed();" />
         <?php endif; ?>
         <script>
         setTimeout(function() {

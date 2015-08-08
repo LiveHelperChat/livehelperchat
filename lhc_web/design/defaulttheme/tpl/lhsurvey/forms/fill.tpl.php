@@ -1,8 +1,8 @@
 <?php if ($survey_item->is_filled == false) : ?>
     <?php if ($survey->max_stars > 0) : ?>        
-        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','Please choose stars evaluation')?></label>
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','How well did we do?')?></label>
         <?php for ($i = 0; $i < $survey->max_stars; $i++) : ?>
-            <div><label><input type="radio" name="StarsValue" value="<?php echo $i+1?>"> <?php echo $i+1?> <?php if ($i == 0) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','star')?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','stars')?><?php endif;?></label></div>
+            <div><label><input type="radio" name="StarsValue" value="<?php echo $i+1?>"> <?php echo $i+1?> <?php if ($i == 0) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','star')?> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','Poor')?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','stars')?><?php if ($i == $survey->max_stars - 1) : ?> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','Excellent')?><?php endif;endif;?></label></div>
         <?php endfor;?>
     <?php endif;?>
 <?php else : ?>
