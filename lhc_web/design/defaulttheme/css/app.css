@@ -981,7 +981,11 @@ input[type="file"]{
     font-size:24px;
 }
 
-.sidebar .active > a .arrow {
+.sidebar li.active > a {
+    background-color:#eee;
+}
+
+.sidebar li.disabled > a {
     
 }
 
@@ -996,6 +1000,12 @@ input[type="file"]{
 
 .sidebar .nav-third-level li a {
     padding-left: 52px;
+    font-size:13px;
+}
+
+.sidebar .nav-fourth-level li a {
+    padding-left: 62px;
+    font-size:12px;
 }
 
 @media(min-width:768px) {
