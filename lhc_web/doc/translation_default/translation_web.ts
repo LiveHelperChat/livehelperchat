@@ -2605,6 +2605,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Edit nick</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat was automatically transferred to</source>
       <translation type="unfinished"/>
     </message>
@@ -3388,6 +3392,10 @@
     <name>system/configuration</name>
     <message>
       <source>Request notification permission</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Supported: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7331,6 +7339,10 @@
   <context>
     <name>chat/voteaction</name>
     <message>
+      <source>User has updated his profile information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Thumbs up</source>
       <translation type="unfinished"/>
     </message>
@@ -7354,6 +7366,17 @@
     <name>file/configurations</name>
     <message>
       <source>Please enter valid file type!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/editnick</name>
+    <message>
+      <source>Your information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Updated!</source>
       <translation type="unfinished"/>
     </message>
   </context>
