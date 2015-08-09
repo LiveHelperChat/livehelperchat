@@ -976,6 +976,9 @@ input[type="file"]{
 .sidebar ul li {
     border-bottom: 1px solid #e7e7e7;
 }
+.sidebar ul li a{
+	padding:10px;
+}
 
 .sidebar ul li a.active {
     background-color: #eee;
@@ -984,6 +987,7 @@ input[type="file"]{
 .sidebar .arrow {
     float: right;
     font-size:24px;
+    margin-right:0;
 }
 
 .sidebar li.active > a {
@@ -1000,16 +1004,16 @@ input[type="file"]{
 }
 
 .sidebar .nav-second-level li a {
-    padding-left: 37px;
+    padding-left: 25px;
 }
 
 .sidebar .nav-third-level li a {
-    padding-left: 52px;
+    padding-left: 43px;
     font-size:13px;
 }
 
 .sidebar .nav-fourth-level li a {
-    padding-left: 62px;
+    padding-left: 59px;
     font-size:12px;
 }
 
