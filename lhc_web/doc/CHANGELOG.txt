@@ -1,3 +1,14 @@
+2.35v
+
+1. Option to have a survey at the end of chat. This mode is written in flexible way so most likely it will be mutch more improved over time. At the moment only stars evaluation at the end of chat is possible
+2. New icons - https://www.google.com/design/icons/
+3. Left menu
+4. In start chat you can enable automatic start chat as soon visitors types atleast one key.
+5. And various others UX and performance improvements.
+6. For update just follow standard update procedure For manual update it's update_110.sql
+
+execute doc/update_db/update_110.sql for update
+
 2.34v
 
 1. Unfilled forms fields will be highlighted
