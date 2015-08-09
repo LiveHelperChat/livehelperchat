@@ -271,6 +271,11 @@ $ViewList['syncuser'] = array(
 	'uparams' => array('mode','ot','theme','modeembed')
 );
 
+$ViewList['editnick'] = array(
+    'params' => array('chat_id','hash'),
+	'uparams' => array()
+);
+
 $ViewList['usertyping'] = array(
     'params' => array('chat_id','hash','status'),
 	'uparams' => array()

@@ -2295,6 +2295,10 @@ function lh(){
     		$('#user-screenshot-container').removeClass('screenshot-pending');
     	}); 
     };
+    
+    this.eNick = function() {
+    	lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'chat/editnick/'+this.chat_id+'/'+this.hash})   
+    }
 
 }
 

@@ -1051,3 +1051,7 @@ input[type="file"]{
 .mr-0{
 	margin-right:0!important;
 }
+
+.small-modal-header{
+	padding:7px 7px;
+}
