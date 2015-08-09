@@ -6,7 +6,7 @@ try {
 
     $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
 
-    if ($chat->hash == $Params['user_parameters']['hash'])
+    if ($chat->hash == $Params['user_parameters']['hash'] && ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT || $chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT))
     {
         if (ezcInputForm::hasPostData()) {
             $Errors = erLhcoreClassChatValidator::validateNickChange($chat);
@@ -23,13 +23,12 @@ try {
         }
         
         $tpl->set('chat',$chat);
-        erLhcoreClassChat::setTimeZoneByChat($chat);        
     } else {
-        $tpl->setFile( 'lhchat/errors/chatnotexists.tpl.php');
+        exit;
     }
 
 } catch(Exception $e) {
-   $tpl->setFile('lhchat/errors/chatnotexists.tpl.php');
+   exit;
 }
 
 echo $tpl->fetch();
