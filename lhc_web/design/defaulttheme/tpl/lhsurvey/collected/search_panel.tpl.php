@@ -45,7 +45,7 @@
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Vote status');?></label>
 			<select name="stars" class="form-control">
 				<option value="0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Any')?></option>
-				<?php for ( $i = 1; $i < $survey->max_stars; $i++) : ?>
+				<?php for ( $i = 1; $i <= $survey->max_stars; $i++) : ?>
 				    <option value="<?php echo $i?>" <?php $input->stars == $i ? print ' selected="selected" ' : ''?>><?php echo $i?> <?php if ($i == 0) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','star')?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','stars')?><?php endif;?></option>
 				<?php endfor;?>
 			</select>           	
