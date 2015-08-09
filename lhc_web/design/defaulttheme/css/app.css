@@ -253,7 +253,10 @@ option.offline-dep{
 }
 
 .footer-row {
-    border-top: 1px solid #CCC;
+    border-top: 1px solid #e7e7e7;
+    margin-top: -1px;
+    position: relative;
+    z-index: 2;
 }
 
 .footer-row p {
@@ -909,10 +912,10 @@ input[type="file"]{
 #wrapper {
     padding-left: 0;
     padding-right: 0;
-    -webkit-transition: all 0.5s ease;
+    /*-webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    transition: all 0.5s ease;*/
 }
 
 #wrapper.toggled {
@@ -921,31 +924,33 @@ input[type="file"]{
 
 #sidebar-wrapper {
     z-index: 1;
-    position: absolute;
-    left: 220px;
+    position: relative;
     width: 0; 
     margin-left: -220px;
-    -webkit-transition: all 0.5s ease;
+    float:left;    
+    /*-webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    transition: all 0.5s ease;*/    
     border-right:1px solid #e7e7e7;
+    display:none;
 }
 
 #wrapper.toggled #sidebar-wrapper {
     width: 220px;
+    display:block;
 }
 
 #page-content-wrapper {
     width: 100%;
-    position: absolute;
+    position: relative;
     padding: 15px;
     z-index:2;
     background-color:#FFF;
 }
 
 #wrapper.toggled #page-content-wrapper {
-    position: absolute;
+    position: relative;
     margin-right: -220px;
 }
 
@@ -971,6 +976,9 @@ input[type="file"]{
 .sidebar ul li {
     border-bottom: 1px solid #e7e7e7;
 }
+.sidebar ul li a{
+	padding:10px;
+}
 
 .sidebar ul li a.active {
     background-color: #eee;
@@ -979,6 +987,7 @@ input[type="file"]{
 .sidebar .arrow {
     float: right;
     font-size:24px;
+    margin-right:0;
 }
 
 .sidebar li.active > a {
@@ -995,16 +1004,16 @@ input[type="file"]{
 }
 
 .sidebar .nav-second-level li a {
-    padding-left: 37px;
+    padding-left: 25px;
 }
 
 .sidebar .nav-third-level li a {
-    padding-left: 52px;
+    padding-left: 43px;
     font-size:13px;
 }
 
 .sidebar .nav-fourth-level li a {
-    padding-left: 62px;
+    padding-left: 59px;
     font-size:12px;
 }
 
@@ -1019,15 +1028,17 @@ input[type="file"]{
 
     #sidebar-wrapper {
         width: 220px;
+        display:block;
     }
 
     #wrapper.toggled #sidebar-wrapper {
         width: 0;
         overflow:hidden;
+        display:none;
     }
 
     #page-content-wrapper {
-        padding: 10px;
+        padding: 10px 10px 0px 10px;
         position: relative;
     }
 

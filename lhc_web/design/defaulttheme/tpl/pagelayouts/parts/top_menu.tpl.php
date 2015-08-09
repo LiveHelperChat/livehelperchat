@@ -10,7 +10,7 @@
     
       <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_logo_back_office.tpl.php'));?>
       
-      <button type="button" class="navbar-toggle navbar-toggle-visible" ng-click="lhc.toggleList('lmtoggle')" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Expand or collapse left menu');?>">
+      <button type="button" class="navbar-toggle navbar-toggle-visible pull-left" ng-click="lhc.toggleList('lmtoggle')" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Expand or collapse left menu');?>">
         <span class="sr-only"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Menu');?></span>
         <i class="material-icons mr-0">menu</i>
       </button>
