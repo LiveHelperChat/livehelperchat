@@ -16,7 +16,7 @@
   font-style: normal;
   font-size: 18px;  /* Preferred icon size */
   display: inline-block;
-  line-height: 0.75;
+  line-height: 0.89;
   text-transform: none;
   letter-spacing: normal;
   word-wrap: normal;
@@ -33,9 +33,10 @@
   font-feature-settings: 'liga';
   vertical-align: middle;
   margin-right:5px;
- 
+  overflow:hidden;
+  
 }
 
 .mat-100{
-	width:auto;
+	/*width:auto;*/
 }
