@@ -760,11 +760,11 @@
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Chatbox module to render.</source>
-      <translation type="unfinished"/>
+      <translation>Vložte tento tag na místo, kde chcete vykreslit Live Helper Chatbox modul.</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper Chatbox module tag.</source>
-      <translation type="unfinished"/>
+      <translation>Vložte tento tag za tagem pro Live Helper Chatbox modul.</translation>
     </message>
     <message>
       <source>Chatbox</source>
@@ -840,11 +840,11 @@
     </message>
     <message>
       <source>Place this tag where you want the Live Helper FAQ module to render.</source>
-      <translation type="unfinished"/>
+      <translation>Vložte tento tag na místo, kde chcete vykreslit Live Helper FAQ modul.</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper FAQ module tag.</source>
-      <translation type="unfinished"/>
+      <translation>Vložte tento tag za tagem pro Live Helper FAQ modul.</translation>
     </message>
     <message>
       <source>Status text</source>
@@ -868,11 +868,11 @@
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Questionary module to render.</source>
-      <translation type="unfinished"/>
+      <translation>Vložte tento tag na místo, kde chcete vykreslit modul Live Helper Dotazník.</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper Questionary module tag.</source>
-      <translation type="unfinished"/>
+      <translation>Vložte tento tag za tagem pro modul Live Helper Dotazník.</translation>
     </message>
     <message>
       <source>Help us to grow</source>
@@ -959,6 +959,10 @@
       <translation>Deaktivace proaktivních pozvánek k rozhovoru. Použijte, pokud chcete vypnout jejich použití na webu.</translation>
     </message>
     <message>
+      <source>Survey at the end of chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
       <translation>Minimalizace, použije se pouze pokud je widget stavu dole</translation>
     </message>
@@ -1005,6 +1009,10 @@
     <message>
       <source>Widget height in pixels</source>
       <translation>Výška widgetu v pixelech</translation>
+    </message>
+    <message>
+      <source>no survey</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>
@@ -1144,7 +1152,7 @@
     </message>
     <message>
       <source>Vote status</source>
-      <translation type="unfinished"/>
+      <translation>Stav hlasování</translation>
     </message>
     <message>
       <source>Any</source>
@@ -1152,7 +1160,7 @@
     </message>
     <message>
       <source>Not Voted</source>
-      <translation type="unfinished"/>
+      <translation>Nehlasováno</translation>
     </message>
     <message>
       <source>Up Voted</source>
@@ -1176,7 +1184,7 @@
     </message>
     <message>
       <source>XLS (with content)</source>
-      <translation type="unfinished"/>
+      <translation>XLS (s obsahem)</translation>
     </message>
     <message>
       <source>Select department</source>
@@ -1268,10 +1276,6 @@
     <message>
       <source>Enter your message</source>
       <translation>Zadejte text vaší zprávy</translation>
-    </message>
-    <message>
-      <source>Close and Start a new one</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -1427,7 +1431,7 @@
     </message>
     <message>
       <source>Explain</source>
-      <translation type="unfinished"/>
+      <translation>Vysvětlení</translation>
     </message>
     <message>
       <source>Message</source>
@@ -1630,7 +1634,7 @@
     </message>
     <message>
       <source>Send XMPP messages to all department operators</source>
-      <translation type="unfinished"/>
+      <translation>Odeslat XMPP zprávu všem operátorům v oddělení</translation>
     </message>
     <message>
       <source>Mail messages</source>
@@ -1924,7 +1928,7 @@
     </message>
     <message>
       <source>has accepted the chat!</source>
-      <translation type="unfinished"/>
+      <translation>přijal chat!</translation>
     </message>
   </context>
   <context>
@@ -2153,11 +2157,11 @@
     </message>
     <message>
       <source>Last activity ago</source>
-      <translation type="unfinished"/>
+      <translation>Poslední aktivita před</translation>
     </message>
     <message>
       <source>Wait time</source>
-      <translation type="unfinished"/>
+      <translation>Čekací čas</translation>
     </message>
     <message>
       <source>Delete chat</source>
@@ -2168,8 +2172,12 @@
       <translation>Vytvořeno</translation>
     </message>
     <message>
+      <source>Transfer time</source>
+      <translation>Čas přesměrování</translation>
+    </message>
+    <message>
       <source>Time ago</source>
-      <translation type="unfinished"/>
+      <translation>Před časem</translation>
     </message>
   </context>
   <context>
@@ -2378,7 +2386,7 @@
     </message>
     <message>
       <source>Me</source>
-      <translation type="unfinished"/>
+      <translation>Já</translation>
     </message>
     <message>
       <source>Choose your language</source>
@@ -2443,6 +2451,10 @@
     <message>
       <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
       <translation>Vaše žádost nebyl zpracována podle očekávání - ale neboj, nebyla to Vaše chyba. Odešlete, prosím, svou žádost znovu. Pokud narazíte stejný problém, budete nás muset kontaktovat jiným způsobem.</translation>
+    </message>
+    <message>
+      <source>Please choose a star</source>
+      <translation>Prosím zvolte hvězdu</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -2589,6 +2601,10 @@
     <message>
       <source>Support staff member has closed this chat</source>
       <translation>Člen týmu podpory tento rozhovor ukončil</translation>
+    </message>
+    <message>
+      <source>Edit nick</source>
+      <translation>Upravit přezdívku</translation>
     </message>
     <message>
       <source>Chat was automatically transferred to</source>
@@ -3377,8 +3393,12 @@
       <translation>Právo na vyžadování upozornění</translation>
     </message>
     <message>
+      <source>Supported: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</source>
+      <translation>Podporováno: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</translation>
+    </message>
+    <message>
       <source>Supported: online_operators, departments_stats, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
-      <translation type="unfinished"/>
+      <translation>Podporováno: online_operators, departments_stats, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</translation>
     </message>
     <message>
       <source>New chat notification settings</source>
@@ -3499,6 +3519,10 @@
     <message>
       <source>Statistic</source>
       <translation>Statistika</translation>
+    </message>
+    <message>
+      <source>Surveys</source>
+      <translation>Průzkumy</translation>
     </message>
     <message>
       <source>Theming</source>
@@ -3636,11 +3660,11 @@
     </message>
     <message>
       <source>Number of elements in list</source>
-      <translation type="unfinished"/>
+      <translation>Počet objektů v seznamu</translation>
     </message>
     <message>
       <source>Departments stats</source>
-      <translation type="unfinished"/>
+      <translation>Statistika oddělení</translation>
     </message>
     <message>
       <source>Online operators</source>
@@ -3648,7 +3672,7 @@
     </message>
     <message>
       <source>Transfered chats</source>
-      <translation type="unfinished"/>
+      <translation>Předané chaty</translation>
     </message>
     <message>
       <source>Home</source>
@@ -3656,7 +3680,7 @@
     </message>
     <message>
       <source>Modules</source>
-      <translation type="unfinished"/>
+      <translation>Moduly</translation>
     </message>
     <message>
       <source>Browse offers</source>
@@ -3680,15 +3704,15 @@
     </message>
     <message>
       <source>Chat</source>
-      <translation type="unfinished"/>
+      <translation>Chat</translation>
     </message>
     <message>
       <source>Settings</source>
-      <translation type="unfinished"/>
+      <translation>Nastavení</translation>
     </message>
     <message>
       <source>Dashboard</source>
-      <translation type="unfinished"/>
+      <translation>Nástěnka</translation>
     </message>
     <message>
       <source>Menu</source>
@@ -3696,11 +3720,11 @@
     </message>
     <message>
       <source>Expand or collapse left menu</source>
-      <translation type="unfinished"/>
+      <translation>Zbalit nebo rozbalit levé menu</translation>
     </message>
     <message>
       <source>Chat tabs</source>
-      <translation type="unfinished"/>
+      <translation>Záložky chatu</translation>
     </message>
     <message>
       <source>Chats list</source>
@@ -3819,15 +3843,15 @@
     </message>
     <message>
       <source>Field label</source>
-      <translation type="unfinished"/>
+      <translation>Označení políčka</translation>
     </message>
     <message>
       <source>Default value</source>
-      <translation type="unfinished"/>
+      <translation>Výchozí hodnota</translation>
     </message>
     <message>
       <source>Type</source>
-      <translation type="unfinished"/>
+      <translation>Typ</translation>
     </message>
     <message>
       <source>Text</source>
@@ -3835,7 +3859,7 @@
     </message>
     <message>
       <source>Hidden</source>
-      <translation type="unfinished"/>
+      <translation>Skrytý</translation>
     </message>
     <message>
       <source>Visible on</source>
@@ -3855,7 +3879,7 @@
     </message>
     <message>
       <source>Size (between 1 and 12)</source>
-      <translation type="unfinished"/>
+      <translation>Velikost (mezi 1 a 12)</translation>
     </message>
     <message>
       <source>Field identifier</source>
@@ -3871,19 +3895,19 @@
     </message>
     <message>
       <source>left</source>
-      <translation type="unfinished"/>
+      <translation>levá</translation>
     </message>
     <message>
       <source>right</source>
-      <translation type="unfinished"/>
+      <translation>pravá</translation>
     </message>
     <message>
       <source>Visible only in offline form</source>
-      <translation type="unfinished"/>
+      <translation>Zobrazit pouze na offline formuláři</translation>
     </message>
     <message>
       <source>Visible only in online form</source>
-      <translation type="unfinished"/>
+      <translation>Zobrazit pouze na online formuláři</translation>
     </message>
     <message>
       <source>Size</source>
@@ -6127,6 +6151,60 @@
     </message>
   </context>
   <context>
+    <name>survey/collected</name>
+    <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Stars</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>survey/fill</name>
+    <message>
+      <source>star</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>stars</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How well did we do?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Poor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Excellent</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Thank you for your feedback...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please complete this short evaluation survey</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>users/autologin</name>
     <message>
       <source>Auto login settings</source>
@@ -7188,6 +7266,21 @@
     </message>
   </context>
   <context>
+    <name>abstract/survey</name>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max stars for feedback</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Survey</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>chat/accepttrasnfer</name>
     <message>
       <source>has joined the chat!</source>
@@ -7244,6 +7337,10 @@
   <context>
     <name>chat/voteaction</name>
     <message>
+      <source>User has updated his profile information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Thumbs up</source>
       <translation>Palec nahoru</translation>
     </message>
@@ -7268,6 +7365,17 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Prosím vyberte platný typ souboru!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/editnick</name>
+    <message>
+      <source>Your information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Updated!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

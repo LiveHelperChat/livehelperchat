@@ -1055,3 +1055,7 @@ input[type="file"]{
 .small-modal-header{
 	padding:7px 7px;
 }
+
+.widget-modal-body{
+	padding:5px;
+}

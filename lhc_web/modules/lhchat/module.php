@@ -373,6 +373,10 @@ $ViewList['printchat'] = array(
     'params' => array('chat_id','hash')
 );
 
+$ViewList['chatpreview'] = array(
+    'params' => array('chat_id','hash')
+);
+
 $ViewList['bbcodeinsert'] = array(
 		'params' => array()
 );

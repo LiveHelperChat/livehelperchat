@@ -959,6 +959,10 @@
       <translation>Отключить проактивные приглашения (требуется только если Вы не хотите их использовать)</translation>
     </message>
     <message>
+      <source>Survey at the end of chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
       <translation>Действие свернуть, применяется только если виджет находится внизу</translation>
     </message>
@@ -1005,6 +1009,10 @@
     <message>
       <source>Widget height in pixels</source>
       <translation>Высота выбжета в пикселях</translation>
+    </message>
+    <message>
+      <source>no survey</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>
@@ -1268,10 +1276,6 @@
     <message>
       <source>Enter your message</source>
       <translation>Введите сообщение</translation>
-    </message>
-    <message>
-      <source>Close and Start a new one</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -2169,6 +2173,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Transfer time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Time ago</source>
       <translation type="unfinished"/>
     </message>
@@ -2446,6 +2454,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Please choose a star</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter a message, max characters</source>
       <translation>Пожалуйста введите сообщение, максимум симоволов</translation>
     </message>
@@ -2590,6 +2602,10 @@
     <message>
       <source>Support staff member has closed this chat</source>
       <translation>Оператор закрыл диалог</translation>
+    </message>
+    <message>
+      <source>Edit nick</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chat was automatically transferred to</source>
@@ -3378,6 +3394,10 @@
       <translation>Разрешить уведомления</translation>
     </message>
     <message>
+      <source>Supported: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Supported: online_operators, departments_stats, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
       <translation type="unfinished"/>
     </message>
@@ -3500,6 +3520,10 @@
     <message>
       <source>Statistic</source>
       <translation>Статистика</translation>
+    </message>
+    <message>
+      <source>Surveys</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Theming</source>
@@ -6128,6 +6152,60 @@
     </message>
   </context>
   <context>
+    <name>survey/collected</name>
+    <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Stars</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>survey/fill</name>
+    <message>
+      <source>star</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>stars</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How well did we do?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Poor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Excellent</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Thank you for your feedback...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please complete this short evaluation survey</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>users/autologin</name>
     <message>
       <source>Auto login settings</source>
@@ -7189,6 +7267,21 @@
     </message>
   </context>
   <context>
+    <name>abstract/survey</name>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max stars for feedback</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Survey</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>chat/accepttrasnfer</name>
     <message>
       <source>has joined the chat!</source>
@@ -7245,6 +7338,10 @@
   <context>
     <name>chat/voteaction</name>
     <message>
+      <source>User has updated his profile information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Thumbs up</source>
       <translation>Хорошо</translation>
     </message>
@@ -7269,6 +7366,17 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Пожалуйста, введите правильный тип файла</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/editnick</name>
+    <message>
+      <source>Your information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Updated!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>
