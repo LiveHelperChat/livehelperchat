@@ -118,6 +118,13 @@ class erLhAbstractModelSurvey {
 
 	public function removeThis()
 	{
+	    $q = ezcDbInstance::get()->createDeleteQuery();
+	    
+	    // Messages
+	    $q->deleteFrom( 'lh_abstract_survey_item' )->where( $q->expr->eq( 'survey_id', $this->id ) );
+	    $stmt = $q->prepare();
+	    $stmt->execute();
+	    
 		erLhcoreClassAbstract::getSession()->delete($this);
 	}
 
