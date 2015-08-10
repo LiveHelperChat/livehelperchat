@@ -2028,6 +2028,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Could not detect a language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Could not detect language</source>
       <translation type="unfinished"/>
     </message>
@@ -3674,6 +3678,10 @@
     </message>
     <message>
       <source>Transfered chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Clean cache</source>
       <translation type="unfinished"/>
     </message>
     <message>

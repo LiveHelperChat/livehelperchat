@@ -10,7 +10,7 @@ foreach ($items as $item) {
 
 $filesToCheck = ezcBaseFile::findRecursive('.',
 array( '@\.php$@' ),
-array( '@/albums|ezcomponents|doc|translations|var|extension|cache|bin|Zend|setttings|pos/@' ));
+array( '@/./albums|./ezcomponents|./doc|./translations|./var|./extension|./cache|./bin|./Zend|./setttings|./pos/@' ));
 
 $locale = 'en_EN';
 
