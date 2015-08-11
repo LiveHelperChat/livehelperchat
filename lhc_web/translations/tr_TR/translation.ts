@@ -2026,6 +2026,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Could not detect a language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Could not detect language</source>
       <translation>Dil algılanamıyor</translation>
     </message>
@@ -3674,6 +3678,10 @@
     </message>
     <message>
       <source>Transfered chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Clean cache</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6186,6 +6194,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Preview chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How well did we do?</source>
       <translation type="unfinished"/>
     </message>
@@ -7377,6 +7389,13 @@
     </message>
     <message>
       <source>Updated!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/chatpreview</name>
+    <message>
+      <source>Chat preview</source>
       <translation type="unfinished"/>
     </message>
   </context>

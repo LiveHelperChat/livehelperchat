@@ -961,7 +961,7 @@
     </message>
     <message>
       <source>Survey at the end of chat</source>
-      <translation type="unfinished"/>
+      <translation>Sondaggio al termine della chat</translation>
     </message>
     <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
@@ -1013,7 +1013,7 @@
     </message>
     <message>
       <source>no survey</source>
-      <translation type="unfinished"/>
+      <translation>Nessun sondaggio</translation>
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>
@@ -2027,6 +2027,10 @@
       <translation>Testo mancante per la traduzione</translation>
     </message>
     <message>
+      <source>Could not detect a language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Could not detect language</source>
       <translation>Non posso rilevare la lingua</translation>
     </message>
@@ -2174,7 +2178,7 @@
     </message>
     <message>
       <source>Transfer time</source>
-      <translation type="unfinished"/>
+      <translation>Tempo di trasferimento</translation>
     </message>
     <message>
       <source>Time ago</source>
@@ -2387,7 +2391,7 @@
     </message>
     <message>
       <source>Me</source>
-      <translation type="unfinished"/>
+      <translation>Io</translation>
     </message>
     <message>
       <source>Choose your language</source>
@@ -2455,7 +2459,7 @@
     </message>
     <message>
       <source>Please choose a star</source>
-      <translation type="unfinished"/>
+      <translation>Si prega di scegliere una stella</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -2605,7 +2609,7 @@
     </message>
     <message>
       <source>Edit nick</source>
-      <translation type="unfinished"/>
+      <translation>Modificare il nome</translation>
     </message>
     <message>
       <source>Chat was automatically transferred to</source>
@@ -2621,7 +2625,7 @@
     </message>
     <message>
       <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
-      <translation>Il supporto ha chiuso la finestra di chat, ma è possibile lasciare messaggi, e l&apos;amministratore li leggerà più tardi.</translation>
+      <translation>Il supporto ha chiuso la finestra di chat, ma è possibile lasciare messaggi, che l&apos;amministratore leggerà in seguito.</translation>
     </message>
     <message>
       <source>You do not have permission to view this chat, or the chat was deleted</source>
@@ -3395,7 +3399,7 @@
     </message>
     <message>
       <source>Supported: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</source>
-      <translation type="unfinished"/>
+      <translation>Supportato: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</translation>
     </message>
     <message>
       <source>Supported: online_operators, departments_stats, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
@@ -3523,7 +3527,7 @@
     </message>
     <message>
       <source>Surveys</source>
-      <translation type="unfinished"/>
+      <translation>Sondaggi</translation>
     </message>
     <message>
       <source>Theming</source>
@@ -3676,12 +3680,16 @@
       <translation>Chat trasferite</translation>
     </message>
     <message>
+      <source>Clean cache</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Home</source>
       <translation>Home</translation>
     </message>
     <message>
       <source>Modules</source>
-      <translation type="unfinished"/>
+      <translation>Moduli</translation>
     </message>
     <message>
       <source>Browse offers</source>
@@ -3705,15 +3713,15 @@
     </message>
     <message>
       <source>Chat</source>
-      <translation type="unfinished"/>
+      <translation>Chat</translation>
     </message>
     <message>
       <source>Settings</source>
-      <translation type="unfinished"/>
+      <translation>Impostazioni</translation>
     </message>
     <message>
       <source>Dashboard</source>
-      <translation type="unfinished"/>
+      <translation>Dashboard</translation>
     </message>
     <message>
       <source>Menu</source>
@@ -3721,11 +3729,11 @@
     </message>
     <message>
       <source>Expand or collapse left menu</source>
-      <translation type="unfinished"/>
+      <translation>Espandere o comprimere il menu a sinistra</translation>
     </message>
     <message>
       <source>Chat tabs</source>
-      <translation type="unfinished"/>
+      <translation>Schede di chat</translation>
     </message>
     <message>
       <source>Chats list</source>
@@ -3763,7 +3771,7 @@
     </message>
     <message>
       <source>Automatic chats close, click to close old chats</source>
-      <translation>Chiude automaticamente le chat, clicca per chiudere chat v ecchie</translation>
+      <translation>Chiude automaticamente le chat, clicca per chiudere chat vecchie</translation>
     </message>
     <message>
       <source>Automatic chats purge, click to purge old chats</source>
@@ -3980,11 +3988,11 @@
     </message>
     <message>
       <source>Automatically start chat then user starts typing. Only message field has to be required</source>
-      <translation type="unfinished"/>
+      <translation>Automaticamente iniziare la chat quando l&apos;utente inizia a digitare. Solo il messaggio deve essere richiesto</translation>
     </message>
     <message>
       <source>Start chat process in the background as soon user submits form. Only message field has to be required</source>
-      <translation type="unfinished"/>
+      <translation>Avviare il processo di chat in background non appena l&apos;utente invia il form. Solo il campo messaggio deve essere richiesto</translation>
     </message>
     <message>
       <source>Phone</source>
@@ -4020,7 +4028,7 @@
     </message>
     <message>
       <source>Show messages box above input fields, usefull for UX combinations.</source>
-      <translation type="unfinished"/>
+      <translation>Visualizza casella di messaggi sopra campi di input, utile per le combinazioni di UX.</translation>
     </message>
     <message>
       <source>Initial user message height in pixels</source>
@@ -6155,54 +6163,58 @@
     <name>survey/collected</name>
     <message>
       <source>Chat</source>
-      <translation type="unfinished"/>
+      <translation>Chat</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Dipartimento</translation>
     </message>
     <message>
       <source>Operator</source>
-      <translation type="unfinished"/>
+      <translation>Operatore</translation>
     </message>
     <message>
       <source>Stars</source>
-      <translation type="unfinished"/>
+      <translation>Stelle</translation>
     </message>
     <message>
       <source>Time</source>
-      <translation type="unfinished"/>
+      <translation>Tempo</translation>
     </message>
   </context>
   <context>
     <name>survey/fill</name>
     <message>
       <source>star</source>
-      <translation type="unfinished"/>
+      <translation>stella</translation>
     </message>
     <message>
       <source>stars</source>
+      <translation>stelle</translation>
+    </message>
+    <message>
+      <source>Preview chat</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>How well did we do?</source>
-      <translation type="unfinished"/>
+      <translation>Come siamo andati?</translation>
     </message>
     <message>
       <source>Poor</source>
-      <translation type="unfinished"/>
+      <translation>Scarsa</translation>
     </message>
     <message>
       <source>Excellent</source>
-      <translation type="unfinished"/>
+      <translation>Eccellente</translation>
     </message>
     <message>
       <source>Thank you for your feedback...</source>
-      <translation type="unfinished"/>
+      <translation>Grazie per i vostri commenti... !</translation>
     </message>
     <message>
       <source>Please complete this short evaluation survey</source>
-      <translation type="unfinished"/>
+      <translation>Si prega di compilare questo breve sondaggio di valutazione</translation>
     </message>
   </context>
   <context>
@@ -7270,15 +7282,15 @@
     <name>abstract/survey</name>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Nome</translation>
     </message>
     <message>
       <source>Max stars for feedback</source>
-      <translation type="unfinished"/>
+      <translation>Stelle massime per il feedback</translation>
     </message>
     <message>
       <source>Survey</source>
-      <translation type="unfinished"/>
+      <translation>Sondaggio</translation>
     </message>
   </context>
   <context>
@@ -7339,7 +7351,7 @@
     <name>chat/voteaction</name>
     <message>
       <source>User has updated his profile information</source>
-      <translation type="unfinished"/>
+      <translation>L&apos;utente ha aggiornato le sue informazioni del profilo</translation>
     </message>
     <message>
       <source>Thumbs up</source>
@@ -7372,10 +7384,17 @@
     <name>chat/editnick</name>
     <message>
       <source>Your information</source>
-      <translation type="unfinished"/>
+      <translation>Le tue informazioni</translation>
     </message>
     <message>
       <source>Updated!</source>
+      <translation>Aggiornato!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/chatpreview</name>
+    <message>
+      <source>Chat preview</source>
       <translation type="unfinished"/>
     </message>
   </context>

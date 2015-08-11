@@ -2026,6 +2026,10 @@
       <translation>متن برای ترجمه وجود ندارد</translation>
     </message>
     <message>
+      <source>Could not detect a language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Could not detect language</source>
       <translation>زبان شناسایی نشد</translation>
     </message>
@@ -2454,7 +2458,7 @@
     </message>
     <message>
       <source>Please choose a star</source>
-      <translation type="unfinished"/>
+      <translation>لطفا یک ستاره را انتخاب کنید</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -2485,11 +2489,11 @@
     </message>
     <message>
       <source>You are number</source>
-      <translation type="unfinished"/>
+      <translation>شما نفر</translation>
     </message>
     <message>
       <source>in the queue. Please wait...</source>
-      <translation type="unfinished"/>
+      <translation>در صف انتظار هستید. لطفا شکیبا باشید...</translation>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
@@ -3672,6 +3676,10 @@
     </message>
     <message>
       <source>Transfered chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Clean cache</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6177,23 +6185,27 @@
     <name>survey/fill</name>
     <message>
       <source>star</source>
-      <translation type="unfinished"/>
+      <translation>ستاره</translation>
     </message>
     <message>
       <source>stars</source>
+      <translation>ستاره</translation>
+    </message>
+    <message>
+      <source>Preview chat</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>How well did we do?</source>
-      <translation type="unfinished"/>
+      <translation>ارزیابی شما؟</translation>
     </message>
     <message>
       <source>Poor</source>
-      <translation type="unfinished"/>
+      <translation>ضعیف</translation>
     </message>
     <message>
       <source>Excellent</source>
-      <translation type="unfinished"/>
+      <translation>عالی</translation>
     </message>
     <message>
       <source>Thank you for your feedback...</source>
@@ -6201,7 +6213,7 @@
     </message>
     <message>
       <source>Please complete this short evaluation survey</source>
-      <translation type="unfinished"/>
+      <translation>لطفا دیدگاه خود را با ما در میان بگذارید</translation>
     </message>
   </context>
   <context>
@@ -7375,6 +7387,13 @@
     </message>
     <message>
       <source>Updated!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/chatpreview</name>
+    <message>
+      <source>Chat preview</source>
       <translation type="unfinished"/>
     </message>
   </context>

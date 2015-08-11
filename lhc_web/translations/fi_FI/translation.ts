@@ -2026,6 +2026,10 @@
       <translation>Ei käännettävää tekstiä</translation>
     </message>
     <message>
+      <source>Could not detect a language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Could not detect language</source>
       <translation>Tekstin kieltä ei tunnistettu</translation>
     </message>
@@ -3675,6 +3679,10 @@
       <translation>Siirretyt keskustelut</translation>
     </message>
     <message>
+      <source>Clean cache</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Home</source>
       <translation>Etusivulle</translation>
     </message>
@@ -4222,7 +4230,7 @@
     </message>
     <message>
       <source>Chatbox chats</source>
-      <translation>Chatbox-keskusteluita</translation>
+      <translation>Keskustelulohkokeskustelut</translation>
     </message>
     <message>
       <source>Total messages (including visitors, system and operators messages)</source>
@@ -4446,7 +4454,7 @@
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Peru</translation>
+      <translation>Peruuta</translation>
     </message>
     <message>
       <source>Settings updated</source>
@@ -4767,11 +4775,11 @@
     </message>
     <message>
       <source>first archived chat ID</source>
-      <translation>ensimmäinen arkistoitu kesksuteluid</translation>
+      <translation>ensimmäinen arkistoitu keskustelu-ID</translation>
     </message>
     <message>
       <source>last archived chat ID</source>
-      <translation>viimeinen arkistoitu keskusteluid</translation>
+      <translation>viimeinen arkistoitu keskustelu-ID</translation>
     </message>
     <message>
       <source>number of archived chats</source>
@@ -6184,6 +6192,10 @@
       <translation>tähtiä</translation>
     </message>
     <message>
+      <source>Preview chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How well did we do?</source>
       <translation>Oletko tyytyväinen?</translation>
     </message>
@@ -7375,6 +7387,13 @@
     </message>
     <message>
       <source>Updated!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/chatpreview</name>
+    <message>
+      <source>Chat preview</source>
       <translation type="unfinished"/>
     </message>
   </context>

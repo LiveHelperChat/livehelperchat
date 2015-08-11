@@ -2026,6 +2026,10 @@
       <translation>Nerastas vertimo tekstas</translation>
     </message>
     <message>
+      <source>Could not detect a language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Could not detect language</source>
       <translation>Negalėjome nustatyti kalbos</translation>
     </message>
@@ -3673,6 +3677,10 @@
     <message>
       <source>Transfered chats</source>
       <translation>Pervesti pokalbiai</translation>
+    </message>
+    <message>
+      <source>Clean cache</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Home</source>
@@ -6184,6 +6192,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Preview chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How well did we do?</source>
       <translation type="unfinished"/>
     </message>
@@ -7375,6 +7387,13 @@
     </message>
     <message>
       <source>Updated!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/chatpreview</name>
+    <message>
+      <source>Chat preview</source>
       <translation type="unfinished"/>
     </message>
   </context>
