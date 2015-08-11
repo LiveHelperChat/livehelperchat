@@ -1059,3 +1059,11 @@ input[type="file"]{
 .widget-modal-body{
 	padding:5px;
 }
+
+.radio-widget{
+	margin-top:5px;
+	margin-bottom:5px;
+}
+.radio-widget input{
+	margin-top:2px;
+}
