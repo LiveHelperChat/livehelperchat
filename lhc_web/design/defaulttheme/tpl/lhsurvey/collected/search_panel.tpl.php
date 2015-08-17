@@ -46,16 +46,33 @@
 			<select name="stars" class="form-control">
 				<option value="0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Any')?></option>
 				<?php for ( $i = 1; $i <= $survey->max_stars; $i++) : ?>
-				    <option value="<?php echo $i?>" <?php $input->stars == $i ? print ' selected="selected" ' : ''?>><?php echo $i?> <?php if ($i == 0) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','star')?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','stars')?><?php endif;?></option>
+				    <option value="<?php echo $i?>" <?php $input->stars == $i ? print ' selected="selected" ' : ''?>><?php echo $i,' '?> <?php if ($i == 0) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','star')?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','stars')?><?php endif;?></option>
 				<?php endfor;?>
 			</select>           	
 		  </div>
 		</div>
 	</div>
+	<div class="row">
+	   <div class="col-xs-6">
+	       <label><input ng-model="group_results" ng-init="group_results = <?php ($input->group_results == true) ? print 'true' : 'false' ?>" type="checkbox" name="group_results" value="on" <?php if ($input->group_results == true) : ?>checked="checked"<?php endif;?>/> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Group results by operator');?></label>
+	   </div>
+	   <div class="col-xs-6">
+    	   <div class="form-group" ng-show="group_results">
+    	      <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Minimum chats');?></label>
+    	      <input class="form-control" type="text" name="minimum_chats" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Optional')?>" value="<?php echo htmlspecialchars($input->minimum_chats)?>" />
+    	   </div>
+	   </div>
+	</div>
 	<div class="btn-group" role="group" aria-label="...">
-		<input type="submit" name="doSearch" class="btn btn-default" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" />
+		<input type="submit"  name="doSearch" class="btn btn-default" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" />
+		
 		<?php if ($pages->items_total > 0) : ?>
-		<a target="_blank" class="btn btn-default" href="<?php echo $pages->serverURL?>/(print)/1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Print');?></a>
+		<a target="_blank" class="btn btn-default" href="<?php echo $pages->serverURL?>/(print)/1"><i class="material-icons">print</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Print');?></a>
+		
+		<?php if ($input->group_results == true) : ?>
+		  <a target="_blank" class="btn btn-default" href="<?php echo $pages->serverURL?>/(xls)/1"><i class="material-icons">&#xE2C4;</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','XLS');?></a>
+		<?php endif;?>
+		
 		<?php endif; ?>
 	</div>	
 </form>

@@ -463,7 +463,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	       KEY `survey_id` (`survey_id`),
         	       KEY `chat_id` (`chat_id`),
         	       KEY `user_id` (`user_id`),
-        	       KEY `dep_id` (`dep_id`)
+        	       KEY `dep_id` (`dep_id`),
+        	       KEY `ftime` (`ftime`)
         	   ) DEFAULT CHARSET=utf8");
         	   
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_speech_language` (

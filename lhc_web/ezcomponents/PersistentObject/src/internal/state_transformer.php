@@ -54,10 +54,14 @@ class ezcPersistentStateTransformer
             }
             else
             {
-                $result[$def->columns[$key]->propertyName] = ( 
-                    !is_null( $def->columns[$key]->converter )
-                        ? $def->columns[$key]->converter->fromDatabase( $value )
-                        : $value );
+                if (isset($def->columns[$key])) {             
+                    $result[$def->columns[$key]->propertyName] = ( 
+                        !is_null( $def->columns[$key]->converter )
+                            ? $def->columns[$key]->converter->fromDatabase( $value )
+                            : $value );
+                } else {
+                    $result['virtual_' . $key] = $value;
+                }
             }
         }
         return $result;

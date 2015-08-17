@@ -36,12 +36,12 @@ class erLhAbstractModelSurveyItem {
 	{
 		return $this->survey;
 	}
-  
-	public static function getCount($params = array())
+	
+	public static function getCount($params = array(), $countSelect = 'COUNT(id)')
 	{	
 		$session = erLhcoreClassAbstract::getSession();
 		$q = $session->database->createSelectQuery();
-		$q->select( 'COUNT(id)' )->from( 'lh_abstract_survey_item' );
+		$q->select( $countSelect )->from( 'lh_abstract_survey_item' );
 		$conditions = array();
 		
 		if (isset($params['filter']) && count($params['filter']) > 0)
@@ -130,6 +130,14 @@ class erLhAbstractModelSurveyItem {
 		    $q->useIndex( $params['use_index'] );
 		}
 		
+		if (isset($params['group']) && $params['group'] != '') {
+		    $q->groupBy($params['group']);
+		}
+		
+		if (isset($params['having']) && $params['having'] != '') {
+		    $q->having($params['having']);
+		}
+		
 		$stmt = $q->prepare();
 		$stmt->execute();
 		$result = $stmt->fetchColumn();
@@ -180,7 +188,11 @@ class erLhAbstractModelSurveyItem {
    	    case 'department_name':
    	        return $this->department_name = (string)$this->department;
    	        break;
-	   	        
+   	        
+   	    case 'average_stars':
+   	            return round($this->virtual_total_stars/$this->virtual_chats_number,2);
+   	        break;
+   	                
 	   	default:
 	   		break;
 	   }
@@ -290,6 +302,18 @@ class erLhAbstractModelSurveyItem {
 
       	$q->orderBy(isset($params['sort']) ? $params['sort'] : 'id DESC' );
 
+      	if (isset($params['group']) && $params['group'] != '') {
+      	    $q->groupBy($params['group']);
+      	}
+      	
+      	if (isset($params['having']) && $params['having'] != '') {
+      	    $q->having($params['having']);
+      	}
+      	
+      	if (isset($params['select_columns']) && !empty($params['select_columns'])) {
+      	    $q->select($params['select_columns']);
+      	}
+      	
        	$objects = $session->find( $q );
 
     	return $objects;

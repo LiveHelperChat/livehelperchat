@@ -28,6 +28,19 @@ $fieldsSearch['timeto'] = array (
     )
 );
 
+$fieldsSearch['group_results'] = array (
+    'type' => 'checkbox',
+    'trans' => 'Group results',
+    'required' => false,
+    'valid_if_filled' => false,
+    'datatype' => 'date',
+    'filter_type' => false,
+    'filter_table_field' => 'ftime',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+    )
+);
+
 $fieldsSearch['department_id'] = array (
 	'type' => 'text',
 	'trans' => 'Department',
@@ -47,6 +60,18 @@ $fieldsSearch['user_id'] = array (
 	'valid_if_filled' => false,
 	'filter_type' => 'filter',
 	'filter_table_field' => 'user_id',
+	'validation_definition' => new ezcInputFormDefinitionElement(
+		ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 1)
+	)
+);
+
+$fieldsSearch['minimum_chats'] = array (
+	'type' => 'text',
+	'trans' => 'Minimum chats',
+	'required' => false,
+	'valid_if_filled' => false,
+	'filter_type' => false,
+	'filter_table_field' => false,
 	'validation_definition' => new ezcInputFormDefinitionElement(
 		ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 1)
 	)

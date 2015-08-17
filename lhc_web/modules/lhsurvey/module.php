@@ -16,7 +16,7 @@ $ViewList['fill'] = array(
 
 $ViewList['collected'] = array(
     'params' => array('survey_id'),
-    'uparams' => array('timefrom','timeto','department_id','user_id','print','xls','stars'),
+    'uparams' => array('timefrom','timeto','department_id','user_id','print','xls','stars','group_results','minimum_chats'),
     'functions' => array( 'manage_survey' )
 );
 
