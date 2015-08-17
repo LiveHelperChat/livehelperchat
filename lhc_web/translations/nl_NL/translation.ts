@@ -960,7 +960,7 @@
     </message>
     <message>
       <source>Survey at the end of chat</source>
-      <translation type="unfinished"/>
+      <translation>Enquête op het einde van de chat</translation>
     </message>
     <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
@@ -1012,7 +1012,7 @@
     </message>
     <message>
       <source>no survey</source>
-      <translation type="unfinished"/>
+      <translation>geen enquête</translation>
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>
@@ -2027,7 +2027,7 @@
     </message>
     <message>
       <source>Could not detect a language</source>
-      <translation type="unfinished"/>
+      <translation>Kan de taal niet herkennen</translation>
     </message>
     <message>
       <source>Could not detect language</source>
@@ -2177,7 +2177,7 @@
     </message>
     <message>
       <source>Transfer time</source>
-      <translation type="unfinished"/>
+      <translation>Transfer tijd</translation>
     </message>
     <message>
       <source>Time ago</source>
@@ -2390,7 +2390,7 @@
     </message>
     <message>
       <source>Me</source>
-      <translation type="unfinished"/>
+      <translation>Ik</translation>
     </message>
     <message>
       <source>Choose your language</source>
@@ -2458,7 +2458,7 @@
     </message>
     <message>
       <source>Please choose a star</source>
-      <translation type="unfinished"/>
+      <translation>Kies een ster</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -2608,7 +2608,7 @@
     </message>
     <message>
       <source>Edit nick</source>
-      <translation type="unfinished"/>
+      <translation>Verander naam</translation>
     </message>
     <message>
       <source>Chat was automatically transferred to</source>
@@ -3398,7 +3398,8 @@
     </message>
     <message>
       <source>Supported: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</source>
-      <translation type="unfinished"/>
+      <translation>Ondersteund:
+dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</translation>
     </message>
     <message>
       <source>Supported: online_operators, departments_stats, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
@@ -3526,7 +3527,7 @@
     </message>
     <message>
       <source>Surveys</source>
-      <translation type="unfinished"/>
+      <translation>Enquêtes</translation>
     </message>
     <message>
       <source>Theming</source>
@@ -3680,7 +3681,7 @@
     </message>
     <message>
       <source>Clean cache</source>
-      <translation type="unfinished"/>
+      <translation>Cache verversen</translation>
     </message>
     <message>
       <source>Home</source>
@@ -3688,7 +3689,7 @@
     </message>
     <message>
       <source>Modules</source>
-      <translation type="unfinished"/>
+      <translation>Modules</translation>
     </message>
     <message>
       <source>Browse offers</source>
@@ -3712,15 +3713,15 @@
     </message>
     <message>
       <source>Chat</source>
-      <translation type="unfinished"/>
+      <translation>Chat</translation>
     </message>
     <message>
       <source>Settings</source>
-      <translation type="unfinished"/>
+      <translation>Instellingen</translation>
     </message>
     <message>
       <source>Dashboard</source>
-      <translation type="unfinished"/>
+      <translation>Dashboard</translation>
     </message>
     <message>
       <source>Menu</source>
@@ -3728,11 +3729,11 @@
     </message>
     <message>
       <source>Expand or collapse left menu</source>
-      <translation type="unfinished"/>
+      <translation>Verander het linkermenu</translation>
     </message>
     <message>
       <source>Chat tabs</source>
-      <translation type="unfinished"/>
+      <translation>Chat tabs</translation>
     </message>
     <message>
       <source>Chats list</source>
@@ -3987,11 +3988,11 @@
     </message>
     <message>
       <source>Automatically start chat then user starts typing. Only message field has to be required</source>
-      <translation type="unfinished"/>
+      <translation>Start de chat automatisch zodra een bezoeker begint met typen.</translation>
     </message>
     <message>
       <source>Start chat process in the background as soon user submits form. Only message field has to be required</source>
-      <translation type="unfinished"/>
+      <translation>Start de chat automatisch in de achtergrond zodra een bezoeker een formulier verzend</translation>
     </message>
     <message>
       <source>Phone</source>
@@ -4027,7 +4028,7 @@
     </message>
     <message>
       <source>Show messages box above input fields, usefull for UX combinations.</source>
-      <translation type="unfinished"/>
+      <translation>Laat berichtbox zien boven de input velden.</translation>
     </message>
     <message>
       <source>Initial user message height in pixels</source>
@@ -6162,58 +6163,58 @@
     <name>survey/collected</name>
     <message>
       <source>Chat</source>
-      <translation type="unfinished"/>
+      <translation>Chat</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Afdeling</translation>
     </message>
     <message>
       <source>Operator</source>
-      <translation type="unfinished"/>
+      <translation>Operator</translation>
     </message>
     <message>
       <source>Stars</source>
-      <translation type="unfinished"/>
+      <translation>Sterren</translation>
     </message>
     <message>
       <source>Time</source>
-      <translation type="unfinished"/>
+      <translation>Tijd</translation>
     </message>
   </context>
   <context>
     <name>survey/fill</name>
     <message>
       <source>star</source>
-      <translation type="unfinished"/>
+      <translation>ster</translation>
     </message>
     <message>
       <source>stars</source>
-      <translation type="unfinished"/>
+      <translation>sterren</translation>
     </message>
     <message>
       <source>Preview chat</source>
-      <translation type="unfinished"/>
+      <translation>Preview chat</translation>
     </message>
     <message>
       <source>How well did we do?</source>
-      <translation type="unfinished"/>
+      <translation>Hoe tevreden bent u met deze chatsessie?</translation>
     </message>
     <message>
       <source>Poor</source>
-      <translation type="unfinished"/>
+      <translation>Slecht</translation>
     </message>
     <message>
       <source>Excellent</source>
-      <translation type="unfinished"/>
+      <translation>Perfect</translation>
     </message>
     <message>
       <source>Thank you for your feedback...</source>
-      <translation type="unfinished"/>
+      <translation>Bedankt voor uw feedback!</translation>
     </message>
     <message>
       <source>Please complete this short evaluation survey</source>
-      <translation type="unfinished"/>
+      <translation>Kunt u deze korte enquête voor ons invullen?</translation>
     </message>
   </context>
   <context>
@@ -7281,15 +7282,15 @@
     <name>abstract/survey</name>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Naam</translation>
     </message>
     <message>
       <source>Max stars for feedback</source>
-      <translation type="unfinished"/>
+      <translation>Maximaal aantal sterren voor de enquête</translation>
     </message>
     <message>
       <source>Survey</source>
-      <translation type="unfinished"/>
+      <translation>Enquête</translation>
     </message>
   </context>
   <context>
@@ -7350,7 +7351,7 @@
     <name>chat/voteaction</name>
     <message>
       <source>User has updated his profile information</source>
-      <translation type="unfinished"/>
+      <translation>Gebruiker heeft zijn profielinformatie geüpdated</translation>
     </message>
     <message>
       <source>Thumbs up</source>
@@ -7383,18 +7384,18 @@
     <name>chat/editnick</name>
     <message>
       <source>Your information</source>
-      <translation type="unfinished"/>
+      <translation>Jouw informatie</translation>
     </message>
     <message>
       <source>Updated!</source>
-      <translation type="unfinished"/>
+      <translation>Opgeslagen!</translation>
     </message>
   </context>
   <context>
     <name>chat/chatpreview</name>
     <message>
       <source>Chat preview</source>
-      <translation type="unfinished"/>
+      <translation>Chat preview</translation>
     </message>
   </context>
 </TS>

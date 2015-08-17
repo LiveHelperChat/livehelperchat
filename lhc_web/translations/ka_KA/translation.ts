@@ -555,7 +555,7 @@
     </message>
     <message>
       <source>Live help is offline...</source>
-      <translation>ონლაინ დახმარება კავშრგარეშეა</translation>
+      <translation>ონლაინ დახმარება კავშირ გარეშეა</translation>
     </message>
     <message>
       <source>Allow operator to see your page content?</source>
@@ -2489,11 +2489,11 @@
     </message>
     <message>
       <source>You are number</source>
-      <translation type="unfinished"/>
+      <translation>თქვენ ხართ ნომერი</translation>
     </message>
     <message>
       <source>in the queue. Please wait...</source>
-      <translation type="unfinished"/>
+      <translation>რიგში. გთხოვთ დაელოდოთ...</translation>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>

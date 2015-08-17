@@ -3,11 +3,11 @@
     <name>listchatconfig</name>
     <message>
       <source>How many days voting widget should not be expanded after last show</source>
-      <translation>Por cuantos días el widget de votación no será expandido después de la última vez</translation>
+      <translation>Por cuantos días el widget de votación no será expandido después de mostrarlo la última vez</translation>
     </message>
     <message>
       <source>Use secure cookie, check this if you want to force SSL all the time</source>
-      <translation>Usar cookie segura, seleccione esto si desea forzar el uso permanente de SSL</translation>
+      <translation>Use cookies seguras, seleccione esto si desea forzar el uso permanente de SSL</translation>
     </message>
     <message>
       <source>Which ip should be allowed to update DB by executing http request, separate by comma?</source>
@@ -67,7 +67,7 @@
     </message>
     <message>
       <source>socket.io path, optional</source>
-      <translation type="unfinished"/>
+      <translation>ruta hacia socket.io, opcional</translation>
     </message>
     <message>
       <source>NodeJS support enabled</source>
@@ -147,7 +147,7 @@
     </message>
     <message>
       <source>Hide right column in frontpage</source>
-      <translation type="unfinished"/>
+      <translation>Esconde la columna derecha en la página inicial</translation>
     </message>
     <message>
       <source>Hide disabled department widget</source>

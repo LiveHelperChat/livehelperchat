@@ -941,7 +941,7 @@
     </message>
     <message>
       <source>Place this tag after the Live Helper Plugin tag.</source>
-      <translation type="unfinished"/>
+      <translation>Posizionare questo tag dopo il tag del plug in Live Helper</translation>
     </message>
     <message>
       <source>On a mouse click show the page widget</source>
@@ -1021,7 +1021,7 @@
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Status to render.</source>
-      <translation type="unfinished"/>
+      <translation>Posizionare questo tag dove si vuole mostrare lo stato della chat Live Helper</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper status tag.</source>
@@ -2028,7 +2028,7 @@
     </message>
     <message>
       <source>Could not detect a language</source>
-      <translation type="unfinished"/>
+      <translation>Potrebbe non rilevare una lingua</translation>
     </message>
     <message>
       <source>Could not detect language</source>
@@ -3681,7 +3681,7 @@
     </message>
     <message>
       <source>Clean cache</source>
-      <translation type="unfinished"/>
+      <translation>Pulizia della cache</translation>
     </message>
     <message>
       <source>Home</source>
@@ -6194,7 +6194,7 @@
     </message>
     <message>
       <source>Preview chat</source>
-      <translation type="unfinished"/>
+      <translation>Mostra chat</translation>
     </message>
     <message>
       <source>How well did we do?</source>
@@ -7395,7 +7395,7 @@
     <name>chat/chatpreview</name>
     <message>
       <source>Chat preview</source>
-      <translation type="unfinished"/>
+      <translation>Mostra chat</translation>
     </message>
   </context>
 </TS>

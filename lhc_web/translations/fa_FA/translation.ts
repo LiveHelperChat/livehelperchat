@@ -147,7 +147,7 @@
     </message>
     <message>
       <source>Hide right column in frontpage</source>
-      <translation type="unfinished"/>
+      <translation>مخفی کردن ستون سمت راست در بخش کاربری</translation>
     </message>
     <message>
       <source>Hide disabled department widget</source>
@@ -191,7 +191,7 @@
     </message>
     <message>
       <source>Home page dashboard widgets order</source>
-      <translation type="unfinished"/>
+      <translation>ترتیب ویجت های پیشخوان صفحه اصلی</translation>
     </message>
     <message>
       <source>Your site URL address</source>
