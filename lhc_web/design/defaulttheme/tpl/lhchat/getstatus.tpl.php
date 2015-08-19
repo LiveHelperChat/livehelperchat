@@ -882,6 +882,8 @@ var lh_inst  = {
     		lh_inst.lh_openchatWindow();    		
     	} else if (action == 'lhc_screenshot') {
     		lh_inst.makeScreenshot();
+    	} else if (action == 'lhc_disable_survey') {
+    		lh_inst.surveyShown = true;
     	} else if (action == 'lhc_chat_closed') {
     		lh_inst.showSurvey();
     	} else if (action == 'lhc_cobrowse') {

@@ -209,6 +209,7 @@ $additionalParams = array();
 if ((string)$Params['user_parameters_unordered']['offline'] == 'true' && $leaveamessage == true) {
 	$additionalParams['offline'] = true;
 	$tpl->set('forceoffline',true);
+	$Result['parent_messages'][] = 'lhc_disable_survey';
 }
 
 $tpl->set('leaveamessage',$leaveamessage);
