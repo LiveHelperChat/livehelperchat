@@ -42,15 +42,16 @@ class erLhcoreClassModelUserDep {
 							
 			case 'departments_names':
 			         $this->departments_names = array();
-			         $ids = $this->user->departments_ids;			         
-			         if (!empty($ids)){
+			         $ids = $this->user->departments_ids;	
+  
+			         if ($ids != '') {
     			         $parts = explode(',', $ids);
     			         sort($parts);
-    			         		         
+
     			         foreach ($parts as $depId) {
     			             if ($depId == 0) {
     			                 $this->departments_names[] = '∞';
-    			             } else {
+    			             } elseif ($depId > 0) {
     			                 try {
     			                     $dep = erLhcoreClassModelDepartament::fetch($depId,true);
     			                     $this->departments_names[] = $dep->name;
