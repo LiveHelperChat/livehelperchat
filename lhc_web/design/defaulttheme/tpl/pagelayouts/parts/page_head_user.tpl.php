@@ -12,7 +12,7 @@ foreach ($ReverseOrder as $pathItem) : ?><?php echo htmlspecialchars($pathItem['
 <meta name="Keywords" content="" />
 <meta name="Description" content="<?php echo erConfigClassLhConfig::getInstance()->getOverrideValue('site','description')?>" />
 <meta name="robots" content="noindex, nofollow">
-<meta name="copyright" content="Remigijus Kiminas, livehelperchat.com">
+<?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/copyright_meta.tpl.php'));?>
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_css.tpl.php'));?>
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_css_user_extension_multiinclude.tpl.php'));?>
 
