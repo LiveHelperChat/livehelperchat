@@ -20,8 +20,8 @@
                             <?php if (isset($Result['chat']) && is_numeric($Result['chat']->id) && isset($Result['er']) && $Result['er'] == true) : ?>
                             <a class="btn btn-default btn-xs" onclick="lhinst.restoreWidget('<?php echo $Result['chat']->id,'_',$Result['chat']->hash?>');" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Switch to widget')?>"><i class="material-icons mr-0">open_in_browser</i></a>
                             <?php endif;?>
-                                                
-                		  	<a class="btn btn-default btn-xs" onclick="lhinst.userclosedchatandbrowser();" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close')?>"><i class="material-icons mr-0">&#xE5CD;</i></a>
+                                  
+                            <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/close_popup.tpl.php'));?>
                 		    <?php endif;?>	
                 		  
                 		  <?php if (isset($Result['show_switch_language'])) : ?>		  
