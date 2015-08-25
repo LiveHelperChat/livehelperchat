@@ -305,12 +305,21 @@ option.offline-dep{
 	font-size: 36px;
 }
 
-.icon-user-status{
+.icon-user-status {
 	color:#CCC;
 }
 
-.icon-user-online{
+.icon-user-online {
 	color:#5da423;
+}
+
+.icon-user-away {
+	color:#EDC21A;
+}
+
+/*User has done pageview in the last 5 minutes*/
+.icon-user-pageview {
+	
 }
 
 .mb5 {

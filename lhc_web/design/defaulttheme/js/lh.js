@@ -1240,12 +1240,16 @@ function lh(){
 	        	                      } else {
 	        	                          $('#user-is-typing-'+item.chat_id).css('visibility','hidden');
 	        	                      };
-	
-	        	                      if (item.us == 0){
+	        	                      
+	        	                      $('#user-chat-status-'+item.chat_id).removeClass('icon-user-online icon-user-away icon-user-pageview');
+	        	                      
+	        	                      if (item.us == 0) {
 	        	                    	  $('#user-chat-status-'+item.chat_id).addClass('icon-user-online');
-	        	                      } else {
-	        	                    	  $('#user-chat-status-'+item.chat_id).removeClass('icon-user-online');
-	        	                      };
+	        	                      } else if (item.us == 2) {
+	        	                    	  $('#user-chat-status-'+item.chat_id).addClass('icon-user-away');
+	        	                      } else if (item.us == 3) {
+	        	                    	  $('#user-chat-status-'+item.chat_id).addClass('icon-user-pageview');
+	        	                      }
 	        	                      
 	        	                      if (typeof item.oad != 'undefined') {	        	                    
 	        	                    	  eval(item.oad);

@@ -232,6 +232,19 @@ class erLhcoreClassModelChat {
        		   return $this->user;
        		break;
        		
+       	case 'user_status_front':
+       	       $this->user_status_front = $this->user_status == 0 ? 0 : 1;
+       	       if ($this->user_status_front == self::USER_STATUS_CLOSED_CHAT && $this->online_user !== false) {
+       	           $timeout = (int)erLhcoreClassModelChatConfig::fetch('checkstatus_timeout')->current_value;
+       	           if ($timeout > 0 && $this->online_user->last_check_time_ago < ($timeout+3) && time()-$this->last_user_msg_time < 300) { //User still on site, it does not matter that he have closed widget.
+       	               $this->user_status_front = 0;
+       	           } elseif (time()-$this->last_user_msg_time >= 300 && $timeout > 0 && $this->online_user->last_check_time_ago < ($timeout+3)) {
+       	               $this->user_status_front = 2;
+       	           }
+       	       }
+       	       return $this->user_status_front;
+       	    break;
+       	    	
        	case 'operator_typing_user':
        		   $this->operator_typing_user = false;
        		   if ($this->operator_typing_id > 0) {
