@@ -1214,6 +1214,18 @@
       <source>Day</source>
       <translation>Päivä</translation>
     </message>
+    <message>
+      <source>Group results by operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimum chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Optional</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/chat</name>
@@ -6161,6 +6173,10 @@
   <context>
     <name>survey/collected</name>
     <message>
+      <source>Chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat</source>
       <translation>Keskustelu</translation>
     </message>
@@ -6179,6 +6195,10 @@
     <message>
       <source>Time</source>
       <translation>Aika</translation>
+    </message>
+    <message>
+      <source>Department name</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

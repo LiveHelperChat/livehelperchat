@@ -960,7 +960,7 @@
     </message>
     <message>
       <source>Survey at the end of chat</source>
-      <translation type="unfinished"/>
+      <translation>Avaliação no final deste chat</translation>
     </message>
     <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
@@ -1012,7 +1012,7 @@
     </message>
     <message>
       <source>no survey</source>
-      <translation type="unfinished"/>
+      <translation>Nenhuma pesquisa</translation>
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>
@@ -1213,6 +1213,18 @@
     <message>
       <source>Day</source>
       <translation>Dia</translation>
+    </message>
+    <message>
+      <source>Group results by operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimum chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Optional</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -2027,7 +2039,7 @@
     </message>
     <message>
       <source>Could not detect a language</source>
-      <translation type="unfinished"/>
+      <translation>Não foi possível encontrar uma língua</translation>
     </message>
     <message>
       <source>Could not detect language</source>
@@ -2177,7 +2189,7 @@
     </message>
     <message>
       <source>Transfer time</source>
-      <translation type="unfinished"/>
+      <translation>O tempo de transferência</translation>
     </message>
     <message>
       <source>Time ago</source>
@@ -2458,7 +2470,7 @@
     </message>
     <message>
       <source>Please choose a star</source>
-      <translation type="unfinished"/>
+      <translation>Por favor, escolha uma estrela</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -2608,7 +2620,7 @@
     </message>
     <message>
       <source>Edit nick</source>
-      <translation type="unfinished"/>
+      <translation>Editar</translation>
     </message>
     <message>
       <source>Chat was automatically transferred to</source>
@@ -3398,7 +3410,9 @@
     </message>
     <message>
       <source>Supported: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</source>
-      <translation type="unfinished"/>
+      <translation>Apoiado:
+Painel, mapa_online, usuário_online, chats_pendente, mapa_online, chats_ativados
+chats_não lidos chats_fechados operadores_online</translation>
     </message>
     <message>
       <source>Supported: online_operators, departments_stats, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
@@ -3526,7 +3540,7 @@
     </message>
     <message>
       <source>Surveys</source>
-      <translation type="unfinished"/>
+      <translation>Pesquisar</translation>
     </message>
     <message>
       <source>Theming</source>
@@ -3680,7 +3694,7 @@
     </message>
     <message>
       <source>Clean cache</source>
-      <translation type="unfinished"/>
+      <translation>Limpa cache</translation>
     </message>
     <message>
       <source>Home</source>
@@ -6161,23 +6175,31 @@
   <context>
     <name>survey/collected</name>
     <message>
-      <source>Chat</source>
+      <source>Chats</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat</source>
+      <translation>Chat</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Departamento</translation>
     </message>
     <message>
       <source>Operator</source>
-      <translation type="unfinished"/>
+      <translation>Operador</translation>
     </message>
     <message>
       <source>Stars</source>
-      <translation type="unfinished"/>
+      <translation>Estrelas</translation>
     </message>
     <message>
       <source>Time</source>
+      <translation>Tempo</translation>
+    </message>
+    <message>
+      <source>Department name</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -6185,35 +6207,35 @@
     <name>survey/fill</name>
     <message>
       <source>star</source>
-      <translation type="unfinished"/>
+      <translation>Estrela</translation>
     </message>
     <message>
       <source>stars</source>
-      <translation type="unfinished"/>
+      <translation>Estrelas</translation>
     </message>
     <message>
       <source>Preview chat</source>
-      <translation type="unfinished"/>
+      <translation>Visualizar chat </translation>
     </message>
     <message>
       <source>How well did we do?</source>
-      <translation type="unfinished"/>
+      <translation>Como está nosso atendimento?</translation>
     </message>
     <message>
       <source>Poor</source>
-      <translation type="unfinished"/>
+      <translation>Péssimo</translation>
     </message>
     <message>
       <source>Excellent</source>
-      <translation type="unfinished"/>
+      <translation>Exelente</translation>
     </message>
     <message>
       <source>Thank you for your feedback...</source>
-      <translation type="unfinished"/>
+      <translation>Obrigado pelo seu feedback ..</translation>
     </message>
     <message>
       <source>Please complete this short evaluation survey</source>
-      <translation type="unfinished"/>
+      <translation>Por favor, deixe-nos sua avaliação</translation>
     </message>
   </context>
   <context>
@@ -7281,15 +7303,15 @@
     <name>abstract/survey</name>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Nome</translation>
     </message>
     <message>
       <source>Max stars for feedback</source>
-      <translation type="unfinished"/>
+      <translation>Deixe seu feedback</translation>
     </message>
     <message>
       <source>Survey</source>
-      <translation type="unfinished"/>
+      <translation>Pesquisar</translation>
     </message>
   </context>
   <context>
@@ -7350,7 +7372,7 @@
     <name>chat/voteaction</name>
     <message>
       <source>User has updated his profile information</source>
-      <translation type="unfinished"/>
+      <translation>Usuário atualiza suas informações de perfil</translation>
     </message>
     <message>
       <source>Thumbs up</source>
@@ -7383,18 +7405,18 @@
     <name>chat/editnick</name>
     <message>
       <source>Your information</source>
-      <translation type="unfinished"/>
+      <translation>Ver informações</translation>
     </message>
     <message>
       <source>Updated!</source>
-      <translation type="unfinished"/>
+      <translation>Atualizar</translation>
     </message>
   </context>
   <context>
     <name>chat/chatpreview</name>
     <message>
       <source>Chat preview</source>
-      <translation type="unfinished"/>
+      <translation>Visualização do chat</translation>
     </message>
   </context>
 </TS>

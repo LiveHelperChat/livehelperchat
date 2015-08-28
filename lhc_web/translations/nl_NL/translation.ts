@@ -1214,6 +1214,18 @@
       <source>Day</source>
       <translation>Dag</translation>
     </message>
+    <message>
+      <source>Group results by operator</source>
+      <translation>Sorteer resultaten per operator</translation>
+    </message>
+    <message>
+      <source>Minimum chats</source>
+      <translation>Minimaal aantal chats</translation>
+    </message>
+    <message>
+      <source>Optional</source>
+      <translation>Optioneel</translation>
+    </message>
   </context>
   <context>
     <name>chat/chat</name>
@@ -6162,6 +6174,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
   <context>
     <name>survey/collected</name>
     <message>
+      <source>Chats</source>
+      <translation>Chats</translation>
+    </message>
+    <message>
       <source>Chat</source>
       <translation>Chat</translation>
     </message>
@@ -6180,6 +6196,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Time</source>
       <translation>Tijd</translation>
+    </message>
+    <message>
+      <source>Department name</source>
+      <translation>Afdelingsnaam</translation>
     </message>
   </context>
   <context>
