@@ -52,6 +52,19 @@ if (erLhcoreClassModelChatConfig::fetch('track_is_online')->current_value) {
 			$stmt->bindValue(':vid',(string)$Params['user_parameters_unordered']['vid']);
 			$stmt->bindValue(':user_active',(int)$Params['user_parameters_unordered']['uactiv'],PDO::PARAM_INT);
 			$stmt->execute();
+			
+			// If nodejs is used we have to inform back office operators about changed statuses
+			if ((string)$Params['user_parameters_unordered']['uaction'] == 1) {
+			    if (strpos((string)$Params['user_parameters_unordered']['hash'], '_') !== false) {
+			        list($chatId) = explode('_', (string)$Params['user_parameters_unordered']['hash']);
+			    } elseif (strpos((string)$Params['user_parameters_unordered']['hash_resume'], '_') !== false) {
+			        list($chatId) = explode('_', (string)$Params['user_parameters_unordered']['hash_resume']);
+			    }
+			    
+			    if (is_numeric($chatId)) {
+			         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed_chat',array('chat_id' => $chatId));
+			    }
+			}
 		}
 	}
 }

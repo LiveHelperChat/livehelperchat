@@ -310,7 +310,7 @@ $ViewList['getstatus'] = array(
 
 $ViewList['chatcheckstatus'] = array(
     'params' => array(),
-    'uparams' => array('status','department','vid','uactiv','wopen'),
+    'uparams' => array('status','department','vid','uactiv','wopen','uaction','hash','hash_resume'),
 	'multiple_arguments' => array ( 'department' )
 );
 

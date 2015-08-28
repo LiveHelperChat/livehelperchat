@@ -845,14 +845,14 @@ var lh_inst  = {
         this.userActive = 1;
         
         if (wasInactive == true) {
-            this.syncUserStatus();
+            this.syncUserStatus(1);
         }
         
         clearTimeout(this.timeoutActivity);
         var _that = this;
         this.timeoutActivity = setTimeout(function(){
             _that.userActive = 0;
-            _that.syncUserStatus();
+            _that.syncUserStatus(1);
         }, 5*1000);        
     },
     
@@ -861,13 +861,15 @@ var lh_inst  = {
     timeoutStatuscheck : null,
     timeoutStatusWidgetOpen : 0,
     
-    syncUserStatus : function() {
+    syncUserStatus : function(sender) {
+    	var hashAppend = this.cookieData.hash ? '/(hash)/'+this.cookieData.hash : '';
+		var hashResume = this.cookieData.hash_resume ? '/(hash_resume)/'+this.cookieData.hash_resume : '';
         this.removeById('lhc_check_status');
         var th = document.getElementsByTagName('head')[0];
         var s = document.createElement('script');
         s.setAttribute('id','lhc_check_status');
         s.setAttribute('type','text/javascript');
-        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/chatcheckstatus<?php $department !== false ? print '/(department)/'.$department : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : '' ?><?php $survey !== false ? print '/(survey)/'.$survey : ''?>/(status)/' + this.isOnline + (this.cookieDataPers.vid ? '/(vid)/'+this.cookieDataPers.vid : '') + '/(uactiv)/'+this.userActive+'/(wopen)/'+this.timeoutStatusWidgetOpen);
+        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/chatcheckstatus<?php $department !== false ? print '/(department)/'.$department : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : '' ?><?php $survey !== false ? print '/(survey)/'.$survey : ''?>/(status)/' + this.isOnline + (this.cookieDataPers.vid ? '/(vid)/'+this.cookieDataPers.vid : '')+ hashAppend + hashResume + '/(uactiv)/'+this.userActive+'/(wopen)/'+this.timeoutStatusWidgetOpen + '/(uaction)/'+sender);
         th.appendChild(s);
     },
     
@@ -876,7 +878,7 @@ var lh_inst  = {
     	clearTimeout(this.timeoutStatuscheck);
     	var _that = this;
         this.timeoutStatuscheck = setTimeout(function() {
-            _that.syncUserStatus();
+            _that.syncUserStatus(0);
             _that.checkStatusChat();        
         },<?php echo ((int)erLhcoreClassModelChatConfig::fetch('checkstatus_timeout')->current_value)*1000; ?>);
         <?php endif;?>  
