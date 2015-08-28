@@ -269,8 +269,7 @@ var lh_inst  = {
             <?php if ($check_operator_messages == 'true' && $disable_pro_active == false) : ?>
             this.startNewMessageCheck();
             <?php endif; ?>
-            this.checkStatusChat();
-            
+            this.timeoutStatusWidgetOpen = 0;
             this.surveyShown = true;
         } else {
             this.showSurvey(); 
@@ -434,9 +433,8 @@ var lh_inst  = {
           	return;
           };
           
-          lh_inst.surveyShown = false;
-          
-          clearTimeout(this.timeoutStatuscheck);
+          lh_inst.surveyShown = false;                             
+          lh_inst.timeoutStatusWidgetOpen = 1;
           
           var widgetWidth = (typeof <?php echo $chatOptionsVariable?> != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt.widget_width != 'undefined') ? parseInt(<?php echo $chatOptionsVariable?>.opt.widget_width) : 300;
 		  var widgetHeight = (typeof <?php echo $chatOptionsVariable?> != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt.widget_height != 'undefined') ? parseInt(<?php echo $chatOptionsVariable?>.opt.widget_height) : 340;
@@ -596,7 +594,7 @@ var lh_inst  = {
             var s = document.createElement('script');
             s.setAttribute('id','lhc_operator_message');
             s.setAttribute('type','text/javascript');
-            s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+lh_inst.lang+'/chat/chatcheckoperatormessage<?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : '' ?><?php $survey !== false ? print '/(survey)/'.$survey : ''?>/(vid)/'+vid+'?l='+locationCurrent+'&dt='+encodeURIComponent(document.title));
+            s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+lh_inst.lang+'/chat/chatcheckoperatormessage<?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : '' ?><?php $survey !== false ? print '/(survey)/'.$survey : ''?>/(vid)/'+vid+ '/(uactiv)/'+lh_inst.userActive+'/(wopen)/'+lh_inst.timeoutStatusWidgetOpen+'?l='+locationCurrent+'&dt='+encodeURIComponent(document.title));
             th.appendChild(s);
             lh_inst.startNewMessageCheck();        
         }, <?php echo (int)(erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['check_for_operator_msg']*1000); ?> );
@@ -635,7 +633,7 @@ var lh_inst  = {
         
         s.setAttribute('id','lhc_operator_message');
         s.setAttribute('type','text/javascript');
-        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/chatcheckoperatormessage<?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : '' ?><?php $survey !== false ? print '/(survey)/'.$survey : ''?>/(tz)/'+tzOffset+'/(count_page)/1/(vid)/'+vid+'?l='+locationCurrent+this.parseStorageArguments()+this.parseOptionsOnline()+'&dt='+encodeURIComponent(document.title));
+        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/chatcheckoperatormessage<?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : '' ?><?php $survey !== false ? print '/(survey)/'.$survey : ''?>/(tz)/'+tzOffset+'/(count_page)/1/(vid)/'+vid+'/(uactiv)/'+lh_inst.userActive+'/(wopen)/'+lh_inst.timeoutStatusWidgetOpen+'?l='+locationCurrent+this.parseStorageArguments()+this.parseOptionsOnline()+'&dt='+encodeURIComponent(document.title));
         th.appendChild(s);
     },
 
@@ -647,7 +645,7 @@ var lh_inst  = {
         var tzOffset = this.getTzOffset(); 
         s.setAttribute('id','lhc_log_pageview');
         s.setAttribute('type','text/javascript');
-        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/logpageview<?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : '' ?><?php $survey !== false ? print '/(survey)/'.$survey : ''?>/(tz)/'+tzOffset+'/(vid)/'+vid+'?l='+locationCurrent+this.parseStorageArguments()+this.parseOptionsOnline()+'&dt='+encodeURIComponent(document.title));
+        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/logpageview<?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : '' ?><?php $survey !== false ? print '/(survey)/'.$survey : ''?>/(tz)/'+tzOffset+'/(vid)/'+vid+'/(uactiv)/'+lh_inst.userActive+'/(wopen)/'+lh_inst.timeoutStatusWidgetOpen+'?l='+locationCurrent+this.parseStorageArguments()+this.parseOptionsOnline()+'&dt='+encodeURIComponent(document.title));
         th.appendChild(s);
     },
 
@@ -836,28 +834,76 @@ var lh_inst  = {
     	this.lh_openchatWindow();    	
     },
     
-    timeoutStatuscheck : null,
-    
     initLanguage : function() {
    		var langUser = this.getPersistentAttribute('lng');   		
     	this.lang = (langUser != null && langUser != '' && langUser != undefined && this.langDefault != langUser) ? langUser : this.lang;   
     },
     
+    resetTimeoutActivity : function() {
+    
+        var wasInactive = this.userActive == 0;        
+        this.userActive = 1;
+        
+        if (wasInactive == true) {
+            this.syncUserStatus();
+        }
+        
+        clearTimeout(this.timeoutActivity);
+        var _that = this;
+        this.timeoutActivity = setTimeout(function(){
+            _that.userActive = 0;
+            _that.syncUserStatus();
+        }, 5*1000);        
+    },
+    
+    timeoutActivity : null,
+    userActive : 1,
+    timeoutStatuscheck : null,
+    timeoutStatusWidgetOpen : 0,
+    
+    syncUserStatus : function() {
+        this.removeById('lhc_check_status');
+        var th = document.getElementsByTagName('head')[0];
+        var s = document.createElement('script');
+        s.setAttribute('id','lhc_check_status');
+        s.setAttribute('type','text/javascript');
+        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/chatcheckstatus<?php $department !== false ? print '/(department)/'.$department : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : '' ?><?php $survey !== false ? print '/(survey)/'.$survey : ''?>/(status)/' + this.isOnline + (this.cookieDataPers.vid ? '/(vid)/'+this.cookieDataPers.vid : '') + '/(uactiv)/'+this.userActive+'/(wopen)/'+this.timeoutStatusWidgetOpen);
+        th.appendChild(s);
+    },
+    
     checkStatusChat : function() {
     	<?php if ((int)erLhcoreClassModelChatConfig::fetch('checkstatus_timeout')->current_value > 0) : ?>       
     	clearTimeout(this.timeoutStatuscheck);
+    	var _that = this;
         this.timeoutStatuscheck = setTimeout(function() {
-            lh_inst.removeById('lhc_check_status');
-            var th = document.getElementsByTagName('head')[0];
-            var s = document.createElement('script');
-            s.setAttribute('id','lhc_check_status');
-            s.setAttribute('type','text/javascript');
-            s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+lh_inst.lang+'/chat/chatcheckstatus<?php $department !== false ? print '/(department)/'.$department : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : '' ?><?php $survey !== false ? print '/(survey)/'.$survey : ''?>/(status)/' + lh_inst.isOnline + (lh_inst.cookieDataPers.vid ? '/(vid)/'+lh_inst.cookieDataPers.vid : ''));
-            th.appendChild(s);
-            lh_inst.checkStatusChat();        
-        },<?php echo (int)(erLhcoreClassModelChatConfig::fetch('checkstatus_timeout')->current_value*1000); ?>);
-        <?php endif;?>       		
+            _that.syncUserStatus();
+            _that.checkStatusChat();        
+        },<?php echo ((int)erLhcoreClassModelChatConfig::fetch('checkstatus_timeout')->current_value)*1000; ?>);
+        <?php endif;?>  
     },
+      
+    attatchActivityListeners : function() {
+        <?php if ((int)erLhcoreClassModelChatConfig::fetch('track_activity')->current_value > 0) : ?>  
+        var resetTimeout = function() {
+            lh_inst.resetTimeoutActivity();
+        };    
+        
+        <?php if ((int)erLhcoreClassModelChatConfig::fetch('track_mouse_activity')->current_value == 1) : ?> 
+        this.addEvent(window,'mousemove',resetTimeout);     
+        this.addEvent(document,'mousemove',resetTimeout);
+        <?php endif;?>
+            
+        this.addEvent(window,'mousedown',resetTimeout);
+        this.addEvent(window,'click',resetTimeout);
+        this.addEvent(window,'scroll',resetTimeout);        
+        this.addEvent(window,'keypress',resetTimeout);
+        this.addEvent(window,'load',resetTimeout);    
+        this.addEvent(document,'scroll',resetTimeout);        
+        this.addEvent(document,'touchstart',resetTimeout);
+        this.addEvent(document,'touchend',resetTimeout);
+        this.resetTimeoutActivity();
+        <?php endif;?> 
+    },  
         
     handleMessage : function(e) {
     	var action = e.data.split(':')[0];    	
@@ -999,6 +1045,7 @@ lh_inst.storeReferrer(<?php echo json_encode($referrer)?>);
 <?php endif;?>
 
 lh_inst.checkStatusChat();
+lh_inst.attatchActivityListeners();
 
 <?php
 endif; // hide if offline

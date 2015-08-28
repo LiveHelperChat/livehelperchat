@@ -80,13 +80,19 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
 		                
 		                $ReturnMessages[] = array('chat_id' => $chat_id,'nck' => $Chat->nick, 'msfrom' => $MessageID, 'msop' => $firstNewMessage['user_id'], 'mn' => $newMessagesNumber, 'msg' => $msgText, 'content' => $templateResult, 'message_id' => $LastMessageIDs['id']);
 		            }
-			          
+
+		            $user_status_front = $Chat->getUserStatus(array(
+		                'checkstatus_timeout' => (int)erLhcoreClassModelChatConfig::fetch('checkstatus_timeout')->current_value,
+		                'track_activity' => (int)erLhcoreClassModelChatConfig::fetch('track_activity')->current_value,
+		                'online_if' => (int)erLhcoreClassModelChatConfig::fetch('online_if')->current_value
+		            ));
+
 		            if ($Chat->is_user_typing == true) {
-		                $ReturnStatuses[$chat_id] = array('chat_id' => $chat_id, 'us' => $Chat->user_status_front, 'tp' => 'true','tx' => htmlspecialchars($Chat->user_typing_txt));
+		                $ReturnStatuses[$chat_id] = array('chat_id' => $chat_id, 'us' => $user_status_front, 'tp' => 'true','tx' => htmlspecialchars($Chat->user_typing_txt));
 		            } else {
-		                $ReturnStatuses[$chat_id] = array('chat_id' => $chat_id, 'us' => $Chat->user_status_front, 'tp' => 'false');
+		                $ReturnStatuses[$chat_id] = array('chat_id' => $chat_id, 'us' => $user_status_front, 'tp' => 'false');
 		            }
-		            
+
 		            if ($Chat->operation_admin != '') {
 		            	$ReturnStatuses[$chat_id]['oad'] = $Chat->operation_admin;
 		            	$Chat->operation_admin = '';

@@ -15,6 +15,7 @@
 			<li role="presentation"><a href="#copyright" aria-controls="copyright" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Copyright settings');?></a></li>
 			<li role="presentation"><a href="#onlinetracking" aria-controls="onlinetracking" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Online tracking');?></a></li>
 			<li role="presentation"><a href="#misc" aria-controls="misc" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Misc');?></a></li>
+			<li role="presentation"><a href="#visitoractivity" aria-controls="visitoractivity" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Visitor activity');?></a></li>
 			<li role="presentation"><a href="#workflow" aria-controls="workflow" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Workflow');?></a></li>
 			<?php include(erLhcoreClassDesign::designtpl('lhchat/listchatconfig/screen_sharing_tab.tpl.php'));?>
 			<?php endif;?>
@@ -198,18 +199,40 @@
     		     
     		    <?php $attribute = 'show_languages';?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
-    			<hr>	    
-    		    <?php $attribute = 'track_is_online';$boolValue = true;?>
-    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
-    		    		    
-    		    <?php $attribute = 'checkstatus_timeout'?>
-    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
     		    <hr>		    
     		    <?php $attribute = 'autoclose_timeout'?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
     		    
     		    <?php $attribute = 'autopurge_timeout'?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+			</div>
+						
+			<div role="tabpanel" class="tab-pane" id="visitoractivity">
+			 
+			    <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation("chat/listchatconfig","This determines should status widget change it's status once operator logins. Recommended value 290");?></p>
+			    
+			    <?php $attribute = 'checkstatus_timeout'?>
+    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+    		    
+			    <?php $attribute = 'track_is_online';$boolValue = true;?>
+    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+    		 
+	            <?php $attribute = 'track_activity'; $boolValue = true;?>
+	            <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?> 
+	 
+	            <?php $attribute = 'track_mouse_activity'; $boolValue = true;?>
+		        <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?> 
+	  		   
+    		   	
+    		   	<?php $systemconfig = erLhcoreClassModelChatConfig::fetch('online_if');?>	  
+    		    <div class="form-group"> 
+        		    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Online if');?></label>
+        		    <select class="form-control" name="online_ifValueParam">
+        		          <option value="0" <?php echo $systemconfig->value == 0 ? 'checked="checked"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','(Widget is open) or (closed and user has activity in last 5 minutes and ping respond)');?></option>    		        
+        		          <option value="1" <?php echo $systemconfig->value == 1 ? 'checked="checked"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','(Widget is open or closed) and (user has activity in last 5 minutes and ping respond)');?></option>
+        		    </select>
+    		    </div>
+    		    
 			</div>
 						
 			<div role="tabpanel" class="tab-pane" id="workflow">

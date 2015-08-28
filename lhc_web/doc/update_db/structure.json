@@ -2156,6 +2156,14 @@
                 "extra": ""
             },
             {
+                "field": "user_active",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": 0,
+                "extra": ""
+            },
+            {
                 "field": "invitation_seen_count",
                 "type": "int(11)",
                 "null": "NO",
@@ -3842,6 +3850,20 @@
                 "hidden": "0"
             },
             {
+                "identifier": "online_if",
+                "value": "0",
+                "type": "0",
+                "explain": "",
+                "hidden": "0"
+            },
+            {
+                "identifier": "track_mouse_activity",
+                "value": "0",
+                "type": "0",
+                "explain": "Should mouse movement be tracked as activity measure, if not checked only basic events would be tracked",
+                "hidden": "0"
+            },
+            {
                 "identifier": "accept_tos_link",
                 "value": "#",
                 "type": "0",
@@ -3930,6 +3952,13 @@
                 "value": "1",
                 "type": "0",
                 "explain": "Allow user to reopen closed chats?",
+                "hidden": "0"
+            },
+            {
+                "identifier": "track_activity",
+                "value": "0",
+                "type": "0",
+                "explain": "Track users activity on site?",
                 "hidden": "0"
             },
             {

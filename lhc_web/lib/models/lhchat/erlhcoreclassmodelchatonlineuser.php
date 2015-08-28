@@ -46,6 +46,7 @@ class erLhcoreClassModelChatOnlineUser {
 	       	   'online_attr_system' => $this->online_attr_system,
 	       	   'visitor_tz'   		=> $this->visitor_tz,
 	       	   'last_check_time'	=> $this->last_check_time,
+	       	   'user_active'	    => $this->user_active,
 	       	   'notes'	            => $this->notes
        );
    }
@@ -672,11 +673,15 @@ class erLhcoreClassModelChatOnlineUser {
 	           		$logPageView = true;
 	           }
 
-	           if ($item->operator_message == '' && isset($paramsHandle['pro_active_invite']) && $paramsHandle['pro_active_invite'] == 1 && isset($paramsHandle['pro_active_limitation']) && ($paramsHandle['pro_active_limitation'] == -1 || erLhcoreClassChat::getPendingChatsCountPublic($item->dep_id > 0 ? $item->dep_id : false) <= $paramsHandle['pro_active_limitation']) ) {
+	           if ((!isset($paramsHandle['wopen']) || $paramsHandle['wopen'] == 0) && $item->operator_message == '' && isset($paramsHandle['pro_active_invite']) && $paramsHandle['pro_active_invite'] == 1 && isset($paramsHandle['pro_active_limitation']) && ($paramsHandle['pro_active_limitation'] == -1 || erLhcoreClassChat::getPendingChatsCountPublic($item->dep_id > 0 ? $item->dep_id : false) <= $paramsHandle['pro_active_limitation']) ) {
 	           		//Process pro active chat invitation if this visitor matches any rules
 	           		erLhAbstractModelProactiveChatInvitation::processProActiveInvitation($item);
 	           }
 
+	           if (isset($paramsHandle['uactiv'])) {
+	               $item->user_active = (int)$paramsHandle['uactiv'];
+	           }
+	           	           
 	           // Save only then we have to, in general only then page view appears
 	           if ($item->store_chat == true) {
 	           		$item->last_check_time = time();
@@ -751,6 +756,7 @@ class erLhcoreClassModelChatOnlineUser {
    public $notes = '';
    public $requires_phone = 0;
    public $last_check_time = 0;
+   public $user_active = 0;
       
    
    // 0 - do not reopen

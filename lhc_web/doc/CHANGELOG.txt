@@ -1,3 +1,9 @@
+2.36v
+
+1. User activity tracking on site enhancements. New tab in settings "Visitor activity"
+
+execute doc/update_db/update_111.sql for update
+
 2.35v
 
 1. Option to have a survey at the end of chat. This mode is written in flexible way so most likely it will be mutch more improved over time. At the moment only stars evaluation at the end of chat is possible
