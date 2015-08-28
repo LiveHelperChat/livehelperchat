@@ -853,7 +853,7 @@ var lh_inst  = {
         this.timeoutActivity = setTimeout(function(){
             _that.userActive = 0;
             _that.syncUserStatus(1);
-        }, 5*1000);        
+        }, 300*1000);        
     },
     
     timeoutActivity : null,
