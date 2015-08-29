@@ -678,7 +678,9 @@ class erLhcoreClassModelChatOnlineUser {
 	           		erLhAbstractModelProactiveChatInvitation::processProActiveInvitation($item);
 	           }
 
+	           $activityChanged = false;
 	           if (isset($paramsHandle['uactiv'])) {
+	               $activityChanged = $item->user_active != (int)$paramsHandle['uactiv'] && $newVisitor == false;
 	               $item->user_active = (int)$paramsHandle['uactiv'];
 	           }
 	           	           
@@ -691,6 +693,10 @@ class erLhcoreClassModelChatOnlineUser {
 	           		    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('onlineuser.created', array('tpl' => (isset($paramsHandle['tpl']) ? $paramsHandle['tpl'] : false), 'ou' => & $item));
 	           		} elseif ($logPageView == true) {
 	           			erLhcoreClassChatEventDispatcher::getInstance()->dispatch('onlineuser.pageview_logged', array('tpl' => (isset($paramsHandle['tpl']) ? $paramsHandle['tpl'] : false), 'ou' => & $item));
+	           		}
+	           		
+	           		if ($activityChanged == true && $item->chat_id > 0) {
+	           		    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed_chat',array('chat_id' => $item->chat_id));
 	           		}
 	           }
 
