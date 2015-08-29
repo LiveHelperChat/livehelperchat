@@ -32,6 +32,12 @@ $columnSize = 12 / $columnsTotal;
                      <?php if ($activeTabEnabled == true && $online_chat_enabled_pre == true) : ?>
                         <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/active_chats.tpl.php'));?>
                      <?php endif;?>
+                     
+                <?php elseif ($wiget == 'online_visitors') : ?>
+                
+                     <?php if ($online_visitors_enabled_pre == true) : ?>
+                        <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/online_visitors.tpl.php'));?>
+                     <?php endif;?>
                     
                 <?php elseif ($wiget == 'departments_stats') : ?>
                 

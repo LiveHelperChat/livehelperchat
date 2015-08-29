@@ -4,6 +4,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -3289,6 +3293,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Preview chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visits</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>From</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Country code variable does not exist!</source>
       <translation type="unfinished"/>
     </message>
@@ -3439,6 +3455,10 @@
   <context>
     <name>system/configuration</name>
     <message>
+      <source>Supported: online_operators, departments_stats, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Request notification permission</source>
       <translation type="unfinished"/>
     </message>
@@ -3447,7 +3467,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Supported: online_operators, departments_stats, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
+      <source>Supported: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3721,6 +3741,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Online visitors</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Transfered chats</source>
       <translation type="unfinished"/>
     </message>
@@ -3782,10 +3806,6 @@
     </message>
     <message>
       <source>Chats list</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online visitors</source>
       <translation type="unfinished"/>
     </message>
     <message>

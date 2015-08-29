@@ -13,17 +13,20 @@
 			<a class="btn btn-xs btn-default" data-popover-content="popover-content-ou" data-chat-id="{{ou.id}}" data-toggle="popover" data-placement="right" ng-click="online.showOnlineUserInfo(ou.id)"><i class="material-icons">info_outline</i><img ng-if="ou.user_country_code != ''" ng-src="<?php echo erLhcoreClassDesign::design('images/flags');?>/{{ou.user_country_code}}.png" alt="{{ou.user_country_name}}" /></a><?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/custom_online_button_multiinclude.tpl.php')); ?><span ng-click="online.previewChat(ou)" class="btn btn-xs btn-success action-image" ng-show="ou.chat_id > 0"><i class="material-icons">chat</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Chat');?></span><span class="btn btn-xs btn-info" ng-show="ou.total_visits > 1"><i class="material-icons">face</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Returning');?> ({{ou.total_visits}})</span><span class="btn btn-success btn-xs" ng-show="ou.total_visits == 1"><i class="material-icons">face</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','New');?></span> <span title="{{ou.operator_user_string}} <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','has sent a message to the user');?>" class="btn btn-xs" ng-show="ou.operator_message != ''" ng-class="ou.message_seen == 1 ? 'btn-success' : 'btn-danger'"><i class="material-icons">chat_bubble_outline</i>{{ou.message_seen == 1 ? trans.msg_seen : trans.msg_not_seen}}</span><span class="btn btn-xs btn-primary up-case-first" ng-if="ou.user_country_code != ''">{{ou.user_country_name}}{{ou.city != '' ? ' | '+ou.city : ''}}</span><span class="btn btn-primary btn-xs"><i class="material-icons">access_time</i>{{ou.visitor_tz}} - {{ou.visitor_tz_time}}</span>
 		</div>
     	
-    	<div id="popover-content-ou-{{ou.id}}" class="hide">
-    	   <ul class="list-unstyled">
-    	       <li>{{ou.notes_intro}}IP: {{ou.ip}}
-    	       <li>{{ou.first_visit_front}} - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','first visit');?>
-    	       <li>{{ou.last_visit_front}} - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','last visit');?>
-    	       <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Pageviews');?> - {{ou.pages_count}} {{ou.identifier != '' ? ' Identifier - '+ou.identifier : ''}}
-    	       <li>{{ou.operator_message == '' ? trans.first : ou.message_seen == 1 ? trans.second : trans.third}}
-    	       <li>{{ou.user_agent}}
-    	   </ul>    	
-    	</div>
-    	        	 
+    	<div id="popover-title-{{ou.id}}" class="hide">
+		   <span ng-if="ou.user_country_code != ''" class="up-case-first">&nbsp;<i class="material-icons">place</i>{{ou.user_country_name}}{{ou.city != '' ? ' | '+ou.city : ''}}</span>
+		</div>
+		<div id="popover-content-ou-{{ou.id}}" class="hide">
+			<ul class="list-unstyled"> 
+				<li><i class="material-icons">access_time</i>{{ou.visitor_tz}} - {{ou.visitor_tz_time}}</li>
+				<li>{{ou.notes_intro}}
+				<li><i class="material-icons">access_time</i>{{ou.first_visit_front}} - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','first visit');?>
+				<li><i class="material-icons">access_time</i>{{ou.last_visit_front}} - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','last visit');?>
+                <li><i class="material-icons">&#xE8A0;</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Pageviews');?> - {{ou.pages_count}} {{ou.identifier != '' ? ' Identifier - '+ou.identifier : ''}} | <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Last activity');?> {{ou.lastactivity_ago}} <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','ago');?> | <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Time on site');?> <span class="fs-11">{{ou.time_on_site_front}}</span>
+                <li><i class="material-icons">&#xE1B1;</i>{{ou.user_agent}} | IP: {{ou.ip}}
+			</ul>
+		</div>
+			        	 
     	<div class="page-url"><span><a target="_blank" href="{{ou.current_page}}" title="{{ou.current_page}}">{{ou.page_title || ou.current_page}}</a></span></div></td>
         <td><div class="page-url"><span><a target="_blank" href="http:{{ou.referrer}}">{{ou.referrer}}</a></span></div></td>                
         <td>
