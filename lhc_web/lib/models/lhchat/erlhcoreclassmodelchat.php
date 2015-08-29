@@ -421,18 +421,18 @@ class erLhcoreClassModelChat {
            
        if (($this->user_status_front == self::USER_STATUS_CLOSED_CHAT && $this->online_user !== false) || ($params['online_if'] == 1 && $this->online_user !== false)) {
            
-           $timeout = (int)$params['checkstatus_timeout'] > 0 ? (int)$params['checkstatus_timeout'] : 300;
+           $timeout = (int)$params['checkstatus_timeout'] || 10;
            
            if ($params['track_activity'] > 0) {
-               if (($timeout == 0 || $this->online_user->last_check_time_ago < ($timeout+10)) && $this->online_user->user_active == 1) { //User still on site, it does not matter that he have closed widget.
+               if ($this->online_user->last_check_time_ago < ($timeout+10) && $this->online_user->user_active == 1) { //User still on site, it does not matter that he have closed widget.
                    $this->user_status_front = 0;
-               } elseif ($this->online_user->user_active == 0 && $timeout > 0 && $this->online_user->last_check_time_ago < ($timeout+10)) {
+               } elseif ($this->online_user->user_active == 0 && $this->online_user->last_check_time_ago < ($timeout+10)) {
                    $this->user_status_front = 2;
                }
            } else {
-               if (($timeout == 0 || $this->online_user->last_check_time_ago < ($timeout+10)) && time()-$this->last_user_msg_time < 300) { //User still on site, it does not matter that he have closed widget.
+               if ($this->online_user->last_check_time_ago < ($timeout+10) && time()-$this->last_user_msg_time < 300) { //User still on site, it does not matter that he have closed widget.
                    $this->user_status_front = 0;
-               } elseif (time()-$this->last_user_msg_time >= 300 && $timeout > 0 && $this->online_user->last_check_time_ago < ($timeout+10)) {
+               } elseif (time()-$this->last_user_msg_time >= 300 && $this->online_user->last_check_time_ago < ($timeout+10)) {
                    $this->user_status_front = 2;
                }
            }           
