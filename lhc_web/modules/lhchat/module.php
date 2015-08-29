@@ -351,7 +351,7 @@ $ViewList['chatcheckoperatormessage'] = array(
 
 $ViewList['logpageview'] = array(
     'params' => array(),
-    'uparams' => array('tz','vid','identifier','department','ua'),
+    'uparams' => array('tz','vid','identifier','department','ua','uactiv','wopen'),
 	'multiple_arguments' => array ( 'department','ua' )
 );
 
