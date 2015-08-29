@@ -228,8 +228,8 @@
     		    <div class="form-group"> 
         		    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Online if');?></label>
         		    <select class="form-control" name="online_ifValueParam">
-        		          <option value="0" <?php echo $systemconfig->value == 0 ? 'checked="checked"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','(Widget is open) or (closed and user has activity in last 5 minutes and ping respond)');?></option>    		        
-        		          <option value="1" <?php echo $systemconfig->value == 1 ? 'checked="checked"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','(Widget is open or closed) and (user has activity in last 5 minutes and ping respond)');?></option>
+        		          <option value="0" <?php echo $systemconfig->value == 0 ? 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','(Widget is open) or (closed and user has activity in last 5 minutes and ping respond)');?></option>    		        
+        		          <option value="1" <?php echo $systemconfig->value == 1 ? 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','(Widget is open or closed) and (user has activity in last 5 minutes and ping respond)');?></option>
         		    </select>
     		    </div>
     		    
