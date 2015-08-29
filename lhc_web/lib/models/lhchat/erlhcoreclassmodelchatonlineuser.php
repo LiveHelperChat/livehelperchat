@@ -248,20 +248,20 @@ class erLhcoreClassModelChatOnlineUser {
        	case 'online_status':
        	        $this->online_status = 2; // Offline
        	        
-       	        if (self::$trackTimeout == 0) {
-       	            self::$trackTimeout = 15;
+       	        if (erLhcoreClassChat::$trackTimeout == 0) {
+       	            erLhcoreClassChat::$trackTimeout = 15;
        	        }
        	        
-       	        if (self::$trackActivity == true) {       	                   	            
-       	            if ($this->last_check_time_ago < (self::$trackTimeout+10) && $this->user_active == 1) { //User still on site, it does not matter that he have closed widget.
+       	        if (erLhcoreClassChat::$trackActivity == true) {       	                   	            
+       	            if ($this->last_check_time_ago < (erLhcoreClassChat::$trackTimeout+10) && $this->user_active == 1) { //User still on site, it does not matter that he have closed widget.
        	                $this->online_status = 0; // Online
-       	            } elseif ($this->last_check_time_ago < (self::$trackTimeout+10) && $this->user_active == 0) {
+       	            } elseif ($this->last_check_time_ago < (erLhcoreClassChat::$trackTimeout+10) && $this->user_active == 0) {
        	                $this->online_status = 1; // Away
        	            }
        	        } else {
-       	            if ($this->last_check_time_ago < ($timeout+10) && time()-$this->last_user_msg_time < 300) { //User still on site, it does not matter that he have closed widget.
+       	            if ($this->last_check_time_ago < (erLhcoreClassChat::$trackTimeout+10) && time()-$this->last_user_msg_time < 300) { //User still on site, it does not matter that he have closed widget.
        	                $this->online_status = 0; // Online
-       	            } elseif ($this->last_check_time_ago < ($timeout+10) && time()-$this->last_user_msg_time >= 300) {
+       	            } elseif ($this->last_check_time_ago < (erLhcoreClassChat::$trackTimeout+10) && time()-$this->last_user_msg_time >= 300) {
        	                $this->online_status = 1; // Away
        	            }
        	        }       	
@@ -787,10 +787,6 @@ class erLhcoreClassModelChatOnlineUser {
    public $requires_phone = 0;
    public $last_check_time = 0;
    public $user_active = 0;
-      
-   // Static attribute for class
-   public static $trackActivity = false;
-   public static $trackTimeout = 0;
    
    // 0 - do not reopen
    // 1 - reopen chat

@@ -1232,6 +1232,10 @@ class erLhcoreClassChat {
    	   	return $time > 0 ? $time : 0;   		
    }
    
+   // Static attribute for class
+   public static $trackActivity = false;
+   public static $trackTimeout = 0;
+   
    private static $persistentSession;
 }
 
