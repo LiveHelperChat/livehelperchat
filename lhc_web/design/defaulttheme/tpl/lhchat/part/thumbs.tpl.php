@@ -1,0 +1,2 @@
+<i class="material-icons<?php if ($chat->fbst == 1) : ?> up-voted<?php endif;?> up-vote-action" role="button" data-id="1" onclick="lhinst.voteAction($(this))" >thumb_up</i>
+<i class="material-icons<?php if ($chat->fbst == 2) : ?> down-voted<?php endif;?> down-vote-action" role="button" data-id="2" onclick="lhinst.voteAction($(this))">thumb_down</i>
