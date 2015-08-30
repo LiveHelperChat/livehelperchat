@@ -339,7 +339,50 @@ class erLhcoreClassModelChat {
        	        }
        			return $this->chat_variables_array;
        		break;
-       			
+
+       		/**
+       		 * @desc Returns user status based on the following logic
+       		 * 1. Green - if widget is not closed
+       		 * 2. Green - if widget is closed and user activity tracking enabled and user still on site and he is active
+       		 * 3. Green - if widget is closed and user activity tracking is disabled, but we still receive pings and from last user message has not passed 5 minutes
+       		 *
+       		 * 4. Yellow - if widget is closed and user activity tracking enabled, but user is not active but he is still on site
+       		 * 5. Yellow - from last user message has passed 5 minutes but user still on site
+       		 *
+       		 * 6. Widget is closed and we could not determine online user || None of above conditions are met.
+       		 *
+       		 * If user activity tracking is enabled but status checking not we default to 10 seconds status checks timeout
+       		 *
+       		 * @param array $params
+       		 *
+       		 * 1 GREEN user has activity in last 5 minutes and ping respond
+       		 * 2 ORANGE user has no activity in last 5 minutes and ping respond
+       		 * 3 GREY Offline user fails to respond pings for X number of times in a row
+       		 *
+       		 * @return int
+       		 */
+       	case 'user_status_front':		
+       		$this->user_status_front = $this->user_status == self::USER_STATUS_JOINED_CHAT ? 0 : 1;
+       		 
+       		if (($this->user_status_front == self::USER_STATUS_CLOSED_CHAT && $this->online_user !== false) || (erLhcoreClassChat::$onlineCondition == 1 && $this->online_user !== false)) {
+       		    $timeout = (int)erLhcoreClassChat::$trackTimeout || 10;
+       		    if (erLhcoreClassChat::$trackActivity == true) {       		        
+       		        if ($this->online_user->last_check_time_ago < ($timeout+10) && $this->online_user->user_active == 1) { //User still on site, it does not matter that he have closed widget.
+       		            $this->user_status_front = 0;
+       		        } elseif ($this->online_user->user_active == 0 && $this->online_user->last_check_time_ago < ($timeout+10)) {
+       		            $this->user_status_front = 2;
+       		        }
+       		    } else {
+       		        if ($this->online_user->last_check_time_ago < ($timeout+10) && time()-$this->last_user_msg_time < 300) { //User still on site, it does not matter that he have closed widget.
+       		            $this->user_status_front = 0;
+       		        } elseif (time()-$this->last_user_msg_time >= 300 && $this->online_user->last_check_time_ago < ($timeout+10)) {
+       		            $this->user_status_front = 2;
+       		        }
+       		    }
+       		}
+       		return $this->user_status_front;
+       	break;	
+       		
        	default:
        		break;
        }
@@ -392,53 +435,6 @@ class erLhcoreClassModelChat {
            $block->user_id = erLhcoreClassUser::instance()->getUserID();
            $block->saveThis();
        }
-   }
-   
-   /**
-    * @desc Returns user status based on the following logic
-    * 1. Green - if widget is not closed
-    * 2. Green - if widget is closed and user activity tracking enabled and user still on site and he is active
-    * 3. Green - if widget is closed and user activity tracking is disabled, but we still receive pings and from last user message has not passed 5 minutes
-    * 
-    * 4. Yellow - if widget is closed and user activity tracking enabled, but user is not active but he is still on site
-    * 5. Yellow - from last user message has passed 5 minutes but user still on site
-    * 
-    * 6. Widget is closed and we could not determine online user || None of above conditions are met.
-    * 
-    * If user activity tracking is enabled but status checking not we default to 10 seconds status checks timeout
-    * 
-    * @param array $params
-    * 
-    * 1 GREEN user has activity in last 5 minutes and ping respond
-    * 2 ORANGE user has no activity in last 5 minutes and ping respond
-    * 3 GREY Offline user fails to respond pings for X number of times in a row
-    * 
-    * @return int
-    */
-   public function getUserStatus(array $params)
-   {
-       $this->user_status_front = $this->user_status == self::USER_STATUS_JOINED_CHAT ? 0 : 1;
-           
-       if (($this->user_status_front == self::USER_STATUS_CLOSED_CHAT && $this->online_user !== false) || ($params['online_if'] == 1 && $this->online_user !== false)) {
-           
-           $timeout = (int)$params['checkstatus_timeout'] || 10;
-           
-           if ($params['track_activity'] > 0) {
-               if ($this->online_user->last_check_time_ago < ($timeout+10) && $this->online_user->user_active == 1) { //User still on site, it does not matter that he have closed widget.
-                   $this->user_status_front = 0;
-               } elseif ($this->online_user->user_active == 0 && $this->online_user->last_check_time_ago < ($timeout+10)) {
-                   $this->user_status_front = 2;
-               }
-           } else {
-               if ($this->online_user->last_check_time_ago < ($timeout+10) && time()-$this->last_user_msg_time < 300) { //User still on site, it does not matter that he have closed widget.
-                   $this->user_status_front = 0;
-               } elseif (time()-$this->last_user_msg_time >= 300 && $this->online_user->last_check_time_ago < ($timeout+10)) {
-                   $this->user_status_front = 2;
-               }
-           }           
-       } 
-       
-       return $this->user_status_front;
    }
    
    const STATUS_PENDING_CHAT = 0;

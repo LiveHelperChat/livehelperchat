@@ -1235,6 +1235,7 @@ class erLhcoreClassChat {
    // Static attribute for class
    public static $trackActivity = false;
    public static $trackTimeout = 0;
+   public static $onlineCondition = 0;
    
    private static $persistentSession;
 }

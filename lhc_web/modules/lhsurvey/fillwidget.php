@@ -34,11 +34,7 @@ try {
         
     } else if ((string)$Params['user_parameters_unordered']['hash'] != '') {
         list($chatID,$hash) = explode('_',$Params['user_parameters_unordered']['hash']);    
-        try {
-            $chat = erLhcoreClassModelChat::fetch($chatID);            
-        } catch (Exception $e) {
-    
-        }    
+        $chat = erLhcoreClassModelChat::fetch($chatID);
     }
     
     erLhcoreClassChat::setTimeZoneByChat($chat);
