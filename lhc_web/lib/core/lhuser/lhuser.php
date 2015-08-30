@@ -48,6 +48,11 @@ class erLhcoreClassUser{
 	       		{
 	       			unset($_SESSION['lhc_access_timestamp']);
 	       		}
+	       			       		
+	       		if ( isset($_SESSION['lhc_chat_config']) )
+	       		{
+	       			unset($_SESSION['lhc_chat_config']);
+	       		}
 	       	}
 	       	
        } else {
@@ -220,7 +225,8 @@ class erLhcoreClassUser{
        if (isset($_SESSION['lhc_user_id'])){ unset($_SESSION['lhc_user_id']); }
        if (isset($_SESSION['lhc_csfr_token'])){ unset($_SESSION['lhc_csfr_token']); }
        if (isset($_SESSION['lhc_user_timezone'])){ unset($_SESSION['lhc_user_timezone']); }
-
+       if (isset($_SESSION['lhc_chat_config'])){ unset($_SESSION['lhc_chat_config']); }
+       
        if ( isset($_COOKIE['lhc_rm_u']) ) {
        		unset($_COOKIE['lhc_rm_u']);
        		setcookie('lhc_rm_u','',time()-31*24*3600,'/');

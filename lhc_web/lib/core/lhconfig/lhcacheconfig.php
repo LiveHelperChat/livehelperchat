@@ -74,6 +74,10 @@ class erConfigClassLhCacheConfig
     
     public function expireCache()
     {
+        if (isset($_SESSION['lhc_chat_config'])) {
+            unset($_SESSION['lhc_chat_config']);
+        }
+        
     	if ($this->expiredInRuntime == false) {
     		$this->expiredInRuntime = true;
 	        foreach ($this->expireOptions as $option)

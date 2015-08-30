@@ -31,10 +31,30 @@ class erLhcoreClassModelChatConfig {
        return $GLOBALS['lhc_erLhcoreClassModelChatConfig'.$identifier];
    }
 
+   public static function fetchCache($identifier)
+   {              
+       if (self::$disableCache == false && isset($GLOBALS['lhc_erLhcoreClassModelChatConfig'.$identifier])) {
+           return $GLOBALS['lhc_erLhcoreClassModelChatConfig'.$identifier];
+       }
+       
+       $cache = CSCacheAPC::getMem();
+       $configArray = $cache->getArray('lhc_chat_config');
+       if (isset($configArray[$identifier])) {          
+           return $configArray[$identifier];
+       } else {
+          $_SESSION['lhc_chat_config'][$identifier] = self::fetch($identifier);
+          return $_SESSION['lhc_chat_config'][$identifier];
+       }
+   }
+   
    public function saveThis()
    {
    	   if (isset($GLOBALS['lhc_erLhcoreClassModelChatConfig'.$this->identifier])){
    	   		unset($GLOBALS['lhc_erLhcoreClassModelChatConfig'.$this->identifier]);
+   	   }
+   	   
+   	   if (isset($_SESSION['lhc_chat_config'][$this->identifier])) {
+   	   		unset($_SESSION['lhc_chat_config'][$this->identifier]);
    	   }
    	   
        erLhcoreClassChat::getSession()->saveOrUpdate( $this );

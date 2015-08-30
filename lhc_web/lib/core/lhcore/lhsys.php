@@ -5,7 +5,8 @@ class CSCacheAPC {
     static private $m_objMem = NULL;
     public $cacheEngine = null;
     public $cacheGlobalKey = null;
-
+    public $cacheGlobalKeyAppend = null;
+    
     public $cacheKeys = array(
     'site_version'             // Global site version
     );
@@ -69,7 +70,7 @@ class CSCacheAPC {
     function __construct() {
 
         $cacheEngineClassName = erConfigClassLhConfig::getInstance()->getSetting( 'cacheEngine', 'className' );
-        $this->cacheGlobalKey = erConfigClassLhConfig::getInstance()->getSetting( 'cacheEngine', 'cache_global_key' );
+        $this->cacheGlobalKey = erConfigClassLhConfig::getInstance()->getSetting( 'cacheEngine', 'cache_global_key' ) . $this->cacheGlobalKeyAppend;
 
         if ($cacheEngineClassName !== false)
         {

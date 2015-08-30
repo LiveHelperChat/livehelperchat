@@ -1,12 +1,9 @@
 <?php
 
-// We do not need a session anymore
-session_write_close();
-
 $timeCurrent = time();
-$pollingEnabled = (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['long_polling_enabled'];
-$pollingServerTimeout = (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['connection_timeout'];
-$pollingMessageTimeout = (float)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['polling_chat_message_sinterval'];
+$pollingEnabled = (int)erLhcoreClassModelChatConfig::fetchCache('sync_sound_settings')->data['long_polling_enabled'];
+$pollingServerTimeout = (int)erLhcoreClassModelChatConfig::fetchCache('sync_sound_settings')->data['connection_timeout'];
+$pollingMessageTimeout = (float)erLhcoreClassModelChatConfig::fetchCache('sync_sound_settings')->data['polling_chat_message_sinterval'];
 $breakSync = false;
 
 $content = 'false';
@@ -29,10 +26,13 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
     }
     
     // Set online condition configurations
-    erLhcoreClassChat::$trackActivity = (int)erLhcoreClassModelChatConfig::fetch('track_activity')->current_value == 1;
-    erLhcoreClassChat::$trackTimeout = (int)erLhcoreClassModelChatConfig::fetch('checkstatus_timeout')->current_value;
-    erLhcoreClassChat::$onlineCondition = (int)erLhcoreClassModelChatConfig::fetch('online_if')->current_value;
+    erLhcoreClassChat::$trackActivity = (int)erLhcoreClassModelChatConfig::fetchCache('track_activity')->current_value == 1;
+    erLhcoreClassChat::$trackTimeout = (int)erLhcoreClassModelChatConfig::fetchCache('checkstatus_timeout')->current_value;
+    erLhcoreClassChat::$onlineCondition = (int)erLhcoreClassModelChatConfig::fetchCache('online_if')->current_value;
         
+    // We do not need a session anymore
+    session_write_close();
+    
     $db = ezcDbInstance::get();        
     while (true) {
     	$db->beginTransaction();
