@@ -66,7 +66,16 @@ class CSCacheAPC {
 
     	return false;
     }
-
+    
+    function restoreMulti($keys)
+    {
+        if ($this->cacheEngine != null) {
+            return $this->cacheEngine->get($keys);
+        }
+    
+        return array();
+    }
+    
     function __construct() {
 
         $cacheEngineClassName = erConfigClassLhConfig::getInstance()->getSetting( 'cacheEngine', 'className' );

@@ -550,7 +550,7 @@ class erLhcoreClassChat {
     	$filter['limit'] = $limit;
     	$filter['offset'] = $offset;
     	$filter['smart_select'] = true;
-
+    	
     	if (!empty($filterAdditional)) {
     		$filter = array_merge_recursive($filter,$filterAdditional);
     	}
@@ -1143,6 +1143,150 @@ class erLhcoreClassChat {
    			$param = (int)$param;
    		}
    }
+   
+   /*
+    * Example of call
+    * This method can prefill first and second level objects without
+    * requirement for each object to be fetched separately
+    * Increases performance drastically
+   erLhcoreClassModuleFunctions::prefillObjects($items, array(
+       array(
+           'order_id',
+           'order',
+           'dommyClass::getList'
+       ),      
+       array(
+           'status_id',
+           'status',
+           'dommyClass::getList'
+       ),
+       array(
+           array(
+               'order',
+               'registration_id'
+           ),
+           array(
+               'order',
+               'registration'
+           ),
+           'dommyClass::getList',
+           'id'
+       )
+   ));
+   */
+   public static function prefillObjects(& $objects, $attrs = array(), $params = array())
+   {
+       $cache = CSCacheAPC::getMem();
+   
+       foreach ($attrs as $attr) {
+           $ids = array();
+           foreach ($objects as $object) {
+               if (is_array($attr[0])) {
+                   if (is_object($object->{$attr[0][0]}) && $object->{$attr[0][0]}->{$attr[0][1]} > 0) {
+                       $ids[] = $object->{$attr[0][0]}->{$attr[0][1]};
+                   }
+               } else {
+                   if ($object->{$attr[0]} > 0) {
+                       $ids[] = $object->{$attr[0]};
+                   }
+               }
+           }
+   
+           $ids = array_unique($ids);
+   
+           if (! empty($ids)) {
+   
+               // First try to fetch from memory
+               if (isset($params['use_cache'])) {
+                   list ($class) = explode('::', $attr[2]);
+                   $class = strtolower($class);
+   
+                   $cacheKeyPrefix = $cache->cacheGlobalKey . 'object_' . $class . '_';
+                   $cacheKeyPrefixStore = 'object_' . $class . '_';
+   
+                   $cacheKeys = array();
+                   foreach ($ids as $id) {
+                       $cacheKeys[] = $cacheKeyPrefix . $id;
+                   }
+   
+                   $cachedObjects = $cache->restoreMulti($cacheKeys);
+   
+                   if (! empty($cachedObjects)) {
+                       foreach ($objects as & $item) {
+                           if (is_array($attr[0])) {
+                               if (isset($cachedObjects[$cacheKeyPrefix . $item->{$attr[0][0]}->{$attr[0][1]}]) && $cachedObjects[$cacheKeyPrefix . $item->{$attr[0][0]}->{$attr[0][1]}] !== false) {
+                                   $item->{$attr[1][0]}->{$attr[1][1]} = $cachedObjects[$cacheKeyPrefix . $item->{$attr[0][0]}->{$attr[0][1]}];
+                                   $key = array_search($item->{$attr[0][0]}->{$attr[0][1]}, $ids);
+                                   if ($key !== false) {
+                                       unset($ids[$key]);
+                                   }
+                               }
+                           } else {
+                               if (isset($cachedObjects[$cacheKeyPrefix . $item->{$attr[0]}]) && $cachedObjects[$cacheKeyPrefix . $item->{$attr[0]}] !== false) {
+                                   $item->{$attr[1]} = $cachedObjects[$cacheKeyPrefix . $item->{$attr[0]}];
+                                   $key = array_search($item->{$attr[0]}, $ids);
+                                   if ($key !== false) {
+                                       unset($ids[$key]);
+                                   }
+                               }
+                           }
+                       }
+                   }
+               }
+   
+               // Check again that ID's were not filled
+               if (! empty($ids)) {
+                   $filter_attr = 'id';
+   
+                   if (isset($attr[3]) && $attr[3]) {
+                       $filter_attr = $attr[3];
+                   }
+   
+                   $objectsPrefill = call_user_func($attr[2], array(
+                       'limit' => false,
+                       'filterin' => array(
+                           $filter_attr => $ids
+                       )
+                   ));
+   
+                   if ($filter_attr != 'id') {
+                       $objectsPrefillNew = array();
+                       foreach ($objectsPrefill as $key => $value) {
+                           $objectsPrefillNew[$value->$filter_attr] = $value;
+                       }
+                       $objectsPrefill = $objectsPrefillNew;
+                   }
+   
+                   foreach ($objects as & $item) {
+   
+                       if (is_array($attr[0])) {
+                           if (is_object($item->{$attr[0][0]}) && isset($objectsPrefill[$item->{$attr[0][0]}->{$attr[0][1]}])) {
+                               $item->{$attr[1][0]}->{$attr[1][1]} = $objectsPrefill[$item->{$attr[0][0]}->{$attr[0][1]}];
+   
+                               if (isset($params['use_cache']) && $params['use_cache'] == true) {
+                                   $cache->store($cacheKeyPrefixStore . $item->{$attr[0][0]}->{$attr[0][1]}, $objectsPrefill[$item->{$attr[0][0]}->{$attr[0][1]}]);
+                               }
+                           }
+                       } else {
+                           if (isset($objectsPrefill[$item->{$attr[0]}])) {
+   
+                               $item->{$attr[1]} = $objectsPrefill[$item->{$attr[0]}];
+   
+                               if (isset($params['fill_cache']) && $params['fill_cache'] == true) {
+                                   $GLOBALS[get_class($objectsPrefill[$item->{$attr[0]}]) . '_' . $item->{$attr[0]}] = $item->{$attr[1]};
+                               }
+   
+                               if (isset($params['use_cache']) && $params['use_cache'] == true) {
+                                   $cache->store($cacheKeyPrefixStore . $item->{$attr[0]}, $objectsPrefill[$item->{$attr[0]}]);
+                               }
+                           }
+                       }
+                   }
+               }
+           }
+       }
+   }
+   
    
    public static function updateActiveChats($user_id)
    {
