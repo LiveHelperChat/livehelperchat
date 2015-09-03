@@ -76,8 +76,10 @@ try {
     				// We do not store last msg time for chat here, because in any case none of opeators has opened it
     				$contactRedirected = true;
     				
-    				$chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM;
-    				$chat->updateThis();
+    				if ($chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM) {
+        				$chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM;
+        				$chat->updateThis();
+    				}
     				
     			} else {
     				erLhcoreClassChatWorkflow::autoAssign($chat,$department);
