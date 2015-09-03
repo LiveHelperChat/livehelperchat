@@ -56,6 +56,8 @@ try {
     		}
     	}
     	
+    	$contactRedirected = false;
+    	
     	if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
     		$department = $chat->department;
     		if ($department !== false) {
@@ -70,7 +72,12 @@ try {
     				$msg->user_id = -1;
     				$msg->time = time();    				
     				erLhcoreClassChat::getSession()->save($msg);
+    				
     				// We do not store last msg time for chat here, because in any case none of opeators has opened it
+    				$contactRedirected = true;
+    				
+    				$chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM;
+    				$chat->updateThis();
     				
     			} else {
     				erLhcoreClassChatWorkflow::autoAssign($chat,$department);
@@ -106,7 +113,7 @@ try {
 	    	$tpl->set('is_closed',false);
 	    }
 	    
-	    if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM) {
+	    if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM && $contactRedirected == false) {
 	    	$activated = 'false';
 	    	$department = $chat->department;
 	    	if ($department !== false) {
