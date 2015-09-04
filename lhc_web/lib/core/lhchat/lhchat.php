@@ -1301,6 +1301,14 @@ class erLhcoreClassChat {
        }
        
        if (!empty($onlineUserId)) {
+           
+           $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.setonlinestatus',array('list' => & $chatLists, 'online_users_id' => $onlineUserId));
+           
+           // Event listener has done it's job
+           if (isset($response['status']) && $response['status'] === erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
+               return ;
+           }
+           
            $onlineVisitors = erLhcoreClassModelChatOnlineUser::getList( array (
                 'sort' => false,
                 'filterin' => array (
