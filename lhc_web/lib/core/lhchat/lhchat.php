@@ -17,7 +17,7 @@ class erLhcoreClassChat {
 			'user_typing_txt',
 			'hash',
 			'ip',
-			'user_status',
+			//'user_status',
 			'email',
 			'support_informed',
 			'phone',
@@ -1351,15 +1351,60 @@ class erLhcoreClassChat {
            foreach ($chatLists as & $chatList) {
                foreach ($chatList as & $chat) {
                    if (isset($chat->online_user_id) && $chat->online_user_id > 0 && isset($onlineVisitors[$chat->online_user_id])) {
-                       $chat->user_status_front = $onlineVisitors[$chat->online_user_id]->online_status;
+                       $chat->user_status_front = self::setActivityByChatAndOnlineUser($chat, $onlineVisitors[$chat->online_user_id]);
                    } else {
                        $chat->user_status_front = 2;
-                   }
+                   }                   
                }
            }           
-       }
+       }       
    }
-      
+   
+   /**
+    * @desc Returns user status based on the following logic
+    * 1. Green - if widget is not closed
+    * 2. Green - if widget is closed and user activity tracking enabled and user still on site and he is active
+    * 3. Green - if widget is closed and user activity tracking is disabled, but we still receive pings and from last user message has not passed 5 minutes
+    *
+    * 4. Yellow - if widget is closed and user activity tracking enabled, but user is not active but he is still on site
+    * 5. Yellow - from last user message has passed 5 minutes but user still on site
+    *
+    * 6. Widget is closed and we could not determine online user || None of above conditions are met.
+    *
+    * If user activity tracking is enabled but status checking not we default to 10 seconds status checks timeout
+    *
+    * @param array $params
+    *
+    * 1 GREEN user has activity in last 5 minutes and ping respond
+    * 2 ORANGE user has no activity in last 5 minutes and ping respond
+    * 3 GREY Offline user fails to respond pings for X number of times in a row
+    *
+    * @return int
+    */
+   public static function setActivityByChatAndOnlineUser($chat, erLhcoreClassModelChatOnlineUser $onlineUser)
+   {
+        $user_status_front = (!isset($chat->user_status) || $chat->user_status == erLhcoreClassModelChat::USER_STATUS_JOINED_CHAT) ? 0 : 1;
+        
+        if (($user_status_front == erLhcoreClassModelChat::USER_STATUS_CLOSED_CHAT) || (erLhcoreClassChat::$onlineCondition == 1)) {
+           $timeout = (int)erLhcoreClassChat::$trackTimeout || 10;
+           if (erLhcoreClassChat::$trackActivity == true) {
+               if ($onlineUser->last_check_time_ago < ($timeout+10) && isset($onlineUser->user_active) && $onlineUser->user_active == 1) { //User still on site, it does not matter that he have closed widget.
+                   $user_status_front = 0;
+               } elseif ((!isset($onlineUser->user_active) || $onlineUser->user_active == 0) && $onlineUser->last_check_time_ago < ($timeout+10)) {
+                   $user_status_front = 2;
+               }
+           } else {
+               if ($onlineUser->last_check_time_ago < ($timeout+10) && time()-$chat->last_user_msg_time < 300) { //User still on site, it does not matter that he have closed widget.
+                   $user_status_front = 0;
+               } elseif (isset($chat->last_user_msg_time) && time()-$chat->last_user_msg_time >= 300 && $onlineUser->last_check_time_ago < ($timeout+10)) {
+                   $user_status_front = 2;                 
+               }
+           }
+        }
+        
+        return $user_status_front;
+   }
+   
    public static function updateActiveChats($user_id)
    {
 	   	$db = ezcDbInstance::get();
