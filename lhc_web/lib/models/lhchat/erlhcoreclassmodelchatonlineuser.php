@@ -259,10 +259,10 @@ class erLhcoreClassModelChatOnlineUser {
        	                $this->online_status = 1; // Away
        	            }
        	        } else {
-       	            if ($this->last_check_time_ago < (erLhcoreClassChat::$trackTimeout+10) && time()-$this->last_user_msg_time < 300) { //User still on site, it does not matter that he have closed widget.
+       	            if ($this->last_check_time_ago < (erLhcoreClassChat::$trackTimeout+10)) { //User still on site, it does not matter that he have closed widget.
        	                $this->online_status = 0; // Online
-       	            } elseif ($this->last_check_time_ago < (erLhcoreClassChat::$trackTimeout+10) && time()-$this->last_user_msg_time >= 300) {
-       	                $this->online_status = 1; // Away
+       	            } elseif ($this->last_check_time_ago < (erLhcoreClassChat::$trackTimeout + 300)) {
+       	                $this->online_status = 1; // Away       	               
        	            }
        	        }       	
        	                
