@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Nombre de jours avant que le widget de vote ne soit ré-affiché</translation>
     </message>
@@ -18,6 +22,10 @@
       <translation>Activez le suivi des visiteurs en ligne du site</translation>
     </message>
     <message>
+      <source>Should mouse movement be tracked as activity measure, if not checked only basic events would be tracked</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Track is user still on site, chat status checks also has to be enabled</source>
       <translation>Vérifier si l&apos;utilisateur est encore sur le site, les vérifications de l&apos;état du chat doivent également être activées</translation>
     </message>
@@ -32,6 +40,10 @@
     <message>
       <source>Set your domain to enable user tracking across different domain subdomains.</source>
       <translation>Définir votre domaine pour activer le suivi des utilisateurs à travers des sous-domaines différents du domaine.</translation>
+    </message>
+    <message>
+      <source>Track users activity on site?</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>How many days keep records of online users.</source>
@@ -108,6 +120,10 @@
     <message>
       <source>Is pro active chat invitation active. Online users tracking also has to be enabled</source>
       <translation>Est-ce que le chat proactif est actif. Le suivi des utilisateurs en ligne doit aussi être activé</translation>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
@@ -3275,6 +3291,18 @@
       <translation>Le téléversement de fichier par les opérateurs est actif</translation>
     </message>
     <message>
+      <source>Preview chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visits</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>From</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Country code variable does not exist!</source>
       <translation>La variable code pays n&apos;existe pas</translation>
     </message>
@@ -3362,6 +3390,10 @@
       <translation>Autre</translation>
     </message>
     <message>
+      <source>Visitor activity</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Workflow</source>
       <translation>Flux de travail</translation>
     </message>
@@ -3382,12 +3414,28 @@
       <translation>Chat associé</translation>
     </message>
     <message>
+      <source>Online if</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>(Widget is open) or (closed and user has activity in last 5 minutes and ping respond)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>(Widget is open or closed) and (user has activity in last 5 minutes and ping respond)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Update</source>
       <translation>Actualiser</translation>
     </message>
     <message>
       <source>Settings updated</source>
       <translation>Réglages enregistrés</translation>
+    </message>
+    <message>
+      <source>This determines should status widget change it&apos;s status once operator logins. Recommended value 290</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Screen sharing</source>
@@ -3405,6 +3453,10 @@
   <context>
     <name>system/configuration</name>
     <message>
+      <source>Supported: online_operators, departments_stats, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Request notification permission</source>
       <translation>Demander l&apos;autorisation des notifications sur le bureau</translation>
     </message>
@@ -3413,7 +3465,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Supported: online_operators, departments_stats, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
+      <source>Supported: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3687,6 +3739,10 @@
       <translation>Opérateurs en ligne</translation>
     </message>
     <message>
+      <source>Online visitors</source>
+      <translation>Visiteurs connectés</translation>
+    </message>
+    <message>
       <source>Transfered chats</source>
       <translation type="unfinished"/>
     </message>
@@ -3749,10 +3805,6 @@
     <message>
       <source>Chats list</source>
       <translation>Liste des chats</translation>
-    </message>
-    <message>
-      <source>Online visitors</source>
-      <translation>Visiteurs connectés</translation>
     </message>
     <message>
       <source>Account</source>

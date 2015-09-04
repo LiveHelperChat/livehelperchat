@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Per quanti giorni il widget di voto non deve essere mostrato dopo l&apos;ultima visualizzazione</translation>
     </message>
@@ -18,6 +22,10 @@
       <translation>Permettere il rilevamento dei visitatori del sito online </translation>
     </message>
     <message>
+      <source>Should mouse movement be tracked as activity measure, if not checked only basic events would be tracked</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Track is user still on site, chat status checks also has to be enabled</source>
       <translation>Controlla se l&apos;utente è ancora sul sito, il controllo dello stato chat deve essere abilitato</translation>
     </message>
@@ -32,6 +40,10 @@
     <message>
       <source>Set your domain to enable user tracking across different domain subdomains.</source>
       <translation>Imposta il tuo dominio per abilitare il tracking dell&apos;utente attraverso diversi sottodomini</translation>
+    </message>
+    <message>
+      <source>Track users activity on site?</source>
+      <translation>Tracciare l&apos;attività degli utenti sul sito?</translation>
     </message>
     <message>
       <source>How many days keep records of online users.</source>
@@ -108,6 +120,10 @@
     <message>
       <source>Is pro active chat invitation active. Online users tracking also has to be enabled</source>
       <translation>Invito chat attiva pro è attivo. Tracciamento utenti online deve essere attivo.</translation>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
@@ -1217,7 +1233,7 @@
     </message>
     <message>
       <source>Group results by operator</source>
-      <translation type="unfinished"/>
+      <translation>Raggruppa risultati per operatore</translation>
     </message>
     <message>
       <source>Minimum chats</source>
@@ -1225,7 +1241,7 @@
     </message>
     <message>
       <source>Optional</source>
-      <translation type="unfinished"/>
+      <translation>Opzionale</translation>
     </message>
   </context>
   <context>
@@ -3276,6 +3292,18 @@
       <translation>L&apos;upload files per gli operatori è attivo</translation>
     </message>
     <message>
+      <source>Preview chat</source>
+      <translation>Anteprima chat</translation>
+    </message>
+    <message>
+      <source>Visits</source>
+      <translation>Visite</translation>
+    </message>
+    <message>
+      <source>From</source>
+      <translation>Da</translation>
+    </message>
+    <message>
       <source>Country code variable does not exist!</source>
       <translation>Variabile Codice paese non esiste!</translation>
     </message>
@@ -3363,6 +3391,10 @@
       <translation>Misc</translation>
     </message>
     <message>
+      <source>Visitor activity</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Workflow</source>
       <translation>Flusso di lavoro</translation>
     </message>
@@ -3383,12 +3415,28 @@
       <translation>Riguardante la chat</translation>
     </message>
     <message>
+      <source>Online if</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>(Widget is open) or (closed and user has activity in last 5 minutes and ping respond)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>(Widget is open or closed) and (user has activity in last 5 minutes and ping respond)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Update</source>
       <translation>Aggiornamento</translation>
     </message>
     <message>
       <source>Settings updated</source>
       <translation>Impostazioni aggiornate</translation>
+    </message>
+    <message>
+      <source>This determines should status widget change it&apos;s status once operator logins. Recommended value 290</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Screen sharing</source>
@@ -3406,6 +3454,10 @@
   <context>
     <name>system/configuration</name>
     <message>
+      <source>Supported: online_operators, departments_stats, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
+      <translation>Supportato: online_operators, departments_stats, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</translation>
+    </message>
+    <message>
       <source>Request notification permission</source>
       <translation>Richiesta di autorizzazione notifica</translation>
     </message>
@@ -3414,8 +3466,8 @@
       <translation>Supportato: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</translation>
     </message>
     <message>
-      <source>Supported: online_operators, departments_stats, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
-      <translation>Supportato: online_operators, departments_stats, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</translation>
+      <source>Supported: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>New chat notification settings</source>
@@ -3688,6 +3740,10 @@
       <translation>Operatori on line</translation>
     </message>
     <message>
+      <source>Online visitors</source>
+      <translation>Utenti online</translation>
+    </message>
+    <message>
       <source>Transfered chats</source>
       <translation>Chat trasferite</translation>
     </message>
@@ -3750,10 +3806,6 @@
     <message>
       <source>Chats list</source>
       <translation>Chat Liste</translation>
-    </message>
-    <message>
-      <source>Online visitors</source>
-      <translation>Utenti online</translation>
     </message>
     <message>
       <source>Account</source>
