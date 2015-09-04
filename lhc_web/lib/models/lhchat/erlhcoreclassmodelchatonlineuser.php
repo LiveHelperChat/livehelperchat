@@ -279,14 +279,14 @@ class erLhcoreClassModelChatOnlineUser {
    		return erLhcoreClassChat::getCount($params,"lh_chat_online_user");   	
    }
 
-   public static function getList($paramsSearch = array())
+   public static function getList($paramsSearch = array(), $ignoreColumns = array())
    {
        $paramsDefault = array('limit' => 32, 'offset' => 0);
 
        $params = array_merge($paramsDefault,$paramsSearch);
 
        $session = erLhcoreClassChat::getSession();
-       $q = $session->createFindQuery( 'erLhcoreClassModelChatOnlineUser' );
+       $q = $session->createFindQuery( 'erLhcoreClassModelChatOnlineUser', $ignoreColumns );
 
        $conditions = array();
 

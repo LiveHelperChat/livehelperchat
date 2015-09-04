@@ -309,13 +309,24 @@ option.offline-dep{
 	color:#CCC;
 }
 
-.icon-user-online {
+.icon-user-online,
+.icon-user-online a{
 	color:#5da423;
 }
 
-.icon-user-away {
+.user-online-row td{
+	background-color:#E4FFE0;
+}
+
+.icon-user-away,
+.icon-user-away a{
 	color:#EDC21A;
 }
+
+.user-away-row td{
+	background-color:#FFFFDA;
+}
+
 
 /*User has done pageview in the last 5 minutes*/
 .icon-user-pageview {

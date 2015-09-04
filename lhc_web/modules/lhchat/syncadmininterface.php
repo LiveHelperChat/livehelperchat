@@ -3,6 +3,9 @@
 $currentUser = erLhcoreClassUser::instance();
 
 $onlineTimeout = (int)erLhcoreClassModelChatConfig::fetchCache('sync_sound_settings')->data['online_timeout'];
+erLhcoreClassChat::$trackActivity = (int)erLhcoreClassModelChatConfig::fetchCache('track_activity')->current_value == 1;
+erLhcoreClassChat::$trackTimeout = (int)erLhcoreClassModelChatConfig::fetchCache('checkstatus_timeout')->current_value;
+
 
 $canListOnlineUsers = false;
 $canListOnlineUsersAll = false;
@@ -23,6 +26,8 @@ $closedTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_close_list
 $unreadTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_unread_list',1);
 $showAllPending = erLhcoreClassModelUserSetting::getSetting('show_all_pending',1);
 $showDepartmentsStats = $currentUser->hasAccessTo('lhuser','canseedepartmentstats');
+
+$chatsList = array();
 
 if ($showDepartmentsStats == true) {
     /**
@@ -63,6 +68,8 @@ if ($activeTabEnabled == true) {
 	$chats = erLhcoreClassChat::getActiveChats($limitList,0,$filter);
 	erLhcoreClassChat::prefillGetAttributes($chats,array('time_created_front','department_name','plain_user_name'),array('department','time','status','user_id','user'));	
 	$ReturnMessages['active_chats'] = array('list' => array_values($chats));	
+	
+	$chatsList[] = & $ReturnMessages['active_chats']['list'];
 }
 
 if ($closedTabEnabled == true) {
@@ -83,6 +90,8 @@ if ($closedTabEnabled == true) {
 	$chats = erLhcoreClassChat::getClosedChats($limitList,0,$filter);
 	erLhcoreClassChat::prefillGetAttributes($chats,array('time_created_front','department_name','plain_user_name'),array('department','time','status','user_id','user'));
 	$ReturnMessages['closed_chats'] = array('list' => array_values($chats));
+	
+	$chatsList[] = & $ReturnMessages['closed_chats']['list'];
 }
 
 if ($pendingTabEnabled == true) {
@@ -121,6 +130,8 @@ if ($pendingTabEnabled == true) {
 	
 	erLhcoreClassChat::prefillGetAttributes($pendingChats,array('time_created_front','department_name','wait_time_pending','wait_time_seconds','plain_user_name'), array('department','time','status','user_id','user'));
 	$ReturnMessages['pending_chats'] = array('list' => array_values($pendingChats),'nick' => $lastChatNick,'msg' => $lastMessage, 'last_id_identifier' => 'pending_chat', 'last_id' => $lastPendingChatID);
+	
+	$chatsList[] = & $ReturnMessages['pending_chats']['list'];
 }
 
 // Transfered chats
@@ -194,6 +205,12 @@ if ($unreadTabEnabled == true) {
 	
 	erLhcoreClassChat::prefillGetAttributes($unreadChats,array('time_created_front','department_name','unread_time','plain_user_name'),array('department','time','status','user_id','user'));
 	$ReturnMessages['unread_chats'] = array('msg' => $lastMessage, 'nick' => $lastChatNick, 'last_id' => $lastPendingChatID, 'last_id_identifier' => 'unread_chat', 'list' => array_values($unreadChats));
+	
+	$chatsList[] = & $ReturnMessages['unread_chats']['list'];
+}
+
+if (!empty($chatsList)) {
+    erLhcoreClassChat::setOnlineStatus($chatsList);
 }
 
 // Update last visit

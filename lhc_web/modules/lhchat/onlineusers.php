@@ -57,8 +57,8 @@ if ($userDepartments !== true){
 if ($is_ajax == true) {
 	$items = erLhcoreClassModelChatOnlineUser::getList($filter);
 	
-	erLhcoreClassChat::$trackActivity = (int)erLhcoreClassModelChatConfig::fetch('track_activity')->current_value == 1;
-	erLhcoreClassChat::$trackTimeout = (int)erLhcoreClassModelChatConfig::fetch('checkstatus_timeout')->current_value;
+	erLhcoreClassChat::$trackActivity = (int)erLhcoreClassModelChatConfig::fetchCache('track_activity')->current_value == 1;
+	erLhcoreClassChat::$trackTimeout = (int)erLhcoreClassModelChatConfig::fetchCache('checkstatus_timeout')->current_value;
 	
 	erLhcoreClassChat::prefillGetAttributes($items,array('online_attr_system_array','notes_intro','last_check_time_ago','visitor_tz_time','last_visit_seconds_ago','lastactivity_ago','time_on_site_front','can_view_chat','operator_user_send','operator_user_string','first_visit_front','last_visit_front','online_status'),array('notes','online_attr_system'),array('do_not_clean' => true));
 	echo json_encode(array_values($items));
