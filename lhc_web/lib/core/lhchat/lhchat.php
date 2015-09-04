@@ -1353,11 +1353,11 @@ class erLhcoreClassChat {
                    if (isset($chat->online_user_id) && $chat->online_user_id > 0 && isset($onlineVisitors[$chat->online_user_id])) {
                        $chat->user_status_front = self::setActivityByChatAndOnlineUser($chat, $onlineVisitors[$chat->online_user_id]);
                    } else {
-                       $chat->user_status_front = 2;
+                       $chat->user_status_front = 1;
                    }                   
                }
            }           
-       }       
+       }
    }
    
    /**
