@@ -1302,6 +1302,7 @@ class erLhcoreClassChat {
        
        if (!empty($onlineUserId)) {
            $onlineVisitors = erLhcoreClassModelChatOnlineUser::getList( array (
+                'sort' => false,
                 'filterin' => array (
                     'id' => $onlineUserId
                 )

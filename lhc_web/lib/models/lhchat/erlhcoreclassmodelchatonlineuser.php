@@ -331,8 +331,11 @@ class erLhcoreClassModelChatOnlineUser {
 
       $q->limit($params['limit'],$params['offset']);
 
-      $q->orderBy(isset($params['sort']) ? $params['sort'] : 'id DESC' );
-
+      if (!isset($params['sort']) || (isset($params['sort']) && $params['sort'] !== false))
+      {
+           $q->orderBy(isset($params['sort']) ? $params['sort'] : 'id DESC' );
+      }
+      
       $objects = $session->find( $q );
 
       return $objects;
