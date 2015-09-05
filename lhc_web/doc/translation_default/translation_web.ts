@@ -12,6 +12,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -3810,6 +3814,10 @@
     </message>
     <message>
       <source>Chat tabs</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Configuration</source>
       <translation type="unfinished"/>
     </message>
     <message>
