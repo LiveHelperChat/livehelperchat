@@ -15,14 +15,14 @@ foreach ($dashboardOrder as $widgetsColumn) {
 }
 
 $supportedWidgets = array(
-    'online_operators' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets', 'Online operators'),
-    'active_chats' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets', 'Active chats'),
-    'online_visitors' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets', 'Online visitors'),
-    'departments_stats' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets', 'Departments stats'),
-    'pending_chats' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets', 'Pending chats'),
-    'unread_chats' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets', 'Unread chats'),
-    'transfered_chats' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets', 'Transfered chats'),
-    'closed_chats' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets', 'Closed chats')
+    'online_operators' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Online operators'),
+    'active_chats' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Active chats'),
+    'online_visitors' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Online visitors'),
+    'departments_stats' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Departments stats'),
+    'pending_chats' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Pending chats'),
+    'unread_chats' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Unread chats'),
+    'transfered_chats' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Transfered chats'),
+    'closed_chats' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Closed chats')
 );
 
 if (ezcInputForm::hasPostData()) {
