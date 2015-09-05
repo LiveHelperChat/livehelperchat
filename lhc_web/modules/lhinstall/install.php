@@ -781,7 +781,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
         	   `user_id` int(11) NOT NULL,
         	   `identifier` varchar(50) NOT NULL,
-        	   `value` varchar(50) NOT NULL,
+        	   `value` varchar(255) NOT NULL,
         	   PRIMARY KEY (`id`),
         	   KEY `user_id` (`user_id`,`identifier`)
         	   ) DEFAULT CHARSET=utf8;");
@@ -808,6 +808,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   ('ogroup_by', '', ''),
         	   ('omap_depid', '', ''),
         	   ('omap_mtimeout', '', ''),
+        	   ('dwo', '', ''),
         	   ('enable_unread_list', '', '')");
        	   
         	   

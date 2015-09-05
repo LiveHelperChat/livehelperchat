@@ -11,15 +11,22 @@ foreach ($departments as $department) {
     );
 }
 
-$dashboardOrder = explode('|', erLhcoreClassModelChatConfig::fetch('dashboard_order')->current_value);
+$dashboardOrder = (string)erLhcoreClassModelUserSetting::getSetting('dwo','');
+
+if ($dashboardOrder == '') {
+    $dashboardOrder = erLhcoreClassModelChatConfig::fetch('dashboard_order')->current_value;
+}
+
+$dashboardOrder = explode('|',$dashboardOrder);
 
 $columnsTotal = count($dashboardOrder);
 $columnSize = 12 / $columnsTotal;
 
 ?>
 <div class="row" id="dashboard-body" ng-init='lhc.userDepartments=<?php echo json_encode($departmentList,JSON_HEX_APOS)?>;lhc.userDepartmentsNames=<?php echo json_encode($departmentNames,JSON_HEX_APOS)?>;lhc.setUpListNames(["actived","closedd","unreadd","pendingd","operatord","departmentd"])'>
-     <?php for ($i = 0; $i < $columnsTotal; $i++) : $widgets = explode(',', $dashboardOrder[$i]); ?>
-        <div class="col-md-<?php echo $columnSize+2?> col-lg-<?php echo $columnSize?>">
+     <a class="dashboard-configuration" onclick="return lhc.revealModal({'url':WWW_DIR_JAVASCRIPT +'chat/dashboardwidgets'})" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Configure dashboard')?>"><i class="material-icons mr-0">&#xE871;</i></a>
+     <?php for ($i = 0; $i < $columnsTotal; $i++) : $widgets = array_filter(explode(',', $dashboardOrder[$i])); ?>
+        <div class="col-md-<?php echo $columnSize+2?> col-lg-<?php echo $columnSize?> sortable-column-dashboard">
             <?php foreach ($widgets as $wiget) : ?>
                 <?php if ($wiget == 'online_operators') : ?>
                  
@@ -74,30 +81,11 @@ $columnSize = 12 / $columnsTotal;
                     <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/extension_panel_multiinclude.tpl.php'));?>
                 <?php endif;?>
             <?php endforeach;?>
+            
+            <?php if (empty($widgets)) : ?>
+            &nbsp;
+            <?php endif;?>
         </div>
      <?php endfor;?>
 </div>
-
 <?php $popoverInitialized = true; ?>
-<script>
-$( document ).ready(function() {
-	$('#dashboard-body, #onlineusers, #map').popover({
-		  trigger:'hover',
-		  html : true, 
-		  selector: '[data-toggle="popover"]',
-		  content: function () {
-			 if ($(this).is('[data-popover-content]')) {
-				 return $('#'+$(this).attr('data-popover-content')+'-'+$(this).attr('data-chat-id')).html();
-		     } else {
-		    	 return $('#popover-content-'+$(this).attr('data-chat-id')).html();
-			 }
-		  },
-		  title: function () {
-			 return  $('#popover-title-'+$(this).attr('data-chat-id')).html();
-		  }
-		});
-    $(".btn-block-department").on("click", "[data-stopPropagation]", function(e) {
-        e.stopPropagation();
-    });
-});
-</script>

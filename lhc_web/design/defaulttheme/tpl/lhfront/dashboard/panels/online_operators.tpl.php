@@ -1,4 +1,4 @@
-<div class="panel panel-default panel-dashboard">
+<div class="panel panel-default panel-dashboard" data-panel-id="online_operators">
 	<div class="panel-heading">
 		<i class="material-icons chat-active">account_box</i><?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/online_operators.tpl.php'));?> ({{online_op.list.length}}{{online_op.list.length == lhc.limito ? '+' : ''}})</a>
 	</div>

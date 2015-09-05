@@ -1,0 +1,1 @@
+INSERT INTO `lh_users_setting_option` (`identifier`, `class`, `attribute`) VALUES ('dwo',	'',	'');

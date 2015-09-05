@@ -1,4 +1,4 @@
-<div class="panel panel-default panel-dashboard">
+<div class="panel panel-default panel-dashboard" data-panel-id="departments_stats">
 	<div class="panel-heading">
 		<i class="material-icons chat-active">home</i> <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/departmetns_stats.tpl.php'));?> ({{departments_stats.list.length}}{{departments_stats.list.length == lhc.limitd ? '+' : ''}})</a>
 		<?php if ($currentUser->hasAccessTo('lhstatistic', 'exportxls')) : ?><a class="pull-right material-icons" target="_blank" href="<?php echo erLhcoreClassDesign::baseurl('statistic/departmentstatusxls')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Download XLS');?>">file_download</a><?php endif;?>

@@ -91,6 +91,10 @@ $ViewList['setsettingajax'] = array (
 		'uparams' => array('indifferent')
 );
 
+$ViewList['setsettingajaxraw'] = array (
+		'params' => array('identifier')
+);
+
 $ViewList['setoffline'] = array (
 		'functions' => array( 'changeonlinestatus' ),
 		'params' => array('status')

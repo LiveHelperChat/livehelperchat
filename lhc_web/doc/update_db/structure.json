@@ -3715,7 +3715,7 @@
             },
             {
                 "field": "value",
-                "type": "varchar(50)",
+                "type": "varchar(255)",
                 "null": "NO",
                 "key": "",
                 "default": null,
@@ -3823,6 +3823,11 @@
             },
             {
                 "identifier": "omap_mtimeout",
+                "class": "",
+                "attribute": ""
+            },
+            {
+                "identifier": "dwo",
                 "class": "",
                 "attribute": ""
             }

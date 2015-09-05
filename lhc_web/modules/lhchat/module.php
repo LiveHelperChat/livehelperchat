@@ -101,13 +101,13 @@ $ViewList['accepttransfer'] = array(
 $ViewList['deletechatadmin'] = array(
     'params' => array('chat_id'),
     'functions' => array( 'deletechat' )
-    );
+);
 
 $ViewList['delete'] = array(
     'params' => array('chat_id'),
     'uparams' => array('csfr'),
     'functions' => array( 'deletechat' )
-    );
+);
 
 $ViewList['syncadmininterface'] = array(
     'params' => array(),
@@ -120,7 +120,12 @@ $ViewList['syncadmininterface'] = array(
 $ViewList['lists'] = array(
     'params' => array(),
     'functions' => array( 'use' )
-    );
+);
+
+$ViewList['dashboardwidgets'] = array(
+    'params' => array(),
+    'functions' => array( 'use' )
+);
 
 $ViewList['chattabs'] = array(
     'params' => array('chat_id'),

@@ -1,4 +1,4 @@
-<div class="panel panel-default panel-dashboard">
+<div class="panel panel-default panel-dashboard" data-panel-id="active_chats">
 	<div class="panel-heading">
 		<a href="<?php echo erLhcoreClassDesign::baseurl('chat/activechats')?>"><i class="material-icons chat-active">chat</i> <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/active_chats.tpl.php'));?> ({{active_chats.list.length}}{{active_chats.list.length == lhc.limita ? '+' : ''}})</a>
 	</div>

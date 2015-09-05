@@ -3,8 +3,9 @@
   "description": "Live Helper Chat external dependencies",
   "version": "1.0.0",
   "dependencies": {
+    "jqueryui" : "*",
     "bootstrap": "*",
-    "startbootstrap-sb-admin-2" : "*",
+    "metisMenu" : "*",
     "material-design-icons" : "*"
   }  
 }

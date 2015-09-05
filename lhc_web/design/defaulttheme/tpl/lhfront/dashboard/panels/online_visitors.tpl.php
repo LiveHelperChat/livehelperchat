@@ -1,4 +1,4 @@
-<div class="panel panel-default panel-dashboard">
+<div class="panel panel-default panel-dashboard" data-panel-id="online_visitors">
 	<div class="panel-heading">
 		<i class="material-icons">face</i> <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/online_visitors.tpl.php'));?> ({{online.onlineusers.length}})
 	</div>

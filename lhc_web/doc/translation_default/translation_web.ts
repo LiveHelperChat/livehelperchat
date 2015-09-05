@@ -8,6 +8,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -2163,6 +2167,10 @@
     </message>
     <message>
       <source>Empty...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Configure dashboard</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7468,6 +7476,17 @@
     <name>chat/chatpreview</name>
     <message>
       <source>Chat preview</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/dashboardwidgets</name>
+    <message>
+      <source>Choose what widgets you want to see</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
       <translation type="unfinished"/>
     </message>
   </context>

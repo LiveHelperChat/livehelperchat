@@ -1,4 +1,4 @@
-<div class="panel panel-default panel-dashboard">
+<div class="panel panel-default panel-dashboard" data-panel-id="unread_chats">
 	<div class="panel-heading">
 		<a href="<?php echo erLhcoreClassDesign::baseurl('chat/unreadchats')?>"><i class="material-icons chat-unread">chat</i> <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/unread_chats.tpl.php'));?> ({{unread_chats.list.length}}{{unread_chats.list.length == lhc.limitu ? '+' : ''}})</a>
 	</div>

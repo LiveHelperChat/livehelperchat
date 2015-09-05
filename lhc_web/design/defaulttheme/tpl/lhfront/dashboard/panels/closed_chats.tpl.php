@@ -1,4 +1,4 @@
-<div class="panel panel-default panel-dashboard">
+<div class="panel panel-default panel-dashboard" data-panel-id="closed_chats">
 	<div class="panel-heading">
 		<a href="<?php echo erLhcoreClassDesign::baseurl('chat/closedchats')?>"><i class="material-icons chat-closed">chat</i> <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/closed_chats.tpl.php'));?> ({{closed_chats.list.length}}{{closed_chats.list.length == lhc.limitc ? '+' : ''}})</a>
 	</div>

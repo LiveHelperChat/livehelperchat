@@ -1087,3 +1087,28 @@ input[type="file"]{
 .radio-widget input{
 	margin-top:2px;
 }
+
+.sortable-column-dashboard {
+	height:100%;
+	/*display:table-cell;
+	float:none;*/
+	
+	padding-bottom: 1000px;
+    margin-bottom: -1000px;
+    height: 100%;
+}
+
+.sortable-column-dashboard .panel-heading {
+	cursor:move;
+}
+
+.dashboard-configuration{		
+  position: absolute;
+  right: 6px;
+  z-index: 999;
+  margin-top: -18px;
+}
+
+.dashboard-configuration .material-icons {
+	font-size:14px;
+}
