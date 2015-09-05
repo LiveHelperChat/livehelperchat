@@ -1090,9 +1090,6 @@ input[type="file"]{
 
 .sortable-column-dashboard {
 	height:100%;
-	/*display:table-cell;
-	float:none;*/
-	
 	padding-bottom: 1000px;
     margin-bottom: -1000px;
     height: 100%;
