@@ -183,7 +183,7 @@ class erLhcoreClassModelCannedMsg
         $q->limit(5000, 0);
         $q->orderBy('position ASC, title ASC');
         $items = $session->find($q);
-        exit;
+        
         return $items;
     }
 
