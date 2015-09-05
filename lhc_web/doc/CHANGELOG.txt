@@ -1,8 +1,8 @@
 2.37v
 
 1. User can drag and sort frontpage widgets as he wants. Widgets order and what widgets user can see are based on user individually.
-2. 
-
+2. Canned messages are sorted by position and title now.
+3. Other small UX updates.
 
 execute doc/update_db/update_112.sql for update
 
