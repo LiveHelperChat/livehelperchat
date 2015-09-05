@@ -26,7 +26,8 @@ $( document ).ready(function() {
     panelList.sortable({
         connectWith:".sortable-column-dashboard",
         opacity: 0.7,       
-        handle: ".panel-heading", 
+        handle: ".panel-heading",         
+        items: '> div',
         update: function() {
         	if (savingSettings == false)
     		{
@@ -50,5 +51,5 @@ $( document ).ready(function() {
         		});
     		}    		    		 
        }
-    }).disableSelection();
+    });
 });
