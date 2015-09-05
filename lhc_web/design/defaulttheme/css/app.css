@@ -1095,6 +1095,10 @@ input[type="file"]{
     height: 100%;
 }
 
+#page-content-wrapper{
+	overflow:hidden;
+}
+
 .sortable-column-dashboard .panel-heading {
 	cursor:move;
 }
