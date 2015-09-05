@@ -5063,7 +5063,8 @@
     		"new" : {
     			"attr_int_1" : "ALTER TABLE `lh_canned_msg` ADD INDEX `attr_int_1` (`attr_int_1`);",
     			"attr_int_2" : "ALTER TABLE `lh_canned_msg` ADD INDEX `attr_int_2` (`attr_int_2`);",
-    			"attr_int_3" : "ALTER TABLE `lh_canned_msg` ADD INDEX `attr_int_3` (`attr_int_3`);"
+    			"attr_int_3" : "ALTER TABLE `lh_canned_msg` ADD INDEX `attr_int_3` (`attr_int_3`);",
+    			"position_title" : "ALTER TABLE `lh_canned_msg` ADD INDEX `position_title` (`position`, `title`);"
     		},
     		"old" : []
     	},

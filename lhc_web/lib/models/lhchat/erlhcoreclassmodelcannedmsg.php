@@ -181,8 +181,9 @@ class erLhcoreClassModelCannedMsg
         $q->where($q->expr->lOr($q->expr->eq('department_id', $q->bindValue($department_id)), $q->expr->lAnd($q->expr->eq('department_id', $q->bindValue(0)), $q->expr->eq('user_id', $q->bindValue(0))), $q->expr->eq('user_id', $q->bindValue($user_id))));
         
         $q->limit(5000, 0);
-        $q->orderBy('position ASC, id ASC'); // Questions with matched URL has higher priority
+        $q->orderBy('position ASC, title ASC');
         $items = $session->find($q);
+        exit;
         return $items;
     }
 

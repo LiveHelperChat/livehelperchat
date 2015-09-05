@@ -1,3 +1,11 @@
+2.37v
+
+1. User can drag and sort frontpage widgets as he wants. Widgets order and what widgets user can see are based on user individually.
+2. 
+
+
+execute doc/update_db/update_112.sql for update
+
 2.36v
 
 1. User activity tracking on site enhancements. New tab in settings "Visitor activity"
