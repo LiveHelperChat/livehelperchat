@@ -219,6 +219,11 @@ $ViewList['addoperation'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['refreshcustomfields'] = array(
+    'params' => array(),
+    'uparams' => array('vid','hash','hash_resume'),
+);
+
 $ViewList['addonlineoperation'] = array(
     'params' => array('online_user_id'),
     'functions' => array( 'use' )

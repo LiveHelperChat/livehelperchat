@@ -398,7 +398,7 @@ class erLhcoreClassChatValidator {
         		if (isset($inputForm->values_req[$key]) && $inputForm->values_req[$key] == 't' && ($inputForm->value_show[$key] == 'b' || $inputForm->value_show[$key] == (isset($additionalParams['offline']) ? 'off' : 'on')) && (!isset($valuesArray[$key]) || trim($valuesArray[$key]) == '')) {
         			$Errors['additional_'.$key] = trim($name_item).' : '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','is required');
         		}
-        		$stringParts[] = array('key' => $name_item,'value' => (isset($valuesArray[$key]) ? trim($valuesArray[$key]) : ''));
+        		$stringParts[] = array('h' => ($inputForm->value_types[$key] && $inputForm->value_types[$key] == 'hidden' ? true : false), 'key' => $name_item,'value' => (isset($valuesArray[$key]) ? trim($valuesArray[$key]) : ''));
         	}        	
         }
         
@@ -434,6 +434,103 @@ class erLhcoreClassChatValidator {
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.validate_start_chat',array('errors' => & $Errors, 'input_form' => & $inputForm, 'start_data_fields' => & $start_data_fields, 'chat' => & $chat,'additional_params' => & $additionalParams));
         
         return $Errors;
+    }
+    
+    
+    /**
+     * Validates custom fields
+     */
+    public static function validateCustomFieldsRefresh(& $chat)
+    {
+        $definition = array (
+            'name'  => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
+                null,
+                FILTER_REQUIRE_ARRAY
+            ),
+            'value' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
+                null,
+                FILTER_REQUIRE_ARRAY
+            ),
+            'type' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'string',
+                null,
+                FILTER_REQUIRE_ARRAY
+            ),
+            'size' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'string',
+                null,
+                FILTER_REQUIRE_ARRAY
+            ),
+            'req' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'string',
+                null,
+                FILTER_REQUIRE_ARRAY
+            ),
+            'sh' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'string',
+                null,
+                FILTER_REQUIRE_ARRAY
+            )            
+        );
+    
+        $form = new ezcInputForm( INPUT_POST, $definition );
+        $Errors = array();
+        $inputForm = new stdClass();
+        
+        $stringParts = array();
+        
+        if ( $form->hasValidData( 'name' ) && !empty($form->name))
+        {
+            $valuesArray = array();
+            if ( $form->hasValidData( 'value' ) && !empty($form->value))
+            {
+                $inputForm->value = $valuesArray = $form->value;
+            }
+             
+            if ( $form->hasValidData( 'req' ) && !empty($form->req))
+            {
+                $inputForm->req = $form->req;
+            }
+        
+            if ( $form->hasValidData( 'type' ) && !empty($form->type))
+            {
+                $inputForm->type = $form->type;
+            }
+        
+            if ( $form->hasValidData( 'size' ) && !empty($form->size))
+            {
+                $inputForm->size = $form->size;
+            }
+        
+            $inputForm->name = $form->name;
+            
+            $currentChatData = json_decode($chat->additional_data,true);
+            
+            if (is_array($currentChatData)) {
+                foreach ($currentChatData as $key => $data) {
+                    if (isset($data['h']) && $data['h'] == true) {
+                        unset($currentChatData[$key]);
+                    }
+                }
+            } else {
+                $currentChatData = array();
+            }
+            
+            foreach ($form->name as $key => $name_item) {
+                if (isset($inputForm->type[$key]) && $inputForm->type[$key] == 'hidden') {
+                    $currentChatData[] = array('h' => true, 'key' => $name_item,'value' => isset($inputForm->value[$key]) ? trim($inputForm->value[$key]) : '');
+                }
+            }
+        }
+        
+        // To reset index
+        $currentChatData = array_values($currentChatData);
+        
+        if (!empty($currentChatData)) {
+            $chat->additional_data = json_encode($currentChatData);
+        }
     }
     
     /**

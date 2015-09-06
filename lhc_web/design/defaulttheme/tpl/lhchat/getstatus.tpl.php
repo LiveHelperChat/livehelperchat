@@ -884,6 +884,13 @@ var lh_inst  = {
         <?php endif;?>  
     },
       
+    refreshCustomFields : function() {
+        var xhr = new XMLHttpRequest();
+        xhr.open( "POST", '<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+lh_inst.lang+'/chat/refreshcustomfields'+this.getAppendCookieArguments() , true);
+	    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	    xhr.send(this.parseOptions());	
+    },
+      
     attatchActivityListeners : function() {
         <?php if ((int)erLhcoreClassModelChatConfig::fetch('track_activity')->current_value > 0) : ?>  
         var resetTimeout = function() {
@@ -928,6 +935,8 @@ var lh_inst  = {
     		}
     	} else if (action == 'lhc_open_restore') {    		
     		lh_inst.lh_openchatWindow();    		
+    	} else if (action == 'lhc_cfrefresh') {    		
+    		lh_inst.refreshCustomFields();    		
     	} else if (action == 'lhc_screenshot') {
     		lh_inst.makeScreenshot();
     	} else if (action == 'lhc_disable_survey') {

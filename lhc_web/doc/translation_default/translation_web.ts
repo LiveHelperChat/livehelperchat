@@ -16,6 +16,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -1885,7 +1889,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Refresh</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Additional data</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hidden field</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1918,10 +1930,6 @@
     </message>
     <message>
       <source>Map</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Refresh</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7495,6 +7503,45 @@
     </message>
     <message>
       <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Departments stats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unread chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transfered chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/refreshcustomfields</name>
+    <message>
+      <source>Data refreshed</source>
       <translation type="unfinished"/>
     </message>
   </context>
