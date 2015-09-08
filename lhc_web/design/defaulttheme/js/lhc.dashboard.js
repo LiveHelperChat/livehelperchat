@@ -11,7 +11,11 @@ $( document ).ready(function() {
 			 }
 		  },
 		  title: function () {
-			 return  $('#popover-title-'+$(this).attr('data-chat-id')).html();
+			 if ($(this).is('[data-popover-title]')) {
+				 return $('#'+$(this).attr('data-popover-title')+'-'+$(this).attr('data-chat-id')).html();
+			 } else {
+				 return  $('#popover-title-'+$(this).attr('data-chat-id')).html();
+			 }
 		  }
 	});
 	
