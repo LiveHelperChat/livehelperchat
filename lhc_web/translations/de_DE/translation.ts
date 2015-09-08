@@ -6,6 +6,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Wie viele Tage lang soll das Bewertungs-Widget seit der letzten Anzeige nicht erweitert werden</translation>
     </message>
@@ -39,11 +51,11 @@
     </message>
     <message>
       <source>Set your domain to enable user tracking across different domain subdomains.</source>
-      <translation type="unfinished"/>
+      <translation>Stelle deine Domain ein, um Benutzer über verschiedene Subdomains zu verfolgen.</translation>
     </message>
     <message>
       <source>Track users activity on site?</source>
-      <translation type="unfinished"/>
+      <translation>Benutzeraktivitäten auf der Seite verfolgen?</translation>
     </message>
     <message>
       <source>How many days keep records of online users.</source>
@@ -1875,8 +1887,16 @@
       <translation>Telefon</translation>
     </message>
     <message>
+      <source>Refresh</source>
+      <translation>Neu laden</translation>
+    </message>
+    <message>
       <source>Additional data</source>
       <translation>Zusätzliche Daten</translation>
+    </message>
+    <message>
+      <source>Hidden field</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Created</source>
@@ -1909,10 +1929,6 @@
     <message>
       <source>Map</source>
       <translation>Karte</translation>
-    </message>
-    <message>
-      <source>Refresh</source>
-      <translation>Neu laden</translation>
     </message>
     <message>
       <source>User browsing information</source>
@@ -2162,6 +2178,10 @@
     <message>
       <source>Empty...</source>
       <translation>Leer...</translation>
+    </message>
+    <message>
+      <source>Configure dashboard</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visitor</source>
@@ -3800,6 +3820,10 @@
     </message>
     <message>
       <source>Chat tabs</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Configuration</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7279,7 +7303,7 @@
     </message>
     <message>
       <source>Post content after form is submitted</source>
-      <translation type="unfinished"/>
+      <translation>Sende Inhalt nach dem das Formular übermittelt wurde</translation>
     </message>
     <message>
       <source>Custom pagelayout</source>
@@ -7353,15 +7377,15 @@
     <name>abstract/survey</name>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Name</translation>
     </message>
     <message>
       <source>Max stars for feedback</source>
-      <translation type="unfinished"/>
+      <translation>Maximale Sterne für das Feedback</translation>
     </message>
     <message>
       <source>Survey</source>
-      <translation type="unfinished"/>
+      <translation>Umfrage</translation>
     </message>
   </context>
   <context>
@@ -7422,7 +7446,7 @@
     <name>chat/voteaction</name>
     <message>
       <source>User has updated his profile information</source>
-      <translation type="unfinished"/>
+      <translation>Benutzer hat seine Profilinformationen aktulisiert</translation>
     </message>
     <message>
       <source>Thumbs up</source>
@@ -7455,17 +7479,67 @@
     <name>chat/editnick</name>
     <message>
       <source>Your information</source>
-      <translation type="unfinished"/>
+      <translation>Deine Information</translation>
     </message>
     <message>
       <source>Updated!</source>
-      <translation type="unfinished"/>
+      <translation>Aktualisiert!</translation>
     </message>
   </context>
   <context>
     <name>chat/chatpreview</name>
     <message>
       <source>Chat preview</source>
+      <translation>Chat Vorschau</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/dashboardwidgets</name>
+    <message>
+      <source>Choose what widgets you want to see</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Departments stats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unread chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transfered chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/refreshcustomfields</name>
+    <message>
+      <source>Data refreshed</source>
       <translation type="unfinished"/>
     </message>
   </context>

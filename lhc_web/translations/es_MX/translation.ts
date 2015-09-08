@@ -6,6 +6,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Por cuantos días el widget de votación no será expandido después de mostrarlo la última vez</translation>
     </message>
@@ -1875,8 +1887,16 @@
       <translation>Teléfono</translation>
     </message>
     <message>
+      <source>Refresh</source>
+      <translation>Actualizar</translation>
+    </message>
+    <message>
       <source>Additional data</source>
       <translation>Datos adicionales</translation>
+    </message>
+    <message>
+      <source>Hidden field</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Created</source>
@@ -1909,10 +1929,6 @@
     <message>
       <source>Map</source>
       <translation>Mapa</translation>
-    </message>
-    <message>
-      <source>Refresh</source>
-      <translation>Actualizar</translation>
     </message>
     <message>
       <source>User browsing information</source>
@@ -2162,6 +2178,10 @@
     <message>
       <source>Empty...</source>
       <translation>Vacío...</translation>
+    </message>
+    <message>
+      <source>Configure dashboard</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visitor</source>
@@ -3801,6 +3821,10 @@
     <message>
       <source>Chat tabs</source>
       <translation>Chat tabs</translation>
+    </message>
+    <message>
+      <source>Configuration</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chats list</source>
@@ -7466,6 +7490,56 @@
     <name>chat/chatpreview</name>
     <message>
       <source>Chat preview</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/dashboardwidgets</name>
+    <message>
+      <source>Choose what widgets you want to see</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Departments stats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unread chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transfered chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/refreshcustomfields</name>
+    <message>
+      <source>Data refreshed</source>
       <translation type="unfinished"/>
     </message>
   </context>

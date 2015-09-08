@@ -6,6 +6,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Hoeveel dagen moet de stemwidget verborgen worden na de laatste weergave?</translation>
     </message>
@@ -1875,8 +1887,16 @@
       <translation>Telefoon</translation>
     </message>
     <message>
+      <source>Refresh</source>
+      <translation>Ververs</translation>
+    </message>
+    <message>
       <source>Additional data</source>
       <translation>Aanvullende gegevens</translation>
+    </message>
+    <message>
+      <source>Hidden field</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Created</source>
@@ -1909,10 +1929,6 @@
     <message>
       <source>Map</source>
       <translation>Map</translation>
-    </message>
-    <message>
-      <source>Refresh</source>
-      <translation>Ververs</translation>
     </message>
     <message>
       <source>User browsing information</source>
@@ -2162,6 +2178,10 @@
     <message>
       <source>Empty...</source>
       <translation>Leeg...</translation>
+    </message>
+    <message>
+      <source>Configure dashboard</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visitor</source>
@@ -3802,6 +3822,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Chat tabs</source>
       <translation>Chat tabs</translation>
+    </message>
+    <message>
+      <source>Configuration</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chats list</source>
@@ -7468,6 +7492,56 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Chat preview</source>
       <translation>Chat preview</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/dashboardwidgets</name>
+    <message>
+      <source>Choose what widgets you want to see</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Departments stats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unread chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transfered chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/refreshcustomfields</name>
+    <message>
+      <source>Data refreshed</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>
