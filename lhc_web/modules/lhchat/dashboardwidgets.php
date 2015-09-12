@@ -3,6 +3,10 @@ $tpl = erLhcoreClassTemplate::getInstance('lhchat/dashboardwidgets.tpl.php');
 
 $dashboardOrderString = (string) erLhcoreClassModelUserSetting::getSetting('dwo', '');
 
+if (empty($dashboardOrderString)) {
+    $dashboardOrderString = erLhcoreClassModelChatConfig::fetch('dashboard_order')->current_value;
+}
+
 $widgetsUser = array();
 
 $dashboardOrder = array_filter(explode('|', $dashboardOrderString));
@@ -70,20 +74,6 @@ if (ezcInputForm::hasPostData()) {
         erLhcoreClassModelUserSetting::setSetting('dwo', $dashboardOrderString);
         
         $tpl->set('updated', true);
-    }
-}
-
-// User does not have personal dashboard widgets.
-// So just user global one
-if ($dashboardOrderString == '') {
-    
-    $dashboardOrder = explode('|', erLhcoreClassModelChatConfig::fetch('dashboard_order')->current_value);
-    
-    foreach ($dashboardOrder as $widgetsColumn) {
-        $widgetsColumnItems = explode(',', $widgetsColumn);
-        foreach ($widgetsColumnItems as $widget) {
-            $widgetsUser[] = $widget;
-        }
     }
 }
 
