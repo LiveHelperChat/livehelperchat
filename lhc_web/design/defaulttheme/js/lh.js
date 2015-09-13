@@ -174,6 +174,11 @@ function lh(){
         	 setTimeout(function(){
      	    	inst.syncadmininterfacestatic();
      	    },1000);
+        } else {
+        	tabs.find('> ul > li.active').removeClass("active");
+    		tabs.find('> ul > #chat-tab-li-'+chat_id).addClass("active");
+    		tabs.find('> div.tab-content > div.active').removeClass('active');
+    		tabs.find('> div.tab-content > #chat-id-'+chat_id).addClass('active');  
         }
     };
 
