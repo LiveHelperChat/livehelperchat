@@ -2,22 +2,6 @@
   <context>
     <name>listchatconfig</name>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Kuinka monta päivää edellisen äänestyksen jälkeen äänestys-widgetti pidetään piilossa</translation>
     </message>
@@ -487,20 +471,20 @@
       <translation>Tarvitsetko apua tekstin väri</translation>
     </message>
     <message>
-      <source>Text then user starts chat based on proactive invitation</source>
-      <translation>Ennakoivan keskustelun kutsuteksti</translation>
+      <source>Text when user starts chat based on proactive invitation</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Text then operator closes a chat</source>
-      <translation>Operaattori sulki keskustelun - viesti</translation>
+      <source>Text when operator closes a chat</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Text then user starts a chat and is waiting for operator to join a chat</source>
-      <translation>Odottaa operaattoria viesti</translation>
+      <source>Text when user starts a chat and is waiting for operator to join a chat</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Text then user starts a chat but department is offline</source>
-      <translation>Osasto ei ole linjoilla viesti</translation>
+      <source>Text when user starts a chat but department is offline</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Leave a message form text</source>
@@ -2264,6 +2248,13 @@
     </message>
   </context>
   <context>
+    <name>chat/chatpreview</name>
+    <message>
+      <source>Chat preview</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>front/default</name>
     <message>
       <source>Pending confirm</source>
@@ -2552,6 +2543,10 @@
       <translation>Tällä hetkellä ei ole ketään vastaamassa pyyntöösi, mutta voit jättää viestin.</translation>
     </message>
     <message>
+      <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, they will get your messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitor has been redirected to contact form</source>
       <translation>Vierailija on ohjattu kontaktilomakkeelle</translation>
     </message>
@@ -2619,6 +2614,49 @@
     </message>
   </context>
   <context>
+    <name>chat/dashboardwidgets</name>
+    <message>
+      <source>Choose what widgets you want to see</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Departments stats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unread chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transfered chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>chat/editchatconfig</name>
     <message>
       <source>Edit</source>
@@ -2639,6 +2677,17 @@
     <message>
       <source>Data updated</source>
       <translation>ata päivitetty</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/editnick</name>
+    <message>
+      <source>Your information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Updated!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -3303,6 +3352,10 @@
       <translation>viimeisin vierailu</translation>
     </message>
     <message>
+      <source>From</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Files upload for users is active</source>
       <translation>Tiedostojen lataus käyttäjille sallittu</translation>
     </message>
@@ -3316,10 +3369,6 @@
     </message>
     <message>
       <source>Visits</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>From</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3472,10 +3521,6 @@
   </context>
   <context>
     <name>system/configuration</name>
-    <message>
-      <source>Supported: online_operators, departments_stats, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>Request notification permission</source>
       <translation>Vaadi ilmoitukset -oikeus</translation>
@@ -7407,6 +7452,32 @@
     </message>
   </context>
   <context>
+    <name>chat/voteaction</name>
+    <message>
+      <source>User has updated his profile information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Thumbs up</source>
+      <translation>Peukku ylös</translation>
+    </message>
+    <message>
+      <source>Thumbs down</source>
+      <translation>Peukku alas</translation>
+    </message>
+    <message>
+      <source>Removed thumb vote</source>
+      <translation>Peukutus poistettu</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/refreshcustomfields</name>
+    <message>
+      <source>Data refreshed</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>chat/reopenchat</name>
     <message>
       <source>has reopened the chat!</source>
@@ -7443,25 +7514,6 @@
     </message>
   </context>
   <context>
-    <name>chat/voteaction</name>
-    <message>
-      <source>User has updated his profile information</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Thumbs up</source>
-      <translation>Peukku ylös</translation>
-    </message>
-    <message>
-      <source>Thumbs down</source>
-      <translation>Peukku alas</translation>
-    </message>
-    <message>
-      <source>Removed thumb vote</source>
-      <translation>Peukutus poistettu</translation>
-    </message>
-  </context>
-  <context>
     <name>chatarchive/viewarchivedchat</name>
     <message>
       <source>View archived chat</source>
@@ -7473,74 +7525,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Anna kelvollinen tiedoston tyyppi!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/editnick</name>
-    <message>
-      <source>Your information</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Updated!</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/chatpreview</name>
-    <message>
-      <source>Chat preview</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/dashboardwidgets</name>
-    <message>
-      <source>Choose what widgets you want to see</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online operators</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Active chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online visitors</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Departments stats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Unread chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Transfered chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Closed chats</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/refreshcustomfields</name>
-    <message>
-      <source>Data refreshed</source>
-      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

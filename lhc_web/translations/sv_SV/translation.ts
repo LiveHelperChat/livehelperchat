@@ -2,22 +2,6 @@
   <context>
     <name>listchatconfig</name>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Hur många dagar som röstwidgeten inte ska expanderas efter senaste visningen</translation>
     </message>
@@ -487,20 +471,20 @@
       <translation>Hjälpwidget textfärg</translation>
     </message>
     <message>
-      <source>Text then user starts chat based on proactive invitation</source>
-      <translation>Text som ska visas när en användare startar en chatt baserat på proactive inbjudan</translation>
+      <source>Text when user starts chat based on proactive invitation</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Text then operator closes a chat</source>
-      <translation>Text som ska visas när en operatör stänger en chatt</translation>
+      <source>Text when operator closes a chat</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Text then user starts a chat and is waiting for operator to join a chat</source>
-      <translation>Text som ska visas när en användare startar en chatt och väntar på att operatören ska ansluta</translation>
+      <source>Text when user starts a chat and is waiting for operator to join a chat</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Text then user starts a chat but department is offline</source>
-      <translation>Text som ska visas när en användare startar en chatt med avdelningen är offline</translation>
+      <source>Text when user starts a chat but department is offline</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Leave a message form text</source>
@@ -2264,6 +2248,13 @@
     </message>
   </context>
   <context>
+    <name>chat/chatpreview</name>
+    <message>
+      <source>Chat preview</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>front/default</name>
     <message>
       <source>Pending confirm</source>
@@ -2552,6 +2543,10 @@
       <translation>För närvarande finns ingen support medarbetare tillgänglig, men du kan lämnna ett meddelande</translation>
     </message>
     <message>
+      <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, they will get your messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitor has been redirected to contact form</source>
       <translation>Besökare har vidarebefordrats till kontaktformuläret</translation>
     </message>
@@ -2619,6 +2614,49 @@
     </message>
   </context>
   <context>
+    <name>chat/dashboardwidgets</name>
+    <message>
+      <source>Choose what widgets you want to see</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Departments stats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unread chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transfered chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>chat/editchatconfig</name>
     <message>
       <source>Edit</source>
@@ -2639,6 +2677,17 @@
     <message>
       <source>Data updated</source>
       <translation>Data uppdaterat</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/editnick</name>
+    <message>
+      <source>Your information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Updated!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -3303,6 +3352,10 @@
       <translation>senaste besök</translation>
     </message>
     <message>
+      <source>From</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Files upload for users is active</source>
       <translation>Filuppladdning för användare är aktiv</translation>
     </message>
@@ -3316,10 +3369,6 @@
     </message>
     <message>
       <source>Visits</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>From</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3472,10 +3521,6 @@
   </context>
   <context>
     <name>system/configuration</name>
-    <message>
-      <source>Supported: online_operators, departments_stats, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
-      <translation>Stöds: online_operators, departments_stats, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</translation>
-    </message>
     <message>
       <source>Request notification permission</source>
       <translation>Begär notifieringsrättighet</translation>
@@ -3768,7 +3813,7 @@
     </message>
     <message>
       <source>Clean cache</source>
-      <translation type="unfinished"/>
+      <translation>Rensa cache</translation>
     </message>
     <message>
       <source>Home</source>
@@ -3824,7 +3869,7 @@
     </message>
     <message>
       <source>Configuration</source>
-      <translation type="unfinished"/>
+      <translation>Inställningar</translation>
     </message>
     <message>
       <source>Chats list</source>
@@ -6250,38 +6295,38 @@
     <name>survey/collected</name>
     <message>
       <source>Chats</source>
-      <translation type="unfinished"/>
+      <translation>Chattar</translation>
     </message>
     <message>
       <source>Chat</source>
-      <translation type="unfinished"/>
+      <translation>Chatt</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Avdelning</translation>
     </message>
     <message>
       <source>Operator</source>
-      <translation type="unfinished"/>
+      <translation>Operatör</translation>
     </message>
     <message>
       <source>Stars</source>
-      <translation type="unfinished"/>
+      <translation>Stjärnor</translation>
     </message>
     <message>
       <source>Time</source>
-      <translation type="unfinished"/>
+      <translation>Tid</translation>
     </message>
     <message>
       <source>Department name</source>
-      <translation type="unfinished"/>
+      <translation>Namn på avdelningen</translation>
     </message>
   </context>
   <context>
     <name>survey/fill</name>
     <message>
       <source>star</source>
-      <translation type="unfinished"/>
+      <translation>stjärna</translation>
     </message>
     <message>
       <source>stars</source>
@@ -6301,7 +6346,7 @@
     </message>
     <message>
       <source>Excellent</source>
-      <translation type="unfinished"/>
+      <translation>Perfekt</translation>
     </message>
     <message>
       <source>Thank you for your feedback...</source>
@@ -7377,7 +7422,7 @@
     <name>abstract/survey</name>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Namn</translation>
     </message>
     <message>
       <source>Max stars for feedback</source>
@@ -7404,6 +7449,32 @@
     <message>
       <source>You do not have rights to delete a chat</source>
       <translation>Du har inte rättigheter att ta bort en chatt</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/voteaction</name>
+    <message>
+      <source>User has updated his profile information</source>
+      <translation>Användaren har uppdaterat sin profilinformation</translation>
+    </message>
+    <message>
+      <source>Thumbs up</source>
+      <translation>Tummen upp</translation>
+    </message>
+    <message>
+      <source>Thumbs down</source>
+      <translation>Tummen ned</translation>
+    </message>
+    <message>
+      <source>Removed thumb vote</source>
+      <translation>Tog bort tum-röstning</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/refreshcustomfields</name>
+    <message>
+      <source>Data refreshed</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -7443,25 +7514,6 @@
     </message>
   </context>
   <context>
-    <name>chat/voteaction</name>
-    <message>
-      <source>User has updated his profile information</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Thumbs up</source>
-      <translation>Tummen upp</translation>
-    </message>
-    <message>
-      <source>Thumbs down</source>
-      <translation>Tummen ned</translation>
-    </message>
-    <message>
-      <source>Removed thumb vote</source>
-      <translation>Tog bort tum-röstning</translation>
-    </message>
-  </context>
-  <context>
     <name>chatarchive/viewarchivedchat</name>
     <message>
       <source>View archived chat</source>
@@ -7473,74 +7525,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Vänligen ange en giltig filtyp!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/editnick</name>
-    <message>
-      <source>Your information</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Updated!</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/chatpreview</name>
-    <message>
-      <source>Chat preview</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/dashboardwidgets</name>
-    <message>
-      <source>Choose what widgets you want to see</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online operators</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Active chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online visitors</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Departments stats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Unread chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Transfered chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Closed chats</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/refreshcustomfields</name>
-    <message>
-      <source>Data refreshed</source>
-      <translation type="unfinished"/>
     </message>
   </context>
 </TS>
