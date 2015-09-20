@@ -2,6 +2,7 @@ $( document ).ready(function() {
 	$('#dashboard-body, #onlineusers, #map').popover({
 		  trigger:'hover',
 		  html : true, 
+		  container: 'body',
 		  selector: '[data-toggle="popover"]',
 		  content: function () {
 			 if ($(this).is('[data-popover-content]')) {
