@@ -1095,6 +1095,9 @@ input[type="file"]{
     height: 100%;
 }
 
+.sortable-column-dashboard:after{content:"-";height:1px;font-size:0;visibility:hidden;display:block;}
+
+
 #page-content-wrapper{
 	overflow:hidden;
 }

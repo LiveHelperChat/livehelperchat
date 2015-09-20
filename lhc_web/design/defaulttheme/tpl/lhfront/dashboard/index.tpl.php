@@ -80,11 +80,8 @@ $columnSize = 12 / $columnsTotal;
                 <?php else : ?>
                     <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/extension_panel_multiinclude.tpl.php'));?>
                 <?php endif;?>
-            <?php endforeach;?>
+            <?php endforeach;?>           
             
-            <?php if (empty($widgets)) : ?>
-            &nbsp;
-            <?php endif;?>
         </div>
      <?php endfor;?>
 </div>
