@@ -12,6 +12,8 @@ if (erLhcoreClassModelChatConfig::fetch('list_online_operators')->current_value 
     $canListOnlineUsersAll = $currentUser->hasAccessTo('lhuser', 'userlistonlineall');
 }
 
+$canseedepartmentstats = $currentUser->hasAccessTo('lhuser', 'canseedepartmentstats');
+
 $pendingTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_pending_list', 1);
 $activeTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_active_list', 1);
 $closedTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_close_list', 0);

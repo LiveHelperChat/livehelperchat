@@ -48,7 +48,7 @@ $columnSize = 12 / $columnsTotal;
                     
                 <?php elseif ($wiget == 'departments_stats') : ?>
                 
-                    <?php if ($online_chat_enabled_pre == true) : ?>
+                    <?php if ($online_chat_enabled_pre == true && $canseedepartmentstats == true) : ?>
                         <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/departments_stats.tpl.php'));?>
                     <?php endif;?>
                     
