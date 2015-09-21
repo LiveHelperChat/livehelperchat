@@ -360,5 +360,10 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		window.open(WWW_DIR_JAVASCRIPT + 'chat/startchatwithoperator/'+user_id,'operatorchatwindow-'+user_id,'menubar=1,resizable=1,width=780,height=450');
 	};
 	
+	var hash = window.location.hash;	
+	if (hash != '') {
+		$('ul[role="tablist"] a[href="' + hash.replace("#/","#") + '"]').tab('show');
+	}
+	
 	$scope.loadChatList();
 }]);
