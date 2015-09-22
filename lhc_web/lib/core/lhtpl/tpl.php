@@ -75,6 +75,11 @@ class erLhcoreClassTemplate {
         return self::$instance;
     }
 
+    public function enableCache($enable) {
+        $this->templatecompile = $enable;
+        $this->cacheEnabled = $enable;
+    }
+    
     /**
      * Constructor
      *
