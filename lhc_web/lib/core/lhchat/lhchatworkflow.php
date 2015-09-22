@@ -210,6 +210,11 @@ class erLhcoreClassChatWorkflow {
     			}
     			
     			$chat->updateThis();  
+    			
+    			if ($chat->department !== false) {
+    			    erLhcoreClassChat::updateDepartmentStats($chat->department);
+    			}
+    			
     			erLhcoreClassChat::updateActiveChats($chat->user_id);
     			$closedChatsNumber++;
 	    	}
@@ -233,6 +238,11 @@ class erLhcoreClassChatWorkflow {
 	    	     
 	    	    $chat->updateThis();
 	    	    erLhcoreClassChat::updateActiveChats($chat->user_id);
+	    	    
+	    	    if ($chat->department !== false) {
+	    	        erLhcoreClassChat::updateDepartmentStats($chat->department);
+	    	    }
+	    	    
 	    	    $closedChatsNumber++;
 	    	}	    	
     	}
@@ -250,6 +260,11 @@ class erLhcoreClassChatWorkflow {
     		foreach (erLhcoreClassChat::getList(array('limit' => 500,'filtergt' => array('last_user_msg_time' => 0), 'filterlt' => array('last_user_msg_time' => $delay), 'filter' => array('status' => erLhcoreClassModelChat::STATUS_CLOSED_CHAT))) as $chat) {
     			$chat->removeThis(); 
     			erLhcoreClassChat::updateActiveChats($chat->user_id);
+    			
+    			if ($chat->department !== false) {
+    			    erLhcoreClassChat::updateDepartmentStats($chat->department);
+    			}
+    			
     			$purgedChatsNumber++;
 	    	}	
     	}    	
