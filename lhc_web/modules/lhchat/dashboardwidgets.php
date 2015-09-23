@@ -57,6 +57,15 @@ if (ezcInputForm::hasPostData()) {
             }
         }
         
+        // Minimum 3 columns
+        $accCount = substr_count($dashboardOrderString,'|');
+        $missingTimes = 2 - $accCount;
+        
+        // Append to the end
+        if ($missingTimes > 0) {
+            $dashboardOrderString .= str_repeat('|', $missingTimes);
+        }
+  
         // Just cleanup
         $dashboardOrderString = str_replace(array(
             ',,',
@@ -71,15 +80,6 @@ if (ezcInputForm::hasPostData()) {
             '|',
             '|'
         ), $dashboardOrderString);
-        
-        // Minimum 3 columns
-        $accCount = substr_count($dashboardOrderString,'|');
-        $missingTimes = 2 - $accCount;
-        
-        // Append to the end
-        if ($missingTimes > 0) {
-            $dashboardOrderString .= str_repeat('|', $missingTimes);
-        }
         
         // Store settings in user scope now
         erLhcoreClassModelUserSetting::setSetting('dwo', $dashboardOrderString);
