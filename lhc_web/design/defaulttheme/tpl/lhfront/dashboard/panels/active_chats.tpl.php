@@ -1,8 +1,11 @@
-<div class="panel panel-default panel-dashboard" data-panel-id="active_chats">
+<div class="panel panel-default panel-dashboard" data-panel-id="active_chats" ng-init="lhc.getToggleWidget('activec_widget_exp')">
 	<div class="panel-heading">
 		<a href="<?php echo erLhcoreClassDesign::baseurl('chat/activechats')?>"><i class="material-icons chat-active">chat</i> <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/active_chats.tpl.php'));?> ({{active_chats.list.length}}{{active_chats.list.length == lhc.limita ? '+' : ''}})</a>
+		<a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','collapse/expand')?>" ng-click="lhc.toggleWidget('activec_widget_exp')" class="fs24 pull-right material-icons">{{lhc.toggleWidgetData['activec_widget_exp'] == false ? 'expand_less' : 'expand_more'}}</a>
 	</div>
-	<div>
+	
+	<div ng-if="lhc.toggleWidgetData['activec_widget_exp'] !== true">
+
 	    <?php $optinsPanel = array('panelid' => 'actived','limitid' => 'limita'); ?>
 		<?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/parts/options.tpl.php'));?>
 		

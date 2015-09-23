@@ -1,8 +1,9 @@
-<div class="panel panel-default panel-dashboard" data-panel-id="transfered_chats">
+<div class="panel panel-default panel-dashboard" data-panel-id="transfered_chats" ng-init="lhc.getToggleWidget('trchats_widget_exp')">
 	<div class="panel-heading">
 		<i class="material-icons chat-pending">chat</i> <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/transfered_chats.tpl.php'));?> ({{transfer_dep_chats.list.length}})</a>
+		<a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','collapse/expand')?>" ng-click="lhc.toggleWidget('trchats_widget_exp')" class="fs24 pull-right material-icons">{{lhc.toggleWidgetData['trchats_widget_exp'] == false ? 'expand_less' : 'expand_more'}}</a>
 	</div>
-	<div>
+	<div ng-if="lhc.toggleWidgetData['trchats_widget_exp'] !== true">
     	<div class="panel-list">
     		<div role="tabpanel" ng-show="transfer_dep_chats.list.length > 0 || transfer_chats.list.length > 0">
     		

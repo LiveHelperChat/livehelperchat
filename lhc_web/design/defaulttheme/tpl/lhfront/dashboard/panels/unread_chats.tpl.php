@@ -1,8 +1,9 @@
-<div class="panel panel-default panel-dashboard" data-panel-id="unread_chats">
+<div class="panel panel-default panel-dashboard" data-panel-id="unread_chats" ng-init="lhc.getToggleWidget('unchats_widget_exp')">
 	<div class="panel-heading">
 		<a href="<?php echo erLhcoreClassDesign::baseurl('chat/unreadchats')?>"><i class="material-icons chat-unread">chat</i> <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/unread_chats.tpl.php'));?> ({{unread_chats.list.length}}{{unread_chats.list.length == lhc.limitu ? '+' : ''}})</a>
+		<a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','collapse/expand')?>" ng-click="lhc.toggleWidget('unchats_widget_exp')" class="fs24 pull-right material-icons">{{lhc.toggleWidgetData['unchats_widget_exp'] == false ? 'expand_less' : 'expand_more'}}</a>
 	</div>
-	<div>
+	<div ng-if="lhc.toggleWidgetData['unchats_widget_exp'] !== true">
 					
 		<?php $optinsPanel = array('panelid' => 'unreadd','limitid' => 'limitu'); ?>
 		<?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/parts/options.tpl.php'));?>
