@@ -36,7 +36,13 @@
             <td>
             <div style="width:90px">
     	        <div class="btn-group" role="group" aria-label="...">
+    	        
+    	            <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/proactive_pre.tpl.php'));?>
+    	            
+    	            <?php if ($system_configuration_proactive_enabled == true) : ?>
     	            <a ng-click="online.sendMessage(ou.id)" class="btn btn-default btn-sm material-icons mat-100 mr-0" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Send message');?>">chat</a>
+    	            <?php endif;?>
+    	            
     	            <a ng-click="online.deleteUser(ou,'<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/list','Are you sure?')?>');" class="btn btn-danger btn-sm material-icons mat-100 mr-0" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Delete');?>, ID - {{ou.id}}">delete</a>		      
     			</div>
     		</div>
