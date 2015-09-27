@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Сколько дней виджет голосования не будет открыт с последнего показа</translation>
     </message>
@@ -621,8 +625,8 @@
       <translation>Как долго повторять сообщение?</translation>
     </message>
     <message>
-      <source>Show visitor this message then wait timeout passes.</source>
-      <translation>Показывает посетителю это сообщение после того, как время, после которого оно должно быть показано, прошло.</translation>
+      <source>Show visitor this message when wait timeout passes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Auto responder</source>
@@ -695,6 +699,10 @@
     <message>
       <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
       <translation>Сообщение для ожидающих посетителей. Отображается, когда посетитель начал чат и ждет, пока оператор примет его</translation>
+    </message>
+    <message>
+      <source>Show visitor this message then wait timeout passes.</source>
+      <translation>Показывает посетителю это сообщение после того, как время, после которого оно должно быть показано, прошло.</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -2119,6 +2127,10 @@
     <message>
       <source>Open in a new window</source>
       <translation>Открыть в новом окне</translation>
+    </message>
+    <message>
+      <source>No previous chats</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Add chat</source>
@@ -5749,8 +5761,8 @@
   <context>
     <name>permission/editrole</name>
     <message>
-      <source>Role edit</source>
-      <translation>Редактирование роли</translation>
+      <source>Edit role</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Title</source>
@@ -5823,6 +5835,10 @@
     <message>
       <source>List of roles</source>
       <translation>Лист ролей</translation>
+    </message>
+    <message>
+      <source>Role edit</source>
+      <translation>Редактирование роли</translation>
     </message>
   </context>
   <context>
@@ -6549,8 +6565,8 @@
       <translation>Часовой пояс сервера по умолчанию</translation>
     </message>
     <message>
-      <source>User edit</source>
-      <translation>Редактирование пользователя</translation>
+      <source>Edit user</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Do not enter a password unless you want to change it</source>
@@ -6631,6 +6647,10 @@
     <message>
       <source>Users</source>
       <translation>Пользователи</translation>
+    </message>
+    <message>
+      <source>User edit</source>
+      <translation>Редактирование пользователя</translation>
     </message>
   </context>
   <context>

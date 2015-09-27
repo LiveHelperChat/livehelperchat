@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Nr de zile ce trebuie sa treaca de la ultima votare pentru ca fereastra de votare sa se poata activa din nou</translation>
     </message>
@@ -621,8 +625,8 @@
       <translation>De cate ori sa se repete mesajul?</translation>
     </message>
     <message>
-      <source>Show visitor this message then wait timeout passes.</source>
-      <translation>Arată vizitator acest mesaj, apoi aşteptaţi timp trece.</translation>
+      <source>Show visitor this message when wait timeout passes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Auto responder</source>
@@ -695,6 +699,10 @@
     <message>
       <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
       <translation>Aşteptaţi mesajul. Vizibil, atunci utilizatorii începe chat-ul şi este de aşteptare pentru cineva să accepte o sesiune de chat.</translation>
+    </message>
+    <message>
+      <source>Show visitor this message then wait timeout passes.</source>
+      <translation>Arată vizitator acest mesaj, apoi aşteptaţi timp trece.</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -2118,6 +2126,10 @@
     <message>
       <source>Open in a new window</source>
       <translation>Deschide in fereastra noua</translation>
+    </message>
+    <message>
+      <source>No previous chats</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Add chat</source>
@@ -5748,8 +5760,8 @@
   <context>
     <name>permission/editrole</name>
     <message>
-      <source>Role edit</source>
-      <translation>Editeaza rolul</translation>
+      <source>Edit role</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Title</source>
@@ -5822,6 +5834,10 @@
     <message>
       <source>List of roles</source>
       <translation>Lista de roluri</translation>
+    </message>
+    <message>
+      <source>Role edit</source>
+      <translation>Editeaza rolul</translation>
     </message>
   </context>
   <context>
@@ -6548,8 +6564,8 @@
       <translation>Fus orar standard al serverului</translation>
     </message>
     <message>
-      <source>User edit</source>
-      <translation>Editeaza utilizator</translation>
+      <source>Edit user</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Do not enter a password unless you want to change it</source>
@@ -6630,6 +6646,10 @@
     <message>
       <source>Users</source>
       <translation>Utilizatori</translation>
+    </message>
+    <message>
+      <source>User edit</source>
+      <translation>Editeaza utilizator</translation>
     </message>
   </context>
   <context>

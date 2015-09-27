@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Wie viele Tage lang soll das Bewertungs-Widget seit der letzten Anzeige nicht erweitert werden</translation>
     </message>
@@ -621,8 +625,8 @@
       <translation>Wie oft soll die Nachricht wiederholt werden?</translation>
     </message>
     <message>
-      <source>Show visitor this message then wait timeout passes.</source>
-      <translation>Zeige dem Besucher diese Nachricht, dann warte bis das Zeitlimit erreicht ist.</translation>
+      <source>Show visitor this message when wait timeout passes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Auto responder</source>
@@ -695,6 +699,10 @@
     <message>
       <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
       <translation>Warte-Nachricht. Sichtbar, wenn der Besucher einen Chat startet und auf die Akzeptierung des Chats wartet.</translation>
+    </message>
+    <message>
+      <source>Show visitor this message then wait timeout passes.</source>
+      <translation>Zeige dem Besucher diese Nachricht, dann warte bis das Zeitlimit erreicht ist.</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -2118,6 +2126,10 @@
     <message>
       <source>Open in a new window</source>
       <translation>In neuem Fenster öffnen</translation>
+    </message>
+    <message>
+      <source>No previous chats</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Add chat</source>
@@ -5748,8 +5760,8 @@
   <context>
     <name>permission/editrole</name>
     <message>
-      <source>Role edit</source>
-      <translation>Rolle bearbeiten</translation>
+      <source>Edit role</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Title</source>
@@ -5822,6 +5834,10 @@
     <message>
       <source>List of roles</source>
       <translation>Liste der Rollen</translation>
+    </message>
+    <message>
+      <source>Role edit</source>
+      <translation>Rolle bearbeiten</translation>
     </message>
   </context>
   <context>
@@ -6548,8 +6564,8 @@
       <translation>Standard Timezone des Servers</translation>
     </message>
     <message>
-      <source>User edit</source>
-      <translation>Benutzer bearbeiten</translation>
+      <source>Edit user</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Do not enter a password unless you want to change it</source>
@@ -6630,6 +6646,10 @@
     <message>
       <source>Users</source>
       <translation>Benutzer</translation>
+    </message>
+    <message>
+      <source>User edit</source>
+      <translation>Benutzer bearbeiten</translation>
     </message>
   </context>
   <context>

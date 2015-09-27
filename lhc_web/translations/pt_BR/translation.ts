@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Por quantos dias o widget de votação não deve ser exibido após última exibição</translation>
     </message>
@@ -19,7 +23,7 @@
     </message>
     <message>
       <source>Should mouse movement be tracked as activity measure, if not checked only basic events would be tracked</source>
-      <translation>Caso o mouse seja rastreado para acompanhar atividade, caso não seja acompanhado apenas os eventos básicos serão rastreados</translation>
+      <translation>Caso o movimento do mouse seja considerado como medição de atividade, se não marcado, apenas os eventos básicos serão rastreados</translation>
     </message>
     <message>
       <source>Track is user still on site, chat status checks also has to be enabled</source>
@@ -472,19 +476,19 @@
     </message>
     <message>
       <source>Text when user starts chat based on proactive invitation</source>
-      <translation type="unfinished"/>
+      <translation>Texto para quando o usuário iniciar o chat por um convite proativo</translation>
     </message>
     <message>
       <source>Text when operator closes a chat</source>
-      <translation type="unfinished"/>
+      <translation>Texto para quando o operador fechar um chat</translation>
     </message>
     <message>
       <source>Text when user starts a chat and is waiting for operator to join a chat</source>
-      <translation type="unfinished"/>
+      <translation>Texto para quando o usuário inicia um chat e está esperando ser atendido</translation>
     </message>
     <message>
       <source>Text when user starts a chat but department is offline</source>
-      <translation type="unfinished"/>
+      <translation>Texto para quando o usuário inicia um chat mas o departamento está offline</translation>
     </message>
     <message>
       <source>Leave a message form text</source>
@@ -621,8 +625,8 @@
       <translation>Repetir a mensagem quantas vezes?</translation>
     </message>
     <message>
-      <source>Show visitor this message then wait timeout passes.</source>
-      <translation>Mostrar ao visitante esta mensagem quando ultrapassar o tempo limite.</translation>
+      <source>Show visitor this message when wait timeout passes</source>
+      <translation>Exibir esta mensagem ao visitante quando o tempo de espera terminar</translation>
     </message>
     <message>
       <source>Auto responder</source>
@@ -695,6 +699,10 @@
     <message>
       <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
       <translation>Mensagem de espera. Visível quando usuários iniciam um bate-papo e estão esperando por alguém a aceitar um chat.</translation>
+    </message>
+    <message>
+      <source>Show visitor this message then wait timeout passes.</source>
+      <translation>Mostrar ao visitante esta mensagem quando ultrapassar o tempo limite.</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -972,7 +980,7 @@
     </message>
     <message>
       <source>Survey at the end of chat</source>
-      <translation>Avaliação ao final deste chat</translation>
+      <translation>Questionário no final do chat</translation>
     </message>
     <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
@@ -1024,7 +1032,7 @@
     </message>
     <message>
       <source>no survey</source>
-      <translation>Nenhuma pesquisa</translation>
+      <translation>Nenhum questionário</translation>
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>
@@ -1228,11 +1236,11 @@
     </message>
     <message>
       <source>Group results by operator</source>
-      <translation>Resultados do grupo por Operador.</translation>
+      <translation>Agrupar resultados por atendente.</translation>
     </message>
     <message>
       <source>Minimum chats</source>
-      <translation>Chats mínimos.</translation>
+      <translation>Mínimo de chats</translation>
     </message>
     <message>
       <source>Optional</source>
@@ -1880,7 +1888,7 @@
     </message>
     <message>
       <source>Hidden field</source>
-      <translation type="unfinished"/>
+      <translation>Campo oculto</translation>
     </message>
     <message>
       <source>Created</source>
@@ -2055,7 +2063,7 @@
     </message>
     <message>
       <source>Could not detect a language</source>
-      <translation>Não foi possível encontrar uma língua</translation>
+      <translation>Não foi possível encontrar um idioma</translation>
     </message>
     <message>
       <source>Could not detect language</source>
@@ -2120,6 +2128,10 @@
       <translation>Abrir em uma nova janela</translation>
     </message>
     <message>
+      <source>No previous chats</source>
+      <translation>Sem chats anteriores</translation>
+    </message>
+    <message>
       <source>Add chat</source>
       <translation>Adicionar chat</translation>
     </message>
@@ -2165,7 +2177,7 @@
     </message>
     <message>
       <source>Configure dashboard</source>
-      <translation type="unfinished"/>
+      <translation>Configurar o painel de controle</translation>
     </message>
     <message>
       <source>Visitor</source>
@@ -2251,7 +2263,7 @@
     <name>chat/chatpreview</name>
     <message>
       <source>Chat preview</source>
-      <translation>Visualizar do chat</translation>
+      <translation>Pré-visualizar o chat</translation>
     </message>
   </context>
   <context>
@@ -2544,7 +2556,7 @@
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, they will get your messages</source>
-      <translation type="unfinished"/>
+      <translation>Enquanto você não for atendido, você pode escrever suas perguntas, e logo que um atendente confirmar essa conversa, ele vai receber suas mensagens</translation>
     </message>
     <message>
       <source>Visitor has been redirected to contact form</source>
@@ -2617,43 +2629,43 @@
     <name>chat/dashboardwidgets</name>
     <message>
       <source>Choose what widgets you want to see</source>
-      <translation type="unfinished"/>
+      <translation>Escolher quais widgets você deseja ver</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>Configurações atualizadas</translation>
     </message>
     <message>
       <source>Online operators</source>
-      <translation type="unfinished"/>
+      <translation>Atendentes online</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation type="unfinished"/>
+      <translation>Chats ativos</translation>
     </message>
     <message>
       <source>Online visitors</source>
-      <translation type="unfinished"/>
+      <translation>Visitantes online</translation>
     </message>
     <message>
       <source>Departments stats</source>
-      <translation type="unfinished"/>
+      <translation>Status dos departamentos</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation type="unfinished"/>
+      <translation>Chats pendentes</translation>
     </message>
     <message>
       <source>Unread chats</source>
-      <translation type="unfinished"/>
+      <translation>Chats não lidos</translation>
     </message>
     <message>
       <source>Transfered chats</source>
-      <translation type="unfinished"/>
+      <translation>Chats transferidos</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation type="unfinished"/>
+      <translation>Chats fechados</translation>
     </message>
   </context>
   <context>
@@ -2705,7 +2717,7 @@
     </message>
     <message>
       <source>Edit nick</source>
-      <translation>Editar</translation>
+      <translation>Editar apelido</translation>
     </message>
     <message>
       <source>Chat was automatically transferred to</source>
@@ -3365,7 +3377,7 @@
     </message>
     <message>
       <source>Preview chat</source>
-      <translation>Pré-Visualização do chat</translation>
+      <translation>Pré-visualizar o chat</translation>
     </message>
     <message>
       <source>Visits</source>
@@ -3504,7 +3516,7 @@
     </message>
     <message>
       <source>This determines should status widget change it&apos;s status once operator logins. Recommended value 290</source>
-      <translation>Isso determina quando mudar seu status no Widget quando logado como operador . Tempo recomendado 290</translation>
+      <translation>Isso determina quando mudar seu status no Widget quando logado como operador . Valor recomendado 290</translation>
     </message>
     <message>
       <source>Screen sharing</source>
@@ -3527,13 +3539,12 @@
     </message>
     <message>
       <source>Supported: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</source>
-      <translation>Apoiado:
-Painel, mapa_online, usuário_online, chats_pendente, mapa_online, chats_ativados
-chats_não lidos chats_fechados operadores_online</translation>
+      <translation>Suportado:
+dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</translation>
     </message>
     <message>
       <source>Supported: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
-      <translation>Suporte: operadores_online, status_de_departamentos, visitantes_online, chats_pendentes, chats_pendentes, chats_transferidos, chats_ativos, chats_fechados</translation>
+      <translation>Suportado: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</translation>
     </message>
     <message>
       <source>New chat notification settings</source>
@@ -3657,7 +3668,7 @@ chats_não lidos chats_fechados operadores_online</translation>
     </message>
     <message>
       <source>Surveys</source>
-      <translation>Pesquisar</translation>
+      <translation>Questionários</translation>
     </message>
     <message>
       <source>Theming</source>
@@ -3815,7 +3826,7 @@ chats_não lidos chats_fechados operadores_online</translation>
     </message>
     <message>
       <source>Clean cache</source>
-      <translation>Limpa cache</translation>
+      <translation>Limpa o cache</translation>
     </message>
     <message>
       <source>Home</source>
@@ -3871,7 +3882,7 @@ chats_não lidos chats_fechados operadores_online</translation>
     </message>
     <message>
       <source>Configuration</source>
-      <translation type="unfinished"/>
+      <translation>Configuração</translation>
     </message>
     <message>
       <source>Chats list</source>
@@ -5750,7 +5761,7 @@ chats_não lidos chats_fechados operadores_online</translation>
   <context>
     <name>permission/editrole</name>
     <message>
-      <source>Role edit</source>
+      <source>Edit role</source>
       <translation>Editar regra</translation>
     </message>
     <message>
@@ -5824,6 +5835,10 @@ chats_não lidos chats_fechados operadores_online</translation>
     <message>
       <source>List of roles</source>
       <translation>Lista de regras</translation>
+    </message>
+    <message>
+      <source>Role edit</source>
+      <translation>Editar regra</translation>
     </message>
   </context>
   <context>
@@ -6309,7 +6324,7 @@ chats_não lidos chats_fechados operadores_online</translation>
     </message>
     <message>
       <source>Operator</source>
-      <translation>Operador</translation>
+      <translation>Atendente</translation>
     </message>
     <message>
       <source>Stars</source>
@@ -6328,15 +6343,15 @@ chats_não lidos chats_fechados operadores_online</translation>
     <name>survey/fill</name>
     <message>
       <source>star</source>
-      <translation>Estrela</translation>
+      <translation>estrela</translation>
     </message>
     <message>
       <source>stars</source>
-      <translation>Estrelas</translation>
+      <translation>estrelas</translation>
     </message>
     <message>
       <source>Preview chat</source>
-      <translation>Visualizar chat </translation>
+      <translation>Pé-visualizar o chat </translation>
     </message>
     <message>
       <source>How well did we do?</source>
@@ -6352,11 +6367,11 @@ chats_não lidos chats_fechados operadores_online</translation>
     </message>
     <message>
       <source>Thank you for your feedback...</source>
-      <translation>Obrigado pelo seu feedback ..</translation>
+      <translation>Obrigado pelo seu feedback...</translation>
     </message>
     <message>
       <source>Please complete this short evaluation survey</source>
-      <translation>Por favor, responda a esta pequena pesquisa de avaliação</translation>
+      <translation>Por favor, responda este curto questionário de avaliação</translation>
     </message>
   </context>
   <context>
@@ -6550,7 +6565,7 @@ chats_não lidos chats_fechados operadores_online</translation>
       <translation>Fuso horário padrão do servidor</translation>
     </message>
     <message>
-      <source>User edit</source>
+      <source>Edit user</source>
       <translation>Editar usuário</translation>
     </message>
     <message>
@@ -6632,6 +6647,10 @@ chats_não lidos chats_fechados operadores_online</translation>
     <message>
       <source>Users</source>
       <translation>Usuários</translation>
+    </message>
+    <message>
+      <source>User edit</source>
+      <translation>Editar usuário</translation>
     </message>
   </context>
   <context>
@@ -7432,7 +7451,7 @@ chats_não lidos chats_fechados operadores_online</translation>
     </message>
     <message>
       <source>Survey</source>
-      <translation>Pesquisa</translation>
+      <translation>Questionário</translation>
     </message>
   </context>
   <context>
@@ -7476,7 +7495,7 @@ chats_não lidos chats_fechados operadores_online</translation>
     <name>chat/refreshcustomfields</name>
     <message>
       <source>Data refreshed</source>
-      <translation type="unfinished"/>
+      <translation>Dados atualizados</translation>
     </message>
   </context>
   <context>

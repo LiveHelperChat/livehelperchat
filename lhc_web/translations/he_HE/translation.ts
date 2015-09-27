@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>למשך כמה ימים יש להציג את אפשרות ההצבעה לאחר שהוצגו פעם אחרונה?</translation>
     </message>
@@ -621,7 +625,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Show visitor this message then wait timeout passes.</source>
+      <source>Show visitor this message when wait timeout passes</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -695,6 +699,10 @@
     <message>
       <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
       <translation>הודעת המתנה. מוצג כאשר משתמשים מתחילים צ&apos;אט ומחכים שמישהו יקבל את השיחה</translation>
+    </message>
+    <message>
+      <source>Show visitor this message then wait timeout passes.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -2118,6 +2126,10 @@
     <message>
       <source>Open in a new window</source>
       <translation>פתח בחלון חדש</translation>
+    </message>
+    <message>
+      <source>No previous chats</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Add chat</source>
@@ -5748,7 +5760,7 @@
   <context>
     <name>permission/editrole</name>
     <message>
-      <source>Role edit</source>
+      <source>Edit role</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5821,6 +5833,10 @@
     </message>
     <message>
       <source>List of roles</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Role edit</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -6548,7 +6564,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>User edit</source>
+      <source>Edit user</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6630,6 +6646,10 @@
     <message>
       <source>Users</source>
       <translation>משתמשים</translation>
+    </message>
+    <message>
+      <source>User edit</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

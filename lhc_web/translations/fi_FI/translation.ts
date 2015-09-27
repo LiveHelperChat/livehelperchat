@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Kuinka monta päivää edellisen äänestyksen jälkeen äänestys-widgetti pidetään piilossa</translation>
     </message>
@@ -621,8 +625,8 @@
       <translation>Kuinka monta kertaa viesti toistetaan ?</translation>
     </message>
     <message>
-      <source>Show visitor this message then wait timeout passes.</source>
-      <translation>Näytä käyttäjälle tämä viesti kun timeout on saavutettu.</translation>
+      <source>Show visitor this message when wait timeout passes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Auto responder</source>
@@ -695,6 +699,10 @@
     <message>
       <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
       <translation>Odota-viesti. Näkyvissä käyttäjälle kun hän odottaa että joku vastaa.</translation>
+    </message>
+    <message>
+      <source>Show visitor this message then wait timeout passes.</source>
+      <translation>Näytä käyttäjälle tämä viesti kun timeout on saavutettu.</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -2118,6 +2126,10 @@
     <message>
       <source>Open in a new window</source>
       <translation>Avaa uudessa ikkunassa</translation>
+    </message>
+    <message>
+      <source>No previous chats</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Add chat</source>
@@ -5748,8 +5760,8 @@
   <context>
     <name>permission/editrole</name>
     <message>
-      <source>Role edit</source>
-      <translation>Muokkaa roolia</translation>
+      <source>Edit role</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Title</source>
@@ -5822,6 +5834,10 @@
     <message>
       <source>List of roles</source>
       <translation>Roolilista</translation>
+    </message>
+    <message>
+      <source>Role edit</source>
+      <translation>Muokkaa roolia</translation>
     </message>
   </context>
   <context>
@@ -6548,8 +6564,8 @@
       <translation>Palvelimen oletusaikavyöhyke</translation>
     </message>
     <message>
-      <source>User edit</source>
-      <translation>Muokkaa käyttäjää</translation>
+      <source>Edit user</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Do not enter a password unless you want to change it</source>
@@ -6630,6 +6646,10 @@
     <message>
       <source>Users</source>
       <translation>Käyttäjät</translation>
+    </message>
+    <message>
+      <source>User edit</source>
+      <translation>Muokkaa käyttäjää</translation>
     </message>
   </context>
   <context>

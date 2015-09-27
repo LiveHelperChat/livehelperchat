@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Per quanti giorni il widget di voto non deve essere mostrato dopo l&apos;ultima visualizzazione</translation>
     </message>
@@ -19,7 +23,7 @@
     </message>
     <message>
       <source>Should mouse movement be tracked as activity measure, if not checked only basic events would be tracked</source>
-      <translation type="unfinished"/>
+      <translation>Il movimento del mouse deve essere rilevato come misura di attività, se non controllato solo gli eventi di base saranno rilevati</translation>
     </message>
     <message>
       <source>Track is user still on site, chat status checks also has to be enabled</source>
@@ -472,19 +476,19 @@
     </message>
     <message>
       <source>Text when user starts chat based on proactive invitation</source>
-      <translation type="unfinished"/>
+      <translation>Testo quando l&apos;utente avvia la chat basato su invito proattivo</translation>
     </message>
     <message>
       <source>Text when operator closes a chat</source>
-      <translation type="unfinished"/>
+      <translation>Testo per quando l&apos;operatore chiude una chat</translation>
     </message>
     <message>
       <source>Text when user starts a chat and is waiting for operator to join a chat</source>
-      <translation type="unfinished"/>
+      <translation>Testo quando l&apos;utente avvia una chat e sta aspettando un operatore per partecipare ad una chat</translation>
     </message>
     <message>
       <source>Text when user starts a chat but department is offline</source>
-      <translation type="unfinished"/>
+      <translation>Testo per quando l&apos;utente avvia una chat ma il dipartimento è attualmente offline</translation>
     </message>
     <message>
       <source>Leave a message form text</source>
@@ -622,8 +626,8 @@
       <translation>Quante volte ripetere il messaggio?</translation>
     </message>
     <message>
-      <source>Show visitor this message then wait timeout passes.</source>
-      <translation>Mostra al visitatore questo messaggio quindi attendere che il timeout passi</translation>
+      <source>Show visitor this message when wait timeout passes</source>
+      <translation>Visualizza questo messaggio quando il tempo di attesa passa e viene superato</translation>
     </message>
     <message>
       <source>Auto responder</source>
@@ -696,6 +700,10 @@
     <message>
       <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
       <translation>Attendi messaggio. Visibile quando gli utenti iniziano una conversazione e sono in attesa di qualcuno che accetti la chat.</translation>
+    </message>
+    <message>
+      <source>Show visitor this message then wait timeout passes.</source>
+      <translation>Mostra al visitatore questo messaggio quindi attendere che il timeout passi</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -773,11 +781,11 @@
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Chatbox module to render.</source>
-      <translation type="unfinished"/>
+      <translation>Posizionare questo tag in cui si desidera il modulo Live chat di supporto per il rendering.</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper Chatbox module tag.</source>
-      <translation type="unfinished"/>
+      <translation>Posizionare questo tag dopo il tag del modulo Live Helper Chatbox</translation>
     </message>
     <message>
       <source>Chatbox</source>
@@ -853,11 +861,11 @@
     </message>
     <message>
       <source>Place this tag where you want the Live Helper FAQ module to render.</source>
-      <translation type="unfinished"/>
+      <translation>Posizionare questo tag dove si desidera mostrato il modulo Live Hemper FAQ</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper FAQ module tag.</source>
-      <translation type="unfinished"/>
+      <translation>Posto questo tag dopo il tag di modulo Live Helper FAQ.</translation>
     </message>
     <message>
       <source>Status text</source>
@@ -881,11 +889,11 @@
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Questionary module to render.</source>
-      <translation type="unfinished"/>
+      <translation>Posizionare questo tag dove si desidera visualizzare il modulo Live Helper questionario.</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper Questionary module tag.</source>
-      <translation type="unfinished"/>
+      <translation>Posizionare questo tag dopo il tag di modulo Live Helper questionario.</translation>
     </message>
     <message>
       <source>Help us to grow</source>
@@ -949,7 +957,7 @@
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Plugin to render.</source>
-      <translation type="unfinished"/>
+      <translation>Posizionare questo tag dove si desidera visualizzare il Plugin di supporto Live.</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper Plugin tag.</source>
@@ -1233,7 +1241,7 @@
     </message>
     <message>
       <source>Minimum chats</source>
-      <translation type="unfinished"/>
+      <translation>Chat Minime</translation>
     </message>
     <message>
       <source>Optional</source>
@@ -1881,7 +1889,7 @@
     </message>
     <message>
       <source>Hidden field</source>
-      <translation type="unfinished"/>
+      <translation>Campo nascosto</translation>
     </message>
     <message>
       <source>Created</source>
@@ -2121,6 +2129,10 @@
       <translation>Apri in una nuova finestra | Open in a new window</translation>
     </message>
     <message>
+      <source>No previous chats</source>
+      <translation>Nessune chat precedenti</translation>
+    </message>
+    <message>
       <source>Add chat</source>
       <translation>Aggiungi Chat</translation>
     </message>
@@ -2166,7 +2178,7 @@
     </message>
     <message>
       <source>Configure dashboard</source>
-      <translation type="unfinished"/>
+      <translation>Configurare dashboard</translation>
     </message>
     <message>
       <source>Visitor</source>
@@ -2502,7 +2514,7 @@
     </message>
     <message>
       <source>Please enter a message, max characters</source>
-      <translation>Inserisci il numero massimo di caratteri consentito in un messaggio</translation>
+      <translation>Si prega di inserire un messaggio - caratteri massimi</translation>
     </message>
     <message>
       <source>Visitor</source>
@@ -2545,7 +2557,7 @@
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, they will get your messages</source>
-      <translation type="unfinished"/>
+      <translation>In attesa di un membro del personale di supporto, potete scrivere le vostre domande, non appena un membro del personale di supporto conferma questa chat, verranno consegnati i vostri messaggi</translation>
     </message>
     <message>
       <source>Visitor has been redirected to contact form</source>
@@ -2618,43 +2630,43 @@
     <name>chat/dashboardwidgets</name>
     <message>
       <source>Choose what widgets you want to see</source>
-      <translation type="unfinished"/>
+      <translation>Scegliere quali widget si desidera vedere</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>Impostazioni aggiornate</translation>
     </message>
     <message>
       <source>Online operators</source>
-      <translation type="unfinished"/>
+      <translation>Operatori online</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation type="unfinished"/>
+      <translation>Chat attive</translation>
     </message>
     <message>
       <source>Online visitors</source>
-      <translation type="unfinished"/>
+      <translation>Visitatori online</translation>
     </message>
     <message>
       <source>Departments stats</source>
-      <translation type="unfinished"/>
+      <translation>Statistiche di reparti</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation type="unfinished"/>
+      <translation>Chat in attesa</translation>
     </message>
     <message>
       <source>Unread chats</source>
-      <translation type="unfinished"/>
+      <translation>Chat da leggere</translation>
     </message>
     <message>
       <source>Transfered chats</source>
-      <translation type="unfinished"/>
+      <translation>Chat trasferite</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation type="unfinished"/>
+      <translation>Chat chiuse</translation>
     </message>
   </context>
   <context>
@@ -3461,7 +3473,7 @@
     </message>
     <message>
       <source>Visitor activity</source>
-      <translation type="unfinished"/>
+      <translation>Attività dei visitatori</translation>
     </message>
     <message>
       <source>Workflow</source>
@@ -3485,15 +3497,15 @@
     </message>
     <message>
       <source>Online if</source>
-      <translation type="unfinished"/>
+      <translation>Online se</translation>
     </message>
     <message>
       <source>(Widget is open) or (closed and user has activity in last 5 minutes and ping respond)</source>
-      <translation type="unfinished"/>
+      <translation>(Widget aperto) oppure (chiuso e utente ha una recente attività negli ultimi 5 minuti e risposta ping )</translation>
     </message>
     <message>
       <source>(Widget is open or closed) and (user has activity in last 5 minutes and ping respond)</source>
-      <translation type="unfinished"/>
+      <translation>(Widget aperto o chiuso) e (utente ha attività in ultimi 5 minuti e risposta ping )</translation>
     </message>
     <message>
       <source>Update</source>
@@ -3505,7 +3517,7 @@
     </message>
     <message>
       <source>This determines should status widget change it&apos;s status once operator logins. Recommended value 290</source>
-      <translation type="unfinished"/>
+      <translation>Questo determina se il widget di stato della chat cambia il suo stato se ci sono operatori online. Raccomandato 290</translation>
     </message>
     <message>
       <source>Screen sharing</source>
@@ -3532,7 +3544,7 @@
     </message>
     <message>
       <source>Supported: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
-      <translation type="unfinished"/>
+      <translation>Supportato: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</translation>
     </message>
     <message>
       <source>New chat notification settings</source>
@@ -3870,7 +3882,7 @@
     </message>
     <message>
       <source>Configuration</source>
-      <translation type="unfinished"/>
+      <translation>Configurazione</translation>
     </message>
     <message>
       <source>Chats list</source>
@@ -5749,8 +5761,8 @@
   <context>
     <name>permission/editrole</name>
     <message>
-      <source>Role edit</source>
-      <translation>Modifica ruolo</translation>
+      <source>Edit role</source>
+      <translation>Modificare ruolo</translation>
     </message>
     <message>
       <source>Title</source>
@@ -5823,6 +5835,10 @@
     <message>
       <source>List of roles</source>
       <translation>Elenco dei ruoli</translation>
+    </message>
+    <message>
+      <source>Role edit</source>
+      <translation>Modifica ruolo</translation>
     </message>
   </context>
   <context>
@@ -6296,7 +6312,7 @@
     <name>survey/collected</name>
     <message>
       <source>Chats</source>
-      <translation type="unfinished"/>
+      <translation>Chats</translation>
     </message>
     <message>
       <source>Chat</source>
@@ -6320,7 +6336,7 @@
     </message>
     <message>
       <source>Department name</source>
-      <translation type="unfinished"/>
+      <translation>Nome del reparto</translation>
     </message>
   </context>
   <context>
@@ -6343,11 +6359,11 @@
     </message>
     <message>
       <source>Poor</source>
-      <translation>Scarsa</translation>
+      <translation>Scarsi</translation>
     </message>
     <message>
       <source>Excellent</source>
-      <translation>Eccellente</translation>
+      <translation>Eccellenti</translation>
     </message>
     <message>
       <source>Thank you for your feedback...</source>
@@ -6549,7 +6565,7 @@
       <translation>Fuso orario predefinito del server</translation>
     </message>
     <message>
-      <source>User edit</source>
+      <source>Edit user</source>
       <translation>Modifica utente</translation>
     </message>
     <message>
@@ -6631,6 +6647,10 @@
     <message>
       <source>Users</source>
       <translation>Utenti</translation>
+    </message>
+    <message>
+      <source>User edit</source>
+      <translation>Modifica utente</translation>
     </message>
   </context>
   <context>
@@ -7475,7 +7495,7 @@
     <name>chat/refreshcustomfields</name>
     <message>
       <source>Data refreshed</source>
-      <translation type="unfinished"/>
+      <translation>Dati aggiornati</translation>
     </message>
   </context>
   <context>

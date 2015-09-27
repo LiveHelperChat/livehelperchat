@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Hur många dagar som röstwidgeten inte ska expanderas efter senaste visningen</translation>
     </message>
@@ -39,7 +43,7 @@
     </message>
     <message>
       <source>Track users activity on site?</source>
-      <translation type="unfinished"/>
+      <translation>Spåra användarnas aktivitet på sidan?</translation>
     </message>
     <message>
       <source>How many days keep records of online users.</source>
@@ -476,7 +480,7 @@
     </message>
     <message>
       <source>Text when operator closes a chat</source>
-      <translation type="unfinished"/>
+      <translation>Text som ska visas när operatören stänger en chatt</translation>
     </message>
     <message>
       <source>Text when user starts a chat and is waiting for operator to join a chat</source>
@@ -621,8 +625,8 @@
       <translation>Hur många gånger ska meddelandet repeteras?</translation>
     </message>
     <message>
-      <source>Show visitor this message then wait timeout passes.</source>
-      <translation>Visa besökaren detta meddelande när timeout tiden passerats.</translation>
+      <source>Show visitor this message when wait timeout passes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Auto responder</source>
@@ -695,6 +699,10 @@
     <message>
       <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
       <translation>Väntemeddelande. Synligt när användaren startar chatten och väntar på att någon ska acceptera chatten.</translation>
+    </message>
+    <message>
+      <source>Show visitor this message then wait timeout passes.</source>
+      <translation>Visa besökaren detta meddelande när timeout tiden passerats.</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -972,7 +980,7 @@
     </message>
     <message>
       <source>Survey at the end of chat</source>
-      <translation type="unfinished"/>
+      <translation>Undersökning i slutet av chatten</translation>
     </message>
     <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
@@ -1024,7 +1032,7 @@
     </message>
     <message>
       <source>no survey</source>
-      <translation type="unfinished"/>
+      <translation>ingen undersökning</translation>
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>
@@ -1232,11 +1240,11 @@
     </message>
     <message>
       <source>Minimum chats</source>
-      <translation type="unfinished"/>
+      <translation>Minimum antal chattar</translation>
     </message>
     <message>
       <source>Optional</source>
-      <translation type="unfinished"/>
+      <translation>Valfri</translation>
     </message>
   </context>
   <context>
@@ -1880,7 +1888,7 @@
     </message>
     <message>
       <source>Hidden field</source>
-      <translation type="unfinished"/>
+      <translation>Dolt fält</translation>
     </message>
     <message>
       <source>Created</source>
@@ -2055,7 +2063,7 @@
     </message>
     <message>
       <source>Could not detect a language</source>
-      <translation type="unfinished"/>
+      <translation>Kunde inte bestämma vilket språk</translation>
     </message>
     <message>
       <source>Could not detect language</source>
@@ -2120,6 +2128,10 @@
       <translation>Öppna i ett nytt fönster</translation>
     </message>
     <message>
+      <source>No previous chats</source>
+      <translation>Inga föregående chatter</translation>
+    </message>
+    <message>
       <source>Add chat</source>
       <translation>Lägg till en chatt</translation>
     </message>
@@ -2165,7 +2177,7 @@
     </message>
     <message>
       <source>Configure dashboard</source>
-      <translation type="unfinished"/>
+      <translation>Inställningar för kontrollpanelen</translation>
     </message>
     <message>
       <source>Visitor</source>
@@ -2209,7 +2221,7 @@
     </message>
     <message>
       <source>Transfer time</source>
-      <translation type="unfinished"/>
+      <translation>Överföringstid</translation>
     </message>
     <message>
       <source>Time ago</source>
@@ -2251,7 +2263,7 @@
     <name>chat/chatpreview</name>
     <message>
       <source>Chat preview</source>
-      <translation type="unfinished"/>
+      <translation>Förhandsvisning av chatten</translation>
     </message>
   </context>
   <context>
@@ -2497,7 +2509,7 @@
     </message>
     <message>
       <source>Please choose a star</source>
-      <translation type="unfinished"/>
+      <translation>Var vänlig välj en stjärna</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -2621,39 +2633,39 @@
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>Inställningarna uppdaterades</translation>
     </message>
     <message>
       <source>Online operators</source>
-      <translation type="unfinished"/>
+      <translation>Operatörer online</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation type="unfinished"/>
+      <translation>Aktiva chattar</translation>
     </message>
     <message>
       <source>Online visitors</source>
-      <translation type="unfinished"/>
+      <translation>Besökare online</translation>
     </message>
     <message>
       <source>Departments stats</source>
-      <translation type="unfinished"/>
+      <translation>Avdelningsstatistik</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation type="unfinished"/>
+      <translation>Väntande chattar</translation>
     </message>
     <message>
       <source>Unread chats</source>
-      <translation type="unfinished"/>
+      <translation>Olästa chattar</translation>
     </message>
     <message>
       <source>Transfered chats</source>
-      <translation type="unfinished"/>
+      <translation>Överförda chattar</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation type="unfinished"/>
+      <translation>Stängda chattar</translation>
     </message>
   </context>
   <context>
@@ -2683,11 +2695,11 @@
     <name>chat/editnick</name>
     <message>
       <source>Your information</source>
-      <translation type="unfinished"/>
+      <translation>Din information</translation>
     </message>
     <message>
       <source>Updated!</source>
-      <translation type="unfinished"/>
+      <translation>Uppdaterad!</translation>
     </message>
   </context>
   <context>
@@ -2705,7 +2717,7 @@
     </message>
     <message>
       <source>Edit nick</source>
-      <translation type="unfinished"/>
+      <translation>Redigera alias</translation>
     </message>
     <message>
       <source>Chat was automatically transferred to</source>
@@ -3353,7 +3365,7 @@
     </message>
     <message>
       <source>From</source>
-      <translation type="unfinished"/>
+      <translation>Från</translation>
     </message>
     <message>
       <source>Files upload for users is active</source>
@@ -3365,11 +3377,11 @@
     </message>
     <message>
       <source>Preview chat</source>
-      <translation type="unfinished"/>
+      <translation>Förhandsvisa chatt</translation>
     </message>
     <message>
       <source>Visits</source>
-      <translation type="unfinished"/>
+      <translation>Besök</translation>
     </message>
     <message>
       <source>Country code variable does not exist!</source>
@@ -3460,7 +3472,7 @@
     </message>
     <message>
       <source>Visitor activity</source>
-      <translation type="unfinished"/>
+      <translation>Besökaraktivitet</translation>
     </message>
     <message>
       <source>Workflow</source>
@@ -3484,7 +3496,7 @@
     </message>
     <message>
       <source>Online if</source>
-      <translation type="unfinished"/>
+      <translation>Online om</translation>
     </message>
     <message>
       <source>(Widget is open) or (closed and user has activity in last 5 minutes and ping respond)</source>
@@ -3655,7 +3667,7 @@
     </message>
     <message>
       <source>Surveys</source>
-      <translation type="unfinished"/>
+      <translation>Undersökningar</translation>
     </message>
     <message>
       <source>Theming</source>
@@ -5748,7 +5760,7 @@
   <context>
     <name>permission/editrole</name>
     <message>
-      <source>Role edit</source>
+      <source>Edit role</source>
       <translation>Redigera roll</translation>
     </message>
     <message>
@@ -5822,6 +5834,10 @@
     <message>
       <source>List of roles</source>
       <translation>Rollista</translation>
+    </message>
+    <message>
+      <source>Role edit</source>
+      <translation>Redigera roll</translation>
     </message>
   </context>
   <context>
@@ -6330,19 +6346,19 @@
     </message>
     <message>
       <source>stars</source>
-      <translation type="unfinished"/>
+      <translation>stjärnor</translation>
     </message>
     <message>
       <source>Preview chat</source>
-      <translation type="unfinished"/>
+      <translation>Förhandsvisa chatt</translation>
     </message>
     <message>
       <source>How well did we do?</source>
-      <translation type="unfinished"/>
+      <translation>Hur bra gjorde vi ifrån oss?</translation>
     </message>
     <message>
       <source>Poor</source>
-      <translation type="unfinished"/>
+      <translation>Dåligt</translation>
     </message>
     <message>
       <source>Excellent</source>
@@ -6350,7 +6366,7 @@
     </message>
     <message>
       <source>Thank you for your feedback...</source>
-      <translation type="unfinished"/>
+      <translation>Tack för din återkoppling...</translation>
     </message>
     <message>
       <source>Please complete this short evaluation survey</source>
@@ -6548,7 +6564,7 @@
       <translation>Serverns standard tidszon</translation>
     </message>
     <message>
-      <source>User edit</source>
+      <source>Edit user</source>
       <translation>Redigera användare</translation>
     </message>
     <message>
@@ -6630,6 +6646,10 @@
     <message>
       <source>Users</source>
       <translation>Användare</translation>
+    </message>
+    <message>
+      <source>User edit</source>
+      <translation>Redigera användare</translation>
     </message>
   </context>
   <context>
@@ -7426,11 +7446,11 @@
     </message>
     <message>
       <source>Max stars for feedback</source>
-      <translation type="unfinished"/>
+      <translation>Max antal stjärnor för feedback</translation>
     </message>
     <message>
       <source>Survey</source>
-      <translation type="unfinished"/>
+      <translation>Undersökning</translation>
     </message>
   </context>
   <context>

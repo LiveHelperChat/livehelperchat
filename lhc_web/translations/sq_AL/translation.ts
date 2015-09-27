@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -621,7 +625,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Show visitor this message then wait timeout passes.</source>
+      <source>Show visitor this message when wait timeout passes</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -695,6 +699,10 @@
     <message>
       <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
       <translation>Mesazh pritjeje.E dukshme per perdoruesin atehere kur dikush nga operatoret ta pranoje biseden.</translation>
+    </message>
+    <message>
+      <source>Show visitor this message then wait timeout passes.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -2119,6 +2127,10 @@
     <message>
       <source>Open in a new window</source>
       <translation>Hape ne nje dritare te re</translation>
+    </message>
+    <message>
+      <source>No previous chats</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Add chat</source>
@@ -5749,8 +5761,8 @@
   <context>
     <name>permission/editrole</name>
     <message>
-      <source>Role edit</source>
-      <translation>Ndryshimi i rolit</translation>
+      <source>Edit role</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Title</source>
@@ -5823,6 +5835,10 @@
     <message>
       <source>List of roles</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Role edit</source>
+      <translation>Ndryshimi i rolit</translation>
     </message>
   </context>
   <context>
@@ -6549,7 +6565,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>User edit</source>
+      <source>Edit user</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6630,6 +6646,10 @@
     </message>
     <message>
       <source>Users</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User edit</source>
       <translation type="unfinished"/>
     </message>
   </context>

@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Hoeveel dagen moet de stemwidget verborgen worden na de laatste weergave?</translation>
     </message>
@@ -621,8 +625,8 @@
       <translation>Hoe vaak wilt u het bericht herhalen?</translation>
     </message>
     <message>
-      <source>Show visitor this message then wait timeout passes.</source>
-      <translation>Toon de bezoeker dit bericht en wacht dan op verlopen van timeout.</translation>
+      <source>Show visitor this message when wait timeout passes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Auto responder</source>
@@ -695,6 +699,10 @@
     <message>
       <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
       <translation>Wacht bericht. Zichtbaar wanneer een gebruiker een chat start en wacht op antwoord.</translation>
+    </message>
+    <message>
+      <source>Show visitor this message then wait timeout passes.</source>
+      <translation>Toon de bezoeker dit bericht en wacht dan op verlopen van timeout.</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -2118,6 +2126,10 @@
     <message>
       <source>Open in a new window</source>
       <translation>Openen in nieuw venster</translation>
+    </message>
+    <message>
+      <source>No previous chats</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Add chat</source>
@@ -5749,8 +5761,8 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
   <context>
     <name>permission/editrole</name>
     <message>
-      <source>Role edit</source>
-      <translation>Wijzig rol</translation>
+      <source>Edit role</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Title</source>
@@ -5823,6 +5835,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>List of roles</source>
       <translation>Rollen</translation>
+    </message>
+    <message>
+      <source>Role edit</source>
+      <translation>Wijzig rol</translation>
     </message>
   </context>
   <context>
@@ -6549,8 +6565,8 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Standaard tijdszone server</translation>
     </message>
     <message>
-      <source>User edit</source>
-      <translation>Bewerk gebruiker</translation>
+      <source>Edit user</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Do not enter a password unless you want to change it</source>
@@ -6631,6 +6647,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Users</source>
       <translation>Gebruikers</translation>
+    </message>
+    <message>
+      <source>User edit</source>
+      <translation>Bewerk gebruiker</translation>
     </message>
   </context>
   <context>
