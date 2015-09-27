@@ -51,8 +51,6 @@ if ($limitation !== false) {
     $filterParams['filter']['smart_select'] = true;         
 }
 
-$filterParams['filter']['sort'] = 'priority DESC, id DESC';
-
 if ($Params['user_parameters_unordered']['print'] == 1){
 	$tpl = erLhcoreClassTemplate::getInstance('lhchat/printchats.tpl.php');
 	$items = erLhcoreClassChat::getList(array_merge($filterParams['filter'],array('limit' => 10000,'offset' => 0)));
@@ -78,6 +76,7 @@ $tpl->set('pages',$pages);
 
 if ($pages->items_total > 0) {
 	$items = erLhcoreClassChat::getList(array_merge($filterParams['filter'],array('limit' => $pages->items_per_page,'offset' => $pages->low)));
+	erLhcoreClassChat::setOnlineStatusDirectly($items);
 	$tpl->set('items',$items);
 }
 

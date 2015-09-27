@@ -1288,6 +1288,84 @@ class erLhcoreClassChat {
    }
    
    /**
+    * Sets chats status directly
+    * */
+   public static function setOnlineStatusDirectly($chatLists)
+   {
+       $onlineUserId = array();
+        
+       foreach ($chatLists as $chat) {
+           if (isset($chat->online_user_id) && $chat->online_user_id > 0) {
+               $onlineUserId[] = (int)$chat->online_user_id;
+           }
+       }
+        
+       if (!empty($onlineUserId)) {
+           $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.setonlinestatus_directly',array('list' => & $chatLists, 'online_users_id' => $onlineUserId));
+            
+           // Event listener has done it's job
+           if (isset($response['status']) && $response['status'] === erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
+               return ;
+           }
+   
+           $onlineVisitors = erLhcoreClassModelChatOnlineUser::getList( array (
+               'sort' => false,
+               'filterin' => array (
+                   'id' => $onlineUserId
+               )
+           ), array (
+               'vid',
+               'current_page',
+               'invitation_seen_count',
+               'page_title',
+               'chat_id',
+               'last_visit',
+               'first_visit',
+               'user_agent',
+               'user_country_name',
+               'user_country_code',
+               'operator_message',
+               'operator_user_id',
+               'operator_user_proactive',
+               'message_seen',
+               'message_seen_ts',
+               'pages_count',
+               'tt_pages_count',
+               'lat',
+               'lon',
+               'city',
+               'identifier',
+               'time_on_site',
+               'tt_time_on_site',
+               'referrer',
+               'invitation_id',
+               'total_visits',
+               'invitation_count',
+               'requires_email',
+               'requires_username',
+               'requires_phone',
+               'dep_id',
+               'reopen_chat',
+               'operation',
+               'operation_chat',
+               'screenshot_id',
+               'online_attr',
+               'online_attr_system',
+               'visitor_tz',
+               'notes'
+           ));
+   
+           foreach ($chatLists as & $chat) {
+               if (isset($chat->online_user_id) && $chat->online_user_id > 0 && isset($onlineVisitors[$chat->online_user_id])) {
+                   $chat->user_status_front = self::setActivityByChatAndOnlineUser($chat, $onlineVisitors[$chat->online_user_id]);
+               } else {
+                   $chat->user_status_front = 1;
+               }
+           }
+       }
+   }
+   
+   /**
     * Sets chat's status by online visitors records in efficient way
     * */
    public static function setOnlineStatus($chatLists) {

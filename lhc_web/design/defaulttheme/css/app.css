@@ -327,6 +327,9 @@ option.offline-dep{
 	background-color:#FFFFDA;
 }
 
+.icon-user-offline{
+	color:#FF4B4B;
+}
 
 /*User has done pageview in the last 5 minutes*/
 .icon-user-pageview {
