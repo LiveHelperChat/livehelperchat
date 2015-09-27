@@ -88,6 +88,29 @@ $fieldsSearch['fbst'] = array (
 	)
 );
 
+$fieldsSearch['chat_status'] = array (
+	'type' => 'text',
+	'trans' => 'Chats status',
+	'required' => false,
+	'valid_if_filled' => false,
+	'filter_type' => 'filter',
+	'filter_table_field' => 'status',
+	'validation_definition' => new ezcInputFormDefinitionElement(
+		ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 0,'max_range' => 4)
+	)
+);
+
+$fieldsSearch['hum'] = array (
+    'type' => 'checkbox',
+    'trans' => 'Group results',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filter',
+    'filter_table_field' => 'has_unread_messages',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+    )
+);
 
 $fieldSortAttr = array (
 'field'      => false,

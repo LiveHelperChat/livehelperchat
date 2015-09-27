@@ -1,0 +1,1 @@
+<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Chats list');?></h1>

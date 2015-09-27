@@ -1,10 +1,10 @@
 <?php
 
-$tpl = erLhcoreClassTemplate::getInstance('lhchat/activechats.tpl.php');
+$tpl = erLhcoreClassTemplate::getInstance( 'lhchat/lists.tpl.php');
 
 if ( isset($_POST['doDelete']) ) {
 	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
-		erLhcoreClassModule::redirect('chat/activechats');
+		erLhcoreClassModule::redirect('chat/pendingchats');
 		exit;
 	}
 
@@ -37,9 +37,25 @@ if (isset($_GET['doSearch'])) {
 	$filterParams['is_search'] = false;
 }
 
+/**
+ * Departments filter
+ * */
+$limitation = erLhcoreClassChat::getDepartmentLimitation();
+
+if ($limitation !== false) {
+
+    if ($limitation !== true) {
+        $filterParams['filter']['customfilter'][] = $limitation;
+    }
+
+    $filterParams['filter']['smart_select'] = true;         
+}
+
+$filterParams['filter']['sort'] = 'priority DESC, id DESC';
+
 if ($Params['user_parameters_unordered']['print'] == 1){
 	$tpl = erLhcoreClassTemplate::getInstance('lhchat/printchats.tpl.php');
-	$items = erLhcoreClassChat::getActiveChats(10000,0,$filterParams['filter']);
+	$items = erLhcoreClassChat::getList(array_merge($filterParams['filter'],array('limit' => 10000,'offset' => 0)));
 	$tpl->set('items',$items);
 	$Result['content'] = $tpl->fetch();
 	$Result['pagelayout'] = 'popup';
@@ -47,37 +63,37 @@ if ($Params['user_parameters_unordered']['print'] == 1){
 }
 
 if (in_array($Params['user_parameters_unordered']['xls'], array(1,2))) {
-	erLhcoreClassChatExport::chatListExportXLS(erLhcoreClassChat::getActiveChats(10000,0,$filterParams['filter']),array('type' => (int)$Params['user_parameters_unordered']['xls']));
+	erLhcoreClassChatExport::chatListExportXLS(erLhcoreClassChat::getList(array_merge($filterParams['filter'],array('limit' => 10000,'offset' => 0))),array('type' => (int)$Params['user_parameters_unordered']['xls']));
 	exit;
 }
 
 $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
 
 $pages = new lhPaginator();
-$pages->items_total = erLhcoreClassChat::getActiveChatsCount($filterParams['filter']);
-$pages->translationContext = 'chat/activechats';
-$pages->serverURL = erLhcoreClassDesign::baseurl('chat/activechats').$append;
+$pages->items_total = erLhcoreClassChat::getCount($filterParams['filter']);
+$pages->translationContext = 'chat/pendingchats';
+$pages->serverURL = erLhcoreClassDesign::baseurl('chat/list').$append;
 $pages->paginate();
 $tpl->set('pages',$pages);
 
 if ($pages->items_total > 0) {
-	$items = erLhcoreClassChat::getActiveChats($pages->items_per_page,$pages->low,$filterParams['filter']);
+	$items = erLhcoreClassChat::getList(array_merge($filterParams['filter'],array('limit' => $pages->items_per_page,'offset' => $pages->low)));
 	$tpl->set('items',$items);
 }
-$filterParams['input_form']->form_action = erLhcoreClassDesign::baseurl('chat/activechats');
+
+$filterParams['input_form']->form_action = erLhcoreClassDesign::baseurl('chat/list');
 $tpl->set('input',$filterParams['input_form']);
 $tpl->set('inputAppend',$append);
-$tpl->set('can_close_global',$currentUser->hasAccessTo('lhchat','allowcloseremote'));
 $tpl->set('can_delete_global',$currentUser->hasAccessTo('lhchat','deleteglobalchat'));
 $tpl->set('can_delete_general',$currentUser->hasAccessTo('lhchat','deletechat'));
+$tpl->set('can_close_global',$currentUser->hasAccessTo('lhchat','allowcloseremote'));
 $tpl->set('current_user_id',$currentUser->getUserID());
 
 $Result['content'] = $tpl->fetch();
 
 $Result['path'] = array(
-array('url' =>erLhcoreClassDesign::baseurl('chat/lists'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/activechats','Chats lists')),
-array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/activechats','Active chats'))
+array('url' =>erLhcoreClassDesign::baseurl('chat/list'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Chats list'))
 );
 
-erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.activechats_path',array('result' => & $Result));
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.list_path',array('result' => & $Result));
 ?>

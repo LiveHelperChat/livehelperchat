@@ -4,7 +4,7 @@
 		
 		<?php if ($currentUser->hasAccessTo('lhstatistic', 'exportxls')) : ?><a class="material-icons" target="_blank" href="<?php echo erLhcoreClassDesign::baseurl('statistic/departmentstatusxls')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Download XLS');?>">file_download</a><?php endif;?>
 		
-		<a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','collapse/expand')?>" ng-click="lhc.toggleWidget('dstats_widget_exp')" class="fs24 pull-right material-icons">{{lhc.toggleWidgetData['dstats_widget_exp'] == false ? 'expand_less' : 'expand_more'}}</a>
+		<a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','collapse/expand')?>" ng-click="lhc.toggleWidget('dstats_widget_exp')" class="fs24 pull-right material-icons exp-cntr">{{lhc.toggleWidgetData['dstats_widget_exp'] == false ? 'expand_less' : 'expand_more'}}</a>
 		
 	</div>
 	<div ng-if="lhc.toggleWidgetData['dstats_widget_exp'] !== true">

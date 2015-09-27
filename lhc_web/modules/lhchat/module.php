@@ -117,8 +117,9 @@ $ViewList['syncadmininterface'] = array(
     'multiple_arguments' => array ( 'operatord', 'actived', 'closedd' , 'pendingd', 'unreadd','departmentd')
 );
 
-$ViewList['lists'] = array(
+$ViewList['list'] = array(
     'params' => array(),
+    'uparams' => array('nick','email','timefrom','timeto','department_id','user_id','print','xls','fbst','chat_status','hum'),
     'functions' => array( 'use' )
 );
 
@@ -173,37 +174,6 @@ $ViewList['syncadmin'] = array(
     'functions' => array( 'use' )
 );
 
-$ViewList['activechats'] = array(
-    'params' => array(),
-    'uparams' => array('nick','email','timefrom','timeto','department_id','user_id','print','xls','fbst'),
-    'functions' => array( 'use' )
-);
-
-$ViewList['closedchats'] = array(
-    'params' => array(),
-    'uparams' => array('nick','email','timefrom','timeto','department_id','user_id','print','xls','fbst'),
-    'functions' => array( 'use' )
-);
-
-$ViewList['operatorschats'] = array(
-    'params' => array(),
-	'uparams' => array('nick','email','timefrom','timeto','department_id','user_id','print','xls','fbst'),
-    'functions' => array( 'use' )
-);
-
-$ViewList['unreadchats'] = array(
-    'script' => 'unreadchats.php',
-    'params' => array(),
-	'uparams' => array('nick','email','timefrom','timeto','department_id','user_id','print','xls','fbst'),
-    'functions' => array( 'use' )
-);
-
-$ViewList['pendingchats'] = array(
-    'params' => array(),
-    'uparams' => array('nick','email','timefrom','timeto','department_id','user_id','print','xls','fbst'),
-    'functions' => array( 'use' )
-    );
-
 $ViewList['addmsgadmin'] = array(
     'params' => array('chat_id'),
     'functions' => array( 'use' )
@@ -237,7 +207,7 @@ $ViewList['addonlineoperationiframe'] = array(
 $ViewList['saveremarks'] = array(
     'params' => array('chat_id'),
     'functions' => array( 'use' )
-    );
+);
 
 $ViewList['saveonlinenotes'] = array(
     'params' => array('online_user_id'),

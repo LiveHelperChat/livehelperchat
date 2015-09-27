@@ -1,7 +1,7 @@
 <div class="panel panel-default panel-dashboard" data-panel-id="closed_chats" ng-init="lhc.getToggleWidget('closedc_widget_exp')">
 	<div class="panel-heading">
-		<a href="<?php echo erLhcoreClassDesign::baseurl('chat/closedchats')?>"><i class="material-icons chat-closed">chat</i> <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/closed_chats.tpl.php'));?> ({{closed_chats.list.length}}{{closed_chats.list.length == lhc.limitc ? '+' : ''}})</a>
-		<a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','collapse/expand')?>" ng-click="lhc.toggleWidget('closedc_widget_exp')" class="fs24 pull-right material-icons">{{lhc.toggleWidgetData['closedc_widget_exp'] == false ? 'expand_less' : 'expand_more'}}</a>
+		<a href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(chat_status)/2"><i class="material-icons chat-closed">chat</i> <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/closed_chats.tpl.php'));?> ({{closed_chats.list.length}}{{closed_chats.list.length == lhc.limitc ? '+' : ''}})</a>
+		<a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','collapse/expand')?>" ng-click="lhc.toggleWidget('closedc_widget_exp')" class="fs24 pull-right material-icons exp-cntr">{{lhc.toggleWidgetData['closedc_widget_exp'] == false ? 'expand_less' : 'expand_more'}}</a>
 	</div>
 	<div ng-if="lhc.toggleWidgetData['closedc_widget_exp'] !== true">           
           <?php $optinsPanel = array('panelid' => 'closedd','limitid' => 'limitc'); ?>

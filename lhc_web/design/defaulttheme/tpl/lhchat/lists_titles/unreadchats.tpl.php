@@ -1,1 +1,0 @@
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/unreadchats','Unread chats list');?></h1>

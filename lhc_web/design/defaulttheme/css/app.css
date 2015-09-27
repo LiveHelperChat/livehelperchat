@@ -1116,3 +1116,16 @@ input[type="file"]{
 .dashboard-configuration .material-icons {
 	font-size:14px;
 }
+
+.exp-cntr:hover{
+	background-color:#C1E5F7;
+}
+
+.exp-cntr{
+  color: #31708f;
+  background-color: #F3F7F9;
+  border-radius:2px;
+  border:1px solid #d9edf7;
+  margin-right:0px;
+  width: 25px;
+}
