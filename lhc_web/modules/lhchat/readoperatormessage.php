@@ -251,11 +251,7 @@ if (isset($_POST['askQuestion']))
     		$Errors['captcha'] = erTranslationClassLhTranslation::getInstance()->getTranslation("chat/startchat","Your request was not processed as expected - but don't worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.");
     	}
     }
-    
-    if (!isset($_POST['ResubmitCaptcha'])) {
-        $Errors['captcha'] = 'Testing';
-    }
-    
+      
     if ($form->hasValidData( 'operator' ) && erLhcoreClassModelUser::getUserCount(array('filter' => array('id' => $form->operator, 'disabled' => 0))) > 0) {
     	$inputData->operator = $chat->user_id = $form->operator;
     }
