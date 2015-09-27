@@ -23,6 +23,9 @@ if (($user = $visitor->operator_user) !== false) : ?>
 </div>
 <?php endif; ?>
 
+<?php $formResubmitId = 'ReadOperatorMessage'; ?>
+<?php include(erLhcoreClassDesign::designtpl('lhchat/part/auto_resubmit.tpl.php'));?>
+
 <?php 
 $hasExtraField = false;
 if ($visitor->requires_username == 1 || $visitor->requires_email == 1 || $visitor->requires_phone == 1) : $hasExtraField = true;?><div class="row"><?php endif;?>

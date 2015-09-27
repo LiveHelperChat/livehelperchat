@@ -27,7 +27,9 @@
 <?php endif; ?>
 
 <?php 
-$hasExtraField = false; 
+$hasExtraField = false;
+
+
 if ($theme !== false && $theme->explain_text != '') : ?>
 <p class="start-chat-intro"><?php echo erLhcoreClassBBCode::make_clickable(htmlspecialchars($theme->explain_text))?></p>
 <?php endif;?>
@@ -37,6 +39,9 @@ if ($theme !== false && $theme->explain_text != '') : ?>
 <?php if (isset($start_data_fields['message_visible_in_page_widget']) && $start_data_fields['message_visible_in_page_widget'] == true && isset($start_data_fields['show_messages_box']) && $start_data_fields['show_messages_box'] == true) : ?>
     <?php include(erLhcoreClassDesign::designtpl('lhchat/startchatformsettings/presend.tpl.php'));?>
 <?php endif;?>
+
+<?php $formResubmitId = 'form-start-chat'; ?>
+<?php include(erLhcoreClassDesign::designtpl('lhchat/part/auto_resubmit.tpl.php'));?>
 
 <div class="row">
     <?php if (isset($start_data_fields['name_visible_in_page_widget']) && $start_data_fields['name_visible_in_page_widget'] == true) : $hasExtraField = true;?>
