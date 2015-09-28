@@ -38,7 +38,7 @@ class erLhcoreClassChatMail {
 				$phpMailer->Username = $data['username'];
 				$phpMailer->Password = $data['password'];
 				$phpMailer->SMTPAuth = true;
-				$phpMailer->From = $data['username'];
+				$phpMailer->From = !empty($data['default_from']) ? $data['default_from'] : $data['username'];
 			} else {
 			    $phpMailer->From = '';
 			}			
