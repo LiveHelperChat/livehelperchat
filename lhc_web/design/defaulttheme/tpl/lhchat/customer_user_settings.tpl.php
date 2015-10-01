@@ -29,6 +29,9 @@ $soundMessageEnabled = erLhcoreClassModelUserSetting::getSetting('chat_message',
 		 <?php include(erLhcoreClassDesign::designtpl('lhchat/customer_user_settings/user_file_upload.tpl.php'));?>
 
 		 <?php endif;?>
+		 
+		 <?php include(erLhcoreClassDesign::designtpl('lhchat/customer_user_settings/option_last_multiinclude.tpl.php'));?>
+		 
 	</ul>
   </div>
 

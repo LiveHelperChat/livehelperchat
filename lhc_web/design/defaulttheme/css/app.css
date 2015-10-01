@@ -518,17 +518,17 @@ div.message-admin+div.message-admin .msg-date,div.message-row.response+div.messa
 	padding-top:20px;
 }
 
-.admin-chat-mic{
+.admin-chat-mic {
 	background:url(../images/icons/mic.gif) no-repeat center center;
 }
 
-.widget-options{
-	width:42px !important;
-	min-width:42px;
+.widget-options {
+	width:41px !important;
+	min-width:41px;
 	
 }
 
-.widget-options li a{
+.widget-options li a {
 	padding-left:10px;
 }
 
