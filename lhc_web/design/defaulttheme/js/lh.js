@@ -2001,7 +2001,7 @@ function lh(){
     		    	
     		    	var keyUpStarted = inst.attr('key-up-started') == 1;
     		    	
-    		  		if (keyUpStarted == false) {
+    		  		if (keyUpStarted == true) {
     		  			jQuery('<div/>', {
     	    			    'class': 'message-row response',					   
     	    			    text: $('#id_Question').val()
