@@ -1,5 +1,5 @@
 <?php 
 /**
- * You can have custom functionality above start chat
+ * You can have custom functionality above textarea of start chat
  * */
 ?>
