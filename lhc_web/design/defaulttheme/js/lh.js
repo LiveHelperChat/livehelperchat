@@ -1785,7 +1785,12 @@ function lh(){
 		        		$('#CSChatMessage').val(pdata.msg);
 		        		var instStatus = $('#id-operator-typing');
 						instStatus.html(data.r);
-						instStatus.css('visibility','visible');				
+						instStatus.css('visibility','visible');	
+						setTimeout(function(){
+							if (inst.operatorTyping == false){
+								$('#id-operator-typing').css('visibility','hidden');
+	        			    }
+						},3000);
 		        	}
 		        	
 		        	inst.addingUserMessage = false;
