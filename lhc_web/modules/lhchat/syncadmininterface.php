@@ -26,6 +26,7 @@ $closedTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_close_list
 $unreadTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_unread_list',1);
 $showAllPending = erLhcoreClassModelUserSetting::getSetting('show_all_pending',1);
 $showDepartmentsStats = $currentUser->hasAccessTo('lhuser','canseedepartmentstats');
+$showDepartmentsStatsAll = $currentUser->hasAccessTo('lhuser','canseealldepartmentstats');
 
 $chatsList = array();
 
@@ -41,6 +42,29 @@ if ($showDepartmentsStats == true) {
     if (is_array($Params['user_parameters_unordered']['departmentd']) && !empty($Params['user_parameters_unordered']['departmentd'])) {
         erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['departmentd']);
         $filter['filterin']['id'] = $Params['user_parameters_unordered']['departmentd'];
+    }
+    
+    // Add permission check if operator does not have permission to see all departments stats
+    if ($showDepartmentsStatsAll === false) {
+        $userData = $currentUser->getUserData(true);
+        if ( $userData->all_departments == 0 )
+        {
+            $userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID());
+            if (!empty($userDepartaments)) {
+                if ( isset( $filter['filterin']['id']) ) {
+                    $validDepartments = array_intersect($userDepartaments, $filter['filterin']['id']);
+                    if (!empty($validDepartments)) {
+                        $filter['filterin']['id'] = $validDepartments;
+                    } else {
+                        $filter['filterin']['id'] = array(-1);
+                    }
+                } else {
+                    $filter['filterin']['id'] = $userDepartaments;
+                }
+            } else {
+                $filter['filterin']['id'] = array(-1); // No departments
+            }
+        }
     }
     
     $filter['sort'] = 'pending_chats_counter DESC';

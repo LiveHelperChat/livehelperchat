@@ -133,6 +133,7 @@ $FunctionList['see_assigned_departments'] = array('explain' => 'Allow user to se
 $FunctionList['allowtochoosependingmode'] = array('explain' => 'Allow user to choose what pending chats he can see, only assigned to him or all.');
 $FunctionList['receivepermissionrequest'] = array('explain' => 'Allow user to choose should he receive other operators permissions requests');
 $FunctionList['userautologin'] = array('explain' => 'Allow user to configure autologin');
-$FunctionList['canseedepartmentstats'] = array('explain' => 'Allow user to see department statistic');
+$FunctionList['canseedepartmentstats'] = array('explain' => 'Allow user to see departments statistic');
+$FunctionList['canseealldepartmentstats'] = array('explain' => 'Allow user to see all departments statistic, not only from his departments');
 
 ?>
