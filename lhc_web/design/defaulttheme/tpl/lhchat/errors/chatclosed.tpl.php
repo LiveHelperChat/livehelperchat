@@ -6,6 +6,6 @@
 <?php endif;?>
 </h4>
 
-<?php if ($modeembed == 'embed') : ?>
+<?php if ($modeembed == 'widget') : ?>
 <input type="button" class="btn btn-default btn-sm mb10" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close')?>" onclick="lhinst.userclosedchatembed();" />
 <?php endif;?>

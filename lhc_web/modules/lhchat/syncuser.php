@@ -134,7 +134,7 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 		        // Parse outcome
 		        $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/errors/chatclosed.tpl.php');
 		        $tpl->set('theme',$theme);
-		        $tpl->set('modeembed','embed');
+		        $tpl->set('modeembed',isset($Params['user_parameters_unordered']['mode']) ? $Params['user_parameters_unordered']['mode'] : '');
 		        $status = $tpl->fetch();
 		        
 		    	$blocked = 'true';
