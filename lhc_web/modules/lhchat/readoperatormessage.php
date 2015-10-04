@@ -5,6 +5,7 @@ header('P3P:CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/readoperatormessage.tpl.php');
 $tpl->set('referer','');
 $tpl->set('referer_site','');
+$tpl->set('theme',false);
 
 $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('message_seen_timeout' => erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value, 'check_message_operator' => true, 'vid' => (string)$Params['user_parameters_unordered']['vid']));
 $tpl->set('visitor',$userInstance);
@@ -74,6 +75,7 @@ if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_p
 		$theme = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
 		$Result['theme'] = $theme;
 		$modeAppendTheme = '/(theme)/'.$theme->id;
+		$tpl->set('theme',$Result['theme']);
 	} catch (Exception $e) {
 
 	}
@@ -84,6 +86,7 @@ if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_p
 			$theme = erLhAbstractModelWidgetTheme::fetch($defaultTheme);
 			$Result['theme'] = $theme;
 			$modeAppendTheme = '/(theme)/'.$theme->id;
+			$tpl->set('theme',$Result['theme']);
 		} catch (Exception $e) {
 		
 		}
