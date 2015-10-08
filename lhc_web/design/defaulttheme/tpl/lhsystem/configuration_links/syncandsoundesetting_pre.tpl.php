@@ -1,0 +1,1 @@
+<?php $system_configuration_links_sync_and_sounde_settings_enabled = true;?>
