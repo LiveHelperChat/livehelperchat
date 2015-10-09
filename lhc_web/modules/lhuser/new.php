@@ -184,74 +184,98 @@ if (isset($_POST['Update_account']))
     
     if (count($Errors) == 0)
     {
-        $UserData->setPassword($form->Password);
-        $UserData->email   = $form->Email;
-        $UserData->name    = $form->Name;
-        $UserData->username = $form->Username;
+        try {
+            $db = ezcDbInstance::get();
+            $db->beginTransaction();
 
-        erLhcoreClassUser::getSession()->save($UserData);
+            $UserData->setPassword($form->Password);
+            $UserData->email   = $form->Email;
+            $UserData->name    = $form->Name;
+            $UserData->username = $form->Username;
+    
+            erLhcoreClassUser::getSession()->save($UserData);
+    
+            if (isset($_POST['UserDepartament']) && count($_POST['UserDepartament']) > 0)
+            {
+               $globalDepartament = array_merge($_POST['UserDepartament'],$globalDepartament);
+            }
+    
+            if (count($globalDepartament) > 0)
+            {
+               erLhcoreClassUserDep::addUserDepartaments($globalDepartament,$UserData->id,$UserData);
+            }
+            
+            $UserData->departments_ids = implode(',', $globalDepartament);
+            erLhcoreClassUser::getSession()->update($UserData);
+            
+            
+            erLhcoreClassModelGroupUser::removeUserFromGroups($UserData->id);
+    
+            foreach ($UserData->user_groups_id as $group_id) {
+            	$groupUser = new erLhcoreClassModelGroupUser();
+            	$groupUser->group_id = $group_id;
+            	$groupUser->user_id = $UserData->id;
+            	$groupUser->saveThis();
+            }
+    
+            // Store photo
+            if ( isset($_FILES["UserPhoto"]) && is_uploaded_file($_FILES["UserPhoto"]["tmp_name"]) && $_FILES["UserPhoto"]["error"] == 0 && erLhcoreClassImageConverter::isPhoto('UserPhoto') ) {
+            	$dir = 'var/userphoto/' . date('Y') . 'y/' . date('m') . '/' . date('d') .'/' . $UserData->id . '/';
+            	
+            	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.edit.photo_path',array('dir' => & $dir,'storage_id' => $UserData->id));
+            	
+            	$response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.edit.photo_store', array('file_post_variable' => 'UserPhoto', 'dir' => & $dir, 'storage_id' => $UserData->id));
+            	 
+            	// There was no callbacks
+            	if ($response === false) {
+            		erLhcoreClassFileUpload::mkdirRecursive( $dir );
+            		$file = qqFileUploader::upload($_FILES,'UserPhoto',$dir);
+            	} else {
+            		$file = $response['data'];
+            	}
+            	
+            	if ( empty($file["errors"]) ) {
+            		$UserData->filename           = $file["data"]["filename"];
+            		$UserData->filepath           = $file["data"]["dir"];
+    
+            		$response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.edit.photo_resize_150', array('mime_type' => $file["data"]['mime_type'],'user' => $UserData));
+            		
+            		if ($response === false) {
+            			erLhcoreClassImageConverter::getInstance()->converter->transform( 'photow_150', $UserData->file_path_server, $UserData->file_path_server );
+            			chmod($UserData->file_path_server, 0644);
+            		}
+            		
+            		$UserData->saveThis();
+            	}
+            }
+    
+            erLhcoreClassModelUserSetting::setSetting('show_all_pending',$show_all_pending,$UserData->id);
 
-        if (isset($_POST['UserDepartament']) && count($_POST['UserDepartament']) > 0)
-        {
-           $globalDepartament = array_merge($_POST['UserDepartament'],$globalDepartament);
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.user_created',array('userData' => & $UserData));
+
+            $db->commit();
+            
+            erLhcoreClassModule::redirect('user/userlist');
+            exit;
+            
+        } catch (Exception $e) {
+
+            $tpl->set('errors',array($e->getMessage()));
+
+            $UserData->removeFile();   
+
+            if ( $form->hasValidData( 'Email' ) )
+            {
+                $UserData->email = $form->Email;
+            }
+
+            $UserData->name = $form->Name;
+            $UserData->surname = $form->Surname;
+            $UserData->username = $form->Username;
+
+            $db->rollback();
         }
-
-        if (count($globalDepartament) > 0)
-        {
-           erLhcoreClassUserDep::addUserDepartaments($globalDepartament,$UserData->id,$UserData);
-        }
         
-        $UserData->departments_ids = implode(',', $globalDepartament);
-        erLhcoreClassUser::getSession()->update($UserData);
-        
-        
-        erLhcoreClassModelGroupUser::removeUserFromGroups($UserData->id);
-
-        foreach ($UserData->user_groups_id as $group_id) {
-        	$groupUser = new erLhcoreClassModelGroupUser();
-        	$groupUser->group_id = $group_id;
-        	$groupUser->user_id = $UserData->id;
-        	$groupUser->saveThis();
-        }
-
-        // Store photo
-        if ( isset($_FILES["UserPhoto"]) && is_uploaded_file($_FILES["UserPhoto"]["tmp_name"]) && $_FILES["UserPhoto"]["error"] == 0 && erLhcoreClassImageConverter::isPhoto('UserPhoto') ) {
-        	$dir = 'var/userphoto/' . date('Y') . 'y/' . date('m') . '/' . date('d') .'/' . $UserData->id . '/';
-        	
-        	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.edit.photo_path',array('dir' => & $dir,'storage_id' => $UserData->id));
-        	
-        	$response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.edit.photo_store', array('file_post_variable' => 'UserPhoto', 'dir' => & $dir, 'storage_id' => $UserData->id));
-        	 
-        	// There was no callbacks
-        	if ($response === false) {
-        		erLhcoreClassFileUpload::mkdirRecursive( $dir );
-        		$file = qqFileUploader::upload($_FILES,'UserPhoto',$dir);
-        	} else {
-        		$file = $response['data'];
-        	}
-        	
-        	if ( empty($file["errors"]) ) {
-        		$UserData->filename           = $file["data"]["filename"];
-        		$UserData->filepath           = $file["data"]["dir"];
-
-        		$response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.edit.photo_resize_150', array('mime_type' => $file["data"]['mime_type'],'user' => $UserData));
-        		
-        		if ($response === false) {
-        			erLhcoreClassImageConverter::getInstance()->converter->transform( 'photow_150', $UserData->file_path_server, $UserData->file_path_server );
-        			chmod($UserData->file_path_server, 0644);
-        		}
-        		
-        		$UserData->saveThis();
-        	}
-        }
-
-        erLhcoreClassModelUserSetting::setSetting('show_all_pending',$show_all_pending,$UserData->id);
-        
-        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.user_created',array('userData' => & $UserData));
-        
-        erLhcoreClassModule::redirect('user/userlist');
-        exit;
-
     }  else {
 
         if ( $form->hasValidData( 'Email' ) )
