@@ -251,7 +251,7 @@ if (isset($_POST['Update_account']))
     
             erLhcoreClassModelUserSetting::setSetting('show_all_pending',$show_all_pending,$UserData->id);
 
-            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.user_created',array('userData' => & $UserData));
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.user_created',array('userData' => & $UserData, 'password' => $form->Password));
 
             $db->commit();
             

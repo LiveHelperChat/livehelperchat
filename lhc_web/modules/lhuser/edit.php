@@ -201,10 +201,13 @@ if (isset($_POST['Update_account']) || isset($_POST['Save_account']))
     
     if (count($Errors) == 0)
     {
+        $newPassword = false;
+        
         // Update password if neccesary
         if ($form->hasInputField( 'Password' ) && $form->hasInputField( 'Password1' ) && $form->Password != '')
         {
             $UserData->setPassword($form->Password);
+            $newPassword = $form->Password;
         }
 
         $UserData->email   = $form->Email;
@@ -227,7 +230,7 @@ if (isset($_POST['Update_account']) || isset($_POST['Save_account']))
         $CacheManager = erConfigClassLhCacheConfig::getInstance();
         $CacheManager->expireCache();
        
-        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.user_modified',array('userData' => & $UserData));
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.user_modified',array('userData' => & $UserData, 'password' => $newPassword));
         
         if (isset($_POST['Save_account'])) {
             erLhcoreClassModule::redirect('user/userlist');
