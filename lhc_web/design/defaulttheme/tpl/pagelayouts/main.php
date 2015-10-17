@@ -6,6 +6,8 @@
 	</head>
 <body ng-controller="LiveHelperChatCtrl as lhc">
 
+<?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/top_head_multiinclude.tpl.php'));?>
+
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/top_menu.tpl.php'));?>
 
 <div class="container-fluid" id="wrapper" ng-class="{toggled: lmtoggle}">
