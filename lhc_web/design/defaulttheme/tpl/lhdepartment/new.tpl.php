@@ -4,10 +4,9 @@
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
 
-<form action="<?php echo erLhcoreClassDesign::baseurl('departament/new')?>" method="post">
+<form action="<?php echo erLhcoreClassDesign::baseurl('department/new')?>" method="post">
 
-	<?php include(erLhcoreClassDesign::designtpl('lhdepartament/form.tpl.php'));?>
-
+	<?php include(erLhcoreClassDesign::designtpl('lhdepartment/form.tpl.php'));?>
 	
     <div class="btn-group" role="group" aria-label="...">
 		<input type="submit" class="btn btn-default" name="Save_departament" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>"/>

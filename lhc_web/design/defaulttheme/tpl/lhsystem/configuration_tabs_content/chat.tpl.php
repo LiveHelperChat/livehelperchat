@@ -4,8 +4,8 @@
 		<div class="row">
 			<div class="col-md-6">
 				<ul>
-        		    <?php if ($currentUser->hasAccessTo('lhdepartament','list')) : ?>
-        		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('departament/departaments')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Departments');?></a></li>
+        		    <?php if ($currentUser->hasAccessTo('lhdepartment','list')) : ?>
+        		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('department/departments')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Departments');?></a></li>
         		    <?php endif; ?>
         		   
         		    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/blockusers.tpl.php'));?>

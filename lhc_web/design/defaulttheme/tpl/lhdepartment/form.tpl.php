@@ -34,11 +34,11 @@
 			<li role="presentation" class="active"><a href="#onlinehours" aria-controls="onlinehours" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Automate online hours');?></a></li>
 			<li role="presentation"><a href="#notifications" aria-controls="notifications" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Notifications');?></a></li>
 			
-			<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhdepartament','actworkflow')) : ?>
+			<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhdepartment','actworkflow')) : ?>
 			<li role="presentation"><a href="#chattransfer" aria-controls="chattransfer" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Chat transfer worklow');?></a></li>
 			<?php endif;?>
 			
-			<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhdepartament','actautoassignment')) : ?>
+			<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhdepartment','actautoassignment')) : ?>
 			<li role="presentation"><a href="#autoassignment" aria-controls="autoassignment" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Auto assignment');?></a></li>
 			<?php endif;?>
 			
@@ -82,7 +82,7 @@
 			
 			<div role="tabpanel" class="tab-pane" id="notifications">
 			
-			     <?php include(erLhcoreClassDesign::designtpl('lhdepartament/xmpp_enabled.tpl.php'));?>
+			     <?php include(erLhcoreClassDesign::designtpl('lhdepartment/xmpp_enabled.tpl.php'));?>
 			     
 			     <?php if ($department_xmpp_enabled == true) : ?>	
 			     <div class="row form-group">
@@ -128,7 +128,7 @@
 				<label><input type="checkbox" name="inform_close" value="1" <?php if ($departament->inform_close == 1) : ?>checked="checked"<?php endif;?>  /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Inform then chat is closed by operator, only mail notification is send.');?></label>
 			</div>
 			
-			<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhdepartament','actworkflow')) : ?>
+			<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhdepartment','actworkflow')) : ?>
 			 <div role="tabpanel" class="tab-pane" id="chattransfer">
 			     <div class="form-group">
     			     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','To what department chat should be transfered if it is not accepted');?></label>
@@ -155,7 +155,7 @@
 			 </div>
 			<?php endif;?>
 			
-			<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhdepartament','actautoassignment')) : ?>
+			<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhdepartment','actautoassignment')) : ?>
 			<div role="tabpanel" class="tab-pane" id="autoassignment">
 			    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Active');?> <input type="checkbox" ng-init="AutoAssignActive=<?php if ($departament->active_balancing == 1) : ?>true<?php else : ?>false<?php endif;?>" ng-model="AutoAssignActive" name="AutoAssignActive" value="on" <?php if ($departament->active_balancing == 1) : ?>checked="checked"<?php endif;?> /></label>
 

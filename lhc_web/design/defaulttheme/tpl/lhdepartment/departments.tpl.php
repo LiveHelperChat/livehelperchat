@@ -14,7 +14,7 @@
         <td><?php echo $departament->id?></td>
         <td><?php echo htmlspecialchars($departament->name)?></td>
         <td><?php echo htmlspecialchars($departament->email)?></td>
-        <td nowrap><a class="btn btn-default btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('departament/edit')?>/<?php echo $departament->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Edit department');?></a></td>
+        <td nowrap><a class="btn btn-default btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('department/edit')?>/<?php echo $departament->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Edit department');?></a></td>
     </tr>
 <?php endforeach; ?>
 </table>
@@ -23,6 +23,6 @@
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/paginator.tpl.php')); ?>
 <?php endif;?>
 
-<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhdepartament','create')) : ?>
-<a class="btn btn-default" href="<?php echo erLhcoreClassDesign::baseurl('departament/new')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','New department');?></a>
+<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhdepartment','create')) : ?>
+<a class="btn btn-default" href="<?php echo erLhcoreClassDesign::baseurl('department/new')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','New department');?></a>
 <?php endif;?>

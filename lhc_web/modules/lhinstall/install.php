@@ -234,7 +234,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 
             if ( !$form->hasValidData( 'DefaultDepartament' ) || $form->DefaultDepartament == '')
             {
-                $Errors[] = 'Please enter default departament name';
+                $Errors[] = 'Please enter default department name';
             }
 
             if (count($Errors) == 0) {

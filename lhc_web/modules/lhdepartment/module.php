@@ -4,20 +4,17 @@ $Module = array( "name" => "Departments configuration");
 
 $ViewList = array();
 
-$ViewList['departaments'] = array(
-    'script' => 'departaments.php',
+$ViewList['departments'] = array(
     'params' => array(),
     'functions' => array( 'list' )
     );
 
 $ViewList['new'] = array(
-    'script' => 'new.php',
     'params' => array(),
     'functions' => array( 'create' )
 );
 
 $ViewList['edit'] = array(
-    'script' => 'edit.php',
     'params' => array('departament_id'),
     'functions' => array( 'edit' )
 );

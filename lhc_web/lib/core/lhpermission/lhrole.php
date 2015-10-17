@@ -66,7 +66,7 @@ class erLhcoreClassRole{
     * Returns something like that
     * Array
         (
-            [lhdepartament] => Array
+            [lhdepartment] => Array
                 (
                     [alldepartaments] => 1
                 )

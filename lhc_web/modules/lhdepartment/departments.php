@@ -1,6 +1,6 @@
 <?php
 
-$tpl = erLhcoreClassTemplate::getInstance( 'lhdepartament/departaments.tpl.php');
+$tpl = erLhcoreClassTemplate::getInstance( 'lhdepartment/departments.tpl.php');
 
 /**
  * Append user departments filter
@@ -15,7 +15,7 @@ if ($currentUser->hasAccessTo('lhdepartment','manageall') !== true)
 }
 
 $pages = new lhPaginator();
-$pages->serverURL = erLhcoreClassDesign::baseurl('departament/departaments');
+$pages->serverURL = erLhcoreClassDesign::baseurl('department/departments');
 $pages->items_total = erLhcoreClassModelDepartament::getCount($departmentParams);
 $pages->setItemsPerPage(20);
 $pages->paginate();

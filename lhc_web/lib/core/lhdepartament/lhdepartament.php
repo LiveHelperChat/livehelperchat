@@ -149,7 +149,7 @@ class erLhcoreClassDepartament{
 	   		$department->name = $form->Name;
 	   	}
 	   	
-	   	if ( erLhcoreClassUser::instance()->hasAccessTo('lhdepartament','actautoassignment') ) {
+	   	if ( erLhcoreClassUser::instance()->hasAccessTo('lhdepartment','actautoassignment') ) {
 		   	if ( $form->hasValidData( 'AutoAssignActive' ) && $form->AutoAssignActive == true )	{
 		   		$department->active_balancing = 1;
 		   	} else {
@@ -171,7 +171,7 @@ class erLhcoreClassDepartament{
 		   	}
 	   	}
 	   	
-	   	if ( erLhcoreClassUser::instance()->hasAccessTo('lhdepartament','actworkflow') ) {
+	   	if ( erLhcoreClassUser::instance()->hasAccessTo('lhdepartment','actworkflow') ) {
 		   	if ( $form->hasValidData( 'TansferDepartmentID' ) )
 		   	{
 		   		$department->department_transfer_id = $form->TansferDepartmentID;
