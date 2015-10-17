@@ -20,19 +20,22 @@
 
 <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Last activity');?> <?php echo htmlspecialchars($online_user->lastactivity_ago)?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','ago');?><?php $timeoutOnPage = (int)erLhcoreClassModelChatConfig::fetch('checkstatus_timeout')->current_value; if ($timeoutOnPage > 0) : ?>,<br/><b><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','On page');?> - <?php if ($online_user->last_check_time_ago < ($timeoutOnPage+3)) : ?><i class="icon-user-status material-icons icon-user-online" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Yes')?>">face</i><?php else : ?><i class="icon-user-status material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','No')?>">face</i><?php endif;?></b><?php endif;?></h5>
 
-<img src="<?php if ($online_user->operator_message == '') : ?><?php echo erLhcoreClassDesign::design('images/icons/user_inactive.png');?><?php elseif ($online_user->message_seen == 1 && $online_user->operator_message != '') : ?><?php echo erLhcoreClassDesign::design('images/icons/user_green_32.png');?><?php else : ?><?php echo erLhcoreClassDesign::design('images/icons/user.png');?><?php endif;?>" title="<?php if ($online_user->message_seen == 0) : ?><?php if ($online_user->operator_message == '') : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User does not have any message from operator');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User have not seen message from operator, or message window still open.');?><?php endif; ?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User has seen message from operator.');?><?php endif; ?>" /><img src="<?php echo erLhcoreClassDesign::design('images/icons/browsers.png');?>" title="<?php echo htmlspecialchars($online_user->user_agent)?>" />
-<?php if ($online_user->chat_id > 0) : ?>
-        <img <?php if ($online_user->can_view_chat == true) : ?>class="action-image" onclick="lhc.previewChat('<?php echo $online_user->chat_id?>');"<?php endif;?> src="<?php echo erLhcoreClassDesign::design('images/icons/user_comment.png');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User is chatting');?>" />
-        <?php else : ?>
-        <img src="<?php echo erLhcoreClassDesign::design('images/icons/user_comment_inactive.png');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User is not having any chat right now');?>" />
-        <?php endif; ?>
-        <?php if ( ($operator_user = $online_user->operator_user) !== false ) : ?>
-    <img src="<?php echo erLhcoreClassDesign::design('images/icons/user_suit_32.png');?>" title="<?php echo htmlspecialchars($operator_user); ?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','has send message to user');?>" />
-    <?php else : ?>
-    <img src="<?php echo erLhcoreClassDesign::design('images/icons/user_suit_32_inactive.png');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','No one has send any message to user yet');?>" />
-    <?php endif; ?>
-
 <ul class="list-unstyled">
+    <li><i class="material-icons">face</i><?php if ($online_user->message_seen == 0) : ?><?php if ($online_user->operator_message == '') : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User does not have any message from operator');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User have not seen message from operator, or message window still open.');?><?php endif; ?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User has seen message from operator.');?><?php endif; ?></li>
+    <li>
+    <?php if ($online_user->chat_id > 0) : ?>
+        <?php if ($online_user->can_view_chat == true) : ?><a href="#" onclick="return lhc.previewChat('<?php echo $online_user->chat_id?>');"><?php endif;?><i class="material-icons chat-active">chat</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User is chatting');?><?php if ($online_user->can_view_chat == true) : ?></a><?php endif;?>
+    <?php else : ?>
+    <i class="material-icons">chat</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User is not having any chat right now');?>
+    <?php endif; ?>
+    </li>
+    <li><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Operator')?>" class="material-icons">account_box</i>
+    <?php if ( ($operator_user = $online_user->operator_user) !== false ) : ?>
+    <?php echo htmlspecialchars($operator_user); ?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','has send message to user');?>
+    <?php else : ?>
+    <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','No one has send any message to user yet');?>
+    <?php endif; ?>
+    </li>
     <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','First visit');?> - <?php echo $online_user->first_visit_front?></li>
     <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Last visit');?> - <?php echo $online_user->last_visit_front?></li>
     <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Total visits');?> - <?php echo $online_user->total_visits?></li>
@@ -43,4 +46,5 @@
     <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Total time on site');?> - <?php echo $online_user->tt_time_on_site_front?></li>
     <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Current page');?> - <a target="_blank" href="<?php echo htmlspecialchars($online_user->current_page)?>"><?php echo htmlspecialchars($online_user->current_page)?></a></li>
     <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Came from');?> - <a target="_blank" href="<?php echo htmlspecialchars($online_user->referrer)?>"><?php echo htmlspecialchars($online_user->referrer)?></a></li>
+    <li class="fs11"><i class="material-icons">language</i><?php echo htmlspecialchars($online_user->user_agent)?></li>
 </ul>
