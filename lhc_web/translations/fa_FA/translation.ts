@@ -6,6 +6,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>چند روز بعد از آخرین نمایش، ابزارک رأی گیری باز نشود؟</translation>
     </message>
@@ -1116,22 +1120,6 @@
       <translation>اطلاعات</translation>
     </message>
     <message>
-      <source>Open in a new window</source>
-      <translation>در یک پنجره جدید باز کن</translation>
-    </message>
-    <message>
-      <source>Close chat</source>
-      <translation>بستن چت</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>حذف چت</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>خالی ...</translation>
-    </message>
-    <message>
       <source>Active chats list</source>
       <translation>فهرست چت های فعال</translation>
     </message>
@@ -1142,6 +1130,22 @@
     <message>
       <source>Active chats</source>
       <translation>چت های فعال</translation>
+    </message>
+    <message>
+      <source>Close chat</source>
+      <translation>بستن چت</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>حذف چت</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>در یک پنجره جدید باز کن</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>خالی ...</translation>
     </message>
   </context>
   <context>
@@ -1188,6 +1192,34 @@
     </message>
     <message>
       <source>Down vote</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Has unread messages</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1298,16 +1330,16 @@
       <translation>بستن</translation>
     </message>
     <message>
+      <source>Enter your message</source>
+      <translation>پیام خود را وارد کنید</translation>
+    </message>
+    <message>
       <source>Send</source>
       <translation>ارسال</translation>
     </message>
     <message>
       <source>BB Code</source>
       <translation>کد BB</translation>
-    </message>
-    <message>
-      <source>Enter your message</source>
-      <translation>پیام خود را وارد کنید</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -2132,6 +2164,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>h.</source>
+      <translation>.h</translation>
+    </message>
+    <message>
+      <source>m.</source>
+      <translation>m.</translation>
+    </message>
+    <message>
+      <source>s.</source>
+      <translation>s.</translation>
+    </message>
+    <message>
+      <source>ago</source>
+      <translation>قبل</translation>
+    </message>
+    <message>
       <source>Add chat</source>
       <translation>افزودن چت</translation>
     </message>
@@ -2144,10 +2192,6 @@
       <translation>فعالیت اخیر</translation>
     </message>
     <message>
-      <source>ago</source>
-      <translation>قبل</translation>
-    </message>
-    <message>
       <source>Redirect user to contact form.</source>
       <translation>ارسال کاربر به فرم تماس</translation>
     </message>
@@ -2158,18 +2202,6 @@
     <message>
       <source>Accept chat</source>
       <translation>پذیرفتن چت</translation>
-    </message>
-    <message>
-      <source>h.</source>
-      <translation>.h</translation>
-    </message>
-    <message>
-      <source>m.</source>
-      <translation>m.</translation>
-    </message>
-    <message>
-      <source>s.</source>
-      <translation>s.</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -2574,14 +2606,6 @@
       <translation>در یک پنجره جدید باز کن</translation>
     </message>
     <message>
-      <source>Delete chat</source>
-      <translation>حذف چت</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>خالی ...</translation>
-    </message>
-    <message>
       <source>Closed chats list</source>
       <translation>فهرست چت های بسته شده</translation>
     </message>
@@ -2592,6 +2616,14 @@
     <message>
       <source>Closed chats</source>
       <translation>چت های بسته شده</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>حذف چت</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>خالی ...</translation>
     </message>
   </context>
   <context>
@@ -3074,6 +3106,10 @@
     <message>
       <source>Send message</source>
       <translation>ارسال پیام</translation>
+    </message>
+    <message>
+      <source>Chat list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Dashboard</source>
@@ -3956,8 +3992,16 @@
       <translation>فهرست چت های در انتظار</translation>
     </message>
     <message>
+      <source>Pending chats</source>
+      <translation>چت های در انتظار</translation>
+    </message>
+    <message>
       <source>Information</source>
       <translation>اطلاعات</translation>
+    </message>
+    <message>
+      <source>Status</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Open in a new window</source>
@@ -3968,16 +4012,32 @@
       <translation>رد کردن چت</translation>
     </message>
     <message>
+      <source>Pending chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>خالی ...</translation>
     </message>
     <message>
       <source>Chats list</source>
       <translation>فهرست چت ها</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>چت های در انتظار</translation>
     </message>
   </context>
   <context>

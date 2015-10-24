@@ -6,6 +6,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>多少天投票窗口小部件不应扩大后最后的展示</translation>
     </message>
@@ -1116,22 +1120,6 @@
       <translation>信息</translation>
     </message>
     <message>
-      <source>Open in a new window</source>
-      <translation>在新窗口中打开</translation>
-    </message>
-    <message>
-      <source>Close chat</source>
-      <translation>关闭聊天</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>删除聊天</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>空...</translation>
-    </message>
-    <message>
       <source>Active chats list</source>
       <translation>主动聊天列表</translation>
     </message>
@@ -1142,6 +1130,22 @@
     <message>
       <source>Active chats</source>
       <translation>主动聊天</translation>
+    </message>
+    <message>
+      <source>Close chat</source>
+      <translation>关闭聊天</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>删除聊天</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>在新窗口中打开</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>空...</translation>
     </message>
   </context>
   <context>
@@ -1188,6 +1192,34 @@
     </message>
     <message>
       <source>Down vote</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Has unread messages</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1298,16 +1330,16 @@
       <translation>关闭</translation>
     </message>
     <message>
+      <source>Enter your message</source>
+      <translation>输入您的消息</translation>
+    </message>
+    <message>
       <source>Send</source>
       <translation>发送</translation>
     </message>
     <message>
       <source>BB Code</source>
       <translation>BB 代码</translation>
-    </message>
-    <message>
-      <source>Enter your message</source>
-      <translation>输入您的消息</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -2132,6 +2164,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>h.</source>
+      <translation>小时。</translation>
+    </message>
+    <message>
+      <source>m.</source>
+      <translation>米</translation>
+    </message>
+    <message>
+      <source>s.</source>
+      <translation>秒。</translation>
+    </message>
+    <message>
+      <source>ago</source>
+      <translation>前</translation>
+    </message>
+    <message>
       <source>Add chat</source>
       <translation>新增聊天</translation>
     </message>
@@ -2144,10 +2192,6 @@
       <translation>上次活动</translation>
     </message>
     <message>
-      <source>ago</source>
-      <translation>前</translation>
-    </message>
-    <message>
       <source>Redirect user to contact form.</source>
       <translation>重定向用户联系人窗体。</translation>
     </message>
@@ -2158,18 +2202,6 @@
     <message>
       <source>Accept chat</source>
       <translation>接受聊天</translation>
-    </message>
-    <message>
-      <source>h.</source>
-      <translation>小时。</translation>
-    </message>
-    <message>
-      <source>m.</source>
-      <translation>米</translation>
-    </message>
-    <message>
-      <source>s.</source>
-      <translation>秒。</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -2574,14 +2606,6 @@
       <translation>在新窗口中打开</translation>
     </message>
     <message>
-      <source>Delete chat</source>
-      <translation>删除聊天</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>空...</translation>
-    </message>
-    <message>
       <source>Closed chats list</source>
       <translation>休息聊天列表</translation>
     </message>
@@ -2592,6 +2616,14 @@
     <message>
       <source>Closed chats</source>
       <translation>封闭式聊天</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>删除聊天</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>空...</translation>
     </message>
   </context>
   <context>
@@ -3074,6 +3106,10 @@
     <message>
       <source>Send message</source>
       <translation>发送消息</translation>
+    </message>
+    <message>
+      <source>Chat list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Dashboard</source>
@@ -3956,8 +3992,16 @@
       <translation>挂起的聊天列表</translation>
     </message>
     <message>
+      <source>Pending chats</source>
+      <translation>待聊天</translation>
+    </message>
+    <message>
       <source>Information</source>
       <translation>信息</translation>
+    </message>
+    <message>
+      <source>Status</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Open in a new window</source>
@@ -3968,16 +4012,32 @@
       <translation>拒绝聊天</translation>
     </message>
     <message>
+      <source>Pending chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>空...</translation>
     </message>
     <message>
       <source>Chats list</source>
       <translation>聊天列表</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>待聊天</translation>
     </message>
   </context>
   <context>

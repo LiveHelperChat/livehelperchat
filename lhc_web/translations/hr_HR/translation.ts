@@ -6,6 +6,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -1116,22 +1120,6 @@
       <translation>Informacija</translation>
     </message>
     <message>
-      <source>Open in a new window</source>
-      <translation>Otvori u novom prozoru</translation>
-    </message>
-    <message>
-      <source>Close chat</source>
-      <translation>Završi razgovor</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>Obriši razgovor</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Prazno...</translation>
-    </message>
-    <message>
       <source>Active chats list</source>
       <translation>Lista aktivnih razgovora</translation>
     </message>
@@ -1142,6 +1130,22 @@
     <message>
       <source>Active chats</source>
       <translation>Aktivni razgovori</translation>
+    </message>
+    <message>
+      <source>Close chat</source>
+      <translation>Završi razgovor</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Obriši razgovor</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Otvori u novom prozoru</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Prazno...</translation>
     </message>
   </context>
   <context>
@@ -1188,6 +1192,34 @@
     </message>
     <message>
       <source>Down vote</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Has unread messages</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1298,16 +1330,16 @@
       <translation>Zatvori</translation>
     </message>
     <message>
+      <source>Enter your message</source>
+      <translation>Upiši poruku</translation>
+    </message>
+    <message>
       <source>Send</source>
       <translation>Pošalji</translation>
     </message>
     <message>
       <source>BB Code</source>
       <translation>BB ko</translation>
-    </message>
-    <message>
-      <source>Enter your message</source>
-      <translation>Upiši poruku</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -2132,6 +2164,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>h.</source>
+      <translation>h.</translation>
+    </message>
+    <message>
+      <source>m.</source>
+      <translation>m</translation>
+    </message>
+    <message>
+      <source>s.</source>
+      <translation>s</translation>
+    </message>
+    <message>
+      <source>ago</source>
+      <translation>prije</translation>
+    </message>
+    <message>
       <source>Add chat</source>
       <translation>Dodaj razgovor</translation>
     </message>
@@ -2144,10 +2192,6 @@
       <translation>Zadnja aktivnost</translation>
     </message>
     <message>
-      <source>ago</source>
-      <translation>prije</translation>
-    </message>
-    <message>
       <source>Redirect user to contact form.</source>
       <translation>Preusmjeri korisnika na obrazac za kontakt.</translation>
     </message>
@@ -2158,18 +2202,6 @@
     <message>
       <source>Accept chat</source>
       <translation>Prihvati razgovor</translation>
-    </message>
-    <message>
-      <source>h.</source>
-      <translation>h.</translation>
-    </message>
-    <message>
-      <source>m.</source>
-      <translation>m</translation>
-    </message>
-    <message>
-      <source>s.</source>
-      <translation>s</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -2574,14 +2606,6 @@
       <translation>Otvori u novom prozoru</translation>
     </message>
     <message>
-      <source>Delete chat</source>
-      <translation>Obriši razgovor</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Prazno...</translation>
-    </message>
-    <message>
       <source>Closed chats list</source>
       <translation>Lista završenih razgovora</translation>
     </message>
@@ -2592,6 +2616,14 @@
     <message>
       <source>Closed chats</source>
       <translation>Završeni razgovori</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Obriši razgovor</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Prazno...</translation>
     </message>
   </context>
   <context>
@@ -3074,6 +3106,10 @@
     <message>
       <source>Send message</source>
       <translation>Pošalji poruku</translation>
+    </message>
+    <message>
+      <source>Chat list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Dashboard</source>
@@ -3956,8 +3992,16 @@
       <translation>Lista razgovora na čekanju</translation>
     </message>
     <message>
+      <source>Pending chats</source>
+      <translation>Razgovori na čekanju</translation>
+    </message>
+    <message>
       <source>Information</source>
       <translation>Informacija</translation>
+    </message>
+    <message>
+      <source>Status</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Open in a new window</source>
@@ -3968,16 +4012,32 @@
       <translation>Odbaci razgovor</translation>
     </message>
     <message>
+      <source>Pending chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>Prazno...</translation>
     </message>
     <message>
       <source>Chats list</source>
       <translation>Lista razgovora</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>Razgovori na čekanju</translation>
     </message>
   </context>
   <context>

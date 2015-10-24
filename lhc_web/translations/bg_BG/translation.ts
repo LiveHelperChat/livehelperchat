@@ -6,6 +6,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Колко дни след последното показване да не се показва приставката за гласуване?</translation>
     </message>
@@ -1116,22 +1120,6 @@
       <translation>Информация</translation>
     </message>
     <message>
-      <source>Open in a new window</source>
-      <translation>Отваряне в нов прозорец</translation>
-    </message>
-    <message>
-      <source>Close chat</source>
-      <translation>Затваряне на чата</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>Изтриване на чата</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Празно...</translation>
-    </message>
-    <message>
       <source>Active chats list</source>
       <translation>Списък с активни чатове</translation>
     </message>
@@ -1142,6 +1130,22 @@
     <message>
       <source>Active chats</source>
       <translation>Активни чатове</translation>
+    </message>
+    <message>
+      <source>Close chat</source>
+      <translation>Затваряне на чата</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Изтриване на чата</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Отваряне в нов прозорец</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Празно...</translation>
     </message>
   </context>
   <context>
@@ -1189,6 +1193,34 @@
     <message>
       <source>Down vote</source>
       <translation>Надолу гласуване</translation>
+    </message>
+    <message>
+      <source>Chat status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Has unread messages</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Search</source>
@@ -1298,16 +1330,16 @@
       <translation>Затваряне</translation>
     </message>
     <message>
+      <source>Enter your message</source>
+      <translation>Въведете Вашето съобщение</translation>
+    </message>
+    <message>
       <source>Send</source>
       <translation>Изпращане</translation>
     </message>
     <message>
       <source>BB Code</source>
       <translation>BB Код</translation>
-    </message>
-    <message>
-      <source>Enter your message</source>
-      <translation>Въведете Вашето съобщение</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -2132,6 +2164,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>h.</source>
+      <translation>ч.</translation>
+    </message>
+    <message>
+      <source>m.</source>
+      <translation>мин</translation>
+    </message>
+    <message>
+      <source>s.</source>
+      <translation>сек</translation>
+    </message>
+    <message>
+      <source>ago</source>
+      <translation>преди</translation>
+    </message>
+    <message>
       <source>Add chat</source>
       <translation>Добавяне на чат</translation>
     </message>
@@ -2144,10 +2192,6 @@
       <translation>Последни действия</translation>
     </message>
     <message>
-      <source>ago</source>
-      <translation>преди</translation>
-    </message>
-    <message>
       <source>Redirect user to contact form.</source>
       <translation>Прехвърли потребителя към формата за контакт.</translation>
     </message>
@@ -2158,18 +2202,6 @@
     <message>
       <source>Accept chat</source>
       <translation>Приемане на чата</translation>
-    </message>
-    <message>
-      <source>h.</source>
-      <translation>ч.</translation>
-    </message>
-    <message>
-      <source>m.</source>
-      <translation>мин</translation>
-    </message>
-    <message>
-      <source>s.</source>
-      <translation>сек</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -2574,14 +2606,6 @@
       <translation>Отваряне в нов прозорец</translation>
     </message>
     <message>
-      <source>Delete chat</source>
-      <translation>Изтриване на чата</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Празно...</translation>
-    </message>
-    <message>
       <source>Closed chats list</source>
       <translation>Списък със затворени чатове</translation>
     </message>
@@ -2592,6 +2616,14 @@
     <message>
       <source>Closed chats</source>
       <translation>Затворени чатове</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Изтриване на чата</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Празно...</translation>
     </message>
   </context>
   <context>
@@ -3074,6 +3106,10 @@
     <message>
       <source>Send message</source>
       <translation>Изпращане на съобщение</translation>
+    </message>
+    <message>
+      <source>Chat list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Dashboard</source>
@@ -3956,8 +3992,16 @@
       <translation>Списък с изчакващи чатове</translation>
     </message>
     <message>
+      <source>Pending chats</source>
+      <translation>Изчакващи чатове</translation>
+    </message>
+    <message>
       <source>Information</source>
       <translation>Информация</translation>
+    </message>
+    <message>
+      <source>Status</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Open in a new window</source>
@@ -3968,16 +4012,32 @@
       <translation>Отказване на чат</translation>
     </message>
     <message>
+      <source>Pending chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>Празно...</translation>
     </message>
     <message>
       <source>Chats list</source>
       <translation>Списък с чатове</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>Изчакващи чатове</translation>
     </message>
   </context>
   <context>

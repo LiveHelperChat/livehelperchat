@@ -6,6 +6,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Hoeveel dagen moet de stemwidget verborgen worden na de laatste weergave?</translation>
     </message>
@@ -1116,22 +1120,6 @@
       <translation>Informatie</translation>
     </message>
     <message>
-      <source>Open in a new window</source>
-      <translation>Openen in nieuw venster</translation>
-    </message>
-    <message>
-      <source>Close chat</source>
-      <translation>Sluit chat</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>Verwijder chat</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Leeg</translation>
-    </message>
-    <message>
       <source>Active chats list</source>
       <translation>Actieve chat lijst</translation>
     </message>
@@ -1142,6 +1130,22 @@
     <message>
       <source>Active chats</source>
       <translation>Actieve chats</translation>
+    </message>
+    <message>
+      <source>Close chat</source>
+      <translation>Sluit chat</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Verwijder chat</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Openen in nieuw venster</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Leeg</translation>
     </message>
   </context>
   <context>
@@ -1189,6 +1193,34 @@
     <message>
       <source>Down vote</source>
       <translation>Niet leuk gevonden</translation>
+    </message>
+    <message>
+      <source>Chat status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Has unread messages</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Search</source>
@@ -1298,16 +1330,16 @@
       <translation>Sluiten</translation>
     </message>
     <message>
+      <source>Enter your message</source>
+      <translation>Typ uw bericht</translation>
+    </message>
+    <message>
       <source>Send</source>
       <translation>Verstuur</translation>
     </message>
     <message>
       <source>BB Code</source>
       <translation>BB Code</translation>
-    </message>
-    <message>
-      <source>Enter your message</source>
-      <translation>Typ uw bericht</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -2132,6 +2164,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>h.</source>
+      <translation>val.</translation>
+    </message>
+    <message>
+      <source>m.</source>
+      <translation>m.</translation>
+    </message>
+    <message>
+      <source>s.</source>
+      <translation>s.</translation>
+    </message>
+    <message>
+      <source>ago</source>
+      <translation>geleden</translation>
+    </message>
+    <message>
       <source>Add chat</source>
       <translation>Voeg chat toe</translation>
     </message>
@@ -2144,10 +2192,6 @@
       <translation>Laatste activiteit</translation>
     </message>
     <message>
-      <source>ago</source>
-      <translation>geleden</translation>
-    </message>
-    <message>
       <source>Redirect user to contact form.</source>
       <translation>Stuur gebruiker door naar contactformulier.</translation>
     </message>
@@ -2158,18 +2202,6 @@
     <message>
       <source>Accept chat</source>
       <translation>Accepteer chat</translation>
-    </message>
-    <message>
-      <source>h.</source>
-      <translation>val.</translation>
-    </message>
-    <message>
-      <source>m.</source>
-      <translation>m.</translation>
-    </message>
-    <message>
-      <source>s.</source>
-      <translation>s.</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -2574,14 +2606,6 @@
       <translation>Openen in nieuw venster</translation>
     </message>
     <message>
-      <source>Delete chat</source>
-      <translation>Verwijder chat</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Leeg...</translation>
-    </message>
-    <message>
       <source>Closed chats list</source>
       <translation>Gesloten chats lijst</translation>
     </message>
@@ -2592,6 +2616,14 @@
     <message>
       <source>Closed chats</source>
       <translation>Gesloten chats</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Verwijder chat</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Leeg...</translation>
     </message>
   </context>
   <context>
@@ -3074,6 +3106,10 @@
     <message>
       <source>Send message</source>
       <translation>Stuur bericht</translation>
+    </message>
+    <message>
+      <source>Chat list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Dashboard</source>
@@ -3957,8 +3993,16 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Lijst van open chats</translation>
     </message>
     <message>
+      <source>Pending chats</source>
+      <translation>Open chats</translation>
+    </message>
+    <message>
       <source>Information</source>
       <translation>Informatie</translation>
+    </message>
+    <message>
+      <source>Status</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Open in a new window</source>
@@ -3969,16 +4013,32 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Weiger chat</translation>
     </message>
     <message>
+      <source>Pending chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>Leeg...</translation>
     </message>
     <message>
       <source>Chats list</source>
       <translation>Chat overzicht</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>Open chats</translation>
     </message>
   </context>
   <context>

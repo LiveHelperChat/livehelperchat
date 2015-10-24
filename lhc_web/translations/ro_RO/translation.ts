@@ -6,6 +6,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Nr de zile ce trebuie sa treaca de la ultima votare pentru ca fereastra de votare sa se poata activa din nou</translation>
     </message>
@@ -1116,22 +1120,6 @@
       <translation>Informaţii</translation>
     </message>
     <message>
-      <source>Open in a new window</source>
-      <translation>Deschide o fereastră nouă</translation>
-    </message>
-    <message>
-      <source>Close chat</source>
-      <translation>Aproape de chat</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>Şterge chat</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Gol...</translation>
-    </message>
-    <message>
       <source>Active chats list</source>
       <translation>Lista de discuţii active</translation>
     </message>
@@ -1142,6 +1130,22 @@
     <message>
       <source>Active chats</source>
       <translation>Chat-uri activ</translation>
+    </message>
+    <message>
+      <source>Close chat</source>
+      <translation>Aproape de chat</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Şterge chat</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Deschide o fereastră nouă</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Gol...</translation>
     </message>
   </context>
   <context>
@@ -1188,6 +1192,34 @@
     </message>
     <message>
       <source>Down vote</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Has unread messages</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1298,16 +1330,16 @@
       <translation>Închide</translation>
     </message>
     <message>
+      <source>Enter your message</source>
+      <translation>Introduceti mesajul</translation>
+    </message>
+    <message>
       <source>Send</source>
       <translation>Trimite</translation>
     </message>
     <message>
       <source>BB Code</source>
       <translation>Codul BB</translation>
-    </message>
-    <message>
-      <source>Enter your message</source>
-      <translation>Introduceti mesajul</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -2132,6 +2164,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>h.</source>
+      <translation>h.</translation>
+    </message>
+    <message>
+      <source>m.</source>
+      <translation>m.</translation>
+    </message>
+    <message>
+      <source>s.</source>
+      <translation>s.</translation>
+    </message>
+    <message>
+      <source>ago</source>
+      <translation>in urma</translation>
+    </message>
+    <message>
       <source>Add chat</source>
       <translation>Adauga conversatia</translation>
     </message>
@@ -2144,10 +2192,6 @@
       <translation>Ultima activitate</translation>
     </message>
     <message>
-      <source>ago</source>
-      <translation>in urma</translation>
-    </message>
-    <message>
       <source>Redirect user to contact form.</source>
       <translation>Redirectioneaza utilizatorul catre formularul de contact.</translation>
     </message>
@@ -2158,18 +2202,6 @@
     <message>
       <source>Accept chat</source>
       <translation>Accespta conversatia</translation>
-    </message>
-    <message>
-      <source>h.</source>
-      <translation>h.</translation>
-    </message>
-    <message>
-      <source>m.</source>
-      <translation>m.</translation>
-    </message>
-    <message>
-      <source>s.</source>
-      <translation>s.</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -2574,14 +2606,6 @@
       <translation>Deschide in fereastra noua</translation>
     </message>
     <message>
-      <source>Delete chat</source>
-      <translation>Sterge conversatia</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Gol...</translation>
-    </message>
-    <message>
       <source>Closed chats list</source>
       <translation>Lista conversatiilor inchise</translation>
     </message>
@@ -2592,6 +2616,14 @@
     <message>
       <source>Closed chats</source>
       <translation>Conversatii inchise</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Sterge conversatia</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Gol...</translation>
     </message>
   </context>
   <context>
@@ -3074,6 +3106,10 @@
     <message>
       <source>Send message</source>
       <translation>Trimite mesajul</translation>
+    </message>
+    <message>
+      <source>Chat list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Dashboard</source>
@@ -3956,8 +3992,16 @@
       <translation>Lista conversatiilor in asteptare</translation>
     </message>
     <message>
+      <source>Pending chats</source>
+      <translation>Conversatii in asteptare</translation>
+    </message>
+    <message>
       <source>Information</source>
       <translation>Informatii</translation>
+    </message>
+    <message>
+      <source>Status</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Open in a new window</source>
@@ -3968,16 +4012,32 @@
       <translation>Respinge conversatia</translation>
     </message>
     <message>
+      <source>Pending chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>Gol...</translation>
     </message>
     <message>
       <source>Chats list</source>
       <translation>Lista de conversatii</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>Conversatii in asteptare</translation>
     </message>
   </context>
   <context>

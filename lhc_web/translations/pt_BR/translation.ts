@@ -6,6 +6,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Por quantos dias o widget de votação não deve ser exibido após última exibição</translation>
     </message>
@@ -1116,22 +1120,6 @@
       <translation>Informação</translation>
     </message>
     <message>
-      <source>Open in a new window</source>
-      <translation>Abrir em uma nova janela</translation>
-    </message>
-    <message>
-      <source>Close chat</source>
-      <translation>Fechar chat</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>Apagar chat</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Vazio...</translation>
-    </message>
-    <message>
       <source>Active chats list</source>
       <translation>Lista de chats ativos</translation>
     </message>
@@ -1142,6 +1130,22 @@
     <message>
       <source>Active chats</source>
       <translation>Chats ativos</translation>
+    </message>
+    <message>
+      <source>Close chat</source>
+      <translation>Fechar chat</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Apagar chat</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Abrir em uma nova janela</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Vazio...</translation>
     </message>
   </context>
   <context>
@@ -1189,6 +1193,34 @@
     <message>
       <source>Down vote</source>
       <translation>Voto negativo</translation>
+    </message>
+    <message>
+      <source>Chat status</source>
+      <translation>Status</translation>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation>Chats Pendentes</translation>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Chats Ativos</translation>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation>Chats Fechados</translation>
+    </message>
+    <message>
+      <source>Chatbox chats</source>
+      <translation>Caixa de chats</translation>
+    </message>
+    <message>
+      <source>Operators chats</source>
+      <translation>Operadores de chats</translation>
+    </message>
+    <message>
+      <source>Has unread messages</source>
+      <translation>Possui mensagens não lidas</translation>
     </message>
     <message>
       <source>Search</source>
@@ -1298,16 +1330,16 @@
       <translation>Fechar</translation>
     </message>
     <message>
+      <source>Enter your message</source>
+      <translation>Digite sua mensagem</translation>
+    </message>
+    <message>
       <source>Send</source>
       <translation>Enviar</translation>
     </message>
     <message>
       <source>BB Code</source>
       <translation>Código BB</translation>
-    </message>
-    <message>
-      <source>Enter your message</source>
-      <translation>Digite sua mensagem</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -2132,6 +2164,22 @@
       <translation>Sem chats anteriores</translation>
     </message>
     <message>
+      <source>h.</source>
+      <translation>h.</translation>
+    </message>
+    <message>
+      <source>m.</source>
+      <translation>m.</translation>
+    </message>
+    <message>
+      <source>s.</source>
+      <translation>s.</translation>
+    </message>
+    <message>
+      <source>ago</source>
+      <translation>atrás</translation>
+    </message>
+    <message>
       <source>Add chat</source>
       <translation>Adicionar chat</translation>
     </message>
@@ -2144,10 +2192,6 @@
       <translation>Última atividade</translation>
     </message>
     <message>
-      <source>ago</source>
-      <translation>atrás</translation>
-    </message>
-    <message>
       <source>Redirect user to contact form.</source>
       <translation>Redirecionar usuário para o formulário de contato.</translation>
     </message>
@@ -2158,18 +2202,6 @@
     <message>
       <source>Accept chat</source>
       <translation>Aceitar conversa</translation>
-    </message>
-    <message>
-      <source>h.</source>
-      <translation>h.</translation>
-    </message>
-    <message>
-      <source>m.</source>
-      <translation>m.</translation>
-    </message>
-    <message>
-      <source>s.</source>
-      <translation>s.</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -2574,14 +2606,6 @@
       <translation>Abrir em uma nova janela</translation>
     </message>
     <message>
-      <source>Delete chat</source>
-      <translation>Apagar chat</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Vazio...</translation>
-    </message>
-    <message>
       <source>Closed chats list</source>
       <translation>Lista de chats fechados</translation>
     </message>
@@ -2592,6 +2616,14 @@
     <message>
       <source>Closed chats</source>
       <translation>Chats fechados</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Apagar chat</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Vazio...</translation>
     </message>
   </context>
   <context>
@@ -3074,6 +3106,10 @@
     <message>
       <source>Send message</source>
       <translation>Enviar mensagem</translation>
+    </message>
+    <message>
+      <source>Chat list</source>
+      <translation>Lista de chat</translation>
     </message>
     <message>
       <source>Dashboard</source>
@@ -3957,8 +3993,16 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Lista de chats pendentes</translation>
     </message>
     <message>
+      <source>Pending chats</source>
+      <translation>Chats pendentes</translation>
+    </message>
+    <message>
       <source>Information</source>
       <translation>Informação</translation>
+    </message>
+    <message>
+      <source>Status</source>
+      <translation>Status</translation>
     </message>
     <message>
       <source>Open in a new window</source>
@@ -3969,16 +4013,32 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Rejeitar chat</translation>
     </message>
     <message>
+      <source>Pending chat</source>
+      <translation>Chat pendente</translation>
+    </message>
+    <message>
+      <source>Active chat</source>
+      <translation>Chat ativo</translation>
+    </message>
+    <message>
+      <source>Closed chat</source>
+      <translation>Chat fechado</translation>
+    </message>
+    <message>
+      <source>Chatbox chat</source>
+      <translation>Caixa de chat</translation>
+    </message>
+    <message>
+      <source>Operators chat</source>
+      <translation>Operadores de chat</translation>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>Vazio...</translation>
     </message>
     <message>
       <source>Chats list</source>
       <translation>Lista de chats</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>Chats pendentes</translation>
     </message>
   </context>
   <context>

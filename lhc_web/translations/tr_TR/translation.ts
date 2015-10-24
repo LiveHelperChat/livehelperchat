@@ -6,6 +6,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -47,7 +51,7 @@
     </message>
     <message>
       <source>How many days keep records of online users.</source>
-      <translation>Online kullanıcı kayıtlarını kaç gün tutalım?</translation>
+      <translation>Çevrimiçi kullanıcı kayıtlarını kaç gün tutalım?</translation>
     </message>
     <message>
       <source>Suggest user to leave a message then user chooses offline department</source>
@@ -75,11 +79,11 @@
     </message>
     <message>
       <source>Connect to NodeJs in https mode</source>
-      <translation type="unfinished"/>
+      <translation>NodeJs e https modunda bağlan</translation>
     </message>
     <message>
       <source>socket.io path, optional</source>
-      <translation type="unfinished"/>
+      <translation>socket.io yolu, isteğe bağlı</translation>
     </message>
     <message>
       <source>NodeJS support enabled</source>
@@ -87,7 +91,7 @@
     </message>
     <message>
       <source>Do not ask permission for users to see their screen</source>
-      <translation type="unfinished"/>
+      <translation>Ekranlarını görmek için kullanıcılardan izin isteme</translation>
     </message>
     <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
@@ -163,7 +167,7 @@
     </message>
     <message>
       <source>Hide right column in frontpage</source>
-      <translation type="unfinished"/>
+      <translation>Ön sayfada sağ kolonu gizle</translation>
     </message>
     <message>
       <source>Hide disabled department widget</source>
@@ -223,7 +227,7 @@
     </message>
     <message>
       <source>Show BB Code button</source>
-      <translation type="unfinished"/>
+      <translation>BB Kodu butununu göster</translation>
     </message>
     <message>
       <source>Which ip should not be allowed to chat</source>
@@ -255,7 +259,7 @@
     </message>
     <message>
       <source>How many seconds chat accept link is valid. Set 0 to force login all the time manually.</source>
-      <translation type="unfinished"/>
+      <translation>Chat kabul linki kaç saniye geçerli. Her defasında el ile giriş için 0 olarak ayarlayın.</translation>
     </message>
   </context>
   <context>
@@ -524,15 +528,15 @@
     </message>
     <message>
       <source>Minimize image</source>
-      <translation type="unfinished"/>
+      <translation>Görseli küçült</translation>
     </message>
     <message>
       <source>Restore image</source>
-      <translation type="unfinished"/>
+      <translation>Görseli yenile</translation>
     </message>
     <message>
       <source>Close image</source>
-      <translation type="unfinished"/>
+      <translation>Görseli kapat</translation>
     </message>
     <message>
       <source>Popup image</source>
@@ -540,7 +544,7 @@
     </message>
     <message>
       <source>Widget themes</source>
-      <translation type="unfinished"/>
+      <translation>Eklenti Temaları</translation>
     </message>
   </context>
   <context>
@@ -1116,22 +1120,6 @@
       <translation>Bilgi</translation>
     </message>
     <message>
-      <source>Open in a new window</source>
-      <translation>Yeni pencerede aç</translation>
-    </message>
-    <message>
-      <source>Close chat</source>
-      <translation>Konuşmayı kapat</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>Konuşmayı sil</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Boş...</translation>
-    </message>
-    <message>
       <source>Active chats list</source>
       <translation>Aktif konuşmalar listesi</translation>
     </message>
@@ -1142,6 +1130,22 @@
     <message>
       <source>Active chats</source>
       <translation>Aktif konuşmalar</translation>
+    </message>
+    <message>
+      <source>Close chat</source>
+      <translation>Konuşmayı kapat</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Konuşmayı sil</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Yeni pencerede aç</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Boş...</translation>
     </message>
   </context>
   <context>
@@ -1188,6 +1192,34 @@
     </message>
     <message>
       <source>Down vote</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Has unread messages</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1298,16 +1330,16 @@
       <translation>Kapat</translation>
     </message>
     <message>
+      <source>Enter your message</source>
+      <translation>Mesajınızı girin</translation>
+    </message>
+    <message>
       <source>Send</source>
       <translation>Gönder</translation>
     </message>
     <message>
       <source>BB Code</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Enter your message</source>
-      <translation>Mesajınızı girin</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -2132,6 +2164,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>h.</source>
+      <translation>h.</translation>
+    </message>
+    <message>
+      <source>m.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>s.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>ago</source>
+      <translation>öncew</translation>
+    </message>
+    <message>
       <source>Add chat</source>
       <translation>Konuşma ekle</translation>
     </message>
@@ -2144,10 +2192,6 @@
       <translation>Son aktivite</translation>
     </message>
     <message>
-      <source>ago</source>
-      <translation>öncew</translation>
-    </message>
-    <message>
       <source>Redirect user to contact form.</source>
       <translation type="unfinished"/>
     </message>
@@ -2158,18 +2202,6 @@
     <message>
       <source>Accept chat</source>
       <translation>Konuşmayı kabul et</translation>
-    </message>
-    <message>
-      <source>h.</source>
-      <translation>h.</translation>
-    </message>
-    <message>
-      <source>m.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>s.</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Empty...</source>
@@ -2574,14 +2606,6 @@
       <translation>Yeni pencerede aç</translation>
     </message>
     <message>
-      <source>Delete chat</source>
-      <translation>Konuşmayı sil</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Boş...</translation>
-    </message>
-    <message>
       <source>Closed chats list</source>
       <translation>Kapatılmış konuşma listesi</translation>
     </message>
@@ -2592,6 +2616,14 @@
     <message>
       <source>Closed chats</source>
       <translation>Kapatılmış konuşmalar</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Konuşmayı sil</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Boş...</translation>
     </message>
   </context>
   <context>
@@ -3074,6 +3106,10 @@
     <message>
       <source>Send message</source>
       <translation>Mesaj gönder</translation>
+    </message>
+    <message>
+      <source>Chat list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Dashboard</source>
@@ -3958,8 +3994,16 @@
       <translation>Beklemedeki konuşmalar listesi</translation>
     </message>
     <message>
+      <source>Pending chats</source>
+      <translation>Beklemedeki konuşmalar</translation>
+    </message>
+    <message>
       <source>Information</source>
       <translation>Bilgi</translation>
+    </message>
+    <message>
+      <source>Status</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Open in a new window</source>
@@ -3970,16 +4014,32 @@
       <translation>Konuşmayı reddet</translation>
     </message>
     <message>
+      <source>Pending chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>Boş...</translation>
     </message>
     <message>
       <source>Chats list</source>
       <translation>Konuşmalar listesi</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>Beklemedeki konuşmalar</translation>
     </message>
   </context>
   <context>

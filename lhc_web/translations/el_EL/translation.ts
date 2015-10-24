@@ -6,6 +6,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Πόσες ημέρες ψηφοφορίας widget δεν θα πρέπει να επεκταθεί μετά από την τελευταία εμφάνιση</translation>
     </message>
@@ -1116,22 +1120,6 @@
       <translation>Πληροφορία</translation>
     </message>
     <message>
-      <source>Open in a new window</source>
-      <translation>Άνοιγμα σε νέο παράθυρο</translation>
-    </message>
-    <message>
-      <source>Close chat</source>
-      <translation>Κλείσιμο συνομιλίας</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>Διαγραφή συνομιλίας</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Άδειο...</translation>
-    </message>
-    <message>
       <source>Active chats list</source>
       <translation>Λίστα ενεργών συνομιλιών</translation>
     </message>
@@ -1142,6 +1130,22 @@
     <message>
       <source>Active chats</source>
       <translation>Ενεργές συνομιλίες</translation>
+    </message>
+    <message>
+      <source>Close chat</source>
+      <translation>Κλείσιμο συνομιλίας</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Διαγραφή συνομιλίας</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Άνοιγμα σε νέο παράθυρο</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Άδειο...</translation>
     </message>
   </context>
   <context>
@@ -1188,6 +1192,34 @@
     </message>
     <message>
       <source>Down vote</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Has unread messages</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1298,16 +1330,16 @@
       <translation>Κλείσιμο</translation>
     </message>
     <message>
+      <source>Enter your message</source>
+      <translation>Εισάγετε το μήνυμά σας</translation>
+    </message>
+    <message>
       <source>Send</source>
       <translation>Αποστολή</translation>
     </message>
     <message>
       <source>BB Code</source>
       <translation>BB κώδικα</translation>
-    </message>
-    <message>
-      <source>Enter your message</source>
-      <translation>Εισάγετε το μήνυμά σας</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -2132,6 +2164,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>h.</source>
+      <translation>h.</translation>
+    </message>
+    <message>
+      <source>m.</source>
+      <translation>μ.</translation>
+    </message>
+    <message>
+      <source>s.</source>
+      <translation>s.</translation>
+    </message>
+    <message>
+      <source>ago</source>
+      <translation>πριν</translation>
+    </message>
+    <message>
       <source>Add chat</source>
       <translation>Προσθέστε το chat</translation>
     </message>
@@ -2144,10 +2192,6 @@
       <translation>Τελευταία δραστηριότητα</translation>
     </message>
     <message>
-      <source>ago</source>
-      <translation>πριν</translation>
-    </message>
-    <message>
       <source>Redirect user to contact form.</source>
       <translation>Ανακατεύθυνση χρήστη για την φόρμα επικοινωνίας.</translation>
     </message>
@@ -2158,18 +2202,6 @@
     <message>
       <source>Accept chat</source>
       <translation>Δεχθεί συνομιλίας</translation>
-    </message>
-    <message>
-      <source>h.</source>
-      <translation>h.</translation>
-    </message>
-    <message>
-      <source>m.</source>
-      <translation>μ.</translation>
-    </message>
-    <message>
-      <source>s.</source>
-      <translation>s.</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -2574,14 +2606,6 @@
       <translation>Άνοιγμα σε νέο παράθυρο</translation>
     </message>
     <message>
-      <source>Delete chat</source>
-      <translation>Διαγραφή συνομιλίας</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Άδειο...</translation>
-    </message>
-    <message>
       <source>Closed chats list</source>
       <translation>Λίστα ανενεργών συνομιλιών</translation>
     </message>
@@ -2592,6 +2616,14 @@
     <message>
       <source>Closed chats</source>
       <translation>Ανενεργές συνομιλίες</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Διαγραφή συνομιλίας</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Άδειο...</translation>
     </message>
   </context>
   <context>
@@ -3074,6 +3106,10 @@
     <message>
       <source>Send message</source>
       <translation>Αποστολή μηνύματος</translation>
+    </message>
+    <message>
+      <source>Chat list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Dashboard</source>
@@ -3956,8 +3992,16 @@
       <translation>Λίστα συνομιλιών σε αναμονή</translation>
     </message>
     <message>
+      <source>Pending chats</source>
+      <translation>Συνομιλίες σε αναμονή</translation>
+    </message>
+    <message>
       <source>Information</source>
       <translation>Πληροφορία</translation>
+    </message>
+    <message>
+      <source>Status</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Open in a new window</source>
@@ -3968,16 +4012,32 @@
       <translation>Απόρριψη συνομιλίας</translation>
     </message>
     <message>
+      <source>Pending chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>Άδειο...</translation>
     </message>
     <message>
       <source>Chats list</source>
       <translation>Λίστα συνομιλιών</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>Συνομιλίες σε αναμονή</translation>
     </message>
   </context>
   <context>

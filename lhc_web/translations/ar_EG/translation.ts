@@ -6,6 +6,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -1116,22 +1120,6 @@
       <translation>المعلومات</translation>
     </message>
     <message>
-      <source>Open in a new window</source>
-      <translation>فتح في صفحة جديدة</translation>
-    </message>
-    <message>
-      <source>Close chat</source>
-      <translation>أغلِق المحادثة</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>أزِل المحادثة</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>فارغ...</translation>
-    </message>
-    <message>
       <source>Active chats list</source>
       <translation>قائمة المحادثات الفعالة</translation>
     </message>
@@ -1142,6 +1130,22 @@
     <message>
       <source>Active chats</source>
       <translation>المحادثات الفعالة</translation>
+    </message>
+    <message>
+      <source>Close chat</source>
+      <translation>أغلِق المحادثة</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>أزِل المحادثة</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>فتح في صفحة جديدة</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>فارغ...</translation>
     </message>
   </context>
   <context>
@@ -1188,6 +1192,34 @@
     </message>
     <message>
       <source>Down vote</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Has unread messages</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1298,16 +1330,16 @@
       <translation>أغلق</translation>
     </message>
     <message>
+      <source>Enter your message</source>
+      <translation>أدخل رسالتك</translation>
+    </message>
+    <message>
       <source>Send</source>
       <translation>أرسل</translation>
     </message>
     <message>
       <source>BB Code</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Enter your message</source>
-      <translation>أدخل رسالتك</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -2132,6 +2164,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>h.</source>
+      <translation>س.</translation>
+    </message>
+    <message>
+      <source>m.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>s.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>ago</source>
+      <translation>مَضَت</translation>
+    </message>
+    <message>
       <source>Add chat</source>
       <translation>أضِف محادثة</translation>
     </message>
@@ -2144,10 +2192,6 @@
       <translation>آخر نشاط</translation>
     </message>
     <message>
-      <source>ago</source>
-      <translation>مَضَت</translation>
-    </message>
-    <message>
       <source>Redirect user to contact form.</source>
       <translation type="unfinished"/>
     </message>
@@ -2158,18 +2202,6 @@
     <message>
       <source>Accept chat</source>
       <translation>اقبَل المحادثة</translation>
-    </message>
-    <message>
-      <source>h.</source>
-      <translation>س.</translation>
-    </message>
-    <message>
-      <source>m.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>s.</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Empty...</source>
@@ -2574,14 +2606,6 @@
       <translation>فتح في صفحة جديدة</translation>
     </message>
     <message>
-      <source>Delete chat</source>
-      <translation>أَزِل المحادثة</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>فارغ...</translation>
-    </message>
-    <message>
       <source>Closed chats list</source>
       <translation>قائمة المحادثات المغلقة</translation>
     </message>
@@ -2592,6 +2616,14 @@
     <message>
       <source>Closed chats</source>
       <translation>المُحادثات المغلقة</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>أَزِل المحادثة</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>فارغ...</translation>
     </message>
   </context>
   <context>
@@ -3074,6 +3106,10 @@
     <message>
       <source>Send message</source>
       <translation>أرسل الرسالة</translation>
+    </message>
+    <message>
+      <source>Chat list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Dashboard</source>
@@ -3956,8 +3992,16 @@
       <translation>قائمة المحادثات المعلقة</translation>
     </message>
     <message>
+      <source>Pending chats</source>
+      <translation>المحادثات المعلقة</translation>
+    </message>
+    <message>
       <source>Information</source>
       <translation>المعلومات</translation>
+    </message>
+    <message>
+      <source>Status</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Open in a new window</source>
@@ -3968,16 +4012,32 @@
       <translation>ارفُض المحادثة</translation>
     </message>
     <message>
+      <source>Pending chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>فارغ...</translation>
     </message>
     <message>
       <source>Chats list</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>المحادثات المعلقة</translation>
     </message>
   </context>
   <context>

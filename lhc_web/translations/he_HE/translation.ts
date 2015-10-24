@@ -6,6 +6,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>למשך כמה ימים יש להציג את אפשרות ההצבעה לאחר שהוצגו פעם אחרונה?</translation>
     </message>
@@ -1116,22 +1120,6 @@
       <translation>מידע</translation>
     </message>
     <message>
-      <source>Open in a new window</source>
-      <translation>פתח בחלון חדש</translation>
-    </message>
-    <message>
-      <source>Close chat</source>
-      <translation>סגור צ&apos;אט</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>מחיקת צ&apos;אט</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>ריק...</translation>
-    </message>
-    <message>
       <source>Active chats list</source>
       <translation>רשימת צ&apos;אטים פעילים</translation>
     </message>
@@ -1142,6 +1130,22 @@
     <message>
       <source>Active chats</source>
       <translation>צ&apos;אטים פעילים</translation>
+    </message>
+    <message>
+      <source>Close chat</source>
+      <translation>סגור צ&apos;אט</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>מחיקת צ&apos;אט</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>פתח בחלון חדש</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>ריק...</translation>
     </message>
   </context>
   <context>
@@ -1188,6 +1192,34 @@
     </message>
     <message>
       <source>Down vote</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Has unread messages</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1298,16 +1330,16 @@
       <translation>סגור</translation>
     </message>
     <message>
+      <source>Enter your message</source>
+      <translation>הקלד את הודעתך:</translation>
+    </message>
+    <message>
       <source>Send</source>
       <translation>שלח</translation>
     </message>
     <message>
       <source>BB Code</source>
       <translation>קוד BB</translation>
-    </message>
-    <message>
-      <source>Enter your message</source>
-      <translation>הקלד את הודעתך:</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -2132,6 +2164,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>h.</source>
+      <translation>ש.</translation>
+    </message>
+    <message>
+      <source>m.</source>
+      <translation>ד.</translation>
+    </message>
+    <message>
+      <source>s.</source>
+      <translation>ש.</translation>
+    </message>
+    <message>
+      <source>ago</source>
+      <translation>לפני</translation>
+    </message>
+    <message>
       <source>Add chat</source>
       <translation>הוסף שיחה</translation>
     </message>
@@ -2144,10 +2192,6 @@
       <translation>פעילות אחרונה</translation>
     </message>
     <message>
-      <source>ago</source>
-      <translation>לפני</translation>
-    </message>
-    <message>
       <source>Redirect user to contact form.</source>
       <translation>מפנה את המשתמש לטופס יצירת קשר</translation>
     </message>
@@ -2158,18 +2202,6 @@
     <message>
       <source>Accept chat</source>
       <translation>קבל צ&apos;אט</translation>
-    </message>
-    <message>
-      <source>h.</source>
-      <translation>ש.</translation>
-    </message>
-    <message>
-      <source>m.</source>
-      <translation>ד.</translation>
-    </message>
-    <message>
-      <source>s.</source>
-      <translation>ש.</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -2574,14 +2606,6 @@
       <translation>פתח בחלון חדש</translation>
     </message>
     <message>
-      <source>Delete chat</source>
-      <translation>מחיקת צ&apos;אט</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>ריק...</translation>
-    </message>
-    <message>
       <source>Closed chats list</source>
       <translation type="unfinished"/>
     </message>
@@ -2592,6 +2616,14 @@
     <message>
       <source>Closed chats</source>
       <translation>צ&apos;אטים סגורים</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>מחיקת צ&apos;אט</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>ריק...</translation>
     </message>
   </context>
   <context>
@@ -3074,6 +3106,10 @@
     <message>
       <source>Send message</source>
       <translation>שלח הודעה</translation>
+    </message>
+    <message>
+      <source>Chat list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Dashboard</source>
@@ -3956,8 +3992,16 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Pending chats</source>
+      <translation>צ&apos;אטים בהמתנה</translation>
+    </message>
+    <message>
       <source>Information</source>
       <translation>מידע</translation>
+    </message>
+    <message>
+      <source>Status</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Open in a new window</source>
@@ -3968,16 +4012,32 @@
       <translation>לדחות צ&apos;אט</translation>
     </message>
     <message>
+      <source>Pending chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>ריק...</translation>
     </message>
     <message>
       <source>Chats list</source>
       <translation>רשימות צ&apos;אט</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>צ&apos;אטים בהמתנה</translation>
     </message>
   </context>
   <context>

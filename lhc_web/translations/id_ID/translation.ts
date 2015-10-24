@@ -6,6 +6,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Berapa hari widget pemungutan suara tidak harus diperluas setelah pertunjukan yang terakhir</translation>
     </message>
@@ -1116,22 +1120,6 @@
       <translation>Informasi</translation>
     </message>
     <message>
-      <source>Open in a new window</source>
-      <translation>Buka di jendela baru</translation>
-    </message>
-    <message>
-      <source>Close chat</source>
-      <translation>Tutup percakapan</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>Hapus percakapan</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Kosong...</translation>
-    </message>
-    <message>
       <source>Active chats list</source>
       <translation>Daftar percakapan aktif</translation>
     </message>
@@ -1142,6 +1130,22 @@
     <message>
       <source>Active chats</source>
       <translation>Percakapan aktif</translation>
+    </message>
+    <message>
+      <source>Close chat</source>
+      <translation>Tutup percakapan</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Hapus percakapan</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Buka di jendela baru</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Kosong...</translation>
     </message>
   </context>
   <context>
@@ -1188,6 +1192,34 @@
     </message>
     <message>
       <source>Down vote</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Has unread messages</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1298,16 +1330,16 @@
       <translation>Tutup</translation>
     </message>
     <message>
+      <source>Enter your message</source>
+      <translation>Masukkan pesan anda</translation>
+    </message>
+    <message>
       <source>Send</source>
       <translation>Kirim</translation>
     </message>
     <message>
       <source>BB Code</source>
       <translation>Kode BB</translation>
-    </message>
-    <message>
-      <source>Enter your message</source>
-      <translation>Masukkan pesan anda</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -2132,6 +2164,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>h.</source>
+      <translation>jam.</translation>
+    </message>
+    <message>
+      <source>m.</source>
+      <translation>menit.</translation>
+    </message>
+    <message>
+      <source>s.</source>
+      <translation>detik.</translation>
+    </message>
+    <message>
+      <source>ago</source>
+      <translation>yang lalu</translation>
+    </message>
+    <message>
       <source>Add chat</source>
       <translation>Tambahkan percakapan</translation>
     </message>
@@ -2144,10 +2192,6 @@
       <translation>Aktivitas terakhir</translation>
     </message>
     <message>
-      <source>ago</source>
-      <translation>yang lalu</translation>
-    </message>
-    <message>
       <source>Redirect user to contact form.</source>
       <translation>Mengarahkan pengguna ke formulir kontak</translation>
     </message>
@@ -2158,18 +2202,6 @@
     <message>
       <source>Accept chat</source>
       <translation>Terima percakapan</translation>
-    </message>
-    <message>
-      <source>h.</source>
-      <translation>jam.</translation>
-    </message>
-    <message>
-      <source>m.</source>
-      <translation>menit.</translation>
-    </message>
-    <message>
-      <source>s.</source>
-      <translation>detik.</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -2574,14 +2606,6 @@
       <translation>Buka di jendela baru</translation>
     </message>
     <message>
-      <source>Delete chat</source>
-      <translation>Hapus percakapan</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Kosong...</translation>
-    </message>
-    <message>
       <source>Closed chats list</source>
       <translation>Daftar percakapan yang sudah tertutup</translation>
     </message>
@@ -2592,6 +2616,14 @@
     <message>
       <source>Closed chats</source>
       <translation>Percakapan yang sudah tertutup</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Hapus percakapan</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Kosong...</translation>
     </message>
   </context>
   <context>
@@ -3074,6 +3106,10 @@
     <message>
       <source>Send message</source>
       <translation>Kirim pesan</translation>
+    </message>
+    <message>
+      <source>Chat list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Dashboard</source>
@@ -3956,8 +3992,16 @@
       <translation>Daftar percakapan tertunda</translation>
     </message>
     <message>
+      <source>Pending chats</source>
+      <translation>Percakapan tertunda</translation>
+    </message>
+    <message>
       <source>Information</source>
       <translation>Informasi</translation>
+    </message>
+    <message>
+      <source>Status</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Open in a new window</source>
@@ -3968,16 +4012,32 @@
       <translation>Tolak percakapan</translation>
     </message>
     <message>
+      <source>Pending chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>Kosong...</translation>
     </message>
     <message>
       <source>Chats list</source>
       <translation>Daftar percakapan</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>Percakapan tertunda</translation>
     </message>
   </context>
   <context>

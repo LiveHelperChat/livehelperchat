@@ -6,6 +6,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Kiek dienų balsavimo widgetas neturėtų būti išskleistas po paskutinio parodymo</translation>
     </message>
@@ -1116,22 +1120,6 @@
       <translation>Informacija</translation>
     </message>
     <message>
-      <source>Open in a new window</source>
-      <translation>Atidaryti naujam lange</translation>
-    </message>
-    <message>
-      <source>Close chat</source>
-      <translation>Uždaryti pokalbį</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>Ištrinti pokalbį</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Tuščia...</translation>
-    </message>
-    <message>
       <source>Active chats list</source>
       <translation>Aktyvių pokalbių sąrašas</translation>
     </message>
@@ -1142,6 +1130,22 @@
     <message>
       <source>Active chats</source>
       <translation>Aktyvūs pokalbiai</translation>
+    </message>
+    <message>
+      <source>Close chat</source>
+      <translation>Uždaryti pokalbį</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Ištrinti pokalbį</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Atidaryti naujam lange</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Tuščia...</translation>
     </message>
   </context>
   <context>
@@ -1189,6 +1193,34 @@
     <message>
       <source>Down vote</source>
       <translation>Blogas aptarnavimas</translation>
+    </message>
+    <message>
+      <source>Chat status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Has unread messages</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Search</source>
@@ -1298,16 +1330,16 @@
       <translation>Uždaryti</translation>
     </message>
     <message>
+      <source>Enter your message</source>
+      <translation>Įveskite savo žinutę</translation>
+    </message>
+    <message>
       <source>Send</source>
       <translation>Siųsti</translation>
     </message>
     <message>
       <source>BB Code</source>
       <translation>BB Kodas</translation>
-    </message>
-    <message>
-      <source>Enter your message</source>
-      <translation>Įveskite savo žinutę</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -2132,6 +2164,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>h.</source>
+      <translation>val.</translation>
+    </message>
+    <message>
+      <source>m.</source>
+      <translation>m.</translation>
+    </message>
+    <message>
+      <source>s.</source>
+      <translation>s.</translation>
+    </message>
+    <message>
+      <source>ago</source>
+      <translation>prieš</translation>
+    </message>
+    <message>
       <source>Add chat</source>
       <translation>Pridėti pokalbį</translation>
     </message>
@@ -2144,10 +2192,6 @@
       <translation>Paskutinis aktyvumas</translation>
     </message>
     <message>
-      <source>ago</source>
-      <translation>prieš</translation>
-    </message>
-    <message>
       <source>Redirect user to contact form.</source>
       <translation>Nukreipti vartotoją į kontaktų formą</translation>
     </message>
@@ -2158,18 +2202,6 @@
     <message>
       <source>Accept chat</source>
       <translation>Patvirtinti pokalbį</translation>
-    </message>
-    <message>
-      <source>h.</source>
-      <translation>val.</translation>
-    </message>
-    <message>
-      <source>m.</source>
-      <translation>m.</translation>
-    </message>
-    <message>
-      <source>s.</source>
-      <translation>s.</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -2574,14 +2606,6 @@
       <translation>Atidaryti naujam lange</translation>
     </message>
     <message>
-      <source>Delete chat</source>
-      <translation>Ištrinti pokalbį</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Tuščia...</translation>
-    </message>
-    <message>
       <source>Closed chats list</source>
       <translation>Uždarytų pokalbių sąrašas</translation>
     </message>
@@ -2592,6 +2616,14 @@
     <message>
       <source>Closed chats</source>
       <translation>Uždaryti pokalbiai</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Ištrinti pokalbį</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Tuščia...</translation>
     </message>
   </context>
   <context>
@@ -3074,6 +3106,10 @@
     <message>
       <source>Send message</source>
       <translation>Siųsti žinutę</translation>
+    </message>
+    <message>
+      <source>Chat list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Dashboard</source>
@@ -3956,8 +3992,16 @@
       <translation>Laukiančių patvirtinimo pokalbių sąrašas</translation>
     </message>
     <message>
+      <source>Pending chats</source>
+      <translation>Laukiantys pokalbiai</translation>
+    </message>
+    <message>
       <source>Information</source>
       <translation>Informacija</translation>
+    </message>
+    <message>
+      <source>Status</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Open in a new window</source>
@@ -3968,16 +4012,32 @@
       <translation>Atmesti pokalbį</translation>
     </message>
     <message>
+      <source>Pending chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>Tuščia...</translation>
     </message>
     <message>
       <source>Chats list</source>
       <translation>Pokalbių sąrašai</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>Laukiantys pokalbiai</translation>
     </message>
   </context>
   <context>

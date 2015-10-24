@@ -6,6 +6,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Per quanti giorni il widget di voto non deve essere mostrato dopo l&apos;ultima visualizzazione</translation>
     </message>
@@ -1117,22 +1121,6 @@
       <translation>Informazione</translation>
     </message>
     <message>
-      <source>Open in a new window</source>
-      <translation>Apri in una nuova finestra | Open in a new window</translation>
-    </message>
-    <message>
-      <source>Close chat</source>
-      <translation>Chiudi chat</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>Elimina chat</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Vuoto...</translation>
-    </message>
-    <message>
       <source>Active chats list</source>
       <translation>Liste chat attive</translation>
     </message>
@@ -1143,6 +1131,22 @@
     <message>
       <source>Active chats</source>
       <translation>Chat attive</translation>
+    </message>
+    <message>
+      <source>Close chat</source>
+      <translation>Chiudi chat</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Elimina chat</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Apri in una nuova finestra | Open in a new window</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Vuoto...</translation>
     </message>
   </context>
   <context>
@@ -1190,6 +1194,34 @@
     <message>
       <source>Down vote</source>
       <translation>Votato pollice in giù</translation>
+    </message>
+    <message>
+      <source>Chat status</source>
+      <translation>Stato della chat</translation>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation>Chat in attesa</translation>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Chat attive</translation>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation>Chat chiuse</translation>
+    </message>
+    <message>
+      <source>Chatbox chats</source>
+      <translation>Chat della ChatBox</translation>
+    </message>
+    <message>
+      <source>Operators chats</source>
+      <translation>Chat operatori</translation>
+    </message>
+    <message>
+      <source>Has unread messages</source>
+      <translation>messaggi non letti</translation>
     </message>
     <message>
       <source>Search</source>
@@ -1299,16 +1331,16 @@
       <translation>Chiudi | Close</translation>
     </message>
     <message>
+      <source>Enter your message</source>
+      <translation>Inserisci il tuo messaggio</translation>
+    </message>
+    <message>
       <source>Send</source>
       <translation>Invia</translation>
     </message>
     <message>
       <source>BB Code</source>
       <translation>Codice BB</translation>
-    </message>
-    <message>
-      <source>Enter your message</source>
-      <translation>Inserisci il tuo messaggio</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -2133,6 +2165,22 @@
       <translation>Nessune chat precedenti</translation>
     </message>
     <message>
+      <source>h.</source>
+      <translation>h.</translation>
+    </message>
+    <message>
+      <source>m.</source>
+      <translation>m.</translation>
+    </message>
+    <message>
+      <source>s.</source>
+      <translation>s.</translation>
+    </message>
+    <message>
+      <source>ago</source>
+      <translation>fa</translation>
+    </message>
+    <message>
       <source>Add chat</source>
       <translation>Aggiungi Chat</translation>
     </message>
@@ -2145,10 +2193,6 @@
       <translation>Ultima attività</translation>
     </message>
     <message>
-      <source>ago</source>
-      <translation>fa</translation>
-    </message>
-    <message>
       <source>Redirect user to contact form.</source>
       <translation>Reindirizzare l&apos;utente al modulo di contatto.</translation>
     </message>
@@ -2159,18 +2203,6 @@
     <message>
       <source>Accept chat</source>
       <translation>Accetta Chat</translation>
-    </message>
-    <message>
-      <source>h.</source>
-      <translation>h.</translation>
-    </message>
-    <message>
-      <source>m.</source>
-      <translation>m.</translation>
-    </message>
-    <message>
-      <source>s.</source>
-      <translation>s.</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -2575,14 +2607,6 @@
       <translation>Apri in una nuova finestra | Open in a new window</translation>
     </message>
     <message>
-      <source>Delete chat</source>
-      <translation>Elimina chat</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Vuoto...</translation>
-    </message>
-    <message>
       <source>Closed chats list</source>
       <translation>Lista chat chiuse</translation>
     </message>
@@ -2593,6 +2617,14 @@
     <message>
       <source>Closed chats</source>
       <translation>Chats chiuse</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Elimina chat</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Vuoto...</translation>
     </message>
   </context>
   <context>
@@ -3075,6 +3107,10 @@
     <message>
       <source>Send message</source>
       <translation>Invia messaggio</translation>
+    </message>
+    <message>
+      <source>Chat list</source>
+      <translation>Lista chat</translation>
     </message>
     <message>
       <source>Dashboard</source>
@@ -3957,8 +3993,16 @@
       <translation>Liste chat in attesa</translation>
     </message>
     <message>
+      <source>Pending chats</source>
+      <translation>Chat in attesa</translation>
+    </message>
+    <message>
       <source>Information</source>
       <translation>Informazione</translation>
+    </message>
+    <message>
+      <source>Status</source>
+      <translation>Stato</translation>
     </message>
     <message>
       <source>Open in a new window</source>
@@ -3969,16 +4013,32 @@
       <translation>Rifiuta chat</translation>
     </message>
     <message>
+      <source>Pending chat</source>
+      <translation>Chat in attesa</translation>
+    </message>
+    <message>
+      <source>Active chat</source>
+      <translation>Chat attive</translation>
+    </message>
+    <message>
+      <source>Closed chat</source>
+      <translation>Chat chiuse</translation>
+    </message>
+    <message>
+      <source>Chatbox chat</source>
+      <translation>Chat della Chatbox</translation>
+    </message>
+    <message>
+      <source>Operators chat</source>
+      <translation>Chat operatori</translation>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>Vuoto...</translation>
     </message>
     <message>
       <source>Chats list</source>
       <translation>Chat-Liste</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>Chat in attesa</translation>
     </message>
   </context>
   <context>

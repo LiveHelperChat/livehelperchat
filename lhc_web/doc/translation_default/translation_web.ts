@@ -12,6 +12,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -374,6 +378,14 @@
     </message>
     <message>
       <source>Need help header text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show need help tooltip?</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1547,6 +1559,10 @@
   <context>
     <name>department/edit</name>
     <message>
+      <source>departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Any</source>
       <translation type="unfinished"/>
     </message>
@@ -1759,7 +1775,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>departments</source>
+      <source>Departments</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2631,15 +2647,15 @@
   <context>
     <name>chat/user_settings</name>
     <message>
-      <source>Enable/Disable sound about new messages from the operator</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Print</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Send chat transcript to your e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable/Disable sound about new messages from the operator</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3182,6 +3198,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>has send message to user</source>
       <translation type="unfinished"/>
     </message>
@@ -3493,30 +3513,6 @@
   <context>
     <name>chat/listchatconfig</name>
     <message>
-      <source>Notifications about new chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Copyright settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online tracking</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Misc</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Visitor activity</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Workflow</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Application name</source>
       <translation type="unfinished"/>
     </message>
@@ -3530,6 +3526,10 @@
     </message>
     <message>
       <source>Chat related</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Misc</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3558,6 +3558,26 @@
     </message>
     <message>
       <source>Screen sharing</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Notifications about new chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copyright settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online tracking</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor activity</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Workflow</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3601,18 +3621,6 @@
     </message>
     <message>
       <source>Languages configuration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Users</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>List of groups</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>List of roles</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3708,6 +3716,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Synchronization and sound settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Theming</source>
       <translation type="unfinished"/>
     </message>
@@ -3728,6 +3740,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Users</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>List of groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>List of roles</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>XMPP settings</source>
       <translation type="unfinished"/>
     </message>
@@ -3737,10 +3761,6 @@
     </message>
     <message>
       <source>Departments</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Synchronization and sound settings</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3898,11 +3918,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Settings</source>
+      <source>Dashboard</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Dashboard</source>
+      <source>Settings</source>
       <translation type="unfinished"/>
     </message>
     <message>

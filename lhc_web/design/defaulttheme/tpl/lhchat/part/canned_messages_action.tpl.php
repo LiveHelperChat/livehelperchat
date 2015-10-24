@@ -29,9 +29,9 @@
         	<option data-msg="<?php echo htmlspecialchars($item->msg_to_user)?>" data-delay="<?php echo $item->delay?>" value="<?php echo $item->id?>"><?php echo htmlspecialchars($item->message_title)?></option>
         <?php endforeach;?>
         </select>
-     </div>
+    </div>
 	<div class="col-xs-4 sub-action-chat">
-		<a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Fill textarea with canned message')?>" href="#" onclick="$('#CSChatMessage-<?php echo $chat->id?>').val(($('#id_CannedMessage-<?php echo $chat->id?>').val() > 0) ? $('#id_CannedMessage-<?php echo $chat->id?>').find(':selected').attr('data-msg') : '');return false;" class="btn btn-default material-icons mr-0">mode_edit</a>
+		<a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Fill textarea with canned message')?>" href="#" onclick="$('#CSChatMessage-<?php echo $chat->id?>').val(($('#id_CannedMessage-<?php echo $chat->id?>').val() > 0) ? $('#id_CannedMessage-<?php echo $chat->id?>').find(':selected').attr('data-msg') : '');return false;" class="btn btn-default"><i class="material-icons mr-0">mode_edit</i></a>
 	</div>
 </div>
 <?php endif;?>

@@ -6,6 +6,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -1116,22 +1120,6 @@
       <translation>Informacion</translation>
     </message>
     <message>
-      <source>Open in a new window</source>
-      <translation>Hape ne nje dritare te re</translation>
-    </message>
-    <message>
-      <source>Close chat</source>
-      <translation>Mbyll biseden</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>Fshi biseden</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Bosh...</translation>
-    </message>
-    <message>
       <source>Active chats list</source>
       <translation>Lista e bisedave aktive</translation>
     </message>
@@ -1142,6 +1130,22 @@
     <message>
       <source>Active chats</source>
       <translation>Bisedat aktive</translation>
+    </message>
+    <message>
+      <source>Close chat</source>
+      <translation>Mbyll biseden</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Fshi biseden</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Hape ne nje dritare te re</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Bosh...</translation>
     </message>
   </context>
   <context>
@@ -1188,6 +1192,34 @@
     </message>
     <message>
       <source>Down vote</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Has unread messages</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1298,16 +1330,16 @@
       <translation>Mbyll</translation>
     </message>
     <message>
+      <source>Enter your message</source>
+      <translation>Shkruani mesazhin tuaj</translation>
+    </message>
+    <message>
       <source>Send</source>
       <translation>Dergo</translation>
     </message>
     <message>
       <source>BB Code</source>
       <translation>Kodi BB</translation>
-    </message>
-    <message>
-      <source>Enter your message</source>
-      <translation>Shkruani mesazhin tuaj</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -2133,6 +2165,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>h.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>m.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>s.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>ago</source>
+      <translation>me pare</translation>
+    </message>
+    <message>
       <source>Add chat</source>
       <translation>Shto chat</translation>
     </message>
@@ -2145,10 +2193,6 @@
       <translation>Aktiviteti i fundit</translation>
     </message>
     <message>
-      <source>ago</source>
-      <translation>me pare</translation>
-    </message>
-    <message>
       <source>Redirect user to contact form.</source>
       <translation type="unfinished"/>
     </message>
@@ -2159,18 +2203,6 @@
     <message>
       <source>Accept chat</source>
       <translation>Prano chat</translation>
-    </message>
-    <message>
-      <source>h.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>m.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>s.</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Empty...</source>
@@ -2575,14 +2607,6 @@
       <translation>Hap ne nje dritare te re</translation>
     </message>
     <message>
-      <source>Delete chat</source>
-      <translation>Fshi bisede</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Bosh...</translation>
-    </message>
-    <message>
       <source>Closed chats list</source>
       <translation>Mbyll listen e bisedave</translation>
     </message>
@@ -2593,6 +2617,14 @@
     <message>
       <source>Closed chats</source>
       <translation>Mbyll bisedat</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Fshi bisede</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Bosh...</translation>
     </message>
   </context>
   <context>
@@ -3075,6 +3107,10 @@
     <message>
       <source>Send message</source>
       <translation>Dergo mesazh</translation>
+    </message>
+    <message>
+      <source>Chat list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Dashboard</source>
@@ -3957,8 +3993,16 @@
       <translation>Lista e mesazheve ne pritje</translation>
     </message>
     <message>
+      <source>Pending chats</source>
+      <translation>Bisedat e pritje</translation>
+    </message>
+    <message>
       <source>Information</source>
       <translation>Informacion</translation>
+    </message>
+    <message>
+      <source>Status</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Open in a new window</source>
@@ -3969,16 +4013,32 @@
       <translation>Refuzo biseden</translation>
     </message>
     <message>
+      <source>Pending chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>Bosh...</translation>
     </message>
     <message>
       <source>Chats list</source>
       <translation>Lista e bisedave</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>Bisedat e pritje</translation>
     </message>
   </context>
   <context>

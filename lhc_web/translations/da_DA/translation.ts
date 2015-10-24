@@ -6,20 +6,24 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>How many days voting widget should not be expanded after last show</source>
+      <source/>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How many days voting widget should not be expanded after last show</source>
+      <translation>Antal dage afstemnings widget ikke skal udvides efter sidste succesfulde visning</translation>
     </message>
     <message>
       <source>Use secure cookie, check this if you want to force SSL all the time</source>
-      <translation type="unfinished"/>
+      <translation>Brug en sikker cookie, tjek dette hvis du ønsker at tvinge SSL konstant</translation>
     </message>
     <message>
       <source>Which ip should be allowed to update DB by executing http request, separate by comma?</source>
-      <translation type="unfinished"/>
+      <translation>Hvilken Ip skal tillades at opdaterer databasen ved brug af http forespørgsel adskildt af komma</translation>
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
-      <translation type="unfinished"/>
+      <translation>Aktiver online besøg-historik</translation>
     </message>
     <message>
       <source>Should mouse movement be tracked as activity measure, if not checked only basic events would be tracked</source>
@@ -1116,22 +1120,6 @@
       <translation>Oplysninger</translation>
     </message>
     <message>
-      <source>Open in a new window</source>
-      <translation>Åben i et nyt vindue</translation>
-    </message>
-    <message>
-      <source>Close chat</source>
-      <translation>Luk chat</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>Slet chat</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Tom...</translation>
-    </message>
-    <message>
       <source>Active chats list</source>
       <translation>Liste over aktive chat</translation>
     </message>
@@ -1142,6 +1130,22 @@
     <message>
       <source>Active chats</source>
       <translation>Aktive chats</translation>
+    </message>
+    <message>
+      <source>Close chat</source>
+      <translation>Luk chat</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Slet chat</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Åben i et nyt vindue</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Tom...</translation>
     </message>
   </context>
   <context>
@@ -1188,6 +1192,34 @@
     </message>
     <message>
       <source>Down vote</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Has unread messages</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1298,16 +1330,16 @@
       <translation>Luk</translation>
     </message>
     <message>
+      <source>Enter your message</source>
+      <translation>Indtast din besked</translation>
+    </message>
+    <message>
       <source>Send</source>
       <translation>Send</translation>
     </message>
     <message>
       <source>BB Code</source>
       <translation>BB Kode</translation>
-    </message>
-    <message>
-      <source>Enter your message</source>
-      <translation>Indtast din besked</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -2132,6 +2164,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>h.</source>
+      <translation>t.</translation>
+    </message>
+    <message>
+      <source>m.</source>
+      <translation>m.</translation>
+    </message>
+    <message>
+      <source>s.</source>
+      <translation>s.</translation>
+    </message>
+    <message>
+      <source>ago</source>
+      <translation>siden</translation>
+    </message>
+    <message>
       <source>Add chat</source>
       <translation>Tilføj chat</translation>
     </message>
@@ -2144,10 +2192,6 @@
       <translation>Seneste aktivitet</translation>
     </message>
     <message>
-      <source>ago</source>
-      <translation>siden</translation>
-    </message>
-    <message>
       <source>Redirect user to contact form.</source>
       <translation>Omdirigere brugeren til en kontakt formular.</translation>
     </message>
@@ -2158,18 +2202,6 @@
     <message>
       <source>Accept chat</source>
       <translation>Accepter chat</translation>
-    </message>
-    <message>
-      <source>h.</source>
-      <translation>t.</translation>
-    </message>
-    <message>
-      <source>m.</source>
-      <translation>m.</translation>
-    </message>
-    <message>
-      <source>s.</source>
-      <translation>s.</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -2574,14 +2606,6 @@
       <translation>Åben i et nyt vindue</translation>
     </message>
     <message>
-      <source>Delete chat</source>
-      <translation>Slette chat</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Tom...</translation>
-    </message>
-    <message>
       <source>Closed chats list</source>
       <translation>Liste over lukkede chats</translation>
     </message>
@@ -2592,6 +2616,14 @@
     <message>
       <source>Closed chats</source>
       <translation>Lukkede chats</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Slette chat</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Tom...</translation>
     </message>
   </context>
   <context>
@@ -3074,6 +3106,10 @@
     <message>
       <source>Send message</source>
       <translation>Send meddelelse</translation>
+    </message>
+    <message>
+      <source>Chat list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Dashboard</source>
@@ -3956,8 +3992,16 @@
       <translation>Liste over ventende chat</translation>
     </message>
     <message>
+      <source>Pending chats</source>
+      <translation>Ventende chats</translation>
+    </message>
+    <message>
       <source>Information</source>
       <translation>Oplysninger</translation>
+    </message>
+    <message>
+      <source>Status</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Open in a new window</source>
@@ -3968,16 +4012,32 @@
       <translation>Afvis chat</translation>
     </message>
     <message>
+      <source>Pending chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>Tom...</translation>
     </message>
     <message>
       <source>Chats list</source>
       <translation>Chat liste</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>Ventende chats</translation>
     </message>
   </context>
   <context>

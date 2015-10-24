@@ -6,6 +6,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>რამდენი დღე  არ უნდა გაფართივდეს ხმის მიცემის ვიდჯეტი ბოლო ჩვენებიდან</translation>
     </message>
@@ -1116,22 +1120,6 @@
       <translation>ინფორმაცია</translation>
     </message>
     <message>
-      <source>Open in a new window</source>
-      <translation>ახალ ფანჯარაში გახსნა</translation>
-    </message>
-    <message>
-      <source>Close chat</source>
-      <translation>ჩეთის დახურვა</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>ჩეთის წაშლა</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>ცარიელი</translation>
-    </message>
-    <message>
       <source>Active chats list</source>
       <translation>აქტიური ჩეთების სია</translation>
     </message>
@@ -1142,6 +1130,22 @@
     <message>
       <source>Active chats</source>
       <translation>აქტიური ჩეთები</translation>
+    </message>
+    <message>
+      <source>Close chat</source>
+      <translation>ჩეთის დახურვა</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>ჩეთის წაშლა</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>ახალ ფანჯარაში გახსნა</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>ცარიელი</translation>
     </message>
   </context>
   <context>
@@ -1188,6 +1192,34 @@
     </message>
     <message>
       <source>Down vote</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Has unread messages</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1298,16 +1330,16 @@
       <translation>დახურვა</translation>
     </message>
     <message>
+      <source>Enter your message</source>
+      <translation>შეიყვანეთ თქვენი შეტყობინება</translation>
+    </message>
+    <message>
       <source>Send</source>
       <translation>გაგზავნა</translation>
     </message>
     <message>
       <source>BB Code</source>
       <translation>BB კოდი</translation>
-    </message>
-    <message>
-      <source>Enter your message</source>
-      <translation>შეიყვანეთ თქვენი შეტყობინება</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -2132,6 +2164,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>h.</source>
+      <translation>სთ.</translation>
+    </message>
+    <message>
+      <source>m.</source>
+      <translation>წთ.</translation>
+    </message>
+    <message>
+      <source>s.</source>
+      <translation>წმ.</translation>
+    </message>
+    <message>
+      <source>ago</source>
+      <translation>წინათ</translation>
+    </message>
+    <message>
       <source>Add chat</source>
       <translation>ჩეთის დამატება</translation>
     </message>
@@ -2144,10 +2192,6 @@
       <translation>ბოლო აქტოვობა</translation>
     </message>
     <message>
-      <source>ago</source>
-      <translation>წინათ</translation>
-    </message>
-    <message>
       <source>Redirect user to contact form.</source>
       <translation>მომხმარებლის გადამისამართება საკონტაქტო ფორმაზე</translation>
     </message>
@@ -2158,18 +2202,6 @@
     <message>
       <source>Accept chat</source>
       <translation>თანხმობა ჩეთზე</translation>
-    </message>
-    <message>
-      <source>h.</source>
-      <translation>სთ.</translation>
-    </message>
-    <message>
-      <source>m.</source>
-      <translation>წთ.</translation>
-    </message>
-    <message>
-      <source>s.</source>
-      <translation>წმ.</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -2574,14 +2606,6 @@
       <translation>გახსნა ახალ ფანჯარაში</translation>
     </message>
     <message>
-      <source>Delete chat</source>
-      <translation>ჩეთის წაშლა</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>ცარიელი</translation>
-    </message>
-    <message>
       <source>Closed chats list</source>
       <translation>დახურული ჩეთების სია</translation>
     </message>
@@ -2592,6 +2616,14 @@
     <message>
       <source>Closed chats</source>
       <translation>დახურული ჩეთები</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>ჩეთის წაშლა</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>ცარიელი</translation>
     </message>
   </context>
   <context>
@@ -3074,6 +3106,10 @@
     <message>
       <source>Send message</source>
       <translation>შეტყობინების გაგზავნა</translation>
+    </message>
+    <message>
+      <source>Chat list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Dashboard</source>
@@ -3956,8 +3992,16 @@
       <translation>მომლოდინე ჩეთების სია</translation>
     </message>
     <message>
+      <source>Pending chats</source>
+      <translation>მომლოდინე ჩეთები</translation>
+    </message>
+    <message>
       <source>Information</source>
       <translation>ინფორმაცია</translation>
+    </message>
+    <message>
+      <source>Status</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Open in a new window</source>
@@ -3968,16 +4012,32 @@
       <translation>ჩეთის გათიშვა</translation>
     </message>
     <message>
+      <source>Pending chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>ცარიელი</translation>
     </message>
     <message>
       <source>Chats list</source>
       <translation>ჩეთების სია</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>მომლოდინე ჩეთები</translation>
     </message>
   </context>
   <context>
