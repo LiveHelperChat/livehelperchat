@@ -1010,6 +1010,22 @@
                 "extra": ""
             },
             {
+                "field": "show_need_help",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": "1",
+                "extra": ""
+            },
+            {
+                "field": "show_need_help_timeout",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": "24",
+                "extra": ""
+            },
+            {
                 "field": "header_padding",
                 "type": "int(11)",
                 "null": "NO",

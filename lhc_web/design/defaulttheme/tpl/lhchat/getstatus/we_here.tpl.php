@@ -1,7 +1,8 @@
 var subStatus = '';
-<?php if ( erLhcoreClassModelChatConfig::fetch('need_help_tip')->current_value == 1) : ?>
+<?php if (($theme !== false && $theme->show_need_help == 1) || ($theme === false && erLhcoreClassModelChatConfig::fetch('need_help_tip')->current_value == 1)) : ?>
 if (this.isOnline == true) {
-var lhc_hnh = <?php if (erLhcoreClassModelChatConfig::fetch('need_help_tip_timeout')->current_value > 0) : ?>lh_inst.getPersistentAttribute('lhc_hnh');<?php else : ?>lh_inst.cookieData.lhc_hnh;<?php endif;?>
+<?php $needHelpTimeout = $theme !== false ? $theme->show_need_help_timeout : erLhcoreClassModelChatConfig::fetch('need_help_tip_timeout')->current_value; ?>
+var lhc_hnh = <?php if ($needHelpTimeout > 0) : ?>lh_inst.getPersistentAttribute('lhc_hnh');<?php else : ?>lh_inst.cookieData.lhc_hnh;<?php endif;?>
 if (lhc_hnh == null || lhc_hnh == undefined || parseInt(lhc_hnh) < <?php echo time()?>) {
 
 <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/we_here_substatus.tpl.php')); ?>	

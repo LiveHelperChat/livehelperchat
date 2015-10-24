@@ -281,6 +281,17 @@ $def->properties['noonline_operators_offline']->columnName   = 'noonline_operato
 $def->properties['noonline_operators_offline']->propertyName = 'noonline_operators_offline';
 $def->properties['noonline_operators_offline']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+// Show need help tooltip?
+$def->properties['show_need_help'] = new ezcPersistentObjectProperty();
+$def->properties['show_need_help']->columnName   = 'show_need_help';
+$def->properties['show_need_help']->propertyName = 'show_need_help';
+$def->properties['show_need_help']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+// Need help tooltip timeout, after how many hours show again tooltip?
+$def->properties['show_need_help_timeout'] = new ezcPersistentObjectProperty();
+$def->properties['show_need_help_timeout']->columnName   = 'show_need_help_timeout';
+$def->properties['show_need_help_timeout']->propertyName = 'show_need_help_timeout';
+$def->properties['show_need_help_timeout']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
 return $def;
 

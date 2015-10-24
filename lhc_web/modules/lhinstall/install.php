@@ -402,6 +402,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
                  `noonline_operators_offline` varchar(250) NOT NULL,
                  `hide_close` int(11) NOT NULL,
                  `hide_popup` int(11) NOT NULL,
+                 `show_need_help` int(11) NOT NULL DEFAULT '1',
+                 `show_need_help_timeout` int(11) NOT NULL DEFAULT '24',
                  `header_height` int(11) NOT NULL,
                  `header_padding` int(11) NOT NULL,
                  `widget_border_width` int(11) NOT NULL,

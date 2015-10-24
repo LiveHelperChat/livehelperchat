@@ -165,12 +165,21 @@
         		
         		</div>
         		<div role="tabpanel" class="tab-pane" id="needhelp">
-        		
+
+        		        <div class="form-group">
+        		        <label><?php echo erLhcoreClassAbstract::renderInput('show_need_help', $fields['show_need_help'], $object)?><?php echo $fields['show_need_help']['trans'];?></label>
+						</div>
+
+        		        <div class="form-group">
+        		        <label><?php echo $fields['show_need_help_timeout']['trans'];?></label>
+						<?php echo erLhcoreClassAbstract::renderInput('show_need_help_timeout', $fields['show_need_help_timeout'], $object)?>
+						</div>
+
         		        <div class="form-group">
         		        <label><?php echo $fields['need_help_header']['trans'];?></label>
 						<?php echo erLhcoreClassAbstract::renderInput('need_help_header', $fields['need_help_header'], $object)?>
 						</div>
-								
+
 			    		<div class="form-group">    
 						<label><?php echo $fields['need_help_text']['trans'];?></label>
 						<?php echo erLhcoreClassAbstract::renderInput('need_help_text', $fields['need_help_text'], $object)?>		

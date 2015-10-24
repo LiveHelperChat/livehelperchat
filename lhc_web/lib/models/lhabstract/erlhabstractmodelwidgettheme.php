@@ -60,6 +60,8 @@ class erLhAbstractModelWidgetTheme {
 			'pending_join'		        => $this->pending_join,
 			'noonline_operators'		=> $this->noonline_operators,
 			'noonline_operators_offline'=> $this->noonline_operators_offline,
+			'show_need_help'            => $this->show_need_help,
+			'show_need_help_timeout'    => $this->show_need_help_timeout
 		);
 
 		return $stateArray;
@@ -420,6 +422,8 @@ class erLhAbstractModelWidgetTheme {
 	public $header_height = 0;
 	public $header_padding = 0;
 	public $widget_border_width = 0;
+	public $show_need_help = 1;
+	public $show_need_help_timeout = 24;
 	
 	public $support_joined = '';
 	public $support_closed = '';
