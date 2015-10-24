@@ -1,3 +1,10 @@
+2.38v
+
+1. https://github.com/LiveHelperChat/livehelperchat/issues/771
+2. Option to enable disable need help widget directly from theme.
+
+execute doc/update_db/update_113.sql for update
+
 2.37v
 
 1. User can drag and sort frontpage widgets as he wants. Widgets order and what widgets user can see are based on user individually.
