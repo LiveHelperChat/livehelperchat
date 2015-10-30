@@ -4808,11 +4808,11 @@
   <context>
     <name>chat/userjoined</name>
     <message>
-      <source>User has joined the chat!</source>
+      <source>Visitor has joined the chat!</source>
       <translation>Потребителят се присъедини към чата!</translation>
     </message>
     <message>
-      <source>User has joined the chat from popup chat window!</source>
+      <source>Visitor has joined the chat from popup chat window!</source>
       <translation>Потребител се присъедини към разговор от изскачащия прозорец за разговор!</translation>
     </message>
   </context>

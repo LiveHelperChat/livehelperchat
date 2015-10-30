@@ -4809,11 +4809,11 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
   <context>
     <name>chat/userjoined</name>
     <message>
-      <source>User has joined the chat!</source>
+      <source>Visitor has joined the chat!</source>
       <translation>Gebruiker heeft zich aangemeld voor de chat</translation>
     </message>
     <message>
-      <source>User has joined the chat from popup chat window!</source>
+      <source>Visitor has joined the chat from popup chat window!</source>
       <translation>Gebruiker heeft de chat geopend vanuit een popup!</translation>
     </message>
   </context>
