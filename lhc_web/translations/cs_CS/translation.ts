@@ -1729,11 +1729,11 @@
       <translation>Informovat o ukončení rozhovoru operátorem, je odesláno pouze emailové upozornění.</translation>
     </message>
     <message>
-      <source>To what department chat should be transfered if it is not accepted</source>
+      <source>To what department chat should be transferred if it is not accepted</source>
       <translation>Na jaké oddělení má být rozhovor převeden, pokud není přijat</translation>
     </message>
     <message>
-      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
+      <source>Timeout in seconds before chat is transferred to another department. Minimum 5 seconds.</source>
       <translation>Časový limit v sekundách, než je rozhovor přesměrován na jiné oddělení. Minimum 5 sekund.</translation>
     </message>
     <message>
@@ -2692,7 +2692,7 @@
       <translation>Nepřečtené rozhovory</translation>
     </message>
     <message>
-      <source>Transfered chats</source>
+      <source>Transferred chats</source>
       <translation>Předané rozhovory</translation>
     </message>
     <message>
@@ -3248,7 +3248,7 @@
       <translation>Seznam online návštěvníků</translation>
     </message>
     <message>
-      <source>Online users on map</source>
+      <source>Online visitors on map</source>
       <translation>Online uživatelé na mapě</translation>
     </message>
     <message>
@@ -3856,7 +3856,7 @@
       <translation>Online návštěvníci</translation>
     </message>
     <message>
-      <source>Transfered chats</source>
+      <source>Transferred chats</source>
       <translation>Předané rozhovory</translation>
     </message>
     <message>

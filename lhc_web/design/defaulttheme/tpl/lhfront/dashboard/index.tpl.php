@@ -42,7 +42,7 @@ $columnSize = 12 / $columnsTotal;
                      
                 <?php elseif ($wiget == 'online_visitors') : ?>
                 
-                     <?php if ($online_visitors_enabled_pre == true) : ?>
+                     <?php if ($online_visitors_enabled_pre == true && $currentUser->hasAccessTo('lhchat', 'use_onlineusers') == true) : ?>
                         <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/online_visitors.tpl.php'));?>
                      <?php endif;?>
                     

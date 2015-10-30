@@ -1729,11 +1729,11 @@
       <translation>Informeer wanneer chat is afgesloten door de operator, alleen een email-notificatie wordt verzonden.</translation>
     </message>
     <message>
-      <source>To what department chat should be transfered if it is not accepted</source>
+      <source>To what department chat should be transferred if it is not accepted</source>
       <translation>Naar welke afdeling de chat moet worden doorgeschakeld als hij niet geaccepteerd wordt</translation>
     </message>
     <message>
-      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
+      <source>Timeout in seconds before chat is transferred to another department. Minimum 5 seconds.</source>
       <translation>Timeout in seconden voordat een chat doorgezet wordt naar een andere afdeling. Minimaal 5 seconden.</translation>
     </message>
     <message>
@@ -2692,7 +2692,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Transfered chats</source>
+      <source>Transferred chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3248,7 +3248,7 @@
       <translation>Online bezoekers lijst</translation>
     </message>
     <message>
-      <source>Online users on map</source>
+      <source>Online visitors on map</source>
       <translation>Online gebruikers op de kaart</translation>
     </message>
     <message>
@@ -3857,7 +3857,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Online bezoekers</translation>
     </message>
     <message>
-      <source>Transfered chats</source>
+      <source>Transferred chats</source>
       <translation>Doorgeschakelde chats</translation>
     </message>
     <message>

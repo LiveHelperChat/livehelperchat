@@ -1729,11 +1729,11 @@
       <translation>Информировать о том, что чат закрыт оператором, и возможно отправить только сообщение на e-mail</translation>
     </message>
     <message>
-      <source>To what department chat should be transfered if it is not accepted</source>
+      <source>To what department chat should be transferred if it is not accepted</source>
       <translation>На какой департамент чат должен быть переведен, если его не принял ни один оператор</translation>
     </message>
     <message>
-      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
+      <source>Timeout in seconds before chat is transferred to another department. Minimum 5 seconds.</source>
       <translation>Время ожидания, после которого чат будет переведен на другой департамент. Минимум 5 секунд.</translation>
     </message>
     <message>
@@ -2693,7 +2693,7 @@
       <translation>Непрочитанные чаты</translation>
     </message>
     <message>
-      <source>Transfered chats</source>
+      <source>Transferred chats</source>
       <translation>Перенаправленные чаты</translation>
     </message>
     <message>
@@ -3249,7 +3249,7 @@
       <translation>Список посетителей онлайн</translation>
     </message>
     <message>
-      <source>Online users on map</source>
+      <source>Online visitors on map</source>
       <translation>Онлайн пользователи на карте</translation>
     </message>
     <message>
@@ -3857,7 +3857,7 @@
       <translation>Пользователи онлайн</translation>
     </message>
     <message>
-      <source>Transfered chats</source>
+      <source>Transferred chats</source>
       <translation>Перенаправленные чаты</translation>
     </message>
     <message>

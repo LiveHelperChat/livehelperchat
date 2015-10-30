@@ -1729,11 +1729,11 @@
       <translation>Notifica cand conversatia este inchisa de operator (notificare prin e-mail)</translation>
     </message>
     <message>
-      <source>To what department chat should be transfered if it is not accepted</source>
+      <source>To what department chat should be transferred if it is not accepted</source>
       <translation>Catre care departament trebuie sa fie transferata conversatia daca nu este acceptata</translation>
     </message>
     <message>
-      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
+      <source>Timeout in seconds before chat is transferred to another department. Minimum 5 seconds.</source>
       <translation>Timp in secunde inainte ca discutia sa fie transferata unui alt departament. Minim 5 secunde.</translation>
     </message>
     <message>
@@ -2692,7 +2692,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Transfered chats</source>
+      <source>Transferred chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3248,7 +3248,7 @@
       <translation>Lista vizitatorilor online</translation>
     </message>
     <message>
-      <source>Online users on map</source>
+      <source>Online visitors on map</source>
       <translation>Utilizatori online afisati pe harta</translation>
     </message>
     <message>
@@ -3856,7 +3856,7 @@
       <translation>Vizitatori online</translation>
     </message>
     <message>
-      <source>Transfered chats</source>
+      <source>Transferred chats</source>
       <translation type="unfinished"/>
     </message>
     <message>

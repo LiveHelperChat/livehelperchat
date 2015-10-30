@@ -1729,11 +1729,11 @@
       <translation>Informar cuando un chat es cerrado por un operador, sólo se envía notificación por correo.</translation>
     </message>
     <message>
-      <source>To what department chat should be transfered if it is not accepted</source>
+      <source>To what department chat should be transferred if it is not accepted</source>
       <translation>A qué departamento el chat debe ser transferido si no se acepta</translation>
     </message>
     <message>
-      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
+      <source>Timeout in seconds before chat is transferred to another department. Minimum 5 seconds.</source>
       <translation>Tiempo de espera en segundos antes de que el chat se transfiera a otro departamento. Mínimo 5 segundos.</translation>
     </message>
     <message>
@@ -2692,7 +2692,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Transfered chats</source>
+      <source>Transferred chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3248,7 +3248,7 @@
       <translation>Lista de Visitantes Online</translation>
     </message>
     <message>
-      <source>Online users on map</source>
+      <source>Online visitors on map</source>
       <translation>Usuarios Online en el mapa</translation>
     </message>
     <message>
@@ -3856,7 +3856,7 @@
       <translation>Visitantes en línea</translation>
     </message>
     <message>
-      <source>Transfered chats</source>
+      <source>Transferred chats</source>
       <translation>Chats transferidos</translation>
     </message>
     <message>
