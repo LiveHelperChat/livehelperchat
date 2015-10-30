@@ -53,7 +53,7 @@ if ($currentUser->isLogged() && isset($_POST['chats']))
             	if ($Chat->is_user_typing) {
             		$chatStatusMessage = $Chat->user_typing_txt;
             	} elseif ($Chat->user_status == 1) {
-                    $chatStatusMessage = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat','User has left the chat!');
+                    $chatStatusMessage = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat','Visitor has left the chat!');
                 } elseif ($Chat->user_status == 0) {
                     $chatStatusMessage = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userjoined','Visitor has joined the chat!');
                 }

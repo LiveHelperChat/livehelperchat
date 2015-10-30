@@ -4819,7 +4819,7 @@
   <context>
     <name>chat/userleftchat</name>
     <message>
-      <source>User has left the chat!</source>
+      <source>Visitor has left the chat!</source>
       <translation>המשתמש עזב את הצ&apos;אט</translation>
     </message>
   </context>

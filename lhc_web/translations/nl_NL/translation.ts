@@ -4820,7 +4820,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
   <context>
     <name>chat/userleftchat</name>
     <message>
-      <source>User has left the chat!</source>
+      <source>Visitor has left the chat!</source>
       <translation>Gebruiker heeft de chat verlaten!</translation>
     </message>
   </context>

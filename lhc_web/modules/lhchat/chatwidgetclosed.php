@@ -39,7 +39,7 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
 				        if ($chat->user_typing < (time()-12)) {
 				        	$chat->user_typing = time()-5;// Show for shorter period these status messages
 				        	$chat->is_user_typing = 1;
-				        	$chat->user_typing_txt = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat','User has left the chat!'),ENT_QUOTES);
+				        	$chat->user_typing_txt = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat','Visitor has left the chat!'),ENT_QUOTES);
 				        }
 				        	
 				        if ( ($onlineuser = $chat->online_user) !== false) {
