@@ -3248,7 +3248,7 @@
       <translation>Liste des visiteurs en ligne</translation>
     </message>
     <message>
-      <source>Online users on map</source>
+      <source>Online visitors on map</source>
       <translation>Carte des utilisateurs en ligne</translation>
     </message>
     <message>

@@ -3248,7 +3248,7 @@
       <translation>لیست بازدیدکنندگان آنلاین</translation>
     </message>
     <message>
-      <source>Online users on map</source>
+      <source>Online visitors on map</source>
       <translation>کاربران آنلاین در نقشه</translation>
     </message>
     <message>

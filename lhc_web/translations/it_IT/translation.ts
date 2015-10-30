@@ -3249,7 +3249,7 @@
       <translation>Elenco visitatori online</translation>
     </message>
     <message>
-      <source>Online users on map</source>
+      <source>Online visitors on map</source>
       <translation>Utenti online su mappa</translation>
     </message>
     <message>

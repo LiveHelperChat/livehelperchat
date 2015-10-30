@@ -3248,7 +3248,7 @@
       <translation>Prisijungusių lankytojų sąrašas</translation>
     </message>
     <message>
-      <source>Online users on map</source>
+      <source>Online visitors on map</source>
       <translation>Prisijungusių vartotojų žemėlapis</translation>
     </message>
     <message>

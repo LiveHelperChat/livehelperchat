@@ -3248,7 +3248,7 @@
       <translation>Списък на онлайн потребителите</translation>
     </message>
     <message>
-      <source>Online users on map</source>
+      <source>Online visitors on map</source>
       <translation>Покажи онлайн потребителите на картата</translation>
     </message>
     <message>

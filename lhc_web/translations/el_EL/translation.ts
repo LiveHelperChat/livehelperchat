@@ -3248,7 +3248,7 @@
       <translation>Λίστα σε απευθείας σύνδεση επισκέπτες</translation>
     </message>
     <message>
-      <source>Online users on map</source>
+      <source>Online visitors on map</source>
       <translation>Online χρήστες για το χάρτη</translation>
     </message>
     <message>

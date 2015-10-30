@@ -3248,7 +3248,7 @@
       <translation>Seznam online návštěvníků</translation>
     </message>
     <message>
-      <source>Online users on map</source>
+      <source>Online visitors on map</source>
       <translation>Online uživatelé na mapě</translation>
     </message>
     <message>

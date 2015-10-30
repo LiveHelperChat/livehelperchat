@@ -3248,7 +3248,7 @@
       <translation>ონლაინ ვიზიტორების სია</translation>
     </message>
     <message>
-      <source>Online users on map</source>
+      <source>Online visitors on map</source>
       <translation>ონალინ მომხმარებლები რუკაზე</translation>
     </message>
     <message>
