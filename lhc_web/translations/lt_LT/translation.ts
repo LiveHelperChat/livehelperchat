@@ -1729,11 +1729,11 @@
       <translation>Informuoti kada pokalbis būna uždarytas administratoriaus, tik el. pašto žinutė būna išsiųsta</translation>
     </message>
     <message>
-      <source>To what department chat should be transfered if it is not accepted</source>
+      <source>To what department chat should be transferred if it is not accepted</source>
       <translation>Kokiam departamentui pokalbis turėtų būti pervestas jei pokalbis nebuvo priimtas.</translation>
     </message>
     <message>
-      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
+      <source>Timeout in seconds before chat is transferred to another department. Minimum 5 seconds.</source>
       <translation>Laikas sekundėmis prieš tai kol pokalbis priskiriamas paveldinčiam departamentui. Minimum 5 sekundės.</translation>
     </message>
     <message>
@@ -2692,7 +2692,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Transfered chats</source>
+      <source>Transferred chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3856,7 +3856,7 @@
       <translation>Prisijungę vartotojai</translation>
     </message>
     <message>
-      <source>Transfered chats</source>
+      <source>Transferred chats</source>
       <translation>Pervesti pokalbiai</translation>
     </message>
     <message>

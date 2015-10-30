@@ -1729,11 +1729,11 @@
       <translation>Obavijesti kad operater koristi razgovor, samo putem e-mail obavijesti</translation>
     </message>
     <message>
-      <source>To what department chat should be transfered if it is not accepted</source>
+      <source>To what department chat should be transferred if it is not accepted</source>
       <translation>Kojem odjelu ovaj razgovor treba biti proslijeđen ako ne bude prihvaćen</translation>
     </message>
     <message>
-      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
+      <source>Timeout in seconds before chat is transferred to another department. Minimum 5 seconds.</source>
       <translation>Vrijeme u sekundama prije nego što se razgovor proslijedi drugom odjelu. Najmanje 5 sekundi.</translation>
     </message>
     <message>
@@ -2692,7 +2692,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Transfered chats</source>
+      <source>Transferred chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3856,7 +3856,7 @@
       <translation>Online posjetitelja</translation>
     </message>
     <message>
-      <source>Transfered chats</source>
+      <source>Transferred chats</source>
       <translation type="unfinished"/>
     </message>
     <message>

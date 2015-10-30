@@ -131,7 +131,7 @@
 			<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhdepartment','actworkflow')) : ?>
 			 <div role="tabpanel" class="tab-pane" id="chattransfer">
 			     <div class="form-group">
-    			     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','To what department chat should be transfered if it is not accepted');?></label>
+    			     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','To what department chat should be transferred if it is not accepted');?></label>
     				<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
     										'input_name'     => 'TansferDepartmentID',
     										'optional_field' =>  erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','None'),
@@ -144,7 +144,7 @@
 				</div>
 				
 				<div class="form-group">
-				    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.');?></label>
+				    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Timeout in seconds before chat is transferred to another department. Minimum 5 seconds.');?></label>
 				    <input type="text" class="form-control" name="TransferTimeout" value="<?php echo htmlspecialchars($departament->transfer_timeout);?>" />
 				</div>
 				

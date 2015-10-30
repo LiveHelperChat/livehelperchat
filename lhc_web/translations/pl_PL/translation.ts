@@ -1730,11 +1730,11 @@ pokazywany</translation>
       <translation>Informuj kiedy rozmowa jest zamknięta przez operatora, tylko powiadomienie mailowe jest wysyłane.</translation>
     </message>
     <message>
-      <source>To what department chat should be transfered if it is not accepted</source>
+      <source>To what department chat should be transferred if it is not accepted</source>
       <translation>Do jakiego wydziału rozmowa powinny być przeniesiona, jeśli nie została przyjęta</translation>
     </message>
     <message>
-      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
+      <source>Timeout in seconds before chat is transferred to another department. Minimum 5 seconds.</source>
       <translation>Limit czasu w sekundach zanim rozmowa zostaje przeniesiona do innego wydziału. Minimum 5 sekund.</translation>
     </message>
     <message>
@@ -2693,7 +2693,7 @@ pokazywany</translation>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Transfered chats</source>
+      <source>Transferred chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3857,7 +3857,7 @@ pokazywany</translation>
       <translation>Goście on-line</translation>
     </message>
     <message>
-      <source>Transfered chats</source>
+      <source>Transferred chats</source>
       <translation type="unfinished"/>
     </message>
     <message>

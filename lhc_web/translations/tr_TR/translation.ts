@@ -1729,11 +1729,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>To what department chat should be transfered if it is not accepted</source>
+      <source>To what department chat should be transferred if it is not accepted</source>
       <translation>Konuşma kabul edilmediğinde aktarılacağı departman</translation>
     </message>
     <message>
-      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
+      <source>Timeout in seconds before chat is transferred to another department. Minimum 5 seconds.</source>
       <translation>Konuşma başka bir departmana aktarılmadan önce geçmesi gereken zaman aşımı. Minimum 5 saniye.</translation>
     </message>
     <message>
@@ -2692,7 +2692,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Transfered chats</source>
+      <source>Transferred chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3858,7 +3858,7 @@
       <translation>Online ziyaretçiler</translation>
     </message>
     <message>
-      <source>Transfered chats</source>
+      <source>Transferred chats</source>
       <translation type="unfinished"/>
     </message>
     <message>

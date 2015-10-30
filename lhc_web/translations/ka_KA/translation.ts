@@ -1729,11 +1729,11 @@
       <translation>ინფორმირება, როცა ჩეთი დაიხურება ოპერატორის მიერ. მხოლოდ ელ. ფოსტით შეტყობინება  გაიგზავნა.</translation>
     </message>
     <message>
-      <source>To what department chat should be transfered if it is not accepted</source>
+      <source>To what department chat should be transferred if it is not accepted</source>
       <translation>თუ რომელ დეპარტამენტს უნდა გადაეცეს ჩეთი თუ ის არ არის დადასტურებული</translation>
     </message>
     <message>
-      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
+      <source>Timeout in seconds before chat is transferred to another department. Minimum 5 seconds.</source>
       <translation>ტაიმ-აუტი წამებში იქამდე, სანამ ჩეთი გადაეცემა სხვა დეპარტამენტს. მინიმუმ 5 წამი</translation>
     </message>
     <message>
@@ -2692,7 +2692,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Transfered chats</source>
+      <source>Transferred chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3856,7 +3856,7 @@
       <translation>ონლაინ ვიზიტორები</translation>
     </message>
     <message>
-      <source>Transfered chats</source>
+      <source>Transferred chats</source>
       <translation type="unfinished"/>
     </message>
     <message>

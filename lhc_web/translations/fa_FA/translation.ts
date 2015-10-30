@@ -1729,11 +1729,11 @@
       <translation>هنگام بسته شدن چت توسط اپراتور فقط با ارسال آگاه کننده اطلاع بده.</translation>
     </message>
     <message>
-      <source>To what department chat should be transfered if it is not accepted</source>
+      <source>To what department chat should be transferred if it is not accepted</source>
       <translation>در صورت پذیرفته نشدن، چت باید به کدام دپارتمان منتقل شود</translation>
     </message>
     <message>
-      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
+      <source>Timeout in seconds before chat is transferred to another department. Minimum 5 seconds.</source>
       <translation>مدت زمان قبل از انتقال چت به دپارتمان دیگر بر حسب ثانیه. حداقل 5 ثانیه می باشد.</translation>
     </message>
     <message>
@@ -2692,7 +2692,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Transfered chats</source>
+      <source>Transferred chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3856,7 +3856,7 @@
       <translation>بازدیدکنندگان آنلاین</translation>
     </message>
     <message>
-      <source>Transfered chats</source>
+      <source>Transferred chats</source>
       <translation type="unfinished"/>
     </message>
     <message>

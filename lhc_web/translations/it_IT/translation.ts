@@ -1730,11 +1730,11 @@
       <translation>Informare quando la chat è chiusa dall&apos;operatore, vieje inviata solo notifica di posta.</translation>
     </message>
     <message>
-      <source>To what department chat should be transfered if it is not accepted</source>
+      <source>To what department chat should be transferred if it is not accepted</source>
       <translation>Reparto in cui la chat dev&apos;essere trasferita se non accettata</translation>
     </message>
     <message>
-      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
+      <source>Timeout in seconds before chat is transferred to another department. Minimum 5 seconds.</source>
       <translation>Tempo massimo in secondi prima che la chat sia trasferita ad un altro reparto. Tempo minimo 5 secondi.</translation>
     </message>
     <message>
@@ -2693,7 +2693,7 @@
       <translation>Chat da leggere</translation>
     </message>
     <message>
-      <source>Transfered chats</source>
+      <source>Transferred chats</source>
       <translation>Chat trasferite</translation>
     </message>
     <message>
@@ -3857,7 +3857,7 @@
       <translation>Utenti online</translation>
     </message>
     <message>
-      <source>Transfered chats</source>
+      <source>Transferred chats</source>
       <translation>Chat trasferite</translation>
     </message>
     <message>

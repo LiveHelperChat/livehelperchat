@@ -1729,11 +1729,11 @@
       <translation>Informera sedan stängs chatten av operatören, endast e-postnotifikation är tillgänglig.</translation>
     </message>
     <message>
-      <source>To what department chat should be transfered if it is not accepted</source>
+      <source>To what department chat should be transferred if it is not accepted</source>
       <translation>Till vilken avdelning chatten ska vidarebefordras om den inte blir accepterad</translation>
     </message>
     <message>
-      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
+      <source>Timeout in seconds before chat is transferred to another department. Minimum 5 seconds.</source>
       <translation>Timeout i sekunder innan chatten vidarebefodras till en annan avdelning. Minst 5s.</translation>
     </message>
     <message>
@@ -2692,7 +2692,7 @@
       <translation>Olästa chattar</translation>
     </message>
     <message>
-      <source>Transfered chats</source>
+      <source>Transferred chats</source>
       <translation>Överförda chattar</translation>
     </message>
     <message>
@@ -3856,7 +3856,7 @@
       <translation>Besökare online</translation>
     </message>
     <message>
-      <source>Transfered chats</source>
+      <source>Transferred chats</source>
       <translation>Överförda chattar</translation>
     </message>
     <message>
