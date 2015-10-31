@@ -101,7 +101,16 @@
 						
         		</div>        		
         		<div role="tabpanel" class="tab-pane" id="messagesstyle">
-        		
+                	    <h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Live preview')?></h3>
+                	   
+            		    <div id="messages">
+                            <div class="msgBlock" style="" id="messagesBlock">       
+                                <div class="message-row response" style="background-color: #{{bactract_bg_color_buble_visitor_background}};color:#{{bactract_bg_color_buble_visitor_text_color}}" id="msg-10459" data-op-id="0"><div class="msg-date">10:14:39</div><span style="color:#{{bactract_bg_color_buble_visitor_title_color}}" class="usr-tit vis-tit" role="button"><i class="material-icons chat-operators mi-fs15 mr-0">face</i>Visitor</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+            		            <div class="message-row message-admin operator-changes" style="background-color: #{{bactract_bg_color_buble_operator_background}};color:#{{bactract_bg_color_buble_operator_text_color}}" id="msg-10463" data-op-id="1">
+            		            <div class="msg-date">10:18:22</div><span style="color:#{{bactract_bg_color_buble_operator_title_color}}"  class="usr-tit op-tit"><i class="material-icons chat-operators mi-fs15 mr-0">account_box</i>Operator</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+            		        </div>
+                        </div>
+		
         		        <h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Visitor messages style')?></h3>
         		        
         		        <div class="form-group">
@@ -135,6 +144,7 @@
         		        <label><?php echo $fields['buble_operator_text_color']['trans'];?></label>
     					<?php echo erLhcoreClassAbstract::renderInput('buble_operator_text_color', $fields['buble_operator_text_color'], $object)?>		
     				    </div>
+    				   
 					    
         		</div>        		
         		<div role="tabpanel" class="tab-pane" id="widgetcontainer">
@@ -340,7 +350,7 @@
 	
 	<div class="row">
 		<div class="col-md-12">
-			<div id="lhc_container"><div id="lhc_header"><span id="lhc_title" ng-show="abstract_checked_show_copyright"><a title="Powered by Live Helper Chat" href="{{ngModelAbstractInput_widget_copyright_url || 'http://livehelperchat.com'}}" target="_blank"><img src="<?php if ($object->copyright_image_url != '') : ?><?php echo $object->copyright_image_url?><?php else : ?><?php echo erLhcoreClassDesign::design('images/general/logo_grey.png');?><?php endif?>" alt="Live Helper Chat"></a></span><a ng-hide="abstract_checked_hide_close" href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>" id="lhc_close"><img src="<?php if ($object->close_image_url != '') : ?><?php echo $object->close_image_url;?><?php else : ?><?php echo erLhcoreClassDesign::design('images/icons/cancel.png');?><?php endif;?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>"></a>&nbsp;<a ng-hide="abstract_checked_hide_popup" target="_blank" href="<?php echo erLhcoreClassDesign::baseurl('chat/startchat')?>/(leaveamessage)/true<?php echo $object->id > 0 ? '/(theme)/'.$object->id : ''?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Open in a new window')?>" id="lhc_remote_window"><img src="<?php if ($object->popup_image_url != '') : ?><?php echo $object->popup_image_url;?><?php else : ?><?php echo erLhcoreClassDesign::design('images/icons/application_double.png');?><?php endif;?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Open in a new window')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Open in a new window')?>"></a><a href="#" id="lhc_min" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Minimize/Restore')?>"><img src="<?php if ($object->minimize_image_url != '') : ?><?php echo $object->minimize_image_url;?><?php else : ?><?php echo erLhcoreClassDesign::design('images/icons/min.png');?><?php endif;?>"></a><a href="#" id="lhc_min" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Minimize/Restore')?>"><img src="<?php if ($object->restore_image_url != '') : ?><?php echo $object->restore_image_url;?><?php else : ?><?php echo erLhcoreClassDesign::design('images/icons/restore.png');?><?php endif;?>"></a></div><div id="lhc_iframe_container"><iframe id="lhc_iframe" allowtransparency="true" scrolling="no" class="lhc-loading" frameborder="0" src="<?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?>/(leaveamessage)/true<?php echo $object->id > 0 ? '/(theme)/'.$object->id : ''?>" width="320" height="292" style="width: 100%; height: 292px;"></iframe></div></div>
+			<div id="lhc_container"><div id="lhc_header"><span id="lhc_title" ng-show="abstract_checked_show_copyright"><a title="Powered by Live Helper Chat" href="{{ngModelAbstractInput_widget_copyright_url || 'http://livehelperchat.com'}}" target="_blank"><img src="<?php if ($object->copyright_image_url != '') : ?><?php echo $object->copyright_image_url?><?php else : ?><?php echo erLhcoreClassDesign::design('images/general/logo_grey.png');?><?php endif?>" alt="Live Helper Chat"></a></span><a ng-hide="abstract_checked_hide_close" href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>" id="lhc_close"><img src="<?php if ($object->close_image_url != '') : ?><?php echo $object->close_image_url;?><?php else : ?><?php echo erLhcoreClassDesign::design('images/icons/cancel.png');?><?php endif;?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>"></a>&nbsp;<a ng-hide="abstract_checked_hide_popup" target="_blank" href="<?php echo erLhcoreClassDesign::baseurl('chat/startchat')?>/(leaveamessage)/true<?php echo $object->id > 0 ? '/(theme)/'.$object->id : ''?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Open in a new window')?>" id="lhc_remote_window"><img src="<?php if ($object->popup_image_url != '') : ?><?php echo $object->popup_image_url;?><?php else : ?><?php echo erLhcoreClassDesign::design('images/icons/application_double.png');?><?php endif;?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Open in a new window')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Open in a new window')?>"></a><a href="#" id="lhc_min" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Minimize/Restore')?>"><img src="<?php if ($object->minimize_image_url != '') : ?><?php echo $object->minimize_image_url;?><?php else : ?><?php echo erLhcoreClassDesign::design('images/icons/min.png');?><?php endif;?>"></a><a href="#" id="lhc_min" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Minimize/Restore')?>"><img src="<?php if ($object->restore_image_url != '') : ?><?php echo $object->restore_image_url;?><?php else : ?><?php echo erLhcoreClassDesign::design('images/icons/restore.png');?><?php endif;?>"></a></div><div id="lhc_iframe_container"><iframe id="lhc_iframe" allowtransparency="true" scrolling="no" class="lhc-loading" frameborder="0" src="<?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?>/(sdemo)/true/(leaveamessage)/true<?php echo $object->id > 0 ? '/(theme)/'.$object->id : ''?>" width="320" height="292" style="width: 100%; height: 292px;"></iframe></div></div>
 			<hr>
 		</div>
 		<div class="col-md-12">
@@ -351,17 +361,6 @@
 			<div id="lhc_need_help_container"><a id="lhc_need_help_close" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>" onclick="return lh_inst.lhc_need_help_hide();" href="#">×</a><div id="lhc_need_help_image"><img width="60" height="60" src="<?php if ($object->need_help_image_url != '') : ?><?php echo $object->need_help_image_url?><?php else : ?><?php echo erLhcoreClassDesign::design('images/general/operator.png');?><?php endif;?>"></div><div onclick="return lh_inst.lhc_need_help_click();" id="lhc_need_help_main_title">{{ngModelAbstractInput_need_help_header || '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Need help?')?>'}}</div><span id="lhc_need_help_sub_title">{{ngModelAbstractInput_need_help_text || '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Our staff is always ready to help')?>'}}</span></div>
 			<hr>
 		</div>
-		
-		<div class="col-md-12">
-		    <div id="messages">
-                <div class="msgBlock" style="height:200px" id="messagesBlock">       
-                    <div class="message-row response" style="background-color: #{{bactract_bg_color_buble_visitor_background}};color:#{{bactract_bg_color_buble_visitor_text_color}}" id="msg-10459" data-op-id="0"><div class="msg-date">10:14:39</div><span style="color:#{{bactract_bg_color_buble_visitor_title_color}}" class="usr-tit vis-tit" role="button"><i class="material-icons chat-operators mi-fs15 mr-0">face</i>Visitor</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
-		            <div class="message-row message-admin operator-changes" style="background-color: #{{bactract_bg_color_buble_operator_background}};color:#{{bactract_bg_color_buble_operator_text_color}}" id="msg-10463" data-op-id="1">
-		            <div class="msg-date">10:18:22</div><span style="color:#{{bactract_bg_color_buble_operator_title_color}}"  class="usr-tit op-tit"><i class="material-icons chat-operators mi-fs15 mr-0">account_box</i>Operator</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
-		        </div>
-            </div>
-		</div>       
-		        
 	</div>
 	
 		<style type="text/css">
@@ -372,11 +371,7 @@
 		#lhc_status_container{box-sizing: content-box;-webkit-border-top-left-radius: 20px;-moz-border-radius-topleft: 20px;border-top-left-radius: 20px;-webkit-box-shadow: -1px -1px 5px rgba(50, 50, 50, 0.17);border:1px solid #{{bactract_bg_color_bor_bcolor}};border-right:0;border-bottom:0;-moz-box-shadow:-1px -1px 5px rgba(50, 50, 50, 0.17);box-shadow: -1px -1px 5px rgba(50, 50, 50, 0.17);padding:5px 0px 0px 5px;width:190px;font-family:arial;font-size:12px;transition: 1s;background-color:#{{bactract_bg_color_onl_bcolor}};z-index:9989;}
 		@media only screen and (max-width : 640px) {#lhc_status_container{position:relative;top:0;right:0;bottom:0;left:0;width:auto;border-radius:2px;box-shadow:none;border:1px solid #e3e3e3;margin-bottom:5px;}}
 		</style>
-			
-			
-			
-			
-						
+				
 		<style type="text/css">
 		.lhc-no-transition{ -webkit-transition: none !important; -moz-transition: none !important;-o-transition: none !important;-ms-transition: none !important;transition: none !important;}
 		.lhc-min{height:35px !important}
@@ -401,6 +396,12 @@
 		#lhc_need_help_image{padding-right:10px;float:left;cursor:pointer;}#lhc_need_help_image img{border-radius:30px;border:1px solid #d0d0d0}#lhc_need_help_main_title{font-size:16px;font-weight:bold;cursor:pointer;line-height:1.5}#lhc_need_help_sub_title{cursor:pointer;line-height:1.5}
 		</style>
 			
+			 
+	    <script>	  
+	    $('#id_AbstractInput_buble_visitor_background').change(function(){
+		    document.getElementById('lhc_iframe').src = document.getElementById('lhc_iframe').src;		    
+		});
+	    </script>
 		
 	</div>
 </div>

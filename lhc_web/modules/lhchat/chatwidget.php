@@ -37,8 +37,6 @@ if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_p
 	}
 }
 
-
-
 // Perhaps it's direct argument
 if ((string)$Params['user_parameters_unordered']['hash'] != '') {
 	list($chatID,$hash) = explode('_',$Params['user_parameters_unordered']['hash']);
@@ -466,6 +464,12 @@ if (isset($_POST['r']))
 }
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chatwidget',array('tpl' => $tpl, 'params' => & $Params));
+
+if (isset($Params['user_parameters_unordered']['sdemo']) && (int)$Params['user_parameters_unordered']['sdemo'] == 'true') {
+    $tpl->set('show_demo',true);
+} else {
+    $tpl->set('show_demo',false);
+}
 
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'widget';
