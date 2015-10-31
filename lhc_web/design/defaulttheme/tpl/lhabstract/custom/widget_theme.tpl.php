@@ -20,8 +20,9 @@
         	<ul class="nav nav-tabs" role="tablist">
         		<li role="presentation" class="active"><a href="#statuswidget" aria-controls="statuswidget" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Status widget style');?></a></li>
         		<li role="presentation"><a href="#widgetcontainer" aria-controls="widgetcontainer" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Widget container');?></a></li>
+        		<li role="presentation"><a href="#messagesstyle" aria-controls="messagesstyle" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Messages style');?></a></li>
         		<li role="presentation"><a href="#needhelp" aria-controls="needhelp" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Need help widget');?></a></li>
-        		<li role="presentation"><a href="#widgettexts" aria-controls="widgettexts" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Main widget text');?></a></li>
+        		<li role="presentation"><a href="#widgettexts" aria-controls="widgettexts" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Chat widget');?></a></li>
         		<li role="presentation"><a href="#customcss" aria-controls="customcss" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom CSS');?></a></li>
         	</ul>
         
@@ -98,7 +99,44 @@
 						<?php echo erLhcoreClassAbstract::renderInput('explain_text', $fields['explain_text'], $object)?>
 						</div>
 						
-        		</div>
+        		</div>        		
+        		<div role="tabpanel" class="tab-pane" id="messagesstyle">
+        		
+        		        <h3>Visitor messages style</h3>
+        		        
+        		        <div class="form-group">
+        		        <label><?php echo $fields['buble_visitor_background']['trans'];?></label>
+    					<?php echo erLhcoreClassAbstract::renderInput('buble_visitor_background', $fields['buble_visitor_background'], $object)?>		
+    				    </div>
+        		
+        		        <div class="form-group">
+        		        <label><?php echo $fields['buble_visitor_title_color']['trans'];?></label>
+    					<?php echo erLhcoreClassAbstract::renderInput('buble_visitor_title_color', $fields['buble_visitor_title_color'], $object)?>		
+    				    </div>
+        		
+        		        <div class="form-group">
+        		        <label><?php echo $fields['buble_visitor_text_color']['trans'];?></label>
+    					<?php echo erLhcoreClassAbstract::renderInput('buble_visitor_text_color', $fields['buble_visitor_text_color'], $object)?>		
+    				    </div>
+    				    
+    				    <h3>Operator messages style</h3>
+    				    
+        		        <div class="form-group">
+        		        <label><?php echo $fields['buble_operator_background']['trans'];?></label>
+    					<?php echo erLhcoreClassAbstract::renderInput('buble_operator_background', $fields['buble_operator_background'], $object)?>		
+    				    </div>
+    				    
+        		        <div class="form-group">
+        		        <label><?php echo $fields['buble_operator_title_color']['trans'];?></label>
+    					<?php echo erLhcoreClassAbstract::renderInput('buble_operator_title_color', $fields['buble_operator_title_color'], $object)?>		
+    				    </div>
+    				    
+        		        <div class="form-group">
+        		        <label><?php echo $fields['buble_operator_text_color']['trans'];?></label>
+    					<?php echo erLhcoreClassAbstract::renderInput('buble_operator_text_color', $fields['buble_operator_text_color'], $object)?>		
+    				    </div>
+					    
+        		</div>        		
         		<div role="tabpanel" class="tab-pane" id="widgetcontainer">
         		
         		        <div class="form-group">
@@ -222,6 +260,26 @@
         		</div>
         		
         		<div role="tabpanel" class="tab-pane" id="widgettexts">
+        		
+        		    <h3>General settings</h3>
+        		    
+        		    <div class="form-group">										
+					<label><?php echo $fields['show_voting']['trans'];?></label>
+					<?php echo erLhcoreClassAbstract::renderInput('show_voting', $fields['show_voting'], $object)?>		
+					</div>
+					
+        		    <div class="form-group">										
+					<label><?php echo $fields['department_title']['trans'];?></label>
+					<?php echo erLhcoreClassAbstract::renderInput('department_title', $fields['department_title'], $object)?>		
+					</div>
+					
+        		    <div class="form-group">										
+					<label><?php echo $fields['department_select']['trans'];?></label>
+					<?php echo erLhcoreClassAbstract::renderInput('department_select', $fields['department_select'], $object)?>		
+					</div>
+					        		    
+        		    <h3>Text changes</h3>
+        		
             		<div class="form-group">										
     				<label><?php echo $fields['support_joined']['trans'];?></label>
     				<?php echo erLhcoreClassAbstract::renderInput('support_joined', $fields['support_joined'], $object)?>		
@@ -246,6 +304,7 @@
     				<label><?php echo $fields['noonline_operators_offline']['trans'];?></label>
     				<?php echo erLhcoreClassAbstract::renderInput('noonline_operators_offline', $fields['noonline_operators_offline'], $object)?>		
     				</div>
+    				
         		</div>
         		
         		<div role="tabpanel" class="tab-pane" id="customcss">
@@ -292,6 +351,17 @@
 			<div id="lhc_need_help_container"><a id="lhc_need_help_close" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>" onclick="return lh_inst.lhc_need_help_hide();" href="#">×</a><div id="lhc_need_help_image"><img width="60" height="60" src="<?php if ($object->need_help_image_url != '') : ?><?php echo $object->need_help_image_url?><?php else : ?><?php echo erLhcoreClassDesign::design('images/general/operator.png');?><?php endif;?>"></div><div onclick="return lh_inst.lhc_need_help_click();" id="lhc_need_help_main_title">{{ngModelAbstractInput_need_help_header || '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Need help?')?>'}}</div><span id="lhc_need_help_sub_title">{{ngModelAbstractInput_need_help_text || '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Our staff is always ready to help')?>'}}</span></div>
 			<hr>
 		</div>
+		
+		<div class="col-md-12">
+		    <div id="messages">
+                <div class="msgBlock" style="height:200px" id="messagesBlock">       
+                    <div class="message-row response" style="background-color: #{{bactract_bg_color_buble_visitor_background}};color:#{{bactract_bg_color_buble_visitor_text_color}}" id="msg-10459" data-op-id="0"><div class="msg-date">10:14:39</div><span style="color:#{{bactract_bg_color_buble_visitor_title_color}}" class="usr-tit vis-tit" role="button"><i class="material-icons chat-operators mi-fs15 mr-0">face</i>Visitor</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+		            <div class="message-row message-admin operator-changes" style="background-color: #{{bactract_bg_color_buble_operator_background}};color:#{{bactract_bg_color_buble_operator_text_color}}" id="msg-10463" data-op-id="1">
+		            <div class="msg-date">10:18:22</div><span style="color:#{{bactract_bg_color_buble_operator_title_color}}"  class="usr-tit op-tit"><i class="material-icons chat-operators mi-fs15 mr-0">account_box</i>Operator</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+		        </div>
+            </div>
+		</div>       
+		        
 	</div>
 	
 		<style type="text/css">

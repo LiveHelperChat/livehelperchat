@@ -180,6 +180,11 @@ if ((string)$Params['user_parameters_unordered']['offline'] == 'true' && $leavea
 	$tpl->set('forceoffline',true);
 }
 
+// Theme
+if (isset($Result['theme'])) {
+    $additionalParams['theme'] = $Result['theme'];
+}
+
 $tpl->set('leaveamessage',$leaveamessage);
 
 if (isset($_POST['StartChat']) && $disabled_department === false) {

@@ -1208,6 +1208,86 @@
                 "key": "",
                 "default": null,
                 "extra": ""
+            },
+            {
+                "field": "operator_image_path",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "show_voting",
+                "type": "tinyint(1)",
+                "null": "NO",
+                "key": "",
+                "default": "1",
+                "extra": ""
+            },
+            {
+                "field": "department_title",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "department_select",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "buble_visitor_background",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "buble_visitor_title_color",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "buble_visitor_text_color",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "buble_operator_background",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "buble_operator_title_color",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "buble_operator_text_color",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
             }
         ],
         "lh_canned_msg": [
@@ -2572,6 +2652,14 @@
             {
                 "field": "priority",
                 "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "visible_if_online",
+                "type": "tinyint(1)",
                 "null": "NO",
                 "key": "",
                 "default": null,

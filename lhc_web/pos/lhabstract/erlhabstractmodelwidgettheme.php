@@ -293,6 +293,61 @@ $def->properties['show_need_help_timeout']->columnName   = 'show_need_help_timeo
 $def->properties['show_need_help_timeout']->propertyName = 'show_need_help_timeout';
 $def->properties['show_need_help_timeout']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+// New version
+// Show voting thumbs
+$def->properties['show_voting'] = new ezcPersistentObjectProperty();
+$def->properties['show_voting']->columnName   = 'show_voting';
+$def->properties['show_voting']->propertyName = 'show_voting';
+$def->properties['show_voting']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+// What title show instaed of department, let say location
+$def->properties['department_title'] = new ezcPersistentObjectProperty();
+$def->properties['department_title']->columnName   = 'department_title';
+$def->properties['department_title']->propertyName = 'department_title';
+$def->properties['department_title']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+// Select department text will be shown if filled
+$def->properties['department_select'] = new ezcPersistentObjectProperty();
+$def->properties['department_select']->columnName   = 'department_select';
+$def->properties['department_select']->propertyName = 'department_select';
+$def->properties['department_select']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+// Select department text will be shown if filled
+$def->properties['buble_visitor_background'] = new ezcPersistentObjectProperty();
+$def->properties['buble_visitor_background']->columnName   = 'buble_visitor_background';
+$def->properties['buble_visitor_background']->propertyName = 'buble_visitor_background';
+$def->properties['buble_visitor_background']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+// Buble visitor title color
+$def->properties['buble_visitor_title_color'] = new ezcPersistentObjectProperty();
+$def->properties['buble_visitor_title_color']->columnName   = 'buble_visitor_title_color';
+$def->properties['buble_visitor_title_color']->propertyName = 'buble_visitor_title_color';
+$def->properties['buble_visitor_title_color']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+// Buble visitor text color
+$def->properties['buble_visitor_text_color'] = new ezcPersistentObjectProperty();
+$def->properties['buble_visitor_text_color']->columnName   = 'buble_visitor_text_color';
+$def->properties['buble_visitor_text_color']->propertyName = 'buble_visitor_text_color';
+$def->properties['buble_visitor_text_color']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+// Buble operator background
+$def->properties['buble_operator_background'] = new ezcPersistentObjectProperty();
+$def->properties['buble_operator_background']->columnName   = 'buble_operator_background';
+$def->properties['buble_operator_background']->propertyName = 'buble_operator_background';
+$def->properties['buble_operator_background']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+// Buble operator title color
+$def->properties['buble_operator_title_color'] = new ezcPersistentObjectProperty();
+$def->properties['buble_operator_title_color']->columnName   = 'buble_operator_title_color';
+$def->properties['buble_operator_title_color']->propertyName = 'buble_operator_title_color';
+$def->properties['buble_operator_title_color']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+// Buble operator text color
+$def->properties['buble_operator_text_color'] = new ezcPersistentObjectProperty();
+$def->properties['buble_operator_text_color']->columnName   = 'buble_operator_text_color';
+$def->properties['buble_operator_text_color']->propertyName = 'buble_operator_text_color';
+$def->properties['buble_operator_text_color']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 return $def;
 
 ?>

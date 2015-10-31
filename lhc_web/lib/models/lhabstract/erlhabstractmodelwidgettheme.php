@@ -61,7 +61,17 @@ class erLhAbstractModelWidgetTheme {
 			'noonline_operators'		=> $this->noonline_operators,
 			'noonline_operators_offline'=> $this->noonline_operators_offline,
 			'show_need_help'            => $this->show_need_help,
-			'show_need_help_timeout'    => $this->show_need_help_timeout
+			'show_need_help_timeout'    => $this->show_need_help_timeout,
+		    
+			'show_voting'               => $this->show_voting,
+			'department_title'          => $this->department_title,
+			'department_select'         => $this->department_select,
+			'buble_visitor_background'  => $this->buble_visitor_background,
+			'buble_visitor_title_color' => $this->buble_visitor_title_color,
+			'buble_visitor_text_color'  => $this->buble_visitor_text_color,
+			'buble_operator_background' => $this->buble_operator_background,
+			'buble_operator_title_color'=> $this->buble_operator_title_color,
+			'buble_operator_text_color' => $this->buble_operator_text_color,
 		);
 
 		return $stateArray;
@@ -430,7 +440,19 @@ class erLhAbstractModelWidgetTheme {
 	public $pending_join = '';
 	public $noonline_operators = '';
 	public $noonline_operators_offline = '';
-		
+	
+	public $show_voting = 1;
+	public $department_title = '';
+	public $department_select = '';
+
+	public $buble_visitor_background = ''; //BFE9F9
+	public $buble_visitor_title_color = '';//99BE7B
+	public $buble_visitor_text_color = ''; //333333
+
+	public $buble_operator_background = ''; //DCF2FA
+	public $buble_operator_title_color = '';//8EC1D9
+	public $buble_operator_text_color = ''; //333333
+
 	public $hide_add = false;
 	public $hide_delete = false;
 

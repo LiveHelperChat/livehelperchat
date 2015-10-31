@@ -439,6 +439,84 @@ return array(
            		        'validation_definition' => new ezcInputFormDefinitionElement(
            		            ezcInputFormDefinitionElement::OPTIONAL, 'callback','erLhcoreClassSearchHandler::isImageFile()'
    		        )),
+                // Visitor messages style
+                'buble_visitor_background' => array(
+                    'type' => 'colorpicker',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Visitor buble background color'),
+                    'required' => false,
+                    'hidden' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
+                'buble_visitor_title_color' => array(
+                    'type' => 'colorpicker',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Visitor title color'),
+                    'required' => false,
+                    'hidden' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
+                'buble_visitor_text_color' => array(
+                    'type' => 'colorpicker',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Visitor text color'),
+                    'required' => false,
+                    'hidden' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
+                // Operator messages style
+                'buble_operator_background' => array(
+                    'type' => 'colorpicker',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Operator buble background color'),
+                    'required' => false,
+                    'hidden' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
+                'buble_operator_title_color' => array(
+                    'type' => 'colorpicker',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Operator title color'),
+                    'required' => false,
+                    'hidden' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
+                'buble_operator_text_color' => array(
+                    'type' => 'colorpicker',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Operator text color'),
+                    'required' => false,
+                    'hidden' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
+    
+                // General chat settings
+                'show_voting' => array(
+                    'type' => 'checkbox',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Show voting thumbs?'),
+                    'required' => false,
+                    'hidden' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+                )),
+                'department_title' => array(
+                    'type' => 'text',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Use different title for department? E.g Location'),
+                    'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Location'),
+                    'required' => false,
+                    'hidden' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
+                'department_select' => array(
+                    'type' => 'text',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Additional option before department selection'),
+                    'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Choose department'),
+                    'required' => false,
+                    'hidden' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
    		);
 
 ?>

@@ -13,10 +13,12 @@
 	    <?php endif;?>
 	    
 	    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile_pre.tpl.php'));?>
-	    
+	    	    	    
 	    <?php if (!isset($hideThumbs) || $hideThumbs == false) : ?>
-     	
-     	<?php include(erLhcoreClassDesign::designtpl('lhchat/part/thumbs.tpl.php'));?>
+     
+        <?php if (!isset($theme) || $theme === false || $theme->show_voting == 1) : ?>
+     	  <?php include(erLhcoreClassDesign::designtpl('lhchat/part/thumbs.tpl.php'));?>
+     	<?php endif;?>
      	
      	<?php if ($user->skype != '') : ?>
      		<a href="skype:<?php echo htmlspecialchars($user->skype)?>?call" class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/part/operator_profile','Skype call'); ?>">phone_in_talk</a>
