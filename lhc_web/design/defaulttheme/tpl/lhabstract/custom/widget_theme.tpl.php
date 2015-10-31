@@ -102,7 +102,7 @@
         		</div>        		
         		<div role="tabpanel" class="tab-pane" id="messagesstyle">
         		
-        		        <h3>Visitor messages style</h3>
+        		        <h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Visitor messages style')?></h3>
         		        
         		        <div class="form-group">
         		        <label><?php echo $fields['buble_visitor_background']['trans'];?></label>
@@ -119,7 +119,7 @@
     					<?php echo erLhcoreClassAbstract::renderInput('buble_visitor_text_color', $fields['buble_visitor_text_color'], $object)?>		
     				    </div>
     				    
-    				    <h3>Operator messages style</h3>
+    				    <h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Operator messages style')?></h3>
     				    
         		        <div class="form-group">
         		        <label><?php echo $fields['buble_operator_background']['trans'];?></label>
@@ -261,7 +261,7 @@
         		
         		<div role="tabpanel" class="tab-pane" id="widgettexts">
         		
-        		    <h3>General settings</h3>
+        		    <h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','General settings')?></h3>
         		    
         		    <div class="form-group">										
 					<label><?php echo $fields['show_voting']['trans'];?></label>
@@ -278,7 +278,7 @@
 					<?php echo erLhcoreClassAbstract::renderInput('department_select', $fields['department_select'], $object)?>		
 					</div>
 					        		    
-        		    <h3>Text changes</h3>
+        		    <h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Text changes')?></h3>
         		
             		<div class="form-group">										
     				<label><?php echo $fields['support_joined']['trans'];?></label>
