@@ -109,6 +109,9 @@ class erLhcoreClassDepartament{
 	   			'AutoAssignActive' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	   			),
+	   			'VisibleIfOnline' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	   			),
 	   			'MaxNumberActiveChats' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'int'
 	   			),
@@ -250,11 +253,16 @@ class erLhcoreClassDepartament{
 	   		$department->inform_close = 0;
 	   	}
 	   		   	
-	   		   	
 	   	if ( $form->hasValidData( 'inform_unread' ) && $form->inform_unread === true ) {
 	   		$department->inform_unread = 1;
 	   	} else {
 	   		$department->inform_unread = 0;
+	   	}
+	   	
+	   	if ( $form->hasValidData( 'VisibleIfOnline' ) && $form->VisibleIfOnline === true ) {
+	   		$department->visible_if_online = 1;
+	   	} else {
+	   		$department->visible_if_online = 0;
 	   	}
 	   		   	
 	   	if ($form->hasValidData( 'inform_unread_delay' )) {

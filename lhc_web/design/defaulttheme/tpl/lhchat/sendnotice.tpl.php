@@ -32,7 +32,7 @@ setTimeout(function(){
 	<select class="form-control" id="id_CannedMessage-<?php echo $chat->id?>" onchange="$('#sendMessageContent').val(($(this).val() > 0) ? $(this).find(':selected').text() : '');">
 		        <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Select a canned message')?></option>
 		        <?php foreach (erLhcoreClassModelCannedMsg::getCannedMessages($chat->dep_id,erLhcoreClassUser::instance()->getUserID()) as $item) : ?>
-		            <option value="<?php echo $item->id?>"><?php echo htmlspecialchars(str_replace('{nick}', $chat->nick, $item->msg))?></option>
+		            <option value="<?php echo $item->id?>"><?php echo htmlspecialchars(str_replace('{nick}', (isset($chat) ? $chat->nick : ''), $item->msg))?></option>
 		       <?php endforeach;?>
 	</select>
 		      

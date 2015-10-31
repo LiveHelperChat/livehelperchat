@@ -29,6 +29,7 @@ class erLhcoreClassModelDepartament {
                'online_hours_active'    => $this->online_hours_active,
                'disabled'    			=> $this->disabled,
                'hidden'    				=> $this->hidden,
+               'visible_if_online'    	=> $this->visible_if_online,
                'delay_lm' 				=> $this->delay_lm,
                'inform_unread' 			=> $this->inform_unread,
                'inform_unread_delay' 	=> $this->inform_unread_delay,
@@ -257,6 +258,7 @@ class erLhcoreClassModelDepartament {
     public $attr_int_1 = 0;
     public $attr_int_2 = 0;
     public $attr_int_3 = 0;
+    public $visible_if_online = 0;
     
     public $active_chats_counter = 0;
     public $pending_chats_counter = 0;

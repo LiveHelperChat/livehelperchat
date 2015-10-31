@@ -357,8 +357,10 @@ textarea[name=ChatMessage]{
 }
 
 .msg-date {
-	float:right;color:#7D7D7D;
+	float:right;
+	color:#525252;
 	font-size:11px;
+	line-height:11px;
 }
 
 div.system-response {
@@ -367,58 +369,110 @@ div.system-response {
 
 .usr-tit {
 	font-weight:bold;
-	background-color:rgb(66, 65, 65);
-	color:#FFF;
+	font-style: italic;
+	/*background-color:rgb(66, 65, 65);*/
+	color:#99BE7B;
 	margin-right:5px;
-	padding:2px 5px;
+	padding:2px 0px;
 	border-bottom-right-radius: 7px;
-	display:inline-block;
-	margin-top:-1px;
-	font-size:11px;
-	-webkit-box-shadow: inset 10px 10px 7px -9px rgba(0,0,0,0.34);
+	display:block;
+	margin-top:-25px;
+	font-size:12px;
+	/*-webkit-box-shadow: inset 10px 10px 7px -9px rgba(0,0,0,0.34);
 	-moz-box-shadow: inset 10px 10px 7px -9px rgba(0,0,0,0.34);
-	box-shadow: inset 10px 10px 7px -9px rgba(0,0,0,0.34);
+	box-shadow: inset 10px 10px 7px -9px rgba(0,0,0,0.34);*/
+}
+
+.sys-tit{
+	display:inline-block;
+	background-color:#CCC;
+	padding-left:3px;
+	padding-right:3px;
+	color:#fff;
+	
 }
 
 .op-tit{
-	background-color:#54ADCF;	
+	color:#8EC1D9;	
 }
 
 .vis-tit{
-	background-color:#5da423;
+	color:#99BE7B;
 }
 
 div.message-row {
 	padding:0px 2px 0px 0px;
 	line-height:140%;
 	transition: background-color 2000ms linear;	
+	margin-right:30px;
+	margin-left:0px;
 }
 
 /*style message according to senders*/
+.msgBlock .message-row.response:first-child,
+.msgBlock-admin .message-row.response:first-child,
 div.message-admin + div.message-row.response,
 div.system-response + div.message-row.response
 {
-	margin-top:5px;
-	border-top:1px dashed #E4E4E4;
+	-webkit-border-top-right-radius: 10px;
+	-moz-border-radius-topright: 10px;
+	border-top-right-radius: 10px;
+	margin-top:20px;
+	margin-right:30px;
+	margin-left:0px;
+	padding-top:7px;
 }
 
+.message-row.message-admin + .message-row.message-admin.operator-changes,
+.msgBlock-admin .message-row.message-admin:first-child,
 div.message-row.operator-changes,
 div.system-response + div.message-admin,
 div.message-row.response+div.message-admin{
-	margin-top:5px;
-	border-top:1px dashed #E4E4E4;
+	margin-top:20px;
+	margin-left:30px;
+	margin-right:0px;
+	-webkit-border-top-left-radius: 10px;
+	-moz-border-radius-topleft: 10px;
+	border-top-left-radius: 10px;
+	padding-top:7px;
 }
 
+.message-row.system-response.operator-changes{
+	margin-top:0px;
+	margin-left:0px;
+}
+
+.message-row.response.operator-changes{
+	border-top-left-radius: 0px;
+}
+
+div.message-admin{
+	margin-left:30px;
+	margin-right:0px;
+	background-color:#DCF2FA;
+	padding:3px 7px;	
+	margin-top:0px;
+	margin-bottom:0px;
+}
+
+div.message-row.response{
+	background-color:#BFE9F9;
+	padding:3px 5px;	
+	margin-top:0px;
+	margin-bottom:0px;
+}
+
+div.message-admin+div.system-response,
 div.message-row.response+div.system-response{
 	margin-top:5px;
-	border-top:1px dashed #E4E4E4;
+	margin-bottom:5px;
+	margin-left:0;
+	margin-right:0;
 }
 
-div.message-admin+div.system-response{
-	margin-top:5px;
-	border-top:1px dashed #E4E4E4;
+div.system-response + div.message-admin{
+	margin-top:20px;
 }
-
 
 div.system-response+div.system-response .usr-tit,
 div.message-admin+div.message-admin .usr-tit,
@@ -428,19 +482,31 @@ div.message-row.response+div.message-row.response .usr-tit{
 	overflow:hidden;
 	height:10px;
 	padding:0;
-	display:inline-block;
+	display:none;
 	white-space:no-wrap;
 	margin:0;
 }
 
+
+.msgBlock-admin .message-row.response:first-child .usr-tit,
+.msgBlock-admin .message-row.message-admin:first-child .usr-tit,
 div.message-row.operator-changes .usr-tit{
 	width:auto!important;
 	visibility:visible!important;
 	overflow:inherit!important;
 	height:auto!important;
 	margin-right:5px!important;
-	padding:2px 5px!important;
-	margin-top:-1px!important;
+	padding:2px 0px!important;
+	margin-top:-25px!important;
+	display:block!important;
+}
+
+.message-row.system-response.operator-changes .usr-tit {
+	display: inline-block!important;
+  	background-color: #CCC;
+  	padding-left: 3px!important;
+  	padding-right: 3px!important;
+  	color: #fff!important;
 }
 
 div.message-row-in {

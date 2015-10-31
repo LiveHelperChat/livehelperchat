@@ -97,7 +97,7 @@ if (isset($_POST['askQuestion']))
 {
     $validationFields = array();
     $validationFields['Question'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
-    $validationFields['DepartamentID'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1) );
+    $validationFields['DepartamentID'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => -1) );
     $validationFields['DepartmentIDDefined'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1), FILTER_REQUIRE_ARRAY);
     $validationFields['operator'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1) );
     $validationFields['Email'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'validate_email' );
@@ -267,12 +267,22 @@ if (isset($_POST['askQuestion']))
     		$chat->user_tz_identifier = '';
     	}
     }
-        
+
     $chat->dep_id = $inputData->departament_id;
-    
+
     // Assign default department
     if ($form->hasValidData( 'DepartamentID' ) && erLhcoreClassModelDepartament::getCount(array('filter' => array('id' => $form->DepartamentID,'disabled' => 0))) > 0) {
     	$inputData->departament_id = $chat->dep_id = $form->DepartamentID;
+	} elseif ($form->hasValidData( 'DepartamentID' ) && $form->DepartamentID == -1) {
+
+	    $chat->dep_id == 0;
+
+	    if (isset($Result['theme']) && $Result['theme'] !== false && $Result['theme']->department_title != '') {
+	        $Errors['department'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please choose').' '.htmlspecialchars($Result['theme']->department_title).'!';
+	    } else {
+	        $Errors['department'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please choose department!');
+	    }
+
     } elseif ($chat->dep_id == 0 || erLhcoreClassModelDepartament::getCount(array('filter' => array('id' => $chat->dep_id,'disabled' => 0))) == 0) {
         
         // Perhaps extension overrides default department?

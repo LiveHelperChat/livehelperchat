@@ -5,6 +5,7 @@
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/meta_info.tpl.php'));?>
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/copyright_meta.tpl.php'));?>
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_css.tpl.php'));?>
+<?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_css_theme.tpl.php'));?>
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_css_user_extension_multiinclude.tpl.php'));?>
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_js.tpl.php'));?>
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_js_user_extension_multiinclude.tpl.php'));?>

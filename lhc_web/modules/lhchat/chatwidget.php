@@ -216,6 +216,11 @@ if ((string)$Params['user_parameters_unordered']['offline'] == 'true' && $leavea
 
 $tpl->set('leaveamessage',$leaveamessage);
 
+// Theme
+if (isset($Result['theme'])) {
+    $additionalParams['theme'] = $Result['theme'];
+}
+
 if (isset($_POST['StartChat']) && $disabled_department === false)
 {
    // Validate post data

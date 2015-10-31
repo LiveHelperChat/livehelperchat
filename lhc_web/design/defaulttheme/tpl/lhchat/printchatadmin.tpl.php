@@ -5,5 +5,6 @@
 <p><?php echo erLhcoreClassBBCode::make_clickable(htmlspecialchars($chat->remarks))?></p>
 <?php endif;?>
 <h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Messages')?></h3>
+<br>
 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/msg_obj_list_admin.tpl.php'));?>
 </div>

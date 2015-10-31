@@ -12,7 +12,7 @@ $modalSize = 'md';
 <?php if (isset($updated) && $updated == true) : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/editnick','Updated!'); ?>
 
 <script>
-$('#messages .usr-tit.vis-tit').text(<?php echo json_encode($chat->nick)?>);
+$('#messages .usr-tit.vis-tit').text(<?php echo json_encode($chat->nick)?>).prepend('<i class="material-icons chat-operators mi-fs15 mr-0">face</i>');
 setTimeout(function(){
     $('#myModal').modal('hide');
 },100);

@@ -1,3 +1,13 @@
+2.39v
+
+1. https://github.com/LiveHelperChat/livehelperchat/issues/772 - option in theme to define optional field which would be visible in department
+2. https://github.com/LiveHelperChat/livehelperchat/issues/715
+3. One more time new chat messages interface. Messages can be styled in theme editing window.
+4. Option to turn off/on voting thumbs
+5. Option to have custom text instaed of Department. Let say location.
+
+execute doc/update_db/update_114.sql for update
+
 2.38v
 
 1. https://github.com/LiveHelperChat/livehelperchat/issues/771
