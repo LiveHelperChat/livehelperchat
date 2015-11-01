@@ -2,6 +2,8 @@
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/editnick.tpl.php');
 
+$nickChanged = false;
+
 try {
 
     $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
@@ -19,6 +21,8 @@ try {
                 $chat->user_typing = time();
                 $chat->user_typing_txt = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/voteaction','User has updated his profile information');
                 $chat->operation_admin .= "lhinst.updateVoteStatus(".$chat->id.");";
+                
+                $nickChanged = true;                
             }
         }
         
@@ -32,6 +36,19 @@ try {
 }
 
 echo $tpl->fetch();
+
+flush();
+ 
+session_write_close();
+ 
+if ( function_exists('fastcgi_finish_request') ) {
+    fastcgi_finish_request();
+};
+
+if ($nickChanged === true) {
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.nick_changed',array('chat' => & $chat));
+}
+
 exit;
 
 ?>
