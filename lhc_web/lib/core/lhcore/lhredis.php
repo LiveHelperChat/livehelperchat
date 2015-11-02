@@ -7,10 +7,11 @@ class erLhcoreClassLhRedis
     public function __construct()
     {
         try {
-            $params = erConfigClassLhConfig::getInstance()->getSetting( 'redis', 'server' );
+            $params = erConfigClassLhConfig::getInstance()->getSetting( 'redis', 'server', 'database');
             $this->redis = new Redis();
 	        $this->redis->connect($params['host'], $params['port'], 2.5);	
-	        $this->redis->setOption(Redis::OPT_SERIALIZER, Redis::SERIALIZER_PHP); 
+	        $this->redis->setOption(Redis::OPT_SERIALIZER, Redis::SERIALIZER_PHP);
+            $this->redis->select($params['database']);
         } catch (Exception $e){
             // Do nothing
         }
