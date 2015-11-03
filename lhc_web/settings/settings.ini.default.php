@@ -88,7 +88,8 @@ return array (
   	'redis' => array (
   				'server' => array (
   						'host' => 'localhost',
-  						'port' => 6379
+  						'port' => 6379,
+                        'database' => 0
   				)
   	),
     'db' =>
