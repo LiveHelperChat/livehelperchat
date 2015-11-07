@@ -6,10 +6,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Сколько дней виджет голосования не будет открыт с последнего показа</translation>
     </message>
@@ -351,16 +347,36 @@
       <translation>Контейнер виджета</translation>
     </message>
     <message>
+      <source>Messages style</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Need help widget</source>
       <translation>Виджет запроса помощи</translation>
     </message>
     <message>
-      <source>Main widget text</source>
-      <translation>Основной текст виджета</translation>
+      <source>Chat widget</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Custom CSS</source>
       <translation>Пользовательский CSS</translation>
+    </message>
+    <message>
+      <source>Visitor messages style</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator messages style</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>General settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text changes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Name</source>
@@ -373,6 +389,14 @@
     <message>
       <source>Need help header text</source>
       <translation>Заголовок текста запроса помощи</translation>
+    </message>
+    <message>
+      <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show need help tooltip?</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Need help standard text</source>
@@ -541,6 +565,50 @@
     <message>
       <source>Popup image</source>
       <translation>Изображение всплывающего окна</translation>
+    </message>
+    <message>
+      <source>Visitor buble background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor title color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor text color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator buble background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator title color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator text color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show voting thumbs?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use different title for department? E.g Location</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Location</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Additional option before department selection</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose department</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Widget themes</source>
@@ -1114,172 +1182,6 @@
     </message>
   </context>
   <context>
-    <name>chat/activechats</name>
-    <message>
-      <source>Information</source>
-      <translation>Информация</translation>
-    </message>
-    <message>
-      <source>Active chats list</source>
-      <translation>Список активных чатов</translation>
-    </message>
-    <message>
-      <source>Chats lists</source>
-      <translation>Списки чатов</translation>
-    </message>
-    <message>
-      <source>Active chats</source>
-      <translation>Активные чаты</translation>
-    </message>
-    <message>
-      <source>Close chat</source>
-      <translation>Закрыть чат</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>Удалить чат</translation>
-    </message>
-    <message>
-      <source>Open in a new window</source>
-      <translation>Открыть в новом окне</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Пусто...</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/lists/search_panel</name>
-    <message>
-      <source>Delete selected</source>
-      <translation>Удалить выбранное</translation>
-    </message>
-    <message>
-      <source>Nick</source>
-      <translation>Ник</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-mail</translation>
-    </message>
-    <message>
-      <source>Date range from to</source>
-      <translation>Диапазон дат (от и до)</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Отдел</translation>
-    </message>
-    <message>
-      <source>User</source>
-      <translation>Пользователь</translation>
-    </message>
-    <message>
-      <source>Vote status</source>
-      <translation>Статус голоса</translation>
-    </message>
-    <message>
-      <source>Any</source>
-      <translation>Любой</translation>
-    </message>
-    <message>
-      <source>Not Voted</source>
-      <translation>Не отмечено</translation>
-    </message>
-    <message>
-      <source>Up Voted</source>
-      <translation>Понравилось</translation>
-    </message>
-    <message>
-      <source>Down vote</source>
-      <translation>Не понравилось</translation>
-    </message>
-    <message>
-      <source>Chat status</source>
-      <translation>Статус чата</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>Чаты в очереди</translation>
-    </message>
-    <message>
-      <source>Active chats</source>
-      <translation>Активные чаты</translation>
-    </message>
-    <message>
-      <source>Closed chats</source>
-      <translation>Завершённые чаты</translation>
-    </message>
-    <message>
-      <source>Chatbox chats</source>
-      <translation>Чаты &quot;чатбокса&quot;</translation>
-    </message>
-    <message>
-      <source>Operators chats</source>
-      <translation>Чаты операторов</translation>
-    </message>
-    <message>
-      <source>Has unread messages</source>
-      <translation>Непрочитанные сообщения</translation>
-    </message>
-    <message>
-      <source>Search</source>
-      <translation>Поиск</translation>
-    </message>
-    <message>
-      <source>Print</source>
-      <translation>Печать</translation>
-    </message>
-    <message>
-      <source>XLS</source>
-      <translation>XLS</translation>
-    </message>
-    <message>
-      <source>XLS (with content)</source>
-      <translation>XLS (с контентом)</translation>
-    </message>
-    <message>
-      <source>Select department</source>
-      <translation>Выбрать отдел</translation>
-    </message>
-    <message>
-      <source>Select user</source>
-      <translation>Выбрать пользователя</translation>
-    </message>
-    <message>
-      <source>Type to search</source>
-      <translation>Введите для поиска</translation>
-    </message>
-    <message>
-      <source>Choose department</source>
-      <translation>Выберите департамент</translation>
-    </message>
-    <message>
-      <source>Group by</source>
-      <translation>Группировать по</translation>
-    </message>
-    <message>
-      <source>Month</source>
-      <translation>Месяц</translation>
-    </message>
-    <message>
-      <source>Day</source>
-      <translation>День</translation>
-    </message>
-    <message>
-      <source>Group results by operator</source>
-      <translation>Группировать результаты по операторам</translation>
-    </message>
-    <message>
-      <source>Minimum chats</source>
-      <translation>Минимум чатов</translation>
-    </message>
-    <message>
-      <source>Optional</source>
-      <translation>Опционально</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/chat</name>
     <message>
       <source>Show/Hide right column</source>
@@ -1561,6 +1463,10 @@
       <translation>E-mail</translation>
     </message>
     <message>
+      <source>Visible only if online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Disabled</source>
       <translation>Отключено</translation>
     </message>
@@ -1730,11 +1636,11 @@
     </message>
     <message>
       <source>To what department chat should be transferred if it is not accepted</source>
-      <translation>На какой департамент чат должен быть переведен, если его не принял ни один оператор</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Timeout in seconds before chat is transferred to another department. Minimum 5 seconds.</source>
-      <translation>Время ожидания, после которого чат будет переведен на другой департамент. Минимум 5 секунд.</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Execute new chat logic again for recipient department?</source>
@@ -1758,8 +1664,8 @@
       <translation>Настройки Системы</translation>
     </message>
     <message>
-      <source>departments</source>
-      <translation>департаменты</translation>
+      <source>Departments</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Edit a department</source>
@@ -2529,6 +2435,14 @@
       <translation>Неверный файл!</translation>
     </message>
     <message>
+      <source>Please choose</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose department!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Could not determine a default department!</source>
       <translation>Не удалось определить Департамент по умолчанию!</translation>
     </message>
@@ -2597,42 +2511,7 @@
     </message>
   </context>
   <context>
-    <name>chat/closedchats</name>
-    <message>
-      <source>Information</source>
-      <translation>Информация</translation>
-    </message>
-    <message>
-      <source>Open in a new window</source>
-      <translation>Открыть в новом окне</translation>
-    </message>
-    <message>
-      <source>Closed chats list</source>
-      <translation>Список закрытых чатов</translation>
-    </message>
-    <message>
-      <source>Chats list</source>
-      <translation>Список чатов</translation>
-    </message>
-    <message>
-      <source>Closed chats</source>
-      <translation>Завершённые чаты</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>Удалить чат</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Пусто...</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/user_settings</name>
-    <message>
-      <source>Enable/Disable sound about new messages from the operator</source>
-      <translation>Включить звуковые уведомления о новых сообщениях от оператора</translation>
-    </message>
     <message>
       <source>Print</source>
       <translation>Печать</translation>
@@ -2640,6 +2519,10 @@
     <message>
       <source>Send chat transcript to your e-mail</source>
       <translation>Отправить переписку на Ваш e-mail</translation>
+    </message>
+    <message>
+      <source>Enable/Disable sound about new messages from the operator</source>
+      <translation>Включить звуковые уведомления о новых сообщениях от оператора</translation>
     </message>
     <message>
       <source>Enable/Disable sound about new messages from users</source>
@@ -2693,8 +2576,8 @@
       <translation>Непрочитанные чаты</translation>
     </message>
     <message>
-      <source>Transferred chats</source>
-      <translation>Перенаправленные чаты</translation>
+      <source>Transfered chats</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Closed chats</source>
@@ -3181,6 +3064,10 @@
       <translation>Пользователь перестал проявлять активность в чате</translation>
     </message>
     <message>
+      <source>Operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>has send message to user</source>
       <translation>отправил(-а) сообщение посетителю</translation>
     </message>
@@ -3250,7 +3137,7 @@
     </message>
     <message>
       <source>Online visitors on map</source>
-      <translation>Онлайн пользователи на карте</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Enable/Disable sound about new visitor</source>
@@ -3490,85 +3377,6 @@
     </message>
   </context>
   <context>
-    <name>chat/listchatconfig</name>
-    <message>
-      <source>Notifications about new chats</source>
-      <translation>Уведомления о новых чатах</translation>
-    </message>
-    <message>
-      <source>Copyright settings</source>
-      <translation>Настройки Copyright</translation>
-    </message>
-    <message>
-      <source>Online tracking</source>
-      <translation>Отслеживание</translation>
-    </message>
-    <message>
-      <source>Misc</source>
-      <translation>Разное</translation>
-    </message>
-    <message>
-      <source>Visitor activity</source>
-      <translation>Активность посетителей</translation>
-    </message>
-    <message>
-      <source>Workflow</source>
-      <translation>Рабочий процесс</translation>
-    </message>
-    <message>
-      <source>Application name</source>
-      <translation>Имя приложения</translation>
-    </message>
-    <message>
-      <source>Site settings</source>
-      <translation>Параметры сайта</translation>
-    </message>
-    <message>
-      <source>Cookie related</source>
-      <translation>Cookie опознаны</translation>
-    </message>
-    <message>
-      <source>Chat related</source>
-      <translation>Связанные диалоги</translation>
-    </message>
-    <message>
-      <source>Online if</source>
-      <translation>Оффлайн если</translation>
-    </message>
-    <message>
-      <source>(Widget is open) or (closed and user has activity in last 5 minutes and ping respond)</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>(Widget is open or closed) and (user has activity in last 5 minutes and ping respond)</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Update</source>
-      <translation>Обновить</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Настройки обновлены</translation>
-    </message>
-    <message>
-      <source>This determines should status widget change it&apos;s status once operator logins. Recommended value 290</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Screen sharing</source>
-      <translation>Просмотр экрана</translation>
-    </message>
-    <message>
-      <source>Chat configuration</source>
-      <translation>Настройки чата</translation>
-    </message>
-    <message>
-      <source>List chat configuration</source>
-      <translation>Настройки списка чатов</translation>
-    </message>
-  </context>
-  <context>
     <name>system/configuration</name>
     <message>
       <source>Request notification permission</source>
@@ -3601,18 +3409,6 @@
     <message>
       <source>Languages configuration</source>
       <translation>Настройки языка</translation>
-    </message>
-    <message>
-      <source>Users</source>
-      <translation>Пользователи</translation>
-    </message>
-    <message>
-      <source>List of groups</source>
-      <translation>Группы</translation>
-    </message>
-    <message>
-      <source>List of roles</source>
-      <translation>Список ролей</translation>
     </message>
     <message>
       <source>GEO detection configuration</source>
@@ -3707,6 +3503,10 @@
       <translation>Отзывы</translation>
     </message>
     <message>
+      <source>Synchronization and sound settings</source>
+      <translation>Настройки синхронизации и звука</translation>
+    </message>
+    <message>
       <source>Theming</source>
       <translation>Оформение</translation>
     </message>
@@ -3727,6 +3527,18 @@
       <translation>Автоматический перевод</translation>
     </message>
     <message>
+      <source>Users</source>
+      <translation>Пользователи</translation>
+    </message>
+    <message>
+      <source>List of groups</source>
+      <translation>Группы</translation>
+    </message>
+    <message>
+      <source>List of roles</source>
+      <translation>Список ролей</translation>
+    </message>
+    <message>
       <source>XMPP settings</source>
       <translation>XMPP установки</translation>
     </message>
@@ -3737,10 +3549,6 @@
     <message>
       <source>Departments</source>
       <translation>Департаменты</translation>
-    </message>
-    <message>
-      <source>Synchronization and sound settings</source>
-      <translation>Настройки синхронизации и звука</translation>
     </message>
     <message>
       <source>Embed code</source>
@@ -3764,10 +3572,210 @@
     </message>
   </context>
   <context>
-    <name>chat/lists</name>
+    <name>chat/listchatconfig</name>
     <message>
-      <source>Choose what type of list you want to see</source>
-      <translation>Выберите тип чата для просмотра</translation>
+      <source>Application name</source>
+      <translation>Имя приложения</translation>
+    </message>
+    <message>
+      <source>Site settings</source>
+      <translation>Параметры сайта</translation>
+    </message>
+    <message>
+      <source>Cookie related</source>
+      <translation>Cookie опознаны</translation>
+    </message>
+    <message>
+      <source>Chat related</source>
+      <translation>Связанные диалоги</translation>
+    </message>
+    <message>
+      <source>Misc</source>
+      <translation>Разное</translation>
+    </message>
+    <message>
+      <source>Online if</source>
+      <translation>Оффлайн если</translation>
+    </message>
+    <message>
+      <source>(Widget is open) or (closed and user has activity in last 5 minutes and ping respond)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>(Widget is open or closed) and (user has activity in last 5 minutes and ping respond)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update</source>
+      <translation>Обновить</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Настройки обновлены</translation>
+    </message>
+    <message>
+      <source>This determines should status widget change it&apos;s status once operator logins. Recommended value 290</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Screen sharing</source>
+      <translation>Просмотр экрана</translation>
+    </message>
+    <message>
+      <source>Notifications about new chats</source>
+      <translation>Уведомления о новых чатах</translation>
+    </message>
+    <message>
+      <source>Copyright settings</source>
+      <translation>Настройки Copyright</translation>
+    </message>
+    <message>
+      <source>Online tracking</source>
+      <translation>Отслеживание</translation>
+    </message>
+    <message>
+      <source>Visitor activity</source>
+      <translation>Активность посетителей</translation>
+    </message>
+    <message>
+      <source>Workflow</source>
+      <translation>Рабочий процесс</translation>
+    </message>
+    <message>
+      <source>Chat configuration</source>
+      <translation>Настройки чата</translation>
+    </message>
+    <message>
+      <source>List chat configuration</source>
+      <translation>Настройки списка чатов</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/pendingchats</name>
+    <message>
+      <source>Information</source>
+      <translation>Информация</translation>
+    </message>
+    <message>
+      <source>Status</source>
+      <translation>Статус</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Открыть в новом окне</translation>
+    </message>
+    <message>
+      <source>Reject chat</source>
+      <translation>Отказаться от чата</translation>
+    </message>
+    <message>
+      <source>Pending chat</source>
+      <translation>Ожидающий чат</translation>
+    </message>
+    <message>
+      <source>Active chat</source>
+      <translation>Активный чат</translation>
+    </message>
+    <message>
+      <source>Closed chat</source>
+      <translation>Закрытый чат</translation>
+    </message>
+    <message>
+      <source>Chatbox chat</source>
+      <translation>Чат &quot;Чатбокса&quot;</translation>
+    </message>
+    <message>
+      <source>Operators chat</source>
+      <translation>Чат оператора</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Пусто...</translation>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>Список чатов</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/activechats</name>
+    <message>
+      <source>Close chat</source>
+      <translation>Закрыть чат</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Удалить чат</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Открыть в новом окне</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Пусто...</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/closedchats</name>
+    <message>
+      <source>Delete chat</source>
+      <translation>Удалить чат</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Пусто...</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/lists/search_panel</name>
+    <message>
+      <source>Delete selected</source>
+      <translation>Удалить выбранное</translation>
+    </message>
+    <message>
+      <source>Nick</source>
+      <translation>Ник</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Date range from to</source>
+      <translation>Диапазон дат (от и до)</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Отдел</translation>
+    </message>
+    <message>
+      <source>User</source>
+      <translation>Пользователь</translation>
+    </message>
+    <message>
+      <source>Vote status</source>
+      <translation>Статус голоса</translation>
+    </message>
+    <message>
+      <source>Any</source>
+      <translation>Любой</translation>
+    </message>
+    <message>
+      <source>Not Voted</source>
+      <translation>Не отмечено</translation>
+    </message>
+    <message>
+      <source>Up Voted</source>
+      <translation>Понравилось</translation>
+    </message>
+    <message>
+      <source>Down vote</source>
+      <translation>Не понравилось</translation>
+    </message>
+    <message>
+      <source>Chat status</source>
+      <translation>Статус чата</translation>
     </message>
     <message>
       <source>Pending chats</source>
@@ -3782,16 +3790,72 @@
       <translation>Завершённые чаты</translation>
     </message>
     <message>
+      <source>Chatbox chats</source>
+      <translation>Чаты &quot;чатбокса&quot;</translation>
+    </message>
+    <message>
       <source>Operators chats</source>
       <translation>Чаты операторов</translation>
     </message>
     <message>
-      <source>Chats with unread messages</source>
-      <translation>Чаты с непрочитанными сообщениями</translation>
+      <source>Has unread messages</source>
+      <translation>Непрочитанные сообщения</translation>
     </message>
     <message>
-      <source>Chat lists</source>
-      <translation>Списки чатов</translation>
+      <source>Search</source>
+      <translation>Поиск</translation>
+    </message>
+    <message>
+      <source>Print</source>
+      <translation>Печать</translation>
+    </message>
+    <message>
+      <source>XLS</source>
+      <translation>XLS</translation>
+    </message>
+    <message>
+      <source>XLS (with content)</source>
+      <translation>XLS (с контентом)</translation>
+    </message>
+    <message>
+      <source>Select department</source>
+      <translation>Выбрать отдел</translation>
+    </message>
+    <message>
+      <source>Select user</source>
+      <translation>Выбрать пользователя</translation>
+    </message>
+    <message>
+      <source>Type to search</source>
+      <translation>Введите для поиска</translation>
+    </message>
+    <message>
+      <source>Choose department</source>
+      <translation>Выберите департамент</translation>
+    </message>
+    <message>
+      <source>Group by</source>
+      <translation>Группировать по</translation>
+    </message>
+    <message>
+      <source>Month</source>
+      <translation>Месяц</translation>
+    </message>
+    <message>
+      <source>Day</source>
+      <translation>День</translation>
+    </message>
+    <message>
+      <source>Group results by operator</source>
+      <translation>Группировать результаты по операторам</translation>
+    </message>
+    <message>
+      <source>Minimum chats</source>
+      <translation>Минимум чатов</translation>
+    </message>
+    <message>
+      <source>Optional</source>
+      <translation>Опционально</translation>
     </message>
   </context>
   <context>
@@ -3858,7 +3922,7 @@
     </message>
     <message>
       <source>Transferred chats</source>
-      <translation>Перенаправленные чаты</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Clean cache</source>
@@ -3897,12 +3961,12 @@
       <translation>Чат</translation>
     </message>
     <message>
-      <source>Settings</source>
-      <translation>Настройки</translation>
-    </message>
-    <message>
       <source>Dashboard</source>
       <translation>Информационная панель</translation>
+    </message>
+    <message>
+      <source>Settings</source>
+      <translation>Настройки</translation>
     </message>
     <message>
       <source>Menu</source>
@@ -3973,72 +4037,6 @@
     <message>
       <source>Chats duration was updated</source>
       <translation>Длительность чата была обновлена</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/operatorschats</name>
-    <message>
-      <source>Operators chats list</source>
-      <translation>Список чатов операторов</translation>
-    </message>
-    <message>
-      <source>Operators chats</source>
-      <translation>Чаты операторов</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/pendingchats</name>
-    <message>
-      <source>Pending chats list</source>
-      <translation>Список чатов в очереди</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>Чаты в очереди</translation>
-    </message>
-    <message>
-      <source>Information</source>
-      <translation>Информация</translation>
-    </message>
-    <message>
-      <source>Status</source>
-      <translation>Статус</translation>
-    </message>
-    <message>
-      <source>Open in a new window</source>
-      <translation>Открыть в новом окне</translation>
-    </message>
-    <message>
-      <source>Reject chat</source>
-      <translation>Отказаться от чата</translation>
-    </message>
-    <message>
-      <source>Pending chat</source>
-      <translation>Ожидающий чат</translation>
-    </message>
-    <message>
-      <source>Active chat</source>
-      <translation>Активный чат</translation>
-    </message>
-    <message>
-      <source>Closed chat</source>
-      <translation>Закрытый чат</translation>
-    </message>
-    <message>
-      <source>Chatbox chat</source>
-      <translation>Чат &quot;Чатбокса&quot;</translation>
-    </message>
-    <message>
-      <source>Operators chat</source>
-      <translation>Чат оператора</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Пусто...</translation>
-    </message>
-    <message>
-      <source>Chats list</source>
-      <translation>Список чатов</translation>
     </message>
   </context>
   <context>
@@ -4476,21 +4474,6 @@
     </message>
   </context>
   <context>
-    <name>chat/unreadchats</name>
-    <message>
-      <source>Unread chats list</source>
-      <translation>Список непрочитанных чатов</translation>
-    </message>
-    <message>
-      <source>Information</source>
-      <translation>Информация</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Пусто...</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/modifychat</name>
     <message>
       <source>Modify chat</source>
@@ -4810,18 +4793,18 @@
     <name>chat/userjoined</name>
     <message>
       <source>Visitor has joined the chat!</source>
-      <translation>Пользователь принял чат!</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visitor has joined the chat from popup chat window!</source>
-      <translation>Пользователь принял чат с всплывающего окна чата!</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>chat/userleftchat</name>
     <message>
       <source>Visitor has left the chat!</source>
-      <translation>Пользователь покинул чат!</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

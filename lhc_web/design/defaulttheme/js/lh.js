@@ -581,8 +581,9 @@ function lh(){
 		    var themeWindow = this.theme !== null ? '/(theme)/'+this.theme : '';
 		    var modeEmbed = this.isEmbedMode == true ? '/(modeembed)/embed' : '';
 		    var fillType = this.isWidgetMode == true ? 'fillwidget' : 'fill';
+		    var explicitClose =  this.explicitClose == true ? '/(eclose)/t' : '';
 		    
-		    document.location = this.wwwDir + 'survey/'+fillType+'/(survey)/' + this.survey + '/(chatid)/' +this.chat_id + '/(hash)/'+ this.hash + modeWindow + operatorTyping + themeWindow + modeEmbed;
+		    document.location = this.wwwDir + 'survey/'+fillType+'/(survey)/' + this.survey + '/(chatid)/' +this.chat_id + '/(hash)/'+ this.hash + modeWindow + operatorTyping + themeWindow + modeEmbed + explicitClose;
     	}
     };
     
@@ -977,10 +978,23 @@ function lh(){
 	this.userclosedchatembed = function()
 	{
 	    if (!!window.postMessage) {
-	    	parent.postMessage("lhc_close", '*');
+	    	parent.postMessage("lhc_chat_closed_explicit", '*');
 	    };
 	};
-
+	
+	this.explicitClose = false;
+	
+	this.explicitChatCloseByUser = function()
+	{
+		this.explicitClose = true;
+		
+		if (this.isWidgetMode && typeof(parent) !== 'undefined' && window.location !== window.parent.location) {		   			 
+	 		 parent.postMessage('lhc_chat_closed_explicit', '*');
+		} else {
+			this.chatClosed();
+		}
+	};
+	
 	this.restoreWidget = function(hash){
 		 if (!!window.postMessage && window.opener) { 	    	          	    
  	    	window.opener.postMessage("lhc_ch:hash:"+hash, '*');
@@ -1278,7 +1292,11 @@ function lh(){
 	        	                      } else if (item.us == 3) {
 	        	                    	  $('#user-chat-status-'+item.chat_id).addClass('icon-user-pageview');
 	        	                      }
-	        	                      
+	        	                     
+	        	                      if (typeof item.uc != 'undefined' && item.uc == 'true') {
+	        	                    	  $('#user-chat-status-'+item.chat_id).addClass('icon-user-closed-chat');
+	        	                      }
+
 	        	                      if (typeof item.oad != 'undefined') {	        	                    
 	        	                    	  eval(item.oad);
 	        	                      };

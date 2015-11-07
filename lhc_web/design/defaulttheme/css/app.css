@@ -323,6 +323,11 @@ option.offline-dep{
 	color:#EDC21A;
 }
 
+.icon-user-closed-chat,
+.icon-user-closed-chat a{
+	color:#BB474A;
+}
+
 .user-away-row td{
 	background-color:#FFFFDA;
 }
@@ -409,6 +414,7 @@ div.message-row {
 }
 
 /*style message according to senders*/
+
 .msgBlock .message-row.response:first-child,
 .msgBlock-admin .message-row.response:first-child,
 div.message-admin + div.message-row.response,
@@ -423,6 +429,8 @@ div.system-response + div.message-row.response
 	padding-top:7px;
 }
 
+#messagesBlock .message-row.message-admin:first-child,
+.read-operator-message .message-row.message-admin:first-child,
 .message-row.message-admin + .message-row.message-admin.operator-changes,
 .msgBlock-admin .message-row.message-admin:first-child,
 div.message-row.operator-changes,

@@ -6,10 +6,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Po kolik dní by se neměl hlasovací widget zvětšovat od posledního zobrazení</translation>
     </message>
@@ -351,16 +347,36 @@
       <translation>Kontejnér widgetu</translation>
     </message>
     <message>
+      <source>Messages style</source>
+      <translation>Styl zpráv</translation>
+    </message>
+    <message>
       <source>Need help widget</source>
       <translation>Widget Potřebujete radu?</translation>
     </message>
     <message>
-      <source>Main widget text</source>
-      <translation>Text hlavního widgetu</translation>
+      <source>Chat widget</source>
+      <translation>Widget rozhovoru</translation>
     </message>
     <message>
       <source>Custom CSS</source>
       <translation>Vlastní CSS</translation>
+    </message>
+    <message>
+      <source>Visitor messages style</source>
+      <translation>Styl zpráv návštěvníka</translation>
+    </message>
+    <message>
+      <source>Operator messages style</source>
+      <translation>Styl zpráv operátora</translation>
+    </message>
+    <message>
+      <source>General settings</source>
+      <translation>Obecné nastavení</translation>
+    </message>
+    <message>
+      <source>Text changes</source>
+      <translation>Změny textu</translation>
     </message>
     <message>
       <source>Name</source>
@@ -373,6 +389,14 @@
     <message>
       <source>Need help header text</source>
       <translation>Text hlavičky Potřebujete radu?</translation>
+    </message>
+    <message>
+      <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
+      <translation>Časový limit tooltipu Potřebujete radu?, po kolika hodinách opět zobrazit tooltip?</translation>
+    </message>
+    <message>
+      <source>Show need help tooltip?</source>
+      <translation>Zobrazit tooltip Potřebujete radu?</translation>
     </message>
     <message>
       <source>Need help standard text</source>
@@ -541,6 +565,50 @@
     <message>
       <source>Popup image</source>
       <translation>Obrázek vyskakovacího okna</translation>
+    </message>
+    <message>
+      <source>Visitor buble background color</source>
+      <translation>Barva pozadí bubliny pro návštěvníka</translation>
+    </message>
+    <message>
+      <source>Visitor title color</source>
+      <translation>Barva nadpisu návštěvníka</translation>
+    </message>
+    <message>
+      <source>Visitor text color</source>
+      <translation>Barva textu návštěvníka</translation>
+    </message>
+    <message>
+      <source>Operator buble background color</source>
+      <translation>Barva pozadí bubliny operátora</translation>
+    </message>
+    <message>
+      <source>Operator title color</source>
+      <translation>Barva nadpisu operátora</translation>
+    </message>
+    <message>
+      <source>Operator text color</source>
+      <translation>Barva textu operátora</translation>
+    </message>
+    <message>
+      <source>Show voting thumbs?</source>
+      <translation>Zobrazit volební palce?</translation>
+    </message>
+    <message>
+      <source>Use different title for department? E.g Location</source>
+      <translation>Používat rozdílný název oddělení? Např. umístění</translation>
+    </message>
+    <message>
+      <source>Location</source>
+      <translation>Umístění</translation>
+    </message>
+    <message>
+      <source>Additional option before department selection</source>
+      <translation>Další volba před výběrem oddělení</translation>
+    </message>
+    <message>
+      <source>Choose department</source>
+      <translation>Zvolte oddělení</translation>
     </message>
     <message>
       <source>Widget themes</source>
@@ -1114,172 +1182,6 @@
     </message>
   </context>
   <context>
-    <name>chat/activechats</name>
-    <message>
-      <source>Information</source>
-      <translation>Informace</translation>
-    </message>
-    <message>
-      <source>Active chats list</source>
-      <translation>Seznam aktivních rozhovorů</translation>
-    </message>
-    <message>
-      <source>Chats lists</source>
-      <translation>Seznam rozhovorů</translation>
-    </message>
-    <message>
-      <source>Active chats</source>
-      <translation>Aktivní rozhovory</translation>
-    </message>
-    <message>
-      <source>Close chat</source>
-      <translation>Ukončit rozhovor</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>Smazat rozhovor</translation>
-    </message>
-    <message>
-      <source>Open in a new window</source>
-      <translation>Otevřít v novém okně</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Prázdné...</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/lists/search_panel</name>
-    <message>
-      <source>Delete selected</source>
-      <translation>Smazat označené</translation>
-    </message>
-    <message>
-      <source>Nick</source>
-      <translation>Přezdívka</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-mail</translation>
-    </message>
-    <message>
-      <source>Date range from to</source>
-      <translation>Rozsah dat od do</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Oddělení</translation>
-    </message>
-    <message>
-      <source>User</source>
-      <translation>Uživatel</translation>
-    </message>
-    <message>
-      <source>Vote status</source>
-      <translation>Stav hlasování</translation>
-    </message>
-    <message>
-      <source>Any</source>
-      <translation>Libovolný</translation>
-    </message>
-    <message>
-      <source>Not Voted</source>
-      <translation>Nehlasováno</translation>
-    </message>
-    <message>
-      <source>Up Voted</source>
-      <translation>Hlasoval pro</translation>
-    </message>
-    <message>
-      <source>Down vote</source>
-      <translation>Hlasovat proti</translation>
-    </message>
-    <message>
-      <source>Chat status</source>
-      <translation>Stav rozhovoru</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>Čekající rozhovory</translation>
-    </message>
-    <message>
-      <source>Active chats</source>
-      <translation>Aktivní rozhovory</translation>
-    </message>
-    <message>
-      <source>Closed chats</source>
-      <translation>Ukončené rozhovory</translation>
-    </message>
-    <message>
-      <source>Chatbox chats</source>
-      <translation>Chatbox rozhovory</translation>
-    </message>
-    <message>
-      <source>Operators chats</source>
-      <translation>Rozhovory operátorů</translation>
-    </message>
-    <message>
-      <source>Has unread messages</source>
-      <translation>Má nepřečtené zprávy</translation>
-    </message>
-    <message>
-      <source>Search</source>
-      <translation>Hledat</translation>
-    </message>
-    <message>
-      <source>Print</source>
-      <translation>Tisk</translation>
-    </message>
-    <message>
-      <source>XLS</source>
-      <translation>XLS</translation>
-    </message>
-    <message>
-      <source>XLS (with content)</source>
-      <translation>XLS (s obsahem)</translation>
-    </message>
-    <message>
-      <source>Select department</source>
-      <translation>Zvolte oddělení</translation>
-    </message>
-    <message>
-      <source>Select user</source>
-      <translation>Zvolte uživatele</translation>
-    </message>
-    <message>
-      <source>Type to search</source>
-      <translation>Pište pro hledání</translation>
-    </message>
-    <message>
-      <source>Choose department</source>
-      <translation>Zvolte oddělení</translation>
-    </message>
-    <message>
-      <source>Group by</source>
-      <translation>Seskupit podle</translation>
-    </message>
-    <message>
-      <source>Month</source>
-      <translation>Měsíc</translation>
-    </message>
-    <message>
-      <source>Day</source>
-      <translation>Den</translation>
-    </message>
-    <message>
-      <source>Group results by operator</source>
-      <translation>Sloučené výsledky podle operátora</translation>
-    </message>
-    <message>
-      <source>Minimum chats</source>
-      <translation>Minimum rozhovorů</translation>
-    </message>
-    <message>
-      <source>Optional</source>
-      <translation>Volitelné</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/chat</name>
     <message>
       <source>Show/Hide right column</source>
@@ -1561,6 +1463,10 @@
       <translation>E-mail</translation>
     </message>
     <message>
+      <source>Visible only if online</source>
+      <translation>Viditelné, pokud je online</translation>
+    </message>
+    <message>
       <source>Disabled</source>
       <translation>Vypnuto</translation>
     </message>
@@ -1730,7 +1636,7 @@
     </message>
     <message>
       <source>To what department chat should be transferred if it is not accepted</source>
-      <translation>Na jaké oddělení má být rozhovor převeden, pokud není přijat</translation>
+      <translation>Na jaké oddělení by měl být rozhovor přesměrován, pokud nebyl přijat</translation>
     </message>
     <message>
       <source>Timeout in seconds before chat is transferred to another department. Minimum 5 seconds.</source>
@@ -1757,8 +1663,8 @@
       <translation>Nastavení systému</translation>
     </message>
     <message>
-      <source>departments</source>
-      <translation>oddělení</translation>
+      <source>Departments</source>
+      <translation>Oddělení</translation>
     </message>
     <message>
       <source>Edit a department</source>
@@ -2528,6 +2434,14 @@
       <translation>Neplatný soubor</translation>
     </message>
     <message>
+      <source>Please choose</source>
+      <translation>Vyberte, prosím</translation>
+    </message>
+    <message>
+      <source>Please choose department!</source>
+      <translation>Vyberte, prosím, oddělení!</translation>
+    </message>
+    <message>
       <source>Could not determine a default department!</source>
       <translation>Nelze zjistit výchozí oddělení!</translation>
     </message>
@@ -2596,42 +2510,7 @@
     </message>
   </context>
   <context>
-    <name>chat/closedchats</name>
-    <message>
-      <source>Information</source>
-      <translation>Informace</translation>
-    </message>
-    <message>
-      <source>Open in a new window</source>
-      <translation>Otevřít v novém okně</translation>
-    </message>
-    <message>
-      <source>Closed chats list</source>
-      <translation>Seznam ukončených rozhovorů</translation>
-    </message>
-    <message>
-      <source>Chats list</source>
-      <translation>Seznam rozhovorů</translation>
-    </message>
-    <message>
-      <source>Closed chats</source>
-      <translation>Ukončené rozhovory</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>Smazat rozhovor</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Prázdné...</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/user_settings</name>
-    <message>
-      <source>Enable/Disable sound about new messages from the operator</source>
-      <translation>Zapnout/vypnout zvukovou signalizaci nových zpráv od operátora</translation>
-    </message>
     <message>
       <source>Print</source>
       <translation>Tisk</translation>
@@ -2639,6 +2518,10 @@
     <message>
       <source>Send chat transcript to your e-mail</source>
       <translation>Odeslat přepis rozhovoru na Váš email</translation>
+    </message>
+    <message>
+      <source>Enable/Disable sound about new messages from the operator</source>
+      <translation>Zapnout/vypnout zvukovou signalizaci nových zpráv od operátora</translation>
     </message>
     <message>
       <source>Enable/Disable sound about new messages from users</source>
@@ -2692,8 +2575,8 @@
       <translation>Nepřečtené rozhovory</translation>
     </message>
     <message>
-      <source>Transferred chats</source>
-      <translation>Předané rozhovory</translation>
+      <source>Transfered chats</source>
+      <translation>Přesměrované rozhovory</translation>
     </message>
     <message>
       <source>Closed chats</source>
@@ -3180,6 +3063,10 @@
       <translation>Uživatel nevede v současnosti žádný rozhovor</translation>
     </message>
     <message>
+      <source>Operator</source>
+      <translation>Operátor</translation>
+    </message>
+    <message>
       <source>has send message to user</source>
       <translation>odeslal zprávu uživateli</translation>
     </message>
@@ -3249,7 +3136,7 @@
     </message>
     <message>
       <source>Online visitors on map</source>
-      <translation>Online uživatelé na mapě</translation>
+      <translation>Mapa online návštěvníků</translation>
     </message>
     <message>
       <source>Enable/Disable sound about new visitor</source>
@@ -3489,85 +3376,6 @@
     </message>
   </context>
   <context>
-    <name>chat/listchatconfig</name>
-    <message>
-      <source>Notifications about new chats</source>
-      <translation>Upozornění nových rozhovorů</translation>
-    </message>
-    <message>
-      <source>Copyright settings</source>
-      <translation>Nastavení autorských práv</translation>
-    </message>
-    <message>
-      <source>Online tracking</source>
-      <translation>Online sledování</translation>
-    </message>
-    <message>
-      <source>Misc</source>
-      <translation>Různé</translation>
-    </message>
-    <message>
-      <source>Visitor activity</source>
-      <translation>Aktivita uživatele</translation>
-    </message>
-    <message>
-      <source>Workflow</source>
-      <translation>Workflow</translation>
-    </message>
-    <message>
-      <source>Application name</source>
-      <translation>Název aplikace</translation>
-    </message>
-    <message>
-      <source>Site settings</source>
-      <translation>Nastavení stránek</translation>
-    </message>
-    <message>
-      <source>Cookie related</source>
-      <translation>Vztahující se ke cookie</translation>
-    </message>
-    <message>
-      <source>Chat related</source>
-      <translation>Vztahující se k rozhovoru</translation>
-    </message>
-    <message>
-      <source>Online if</source>
-      <translation>Online pokud</translation>
-    </message>
-    <message>
-      <source>(Widget is open) or (closed and user has activity in last 5 minutes and ping respond)</source>
-      <translation>(Widget je otevřený) nebo (zavřený a uživatel byl v posledních 5 minutách aktivní a máme odezvu)</translation>
-    </message>
-    <message>
-      <source>(Widget is open or closed) and (user has activity in last 5 minutes and ping respond)</source>
-      <translation>(Widget je otevřený nebo zavřený) nebo (uživatel byl v posledních 5 minutách aktivní a máme odezvu)</translation>
-    </message>
-    <message>
-      <source>Update</source>
-      <translation>Aktualizace</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Nastavení bylo aktualizováno</translation>
-    </message>
-    <message>
-      <source>This determines should status widget change it&apos;s status once operator logins. Recommended value 290</source>
-      <translation>Toto rozhoduje, zda se má stav stavového widgetu změnit po přihlášení operátora. Doporučená hodnota 290</translation>
-    </message>
-    <message>
-      <source>Screen sharing</source>
-      <translation>Sdílení obrazovky</translation>
-    </message>
-    <message>
-      <source>Chat configuration</source>
-      <translation>Nastavení rozhovoru</translation>
-    </message>
-    <message>
-      <source>List chat configuration</source>
-      <translation>Konfigurace seznamu rozhovorů</translation>
-    </message>
-  </context>
-  <context>
     <name>system/configuration</name>
     <message>
       <source>Request notification permission</source>
@@ -3600,18 +3408,6 @@
     <message>
       <source>Languages configuration</source>
       <translation>Nastavení jazyků</translation>
-    </message>
-    <message>
-      <source>Users</source>
-      <translation>Uživatelé</translation>
-    </message>
-    <message>
-      <source>List of groups</source>
-      <translation>Seznam skupin</translation>
-    </message>
-    <message>
-      <source>List of roles</source>
-      <translation>Seznam rolí</translation>
     </message>
     <message>
       <source>GEO detection configuration</source>
@@ -3706,6 +3502,10 @@
       <translation>Průzkumy</translation>
     </message>
     <message>
+      <source>Synchronization and sound settings</source>
+      <translation>Nastavení synchronizace a zvuku</translation>
+    </message>
+    <message>
       <source>Theming</source>
       <translation>Šablonování</translation>
     </message>
@@ -3726,6 +3526,18 @@
       <translation>Automatický překlad</translation>
     </message>
     <message>
+      <source>Users</source>
+      <translation>Uživatelé</translation>
+    </message>
+    <message>
+      <source>List of groups</source>
+      <translation>Seznam skupin</translation>
+    </message>
+    <message>
+      <source>List of roles</source>
+      <translation>Seznam rolí</translation>
+    </message>
+    <message>
       <source>XMPP settings</source>
       <translation>Nastavení XMPP</translation>
     </message>
@@ -3736,10 +3548,6 @@
     <message>
       <source>Departments</source>
       <translation>Oddělení</translation>
-    </message>
-    <message>
-      <source>Synchronization and sound settings</source>
-      <translation>Nastavení synchronizace a zvuku</translation>
     </message>
     <message>
       <source>Embed code</source>
@@ -3763,10 +3571,210 @@
     </message>
   </context>
   <context>
-    <name>chat/lists</name>
+    <name>chat/listchatconfig</name>
     <message>
-      <source>Choose what type of list you want to see</source>
-      <translation>Vyberte typ seznamu, který chcete zobrazit</translation>
+      <source>Application name</source>
+      <translation>Název aplikace</translation>
+    </message>
+    <message>
+      <source>Site settings</source>
+      <translation>Nastavení stránek</translation>
+    </message>
+    <message>
+      <source>Cookie related</source>
+      <translation>Vztahující se ke cookie</translation>
+    </message>
+    <message>
+      <source>Chat related</source>
+      <translation>Vztahující se k rozhovoru</translation>
+    </message>
+    <message>
+      <source>Misc</source>
+      <translation>Různé</translation>
+    </message>
+    <message>
+      <source>Online if</source>
+      <translation>Online pokud</translation>
+    </message>
+    <message>
+      <source>(Widget is open) or (closed and user has activity in last 5 minutes and ping respond)</source>
+      <translation>(Widget je otevřený) nebo (zavřený a uživatel byl v posledních 5 minutách aktivní a máme odezvu)</translation>
+    </message>
+    <message>
+      <source>(Widget is open or closed) and (user has activity in last 5 minutes and ping respond)</source>
+      <translation>(Widget je otevřený nebo zavřený) nebo (uživatel byl v posledních 5 minutách aktivní a máme odezvu)</translation>
+    </message>
+    <message>
+      <source>Update</source>
+      <translation>Aktualizace</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Nastavení bylo aktualizováno</translation>
+    </message>
+    <message>
+      <source>This determines should status widget change it&apos;s status once operator logins. Recommended value 290</source>
+      <translation>Toto rozhoduje, zda se má stav stavového widgetu změnit po přihlášení operátora. Doporučená hodnota 290</translation>
+    </message>
+    <message>
+      <source>Screen sharing</source>
+      <translation>Sdílení obrazovky</translation>
+    </message>
+    <message>
+      <source>Notifications about new chats</source>
+      <translation>Upozornění nových rozhovorů</translation>
+    </message>
+    <message>
+      <source>Copyright settings</source>
+      <translation>Nastavení autorských práv</translation>
+    </message>
+    <message>
+      <source>Online tracking</source>
+      <translation>Online sledování</translation>
+    </message>
+    <message>
+      <source>Visitor activity</source>
+      <translation>Aktivita uživatele</translation>
+    </message>
+    <message>
+      <source>Workflow</source>
+      <translation>Workflow</translation>
+    </message>
+    <message>
+      <source>Chat configuration</source>
+      <translation>Nastavení rozhovoru</translation>
+    </message>
+    <message>
+      <source>List chat configuration</source>
+      <translation>Konfigurace seznamu rozhovorů</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/pendingchats</name>
+    <message>
+      <source>Information</source>
+      <translation>Informace</translation>
+    </message>
+    <message>
+      <source>Status</source>
+      <translation>Stav</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Otevřít v novém okně</translation>
+    </message>
+    <message>
+      <source>Reject chat</source>
+      <translation>Odmítnout rozhovor</translation>
+    </message>
+    <message>
+      <source>Pending chat</source>
+      <translation>Čekající rozhovor</translation>
+    </message>
+    <message>
+      <source>Active chat</source>
+      <translation>Aktivní rozhovor</translation>
+    </message>
+    <message>
+      <source>Closed chat</source>
+      <translation>Ukončený rozhovor</translation>
+    </message>
+    <message>
+      <source>Chatbox chat</source>
+      <translation>Chatbox rozhovor</translation>
+    </message>
+    <message>
+      <source>Operators chat</source>
+      <translation>Rozhovor operátorů</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Prázdné...</translation>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>Seznam rozhovorů</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/activechats</name>
+    <message>
+      <source>Close chat</source>
+      <translation>Ukončit rozhovor</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Smazat rozhovor</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Otevřít v novém okně</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Prázdné...</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/closedchats</name>
+    <message>
+      <source>Delete chat</source>
+      <translation>Smazat rozhovor</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Prázdné...</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/lists/search_panel</name>
+    <message>
+      <source>Delete selected</source>
+      <translation>Smazat označené</translation>
+    </message>
+    <message>
+      <source>Nick</source>
+      <translation>Přezdívka</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Date range from to</source>
+      <translation>Rozsah dat od do</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Oddělení</translation>
+    </message>
+    <message>
+      <source>User</source>
+      <translation>Uživatel</translation>
+    </message>
+    <message>
+      <source>Vote status</source>
+      <translation>Stav hlasování</translation>
+    </message>
+    <message>
+      <source>Any</source>
+      <translation>Libovolný</translation>
+    </message>
+    <message>
+      <source>Not Voted</source>
+      <translation>Nehlasováno</translation>
+    </message>
+    <message>
+      <source>Up Voted</source>
+      <translation>Hlasoval pro</translation>
+    </message>
+    <message>
+      <source>Down vote</source>
+      <translation>Hlasovat proti</translation>
+    </message>
+    <message>
+      <source>Chat status</source>
+      <translation>Stav rozhovoru</translation>
     </message>
     <message>
       <source>Pending chats</source>
@@ -3781,16 +3789,72 @@
       <translation>Ukončené rozhovory</translation>
     </message>
     <message>
+      <source>Chatbox chats</source>
+      <translation>Chatbox rozhovory</translation>
+    </message>
+    <message>
       <source>Operators chats</source>
       <translation>Rozhovory operátorů</translation>
     </message>
     <message>
-      <source>Chats with unread messages</source>
-      <translation>Rozhovory s nepřečtenými zprávami</translation>
+      <source>Has unread messages</source>
+      <translation>Má nepřečtené zprávy</translation>
     </message>
     <message>
-      <source>Chat lists</source>
-      <translation>Seznamy rozhovorů</translation>
+      <source>Search</source>
+      <translation>Hledat</translation>
+    </message>
+    <message>
+      <source>Print</source>
+      <translation>Tisk</translation>
+    </message>
+    <message>
+      <source>XLS</source>
+      <translation>XLS</translation>
+    </message>
+    <message>
+      <source>XLS (with content)</source>
+      <translation>XLS (s obsahem)</translation>
+    </message>
+    <message>
+      <source>Select department</source>
+      <translation>Zvolte oddělení</translation>
+    </message>
+    <message>
+      <source>Select user</source>
+      <translation>Zvolte uživatele</translation>
+    </message>
+    <message>
+      <source>Type to search</source>
+      <translation>Pište pro hledání</translation>
+    </message>
+    <message>
+      <source>Choose department</source>
+      <translation>Zvolte oddělení</translation>
+    </message>
+    <message>
+      <source>Group by</source>
+      <translation>Seskupit podle</translation>
+    </message>
+    <message>
+      <source>Month</source>
+      <translation>Měsíc</translation>
+    </message>
+    <message>
+      <source>Day</source>
+      <translation>Den</translation>
+    </message>
+    <message>
+      <source>Group results by operator</source>
+      <translation>Sloučené výsledky podle operátora</translation>
+    </message>
+    <message>
+      <source>Minimum chats</source>
+      <translation>Minimum rozhovorů</translation>
+    </message>
+    <message>
+      <source>Optional</source>
+      <translation>Volitelné</translation>
     </message>
   </context>
   <context>
@@ -3857,7 +3921,7 @@
     </message>
     <message>
       <source>Transferred chats</source>
-      <translation>Předané rozhovory</translation>
+      <translation>Přesměrované rozhovory</translation>
     </message>
     <message>
       <source>Clean cache</source>
@@ -3896,12 +3960,12 @@
       <translation>Rozhovor</translation>
     </message>
     <message>
-      <source>Settings</source>
-      <translation>Nastavení</translation>
-    </message>
-    <message>
       <source>Dashboard</source>
       <translation>Nástěnka</translation>
+    </message>
+    <message>
+      <source>Settings</source>
+      <translation>Nastavení</translation>
     </message>
     <message>
       <source>Menu</source>
@@ -3972,72 +4036,6 @@
     <message>
       <source>Chats duration was updated</source>
       <translation>Délka rozhovoru byla aktualizována</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/operatorschats</name>
-    <message>
-      <source>Operators chats list</source>
-      <translation>Seznam rozhovorů operátorů</translation>
-    </message>
-    <message>
-      <source>Operators chats</source>
-      <translation>Rozhovory operátorů</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/pendingchats</name>
-    <message>
-      <source>Pending chats list</source>
-      <translation>Seznam čekajících rozhovorů</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>Čekající rozhovory</translation>
-    </message>
-    <message>
-      <source>Information</source>
-      <translation>Informace</translation>
-    </message>
-    <message>
-      <source>Status</source>
-      <translation>Stav</translation>
-    </message>
-    <message>
-      <source>Open in a new window</source>
-      <translation>Otevřít v novém okně</translation>
-    </message>
-    <message>
-      <source>Reject chat</source>
-      <translation>Odmítnout rozhovor</translation>
-    </message>
-    <message>
-      <source>Pending chat</source>
-      <translation>Čekající rozhovor</translation>
-    </message>
-    <message>
-      <source>Active chat</source>
-      <translation>Aktivní rozhovor</translation>
-    </message>
-    <message>
-      <source>Closed chat</source>
-      <translation>Ukončený rozhovor</translation>
-    </message>
-    <message>
-      <source>Chatbox chat</source>
-      <translation>Chatbox rozhovor</translation>
-    </message>
-    <message>
-      <source>Operators chat</source>
-      <translation>Rozhovor operátorů</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Prázdné...</translation>
-    </message>
-    <message>
-      <source>Chats list</source>
-      <translation>Seznam rozhovorů</translation>
     </message>
   </context>
   <context>
@@ -4475,21 +4473,6 @@
     </message>
   </context>
   <context>
-    <name>chat/unreadchats</name>
-    <message>
-      <source>Unread chats list</source>
-      <translation>Seznam nepřečtených rozhovorů</translation>
-    </message>
-    <message>
-      <source>Information</source>
-      <translation>Informace</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Prázdné...</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/modifychat</name>
     <message>
       <source>Modify chat</source>
@@ -4809,18 +4792,18 @@
     <name>chat/userjoined</name>
     <message>
       <source>Visitor has joined the chat!</source>
-      <translation>Uživatel se připojil k rozhovoru!</translation>
+      <translation>Návštěvník se připojil k rozhovoru!</translation>
     </message>
     <message>
       <source>Visitor has joined the chat from popup chat window!</source>
-      <translation>Uživatel se připojil k rozhovoru z vyskakovacího okna!</translation>
+      <translation>Návštěvník se připojil k rozhovoru přes vyskakovací okno rozhovoru!</translation>
     </message>
   </context>
   <context>
     <name>chat/userleftchat</name>
     <message>
       <source>Visitor has left the chat!</source>
-      <translation>Uživatel opustil rozhovor!</translation>
+      <translation>Návštěvník opustil rozhovor!</translation>
     </message>
   </context>
   <context>

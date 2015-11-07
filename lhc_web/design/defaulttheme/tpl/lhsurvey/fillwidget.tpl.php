@@ -22,3 +22,9 @@
     <?php endif;?>
     
 </form>
+
+
+<script type="text/javascript">
+lhinst.setChatID('<?php echo $chat->id?>');
+lhinst.setChatHash('<?php echo $chat->hash?>');
+</script>

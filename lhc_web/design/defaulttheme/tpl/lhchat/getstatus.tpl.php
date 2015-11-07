@@ -122,7 +122,7 @@ var lh_inst  = {
 
     hasSurvey : <?php echo $survey !== false ? 'true ': 'false'?>,
     surveyShown : false,
-    
+    explicitClose : false,
     windowname : "startchatwindow",
 	substatus : '',
     cookieData : {},
@@ -289,7 +289,8 @@ var lh_inst  = {
 		    var vidAppend = this.cookieDataPers.vid ? '/(vid)/'+this.cookieDataPers.vid : '';
 		    var hashResume = this.cookieData.hash_resume ? '/(hash_resume)/'+this.cookieData.hash_resume : '';
 		    var soundOption = this.cookieData.s ? '/(sound)/'+this.cookieData.s : '';
-		    return hashAppend+vidAppend+hashResume+soundOption;
+		    var explicitClose = this.explicitClose ? '/(eclose)/t' : '';
+		    return hashAppend+vidAppend+hashResume+soundOption+explicitClose;
     },
 
     openRemoteWindow : function() {
@@ -914,7 +915,7 @@ var lh_inst  = {
         this.resetTimeoutActivity();
         <?php endif;?> 
     },  
-        
+       
     handleMessage : function(e) {
     	var action = e.data.split(':')[0];    	
     	    	
@@ -942,6 +943,9 @@ var lh_inst  = {
     		lh_inst.makeScreenshot();
     	} else if (action == 'lhc_disable_survey') {
     		lh_inst.surveyShown = true;
+    	} else if (action == 'lhc_chat_closed_explicit') {    	  
+    	    lh_inst.explicitClose = true;
+    		lh_inst.hide();
     	} else if (action == 'lhc_chat_closed') {
     		lh_inst.showSurvey();
     	} else if (action == 'lhc_cobrowse') {

@@ -1066,7 +1066,7 @@ class erLhcoreClassChat {
    
    public static function canReopen(erLhcoreClassModelChat $chat, $skipStatusCheck = false) {
    		if ( ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT || $skipStatusCheck == true)) {
-			if ($chat->last_user_msg_time > time()-600 || $chat->last_user_msg_time == 0){
+			if ($chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT && ($chat->last_user_msg_time > time()-600 || $chat->last_user_msg_time == 0)) {
 				return true;
 			} else {
 				return false;
@@ -1081,7 +1081,7 @@ class erLhcoreClassChat {
 		   		$parts = explode('_', $chatPart);
 		   		$chat = erLhcoreClassModelChat::fetch($parts[0]);
 		   		
-		   		if ( ($chat->last_user_msg_time > time()-600 || $chat->last_user_msg_time == 0) && (!isset($params['reopen_closed']) || $params['reopen_closed'] == 1 || ($params['reopen_closed'] == 0 && $chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT))) {
+		   		if (($chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT) && ($chat->last_user_msg_time > time()-600 || $chat->last_user_msg_time == 0) && (!isset($params['reopen_closed']) || $params['reopen_closed'] == 1 || ($params['reopen_closed'] == 0 && $chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT))) {
 		   			return array('id' => $parts[0],'hash' => $parts[1]);
 		   		} else {
 					return false;

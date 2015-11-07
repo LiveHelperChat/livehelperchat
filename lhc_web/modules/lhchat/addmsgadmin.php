@@ -79,7 +79,8 @@ if (trim($form->msg) != '')
     		        	}
     	        	}
     	
-    	        	if ($Chat->user_status == erLhcoreClassModelChat::USER_STATUS_CLOSED_CHAT) {
+    	        	// Chat can be reopened only if user did not ended chat explictly
+    	        	if ($Chat->user_status == erLhcoreClassModelChat::USER_STATUS_CLOSED_CHAT && $Chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT) {
     	        		$Chat->user_status = erLhcoreClassModelChat::USER_STATUS_PENDING_REOPEN;
     	        		if ( ($onlineuser = $Chat->online_user) !== false) {
     	        			$onlineuser->reopen_chat = 1;

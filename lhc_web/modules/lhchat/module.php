@@ -337,7 +337,7 @@ $ViewList['logpageview'] = array(
 
 $ViewList['chatwidgetclosed'] = array(
     'params' => array(),
-    'uparams' => array('vid','hash'),
+    'uparams' => array('vid','hash','eclose'),
 );
 
 $ViewList['chat'] = array(
