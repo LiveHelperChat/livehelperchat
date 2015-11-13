@@ -21,8 +21,8 @@ $Result['content'] = $tpl->fetch();
 
 $Result['path'] = array(
 array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/grouplist','System configuration')),
-
 array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/grouplist','Groups'))
-)
+);
 
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.grouplist_path', array('result' => & $Result));
 ?>

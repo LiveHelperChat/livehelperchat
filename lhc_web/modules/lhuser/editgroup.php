@@ -116,13 +116,11 @@ $tpl->set('group',$Group);
 
 $Result['content'] = $tpl->fetch();
 
-
 $Result['path'] = array(
 array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','System configuration')),
-
 array('url' => erLhcoreClassDesign::baseurl('user/grouplist'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Groups')),
-
 array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Group edit').' - '.$Group->name)
-)
+);
 
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.editgroup_path',array('result' => & $Result));
 ?>

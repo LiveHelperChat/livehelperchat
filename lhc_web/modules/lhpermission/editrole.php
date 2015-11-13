@@ -153,6 +153,8 @@ $Result['content'] = $tpl->fetch();
 $Result['path'] = array(array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','System configuration')),
 array('url'=>erLhcoreClassDesign::baseurl('permission/roles'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','List of roles')),
 array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Role edit').' - '.$Role->name)
-)
+);
+
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('permission.editrole_path', array('result' => & $Result));
 
 ?>

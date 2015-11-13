@@ -20,4 +20,6 @@ $Result['path'] = array(
 array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','System configuration')),
 array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Users')));
 
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.userlist_path',array('result' => & $Result));
+
 ?>

@@ -46,16 +46,13 @@ if (isset($_POST['Save_group']) || isset($_POST['Save_group_and_assign_user']))
 }
 
 $tpl->set('group',$GroupData);
-
 $Result['content'] = $tpl->fetch();
-
 
 $Result['path'] = array(
 array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/newgroup','System configuration')),
-
 array('url' => erLhcoreClassDesign::baseurl('user/grouplist'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/newgroup','Groups')),
-
 array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/newgroup','New group'))
-)
+);
 
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.newgroup_path', array('result' => & $Result));
 ?>
