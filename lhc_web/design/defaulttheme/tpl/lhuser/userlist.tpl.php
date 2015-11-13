@@ -1,4 +1,5 @@
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Users');?></h1>
+<h1><?php include(erLhcoreClassDesign::designtpl('lhuser/titles/userlist.tpl.php')); ?></h1>
+
 <?php
 	$canEdit = $currentUser->hasAccessTo('lhuser','edituser');
 	$canDelete = $currentUser->hasAccessTo('lhuser','deleteuser');

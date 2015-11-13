@@ -1,4 +1,4 @@
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/grouplist','Groups');?></h1>
+<h1><?php include(erLhcoreClassDesign::designtpl('lhuser/titles/groups.tpl.php')); ?></h1>
 <?php
 	$canEdit = $currentUser->hasAccessTo('lhuser','editgroup');
 	$canDelete = $currentUser->hasAccessTo('lhuser','deletegroup');
