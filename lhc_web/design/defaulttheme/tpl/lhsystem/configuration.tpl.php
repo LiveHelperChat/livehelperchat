@@ -1,7 +1,6 @@
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','System configuration');?></h1>
+<h1><?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_titles/configuration_title.tpl.php'));?></h1>
 
 <?php $currentUser = erLhcoreClassUser::instance(); ?>
-
 
 <div role="tabpanel">
 
