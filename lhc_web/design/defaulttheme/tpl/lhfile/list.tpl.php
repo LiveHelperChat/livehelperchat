@@ -1,6 +1,4 @@
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','List of files');?></h1>
-
-
+<h1><?php include(erLhcoreClassDesign::designtpl('lhfile/titles/list.tpl.php'));?></h1>
 
 <?php include(erLhcoreClassDesign::designtpl('lhfile/parts/search_panel.tpl.php')); ?>
 

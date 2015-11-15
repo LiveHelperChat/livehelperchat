@@ -1,4 +1,4 @@
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/new','New file');?></h1>
+<h1><?php include(erLhcoreClassDesign::designtpl('lhfile/titles/new.tpl.php'));?></h1>
 
 <?php if (isset($errors)) : ?>
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>

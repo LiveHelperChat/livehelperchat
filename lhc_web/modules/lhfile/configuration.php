@@ -76,6 +76,8 @@ $tpl->set('file_data',$data);
 $Result['content'] = $tpl->fetch();
 $Result['path'] = array(
 		array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','System configuration')),
-		array('url' => erLhcoreClassDesign::baseurl('file/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','File configuration')))
+		array('url' => erLhcoreClassDesign::baseurl('file/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','File configuration')));
+
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.configuration_path', array('result' => & $Result));
 
 ?>

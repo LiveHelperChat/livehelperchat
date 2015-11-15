@@ -40,4 +40,6 @@ array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => e
 array('url' => erLhcoreClassDesign::baseurl('file/list'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','List of files')),
 array('url' => erLhcoreClassDesign::baseurl('file/new'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','New file')));
 
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.new_path', array('result' => & $Result));
+
 ?>
