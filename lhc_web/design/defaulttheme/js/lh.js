@@ -1010,7 +1010,7 @@ function lh(){
 	   		LHCCallbacks.userleftchatNotification(this.chat_id);
 	    };
     
-		$.get(this.wwwDir + this.userclosechaturl + this.chat_id + '/' + this.hash,function(data){
+		$.get(this.wwwDir + this.userclosechaturl + this.chat_id + '/' + this.hash + '/(eclose)/t',function(data){
 			lhinst.closeWindow();
 	    });
 	};

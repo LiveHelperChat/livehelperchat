@@ -367,7 +367,7 @@ $ViewList['chatwidgetchat'] = array(
 );
 
 $ViewList['userclosechat'] = array(
-    'params' => array('chat_id','hash')
+    'params' => array('chat_id','hash','eclose')
 );
 
 $ViewList['onlineusers'] = array(
