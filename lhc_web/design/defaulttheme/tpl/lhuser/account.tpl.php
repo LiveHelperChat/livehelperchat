@@ -41,6 +41,9 @@
 
 <div class="tab-content">
 	<div role="tabpanel" class="tab-pane <?php if ($tab == '') : ?>active<?php endif;?>" id="account">
+	
+	    <?php include(erLhcoreClassDesign::designtpl('lhuser/account/above_account_multiinclude.tpl.php'));?>  
+	
 		<div class="explain"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Do not enter a password unless you want to change it');?></div>
 		<br />
 		<form action="<?php echo erLhcoreClassDesign::baseurl('user/account')?>" method="post" autocomplete="off" enctype="multipart/form-data">

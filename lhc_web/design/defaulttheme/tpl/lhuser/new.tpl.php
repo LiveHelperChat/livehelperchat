@@ -16,7 +16,9 @@
 
 <div class="tab-content">
 	<div role="tabpanel" class="tab-pane <?php if ($tab == '') : ?>active<?php endif;?>" id="account">
-	   <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+	    <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+		
+		<?php include(erLhcoreClassDesign::designtpl('lhuser/account/above_account_new_multiinclude.tpl.php'));?>
 		
 		<div class="form-group">
 		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Username');?></label>
