@@ -131,10 +131,7 @@
     		    		    
     		    <?php $attribute = 'allow_reopen_closed';$boolValue = true;?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
-    		   		   		    
-    		    <?php $attribute = 'track_is_online';$boolValue = true;?>
-    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
-    		     		    
+    		   			     		    
     		    <?php $attribute = 'min_phone_length';?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
     		    
