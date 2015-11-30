@@ -1,0 +1,1 @@
+<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Online if');?></label>

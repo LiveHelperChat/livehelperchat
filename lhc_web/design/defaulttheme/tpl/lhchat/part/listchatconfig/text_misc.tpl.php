@@ -1,0 +1,1 @@
+<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Misc');?></h4>
