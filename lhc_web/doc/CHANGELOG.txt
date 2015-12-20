@@ -1,6 +1,10 @@
 2.40v
 1. Option to force close chat on widget close button. At the moment it just closes widget. But on operator side there is no indication for that. 
 2. Custom field for sort priority
+3. https://github.com/LiveHelperChat/livehelperchat/issues/800
+4. https://github.com/LiveHelperChat/livehelperchat/issues/810
+5. https://github.com/LiveHelperChat/livehelperchat/issues/803
+6. https://github.com/LiveHelperChat/livehelperchat/issues/796
 
 2.39v
 
