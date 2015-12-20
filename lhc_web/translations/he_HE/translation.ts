@@ -6,6 +6,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>למשך כמה ימים יש להציג את אפשרות ההצבעה לאחר שהוצגו פעם אחרונה?</translation>
     </message>
@@ -361,6 +365,10 @@
     <message>
       <source>Custom CSS</source>
       <translation>CSS מותאם אישית</translation>
+    </message>
+    <message>
+      <source>Live preview</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visitor messages style</source>
@@ -2517,6 +2525,10 @@
     </message>
     <message>
       <source>Send chat transcript to your e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>End the chat</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4803,6 +4815,10 @@
     <name>chat/userleftchat</name>
     <message>
       <source>Visitor has left the chat!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor has closed the chat explicitly!</source>
       <translation type="unfinished"/>
     </message>
   </context>

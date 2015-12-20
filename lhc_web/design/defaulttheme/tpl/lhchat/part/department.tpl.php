@@ -6,6 +6,8 @@ if (isset($input_data->departament_id_array)){
 	$filter['filterin']['id'] = $input_data->departament_id_array;
 }
 
+$filter['sort'] = 'sort_priority ASC, name ASC';
+
 $departments = erLhcoreClassModelDepartament::getList($filter);
 
 // Show only if there are more than 1 department

@@ -12,6 +12,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>List online operators.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -128,6 +136,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>On chat close exit chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source/>
       <translation type="unfinished"/>
     </message>
@@ -156,7 +168,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>List online operators.</source>
+      <source>List online operators, 0 - no, 1 - yes.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -173,6 +185,10 @@
     </message>
     <message>
       <source>Hide disabled department widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide close button in dropdown</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1061,6 +1077,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Disable online tracking, overrides system configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Survey at the end of chat</source>
       <translation type="unfinished"/>
     </message>
@@ -1457,6 +1477,10 @@
   <context>
     <name>department/edit</name>
     <message>
+      <source>Priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Any</source>
       <translation type="unfinished"/>
     </message>
@@ -1493,7 +1517,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Priority</source>
+      <source>Priority, used for chats priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority, used for departments sort</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3396,11 +3424,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Supported: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Supported: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
+      <source>Close button</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3408,7 +3432,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>System configuration</source>
+      <source>Supported: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Supported: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3564,6 +3592,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>System configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Embed code</source>
       <translation type="unfinished"/>
     </message>
@@ -3595,22 +3627,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Cookie related</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat related</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Misc</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online if</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>(Widget is open) or (closed and user has activity in last 5 minutes and ping respond)</source>
       <translation type="unfinished"/>
     </message>
@@ -3624,10 +3640,6 @@
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>This determines should status widget change it's status once operator logins. Recommended value 290</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3647,6 +3659,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Misc</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitor activity</source>
       <translation type="unfinished"/>
     </message>
@@ -3656,6 +3672,22 @@
     </message>
     <message>
       <source>Chat configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online if</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat related</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Cookie related</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This determines should status widget change it's status once operator logins. Recommended value 290</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5621,10 +5653,6 @@
   <context>
     <name>file/configuration</name>
     <message>
-      <source>File configuration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Allowed files types for operators</source>
       <translation type="unfinished"/>
     </message>
@@ -5641,6 +5669,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>File configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter valid file type!</source>
       <translation type="unfinished"/>
     </message>
@@ -5652,10 +5684,6 @@
   <context>
     <name>file/new</name>
     <message>
-      <source>New file</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>File name</source>
       <translation type="unfinished"/>
     </message>
@@ -5665,6 +5693,10 @@
     </message>
     <message>
       <source>File uploaded</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New file</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -7058,10 +7090,6 @@
   <context>
     <name>user/grouplist</name>
     <message>
-      <source>Groups</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Name</source>
       <translation type="unfinished"/>
     </message>
@@ -7075,6 +7103,10 @@
     </message>
     <message>
       <source>New group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Groups</source>
       <translation type="unfinished"/>
     </message>
     <message>

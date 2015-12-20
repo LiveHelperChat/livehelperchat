@@ -6,6 +6,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -360,6 +364,10 @@
     </message>
     <message>
       <source>Custom CSS</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live preview</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2518,6 +2526,10 @@
     <message>
       <source>Send chat transcript to your e-mail</source>
       <translation>ส่งเสียงบรรยายสนทนาไปยังอีเมลของคุณ</translation>
+    </message>
+    <message>
+      <source>End the chat</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Enable/Disable sound about new messages from the operator</source>
@@ -4803,6 +4815,10 @@
     <name>chat/userleftchat</name>
     <message>
       <source>Visitor has left the chat!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor has closed the chat explicitly!</source>
       <translation type="unfinished"/>
     </message>
   </context>

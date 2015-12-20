@@ -2658,6 +2658,14 @@
                 "extra": ""
             },
             {
+                "field": "sort_priority",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "visible_if_online",
                 "type": "tinyint(1)",
                 "null": "NO",
@@ -4099,6 +4107,20 @@
                 "hidden": "0"
             },
             {
+                "identifier": "hide_button_dropdown",
+                "value": "0",
+                "type": "0",
+                "explain": "Hide close button in dropdown",
+                "hidden": "0"
+            },
+            {
+                "identifier": "on_close_exit_chat",
+                "value": "0",
+                "type": "0",
+                "explain": "On chat close exit chat",
+                "hidden": "0"
+            },
+            {
                 "identifier": "bbc_button_visible",
                 "value": "1",
                 "type": "0",
@@ -5159,7 +5181,8 @@
     		"new" : {
     			"attr_int_1" : "ALTER TABLE `lh_departament` ADD INDEX `attr_int_1` (`attr_int_1`);",
     			"attr_int_2" : "ALTER TABLE `lh_departament` ADD INDEX `attr_int_2` (`attr_int_2`);",
-    			"attr_int_3" : "ALTER TABLE `lh_departament` ADD INDEX `attr_int_3` (`attr_int_3`);"
+    			"attr_int_3" : "ALTER TABLE `lh_departament` ADD INDEX `attr_int_3` (`attr_int_3`);",
+    			"sort_priority_name" : "ALTER TABLE `lh_departament` ADD INDEX `sort_priority_name` (`sort_priority`,`name`);"
     		},
     		"old" : []
     	},

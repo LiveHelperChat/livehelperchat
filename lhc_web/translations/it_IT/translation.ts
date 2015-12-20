@@ -6,6 +6,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Per quanti giorni il widget di voto non deve essere mostrato dopo l&apos;ultima visualizzazione</translation>
     </message>
@@ -361,6 +365,10 @@
     <message>
       <source>Custom CSS</source>
       <translation>CSS Personalizzato</translation>
+    </message>
+    <message>
+      <source>Live preview</source>
+      <translation>Anteprima dal vivo</translation>
     </message>
     <message>
       <source>Visitor messages style</source>
@@ -2519,6 +2527,10 @@
     <message>
       <source>Send chat transcript to your e-mail</source>
       <translation>Invia la cronologia chat via e-mail</translation>
+    </message>
+    <message>
+      <source>End the chat</source>
+      <translation>Terminare la chat</translation>
     </message>
     <message>
       <source>Enable/Disable sound about new messages from the operator</source>
@@ -4805,6 +4817,10 @@
     <message>
       <source>Visitor has left the chat!</source>
       <translation>Il visitatore ha lasciato la chat!</translation>
+    </message>
+    <message>
+      <source>Visitor has closed the chat explicitly!</source>
+      <translation>Il Visitatore ha chiuso in modo esplicito la chat!</translation>
     </message>
   </context>
   <context>

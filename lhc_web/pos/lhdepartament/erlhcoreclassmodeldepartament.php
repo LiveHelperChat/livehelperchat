@@ -209,6 +209,11 @@ $def->properties['attr_int_3']->columnName   = 'attr_int_3';
 $def->properties['attr_int_3']->propertyName = 'attr_int_3';
 $def->properties['attr_int_3']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['sort_priority'] = new ezcPersistentObjectProperty();
+$def->properties['sort_priority']->columnName   = 'sort_priority';
+$def->properties['sort_priority']->propertyName = 'sort_priority';
+$def->properties['sort_priority']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

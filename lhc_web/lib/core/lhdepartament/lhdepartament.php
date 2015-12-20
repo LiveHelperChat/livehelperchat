@@ -55,6 +55,9 @@ class erLhcoreClassDepartament{
 	   			'Priority' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'int'
 	   			),
+	   			'SortPriority' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'int'
+	   			),
 	   			'TansferDepartmentID' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1)
 	   			),
@@ -245,6 +248,12 @@ class erLhcoreClassDepartament{
 	   		$department->priority = $form->Priority;
 	   	} else {
 	   		$department->priority = 0;
+	   	}
+	   	
+	   	if ( $form->hasValidData( 'SortPriority' ) ) {
+	   		$department->sort_priority = $form->SortPriority;
+	   	} else {
+	   		$department->sort_priority = 0;
 	   	}
 	   		   	
 	   	if ( $form->hasValidData( 'inform_close' ) && $form->inform_close === true ) {

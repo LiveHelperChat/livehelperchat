@@ -25,11 +25,11 @@ $soundMessageEnabled = erLhcoreClassModelUserSetting::getSetting('chat_message',
     		 <?php endif;?>
     		 
     		 <?php include(erLhcoreClassDesign::designtpl('lhchat/customer_user_settings/user_file_upload.tpl.php'));?>
-    		 
-    		 <?php if (isset($chat_widget_mode) && $chat_widget_mode == true) : ?>
+
+    		 <?php if ((int)erLhcoreClassModelChatConfig::fetch('hide_button_dropdown')->current_value == 0 && isset($chat_widget_mode) && $chat_widget_mode == true) : ?>
     		      <li><a onclick="lhinst.explicitChatCloseByUser();" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','End the chat')?>"><i class="material-icons mr-0">close</i></a></li>
     		 <?php endif;?>
-    		 
+
 		 <?php endif; ?>
 		 
 		 <?php include(erLhcoreClassDesign::designtpl('lhchat/customer_user_settings/option_last_multiinclude.tpl.php'));?>

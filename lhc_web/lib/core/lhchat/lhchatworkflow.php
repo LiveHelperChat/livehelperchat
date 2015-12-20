@@ -209,6 +209,8 @@ class erLhcoreClassChatWorkflow {
     				$chat->last_msg_id = $msg->id;
     			}
     			
+    			$chat->chat_duration = erLhcoreClassChat::getChatDurationToUpdateChatID($chat->id);
+    			
     			$chat->updateThis();  
     			
     			if ($chat->department !== false) {

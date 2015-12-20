@@ -1,3 +1,7 @@
+2.40v
+1. Option to force close chat on widget close button. At the moment it just closes widget. But on operator side there is no indication for that. 
+2. Custom field for sort priority
+
 2.39v
 
 1. https://github.com/LiveHelperChat/livehelperchat/issues/772 - option in theme to define optional field which would be visible in department

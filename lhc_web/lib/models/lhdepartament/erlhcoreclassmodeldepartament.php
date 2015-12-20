@@ -11,6 +11,7 @@ class erLhcoreClassModelDepartament {
                'xmpp_recipients'     	=> $this->xmpp_recipients,
                'xmpp_group_recipients'  => $this->xmpp_group_recipients,
                'priority'     			=> $this->priority,
+               'sort_priority'     		=> $this->sort_priority,
                'department_transfer_id' => $this->department_transfer_id,
                'transfer_timeout'    	=> $this->transfer_timeout,
                'identifier'    			=> $this->identifier,
@@ -228,6 +229,7 @@ class erLhcoreClassModelDepartament {
     public $name = '';
     public $email = '';
     public $priority = 0;
+    public $sort_priority = 0;
     public $department_transfer_id = 0;
     public $transfer_timeout = 0;
     public $identifier = '';    

@@ -254,6 +254,10 @@ var lh_inst  = {
     hide : function() {
        
         if (!lh_inst.cookieData.hash || lh_inst.hasSurvey == false || lh_inst.surveyShown == true) {
+
+            <?php if ((int)erLhcoreClassModelChatConfig::fetch('on_close_exit_chat')->current_value == 1) : ?>  
+            this.explicitClose = true;            
+            <?php endif;?>
                 
             var th = document.getElementsByTagName('head')[0];
             var s = document.createElement('script');

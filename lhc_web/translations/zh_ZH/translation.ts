@@ -6,6 +6,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>多少天投票窗口小部件不应扩大后最后的展示</translation>
     </message>
@@ -23,7 +27,7 @@
     </message>
     <message>
       <source>Should mouse movement be tracked as activity measure, if not checked only basic events would be tracked</source>
-      <translation type="unfinished"/>
+      <translation>如果鼠标移动被跟踪活动的措施，如果没有选中只有基本的事件将被跟踪</translation>
     </message>
     <message>
       <source>Track is user still on site, chat status checks also has to be enabled</source>
@@ -43,7 +47,7 @@
     </message>
     <message>
       <source>Track users activity on site?</source>
-      <translation type="unfinished"/>
+      <translation>跟踪用户活动现场？</translation>
     </message>
     <message>
       <source>How many days keep records of online users.</source>
@@ -63,7 +67,7 @@
     </message>
     <message>
       <source>Between what languages user should be able to switch</source>
-      <translation type="unfinished"/>
+      <translation>之间有什么语言的用户应该能够切换</translation>
     </message>
     <message>
       <source>Host where NodeJs is running</source>
@@ -163,7 +167,7 @@
     </message>
     <message>
       <source>Hide right column in frontpage</source>
-      <translation type="unfinished"/>
+      <translation>隐藏在头版右侧栏</translation>
     </message>
     <message>
       <source>Hide disabled department widget</source>
@@ -207,7 +211,7 @@
     </message>
     <message>
       <source>Home page dashboard widgets order</source>
-      <translation type="unfinished"/>
+      <translation>首页仪表板部件订单</translation>
     </message>
     <message>
       <source>Your site URL address</source>
@@ -361,6 +365,10 @@
     <message>
       <source>Custom CSS</source>
       <translation>自定义CSS</translation>
+    </message>
+    <message>
+      <source>Live preview</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visitor messages style</source>
@@ -2518,6 +2526,10 @@
     <message>
       <source>Send chat transcript to your e-mail</source>
       <translation>聊天記錄發送到您的電子郵箱</translation>
+    </message>
+    <message>
+      <source>End the chat</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Enable/Disable sound about new messages from the operator</source>
@@ -4803,6 +4815,10 @@
     <name>chat/userleftchat</name>
     <message>
       <source>Visitor has left the chat!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor has closed the chat explicitly!</source>
       <translation type="unfinished"/>
     </message>
   </context>

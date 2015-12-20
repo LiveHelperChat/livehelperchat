@@ -187,6 +187,14 @@
     		    
     		    <?php $attribute = 'autopurge_timeout'?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+
+    		    <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Close button')?></h4>
+    		    <?php $attribute = 'hide_button_dropdown'; $boolValue = true; ?>
+    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+
+    		    <?php $attribute = 'on_close_exit_chat'; $boolValue = true; ?>
+    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+
 			</div>
 						
 			<div role="tabpanel" class="tab-pane" id="visitoractivity">

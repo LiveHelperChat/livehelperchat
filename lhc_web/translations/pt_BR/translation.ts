@@ -6,6 +6,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Por quantos dias o widget de votação não deve ser exibido após última exibição</translation>
     </message>
@@ -348,7 +352,7 @@
     </message>
     <message>
       <source>Messages style</source>
-      <translation type="unfinished"/>
+      <translation>Estilo de Mensagens</translation>
     </message>
     <message>
       <source>Need help widget</source>
@@ -363,6 +367,10 @@
       <translation>CSS Personalizado</translation>
     </message>
     <message>
+      <source>Live preview</source>
+      <translation>Visualização ao vivo</translation>
+    </message>
+    <message>
       <source>Visitor messages style</source>
       <translation type="unfinished"/>
     </message>
@@ -372,11 +380,11 @@
     </message>
     <message>
       <source>General settings</source>
-      <translation type="unfinished"/>
+      <translation>Configurações Gerais</translation>
     </message>
     <message>
       <source>Text changes</source>
-      <translation type="unfinished"/>
+      <translation>Alterar texto</translation>
     </message>
     <message>
       <source>Name</source>
@@ -572,7 +580,7 @@
     </message>
     <message>
       <source>Visitor title color</source>
-      <translation type="unfinished"/>
+      <translation>Cor do Título do Visitante</translation>
     </message>
     <message>
       <source>Visitor text color</source>
@@ -600,7 +608,7 @@
     </message>
     <message>
       <source>Location</source>
-      <translation type="unfinished"/>
+      <translation>Localização</translation>
     </message>
     <message>
       <source>Additional option before department selection</source>
@@ -608,7 +616,7 @@
     </message>
     <message>
       <source>Choose department</source>
-      <translation type="unfinished"/>
+      <translation>Escolher departamento</translation>
     </message>
     <message>
       <source>Widget themes</source>
@@ -1664,7 +1672,7 @@
     </message>
     <message>
       <source>Departments</source>
-      <translation type="unfinished"/>
+      <translation>Departamentos</translation>
     </message>
     <message>
       <source>Edit a department</source>
@@ -2520,6 +2528,10 @@
       <translation>Enviar a transcrição do chat para o seu e-mail</translation>
     </message>
     <message>
+      <source>End the chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Enable/Disable sound about new messages from the operator</source>
       <translation>Ativar/desativar som sobre novas mensagens do operador</translation>
     </message>
@@ -3064,7 +3076,7 @@
     </message>
     <message>
       <source>Operator</source>
-      <translation type="unfinished"/>
+      <translation>Operador</translation>
     </message>
     <message>
       <source>has send message to user</source>
@@ -4804,6 +4816,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <name>chat/userleftchat</name>
     <message>
       <source>Visitor has left the chat!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor has closed the chat explicitly!</source>
       <translation type="unfinished"/>
     </message>
   </context>

@@ -6,6 +6,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Πόσες ημέρες ψηφοφορίας widget δεν θα πρέπει να επεκταθεί μετά από την τελευταία εμφάνιση</translation>
     </message>
@@ -361,6 +365,10 @@
     <message>
       <source>Custom CSS</source>
       <translation>Προσαρμοσμένη CSS</translation>
+    </message>
+    <message>
+      <source>Live preview</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visitor messages style</source>
@@ -2518,6 +2526,10 @@
     <message>
       <source>Send chat transcript to your e-mail</source>
       <translation>Αποστολή αντιγράφου συνομιλίας στο e-mail σας</translation>
+    </message>
+    <message>
+      <source>End the chat</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Enable/Disable sound about new messages from the operator</source>
@@ -4804,6 +4816,10 @@
     <message>
       <source>Visitor has left the chat!</source>
       <translation>Επισκέπτης έχει αφήσει το chat!</translation>
+    </message>
+    <message>
+      <source>Visitor has closed the chat explicitly!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

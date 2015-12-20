@@ -61,7 +61,7 @@ if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_p
 }
 
 $tpl->set('referrer',isset($_GET['r']) ? rawurldecode($_GET['r']) : '');
-$tpl->set('track_online_users',erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1);
+$tpl->set('track_online_users',erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 && (string)$Params['user_parameters_unordered']['dot'] != 'true');
 $tpl->set('click',$Params['user_parameters_unordered']['click']);
 $tpl->set('position',$Params['user_parameters_unordered']['position']);
 $tpl->set('minimize_action',$Params['user_parameters_unordered']['ma']);

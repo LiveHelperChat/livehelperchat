@@ -23,10 +23,16 @@
     <input type="text" class="form-control" name="delay_lm"  value="<?php echo htmlspecialchars($departament->delay_lm);?>" />
 </div>
 
-<div class="form-group">
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Priority');?></label>
-    <input type="text" class="form-control" name="Priority"  value="<?php echo htmlspecialchars($departament->priority);?>" />
-</div>
+<div class="row form-group">
+	<div class="col-xs-6">
+		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Priority, used for chats priority');?></label>
+        <input type="text" class="form-control" name="Priority"  value="<?php echo htmlspecialchars($departament->priority);?>" />
+	</div>
+	<div class="col-xs-6">
+		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Priority, used for departments sort');?></label>
+        <input type="text" class="form-control" name="SortPriority"  value="<?php echo htmlspecialchars($departament->sort_priority);?>" />
+	</div>
+</div>	
 
 <div role="tabpanel" class="form-group">
 

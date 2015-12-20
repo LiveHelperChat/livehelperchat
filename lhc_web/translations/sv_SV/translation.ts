@@ -6,6 +6,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Hur många dagar som röstwidgeten inte ska expanderas efter senaste visningen</translation>
     </message>
@@ -23,7 +27,7 @@
     </message>
     <message>
       <source>Should mouse movement be tracked as activity measure, if not checked only basic events would be tracked</source>
-      <translation type="unfinished"/>
+      <translation>Om muspekarens rörelser ska spåras som aktivitetsåtgärd, om inte så kontrolleras bara de grundläggande händelserna</translation>
     </message>
     <message>
       <source>Track is user still on site, chat status checks also has to be enabled</source>
@@ -348,7 +352,7 @@
     </message>
     <message>
       <source>Messages style</source>
-      <translation type="unfinished"/>
+      <translation>Meddelandestil</translation>
     </message>
     <message>
       <source>Need help widget</source>
@@ -356,27 +360,31 @@
     </message>
     <message>
       <source>Chat widget</source>
-      <translation type="unfinished"/>
+      <translation>Chattwidget</translation>
     </message>
     <message>
       <source>Custom CSS</source>
       <translation>Egen CSS</translation>
     </message>
     <message>
+      <source>Live preview</source>
+      <translation>Live förhandsvisning</translation>
+    </message>
+    <message>
       <source>Visitor messages style</source>
-      <translation type="unfinished"/>
+      <translation>Meddelandestil för besökarna</translation>
     </message>
     <message>
       <source>Operator messages style</source>
-      <translation type="unfinished"/>
+      <translation>Meddelandestil för operatörer</translation>
     </message>
     <message>
       <source>General settings</source>
-      <translation type="unfinished"/>
+      <translation>Allmänna Inställningar</translation>
     </message>
     <message>
       <source>Text changes</source>
-      <translation type="unfinished"/>
+      <translation>Textändringar</translation>
     </message>
     <message>
       <source>Name</source>
@@ -392,11 +400,11 @@
     </message>
     <message>
       <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
-      <translation type="unfinished"/>
+      <translation>Timeout för &quot;behöver du hjälp?&quot; verktygstips, efter hur många timmar ska meddelandet visas igen?</translation>
     </message>
     <message>
       <source>Show need help tooltip?</source>
-      <translation type="unfinished"/>
+      <translation>Visa &quot;behöver du hjälp&quot; verktygstips?</translation>
     </message>
     <message>
       <source>Need help standard text</source>
@@ -504,7 +512,7 @@
     </message>
     <message>
       <source>Text when user starts chat based on proactive invitation</source>
-      <translation type="unfinished"/>
+      <translation>Text som ska visas när en besökare startar en chatt via en proaktiv inbjudan</translation>
     </message>
     <message>
       <source>Text when operator closes a chat</source>
@@ -512,11 +520,11 @@
     </message>
     <message>
       <source>Text when user starts a chat and is waiting for operator to join a chat</source>
-      <translation type="unfinished"/>
+      <translation>Text som ska visas när en besökare startar en chatt och väntar på att operatören ska ansluta till chatten</translation>
     </message>
     <message>
       <source>Text when user starts a chat but department is offline</source>
-      <translation type="unfinished"/>
+      <translation>Text som ska visas när en besökare startar en chatt men avdelningen är offline</translation>
     </message>
     <message>
       <source>Leave a message form text</source>
@@ -568,47 +576,47 @@
     </message>
     <message>
       <source>Visitor buble background color</source>
-      <translation type="unfinished"/>
+      <translation>Bakgrundsfärg på bubblan för besökare</translation>
     </message>
     <message>
       <source>Visitor title color</source>
-      <translation type="unfinished"/>
+      <translation>Titelfärg för besökare</translation>
     </message>
     <message>
       <source>Visitor text color</source>
-      <translation type="unfinished"/>
+      <translation>Textfärg för besökare</translation>
     </message>
     <message>
       <source>Operator buble background color</source>
-      <translation type="unfinished"/>
+      <translation>Bakgrundsfärg på bubblan för operatörer</translation>
     </message>
     <message>
       <source>Operator title color</source>
-      <translation type="unfinished"/>
+      <translation>Titelfärg för operatörer</translation>
     </message>
     <message>
       <source>Operator text color</source>
-      <translation type="unfinished"/>
+      <translation>Textfärg för operatörer</translation>
     </message>
     <message>
       <source>Show voting thumbs?</source>
-      <translation type="unfinished"/>
+      <translation>Visa röstningstummar?</translation>
     </message>
     <message>
       <source>Use different title for department? E.g Location</source>
-      <translation type="unfinished"/>
+      <translation>Ska det användas olika rubriker för olika avdelningar? Exempelvis &quot;Position&quot;</translation>
     </message>
     <message>
       <source>Location</source>
-      <translation type="unfinished"/>
+      <translation>Position</translation>
     </message>
     <message>
       <source>Additional option before department selection</source>
-      <translation type="unfinished"/>
+      <translation>Ytterligare val före val av avdelning</translation>
     </message>
     <message>
       <source>Choose department</source>
-      <translation type="unfinished"/>
+      <translation>Välj avdelning</translation>
     </message>
     <message>
       <source>Widget themes</source>
@@ -698,7 +706,7 @@
     </message>
     <message>
       <source>Show visitor this message when wait timeout passes</source>
-      <translation type="unfinished"/>
+      <translation>Visa besökare detta meddelanden medan de väntar på att timeouten ska passera</translation>
     </message>
     <message>
       <source>Auto responder</source>
@@ -1464,7 +1472,7 @@
     </message>
     <message>
       <source>Visible only if online</source>
-      <translation type="unfinished"/>
+      <translation>Är bara synlig om man är online</translation>
     </message>
     <message>
       <source>Disabled</source>
@@ -1636,11 +1644,11 @@
     </message>
     <message>
       <source>To what department chat should be transferred if it is not accepted</source>
-      <translation type="unfinished"/>
+      <translation>Till vilken avdelning som chatten ska överföras om den inte accepteras</translation>
     </message>
     <message>
       <source>Timeout in seconds before chat is transferred to another department. Minimum 5 seconds.</source>
-      <translation type="unfinished"/>
+      <translation>Timeout i sekunder innan chatten överförs till en annan avdelning. Minst 5 sekunder.</translation>
     </message>
     <message>
       <source>Execute new chat logic again for recipient department?</source>
@@ -1664,7 +1672,7 @@
     </message>
     <message>
       <source>Departments</source>
-      <translation type="unfinished"/>
+      <translation>Avdelningar</translation>
     </message>
     <message>
       <source>Edit a department</source>
@@ -2435,11 +2443,11 @@
     </message>
     <message>
       <source>Please choose</source>
-      <translation type="unfinished"/>
+      <translation>Var vänlig välj</translation>
     </message>
     <message>
       <source>Please choose department!</source>
-      <translation type="unfinished"/>
+      <translation>Var vänlig välj avdelning!</translation>
     </message>
     <message>
       <source>Could not determine a default department!</source>
@@ -2520,6 +2528,10 @@
       <translation>Skicka chattloggen till din e-post</translation>
     </message>
     <message>
+      <source>End the chat</source>
+      <translation>Avsluta chatten</translation>
+    </message>
+    <message>
       <source>Enable/Disable sound about new messages from the operator</source>
       <translation>Av-/aktivera ljud för nya meddelanden från operatören</translation>
     </message>
@@ -2576,7 +2588,7 @@
     </message>
     <message>
       <source>Transfered chats</source>
-      <translation type="unfinished"/>
+      <translation>Överförda chattar</translation>
     </message>
     <message>
       <source>Closed chats</source>
@@ -3064,7 +3076,7 @@
     </message>
     <message>
       <source>Operator</source>
-      <translation type="unfinished"/>
+      <translation>Operatör</translation>
     </message>
     <message>
       <source>has send message to user</source>
@@ -3136,7 +3148,7 @@
     </message>
     <message>
       <source>Online visitors on map</source>
-      <translation type="unfinished"/>
+      <translation>Karta över besökare som är online</translation>
     </message>
     <message>
       <source>Enable/Disable sound about new visitor</source>
@@ -3614,7 +3626,7 @@
     </message>
     <message>
       <source>This determines should status widget change it&apos;s status once operator logins. Recommended value 290</source>
-      <translation type="unfinished"/>
+      <translation>Detta bestämmer om statuswidgeten ska ändra sin status när operatören loggar in. Rekommenderat värde är 290</translation>
     </message>
     <message>
       <source>Screen sharing</source>
@@ -3921,7 +3933,7 @@
     </message>
     <message>
       <source>Transferred chats</source>
-      <translation type="unfinished"/>
+      <translation>Överförda chattar</translation>
     </message>
     <message>
       <source>Clean cache</source>
@@ -4792,18 +4804,22 @@
     <name>chat/userjoined</name>
     <message>
       <source>Visitor has joined the chat!</source>
-      <translation type="unfinished"/>
+      <translation>Besökaren har anslutit till chatten!</translation>
     </message>
     <message>
       <source>Visitor has joined the chat from popup chat window!</source>
-      <translation type="unfinished"/>
+      <translation>Besökaren har anslutit till chatten via popup-fönstret!</translation>
     </message>
   </context>
   <context>
     <name>chat/userleftchat</name>
     <message>
       <source>Visitor has left the chat!</source>
-      <translation type="unfinished"/>
+      <translation>Besökaren har lämnat chatten!</translation>
+    </message>
+    <message>
+      <source>Visitor has closed the chat explicitly!</source>
+      <translation>Besökaren har lämnat chatten!</translation>
     </message>
   </context>
   <context>
