@@ -242,6 +242,7 @@ $currentUser->updateLastVisit();
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.syncadmininterface',array('lists' => & $ReturnMessages));
 
-echo json_encode(array('error' => 'false', 'result' => $ReturnMessages ));
+echo erLhcoreClassChat::safe_json_encode(array('error' => 'false', 'result' => $ReturnMessages ));
+
 exit;
 ?>
