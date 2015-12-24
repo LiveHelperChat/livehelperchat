@@ -25,8 +25,8 @@ $ViewList['account'] = array(
 );
 
 $ViewList['userlist'] = array(
-    'script' => 'userlist.php',
     'params' => array(),
+    'uparams' => array('email' , 'name' , 'username' , 'surname'),
     'functions' => array( 'userlist' )
 );
 
