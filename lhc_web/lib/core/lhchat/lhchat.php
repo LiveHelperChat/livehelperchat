@@ -692,6 +692,23 @@ class erLhcoreClassChat {
        return $rowsNumber >= 1;
     }
 
+    /**
+     * Returns departments with atleast one logged 
+     */
+    public static function getLoggedDepartmentsIds($departmentsIds, $exclipic = false)
+    {
+        $exclipicFilter = ($exclipic == false) ? ' OR dep_id = 0' : '';
+
+        $isOnlineUser = (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'];
+
+        $db = ezcDbInstance::get();
+        $stmt = $db->prepare("SELECT dep_id AS found FROM lh_userdep WHERE (last_activity > :last_activity AND hide_online = 0) AND (dep_id IN (" . implode(',', $departmentsIds) . ") {$exclipicFilter})");
+        $stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_COLUMN);
+    }
+
     public static function getRandomOnlineUserID($params = array()) {
     	$isOnlineUser = isset($params['online_timeout']) ? $params['online_timeout'] : (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'];
     	
@@ -1581,13 +1598,13 @@ class erLhcoreClassChat {
    
    /**
     * @see https://github.com/LiveHelperChat/livehelperchat/pull/809
-    * 
+    *
     * @param array $value
     * */
    public static function safe_json_encode($value) {
-     
-      $encoded = json_encode($value);
-     
+        
+       $encoded = json_encode($value);
+        
        switch (json_last_error()) {
            case JSON_ERROR_NONE:
                return $encoded;
@@ -1604,15 +1621,15 @@ class erLhcoreClassChat {
                return safe_json_encode($clean);
            default:
                return 'Unknown error'; // or trigger_error() or throw new Exception()
-   
+                
        }
    }
-   
+    
    /**
     * Make conversion if required
-    * 
+    *
     * @param unknown $mixed
-    * 
+    *
     * @return string
     */
    public static function utf8ize($mixed) {

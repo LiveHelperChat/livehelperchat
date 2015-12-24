@@ -455,6 +455,11 @@ $ViewList['sendchat'] = array(
 		'params' => array('chat_id','hash')
 );
 
+$ViewList['transferchatrefilter'] = array(
+    'params' => array('chat_id'),
+    'functions' => array( 'use' )
+);
+
 $FunctionList['use'] = array('explain' => 'General permission to use chat module');
 $FunctionList['singlechatwindow'] = array('explain' =>'Allow operator to use single chat window functionality');
 $FunctionList['allowchattabs'] = array('explain' =>'Allow operator to user chat rooms functionality');
