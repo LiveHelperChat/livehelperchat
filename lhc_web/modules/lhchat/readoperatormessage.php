@@ -37,6 +37,8 @@ $inputData->value_sizes = array();
 $inputData->ua = $Params['user_parameters_unordered']['ua'];
 $inputData->hattr = array();
 $inputData->value_items_admin = array(); // These variables get's filled from start chat form settings
+$inputData->via_hidden = array(); // These variables get's filled from start chat form settings
+
 
 // If chat was started based on key up, we do not need to store a message
 //  because user is still typing it. We start chat in the background just.
@@ -115,6 +117,12 @@ if (isset($_POST['askQuestion']))
 	$validationFields['hattr'] = new ezcInputFormDefinitionElement ( ezcInputFormDefinitionElement::OPTIONAL, 'string', null, FILTER_REQUIRE_ARRAY );
 	// Custom start chat fields
 	$validationFields['value_items_admin'] = new ezcInputFormDefinitionElement(
+	    ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
+	    null,
+	    FILTER_REQUIRE_ARRAY
+	);
+	
+	$validationFields['via_hidden'] = new ezcInputFormDefinitionElement(
 	    ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
 	    null,
 	    FILTER_REQUIRE_ARRAY
@@ -223,6 +231,10 @@ if (isset($_POST['askQuestion']))
 	    // Fill values if exists
 	    if ($form->hasValidData( 'value_items_admin' )){
 	        $inputData->value_items_admin = $valuesArray = $form->value_items_admin;
+	    }
+	    
+	    if ($form->hasValidData( 'via_hidden' )){
+	        $inputData->via_hidden = $form->via_hidden;
 	    }
 	
 	    if (is_array($customAdminfields)){
@@ -472,6 +484,11 @@ if (!ezcInputForm::hasPostData()) {
                     ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
                     null,
                     FILTER_REQUIRE_ARRAY
+            ),
+            'via_hidden' => new ezcInputFormDefinitionElement(
+                    ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
+                    null,
+                    FILTER_REQUIRE_ARRAY
             )
 	);
 	
@@ -516,6 +533,11 @@ if (!ezcInputForm::hasPostData()) {
 	if ($form->hasValidData( 'value_items_admin' ))
 	{
 	    $inputData->value_items_admin = $form->value_items_admin;
+	}
+	
+	if ($form->hasValidData( 'via_hidden' ))
+	{
+	    $inputData->via_hidden = $form->via_hidden;
 	}
 }
 
