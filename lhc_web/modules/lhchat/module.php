@@ -117,6 +117,13 @@ $ViewList['syncadmininterface'] = array(
     'multiple_arguments' => array ( 'operatord', 'actived', 'closedd' , 'pendingd', 'unreadd','departmentd')
 );
 
+$ViewList['loadinitialdata'] = array(
+    'params' => array(),
+    'uparams' => array(),
+    'ajax' => true,
+    'functions' => array( 'use' )
+);
+
 $ViewList['list'] = array(
     'params' => array(),
     'uparams' => array('nick','email','timefrom','timeto','department_id','user_id','print','xls','fbst','chat_status','hum'),

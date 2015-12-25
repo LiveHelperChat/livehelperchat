@@ -8,12 +8,14 @@ $tpl->set('tracking_enabled',erLhcoreClassModelChatConfig::fetch('track_online_v
  * */
 $departmentParams = array();
 $userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID());
-if ($userDepartments !== true){
+if ($userDepartments !== true) {
     $departmentParams['filterin']['id'] = $userDepartments;
     if (!$currentUser->hasAccessTo('lhchat','sees_all_online_visitors')) {
         $filter['filterin']['dep_id'] = $userDepartments;
     }
 }
+
+$departmentParams['sort'] = 'sort_priority ASC, name ASC';
 
 $tpl->set('departmentParams',$departmentParams);
 

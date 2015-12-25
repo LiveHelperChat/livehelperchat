@@ -20,6 +20,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -3902,6 +3906,18 @@
       <source>Optional</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Username</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Surname</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>pagelayout/pagelayout</name>
@@ -3947,6 +3963,26 @@
     </message>
     <message>
       <source>All departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Check all</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only explicit online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide hidden</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide disabled</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4810,6 +4846,10 @@
   <context>
     <name>chat/transferchat</name>
     <message>
+      <source>Departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Transfer to a user</source>
       <translation type="unfinished"/>
     </message>
@@ -4830,7 +4870,23 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Departments</source>
+      <source>Only departments which are online and explicitly assigned operator are online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Exclude hidden departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Exclude disabled departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline</source>
       <translation type="unfinished"/>
     </message>
   </context>

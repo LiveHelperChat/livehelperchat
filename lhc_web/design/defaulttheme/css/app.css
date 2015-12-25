@@ -1208,3 +1208,7 @@ input[type="file"]{
   margin-right:0px;
   width: 26px;
 }
+
+.border-bottom-grey{
+	border-bottom:1px solid #eee;
+}

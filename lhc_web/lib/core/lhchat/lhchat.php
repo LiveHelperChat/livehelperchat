@@ -697,16 +697,33 @@ class erLhcoreClassChat {
      */
     public static function getLoggedDepartmentsIds($departmentsIds, $exclipic = false)
     {
-        $exclipicFilter = ($exclipic == false) ? ' OR dep_id = 0' : '';
-
         $isOnlineUser = (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'];
 
         $db = ezcDbInstance::get();
-        $stmt = $db->prepare("SELECT dep_id AS found FROM lh_userdep WHERE (last_activity > :last_activity AND hide_online = 0) AND (dep_id IN (" . implode(',', $departmentsIds) . ") {$exclipicFilter})");
-        $stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
-        $stmt->execute();
 
-        return $stmt->fetchAll(PDO::FETCH_COLUMN);
+        if ($exclipic == true)
+        {
+            $stmt = $db->prepare("SELECT dep_id AS found FROM lh_userdep WHERE (last_activity > :last_activity AND hide_online = 0) AND dep_id IN (" . implode(',', $departmentsIds) . ")");
+            $stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
+            $stmt->execute();
+
+            return $stmt->fetchAll(PDO::FETCH_COLUMN);
+
+        } else {
+            
+            $stmt = $db->prepare("SELECT count(id) AS found FROM lh_userdep WHERE (last_activity > :last_activity AND hide_online = 0) AND (dep_id = 0 OR dep_id IN (" . implode(',', $departmentsIds) . "))");
+            $stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
+            $stmt->execute();
+            
+            $rowsNumber = $stmt->fetchColumn();
+            
+            // Return same departments because one of operators are online and has assigned all departments
+            if ($rowsNumber > 0) {
+                return $departmentsIds;
+            } else {
+                return array();
+            }
+        }
     }
 
     public static function getRandomOnlineUserID($params = array()) {

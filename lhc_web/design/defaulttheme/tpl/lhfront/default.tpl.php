@@ -65,9 +65,6 @@ $frontTabsOrder = explode(',', erLhcoreClassModelChatConfig::fetch('front_tabs')
         </ul>
         
         <div class="tab-content" ng-cloak> 
-           
-        	
-                      
     		      <?php foreach ($frontTabsOrder as $frontTab) : ?>    
                       <?php if (trim($frontTab) == 'online_users' && $online_visitors_enabled_pre == true) : ?>    
                       <div role="tabpanel" class="tab-pane form-group" id="onlineusers">

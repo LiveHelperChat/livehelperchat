@@ -11,6 +11,7 @@
 	    <?php $optinsPanel = array('panelid' => 'departmentd','limitid' => 'limitd'); ?>
 		<?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/parts/options.tpl.php'));?>
 		
+		
 		<div class="panel-list">
 			<table class="table table-condensed mb0 table-small table-fixed">
 				<thead>
