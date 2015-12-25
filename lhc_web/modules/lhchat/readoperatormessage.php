@@ -535,6 +535,7 @@ if (!ezcInputForm::hasPostData()) {
 	    $inputData->value_items_admin = $form->value_items_admin;
 	}
 	
+	
 	if ($form->hasValidData( 'via_hidden' ))
 	{
 	    $inputData->via_hidden = $form->via_hidden;
