@@ -172,6 +172,11 @@ class erLhcoreClassChatValidator {
             FILTER_REQUIRE_ARRAY
         );
         
+        $validationFields['via_hidden'] = new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
+            null,
+            FILTER_REQUIRE_ARRAY
+        );
         
         $form = new ezcInputForm( INPUT_POST, $validationFields );
         $Errors = array();
@@ -418,6 +423,10 @@ class erLhcoreClassChatValidator {
             // Fill values if exists
             if ($form->hasValidData( 'value_items_admin' )){
                 $inputForm->value_items_admin = $valuesArray = $form->value_items_admin;
+            }
+            
+            if ($form->hasValidData( 'via_hidden' )){
+                $inputForm->via_hidden = $form->via_hidden;
             }
 
             if (is_array($customAdminfields)){

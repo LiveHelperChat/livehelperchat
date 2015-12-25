@@ -74,6 +74,36 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
 				        
 			        $db->commit();
 	        
+	        } elseif ($chat->hash == $hash && $Params['user_parameters_unordered']['eclose'] == 't' && $chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT) {
+	            
+	            $db = ezcDbInstance::get();
+	            $db->beginTransaction();
+
+                    // From now chat will be closed explicitly
+                    $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT;
+
+                    $msg = new erLhcoreClassModelmsg();
+                    $msg->msg = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat','Visitor has closed the chat explicitly!'),ENT_QUOTES);;
+                    $msg->chat_id = $chat->id;
+                    $msg->user_id = -1;
+                    $msg->time = time();
+
+                    erLhcoreClassChat::getSession()->save($msg);
+
+                    $chat->last_user_msg_time = $msg->time;
+
+                    // Set last message ID
+                    if ($chat->last_msg_id < $msg->id) {
+                        $chat->last_msg_id = $msg->id;
+                    }
+
+                    erLhcoreClassChat::getSession()->update($chat);
+
+                    if ($chat->has_unread_messages == 1 && $chat->last_user_msg_time < (time() - 5)) {
+                        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.unread_chat',array('chat' => & $chat));
+                    }
+                
+                $db->commit();
 	        }
     } catch (Exception $e) {
         // Do nothing

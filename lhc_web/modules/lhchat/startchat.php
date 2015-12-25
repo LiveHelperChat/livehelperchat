@@ -146,6 +146,7 @@ $inputData->value_items = array();
 $inputData->value_types = array();
 $inputData->value_sizes = array();
 $inputData->value_items_admin = array(); // These variables get's filled from start chat form settings
+$inputData->via_hidden = array(); // These variables get's filled from start chat form settings
 $inputData->hattr = array();
 $inputData->hash_resume = false;
 $inputData->vid = false;
@@ -355,6 +356,11 @@ $definition = array(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
                 null,
                 FILTER_REQUIRE_ARRAY
+        ),
+        'via_hidden' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
+                null,
+                FILTER_REQUIRE_ARRAY
         )
 );
 
@@ -399,6 +405,11 @@ if ( $form->hasValidData( 'size' ) && !empty($form->size))
 if ($form->hasValidData( 'value_items_admin' ))
 {
     $inputData->value_items_admin = $form->value_items_admin;
+}
+
+if ($form->hasValidData( 'via_hidden' ))
+{
+    $inputData->via_hidden = $form->via_hidden;
 }
 
 $tpl->set('input_data',$inputData);

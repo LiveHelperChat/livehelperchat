@@ -395,6 +395,11 @@ $definition = array(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
                 null,
                 FILTER_REQUIRE_ARRAY
+        ),
+        'via_hidden' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
+                null,
+                FILTER_REQUIRE_ARRAY
         )
 );
 
@@ -433,6 +438,11 @@ if ( $form->hasValidData( 'type' ) && !empty($form->type))
 if ( $form->hasValidData( 'size' ) && !empty($form->size))
 {
 	$inputData->value_sizes = $form->size;
+}
+
+if ($form->hasValidData( 'via_hidden' ))
+{
+    $inputData->via_hidden = $form->via_hidden;
 }
 
 // Fill back office values ir prefilled

@@ -275,7 +275,7 @@ var lh_inst  = {
             <?php endif; ?>
             this.timeoutStatusWidgetOpen = 0;
             this.surveyShown = true;
-        } else {
+        } else {           
             this.showSurvey(); 
         }
     },
@@ -333,12 +333,16 @@ var lh_inst  = {
 					};
 	    		};
 	    	};
-
+	    	
 	    	if (typeof <?php echo $chatOptionsVariable?>.attr_prefill_admin != 'undefined') {
 	    		if (<?php echo $chatOptionsVariable?>.attr_prefill_admin.length > 0){
 					for (var index in <?php echo $chatOptionsVariable?>.attr_prefill_admin) {
 						if (typeof <?php echo $chatOptionsVariable?>.attr_prefill_admin[index] != 'undefined') {
-							argumentsQuery.push('value_items_admin['+<?php echo $chatOptionsVariable?>.attr_prefill_admin[index].index+']='+encodeURIComponent(<?php echo $chatOptionsVariable?>.attr_prefill_admin[index].value));							
+							argumentsQuery.push('value_items_admin['+<?php echo $chatOptionsVariable?>.attr_prefill_admin[index].index+']='+encodeURIComponent(<?php echo $chatOptionsVariable?>.attr_prefill_admin[index].value));	
+								
+						    if (typeof <?php echo $chatOptionsVariable?>.attr_prefill_admin[index].hidden != 'undefined')	{
+							     argumentsQuery.push('via_hidden['+<?php echo $chatOptionsVariable?>.attr_prefill_admin[index].index+']='+encodeURIComponent(<?php echo $chatOptionsVariable?>.attr_prefill_admin[index].hidden));
+							}							
 						};
 					};
 	    		};
