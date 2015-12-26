@@ -313,6 +313,11 @@ $def->properties['tslasign']->columnName   = 'tslasign';
 $def->properties['tslasign']->propertyName = 'tslasign';
 $def->properties['tslasign']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['unanswered_chat'] = new ezcPersistentObjectProperty();
+$def->properties['unanswered_chat']->columnName   = 'unanswered_chat';
+$def->properties['unanswered_chat']->propertyName = 'unanswered_chat';
+$def->properties['unanswered_chat']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 
 return $def;
 

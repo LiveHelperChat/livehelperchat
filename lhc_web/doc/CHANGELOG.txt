@@ -1,3 +1,19 @@
+2.41v
+
+1. New statistic - unanswered chats. Chat becames unanswered if
+
+a. User starts chat and there is message field and chat is pending.
+b. Operator accepts a chat but visitor has already closed chat widget chat remains unanswered.
+c. If chat started in proactive mode and user filled message and chat is not accepted yet.
+d. Unanswered chat flag is removed.
+
+2. User row has 3 additional attributes which can be used for extensions.
+attr_int_1
+attr_int_2
+attr_int_3
+
+execute doc/update_db/update_116.sql for update
+
 2.40v
 1. Option to force close chat on widget close button. At the moment it just closes widget. But on operator side there is no indication for that. 
 2. Custom field for sort priority
@@ -5,6 +21,8 @@
 4. https://github.com/LiveHelperChat/livehelperchat/issues/810
 5. https://github.com/LiveHelperChat/livehelperchat/issues/803
 6. https://github.com/LiveHelperChat/livehelperchat/issues/796
+
+execute doc/update_db/update_115.sql for update
 
 2.39v
 

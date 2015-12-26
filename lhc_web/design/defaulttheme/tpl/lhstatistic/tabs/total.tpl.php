@@ -23,6 +23,10 @@
 		<td><?php echo erLhcoreClassChat::getCount(array('filter' => array('status' => erLhcoreClassModelChat::STATUS_CLOSED_CHAT)))?></td>
 	</tr>
 	<tr>
+		<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Unanswered chats');?></td>
+		<td><?php echo erLhcoreClassChat::getCount(array('filter' => array('unanswered_chat' => 1)))?></td>
+	</tr>
+	<tr>
 		<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Chatbox chats');?></td>
 		<td><?php echo erLhcoreClassChat::getCount(array('filter' => array('status' => erLhcoreClassModelChat::STATUS_CHATBOX_CHAT)))?></td>
 	</tr>

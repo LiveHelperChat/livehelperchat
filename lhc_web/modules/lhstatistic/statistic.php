@@ -34,6 +34,7 @@ if ($tab == 'active') {
         'userChatsAverageStats' => erLhcoreClassChatStatistic::averageOfChatsDialogsByUser(30,$filterParams['filter']),
         'userWaitTimeByOperator' => erLhcoreClassChatStatistic::avgWaitTimeyUser(30,$filterParams['filter']),
         'numberOfChatsPerMonth' => erLhcoreClassChatStatistic::getNumberOfChatsPerMonth($filterParams['filter']),
+        //'numberOfChatsUnansweredMonth' => erLhcoreClassChatStatistic::getNumberOfChatsPerMonthUnanswered($filterParams['filter']),
         'numberOfChatsPerWaitTimeMonth' => erLhcoreClassChatStatistic::getNumberOfChatsWaitTime($filterParams['filter']),
         'numberOfChatsPerHour' => erLhcoreClassChatStatistic::getWorkLoadStatistic($filterParams['filter']),
         'averageChatTime' => erLhcoreClassChatStatistic::getAverageChatduration(30,$filterParams['filter']),

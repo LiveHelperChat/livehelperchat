@@ -10,6 +10,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>List online operators.</source>
+      <translation>Lista operatori online.</translation>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Nr de zile ce trebuie sa treaca de la ultima votare pentru ca fereastra de votare sa se poata activa din nou</translation>
     </message>
@@ -126,6 +138,10 @@
       <translation>Pro active chat invitaţie este activ. Utilizatori online, de asemenea, de urmărire a activat</translation>
     </message>
     <message>
+      <source>On chat close exit chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source/>
       <translation type="unfinished"/>
     </message>
@@ -154,8 +170,8 @@
       <translation>Lungimea maximă mesaj în caractere</translation>
     </message>
     <message>
-      <source>List online operators.</source>
-      <translation>Lista operatori online.</translation>
+      <source>List online operators, 0 - no, 1 - yes.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Ignore users online statuses and use departments online hours</source>
@@ -172,6 +188,10 @@
     <message>
       <source>Hide disabled department widget</source>
       <translation>Ascunde cu handicap Departamentul widget</translation>
+    </message>
+    <message>
+      <source>Hide close button in dropdown</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Home page tabs order</source>
@@ -1059,6 +1079,10 @@
       <translation>Dezactivaţi pro activ invitatii, util dacă doriţi să dezactivaţi-le din partea site-ului.</translation>
     </message>
     <message>
+      <source>Disable online tracking, overrides system configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Survey at the end of chat</source>
       <translation type="unfinished"/>
     </message>
@@ -1455,6 +1479,10 @@
   <context>
     <name>department/edit</name>
     <message>
+      <source>Priority</source>
+      <translation>Prioritate</translation>
+    </message>
+    <message>
       <source>Any</source>
       <translation>Orice</translation>
     </message>
@@ -1491,8 +1519,12 @@
       <translation>Întârziere în câteva secunde înainte de concediu un formular de mesaj este indicat. 0 înseamnă funcţionalitate este dezactivat, </translation>
     </message>
     <message>
-      <source>Priority</source>
-      <translation>Prioritate</translation>
+      <source>Priority, used for chats priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority, used for departments sort</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Automate online hours</source>
@@ -2131,11 +2163,11 @@
     </message>
     <message>
       <source>Operator</source>
-      <translation type="unfinished"/>
+      <translation>Operator</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Departament</translation>
     </message>
     <message>
       <source>Nothing found</source>
@@ -2560,7 +2592,7 @@
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>Setari modificate!</translation>
     </message>
     <message>
       <source>Online operators</source>
@@ -3076,7 +3108,7 @@
     </message>
     <message>
       <source>Operator</source>
-      <translation type="unfinished"/>
+      <translation>Operator</translation>
     </message>
     <message>
       <source>has send message to user</source>
@@ -3312,7 +3344,7 @@
     </message>
     <message>
       <source>Preview chat</source>
-      <translation type="unfinished"/>
+      <translation>Previzualizare chat</translation>
     </message>
     <message>
       <source>Visits</source>
@@ -3394,11 +3426,7 @@
       <translation>Cere permisii pentru notificare</translation>
     </message>
     <message>
-      <source>Supported: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Supported: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
+      <source>Close button</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3406,8 +3434,12 @@
       <translation>Setari de notificare pentru conversatie noua</translation>
     </message>
     <message>
-      <source>System configuration</source>
-      <translation>Configurarea sistemului</translation>
+      <source>Supported: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Supported: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Time zone settings</source>
@@ -3562,6 +3594,10 @@
       <translation>Departamente</translation>
     </message>
     <message>
+      <source>System configuration</source>
+      <translation>Configurarea sistemului</translation>
+    </message>
+    <message>
       <source>Embed code</source>
       <translation>Cod de embed</translation>
     </message>
@@ -3593,22 +3629,6 @@
       <translation>Setari website</translation>
     </message>
     <message>
-      <source>Cookie related</source>
-      <translation>Legat de cookie-uri</translation>
-    </message>
-    <message>
-      <source>Chat related</source>
-      <translation>Legat de conversatii</translation>
-    </message>
-    <message>
-      <source>Misc</source>
-      <translation>Diverse</translation>
-    </message>
-    <message>
-      <source>Online if</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>(Widget is open) or (closed and user has activity in last 5 minutes and ping respond)</source>
       <translation type="unfinished"/>
     </message>
@@ -3623,10 +3643,6 @@
     <message>
       <source>Settings updated</source>
       <translation>Setari actualizate</translation>
-    </message>
-    <message>
-      <source>This determines should status widget change it&apos;s status once operator logins. Recommended value 290</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Screen sharing</source>
@@ -3645,6 +3661,10 @@
       <translation>Tracking online</translation>
     </message>
     <message>
+      <source>Misc</source>
+      <translation>Diverse</translation>
+    </message>
+    <message>
       <source>Visitor activity</source>
       <translation type="unfinished"/>
     </message>
@@ -3655,6 +3675,22 @@
     <message>
       <source>Chat configuration</source>
       <translation>Setari conversatii</translation>
+    </message>
+    <message>
+      <source>Online if</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat related</source>
+      <translation>Legat de conversatii</translation>
+    </message>
+    <message>
+      <source>Cookie related</source>
+      <translation>Legat de cookie-uri</translation>
+    </message>
+    <message>
+      <source>This determines should status widget change it&apos;s status once operator logins. Recommended value 290</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>List chat configuration</source>
@@ -3868,6 +3904,18 @@
       <source>Optional</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Username</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Surname</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>pagelayout/pagelayout</name>
@@ -3913,6 +3961,26 @@
     </message>
     <message>
       <source>All departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Check all</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only explicit online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide hidden</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide disabled</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3969,7 +4037,7 @@
     </message>
     <message>
       <source>Chat</source>
-      <translation type="unfinished"/>
+      <translation>Chat</translation>
     </message>
     <message>
       <source>Dashboard</source>
@@ -4776,6 +4844,10 @@
   <context>
     <name>chat/transferchat</name>
     <message>
+      <source>Departments</source>
+      <translation>Departamente</translation>
+    </message>
+    <message>
       <source>Transfer to a user</source>
       <translation>Transfera catre un utilizator</translation>
     </message>
@@ -4796,8 +4868,24 @@
       <translation>Transfera</translation>
     </message>
     <message>
-      <source>Departments</source>
-      <translation>Departamente</translation>
+      <source>Only departments which are online and explicitly assigned operator are online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Exclude hidden departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Exclude disabled departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -5619,10 +5707,6 @@
   <context>
     <name>file/configuration</name>
     <message>
-      <source>File configuration</source>
-      <translation>Configurare fisier</translation>
-    </message>
-    <message>
       <source>Allowed files types for operators</source>
       <translation>Tipuri de fisiere acceptate pentru operatori</translation>
     </message>
@@ -5639,6 +5723,10 @@
       <translation>Setari actualizate</translation>
     </message>
     <message>
+      <source>File configuration</source>
+      <translation>Configurare fisier</translation>
+    </message>
+    <message>
       <source>Please enter valid file type!</source>
       <translation>Te rog sa introduci tipuri de fisiere valide!</translation>
     </message>
@@ -5650,10 +5738,6 @@
   <context>
     <name>file/new</name>
     <message>
-      <source>New file</source>
-      <translation>Fisier no</translation>
-    </message>
-    <message>
       <source>File name</source>
       <translation>Nume fisier</translation>
     </message>
@@ -5664,6 +5748,10 @@
     <message>
       <source>File uploaded</source>
       <translation>Fisier trimis</translation>
+    </message>
+    <message>
+      <source>New file</source>
+      <translation>Fisier no</translation>
     </message>
   </context>
   <context>
@@ -6370,109 +6458,109 @@
     <name>survey/collected</name>
     <message>
       <source>Chats</source>
-      <translation type="unfinished"/>
+      <translation>Chaturi</translation>
     </message>
     <message>
       <source>Chat</source>
-      <translation type="unfinished"/>
+      <translation>Chat</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Departament</translation>
     </message>
     <message>
       <source>Operator</source>
-      <translation type="unfinished"/>
+      <translation>Operator</translation>
     </message>
     <message>
       <source>Stars</source>
-      <translation type="unfinished"/>
+      <translation>Stele</translation>
     </message>
     <message>
       <source>Time</source>
-      <translation type="unfinished"/>
+      <translation>Ora</translation>
     </message>
     <message>
       <source>Department name</source>
-      <translation type="unfinished"/>
+      <translation>Nume departament</translation>
     </message>
   </context>
   <context>
     <name>survey/fill</name>
     <message>
       <source>star</source>
-      <translation type="unfinished"/>
+      <translation>stea</translation>
     </message>
     <message>
       <source>stars</source>
-      <translation type="unfinished"/>
+      <translation>stele</translation>
     </message>
     <message>
       <source>Preview chat</source>
-      <translation type="unfinished"/>
+      <translation>Previzualizare chat</translation>
     </message>
     <message>
       <source>How well did we do?</source>
-      <translation type="unfinished"/>
+      <translation>Cum ne-am descurcat?</translation>
     </message>
     <message>
       <source>Poor</source>
-      <translation type="unfinished"/>
+      <translation>Nesatisfacator</translation>
     </message>
     <message>
       <source>Excellent</source>
-      <translation type="unfinished"/>
+      <translation>Excelent</translation>
     </message>
     <message>
       <source>Thank you for your feedback...</source>
-      <translation type="unfinished"/>
+      <translation>Multumim pentru feedback</translation>
     </message>
     <message>
       <source>Please complete this short evaluation survey</source>
-      <translation type="unfinished"/>
+      <translation>Te rugam completeaza urmatorul chestionar</translation>
     </message>
   </context>
   <context>
     <name>users/autologin</name>
     <message>
       <source>Auto login settings</source>
-      <translation type="unfinished"/>
+      <translation>Setari logare automata</translation>
     </message>
     <message>
       <source>This module can be used if you are generating autologin link. See site for code examples</source>
-      <translation type="unfinished"/>
+      <translation>Acest modul nu poate fi folosit daca este generat un link de auto-login. Vezi site-ul pt. exemple de cod.</translation>
     </message>
     <message>
       <source>Enabled</source>
-      <translation type="unfinished"/>
+      <translation>Activat</translation>
     </message>
     <message>
       <source>Secret hash used for authentification token generation, min 10 characters</source>
-      <translation type="unfinished"/>
+      <translation>Hash secret pt. generarea token-ului de autentificare, min 10 caractere.</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>Setari modificate!</translation>
     </message>
     <message>
       <source>Autologin hash has expired</source>
-      <translation type="unfinished"/>
+      <translation>Autologin expirat</translation>
     </message>
     <message>
       <source>Could not find a user</source>
-      <translation type="unfinished"/>
+      <translation>User-ul nu a fost gasit</translation>
     </message>
     <message>
       <source>Could not find a provided user</source>
-      <translation type="unfinished"/>
+      <translation>User-ul nu a fost gasit</translation>
     </message>
     <message>
       <source>Invalid autologin hash</source>
-      <translation type="unfinished"/>
+      <translation>Hash autologin invalid</translation>
     </message>
     <message>
       <source>Auto login module is not enabled</source>
-      <translation type="unfinished"/>
+      <translation>Autologin neactivat</translation>
     </message>
   </context>
   <context>
@@ -7056,10 +7144,6 @@
   <context>
     <name>user/grouplist</name>
     <message>
-      <source>Groups</source>
-      <translation>Grupuri</translation>
-    </message>
-    <message>
       <source>Name</source>
       <translation>Nume</translation>
     </message>
@@ -7074,6 +7158,10 @@
     <message>
       <source>New group</source>
       <translation>Grup nou</translation>
+    </message>
+    <message>
+      <source>Groups</source>
+      <translation>Grupuri</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -7218,7 +7306,7 @@
     <name>chat/chatexport</name>
     <message>
       <source>Department name</source>
-      <translation type="unfinished"/>
+      <translation>Nume departament</translation>
     </message>
     <message>
       <source>Pending chats number</source>

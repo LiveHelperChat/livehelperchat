@@ -10,6 +10,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>List online operators.</source>
+      <translation>Κατάλογος σε απευθείας σύνδεση φορείς.</translation>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Πόσες ημέρες ψηφοφορίας widget δεν θα πρέπει να επεκταθεί μετά από την τελευταία εμφάνιση</translation>
     </message>
@@ -126,6 +138,10 @@
       <translation>Είναι η πρόσκληση προορατικού chat ενεργό. Οι σε απευθείας σύνδεση χρήστες που παρακολουθούν επίσης πρέπει να επιτραπεί</translation>
     </message>
     <message>
+      <source>On chat close exit chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source/>
       <translation type="unfinished"/>
     </message>
@@ -154,8 +170,8 @@
       <translation>Μέγιστη μήνυμα μήκος σε χαρακτήρες</translation>
     </message>
     <message>
-      <source>List online operators.</source>
-      <translation>Κατάλογος σε απευθείας σύνδεση φορείς.</translation>
+      <source>List online operators, 0 - no, 1 - yes.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Ignore users online statuses and use departments online hours</source>
@@ -172,6 +188,10 @@
     <message>
       <source>Hide disabled department widget</source>
       <translation>Απόκρυψη απενεργοποιημένη τμήμα widget</translation>
+    </message>
+    <message>
+      <source>Hide close button in dropdown</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Home page tabs order</source>
@@ -1059,6 +1079,10 @@
       <translation>Απενεργοποιήσετε προορατικού προσκλήσεις, χρήσιμο αν θέλετε να απενεργοποιήσετε από τμήμα τοποθεσίας.</translation>
     </message>
     <message>
+      <source>Disable online tracking, overrides system configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Survey at the end of chat</source>
       <translation>Έρευνα στο τέλος της συνομιλίας</translation>
     </message>
@@ -1455,6 +1479,10 @@
   <context>
     <name>department/edit</name>
     <message>
+      <source>Priority</source>
+      <translation>Προτεραιότητα</translation>
+    </message>
+    <message>
       <source>Any</source>
       <translation>Κάθε</translation>
     </message>
@@ -1491,8 +1519,12 @@
       <translation>Καθυστέρηση σε δευτερόλεπτα πριν από την άδεια που εμφανίζεται μια φόρμα μηνυμάτων. 0 μέσα λειτουργικότητα είναι άτομα με ειδικές ανάγκες, </translation>
     </message>
     <message>
-      <source>Priority</source>
-      <translation>Προτεραιότητα</translation>
+      <source>Priority, used for chats priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority, used for departments sort</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Automate online hours</source>
@@ -3394,20 +3426,20 @@
       <translation>Ζητήσει άδεια κοινοποίησης</translation>
     </message>
     <message>
-      <source>Supported: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</source>
-      <translation>Υποστηρίζεται: ταμπλό, online_map, online_users, pending_chats, online_map, active_chats, unread_chats, closed_chats, online_operators</translation>
-    </message>
-    <message>
-      <source>Supported: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
-      <translation>Υποστηρίζεται: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</translation>
+      <source>Close button</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>New chat notification settings</source>
       <translation>Νέες ρυθμίσεις ειδοποιήσεων συνομιλίας</translation>
     </message>
     <message>
-      <source>System configuration</source>
-      <translation>Παραμετροποίηση συστήματος</translation>
+      <source>Supported: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
+      <translation>Υποστηρίζεται: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</translation>
+    </message>
+    <message>
+      <source>Supported: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</source>
+      <translation>Υποστηρίζεται: ταμπλό, online_map, online_users, pending_chats, online_map, active_chats, unread_chats, closed_chats, online_operators</translation>
     </message>
     <message>
       <source>Time zone settings</source>
@@ -3562,6 +3594,10 @@
       <translation>Τμήματα</translation>
     </message>
     <message>
+      <source>System configuration</source>
+      <translation>Παραμετροποίηση συστήματος</translation>
+    </message>
+    <message>
       <source>Embed code</source>
       <translation>Ενσωματώστε τον κώδικα</translation>
     </message>
@@ -3593,22 +3629,6 @@
       <translation>Ρυθμίσεις τοποθεσίας</translation>
     </message>
     <message>
-      <source>Cookie related</source>
-      <translation>Cookie που σχετίζονται</translation>
-    </message>
-    <message>
-      <source>Chat related</source>
-      <translation>Συνομιλία σχετικές</translation>
-    </message>
-    <message>
-      <source>Misc</source>
-      <translation>Misc</translation>
-    </message>
-    <message>
-      <source>Online if</source>
-      <translation>Αν σε απευθείας σύνδεση</translation>
-    </message>
-    <message>
       <source>(Widget is open) or (closed and user has activity in last 5 minutes and ping respond)</source>
       <translation>(Widget είναι ανοικτό) ή (κλειστό και χρήστης έχει δραστηριότητα στα τελευταία 5 λεπτά και να ανταποκριθούν ping)</translation>
     </message>
@@ -3623,10 +3643,6 @@
     <message>
       <source>Settings updated</source>
       <translation>Ρυθμίσεις ενημέρωση</translation>
-    </message>
-    <message>
-      <source>This determines should status widget change it&apos;s status once operator logins. Recommended value 290</source>
-      <translation>Αυτό καθορίζει θα πρέπει να αλλάξετε το γραφικό στοιχείο κατάσταση είναι το καθεστώς κάποτε χειριστή logins. Συνιστώμενη τιμή 290</translation>
     </message>
     <message>
       <source>Screen sharing</source>
@@ -3645,6 +3661,10 @@
       <translation>Online παρακολούθηση</translation>
     </message>
     <message>
+      <source>Misc</source>
+      <translation>Misc</translation>
+    </message>
+    <message>
       <source>Visitor activity</source>
       <translation>Δραστηριότητες των επισκεπτών</translation>
     </message>
@@ -3655,6 +3675,22 @@
     <message>
       <source>Chat configuration</source>
       <translation>Διαμόρφωση συνομιλίας</translation>
+    </message>
+    <message>
+      <source>Online if</source>
+      <translation>Αν σε απευθείας σύνδεση</translation>
+    </message>
+    <message>
+      <source>Chat related</source>
+      <translation>Συνομιλία σχετικές</translation>
+    </message>
+    <message>
+      <source>Cookie related</source>
+      <translation>Cookie που σχετίζονται</translation>
+    </message>
+    <message>
+      <source>This determines should status widget change it&apos;s status once operator logins. Recommended value 290</source>
+      <translation>Αυτό καθορίζει θα πρέπει να αλλάξετε το γραφικό στοιχείο κατάσταση είναι το καθεστώς κάποτε χειριστή logins. Συνιστώμενη τιμή 290</translation>
     </message>
     <message>
       <source>List chat configuration</source>
@@ -3868,6 +3904,18 @@
       <source>Optional</source>
       <translation>Προαιρετικό</translation>
     </message>
+    <message>
+      <source>Username</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Surname</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>pagelayout/pagelayout</name>
@@ -3914,6 +3962,26 @@
     <message>
       <source>All departments</source>
       <translation>Όλα τα τμήματα</translation>
+    </message>
+    <message>
+      <source>Check all</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only explicit online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide hidden</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide disabled</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Number of elements in list</source>
@@ -4776,6 +4844,10 @@
   <context>
     <name>chat/transferchat</name>
     <message>
+      <source>Departments</source>
+      <translation>Τμήματα</translation>
+    </message>
+    <message>
       <source>Transfer to a user</source>
       <translation>Μεταφορά σε χρήστη</translation>
     </message>
@@ -4796,8 +4868,24 @@
       <translation>Μεταφορά</translation>
     </message>
     <message>
-      <source>Departments</source>
-      <translation>Τμήματα</translation>
+      <source>Only departments which are online and explicitly assigned operator are online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Exclude hidden departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Exclude disabled departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -5619,10 +5707,6 @@
   <context>
     <name>file/configuration</name>
     <message>
-      <source>File configuration</source>
-      <translation>Αρχείο ρύθμισης παραμέτρων</translation>
-    </message>
-    <message>
       <source>Allowed files types for operators</source>
       <translation>Επιτρέπεται τύπους αρχείων για τους φορείς εκμετάλλευσης</translation>
     </message>
@@ -5639,6 +5723,10 @@
       <translation>Ρυθμίσεις ενημέρωση</translation>
     </message>
     <message>
+      <source>File configuration</source>
+      <translation>Αρχείο ρύθμισης παραμέτρων</translation>
+    </message>
+    <message>
       <source>Please enter valid file type!</source>
       <translation>Παρακαλούμε, εισάγετε έγκυρο αρχείο τύπου!</translation>
     </message>
@@ -5650,10 +5738,6 @@
   <context>
     <name>file/new</name>
     <message>
-      <source>New file</source>
-      <translation>Νέο αρχείο</translation>
-    </message>
-    <message>
       <source>File name</source>
       <translation>Όνομα αρχείου</translation>
     </message>
@@ -5664,6 +5748,10 @@
     <message>
       <source>File uploaded</source>
       <translation>Φορτώθηκε το αρχείο</translation>
+    </message>
+    <message>
+      <source>New file</source>
+      <translation>Νέο αρχείο</translation>
     </message>
   </context>
   <context>
@@ -7056,10 +7144,6 @@
   <context>
     <name>user/grouplist</name>
     <message>
-      <source>Groups</source>
-      <translation>Ομάδες</translation>
-    </message>
-    <message>
       <source>Name</source>
       <translation>Όνομα</translation>
     </message>
@@ -7074,6 +7158,10 @@
     <message>
       <source>New group</source>
       <translation>Νέα ομάδα</translation>
+    </message>
+    <message>
+      <source>Groups</source>
+      <translation>Ομάδες</translation>
     </message>
     <message>
       <source>System configuration</source>

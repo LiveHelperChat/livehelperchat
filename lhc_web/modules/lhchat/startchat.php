@@ -265,6 +265,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
 	               
 	               $messageInitial = $msg;
 	               
+	               $chat->unanswered_chat = 1;
 	               $chat->last_msg_id = $msg->id;
 	               $chat->saveThis();
 	           }

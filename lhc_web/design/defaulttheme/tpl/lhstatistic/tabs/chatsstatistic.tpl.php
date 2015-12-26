@@ -25,7 +25,23 @@
 		  };
 		  var chartUp = new google.visualization.ColumnChart(document.getElementById('chart_div_per_month'));
 		  chartUp.draw(data, options);
-		  
+
+		  // Chats number by unanswered chats
+          var data = google.visualization.arrayToDataTable([
+		    ['<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Month');?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number');?>']
+		    <?php foreach ($numberOfChatsPerMonth as $monthUnix => $data) : ?>
+		    	<?php echo ',[\''.date($groupby,$monthUnix).'\','.$data['unanswered'].']'?>
+		    <?php endforeach;?>
+		  ]);   		  
+		  var options = {
+			title: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Unanswered chats numbers');?>',
+	        width: '100%',
+	        height: '100%',
+	        isStacked: true
+		  };
+		  var chartUp = new google.visualization.ColumnChart(document.getElementById('chart_div_per_month_unanswered'));
+		  chartUp.draw(data, options);
+
 		  var data = google.visualization.arrayToDataTable([
 		    ['<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Month');?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Time');?>']
 		    <?php foreach ($numberOfChatsPerWaitTimeMonth as $monthUnix => $data) : ?>
@@ -150,4 +166,5 @@
 <div id="chart_type_div_per_month" style="width: 100%; height: 300px;"></div> 		
 <div id="chart_type_div_msg_type" style="width: 100%; height: 300px;"></div>
 <div id="chart_div_per_month_wait_time" style="width: 100%; height: 300px;"></div>
+<div id="chart_div_per_month_unanswered" style="width: 100%; height: 300px;"></div>
 

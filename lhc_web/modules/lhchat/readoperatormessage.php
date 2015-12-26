@@ -372,6 +372,8 @@ if (isset($_POST['askQuestion']))
            $msg->time = time();
            erLhcoreClassChat::getSession()->save($msg);
            
+           $chat->unanswered_chat = 1;
+           
            $messageInitial = $msg;
        
            if ($userInstance->invitation !== false) {

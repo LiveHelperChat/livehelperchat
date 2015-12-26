@@ -10,6 +10,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>List online operators.</source>
+      <translation>Lista de operadores on-line.</translation>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Por quantos dias o widget de votação não deve ser exibido após última exibição</translation>
     </message>
@@ -126,6 +138,10 @@
       <translation>Existem convites de chat pro-ativos ativos. O mapeamento de usuários online também deve estar ativado.</translation>
     </message>
     <message>
+      <source>On chat close exit chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source/>
       <translation type="unfinished"/>
     </message>
@@ -154,8 +170,8 @@
       <translation>Comprimento máximo de mensagem em caracteres</translation>
     </message>
     <message>
-      <source>List online operators.</source>
-      <translation>Lista de operadores on-line.</translation>
+      <source>List online operators, 0 - no, 1 - yes.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Ignore users online statuses and use departments online hours</source>
@@ -172,6 +188,10 @@
     <message>
       <source>Hide disabled department widget</source>
       <translation>Ocultar widgets de departamento desativados</translation>
+    </message>
+    <message>
+      <source>Hide close button in dropdown</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Home page tabs order</source>
@@ -1059,6 +1079,10 @@
       <translation>Desativar convites pró-ativos, útil se você quiser desativá-los de parte do site.</translation>
     </message>
     <message>
+      <source>Disable online tracking, overrides system configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Survey at the end of chat</source>
       <translation>Questionário no final do chat</translation>
     </message>
@@ -1455,6 +1479,10 @@
   <context>
     <name>department/edit</name>
     <message>
+      <source>Priority</source>
+      <translation>Prioridade</translation>
+    </message>
+    <message>
       <source>Any</source>
       <translation>Qualquer</translation>
     </message>
@@ -1491,8 +1519,12 @@
       <translation>Atraso em segundos antes de exibir o formulário de deixar uma mensagem. 0 entende-se como funcionalidade desabilitada,</translation>
     </message>
     <message>
-      <source>Priority</source>
-      <translation>Prioridade</translation>
+      <source>Priority, used for chats priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority, used for departments sort</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Automate online hours</source>
@@ -3394,21 +3426,21 @@
       <translation>Requisitar permissão de notificação</translation>
     </message>
     <message>
-      <source>Supported: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</source>
-      <translation>Suportado:
-dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</translation>
-    </message>
-    <message>
-      <source>Supported: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
-      <translation>Suportado: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</translation>
+      <source>Close button</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>New chat notification settings</source>
       <translation>Configurações de notificação de novos chats</translation>
     </message>
     <message>
-      <source>System configuration</source>
-      <translation>Configuração do sistema</translation>
+      <source>Supported: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
+      <translation>Suportado: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</translation>
+    </message>
+    <message>
+      <source>Supported: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</source>
+      <translation>Suportado:
+dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</translation>
     </message>
     <message>
       <source>Time zone settings</source>
@@ -3563,6 +3595,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Departamentos</translation>
     </message>
     <message>
+      <source>System configuration</source>
+      <translation>Configuração do sistema</translation>
+    </message>
+    <message>
       <source>Embed code</source>
       <translation>Código de incorporação</translation>
     </message>
@@ -3594,22 +3630,6 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Configurações do site</translation>
     </message>
     <message>
-      <source>Cookie related</source>
-      <translation>Cookie relacionado</translation>
-    </message>
-    <message>
-      <source>Chat related</source>
-      <translation>Chat relacionado</translation>
-    </message>
-    <message>
-      <source>Misc</source>
-      <translation>Diversos</translation>
-    </message>
-    <message>
-      <source>Online if</source>
-      <translation>Quando Online</translation>
-    </message>
-    <message>
       <source>(Widget is open) or (closed and user has activity in last 5 minutes and ping respond)</source>
       <translation>(Widget aberto) ou (fechado nos últimos 5 minutos com atividade do usuário identificada e PING respondendo)</translation>
     </message>
@@ -3624,10 +3644,6 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Settings updated</source>
       <translation>Configurações atualizadas</translation>
-    </message>
-    <message>
-      <source>This determines should status widget change it&apos;s status once operator logins. Recommended value 290</source>
-      <translation>Isso determina quando mudar seu status no Widget quando logado como operador . Valor recomendado 290</translation>
     </message>
     <message>
       <source>Screen sharing</source>
@@ -3646,6 +3662,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Rastreamento on-line</translation>
     </message>
     <message>
+      <source>Misc</source>
+      <translation>Diversos</translation>
+    </message>
+    <message>
       <source>Visitor activity</source>
       <translation>Atividades dos visitantes</translation>
     </message>
@@ -3656,6 +3676,22 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Chat configuration</source>
       <translation>Configuração do chat</translation>
+    </message>
+    <message>
+      <source>Online if</source>
+      <translation>Quando Online</translation>
+    </message>
+    <message>
+      <source>Chat related</source>
+      <translation>Chat relacionado</translation>
+    </message>
+    <message>
+      <source>Cookie related</source>
+      <translation>Cookie relacionado</translation>
+    </message>
+    <message>
+      <source>This determines should status widget change it&apos;s status once operator logins. Recommended value 290</source>
+      <translation>Isso determina quando mudar seu status no Widget quando logado como operador . Valor recomendado 290</translation>
     </message>
     <message>
       <source>List chat configuration</source>
@@ -3869,6 +3905,18 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <source>Optional</source>
       <translation>Opcional</translation>
     </message>
+    <message>
+      <source>Username</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Surname</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>pagelayout/pagelayout</name>
@@ -3915,6 +3963,26 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>All departments</source>
       <translation>Todos os departamentos</translation>
+    </message>
+    <message>
+      <source>Check all</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only explicit online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide hidden</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide disabled</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Number of elements in list</source>
@@ -4777,6 +4845,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
   <context>
     <name>chat/transferchat</name>
     <message>
+      <source>Departments</source>
+      <translation>Departamentos</translation>
+    </message>
+    <message>
       <source>Transfer to a user</source>
       <translation>Transferir para um usuário</translation>
     </message>
@@ -4797,8 +4869,24 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Transferir</translation>
     </message>
     <message>
-      <source>Departments</source>
-      <translation>Departamentos</translation>
+      <source>Only departments which are online and explicitly assigned operator are online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Exclude hidden departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Exclude disabled departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -5620,10 +5708,6 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
   <context>
     <name>file/configuration</name>
     <message>
-      <source>File configuration</source>
-      <translation>Configuração de arquivo</translation>
-    </message>
-    <message>
       <source>Allowed files types for operators</source>
       <translation>Tipos de arquivos permitidos para operadores</translation>
     </message>
@@ -5640,6 +5724,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Configirações atualizadas</translation>
     </message>
     <message>
+      <source>File configuration</source>
+      <translation>Configuração de arquivo</translation>
+    </message>
+    <message>
       <source>Please enter valid file type!</source>
       <translation>Por favor informe um tipo de arquivo válido!</translation>
     </message>
@@ -5651,10 +5739,6 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
   <context>
     <name>file/new</name>
     <message>
-      <source>New file</source>
-      <translation>Novo arquivo</translation>
-    </message>
-    <message>
       <source>File name</source>
       <translation>Nome do arquivo</translation>
     </message>
@@ -5665,6 +5749,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>File uploaded</source>
       <translation>Arquivo enviado</translation>
+    </message>
+    <message>
+      <source>New file</source>
+      <translation>Novo arquivo</translation>
     </message>
   </context>
   <context>
@@ -7057,10 +7145,6 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
   <context>
     <name>user/grouplist</name>
     <message>
-      <source>Groups</source>
-      <translation>Grupos</translation>
-    </message>
-    <message>
       <source>Name</source>
       <translation>Nome</translation>
     </message>
@@ -7075,6 +7159,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>New group</source>
       <translation>Novo grupo</translation>
+    </message>
+    <message>
+      <source>Groups</source>
+      <translation>Grupos</translation>
     </message>
     <message>
       <source>System configuration</source>

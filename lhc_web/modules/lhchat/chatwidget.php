@@ -298,7 +298,9 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
 	               $msg->time = time();
 	               erLhcoreClassChat::getSession()->save($msg);
 
-	               $messageInitial = $msg;	               
+	               $messageInitial = $msg;	     
+	               	               
+	               $chat->unanswered_chat = 1;
 	               $chat->last_msg_id = $msg->id;
 	               $chat->saveThis();
 	           }

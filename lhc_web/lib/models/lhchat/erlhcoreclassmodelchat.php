@@ -80,6 +80,10 @@ class erLhcoreClassModelChat {
            
                // Operator language
                'chat_locale_to'    		=> $this->chat_locale_to,
+           
+               // Was chat unanswered before user has left a chat
+               // Currently there isn’t a statistic that shows the number of users that has left the chat before operator has accepted the chat.
+               'unanswered_chat'    	=> $this->unanswered_chat,
        );
    }
 
@@ -502,6 +506,8 @@ class erLhcoreClassModelChat {
    
    // Time when user closed a chat window
    public $user_closed_ts = 0;
+   
+   public $unanswered_chat = 0;
    
    // Time since last assignment
    public $tslasign = 0;

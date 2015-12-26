@@ -26,7 +26,10 @@ class erLhcoreClassModelUser {
             'active_chats_counter' => $this->active_chats_counter,
             'closed_chats_counter' => $this->closed_chats_counter,
             'pending_chats_counter' => $this->pending_chats_counter,
-            'departments_ids' => $this->departments_ids
+            'departments_ids' => $this->departments_ids,
+            'attr_int_1' => $this->attr_int_1,
+            'attr_int_2' => $this->attr_int_2,
+            'attr_int_3' => $this->attr_int_3
         );
    }
       
@@ -362,6 +365,10 @@ class erLhcoreClassModelUser {
     public $active_chats_counter = 0;
     public $closed_chats_counter = 0;
     public $pending_chats_counter = 0;
+    
+    public $attr_int_1 = 0;
+    public $attr_int_2 = 0;
+    public $attr_int_3 = 0;
 }
 
 ?>

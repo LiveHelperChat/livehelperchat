@@ -1544,6 +1544,14 @@
                 "extra": ""
             },
             {
+                "field": "unanswered_chat",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": "0",
+                "extra": ""
+            },
+            {
                 "field": "time",
                 "type": "int(11)",
                 "null": "NO",
@@ -3772,6 +3780,30 @@
                 "key": "",
                 "default": null,
                 "extra": ""
+            },
+            {
+                "field": "attr_int_1",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "attr_int_2",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "attr_int_3",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
             }
         ],
         "lh_users_remember": [
@@ -5163,6 +5195,10 @@
     	},
     	"lh_group" : {
     		"new" : {"disabled" : "ALTER TABLE `lh_group` ADD INDEX `disabled` (`disabled`);"},
+    		"old" : []
+    	},
+    	"lh_chat" : {
+    		"new" : {"unanswered_chat" : "ALTER TABLE `lh_chat` ADD INDEX `unanswered_chat` (`unanswered_chat`);"},
     		"old" : []
     	},
     	"lh_users" : {

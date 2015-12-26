@@ -10,6 +10,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>List online operators.</source>
+      <translation>Да се показва списък с операторите на линия</translation>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Колко дни след последното показване да не се показва приставката за гласуване?</translation>
     </message>
@@ -126,6 +138,10 @@
       <translation>Активиране на активните покани за чат. Следене на онлайн посетители също трябва да е активно</translation>
     </message>
     <message>
+      <source>On chat close exit chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source/>
       <translation type="unfinished"/>
     </message>
@@ -154,8 +170,8 @@
       <translation>Максимална дължина на съобщението в символи</translation>
     </message>
     <message>
-      <source>List online operators.</source>
-      <translation>Да се показва списък с операторите на линия</translation>
+      <source>List online operators, 0 - no, 1 - yes.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Ignore users online statuses and use departments online hours</source>
@@ -172,6 +188,10 @@
     <message>
       <source>Hide disabled department widget</source>
       <translation>Да се скрие модул за неактивен отдел</translation>
+    </message>
+    <message>
+      <source>Hide close button in dropdown</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Home page tabs order</source>
@@ -1059,6 +1079,10 @@
       <translation>Изключване на активните покани, полезно е, ако искате да ги изключите и от сайта</translation>
     </message>
     <message>
+      <source>Disable online tracking, overrides system configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Survey at the end of chat</source>
       <translation type="unfinished"/>
     </message>
@@ -1455,6 +1479,10 @@
   <context>
     <name>department/edit</name>
     <message>
+      <source>Priority</source>
+      <translation>Приоритет</translation>
+    </message>
+    <message>
       <source>Any</source>
       <translation>Всички</translation>
     </message>
@@ -1491,8 +1519,12 @@
       <translation>Изчакване секунди преди да се покаже формуляра за оставяне на съобщение. 0 означава изключен</translation>
     </message>
     <message>
-      <source>Priority</source>
-      <translation>Приоритет</translation>
+      <source>Priority, used for chats priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority, used for departments sort</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Automate online hours</source>
@@ -3394,11 +3426,7 @@
       <translation>Позволяване на искане за известия</translation>
     </message>
     <message>
-      <source>Supported: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Supported: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
+      <source>Close button</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3406,8 +3434,12 @@
       <translation>Настройки за известяване при нов чат</translation>
     </message>
     <message>
-      <source>System configuration</source>
-      <translation>Настройки на системата</translation>
+      <source>Supported: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Supported: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Time zone settings</source>
@@ -3562,6 +3594,10 @@
       <translation>Отдели</translation>
     </message>
     <message>
+      <source>System configuration</source>
+      <translation>Настройки на системата</translation>
+    </message>
+    <message>
       <source>Embed code</source>
       <translation>Код за вграждане</translation>
     </message>
@@ -3593,22 +3629,6 @@
       <translation>Настройки на сайта</translation>
     </message>
     <message>
-      <source>Cookie related</source>
-      <translation>Относно кукута</translation>
-    </message>
-    <message>
-      <source>Chat related</source>
-      <translation>Относно чат</translation>
-    </message>
-    <message>
-      <source>Misc</source>
-      <translation>Други</translation>
-    </message>
-    <message>
-      <source>Online if</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>(Widget is open) or (closed and user has activity in last 5 minutes and ping respond)</source>
       <translation type="unfinished"/>
     </message>
@@ -3623,10 +3643,6 @@
     <message>
       <source>Settings updated</source>
       <translation>Настройките бяха обновени</translation>
-    </message>
-    <message>
-      <source>This determines should status widget change it&apos;s status once operator logins. Recommended value 290</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Screen sharing</source>
@@ -3645,6 +3661,10 @@
       <translation>Онлайн проследяване</translation>
     </message>
     <message>
+      <source>Misc</source>
+      <translation>Други</translation>
+    </message>
+    <message>
       <source>Visitor activity</source>
       <translation type="unfinished"/>
     </message>
@@ -3655,6 +3675,22 @@
     <message>
       <source>Chat configuration</source>
       <translation>Настройки на чата</translation>
+    </message>
+    <message>
+      <source>Online if</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat related</source>
+      <translation>Относно чат</translation>
+    </message>
+    <message>
+      <source>Cookie related</source>
+      <translation>Относно кукута</translation>
+    </message>
+    <message>
+      <source>This determines should status widget change it&apos;s status once operator logins. Recommended value 290</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>List chat configuration</source>
@@ -3868,6 +3904,18 @@
       <source>Optional</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Username</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Surname</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>pagelayout/pagelayout</name>
@@ -3914,6 +3962,26 @@
     <message>
       <source>All departments</source>
       <translation>Всички отдели</translation>
+    </message>
+    <message>
+      <source>Check all</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only explicit online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide hidden</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide disabled</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Number of elements in list</source>
@@ -4776,6 +4844,10 @@
   <context>
     <name>chat/transferchat</name>
     <message>
+      <source>Departments</source>
+      <translation>Отдели</translation>
+    </message>
+    <message>
       <source>Transfer to a user</source>
       <translation>Прехвърляне към потребител</translation>
     </message>
@@ -4796,8 +4868,24 @@
       <translation>Прехвърляне</translation>
     </message>
     <message>
-      <source>Departments</source>
-      <translation>Отдели</translation>
+      <source>Only departments which are online and explicitly assigned operator are online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Exclude hidden departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Exclude disabled departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -5619,10 +5707,6 @@
   <context>
     <name>file/configuration</name>
     <message>
-      <source>File configuration</source>
-      <translation>Настройки за файлове</translation>
-    </message>
-    <message>
       <source>Allowed files types for operators</source>
       <translation>Позволени разширения на файлове за оператори</translation>
     </message>
@@ -5639,6 +5723,10 @@
       <translation>Настройките бяха обновени</translation>
     </message>
     <message>
+      <source>File configuration</source>
+      <translation>Настройки за файлове</translation>
+    </message>
+    <message>
       <source>Please enter valid file type!</source>
       <translation>Въведете валиден файл!</translation>
     </message>
@@ -5650,10 +5738,6 @@
   <context>
     <name>file/new</name>
     <message>
-      <source>New file</source>
-      <translation>Нов файл</translation>
-    </message>
-    <message>
       <source>File name</source>
       <translation>Име на файл</translation>
     </message>
@@ -5664,6 +5748,10 @@
     <message>
       <source>File uploaded</source>
       <translation>Файлът беше качен</translation>
+    </message>
+    <message>
+      <source>New file</source>
+      <translation>Нов файл</translation>
     </message>
   </context>
   <context>
@@ -7056,10 +7144,6 @@
   <context>
     <name>user/grouplist</name>
     <message>
-      <source>Groups</source>
-      <translation>Групи</translation>
-    </message>
-    <message>
       <source>Name</source>
       <translation>Име</translation>
     </message>
@@ -7074,6 +7158,10 @@
     <message>
       <source>New group</source>
       <translation>Нова група</translation>
+    </message>
+    <message>
+      <source>Groups</source>
+      <translation>Групи</translation>
     </message>
     <message>
       <source>System configuration</source>

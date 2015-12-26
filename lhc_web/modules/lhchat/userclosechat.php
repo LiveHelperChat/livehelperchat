@@ -14,7 +14,7 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 		$db->beginTransaction();
 
 		    // User closed chat
-		    $chat->user_status = 1;
+		    $chat->user_status = erLhcoreClassModelChat::USER_STATUS_CLOSED_CHAT;
 		    $chat->support_informed = 1;
 		    $chat->user_typing = time()-5;// Show for shorter period these status messages
 		    $chat->is_user_typing = 1;

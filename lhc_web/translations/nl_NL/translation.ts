@@ -10,6 +10,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>List online operators.</source>
+      <translation>Toon online operators</translation>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Hoeveel dagen moet de stemwidget verborgen worden na de laatste weergave?</translation>
     </message>
@@ -126,6 +138,10 @@
       <translation>Is een uitnodiging voor pro actieve chatsessie versturen actief? Online gebruikers volgen moet ingeschakeld zijn.</translation>
     </message>
     <message>
+      <source>On chat close exit chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source/>
       <translation type="unfinished"/>
     </message>
@@ -154,8 +170,8 @@
       <translation>Maximale lengte in tekens</translation>
     </message>
     <message>
-      <source>List online operators.</source>
-      <translation>Toon online operators</translation>
+      <source>List online operators, 0 - no, 1 - yes.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Ignore users online statuses and use departments online hours</source>
@@ -172,6 +188,10 @@
     <message>
       <source>Hide disabled department widget</source>
       <translation>Verberg een uitgeschakelde afdeling widget</translation>
+    </message>
+    <message>
+      <source>Hide close button in dropdown</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Home page tabs order</source>
@@ -1059,6 +1079,10 @@
       <translation>Schakel pro-actieve uitnodigingen uit, handig voor als je ze wilt uitschakelen vanaf de site-kant.</translation>
     </message>
     <message>
+      <source>Disable online tracking, overrides system configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Survey at the end of chat</source>
       <translation>Enquête op het einde van de chat</translation>
     </message>
@@ -1455,6 +1479,10 @@
   <context>
     <name>department/edit</name>
     <message>
+      <source>Priority</source>
+      <translation>Prioriteit</translation>
+    </message>
+    <message>
       <source>Any</source>
       <translation>Elke</translation>
     </message>
@@ -1491,8 +1519,12 @@
       <translation>Vertraging in seconden voordat het laat-een-bericht-achter-fomulier wordt getoond. 0 Betekent dat deze functie is uitgeschakeld.</translation>
     </message>
     <message>
-      <source>Priority</source>
-      <translation>Prioriteit</translation>
+      <source>Priority, used for chats priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority, used for departments sort</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Automate online hours</source>
@@ -3394,12 +3426,7 @@
       <translation>Request notificatie toestemming</translation>
     </message>
     <message>
-      <source>Supported: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</source>
-      <translation>Ondersteund:
-dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</translation>
-    </message>
-    <message>
-      <source>Supported: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
+      <source>Close button</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3407,8 +3434,13 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Nieuwe chat notificatie-instellingen</translation>
     </message>
     <message>
-      <source>System configuration</source>
-      <translation>Systeemconfiguratie</translation>
+      <source>Supported: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Supported: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</source>
+      <translation>Ondersteund:
+dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</translation>
     </message>
     <message>
       <source>Time zone settings</source>
@@ -3563,6 +3595,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Afdelingen</translation>
     </message>
     <message>
+      <source>System configuration</source>
+      <translation>Systeemconfiguratie</translation>
+    </message>
+    <message>
       <source>Embed code</source>
       <translation>Code insluiten</translation>
     </message>
@@ -3594,22 +3630,6 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Site instellingen</translation>
     </message>
     <message>
-      <source>Cookie related</source>
-      <translation>Cookie gerelateerd</translation>
-    </message>
-    <message>
-      <source>Chat related</source>
-      <translation>Chat gerelateerd</translation>
-    </message>
-    <message>
-      <source>Misc</source>
-      <translation>Diverse</translation>
-    </message>
-    <message>
-      <source>Online if</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>(Widget is open) or (closed and user has activity in last 5 minutes and ping respond)</source>
       <translation type="unfinished"/>
     </message>
@@ -3624,10 +3644,6 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Settings updated</source>
       <translation>Instellingen opgeslagen</translation>
-    </message>
-    <message>
-      <source>This determines should status widget change it&apos;s status once operator logins. Recommended value 290</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Screen sharing</source>
@@ -3646,6 +3662,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Online tracking</translation>
     </message>
     <message>
+      <source>Misc</source>
+      <translation>Diverse</translation>
+    </message>
+    <message>
       <source>Visitor activity</source>
       <translation type="unfinished"/>
     </message>
@@ -3656,6 +3676,22 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Chat configuration</source>
       <translation>Chat configuratie</translation>
+    </message>
+    <message>
+      <source>Online if</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat related</source>
+      <translation>Chat gerelateerd</translation>
+    </message>
+    <message>
+      <source>Cookie related</source>
+      <translation>Cookie gerelateerd</translation>
+    </message>
+    <message>
+      <source>This determines should status widget change it&apos;s status once operator logins. Recommended value 290</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>List chat configuration</source>
@@ -3869,6 +3905,18 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <source>Optional</source>
       <translation>Optioneel</translation>
     </message>
+    <message>
+      <source>Username</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Surname</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>pagelayout/pagelayout</name>
@@ -3915,6 +3963,26 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>All departments</source>
       <translation>Alle afdelingen</translation>
+    </message>
+    <message>
+      <source>Check all</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only explicit online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide hidden</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide disabled</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Number of elements in list</source>
@@ -4777,6 +4845,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
   <context>
     <name>chat/transferchat</name>
     <message>
+      <source>Departments</source>
+      <translation>Afdelingen</translation>
+    </message>
+    <message>
       <source>Transfer to a user</source>
       <translation>Schakel door naar een operator</translation>
     </message>
@@ -4797,8 +4869,24 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Schakel door</translation>
     </message>
     <message>
-      <source>Departments</source>
-      <translation>Afdelingen</translation>
+      <source>Only departments which are online and explicitly assigned operator are online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Exclude hidden departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Exclude disabled departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -5620,10 +5708,6 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
   <context>
     <name>file/configuration</name>
     <message>
-      <source>File configuration</source>
-      <translation>Bestandsconfiguratie</translation>
-    </message>
-    <message>
       <source>Allowed files types for operators</source>
       <translation>Toegestane bestandstypen voor operators</translation>
     </message>
@@ -5640,6 +5724,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Instellingen opgeslagen</translation>
     </message>
     <message>
+      <source>File configuration</source>
+      <translation>Bestandsconfiguratie</translation>
+    </message>
+    <message>
       <source>Please enter valid file type!</source>
       <translation>Voer s.v.p. een geldig bestandstype in!</translation>
     </message>
@@ -5651,10 +5739,6 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
   <context>
     <name>file/new</name>
     <message>
-      <source>New file</source>
-      <translation>Nieuw bestand</translation>
-    </message>
-    <message>
       <source>File name</source>
       <translation>Bestandsnaam</translation>
     </message>
@@ -5665,6 +5749,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>File uploaded</source>
       <translation>Bestand geupload</translation>
+    </message>
+    <message>
+      <source>New file</source>
+      <translation>Nieuw bestand</translation>
     </message>
   </context>
   <context>
@@ -7057,10 +7145,6 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
   <context>
     <name>user/grouplist</name>
     <message>
-      <source>Groups</source>
-      <translation>Groepen</translation>
-    </message>
-    <message>
       <source>Name</source>
       <translation>Naam</translation>
     </message>
@@ -7075,6 +7159,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>New group</source>
       <translation>Nieuwe groep</translation>
+    </message>
+    <message>
+      <source>Groups</source>
+      <translation>Groepen</translation>
     </message>
     <message>
       <source>System configuration</source>

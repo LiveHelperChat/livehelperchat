@@ -10,6 +10,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>List online operators.</source>
+      <translation>列出在线客服</translation>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>多少天投票窗口小部件不应扩大后最后的展示</translation>
     </message>
@@ -126,6 +138,10 @@
       <translation>激话聊天邀请。在线用户跟踪也必须被启用</translation>
     </message>
     <message>
+      <source>On chat close exit chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source/>
       <translation type="unfinished"/>
     </message>
@@ -154,8 +170,8 @@
       <translation>最大消息长度，以字符计数，一个汉字占2字节</translation>
     </message>
     <message>
-      <source>List online operators.</source>
-      <translation>列出在线客服</translation>
+      <source>List online operators, 0 - no, 1 - yes.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Ignore users online statuses and use departments online hours</source>
@@ -172,6 +188,10 @@
     <message>
       <source>Hide disabled department widget</source>
       <translation>隐藏禁用部门控件</translation>
+    </message>
+    <message>
+      <source>Hide close button in dropdown</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Home page tabs order</source>
@@ -1059,6 +1079,10 @@
       <translation>禁用積極邀請，有用的，如果你想禁止他們從現場部分。</translation>
     </message>
     <message>
+      <source>Disable online tracking, overrides system configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Survey at the end of chat</source>
       <translation type="unfinished"/>
     </message>
@@ -1455,6 +1479,10 @@
   <context>
     <name>department/edit</name>
     <message>
+      <source>Priority</source>
+      <translation>优先</translation>
+    </message>
+    <message>
       <source>Any</source>
       <translation>任何</translation>
     </message>
@@ -1491,8 +1519,12 @@
       <translation>延迟在前假邮件窗体显示的秒数。0 意味着功能被禁用，</translation>
     </message>
     <message>
-      <source>Priority</source>
-      <translation>优先</translation>
+      <source>Priority, used for chats priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority, used for departments sort</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Automate online hours</source>
@@ -3394,11 +3426,7 @@
       <translation>请求通知权限</translation>
     </message>
     <message>
-      <source>Supported: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Supported: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
+      <source>Close button</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3406,8 +3434,12 @@
       <translation>新的聊天通知设置</translation>
     </message>
     <message>
-      <source>System configuration</source>
-      <translation>系统配置</translation>
+      <source>Supported: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Supported: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Time zone settings</source>
@@ -3562,6 +3594,10 @@
       <translation>部门</translation>
     </message>
     <message>
+      <source>System configuration</source>
+      <translation>系统配置</translation>
+    </message>
+    <message>
       <source>Embed code</source>
       <translation>嵌入代码</translation>
     </message>
@@ -3593,22 +3629,6 @@
       <translation>网站设置</translation>
     </message>
     <message>
-      <source>Cookie related</source>
-      <translation>相关的 cookie</translation>
-    </message>
-    <message>
-      <source>Chat related</source>
-      <translation>聊天相关</translation>
-    </message>
-    <message>
-      <source>Misc</source>
-      <translation>杂项</translation>
-    </message>
-    <message>
-      <source>Online if</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>(Widget is open) or (closed and user has activity in last 5 minutes and ping respond)</source>
       <translation type="unfinished"/>
     </message>
@@ -3623,10 +3643,6 @@
     <message>
       <source>Settings updated</source>
       <translation>更新设置</translation>
-    </message>
-    <message>
-      <source>This determines should status widget change it&apos;s status once operator logins. Recommended value 290</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Screen sharing</source>
@@ -3645,6 +3661,10 @@
       <translation>在线跟踪</translation>
     </message>
     <message>
+      <source>Misc</source>
+      <translation>杂项</translation>
+    </message>
+    <message>
       <source>Visitor activity</source>
       <translation type="unfinished"/>
     </message>
@@ -3655,6 +3675,22 @@
     <message>
       <source>Chat configuration</source>
       <translation>聊天配置</translation>
+    </message>
+    <message>
+      <source>Online if</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat related</source>
+      <translation>聊天相关</translation>
+    </message>
+    <message>
+      <source>Cookie related</source>
+      <translation>相关的 cookie</translation>
+    </message>
+    <message>
+      <source>This determines should status widget change it&apos;s status once operator logins. Recommended value 290</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>List chat configuration</source>
@@ -3868,6 +3904,18 @@
       <source>Optional</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Username</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Surname</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>pagelayout/pagelayout</name>
@@ -3913,6 +3961,26 @@
     </message>
     <message>
       <source>All departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Check all</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only explicit online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide hidden</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide disabled</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4776,6 +4844,10 @@
   <context>
     <name>chat/transferchat</name>
     <message>
+      <source>Departments</source>
+      <translation>部门</translation>
+    </message>
+    <message>
       <source>Transfer to a user</source>
       <translation>转入用户</translation>
     </message>
@@ -4796,8 +4868,24 @@
       <translation>转让</translation>
     </message>
     <message>
-      <source>Departments</source>
-      <translation>部门</translation>
+      <source>Only departments which are online and explicitly assigned operator are online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Exclude hidden departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Exclude disabled departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -5619,10 +5707,6 @@
   <context>
     <name>file/configuration</name>
     <message>
-      <source>File configuration</source>
-      <translation>文件配置</translation>
-    </message>
-    <message>
       <source>Allowed files types for operators</source>
       <translation>运营商允许的文件类型</translation>
     </message>
@@ -5639,6 +5723,10 @@
       <translation>更新设置</translation>
     </message>
     <message>
+      <source>File configuration</source>
+      <translation>文件配置</translation>
+    </message>
+    <message>
       <source>Please enter valid file type!</source>
       <translation>请输入有效的文件类型 ！</translation>
     </message>
@@ -5650,10 +5738,6 @@
   <context>
     <name>file/new</name>
     <message>
-      <source>New file</source>
-      <translation>新的文件</translation>
-    </message>
-    <message>
       <source>File name</source>
       <translation>文件名称</translation>
     </message>
@@ -5664,6 +5748,10 @@
     <message>
       <source>File uploaded</source>
       <translation>上载文件</translation>
+    </message>
+    <message>
+      <source>New file</source>
+      <translation>新的文件</translation>
     </message>
   </context>
   <context>
@@ -7056,10 +7144,6 @@
   <context>
     <name>user/grouplist</name>
     <message>
-      <source>Groups</source>
-      <translation>组</translation>
-    </message>
-    <message>
       <source>Name</source>
       <translation>名</translation>
     </message>
@@ -7074,6 +7158,10 @@
     <message>
       <source>New group</source>
       <translation>新组</translation>
+    </message>
+    <message>
+      <source>Groups</source>
+      <translation>组</translation>
     </message>
     <message>
       <source>System configuration</source>

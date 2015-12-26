@@ -10,6 +10,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>List online operators.</source>
+      <translation>Online Operator auflisten</translation>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Wie viele Tage lang soll das Bewertungs-Widget seit der letzten Anzeige nicht erweitert werden</translation>
     </message>
@@ -126,6 +138,10 @@
       <translation>Aktiviere auch das User-Tracking wenn die proaktive Chat-Einladung aktiv ist.</translation>
     </message>
     <message>
+      <source>On chat close exit chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source/>
       <translation type="unfinished"/>
     </message>
@@ -154,8 +170,8 @@
       <translation>Maximale Nachrichtenlänge in Zeichen</translation>
     </message>
     <message>
-      <source>List online operators.</source>
-      <translation>Online Operator auflisten</translation>
+      <source>List online operators, 0 - no, 1 - yes.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Ignore users online statuses and use departments online hours</source>
@@ -172,6 +188,10 @@
     <message>
       <source>Hide disabled department widget</source>
       <translation>Verstecke deaktivierte Abteilungen</translation>
+    </message>
+    <message>
+      <source>Hide close button in dropdown</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Home page tabs order</source>
@@ -1059,6 +1079,10 @@
       <translation>Deaktivere pro-aktive Einladungen, dies ist nützlich, wenn diese auf der Seite deaktiviert werden sollen.</translation>
     </message>
     <message>
+      <source>Disable online tracking, overrides system configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Survey at the end of chat</source>
       <translation type="unfinished"/>
     </message>
@@ -1455,6 +1479,10 @@
   <context>
     <name>department/edit</name>
     <message>
+      <source>Priority</source>
+      <translation>Priorität</translation>
+    </message>
+    <message>
       <source>Any</source>
       <translation>Alle</translation>
     </message>
@@ -1491,8 +1519,12 @@
       <translation>Verzögerung in Sekunden bevor das &quot;eine Nachricht hinterlassen&quot;-Formular angezeigt werden soll. 0=Funktion ist deaktiviert.</translation>
     </message>
     <message>
-      <source>Priority</source>
-      <translation>Priorität</translation>
+      <source>Priority, used for chats priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority, used for departments sort</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Automate online hours</source>
@@ -3394,11 +3426,7 @@
       <translation>Erlaubnis fuer Benachrichtigung anfordern</translation>
     </message>
     <message>
-      <source>Supported: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Supported: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
+      <source>Close button</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3406,8 +3434,12 @@
       <translation>Benachrichtigungseinstellungen für neuen Chat</translation>
     </message>
     <message>
-      <source>System configuration</source>
-      <translation>Systemkonfiguration</translation>
+      <source>Supported: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Supported: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Time zone settings</source>
@@ -3562,6 +3594,10 @@
       <translation>Abteilungen</translation>
     </message>
     <message>
+      <source>System configuration</source>
+      <translation>Systemkonfiguration</translation>
+    </message>
+    <message>
       <source>Embed code</source>
       <translation>Einbettungscode</translation>
     </message>
@@ -3593,22 +3629,6 @@
       <translation>Seiten-Einstellungen</translation>
     </message>
     <message>
-      <source>Cookie related</source>
-      <translation>Cookie bezogen</translation>
-    </message>
-    <message>
-      <source>Chat related</source>
-      <translation>Chat bezogen</translation>
-    </message>
-    <message>
-      <source>Misc</source>
-      <translation>Sonstiges</translation>
-    </message>
-    <message>
-      <source>Online if</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>(Widget is open) or (closed and user has activity in last 5 minutes and ping respond)</source>
       <translation type="unfinished"/>
     </message>
@@ -3623,10 +3643,6 @@
     <message>
       <source>Settings updated</source>
       <translation>Einstellungen aktualisiert</translation>
-    </message>
-    <message>
-      <source>This determines should status widget change it&apos;s status once operator logins. Recommended value 290</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Screen sharing</source>
@@ -3645,6 +3661,10 @@
       <translation>Online Tracking</translation>
     </message>
     <message>
+      <source>Misc</source>
+      <translation>Sonstiges</translation>
+    </message>
+    <message>
       <source>Visitor activity</source>
       <translation type="unfinished"/>
     </message>
@@ -3655,6 +3675,22 @@
     <message>
       <source>Chat configuration</source>
       <translation>Chat Konfiguration</translation>
+    </message>
+    <message>
+      <source>Online if</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat related</source>
+      <translation>Chat bezogen</translation>
+    </message>
+    <message>
+      <source>Cookie related</source>
+      <translation>Cookie bezogen</translation>
+    </message>
+    <message>
+      <source>This determines should status widget change it&apos;s status once operator logins. Recommended value 290</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>List chat configuration</source>
@@ -3868,6 +3904,18 @@
       <source>Optional</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Username</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Surname</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>pagelayout/pagelayout</name>
@@ -3914,6 +3962,26 @@
     <message>
       <source>All departments</source>
       <translation>Alle Abteilungen</translation>
+    </message>
+    <message>
+      <source>Check all</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only explicit online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide hidden</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide disabled</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Number of elements in list</source>
@@ -4776,6 +4844,10 @@
   <context>
     <name>chat/transferchat</name>
     <message>
+      <source>Departments</source>
+      <translation>Abteilungen</translation>
+    </message>
+    <message>
       <source>Transfer to a user</source>
       <translation>Anderem Benutzer zuweisen</translation>
     </message>
@@ -4796,8 +4868,24 @@
       <translation>Zuweisen</translation>
     </message>
     <message>
-      <source>Departments</source>
-      <translation>Abteilungen</translation>
+      <source>Only departments which are online and explicitly assigned operator are online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Exclude hidden departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Exclude disabled departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -5619,10 +5707,6 @@
   <context>
     <name>file/configuration</name>
     <message>
-      <source>File configuration</source>
-      <translation>Datei Einstellungen</translation>
-    </message>
-    <message>
       <source>Allowed files types for operators</source>
       <translation>Erlaubte Dateitypen für Operator</translation>
     </message>
@@ -5639,6 +5723,10 @@
       <translation>Einstellungen aktualisiert</translation>
     </message>
     <message>
+      <source>File configuration</source>
+      <translation>Datei Einstellungen</translation>
+    </message>
+    <message>
       <source>Please enter valid file type!</source>
       <translation>Bitte unterstütze Dateitypen verwenden!</translation>
     </message>
@@ -5650,10 +5738,6 @@
   <context>
     <name>file/new</name>
     <message>
-      <source>New file</source>
-      <translation>Neue Datei</translation>
-    </message>
-    <message>
       <source>File name</source>
       <translation>Datei Name</translation>
     </message>
@@ -5664,6 +5748,10 @@
     <message>
       <source>File uploaded</source>
       <translation>Datei hochgeladen</translation>
+    </message>
+    <message>
+      <source>New file</source>
+      <translation>Neue Datei</translation>
     </message>
   </context>
   <context>
@@ -7056,10 +7144,6 @@
   <context>
     <name>user/grouplist</name>
     <message>
-      <source>Groups</source>
-      <translation>Gruppen</translation>
-    </message>
-    <message>
       <source>Name</source>
       <translation>Name</translation>
     </message>
@@ -7074,6 +7158,10 @@
     <message>
       <source>New group</source>
       <translation>Neue Gruppe</translation>
+    </message>
+    <message>
+      <source>Groups</source>
+      <translation>Gruppen</translation>
     </message>
     <message>
       <source>System configuration</source>

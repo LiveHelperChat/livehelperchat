@@ -10,6 +10,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>List online operators.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -126,6 +138,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>On chat close exit chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source/>
       <translation type="unfinished"/>
     </message>
@@ -154,7 +170,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>List online operators.</source>
+      <source>List online operators, 0 - no, 1 - yes.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -171,6 +187,10 @@
     </message>
     <message>
       <source>Hide disabled department widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide close button in dropdown</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1059,6 +1079,10 @@
       <translation>ปิดใช้งาน pro เชิญ ประโยชน์ถ้าคุณต้องการปิดใช้งานจากเว็บไซต์ส่วน</translation>
     </message>
     <message>
+      <source>Disable online tracking, overrides system configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Survey at the end of chat</source>
       <translation type="unfinished"/>
     </message>
@@ -1455,6 +1479,10 @@
   <context>
     <name>department/edit</name>
     <message>
+      <source>Priority</source>
+      <translation>ระดับความสำคัญ</translation>
+    </message>
+    <message>
       <source>Any</source>
       <translation type="unfinished"/>
     </message>
@@ -1491,8 +1519,12 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Priority</source>
-      <translation>ระดับความสำคัญ</translation>
+      <source>Priority, used for chats priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority, used for departments sort</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Automate online hours</source>
@@ -3394,11 +3426,7 @@
       <translation>ขออนุญาตแจ้งให้ทราบ</translation>
     </message>
     <message>
-      <source>Supported: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Supported: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
+      <source>Close button</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3406,8 +3434,12 @@
       <translation>การตั้งค่าแจ้งเตือนสนทนาใหม่</translation>
     </message>
     <message>
-      <source>System configuration</source>
-      <translation>การกำหนดค่าระบบ</translation>
+      <source>Supported: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Supported: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Time zone settings</source>
@@ -3562,6 +3594,10 @@
       <translation>แผนก</translation>
     </message>
     <message>
+      <source>System configuration</source>
+      <translation>การกำหนดค่าระบบ</translation>
+    </message>
+    <message>
       <source>Embed code</source>
       <translation type="unfinished"/>
     </message>
@@ -3593,22 +3629,6 @@
       <translation>การตั้งค่าไซต์</translation>
     </message>
     <message>
-      <source>Cookie related</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat related</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Misc</source>
-      <translation>เบ็ดเตล็ด</translation>
-    </message>
-    <message>
-      <source>Online if</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>(Widget is open) or (closed and user has activity in last 5 minutes and ping respond)</source>
       <translation type="unfinished"/>
     </message>
@@ -3623,10 +3643,6 @@
     <message>
       <source>Settings updated</source>
       <translation>การตั้งค่าการปรับปรุง</translation>
-    </message>
-    <message>
-      <source>This determines should status widget change it&apos;s status once operator logins. Recommended value 290</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Screen sharing</source>
@@ -3645,6 +3661,10 @@
       <translation>ติดตามออนไลน์</translation>
     </message>
     <message>
+      <source>Misc</source>
+      <translation>เบ็ดเตล็ด</translation>
+    </message>
+    <message>
       <source>Visitor activity</source>
       <translation type="unfinished"/>
     </message>
@@ -3655,6 +3675,22 @@
     <message>
       <source>Chat configuration</source>
       <translation>การกำหนดค่าแชท</translation>
+    </message>
+    <message>
+      <source>Online if</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat related</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Cookie related</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This determines should status widget change it&apos;s status once operator logins. Recommended value 290</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>List chat configuration</source>
@@ -3868,6 +3904,18 @@
       <source>Optional</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Username</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Surname</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>pagelayout/pagelayout</name>
@@ -3913,6 +3961,26 @@
     </message>
     <message>
       <source>All departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Check all</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only explicit online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide hidden</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide disabled</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4776,6 +4844,10 @@
   <context>
     <name>chat/transferchat</name>
     <message>
+      <source>Departments</source>
+      <translation>แผนก</translation>
+    </message>
+    <message>
       <source>Transfer to a user</source>
       <translation>ถ่ายโอนไปยังผู้ใช้</translation>
     </message>
@@ -4796,8 +4868,24 @@
       <translation>โอนย้าย</translation>
     </message>
     <message>
-      <source>Departments</source>
-      <translation>แผนก</translation>
+      <source>Only departments which are online and explicitly assigned operator are online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Exclude hidden departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Exclude disabled departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -5619,10 +5707,6 @@
   <context>
     <name>file/configuration</name>
     <message>
-      <source>File configuration</source>
-      <translation>แฟ้มกำหนดค่า</translation>
-    </message>
-    <message>
       <source>Allowed files types for operators</source>
       <translation>อนุญาตให้ใช้ชนิดแฟ้มสำหรับผู้ประกอบการ</translation>
     </message>
@@ -5639,6 +5723,10 @@
       <translation>การตั้งค่าการปรับปรุง</translation>
     </message>
     <message>
+      <source>File configuration</source>
+      <translation>แฟ้มกำหนดค่า</translation>
+    </message>
+    <message>
       <source>Please enter valid file type!</source>
       <translation>กรุณาระบุชนิดแฟ้มที่ถูกต้อง</translation>
     </message>
@@ -5650,10 +5738,6 @@
   <context>
     <name>file/new</name>
     <message>
-      <source>New file</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>File name</source>
       <translation type="unfinished"/>
     </message>
@@ -5663,6 +5747,10 @@
     </message>
     <message>
       <source>File uploaded</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New file</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -7056,10 +7144,6 @@
   <context>
     <name>user/grouplist</name>
     <message>
-      <source>Groups</source>
-      <translation>กลุ่ม</translation>
-    </message>
-    <message>
       <source>Name</source>
       <translation>ชื่อ</translation>
     </message>
@@ -7074,6 +7158,10 @@
     <message>
       <source>New group</source>
       <translation>กลุ่มใหม่</translation>
+    </message>
+    <message>
+      <source>Groups</source>
+      <translation>กลุ่ม</translation>
     </message>
     <message>
       <source>System configuration</source>
