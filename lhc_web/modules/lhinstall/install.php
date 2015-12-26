@@ -970,7 +970,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   	  `operation` text NOT NULL,
         	   	  `online_attr_system` text NOT NULL,
         	   	  `operation_chat` text NOT NULL,
-        	   	  `online_attr` varchar(250) NOT NULL,
+        	   	  `online_attr` text NOT NULL,
                   PRIMARY KEY (`id`),
                   KEY `vid` (`vid`),
 				  KEY `dep_id` (`dep_id`),

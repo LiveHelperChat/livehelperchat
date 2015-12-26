@@ -2525,7 +2525,7 @@
             },
             {
                 "field": "online_attr",
-                "type": "varchar(250)",
+                "type": "text",
                 "null": "NO",
                 "key": "",
                 "default": null,
