@@ -62,6 +62,7 @@ if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_p
 
 $tpl->set('referrer',isset($_GET['r']) ? rawurldecode($_GET['r']) : '');
 $tpl->set('track_online_users',erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 && (string)$Params['user_parameters_unordered']['dot'] != 'true');
+$tpl->set('disable_online_tracking',(string)$Params['user_parameters_unordered']['dot'] == 'true');
 $tpl->set('click',$Params['user_parameters_unordered']['click']);
 $tpl->set('position',$Params['user_parameters_unordered']['position']);
 $tpl->set('minimize_action',$Params['user_parameters_unordered']['ma']);
@@ -89,7 +90,7 @@ if (is_array($Params['user_parameters_unordered']['ua'])){
 $tpl->set('check_operator_messages',$Params['user_parameters_unordered']['check_operator_messages']);
 $tpl->set('top_pos',(!is_null($Params['user_parameters_unordered']['top']) && (int)$Params['user_parameters_unordered']['top'] >= 0) ? (int)$Params['user_parameters_unordered']['top'] : 350);
 $tpl->set('units',key_exists((string)$Params['user_parameters_unordered']['units'], $validUnits) ? $validUnits[(string)$Params['user_parameters_unordered']['units']] : 'px');
-$tpl->set('disable_pro_active',(string)$Params['user_parameters_unordered']['disable_pro_active'] == 'true');
+$tpl->set('disable_pro_active',(string)$Params['user_parameters_unordered']['disable_pro_active'] == 'true' || (string)$Params['user_parameters_unordered']['dot'] == 'true');
 $tpl->set('priority',is_numeric($Params['user_parameters_unordered']['priority']) ? (int)$Params['user_parameters_unordered']['priority'] : false);
 $tpl->set('theme',$theme);
 $tpl->set('operator',is_numeric($Params['user_parameters_unordered']['operator']) ? (int)$Params['user_parameters_unordered']['operator'] : false);

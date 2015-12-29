@@ -1025,36 +1025,33 @@ lh_inst.storeReferrer(<?php echo json_encode($referrer)?>);
 <?php if (!($isOnlineHelp == false && $hide_offline == 'true')) : ?>
 	
 	lh_inst.showStatusWidget();
-	
-	
-	
 		
 	if (lh_inst.cookieData.hash) {
 		lh_inst.stopCheckNewMessage();
 		lh_inst.substatus = '_reopen';	
 		lh_inst.toggleStatusWidget(true);
 	    lh_inst.showStartWindow(undefined,true);
-	    <?php if ($track_online_users == true || $trackOnline == true) : ?>
+	    <?php if (($track_online_users == true || $trackOnline == true) && $disable_online_tracking == false) : ?>
 	    lh_inst.logPageView();
 	    lh_inst.online_tracked = true;
 	    <?php endif;?>
 	}
 	
-	<?php if ($check_operator_messages == 'true' && $disable_pro_active == false) : ?>
+	<?php if ($check_operator_messages == 'true' && $disable_pro_active == false && $disable_online_tracking == false) : ?>
 	if (!lh_inst.cookieData.hash) {
 		lh_inst.startNewMessageCheck();
 		lh_inst.online_tracked = true;
 	}
 	<?php endif; ?>
 	
-	<?php if ($disable_pro_active == false && $track_online_users == true) : ?>
+	<?php if ($disable_pro_active == false && $track_online_users == true && $disable_online_tracking == false) : ?>
 	if (!lh_inst.cookieData.hash) {
 		lh_inst.startNewMessageCheckSingle();
 		lh_inst.online_tracked = true;
 	}
 	<?php endif;?>
 	
-	<?php if ($trackOnline == true) : ?>
+	<?php if ($trackOnline == true && $disable_online_tracking == false) : ?>
 	if (lh_inst.online_tracked == false) {
 		lh_inst.logPageView();
 	};
