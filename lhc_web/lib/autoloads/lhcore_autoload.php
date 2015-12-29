@@ -98,7 +98,8 @@ return array_merge(array (
 		'erLhAbstractModelForm'  					=> 'lib/models/lhabstract/erlhabstractmodelform.php',
 		'erLhAbstractModelFormCollected'  			=> 'lib/models/lhabstract/erlhabstractmodelformcollected.php',
 		'erLhAbstractModelWidgetTheme'  			=> 'lib/models/lhabstract/erlhabstractmodelwidgettheme.php',
-		
+		'erLhAbstractModelProduct'  			    => 'lib/models/lhabstract/erlhabstractmodelproduct.php',
+
 		'erLhcoreClassFormRenderer'  		=> 'lib/core/lhform/lhformrenderer.php',
 		'erLhcoreClassAbstract' 			=> 'lib/core/lhabstract/lhabstract.php',
 		'erLhcoreClassChatMail' 		 	=> 'lib/core/lhchat/lhchatmail.php',

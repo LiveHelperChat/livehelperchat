@@ -77,6 +77,9 @@
                     			<?php endforeach; ?>
                     		</select>
 						</div>
+						<?php if ($productEnabled == true) : ?>
+						
+						<?php endif;?>
 					</div>
 
 					<div class="col-md-6">

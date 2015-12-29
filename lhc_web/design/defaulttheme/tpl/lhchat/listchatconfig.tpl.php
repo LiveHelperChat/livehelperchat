@@ -91,7 +91,7 @@
     		    <?php $attribute = 'pro_active_limitation'?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
 			</div>
-			
+
 			<div role="tabpanel" class="tab-pane" id="misc">
 			    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/listchatconfig/text_cookie_related.tpl.php'));?>		    		    
     		    <?php $attribute = 'track_domain'?>

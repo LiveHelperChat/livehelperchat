@@ -493,6 +493,7 @@ $FunctionList['take_screenshot'] = array('explain' => 'Allow operator to take vi
 $FunctionList['modifychat'] = array('explain' => 'Allow operator modify main chat information');
 $FunctionList['allowredirect'] = array('explain' => 'Allow operator to redirect user to another page');
 $FunctionList['administrategeoconfig'] = array('explain' => 'Allow operator to edit geo detection configuration');
+$FunctionList['manage_product'] = array('explain' => 'Allow operator to manage products');
 
 
 ?>
