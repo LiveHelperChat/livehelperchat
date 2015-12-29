@@ -269,7 +269,7 @@ $ViewList['usertyping'] = array(
 );
 
 $ViewList['checkchatstatus'] = array(
-    'params' => array('chat_id','hash'),
+    'params' => array('chat_id','hash','dot'),
     'uparams' => array('mode','theme')
 );
 
@@ -297,7 +297,7 @@ $ViewList['getstatus'] = array(
 
 $ViewList['chatcheckstatus'] = array(
     'params' => array(),
-    'uparams' => array('status','department','vid','uactiv','wopen','uaction','hash','hash_resume'),
+    'uparams' => array('status','department','vid','uactiv','wopen','uaction','hash','hash_resume','dot'),
 	'multiple_arguments' => array ( 'department' )
 );
 

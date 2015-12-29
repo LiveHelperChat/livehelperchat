@@ -26,7 +26,7 @@ if ($Params['user_parameters_unordered']['wopen'] != 1)
     echo $tpl->fetch();
 }
 
-if (erLhcoreClassModelChatConfig::fetch('track_is_online')->current_value) {
+if (erLhcoreClassModelChatConfig::fetch('track_is_online')->current_value && $Params['user_parameters_unordered']['dot'] != 'true') {
 	$ignorable_ip = erLhcoreClassModelChatConfig::fetch('ignorable_ip')->current_value;
 	if ( $ignorable_ip == '' || !erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDetect::getIP(),explode(',',$ignorable_ip))) {
 		if ((string)$Params['user_parameters_unordered']['vid'] != '') {
