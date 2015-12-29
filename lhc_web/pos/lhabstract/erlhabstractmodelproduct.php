@@ -24,6 +24,11 @@ $def->properties['departament_id']->columnName   = 'departament_id';
 $def->properties['departament_id']->propertyName = 'departament_id';
 $def->properties['departament_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['disabled'] = new ezcPersistentObjectProperty();
+$def->properties['disabled']->columnName   = 'disabled';
+$def->properties['disabled']->propertyName = 'disabled';
+$def->properties['disabled']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

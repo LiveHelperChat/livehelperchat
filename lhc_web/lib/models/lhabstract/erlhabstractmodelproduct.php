@@ -16,6 +16,7 @@ class erLhAbstractModelProduct {
 			'name'  		 => $this->name,
 			'priority'		 => $this->priority,
 			'departament_id' => $this->departament_id,
+			'disabled'       => $this->disabled,
 		);
 
 		return $stateArray;
@@ -36,37 +37,12 @@ class erLhAbstractModelProduct {
 
    	public function getFields()
    	{
-   		return array(
-   				'name' => array(
-   						'type' => 'text',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/product','Name'),
-   						'required' => true,   				    
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   				)),
-   				'priority' => array(
-   						'type' => 'text',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/product','Priority'),
-   						'required' => false,
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   				)),
-   				'departament_id' => array (
-                	    'type' => 'combobox',
-                	    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Department'),
-                	    'required' => true,
-                	    'frontend' => 'departament',
-                	    'source' => 'erLhcoreClassModelDepartament::getList',                	    
-                	    'params_call' => array(),
-                	    'validation_definition' => new ezcInputFormDefinitionElement(
-                	        ezcInputFormDefinitionElement::OPTIONAL, 'int'
-                ))
-   		);
+   	    return include('lib/core/lhabstract/fields/erlhabstractmodelproduct.php');
 	}
 
 	public function getModuleTranslations()
 	{
-	    $metaData = array('permission_delete' => array('module' => 'lhproduct','function' => 'manage_product'),'permission' => array('module' => 'lhproduct','function' => 'manage_product'),'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/product','Product'));
+	    $metaData = array('path' => array('url' => erLhcoreClassDesign::baseurl('product/index'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('theme/index','Products')), 'permission_delete' => array('module' => 'lhproduct','function' => 'manage_product'), 'permission' => array('module' => 'lhproduct','function' => 'manage_product'), 'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/product','Product'));
 	    /**
 	     * Get's executed before permissions check. It can redirect to frontpage throw permission exception etc
 	     * */
@@ -103,17 +79,22 @@ class erLhAbstractModelProduct {
 	public function __get($var)
 	{
 	   switch ($var) {
-	       
+
 	   	case 'left_menu':
 	   	       $this->left_menu = '';
 	   		   return $this->left_menu;
 	   		break;
-	   		
+
 	   	case 'departament':
 	   	       $this->departament = erLhcoreClassModelDepartament::fetch($this->departament_id);
 	   		   return $this->departament;
 	   		break;
-	   		
+
+	   	case 'name_department':
+	   	       $this->name_department = $this->name.' ('.$this->departament.')';
+	   		   return $this->name_department;
+	   		break;
+
 	   	default:
 	   		break;
 	   }
@@ -210,6 +191,7 @@ class erLhAbstractModelProduct {
 	public $name = '';
 	public $priority = 0;
 	public $departament_id = 0;
+	public $disabled = 0;
 		
 	public $hide_add = false;
 	public $hide_delete = false;

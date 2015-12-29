@@ -23,6 +23,9 @@ if ( ezcInputForm::hasPostData() ) {
     }
     
     $attr->saveThis();
+    
+    $CacheManager = erConfigClassLhCacheConfig::getInstance();
+    $CacheManager->expireCache();
 }
 
 $Result['content'] = $tpl->fetch();

@@ -2,7 +2,7 @@
 
 $filter = array('filter' => array('disabled' => 0, 'hidden' => 0));
 
-if (isset($input_data->departament_id_array)){
+if (isset($input_data->departament_id_array)) {
 	$filter['filterin']['id'] = $input_data->departament_id_array;
 }
 
@@ -15,9 +15,9 @@ if (count($departments) > 1) : $hasExtraField = true;?>
 
 <?php if (isset($input_data->departament_id_array)) : foreach ($input_data->departament_id_array as $definedDep) : ?>
 <input type="hidden" name="DepartmentIDDefined[]" value="<?php echo $definedDep?>" />
-<?php endforeach;endif;?>
+<?php endforeach; endif; ?>
 
-
+<?php if (!isset($departmentsOptions['hide_department']) || $departmentsOptions['hide_department'] == false) : ?>
 <div class="form-group<?php if (isset($errors['department'])) : ?> has-error<?php endif;?>">
     <label class="control-label">
     <?php if (isset($theme) && $theme !== false && $theme->department_title != '') : ?>
@@ -31,8 +31,7 @@ if (count($departments) > 1) : $hasExtraField = true;?>
         <?php if (isset($theme) && $theme !== false && $theme->department_select != '') : ?>
             <option value="-1"><?php echo htmlspecialchars($theme->department_select)?></option>
         <?php endif;?>
-        <?php
-        $departments = erLhcoreClassDepartament::sortByStatus($departments);
+        <?php $departments = erLhcoreClassDepartament::sortByStatus($departments);
         foreach ($departments as $departament) :  
         $isOnline = erLhcoreClassChat::isOnline($departament->id,false,array('ignore_user_status'=> (int)erLhcoreClassModelChatConfig::fetch('ignore_user_status')->current_value, 'online_timeout' => (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'])); ?>
             <?php if (($departament->visible_if_online == 1 && $isOnline === true) || $departament->visible_if_online == 0) : ?>
@@ -41,4 +40,4 @@ if (count($departments) > 1) : $hasExtraField = true;?>
         <?php endforeach; ?>
     </select>   
 </div>
- <?php endif; ?>
+<?php endif; endif; ?>

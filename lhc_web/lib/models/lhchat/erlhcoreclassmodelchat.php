@@ -84,6 +84,9 @@ class erLhcoreClassModelChat {
                // Was chat unanswered before user has left a chat
                // Currently there isn’t a statistic that shows the number of users that has left the chat before operator has accepted the chat.
                'unanswered_chat'    	=> $this->unanswered_chat,
+           
+               // Product ID
+               'product_id'    	        => $this->product_id,
        );
    }
 
@@ -271,6 +274,18 @@ class erLhcoreClassModelChat {
        			}
 
        			return $this->department;
+       		break;
+
+       	case 'product':
+       			$this->product = false;
+       			if ($this->product_id > 0) {
+       				try {
+       					$this->product = erLhAbstractModelProduct::fetch($this->product_id,true);
+       				} catch (Exception $e) {
+                        
+       				}
+       			}
+       			return $this->product;
        		break;
 
        	case 'department_name':
@@ -508,6 +523,8 @@ class erLhcoreClassModelChat {
    public $user_closed_ts = 0;
    
    public $unanswered_chat = 0;
+   
+   public $product_id = 0;
    
    // Time since last assignment
    public $tslasign = 0;

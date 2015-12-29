@@ -301,7 +301,7 @@ $ViewList['chatcheckstatus'] = array(
 	'multiple_arguments' => array ( 'department' )
 );
 
-$ViewList['getstatusembed'] = array(
+$ViewList['getstatusembed'] = array (
     'params' => array(),
     'uparams' => array('ua','operator','theme','hide_offline','leaveamessage','department','priority','survey'),
 	'multiple_arguments' => array ( 'department','ua' )
@@ -309,14 +309,14 @@ $ViewList['getstatusembed'] = array(
 
 $ViewList['startchat'] = array (
     'params' => array(),
-    'uparams' => array('ua','switchform','operator','theme','er','vid','hash_resume','sound','hash','offline','leaveamessage','department','priority','chatprefill','survey'),
-	'multiple_arguments' => array ( 'department','ua' )
+    'uparams' => array('ua','switchform','operator','theme','er','vid','hash_resume','sound','hash','offline','leaveamessage','department','priority','chatprefill','survey','prod'),
+	'multiple_arguments' => array ( 'department', 'ua', 'prod' )
 );
 
-$ViewList['chatwidget'] = array(
+$ViewList['chatwidget'] = array (
     'params' => array(),
-    'uparams' => array('ua','switchform','operator','theme','vid','sound','hash','hash_resume','mode','offline','leaveamessage','department','priority','chatprefill','survey','sdemo'),
-	'multiple_arguments' => array ( 'department', 'ua' )
+    'uparams' => array('ua','switchform','operator','theme','vid','sound','hash','hash_resume','mode','offline','leaveamessage','department','priority','chatprefill','survey','sdemo','prod'),
+	'multiple_arguments' => array ( 'department', 'ua', 'prod' )
 );
 
 $ViewList['reopen'] = array(

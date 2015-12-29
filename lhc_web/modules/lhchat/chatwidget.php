@@ -99,6 +99,8 @@ if (is_array($Params['user_parameters_unordered']['department']) && erLhcoreClas
 	}
 }
 
+
+
 $tpl->set('disabled_department',$disabled_department);
 $tpl->set('append_mode',$modeAppend);
 $tpl->set('append_mode_theme',$modeAppendTheme);
@@ -115,17 +117,23 @@ $inputData->chatprefill = '';
 $inputData->email = '';
 $inputData->username = '';
 $inputData->phone = '';
+$inputData->product_id = '';
 
-if (is_array($Params['user_parameters_unordered']['department']) && count($Params['user_parameters_unordered']['department']) == 1){
+if (is_array($Params['user_parameters_unordered']['department']) && count($Params['user_parameters_unordered']['department']) == 1) {
 	erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);
 	$inputData->departament_id = array_shift($Params['user_parameters_unordered']['department']);
 } else {
 	$inputData->departament_id = 0;
 }
 
-if (is_array($Params['user_parameters_unordered']['department'])){
+if (is_array($Params['user_parameters_unordered']['department'])) {
 	erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);
 	$inputData->departament_id_array = $Params['user_parameters_unordered']['department'];
+}
+
+if (is_array($Params['user_parameters_unordered']['prod'])) {
+    erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['prod']);
+    $inputData->product_id_array = $Params['user_parameters_unordered']['prod'];
 }
 
 $inputData->accept_tos = false;

@@ -1,3 +1,8 @@
+2.42v
+
+1. Product concept 
+
+
 2.41v
 
 1. New statistic - unanswered chats. Chat becames unanswered if

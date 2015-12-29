@@ -266,6 +266,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   	  `remarks` text NOT NULL,
 				  `ip` varchar(100) NOT NULL,
 				  `dep_id` int(11) NOT NULL,
+				  `product_id` int(11) NOT NULL,
 				  `user_status` int(11) NOT NULL DEFAULT '0',
 				  `user_closed_ts` int(11) NOT NULL DEFAULT '0',
 				  `support_informed` int(11) NOT NULL DEFAULT '0',
@@ -694,7 +695,16 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   KEY `question_id` (`question_id`),
         	   KEY `ip` (`ip`)
         	   ) DEFAULT CHARSET=utf8;");
-        	   
+
+        	   $db->query("CREATE TABLE IF NOT EXISTS `lh_abstract_product` (
+        	       `id` int(11) NOT NULL AUTO_INCREMENT, 
+        	       `name` varchar(250) NOT NULL, 
+        	       `disabled` int(11) NOT NULL, 
+        	       `priority` int(11) NOT NULL, 
+        	       `departament_id` int(11) NOT NULL, 
+        	       KEY `departament_id` (`departament_id`), 
+        	       PRIMARY KEY (`id`)) DEFAULT CHARSET=utf8;");
+
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_abstract_browse_offer_invitation` (
 				  `id` int(11) NOT NULL AUTO_INCREMENT,
 				  `siteaccess` varchar(10) NOT NULL,

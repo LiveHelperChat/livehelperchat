@@ -76,10 +76,7 @@
                     			   <option value="<?php echo $departament->id?>"><?php echo htmlspecialchars($departament->name)?></option>
                     			<?php endforeach; ?>
                     		</select>
-						</div>
-						<?php if ($productEnabled == true) : ?>
-						
-						<?php endif;?>
+						</div>						
 					</div>
 
 					<div class="col-md-6">
@@ -111,7 +108,29 @@
 						
 					</div>
 				</div>
-			
+				
+				<?php if (erLhcoreClassModelChatConfig::fetch('product_enabled_module')->current_value == 1) : ?>
+				<div class="row">
+				    <div class="col-md-6">
+    				    <div class="form-group">
+        				    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Product')?></label> 
+        					<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
+                                    'input_name'     => 'product_id',                    				
+                                    'selected_id'    =>  0,
+                    	            'css_class'      => 'form-control',
+                    	            'display_name'   => 'name_department',
+                    	            'multiple'       => true,
+                                    'list_function'  => 'erLhAbstractModelProduct::getList'
+                            )); ?>
+        				</div>
+    				</div>
+				    <div class="col-md-6">
+    				    <div class="form-group">
+        					<label><input type="checkbox" id="pds" checked="checked" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Show product selection based on selected departments')?></label>
+        				</div>
+    				</div>
+				</div>
+				<?php endif;?>
 		</div>
 
 		<div role="tabpanel" class="tab-pane" id="design">
@@ -169,7 +188,6 @@
 				</div>
 			</div>
 			
-
 			<div class="form-group">
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Position from the top, only used if the Middle left or the Middle right side is chosen');?></label>
 				<div class="row">
@@ -215,7 +233,7 @@ function generateEmbedCode(){
     var id_check_operator_message = $('#id_check_operator_message').is(':checked') ? '/(check_operator_messages)/true' : '';
     var id_disable_pro_active_invitations = $('#id_disable_pro_active_invitations').is(':checked') ? '/(disable_pro_active)/true' : '';
     var id_department = $('#DepartmentID').val() && $('#DepartmentID').val().length > 0 && $('#DepartmentID').val().join('/') != '0' ? '/(department)/'+$('#DepartmentID').val().join('/') : '';
-
+    var id_product = $('#id_product_id').val() && $('#id_product_id').val().length > 0 && $('#id_product_id').val().join('/') != '0' ? '/(prod)/'+$('#id_product_id').val().join('/') : '';
     
     var id_theme = $('#ThemeID').val() > 0 ? '/(theme)/'+$('#ThemeID').val() : '';
     var id_identifier = $('#id_site_identifier').val() != '' ? '/(identifier)/'+$('#id_site_identifier').val() : '';
@@ -258,7 +276,7 @@ function generateEmbedCode(){
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
         'var referrer = (document.referrer) ? encodeURIComponent(document.referrer.substr(document.referrer.indexOf(\'://\')+1)) : \'\';'+"\n"+
         'var location  = (document.location) ? encodeURIComponent(window.location.href.substring(window.location.protocol.length)) : \'\';'+"\n"+
-        'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chat/getstatus<?php isset($userArgument) ? print $userArgument : ''?>'+uaArguments+id_internal_popup+id_position+id_ma+id_hide_then_offline+id_disable_online_tracking+id_check_operator_message+top+topposition+id_show_leave_form+id_department+id_operator+id_identifier+id_disable_pro_active_invitations+id_theme+id_disable_responsive+id_survey+'?r=\'+referrer+\'&l=\'+location;'+"\n"+
+        'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chat/getstatus<?php isset($userArgument) ? print $userArgument : ''?>'+uaArguments+id_internal_popup+id_position+id_ma+id_hide_then_offline+id_disable_online_tracking+id_check_operator_message+top+topposition+id_show_leave_form+id_department+id_operator+id_identifier+id_disable_pro_active_invitations+id_theme+id_disable_responsive+id_product+id_survey+'?r=\'+referrer+\'&l=\'+location;'+"\n"+
         'var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(po, s);'+"\n"+
       '})();'+"\n"+
     '</scr'+'ipt>';
@@ -266,7 +284,7 @@ function generateEmbedCode(){
     $('#HMLTContent').text(id_tag+script);
 };
 
-$('#LocaleID,#id_embed_domain,#id_disable_online_tracking,#MinimizeID,#id_operator,#DepartmentID,#HttpMode,#ThemeID,#id_Survey,#id_disable_pro_active_invitations,#id_site_identifier,#id_internal_popup,#id_disable_responsive,#id_position_bottom,#PositionID,#id_show_leave_form,#id_hide_then_offline,#id_check_operator_message,#UnitsTop,#id_top_text,#id_popup_width,#id_popup_height,#id_widget_width,#id_widget_height').change(function(){
+$('#LocaleID,#id_embed_domain,#id_product_id,#id_disable_online_tracking,#MinimizeID,#id_operator,#DepartmentID,#HttpMode,#ThemeID,#id_Survey,#id_disable_pro_active_invitations,#id_site_identifier,#id_internal_popup,#id_disable_responsive,#id_position_bottom,#PositionID,#id_show_leave_form,#id_hide_then_offline,#id_check_operator_message,#UnitsTop,#id_top_text,#id_popup_width,#id_popup_height,#id_widget_width,#id_widget_height').change(function(){
     generateEmbedCode();
 });
 

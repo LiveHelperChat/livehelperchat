@@ -45,6 +45,11 @@ $def->properties['dep_id']->columnName   = 'dep_id';
 $def->properties['dep_id']->propertyName = 'dep_id';
 $def->properties['dep_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['product_id'] = new ezcPersistentObjectProperty();
+$def->properties['product_id']->columnName   = 'product_id';
+$def->properties['product_id']->propertyName = 'product_id';
+$def->properties['product_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['user_status'] = new ezcPersistentObjectProperty();
 $def->properties['user_status']->columnName   = 'user_status';
 $def->properties['user_status']->propertyName = 'user_status';

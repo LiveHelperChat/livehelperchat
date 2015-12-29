@@ -52,7 +52,8 @@ class erLhcoreClassChat {
 			'chat_variables',
 			'wait_timeout_repeat',
 			// Angular remake
-			'referrer'
+			'referrer',
+			'product_id'
 	);
 	
     /**
