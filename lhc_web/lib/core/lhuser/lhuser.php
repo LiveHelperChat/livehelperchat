@@ -79,12 +79,26 @@ class erLhcoreClassUser{
 
    function authenticate($username,$password,$remember = false)
    {
-       $this->session->destroy();
-
+   	
+		$this->session->destroy();
+       
+		$user = erLhcoreClassModelUser::findOne(array(
+			'filter' => array(
+				'username' => $username
+			)
+		));  
+		
+		if ($user === false) {
+			return false;
+		}
+		
+		if (!password_verify($password, $user->password)) {
+			return false;
+		}
+       
        $cfgSite = erConfigClassLhConfig::getInstance();
-	   $secretHash = $cfgSite->getSetting( 'site', 'secrethash' );
 
-       $this->credentials = new ezcAuthenticationPasswordCredentials( $username, sha1($password.$secretHash.sha1($password)) );
+       $this->credentials = new ezcAuthenticationPasswordCredentials( $username, $user->password );
 
        $database = new ezcAuthenticationDatabaseInfo( ezcDbInstance::get(), 'lh_users', array( 'username', 'password' ) );
        $this->authentication = new ezcAuthentication( $this->credentials );

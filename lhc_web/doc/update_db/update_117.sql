@@ -1,0 +1,1 @@
+ALTER TABLE `lh_users` CHANGE `password` `password` varchar(200) NOT NULL;
