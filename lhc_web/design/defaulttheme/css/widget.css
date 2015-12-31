@@ -46,6 +46,7 @@ background-color: #fff;
 
 .chatbox-row{
 	padding-right:0!important;
+	margin-right:0!important;
 }
 
 .chatbox-row .usr-tit{
@@ -60,9 +61,10 @@ background-color: #fff;
 	background:url(../images/icons/user_green.png) no-repeat 3px 2px;
 	padding-left: 20px;
 	color:#000;
-	margin-right:0;
+	margin-right:0!important;
 	border-radius:0;
 	box-shadow:none;
+	margin-top:0;
 }
 
 .chatbox-row-response .usr-tit{
