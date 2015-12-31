@@ -22,6 +22,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Hur många dagar som röstwidgeten inte ska expanderas efter senaste visningen</translation>
     </message>
@@ -4416,6 +4420,14 @@
       <translation>Chattar per status</translation>
     </message>
     <message>
+      <source>Number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unanswered chats numbers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Time</source>
       <translation>Tid</translation>
     </message>
@@ -4510,6 +4522,10 @@
     <message>
       <source>Total closed chats</source>
       <translation>Totalt avslutade chattar</translation>
+    </message>
+    <message>
+      <source>Unanswered chats</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chatbox chats</source>

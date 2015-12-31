@@ -22,6 +22,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Nombre de jours avant que le widget de vote ne soit ré-affiché</translation>
     </message>
@@ -4416,6 +4420,14 @@
       <translation>Nombre de chats par statuts</translation>
     </message>
     <message>
+      <source>Number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unanswered chats numbers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Time</source>
       <translation>Durée</translation>
     </message>
@@ -4510,6 +4522,10 @@
     <message>
       <source>Total closed chats</source>
       <translation>Nombre total de chats fermés</translation>
+    </message>
+    <message>
+      <source>Unanswered chats</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chatbox chats</source>

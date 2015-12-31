@@ -1374,15 +1374,12 @@ $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'install';
 $Result['path'] = array(array('title' => 'Live helper chat installation'));
 
-} catch (Exception $e){
+} catch (Exception $e) {
 	echo "Make sure that &quot;cache/*&quot; is writable and then <a href=\"".erLhcoreClassDesign::baseurl('install/install')."\">try again</a>";
-	
+
 	echo "<pre>";
 	print_r($e);
 	echo "</pre>";
-	exit;
-
-	
 	exit;
 }
 ?>

@@ -22,6 +22,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>多少天投票窗口小部件不应扩大后最后的展示</translation>
     </message>
@@ -4416,6 +4420,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unanswered chats numbers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Time</source>
       <translation type="unfinished"/>
     </message>
@@ -4510,6 +4522,10 @@
     <message>
       <source>Total closed chats</source>
       <translation>总封闭聊天</translation>
+    </message>
+    <message>
+      <source>Unanswered chats</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chatbox chats</source>

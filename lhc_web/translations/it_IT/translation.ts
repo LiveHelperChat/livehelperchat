@@ -22,6 +22,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Per quanti giorni il widget di voto non deve essere mostrato dopo l&apos;ultima visualizzazione</translation>
     </message>
@@ -3907,15 +3911,15 @@
     </message>
     <message>
       <source>Username</source>
-      <translation type="unfinished"/>
+      <translation>Username</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Nome</translation>
     </message>
     <message>
       <source>Surname</source>
-      <translation type="unfinished"/>
+      <translation>Cognome</translation>
     </message>
   </context>
   <context>
@@ -3966,23 +3970,23 @@
     </message>
     <message>
       <source>Check all</source>
-      <translation type="unfinished"/>
+      <translation>Selezionare tutto</translation>
     </message>
     <message>
       <source>Only online</source>
-      <translation type="unfinished"/>
+      <translation>Solo online</translation>
     </message>
     <message>
       <source>Only explicit online</source>
-      <translation type="unfinished"/>
+      <translation>Solo esplicito online</translation>
     </message>
     <message>
       <source>Hide hidden</source>
-      <translation type="unfinished"/>
+      <translation>Nascondere nascosti</translation>
     </message>
     <message>
       <source>Hide disabled</source>
-      <translation type="unfinished"/>
+      <translation>Nascondere disabilitati</translation>
     </message>
     <message>
       <source>Number of elements in list</source>
@@ -4417,6 +4421,14 @@
       <translation>Numero di chat per stato</translation>
     </message>
     <message>
+      <source>Number</source>
+      <translation>Numero</translation>
+    </message>
+    <message>
+      <source>Unanswered chats numbers</source>
+      <translation>Numeri di chat senza risposta</translation>
+    </message>
+    <message>
       <source>Time</source>
       <translation>Tempo</translation>
     </message>
@@ -4511,6 +4523,10 @@
     <message>
       <source>Total closed chats</source>
       <translation>Chat totali chiuse</translation>
+    </message>
+    <message>
+      <source>Unanswered chats</source>
+      <translation>Chat senza risposta</translation>
     </message>
     <message>
       <source>Chatbox chats</source>
@@ -4870,23 +4886,23 @@
     </message>
     <message>
       <source>Only departments which are online and explicitly assigned operator are online</source>
-      <translation type="unfinished"/>
+      <translation>Solo i dipartimenti che sono online e assegnati in modo esplicito l&apos;operatore sono online</translation>
     </message>
     <message>
       <source>Exclude hidden departments</source>
-      <translation type="unfinished"/>
+      <translation>Escludere i reparti nascosti</translation>
     </message>
     <message>
       <source>Exclude disabled departments</source>
-      <translation type="unfinished"/>
+      <translation>Escludere dipartimenti disabilitati</translation>
     </message>
     <message>
       <source>Online</source>
-      <translation type="unfinished"/>
+      <translation>Online</translation>
     </message>
     <message>
       <source>Offline</source>
-      <translation type="unfinished"/>
+      <translation>Offline</translation>
     </message>
   </context>
   <context>
