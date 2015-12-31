@@ -4,6 +4,7 @@
 2. Passwords are stored using password_hash function
 3. Cleanup user part
 4. 5.4 PHP required
+5. https://github.com/LiveHelperChat/livehelperchat/issues/789
 
 execute doc/update_db/update_117.sql for update
 
