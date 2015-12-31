@@ -155,7 +155,13 @@ class erLhcoreClassChatValidator {
         		null,
         		FILTER_REQUIRE_ARRAY
         );
-
+        
+        $validationFields['encattr'] = new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'string',
+            null,
+            FILTER_REQUIRE_ARRAY
+        );
+        
         // Captcha stuff        
         if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
         	// Start session if required only
@@ -176,6 +182,12 @@ class erLhcoreClassChatValidator {
         );
         
         $validationFields['via_hidden'] = new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
+            null,
+            FILTER_REQUIRE_ARRAY
+        );
+        
+        $validationFields['via_encrypted'] = new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
             null,
             FILTER_REQUIRE_ARRAY
@@ -431,14 +443,31 @@ class erLhcoreClassChatValidator {
         		$inputForm->hattr = $form->hattr;
         	}
 
+        	if ( $form->hasValidData( 'encattr' ) && !empty($form->encattr))
+        	{
+        		$inputForm->encattr = $form->encattr;
+        	}
+        	
         	$inputForm->name_items = $form->name_items;
         	
         	foreach ($form->name_items as $key => $name_item) {    
+        	    
         		if (isset($inputForm->values_req[$key]) && $inputForm->values_req[$key] == 't' && ($inputForm->value_show[$key] == 'b' || $inputForm->value_show[$key] == (isset($additionalParams['offline']) ? 'off' : 'on')) && (!isset($valuesArray[$key]) || trim($valuesArray[$key]) == '')) {
         			$Errors['additional_'.$key] = trim($name_item).' : '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','is required');
         		}
-        		$stringParts[] = array('h' => ($inputForm->value_types[$key] && $inputForm->value_types[$key] == 'hidden' ? true : false), 'key' => $name_item,'value' => (isset($valuesArray[$key]) ? trim($valuesArray[$key]) : ''));
-        	}        	
+        		
+        		$valueStore = isset($valuesArray[$key]) ? trim($valuesArray[$key]) : '';
+        		
+        		if (isset($inputForm->encattr[$key]) && $inputForm->encattr[$key] == 't' && $valueStore != '') {
+        		    try {
+        		        $valueStore = self::decryptAdditionalField($valueStore);
+        		    } catch (Exception $e) {
+        		        $Errors[] = $e->getMessage();
+        		    }
+        		}
+        		
+        		$stringParts[] = array('h' => ($inputForm->value_types[$key] && $inputForm->value_types[$key] == 'hidden' ? true : false), 'key' => $name_item, 'value' => $valueStore);
+        	}
         }
         
 
@@ -455,17 +484,32 @@ class erLhcoreClassChatValidator {
             if ($form->hasValidData( 'via_hidden' )){
                 $inputForm->via_hidden = $form->via_hidden;
             }
-
-            if (is_array($customAdminfields)){
-                foreach ($customAdminfields as $key => $adminField) {
             
+            if ($form->hasValidData( 'via_encrypted' )) {
+                $inputForm->via_encrypted = $form->via_encrypted;
+            }
+
+            if (is_array($customAdminfields)) {
+                foreach ($customAdminfields as $key => $adminField) {
+
                     if (isset($inputForm->value_items_admin[$key]) && isset($adminField['isrequired']) && $adminField['isrequired'] == 'true' && ($adminField['visibility'] == 'all' || $adminField['visibility'] == (isset($additionalParams['offline']) ? 'off' : 'on')) && (!isset($valuesArray[$key]) || trim($valuesArray[$key]) == '')) {
             			$Errors['additional_admin_'.$key] = trim($adminField['fieldname']).': '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','is required');
             		}
-            		
+
             		if (isset($valuesArray[$key]) && $valuesArray[$key] != '') {
-            		    $stringParts[] = array('identifier' => $adminField['fieldidentifier'], 'key' => $adminField['fieldname'], 'value' => (isset($valuesArray[$key]) ? trim($valuesArray[$key]) : ''));
-            		}       
+
+            		    $valueStore = (isset($valuesArray[$key]) ? trim($valuesArray[$key]) : '');
+
+            		    if (isset($inputForm->via_encrypted[$key]) && $inputForm->via_encrypted[$key] == 't' && $valueStore != '') {
+            		        try {
+            		            $valueStore = self::decryptAdditionalField($valueStore);
+            		        } catch (Exception $e) {
+            		            $valueStore = $e->getMessage();
+            		        }
+            		    }
+
+            		    $stringParts[] = array('h' => (isset($inputForm->via_hidden[$key]) || $adminField['fieldtype'] == 'hidden'), 'identifier' => $adminField['fieldidentifier'], 'key' => $adminField['fieldname'], 'value' => $valueStore);
+            		}
                 }
             }
         }
@@ -515,9 +559,31 @@ class erLhcoreClassChatValidator {
                 ezcInputFormDefinitionElement::OPTIONAL, 'string',
                 null,
                 FILTER_REQUIRE_ARRAY
+            ),            
+            'encattr' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'string',
+                null,
+                FILTER_REQUIRE_ARRAY
+            ),
+            // At the moment not used                        
+            'via_encrypted' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
+                null,
+                FILTER_REQUIRE_ARRAY
+            ),
+            'value_items_admin' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
+                null,
+                FILTER_REQUIRE_ARRAY
+            ),            
+            'via_hidden' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
+                null,
+                FILTER_REQUIRE_ARRAY
             )            
         );
-    
+            
+        
         $form = new ezcInputForm( INPUT_POST, $definition );
         $Errors = array();
         $inputForm = new stdClass();
@@ -547,6 +613,11 @@ class erLhcoreClassChatValidator {
                 $inputForm->size = $form->size;
             }
         
+            if ( $form->hasValidData( 'encattr' ) && !empty($form->encattr))
+            {
+                $inputForm->encattr = $form->encattr;
+            }
+        
             $inputForm->name = $form->name;
             
             $currentChatData = json_decode($chat->additional_data,true);
@@ -563,7 +634,105 @@ class erLhcoreClassChatValidator {
             
             foreach ($form->name as $key => $name_item) {
                 if (isset($inputForm->type[$key]) && $inputForm->type[$key] == 'hidden') {
-                    $currentChatData[] = array('h' => true, 'key' => $name_item,'value' => isset($inputForm->value[$key]) ? trim($inputForm->value[$key]) : '');
+
+                    $valueStore = isset($inputForm->value[$key]) ? trim($inputForm->value[$key]) : '';
+
+                    if (isset($inputForm->encattr[$key]) && $inputForm->encattr[$key] == 't' && $valueStore != '') {
+                        try {
+                            $valueStore = self::decryptAdditionalField($valueStore);
+                        } catch (Exception $e) {
+                            $valueStore = $e->getMessage();
+                        }
+                    }
+
+                    $currentChatData[] = array('h' => true, 'key' => $name_item,'value' => $valueStore);
+                }
+            }
+        }
+        
+        /**
+         * Admin custom fields
+         * */
+        $start_data_fields = (array)erLhcoreClassModelChatConfig::fetch('start_chat_data')->data;
+        
+        
+        /**
+         * Admin custom fields support
+         * */
+        if (isset($start_data_fields['custom_fields']) && $start_data_fields['custom_fields'] != '') {
+            
+            $customAdminfields = json_decode($start_data_fields['custom_fields'],true);
+
+            if (!isset($currentChatData)) {
+                $currentChatData = json_decode($chat->additional_data,true);
+                
+                if (is_array($currentChatData)) {
+                    $currentChatData = array();
+                }
+            }
+
+            $fieldsTitles = array();
+            $hiddenFields = array();
+            $valuesArray = array();
+
+            // Fill values if exists
+            if ($form->hasValidData( 'value_items_admin' )) {
+                $inputForm->value_items_admin = $valuesArray = $form->value_items_admin;
+            }
+            
+            if ($form->hasValidData( 'via_hidden' )) {
+                $inputForm->via_hidden = $form->via_hidden;
+            }
+                    
+            if ($form->hasValidData( 'via_encrypted' )) {
+                $inputForm->via_encrypted = $form->via_encrypted;
+            }
+            
+            // Detect hidden fields which have to be resaved
+            if (is_array($customAdminfields)) {
+                foreach ($customAdminfields as $key => $adminField) {
+                    $fieldsTitles[] = $adminField['fieldidentifier'];
+            
+                    if ($inputForm->via_hidden[$key] || $adminField['fieldtype'] == 'hidden') {
+                        $hiddenFields[] = $adminField['fieldidentifier'];
+                    }
+                }
+            }
+
+            // Removed hidden admin fields
+            foreach ($currentChatData as $key => $data) {
+                /**
+                 * Clean ony if
+                 * 1. Field is hidden
+                 * 2. Field is hidden manually
+                 * 3. Field is back office custom field
+                 * */
+                if (in_array($data['key'], $hiddenFields) && in_array($data['key'], $fieldsTitles)) {
+                    unset($currentChatData[$key]);
+                }
+            }
+            
+            // Custom fields
+            if (is_array($customAdminfields)) {
+                foreach ($customAdminfields as $key => $adminField) {
+        
+                    if ( (isset($inputForm->via_hidden[$key]) && $inputForm->via_hidden[$key] == 't') || $adminField['fieldtype'] == 'hidden' )
+                    {                           
+                        if (isset($valuesArray[$key]) && $valuesArray[$key] != '') {
+            
+                            $valueStore = (isset($valuesArray[$key]) ? trim($valuesArray[$key]) : '');
+            
+                            if (isset($inputForm->via_encrypted[$key]) && $inputForm->via_encrypted[$key] == 't' && $valueStore != '') {
+                                try {
+                                    $valueStore = self::decryptAdditionalField($valueStore);
+                                } catch (Exception $e) {
+                                    $valueStore = $e->getMessage();
+                                }
+                            }
+
+                            $currentChatData[] = array('h' => true, 'identifier' => $adminField['fieldidentifier'], 'key' => $adminField['fieldname'], 'value' => $valueStore);
+                        }
+                    }
                 }
             }
         }
@@ -574,6 +743,24 @@ class erLhcoreClassChatValidator {
         if (!empty($currentChatData)) {
             $chat->additional_data = json_encode($currentChatData);
         }
+    }
+    
+    public static function decryptAdditionalField($valueStore)
+    {
+        if ($valueStore != '') {
+            $startData = (array)erLhcoreClassModelChatConfig::fetch('start_chat_data')->data;
+        
+            $valueStore = lhSecurity::decrypt(base64_decode($valueStore),
+                (isset($startData['custom_fields_encryption']) && !empty($startData['custom_fields_encryption']) ? $startData['custom_fields_encryption'] : null),
+                (isset($startData['custom_fields_encryption_hmac']) && !empty($startData['custom_fields_encryption_hmac']) ? $startData['custom_fields_encryption_hmac'] : null)
+            );
+        
+            if ($valueStore === false) {
+               throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Could not decrypt data!'));
+            }
+        }
+        
+        return $valueStore;
     }
     
     /**

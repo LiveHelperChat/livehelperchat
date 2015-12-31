@@ -152,7 +152,6 @@
 					</fieldset>
 				</div>
 			</div>
-
 			<div class="row">
 				<div class="col-md-6">
 					<fieldset>
@@ -168,10 +167,8 @@
 					</fieldset>
 				</div>
 			</div>
-
 		</div>
 		<div role="tabpanel" class="tab-pane" id="panel3">
-
 			<label><input type="checkbox" value="on" name="ShowOperatorProfile" <?php (isset($start_chat_data['show_operator_profile']) && $start_chat_data['show_operator_profile'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Show operator profile above input fields');?></label>
 			
 			<br />
@@ -186,6 +183,17 @@
 			<div class="form-group">
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Initial user message height in pixels');?></label> <input class="form-control" type="text" name="UserMessageHeight" value="<?php (isset($start_chat_data['user_msg_height'])) ? print htmlspecialchars($start_chat_data['user_msg_height']) : ''?>" />
 			</div>
+
+			<div class="form-group">
+				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Encryption key, min length 40');?></label> 
+				<input class="form-control" type="text" name="CustomFieldsEncryption" value="<?php (isset($start_chat_data['custom_fields_encryption'])) ? print htmlspecialchars($start_chat_data['custom_fields_encryption']) : ''?>" />
+			</div>
+
+			<div class="form-group">
+				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Additional encryption key, min length 40');?></label> 
+				<input class="form-control" type="text" name="CustomFieldsEncryptionHMac" value="<?php (isset($start_chat_data['custom_fields_encryption_hmac'])) ? print htmlspecialchars($start_chat_data['custom_fields_encryption_hmac']) : ''?>" />
+			</div>
+
 		</div>
 		
 		<div role="tabpanel" class="tab-pane" id="customfields">

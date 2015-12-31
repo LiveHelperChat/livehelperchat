@@ -151,12 +151,13 @@ $inputData->name_items = array();
 $inputData->value_items = array();
 $inputData->value_types = array();
 $inputData->value_sizes = array();
+$inputData->encattr = array();
+$inputData->via_encrypted = array();
 $inputData->value_items_admin = array(); // These variables get's filled from start chat form settings
 $inputData->via_hidden = array(); // These variables get's filled from start chat form settings
 $inputData->hattr = array();
 $inputData->hash_resume = false;
 $inputData->vid = false;
-
 
 // Perhaps it's direct argument
 if ((string)$Params['user_parameters_unordered']['hash_resume'] != '') {
@@ -368,6 +369,16 @@ $definition = array(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
                 null,
                 FILTER_REQUIRE_ARRAY
+        ),
+        'encattr' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
+                null,
+                FILTER_REQUIRE_ARRAY
+        ),
+        'via_encrypted' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
+                null,
+                FILTER_REQUIRE_ARRAY
         )
 );
 
@@ -406,6 +417,16 @@ if ( $form->hasValidData( 'type' ) && !empty($form->type))
 if ( $form->hasValidData( 'size' ) && !empty($form->size))
 {
 	$inputData->value_sizes = $form->size;
+}
+
+if ( $form->hasValidData( 'encattr' ) && !empty($form->encattr))
+{
+	$inputData->encattr = $form->encattr;
+}
+
+if ( $form->hasValidData( 'via_encrypted' ) && !empty($form->via_encrypted))
+{
+	$inputData->via_encrypted = $form->via_encrypted;
 }
 
 // Fill back office values ir prefilled

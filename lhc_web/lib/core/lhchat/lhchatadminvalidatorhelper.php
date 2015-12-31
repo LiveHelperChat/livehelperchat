@@ -288,6 +288,12 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        'customFieldIdentifier' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY
 	        ),
+	        'CustomFieldsEncryption' => new ezcInputFormDefinitionElement(
+	            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+	        ),
+	        'CustomFieldsEncryptionHMac' => new ezcInputFormDefinitionElement(
+	            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' 
+	        ),
 	    );
 	    
 	    $form = new ezcInputForm( INPUT_POST, $definition );
@@ -381,7 +387,27 @@ class erLhcoreClassAdminChatValidatorHelper {
 	    } else {
 	        $data['name_require_option'] = 'required';
 	    }
-	    
+
+	    if ( $form->hasValidData( 'CustomFieldsEncryption' ) && $form->CustomFieldsEncryption != '' ) {
+	        if (strlen($form->CustomFieldsEncryption) < 40) {
+	            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Minimum 40 characters for encryption key!');
+	        } else {
+	           $data['custom_fields_encryption'] = $form->CustomFieldsEncryption;
+	        }
+	    } else {
+	        $data['custom_fields_encryption'] = '';
+	    }
+
+	    if ( $form->hasValidData( 'CustomFieldsEncryptionHMac' ) && $form->CustomFieldsEncryptionHMac != '' ) {
+	        if (strlen($form->CustomFieldsEncryptionHMac) < 40) {
+	            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Minimum 40 characters for additional encryption key!');
+	        } else {
+	            $data['custom_fields_encryption_hmac'] = $form->CustomFieldsEncryptionHMac;
+	        }
+	    } else {
+	        $data['custom_fields_encryption_hmac'] = '';
+	    }
+
 	    // Name offline
 	    if ( $form->hasValidData( 'OfflineNameVisibleInPopup' ) && $form->OfflineNameVisibleInPopup == true ) {
 	        $data['offline_name_visible_in_popup'] = true;

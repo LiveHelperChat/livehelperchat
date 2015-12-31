@@ -175,6 +175,8 @@ $inputData->value_sizes = array();
 $inputData->value_types = array();
 $inputData->value_items_admin = array(); // These variables get's filled from start chat form settings
 $inputData->hattr = array();
+$inputData->encattr = array();
+$inputData->via_encrypted = array();
 $inputData->ua = $Params['user_parameters_unordered']['ua'];
 $inputData->priority = is_numeric($Params['user_parameters_unordered']['priority']) ? (int)$Params['user_parameters_unordered']['priority'] : false;
 
@@ -410,7 +412,17 @@ $definition = array(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
                 null,
                 FILTER_REQUIRE_ARRAY
-        )
+        ),
+        'encattr' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
+            null,
+            FILTER_REQUIRE_ARRAY
+        ),
+        'via_encrypted' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
+            null,
+            FILTER_REQUIRE_ARRAY
+        ),
 );
 
 $form = new ezcInputForm( INPUT_GET, $definition );
@@ -453,6 +465,16 @@ if ( $form->hasValidData( 'size' ) && !empty($form->size))
 if ($form->hasValidData( 'via_hidden' ))
 {
     $inputData->via_hidden = $form->via_hidden;
+}
+
+if ( $form->hasValidData( 'encattr' ) && !empty($form->encattr))
+{
+    $inputData->encattr = $form->encattr;
+}
+
+if ( $form->hasValidData( 'via_encrypted' ) && !empty($form->via_encrypted))
+{
+    $inputData->via_encrypted = $form->via_encrypted;
 }
 
 // Fill back office values ir prefilled

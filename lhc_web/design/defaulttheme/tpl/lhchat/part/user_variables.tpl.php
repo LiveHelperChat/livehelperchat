@@ -25,6 +25,10 @@ foreach ($input_data->name_items as $item) : ?>
 	<input type="hidden" name="hattr[]" value="<?php echo htmlspecialchars($item)?>" />
 <?php endforeach;endif;?>
 
+<?php if (isset($input_data->encattr)) : foreach ($input_data->encattr as $item) : ?>
+	<input type="hidden" name="encattr[]" value="<?php echo htmlspecialchars($item)?>" />
+<?php endforeach;endif;?>
+
 <?php
 $hasVisibleField = false;
 foreach ($input_data->value_types as $key => $item) : 

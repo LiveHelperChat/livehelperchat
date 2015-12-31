@@ -190,6 +190,7 @@ return array_merge(array (
         'erLhcoreClassTranslateGoogle'              => 'lib/core/lhtranslate/lhgoogletranslate.php',
 	
 		'erLhcoreClassDBTrait'       				=> 'lib/core/lhcore/lhdbtrait.php',
+		'lhSecurity'       				            => 'lib/core/lhexternal/lhsecurity.php',
 		
 ),
 include('var/autoloads/lhextension_autoload.php')
