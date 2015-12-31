@@ -38,6 +38,7 @@ return array_merge(array (
         'erLhcoreClassAdminChatValidatorHelper'=> 'lib/core/lhchat/lhchatadminvalidatorhelper.php',
         'erLhcoreClassChatCommand'=> 'lib/core/lhchat/lhchatcommand.php',
         'erLhcoreClassChatHelper' => 'lib/core/lhchat/lhchathelper.php',
+        'erLhcoreClassUserValidator' => 'lib/core/lhuser/lhuservalidator.php',
 
 
         'erLhcoreClassBBCode'       => 'lib/core/lhbbcode/lhbbcode.php',
@@ -187,6 +188,8 @@ return array_merge(array (
         'erLhcoreClassTranslate'                    => 'lib/core/lhtranslate/lhtranslate.php',
         'erLhcoreClassTranslateBing'                => 'lib/core/lhtranslate/lhbingtranslate.php',
         'erLhcoreClassTranslateGoogle'              => 'lib/core/lhtranslate/lhgoogletranslate.php',
+	
+		'erLhcoreClassDBTrait'       				=> 'lib/core/lhcore/lhdbtrait.php',
 		
 ),
 include('var/autoloads/lhextension_autoload.php')

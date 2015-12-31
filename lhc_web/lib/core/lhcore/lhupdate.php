@@ -4,13 +4,13 @@ class erLhcoreClassUpdate
 {
 	const DB_VERSION = 117;
 	const LHC_RELEASE = 242;
-		
+
 	public static function doTablesUpdate($definition){
 		$updateInformation = self::getTablesStatus($definition);
 		$db = ezcDbInstance::get();
-		
+
 		$errorMessages = array();
-		
+
 		foreach ($updateInformation as $table => $tableData) {
 			if ($tableData['error'] == true) {
 				foreach ($tableData['queries'] as $query) {

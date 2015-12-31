@@ -21,6 +21,7 @@
 @ini_set('session.cookie_lifetime', 2000000);
 @ini_set('session.cookie_httponly',1);
 
+require_once "lib/core/lhcore/password.php";
 require_once "ezcomponents/Base/src/base.php"; // dependent on installation method, see below
 
 ezcBase::addClassRepository( './','./lib/autoloads');

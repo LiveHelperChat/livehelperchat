@@ -43,9 +43,15 @@ class erLhcoreClassModelUser {
 
    public function setPassword($password)
    {
-       $cfgSite = erConfigClassLhConfig::getInstance();
-	   $secretHash = $cfgSite->getSetting( 'site', 'secrethash' );
-       $this->password = sha1($password.$secretHash.sha1($password));
+		
+		$hash = password_hash($password, PASSWORD_DEFAULT);
+       
+		if ($hash) {
+			$this->password = $hash;
+		} else {
+			return false;
+		}		
+       
    }
 
    public static function fetch($user_id, $useCache = false)
@@ -343,6 +349,34 @@ class erLhcoreClassModelUser {
 	   	}
    }
 
+	public function setUserGroups() {
+   		
+		erLhcoreClassModelGroupUser::removeUserFromGroups($this->id);
+		
+		foreach ($this->user_groups_id as $group_id) {
+			$groupUser = new erLhcoreClassModelGroupUser();
+			$groupUser->group_id = $group_id;
+			$groupUser->user_id = $this->id;
+			$groupUser->saveThis();
+		}
+		
+   	}
+   
+   	public static function findOne($paramsSearch = array()) {
+   		
+   		$paramsSearch['limit'] = 1;
+   		
+   		$list = self::getUserList($paramsSearch);
+   		
+   		if (! empty($list)) {
+   			reset($list);
+   			return current($list);
+   		}
+   	
+   		return false;
+   		
+   	}   	
+   	
     public $id = null;
     public $username = '';
     public $password = '';

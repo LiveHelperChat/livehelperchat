@@ -1149,7 +1149,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                $db->query("CREATE TABLE IF NOT EXISTS `lh_users` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
                   `username` varchar(40) NOT NULL,
-                  `password` varchar(40) NOT NULL,
+                  `password` varchar(200) NOT NULL,
                   `email` varchar(100) NOT NULL,
                   `time_zone` varchar(100) NOT NULL,
                   `name` varchar(100) NOT NULL,

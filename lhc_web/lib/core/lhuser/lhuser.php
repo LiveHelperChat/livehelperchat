@@ -77,14 +77,37 @@ class erLhcoreClassUser{
        }
    }
 
-   function authenticate($username,$password,$remember = false)
+   function authenticate($username, $password, $remember = false)
    {
-       $this->session->destroy();
+		$this->session->destroy();
+       
+		$user = erLhcoreClassModelUser::findOne(array(
+			'filter' => array(
+				'username' => $username
+			)
+		));  
 
-       $cfgSite = erConfigClassLhConfig::getInstance();
-	   $secretHash = $cfgSite->getSetting( 'site', 'secrethash' );
+		if ($user === false) {
+			return false;
+		};
 
-       $this->credentials = new ezcAuthenticationPasswordCredentials( $username, sha1($password.$secretHash.sha1($password)) );
+		$cfgSite = erConfigClassLhConfig::getInstance();
+		$secretHash = $cfgSite->getSetting( 'site', 'secrethash' );
+
+		if (strlen($user->password) == 40) { // this is old password
+		    $passwordVerify = sha1($password.$secretHash.sha1($password));
+		    $changePassword = true;
+        } else {
+
+    		if (!password_verify($password, $user->password)) {
+    			return false;
+    		};
+
+    		$changePassword = false;
+    		$passwordVerify = $user->password;
+	   }
+
+       $this->credentials = new ezcAuthenticationPasswordCredentials( $username, $passwordVerify );
 
        $database = new ezcAuthenticationDatabaseInfo( ezcDbInstance::get(), 'lh_users', array( 'username', 'password' ) );
        $this->authentication = new ezcAuthentication( $this->credentials );
@@ -119,7 +142,7 @@ class erLhcoreClassUser{
                 }
 
                 $this->authenticated = true;
-                
+
                 // Limit number per of logins under same user
                 if ((self::$oneLoginPerAccount == true || $cfgSite->getSetting( 'site', 'one_login_per_account', false ) == true) && $_COOKIE['PHPSESSID'] !='') {
                     $db = ezcDbInstance::get();
@@ -128,7 +151,16 @@ class erLhcoreClassUser{
                     $stmt->bindValue(':id',$this->userid,PDO::PARAM_INT);
                     $stmt->execute();
                 }
-                
+
+                // Change old password to new one
+                if ($changePassword === true) {
+                    $db = ezcDbInstance::get();
+                    $stmt = $db->prepare('UPDATE lh_users SET password = :password WHERE id = :id');
+                    $stmt->bindValue(':password', password_hash($password, PASSWORD_DEFAULT), PDO::PARAM_STR);
+                    $stmt->bindValue(':id', $this->userid, PDO::PARAM_INT);
+                    $stmt->execute();
+                }
+
                 return true;
             }
 

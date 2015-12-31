@@ -59,7 +59,9 @@ class erLhcoreClassModules{
    	   	foreach ($extensions as $extension) {
    	   		if (file_exists("extension/{$extension}/modules/{$ModulePath}/module.php")) {
    	   			include("extension/{$extension}/modules/{$ModulePath}/module.php");
-   	   			$FunctionListReturn = array_merge($FunctionListReturn,$FunctionList);
+   	   			if (isset($FunctionList)) {
+   	   			  $FunctionListReturn = array_merge($FunctionListReturn,$FunctionList);
+   	   			}
    	   		}
    	   	}
 

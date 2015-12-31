@@ -3673,7 +3673,7 @@
             },
             {
                 "field": "password",
-                "type": "varchar(40)",
+                "type": "varchar(200)",
                 "null": "NO",
                 "key": "",
                 "default": null,
