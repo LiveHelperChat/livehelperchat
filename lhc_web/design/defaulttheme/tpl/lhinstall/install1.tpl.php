@@ -80,8 +80,8 @@
         <td><?php echo extension_loaded('bcmath') ? '<span class="label label-success">Yes</span>' : '<span class="label label-warning">No, GEO detection will be disabled</span>'; ?></td>
     </tr>        
     <tr>
-        <td>Minimum 5.3 PHP</td>
-        <td><?php echo (version_compare(PHP_VERSION, '5.3.0','<')) ? '<span class="label label-danger">No</span>' : '<span class="label label-success">Yes</span>'; ?></td>
+        <td>Minimum 5.4 PHP</td>
+        <td><?php echo (version_compare(PHP_VERSION, '5.4.0','<')) ? '<span class="label label-danger">No</span>' : '<span class="label label-success">Yes</span>'; ?></td>
     </tr>
 </table>
 <br>

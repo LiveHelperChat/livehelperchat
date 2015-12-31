@@ -74,12 +74,13 @@ switch ((int)$Params['user_parameters']['step_id']) {
 		if (!function_exists('json_encode'))
 			$Errors[] = "json support not detected. Please install php extension";	
 		
-		if (version_compare(PHP_VERSION, '5.3.0','<')) {
-			$Errors[] = "Minimum 5.3.0 PHP version is required";	
+		if (version_compare(PHP_VERSION, '5.4.0','<')) {
+			$Errors[] = "Minimum 5.4.0 PHP version is required";	
 		}
 		
-	       if (count($Errors) == 0)
-	           $tpl->setFile('lhinstall/install2.tpl.php');
+       if (count($Errors) == 0){
+           $tpl->setFile('lhinstall/install2.tpl.php');
+       }
 	  break;
 
 	  case '2':
@@ -882,6 +883,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('accept_tos_link', '#', 0, 'Change to your site Terms of Service', 0),
                 ('hide_button_dropdown', '0', 0, 'Hide close button in dropdown', 0),
                 ('on_close_exit_chat', '0', 0, 'On chat close exit chat', 0),
+                ('product_enabled_module','0','0','Product module is enabled', '0'),
                 ('file_configuration',	'a:7:{i:0;b:0;s:5:\"ft_op\";s:43:\"gif|jpe?g|png|zip|rar|xls|doc|docx|xlsx|pdf\";s:5:\"ft_us\";s:26:\"gif|jpe?g|png|doc|docx|pdf\";s:6:\"fs_max\";i:2048;s:18:\"active_user_upload\";b:0;s:16:\"active_op_upload\";b:1;s:19:\"active_admin_upload\";b:1;}',	0,	'Files configuration item',	1),
                 ('accept_chat_link_timeout',	'300',	0,	'How many seconds chat accept link is valid. Set 0 to force login all the time manually.',	0),
                 ('session_captcha',0,	0,	'Use session captcha. LHC have to be installed on the same domain or subdomain.',	0),
