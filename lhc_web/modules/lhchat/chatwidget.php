@@ -37,8 +37,27 @@ if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_p
 	}
 }
 
+// Paid chat workflow
+if ((string)$Params['user_parameters_unordered']['phash'] != '' && (string)$Params['user_parameters_unordered']['pvhash'] != '') {
+
+    $sound = is_numeric($Params['user_parameters_unordered']['sound']) ? '/(sound)/'.$Params['user_parameters_unordered']['sound'] : '';
+
+    if (isset($Params['user_parameters_unordered']['survey']) && is_numeric($Params['user_parameters_unordered']['survey'])) {
+        $modeAppendTheme .= '/(survey)/' . $Params['user_parameters_unordered']['survey'];
+    };
+
+    $paidChatSettings = erLhcoreClassChatPaid::paidChatWorkflow(array(
+        'uparams' => $Params['user_parameters_unordered'],
+        'append_mode' => $modeAppend . $modeAppendTheme . $sound
+    ));
+
+    if (isset($paidChatSettings['need_store']) && $paidChatSettings['need_store'] == true) {
+        $modeAppendTheme .= '/(phash)/'.htmlspecialchars($Params['user_parameters_unordered']['phash']).'/(pvhash)/'.htmlspecialchars($Params['user_parameters_unordered']['pvhash']);
+    }
+}
+
 // Perhaps it's direct argument
-if ((string)$Params['user_parameters_unordered']['hash'] != '') {
+if ((string)$Params['user_parameters_unordered']['hash'] != '' && (!isset($paidChatSettings) || $paidChatSettings['need_store'] == false)) {
 	list($chatID,$hash) = explode('_',$Params['user_parameters_unordered']['hash']);
 
 	$sound = is_numeric($Params['user_parameters_unordered']['sound']) ? '/(sound)/'.$Params['user_parameters_unordered']['sound'] : '';
@@ -350,6 +369,14 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
 	       erLhcoreClassChat::updateDepartmentStats($chat->department);
 	       erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started',array('chat' => & $chat, 'msg' => $messageInitial));
        	    
+	       // Paid chat settings
+	       if (isset($paidChatSettings)) {
+	           erLhcoreClassChatPaid::processPaidChatWorkflow(array(
+	               'chat' => $chat,
+	               'paid_chat_params' => $paidChatSettings,
+	           ));
+	       }
+
 	       // Redirect user
 	       $Result = erLhcoreClassModule::reRun(erLhcoreClassDesign::baseurlRerun('chat/chatwidgetchat') . '/' . $chat->id . '/' . $chat->hash . $modeAppend . $modeAppendTheme . '/(cstarted)/online_chat_started_cb');
 	       return true;	              

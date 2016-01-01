@@ -309,13 +309,13 @@ $ViewList['getstatusembed'] = array (
 
 $ViewList['startchat'] = array (
     'params' => array(),
-    'uparams' => array('ua','switchform','operator','theme','er','vid','hash_resume','sound','hash','offline','leaveamessage','department','priority','chatprefill','survey','prod'),
+    'uparams' => array('ua','switchform','operator','theme','er','vid','hash_resume','sound','hash','offline','leaveamessage','department','priority','chatprefill','survey','prod','phash','pvhash'),
 	'multiple_arguments' => array ( 'department', 'ua', 'prod' )
 );
 
 $ViewList['chatwidget'] = array (
     'params' => array(),
-    'uparams' => array('ua','switchform','operator','theme','vid','sound','hash','hash_resume','mode','offline','leaveamessage','department','priority','chatprefill','survey','sdemo','prod'),
+    'uparams' => array('ua','switchform','operator','theme','vid','sound','hash','hash_resume','mode','offline','leaveamessage','department','priority','chatprefill','survey','sdemo','prod','phash','pvhash'),
 	'multiple_arguments' => array ( 'department', 'ua', 'prod' )
 );
 
@@ -370,7 +370,7 @@ $ViewList['bbcodeinsert'] = array(
 
 $ViewList['chatwidgetchat'] = array(
     'params' => array('chat_id','hash'),
-	'uparams' => array('sound','mode','theme','cstarted','survey')
+	'uparams' => array('sound','mode','theme','cstarted','survey','pchat')
 );
 
 $ViewList['userclosechat'] = array(

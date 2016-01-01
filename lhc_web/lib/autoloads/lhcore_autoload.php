@@ -64,6 +64,7 @@ return array_merge(array (
 
         'erLhcoreClassModelGroupRole'   => 'lib/models/lhpermission/erlhcoreclassmodelgrouprole.php',
         'erLhcoreClassModelChat'        => 'lib/models/lhchat/erlhcoreclassmodelchat.php',
+        'erLhcoreClassModelChatPaid'    => 'lib/models/lhchat/erlhcoreclassmodelchatpaid.php',
         'erLhcoreClassModelmsg'         => 'lib/models/lhchat/erlhcoreclassmodelmsg.php',
         'erLhcoreClassModelCannedMsg'   => 'lib/models/lhchat/erlhcoreclassmodelcannedmsg.php',
         'erLhcoreClassModelChatConfig'  => 'lib/models/lhchat/erlhcoreclassmodelchatconfig.php',
@@ -191,6 +192,7 @@ return array_merge(array (
 	
 		'erLhcoreClassDBTrait'       				=> 'lib/core/lhcore/lhdbtrait.php',
 		'lhSecurity'       				            => 'lib/core/lhexternal/lhsecurity.php',
+		'erLhcoreClassChatPaid'       				=> 'lib/core/lhchat/lhchatpaid.php',
 		
 ),
 include('var/autoloads/lhextension_autoload.php')

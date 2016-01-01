@@ -294,6 +294,12 @@ var lh_inst  = {
 		    var hashResume = this.cookieData.hash_resume ? '/(hash_resume)/'+this.cookieData.hash_resume : '';
 		    var soundOption = this.cookieData.s ? '/(sound)/'+this.cookieData.s : '';
 		    var explicitClose = this.explicitClose ? '/(eclose)/t' : '';
+		    		    
+		    if (typeof <?php echo $chatOptionsVariable?> != 'undefined' && typeof <?php echo $chatOptionsVariable?>.attr_paid != 'undefined') {
+		          explicitClose = explicitClose + '/(phash)/'+ <?php echo $chatOptionsVariable?>.attr_paid.phash;
+		          explicitClose = explicitClose + '/(pvhash)/'+ <?php echo $chatOptionsVariable?>.attr_paid.pvhash;
+		    };
+		    		    
 		    return hashAppend+vidAppend+hashResume+soundOption+explicitClose;
     },
 

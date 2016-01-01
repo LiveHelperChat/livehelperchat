@@ -27,12 +27,14 @@ var lh_inst_page  = {
 
     parseOptions : function() {
 		argumentsQuery = new Array();
-
+        var paramsReturn = '';
 		if (typeof <?php echo $chatOptionsVariablePage?> != 'undefined') {
 	    	if (typeof <?php echo $chatOptionsVariablePage?>.attr != 'undefined') {
 	    		if (<?php echo $chatOptionsVariablePage?>.attr.length > 0){
 					for (var index in <?php echo $chatOptionsVariablePage?>.attr) {
-						argumentsQuery.push('name[]='+encodeURIComponent(<?php echo $chatOptionsVariablePage?>.attr[index].name)+'&value[]='+encodeURIComponent(<?php echo $chatOptionsVariablePage?>.attr[index].value)+'&type[]='+encodeURIComponent(<?php echo $chatOptionsVariablePage?>.attr[index].type)+'&size[]='+encodeURIComponent(<?php echo $chatOptionsVariablePage?>.attr[index].size)+'&req[]='+(typeof <?php echo $chatOptionsVariablePage?>.attr[index].req != 'undefined' && <?php echo $chatOptionsVariablePage?>.attr[index].req == true ? 't' : 'f')+'&sh[]='+((typeof <?php echo $chatOptionsVariablePage?>.attr[index].show != 'undefined' && (<?php echo $chatOptionsVariablePage?>.attr[index].show == 'on' || <?php echo $chatOptionsVariablePage?>.attr[index].show == 'off')) ? <?php echo $chatOptionsVariablePage?>.attr[index].show : 'b'));
+						if (typeof <?php echo $chatOptionsVariablePage?>.attr[index] != 'undefined' && typeof <?php echo $chatOptionsVariablePage?>.attr[index].type != 'undefined') {							
+							argumentsQuery.push('name[]='+encodeURIComponent(<?php echo $chatOptionsVariablePage?>.attr[index].name)+'&encattr[]='+(typeof <?php echo $chatOptionsVariablePage?>.attr[index].encrypted != 'undefined' && <?php echo $chatOptionsVariablePage?>.attr[index].encrypted == true ? 't' : 'f')+'&value[]='+encodeURIComponent(<?php echo $chatOptionsVariablePage?>.attr[index].value)+'&type[]='+encodeURIComponent(<?php echo $chatOptionsVariablePage?>.attr[index].type)+'&size[]='+encodeURIComponent(<?php echo $chatOptionsVariablePage?>.attr[index].size)+'&req[]='+(typeof <?php echo $chatOptionsVariablePage?>.attr[index].req != 'undefined' && <?php echo $chatOptionsVariablePage?>.attr[index].req == true ? 't' : 'f')+'&sh[]='+((typeof <?php echo $chatOptionsVariablePage?>.attr[index].show != 'undefined' && (<?php echo $chatOptionsVariablePage?>.attr[index].show == 'on' || <?php echo $chatOptionsVariablePage?>.attr[index].show == 'off')) ? <?php echo $chatOptionsVariablePage?>.attr[index].show : 'b'));
+						};
 					};
 	    		};
 	    	};
@@ -40,37 +42,54 @@ var lh_inst_page  = {
 	    	if (typeof <?php echo $chatOptionsVariablePage?>.attr_prefill != 'undefined') {
 	    		if (<?php echo $chatOptionsVariablePage?>.attr_prefill.length > 0){
 					for (var index in <?php echo $chatOptionsVariablePage?>.attr_prefill) {
-						argumentsQuery.push('prefill['+<?php echo $chatOptionsVariablePage?>.attr_prefill[index].name+']='+encodeURIComponent(<?php echo $chatOptionsVariablePage?>.attr_prefill[index].value));
-						if (typeof <?php echo $chatOptionsVariablePage?>.attr_prefill[index].hidden != 'undefined'){
-							argumentsQuery.push('hattr[]='+encodeURIComponent(<?php echo $chatOptionsVariablePage?>.attr_prefill[index].name));
+						if (typeof <?php echo $chatOptionsVariablePage?>.attr_prefill[index] != 'undefined' && typeof <?php echo $chatOptionsVariablePage?>.attr_prefill[index].name != 'undefined') {
+							argumentsQuery.push('prefill['+<?php echo $chatOptionsVariablePage?>.attr_prefill[index].name+']='+encodeURIComponent(<?php echo $chatOptionsVariablePage?>.attr_prefill[index].value));
+							if (typeof <?php echo $chatOptionsVariablePage?>.attr_prefill[index].hidden != 'undefined') {
+								argumentsQuery.push('hattr[]='+encodeURIComponent(<?php echo $chatOptionsVariablePage?>.attr_prefill[index].name));
+							};
+						};
+					};
+	    		};
+	    	};
+
+	    	if (typeof <?php echo $chatOptionsVariablePage?>.attr_prefill_admin != 'undefined') {
+	    		if (<?php echo $chatOptionsVariablePage?>.attr_prefill_admin.length > 0){
+					for (var index in <?php echo $chatOptionsVariablePage?>.attr_prefill_admin) {
+						if (typeof <?php echo $chatOptionsVariablePage?>.attr_prefill_admin[index] != 'undefined') {
+							argumentsQuery.push('value_items_admin['+<?php echo $chatOptionsVariablePage?>.attr_prefill_admin[index].index+']='+encodeURIComponent(<?php echo $chatOptionsVariablePage?>.attr_prefill_admin[index].value));	
+
+						    if (typeof <?php echo $chatOptionsVariablePage?>.attr_prefill_admin[index].hidden != 'undefined') {
+							     argumentsQuery.push('via_hidden['+<?php echo $chatOptionsVariablePage?>.attr_prefill_admin[index].index+']='+encodeURIComponent(<?php echo $chatOptionsVariablePage?>.attr_prefill_admin[index].hidden == true ? 't' : 'f'));
+							};
+
+						    if (typeof <?php echo $chatOptionsVariablePage?>.attr_prefill_admin[index].encrypted != 'undefined') {
+							     argumentsQuery.push('via_encrypted['+<?php echo $chatOptionsVariablePage?>.attr_prefill_admin[index].index+']='+encodeURIComponent(<?php echo $chatOptionsVariablePage?>.attr_prefill_admin[index].encrypted == true ? 't' : 'f'));
+							};
 						};
 					};
 	    		};
 	    	};
 	    	
-	    	if (typeof <?php echo $chatOptionsVariablePage?>.attr_prefill_admin != 'undefined') {
-	    		if (<?php echo $chatOptionsVariablePage?>.attr_prefill_admin.length > 0){
-					for (var index in <?php echo $chatOptionsVariablePage?>.attr_prefill_admin) {
-						if (typeof <?php echo $chatOptionsVariablePage?>.attr_prefill_admin[index] != 'undefined') {
-							argumentsQuery.push('value_items_admin['+<?php echo $chatOptionsVariablePage?>.attr_prefill_admin[index].index+']='+encodeURIComponent(<?php echo $chatOptionsVariablePage?>.attr_prefill_admin[index].value));							
-						};
-					};
-	    		};
-	    	};
-
 	    	if (argumentsQuery.length > 0) {
-	    		return '&'+argumentsQuery.join('&');
+	    		paramsReturn = '&'+argumentsQuery.join('&');
 	    	};
     	};
-
-    	return '';
+    	
+    	return paramsReturn;
     },
 
     getAppendCookieArguments : function() {
 		    var hashAppend = this.cookieData.hash ? '/(hash)/'+this.cookieData.hash : '';
 		    var hashResume = this.cookieData.hash_resume ? '/(hash_resume)/'+this.cookieData.hash_resume : '';
 		    var soundOption = this.cookieData.s ? '/(sound)/'+this.cookieData.s : '';
-		    return hashAppend+hashResume+soundOption;
+
+		    var paid_hash = '';
+		    if (typeof <?php echo $chatOptionsVariablePage?> != 'undefined' && typeof <?php echo $chatOptionsVariablePage?>.attr_paid != 'undefined') {
+		          paid_hash = '/(phash)/'+ <?php echo $chatOptionsVariablePage?>.attr_paid.phash;
+		          paid_hash = paid_hash + '/(pvhash)/'+ <?php echo $chatOptionsVariablePage?>.attr_paid.pvhash;
+		    };
+
+		    return hashAppend+hashResume+soundOption+paid_hash;
     },
 
 	addCookieAttribute : function(attr, value){

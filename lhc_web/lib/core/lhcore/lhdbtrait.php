@@ -182,7 +182,7 @@ trait erLhcoreClassDBTrait {
 			
 		$q->select( "COUNT(" . self::$dbTable . "." . self::$dbTableId . ")" )->from( self::$dbTable );
 	
-		$conditions = erLhcoreClassModuleFunctions::getConditions($params, $q);
+		$conditions = self::getConditions($params, $q);
 	
 		if (count($conditions) > 0) {
 			$q->where( $conditions );
@@ -210,7 +210,7 @@ trait erLhcoreClassDBTrait {
 		
 		if (isset($params['enable_sql_cache']) && $params['enable_sql_cache'] == true)
 		{
-			$sql = erLhcoreClassModuleFunctions::multi_implode(',',$params);
+			$sql = self::multi_implode(',',$params);
 
 			$cache = CSCacheAPC::getMem();
 			$cacheKey = isset($params['cache_key']) ? md5($sql.$params['cache_key']) : md5('objects_list_'.strtolower(__CLASS__).'_v_'.$cache->getCacheVersion('site_attributes_version_'.strtolower(__CLASS__)).$sql);
@@ -225,7 +225,7 @@ trait erLhcoreClassDBTrait {
 				
 		$q = $session->createFindQuery( __CLASS__ );
 			
-		$conditions = erLhcoreClassModuleFunctions::getConditions($params, $q);
+		$conditions = self::getConditions($params, $q);
 	
 		if (count($conditions) > 0) {
 			$q->where( $conditions );
@@ -276,9 +276,154 @@ trait erLhcoreClassDBTrait {
 		}
 		
 		return $objects;
-		
 	}
-		
+
+	public static function getConditions($params, $q) {
+	
+	    $conditions = array();
+	
+	    if (isset($params['filter']) && count($params['filter']) > 0) {
+	        foreach ($params['filter'] as $field => $fieldValue) {
+	            $conditions[] = $q->expr->eq($field, $q->bindValue($fieldValue));
+	        }
+	    }
+	
+	    if (isset($params['filterin']) && count($params['filterin']) > 0) {
+	        foreach ($params['filterin'] as $field => $fieldValue) {
+	            if (empty($fieldValue)) {
+	                return 0;
+	                break;
+	            }
+	            $conditions[] = $q->expr->in($field, $fieldValue);
+	        }
+	    }
+	
+	    if (isset($params['filterlt']) && count($params['filterlt']) > 0) {
+	        foreach ($params['filterlt'] as $field => $fieldValue) {
+	            $conditions[] = $q->expr->lt($field, $q->bindValue($fieldValue));
+	        }
+	    }
+	
+	    if (isset($params['filtergt']) && count($params['filtergt']) > 0) {
+	        foreach ($params['filtergt'] as $field => $fieldValue) {
+	            $conditions[] = $q->expr->gt($field, $q->bindValue($fieldValue));
+	        }
+	    }
+	
+	    if (isset($params['filtergte']) && count($params['filtergte']) > 0) {
+	        foreach ($params['filtergte'] as $field => $fieldValue) {
+	            $conditions[] = $q->expr->gte($field, $fieldValue);
+	        }
+	    }
+	
+	    if (isset($params['filterlte']) && count($params['filterlte']) > 0) {
+	        foreach ($params['filterlte'] as $field => $fieldValue) {
+	            $conditions[] = $q->expr->lte($field, $fieldValue);
+	        }
+	    }
+	
+	    if (isset($params['filternot']) && count($params['filternot']) > 0) {
+	        foreach ($params['filternot'] as $field => $fieldValue) {
+	            $conditions[] = $q->expr->neq($field, $q->bindValue($fieldValue));
+	        }
+	    }
+	
+	    if (isset($params['filterall']) && count($params['filterall']) > 0) {
+	        foreach ($params['filterall'] as $field => $fieldValue) {
+	            $conditions[] = $q->expr->allin($field, $fieldValue);
+	        }
+	    }
+	
+	    if (isset($params['filterlike']) && count($params['filterlike']) > 0) {
+	        foreach ($params['filterlike'] as $field => $fieldValue) {
+	            $conditions[] = $q->expr->like($field, $q->bindValue('%' . $fieldValue . '%'));
+	        }
+	    }
+	
+	    if (isset($params['filterlikeright']) && count($params['filterlikeright']) > 0) {
+	        foreach ($params['filterlikeright'] as $field => $fieldValue) {
+	            $conditions[] = $q->expr->like($field, $q->bindValue($fieldValue . '%'));
+	        }
+	    }
+	
+	    if (isset($params['leftjoin']) && count($params['leftjoin']) > 0) {
+	        foreach ($params['leftjoin'] as $table => $joinOn) {
+	            $q->leftJoin($table, $q->expr->eq($joinOn[0], $joinOn[1]));
+	        }
+	    }
+	
+	    if (isset($params['innerjoinsame']) && count($params['innerjoinsame']) > 0) {
+	        foreach ($params['innerjoinsame'] as $table => $joinOn) {
+	            $q->innerJoin($q->alias($table, 't2'), $q->expr->eq($joinOn[0], $joinOn[1]));
+	        }
+	    }
+	
+	    if (isset($params['filterlor']) && count($params['filterlor']) > 0) {
+	        	
+	        $conditionsLor = array();
+	        	
+	        foreach ($params['filterlor'] as $field => $fieldValue) {
+	            foreach ($fieldValue as $fv) {
+	                $conditionsLor[] = $q->expr->eq($field, $q->bindValue($fv));
+	            }
+	        }
+	        	
+	        $conditions[] = $q->expr->lOr($conditionsLor);
+	
+	    }
+	
+	    if (isset($params['filterlorf']) && count($params['filterlorf']) > 0) {
+	        	
+	        $conditionsLor = array();
+	        	
+	        foreach ($params['filterlorf'] as $field => $fieldValue) {
+	            foreach ($fieldValue as $fv) {
+	                $conditionsLor[] = $q->expr->eq($fv, $q->bindValue($field));
+	            }
+	        }
+	        	
+	        $conditions[] = $q->expr->lOr($conditionsLor);
+	
+	    }
+	
+	    if (isset($params['filternotin']) && count($params['filternotin']) > 0) {
+	        	
+	        foreach ($params['filternotin'] as $field => $fieldValue) {
+	            if (! empty($fieldValue)) {
+	                $conditions[] = $q->expr->not($q->expr->in($field, $fieldValue));
+	            }
+	        }
+	
+	    }
+	
+	    if (isset($params['filter_custom']) && count($params['filter_custom']) > 0) {
+	        foreach ($params['filter_custom'] as $fieldValue) {
+	            $conditions[] = $fieldValue;
+	        }
+	    }
+	
+	    if(isset($params['group']) && $params['group'] != '') {
+	        $q->groupBy($params['group']);
+	    }
+	
+	    return $conditions;
+	}
+	
+	public static function multi_implode($glue, $pieces, $key = null) {
+	
+	    $string = '';
+	
+	    if (is_array($pieces)) {
+	        reset($pieces);
+	        while (list ($key, $value) = each($pieces)) {
+	            $string .= $key.'_'.$glue . self::multi_implode($glue, $value, $key);
+	        }
+	    } else {
+	        return "{$key}_{$pieces}";
+	    }
+	
+	    return trim($string, $glue);
+	}		
 }
 
 ?>

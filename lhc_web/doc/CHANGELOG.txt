@@ -6,6 +6,7 @@
 4. 5.4 PHP required
 5. https://github.com/LiveHelperChat/livehelperchat/issues/789
 6. Option to securely encrypt passed data to additional form data. [Sponsored]
+7. Paid chats concept, tutorial article is comming. [Sponsored]
 
 execute doc/update_db/update_117.sql for update
 

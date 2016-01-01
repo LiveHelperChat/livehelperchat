@@ -1,7 +1,7 @@
 <?php
 
 class erLhcoreClassChatWorkflow {
-
+        
     /**
      * Message for timeout
      */

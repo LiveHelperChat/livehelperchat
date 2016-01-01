@@ -49,6 +49,8 @@
         		    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/maintenance.tpl.php'));?>
         		    
         		    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/product.tpl.php'));?>
+        		    
+        		    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/paidchat.tpl.php'));?>
         		    						    
         		</ul>
 			</div>

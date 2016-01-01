@@ -131,6 +131,11 @@ class erLhcoreClassModelChat {
 	   	$q->deleteFrom( 'lh_abstract_survey_item' )->where( $q->expr->eq( 'chat_id', $this->id ) );
 	   	$stmt = $q->prepare();
 	   	$stmt->execute();
+	   	
+	   	// Paid chats
+	   	$q->deleteFrom( 'lh_chat_paid' )->where( $q->expr->eq( 'chat_id', $this->id ) );
+	   	$stmt = $q->prepare();
+	   	$stmt->execute();
 
 	   	erLhcoreClassModelChatFile::deleteByChatId($this->id);
 
