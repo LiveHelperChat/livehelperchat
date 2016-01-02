@@ -1061,7 +1061,7 @@ class erLhcoreClassChat {
    }
    
    public static function closeChatCallback($chat, $operator = false) {
-	   	$extensions = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'extensions' );
+	   	$extensions = erConfigClassLhConfig::getInstance()->getOverrideValue( 'site', 'extensions' );
 
 	   	$instance = erLhcoreClassSystem::instance();
 

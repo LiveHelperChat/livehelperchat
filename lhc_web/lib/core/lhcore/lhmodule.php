@@ -166,7 +166,7 @@ class erLhcoreClassModule{
     
     public static function attatchExtensionListeners(){
     	$cfg = erConfigClassLhConfig::getInstance();
-    	$extensions = $cfg->getSetting('site','extensions');
+    	$extensions = $cfg->getOverrideValue('site','extensions');
     	
     	// Is it extension module
     	foreach ($extensions as $extension)
@@ -193,7 +193,7 @@ class erLhcoreClassModule{
     public static function getModuleDefaultView($module)
     {
         $cfg = erConfigClassLhConfig::getInstance();
-        $extensions = $cfg->getSetting('site','extensions');
+        $extensions = $cfg->getOverrideValue('site','extensions');
 
         // Is it core module
         if (file_exists('modules/lh'.$module.'/module.php')) {
@@ -361,37 +361,37 @@ class erLhcoreClassModule{
 
     }
 
-
     public static function getModule($module){
 
         $cfg = erConfigClassLhConfig::getInstance();
         self::$moduleCacheEnabled = $cfg->getSetting( 'site', 'modulecompile' );
-
+        
+        // Because each siteaccess can have different extension cache key has to have this
+        $siteAccess = erLhcoreClassSystem::instance()->SiteAccess;
+                
         if ( self::$cacheInstance === null ) {
         	self::$cacheInstance = CSCacheAPC::getMem();
         }
 
         if (self::$moduleCacheEnabled === true) {
-            if ( ($cacheModules = self::$cacheInstance->restore('moduleFunctionsCache_'.$module.'_version_'.self::$cacheVersionSite)) !== false)
+            if ( ($cacheModules = self::$cacheInstance->restore('moduleFunctionsCache_'.$module.'_'.$siteAccess.'_version_'.self::$cacheVersionSite)) !== false)
             {
             	return $cacheModules;
             }
 
             $cacheWriter = new erLhcoreClassCacheStorage('cache/cacheconfig/');
-            if ( ($cacheModules = $cacheWriter->restore('moduleFunctionsCache_'.$module)) == false)
+            if ( ($cacheModules = $cacheWriter->restore('moduleFunctionsCache_'.$module.'_'.$siteAccess)) == false)
             {
             	$cacheModules = array();
             }
 
-            if (count($cacheModules) > 0){
-                self::$cacheInstance->store('moduleFunctionsCache_'.$module.'_version_'.self::$cacheVersionSite,$cacheModules);
+            if (count($cacheModules) > 0) {
+                self::$cacheInstance->store('moduleFunctionsCache_'.$module.'_'.$siteAccess.'_version_'.self::$cacheVersionSite,$cacheModules);
                 return $cacheModules;
             }
         }
 
-
-
-        $extensions = $cfg->getSetting('site','extensions');
+        $extensions = $cfg->getOverrideValue('site','extensions');
 
         $ViewListCompiled = array();
 
@@ -424,8 +424,8 @@ class erLhcoreClassModule{
 
         if (count($ViewListCompiled) > 0) {
             if (self::$moduleCacheEnabled === true) {
-                $cacheWriter->store('moduleFunctionsCache_'.$module,$ViewListCompiled);
-                self::$cacheInstance->store('moduleFunctionsCache_'.$module.'_version_'.self::$cacheVersionSite,$ViewListCompiled);
+                $cacheWriter->store('moduleFunctionsCache_'.$module.'_'.$siteAccess,$ViewListCompiled);
+                self::$cacheInstance->store('moduleFunctionsCache_'.$module.'_'.$siteAccess.'_version_'.self::$cacheVersionSite,$ViewListCompiled);
             }
             return $ViewListCompiled;
         }
@@ -454,12 +454,13 @@ class erLhcoreClassModule{
         self::$dateHourFormat = $cfg->getSetting('site', 'date_hour_format', false);
         self::$dateDateHourFormat = $cfg->getSetting('site', 'date_date_hour_format', false);
         
+        $url = erLhcoreClassURL::getInstance();
+        
         if (!isset($params['ignore_extensions'])){
             // Attatch extension listeners
             self::attatchExtensionListeners();
         }
-        
-        $url = erLhcoreClassURL::getInstance();
+                
         self::$currentModuleName = preg_replace('/[^a-zA-Z0-9\-_]/', '', $url->getParam( 'module' ));
         self::$currentView = preg_replace('/[^a-zA-Z0-9\-_]/', '', $url->getParam( 'function' ));
                 

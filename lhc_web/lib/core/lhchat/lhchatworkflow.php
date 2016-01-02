@@ -104,7 +104,7 @@ class erLhcoreClassChatWorkflow {
     	$chat->updateThis();
 
     	// Execute callback if it exists
-    	$extensions = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'extensions' );
+    	$extensions = erConfigClassLhConfig::getInstance()->getOverrideValue( 'site', 'extensions' );
     	$instance = erLhcoreClassSystem::instance();
 
     	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.unread_chat_workflow',array('chat' => & $chat));
@@ -133,7 +133,7 @@ class erLhcoreClassChatWorkflow {
     	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_unread_message',array('chat' => & $chat));
     	
     	// Execute callback if it exists
-    	$extensions = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'extensions' );
+    	$extensions = erConfigClassLhConfig::getInstance()->getOverrideValue( 'site', 'extensions' );
     	$instance = erLhcoreClassSystem::instance();
     	 
     	foreach ($extensions as $ext) {
@@ -174,7 +174,7 @@ class erLhcoreClassChatWorkflow {
     	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.new_chat',array('chat' => & $chat));
     	
     	// Execute callback if it exists
-    	$extensions = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'extensions' );
+    	$extensions = erConfigClassLhConfig::getInstance()->getOverrideValue( 'site', 'extensions' );
     	$instance = erLhcoreClassSystem::instance();
     	
     	foreach ($extensions as $ext) {

@@ -49,7 +49,7 @@ class erConfigClassLhConfig
         $value = $this->getSetting( $section, $key );
 
         $valueOverride = $this->getSetting('site_access_options',erLhcoreClassSystem::instance()->SiteAccess);
-
+        
         if (key_exists($key,$valueOverride))
               return $valueOverride[$key];
 

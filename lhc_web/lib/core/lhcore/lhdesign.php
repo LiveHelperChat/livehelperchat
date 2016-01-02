@@ -17,7 +17,7 @@ class erLhcoreClassDesign
         $instance = erLhcoreClassSystem::instance();
 
         // Check extensions directories
-        $extensions = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'extensions' );
+        $extensions = erConfigClassLhConfig::getInstance()->getOverrideValue( 'site', 'extensions' );
         foreach ($extensions as $ext) {
         	$tplDir = $instance->SiteDir . 'extension/' . $ext . '/design/' . $ext .  'theme/'. $path;
         	if (file_exists($tplDir)) {
@@ -73,7 +73,7 @@ class erLhcoreClassDesign
         $multiTemplates = array();
         
         // Check extensions directories
-        $extensions = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'extensions' );
+        $extensions = erConfigClassLhConfig::getInstance()->getOverrideValue( 'site', 'extensions' );
         foreach ($extensions as $ext) {
             $tplDir = $instance->SiteDir . 'extension/' . $ext . '/design/' . $ext .  'theme/tpl/'. $path;
             if (file_exists($tplDir)) {
@@ -208,7 +208,7 @@ class erLhcoreClassDesign
     		$debug = ezcDebug::getInstance();
     	}
 
-    	$extensions = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'extensions' );
+    	$extensions = erConfigClassLhConfig::getInstance()->getOverrideValue( 'site', 'extensions' );
     	$instance = erLhcoreClassSystem::instance();
 
     	$filesToCompress = '';
@@ -398,7 +398,7 @@ class erLhcoreClassDesign
 
     	$filesToCompress = '';
     	$instance = erLhcoreClassSystem::instance();
-    	$extensions = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'extensions' );
+    	$extensions = erConfigClassLhConfig::getInstance()->getOverrideValue( 'site', 'extensions' );
 
 
     	foreach ($items as $path)

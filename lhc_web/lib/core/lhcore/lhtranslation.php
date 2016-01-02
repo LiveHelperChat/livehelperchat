@@ -129,7 +129,7 @@ class erTranslationClassLhTranslation
 	        $writer->initWriter( $this->languageCode );
 
 	        // Load extensions translations
-	        $extensions = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'extensions' );
+	        $extensions = erConfigClassLhConfig::getInstance()->getOverrideValue( 'site', 'extensions' );
 	        $contextDataArray = array();
 	        foreach ($extensions as $ext) {
 	        	$trsDir = $sys . 'extension/' . $ext . '/translations/' . $this->languageCode .  '/translation.ts';
