@@ -15,6 +15,9 @@
 	<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhpermission','see_permissions_users')) : ?>
 	<li role="presentation" <?php if ($tab == 'tab_permission') : ?>class="active"<?php endif;?>><a href="#permission" aria-controls="permission" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Permissions');?></a></li>
 	<?php endif;?>
+
+	<?php include(erLhcoreClassDesign::designtpl('lhuser/menu_tabs/custom_multiinclude_tab.tpl.php'));?>
+
 </ul>
 
 <div class="tab-content">
@@ -26,6 +29,9 @@
 	   <br />
 
 	   <form action="<?php echo erLhcoreClassDesign::baseurl('user/edit')?>/<?php echo $user->id?>#account" method="post" autocomplete="off" enctype="multipart/form-data">
+	        
+	        <?php include(erLhcoreClassDesign::designtpl('lhuser/account/above_new_account_form_multiinclude.tpl.php'));?>
+	        
 	        <div class="form-group">
     		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Username');?></label>
     		  <input class="form-control" type="text" name="Username" value="<?php echo htmlspecialchars($user->username);?>" />
@@ -116,6 +122,8 @@
     		
     		<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
     		
+    		<?php include(erLhcoreClassDesign::designtpl('lhuser/account/below_account_edit_multiinclude.tpl.php'));?>
+    		
     		<div class="btn-group" role="group" aria-label="...">
         		<input type="submit" class="btn btn-default" name="Save_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Save');?>"/>
     		    <input type="submit" class="btn btn-default" name="Update_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Update');?>"/>
@@ -164,4 +172,7 @@
 		<div id="permissions-summary"></div>		
     </div>
 	<?php endif;?>
+	
+	<?php include(erLhcoreClassDesign::designtpl('lhuser/menu_tabs_content/custom_multiinclude_tab.tpl.php'));?>
+	
 </div>

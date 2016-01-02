@@ -37,6 +37,9 @@
 	<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhpermission','see_permissions')) : ?>
 	<li role="presentation" <?php if ($tab == 'tab_permission') : ?>class="active"<?php endif;?>><a href="#permission" aria-controls="permission" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Permissions');?></a></li>
 	<?php endif;?>
+	
+	<?php include(erLhcoreClassDesign::designtpl('lhuser/menu_tabs/custom_multiinclude_tab.tpl.php'));?>
+	
 </ul>
 
 <div class="tab-content">
@@ -48,6 +51,8 @@
 		<br />
 		<form action="<?php echo erLhcoreClassDesign::baseurl('user/account')?>" method="post" autocomplete="off" enctype="multipart/form-data">
 
+		<?php include(erLhcoreClassDesign::designtpl('lhuser/account/above_account_form_multiinclude.tpl.php'));?> 
+		
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
             <div class="form-group">
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Username');?></label> <input type="text" class="form-control" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Your username');?>" name="Username" value="<?php echo htmlspecialchars($user->username);?>" />
@@ -109,6 +114,8 @@
 		  <div><img src="<?php echo $user->photo_path?>" alt="" width="50" /><br /> <label><input type="checkbox" name="DeletePhoto" value="1" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Delete')?></label></div>
 		<?php endif;?>
 	    </div>
+	        	
+	    <?php include(erLhcoreClassDesign::designtpl('lhuser/account/below_account_multiinclude.tpl.php'));?>
 	        				
 			<div class="btn-group" role="group" aria-label="...">
 				<input type="submit" name="Update" class="btn btn-primary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Update');?>"> 
@@ -199,5 +206,7 @@
 		<div id="permissions-summary"></div>		
     </div>
 	<?php endif;?>
+	
+	<?php include(erLhcoreClassDesign::designtpl('lhuser/menu_tabs_content/custom_multiinclude_tab.tpl.php'));?>
 	
 </div>
