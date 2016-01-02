@@ -1,0 +1,5 @@
+<?php 
+/**
+ * Custom menu tabs
+ * */
+?>
