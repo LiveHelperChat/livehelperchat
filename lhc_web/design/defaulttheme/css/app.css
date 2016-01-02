@@ -1212,3 +1212,5 @@ input[type="file"]{
 .border-bottom-grey{
 	border-bottom:1px solid #eee;
 }
+
+#map_canvas img{max-height:none;}

@@ -181,12 +181,13 @@
 		
 		<div role="tabpanel" class="tab-pane" id="mapoptions">
 		     <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Drag a marker where you want to have map centered by default. Zoom is also saved.')?></p>
-      		<div id="map_canvas" style="height:600px;width:100%;"></div>
-			<script src="https://maps-api-ssl.google.com/maps/api/js?v=3&sensor=false&callback=loadMapLocationChoosing"></script>
+      		<div id="map_canvas" style="height:600px;width:100%;"></div>			
 		</div>
 		
 	</div>
 </div>
+
+
 
 <script>
 var marker;
@@ -237,9 +238,6 @@ function loadMapLocationChoosing(){
 	});
 };
 
-
-
-
 $('#id_GeoDetectionEnabled').change(function(){
     if ($(this).is(':checked')){
         $('#settings-geo').removeClass('hide');
@@ -248,3 +246,5 @@ $('#id_GeoDetectionEnabled').change(function(){
     };   
 });
 </script>
+
+<script src="https://maps-api-ssl.google.com/maps/api/js?callback=loadMapLocationChoosing"></script>
