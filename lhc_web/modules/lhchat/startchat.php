@@ -232,11 +232,20 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
    		}
    		
    		if ( (isset($additionalParams['offline']) && $additionalParams['offline'] == true) || $statusGeoAdjustment['status'] == 'offline') {
-	   		erLhcoreClassChatMail::sendMailRequest($inputData,$chat,array('chatprefill' => isset($chatPrefill) ? $chatPrefill : false));
+	   		
+   		    $attributePresend = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_offline_request_presend',array(
+   		        'input_data' => $inputData,
+   		        'chat' => $chat,
+   		        'prefill' => array('chatprefill' => isset($chatPrefill) ? $chatPrefill : false)));
+
+   		    if (!isset($attributePresend['status']) || $attributePresend['status'] !== erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
+   		       erLhcoreClassChatMail::sendMailRequest($inputData,$chat,array('chatprefill' => isset($chatPrefill) ? $chatPrefill : false));
+   		    }
+
    			if (isset($chatPrefill) && ($chatPrefill instanceof erLhcoreClassModelChat)) {
    				erLhcoreClassChatValidator::updateInitialChatAttributes($chatPrefill, $chat);
    			}
-   			
+
    			erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_offline_request',array(
    			'input_data' => $inputData,
    			'chat' => $chat,
