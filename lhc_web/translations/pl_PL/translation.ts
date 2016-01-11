@@ -26,6 +26,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Przez ile dni, od czasu ostatniego wyświetlenia, widżet głosowania ma się nie wyświetlać</translation>
     </message>
@@ -140,6 +156,10 @@
     <message>
       <source>Is pro active chat invitation active. Online users tracking also has to be enabled</source>
       <translation>Czy proaktywne zaproszenia do rozmowy są aktywne. Przy włączeniu tej opcji musi być włączone śledzenie użytkowników online.</translation>
+    </message>
+    <message>
+      <source>Product module is enabled</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>On chat close exit chat</source>
@@ -409,6 +429,10 @@
     <message>
       <source>Text changes</source>
       <translation>Zmiany tekstu</translation>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Name</source>
@@ -705,16 +729,16 @@
       <translation>aktywne</translation>
     </message>
     <message>
+      <source>Department</source>
+      <translation>Wydział</translation>
+    </message>
+    <message>
       <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
       <translation>Język, zostaw puste dla wszytskich. Np. lit, rus, ger itd...</translation>
     </message>
     <message>
       <source>Position</source>
       <translation>Położenie</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Wydział</translation>
     </message>
     <message>
       <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
@@ -1092,6 +1116,14 @@ pokazywany</translation>
       <translation>Ankieta po zakończeniu czatu</translation>
     </message>
     <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show product selection based on selected departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
       <translation>Minimalizacja, stosuje się tylko wtedy, gdy widżet stanu jest na dole</translation>
     </message>
@@ -1158,6 +1190,18 @@ pokazywany</translation>
     <message>
       <source>System configuration</source>
       <translation>Konfiguracja systemu</translation>
+    </message>
+    <message>
+      <source>Chat expired</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid hash</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was removed</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -1834,6 +1878,10 @@ pokazywany</translation>
       <translation>Wydział</translation>
     </message>
     <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Country</source>
       <translation>Kraj</translation>
     </message>
@@ -2387,6 +2435,14 @@ pokazywany</translation>
       <translation>Masz pytanie? Zapytaj nas!</translation>
     </message>
     <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Type your message here and hit enter to send...</source>
       <translation>Wpisz swoją wiadomość i naciśnij enter aby ją wysłać...</translation>
     </message>
@@ -2479,6 +2535,14 @@ pokazywany</translation>
       <translation>Nieprawidłowy plik</translation>
     </message>
     <message>
+      <source>Could not find a product!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a product!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please choose</source>
       <translation>Wybierz</translation>
     </message>
@@ -2493,6 +2557,10 @@ pokazywany</translation>
     <message>
       <source>is required</source>
       <translation>Wymagane</translation>
+    </message>
+    <message>
+      <source>Could not decrypt data!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
@@ -3527,12 +3595,20 @@ pokazywany</translation>
       <translation>Konserwacja</translation>
     </message>
     <message>
+      <source>Paid chat configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Update information</source>
       <translation>Informacje o aktualizacjach</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
       <translation>Pro aktywne zaproszenia do rozmowy</translation>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Questionary embed code</source>
@@ -4320,6 +4396,22 @@ pokazywany</translation>
     <message>
       <source>Initial user message height in pixels</source>
       <translation>Początkowa wysokość w pikselach pola wiadomości użytkownika</translation>
+    </message>
+    <message>
+      <source>Encryption key, min length 40</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Additional encryption key, min length 40</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimum 40 characters for encryption key!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimum 40 characters for additional encryption key!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>
@@ -5178,6 +5270,10 @@ pokazywany</translation>
       <source>more information on how to use it</source>
       <translation>więcej informacji, o tym jak używać tego</translation>
     </message>
+    <message>
+      <source>Paid chat settings</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chatbox/list</name>
@@ -5320,7 +5416,31 @@ pokazywany</translation>
   <context>
     <name>user/account</name>
     <message>
+      <source>Please enter a username!</source>
+      <translation>Wprowadź nazwę użytkownika!</translation>
+    </message>
+    <message>
+      <source>User exists!</source>
+      <translation>Użytkownik istnieje!</translation>
+    </message>
+    <message>
+      <source>Wrong email address</source>
+      <translation>Zły adres e-mail</translation>
+    </message>
+    <message>
+      <source>Please enter a name</source>
+      <translation>Proszę podać imię</translation>
+    </message>
+    <message>
+      <source>Passwords mismatch</source>
+      <translation>Hasła nie są identyczne</translation>
+    </message>
+    <message>
       <source>Updated</source>
+      <translation>Aktualizacja</translation>
+    </message>
+    <message>
+      <source>Update</source>
       <translation>Aktualizacja</translation>
     </message>
     <message>
@@ -5424,10 +5544,6 @@ pokazywany</translation>
       <translation>Usuń</translation>
     </message>
     <message>
-      <source>Update</source>
-      <translation>Aktualizacja</translation>
-    </message>
-    <message>
       <source>Return</source>
       <translation>Powrót</translation>
     </message>
@@ -5474,26 +5590,6 @@ pokazywany</translation>
     <message>
       <source>Personal canned messages</source>
       <translation>Osobiste wiadomości &quot;gotowce&quot;</translation>
-    </message>
-    <message>
-      <source>Please enter a username!</source>
-      <translation>Wprowadź nazwę użytkownika!</translation>
-    </message>
-    <message>
-      <source>User exists!</source>
-      <translation>Użytkownik istnieje!</translation>
-    </message>
-    <message>
-      <source>Wrong email address</source>
-      <translation>Zły adres e-mail</translation>
-    </message>
-    <message>
-      <source>Please enter a name</source>
-      <translation>Proszę podać imię</translation>
-    </message>
-    <message>
-      <source>Passwords mismatch</source>
-      <translation>Hasła nie są identyczne</translation>
     </message>
   </context>
   <context>
@@ -6724,6 +6820,14 @@ pokazywany</translation>
   <context>
     <name>user/edit</name>
     <message>
+      <source>Please enter a name</source>
+      <translation>Proszę podać imie</translation>
+    </message>
+    <message>
+      <source>Passwords mismatch</source>
+      <translation>Hasła nie są identyczne</translation>
+    </message>
+    <message>
       <source>Server default time zone</source>
       <translation>Domyślna strefa czasowa serwera</translation>
     </message>
@@ -6796,14 +6900,6 @@ pokazywany</translation>
       <translation>Nieprawidłowy token CSRF!</translation>
     </message>
     <message>
-      <source>Please enter a name</source>
-      <translation>Proszę podać imie</translation>
-    </message>
-    <message>
-      <source>Passwords mismatch</source>
-      <translation>Hasła nie są identyczne</translation>
-    </message>
-    <message>
       <source>System configuration</source>
       <translation>Konfiguracja systemu</translation>
     </message>
@@ -6860,6 +6956,10 @@ pokazywany</translation>
   </context>
   <context>
     <name>theme/index</name>
+    <message>
+      <source>Products</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Default theme</source>
       <translation>Domyślny motyw</translation>
@@ -6925,6 +7025,30 @@ pokazywany</translation>
   </context>
   <context>
     <name>user/new</name>
+    <message>
+      <source>Please choose a default user group</source>
+      <translation>Proszę wybrać grupę domyślnych użytkowników</translation>
+    </message>
+    <message>
+      <source>Wrong email address</source>
+      <translation>Zły adres e-mail</translation>
+    </message>
+    <message>
+      <source>Please enter a name</source>
+      <translation>Proszę podać imię</translation>
+    </message>
+    <message>
+      <source>Please enter a username</source>
+      <translation>Proszę podać nazwę użytkownika</translation>
+    </message>
+    <message>
+      <source>User exists</source>
+      <translation>Użytkownik nie istnieje</translation>
+    </message>
+    <message>
+      <source>Passwords mismatch</source>
+      <translation>Hasła nie są identyczne</translation>
+    </message>
     <message>
       <source>Invisible mode</source>
       <translation>Tryb niewidzialności </translation>
@@ -6992,30 +7116,6 @@ pokazywany</translation>
     <message>
       <source>Departments</source>
       <translation>Wydziały</translation>
-    </message>
-    <message>
-      <source>Please choose a default user group</source>
-      <translation>Proszę wybrać grupę domyślnych użytkowników</translation>
-    </message>
-    <message>
-      <source>Wrong email address</source>
-      <translation>Zły adres e-mail</translation>
-    </message>
-    <message>
-      <source>Please enter a name</source>
-      <translation>Proszę podać imię</translation>
-    </message>
-    <message>
-      <source>Please enter a username</source>
-      <translation>Proszę podać nazwę użytkownika</translation>
-    </message>
-    <message>
-      <source>User exists</source>
-      <translation>Użytkownik nie istnieje</translation>
-    </message>
-    <message>
-      <source>Passwords mismatch</source>
-      <translation>Hasła nie są identyczne</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -7709,6 +7809,97 @@ pokazywany</translation>
     <message>
       <source>Please enter valid file type!</source>
       <translation>Podaj poprawny typ pliku!</translation>
+    </message>
+  </context>
+  <context>
+    <name>lhproduct/index</name>
+    <message>
+      <source>Products</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>abstract/product</name>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>user/validator</name>
+    <message>
+      <source>Please enter a username</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User exists</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Passwords mismatch</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User action type not set</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wrong email address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a default user group</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>paidchat/expiredchat</name>
+    <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was closed.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid hash</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Removed paid chat</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>paidchat/settings</name>
+    <message>
+      <source>Paid chat settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User can not access old chat if chat is closed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Secret hash, used for verification</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

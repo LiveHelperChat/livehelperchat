@@ -26,6 +26,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>多少天投票窗口小部件不应扩大后最后的展示</translation>
     </message>
@@ -140,6 +156,10 @@
     <message>
       <source>Is pro active chat invitation active. Online users tracking also has to be enabled</source>
       <translation>激话聊天邀请。在线用户跟踪也必须被启用</translation>
+    </message>
+    <message>
+      <source>Product module is enabled</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>On chat close exit chat</source>
@@ -408,6 +428,10 @@
     </message>
     <message>
       <source>Text changes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disabled</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -705,16 +729,16 @@
       <translation>啟用</translation>
     </message>
     <message>
+      <source>Department</source>
+      <translation>新闻部</translation>
+    </message>
+    <message>
       <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
       <translation>语言，留下空。例如点燃，RUS，蒙古包等..</translation>
     </message>
     <message>
       <source>Position</source>
       <translation>位置</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>新闻部</translation>
     </message>
     <message>
       <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
@@ -1091,6 +1115,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show product selection based on selected departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
       <translation>最小化操作，仅当状态插件位于页面底部时启用</translation>
     </message>
@@ -1157,6 +1189,18 @@
     <message>
       <source>System configuration</source>
       <translation>系统配置</translation>
+    </message>
+    <message>
+      <source>Chat expired</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid hash</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was removed</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -1833,6 +1877,10 @@
       <translation>新闻部</translation>
     </message>
     <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Country</source>
       <translation>國家</translation>
     </message>
@@ -2386,6 +2434,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Type your message here and hit enter to send...</source>
       <translation>輸入您的留言，並按下回車鍵發送...</translation>
     </message>
@@ -2478,6 +2534,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Could not find a product!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a product!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please choose</source>
       <translation type="unfinished"/>
     </message>
@@ -2492,6 +2556,10 @@
     <message>
       <source>is required</source>
       <translation>需要</translation>
+    </message>
+    <message>
+      <source>Could not decrypt data!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
@@ -3526,12 +3594,20 @@
       <translation>维护</translation>
     </message>
     <message>
+      <source>Paid chat configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Update information</source>
       <translation>更新信息</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
       <translation>临主动聊天邀请</translation>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Questionary embed code</source>
@@ -4318,6 +4394,22 @@
     </message>
     <message>
       <source>Initial user message height in pixels</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Encryption key, min length 40</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Additional encryption key, min length 40</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimum 40 characters for encryption key!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimum 40 characters for additional encryption key!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5177,6 +5269,10 @@
       <source>more information on how to use it</source>
       <translation>如何使用它的详细信息</translation>
     </message>
+    <message>
+      <source>Paid chat settings</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chatbox/list</name>
@@ -5319,7 +5415,31 @@
   <context>
     <name>user/account</name>
     <message>
+      <source>Please enter a username!</source>
+      <translation>请输入用户名!</translation>
+    </message>
+    <message>
+      <source>User exists!</source>
+      <translation>用户存在!</translation>
+    </message>
+    <message>
+      <source>Wrong email address</source>
+      <translation>错误的电子邮件地址</translation>
+    </message>
+    <message>
+      <source>Please enter a name</source>
+      <translation>请输入姓名</translation>
+    </message>
+    <message>
+      <source>Passwords mismatch</source>
+      <translation>密码不匹配</translation>
+    </message>
+    <message>
       <source>Updated</source>
+      <translation>更新</translation>
+    </message>
+    <message>
+      <source>Update</source>
       <translation>更新</translation>
     </message>
     <message>
@@ -5423,10 +5543,6 @@
       <translation>删除</translation>
     </message>
     <message>
-      <source>Update</source>
-      <translation>更新</translation>
-    </message>
-    <message>
       <source>Return</source>
       <translation>返回</translation>
     </message>
@@ -5473,26 +5589,6 @@
     <message>
       <source>Personal canned messages</source>
       <translation>个人罐装的消息</translation>
-    </message>
-    <message>
-      <source>Please enter a username!</source>
-      <translation>请输入用户名!</translation>
-    </message>
-    <message>
-      <source>User exists!</source>
-      <translation>用户存在!</translation>
-    </message>
-    <message>
-      <source>Wrong email address</source>
-      <translation>错误的电子邮件地址</translation>
-    </message>
-    <message>
-      <source>Please enter a name</source>
-      <translation>请输入姓名</translation>
-    </message>
-    <message>
-      <source>Passwords mismatch</source>
-      <translation>密码不匹配</translation>
     </message>
   </context>
   <context>
@@ -6723,6 +6819,14 @@
   <context>
     <name>user/edit</name>
     <message>
+      <source>Please enter a name</source>
+      <translation>请输入姓名</translation>
+    </message>
+    <message>
+      <source>Passwords mismatch</source>
+      <translation>密码不匹配</translation>
+    </message>
+    <message>
       <source>Server default time zone</source>
       <translation>服务器默认时区</translation>
     </message>
@@ -6795,14 +6899,6 @@
       <translation>無效CSRF令牌！</translation>
     </message>
     <message>
-      <source>Please enter a name</source>
-      <translation>请输入姓名</translation>
-    </message>
-    <message>
-      <source>Passwords mismatch</source>
-      <translation>密码不匹配</translation>
-    </message>
-    <message>
       <source>System configuration</source>
       <translation>系统配置</translation>
     </message>
@@ -6859,6 +6955,10 @@
   </context>
   <context>
     <name>theme/index</name>
+    <message>
+      <source>Products</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Default theme</source>
       <translation>默认主题</translation>
@@ -6924,6 +7024,30 @@
   </context>
   <context>
     <name>user/new</name>
+    <message>
+      <source>Please choose a default user group</source>
+      <translation>请选择一个默认用户组</translation>
+    </message>
+    <message>
+      <source>Wrong email address</source>
+      <translation>错误的电子邮件地址</translation>
+    </message>
+    <message>
+      <source>Please enter a name</source>
+      <translation>请输入姓名</translation>
+    </message>
+    <message>
+      <source>Please enter a username</source>
+      <translation>请输入用户名</translation>
+    </message>
+    <message>
+      <source>User exists</source>
+      <translation>用户存在</translation>
+    </message>
+    <message>
+      <source>Passwords mismatch</source>
+      <translation>密码不匹配</translation>
+    </message>
     <message>
       <source>Invisible mode</source>
       <translation>隐形模式</translation>
@@ -6991,30 +7115,6 @@
     <message>
       <source>Departments</source>
       <translation>部门</translation>
-    </message>
-    <message>
-      <source>Please choose a default user group</source>
-      <translation>请选择一个默认用户组</translation>
-    </message>
-    <message>
-      <source>Wrong email address</source>
-      <translation>错误的电子邮件地址</translation>
-    </message>
-    <message>
-      <source>Please enter a name</source>
-      <translation>请输入姓名</translation>
-    </message>
-    <message>
-      <source>Please enter a username</source>
-      <translation>请输入用户名</translation>
-    </message>
-    <message>
-      <source>User exists</source>
-      <translation>用户存在</translation>
-    </message>
-    <message>
-      <source>Passwords mismatch</source>
-      <translation>密码不匹配</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -7708,6 +7808,97 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>请输入有效的文件类型 ！</translation>
+    </message>
+  </context>
+  <context>
+    <name>lhproduct/index</name>
+    <message>
+      <source>Products</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>abstract/product</name>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>user/validator</name>
+    <message>
+      <source>Please enter a username</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User exists</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Passwords mismatch</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User action type not set</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wrong email address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a default user group</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>paidchat/expiredchat</name>
+    <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was closed.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid hash</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Removed paid chat</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>paidchat/settings</name>
+    <message>
+      <source>Paid chat settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User can not access old chat if chat is closed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Secret hash, used for verification</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

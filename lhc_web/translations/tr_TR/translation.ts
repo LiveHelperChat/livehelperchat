@@ -26,6 +26,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -139,6 +155,10 @@
     </message>
     <message>
       <source>Is pro active chat invitation active. Online users tracking also has to be enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Product module is enabled</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -408,6 +428,10 @@
     </message>
     <message>
       <source>Text changes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disabled</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -705,16 +729,16 @@
       <translation>Etkinleştirildi</translation>
     </message>
     <message>
+      <source>Department</source>
+      <translation>Departman</translation>
+    </message>
+    <message>
       <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
       <translation>Dil, hepsini boş bırak. Örn. lit, rus, alm vs...</translation>
     </message>
     <message>
       <source>Position</source>
       <translation>Pozisyon</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Departman</translation>
     </message>
     <message>
       <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
@@ -1091,6 +1115,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show product selection based on selected departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
       <translation type="unfinished"/>
     </message>
@@ -1157,6 +1189,18 @@
     <message>
       <source>System configuration</source>
       <translation>Sistem ayarı</translation>
+    </message>
+    <message>
+      <source>Chat expired</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid hash</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was removed</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -1833,6 +1877,10 @@
       <translation>Departman</translation>
     </message>
     <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Country</source>
       <translation>Ülke</translation>
     </message>
@@ -2386,6 +2434,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Type your message here and hit enter to send...</source>
       <translation>Mesajınızı buraya girin ve göndermek için enter&apos;a basın...</translation>
     </message>
@@ -2478,6 +2534,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Could not find a product!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a product!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please choose</source>
       <translation type="unfinished"/>
     </message>
@@ -2491,6 +2555,10 @@
     </message>
     <message>
       <source>is required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not decrypt data!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3528,12 +3596,20 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Paid chat configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Update information</source>
       <translation>Bilgiyi güncelle</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
       <translation>Pro aktif konuşma davetiyeleri</translation>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Questionary embed code</source>
@@ -4320,6 +4396,22 @@
     </message>
     <message>
       <source>Initial user message height in pixels</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Encryption key, min length 40</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Additional encryption key, min length 40</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimum 40 characters for encryption key!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimum 40 characters for additional encryption key!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5179,6 +5271,10 @@
       <source>more information on how to use it</source>
       <translation>nasıl kullanılacağı dair daha fazla bilgi</translation>
     </message>
+    <message>
+      <source>Paid chat settings</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chatbox/list</name>
@@ -5321,8 +5417,32 @@
   <context>
     <name>user/account</name>
     <message>
+      <source>Please enter a username!</source>
+      <translation>Lütfen bir kullanıcı adı girin!</translation>
+    </message>
+    <message>
+      <source>User exists!</source>
+      <translation>Kullanıcı mevcut!</translation>
+    </message>
+    <message>
+      <source>Wrong email address</source>
+      <translation>Yanlış eposta adresi</translation>
+    </message>
+    <message>
+      <source>Please enter a name</source>
+      <translation>Lütfen bir isim girin</translation>
+    </message>
+    <message>
+      <source>Passwords mismatch</source>
+      <translation>Parolalar uyuşmuyor</translation>
+    </message>
+    <message>
       <source>Updated</source>
       <translation>Güncellendi</translation>
+    </message>
+    <message>
+      <source>Update</source>
+      <translation>Güncelle</translation>
     </message>
     <message>
       <source>Updating...</source>
@@ -5425,10 +5545,6 @@
       <translation>Sil</translation>
     </message>
     <message>
-      <source>Update</source>
-      <translation>Güncelle</translation>
-    </message>
-    <message>
       <source>Return</source>
       <translation>Dön</translation>
     </message>
@@ -5475,26 +5591,6 @@
     <message>
       <source>Personal canned messages</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter a username!</source>
-      <translation>Lütfen bir kullanıcı adı girin!</translation>
-    </message>
-    <message>
-      <source>User exists!</source>
-      <translation>Kullanıcı mevcut!</translation>
-    </message>
-    <message>
-      <source>Wrong email address</source>
-      <translation>Yanlış eposta adresi</translation>
-    </message>
-    <message>
-      <source>Please enter a name</source>
-      <translation>Lütfen bir isim girin</translation>
-    </message>
-    <message>
-      <source>Passwords mismatch</source>
-      <translation>Parolalar uyuşmuyor</translation>
     </message>
   </context>
   <context>
@@ -6725,6 +6821,14 @@
   <context>
     <name>user/edit</name>
     <message>
+      <source>Please enter a name</source>
+      <translation>Lütfen bir isim girin</translation>
+    </message>
+    <message>
+      <source>Passwords mismatch</source>
+      <translation>Parolalar uyuşmuyor</translation>
+    </message>
+    <message>
       <source>Server default time zone</source>
       <translation>Sunucu öntanımlı saat dilimi</translation>
     </message>
@@ -6797,14 +6901,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Please enter a name</source>
-      <translation>Lütfen bir isim girin</translation>
-    </message>
-    <message>
-      <source>Passwords mismatch</source>
-      <translation>Parolalar uyuşmuyor</translation>
-    </message>
-    <message>
       <source>System configuration</source>
       <translation>Sistem ayarı</translation>
     </message>
@@ -6861,6 +6957,10 @@
   </context>
   <context>
     <name>theme/index</name>
+    <message>
+      <source>Products</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Default theme</source>
       <translation>Varsayılan tema</translation>
@@ -6926,6 +7026,30 @@
   </context>
   <context>
     <name>user/new</name>
+    <message>
+      <source>Please choose a default user group</source>
+      <translation>Lütfen bir varsayılan kullanıcı grubu seçin</translation>
+    </message>
+    <message>
+      <source>Wrong email address</source>
+      <translation>Geçersiz eposta adresi!</translation>
+    </message>
+    <message>
+      <source>Please enter a name</source>
+      <translation>Lütfen bir isim girin</translation>
+    </message>
+    <message>
+      <source>Please enter a username</source>
+      <translation>Lütfen bir kullanıcı adı girin</translation>
+    </message>
+    <message>
+      <source>User exists</source>
+      <translation>Kullanıcı mevcut</translation>
+    </message>
+    <message>
+      <source>Passwords mismatch</source>
+      <translation>Parolalar uyuşmuyor</translation>
+    </message>
     <message>
       <source>Invisible mode</source>
       <translation>Görünmez mod</translation>
@@ -6993,30 +7117,6 @@
     <message>
       <source>Departments</source>
       <translation>Departmanlar</translation>
-    </message>
-    <message>
-      <source>Please choose a default user group</source>
-      <translation>Lütfen bir varsayılan kullanıcı grubu seçin</translation>
-    </message>
-    <message>
-      <source>Wrong email address</source>
-      <translation>Geçersiz eposta adresi!</translation>
-    </message>
-    <message>
-      <source>Please enter a name</source>
-      <translation>Lütfen bir isim girin</translation>
-    </message>
-    <message>
-      <source>Please enter a username</source>
-      <translation>Lütfen bir kullanıcı adı girin</translation>
-    </message>
-    <message>
-      <source>User exists</source>
-      <translation>Kullanıcı mevcut</translation>
-    </message>
-    <message>
-      <source>Passwords mismatch</source>
-      <translation>Parolalar uyuşmuyor</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -7710,6 +7810,97 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Lütfen geçerli bir dosya türü girin!</translation>
+    </message>
+  </context>
+  <context>
+    <name>lhproduct/index</name>
+    <message>
+      <source>Products</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>abstract/product</name>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>user/validator</name>
+    <message>
+      <source>Please enter a username</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User exists</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Passwords mismatch</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User action type not set</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wrong email address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a default user group</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>paidchat/expiredchat</name>
+    <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was closed.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid hash</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Removed paid chat</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>paidchat/settings</name>
+    <message>
+      <source>Paid chat settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User can not access old chat if chat is closed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Secret hash, used for verification</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

@@ -26,6 +26,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Po kolik dní by se neměl hlasovací widget zvětšovat od posledního zobrazení</translation>
     </message>
@@ -142,6 +158,10 @@
       <translation>Proaktivní pozvánky k rozhovoru jsou aktivní. Online sledování uživatelů musí být také povoleno</translation>
     </message>
     <message>
+      <source>Product module is enabled</source>
+      <translation>Modul pro výrobky je zapnutý</translation>
+    </message>
+    <message>
       <source>On chat close exit chat</source>
       <translation type="unfinished"/>
     </message>
@@ -175,7 +195,7 @@
     </message>
     <message>
       <source>List online operators, 0 - no, 1 - yes.</source>
-      <translation type="unfinished"/>
+      <translation>Seznam operátorů online, 0 -ne, 1 - ano</translation>
     </message>
     <message>
       <source>Ignore users online statuses and use departments online hours</source>
@@ -409,6 +429,10 @@
     <message>
       <source>Text changes</source>
       <translation>Změny textu</translation>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation>Vypnuto</translation>
     </message>
     <message>
       <source>Name</source>
@@ -705,16 +729,16 @@
       <translation>povoleno</translation>
     </message>
     <message>
+      <source>Department</source>
+      <translation>Oddělení</translation>
+    </message>
+    <message>
       <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
       <translation>Jazyk, ponechte prázdné pro všechny. Např. lit, rus, ger atd.</translation>
     </message>
     <message>
       <source>Position</source>
       <translation>Umístění</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Oddělení</translation>
     </message>
     <message>
       <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
@@ -1091,6 +1115,14 @@
       <translation>Průzkum na konci rozhovoru</translation>
     </message>
     <message>
+      <source>Product</source>
+      <translation>Výrobek</translation>
+    </message>
+    <message>
+      <source>Show product selection based on selected departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
       <translation>Minimalizace, použije se pouze pokud je widget stavu dole</translation>
     </message>
@@ -1157,6 +1189,18 @@
     <message>
       <source>System configuration</source>
       <translation>Nastavení systému</translation>
+    </message>
+    <message>
+      <source>Chat expired</source>
+      <translation>Rozhovor vypršel</translation>
+    </message>
+    <message>
+      <source>Invalid hash</source>
+      <translation>Neplatný hash</translation>
+    </message>
+    <message>
+      <source>Chat was removed</source>
+      <translation>Rozhovor byl odstraněn</translation>
     </message>
   </context>
   <context>
@@ -1833,6 +1877,10 @@
       <translation>Oddělení</translation>
     </message>
     <message>
+      <source>Product</source>
+      <translation>Výrobek</translation>
+    </message>
+    <message>
       <source>Country</source>
       <translation>Země</translation>
     </message>
@@ -2386,6 +2434,14 @@
       <translation>Máte dotaz? Zeptejte se nás!</translation>
     </message>
     <message>
+      <source>Product</source>
+      <translation>Výrobek</translation>
+    </message>
+    <message>
+      <source>Choose a product</source>
+      <translation>Zvolte výrobek</translation>
+    </message>
+    <message>
       <source>Type your message here and hit enter to send...</source>
       <translation>Zadejte text své zprávy a odešlete ji stisknutím enter...</translation>
     </message>
@@ -2478,6 +2534,14 @@
       <translation>Neplatný soubor</translation>
     </message>
     <message>
+      <source>Could not find a product!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a product!</source>
+      <translation>Prosím, zvolte výrobek</translation>
+    </message>
+    <message>
       <source>Please choose</source>
       <translation>Vyberte, prosím</translation>
     </message>
@@ -2492,6 +2556,10 @@
     <message>
       <source>is required</source>
       <translation>je vyžadován</translation>
+    </message>
+    <message>
+      <source>Could not decrypt data!</source>
+      <translation>Nepodařilo se dešifrovat data!</translation>
     </message>
     <message>
       <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
@@ -2565,7 +2633,7 @@
     </message>
     <message>
       <source>End the chat</source>
-      <translation type="unfinished"/>
+      <translation>Konec rozhovoru</translation>
     </message>
     <message>
       <source>Enable/Disable sound about new messages from the operator</source>
@@ -3526,12 +3594,20 @@
       <translation>Údržba</translation>
     </message>
     <message>
+      <source>Paid chat configuration</source>
+      <translation>Nastavení zpoplatněného rozhovoru</translation>
+    </message>
+    <message>
       <source>Update information</source>
       <translation>Informace o aktualizaci</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
       <translation>Proaktivní pozvánky k rozhovoru</translation>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation>Výrobek</translation>
     </message>
     <message>
       <source>Questionary embed code</source>
@@ -3910,15 +3986,15 @@
     </message>
     <message>
       <source>Username</source>
-      <translation type="unfinished"/>
+      <translation>Uživatelské jméno</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Jméno</translation>
     </message>
     <message>
       <source>Surname</source>
-      <translation type="unfinished"/>
+      <translation>Příjmení</translation>
     </message>
   </context>
   <context>
@@ -3973,7 +4049,7 @@
     </message>
     <message>
       <source>Only online</source>
-      <translation type="unfinished"/>
+      <translation>Jen online</translation>
     </message>
     <message>
       <source>Only explicit online</source>
@@ -4321,6 +4397,22 @@
       <translation>Uvodní výška zprávy uživatele v pixelech</translation>
     </message>
     <message>
+      <source>Encryption key, min length 40</source>
+      <translation>Šifrovací klíč, mnimimálně 40 znaků</translation>
+    </message>
+    <message>
+      <source>Additional encryption key, min length 40</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimum 40 characters for encryption key!</source>
+      <translation>Minimální dělka šifrovacího klíče je 40 znaků!</translation>
+    </message>
+    <message>
+      <source>Minimum 40 characters for additional encryption key!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please choose at least one field for a popup</source>
       <translation>Vyberte alespoň jedno pole pro vyskakovací okno</translation>
     </message>
@@ -4421,7 +4513,7 @@
     </message>
     <message>
       <source>Number</source>
-      <translation type="unfinished"/>
+      <translation>Číslo</translation>
     </message>
     <message>
       <source>Unanswered chats numbers</source>
@@ -4525,7 +4617,7 @@
     </message>
     <message>
       <source>Unanswered chats</source>
-      <translation type="unfinished"/>
+      <translation>Neodpovězené rozhovory</translation>
     </message>
     <message>
       <source>Chatbox chats</source>
@@ -4897,11 +4989,11 @@
     </message>
     <message>
       <source>Online</source>
-      <translation type="unfinished"/>
+      <translation>Online</translation>
     </message>
     <message>
       <source>Offline</source>
-      <translation type="unfinished"/>
+      <translation>Offline</translation>
     </message>
   </context>
   <context>
@@ -5177,6 +5269,10 @@
       <source>more information on how to use it</source>
       <translation>více informací, jak jej použít</translation>
     </message>
+    <message>
+      <source>Paid chat settings</source>
+      <translation>Nastavení pro zpoplatněný rozhovot</translation>
+    </message>
   </context>
   <context>
     <name>chatbox/list</name>
@@ -5319,8 +5415,32 @@
   <context>
     <name>user/account</name>
     <message>
+      <source>Please enter a username!</source>
+      <translation>Prosím zadejte uživatelské jmého!</translation>
+    </message>
+    <message>
+      <source>User exists!</source>
+      <translation>Uživatel již existuje!</translation>
+    </message>
+    <message>
+      <source>Wrong email address</source>
+      <translation>Nesprávný e-mail</translation>
+    </message>
+    <message>
+      <source>Please enter a name</source>
+      <translation>Prosím, zadejte jméno</translation>
+    </message>
+    <message>
+      <source>Passwords mismatch</source>
+      <translation>Heslo nesouhlasí</translation>
+    </message>
+    <message>
       <source>Updated</source>
       <translation>Aktualizováno</translation>
+    </message>
+    <message>
+      <source>Update</source>
+      <translation>Aktualizovat</translation>
     </message>
     <message>
       <source>Updating...</source>
@@ -5423,10 +5543,6 @@
       <translation>Smazat</translation>
     </message>
     <message>
-      <source>Update</source>
-      <translation>Aktualizovat</translation>
-    </message>
-    <message>
       <source>Return</source>
       <translation>Vrátit</translation>
     </message>
@@ -5473,26 +5589,6 @@
     <message>
       <source>Personal canned messages</source>
       <translation>Osobní předpřipravé zprávy</translation>
-    </message>
-    <message>
-      <source>Please enter a username!</source>
-      <translation>Prosím zadejte uživatelské jmého!</translation>
-    </message>
-    <message>
-      <source>User exists!</source>
-      <translation>Uživatel již existuje!</translation>
-    </message>
-    <message>
-      <source>Wrong email address</source>
-      <translation>Nesprávný e-mail</translation>
-    </message>
-    <message>
-      <source>Please enter a name</source>
-      <translation>Prosím, zadejte jméno</translation>
-    </message>
-    <message>
-      <source>Passwords mismatch</source>
-      <translation>Heslo nesouhlasí</translation>
     </message>
   </context>
   <context>
@@ -6723,6 +6819,14 @@
   <context>
     <name>user/edit</name>
     <message>
+      <source>Please enter a name</source>
+      <translation>Prosím, zadejte jméno</translation>
+    </message>
+    <message>
+      <source>Passwords mismatch</source>
+      <translation>Heslo nesouhlasí</translation>
+    </message>
+    <message>
       <source>Server default time zone</source>
       <translation>Výchozí časové pásmo serveru</translation>
     </message>
@@ -6795,14 +6899,6 @@
       <translation>Neplaný CSRF token!</translation>
     </message>
     <message>
-      <source>Please enter a name</source>
-      <translation>Prosím, zadejte jméno</translation>
-    </message>
-    <message>
-      <source>Passwords mismatch</source>
-      <translation>Heslo nesouhlasí</translation>
-    </message>
-    <message>
       <source>System configuration</source>
       <translation>Nastavení systému</translation>
     </message>
@@ -6859,6 +6955,10 @@
   </context>
   <context>
     <name>theme/index</name>
+    <message>
+      <source>Products</source>
+      <translation>Výrobky</translation>
+    </message>
     <message>
       <source>Default theme</source>
       <translation>Výchozí šablona</translation>
@@ -6924,6 +7024,30 @@
   </context>
   <context>
     <name>user/new</name>
+    <message>
+      <source>Please choose a default user group</source>
+      <translation>Prosím, zadejte výchozí uživatelskou skupinu</translation>
+    </message>
+    <message>
+      <source>Wrong email address</source>
+      <translation>Neplaná e-mailová adresa</translation>
+    </message>
+    <message>
+      <source>Please enter a name</source>
+      <translation>Prosím, zadejte jméno</translation>
+    </message>
+    <message>
+      <source>Please enter a username</source>
+      <translation>Prosím, zadejte uživatelské jméno</translation>
+    </message>
+    <message>
+      <source>User exists</source>
+      <translation>Uživatel existuje</translation>
+    </message>
+    <message>
+      <source>Passwords mismatch</source>
+      <translation>Heslo nesouhlasí</translation>
+    </message>
     <message>
       <source>Invisible mode</source>
       <translation>Neviditelný mód</translation>
@@ -6991,30 +7115,6 @@
     <message>
       <source>Departments</source>
       <translation>Oddělení</translation>
-    </message>
-    <message>
-      <source>Please choose a default user group</source>
-      <translation>Prosím, zadejte výchozí uživatelskou skupinu</translation>
-    </message>
-    <message>
-      <source>Wrong email address</source>
-      <translation>Neplaná e-mailová adresa</translation>
-    </message>
-    <message>
-      <source>Please enter a name</source>
-      <translation>Prosím, zadejte jméno</translation>
-    </message>
-    <message>
-      <source>Please enter a username</source>
-      <translation>Prosím, zadejte uživatelské jméno</translation>
-    </message>
-    <message>
-      <source>User exists</source>
-      <translation>Uživatel existuje</translation>
-    </message>
-    <message>
-      <source>Passwords mismatch</source>
-      <translation>Heslo nesouhlasí</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -7708,6 +7808,97 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Prosím vyberte platný typ souboru!</translation>
+    </message>
+  </context>
+  <context>
+    <name>lhproduct/index</name>
+    <message>
+      <source>Products</source>
+      <translation>Výrobky</translation>
+    </message>
+  </context>
+  <context>
+    <name>abstract/product</name>
+    <message>
+      <source>Name</source>
+      <translation>Jméno</translation>
+    </message>
+    <message>
+      <source>Priority</source>
+      <translation>Priorita</translation>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation>Výrobek</translation>
+    </message>
+  </context>
+  <context>
+    <name>user/validator</name>
+    <message>
+      <source>Please enter a username</source>
+      <translation>Prosím, zadejte uživatelské jméno</translation>
+    </message>
+    <message>
+      <source>User exists</source>
+      <translation>Uživatel existuje</translation>
+    </message>
+    <message>
+      <source>Passwords mismatch</source>
+      <translation>Heslo nesouhlasí</translation>
+    </message>
+    <message>
+      <source>User action type not set</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wrong email address</source>
+      <translation>Nesprávný e-mail</translation>
+    </message>
+    <message>
+      <source>Please enter a name</source>
+      <translation>Prosím, zadejte jméno</translation>
+    </message>
+    <message>
+      <source>Please choose a default user group</source>
+      <translation>Prosím, zadejte výchozí uživatelskou skupinu</translation>
+    </message>
+  </context>
+  <context>
+    <name>paidchat/expiredchat</name>
+    <message>
+      <source>Chat</source>
+      <translation>Rozhovor</translation>
+    </message>
+    <message>
+      <source>Chat was closed.</source>
+      <translation>Rozhovor byl uzavřen.</translation>
+    </message>
+    <message>
+      <source>Invalid hash</source>
+      <translation>Neplatný hash</translation>
+    </message>
+    <message>
+      <source>Removed paid chat</source>
+      <translation>Odstraněný zpoplatněný rozhovor</translation>
+    </message>
+  </context>
+  <context>
+    <name>paidchat/settings</name>
+    <message>
+      <source>Paid chat settings</source>
+      <translation>Nastavení pro zpoplatněný rozhovot</translation>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation>Zapnuto</translation>
+    </message>
+    <message>
+      <source>User can not access old chat if chat is closed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Secret hash, used for verification</source>
+      <translation>Tajný hash, používá se k ověření</translation>
     </message>
   </context>
 </TS>

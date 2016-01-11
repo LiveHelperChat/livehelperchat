@@ -26,6 +26,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Πόσες ημέρες ψηφοφορίας widget δεν θα πρέπει να επεκταθεί μετά από την τελευταία εμφάνιση</translation>
     </message>
@@ -140,6 +156,10 @@
     <message>
       <source>Is pro active chat invitation active. Online users tracking also has to be enabled</source>
       <translation>Είναι η πρόσκληση προορατικού chat ενεργό. Οι σε απευθείας σύνδεση χρήστες που παρακολουθούν επίσης πρέπει να επιτραπεί</translation>
+    </message>
+    <message>
+      <source>Product module is enabled</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>On chat close exit chat</source>
@@ -409,6 +429,10 @@
     <message>
       <source>Text changes</source>
       <translation>Αλλαγές στο κείμενο</translation>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Name</source>
@@ -705,16 +729,16 @@
       <translation>ενεργοποιημένη</translation>
     </message>
     <message>
+      <source>Department</source>
+      <translation>Τμήμα</translation>
+    </message>
+    <message>
       <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
       <translation>Γλώσσα, αφήστε κενό για όλους. Π.χ. φωτισμό, rus, ger κλπ...</translation>
     </message>
     <message>
       <source>Position</source>
       <translation>Θέση</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Τμήμα</translation>
     </message>
     <message>
       <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
@@ -1091,6 +1115,14 @@
       <translation>Έρευνα στο τέλος της συνομιλίας</translation>
     </message>
     <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show product selection based on selected departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
       <translation>Ελαχιστοποίηση της δράσης, να ισχύει μόνο αν το γραφικό στοιχείο κατάσταση είναι στο κάτω μέρος</translation>
     </message>
@@ -1157,6 +1189,18 @@
     <message>
       <source>System configuration</source>
       <translation>Διαμόρφωση του συστήματος</translation>
+    </message>
+    <message>
+      <source>Chat expired</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid hash</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was removed</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -1833,6 +1877,10 @@
       <translation>Τμήμα</translation>
     </message>
     <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Country</source>
       <translation>Χώρα</translation>
     </message>
@@ -2386,6 +2434,14 @@
       <translation>Έχετε μια ερώτηση; Ρωτήστε μας!</translation>
     </message>
     <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Type your message here and hit enter to send...</source>
       <translation>Πληκτρολογήστε το μήνυμά σας εδώ και πατήστε enter για να στείλετε...</translation>
     </message>
@@ -2478,6 +2534,14 @@
       <translation>Αρχείο δεν είναι έγκυρο</translation>
     </message>
     <message>
+      <source>Could not find a product!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a product!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please choose</source>
       <translation>Παρακαλώ επιλέξτε</translation>
     </message>
@@ -2492,6 +2556,10 @@
     <message>
       <source>is required</source>
       <translation>είναι απαιτούμενο</translation>
+    </message>
+    <message>
+      <source>Could not decrypt data!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
@@ -3526,12 +3594,20 @@
       <translation>Συντήρηση</translation>
     </message>
     <message>
+      <source>Paid chat configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Update information</source>
       <translation>Ενημέρωση πληροφοριών</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
       <translation>Προσκλήσεις προορατικού συνομιλίας</translation>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Questionary embed code</source>
@@ -4319,6 +4395,22 @@
     <message>
       <source>Initial user message height in pixels</source>
       <translation>Αρχικό χρήστη μήνυμα ύψος, σε pixel</translation>
+    </message>
+    <message>
+      <source>Encryption key, min length 40</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Additional encryption key, min length 40</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimum 40 characters for encryption key!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimum 40 characters for additional encryption key!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>
@@ -5177,6 +5269,10 @@
       <source>more information on how to use it</source>
       <translation>περισσότερες πληροφορίες για το πώς να το χρησιμοποιήσει</translation>
     </message>
+    <message>
+      <source>Paid chat settings</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chatbox/list</name>
@@ -5319,7 +5415,31 @@
   <context>
     <name>user/account</name>
     <message>
+      <source>Please enter a username!</source>
+      <translation>Παρακαλούμε εισάγετε ένα όνομα χρήστη!</translation>
+    </message>
+    <message>
+      <source>User exists!</source>
+      <translation>Υπάρχει το χρήστη!</translation>
+    </message>
+    <message>
+      <source>Wrong email address</source>
+      <translation>Λάθος διεύθυνση ηλεκτρονικού ταχυδρομείου</translation>
+    </message>
+    <message>
+      <source>Please enter a name</source>
+      <translation>Παρακαλώ εισάγεται ένα όνομα</translation>
+    </message>
+    <message>
+      <source>Passwords mismatch</source>
+      <translation>Ο κωδικός πρόσβασης δεν ταιριάζει</translation>
+    </message>
+    <message>
       <source>Updated</source>
+      <translation>Ενημέρωση</translation>
+    </message>
+    <message>
+      <source>Update</source>
       <translation>Ενημέρωση</translation>
     </message>
     <message>
@@ -5423,10 +5543,6 @@
       <translation>Διαγραφή</translation>
     </message>
     <message>
-      <source>Update</source>
-      <translation>Ενημέρωση</translation>
-    </message>
-    <message>
       <source>Return</source>
       <translation>Επιστροφή</translation>
     </message>
@@ -5473,26 +5589,6 @@
     <message>
       <source>Personal canned messages</source>
       <translation>Προσωπικά τα κονσερβοποιημένα μηνύματα</translation>
-    </message>
-    <message>
-      <source>Please enter a username!</source>
-      <translation>Παρακαλούμε εισάγετε ένα όνομα χρήστη!</translation>
-    </message>
-    <message>
-      <source>User exists!</source>
-      <translation>Υπάρχει το χρήστη!</translation>
-    </message>
-    <message>
-      <source>Wrong email address</source>
-      <translation>Λάθος διεύθυνση ηλεκτρονικού ταχυδρομείου</translation>
-    </message>
-    <message>
-      <source>Please enter a name</source>
-      <translation>Παρακαλώ εισάγεται ένα όνομα</translation>
-    </message>
-    <message>
-      <source>Passwords mismatch</source>
-      <translation>Ο κωδικός πρόσβασης δεν ταιριάζει</translation>
     </message>
   </context>
   <context>
@@ -6723,6 +6819,14 @@
   <context>
     <name>user/edit</name>
     <message>
+      <source>Please enter a name</source>
+      <translation>Παρακαλώ εισάγεται ένα όνομα</translation>
+    </message>
+    <message>
+      <source>Passwords mismatch</source>
+      <translation>Ο κωδικός πρόσβασης δεν ταιριάζει</translation>
+    </message>
+    <message>
       <source>Server default time zone</source>
       <translation>Διακομιστή προεπιλεγμένη ζώνη ώρας</translation>
     </message>
@@ -6795,14 +6899,6 @@
       <translation>Διακριτικό δεν είναι έγκυρο: CSRF!</translation>
     </message>
     <message>
-      <source>Please enter a name</source>
-      <translation>Παρακαλώ εισάγεται ένα όνομα</translation>
-    </message>
-    <message>
-      <source>Passwords mismatch</source>
-      <translation>Ο κωδικός πρόσβασης δεν ταιριάζει</translation>
-    </message>
-    <message>
       <source>System configuration</source>
       <translation>Παραμετροποίηση συστήματος</translation>
     </message>
@@ -6859,6 +6955,10 @@
   </context>
   <context>
     <name>theme/index</name>
+    <message>
+      <source>Products</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Default theme</source>
       <translation>Προεπιλεγμένο θέμα</translation>
@@ -6924,6 +7024,30 @@
   </context>
   <context>
     <name>user/new</name>
+    <message>
+      <source>Please choose a default user group</source>
+      <translation>Παρακαλώ επιλέξτε μια προκαθορισμένη ομάδα χρήστη</translation>
+    </message>
+    <message>
+      <source>Wrong email address</source>
+      <translation>Λάθος διεύθυνση ηλεκτρονικού ταχυδρομείου</translation>
+    </message>
+    <message>
+      <source>Please enter a name</source>
+      <translation>Παρακαλώ εισάγεται ένα όνομα</translation>
+    </message>
+    <message>
+      <source>Please enter a username</source>
+      <translation>Παρακαλώ εισάγεται ένα όνομα χρήστη</translation>
+    </message>
+    <message>
+      <source>User exists</source>
+      <translation>Ο χρήστης υπάρχει</translation>
+    </message>
+    <message>
+      <source>Passwords mismatch</source>
+      <translation>Ο κωδικός πρόσβασης δεν ταιριάζει</translation>
+    </message>
     <message>
       <source>Invisible mode</source>
       <translation>Invisible μοντέλο</translation>
@@ -6991,30 +7115,6 @@
     <message>
       <source>Departments</source>
       <translation>Τμήματα</translation>
-    </message>
-    <message>
-      <source>Please choose a default user group</source>
-      <translation>Παρακαλώ επιλέξτε μια προκαθορισμένη ομάδα χρήστη</translation>
-    </message>
-    <message>
-      <source>Wrong email address</source>
-      <translation>Λάθος διεύθυνση ηλεκτρονικού ταχυδρομείου</translation>
-    </message>
-    <message>
-      <source>Please enter a name</source>
-      <translation>Παρακαλώ εισάγεται ένα όνομα</translation>
-    </message>
-    <message>
-      <source>Please enter a username</source>
-      <translation>Παρακαλώ εισάγεται ένα όνομα χρήστη</translation>
-    </message>
-    <message>
-      <source>User exists</source>
-      <translation>Ο χρήστης υπάρχει</translation>
-    </message>
-    <message>
-      <source>Passwords mismatch</source>
-      <translation>Ο κωδικός πρόσβασης δεν ταιριάζει</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -7708,6 +7808,97 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Παρακαλούμε, εισάγετε έγκυρο αρχείο τύπου!</translation>
+    </message>
+  </context>
+  <context>
+    <name>lhproduct/index</name>
+    <message>
+      <source>Products</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>abstract/product</name>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>user/validator</name>
+    <message>
+      <source>Please enter a username</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User exists</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Passwords mismatch</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User action type not set</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wrong email address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a default user group</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>paidchat/expiredchat</name>
+    <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was closed.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid hash</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Removed paid chat</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>paidchat/settings</name>
+    <message>
+      <source>Paid chat settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User can not access old chat if chat is closed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Secret hash, used for verification</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

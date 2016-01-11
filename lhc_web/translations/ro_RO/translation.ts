@@ -26,6 +26,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Nr de zile ce trebuie sa treaca de la ultima votare pentru ca fereastra de votare sa se poata activa din nou</translation>
     </message>
@@ -140,6 +156,10 @@
     <message>
       <source>Is pro active chat invitation active. Online users tracking also has to be enabled</source>
       <translation>Pro active chat invitaţie este activ. Utilizatori online, de asemenea, de urmărire a activat</translation>
+    </message>
+    <message>
+      <source>Product module is enabled</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>On chat close exit chat</source>
@@ -408,6 +428,10 @@
     </message>
     <message>
       <source>Text changes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disabled</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -705,16 +729,16 @@
       <translation>activat</translation>
     </message>
     <message>
+      <source>Department</source>
+      <translation>Departamentul</translation>
+    </message>
+    <message>
       <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
       <translation>Limba, lăsaţi gol pentru toate. De exemplu aprins, rus, ger etc...</translation>
     </message>
     <message>
       <source>Position</source>
       <translation>Poziţia</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Departamentul</translation>
     </message>
     <message>
       <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
@@ -1091,6 +1115,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show product selection based on selected departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
       <translation>Minimiza de acţiune, se aplică numai în cazul în care statutul widget-ul este în partea de jos</translation>
     </message>
@@ -1157,6 +1189,18 @@
     <message>
       <source>System configuration</source>
       <translation>Configurarea sistemului</translation>
+    </message>
+    <message>
+      <source>Chat expired</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid hash</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was removed</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -1833,6 +1877,10 @@
       <translation>Departament</translation>
     </message>
     <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Country</source>
       <translation>Tara</translation>
     </message>
@@ -2386,6 +2434,14 @@
       <translation>Ai o întrebare? Intreaba-ne!</translation>
     </message>
     <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Type your message here and hit enter to send...</source>
       <translation>Scrie un mesaj aici si apasa enter pentru a trimite...</translation>
     </message>
@@ -2478,6 +2534,14 @@
       <translation>Fisier invalid</translation>
     </message>
     <message>
+      <source>Could not find a product!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a product!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please choose</source>
       <translation type="unfinished"/>
     </message>
@@ -2492,6 +2556,10 @@
     <message>
       <source>is required</source>
       <translation>este obligatoriu</translation>
+    </message>
+    <message>
+      <source>Could not decrypt data!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
@@ -3526,12 +3594,20 @@
       <translation>Mentenanta</translation>
     </message>
     <message>
+      <source>Paid chat configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Update information</source>
       <translation>Informatii actualizate</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
       <translation>Invitații pro-active la discuție</translation>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Questionary embed code</source>
@@ -4319,6 +4395,22 @@
     <message>
       <source>Initial user message height in pixels</source>
       <translation>Dimensiunea initiala a ferestrei mesageriei in pixeli</translation>
+    </message>
+    <message>
+      <source>Encryption key, min length 40</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Additional encryption key, min length 40</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimum 40 characters for encryption key!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimum 40 characters for additional encryption key!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>
@@ -5177,6 +5269,10 @@
       <source>more information on how to use it</source>
       <translation>mai multe informatii despre utilizarea ei</translation>
     </message>
+    <message>
+      <source>Paid chat settings</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chatbox/list</name>
@@ -5319,8 +5415,32 @@
   <context>
     <name>user/account</name>
     <message>
+      <source>Please enter a username!</source>
+      <translation>Te rog sa introduci un nume de utilizator</translation>
+    </message>
+    <message>
+      <source>User exists!</source>
+      <translation>Utilizatorul exista!</translation>
+    </message>
+    <message>
+      <source>Wrong email address</source>
+      <translation>Adresa de e-mail incorecta</translation>
+    </message>
+    <message>
+      <source>Please enter a name</source>
+      <translation>Te rog sa introduci un nume</translation>
+    </message>
+    <message>
+      <source>Passwords mismatch</source>
+      <translation>Parolele nu se potrivesc</translation>
+    </message>
+    <message>
       <source>Updated</source>
       <translation>Actualizat</translation>
+    </message>
+    <message>
+      <source>Update</source>
+      <translation>Actualizeaza</translation>
     </message>
     <message>
       <source>Updating...</source>
@@ -5423,10 +5543,6 @@
       <translation>Sterge</translation>
     </message>
     <message>
-      <source>Update</source>
-      <translation>Actualizeaza</translation>
-    </message>
-    <message>
       <source>Return</source>
       <translation>Inapoi</translation>
     </message>
@@ -5473,26 +5589,6 @@
     <message>
       <source>Personal canned messages</source>
       <translation>Mesaje predefinite personale</translation>
-    </message>
-    <message>
-      <source>Please enter a username!</source>
-      <translation>Te rog sa introduci un nume de utilizator</translation>
-    </message>
-    <message>
-      <source>User exists!</source>
-      <translation>Utilizatorul exista!</translation>
-    </message>
-    <message>
-      <source>Wrong email address</source>
-      <translation>Adresa de e-mail incorecta</translation>
-    </message>
-    <message>
-      <source>Please enter a name</source>
-      <translation>Te rog sa introduci un nume</translation>
-    </message>
-    <message>
-      <source>Passwords mismatch</source>
-      <translation>Parolele nu se potrivesc</translation>
     </message>
   </context>
   <context>
@@ -6723,6 +6819,14 @@
   <context>
     <name>user/edit</name>
     <message>
+      <source>Please enter a name</source>
+      <translation>Te rog sa introduci un nume</translation>
+    </message>
+    <message>
+      <source>Passwords mismatch</source>
+      <translation>Parolele nu se potrivesc</translation>
+    </message>
+    <message>
       <source>Server default time zone</source>
       <translation>Fus orar standard al serverului</translation>
     </message>
@@ -6795,14 +6899,6 @@
       <translation>Token CSRF invalid!</translation>
     </message>
     <message>
-      <source>Please enter a name</source>
-      <translation>Te rog sa introduci un nume</translation>
-    </message>
-    <message>
-      <source>Passwords mismatch</source>
-      <translation>Parolele nu se potrivesc</translation>
-    </message>
-    <message>
       <source>System configuration</source>
       <translation>Configurarea sistemului</translation>
     </message>
@@ -6859,6 +6955,10 @@
   </context>
   <context>
     <name>theme/index</name>
+    <message>
+      <source>Products</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Default theme</source>
       <translation>Tema implicita</translation>
@@ -6924,6 +7024,30 @@
   </context>
   <context>
     <name>user/new</name>
+    <message>
+      <source>Please choose a default user group</source>
+      <translation>Te rog sa alegi un grup de utilizatori standard</translation>
+    </message>
+    <message>
+      <source>Wrong email address</source>
+      <translation>Adresa de e-mail incorecta</translation>
+    </message>
+    <message>
+      <source>Please enter a name</source>
+      <translation>Te rog sa introduci un nume</translation>
+    </message>
+    <message>
+      <source>Please enter a username</source>
+      <translation>Te rog sa introduci un nume de utilizator</translation>
+    </message>
+    <message>
+      <source>User exists</source>
+      <translation>Utilizatorul exista deja</translation>
+    </message>
+    <message>
+      <source>Passwords mismatch</source>
+      <translation>Parolele nu se potrivesc</translation>
+    </message>
     <message>
       <source>Invisible mode</source>
       <translation>Mod invizibil</translation>
@@ -6991,30 +7115,6 @@
     <message>
       <source>Departments</source>
       <translation>Departamente</translation>
-    </message>
-    <message>
-      <source>Please choose a default user group</source>
-      <translation>Te rog sa alegi un grup de utilizatori standard</translation>
-    </message>
-    <message>
-      <source>Wrong email address</source>
-      <translation>Adresa de e-mail incorecta</translation>
-    </message>
-    <message>
-      <source>Please enter a name</source>
-      <translation>Te rog sa introduci un nume</translation>
-    </message>
-    <message>
-      <source>Please enter a username</source>
-      <translation>Te rog sa introduci un nume de utilizator</translation>
-    </message>
-    <message>
-      <source>User exists</source>
-      <translation>Utilizatorul exista deja</translation>
-    </message>
-    <message>
-      <source>Passwords mismatch</source>
-      <translation>Parolele nu se potrivesc</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -7708,6 +7808,97 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Te rog sa introduci un tip de fisier valid!</translation>
+    </message>
+  </context>
+  <context>
+    <name>lhproduct/index</name>
+    <message>
+      <source>Products</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>abstract/product</name>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>user/validator</name>
+    <message>
+      <source>Please enter a username</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User exists</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Passwords mismatch</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User action type not set</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wrong email address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a default user group</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>paidchat/expiredchat</name>
+    <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was closed.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid hash</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Removed paid chat</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>paidchat/settings</name>
+    <message>
+      <source>Paid chat settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User can not access old chat if chat is closed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Secret hash, used for verification</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>
