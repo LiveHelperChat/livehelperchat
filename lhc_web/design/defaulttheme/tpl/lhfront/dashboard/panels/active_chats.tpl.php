@@ -28,9 +28,10 @@
 						</div>
 						
 						<div id="popover-content-{{chat.id}}" class="hide">
-						    <i class="material-icons">access_time</i>{{chat.time_created_front}}<br/>
+						    <i class="material-icons">access_time</i>{{chat.time_created_front}}<br />
 							<i class="material-icons">account_box</i>{{chat.plain_user_name}}<br />
-							<i class="material-icons">home</i>{{chat.department_name}}
+							<i class="material-icons">home</i>{{chat.department_name}}<br />
+							<span ng-show="chat.product_name"><i class="material-icons">&#xE8CC;</i>{{chat.product_name}}</span>
 						</div>
 						
 					</td>
@@ -38,7 +39,7 @@
 						<div class="abbr-list" title="{{chat.plain_user_name}}">{{chat.plain_user_name}}</div>
 					</td>
 					<td>
-						<div class="abbr-list" title="{{chat.department_name}}">{{chat.department_name}}</div>
+						<div class="abbr-list" title="{{chat.department_name}}{{chat.product_name ? ' | '+chat.product_name : ''}}">{{chat.department_name}}{{chat.product_name ? ' | '+chat.product_name : ''}}</div>
 					</td>
 				</tr>
 			</table>

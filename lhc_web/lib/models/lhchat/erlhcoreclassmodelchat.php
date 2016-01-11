@@ -293,6 +293,11 @@ class erLhcoreClassModelChat {
        			return $this->product;
        		break;
 
+       	case 'product_name':
+       			$this->product_name = (string)$this->product;
+       			return $this->product_name;
+       		break;
+
        	case 'department_name':
        			return $this->department_name = (string)$this->department;
        		break;
