@@ -111,10 +111,10 @@ $ViewList['delete'] = array(
 
 $ViewList['syncadmininterface'] = array(
     'params' => array(),
-    'uparams' => array('departmentd','operatord','actived','pendingd','closedd','unreadd','limita','limitp','limitc','limitu','limito','limitd'),
+    'uparams' => array('departmentd','operatord','actived','pendingd','closedd','unreadd','limita','limitp','limitc','limitu','limito','limitd','activedprod','unreaddprod','pendingdprod','closeddprod'),
     'ajax' => true,
     'functions' => array( 'use' ),
-    'multiple_arguments' => array ( 'operatord', 'actived', 'closedd' , 'pendingd', 'unreadd','departmentd')
+    'multiple_arguments' => array ( 'operatord', 'actived', 'closedd' , 'pendingd', 'unreadd','departmentd','activedprod','unreaddprod','pendingdprod','closeddprod')
 );
 
 $ViewList['loadinitialdata'] = array(
@@ -126,7 +126,7 @@ $ViewList['loadinitialdata'] = array(
 
 $ViewList['list'] = array(
     'params' => array(),
-    'uparams' => array('nick','email','timefrom','timeto','department_id','user_id','print','xls','fbst','chat_status','hum'),
+    'uparams' => array('nick','email','timefrom','timeto','department_id','user_id','print','xls','fbst','chat_status','hum','product_id'),
     'functions' => array( 'use' )
 );
 

@@ -53,6 +53,11 @@
     		</div>
     		
     		<div class="form-group">
+				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Chat nickname');?></label>
+				<input type="text" class="form-control" name="ChatNickname" value="<?php echo htmlspecialchars($user->chat_nickname);?>" />
+			</div>
+			
+    		<div class="form-group">
     		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Name');?></label>
     		  <input type="text" class="form-control" name="Name" value="<?php echo htmlspecialchars($user->name);?>"/>
     		</div>

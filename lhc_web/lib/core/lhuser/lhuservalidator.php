@@ -24,6 +24,9 @@ class erLhcoreClassUserValidator {
 			'Surname' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
 			),
+			'ChatNickname' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+			),
 			'Username' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
 			),
@@ -114,6 +117,12 @@ class erLhcoreClassUserValidator {
 			
 		}  else {
 			$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','User action type not set');
+		}
+		
+		if ( $form->hasValidData( 'ChatNickname' ) && $form->ChatNickname != '' ) {
+		    $userData->chat_nickname = $form->ChatNickname;
+		} else {
+		    $userData->chat_nickname = '';
 		}
 		
 		if ( !$form->hasValidData( 'Email' ) ) {
@@ -403,8 +412,11 @@ class erLhcoreClassUserValidator {
 			),
 			'Skype' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-			),
+			),		 
 			'XMPPUsername' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+			),
+			'ChatNickname' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
 			),
 			'UserTimeZone' => new ezcInputFormDefinitionElement(
@@ -433,22 +445,24 @@ class erLhcoreClassUserValidator {
 				if(erLhcoreClassModelUser::userExists($userData->username) === true) {
 					$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','User exists');
 				}
-					
 			}
-		
 		}
 				
 		if ( $form->hasInputField( 'Password' ) && (!$form->hasInputField( 'Password1' ) || $form->Password != $form->Password1 ) ) {
 			$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','Passwords mismatch');
 		} else {
-		
 			if ($form->hasInputField( 'Password' ) && $form->hasInputField( 'Password1' ) && $form->Password != '' && $form->Password1 != '') {
 				$userData->setPassword($form->Password);
 				$userData->password_front = $form->Password;
 			}
-		
 		}
-		
+
+		if ( $form->hasValidData( 'ChatNickname' ) && $form->ChatNickname != '' ) {
+		    $userData->chat_nickname = $form->ChatNickname;
+		} else {
+		    $userData->chat_nickname = '';
+		}
+
 		if ( !$form->hasValidData( 'Email' ) ) {
 			$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','Wrong email address');
 		} else {

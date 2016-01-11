@@ -29,6 +29,11 @@ $def->properties['name']->columnName   = 'name';
 $def->properties['name']->propertyName = 'name';
 $def->properties['name']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['chat_nickname'] = new ezcPersistentObjectProperty();
+$def->properties['chat_nickname']->columnName   = 'chat_nickname';
+$def->properties['chat_nickname']->propertyName = 'chat_nickname';
+$def->properties['chat_nickname']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 $def->properties['skype'] = new ezcPersistentObjectProperty();
 $def->properties['skype']->columnName   = 'skype';
 $def->properties['skype']->propertyName = 'skype';

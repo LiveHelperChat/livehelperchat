@@ -131,25 +131,31 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	
 	// User departments
 	this.userDepartments = [];
-	
-	this.actived = this.restoreLocalSetting('actived',[],true);
-	this.activedNames = [];	
+	this.userProductNames = [];
 	
 	this.departmentd = this.restoreLocalSetting('departmentd',[],true);
 	this.departmentdNames = [];	
-		
-	this.unreadd = this.restoreLocalSetting('unreadd',[],true);
-	this.unreaddNames = [];
-	
-	this.pendingd = this.restoreLocalSetting('pendingd',[],true);
-	this.pendingdNames = [];
 	
 	this.operatord = this.restoreLocalSetting('operatord',[],true);
 	this.operatordNames = [];
-	
+
+	// Chats with products filters
+	this.actived = this.restoreLocalSetting('actived',[],true);
+	this.actived_products = this.restoreLocalSetting('actived_products',[],true);
+	this.activedNames = [];
+
+	this.unreadd = this.restoreLocalSetting('unreadd',[],true);
+	this.unreadd_products = this.restoreLocalSetting('unreadd_products',[],true);
+	this.unreaddNames = [];
+
+	this.pendingd = this.restoreLocalSetting('pendingd',[],true);
+	this.pendingd_products = this.restoreLocalSetting('pendingd_products',[],true);
+	this.pendingdNames = [];
+
 	this.closedd = this.restoreLocalSetting('closedd',[],true);
+	this.closedd_products = this.restoreLocalSetting('closedd_products',[],true);
 	this.closeddNames = [];
-	
+
 	this.widgetsItems = new Array();
 	this.widgetsItems.push('actived');
 	this.widgetsItems.push('departmentd');
@@ -277,7 +283,23 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 				}
 			}
 		}
-		
+
+		if (typeof _that.actived_products == 'object' && _that.actived_products.length > 0) {
+			filter += '/(activedprod)/'+_that.actived_products.join('/');
+		}
+
+		if (typeof _that.unreadd_products == 'object' && _that.unreadd_products.length > 0) {
+			filter += '/(unreaddprod)/'+_that.unreadd_products.join('/');
+		}
+
+		if (typeof _that.pendingd_products == 'object' && _that.pendingd_products.length > 0) {
+			filter += '/(pendingdprod)/'+_that.pendingd_products.join('/');
+		}
+
+		if (typeof _that.closedd_products == 'object' && _that.closedd_products.length > 0) {
+			filter += '/(closeddprod)/'+_that.closedd_products.join('/');
+		}
+
 		return filter;
 	}
 	
@@ -353,6 +375,27 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	    	}	
 		}
 		
+		$scope.loadChatList();
+	};
+
+	this.productChanged = function(listId) {
+		if (_that[listId].length > 0) {
+
+			var listValue = _that[listId].join("/");
+
+			if (listValue != '') {
+				_that.storeLocalSetting(listId,listValue);
+			}
+
+		} else {
+			if (localStorage) {
+	    		try {
+	    			localStorage.removeItem(listId);
+	    		} catch(err) {
+	    		};
+	    	}
+		}
+	
 		$scope.loadChatList();
 	};
 
@@ -554,6 +597,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		LiveHelperChatFactory.loadInitialData().then(function(data) {	
 			_that.userDepartmentsNames=data.dp_names;
 			_that.userDepartments=data.dep_list;
+			_that.userProductNames=data.pr_names;
 
 			angular.forEach(_that.widgetsItems, function(listId) {
 				_that.setDepartmentNames(listId);

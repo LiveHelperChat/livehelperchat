@@ -76,6 +76,18 @@ $fieldsSearch['user_id'] = array (
 	)
 );
 
+$fieldsSearch['product_id'] = array (
+	'type' => 'text',
+	'trans' => 'Product',
+	'required' => false,
+	'valid_if_filled' => false,
+	'filter_type' => 'filter',
+	'filter_table_field' => 'product_id',
+	'validation_definition' => new ezcInputFormDefinitionElement(
+		ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 1)
+	)
+);
+
 $fieldsSearch['fbst'] = array (
 	'type' => 'text',
 	'trans' => 'Feedback status',

@@ -67,6 +67,9 @@
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Email');?></label> <input type="text" class="form-control" value="<?php echo $user->email;?>" name="Email" placeholder="Your email address" id="email" class="required email valid">
 			</div>
 			<div class="form-group">
+				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Chat nickname');?></label> <input type="text" class="form-control" name="ChatNickname" value="<?php echo htmlspecialchars($user->chat_nickname);?>" />
+			</div>
+			<div class="form-group">
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Name');?></label> <input type="text" class="form-control" name="Name" value="<?php echo htmlspecialchars($user->name);?>" />
 			</div>
 			<div class="form-group">

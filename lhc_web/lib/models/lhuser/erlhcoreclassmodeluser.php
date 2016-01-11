@@ -27,6 +27,7 @@ class erLhcoreClassModelUser {
             'closed_chats_counter' => $this->closed_chats_counter,
             'pending_chats_counter' => $this->pending_chats_counter,
             'departments_ids' => $this->departments_ids,
+            'chat_nickname' => $this->chat_nickname,
             'attr_int_1' => $this->attr_int_1,
             'attr_int_2' => $this->attr_int_2,
             'attr_int_3' => $this->attr_int_3
@@ -110,7 +111,7 @@ class erLhcoreClassModelUser {
        switch ($param) {
 
        	case 'name_support':
-       			return trim($this->name.' '.$this->surname);
+       			return $this->chat_nickname != '' ? trim($this->chat_nickname) : trim($this->name.' '.$this->surname);
        		break;
 
        	case 'user_groups_id':
@@ -396,6 +397,7 @@ class erLhcoreClassModelUser {
     public $time_zone = '';
     public $rec_per_req = '';
     public $session_id = '';
+    public $chat_nickname = '';
     public $active_chats_counter = 0;
     public $closed_chats_counter = 0;
     public $pending_chats_counter = 0;

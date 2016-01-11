@@ -30,7 +30,7 @@
 		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','E-mail');?></label>
 		  <input type="text" class="form-control" name="Email" value="<?php echo htmlspecialchars($user->email);?>"/>
 		</div>
-		
+					
 		<div class="form-group">
 		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Password');?></label>
 		  <input type="password" class="form-control" name="Password" value=""/>
@@ -39,6 +39,11 @@
 		<div class="form-group">
 		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Repeat the new password');?></label>
 		  <input type="password" class="form-control" name="Password1" value=""/>
+		</div>
+		
+		<div class="form-group">
+			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Chat nickname');?></label>
+			<input type="text" class="form-control" name="ChatNickname" value="<?php echo htmlspecialchars($user->chat_nickname);?>" />
 		</div>
 		
 		<div class="form-group">

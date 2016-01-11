@@ -20,6 +20,9 @@ $departments = erLhcoreClassModelDepartament::getList($departmentParams);
 $loggedDepartments = erLhcoreClassChat::getLoggedDepartmentsIds(array_keys($departments), false);
 $loggedDepartmentsExplicit = erLhcoreClassChat::getLoggedDepartmentsIds(array_keys($departments), true);
 
+// Filter products
+$filterProducts = array();
+ 
 foreach ($departments as $department) {
     $departmentNames[$department->id] = $department->name;
     $departmentList[] = array(
@@ -30,9 +33,28 @@ foreach ($departments as $department) {
         'ogen' => in_array($department->id, $loggedDepartments),            // Online general
         'oexp' => in_array($department->id, $loggedDepartmentsExplicit),    // Online explicit
     );
+
+    $filterProducts[] = $department->id;
 }
 
-echo json_encode(array('dp_names' => $departmentNames,'dep_list' => $departmentList));
+$productsFilter = array();
+
+// Add products
+if (!empty($departments)) {
+    $productsFilter['filterin']['departament_id'] = array_keys($departments);
+}
+
+$productsNames = array();
+$products = erLhAbstractModelProduct::getList($productsFilter);
+
+foreach ($products as $product) {
+    $productsNames[] = array (
+        'name' => $product->name,
+        'id' => $product->id
+    );
+}
+
+echo json_encode(array('pr_names' => $productsNames, 'dp_names' => $departmentNames, 'dep_list' => $departmentList));
 exit;
 
 ?>

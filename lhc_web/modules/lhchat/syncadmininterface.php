@@ -88,7 +88,12 @@ if ($activeTabEnabled == true) {
         erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['actived']);
         $filter['filterin']['dep_id'] = $Params['user_parameters_unordered']['actived'];
     }
-        
+
+    if (is_array($Params['user_parameters_unordered']['activedprod']) && !empty($Params['user_parameters_unordered']['activedprod'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['activedprod']);
+        $filter['filterin']['product_id'] = $Params['user_parameters_unordered']['activedprod'];
+    }
+
 	$chats = erLhcoreClassChat::getActiveChats($limitList,0,$filter);
 	erLhcoreClassChat::prefillGetAttributes($chats,array('time_created_front','department_name','plain_user_name'),array('department','time','status','user_id','user'));	
 	$ReturnMessages['active_chats'] = array('list' => array_values($chats));	
@@ -97,17 +102,21 @@ if ($activeTabEnabled == true) {
 }
 
 if ($closedTabEnabled == true) {
-    
-    
+
     $limitList = is_numeric($Params['user_parameters_unordered']['limitc']) ? (int)$Params['user_parameters_unordered']['limitc'] : 10;
 
     $filter = array('ignore_fields' => erLhcoreClassChat::$chatListIgnoreField);
-    
+
     if (is_array($Params['user_parameters_unordered']['closedd']) && !empty($Params['user_parameters_unordered']['closedd'])) {
         erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['closedd']);
         $filter['filterin']['dep_id'] = $Params['user_parameters_unordered']['closedd'];
     }
-    
+
+    if (is_array($Params['user_parameters_unordered']['closeddprod']) && !empty($Params['user_parameters_unordered']['closeddprod'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['closeddprod']);
+        $filter['filterin']['product_id'] = $Params['user_parameters_unordered']['closeddprod'];
+    }
+
 	/**
 	 * Closed chats
 	 * */
@@ -131,9 +140,13 @@ if ($pendingTabEnabled == true) {
 	    $additionalFilter['filterin']['dep_id'] = $Params['user_parameters_unordered']['pendingd'];
 	}
 	
-	
+	if (is_array($Params['user_parameters_unordered']['pendingdprod']) && !empty($Params['user_parameters_unordered']['pendingdprod'])) {
+	    erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['pendingdprod']);
+	    $additionalFilter['filterin']['product_id'] = $Params['user_parameters_unordered']['pendingdprod'];
+	}
+
 	$limitList = is_numeric($Params['user_parameters_unordered']['limitp']) ? (int)$Params['user_parameters_unordered']['limitp'] : 10;
-	
+
 	/**
 	 * Pending chats
 	 * */
@@ -204,19 +217,24 @@ if ($canListOnlineUsers == true || $canListOnlineUsersAll == true) {
 }
 
 if ($unreadTabEnabled == true) {
-    
+
     $filter = array('ignore_fields' => erLhcoreClassChat::$chatListIgnoreField);
-    
+
     $limitList = is_numeric($Params['user_parameters_unordered']['limitu']) ? (int)$Params['user_parameters_unordered']['limitu'] : 10;
-        
+
     if (is_array($Params['user_parameters_unordered']['unreadd']) && !empty($Params['user_parameters_unordered']['unreadd'])) {
         erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['unreadd']);
         $filter['filterin']['dep_id'] = $Params['user_parameters_unordered']['unreadd'];
     }
-    
+
+    if (is_array($Params['user_parameters_unordered']['unreaddprod']) && !empty($Params['user_parameters_unordered']['unreaddprod'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['unreaddprod']);
+        $filter['filterin']['product_id'] = $Params['user_parameters_unordered']['unreaddprod'];
+    }
+
 	// Unread chats
 	$unreadChats = erLhcoreClassChat::getUnreadMessagesChats($limitList,0,$filter);
-	
+
 	$lastPendingChatID = 0;
 	$lastChatNick = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor');
 	$lastMessage = erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','New unread message');	

@@ -1214,3 +1214,8 @@ input[type="file"]{
 }
 
 #map_canvas img{max-height:none;}
+
+.btn-block-department .dropdown-menu {
+    max-height:300px;
+    overflow-y:auto;
+}

@@ -3746,6 +3746,14 @@
                 "extra": ""
             },
             {
+                "field": "chat_nickname",
+                "type": "varchar(100)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "filepath",
                 "type": "varchar(200)",
                 "null": "NO",
@@ -4191,7 +4199,7 @@
                 "value": "0",
                 "type": "0",
                 "explain": "Product module is enabled",
-                "hidden": "0"
+                "hidden": "1"
             },
             {
                 "identifier": "application_name",
@@ -5288,7 +5296,7 @@
     		"old" : []
     	},
     	"lh_chat" : {
-    		"new" : {"unanswered_chat" : "ALTER TABLE `lh_chat` ADD INDEX `unanswered_chat` (`unanswered_chat`);"},
+    		"new" : {"unanswered_chat" : "ALTER TABLE `lh_chat` ADD INDEX `unanswered_chat` (`unanswered_chat`);", "product_id" : "ALTER TABLE `lh_chat` ADD INDEX `product_id` (`product_id`);"},
     		"old" : []
     	},
     	"lh_users" : {

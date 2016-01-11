@@ -5,7 +5,7 @@
 	</div>
 	<div ng-if="lhc.toggleWidgetData['ooperators_widget_exp'] !== true">  
   
-        <?php $optinsPanel = array('panelid' => 'operatord','limitid' => 'limito'); ?>
+        <?php $optinsPanel = array('panelid' => 'operatord', 'limitid' => 'limito', 'disable_product' => true); ?>
         <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/parts/options.tpl.php'));?>
  
         <div class="panel-list">
