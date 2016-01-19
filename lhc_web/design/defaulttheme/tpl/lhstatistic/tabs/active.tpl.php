@@ -293,7 +293,7 @@
 				'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select user'),
                 'selected_id'    => $input->user_id,
 	            'css_class'      => 'form-control',
-	            'display_name'   => 'name_support',
+	            'display_name'   => 'name_official',
                 'list_function'  => 'erLhcoreClassModelUser::getUserList'
         )); ?>
     </div>   

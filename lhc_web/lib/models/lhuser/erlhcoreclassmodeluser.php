@@ -111,7 +111,11 @@ class erLhcoreClassModelUser {
        switch ($param) {
 
        	case 'name_support':
-       			return $this->chat_nickname != '' ? trim($this->chat_nickname) : trim($this->name.' '.$this->surname);
+       			return $this->chat_nickname != '' ? trim($this->chat_nickname) : trim($this->name_official);
+       		break;
+
+       	case 'name_official':
+       			return $this->name_official = trim($this->name.' '.$this->surname);
        		break;
 
        	case 'user_groups_id':
