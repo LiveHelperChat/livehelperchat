@@ -201,7 +201,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	
 	this.toggleWidgetData = [];
 	
-	this.toggleWidget = function(variable) {
+	this.toggleWidget = function(variable,forceReload) {
 		_that.toggleWidgetData[variable] = typeof _that.toggleWidgetData[variable] !== 'undefined' ? !_that.toggleWidgetData[variable] : true;
 
 		if (localStorage) {
@@ -209,7 +209,11 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
     			localStorage.setItem(variable,_that.toggleWidgetData[variable]);
     		} catch(err) {    			   		
     		};
-    	}
+    	};
+		
+		if (typeof forceReload !== 'undefined' && forceReload == true) {
+			$scope.loadChatList();
+		}
 	};
 	
 	this.getToggleWidget = function(variable) {
@@ -255,6 +259,10 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 				if (itemsFilter.length > 0) {
 					filter += '/(pendingd)/'+itemsFilter.join('/');					
 				}
+			}
+			
+			if (typeof _that.toggleWidgetData['pending_chats_sort'] !== 'undefined' && _that.toggleWidgetData['pending_chats_sort'] == true) {
+				filter += '/(psort)/asc';	
 			}
 		}
 		

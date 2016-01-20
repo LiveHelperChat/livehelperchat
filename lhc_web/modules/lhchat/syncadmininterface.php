@@ -146,10 +146,15 @@ if ($pendingTabEnabled == true) {
 
 	$limitList = is_numeric($Params['user_parameters_unordered']['limitp']) ? (int)$Params['user_parameters_unordered']['limitp'] : 10;
 
+	$filterAdditionalMainAttr = array();
+	if ($Params['user_parameters_unordered']['psort'] == 'asc') {
+	    $filterAdditionalMainAttr['sort'] = 'priority DESC, id ASC';
+	}
+
 	/**
 	 * Pending chats
 	 * */
-	$pendingChats = erLhcoreClassChat::getPendingChats($limitList,0,$additionalFilter);
+	$pendingChats = erLhcoreClassChat::getPendingChats($limitList, 0, $additionalFilter, $filterAdditionalMainAttr);
 
 	/**
 	 * Get last pending chat

@@ -59,7 +59,7 @@ class erLhcoreClassChat {
     /**
      * Gets pending chats
      */
-    public static function getPendingChats($limit = 50, $offset = 0, $filterAdditional = array())
+    public static function getPendingChats($limit = 50, $offset = 0, $filterAdditional = array(), $filterAdditionalMainAttr = array())
     {
     	$limitation = self::getDepartmentLimitation();
 
@@ -79,7 +79,7 @@ class erLhcoreClassChat {
     	$filter['limit'] = $limit;
     	$filter['offset'] = $offset;
     	$filter['smart_select'] = true;
-    	$filter['sort'] = 'priority DESC, id DESC';
+    	$filter['sort'] = isset($filterAdditionalMainAttr['sort']) ? $filterAdditionalMainAttr['sort'] : 'priority DESC, id DESC';
 
     	if (!empty($filterAdditional)) {
     		$filter = array_merge_recursive($filter,$filterAdditional);
