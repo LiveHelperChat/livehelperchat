@@ -445,6 +445,17 @@ div.message-row.response+div.message-admin{
 	padding-top:7px;
 }
 
+.read-operator-message .message-row-profile-shown{
+	margin-top:0!important;
+	-webkit-border-top-left-radius: 0px!important;
+	-moz-border-radius-topleft: 0px!important;
+	border-top-left-radius: 0px!important;
+	
+	-webkit-border-bottom-left-radius: 10px;
+	-moz-border-radius-bottomleft: 10px;
+	border-bottom-left-radius: 10px;
+}
+
 .message-row.system-response.operator-changes{
 	margin-top:0px;
 	margin-left:0px;

@@ -372,6 +372,9 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
     	       		
     	       		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.auto_responder_triggered',array('chat' => & $chat));
     	       }
+	       } else {
+	           $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_START_ON_KEY_UP;
+	           $chat->saveThis();
 	       }
 	       
 	       erLhcoreClassChat::updateDepartmentStats($chat->department);

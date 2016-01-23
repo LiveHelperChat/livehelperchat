@@ -417,7 +417,9 @@ if (isset($_POST['askQuestion']))
     	       		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.auto_responder_triggered',array('chat' => & $chat));
     	       	}
            }
-       }
+       } else {
+	       $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_START_ON_KEY_UP;
+	   }
        
        // Set chat attributes for transfer workflow logic
        if ($chat->department !== false && $chat->department->department_transfer_id > 0) {
