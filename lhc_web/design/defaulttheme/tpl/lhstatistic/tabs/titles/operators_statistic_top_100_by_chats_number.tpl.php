@@ -1,0 +1,1 @@
+<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Operators statistic, top 100 by chats number');?>

@@ -29,7 +29,7 @@
 	  var view = new google.visualization.DataView(data);
       view.setColumns([0,1]);              
 	  var options = {
-	    title: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of Thumbs Up');?>',
+	    title: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_thumbs_up.tpl.php'));?>',
 	    hAxis: {titleTextStyle: {color: 'red'}},
         width: '100%',
         height: '100%'		      
@@ -49,7 +49,7 @@
 	  var view = new google.visualization.DataView(data);
       view.setColumns([0,1]);              
 	  var options = {
-	    title: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of Thumbs Down');?>',
+	    title: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_thumbs_down.tpl.php'));?>',
 	    hAxis: {titleTextStyle: {color: 'red'}},
         width: '100%',
         height: '100%'		      
@@ -68,7 +68,7 @@
 		    <?php endforeach;?>
 		  ]);      
 		var options = {
-		    title: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of chats by country');?>',
+		    title: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_by_country.tpl.php'));?>',
 		    hAxis: {titleTextStyle: {color: 'red'}},
 	        width: '100%',
 	        height: '100%'		      
@@ -180,7 +180,7 @@
 		    <?php endforeach;?>
 		  ]);					                  		  
 		  var options = {
-			title: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Chats number by statuses');?>',
+			title: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/chats_number_by_statuses.tpl.php'));?>',
 	        width: '100%',
 	        height: '100%',
 	        isStacked: true
@@ -197,7 +197,7 @@
 		    <?php endforeach;?>
 		  ]);   		  
 		  var options = {
-			title: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Unanswered chats numbers');?>',
+			title: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/unanswered_chats_numbers.tpl.php'));?>',
 	        width: '100%',
 	        height: '100%',
 	        isStacked: true
@@ -214,7 +214,7 @@
 		    <?php endforeach;?>
 		  ]);   		  
 		  var options = {
-			title: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','AVG wait time in seconds, max 10 mininutes');?>',
+			title: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/avg_wait_time_in_seconds_max_10_mininutes.tpl.php'));?>',
 	        width: '100%',
 	        height: '100%',
 	        isStacked: true
@@ -230,7 +230,7 @@
 		    <?php endforeach;?>
 		  ]);		                    
 		  var options = {
-			title: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Proactive chats number vs visitors initiated');?>',
+			title: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/proactive_chats_number_vs_visitors_initiated.tpl.php'));?>',
 	        width: '100%',
 	        height: '100%',
 	        isStacked: true
@@ -246,7 +246,7 @@
 		  ]);					                  		  
 			                    
 		  var options = {
-			title: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Messages types');?>',
+			title: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/messages_types.tpl.php'));?>',
 	        width: '100%',
 	        height: '100%',
 	        isStacked: true
@@ -264,7 +264,7 @@
 		  ]);					                  		  
 		  var view = new google.visualization.DataView(data);			                    
 		  var options = {
-			title: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of chats per hour, average chat duration');?> <?php echo $averageChatTime != null ? erLhcoreClassChat::formatSeconds($averageChatTime) : '(-)';?>',
+			title: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_per_hour_average_chat_duration.tpl.php'));?> <?php echo $averageChatTime != null ? erLhcoreClassChat::formatSeconds($averageChatTime) : '(-)';?>',
 	        width: '100%',
 	        height: '100%',
 	        isStacked: true
@@ -334,7 +334,7 @@
 	</script>							
 </form>
 
-<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Chats statistic');?></h5>
+<h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/chats_statistic.tpl.php'));?></h5>
 <hr>
 <div id="chart_div_per_month" style="width: 100%; height: 300px;"></div> 		 		
 <div id="chart_type_div_per_month" style="width: 100%; height: 300px;"></div> 		
@@ -342,36 +342,36 @@
 <div id="chart_div_per_month_wait_time" style="width: 100%; height: 300px;"></div>
 <div id="chart_div_per_month_unanswered" style="width: 100%; height: 300px;"></div>
  		 		 		
-<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Hourly statistic');?></h5>
+<h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/hourly_statistic.tpl.php'));?></h5>
 <hr>
 <div id="chart_div_per_hour" style="width: 100%; height: 300px;"></div> 		 		
  		 		
-<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Country statistic');?></h5>
+<h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/country_statistic.tpl.php'));?></h5>
 <hr>
 <div id="chart_div_country" style="width: 100%; height: 300px;"></div>
  
-<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Users statisic');?></h5>
+<h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/users_statisic.tpl.php'));?></h5>
 <hr>
 
 <?php if (!empty($userChatsStats)) : ?>	
-<div class="pl20"><strong><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of chats by user')?></strong></div>
+<div class="pl20"><strong><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_by_user.tpl.php'));?></strong></div>
 <div id="chart_div_user" style="width: 100%; height: 300px;"></div>
 <?php endif;?>
 
 <?php if (!empty($numberOfMsgByUser)) : ?>	
-<div class="pl20"><strong><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of messages by user');?></strong></div>
+<div class="pl20"><strong><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_messages_by_user.tpl.php'));?></strong></div>
 <div id="chart_div_user_msg" style="width: 100%; height: 300px;"></div> 		
 <?php endif;?>
 
 <?php if (!empty($userChatsAverageStats)) : ?>
-<div class="pl20"><strong><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Average chat duration by user')?></strong>
+<div class="pl20"><strong><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/average_chat_duration_by_user.tpl.php'));?></strong>
     <a href="<?php echo erLhcoreClassDesign::baseurl('statistic/statistic')?><?php echo $urlappend?>?xmlavguser=1" target="_blank" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','All operators statistic will be downloaded')?>"><i class="material-icons mr-0">file_download</i></a>
 </div>
 <div id="chart_div_avg_user" style="width: 100%; height: 300px;"></div> 
 <?php endif;?>
 
 <?php if (!empty($userWaitTimeByOperator)) : ?>	
-<div class="pl20"><strong><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','AVG visitor wait time by operator')?></strong></div>
+<div class="pl20"><strong><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/avg_visitor_wait_time_by_operator.tpl.php'));?></strong></div>
 <div id="chart_div_user_wait_time" style="width: 100%; height: 300px;"></div> 	
 <?php endif;?>
 

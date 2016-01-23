@@ -18,7 +18,7 @@
 		    <?php endforeach;?>
 		  ]);					                  		  
 		  var options = {
-			title: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Chats number by statuses');?>',
+			title: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/chats_number_by_statuses.tpl.php'));?>',
 	        width: '100%',
 	        height: '100%',
 	        isStacked: true
@@ -34,7 +34,7 @@
 		    <?php endforeach;?>
 		  ]);   		  
 		  var options = {
-			title: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Unanswered chats numbers');?>',
+			title: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/unanswered_chats_numbers.tpl.php'));?>',
 	        width: '100%',
 	        height: '100%',
 	        isStacked: true
@@ -49,7 +49,7 @@
 		    <?php endforeach;?>
 		  ]);   		  
 		  var options = {
-			title: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','AVG wait time in seconds, max 10 mininutes');?>',
+			title: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/avg_wait_time_in_seconds_max_10_mininutes.tpl.php'));?>',
 	        width: '100%',
 	        height: '100%',
 	        isStacked: true
@@ -65,7 +65,7 @@
 		    <?php endforeach;?>
 		  ]);		                    
 		  var options = {
-			title: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Proactive chats number vs visitors initiated');?>',
+			title: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/proactive_chats_number_vs_visitors_initiated.tpl.php'));?>',
 	        width: '100%',
 	        height: '100%',
 	        isStacked: true
@@ -81,7 +81,7 @@
 		  ]);					                  		  
 			                    
 		  var options = {
-			title: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Messages types');?>',
+			title: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/messages_types.tpl.php'));?>',
 	        width: '100%',
 	        height: '100%',
 	        isStacked: true
@@ -160,7 +160,7 @@
 	</script>							
 </form>
 
-<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Chats statistic');?></h5>
+<h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/chats_statistic.tpl.php'));?></h5>
 <hr>
 <div id="chart_div_per_month" style="width: 100%; height: 300px;"></div> 		 		
 <div id="chart_type_div_per_month" style="width: 100%; height: 300px;"></div> 		
