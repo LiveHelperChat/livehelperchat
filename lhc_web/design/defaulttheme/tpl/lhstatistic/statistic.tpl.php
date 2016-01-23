@@ -3,10 +3,10 @@
 <div role="tabpanel">
 	<!-- Nav tabs -->
 	<ul class="nav nav-tabs" role="tablist">
-		<li role="presentation" <?php if ($tab == 'active') : ?>class="active"<?php endif;?>><a onclick="redrawAllCharts(500)" href="<?php echo erLhcoreClassDesign::baseurl('statistic/statistic')?>/(tab)/active" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Statistic');?></a></li>
-		<li role="presentation" <?php if ($tab == 'chatsstatistic') : ?>class="active"<?php endif;?>><a onclick="redrawAllCharts(500)" href="<?php echo erLhcoreClassDesign::baseurl('statistic/statistic')?>/(tab)/chatsstatistic" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Chats statistic');?></a></li>
-		<li role="presentation" <?php if ($tab == 'total') : ?>class="active"<?php endif;?>><a href="<?php echo erLhcoreClassDesign::baseurl('statistic/statistic')?>/(tab)/total"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Total statistic');?></a></li>
-		<li role="presentation" <?php if ($tab == 'last24') : ?>class="active"<?php endif;?>><a href="<?php echo erLhcoreClassDesign::baseurl('statistic/statistic')?>/(tab)/last24" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Last 24 hours statistic');?></a></li>
+		<li role="presentation" <?php if ($tab == 'active') : ?>class="active"<?php endif;?>><a onclick="redrawAllCharts(500)" href="<?php echo erLhcoreClassDesign::baseurl('statistic/statistic')?>/(tab)/active"><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/tab_statistic.tpl.php'));?></a></li>
+		<li role="presentation" <?php if ($tab == 'chatsstatistic') : ?>class="active"<?php endif;?>><a onclick="redrawAllCharts(500)" href="<?php echo erLhcoreClassDesign::baseurl('statistic/statistic')?>/(tab)/chatsstatistic"><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/tab_chats_statistic.tpl.php'));?></a></li>
+		<li role="presentation" <?php if ($tab == 'total') : ?>class="active"<?php endif;?>><a href="<?php echo erLhcoreClassDesign::baseurl('statistic/statistic')?>/(tab)/total"><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/tab_total_statistic.tpl.php'));?></a></li>
+		<li role="presentation" <?php if ($tab == 'last24') : ?>class="active"<?php endif;?>><a href="<?php echo erLhcoreClassDesign::baseurl('statistic/statistic')?>/(tab)/last24" ><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/tab_last_24_hours_statistic.tpl.php'));?></a></li>
 	</ul>
 
 	<!-- Tab panes -->
