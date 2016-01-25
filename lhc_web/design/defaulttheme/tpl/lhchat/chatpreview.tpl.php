@@ -6,7 +6,7 @@ $modalBodyClass = 'widget-modal-body'
 ?>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_header.tpl.php'));?>
 
-<div id="messages" >
+<div id="messages" class="pt20">
     <div id="messagesBlock"><?php
     $lastMessageID = 0;
     $lastOperatorChanged = false;

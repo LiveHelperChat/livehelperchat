@@ -18,7 +18,7 @@
             </div>
             
             <?php if ($survey_item->is_filled == true) : ?>
-                 <input type="button" class="btn btn-success mb10 pull-right" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close')?>" onclick="lhinst.userclosedchatembed();" />
+                 <input type="button" class="btn btn-sm btn-success mb10 pull-right" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close')?>" onclick="lhinst.userclosedchatembed();" />
             <?php endif;?>
         </form>
     </div>
