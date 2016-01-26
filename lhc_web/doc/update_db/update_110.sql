@@ -12,7 +12,7 @@ CREATE TABLE `lh_abstract_survey_item` (
   KEY `user_id` (`user_id`),
   KEY `dep_id` (`dep_id`),
   KEY `ftime` (`ftime`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `lh_abstract_survey` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
