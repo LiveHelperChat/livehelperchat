@@ -288,6 +288,11 @@
 					<?php echo erLhcoreClassAbstract::renderInput('department_select', $fields['department_select'], $object)?>		
 					</div>
 					        		    
+        		    <div class="form-group">										
+					<label><?php echo $fields['bbcode_title']['trans'];?></label>
+					<?php echo erLhcoreClassAbstract::renderInput('bbcode_title', $fields['bbcode_title'], $object)?>		
+					</div>
+					
         		    <h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Text changes')?></h3>
         		
             		<div class="form-group">										

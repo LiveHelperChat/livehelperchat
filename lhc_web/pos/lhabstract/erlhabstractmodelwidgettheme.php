@@ -348,6 +348,12 @@ $def->properties['buble_operator_text_color']->columnName   = 'buble_operator_te
 $def->properties['buble_operator_text_color']->propertyName = 'buble_operator_text_color';
 $def->properties['buble_operator_text_color']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+// What title show instead of BBCode
+$def->properties['bbcode_title'] = new ezcPersistentObjectProperty();
+$def->properties['bbcode_title']->columnName   = 'bbcode_title';
+$def->properties['bbcode_title']->propertyName = 'bbcode_title';
+$def->properties['bbcode_title']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 return $def;
 
 ?>

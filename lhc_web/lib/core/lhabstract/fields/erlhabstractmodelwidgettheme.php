@@ -517,6 +517,15 @@ return array(
                     'validation_definition' => new ezcInputFormDefinitionElement(
                         ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
                 )),
+                'bbcode_title' => array(
+                    'type' => 'text',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Use different title for BBCode?'),
+                    'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Emoticon'),
+                    'required' => false,
+                    'hidden' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
    		);
 
 ?>

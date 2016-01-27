@@ -421,6 +421,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                  `buble_operator_background` varchar(250) NOT NULL,
                  `buble_operator_title_color` varchar(250) NOT NULL,
                  `buble_operator_text_color` varchar(250) NOT NULL,
+                 `bbcode_title` VARCHAR(250) NOT NULL,
                   PRIMARY KEY (`id`)				
 				) DEFAULT CHARSET=utf8;");
 

@@ -5,7 +5,8 @@
 		<input type="button" class="btn btn-default btn-xs sendbutton invisible-button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Send')?>" onclick="lhinst.addmsguser()" />
 	
 		<?php if (erLhcoreClassModelChatConfig::fetch('bbc_button_visible')->current_value == 1) : ?>
-		<input type="button" class="btn btn-default btn-xs invisible-button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','BB Code')?>" onclick="return lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('chat/bbcodeinsert')?>'})" />
+
+		<input type="button" class="btn btn-default btn-xs invisible-button" value="<?php echo (isset($theme) && $theme !== false && $theme->bbcode_title != '') ? $theme->bbcode_title : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','BB Code')?>" onclick="return lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('chat/bbcodeinsert')?>'})" />
 		<?php endif; ?>
 		
 		<?php if ( (isset($chat_embed_mode) && $chat_embed_mode == true) || (isset($chat_embed_mode) && $chat_embed_mode == true)) : ?>

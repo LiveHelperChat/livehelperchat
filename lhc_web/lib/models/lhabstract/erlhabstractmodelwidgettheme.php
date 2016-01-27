@@ -72,6 +72,7 @@ class erLhAbstractModelWidgetTheme {
 			'buble_operator_background' => $this->buble_operator_background,
 			'buble_operator_title_color'=> $this->buble_operator_title_color,
 			'buble_operator_text_color' => $this->buble_operator_text_color,
+			'bbcode_title'              => $this->bbcode_title,
 		);
 
 		return $stateArray;
