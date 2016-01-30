@@ -1231,6 +1231,6 @@ input[type="file"]{
     overflow-y:auto;
 }
 
-.navbar-lhc ul.navbar-collapse.navbar-right > li {
+.navbar-lhc .navbar-collapse ul.navbar-inline > li {
     float: left;
 }
