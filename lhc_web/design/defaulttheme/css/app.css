@@ -1230,3 +1230,7 @@ input[type="file"]{
     max-height:300px;
     overflow-y:auto;
 }
+
+.navbar-lhc .navbar-collapse ul.navbar-inline > li {
+    float: left;
+}
