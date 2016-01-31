@@ -42,6 +42,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Product module is enabled</source>
+      <translation>Módulo del producto activado</translation>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Por cuantos días el widget de votación no será expandido después de mostrarlo la última vez</translation>
     </message>
@@ -156,10 +168,6 @@
     <message>
       <source>Is pro active chat invitation active. Online users tracking also has to be enabled</source>
       <translation>Se encuentra activa la invitación de chat pro-activa. El rastreo de visitantes también debe estar activo.</translation>
-    </message>
-    <message>
-      <source>Product module is enabled</source>
-      <translation>Módulo del producto activado</translation>
     </message>
     <message>
       <source>On chat close exit chat</source>
@@ -2238,6 +2246,10 @@
       <translation>Última actividad hace</translation>
     </message>
     <message>
+      <source>Sort</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Wait time</source>
       <translation>Tiempo de espera</translation>
     </message>
@@ -3929,6 +3941,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Search</source>
       <translation>Buscar</translation>
     </message>
@@ -3951,6 +3967,10 @@
     <message>
       <source>Select user</source>
       <translation>Selecciona usuario</translation>
+    </message>
+    <message>
+      <source>Select product</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Type to search</source>
@@ -4061,6 +4081,10 @@
     </message>
     <message>
       <source>Hide disabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5507,6 +5531,10 @@
       <translation>E-mail</translation>
     </message>
     <message>
+      <source>Chat nickname</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation>Nombre</translation>
     </message>
@@ -6855,6 +6883,10 @@
       <translation>E-mail</translation>
     </message>
     <message>
+      <source>Chat nickname</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation>Nombre</translation>
     </message>
@@ -7095,6 +7127,10 @@
     <message>
       <source>Repeat the new password</source>
       <translation>Repita la nueva contraseña</translation>
+    </message>
+    <message>
+      <source>Chat nickname</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Name</source>

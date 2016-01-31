@@ -1243,6 +1243,17 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				 `mtime` int(11) NOT NULL,
 				 PRIMARY KEY (`id`)
 				) DEFAULT CHARSET=utf8;");
+                
+                // API table
+                $db->query("CREATE TABLE IF NOT EXISTS `lh_abstract_rest_api_key` (
+                    `id` int(11) NOT NULL AUTO_INCREMENT,
+                    `api_key` varchar(50) NOT NULL,
+                    `user_id` int(11) NOT NULL,
+                    `active` int(11) NOT NULL DEFAULT '0',
+                    PRIMARY KEY (`id`),
+                    KEY `api_key` (`api_key`),
+                    KEY `user_id` (`user_id`)
+                ) DEFAULT CHARSET=utf8;");
 
                 // Chat messages
                 $db->query("CREATE TABLE IF NOT EXISTS `lh_msg` (

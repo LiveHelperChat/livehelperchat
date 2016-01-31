@@ -42,6 +42,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Product module is enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Per quanti giorni il widget di voto non deve essere mostrato dopo l&apos;ultima visualizzazione</translation>
     </message>
@@ -156,10 +168,6 @@
     <message>
       <source>Is pro active chat invitation active. Online users tracking also has to be enabled</source>
       <translation>Invito chat attiva pro è attivo. Tracciamento utenti online deve essere attivo.</translation>
-    </message>
-    <message>
-      <source>Product module is enabled</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>On chat close exit chat</source>
@@ -2239,6 +2247,10 @@
       <translation>Ultima attività fa</translation>
     </message>
     <message>
+      <source>Sort</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Wait time</source>
       <translation>Tempo di attesa</translation>
     </message>
@@ -3930,6 +3942,10 @@
       <translation>messaggi non letti</translation>
     </message>
     <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Search</source>
       <translation>Cerca</translation>
     </message>
@@ -3952,6 +3968,10 @@
     <message>
       <source>Select user</source>
       <translation>Seleziona User</translation>
+    </message>
+    <message>
+      <source>Select product</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Type to search</source>
@@ -4063,6 +4083,10 @@
     <message>
       <source>Hide disabled</source>
       <translation>Nascondere disabilitati</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Number of elements in list</source>
@@ -5508,6 +5532,10 @@
       <translation>Email</translation>
     </message>
     <message>
+      <source>Chat nickname</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation>Nome</translation>
     </message>
@@ -6856,6 +6884,10 @@
       <translation>E-Mail</translation>
     </message>
     <message>
+      <source>Chat nickname</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation>Nome</translation>
     </message>
@@ -7096,6 +7128,10 @@
     <message>
       <source>Repeat the new password</source>
       <translation>Ripeti la nuova password</translation>
+    </message>
+    <message>
+      <source>Chat nickname</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Name</source>

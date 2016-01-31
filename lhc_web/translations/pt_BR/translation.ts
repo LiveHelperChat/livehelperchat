@@ -42,6 +42,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Product module is enabled</source>
+      <translation>Produto módulo está habilitado</translation>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Por quantos dias o widget de votação não deve ser exibido após última exibição</translation>
     </message>
@@ -156,10 +168,6 @@
     <message>
       <source>Is pro active chat invitation active. Online users tracking also has to be enabled</source>
       <translation>Existem convites de chat pro-ativos ativos. O mapeamento de usuários online também deve estar ativado.</translation>
-    </message>
-    <message>
-      <source>Product module is enabled</source>
-      <translation>Produto módulo está habilitado</translation>
     </message>
     <message>
       <source>On chat close exit chat</source>
@@ -2238,6 +2246,10 @@
       <translation>Última atividade</translation>
     </message>
     <message>
+      <source>Sort</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Wait time</source>
       <translation>Tempo de espera</translation>
     </message>
@@ -3930,6 +3942,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Possui mensagens não lidas</translation>
     </message>
     <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Search</source>
       <translation>Pesquisar</translation>
     </message>
@@ -3952,6 +3968,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Select user</source>
       <translation>Selecionar usuário</translation>
+    </message>
+    <message>
+      <source>Select product</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Type to search</source>
@@ -4063,6 +4083,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Hide disabled</source>
       <translation>Ocultar desabilitado</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Number of elements in list</source>
@@ -5508,6 +5532,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Email</translation>
     </message>
     <message>
+      <source>Chat nickname</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation>Nome</translation>
     </message>
@@ -6856,6 +6884,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>E-mail</translation>
     </message>
     <message>
+      <source>Chat nickname</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation>Nome</translation>
     </message>
@@ -7096,6 +7128,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Repeat the new password</source>
       <translation>Repetir a nova senha</translation>
+    </message>
+    <message>
+      <source>Chat nickname</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Name</source>

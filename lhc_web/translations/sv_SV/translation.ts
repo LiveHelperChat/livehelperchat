@@ -42,6 +42,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Product module is enabled</source>
+      <translation>Produktmodulen är aktiverad</translation>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Hur många dagar som röstwidgeten inte ska expanderas efter senaste visningen</translation>
     </message>
@@ -158,12 +170,8 @@
       <translation>Är pro active chattinbjudan aktiv. Statistik för onlinebesökare måste också vara aktiverad.</translation>
     </message>
     <message>
-      <source>Product module is enabled</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>On chat close exit chat</source>
-      <translation type="unfinished"/>
+      <translation>Om chatten stängs, lämna chatten</translation>
     </message>
     <message>
       <source/>
@@ -195,7 +203,7 @@
     </message>
     <message>
       <source>List online operators, 0 - no, 1 - yes.</source>
-      <translation type="unfinished"/>
+      <translation>Lista onlineoperatörer, 0 - nej, 1 - ja.</translation>
     </message>
     <message>
       <source>Ignore users online statuses and use departments online hours</source>
@@ -215,7 +223,7 @@
     </message>
     <message>
       <source>Hide close button in dropdown</source>
-      <translation type="unfinished"/>
+      <translation>Göm stängknappen i dropdown</translation>
     </message>
     <message>
       <source>Home page tabs order</source>
@@ -432,7 +440,7 @@
     </message>
     <message>
       <source>Disabled</source>
-      <translation type="unfinished"/>
+      <translation>Inaktiverad</translation>
     </message>
     <message>
       <source>Name</source>
@@ -1108,7 +1116,7 @@
     </message>
     <message>
       <source>Disable online tracking, overrides system configuration</source>
-      <translation type="unfinished"/>
+      <translation>Inaktivera onlinespårning, åsidosätter systemkonfiguration</translation>
     </message>
     <message>
       <source>Survey at the end of chat</source>
@@ -1116,11 +1124,11 @@
     </message>
     <message>
       <source>Product</source>
-      <translation type="unfinished"/>
+      <translation>Produkt</translation>
     </message>
     <message>
       <source>Show product selection based on selected departments</source>
-      <translation type="unfinished"/>
+      <translation>Visa produktval baserat på valda avdelningar</translation>
     </message>
     <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
@@ -1192,15 +1200,15 @@
     </message>
     <message>
       <source>Chat expired</source>
-      <translation type="unfinished"/>
+      <translation>Chatten löpte ut</translation>
     </message>
     <message>
       <source>Invalid hash</source>
-      <translation type="unfinished"/>
+      <translation>Ogiltig hash</translation>
     </message>
     <message>
       <source>Chat was removed</source>
-      <translation type="unfinished"/>
+      <translation>Chatten togs bort</translation>
     </message>
   </context>
   <context>
@@ -1568,11 +1576,11 @@
     </message>
     <message>
       <source>Priority, used for chats priority</source>
-      <translation type="unfinished"/>
+      <translation>Prioritet, används för chattprioritet</translation>
     </message>
     <message>
       <source>Priority, used for departments sort</source>
-      <translation type="unfinished"/>
+      <translation>Prioritet, används för sortering av avdelningar</translation>
     </message>
     <message>
       <source>Automate online hours</source>
@@ -1878,7 +1886,7 @@
     </message>
     <message>
       <source>Product</source>
-      <translation type="unfinished"/>
+      <translation>Produkt</translation>
     </message>
     <message>
       <source>Country</source>
@@ -2238,6 +2246,10 @@
       <translation>Senaste aktivitet</translation>
     </message>
     <message>
+      <source>Sort</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Wait time</source>
       <translation>Väntetid</translation>
     </message>
@@ -2435,11 +2447,11 @@
     </message>
     <message>
       <source>Product</source>
-      <translation type="unfinished"/>
+      <translation>Produkt</translation>
     </message>
     <message>
       <source>Choose a product</source>
-      <translation type="unfinished"/>
+      <translation>Välj en produkt</translation>
     </message>
     <message>
       <source>Type your message here and hit enter to send...</source>
@@ -2535,11 +2547,11 @@
     </message>
     <message>
       <source>Could not find a product!</source>
-      <translation type="unfinished"/>
+      <translation>Kunde inte hitta en produkt!</translation>
     </message>
     <message>
       <source>Please choose a product!</source>
-      <translation type="unfinished"/>
+      <translation>Var vänlig välj en produkt!</translation>
     </message>
     <message>
       <source>Please choose</source>
@@ -2559,7 +2571,7 @@
     </message>
     <message>
       <source>Could not decrypt data!</source>
-      <translation type="unfinished"/>
+      <translation>Kunde inte dekryptera datan!</translation>
     </message>
     <message>
       <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
@@ -3499,7 +3511,7 @@
     </message>
     <message>
       <source>Close button</source>
-      <translation type="unfinished"/>
+      <translation>Stängknapp</translation>
     </message>
     <message>
       <source>New chat notification settings</source>
@@ -3595,7 +3607,7 @@
     </message>
     <message>
       <source>Paid chat configuration</source>
-      <translation type="unfinished"/>
+      <translation>Konfiguration för betald chatt</translation>
     </message>
     <message>
       <source>Update information</source>
@@ -3607,7 +3619,7 @@
     </message>
     <message>
       <source>Product</source>
-      <translation type="unfinished"/>
+      <translation>Produkt</translation>
     </message>
     <message>
       <source>Questionary embed code</source>
@@ -3929,6 +3941,10 @@
       <translation>Har olästa meddelanden</translation>
     </message>
     <message>
+      <source>Product</source>
+      <translation>Produkt</translation>
+    </message>
+    <message>
       <source>Search</source>
       <translation>Sök</translation>
     </message>
@@ -3951,6 +3967,10 @@
     <message>
       <source>Select user</source>
       <translation>Välj användare</translation>
+    </message>
+    <message>
+      <source>Select product</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Type to search</source>
@@ -3986,15 +4006,15 @@
     </message>
     <message>
       <source>Username</source>
-      <translation type="unfinished"/>
+      <translation>Användarnamn</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Namn</translation>
     </message>
     <message>
       <source>Surname</source>
-      <translation type="unfinished"/>
+      <translation>Förnamn</translation>
     </message>
   </context>
   <context>
@@ -4045,22 +4065,26 @@
     </message>
     <message>
       <source>Check all</source>
-      <translation type="unfinished"/>
+      <translation>Markera alla</translation>
     </message>
     <message>
       <source>Only online</source>
-      <translation type="unfinished"/>
+      <translation>Endast online</translation>
     </message>
     <message>
       <source>Only explicit online</source>
-      <translation type="unfinished"/>
+      <translation>Endast strikt online</translation>
     </message>
     <message>
       <source>Hide hidden</source>
-      <translation type="unfinished"/>
+      <translation>Göm dolda</translation>
     </message>
     <message>
       <source>Hide disabled</source>
+      <translation>Göm inaktiverade</translation>
+    </message>
+    <message>
+      <source>Department</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4398,19 +4422,19 @@
     </message>
     <message>
       <source>Encryption key, min length 40</source>
-      <translation type="unfinished"/>
+      <translation>Krypteringsnyckel, minimum längd 40 tecken</translation>
     </message>
     <message>
       <source>Additional encryption key, min length 40</source>
-      <translation type="unfinished"/>
+      <translation>Ytterligare krypteringsnyckel, minimum längd 40 tecken</translation>
     </message>
     <message>
       <source>Minimum 40 characters for encryption key!</source>
-      <translation type="unfinished"/>
+      <translation>40 tecken minimum för krypteringsnyckeln!</translation>
     </message>
     <message>
       <source>Minimum 40 characters for additional encryption key!</source>
-      <translation type="unfinished"/>
+      <translation>40 tecken minium för ytterligare krypteringsnyckel!</translation>
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>
@@ -4513,11 +4537,11 @@
     </message>
     <message>
       <source>Number</source>
-      <translation type="unfinished"/>
+      <translation>Nummer</translation>
     </message>
     <message>
       <source>Unanswered chats numbers</source>
-      <translation type="unfinished"/>
+      <translation>Obesvarade antal chattar</translation>
     </message>
     <message>
       <source>Time</source>
@@ -4617,7 +4641,7 @@
     </message>
     <message>
       <source>Unanswered chats</source>
-      <translation type="unfinished"/>
+      <translation>Obesvarade chattar</translation>
     </message>
     <message>
       <source>Chatbox chats</source>
@@ -4977,23 +5001,23 @@
     </message>
     <message>
       <source>Only departments which are online and explicitly assigned operator are online</source>
-      <translation type="unfinished"/>
+      <translation>Endast avdelningar som är online och som har strikt tilldelade operatörer som är online</translation>
     </message>
     <message>
       <source>Exclude hidden departments</source>
-      <translation type="unfinished"/>
+      <translation>Exkludera dolda avdelningar</translation>
     </message>
     <message>
       <source>Exclude disabled departments</source>
-      <translation type="unfinished"/>
+      <translation>Exkludera inaktiverade avdelningar</translation>
     </message>
     <message>
       <source>Online</source>
-      <translation type="unfinished"/>
+      <translation>Online</translation>
     </message>
     <message>
       <source>Offline</source>
-      <translation type="unfinished"/>
+      <translation>Offline</translation>
     </message>
   </context>
   <context>
@@ -5271,7 +5295,7 @@
     </message>
     <message>
       <source>Paid chat settings</source>
-      <translation type="unfinished"/>
+      <translation>Inställningar för betalad chatt</translation>
     </message>
   </context>
   <context>
@@ -5505,6 +5529,10 @@
     <message>
       <source>Email</source>
       <translation>E-post</translation>
+    </message>
+    <message>
+      <source>Chat nickname</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Name</source>
@@ -6855,6 +6883,10 @@
       <translation>E-post</translation>
     </message>
     <message>
+      <source>Chat nickname</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation>Namn</translation>
     </message>
@@ -6957,7 +6989,7 @@
     <name>theme/index</name>
     <message>
       <source>Products</source>
-      <translation type="unfinished"/>
+      <translation>Produkter</translation>
     </message>
     <message>
       <source>Default theme</source>
@@ -7095,6 +7127,10 @@
     <message>
       <source>Repeat the new password</source>
       <translation>Skriv in det nya lösenordet igen</translation>
+    </message>
+    <message>
+      <source>Chat nickname</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Name</source>
@@ -7814,91 +7850,91 @@
     <name>lhproduct/index</name>
     <message>
       <source>Products</source>
-      <translation type="unfinished"/>
+      <translation>Produkter</translation>
     </message>
   </context>
   <context>
     <name>abstract/product</name>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Namn</translation>
     </message>
     <message>
       <source>Priority</source>
-      <translation type="unfinished"/>
+      <translation>Prioritet</translation>
     </message>
     <message>
       <source>Product</source>
-      <translation type="unfinished"/>
+      <translation>Produkt</translation>
     </message>
   </context>
   <context>
     <name>user/validator</name>
     <message>
       <source>Please enter a username</source>
-      <translation type="unfinished"/>
+      <translation>Var vänlig skriv in ett användarnamn</translation>
     </message>
     <message>
       <source>User exists</source>
-      <translation type="unfinished"/>
+      <translation>Användaren finns redan</translation>
     </message>
     <message>
       <source>Passwords mismatch</source>
-      <translation type="unfinished"/>
+      <translation>Lösenorden matchar inte</translation>
     </message>
     <message>
       <source>User action type not set</source>
-      <translation type="unfinished"/>
+      <translation>Användare åtgärdstyp inte inställd</translation>
     </message>
     <message>
       <source>Wrong email address</source>
-      <translation type="unfinished"/>
+      <translation>Fel e-postadress</translation>
     </message>
     <message>
       <source>Please enter a name</source>
-      <translation type="unfinished"/>
+      <translation>Var vänlig skriv in ett namn</translation>
     </message>
     <message>
       <source>Please choose a default user group</source>
-      <translation type="unfinished"/>
+      <translation>Var vänlig välj en användargrupp som standard</translation>
     </message>
   </context>
   <context>
     <name>paidchat/expiredchat</name>
     <message>
       <source>Chat</source>
-      <translation type="unfinished"/>
+      <translation>Chatt</translation>
     </message>
     <message>
       <source>Chat was closed.</source>
-      <translation type="unfinished"/>
+      <translation>Chatten stängdes.</translation>
     </message>
     <message>
       <source>Invalid hash</source>
-      <translation type="unfinished"/>
+      <translation>Ogiltig hash</translation>
     </message>
     <message>
       <source>Removed paid chat</source>
-      <translation type="unfinished"/>
+      <translation>Tog bort betalad chatt</translation>
     </message>
   </context>
   <context>
     <name>paidchat/settings</name>
     <message>
       <source>Paid chat settings</source>
-      <translation type="unfinished"/>
+      <translation>Inställningar för betalad chatt</translation>
     </message>
     <message>
       <source>Enabled</source>
-      <translation type="unfinished"/>
+      <translation>Aktiverad</translation>
     </message>
     <message>
       <source>User can not access old chat if chat is closed</source>
-      <translation type="unfinished"/>
+      <translation>Användaren kan inte komma åt gamla chatten om chatten stängs ner</translation>
     </message>
     <message>
       <source>Secret hash, used for verification</source>
-      <translation type="unfinished"/>
+      <translation>Hemlig hash, används för verifikation</translation>
     </message>
   </context>
 </TS>

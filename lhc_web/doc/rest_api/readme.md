@@ -1,0 +1,1 @@
+See example.php file content for real live examples.
