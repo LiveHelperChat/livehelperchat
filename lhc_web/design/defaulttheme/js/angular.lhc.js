@@ -542,7 +542,9 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	                    
 	                };
 				});
-												 
+					
+				ee.emitEvent('eventLoadChatList', [data.result]);
+				
 				if (hasPendingItems == false) {
 					lhinst.hideNotifications();
                 };
