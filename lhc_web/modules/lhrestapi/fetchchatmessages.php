@@ -14,7 +14,7 @@ try {
             'messages' =>  erLhcoreClassChat::getPendingMessages($chat->id,isset($_GET['last_message_id']) ? (int)$_GET['last_message_id'] : 0)
         ));
     } else {
-        throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('predictorrestapi/validation', 'You do not have permission to read this chat!'));
+        throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('lhrestapi/validation', 'You do not have permission to read this chat!'));
     }
     
 } catch (Exception $e) {

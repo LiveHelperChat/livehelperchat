@@ -15,7 +15,7 @@ try {
             'chat' => erLhcoreClassModelChat::fetch((int)$_GET['chat_id'])
         ));
     } else {
-        throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('predictorrestapi/validation', 'You do not have permission to read this chat!'));
+        throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('lhrestapi/validation', 'You do not have permission to read this chat!'));
     }
 
 } catch (Exception $e) {

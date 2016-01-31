@@ -3,6 +3,6 @@
 $tpl = erLhcoreClassTemplate::getInstance('lhrestapi/index.tpl.php');
 
 $Result['content'] = $tpl->fetch();
-$Result['path'] = array(array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('restapi/index','Rest API')));
+$Result['path'] = array(array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('lhrestapi/index','Rest API')));
 
 ?>

@@ -40,7 +40,7 @@ class erLhcoreClassRestAPIHandler
             $apiData = explode(':', base64_decode($dataAuthorisation[1]));
             
             if (count($apiData) != 2) {
-                throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('predictorrestapi/validation', 'Authorization failed!'));
+                throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('lhrestapi/validation', 'Authorization failed!'));
             }
             
             $apiKey = erLhAbstractModelRestAPIKey::findOne(array(
@@ -52,11 +52,11 @@ class erLhcoreClassRestAPIHandler
             ));
             
             if (! ($apiKey instanceof erLhAbstractModelRestAPIKey)) {
-                throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('predictorrestapi/validation', 'Authorization failed!'));
+                throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('lhrestapi/validation', 'Authorization failed!'));
             }
             
             if ($apiKey->user->username != $apiData[0]) {
-                throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('predictorrestapi/validation', 'Authorization failed!'));
+                throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('lhrestapi/validation', 'Authorization failed!'));
             }
             
             // API Key
@@ -70,7 +70,7 @@ class erLhcoreClassRestAPIHandler
                 $stmt->execute();
             }
         } else {
-            throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('predictorrestapi/validation', 'Authorization header is missing!'));
+            throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('lhrestapi/validation', 'Authorization header is missing!'));
         }
     }
 
