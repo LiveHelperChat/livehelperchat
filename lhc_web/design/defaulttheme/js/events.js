@@ -1,0 +1,1 @@
+var ee = new EventEmitter();
