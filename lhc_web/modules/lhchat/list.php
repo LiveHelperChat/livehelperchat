@@ -77,6 +77,7 @@ $tpl->set('pages',$pages);
 if ($pages->items_total > 0) {
 	$items = erLhcoreClassChat::getList(array_merge($filterParams['filter'],array('limit' => $pages->items_per_page,'offset' => $pages->low)));
 	erLhcoreClassChat::setOnlineStatusDirectly($items);
+	erLhcoreClassChat::prefillGetAttributes($items,array('can_view_chat'), array(), array('do_not_clean' => true));
 	$tpl->set('items',$items);
 }
 

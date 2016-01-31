@@ -183,6 +183,12 @@ a:hover{
 	cursor:pointer;
 }
 
+a.a-disabled{
+	text-decoration:none;
+	cursor:not-allowed;
+	pointer-events: none;
+}
+
 .mx170{
 	max-height:170px;
 	overflow:auto;

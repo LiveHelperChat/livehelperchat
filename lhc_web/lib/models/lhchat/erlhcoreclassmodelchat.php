@@ -379,7 +379,21 @@ class erLhcoreClassModelChat {
        		
        		return $this->user_status_front;
        	break;	
-       		
+
+       	case 'can_view_chat':
+
+		$this->can_view_chat = false;
+		$currentUser = erLhcoreClassUser::instance();
+
+		if ($this->operator_user_id == $currentUser->getUserID()){
+			$this->can_view_chat = true; // Faster way
+		} else if ($this instanceof erLhcoreClassModelChat) {
+			$this->can_view_chat = erLhcoreClassChat::hasAccessToRead($this);
+		}
+
+		return $this->can_view_chat;
+       		break;
+
        	default:
        		break;
        }

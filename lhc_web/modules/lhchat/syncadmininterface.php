@@ -95,7 +95,7 @@ if ($activeTabEnabled == true) {
     }
 
 	$chats = erLhcoreClassChat::getActiveChats($limitList,0,$filter);
-	erLhcoreClassChat::prefillGetAttributes($chats,array('time_created_front','department_name','plain_user_name','product_name'),array('product_id','product','department','time','status','user_id','user'));	
+	erLhcoreClassChat::prefillGetAttributes($chats,array('time_created_front','department_name','plain_user_name','product_name','can_view_chat'),array('product_id','product','department','time','status','user_id','user'));	
 	$ReturnMessages['active_chats'] = array('list' => array_values($chats));	
 	$chatsList[] = & $ReturnMessages['active_chats']['list'];
 }
