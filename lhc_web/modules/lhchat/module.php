@@ -368,6 +368,10 @@ $ViewList['bbcodeinsert'] = array(
 		'params' => array()
 );
 
+$ViewList['bbcodeinsertadmin'] = array(
+	'params' => array('chat_id')
+);
+
 $ViewList['chatwidgetchat'] = array(
     'params' => array('chat_id','hash'),
 	'uparams' => array('sound','mode','theme','cstarted','survey','pchat')
