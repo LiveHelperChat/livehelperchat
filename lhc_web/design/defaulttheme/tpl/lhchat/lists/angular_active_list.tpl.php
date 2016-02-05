@@ -5,7 +5,7 @@
 	<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','singlechatwindow')) : ?>
 		<a ng-if="chat.can_view_chat != undefined" class="material-icons" ng-click="lhc.startChatNewWindow(chat.id,chat.nick)" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Open in a new window');?>">open_in_new</a>
 	<?php endif; ?>
-	<a ng-class="{'a-disabled': chat.can_view_chat == undefined }" ng-click="lhc.startChat(chat.id,chat.nick)" title="{{chat.nick}}">
+	<a ng-class="{'a-disabled': chat.can_view_chat == undefined }" ng-click="lhc.startChat(chat.id,chat.nick)" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Add chat');?>">
 	{{chat.nick}}, <small><i>{{chat.time_created_front}},</i></small> {{chat.department_name}}
 	</a>
       </li>					

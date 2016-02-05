@@ -27,7 +27,7 @@
 							<a ng-if="chat.can_view_chat != undefined" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Open in a new window');?>" class="material-icons" ng-click="lhc.startChatNewWindow(chat.id,chat.nick)">open_in_new</a>
 							<?php endif; ?>
 							<a ng-if="chat.can_view_chat != undefined" ng-click="lhc.previewChat(chat.id)" class="material-icons">info_outline</a>
-							<a ng-class="{'a-disabled': chat.can_view_chat == undefined }" ng-click="lhc.startChat(chat.id,chat.nick)" title="{{chat.nick}}"> {{chat.nick}} </a>
+							<a ng-class="{'a-disabled': chat.can_view_chat == undefined }" ng-click="lhc.startChat(chat.id,chat.nick)" title="Add chat"> {{chat.nick}} </a>
 						</div>
 												
 						<div id="popover-title-{{chat.id}}" class="hide">
