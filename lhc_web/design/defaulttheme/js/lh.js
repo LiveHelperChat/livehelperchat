@@ -913,6 +913,7 @@ function lh(){
 		$.postJSON(this.wwwDir + this.trasnsferuser + chat_id + '/' + user_id ,{'type':'user'}, function(data){
 			if (data.error == 'false') {
 				$('#transfer-block-'+data.chat_id).html(data.result);
+				$('#transfer-tabpanel').remove();
 			};
 		});
 	};
@@ -949,6 +950,7 @@ function lh(){
 	    $.postJSON(this.wwwDir + this.trasnsferuser + chat_id + '/' + user_id ,{'type':'dep'}, function(data){
 	        if (data.error == 'false') {
 	        	$('#transfer-block-'+data.chat_id).html(data.result);
+			$('#transfer-tabpanel').remove();
 	        };
 	    });
 	};

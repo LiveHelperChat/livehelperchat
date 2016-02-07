@@ -26,7 +26,7 @@ if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['us
 
 	    erLhcoreClassTransfer::getSession()->save($Transfer);
 
-	    $tpl = erLhcoreClassTemplate::getInstance('lhkernel/alert_success.tpl.php');
+	    $tpl = erLhcoreClassTemplate::getInstance('lhkernel/alert_success_modal.tpl.php');
 	    if ( isset($_POST['type']) && $_POST['type'] == 'dep' ) {
 	    	$tpl->set('msg',erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferuser','Chat was assigned to selected department'));
 	    } else {
