@@ -15,18 +15,23 @@ if  ($chatTransfer->dep_id > 0) {
 
 	// User does not have access to chat in this department, that mean we do not have to do anything
 	if (!erLhcoreClassChat::hasAccessToRead($chat)){
-		exit;
-	} else {
-		$chat->user_id = $currentUser->getUserID();
-		$chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
-		$chat->user_typing_txt = (string)$chat->user.' '.htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has joined the chat!'),ENT_QUOTES);
-		$chat->user_typing  = time();
-		
-		$msg = new erLhcoreClassModelmsg();
-		$msg->msg = (string)$chat->user.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has accepted a chat!');
-		$msg->chat_id = $chat->id;
-		$msg->user_id = -1;
+		// See if we access via the specified department (don't need lhchat/allowopenremotechat)
+		$userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID());
+
+		if (count($userDepartaments) == 0 || !in_array($chat->dep_id,$userDepartaments)) {
+			exit;
+		}
 	}
+
+	$chat->user_id = $currentUser->getUserID();
+	$chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
+	$chat->user_typing_txt = (string)$chat->user.' '.htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has joined the chat!'),ENT_QUOTES);
+	$chat->user_typing  = time();
+	
+	$msg = new erLhcoreClassModelmsg();
+	$msg->msg = (string)$chat->user.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has accepted a chat!');
+	$msg->chat_id = $chat->id;
+	$msg->user_id = -1;
 }
 
 if ($chatTransfer->transfer_to_user_id == $currentUser->getUserID()){
