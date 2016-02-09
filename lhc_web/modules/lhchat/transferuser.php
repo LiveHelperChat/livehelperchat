@@ -9,6 +9,13 @@ if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['us
 	{
 		$currentUser = erLhcoreClassUser::instance();
 
+	    // Delete any existing transfer for this chat already underway
+	    $transfer = erLhcoreClassTransfer::getTransferByChat($Params['user_parameters']['chat_id']);
+	    if ($transfer) {
+		$chatTransfer = erLhcoreClassTransfer::getSession()->load( 'erLhcoreClassModelTransfer', $transfer['id']);
+		erLhcoreClassTransfer::getSession()->delete($chatTransfer);
+	    }
+
 	    $Transfer = new erLhcoreClassModelTransfer();
 	    $Transfer->chat_id = $Chat->id;
 
