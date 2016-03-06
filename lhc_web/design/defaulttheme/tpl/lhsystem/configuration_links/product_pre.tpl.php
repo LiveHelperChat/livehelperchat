@@ -1,0 +1,1 @@
+<?php $system_configuration_links_product_enabled = true;?>
