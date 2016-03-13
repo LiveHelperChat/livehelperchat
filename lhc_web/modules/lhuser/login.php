@@ -4,9 +4,13 @@ $currentUser = erLhcoreClassUser::instance();
 
 $instance = erLhcoreClassSystem::instance();
 
+$possibleLoginSiteAccess = array();
 
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.login_site_access', array('loginSiteAccess' => & $possibleLoginSiteAccess));
 
-if ($instance->SiteAccess != 'site_admin') {
+$possibleLoginSiteAccess[] = 'site_admin'; 
+
+if (!in_array($instance->SiteAccess, $possibleLoginSiteAccess)) {
 
 	if ($currentUser->isLogged() && !empty($Params['user_parameters_unordered']['r'])) {		
 		header('Location: ' .erLhcoreClassDesign::baseurldirect('site_admin').'/'.base64_decode(rawurldecode($Params['user_parameters_unordered']['r'])));		
