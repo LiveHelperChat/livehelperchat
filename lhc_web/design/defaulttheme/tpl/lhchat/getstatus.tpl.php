@@ -130,6 +130,7 @@ var lh_inst  = {
 	domain : false,
     isSharing : false,
     extensionArgs : '',    
+    prefillMessage : '',    
     getCookieDomain : function(domain) {    
     	 if (this.domain !== false) {
     	 	return this.domain;
@@ -367,9 +368,17 @@ var lh_inst  = {
     	    paramsReturn = paramsReturn + this.extensionArgs;
     	}
     	
+    	if (this.prefillMessage != '') {
+    	   paramsReturn = paramsReturn + '&' + 'prefillMsg=' + encodeURIComponent(this.prefillMessage);
+    	}
+    	
     	return paramsReturn;
     },
 
+    setDefaultMessage : function(msg) {
+        this.prefillMessage = msg;
+    },
+    
     parseOptionsOnline : function(){
     	argumentsQuery = new Array();
 
