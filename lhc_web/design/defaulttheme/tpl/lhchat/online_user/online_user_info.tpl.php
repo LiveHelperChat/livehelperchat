@@ -44,7 +44,7 @@
     <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Total pageviews');?> - <?php echo $online_user->tt_pages_count?></li>
     <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Time on site');?> - <?php echo $online_user->time_on_site_front?></li>
     <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Total time on site');?> - <?php echo $online_user->tt_time_on_site_front?></li>
-    <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Current page');?> - <a target="_blank" href="<?php echo htmlspecialchars($online_user->current_page)?>"><?php echo htmlspecialchars($online_user->current_page)?></a></li>
+    <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Current page');?> - <a target="_blank" href="<?php echo htmlspecialchars($online_user->current_page)?>" title="<?php echo htmlspecialchars($online_user->current_page)?>"><?php echo erLhcoreClassDesign::shrt($online_user->current_page,100,100);?></a></li>
     <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Came from');?> - <a target="_blank" href="<?php echo htmlspecialchars($online_user->referrer)?>"><?php echo htmlspecialchars($online_user->referrer)?></a></li>
     <li class="fs11"><i class="material-icons">language</i><?php echo htmlspecialchars($online_user->user_agent)?></li>
 </ul>
