@@ -475,13 +475,23 @@ class erLhcoreClassModule{
 
             self::$currentView = $params['view'];
             self::$currentModuleName = $params['module'];
+            
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.core.default_url', array('url' => & $url));
+            
             self::$currentModule = self::getModule(self::$currentModuleName);
         }
 
         return self::runModule();
-
     }
 
+    public static function setView($view) {
+        self::$currentView = $view;
+    }
+    
+    public static function setModule($module) {
+        self::$currentModuleName = $module;
+    }
+            
     static function redirect($url = '/', $appendURL = '')
     {
         header('Location: '. erLhcoreClassDesign::baseurl($url).$appendURL );

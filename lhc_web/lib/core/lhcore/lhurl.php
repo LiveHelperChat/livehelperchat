@@ -5,6 +5,9 @@ class erLhcoreClassURL extends ezcUrl {
 
     private static $instance = null;
 
+    private $requireSiteAccess = false;
+    private $baseUrl = null;
+    
     public function __construct($urlString, $urlCfgDefault)
     {
         parent::__construct($urlString, $urlCfgDefault);
@@ -14,11 +17,19 @@ class erLhcoreClassURL extends ezcUrl {
         self::$instance = null;
     }
     
+    public function setCoreURL($url)
+    {
+        $sysConfiguration = erLhcoreClassSystem::instance();
+        $sysConfiguration->RequestURI = ($this->requireSiteAccess == true ? $sysConfiguration->SiteAccess : '') . '/' . $url;
+        
+        $urlInstance = self::getInstance();
+        $urlInstance->parseUrl($urlInstance->baseUrl .   $sysConfiguration->RequestURI);        
+    }
+    
     public static function getInstance()
     {
         if ( is_null( self::$instance ) )
         {
-
             $sysConfiguration = erLhcoreClassSystem::instance();
 
             $urlCfgDefault = ezcUrlConfiguration::getInstance();
@@ -33,10 +44,12 @@ class erLhcoreClassURL extends ezcUrl {
             
             $cfgSite = erConfigClassLhConfig::getInstance();
             
-            $urlInstance = new erLhcoreClassURL( ($cfgSite->getSetting( 'site', 'force_virtual_host', false) === false ? 'index.php' : '') .   $sysConfiguration->RequestURI, $urlCfgDefault);
-
-            $siteaccess = $urlInstance->getParam( 'siteaccess' );
+            $baseUrl =  ($cfgSite->getSetting( 'site', 'force_virtual_host', false) === false ? 'index.php' : '');
             
+            $urlInstance = new erLhcoreClassURL($baseUrl . $sysConfiguration->RequestURI, $urlCfgDefault);
+            $urlInstance->baseUrl = $baseUrl;
+            
+            $siteaccess = $urlInstance->getParam( 'siteaccess' );
 
             $availableSiteaccess = $cfgSite->getSetting( 'site', 'available_site_access' );
             $defaultSiteAccess = $cfgSite->getSetting( 'site', 'default_site_access' );
@@ -68,6 +81,8 @@ class erLhcoreClassURL extends ezcUrl {
 		            }
                 }
                 
+                $urlInstance->requireSiteAccess = true;
+                
             } else {
 
                 $optionsSiteAccess = $cfgSite->getSetting('site_access_options',$defaultSiteAccess);
@@ -95,7 +110,7 @@ class erLhcoreClassURL extends ezcUrl {
                 // Reinit parameters
                 $urlCfgDefault->addOrderedParameter( 'module' );
                 $urlCfgDefault->addOrderedParameter( 'function' );
-
+           
                 //Apply default configuration
                 $urlInstance->applyConfiguration($urlCfgDefault);
 

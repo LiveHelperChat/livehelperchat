@@ -252,7 +252,7 @@ class ezcUrl
      *
      * @param string $url A string URL to parse
      */
-    private function parseUrl( $url = null )
+    protected function parseUrl( $url = null )
     {
         $urlArray = parse_url( $url );
 
