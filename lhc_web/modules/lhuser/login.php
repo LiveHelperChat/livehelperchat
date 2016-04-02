@@ -48,18 +48,29 @@ if (isset($_POST['Login']))
         exit;
     }
     
-    if (!$currentUser->authenticate($_POST['Username'], $_POST['Password'], isset($_POST['rememberMe']) && $_POST['rememberMe'] == 1 ? true : false))
-    {
-        $Error = erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Incorrect username or password');
-        $tpl->set('errors',array($Error));
+    $beforeLoginAuthenticateErrors = array();
+    
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.login_before_authenticate', array('errors' => & $beforeLoginAuthenticateErrors));
+    
+    if (!empty($beforeLoginAuthenticateErrors)) {
+        $tpl->set('errors', $beforeLoginAuthenticateErrors);
     } else {
-    	if ($redirect != '') {
-    		erLhcoreClassModule::redirect(base64_decode($redirect));
-    	} else {
-	        erLhcoreClassModule::redirect();
-	        exit;
-    	}
+        
+        if (!$currentUser->authenticate($_POST['Username'], $_POST['Password'], isset($_POST['rememberMe']) && $_POST['rememberMe'] == 1 ? true : false))
+        {
+            $Error = erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Incorrect username or password');
+            $tpl->set('errors',array($Error));
+        } else {
+            if ($redirect != '') {
+                erLhcoreClassModule::redirect(base64_decode($redirect));
+            } else {
+                erLhcoreClassModule::redirect();
+                exit;
+            }
+        }
+        
     }
+    
 }
 
 if (isset($_SESSION['logout_reason'])) {
