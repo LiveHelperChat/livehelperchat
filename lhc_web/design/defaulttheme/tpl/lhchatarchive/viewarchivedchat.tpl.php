@@ -12,10 +12,11 @@
 			</div>
 
 			<br>
-			<ul class="button-group round">
-			  <li><a href="<?php echo erLhcoreClassDesign::baseurl('chatarchive/listarchivechats')?>/<?php echo $archive->id?>" class="button small"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Return')?></a></li>
-			  <li><a href="<?php echo erLhcoreClassDesign::baseurl('chatarchive/deletearchivechat')?>/<?php echo $archive->id?>/<?php echo $chat->id?>" class="csfr-required alert button small" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?')?>')"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closedchats','Delete chat')?></a></li>
-			</ul>
+			
+			<div class="btn-group">
+			  <a href="<?php echo erLhcoreClassDesign::baseurl('chatarchive/listarchivechats')?>/<?php echo $archive->id?>" class="btn btn-primary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Return')?></a>
+			  <a href="<?php echo erLhcoreClassDesign::baseurl('chatarchive/deletearchivechat')?>/<?php echo $archive->id?>/<?php echo $chat->id?>" class="csfr-required btn btn-default" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?')?>')"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closedchats','Delete chat')?></a>
+			</div>
 
 			<?php include(erLhcoreClassDesign::designtpl('lhkernel/secure_links.tpl.php')); ?>
 

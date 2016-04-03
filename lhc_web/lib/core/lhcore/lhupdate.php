@@ -29,7 +29,18 @@ class erLhcoreClassUpdate
 	public static function getTablesStatus($definition){
 		$db = ezcDbInstance::get();
 		
-		$tablesStatus = array();		
+		$tablesStatus = array();
+		
+		// Get archive tables		
+		$archives = erLhcoreClassChat::getList(array('offset' => 0, 'limit' => 1000000,'sort' => 'id ASC'), 'erLhcoreClassModelChatArchiveRange', 'lh_chat_archive_range');
+		
+		// Update archives tables also
+		foreach ($archives as $archive) {
+		    $archive->setTables();
+		    $definition['tables'][erLhcoreClassModelChatArchiveRange::$archiveTable] = $definition['tables']['lh_chat'];
+		    $definition['tables'][erLhcoreClassModelChatArchiveRange::$archiveMsgTable] = $definition['tables']['lh_msg'];
+		}
+		
 		foreach ($definition['tables'] as $table => $tableDefinition) {
 			$tablesStatus[$table] = array('error' => false,'status' => '','queries' => array());
 			try {

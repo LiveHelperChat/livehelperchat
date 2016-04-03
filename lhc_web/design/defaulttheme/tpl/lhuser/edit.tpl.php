@@ -39,12 +39,12 @@
     		
     		<div class="form-group">
         		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Password');?></label>
-        		<input type="password" class="form-control" name="Password" value=""/>
+        		<input type="password" class="form-control" name="Password" value="<?php echo htmlspecialchars(isset($user->password_temp_1) ? $user->password_temp_1 : '');?>" />
     		</div>
     		
     		<div class="form-group">
         		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Repeat the new password');?></label>
-        		<input type="password" class="form-control" name="Password1" value=""/>
+        		<input type="password" class="form-control" name="Password1" value="<?php echo htmlspecialchars(isset($user->password_temp_2) ? $user->password_temp_2 : '');?>" />
     		</div>
     		
     		<div class="form-group">
