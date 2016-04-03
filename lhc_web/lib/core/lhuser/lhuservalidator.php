@@ -455,6 +455,11 @@ class erLhcoreClassUserValidator {
 			}
 		}
 				
+		if ( $form->hasValidData( 'Password' ) && $form->hasValidData( 'Password1' ) ) {
+		    $userData->password_temp_1 = $form->Password;
+		    $userData->password_temp_2 = $form->Password1;
+		}
+		
 		if ( $form->hasInputField( 'Password' ) && (!$form->hasInputField( 'Password1' ) || $form->Password != $form->Password1 ) ) {
 			$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','Passwords mismatch');
 		} else {
