@@ -92,7 +92,7 @@ class erLhcoreClassThemeValidator
                             // Store new file if required
                             $dir = 'var/storageadmintheme/' . date('Y') . 'y/' . date('m') . '/' . date('d') .'/' . $clickform->id . '/';  
 
-                            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('theme.temppath',array('dir' => & $dir, 'storage_id' => $clickform->id));
+                            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('admintheme.filedir',array('dir' => & $dir, 'storage_id' => $clickform->id));
                             
                             erLhcoreClassFileUpload::mkdirRecursive( $dir );
                             $customFields[$key]['file'] = erLhcoreClassSearchHandler::moveUploadedFile($resource . '_file_' . $key, $dir . '/','.' );
