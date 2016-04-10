@@ -54,6 +54,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Колко дни след последното показване да не се показва приставката за гласуване?</translation>
     </message>
@@ -3626,6 +3630,10 @@
       <translation>Код за вграждане Въпросник</translation>
     </message>
     <message>
+      <source>Rest API</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Start chat form settings</source>
       <translation>Настройки на форма начален чат</translation>
     </message>
@@ -4456,18 +4464,6 @@
       <translation>Статистика</translation>
     </message>
     <message>
-      <source>Chats statistic</source>
-      <translation>Чат статистики</translation>
-    </message>
-    <message>
-      <source>Total statistic</source>
-      <translation>Обща статистика</translation>
-    </message>
-    <message>
-      <source>Last 24 hours statistic</source>
-      <translation>Последните 24 часа статистика</translation>
-    </message>
-    <message>
       <source>User</source>
       <translation>Потребител</translation>
     </message>
@@ -4476,16 +4472,8 @@
       <translation>Добре</translation>
     </message>
     <message>
-      <source>Number of Thumbs Up</source>
-      <translation>Брой дадени &quot;Добре&quot;</translation>
-    </message>
-    <message>
       <source>Thumbs down</source>
       <translation>Зле</translation>
-    </message>
-    <message>
-      <source>Number of Thumbs Down</source>
-      <translation>Брой дадени &quot;Зле&quot;</translation>
     </message>
     <message>
       <source>Country</source>
@@ -4494,10 +4482,6 @@
     <message>
       <source>Chats</source>
       <translation>Чатове</translation>
-    </message>
-    <message>
-      <source>Number of chats by country</source>
-      <translation>Брой чатове по държава</translation>
     </message>
     <message>
       <source>Average in seconds</source>
@@ -4532,24 +4516,12 @@
       <translation>Изчакващи</translation>
     </message>
     <message>
-      <source>Chats number by statuses</source>
-      <translation>Брой чатове по статус</translation>
-    </message>
-    <message>
       <source>Number</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Unanswered chats numbers</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Time</source>
       <translation>Време</translation>
-    </message>
-    <message>
-      <source>AVG wait time in seconds, max 10 mininutes</source>
-      <translation>Средно време за изчакване в секунди, максимално 10 минути</translation>
     </message>
     <message>
       <source>Visitors initiated</source>
@@ -4560,10 +4532,6 @@
       <translation>Активни покани</translation>
     </message>
     <message>
-      <source>Proactive chats number vs visitors initiated</source>
-      <translation>Отношение активни покани / потребители започнали чат</translation>
-    </message>
-    <message>
       <source>Visitors</source>
       <translation>Посетители</translation>
     </message>
@@ -4572,48 +4540,8 @@
       <translation>Система</translation>
     </message>
     <message>
-      <source>Messages types</source>
-      <translation>Видове съобщения</translation>
-    </message>
-    <message>
-      <source>Number of chats per hour, average chat duration</source>
-      <translation>Брой чатове по часове, средна продължителност на чат</translation>
-    </message>
-    <message>
-      <source>Hourly statistic</source>
-      <translation>Статистика по час</translation>
-    </message>
-    <message>
-      <source>Country statistic</source>
-      <translation>Стратистика по държави</translation>
-    </message>
-    <message>
-      <source>Users statisic</source>
-      <translation>Статистика по потребители</translation>
-    </message>
-    <message>
-      <source>Number of chats by user</source>
-      <translation>Брой разговори по потребители</translation>
-    </message>
-    <message>
-      <source>Number of messages by user</source>
-      <translation>Брой съобщения по потребител</translation>
-    </message>
-    <message>
-      <source>Average chat duration by user</source>
-      <translation>Средна продължителност потребителски чат</translation>
-    </message>
-    <message>
       <source>All operators statistic will be downloaded</source>
       <translation>Всички операторски статистика ще бъдат изтеглени</translation>
-    </message>
-    <message>
-      <source>AVG visitor wait time by operator</source>
-      <translation>Средно изчакващо време на посетителя от оператора</translation>
-    </message>
-    <message>
-      <source>Last 24h statistic</source>
-      <translation>Статистика за последните 24 часа</translation>
     </message>
     <message>
       <source>Parameter</source>
@@ -4626,46 +4554,6 @@
     <message>
       <source>Total chats</source>
       <translation>Общо чатове</translation>
-    </message>
-    <message>
-      <source>Total pending chats</source>
-      <translation>Общо изчакващи чатове</translation>
-    </message>
-    <message>
-      <source>Total active chats</source>
-      <translation>Общо активни чатове</translation>
-    </message>
-    <message>
-      <source>Total closed chats</source>
-      <translation>Общо затворени чатове</translation>
-    </message>
-    <message>
-      <source>Unanswered chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chatbox chats</source>
-      <translation>Чатове в чат кутията</translation>
-    </message>
-    <message>
-      <source>Total messages (including visitors, system and operators messages)</source>
-      <translation>Общо съобщения (в т.ч. посетители, системни и операторски съобщения)</translation>
-    </message>
-    <message>
-      <source>Total messages (only visitors)</source>
-      <translation>Общо съобщения (само посетители)</translation>
-    </message>
-    <message>
-      <source>Total messages (only system messages)</source>
-      <translation>Общо съобщения (само системни съобщения)</translation>
-    </message>
-    <message>
-      <source>Total messages (only operators)</source>
-      <translation>Общо съобщения (само оператори)</translation>
-    </message>
-    <message>
-      <source>Operators statistic, top 100 by chats number</source>
-      <translation>Операторска статистика, Топ 100 по чатове номер</translation>
     </message>
     <message>
       <source>Total messages</source>
@@ -4682,6 +4570,126 @@
     <message>
       <source>ago</source>
       <translation>преди</translation>
+    </message>
+    <message>
+      <source>Average chat duration by user</source>
+      <translation>Средна продължителност потребителски чат</translation>
+    </message>
+    <message>
+      <source>AVG visitor wait time by operator</source>
+      <translation>Средно изчакващо време на посетителя от оператора</translation>
+    </message>
+    <message>
+      <source>AVG wait time in seconds, max 10 mininutes</source>
+      <translation>Средно време за изчакване в секунди, максимално 10 минути</translation>
+    </message>
+    <message>
+      <source>Chatbox chats</source>
+      <translation>Чатове в чат кутията</translation>
+    </message>
+    <message>
+      <source>Chats number by statuses</source>
+      <translation>Брой чатове по статус</translation>
+    </message>
+    <message>
+      <source>Chats statistic</source>
+      <translation>Чат статистики</translation>
+    </message>
+    <message>
+      <source>Country statistic</source>
+      <translation>Стратистика по държави</translation>
+    </message>
+    <message>
+      <source>Hourly statistic</source>
+      <translation>Статистика по час</translation>
+    </message>
+    <message>
+      <source>Last 24h statistic</source>
+      <translation>Статистика за последните 24 часа</translation>
+    </message>
+    <message>
+      <source>Messages types</source>
+      <translation>Видове съобщения</translation>
+    </message>
+    <message>
+      <source>Number of chats by country</source>
+      <translation>Брой чатове по държава</translation>
+    </message>
+    <message>
+      <source>Number of chats by user</source>
+      <translation>Брой разговори по потребители</translation>
+    </message>
+    <message>
+      <source>Number of chats per hour, average chat duration</source>
+      <translation>Брой чатове по часове, средна продължителност на чат</translation>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation>Брой съобщения по потребител</translation>
+    </message>
+    <message>
+      <source>Number of Thumbs Down</source>
+      <translation>Брой дадени &quot;Зле&quot;</translation>
+    </message>
+    <message>
+      <source>Number of Thumbs Up</source>
+      <translation>Брой дадени &quot;Добре&quot;</translation>
+    </message>
+    <message>
+      <source>Operators statistic, top 100 by chats number</source>
+      <translation>Операторска статистика, Топ 100 по чатове номер</translation>
+    </message>
+    <message>
+      <source>Proactive chats number vs visitors initiated</source>
+      <translation>Отношение активни покани / потребители започнали чат</translation>
+    </message>
+    <message>
+      <source>Last 24 hours statistic</source>
+      <translation>Последните 24 часа статистика</translation>
+    </message>
+    <message>
+      <source>Total statistic</source>
+      <translation>Обща статистика</translation>
+    </message>
+    <message>
+      <source>Total active chats</source>
+      <translation>Общо активни чатове</translation>
+    </message>
+    <message>
+      <source>Total closed chats</source>
+      <translation>Общо затворени чатове</translation>
+    </message>
+    <message>
+      <source>Total messages (including visitors, system and operators messages)</source>
+      <translation>Общо съобщения (в т.ч. посетители, системни и операторски съобщения)</translation>
+    </message>
+    <message>
+      <source>Total messages (only operators)</source>
+      <translation>Общо съобщения (само оператори)</translation>
+    </message>
+    <message>
+      <source>Total messages (only system messages)</source>
+      <translation>Общо съобщения (само системни съобщения)</translation>
+    </message>
+    <message>
+      <source>Total messages (only visitors)</source>
+      <translation>Общо съобщения (само посетители)</translation>
+    </message>
+    <message>
+      <source>Total pending chats</source>
+      <translation>Общо изчакващи чатове</translation>
+    </message>
+    <message>
+      <source>Unanswered chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unanswered chats numbers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Users statisic</source>
+      <translation>Статистика по потребители</translation>
     </message>
   </context>
   <context>
@@ -7008,6 +7016,10 @@
       <translation>Качване на нова тема</translation>
     </message>
     <message>
+      <source>Rest API</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Themes</source>
       <translation>Теми</translation>
     </message>
@@ -7867,6 +7879,10 @@
       <source>Product</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>API Key</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>user/validator</name>
@@ -7934,6 +7950,17 @@
     </message>
     <message>
       <source>Secret hash, used for verification</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>lhrestapi/index</name>
+    <message>
+      <source>Rest API</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Rest API Keys</source>
       <translation type="unfinished"/>
     </message>
   </context>

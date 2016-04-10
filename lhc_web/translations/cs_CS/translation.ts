@@ -54,6 +54,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Po kolik dní by se neměl hlasovací widget zvětšovat od posledního zobrazení</translation>
     </message>
@@ -2247,7 +2251,7 @@
     </message>
     <message>
       <source>Sort</source>
-      <translation type="unfinished"/>
+      <translation>Seřadit</translation>
     </message>
     <message>
       <source>Wait time</source>
@@ -3626,6 +3630,10 @@
       <translation>Vložený kód dotazníku</translation>
     </message>
     <message>
+      <source>Rest API</source>
+      <translation>Rest API</translation>
+    </message>
+    <message>
       <source>Start chat form settings</source>
       <translation>Nastavení formuláře spouštějícího rozhovor</translation>
     </message>
@@ -4456,18 +4464,6 @@
       <translation>Statistika</translation>
     </message>
     <message>
-      <source>Chats statistic</source>
-      <translation>Statistiky rozhovorů</translation>
-    </message>
-    <message>
-      <source>Total statistic</source>
-      <translation>Celková statistika</translation>
-    </message>
-    <message>
-      <source>Last 24 hours statistic</source>
-      <translation>Statistika posledních 24 hodin</translation>
-    </message>
-    <message>
       <source>User</source>
       <translation>Uživatel</translation>
     </message>
@@ -4476,16 +4472,8 @@
       <translation>Palec nahoru</translation>
     </message>
     <message>
-      <source>Number of Thumbs Up</source>
-      <translation>Počet palců nahoru</translation>
-    </message>
-    <message>
       <source>Thumbs down</source>
       <translation>Palec dolů</translation>
-    </message>
-    <message>
-      <source>Number of Thumbs Down</source>
-      <translation>Počet palců dolů</translation>
     </message>
     <message>
       <source>Country</source>
@@ -4494,10 +4482,6 @@
     <message>
       <source>Chats</source>
       <translation>Rozhovory</translation>
-    </message>
-    <message>
-      <source>Number of chats by country</source>
-      <translation>Počet rozhovorů podle země</translation>
     </message>
     <message>
       <source>Average in seconds</source>
@@ -4532,24 +4516,12 @@
       <translation>Čekající</translation>
     </message>
     <message>
-      <source>Chats number by statuses</source>
-      <translation>Počty rozhovorů podle stavu</translation>
-    </message>
-    <message>
       <source>Number</source>
       <translation>Číslo</translation>
     </message>
     <message>
-      <source>Unanswered chats numbers</source>
-      <translation>Počet nezodpovězených rozhovorů</translation>
-    </message>
-    <message>
       <source>Time</source>
       <translation>Čas</translation>
-    </message>
-    <message>
-      <source>AVG wait time in seconds, max 10 mininutes</source>
-      <translation>Průměrný čas čekání ve vteřinách, max 10 minut</translation>
     </message>
     <message>
       <source>Visitors initiated</source>
@@ -4560,10 +4532,6 @@
       <translation>Proaktivní</translation>
     </message>
     <message>
-      <source>Proactive chats number vs visitors initiated</source>
-      <translation>Proaktivní rozhovory vs. vyvolané uživateli</translation>
-    </message>
-    <message>
       <source>Visitors</source>
       <translation>Návštěvníci</translation>
     </message>
@@ -4572,48 +4540,8 @@
       <translation>Systém</translation>
     </message>
     <message>
-      <source>Messages types</source>
-      <translation>Typy zpráv</translation>
-    </message>
-    <message>
-      <source>Number of chats per hour, average chat duration</source>
-      <translation>Počet rozhovorů za hodinu, průměrná délka rozhovoru</translation>
-    </message>
-    <message>
-      <source>Hourly statistic</source>
-      <translation>Hodinová statistika</translation>
-    </message>
-    <message>
-      <source>Country statistic</source>
-      <translation>Statistika zemí</translation>
-    </message>
-    <message>
-      <source>Users statisic</source>
-      <translation>Statistika uživatelů</translation>
-    </message>
-    <message>
-      <source>Number of chats by user</source>
-      <translation>Počet rozhovorů podle uživatele</translation>
-    </message>
-    <message>
-      <source>Number of messages by user</source>
-      <translation>Počet zpráv podle uživatele</translation>
-    </message>
-    <message>
-      <source>Average chat duration by user</source>
-      <translation>Průměrná délka rozhovoru na uživatele</translation>
-    </message>
-    <message>
       <source>All operators statistic will be downloaded</source>
       <translation>Budou staženy statistiky všech operátorů</translation>
-    </message>
-    <message>
-      <source>AVG visitor wait time by operator</source>
-      <translation>Průměrný čas čekání návštěvníka podle operátora</translation>
-    </message>
-    <message>
-      <source>Last 24h statistic</source>
-      <translation>Statistika za posledních 24 hodin</translation>
     </message>
     <message>
       <source>Parameter</source>
@@ -4626,46 +4554,6 @@
     <message>
       <source>Total chats</source>
       <translation>Celkem rozhovorů</translation>
-    </message>
-    <message>
-      <source>Total pending chats</source>
-      <translation>Celkem čekajících rozhovorů</translation>
-    </message>
-    <message>
-      <source>Total active chats</source>
-      <translation>Celkem aktivních rozhovorů</translation>
-    </message>
-    <message>
-      <source>Total closed chats</source>
-      <translation>Celkem ukončených rozhovorů</translation>
-    </message>
-    <message>
-      <source>Unanswered chats</source>
-      <translation>Nezodpovězené rozhovory</translation>
-    </message>
-    <message>
-      <source>Chatbox chats</source>
-      <translation>Chatbox rozhovory</translation>
-    </message>
-    <message>
-      <source>Total messages (including visitors, system and operators messages)</source>
-      <translation>Celkem zpráv (včetně zpráv návštěvníků, systému a operátorů)</translation>
-    </message>
-    <message>
-      <source>Total messages (only visitors)</source>
-      <translation>Celkem zpráv (pouze návštěvníci)</translation>
-    </message>
-    <message>
-      <source>Total messages (only system messages)</source>
-      <translation>Celkem zpráv (pouze systémová hlášení)</translation>
-    </message>
-    <message>
-      <source>Total messages (only operators)</source>
-      <translation>Celkem zpráv (pouze od operátorů)</translation>
-    </message>
-    <message>
-      <source>Operators statistic, top 100 by chats number</source>
-      <translation>Statistika operátorů, top 100 podle počtu rozhovorů</translation>
     </message>
     <message>
       <source>Total messages</source>
@@ -4682,6 +4570,126 @@
     <message>
       <source>ago</source>
       <translation>zpátky</translation>
+    </message>
+    <message>
+      <source>Average chat duration by user</source>
+      <translation>Průměrná délka rozhovoru na uživatele</translation>
+    </message>
+    <message>
+      <source>AVG visitor wait time by operator</source>
+      <translation>Průměrný čas čekání návštěvníka podle operátora</translation>
+    </message>
+    <message>
+      <source>AVG wait time in seconds, max 10 mininutes</source>
+      <translation>Průměrný čas čekání ve vteřinách, max 10 minut</translation>
+    </message>
+    <message>
+      <source>Chatbox chats</source>
+      <translation>Chatbox rozhovory</translation>
+    </message>
+    <message>
+      <source>Chats number by statuses</source>
+      <translation>Počty rozhovorů podle stavu</translation>
+    </message>
+    <message>
+      <source>Chats statistic</source>
+      <translation>Statistiky rozhovorů</translation>
+    </message>
+    <message>
+      <source>Country statistic</source>
+      <translation>Statistika zemí</translation>
+    </message>
+    <message>
+      <source>Hourly statistic</source>
+      <translation>Hodinová statistika</translation>
+    </message>
+    <message>
+      <source>Last 24h statistic</source>
+      <translation>Statistika za posledních 24 hodin</translation>
+    </message>
+    <message>
+      <source>Messages types</source>
+      <translation>Typy zpráv</translation>
+    </message>
+    <message>
+      <source>Number of chats by country</source>
+      <translation>Počet rozhovorů podle země</translation>
+    </message>
+    <message>
+      <source>Number of chats by user</source>
+      <translation>Počet rozhovorů podle uživatele</translation>
+    </message>
+    <message>
+      <source>Number of chats per hour, average chat duration</source>
+      <translation>Počet rozhovorů za hodinu, průměrná délka rozhovoru</translation>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation>Počet zpráv podle uživatele</translation>
+    </message>
+    <message>
+      <source>Number of Thumbs Down</source>
+      <translation>Počet palců dolů</translation>
+    </message>
+    <message>
+      <source>Number of Thumbs Up</source>
+      <translation>Počet palců nahoru</translation>
+    </message>
+    <message>
+      <source>Operators statistic, top 100 by chats number</source>
+      <translation>Statistika operátorů, top 100 podle počtu rozhovorů</translation>
+    </message>
+    <message>
+      <source>Proactive chats number vs visitors initiated</source>
+      <translation>Proaktivní rozhovory vs. vyvolané uživateli</translation>
+    </message>
+    <message>
+      <source>Last 24 hours statistic</source>
+      <translation>Statistika posledních 24 hodin</translation>
+    </message>
+    <message>
+      <source>Total statistic</source>
+      <translation>Celková statistika</translation>
+    </message>
+    <message>
+      <source>Total active chats</source>
+      <translation>Celkem aktivních rozhovorů</translation>
+    </message>
+    <message>
+      <source>Total closed chats</source>
+      <translation>Celkem ukončených rozhovorů</translation>
+    </message>
+    <message>
+      <source>Total messages (including visitors, system and operators messages)</source>
+      <translation>Celkem zpráv (včetně zpráv návštěvníků, systému a operátorů)</translation>
+    </message>
+    <message>
+      <source>Total messages (only operators)</source>
+      <translation>Celkem zpráv (pouze od operátorů)</translation>
+    </message>
+    <message>
+      <source>Total messages (only system messages)</source>
+      <translation>Celkem zpráv (pouze systémová hlášení)</translation>
+    </message>
+    <message>
+      <source>Total messages (only visitors)</source>
+      <translation>Celkem zpráv (pouze návštěvníci)</translation>
+    </message>
+    <message>
+      <source>Total pending chats</source>
+      <translation>Celkem čekajících rozhovorů</translation>
+    </message>
+    <message>
+      <source>Unanswered chats</source>
+      <translation>Nezodpovězené rozhovory</translation>
+    </message>
+    <message>
+      <source>Unanswered chats numbers</source>
+      <translation>Počet nezodpovězených rozhovorů</translation>
+    </message>
+    <message>
+      <source>Users statisic</source>
+      <translation>Statistika uživatelů</translation>
     </message>
   </context>
   <context>
@@ -7008,6 +7016,10 @@
       <translation>Importovat novou šablonu</translation>
     </message>
     <message>
+      <source>Rest API</source>
+      <translation>Rest API</translation>
+    </message>
+    <message>
       <source>Themes</source>
       <translation>Témata</translation>
     </message>
@@ -7867,6 +7879,10 @@
       <source>Product</source>
       <translation>Výrobek</translation>
     </message>
+    <message>
+      <source>API Key</source>
+      <translation>API klíč</translation>
+    </message>
   </context>
   <context>
     <name>user/validator</name>
@@ -7935,6 +7951,17 @@
     <message>
       <source>Secret hash, used for verification</source>
       <translation>Tajný hash, používá se k ověření</translation>
+    </message>
+  </context>
+  <context>
+    <name>lhrestapi/index</name>
+    <message>
+      <source>Rest API</source>
+      <translation>Rest API</translation>
+    </message>
+    <message>
+      <source>Rest API Keys</source>
+      <translation>Rest API klíče</translation>
     </message>
   </context>
 </TS>

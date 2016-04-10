@@ -54,6 +54,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>多少天投票窗口小部件不应扩大后最后的展示</translation>
     </message>
@@ -3626,6 +3630,10 @@
       <translation>問卷嵌入代碼</translation>
     </message>
     <message>
+      <source>Rest API</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Start chat form settings</source>
       <translation>开始聊天的形式设置</translation>
     </message>
@@ -4456,18 +4464,6 @@
       <translation>统计</translation>
     </message>
     <message>
-      <source>Chats statistic</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Total statistic</source>
-      <translation>总统计</translation>
-    </message>
-    <message>
-      <source>Last 24 hours statistic</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>User</source>
       <translation>用户</translation>
     </message>
@@ -4476,15 +4472,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Number of Thumbs Up</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Thumbs down</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Number of Thumbs Down</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4493,10 +4481,6 @@
     </message>
     <message>
       <source>Chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Number of chats by country</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4532,23 +4516,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Chats number by statuses</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Number</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Unanswered chats numbers</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Time</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>AVG wait time in seconds, max 10 mininutes</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4560,10 +4532,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Proactive chats number vs visitors initiated</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Visitors</source>
       <translation type="unfinished"/>
     </message>
@@ -4572,48 +4540,8 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Messages types</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Number of chats per hour, average chat duration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Hourly statistic</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Country statistic</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Users statisic</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Number of chats by user</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Number of messages by user</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Average chat duration by user</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>All operators statistic will be downloaded</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>AVG visitor wait time by operator</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Last 24h statistic</source>
-      <translation>最近24小时统计</translation>
     </message>
     <message>
       <source>Parameter</source>
@@ -4626,46 +4554,6 @@
     <message>
       <source>Total chats</source>
       <translation>总聊天</translation>
-    </message>
-    <message>
-      <source>Total pending chats</source>
-      <translation>总未决聊天的</translation>
-    </message>
-    <message>
-      <source>Total active chats</source>
-      <translation>总活性聊天</translation>
-    </message>
-    <message>
-      <source>Total closed chats</source>
-      <translation>总封闭聊天</translation>
-    </message>
-    <message>
-      <source>Unanswered chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chatbox chats</source>
-      <translation>客舱聊天</translation>
-    </message>
-    <message>
-      <source>Total messages (including visitors, system and operators messages)</source>
-      <translation>总信息（包括游客，系统和运营商消息）</translation>
-    </message>
-    <message>
-      <source>Total messages (only visitors)</source>
-      <translation>总的消息（游客）</translation>
-    </message>
-    <message>
-      <source>Total messages (only system messages)</source>
-      <translation>总信息（只有系统消息）</translation>
-    </message>
-    <message>
-      <source>Total messages (only operators)</source>
-      <translation>总消息（运营商）</translation>
-    </message>
-    <message>
-      <source>Operators statistic, top 100 by chats number</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Total messages</source>
@@ -4682,6 +4570,126 @@
     <message>
       <source>ago</source>
       <translation>前</translation>
+    </message>
+    <message>
+      <source>Average chat duration by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>AVG visitor wait time by operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>AVG wait time in seconds, max 10 mininutes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox chats</source>
+      <translation>客舱聊天</translation>
+    </message>
+    <message>
+      <source>Chats number by statuses</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Country statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hourly statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last 24h statistic</source>
+      <translation>最近24小时统计</translation>
+    </message>
+    <message>
+      <source>Messages types</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of chats by country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of chats by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of chats per hour, average chat duration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of Thumbs Down</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of Thumbs Up</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators statistic, top 100 by chats number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Proactive chats number vs visitors initiated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last 24 hours statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total statistic</source>
+      <translation>总统计</translation>
+    </message>
+    <message>
+      <source>Total active chats</source>
+      <translation>总活性聊天</translation>
+    </message>
+    <message>
+      <source>Total closed chats</source>
+      <translation>总封闭聊天</translation>
+    </message>
+    <message>
+      <source>Total messages (including visitors, system and operators messages)</source>
+      <translation>总信息（包括游客，系统和运营商消息）</translation>
+    </message>
+    <message>
+      <source>Total messages (only operators)</source>
+      <translation>总消息（运营商）</translation>
+    </message>
+    <message>
+      <source>Total messages (only system messages)</source>
+      <translation>总信息（只有系统消息）</translation>
+    </message>
+    <message>
+      <source>Total messages (only visitors)</source>
+      <translation>总的消息（游客）</translation>
+    </message>
+    <message>
+      <source>Total pending chats</source>
+      <translation>总未决聊天的</translation>
+    </message>
+    <message>
+      <source>Unanswered chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unanswered chats numbers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Users statisic</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -7008,6 +7016,10 @@
       <translation>导入一个新主题</translation>
     </message>
     <message>
+      <source>Rest API</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Themes</source>
       <translation>主题</translation>
     </message>
@@ -7867,6 +7879,10 @@
       <source>Product</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>API Key</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>user/validator</name>
@@ -7934,6 +7950,17 @@
     </message>
     <message>
       <source>Secret hash, used for verification</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>lhrestapi/index</name>
+    <message>
+      <source>Rest API</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Rest API Keys</source>
       <translation type="unfinished"/>
     </message>
   </context>

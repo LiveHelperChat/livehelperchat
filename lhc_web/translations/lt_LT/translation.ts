@@ -54,6 +54,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Kiek dienų balsavimo widgetas neturėtų būti išskleistas po paskutinio parodymo</translation>
     </message>
@@ -3626,6 +3630,10 @@
       <translation>Klausimyno įterpimo kodas</translation>
     </message>
     <message>
+      <source>Rest API</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Start chat form settings</source>
       <translation>Pokalbio pradžios formos nustatymai</translation>
     </message>
@@ -4456,18 +4464,6 @@
       <translation>Statistika</translation>
     </message>
     <message>
-      <source>Chats statistic</source>
-      <translation>Pokalbių statistika</translation>
-    </message>
-    <message>
-      <source>Total statistic</source>
-      <translation>Bendra statistika</translation>
-    </message>
-    <message>
-      <source>Last 24 hours statistic</source>
-      <translation>Paskutinių 24 valandų statistika</translation>
-    </message>
-    <message>
       <source>User</source>
       <translation>Vartotojas</translation>
     </message>
@@ -4476,16 +4472,8 @@
       <translation>Geras atsiliepimas</translation>
     </message>
     <message>
-      <source>Number of Thumbs Up</source>
-      <translation>Gerų atsiliepimų skaičius</translation>
-    </message>
-    <message>
       <source>Thumbs down</source>
       <translation>Blogas atsiliepimas</translation>
-    </message>
-    <message>
-      <source>Number of Thumbs Down</source>
-      <translation>Blogų atsiliepimų skaičius</translation>
     </message>
     <message>
       <source>Country</source>
@@ -4494,10 +4482,6 @@
     <message>
       <source>Chats</source>
       <translation>Pokalbiai</translation>
-    </message>
-    <message>
-      <source>Number of chats by country</source>
-      <translation>Pokalbių skaičius pagal šalį</translation>
     </message>
     <message>
       <source>Average in seconds</source>
@@ -4532,24 +4516,12 @@
       <translation>Laukiantys</translation>
     </message>
     <message>
-      <source>Chats number by statuses</source>
-      <translation>Pokalbių skaičius pagal būsenas</translation>
-    </message>
-    <message>
       <source>Number</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Unanswered chats numbers</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Time</source>
       <translation>Laikas</translation>
-    </message>
-    <message>
-      <source>AVG wait time in seconds, max 10 mininutes</source>
-      <translation>Vidutinis laukimo laikas sekundėmis, max 10 minučių</translation>
     </message>
     <message>
       <source>Visitors initiated</source>
@@ -4560,10 +4532,6 @@
       <translation>Proactive</translation>
     </message>
     <message>
-      <source>Proactive chats number vs visitors initiated</source>
-      <translation>Proactive VS vartotojų inicijuotus</translation>
-    </message>
-    <message>
       <source>Visitors</source>
       <translation>Lankytojais</translation>
     </message>
@@ -4572,48 +4540,8 @@
       <translation>Sistema</translation>
     </message>
     <message>
-      <source>Messages types</source>
-      <translation>Žinučių tipai</translation>
-    </message>
-    <message>
-      <source>Number of chats per hour, average chat duration</source>
-      <translation>Pokalbių skaičius per valandą, vidutinė pokalbių trukmė</translation>
-    </message>
-    <message>
-      <source>Hourly statistic</source>
-      <translation>Valandinė statistika</translation>
-    </message>
-    <message>
-      <source>Country statistic</source>
-      <translation>Šalies statistika</translation>
-    </message>
-    <message>
-      <source>Users statisic</source>
-      <translation>Vartotojų statistika</translation>
-    </message>
-    <message>
-      <source>Number of chats by user</source>
-      <translation>Pokalbių skaičius per vartotoją</translation>
-    </message>
-    <message>
-      <source>Number of messages by user</source>
-      <translation>Žinučių skaičius pagal operatorių</translation>
-    </message>
-    <message>
-      <source>Average chat duration by user</source>
-      <translation>Vidutinė pokalbio trukmė pagal vartotoją</translation>
-    </message>
-    <message>
       <source>All operators statistic will be downloaded</source>
       <translation>Visų operatorių statistika bus parsisiųsta</translation>
-    </message>
-    <message>
-      <source>AVG visitor wait time by operator</source>
-      <translation>Vidutinis lankytojo laukimo laikas pagal operatorių</translation>
-    </message>
-    <message>
-      <source>Last 24h statistic</source>
-      <translation>Paskutinių 24 val. statistika</translation>
     </message>
     <message>
       <source>Parameter</source>
@@ -4626,46 +4554,6 @@
     <message>
       <source>Total chats</source>
       <translation>Viso pokalbių</translation>
-    </message>
-    <message>
-      <source>Total pending chats</source>
-      <translation>Viso laukiančių pokalbių</translation>
-    </message>
-    <message>
-      <source>Total active chats</source>
-      <translation>Viso aktyvių pokalbių</translation>
-    </message>
-    <message>
-      <source>Total closed chats</source>
-      <translation>Viso uždarytų pokalbių</translation>
-    </message>
-    <message>
-      <source>Unanswered chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chatbox chats</source>
-      <translation>Chatbox pokalbių</translation>
-    </message>
-    <message>
-      <source>Total messages (including visitors, system and operators messages)</source>
-      <translation>Viso žinučių (įskaitant lankytojų, sistemos ir operatorių žinutes)</translation>
-    </message>
-    <message>
-      <source>Total messages (only visitors)</source>
-      <translation>Viso žinučių (tik lankytojų)</translation>
-    </message>
-    <message>
-      <source>Total messages (only system messages)</source>
-      <translation>Viso žinučių (tik sistemos žinutės)</translation>
-    </message>
-    <message>
-      <source>Total messages (only operators)</source>
-      <translation>Viso žinučių (tik operatorių žinutės)</translation>
-    </message>
-    <message>
-      <source>Operators statistic, top 100 by chats number</source>
-      <translation>Operatorių statistika, top 100 pagal pokalbių skaičių</translation>
     </message>
     <message>
       <source>Total messages</source>
@@ -4682,6 +4570,126 @@
     <message>
       <source>ago</source>
       <translation>prieš</translation>
+    </message>
+    <message>
+      <source>Average chat duration by user</source>
+      <translation>Vidutinė pokalbio trukmė pagal vartotoją</translation>
+    </message>
+    <message>
+      <source>AVG visitor wait time by operator</source>
+      <translation>Vidutinis lankytojo laukimo laikas pagal operatorių</translation>
+    </message>
+    <message>
+      <source>AVG wait time in seconds, max 10 mininutes</source>
+      <translation>Vidutinis laukimo laikas sekundėmis, max 10 minučių</translation>
+    </message>
+    <message>
+      <source>Chatbox chats</source>
+      <translation>Chatbox pokalbių</translation>
+    </message>
+    <message>
+      <source>Chats number by statuses</source>
+      <translation>Pokalbių skaičius pagal būsenas</translation>
+    </message>
+    <message>
+      <source>Chats statistic</source>
+      <translation>Pokalbių statistika</translation>
+    </message>
+    <message>
+      <source>Country statistic</source>
+      <translation>Šalies statistika</translation>
+    </message>
+    <message>
+      <source>Hourly statistic</source>
+      <translation>Valandinė statistika</translation>
+    </message>
+    <message>
+      <source>Last 24h statistic</source>
+      <translation>Paskutinių 24 val. statistika</translation>
+    </message>
+    <message>
+      <source>Messages types</source>
+      <translation>Žinučių tipai</translation>
+    </message>
+    <message>
+      <source>Number of chats by country</source>
+      <translation>Pokalbių skaičius pagal šalį</translation>
+    </message>
+    <message>
+      <source>Number of chats by user</source>
+      <translation>Pokalbių skaičius per vartotoją</translation>
+    </message>
+    <message>
+      <source>Number of chats per hour, average chat duration</source>
+      <translation>Pokalbių skaičius per valandą, vidutinė pokalbių trukmė</translation>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation>Žinučių skaičius pagal operatorių</translation>
+    </message>
+    <message>
+      <source>Number of Thumbs Down</source>
+      <translation>Blogų atsiliepimų skaičius</translation>
+    </message>
+    <message>
+      <source>Number of Thumbs Up</source>
+      <translation>Gerų atsiliepimų skaičius</translation>
+    </message>
+    <message>
+      <source>Operators statistic, top 100 by chats number</source>
+      <translation>Operatorių statistika, top 100 pagal pokalbių skaičių</translation>
+    </message>
+    <message>
+      <source>Proactive chats number vs visitors initiated</source>
+      <translation>Proactive VS vartotojų inicijuotus</translation>
+    </message>
+    <message>
+      <source>Last 24 hours statistic</source>
+      <translation>Paskutinių 24 valandų statistika</translation>
+    </message>
+    <message>
+      <source>Total statistic</source>
+      <translation>Bendra statistika</translation>
+    </message>
+    <message>
+      <source>Total active chats</source>
+      <translation>Viso aktyvių pokalbių</translation>
+    </message>
+    <message>
+      <source>Total closed chats</source>
+      <translation>Viso uždarytų pokalbių</translation>
+    </message>
+    <message>
+      <source>Total messages (including visitors, system and operators messages)</source>
+      <translation>Viso žinučių (įskaitant lankytojų, sistemos ir operatorių žinutes)</translation>
+    </message>
+    <message>
+      <source>Total messages (only operators)</source>
+      <translation>Viso žinučių (tik operatorių žinutės)</translation>
+    </message>
+    <message>
+      <source>Total messages (only system messages)</source>
+      <translation>Viso žinučių (tik sistemos žinutės)</translation>
+    </message>
+    <message>
+      <source>Total messages (only visitors)</source>
+      <translation>Viso žinučių (tik lankytojų)</translation>
+    </message>
+    <message>
+      <source>Total pending chats</source>
+      <translation>Viso laukiančių pokalbių</translation>
+    </message>
+    <message>
+      <source>Unanswered chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unanswered chats numbers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Users statisic</source>
+      <translation>Vartotojų statistika</translation>
     </message>
   </context>
   <context>
@@ -7008,6 +7016,10 @@
       <translation>Importuoti naują temą</translation>
     </message>
     <message>
+      <source>Rest API</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Themes</source>
       <translation>Temos</translation>
     </message>
@@ -7867,6 +7879,10 @@
       <source>Product</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>API Key</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>user/validator</name>
@@ -7934,6 +7950,17 @@
     </message>
     <message>
       <source>Secret hash, used for verification</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>lhrestapi/index</name>
+    <message>
+      <source>Rest API</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Rest API Keys</source>
       <translation type="unfinished"/>
     </message>
   </context>

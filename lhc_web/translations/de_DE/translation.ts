@@ -54,6 +54,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Wie viele Tage lang soll das Bewertungs-Widget seit der letzten Anzeige nicht erweitert werden</translation>
     </message>
@@ -3626,6 +3630,10 @@
       <translation>Code zum einbetten des Fragebogens</translation>
     </message>
     <message>
+      <source>Rest API</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Start chat form settings</source>
       <translation>Chat Einstellungen</translation>
     </message>
@@ -4456,18 +4464,6 @@
       <translation>Statistik</translation>
     </message>
     <message>
-      <source>Chats statistic</source>
-      <translation>Chat Statistik</translation>
-    </message>
-    <message>
-      <source>Total statistic</source>
-      <translation>Gesamt-Statistik</translation>
-    </message>
-    <message>
-      <source>Last 24 hours statistic</source>
-      <translation>Statistik der letzten 24 Stunden</translation>
-    </message>
-    <message>
       <source>User</source>
       <translation>Benutzer</translation>
     </message>
@@ -4476,16 +4472,8 @@
       <translation>Daumen hoch</translation>
     </message>
     <message>
-      <source>Number of Thumbs Up</source>
-      <translation>Anzahl der Daumen hoch</translation>
-    </message>
-    <message>
       <source>Thumbs down</source>
       <translation>Daumen runter</translation>
-    </message>
-    <message>
-      <source>Number of Thumbs Down</source>
-      <translation>Anzahl der Daumen nach unten</translation>
     </message>
     <message>
       <source>Country</source>
@@ -4494,10 +4482,6 @@
     <message>
       <source>Chats</source>
       <translation>Chats</translation>
-    </message>
-    <message>
-      <source>Number of chats by country</source>
-      <translation>Anzahl der Chats nach Land</translation>
     </message>
     <message>
       <source>Average in seconds</source>
@@ -4532,24 +4516,12 @@
       <translation>Wartend</translation>
     </message>
     <message>
-      <source>Chats number by statuses</source>
-      <translation>Chat Anzahl nach Zuständen</translation>
-    </message>
-    <message>
       <source>Number</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Unanswered chats numbers</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Time</source>
       <translation>Zeit</translation>
-    </message>
-    <message>
-      <source>AVG wait time in seconds, max 10 mininutes</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visitors initiated</source>
@@ -4560,10 +4532,6 @@
       <translation>Proaktiv</translation>
     </message>
     <message>
-      <source>Proactive chats number vs visitors initiated</source>
-      <translation>Proaktive Chatanzahl vs Besucher eingeladen</translation>
-    </message>
-    <message>
       <source>Visitors</source>
       <translation>Besucher</translation>
     </message>
@@ -4572,48 +4540,8 @@
       <translation>System</translation>
     </message>
     <message>
-      <source>Messages types</source>
-      <translation>Nachrichten-Typen</translation>
-    </message>
-    <message>
-      <source>Number of chats per hour, average chat duration</source>
-      <translation>Anzahl der Chats pro Stunde, durchschnittliche Chatdauer</translation>
-    </message>
-    <message>
-      <source>Hourly statistic</source>
-      <translation>Stündliche Statistik</translation>
-    </message>
-    <message>
-      <source>Country statistic</source>
-      <translation>Land Statistik</translation>
-    </message>
-    <message>
-      <source>Users statisic</source>
-      <translation>User Statistik</translation>
-    </message>
-    <message>
-      <source>Number of chats by user</source>
-      <translation>Anzahl der Chats je User</translation>
-    </message>
-    <message>
-      <source>Number of messages by user</source>
-      <translation>Anzahl der Nachrichten je User</translation>
-    </message>
-    <message>
-      <source>Average chat duration by user</source>
-      <translation>Durchschnittliche Chatdauer je User</translation>
-    </message>
-    <message>
       <source>All operators statistic will be downloaded</source>
       <translation>Alle Statistiken der Support-Mitarbeiter werden heruntergeladen</translation>
-    </message>
-    <message>
-      <source>AVG visitor wait time by operator</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Last 24h statistic</source>
-      <translation>Statistik der letzten 24 Stunden</translation>
     </message>
     <message>
       <source>Parameter</source>
@@ -4626,46 +4554,6 @@
     <message>
       <source>Total chats</source>
       <translation>Chats insgesamt</translation>
-    </message>
-    <message>
-      <source>Total pending chats</source>
-      <translation>Wartende Chats insgesamt</translation>
-    </message>
-    <message>
-      <source>Total active chats</source>
-      <translation>Aktive Chats insgesamt</translation>
-    </message>
-    <message>
-      <source>Total closed chats</source>
-      <translation>Geschlossene Chats insgesamt</translation>
-    </message>
-    <message>
-      <source>Unanswered chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chatbox chats</source>
-      <translation>Chats über Chat-Box</translation>
-    </message>
-    <message>
-      <source>Total messages (including visitors, system and operators messages)</source>
-      <translation>Nachrichten insgesamt (Besucher-, System- und Operatoren-Nachrichten)</translation>
-    </message>
-    <message>
-      <source>Total messages (only visitors)</source>
-      <translation>Nachrichten insgesamt (nur Besucher-Nachrichten)</translation>
-    </message>
-    <message>
-      <source>Total messages (only system messages)</source>
-      <translation>Nachrichten insgesamt (nur System-Nachrichten)</translation>
-    </message>
-    <message>
-      <source>Total messages (only operators)</source>
-      <translation>Nachrichten insgesamt (nur Operatoren-Nachrichten)</translation>
-    </message>
-    <message>
-      <source>Operators statistic, top 100 by chats number</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Total messages</source>
@@ -4682,6 +4570,126 @@
     <message>
       <source>ago</source>
       <translation>zuvor</translation>
+    </message>
+    <message>
+      <source>Average chat duration by user</source>
+      <translation>Durchschnittliche Chatdauer je User</translation>
+    </message>
+    <message>
+      <source>AVG visitor wait time by operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>AVG wait time in seconds, max 10 mininutes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox chats</source>
+      <translation>Chats über Chat-Box</translation>
+    </message>
+    <message>
+      <source>Chats number by statuses</source>
+      <translation>Chat Anzahl nach Zuständen</translation>
+    </message>
+    <message>
+      <source>Chats statistic</source>
+      <translation>Chat Statistik</translation>
+    </message>
+    <message>
+      <source>Country statistic</source>
+      <translation>Land Statistik</translation>
+    </message>
+    <message>
+      <source>Hourly statistic</source>
+      <translation>Stündliche Statistik</translation>
+    </message>
+    <message>
+      <source>Last 24h statistic</source>
+      <translation>Statistik der letzten 24 Stunden</translation>
+    </message>
+    <message>
+      <source>Messages types</source>
+      <translation>Nachrichten-Typen</translation>
+    </message>
+    <message>
+      <source>Number of chats by country</source>
+      <translation>Anzahl der Chats nach Land</translation>
+    </message>
+    <message>
+      <source>Number of chats by user</source>
+      <translation>Anzahl der Chats je User</translation>
+    </message>
+    <message>
+      <source>Number of chats per hour, average chat duration</source>
+      <translation>Anzahl der Chats pro Stunde, durchschnittliche Chatdauer</translation>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation>Anzahl der Nachrichten je User</translation>
+    </message>
+    <message>
+      <source>Number of Thumbs Down</source>
+      <translation>Anzahl der Daumen nach unten</translation>
+    </message>
+    <message>
+      <source>Number of Thumbs Up</source>
+      <translation>Anzahl der Daumen hoch</translation>
+    </message>
+    <message>
+      <source>Operators statistic, top 100 by chats number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Proactive chats number vs visitors initiated</source>
+      <translation>Proaktive Chatanzahl vs Besucher eingeladen</translation>
+    </message>
+    <message>
+      <source>Last 24 hours statistic</source>
+      <translation>Statistik der letzten 24 Stunden</translation>
+    </message>
+    <message>
+      <source>Total statistic</source>
+      <translation>Gesamt-Statistik</translation>
+    </message>
+    <message>
+      <source>Total active chats</source>
+      <translation>Aktive Chats insgesamt</translation>
+    </message>
+    <message>
+      <source>Total closed chats</source>
+      <translation>Geschlossene Chats insgesamt</translation>
+    </message>
+    <message>
+      <source>Total messages (including visitors, system and operators messages)</source>
+      <translation>Nachrichten insgesamt (Besucher-, System- und Operatoren-Nachrichten)</translation>
+    </message>
+    <message>
+      <source>Total messages (only operators)</source>
+      <translation>Nachrichten insgesamt (nur Operatoren-Nachrichten)</translation>
+    </message>
+    <message>
+      <source>Total messages (only system messages)</source>
+      <translation>Nachrichten insgesamt (nur System-Nachrichten)</translation>
+    </message>
+    <message>
+      <source>Total messages (only visitors)</source>
+      <translation>Nachrichten insgesamt (nur Besucher-Nachrichten)</translation>
+    </message>
+    <message>
+      <source>Total pending chats</source>
+      <translation>Wartende Chats insgesamt</translation>
+    </message>
+    <message>
+      <source>Unanswered chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unanswered chats numbers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Users statisic</source>
+      <translation>User Statistik</translation>
     </message>
   </context>
   <context>
@@ -7008,6 +7016,10 @@
       <translation>Neue Themes importieren</translation>
     </message>
     <message>
+      <source>Rest API</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Themes</source>
       <translation>Themes</translation>
     </message>
@@ -7867,6 +7879,10 @@
       <source>Product</source>
       <translation>Produkt</translation>
     </message>
+    <message>
+      <source>API Key</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>user/validator</name>
@@ -7934,6 +7950,17 @@
     </message>
     <message>
       <source>Secret hash, used for verification</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>lhrestapi/index</name>
+    <message>
+      <source>Rest API</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Rest API Keys</source>
       <translation type="unfinished"/>
     </message>
   </context>

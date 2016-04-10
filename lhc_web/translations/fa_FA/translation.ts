@@ -54,6 +54,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>چند روز بعد از آخرین نمایش، ابزارک رأی گیری باز نشود؟</translation>
     </message>
@@ -3626,6 +3630,10 @@
       <translation>کد داخلی پرسش نامه</translation>
     </message>
     <message>
+      <source>Rest API</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Start chat form settings</source>
       <translation>تنظیمات فرم شروع چت</translation>
     </message>
@@ -4456,18 +4464,6 @@
       <translation>آمار</translation>
     </message>
     <message>
-      <source>Chats statistic</source>
-      <translation>آمار چت ها</translation>
-    </message>
-    <message>
-      <source>Total statistic</source>
-      <translation>آمار کلی</translation>
-    </message>
-    <message>
-      <source>Last 24 hours statistic</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>User</source>
       <translation>کاربر</translation>
     </message>
@@ -4476,16 +4472,8 @@
       <translation>شست بالا</translation>
     </message>
     <message>
-      <source>Number of Thumbs Up</source>
-      <translation>تعداد شست بالا</translation>
-    </message>
-    <message>
       <source>Thumbs down</source>
       <translation>شست پایین</translation>
-    </message>
-    <message>
-      <source>Number of Thumbs Down</source>
-      <translation>تعداد شست پایین</translation>
     </message>
     <message>
       <source>Country</source>
@@ -4494,10 +4482,6 @@
     <message>
       <source>Chats</source>
       <translation>چت ها</translation>
-    </message>
-    <message>
-      <source>Number of chats by country</source>
-      <translation>تعداد چت ها بر اساس کشور</translation>
     </message>
     <message>
       <source>Average in seconds</source>
@@ -4532,24 +4516,12 @@
       <translation>منتظر</translation>
     </message>
     <message>
-      <source>Chats number by statuses</source>
-      <translation>تعداد چت ها بر اساس وضعیت</translation>
-    </message>
-    <message>
       <source>Number</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Unanswered chats numbers</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Time</source>
       <translation>زمان</translation>
-    </message>
-    <message>
-      <source>AVG wait time in seconds, max 10 mininutes</source>
-      <translation>زمان انتظار AVG بر حسب ثانیه، حداکثر 10 دقیقه</translation>
     </message>
     <message>
       <source>Visitors initiated</source>
@@ -4560,10 +4532,6 @@
       <translation>فعال</translation>
     </message>
     <message>
-      <source>Proactive chats number vs visitors initiated</source>
-      <translation>تعداد گفتگوهای فعال در مقابل بازدیدکنندگان وارد شده</translation>
-    </message>
-    <message>
       <source>Visitors</source>
       <translation>بازدید کننده ها</translation>
     </message>
@@ -4572,48 +4540,8 @@
       <translation>سیستم</translation>
     </message>
     <message>
-      <source>Messages types</source>
-      <translation>نوع پیام ها</translation>
-    </message>
-    <message>
-      <source>Number of chats per hour, average chat duration</source>
-      <translation>تعداد چت ها در هر ساعت، میانگین مدت زمان چت</translation>
-    </message>
-    <message>
-      <source>Hourly statistic</source>
-      <translation>آمار ساعتی</translation>
-    </message>
-    <message>
-      <source>Country statistic</source>
-      <translation>آمار کشورها</translation>
-    </message>
-    <message>
-      <source>Users statisic</source>
-      <translation>آمار کاربران</translation>
-    </message>
-    <message>
-      <source>Number of chats by user</source>
-      <translation>تعداد چت ها بر اساس کاربر</translation>
-    </message>
-    <message>
-      <source>Number of messages by user</source>
-      <translation>تعداد پیام ها براساس کاربران</translation>
-    </message>
-    <message>
-      <source>Average chat duration by user</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>All operators statistic will be downloaded</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>AVG visitor wait time by operator</source>
-      <translation>زمان انتظار بازدیدکننده AVG بر اساس اپراتور</translation>
-    </message>
-    <message>
-      <source>Last 24h statistic</source>
-      <translation>آمار روز اخیر</translation>
     </message>
     <message>
       <source>Parameter</source>
@@ -4626,46 +4554,6 @@
     <message>
       <source>Total chats</source>
       <translation>کل چت ها</translation>
-    </message>
-    <message>
-      <source>Total pending chats</source>
-      <translation>کل چت های در انتظار</translation>
-    </message>
-    <message>
-      <source>Total active chats</source>
-      <translation>کل چت های فعال</translation>
-    </message>
-    <message>
-      <source>Total closed chats</source>
-      <translation>کل چت های بسته شده</translation>
-    </message>
-    <message>
-      <source>Unanswered chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chatbox chats</source>
-      <translation>چت های Chatbox </translation>
-    </message>
-    <message>
-      <source>Total messages (including visitors, system and operators messages)</source>
-      <translation>تمامی پیام ها (شامل بازدیدکنندگان، پیام های سیستم و اپراتورها)</translation>
-    </message>
-    <message>
-      <source>Total messages (only visitors)</source>
-      <translation>کل پیام ها (فقط بازدیدکنندگان)</translation>
-    </message>
-    <message>
-      <source>Total messages (only system messages)</source>
-      <translation>کل پیام ها (فقط پیام های سیستم)</translation>
-    </message>
-    <message>
-      <source>Total messages (only operators)</source>
-      <translation>کل پیام ها (فقط اپراتورها)</translation>
-    </message>
-    <message>
-      <source>Operators statistic, top 100 by chats number</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Total messages</source>
@@ -4682,6 +4570,126 @@
     <message>
       <source>ago</source>
       <translation>پیش</translation>
+    </message>
+    <message>
+      <source>Average chat duration by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>AVG visitor wait time by operator</source>
+      <translation>زمان انتظار بازدیدکننده AVG بر اساس اپراتور</translation>
+    </message>
+    <message>
+      <source>AVG wait time in seconds, max 10 mininutes</source>
+      <translation>زمان انتظار AVG بر حسب ثانیه، حداکثر 10 دقیقه</translation>
+    </message>
+    <message>
+      <source>Chatbox chats</source>
+      <translation>چت های Chatbox </translation>
+    </message>
+    <message>
+      <source>Chats number by statuses</source>
+      <translation>تعداد چت ها بر اساس وضعیت</translation>
+    </message>
+    <message>
+      <source>Chats statistic</source>
+      <translation>آمار چت ها</translation>
+    </message>
+    <message>
+      <source>Country statistic</source>
+      <translation>آمار کشورها</translation>
+    </message>
+    <message>
+      <source>Hourly statistic</source>
+      <translation>آمار ساعتی</translation>
+    </message>
+    <message>
+      <source>Last 24h statistic</source>
+      <translation>آمار روز اخیر</translation>
+    </message>
+    <message>
+      <source>Messages types</source>
+      <translation>نوع پیام ها</translation>
+    </message>
+    <message>
+      <source>Number of chats by country</source>
+      <translation>تعداد چت ها بر اساس کشور</translation>
+    </message>
+    <message>
+      <source>Number of chats by user</source>
+      <translation>تعداد چت ها بر اساس کاربر</translation>
+    </message>
+    <message>
+      <source>Number of chats per hour, average chat duration</source>
+      <translation>تعداد چت ها در هر ساعت، میانگین مدت زمان چت</translation>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation>تعداد پیام ها براساس کاربران</translation>
+    </message>
+    <message>
+      <source>Number of Thumbs Down</source>
+      <translation>تعداد شست پایین</translation>
+    </message>
+    <message>
+      <source>Number of Thumbs Up</source>
+      <translation>تعداد شست بالا</translation>
+    </message>
+    <message>
+      <source>Operators statistic, top 100 by chats number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Proactive chats number vs visitors initiated</source>
+      <translation>تعداد گفتگوهای فعال در مقابل بازدیدکنندگان وارد شده</translation>
+    </message>
+    <message>
+      <source>Last 24 hours statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total statistic</source>
+      <translation>آمار کلی</translation>
+    </message>
+    <message>
+      <source>Total active chats</source>
+      <translation>کل چت های فعال</translation>
+    </message>
+    <message>
+      <source>Total closed chats</source>
+      <translation>کل چت های بسته شده</translation>
+    </message>
+    <message>
+      <source>Total messages (including visitors, system and operators messages)</source>
+      <translation>تمامی پیام ها (شامل بازدیدکنندگان، پیام های سیستم و اپراتورها)</translation>
+    </message>
+    <message>
+      <source>Total messages (only operators)</source>
+      <translation>کل پیام ها (فقط اپراتورها)</translation>
+    </message>
+    <message>
+      <source>Total messages (only system messages)</source>
+      <translation>کل پیام ها (فقط پیام های سیستم)</translation>
+    </message>
+    <message>
+      <source>Total messages (only visitors)</source>
+      <translation>کل پیام ها (فقط بازدیدکنندگان)</translation>
+    </message>
+    <message>
+      <source>Total pending chats</source>
+      <translation>کل چت های در انتظار</translation>
+    </message>
+    <message>
+      <source>Unanswered chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unanswered chats numbers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Users statisic</source>
+      <translation>آمار کاربران</translation>
     </message>
   </context>
   <context>
@@ -7008,6 +7016,10 @@
       <translation>وارد کردن قالب جدید</translation>
     </message>
     <message>
+      <source>Rest API</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Themes</source>
       <translation>قالب ها</translation>
     </message>
@@ -7867,6 +7879,10 @@
       <source>Product</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>API Key</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>user/validator</name>
@@ -7934,6 +7950,17 @@
     </message>
     <message>
       <source>Secret hash, used for verification</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>lhrestapi/index</name>
+    <message>
+      <source>Rest API</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Rest API Keys</source>
       <translation type="unfinished"/>
     </message>
   </context>

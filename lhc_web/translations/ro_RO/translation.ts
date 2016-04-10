@@ -54,6 +54,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Nr de zile ce trebuie sa treaca de la ultima votare pentru ca fereastra de votare sa se poata activa din nou</translation>
     </message>
@@ -3626,6 +3630,10 @@
       <translation>Cod pentru embed chestionar</translation>
     </message>
     <message>
+      <source>Rest API</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Start chat form settings</source>
       <translation>Setari pentru formularul de incepere a unei conversatii</translation>
     </message>
@@ -4456,18 +4464,6 @@
       <translation>Statistici</translation>
     </message>
     <message>
-      <source>Chats statistic</source>
-      <translation>Chats statistic</translation>
-    </message>
-    <message>
-      <source>Total statistic</source>
-      <translation>Statistici totale</translation>
-    </message>
-    <message>
-      <source>Last 24 hours statistic</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>User</source>
       <translation>Utilizator</translation>
     </message>
@@ -4476,16 +4472,8 @@
       <translation>Vot pozitiv</translation>
     </message>
     <message>
-      <source>Number of Thumbs Up</source>
-      <translation>Numar de voturi pozitive</translation>
-    </message>
-    <message>
       <source>Thumbs down</source>
       <translation>Vot negativ</translation>
-    </message>
-    <message>
-      <source>Number of Thumbs Down</source>
-      <translation>Numar de voturi negative</translation>
     </message>
     <message>
       <source>Country</source>
@@ -4494,10 +4482,6 @@
     <message>
       <source>Chats</source>
       <translation>Discuții</translation>
-    </message>
-    <message>
-      <source>Number of chats by country</source>
-      <translation>Număr de discuții pe țară</translation>
     </message>
     <message>
       <source>Average in seconds</source>
@@ -4532,24 +4516,12 @@
       <translation>In asteptare</translation>
     </message>
     <message>
-      <source>Chats number by statuses</source>
-      <translation>Numar de discutii dupa status</translation>
-    </message>
-    <message>
       <source>Number</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Unanswered chats numbers</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Time</source>
       <translation>Timp</translation>
-    </message>
-    <message>
-      <source>AVG wait time in seconds, max 10 mininutes</source>
-      <translation>Timp mediu de asteptare, maxim 10 minute</translation>
     </message>
     <message>
       <source>Visitors initiated</source>
@@ -4560,10 +4532,6 @@
       <translation>Proactive</translation>
     </message>
     <message>
-      <source>Proactive chats number vs visitors initiated</source>
-      <translation>NUmar de discutii Proactive vs numar de discutii initiate de vizitatori</translation>
-    </message>
-    <message>
       <source>Visitors</source>
       <translation>Vizitatori</translation>
     </message>
@@ -4572,48 +4540,8 @@
       <translation>System</translation>
     </message>
     <message>
-      <source>Messages types</source>
-      <translation>Tipuri de mesaje</translation>
-    </message>
-    <message>
-      <source>Number of chats per hour, average chat duration</source>
-      <translation>Numarul de chat-uri pe oră, durata medie a unui chat</translation>
-    </message>
-    <message>
-      <source>Hourly statistic</source>
-      <translation>Statistica orara</translation>
-    </message>
-    <message>
-      <source>Country statistic</source>
-      <translation>Statistica pe țări</translation>
-    </message>
-    <message>
-      <source>Users statisic</source>
-      <translation>Statistica utilizatori</translation>
-    </message>
-    <message>
-      <source>Number of chats by user</source>
-      <translation>Numar de conversatii ale utilizatorului</translation>
-    </message>
-    <message>
-      <source>Number of messages by user</source>
-      <translation>Numar de mesaje pe vizitator</translation>
-    </message>
-    <message>
-      <source>Average chat duration by user</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>All operators statistic will be downloaded</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>AVG visitor wait time by operator</source>
-      <translation>Timp mediu de asteptare in functie de operator</translation>
-    </message>
-    <message>
-      <source>Last 24h statistic</source>
-      <translation>Statistica pentru ultimile 24 de ore</translation>
     </message>
     <message>
       <source>Parameter</source>
@@ -4626,46 +4554,6 @@
     <message>
       <source>Total chats</source>
       <translation>Totalul conversatiilor</translation>
-    </message>
-    <message>
-      <source>Total pending chats</source>
-      <translation>Totalul conversatiilor in asteptare</translation>
-    </message>
-    <message>
-      <source>Total active chats</source>
-      <translation>Totalul conversatiilor active</translation>
-    </message>
-    <message>
-      <source>Total closed chats</source>
-      <translation>Totalul conversatiilor inchise</translation>
-    </message>
-    <message>
-      <source>Unanswered chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chatbox chats</source>
-      <translation>Conversatii in Chatbox</translation>
-    </message>
-    <message>
-      <source>Total messages (including visitors, system and operators messages)</source>
-      <translation>Total mesaje (inclusiv vizitatori, system si operatori)</translation>
-    </message>
-    <message>
-      <source>Total messages (only visitors)</source>
-      <translation>Total mesaje (doar vizitatori)</translation>
-    </message>
-    <message>
-      <source>Total messages (only system messages)</source>
-      <translation>Total mesaje (doar mesaje system)</translation>
-    </message>
-    <message>
-      <source>Total messages (only operators)</source>
-      <translation>Total mesaje (doar operatori)</translation>
-    </message>
-    <message>
-      <source>Operators statistic, top 100 by chats number</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Total messages</source>
@@ -4682,6 +4570,126 @@
     <message>
       <source>ago</source>
       <translation>inainte</translation>
+    </message>
+    <message>
+      <source>Average chat duration by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>AVG visitor wait time by operator</source>
+      <translation>Timp mediu de asteptare in functie de operator</translation>
+    </message>
+    <message>
+      <source>AVG wait time in seconds, max 10 mininutes</source>
+      <translation>Timp mediu de asteptare, maxim 10 minute</translation>
+    </message>
+    <message>
+      <source>Chatbox chats</source>
+      <translation>Conversatii in Chatbox</translation>
+    </message>
+    <message>
+      <source>Chats number by statuses</source>
+      <translation>Numar de discutii dupa status</translation>
+    </message>
+    <message>
+      <source>Chats statistic</source>
+      <translation>Chats statistic</translation>
+    </message>
+    <message>
+      <source>Country statistic</source>
+      <translation>Statistica pe țări</translation>
+    </message>
+    <message>
+      <source>Hourly statistic</source>
+      <translation>Statistica orara</translation>
+    </message>
+    <message>
+      <source>Last 24h statistic</source>
+      <translation>Statistica pentru ultimile 24 de ore</translation>
+    </message>
+    <message>
+      <source>Messages types</source>
+      <translation>Tipuri de mesaje</translation>
+    </message>
+    <message>
+      <source>Number of chats by country</source>
+      <translation>Număr de discuții pe țară</translation>
+    </message>
+    <message>
+      <source>Number of chats by user</source>
+      <translation>Numar de conversatii ale utilizatorului</translation>
+    </message>
+    <message>
+      <source>Number of chats per hour, average chat duration</source>
+      <translation>Numarul de chat-uri pe oră, durata medie a unui chat</translation>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation>Numar de mesaje pe vizitator</translation>
+    </message>
+    <message>
+      <source>Number of Thumbs Down</source>
+      <translation>Numar de voturi negative</translation>
+    </message>
+    <message>
+      <source>Number of Thumbs Up</source>
+      <translation>Numar de voturi pozitive</translation>
+    </message>
+    <message>
+      <source>Operators statistic, top 100 by chats number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Proactive chats number vs visitors initiated</source>
+      <translation>NUmar de discutii Proactive vs numar de discutii initiate de vizitatori</translation>
+    </message>
+    <message>
+      <source>Last 24 hours statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total statistic</source>
+      <translation>Statistici totale</translation>
+    </message>
+    <message>
+      <source>Total active chats</source>
+      <translation>Totalul conversatiilor active</translation>
+    </message>
+    <message>
+      <source>Total closed chats</source>
+      <translation>Totalul conversatiilor inchise</translation>
+    </message>
+    <message>
+      <source>Total messages (including visitors, system and operators messages)</source>
+      <translation>Total mesaje (inclusiv vizitatori, system si operatori)</translation>
+    </message>
+    <message>
+      <source>Total messages (only operators)</source>
+      <translation>Total mesaje (doar operatori)</translation>
+    </message>
+    <message>
+      <source>Total messages (only system messages)</source>
+      <translation>Total mesaje (doar mesaje system)</translation>
+    </message>
+    <message>
+      <source>Total messages (only visitors)</source>
+      <translation>Total mesaje (doar vizitatori)</translation>
+    </message>
+    <message>
+      <source>Total pending chats</source>
+      <translation>Totalul conversatiilor in asteptare</translation>
+    </message>
+    <message>
+      <source>Unanswered chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unanswered chats numbers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Users statisic</source>
+      <translation>Statistica utilizatori</translation>
     </message>
   </context>
   <context>
@@ -7008,6 +7016,10 @@
       <translation>Importa o tema noua</translation>
     </message>
     <message>
+      <source>Rest API</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Themes</source>
       <translation>Teme</translation>
     </message>
@@ -7867,6 +7879,10 @@
       <source>Product</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>API Key</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>user/validator</name>
@@ -7934,6 +7950,17 @@
     </message>
     <message>
       <source>Secret hash, used for verification</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>lhrestapi/index</name>
+    <message>
+      <source>Rest API</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Rest API Keys</source>
       <translation type="unfinished"/>
     </message>
   </context>

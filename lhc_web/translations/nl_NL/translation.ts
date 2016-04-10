@@ -54,6 +54,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Hoeveel dagen moet de stemwidget verborgen worden na de laatste weergave?</translation>
     </message>
@@ -3627,6 +3631,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Vragenlijst embed code</translation>
     </message>
     <message>
+      <source>Rest API</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Start chat form settings</source>
       <translation>Welkomstscherm instellingen</translation>
     </message>
@@ -4457,18 +4465,6 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Statistieken</translation>
     </message>
     <message>
-      <source>Chats statistic</source>
-      <translation>Chat statistieken</translation>
-    </message>
-    <message>
-      <source>Total statistic</source>
-      <translation>Totaal statistiek</translation>
-    </message>
-    <message>
-      <source>Last 24 hours statistic</source>
-      <translation>Statistieken van de laatste 24 uur</translation>
-    </message>
-    <message>
       <source>User</source>
       <translation>Gebruiker</translation>
     </message>
@@ -4477,16 +4473,8 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Duim omhoog</translation>
     </message>
     <message>
-      <source>Number of Thumbs Up</source>
-      <translation>Aantal duimen omhoog</translation>
-    </message>
-    <message>
       <source>Thumbs down</source>
       <translation>Duim omlaag</translation>
-    </message>
-    <message>
-      <source>Number of Thumbs Down</source>
-      <translation>Aantal duimen omlaag</translation>
     </message>
     <message>
       <source>Country</source>
@@ -4495,10 +4483,6 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Chats</source>
       <translation>Chats</translation>
-    </message>
-    <message>
-      <source>Number of chats by country</source>
-      <translation>Aantal chats gefilterd op land</translation>
     </message>
     <message>
       <source>Average in seconds</source>
@@ -4533,24 +4517,12 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Wachtend</translation>
     </message>
     <message>
-      <source>Chats number by statuses</source>
-      <translation>Aantal chats gefilterd op status</translation>
-    </message>
-    <message>
       <source>Number</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Unanswered chats numbers</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Time</source>
       <translation>Tijd</translation>
-    </message>
-    <message>
-      <source>AVG wait time in seconds, max 10 mininutes</source>
-      <translation>Gemiddelde wachttijd in seconden, maximaal 10 minuten</translation>
     </message>
     <message>
       <source>Visitors initiated</source>
@@ -4561,10 +4533,6 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Proactieve</translation>
     </message>
     <message>
-      <source>Proactive chats number vs visitors initiated</source>
-      <translation>Proactieve chats versus chats van de bezoeker</translation>
-    </message>
-    <message>
       <source>Visitors</source>
       <translation>Bezoekers</translation>
     </message>
@@ -4573,48 +4541,8 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Systeem</translation>
     </message>
     <message>
-      <source>Messages types</source>
-      <translation>Berichttypes</translation>
-    </message>
-    <message>
-      <source>Number of chats per hour, average chat duration</source>
-      <translation>Aantal chats per uur, gemiddelde tijdsduur</translation>
-    </message>
-    <message>
-      <source>Hourly statistic</source>
-      <translation>Statistieken per uur</translation>
-    </message>
-    <message>
-      <source>Country statistic</source>
-      <translation>Statistieken per land</translation>
-    </message>
-    <message>
-      <source>Users statisic</source>
-      <translation>Gebruikersstatistieken</translation>
-    </message>
-    <message>
-      <source>Number of chats by user</source>
-      <translation>Aantal chats gefilterd op gebruiker</translation>
-    </message>
-    <message>
-      <source>Number of messages by user</source>
-      <translation>Aantal berichten door gebruiker</translation>
-    </message>
-    <message>
-      <source>Average chat duration by user</source>
-      <translation>Gemiddelde chattijd per gebruiker</translation>
-    </message>
-    <message>
       <source>All operators statistic will be downloaded</source>
       <translation>Alle operator statistieken zullen gedownload worden</translation>
-    </message>
-    <message>
-      <source>AVG visitor wait time by operator</source>
-      <translation>Gemiddelde wachttijd per operator</translation>
-    </message>
-    <message>
-      <source>Last 24h statistic</source>
-      <translation>Statistieken van de laatste 24 uur</translation>
     </message>
     <message>
       <source>Parameter</source>
@@ -4627,46 +4555,6 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Total chats</source>
       <translation>Totaal chats</translation>
-    </message>
-    <message>
-      <source>Total pending chats</source>
-      <translation>Totaal chats in wachtrij</translation>
-    </message>
-    <message>
-      <source>Total active chats</source>
-      <translation>Totaal actieve chats</translation>
-    </message>
-    <message>
-      <source>Total closed chats</source>
-      <translation>Totaal gesloten chats</translation>
-    </message>
-    <message>
-      <source>Unanswered chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chatbox chats</source>
-      <translation>Chatbox chats</translation>
-    </message>
-    <message>
-      <source>Total messages (including visitors, system and operators messages)</source>
-      <translation>Totaal berichten (inclusief bezoekers-, systeem- en operator berichten)</translation>
-    </message>
-    <message>
-      <source>Total messages (only visitors)</source>
-      <translation>Totaal berichten (alleen bezoekers)</translation>
-    </message>
-    <message>
-      <source>Total messages (only system messages)</source>
-      <translation>Totaal berichten (alleen systeemberichten)</translation>
-    </message>
-    <message>
-      <source>Total messages (only operators)</source>
-      <translation>Totaal berichten (alleen operators)</translation>
-    </message>
-    <message>
-      <source>Operators statistic, top 100 by chats number</source>
-      <translation>Top 100 operators aan de hand van het aantal chats</translation>
     </message>
     <message>
       <source>Total messages</source>
@@ -4683,6 +4571,126 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>ago</source>
       <translation>geleden</translation>
+    </message>
+    <message>
+      <source>Average chat duration by user</source>
+      <translation>Gemiddelde chattijd per gebruiker</translation>
+    </message>
+    <message>
+      <source>AVG visitor wait time by operator</source>
+      <translation>Gemiddelde wachttijd per operator</translation>
+    </message>
+    <message>
+      <source>AVG wait time in seconds, max 10 mininutes</source>
+      <translation>Gemiddelde wachttijd in seconden, maximaal 10 minuten</translation>
+    </message>
+    <message>
+      <source>Chatbox chats</source>
+      <translation>Chatbox chats</translation>
+    </message>
+    <message>
+      <source>Chats number by statuses</source>
+      <translation>Aantal chats gefilterd op status</translation>
+    </message>
+    <message>
+      <source>Chats statistic</source>
+      <translation>Chat statistieken</translation>
+    </message>
+    <message>
+      <source>Country statistic</source>
+      <translation>Statistieken per land</translation>
+    </message>
+    <message>
+      <source>Hourly statistic</source>
+      <translation>Statistieken per uur</translation>
+    </message>
+    <message>
+      <source>Last 24h statistic</source>
+      <translation>Statistieken van de laatste 24 uur</translation>
+    </message>
+    <message>
+      <source>Messages types</source>
+      <translation>Berichttypes</translation>
+    </message>
+    <message>
+      <source>Number of chats by country</source>
+      <translation>Aantal chats gefilterd op land</translation>
+    </message>
+    <message>
+      <source>Number of chats by user</source>
+      <translation>Aantal chats gefilterd op gebruiker</translation>
+    </message>
+    <message>
+      <source>Number of chats per hour, average chat duration</source>
+      <translation>Aantal chats per uur, gemiddelde tijdsduur</translation>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation>Aantal berichten door gebruiker</translation>
+    </message>
+    <message>
+      <source>Number of Thumbs Down</source>
+      <translation>Aantal duimen omlaag</translation>
+    </message>
+    <message>
+      <source>Number of Thumbs Up</source>
+      <translation>Aantal duimen omhoog</translation>
+    </message>
+    <message>
+      <source>Operators statistic, top 100 by chats number</source>
+      <translation>Top 100 operators aan de hand van het aantal chats</translation>
+    </message>
+    <message>
+      <source>Proactive chats number vs visitors initiated</source>
+      <translation>Proactieve chats versus chats van de bezoeker</translation>
+    </message>
+    <message>
+      <source>Last 24 hours statistic</source>
+      <translation>Statistieken van de laatste 24 uur</translation>
+    </message>
+    <message>
+      <source>Total statistic</source>
+      <translation>Totaal statistiek</translation>
+    </message>
+    <message>
+      <source>Total active chats</source>
+      <translation>Totaal actieve chats</translation>
+    </message>
+    <message>
+      <source>Total closed chats</source>
+      <translation>Totaal gesloten chats</translation>
+    </message>
+    <message>
+      <source>Total messages (including visitors, system and operators messages)</source>
+      <translation>Totaal berichten (inclusief bezoekers-, systeem- en operator berichten)</translation>
+    </message>
+    <message>
+      <source>Total messages (only operators)</source>
+      <translation>Totaal berichten (alleen operators)</translation>
+    </message>
+    <message>
+      <source>Total messages (only system messages)</source>
+      <translation>Totaal berichten (alleen systeemberichten)</translation>
+    </message>
+    <message>
+      <source>Total messages (only visitors)</source>
+      <translation>Totaal berichten (alleen bezoekers)</translation>
+    </message>
+    <message>
+      <source>Total pending chats</source>
+      <translation>Totaal chats in wachtrij</translation>
+    </message>
+    <message>
+      <source>Unanswered chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unanswered chats numbers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Users statisic</source>
+      <translation>Gebruikersstatistieken</translation>
     </message>
   </context>
   <context>
@@ -7009,6 +7017,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Import een nieuw thema</translation>
     </message>
     <message>
+      <source>Rest API</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Themes</source>
       <translation>Thema&apos;s</translation>
     </message>
@@ -7868,6 +7880,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <source>Product</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>API Key</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>user/validator</name>
@@ -7935,6 +7951,17 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Secret hash, used for verification</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>lhrestapi/index</name>
+    <message>
+      <source>Rest API</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Rest API Keys</source>
       <translation type="unfinished"/>
     </message>
   </context>

@@ -15,7 +15,7 @@
     </message>
     <message>
       <source>List online operators.</source>
-      <translation>Visualizza operatori online.</translation>
+      <translation>Elenco operatori online.</translation>
     </message>
     <message>
       <source/>
@@ -43,6 +43,10 @@
     </message>
     <message>
       <source>Product module is enabled</source>
+      <translation>Modulo prodotto attivato</translation>
+    </message>
+    <message>
+      <source/>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -440,7 +444,7 @@
     </message>
     <message>
       <source>Disabled</source>
-      <translation type="unfinished"/>
+      <translation>Disabilitato</translation>
     </message>
     <message>
       <source>Name</source>
@@ -1125,11 +1129,11 @@
     </message>
     <message>
       <source>Product</source>
-      <translation type="unfinished"/>
+      <translation>Prodotto</translation>
     </message>
     <message>
       <source>Show product selection based on selected departments</source>
-      <translation type="unfinished"/>
+      <translation>Selezione prodotto in base ai dipartimenti selezionati</translation>
     </message>
     <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
@@ -1201,15 +1205,15 @@
     </message>
     <message>
       <source>Chat expired</source>
-      <translation type="unfinished"/>
+      <translation>Chat scaduta</translation>
     </message>
     <message>
       <source>Invalid hash</source>
-      <translation type="unfinished"/>
+      <translation>Hash non valido</translation>
     </message>
     <message>
       <source>Chat was removed</source>
-      <translation type="unfinished"/>
+      <translation>La chat è stata rimossa</translation>
     </message>
   </context>
   <context>
@@ -1887,7 +1891,7 @@
     </message>
     <message>
       <source>Product</source>
-      <translation type="unfinished"/>
+      <translation>Prodotto</translation>
     </message>
     <message>
       <source>Country</source>
@@ -2248,7 +2252,7 @@
     </message>
     <message>
       <source>Sort</source>
-      <translation type="unfinished"/>
+      <translation>Ordinare</translation>
     </message>
     <message>
       <source>Wait time</source>
@@ -2448,11 +2452,11 @@
     </message>
     <message>
       <source>Product</source>
-      <translation type="unfinished"/>
+      <translation>Prodotto</translation>
     </message>
     <message>
       <source>Choose a product</source>
-      <translation type="unfinished"/>
+      <translation>Scegli un prodotto</translation>
     </message>
     <message>
       <source>Type your message here and hit enter to send...</source>
@@ -2548,11 +2552,11 @@
     </message>
     <message>
       <source>Could not find a product!</source>
-      <translation type="unfinished"/>
+      <translation>Impossibile trovare un prodotto!</translation>
     </message>
     <message>
       <source>Please choose a product!</source>
-      <translation type="unfinished"/>
+      <translation>Per favore scegli un prodotto!</translation>
     </message>
     <message>
       <source>Please choose</source>
@@ -2572,7 +2576,7 @@
     </message>
     <message>
       <source>Could not decrypt data!</source>
-      <translation type="unfinished"/>
+      <translation>Impossibile decrittare i dati</translation>
     </message>
     <message>
       <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
@@ -3608,7 +3612,7 @@
     </message>
     <message>
       <source>Paid chat configuration</source>
-      <translation type="unfinished"/>
+      <translation>Configurazione chat a pagamento</translation>
     </message>
     <message>
       <source>Update information</source>
@@ -3620,11 +3624,15 @@
     </message>
     <message>
       <source>Product</source>
-      <translation type="unfinished"/>
+      <translation>Prodotto</translation>
     </message>
     <message>
       <source>Questionary embed code</source>
       <translation>Questionario codice incluso</translation>
+    </message>
+    <message>
+      <source>Rest API</source>
+      <translation>Rest API</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
@@ -3943,7 +3951,7 @@
     </message>
     <message>
       <source>Product</source>
-      <translation type="unfinished"/>
+      <translation>Prodotto</translation>
     </message>
     <message>
       <source>Search</source>
@@ -3971,7 +3979,7 @@
     </message>
     <message>
       <source>Select product</source>
-      <translation type="unfinished"/>
+      <translation>Selezionare prodotto</translation>
     </message>
     <message>
       <source>Type to search</source>
@@ -4086,7 +4094,7 @@
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Dipartimento</translation>
     </message>
     <message>
       <source>Number of elements in list</source>
@@ -4423,19 +4431,19 @@
     </message>
     <message>
       <source>Encryption key, min length 40</source>
-      <translation type="unfinished"/>
+      <translation>Chiave crittografia, lunghezza min 40</translation>
     </message>
     <message>
       <source>Additional encryption key, min length 40</source>
-      <translation type="unfinished"/>
+      <translation>Chiave crittografia supplementare, lunghezza min 40</translation>
     </message>
     <message>
       <source>Minimum 40 characters for encryption key!</source>
-      <translation type="unfinished"/>
+      <translation>Minimo 40 caratteri per la chiave crittografica!</translation>
     </message>
     <message>
       <source>Minimum 40 characters for additional encryption key!</source>
-      <translation type="unfinished"/>
+      <translation>Minimo 40 caratteri per la chiave crittografica supplementare</translation>
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>
@@ -4457,18 +4465,6 @@
       <translation>Statistica</translation>
     </message>
     <message>
-      <source>Chats statistic</source>
-      <translation>Statistiche chat</translation>
-    </message>
-    <message>
-      <source>Total statistic</source>
-      <translation>Statistiche totali</translation>
-    </message>
-    <message>
-      <source>Last 24 hours statistic</source>
-      <translation>Ultime statistiche delle 24 ore</translation>
-    </message>
-    <message>
       <source>User</source>
       <translation>Utente</translation>
     </message>
@@ -4477,16 +4473,8 @@
       <translation>Pollice in su</translation>
     </message>
     <message>
-      <source>Number of Thumbs Up</source>
-      <translation>Numero di pollici in su</translation>
-    </message>
-    <message>
       <source>Thumbs down</source>
       <translation>Pollice in giù</translation>
-    </message>
-    <message>
-      <source>Number of Thumbs Down</source>
-      <translation>Numero di pollici in giù</translation>
     </message>
     <message>
       <source>Country</source>
@@ -4495,10 +4483,6 @@
     <message>
       <source>Chats</source>
       <translation>Chat</translation>
-    </message>
-    <message>
-      <source>Number of chats by country</source>
-      <translation>Numero di chat per paese</translation>
     </message>
     <message>
       <source>Average in seconds</source>
@@ -4533,24 +4517,12 @@
       <translation>In attesa</translation>
     </message>
     <message>
-      <source>Chats number by statuses</source>
-      <translation>Numero di chat per stato</translation>
-    </message>
-    <message>
       <source>Number</source>
       <translation>Numero</translation>
     </message>
     <message>
-      <source>Unanswered chats numbers</source>
-      <translation>Numeri di chat senza risposta</translation>
-    </message>
-    <message>
       <source>Time</source>
       <translation>Tempo</translation>
-    </message>
-    <message>
-      <source>AVG wait time in seconds, max 10 mininutes</source>
-      <translation>Tempo medio di attesa in secondi, massimo 10 minuti</translation>
     </message>
     <message>
       <source>Visitors initiated</source>
@@ -4561,10 +4533,6 @@
       <translation>Proattivo</translation>
     </message>
     <message>
-      <source>Proactive chats number vs visitors initiated</source>
-      <translation>Numero di chat proattive vs Visitatori avviati</translation>
-    </message>
-    <message>
       <source>Visitors</source>
       <translation>Visitatori</translation>
     </message>
@@ -4573,48 +4541,8 @@
       <translation>Sistema</translation>
     </message>
     <message>
-      <source>Messages types</source>
-      <translation>Tipi di messaggi</translation>
-    </message>
-    <message>
-      <source>Number of chats per hour, average chat duration</source>
-      <translation>Numero di chat per ora, durata media chat</translation>
-    </message>
-    <message>
-      <source>Hourly statistic</source>
-      <translation>Statistiche orarie</translation>
-    </message>
-    <message>
-      <source>Country statistic</source>
-      <translation>Statistiche nazionali</translation>
-    </message>
-    <message>
-      <source>Users statisic</source>
-      <translation>Statistiche utenti</translation>
-    </message>
-    <message>
-      <source>Number of chats by user</source>
-      <translation>Numero di chat per utente</translation>
-    </message>
-    <message>
-      <source>Number of messages by user</source>
-      <translation>Numero di messaggi dall&apos;utente</translation>
-    </message>
-    <message>
-      <source>Average chat duration by user</source>
-      <translation>Durata media chat dall&apos;utente</translation>
-    </message>
-    <message>
       <source>All operators statistic will be downloaded</source>
       <translation>Tutte le statistiche di operatori saranno scaricate</translation>
-    </message>
-    <message>
-      <source>AVG visitor wait time by operator</source>
-      <translation>Tempo medio di attesa dall&apos;operatore</translation>
-    </message>
-    <message>
-      <source>Last 24h statistic</source>
-      <translation>Ultime 24 statistiche</translation>
     </message>
     <message>
       <source>Parameter</source>
@@ -4627,46 +4555,6 @@
     <message>
       <source>Total chats</source>
       <translation>Chat totali</translation>
-    </message>
-    <message>
-      <source>Total pending chats</source>
-      <translation>Chat totali in attesa</translation>
-    </message>
-    <message>
-      <source>Total active chats</source>
-      <translation>Chat totali attive</translation>
-    </message>
-    <message>
-      <source>Total closed chats</source>
-      <translation>Chat totali chiuse</translation>
-    </message>
-    <message>
-      <source>Unanswered chats</source>
-      <translation>Chat senza risposta</translation>
-    </message>
-    <message>
-      <source>Chatbox chats</source>
-      <translation>Box della chat</translation>
-    </message>
-    <message>
-      <source>Total messages (including visitors, system and operators messages)</source>
-      <translation>Messaggi totali (inclusi i messaggi dei visitatori, sistema e operatori)</translation>
-    </message>
-    <message>
-      <source>Total messages (only visitors)</source>
-      <translation>Tatale messaggi (solo visitatori)</translation>
-    </message>
-    <message>
-      <source>Total messages (only system messages)</source>
-      <translation>Totale messaggi (solo messaggi sistema)</translation>
-    </message>
-    <message>
-      <source>Total messages (only operators)</source>
-      <translation>Totale messaggi (solo operatori)</translation>
-    </message>
-    <message>
-      <source>Operators statistic, top 100 by chats number</source>
-      <translation>Statistica di operatori, top 100 dal numero di chat</translation>
     </message>
     <message>
       <source>Total messages</source>
@@ -4683,6 +4571,126 @@
     <message>
       <source>ago</source>
       <translation>fa</translation>
+    </message>
+    <message>
+      <source>Average chat duration by user</source>
+      <translation>Durata media chat dall&apos;utente</translation>
+    </message>
+    <message>
+      <source>AVG visitor wait time by operator</source>
+      <translation>Tempo medio di attesa dall&apos;operatore</translation>
+    </message>
+    <message>
+      <source>AVG wait time in seconds, max 10 mininutes</source>
+      <translation>Tempo medio di attesa in secondi, massimo 10 minuti</translation>
+    </message>
+    <message>
+      <source>Chatbox chats</source>
+      <translation>Box della chat</translation>
+    </message>
+    <message>
+      <source>Chats number by statuses</source>
+      <translation>Numero di chat per stato</translation>
+    </message>
+    <message>
+      <source>Chats statistic</source>
+      <translation>Statistiche chat</translation>
+    </message>
+    <message>
+      <source>Country statistic</source>
+      <translation>Statistiche nazionali</translation>
+    </message>
+    <message>
+      <source>Hourly statistic</source>
+      <translation>Statistiche orarie</translation>
+    </message>
+    <message>
+      <source>Last 24h statistic</source>
+      <translation>Ultime 24 statistiche</translation>
+    </message>
+    <message>
+      <source>Messages types</source>
+      <translation>Tipi di messaggi</translation>
+    </message>
+    <message>
+      <source>Number of chats by country</source>
+      <translation>Numero di chat per paese</translation>
+    </message>
+    <message>
+      <source>Number of chats by user</source>
+      <translation>Numero di chat per utente</translation>
+    </message>
+    <message>
+      <source>Number of chats per hour, average chat duration</source>
+      <translation>Numero di chat per ora, durata media chat</translation>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation>Numero di messaggi dall&apos;utente</translation>
+    </message>
+    <message>
+      <source>Number of Thumbs Down</source>
+      <translation>Numero di pollici in giù</translation>
+    </message>
+    <message>
+      <source>Number of Thumbs Up</source>
+      <translation>Numero di pollici in su</translation>
+    </message>
+    <message>
+      <source>Operators statistic, top 100 by chats number</source>
+      <translation>Statistica di operatori, top 100 dal numero di chat</translation>
+    </message>
+    <message>
+      <source>Proactive chats number vs visitors initiated</source>
+      <translation>Numero di chat proattive vs Visitatori avviati</translation>
+    </message>
+    <message>
+      <source>Last 24 hours statistic</source>
+      <translation>Ultime statistiche delle 24 ore</translation>
+    </message>
+    <message>
+      <source>Total statistic</source>
+      <translation>Statistiche totali</translation>
+    </message>
+    <message>
+      <source>Total active chats</source>
+      <translation>Chat totali attive</translation>
+    </message>
+    <message>
+      <source>Total closed chats</source>
+      <translation>Chat totali chiuse</translation>
+    </message>
+    <message>
+      <source>Total messages (including visitors, system and operators messages)</source>
+      <translation>Messaggi totali (inclusi i messaggi dei visitatori, sistema e operatori)</translation>
+    </message>
+    <message>
+      <source>Total messages (only operators)</source>
+      <translation>Totale messaggi (solo operatori)</translation>
+    </message>
+    <message>
+      <source>Total messages (only system messages)</source>
+      <translation>Totale messaggi (solo messaggi sistema)</translation>
+    </message>
+    <message>
+      <source>Total messages (only visitors)</source>
+      <translation>Tatale messaggi (solo visitatori)</translation>
+    </message>
+    <message>
+      <source>Total pending chats</source>
+      <translation>Chat totali in attesa</translation>
+    </message>
+    <message>
+      <source>Unanswered chats</source>
+      <translation>Chat senza risposta</translation>
+    </message>
+    <message>
+      <source>Unanswered chats numbers</source>
+      <translation>Numeri di chat senza risposta</translation>
+    </message>
+    <message>
+      <source>Users statisic</source>
+      <translation>Statistiche utenti</translation>
     </message>
   </context>
   <context>
@@ -5296,7 +5304,7 @@
     </message>
     <message>
       <source>Paid chat settings</source>
-      <translation type="unfinished"/>
+      <translation>Impostazioni pagamento chat</translation>
     </message>
   </context>
   <context>
@@ -5533,7 +5541,7 @@
     </message>
     <message>
       <source>Chat nickname</source>
-      <translation type="unfinished"/>
+      <translation>Chat nickname</translation>
     </message>
     <message>
       <source>Name</source>
@@ -6885,7 +6893,7 @@
     </message>
     <message>
       <source>Chat nickname</source>
-      <translation type="unfinished"/>
+      <translation>Chat nickname</translation>
     </message>
     <message>
       <source>Name</source>
@@ -6990,7 +6998,7 @@
     <name>theme/index</name>
     <message>
       <source>Products</source>
-      <translation type="unfinished"/>
+      <translation>Prodotti</translation>
     </message>
     <message>
       <source>Default theme</source>
@@ -7007,6 +7015,10 @@
     <message>
       <source>Import a new theme</source>
       <translation>Importa un nuovo tema</translation>
+    </message>
+    <message>
+      <source>Rest API</source>
+      <translation>Rest API</translation>
     </message>
     <message>
       <source>Themes</source>
@@ -7131,7 +7143,7 @@
     </message>
     <message>
       <source>Chat nickname</source>
-      <translation type="unfinished"/>
+      <translation>Chat nickname</translation>
     </message>
     <message>
       <source>Name</source>
@@ -7851,91 +7863,106 @@
     <name>lhproduct/index</name>
     <message>
       <source>Products</source>
-      <translation type="unfinished"/>
+      <translation>Prodotti</translation>
     </message>
   </context>
   <context>
     <name>abstract/product</name>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Nome</translation>
     </message>
     <message>
       <source>Priority</source>
-      <translation type="unfinished"/>
+      <translation>Priorità</translation>
     </message>
     <message>
       <source>Product</source>
-      <translation type="unfinished"/>
+      <translation>Prodotto</translation>
+    </message>
+    <message>
+      <source>API Key</source>
+      <translation>API Key</translation>
     </message>
   </context>
   <context>
     <name>user/validator</name>
     <message>
       <source>Please enter a username</source>
-      <translation type="unfinished"/>
+      <translation>Per favore inserisci un nome utente</translation>
     </message>
     <message>
       <source>User exists</source>
-      <translation type="unfinished"/>
+      <translation>Utente esistente</translation>
     </message>
     <message>
       <source>Passwords mismatch</source>
-      <translation type="unfinished"/>
+      <translation>Passwords non corrispondenti</translation>
     </message>
     <message>
       <source>User action type not set</source>
-      <translation type="unfinished"/>
+      <translation>Tipo di azione utente non impostata</translation>
     </message>
     <message>
       <source>Wrong email address</source>
-      <translation type="unfinished"/>
+      <translation>Indirizzo email errato</translation>
     </message>
     <message>
       <source>Please enter a name</source>
-      <translation type="unfinished"/>
+      <translation>Per favore immetti un nome</translation>
     </message>
     <message>
       <source>Please choose a default user group</source>
-      <translation type="unfinished"/>
+      <translation>Per favore scegli un gruppo utente predefinito</translation>
     </message>
   </context>
   <context>
     <name>paidchat/expiredchat</name>
     <message>
       <source>Chat</source>
-      <translation type="unfinished"/>
+      <translation>Chat</translation>
     </message>
     <message>
       <source>Chat was closed.</source>
-      <translation type="unfinished"/>
+      <translation>La chat è stata chiusa</translation>
     </message>
     <message>
       <source>Invalid hash</source>
-      <translation type="unfinished"/>
+      <translation>Hash non valido</translation>
     </message>
     <message>
       <source>Removed paid chat</source>
-      <translation type="unfinished"/>
+      <translation>Pagamento chat rimosso</translation>
     </message>
   </context>
   <context>
     <name>paidchat/settings</name>
     <message>
       <source>Paid chat settings</source>
-      <translation type="unfinished"/>
+      <translation>Impostazioni pagamento chat</translation>
     </message>
     <message>
       <source>Enabled</source>
-      <translation type="unfinished"/>
+      <translation>Abilitato</translation>
     </message>
     <message>
       <source>User can not access old chat if chat is closed</source>
-      <translation type="unfinished"/>
+      <translation>L&apos;Utente non ha accesso alle vecchie chat se sono chiuse</translation>
     </message>
     <message>
       <source>Secret hash, used for verification</source>
-      <translation type="unfinished"/>
+      <translation>Hash segreta, usata per la verifica</translation>
+    </message>
+  </context>
+  <context>
+    <name>lhrestapi/index</name>
+    <message>
+      <source>Rest API</source>
+      <translation>Rest API</translation>
+    </message>
+    <message>
+      <source>Rest API Keys</source>
+      <translation>Rest API Keys</translation>
     </message>
   </context>
 </TS>

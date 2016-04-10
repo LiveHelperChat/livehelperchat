@@ -54,6 +54,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Πόσες ημέρες ψηφοφορίας widget δεν θα πρέπει να επεκταθεί μετά από την τελευταία εμφάνιση</translation>
     </message>
@@ -3626,6 +3630,10 @@
       <translation>Ενσωματώστε τον κώδικα Questionary</translation>
     </message>
     <message>
+      <source>Rest API</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Start chat form settings</source>
       <translation>Έναρξη συνομιλίας μορφή ρυθμίσεις</translation>
     </message>
@@ -4456,18 +4464,6 @@
       <translation>Στατιστικά</translation>
     </message>
     <message>
-      <source>Chats statistic</source>
-      <translation>Συνομιλίες στατιστικής</translation>
-    </message>
-    <message>
-      <source>Total statistic</source>
-      <translation>Συνολικά στατιστικά</translation>
-    </message>
-    <message>
-      <source>Last 24 hours statistic</source>
-      <translation>Τελευταία στατιστική 24 ώρες</translation>
-    </message>
-    <message>
       <source>User</source>
       <translation>Χρήστη</translation>
     </message>
@@ -4476,16 +4472,8 @@
       <translation>Μπράβο</translation>
     </message>
     <message>
-      <source>Number of Thumbs Up</source>
-      <translation>Αριθμός μπράβο</translation>
-    </message>
-    <message>
       <source>Thumbs down</source>
       <translation>Αντίχειρες κάτω</translation>
-    </message>
-    <message>
-      <source>Number of Thumbs Down</source>
-      <translation>Αριθμός αντίχειρες κάτω</translation>
     </message>
     <message>
       <source>Country</source>
@@ -4494,10 +4482,6 @@
     <message>
       <source>Chats</source>
       <translation>Συνομιλίες</translation>
-    </message>
-    <message>
-      <source>Number of chats by country</source>
-      <translation>Αριθμός των συνομιλιών ανά χώρα</translation>
     </message>
     <message>
       <source>Average in seconds</source>
@@ -4532,24 +4516,12 @@
       <translation>Σε εκκρεμότητα</translation>
     </message>
     <message>
-      <source>Chats number by statuses</source>
-      <translation>Αριθμός συνομιλίες από καταστάσεις</translation>
-    </message>
-    <message>
       <source>Number</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Unanswered chats numbers</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Time</source>
       <translation>Χρόνος</translation>
-    </message>
-    <message>
-      <source>AVG wait time in seconds, max 10 mininutes</source>
-      <translation>AVG περιμένετε χρόνος σε δευτερόλεπτα, max 10 mininutes</translation>
     </message>
     <message>
       <source>Visitors initiated</source>
@@ -4560,10 +4532,6 @@
       <translation>Προληπτική</translation>
     </message>
     <message>
-      <source>Proactive chats number vs visitors initiated</source>
-      <translation>Προληπτική συνομιλίες αριθμός vs επισκέπτες ξεκίνησε</translation>
-    </message>
-    <message>
       <source>Visitors</source>
       <translation>Επισκέπτες</translation>
     </message>
@@ -4572,48 +4540,8 @@
       <translation>Σύστημα</translation>
     </message>
     <message>
-      <source>Messages types</source>
-      <translation>Τύποι μηνυμάτων</translation>
-    </message>
-    <message>
-      <source>Number of chats per hour, average chat duration</source>
-      <translation>Αριθμός των συνομιλιών ανά ώρα, διάρκεια μέση συνομιλίας</translation>
-    </message>
-    <message>
-      <source>Hourly statistic</source>
-      <translation>Ωριαία στατιστικής</translation>
-    </message>
-    <message>
-      <source>Country statistic</source>
-      <translation>Χώρα στατιστικής</translation>
-    </message>
-    <message>
-      <source>Users statisic</source>
-      <translation>Statisic χρήστες</translation>
-    </message>
-    <message>
-      <source>Number of chats by user</source>
-      <translation>Αριθμός των συνομιλιών από το χρήστης</translation>
-    </message>
-    <message>
-      <source>Number of messages by user</source>
-      <translation>Αριθμός μηνυμάτων από τον χρήστη</translation>
-    </message>
-    <message>
-      <source>Average chat duration by user</source>
-      <translation>Διάρκεια μέση συνομιλίας από το χρήστης</translation>
-    </message>
-    <message>
       <source>All operators statistic will be downloaded</source>
       <translation>Θα μεταφορτωθεί όλα φορείς στατιστικής</translation>
-    </message>
-    <message>
-      <source>AVG visitor wait time by operator</source>
-      <translation>AVG επισκέπτης περιμένω ώρα από χειριστή</translation>
-    </message>
-    <message>
-      <source>Last 24h statistic</source>
-      <translation>Στατιστικά τελευταίων 24 ωρών</translation>
     </message>
     <message>
       <source>Parameter</source>
@@ -4626,46 +4554,6 @@
     <message>
       <source>Total chats</source>
       <translation>Σύνολο συνομιλιών</translation>
-    </message>
-    <message>
-      <source>Total pending chats</source>
-      <translation>Σύνολο εκκρεμών συνομιλιών</translation>
-    </message>
-    <message>
-      <source>Total active chats</source>
-      <translation>Σύνολο ενεργών συνομιλιών</translation>
-    </message>
-    <message>
-      <source>Total closed chats</source>
-      <translation>Σύνολο ανενεργών συνομιλίών</translation>
-    </message>
-    <message>
-      <source>Unanswered chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chatbox chats</source>
-      <translation>Συνομιλίες chatbox</translation>
-    </message>
-    <message>
-      <source>Total messages (including visitors, system and operators messages)</source>
-      <translation>Συνολικά μηνύματα (συμπεριλαμβανομένων των επισκεπτών, σύστημα και φορείς μηνύματα)</translation>
-    </message>
-    <message>
-      <source>Total messages (only visitors)</source>
-      <translation>Συνολικά μηνύματα (μόνο επισκέπτες)</translation>
-    </message>
-    <message>
-      <source>Total messages (only system messages)</source>
-      <translation>Συνολικά μηνύματα (μόνο σύστημα μηνύματα)</translation>
-    </message>
-    <message>
-      <source>Total messages (only operators)</source>
-      <translation>Συνολικά μηνύματα (μόνο φορείς)</translation>
-    </message>
-    <message>
-      <source>Operators statistic, top 100 by chats number</source>
-      <translation>Φορείς στατιστικής, κορυφαία 100 από αριθμό συνομιλίες</translation>
     </message>
     <message>
       <source>Total messages</source>
@@ -4682,6 +4570,126 @@
     <message>
       <source>ago</source>
       <translation>πριν</translation>
+    </message>
+    <message>
+      <source>Average chat duration by user</source>
+      <translation>Διάρκεια μέση συνομιλίας από το χρήστης</translation>
+    </message>
+    <message>
+      <source>AVG visitor wait time by operator</source>
+      <translation>AVG επισκέπτης περιμένω ώρα από χειριστή</translation>
+    </message>
+    <message>
+      <source>AVG wait time in seconds, max 10 mininutes</source>
+      <translation>AVG περιμένετε χρόνος σε δευτερόλεπτα, max 10 mininutes</translation>
+    </message>
+    <message>
+      <source>Chatbox chats</source>
+      <translation>Συνομιλίες chatbox</translation>
+    </message>
+    <message>
+      <source>Chats number by statuses</source>
+      <translation>Αριθμός συνομιλίες από καταστάσεις</translation>
+    </message>
+    <message>
+      <source>Chats statistic</source>
+      <translation>Συνομιλίες στατιστικής</translation>
+    </message>
+    <message>
+      <source>Country statistic</source>
+      <translation>Χώρα στατιστικής</translation>
+    </message>
+    <message>
+      <source>Hourly statistic</source>
+      <translation>Ωριαία στατιστικής</translation>
+    </message>
+    <message>
+      <source>Last 24h statistic</source>
+      <translation>Στατιστικά τελευταίων 24 ωρών</translation>
+    </message>
+    <message>
+      <source>Messages types</source>
+      <translation>Τύποι μηνυμάτων</translation>
+    </message>
+    <message>
+      <source>Number of chats by country</source>
+      <translation>Αριθμός των συνομιλιών ανά χώρα</translation>
+    </message>
+    <message>
+      <source>Number of chats by user</source>
+      <translation>Αριθμός των συνομιλιών από το χρήστης</translation>
+    </message>
+    <message>
+      <source>Number of chats per hour, average chat duration</source>
+      <translation>Αριθμός των συνομιλιών ανά ώρα, διάρκεια μέση συνομιλίας</translation>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation>Αριθμός μηνυμάτων από τον χρήστη</translation>
+    </message>
+    <message>
+      <source>Number of Thumbs Down</source>
+      <translation>Αριθμός αντίχειρες κάτω</translation>
+    </message>
+    <message>
+      <source>Number of Thumbs Up</source>
+      <translation>Αριθμός μπράβο</translation>
+    </message>
+    <message>
+      <source>Operators statistic, top 100 by chats number</source>
+      <translation>Φορείς στατιστικής, κορυφαία 100 από αριθμό συνομιλίες</translation>
+    </message>
+    <message>
+      <source>Proactive chats number vs visitors initiated</source>
+      <translation>Προληπτική συνομιλίες αριθμός vs επισκέπτες ξεκίνησε</translation>
+    </message>
+    <message>
+      <source>Last 24 hours statistic</source>
+      <translation>Τελευταία στατιστική 24 ώρες</translation>
+    </message>
+    <message>
+      <source>Total statistic</source>
+      <translation>Συνολικά στατιστικά</translation>
+    </message>
+    <message>
+      <source>Total active chats</source>
+      <translation>Σύνολο ενεργών συνομιλιών</translation>
+    </message>
+    <message>
+      <source>Total closed chats</source>
+      <translation>Σύνολο ανενεργών συνομιλίών</translation>
+    </message>
+    <message>
+      <source>Total messages (including visitors, system and operators messages)</source>
+      <translation>Συνολικά μηνύματα (συμπεριλαμβανομένων των επισκεπτών, σύστημα και φορείς μηνύματα)</translation>
+    </message>
+    <message>
+      <source>Total messages (only operators)</source>
+      <translation>Συνολικά μηνύματα (μόνο φορείς)</translation>
+    </message>
+    <message>
+      <source>Total messages (only system messages)</source>
+      <translation>Συνολικά μηνύματα (μόνο σύστημα μηνύματα)</translation>
+    </message>
+    <message>
+      <source>Total messages (only visitors)</source>
+      <translation>Συνολικά μηνύματα (μόνο επισκέπτες)</translation>
+    </message>
+    <message>
+      <source>Total pending chats</source>
+      <translation>Σύνολο εκκρεμών συνομιλιών</translation>
+    </message>
+    <message>
+      <source>Unanswered chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unanswered chats numbers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Users statisic</source>
+      <translation>Statisic χρήστες</translation>
     </message>
   </context>
   <context>
@@ -7008,6 +7016,10 @@
       <translation>Εισάγει ένα νέο θέμα</translation>
     </message>
     <message>
+      <source>Rest API</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Themes</source>
       <translation>Θέματα</translation>
     </message>
@@ -7867,6 +7879,10 @@
       <source>Product</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>API Key</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>user/validator</name>
@@ -7934,6 +7950,17 @@
     </message>
     <message>
       <source>Secret hash, used for verification</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>lhrestapi/index</name>
+    <message>
+      <source>Rest API</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Rest API Keys</source>
       <translation type="unfinished"/>
     </message>
   </context>

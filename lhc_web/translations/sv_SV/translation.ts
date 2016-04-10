@@ -54,6 +54,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Hur många dagar som röstwidgeten inte ska expanderas efter senaste visningen</translation>
     </message>
@@ -695,7 +699,7 @@
     </message>
     <message>
       <source>Live help is online...</source>
-      <translation>Live hjälpen är online...</translation>
+      <translation>Livehjälpen är online...</translation>
     </message>
     <message>
       <source>Need help?</source>
@@ -707,7 +711,7 @@
     </message>
     <message>
       <source>Live help is offline...</source>
-      <translation>Live hjälpen är otillgänglig...</translation>
+      <translation>Livehjälpen är otillgänglig...</translation>
     </message>
     <message>
       <source>Allow operator to see your page content?</source>
@@ -2247,7 +2251,7 @@
     </message>
     <message>
       <source>Sort</source>
-      <translation type="unfinished"/>
+      <translation>Sortera</translation>
     </message>
     <message>
       <source>Wait time</source>
@@ -3567,7 +3571,7 @@
     </message>
     <message>
       <source>Live help embed code</source>
-      <translation>Live hjälp inbäddad kod</translation>
+      <translation>Livehjälp inbäddad kod</translation>
     </message>
     <message>
       <source>Chats list</source>
@@ -3624,6 +3628,10 @@
     <message>
       <source>Questionary embed code</source>
       <translation>Frågeformulär inbäddad kod</translation>
+    </message>
+    <message>
+      <source>Rest API</source>
+      <translation>Rest API</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
@@ -3695,7 +3703,7 @@
     </message>
     <message>
       <source>Live help configuration</source>
-      <translation>Live hjälp, inställningar</translation>
+      <translation>Livehjälp, inställningar</translation>
     </message>
     <message>
       <source>System</source>
@@ -3970,7 +3978,7 @@
     </message>
     <message>
       <source>Select product</source>
-      <translation type="unfinished"/>
+      <translation>Välj produkt</translation>
     </message>
     <message>
       <source>Type to search</source>
@@ -4085,7 +4093,7 @@
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Avdelning</translation>
     </message>
     <message>
       <source>Number of elements in list</source>
@@ -4456,18 +4464,6 @@
       <translation>Statistik</translation>
     </message>
     <message>
-      <source>Chats statistic</source>
-      <translation>Chattstatistik</translation>
-    </message>
-    <message>
-      <source>Total statistic</source>
-      <translation>Total statistik</translation>
-    </message>
-    <message>
-      <source>Last 24 hours statistic</source>
-      <translation>Statistik för de senaste 24 timmarna</translation>
-    </message>
-    <message>
       <source>User</source>
       <translation>Användare</translation>
     </message>
@@ -4476,16 +4472,8 @@
       <translation>Tummen upp</translation>
     </message>
     <message>
-      <source>Number of Thumbs Up</source>
-      <translation>Antal tummar upp</translation>
-    </message>
-    <message>
       <source>Thumbs down</source>
       <translation>Tummen ner</translation>
-    </message>
-    <message>
-      <source>Number of Thumbs Down</source>
-      <translation>Antal tummar ner</translation>
     </message>
     <message>
       <source>Country</source>
@@ -4494,10 +4482,6 @@
     <message>
       <source>Chats</source>
       <translation>Chattar</translation>
-    </message>
-    <message>
-      <source>Number of chats by country</source>
-      <translation>Antal chattar per land</translation>
     </message>
     <message>
       <source>Average in seconds</source>
@@ -4532,24 +4516,12 @@
       <translation>Avvaktar</translation>
     </message>
     <message>
-      <source>Chats number by statuses</source>
-      <translation>Chattar per status</translation>
-    </message>
-    <message>
       <source>Number</source>
       <translation>Nummer</translation>
     </message>
     <message>
-      <source>Unanswered chats numbers</source>
-      <translation>Obesvarade antal chattar</translation>
-    </message>
-    <message>
       <source>Time</source>
       <translation>Tid</translation>
-    </message>
-    <message>
-      <source>AVG wait time in seconds, max 10 mininutes</source>
-      <translation>Genomsnittlig väntetid i sekunder, max 10 minuter</translation>
     </message>
     <message>
       <source>Visitors initiated</source>
@@ -4560,10 +4532,6 @@
       <translation>Proaktiv</translation>
     </message>
     <message>
-      <source>Proactive chats number vs visitors initiated</source>
-      <translation>Proaktiva chattar gentemot besökare som accepterats</translation>
-    </message>
-    <message>
       <source>Visitors</source>
       <translation>Besökare</translation>
     </message>
@@ -4572,48 +4540,8 @@
       <translation>System</translation>
     </message>
     <message>
-      <source>Messages types</source>
-      <translation>Meddelandetyper</translation>
-    </message>
-    <message>
-      <source>Number of chats per hour, average chat duration</source>
-      <translation>Antal chattar per timme, chattlängd i genomsnitt</translation>
-    </message>
-    <message>
-      <source>Hourly statistic</source>
-      <translation>Timvis statistik</translation>
-    </message>
-    <message>
-      <source>Country statistic</source>
-      <translation>Statistik, land</translation>
-    </message>
-    <message>
-      <source>Users statisic</source>
-      <translation>Statistik, användare</translation>
-    </message>
-    <message>
-      <source>Number of chats by user</source>
-      <translation>Antal chattar från användare</translation>
-    </message>
-    <message>
-      <source>Number of messages by user</source>
-      <translation>Antal meddelanden per användare</translation>
-    </message>
-    <message>
-      <source>Average chat duration by user</source>
-      <translation>Genomsnittlig chattlängd av användare</translation>
-    </message>
-    <message>
       <source>All operators statistic will be downloaded</source>
       <translation>All operatörsstatistik kommer att laddas ner</translation>
-    </message>
-    <message>
-      <source>AVG visitor wait time by operator</source>
-      <translation>Genomsnittlig väntetid för besökare från operatören</translation>
-    </message>
-    <message>
-      <source>Last 24h statistic</source>
-      <translation>Statistik de senaste 24 timmarna</translation>
     </message>
     <message>
       <source>Parameter</source>
@@ -4626,46 +4554,6 @@
     <message>
       <source>Total chats</source>
       <translation>Total antal chattar</translation>
-    </message>
-    <message>
-      <source>Total pending chats</source>
-      <translation>Totalt antal chattar i väntan</translation>
-    </message>
-    <message>
-      <source>Total active chats</source>
-      <translation>Totalt antal aktiva chattar</translation>
-    </message>
-    <message>
-      <source>Total closed chats</source>
-      <translation>Totalt avslutade chattar</translation>
-    </message>
-    <message>
-      <source>Unanswered chats</source>
-      <translation>Obesvarade chattar</translation>
-    </message>
-    <message>
-      <source>Chatbox chats</source>
-      <translation>Chattbox, chattar</translation>
-    </message>
-    <message>
-      <source>Total messages (including visitors, system and operators messages)</source>
-      <translation>Totalt antal meddelande (inkl besökare, system- och operatörsmeddelanden)</translation>
-    </message>
-    <message>
-      <source>Total messages (only visitors)</source>
-      <translation>Total antal meddelande (enbart besökare)</translation>
-    </message>
-    <message>
-      <source>Total messages (only system messages)</source>
-      <translation>Totalt antal meddelande (enbart systemmeddelanden)</translation>
-    </message>
-    <message>
-      <source>Total messages (only operators)</source>
-      <translation>Totalt antal meddelande (enbart operatörer)</translation>
-    </message>
-    <message>
-      <source>Operators statistic, top 100 by chats number</source>
-      <translation>Operatörsstatistik, topp 100 av antal chattar</translation>
     </message>
     <message>
       <source>Total messages</source>
@@ -4682,6 +4570,126 @@
     <message>
       <source>ago</source>
       <translation>sedan</translation>
+    </message>
+    <message>
+      <source>Average chat duration by user</source>
+      <translation>Genomsnittlig chattlängd av användare</translation>
+    </message>
+    <message>
+      <source>AVG visitor wait time by operator</source>
+      <translation>Genomsnittlig väntetid för besökare från operatören</translation>
+    </message>
+    <message>
+      <source>AVG wait time in seconds, max 10 mininutes</source>
+      <translation>Genomsnittlig väntetid i sekunder, max 10 minuter</translation>
+    </message>
+    <message>
+      <source>Chatbox chats</source>
+      <translation>Chattbox, chattar</translation>
+    </message>
+    <message>
+      <source>Chats number by statuses</source>
+      <translation>Chattar per status</translation>
+    </message>
+    <message>
+      <source>Chats statistic</source>
+      <translation>Chattstatistik</translation>
+    </message>
+    <message>
+      <source>Country statistic</source>
+      <translation>Statistik, land</translation>
+    </message>
+    <message>
+      <source>Hourly statistic</source>
+      <translation>Timvis statistik</translation>
+    </message>
+    <message>
+      <source>Last 24h statistic</source>
+      <translation>Statistik de senaste 24 timmarna</translation>
+    </message>
+    <message>
+      <source>Messages types</source>
+      <translation>Meddelandetyper</translation>
+    </message>
+    <message>
+      <source>Number of chats by country</source>
+      <translation>Antal chattar per land</translation>
+    </message>
+    <message>
+      <source>Number of chats by user</source>
+      <translation>Antal chattar från användare</translation>
+    </message>
+    <message>
+      <source>Number of chats per hour, average chat duration</source>
+      <translation>Antal chattar per timme, chattlängd i genomsnitt</translation>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation>Antal meddelanden per användare</translation>
+    </message>
+    <message>
+      <source>Number of Thumbs Down</source>
+      <translation>Antal tummar ner</translation>
+    </message>
+    <message>
+      <source>Number of Thumbs Up</source>
+      <translation>Antal tummar upp</translation>
+    </message>
+    <message>
+      <source>Operators statistic, top 100 by chats number</source>
+      <translation>Operatörsstatistik, topp 100 av antal chattar</translation>
+    </message>
+    <message>
+      <source>Proactive chats number vs visitors initiated</source>
+      <translation>Proaktiva chattar gentemot besökare som accepterats</translation>
+    </message>
+    <message>
+      <source>Last 24 hours statistic</source>
+      <translation>Statistik för de senaste 24 timmarna</translation>
+    </message>
+    <message>
+      <source>Total statistic</source>
+      <translation>Total statistik</translation>
+    </message>
+    <message>
+      <source>Total active chats</source>
+      <translation>Totalt antal aktiva chattar</translation>
+    </message>
+    <message>
+      <source>Total closed chats</source>
+      <translation>Totalt avslutade chattar</translation>
+    </message>
+    <message>
+      <source>Total messages (including visitors, system and operators messages)</source>
+      <translation>Totalt antal meddelande (inkl besökare, system- och operatörsmeddelanden)</translation>
+    </message>
+    <message>
+      <source>Total messages (only operators)</source>
+      <translation>Totalt antal meddelande (enbart operatörer)</translation>
+    </message>
+    <message>
+      <source>Total messages (only system messages)</source>
+      <translation>Totalt antal meddelande (enbart systemmeddelanden)</translation>
+    </message>
+    <message>
+      <source>Total messages (only visitors)</source>
+      <translation>Total antal meddelande (enbart besökare)</translation>
+    </message>
+    <message>
+      <source>Total pending chats</source>
+      <translation>Totalt antal chattar i väntan</translation>
+    </message>
+    <message>
+      <source>Unanswered chats</source>
+      <translation>Obesvarade chattar</translation>
+    </message>
+    <message>
+      <source>Unanswered chats numbers</source>
+      <translation>Obesvarade antal chattar</translation>
+    </message>
+    <message>
+      <source>Users statisic</source>
+      <translation>Statistik, användare</translation>
     </message>
   </context>
   <context>
@@ -5532,7 +5540,7 @@
     </message>
     <message>
       <source>Chat nickname</source>
-      <translation type="unfinished"/>
+      <translation>Smeknamn i chatten</translation>
     </message>
     <message>
       <source>Name</source>
@@ -6884,7 +6892,7 @@
     </message>
     <message>
       <source>Chat nickname</source>
-      <translation type="unfinished"/>
+      <translation>Smeknamn i chatten</translation>
     </message>
     <message>
       <source>Name</source>
@@ -7006,6 +7014,10 @@
     <message>
       <source>Import a new theme</source>
       <translation>Importera en ny stil</translation>
+    </message>
+    <message>
+      <source>Rest API</source>
+      <translation>Rest API</translation>
     </message>
     <message>
       <source>Themes</source>
@@ -7130,7 +7142,7 @@
     </message>
     <message>
       <source>Chat nickname</source>
-      <translation type="unfinished"/>
+      <translation>Smeknamn i chatten</translation>
     </message>
     <message>
       <source>Name</source>
@@ -7867,6 +7879,10 @@
       <source>Product</source>
       <translation>Produkt</translation>
     </message>
+    <message>
+      <source>API Key</source>
+      <translation>API-nyckel</translation>
+    </message>
   </context>
   <context>
     <name>user/validator</name>
@@ -7935,6 +7951,17 @@
     <message>
       <source>Secret hash, used for verification</source>
       <translation>Hemlig hash, används för verifikation</translation>
+    </message>
+  </context>
+  <context>
+    <name>lhrestapi/index</name>
+    <message>
+      <source>Rest API</source>
+      <translation>Rest API</translation>
+    </message>
+    <message>
+      <source>Rest API Keys</source>
+      <translation>Rest API-nycklar</translation>
     </message>
   </context>
 </TS>

@@ -54,6 +54,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>რამდენი დღე  არ უნდა გაფართივდეს ხმის მიცემის ვიდჯეტი ბოლო ჩვენებიდან</translation>
     </message>
@@ -3626,6 +3630,10 @@
       <translation>კითხვარის ჩასაშენებელი კოდი</translation>
     </message>
     <message>
+      <source>Rest API</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Start chat form settings</source>
       <translation>ჩეთის დაწყება პარამეტრებიდან</translation>
     </message>
@@ -4456,18 +4464,6 @@
       <translation>სტატისტიკა</translation>
     </message>
     <message>
-      <source>Chats statistic</source>
-      <translation>ჩეთების სტატისტიკა</translation>
-    </message>
-    <message>
-      <source>Total statistic</source>
-      <translation>ჯამური სტატისტიკა</translation>
-    </message>
-    <message>
-      <source>Last 24 hours statistic</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>User</source>
       <translation>მომხმარებელი</translation>
     </message>
@@ -4476,16 +4472,8 @@
       <translation>კარგია</translation>
     </message>
     <message>
-      <source>Number of Thumbs Up</source>
-      <translation>მოწონებების რაოდენობა</translation>
-    </message>
-    <message>
       <source>Thumbs down</source>
       <translation>ცუდია</translation>
-    </message>
-    <message>
-      <source>Number of Thumbs Down</source>
-      <translation>არმოწონების რაოდენობა</translation>
     </message>
     <message>
       <source>Country</source>
@@ -4494,10 +4482,6 @@
     <message>
       <source>Chats</source>
       <translation>ჩეთები</translation>
-    </message>
-    <message>
-      <source>Number of chats by country</source>
-      <translation>ჩეთების რაოდენობა ქვეყნის მიხედვით</translation>
     </message>
     <message>
       <source>Average in seconds</source>
@@ -4532,23 +4516,11 @@
       <translation>მომლოდინე</translation>
     </message>
     <message>
-      <source>Chats number by statuses</source>
-      <translation>ჩეთების რაოდენობა სტატუსების მიხედვით</translation>
-    </message>
-    <message>
       <source>Number</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Unanswered chats numbers</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Time</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>AVG wait time in seconds, max 10 mininutes</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4560,10 +4532,6 @@
       <translation>პროაქტიული</translation>
     </message>
     <message>
-      <source>Proactive chats number vs visitors initiated</source>
-      <translation>პროაქტიული ჩეთების რაოდენობა მომხმარებლების მიერ ინიცირებულის წინააღმდეგ</translation>
-    </message>
-    <message>
       <source>Visitors</source>
       <translation>ვიზიტორები</translation>
     </message>
@@ -4572,48 +4540,8 @@
       <translation>სისტემა</translation>
     </message>
     <message>
-      <source>Messages types</source>
-      <translation>შეტყობინებების  სახეობები</translation>
-    </message>
-    <message>
-      <source>Number of chats per hour, average chat duration</source>
-      <translation>ჩეთების რაოდენობა თითოეული საათისთვის, ჩეთის საშუალო ხანგრძლივობა</translation>
-    </message>
-    <message>
-      <source>Hourly statistic</source>
-      <translation>საათობრივი სტატისტიკა</translation>
-    </message>
-    <message>
-      <source>Country statistic</source>
-      <translation>ქვეყნის სტატისტიკა</translation>
-    </message>
-    <message>
-      <source>Users statisic</source>
-      <translation>მომხმარებლის სტატისტიკა</translation>
-    </message>
-    <message>
-      <source>Number of chats by user</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Number of messages by user</source>
-      <translation>შეტყობინებების რაოდენობა მომხმარებლისგან</translation>
-    </message>
-    <message>
-      <source>Average chat duration by user</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>All operators statistic will be downloaded</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>AVG visitor wait time by operator</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Last 24h statistic</source>
-      <translation>ბოლო 24 სთ. სტატისტიკა</translation>
     </message>
     <message>
       <source>Parameter</source>
@@ -4626,46 +4554,6 @@
     <message>
       <source>Total chats</source>
       <translation>ჩეთები სულ</translation>
-    </message>
-    <message>
-      <source>Total pending chats</source>
-      <translation>მომლოდინე ჩეთი სულ</translation>
-    </message>
-    <message>
-      <source>Total active chats</source>
-      <translation>აქტიური ჩეთი სულ</translation>
-    </message>
-    <message>
-      <source>Total closed chats</source>
-      <translation>დახურული ჩეთები სულ</translation>
-    </message>
-    <message>
-      <source>Unanswered chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chatbox chats</source>
-      <translation>ჩეთის სარკმელის ჩეთები</translation>
-    </message>
-    <message>
-      <source>Total messages (including visitors, system and operators messages)</source>
-      <translation>ჯამური შეტყობინებები (ვიზიტორების, სისტემისა და ოპერატორების შეტყობინებებით)</translation>
-    </message>
-    <message>
-      <source>Total messages (only visitors)</source>
-      <translation>ჯამური შეტყობინებები (მხოლოდ ვიზიტორები)</translation>
-    </message>
-    <message>
-      <source>Total messages (only system messages)</source>
-      <translation>ჯამური შეტყობინებები ( მხოლოდ სისტემური შეტყობინებები)</translation>
-    </message>
-    <message>
-      <source>Total messages (only operators)</source>
-      <translation>ჯამური შეტყობინებები (მხოლოდ ოპერატორები)</translation>
-    </message>
-    <message>
-      <source>Operators statistic, top 100 by chats number</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Total messages</source>
@@ -4682,6 +4570,126 @@
     <message>
       <source>ago</source>
       <translation>წინათ</translation>
+    </message>
+    <message>
+      <source>Average chat duration by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>AVG visitor wait time by operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>AVG wait time in seconds, max 10 mininutes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox chats</source>
+      <translation>ჩეთის სარკმელის ჩეთები</translation>
+    </message>
+    <message>
+      <source>Chats number by statuses</source>
+      <translation>ჩეთების რაოდენობა სტატუსების მიხედვით</translation>
+    </message>
+    <message>
+      <source>Chats statistic</source>
+      <translation>ჩეთების სტატისტიკა</translation>
+    </message>
+    <message>
+      <source>Country statistic</source>
+      <translation>ქვეყნის სტატისტიკა</translation>
+    </message>
+    <message>
+      <source>Hourly statistic</source>
+      <translation>საათობრივი სტატისტიკა</translation>
+    </message>
+    <message>
+      <source>Last 24h statistic</source>
+      <translation>ბოლო 24 სთ. სტატისტიკა</translation>
+    </message>
+    <message>
+      <source>Messages types</source>
+      <translation>შეტყობინებების  სახეობები</translation>
+    </message>
+    <message>
+      <source>Number of chats by country</source>
+      <translation>ჩეთების რაოდენობა ქვეყნის მიხედვით</translation>
+    </message>
+    <message>
+      <source>Number of chats by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of chats per hour, average chat duration</source>
+      <translation>ჩეთების რაოდენობა თითოეული საათისთვის, ჩეთის საშუალო ხანგრძლივობა</translation>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation>შეტყობინებების რაოდენობა მომხმარებლისგან</translation>
+    </message>
+    <message>
+      <source>Number of Thumbs Down</source>
+      <translation>არმოწონების რაოდენობა</translation>
+    </message>
+    <message>
+      <source>Number of Thumbs Up</source>
+      <translation>მოწონებების რაოდენობა</translation>
+    </message>
+    <message>
+      <source>Operators statistic, top 100 by chats number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Proactive chats number vs visitors initiated</source>
+      <translation>პროაქტიული ჩეთების რაოდენობა მომხმარებლების მიერ ინიცირებულის წინააღმდეგ</translation>
+    </message>
+    <message>
+      <source>Last 24 hours statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total statistic</source>
+      <translation>ჯამური სტატისტიკა</translation>
+    </message>
+    <message>
+      <source>Total active chats</source>
+      <translation>აქტიური ჩეთი სულ</translation>
+    </message>
+    <message>
+      <source>Total closed chats</source>
+      <translation>დახურული ჩეთები სულ</translation>
+    </message>
+    <message>
+      <source>Total messages (including visitors, system and operators messages)</source>
+      <translation>ჯამური შეტყობინებები (ვიზიტორების, სისტემისა და ოპერატორების შეტყობინებებით)</translation>
+    </message>
+    <message>
+      <source>Total messages (only operators)</source>
+      <translation>ჯამური შეტყობინებები (მხოლოდ ოპერატორები)</translation>
+    </message>
+    <message>
+      <source>Total messages (only system messages)</source>
+      <translation>ჯამური შეტყობინებები ( მხოლოდ სისტემური შეტყობინებები)</translation>
+    </message>
+    <message>
+      <source>Total messages (only visitors)</source>
+      <translation>ჯამური შეტყობინებები (მხოლოდ ვიზიტორები)</translation>
+    </message>
+    <message>
+      <source>Total pending chats</source>
+      <translation>მომლოდინე ჩეთი სულ</translation>
+    </message>
+    <message>
+      <source>Unanswered chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unanswered chats numbers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Users statisic</source>
+      <translation>მომხმარებლის სტატისტიკა</translation>
     </message>
   </context>
   <context>
@@ -7008,6 +7016,10 @@
       <translation>ახალი თემის იმპორტი</translation>
     </message>
     <message>
+      <source>Rest API</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Themes</source>
       <translation>თემები</translation>
     </message>
@@ -7867,6 +7879,10 @@
       <source>Product</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>API Key</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>user/validator</name>
@@ -7934,6 +7950,17 @@
     </message>
     <message>
       <source>Secret hash, used for verification</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>lhrestapi/index</name>
+    <message>
+      <source>Rest API</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Rest API Keys</source>
       <translation type="unfinished"/>
     </message>
   </context>

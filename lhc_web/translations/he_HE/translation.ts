@@ -15,7 +15,7 @@
     </message>
     <message>
       <source>List online operators.</source>
-      <translation>רשימת מפעילים זמינים.</translation>
+      <translation>מפעילים פעילים</translation>
     </message>
     <message>
       <source/>
@@ -43,6 +43,10 @@
     </message>
     <message>
       <source>Product module is enabled</source>
+      <translation>מודול המוצר מאופשר</translation>
+    </message>
+    <message>
+      <source/>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -55,123 +59,123 @@
     </message>
     <message>
       <source>How many days voting widget should not be expanded after last show</source>
-      <translation>למשך כמה ימים יש להציג את אפשרות ההצבעה לאחר שהוצגו פעם אחרונה?</translation>
+      <translation>כמה ימים אשף ההצבעה לא יוצג אחרי מופע אחרון?</translation>
     </message>
     <message>
       <source>Use secure cookie, check this if you want to force SSL all the time</source>
-      <translation>אכוף שימוש בעוגיות מאובטחות. סמן אם אתה רוצה לכפות שימוש ב SSL</translation>
+      <translation>השתמש ב-Cookie מאובטח. בחר באפשרות זו אם ברצונך לכפות תעבורת SSL תמיד.</translation>
     </message>
     <message>
       <source>Which ip should be allowed to update DB by executing http request, separate by comma?</source>
-      <translation>איזה כתובת IP מורשות לעדכן את מסד הנתונים על ידי קריאות HTTP, מופרדות בפסיק?</translation>
+      <translation>איזו כתובת IP להתיר לצורך עדכון מסד הנתונים על ידי בקשת http? הפרדה עם פסיק.</translation>
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
-      <translation>אפשר מעקב אחר מבקרים באתר</translation>
+      <translation>לאפשר מעקב על מבקרי האתר המקוונים</translation>
     </message>
     <message>
       <source>Should mouse movement be tracked as activity measure, if not checked only basic events would be tracked</source>
-      <translation type="unfinished"/>
+      <translation>צריך תנועת העכבר להיות במעקב כאמצעי פעילות, אם לא בדק רק בסיסי אירועים תחת מעקב</translation>
     </message>
     <message>
       <source>Track is user still on site, chat status checks also has to be enabled</source>
-      <translation>עקוב אם המשתמש עדיין באתר. שים לב שיש לאפשר גם בדיקת סטטוס בכדי שאפשרות זו תעבוד.</translation>
+      <translation>המסלול הוא המשתמש עדיין באתר, בדיקת מצב צ&apos;אט יש גם תהיה זמינה</translation>
     </message>
     <message>
       <source>Track online visitors even if there is no online operators</source>
-      <translation>עקוב אחר משתמשים באתר אפילו כאשר אין מפעילי צ&apos;אט זמינים</translation>
+      <translation>מעקב אחר מבקרים מקוון גם אם יש ללא אופרטורים באינטרנט</translation>
     </message>
     <message>
       <source>Track users footprint. For this also online visitors tracking should be enabled</source>
-      <translation>עקוב אחר מסלולי מבקרים. כדי לאפשר זאת יש לוודא שגם מעקב אחר מבקרים מאופשר.</translation>
+      <translation>מעקב אחר משתמשים טביעת רגל. בשביל זה גם מבקרים מקוון מעקב להפכה לזמינה</translation>
     </message>
     <message>
       <source>Set your domain to enable user tracking across different domain subdomains.</source>
-      <translation>קבע את שם המתחם שלך בכדי לאפשר מעקב אחר משתמשים שעוברים בין תתי שמות מתחם שונים.</translation>
+      <translation>להגדיר את התחום שלך כדי לאפשר מעקב אחר משתמש על פני תחומי משנה תחום אחר.</translation>
     </message>
     <message>
       <source>Track users activity on site?</source>
-      <translation type="unfinished"/>
+      <translation>לעקוב אחר פעילות המשתמשים באתר?</translation>
     </message>
     <message>
       <source>How many days keep records of online users.</source>
-      <translation>כמה ימי לשמור היסטוריה של משתמשים אונליין.</translation>
+      <translation>כמה ימים לשמור רשומות של משתמשים באינטרנט.</translation>
     </message>
     <message>
       <source>Suggest user to leave a message then user chooses offline department</source>
-      <translation>הצע למשתמשים לשלוח הודעה ולבחור מחלקה מתאימה</translation>
+      <translation>מציע למשתמש להשאיר הודעה ואז המשתמש בוחר מחלקת מנותק</translation>
     </message>
     <message>
       <source>Play sound on invitation to chat.</source>
-      <translation>השמע צליל בעת הזמנה לשיחה.</translation>
+      <translation>השמע צליל על ההזמנה כדי לשוחח.</translation>
     </message>
     <message>
       <source>Show users option to switch language at widget</source>
-      <translation>הצג למשתמשים אפשרות לשינוי שפה</translation>
+      <translation>להציג למשתמשים את האפשרות להחליף שפה-יישומון</translation>
     </message>
     <message>
       <source>Between what languages user should be able to switch</source>
-      <translation>לאילו שפות המשתמש יכול לעבור</translation>
+      <translation>בין אילו שפות המשתמש צריך להיות מסוגל לעבור</translation>
     </message>
     <message>
       <source>Host where NodeJs is running</source>
-      <translation type="unfinished"/>
+      <translation>מחשב מארח בו פועל NodeJs</translation>
     </message>
     <message>
       <source>Location of SocketIO JS library</source>
-      <translation type="unfinished"/>
+      <translation>המיקום של ספריית SocketIO JS</translation>
     </message>
     <message>
       <source>Connect to NodeJs in https mode</source>
-      <translation type="unfinished"/>
+      <translation>להתחבר NodeJs במצב https</translation>
     </message>
     <message>
       <source>socket.io path, optional</source>
-      <translation type="unfinished"/>
+      <translation>socket.io נתיב, אופציונלי</translation>
     </message>
     <message>
       <source>NodeJS support enabled</source>
-      <translation type="unfinished"/>
+      <translation>תמיכה NodeJS</translation>
     </message>
     <message>
       <source>Do not ask permission for users to see their screen</source>
-      <translation>אל תבקש הרשאות ממשתמשים כדי לראות את המסך שלהם</translation>
+      <translation>איני מבקש הרשאה למשתמשים לראות את המסך שלהם</translation>
     </message>
     <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
-      <translation>השתמש בCAPTCHA. חובה להתקין LHC באותו תת מתחם כדי שאפשרות זו תעבוד כראוי.</translation>
+      <translation>השתמש הפעלה captcha. LHC חייב להיות מותקן באותו תחום או תחום משנה.</translation>
     </message>
     <message>
       <source>Should cronjob run unanswered chats workflow and execute unaswered chats callback, 0 - no, any other number bigger than 0 is a minits how long chat have to be not accepted before executing callback.</source>
-      <translation>האם על הCRONJOB לבדוק שיחות שלא נענו לבצע שיחה חוזרת לשיחות שלא נענו? 0 = לא. כל מספר אחר = כמה דקות לחכות לכל שיחה לפני שהיא מסומנת כשיחה שלא נענתה ושיש לחזור אליה.</translation>
+      <translation>ובלחיצה צריך להפעיל זרימת העבודה השיחות שלא נענו ובצע unaswered השיחות callback, 0 -. לא, כל מספר אחר גדול יותר מאשר 0 minits כמה זמן צ&apos;אט יש לא יתקבל לפני ביצוע התקשרות חזרה.</translation>
     </message>
     <message>
       <source>Should cronjob run departments transfer workflow, even if user leaves a chat</source>
-      <translation>האם על CRONJOB להמשיך ולהעביר שיחה למחלקה גם כאשר המשתמש עזב את השיחה?</translation>
+      <translation>צריך ובלחיצה לנהל מחלקות להעביר זרימת עבודה, גם אם המשתמש עוזב שיחה</translation>
     </message>
     <message>
       <source>Reopen chat functionality enabled</source>
-      <translation>אפשר פתיחה מחדש של שיחות</translation>
+      <translation>פתיחה מחדש של פונקציונליות הצ&apos;אט זמינה</translation>
     </message>
     <message>
       <source>Reopen closed chat as new? Otherwise it will be reopened as active.</source>
-      <translation>האם לפתוח מחדש שיחה שנסגרה כשיחה חדשה? אם לא אז היא תפתח כשיחה פעילה.</translation>
+      <translation>לפתוח צ&apos;אט סגור כמו חדש? אחרת זה להיות מחדש כפעילה.</translation>
     </message>
     <message>
       <source>Should invitation logic be executed if there is no online operators</source>
-      <translation>האם על המערכת להזמין משתמשים לשיחה גם כאשר אין מפעילי אתר זמינים</translation>
+      <translation>יש לבצע הזמנה לוגיקה אם יש ללא אופרטורים באינטרנט</translation>
     </message>
     <message>
       <source>Pro active chats invitations limitation based on pending chats, (-1) do not limit, (0,1,n+1) number of pending chats can be for invitation to be shown.</source>
-      <translation>הזמנה פרואקטיבית של משתמשים לשיחה על בסיס שיחות ממתינות.(-1)  = ללא הגבלה,(0,1,n+1) = מספר השיחות הממתינות לפני שהזמנה תוצג למשתמשים.</translation>
+      <translation>שיחות פעילות פרו הזמנות הגבלה המבוססת על ממתינים צ&apos;אטים, (-1) אינן מגבילות, (0, 1, n + 1) מספר הממתינים צ&apos;אטים יכול להיות עבור הזמנה יוצג.</translation>
     </message>
     <message>
       <source>Is pro active chat invitation active. Online users tracking also has to be enabled</source>
-      <translation>האם לאפשר הזמנת משתמשים לשיחה באופן פרואקטיבי? כדי להפעיל אפשרות זאת יש לאפשר מעקב אחר משתמשים</translation>
+      <translation>הזמנה לצ&apos;אט פעילים פרו פעילה. משתמשים מחוברים לאתר גם צריך להיות זמין</translation>
     </message>
     <message>
       <source>On chat close exit chat</source>
-      <translation type="unfinished"/>
+      <translation>צ&apos;אט קרוב לצאת צ&apos;אט</translation>
     </message>
     <message>
       <source/>
@@ -179,23 +183,23 @@
     </message>
     <message>
       <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
-      <translation>כמה שעות יש להסתיר את הסמלון של קבלת עזרה לאחר שנסגר על ידי המשתמש?</translation>
+      <translation>צריך עזרה שתיאור זמן קצוב, לאחר כמה שעות להראות שוב תיאור הכלי?</translation>
     </message>
     <message>
       <source>Show need help tooltip?</source>
-      <translation>להציג סמלון של עזרה?</translation>
+      <translation>הצג צריך עזרה תיאור הכלי?</translation>
     </message>
     <message>
       <source>Minimum phone number length</source>
-      <translation>אורך מינימאלי של מספר טלפון</translation>
+      <translation>אורך מספר הטלפון מינימלי</translation>
     </message>
     <message>
       <source>Messages box height</source>
-      <translation>גובה תיבת ההודעות</translation>
+      <translation>גובה תיבת הודעות</translation>
     </message>
     <message>
       <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
-      <translation type="unfinished"/>
+      <translation>פסק הזמן של ההודעה פרואקטיבית תוך שעות. לאחר כמה שעות צ&apos;אט פרואקטיבית mesasge צריך יוצג שוב.</translation>
     </message>
     <message>
       <source>Maximum message length in characters</source>
@@ -432,7 +436,7 @@
     </message>
     <message>
       <source>General settings</source>
-      <translation type="unfinished"/>
+      <translation>הגדרות כלליות</translation>
     </message>
     <message>
       <source>Text changes</source>
@@ -456,11 +460,11 @@
     </message>
     <message>
       <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
-      <translation type="unfinished"/>
+      <translation>צריך עזרה שתיאור זמן קצוב, לאחר כמה שעות להראות שוב תיאור הכלי?</translation>
     </message>
     <message>
       <source>Show need help tooltip?</source>
-      <translation type="unfinished"/>
+      <translation>הצג צריך עזרה תיאור הכלי?</translation>
     </message>
     <message>
       <source>Need help standard text</source>
@@ -838,7 +842,7 @@
     </message>
     <message>
       <source>Show visitor this message then wait timeout passes.</source>
-      <translation type="unfinished"/>
+      <translation>הצג למשתמש הודעה זו כאשר עובר זמן מסוים</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -904,7 +908,7 @@
     </message>
     <message>
       <source>Theme</source>
-      <translation type="unfinished"/>
+      <translation>ערכת נושא</translation>
     </message>
     <message>
       <source>Default</source>
@@ -968,7 +972,7 @@
     </message>
     <message>
       <source>Middle left side of the screen</source>
-      <translation type="unfinished"/>
+      <translation>צד שמאל של המסך</translation>
     </message>
     <message>
       <source>Disable responsive layout for status widget.</source>
@@ -1064,7 +1068,7 @@
     </message>
     <message>
       <source>Hide status when offline</source>
-      <translation type="unfinished"/>
+      <translation>הסתר סטטוס במצב לא מחובר</translation>
     </message>
     <message>
       <source>Show a leave a message form when there are no online operators</source>
@@ -1124,7 +1128,7 @@
     </message>
     <message>
       <source>Product</source>
-      <translation type="unfinished"/>
+      <translation>מוצר</translation>
     </message>
     <message>
       <source>Show product selection based on selected departments</source>
@@ -1419,7 +1423,7 @@
     </message>
     <message>
       <source>Blocked users</source>
-      <translation type="unfinished"/>
+      <translation>משתמשים חסומים</translation>
     </message>
     <message>
       <source>Please enter an IP to block</source>
@@ -1886,7 +1890,7 @@
     </message>
     <message>
       <source>Product</source>
-      <translation type="unfinished"/>
+      <translation>מוצר</translation>
     </message>
     <message>
       <source>Country</source>
@@ -2251,7 +2255,7 @@
     </message>
     <message>
       <source>Wait time</source>
-      <translation type="unfinished"/>
+      <translation>זמן המתנה</translation>
     </message>
     <message>
       <source>Delete chat</source>
@@ -2447,7 +2451,7 @@
     </message>
     <message>
       <source>Product</source>
-      <translation type="unfinished"/>
+      <translation>מוצר</translation>
     </message>
     <message>
       <source>Choose a product</source>
@@ -2676,7 +2680,7 @@
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>הגדרות עודכנו</translation>
     </message>
     <message>
       <source>Online operators</source>
@@ -3124,7 +3128,7 @@
     </message>
     <message>
       <source>Dashboard</source>
-      <translation type="unfinished"/>
+      <translation>לוח בקרה</translation>
     </message>
     <message>
       <source>City</source>
@@ -3619,11 +3623,15 @@
     </message>
     <message>
       <source>Product</source>
-      <translation type="unfinished"/>
+      <translation>מוצר</translation>
     </message>
     <message>
       <source>Questionary embed code</source>
       <translation>קוד הטמעת שאלה</translation>
+    </message>
+    <message>
+      <source>Rest API</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Start chat form settings</source>
@@ -3738,7 +3746,7 @@
     </message>
     <message>
       <source>Screen sharing</source>
-      <translation type="unfinished"/>
+      <translation>שיתוף מסך</translation>
     </message>
     <message>
       <source>Notifications about new chats</source>
@@ -3813,7 +3821,7 @@
     </message>
     <message>
       <source>Active chat</source>
-      <translation type="unfinished"/>
+      <translation>צ&apos;אט פעיל</translation>
     </message>
     <message>
       <source>Closed chat</source>
@@ -3942,7 +3950,7 @@
     </message>
     <message>
       <source>Product</source>
-      <translation type="unfinished"/>
+      <translation>מוצר</translation>
     </message>
     <message>
       <source>Search</source>
@@ -4109,7 +4117,7 @@
     </message>
     <message>
       <source>Clean cache</source>
-      <translation type="unfinished"/>
+      <translation>נקה מטמון</translation>
     </message>
     <message>
       <source>Home</source>
@@ -4145,11 +4153,11 @@
     </message>
     <message>
       <source>Dashboard</source>
-      <translation type="unfinished"/>
+      <translation>לוח בקרה</translation>
     </message>
     <message>
       <source>Settings</source>
-      <translation type="unfinished"/>
+      <translation>הגדרות</translation>
     </message>
     <message>
       <source>Menu</source>
@@ -4456,18 +4464,6 @@
       <translation>סטטיסטיקה</translation>
     </message>
     <message>
-      <source>Chats statistic</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Total statistic</source>
-      <translation>סטטיסטיקה כוללת</translation>
-    </message>
-    <message>
-      <source>Last 24 hours statistic</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>User</source>
       <translation>משתמש</translation>
     </message>
@@ -4476,15 +4472,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Number of Thumbs Up</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Thumbs down</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Number of Thumbs Down</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4496,16 +4484,12 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Number of chats by country</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Average in seconds</source>
       <translation>ממוצע בשניות</translation>
     </message>
     <message>
       <source>Wait time</source>
-      <translation type="unfinished"/>
+      <translation>זמן המתנה</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -4532,15 +4516,7 @@
       <translation>ממתין</translation>
     </message>
     <message>
-      <source>Chats number by statuses</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Number</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Unanswered chats numbers</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4548,19 +4524,11 @@
       <translation>זמן</translation>
     </message>
     <message>
-      <source>AVG wait time in seconds, max 10 mininutes</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Visitors initiated</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Proactive</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Proactive chats number vs visitors initiated</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4572,48 +4540,8 @@
       <translation>מערכת</translation>
     </message>
     <message>
-      <source>Messages types</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Number of chats per hour, average chat duration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Hourly statistic</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Country statistic</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Users statisic</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Number of chats by user</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Number of messages by user</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Average chat duration by user</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>All operators statistic will be downloaded</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>AVG visitor wait time by operator</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Last 24h statistic</source>
-      <translation>סטטיסטיקה - 24 שעות אחרונות</translation>
     </message>
     <message>
       <source>Parameter</source>
@@ -4626,46 +4554,6 @@
     <message>
       <source>Total chats</source>
       <translation>סה&quot;כ צ&apos;אטים</translation>
-    </message>
-    <message>
-      <source>Total pending chats</source>
-      <translation>סה&quot;כ צ&apos;אטים בהמתנה</translation>
-    </message>
-    <message>
-      <source>Total active chats</source>
-      <translation>סה&quot;כ צ&apos;אטים פעילים</translation>
-    </message>
-    <message>
-      <source>Total closed chats</source>
-      <translation>סה&quot;כ צ&apos;אטים סגורים </translation>
-    </message>
-    <message>
-      <source>Unanswered chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chatbox chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Total messages (including visitors, system and operators messages)</source>
-      <translation>סה&quot;כ הודעות (כולל מבקרים, והודעות מערכת ומפעילים)</translation>
-    </message>
-    <message>
-      <source>Total messages (only visitors)</source>
-      <translation>סה&quot;כ הודעות (רק מבקרים)</translation>
-    </message>
-    <message>
-      <source>Total messages (only system messages)</source>
-      <translation>סה&quot;כ הודעות (רק הודעות מערכת)</translation>
-    </message>
-    <message>
-      <source>Total messages (only operators)</source>
-      <translation>סה&quot;כ הודעות (רק מפעילים)</translation>
-    </message>
-    <message>
-      <source>Operators statistic, top 100 by chats number</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Total messages</source>
@@ -4682,6 +4570,126 @@
     <message>
       <source>ago</source>
       <translation>לפני</translation>
+    </message>
+    <message>
+      <source>Average chat duration by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>AVG visitor wait time by operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>AVG wait time in seconds, max 10 mininutes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats number by statuses</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Country statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hourly statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last 24h statistic</source>
+      <translation>סטטיסטיקה - 24 שעות אחרונות</translation>
+    </message>
+    <message>
+      <source>Messages types</source>
+      <translation>סוגי הודעות</translation>
+    </message>
+    <message>
+      <source>Number of chats by country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of chats by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of chats per hour, average chat duration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of Thumbs Down</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of Thumbs Up</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators statistic, top 100 by chats number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Proactive chats number vs visitors initiated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last 24 hours statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total statistic</source>
+      <translation>סטטיסטיקה כוללת</translation>
+    </message>
+    <message>
+      <source>Total active chats</source>
+      <translation>סה&quot;כ צ&apos;אטים פעילים</translation>
+    </message>
+    <message>
+      <source>Total closed chats</source>
+      <translation>סה&quot;כ צ&apos;אטים סגורים </translation>
+    </message>
+    <message>
+      <source>Total messages (including visitors, system and operators messages)</source>
+      <translation>סה&quot;כ הודעות (כולל מבקרים, והודעות מערכת ומפעילים)</translation>
+    </message>
+    <message>
+      <source>Total messages (only operators)</source>
+      <translation>סה&quot;כ הודעות (רק מפעילים)</translation>
+    </message>
+    <message>
+      <source>Total messages (only system messages)</source>
+      <translation>סה&quot;כ הודעות (רק הודעות מערכת)</translation>
+    </message>
+    <message>
+      <source>Total messages (only visitors)</source>
+      <translation>סה&quot;כ הודעות (רק מבקרים)</translation>
+    </message>
+    <message>
+      <source>Total pending chats</source>
+      <translation>סה&quot;כ צ&apos;אטים בהמתנה</translation>
+    </message>
+    <message>
+      <source>Unanswered chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unanswered chats numbers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Users statisic</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -4970,7 +4978,7 @@
     </message>
     <message>
       <source>Synchronization and sound settings</source>
-      <translation type="unfinished"/>
+      <translation>הגדרות סנכרון וקול</translation>
     </message>
   </context>
   <context>
@@ -6664,7 +6672,7 @@
     <name>users/autologin</name>
     <message>
       <source>Auto login settings</source>
-      <translation type="unfinished"/>
+      <translation>הגדרות כניסה אוטומטית</translation>
     </message>
     <message>
       <source>This module can be used if you are generating autologin link. See site for code examples</source>
@@ -6997,7 +7005,7 @@
     </message>
     <message>
       <source>Theme</source>
-      <translation type="unfinished"/>
+      <translation>ערכת נושא</translation>
     </message>
     <message>
       <source>Widget themes</source>
@@ -7005,6 +7013,10 @@
     </message>
     <message>
       <source>Import a new theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Rest API</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7865,6 +7877,10 @@
     </message>
     <message>
       <source>Product</source>
+      <translation>מוצר</translation>
+    </message>
+    <message>
+      <source>API Key</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -7934,6 +7950,17 @@
     </message>
     <message>
       <source>Secret hash, used for verification</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>lhrestapi/index</name>
+    <message>
+      <source>Rest API</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Rest API Keys</source>
       <translation type="unfinished"/>
     </message>
   </context>

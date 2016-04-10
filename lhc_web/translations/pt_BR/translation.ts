@@ -43,7 +43,11 @@
     </message>
     <message>
       <source>Product module is enabled</source>
-      <translation>Produto módulo está habilitado</translation>
+      <translation>Módulo produto está habilitado</translation>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source/>
@@ -171,7 +175,7 @@
     </message>
     <message>
       <source>On chat close exit chat</source>
-      <translation> Fechar e sair do chat</translation>
+      <translation>Sair do chat ao fechar</translation>
     </message>
     <message>
       <source/>
@@ -203,7 +207,7 @@
     </message>
     <message>
       <source>List online operators, 0 - no, 1 - yes.</source>
-      <translation>Lista de operadores, 0 - não, 1 - sim.</translation>
+      <translation>Listar operadores online, 0 - não, 1 - sim.</translation>
     </message>
     <message>
       <source>Ignore users online statuses and use departments online hours</source>
@@ -223,7 +227,7 @@
     </message>
     <message>
       <source>Hide close button in dropdown</source>
-      <translation>Esconder o botão fechar</translation>
+      <translation>Esconder o botão fechar no menu</translation>
     </message>
     <message>
       <source>Home page tabs order</source>
@@ -420,7 +424,7 @@
     </message>
     <message>
       <source>Live preview</source>
-      <translation>Visualização ao vivo</translation>
+      <translation>Pré-visualização ao vivo</translation>
     </message>
     <message>
       <source>Visitor messages style</source>
@@ -432,15 +436,15 @@
     </message>
     <message>
       <source>General settings</source>
-      <translation>Configurações Gerais</translation>
+      <translation>Configurações gerais</translation>
     </message>
     <message>
       <source>Text changes</source>
-      <translation>Alterar texto</translation>
+      <translation>Alterações no texto</translation>
     </message>
     <message>
       <source>Disabled</source>
-      <translation>Desativar</translation>
+      <translation>Desativado</translation>
     </message>
     <message>
       <source>Name</source>
@@ -2247,7 +2251,7 @@
     </message>
     <message>
       <source>Sort</source>
-      <translation type="unfinished"/>
+      <translation>Ordenar</translation>
     </message>
     <message>
       <source>Wait time</source>
@@ -3627,6 +3631,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Código de incorporação do questionário</translation>
     </message>
     <message>
+      <source>Rest API</source>
+      <translation>Rest API</translation>
+    </message>
+    <message>
       <source>Start chat form settings</source>
       <translation>Configurações de formulário inicial de chat</translation>
     </message>
@@ -3943,7 +3951,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Product</source>
-      <translation type="unfinished"/>
+      <translation>Produto</translation>
     </message>
     <message>
       <source>Search</source>
@@ -3971,7 +3979,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Select product</source>
-      <translation type="unfinished"/>
+      <translation>Selecionar produto</translation>
     </message>
     <message>
       <source>Type to search</source>
@@ -4086,7 +4094,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Departamento</translation>
     </message>
     <message>
       <source>Number of elements in list</source>
@@ -4457,18 +4465,6 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Estatística</translation>
     </message>
     <message>
-      <source>Chats statistic</source>
-      <translation>Estatísticas do chat</translation>
-    </message>
-    <message>
-      <source>Total statistic</source>
-      <translation>Estatística completa</translation>
-    </message>
-    <message>
-      <source>Last 24 hours statistic</source>
-      <translation>Estatísticas das últimas 24 horas</translation>
-    </message>
-    <message>
       <source>User</source>
       <translation>Usuário</translation>
     </message>
@@ -4477,16 +4473,8 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Positivo</translation>
     </message>
     <message>
-      <source>Number of Thumbs Up</source>
-      <translation>Número de Positivos</translation>
-    </message>
-    <message>
       <source>Thumbs down</source>
       <translation>Negativo</translation>
-    </message>
-    <message>
-      <source>Number of Thumbs Down</source>
-      <translation>Número de Negativos</translation>
     </message>
     <message>
       <source>Country</source>
@@ -4495,10 +4483,6 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Chats</source>
       <translation>Chats</translation>
-    </message>
-    <message>
-      <source>Number of chats by country</source>
-      <translation>Número de chats por país</translation>
     </message>
     <message>
       <source>Average in seconds</source>
@@ -4533,24 +4517,12 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Pendente</translation>
     </message>
     <message>
-      <source>Chats number by statuses</source>
-      <translation>Número de chats por status</translation>
-    </message>
-    <message>
       <source>Number</source>
       <translation>Número</translation>
     </message>
     <message>
-      <source>Unanswered chats numbers</source>
-      <translation>Número de chats não respondidos</translation>
-    </message>
-    <message>
       <source>Time</source>
       <translation>Tempo</translation>
-    </message>
-    <message>
-      <source>AVG wait time in seconds, max 10 mininutes</source>
-      <translation>tempo médio de espera em segundos, máx. 10 minutos.</translation>
     </message>
     <message>
       <source>Visitors initiated</source>
@@ -4561,10 +4533,6 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Pró-ativo</translation>
     </message>
     <message>
-      <source>Proactive chats number vs visitors initiated</source>
-      <translation>Número de chats pró-ativos X Visitantes iniciaram</translation>
-    </message>
-    <message>
       <source>Visitors</source>
       <translation>Visitantes</translation>
     </message>
@@ -4573,48 +4541,8 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Sistema</translation>
     </message>
     <message>
-      <source>Messages types</source>
-      <translation>Tipos de mensagens</translation>
-    </message>
-    <message>
-      <source>Number of chats per hour, average chat duration</source>
-      <translation>Número de chats por hora, duração média do chat</translation>
-    </message>
-    <message>
-      <source>Hourly statistic</source>
-      <translation>Estatísticas por hora</translation>
-    </message>
-    <message>
-      <source>Country statistic</source>
-      <translation>Estatísticas por país</translation>
-    </message>
-    <message>
-      <source>Users statisic</source>
-      <translation>Estatísticas de usuários</translation>
-    </message>
-    <message>
-      <source>Number of chats by user</source>
-      <translation>Número de chats por usuário</translation>
-    </message>
-    <message>
-      <source>Number of messages by user</source>
-      <translation>Número de mensagens por usuário</translation>
-    </message>
-    <message>
-      <source>Average chat duration by user</source>
-      <translation>Média de duração do chat por usuário</translation>
-    </message>
-    <message>
       <source>All operators statistic will be downloaded</source>
       <translation>Todas as estatísticas de operadores serão baixadas</translation>
-    </message>
-    <message>
-      <source>AVG visitor wait time by operator</source>
-      <translation>Tempo de espera médio dos visitantes por operador</translation>
-    </message>
-    <message>
-      <source>Last 24h statistic</source>
-      <translation>Estatística das últimas 24 horas</translation>
     </message>
     <message>
       <source>Parameter</source>
@@ -4627,46 +4555,6 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Total chats</source>
       <translation>Total de chats</translation>
-    </message>
-    <message>
-      <source>Total pending chats</source>
-      <translation>Total de chats pendentes</translation>
-    </message>
-    <message>
-      <source>Total active chats</source>
-      <translation>Total de chats ativos</translation>
-    </message>
-    <message>
-      <source>Total closed chats</source>
-      <translation>Total de chats fechados</translation>
-    </message>
-    <message>
-      <source>Unanswered chats</source>
-      <translation>Chats sem resposta</translation>
-    </message>
-    <message>
-      <source>Chatbox chats</source>
-      <translation>Caixas de chats</translation>
-    </message>
-    <message>
-      <source>Total messages (including visitors, system and operators messages)</source>
-      <translation>Total de mensagens (incluindo mensagens de visitantes, sistema e operadores)</translation>
-    </message>
-    <message>
-      <source>Total messages (only visitors)</source>
-      <translation>Total de mensagens (somente visitantes)</translation>
-    </message>
-    <message>
-      <source>Total messages (only system messages)</source>
-      <translation>Total de mensagens (somente mensagens do sistema)</translation>
-    </message>
-    <message>
-      <source>Total messages (only operators)</source>
-      <translation>Total de mensagens (somente operadores)</translation>
-    </message>
-    <message>
-      <source>Operators statistic, top 100 by chats number</source>
-      <translation>Estatística dos operadores, top 100 por números de chats</translation>
     </message>
     <message>
       <source>Total messages</source>
@@ -4683,6 +4571,126 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>ago</source>
       <translation>atrás</translation>
+    </message>
+    <message>
+      <source>Average chat duration by user</source>
+      <translation>Média de duração do chat por usuário</translation>
+    </message>
+    <message>
+      <source>AVG visitor wait time by operator</source>
+      <translation>Tempo de espera médio dos visitantes por operador</translation>
+    </message>
+    <message>
+      <source>AVG wait time in seconds, max 10 mininutes</source>
+      <translation>tempo médio de espera em segundos, máx. 10 minutos.</translation>
+    </message>
+    <message>
+      <source>Chatbox chats</source>
+      <translation>Caixas de chats</translation>
+    </message>
+    <message>
+      <source>Chats number by statuses</source>
+      <translation>Número de chats por status</translation>
+    </message>
+    <message>
+      <source>Chats statistic</source>
+      <translation>Estatísticas do chat</translation>
+    </message>
+    <message>
+      <source>Country statistic</source>
+      <translation>Estatísticas por país</translation>
+    </message>
+    <message>
+      <source>Hourly statistic</source>
+      <translation>Estatísticas por hora</translation>
+    </message>
+    <message>
+      <source>Last 24h statistic</source>
+      <translation>Estatística das últimas 24 horas</translation>
+    </message>
+    <message>
+      <source>Messages types</source>
+      <translation>Tipos de mensagens</translation>
+    </message>
+    <message>
+      <source>Number of chats by country</source>
+      <translation>Número de chats por país</translation>
+    </message>
+    <message>
+      <source>Number of chats by user</source>
+      <translation>Número de chats por usuário</translation>
+    </message>
+    <message>
+      <source>Number of chats per hour, average chat duration</source>
+      <translation>Número de chats por hora, duração média do chat</translation>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation>Número de mensagens por usuário</translation>
+    </message>
+    <message>
+      <source>Number of Thumbs Down</source>
+      <translation>Número de Negativos</translation>
+    </message>
+    <message>
+      <source>Number of Thumbs Up</source>
+      <translation>Número de Positivos</translation>
+    </message>
+    <message>
+      <source>Operators statistic, top 100 by chats number</source>
+      <translation>Estatística dos operadores, top 100 por números de chats</translation>
+    </message>
+    <message>
+      <source>Proactive chats number vs visitors initiated</source>
+      <translation>Número de chats pró-ativos X Visitantes iniciaram</translation>
+    </message>
+    <message>
+      <source>Last 24 hours statistic</source>
+      <translation>Estatísticas das últimas 24 horas</translation>
+    </message>
+    <message>
+      <source>Total statistic</source>
+      <translation>Estatística completa</translation>
+    </message>
+    <message>
+      <source>Total active chats</source>
+      <translation>Total de chats ativos</translation>
+    </message>
+    <message>
+      <source>Total closed chats</source>
+      <translation>Total de chats fechados</translation>
+    </message>
+    <message>
+      <source>Total messages (including visitors, system and operators messages)</source>
+      <translation>Total de mensagens (incluindo mensagens de visitantes, sistema e operadores)</translation>
+    </message>
+    <message>
+      <source>Total messages (only operators)</source>
+      <translation>Total de mensagens (somente operadores)</translation>
+    </message>
+    <message>
+      <source>Total messages (only system messages)</source>
+      <translation>Total de mensagens (somente mensagens do sistema)</translation>
+    </message>
+    <message>
+      <source>Total messages (only visitors)</source>
+      <translation>Total de mensagens (somente visitantes)</translation>
+    </message>
+    <message>
+      <source>Total pending chats</source>
+      <translation>Total de chats pendentes</translation>
+    </message>
+    <message>
+      <source>Unanswered chats</source>
+      <translation>Chats sem resposta</translation>
+    </message>
+    <message>
+      <source>Unanswered chats numbers</source>
+      <translation>Número de chats não respondidos</translation>
+    </message>
+    <message>
+      <source>Users statisic</source>
+      <translation>Estatísticas de usuários</translation>
     </message>
   </context>
   <context>
@@ -5533,7 +5541,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Chat nickname</source>
-      <translation type="unfinished"/>
+      <translation>Apelido no chat</translation>
     </message>
     <message>
       <source>Name</source>
@@ -6885,7 +6893,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Chat nickname</source>
-      <translation type="unfinished"/>
+      <translation>Apelido no chat</translation>
     </message>
     <message>
       <source>Name</source>
@@ -7007,6 +7015,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Import a new theme</source>
       <translation>Importar um novo tema</translation>
+    </message>
+    <message>
+      <source>Rest API</source>
+      <translation>Rest API</translation>
     </message>
     <message>
       <source>Themes</source>
@@ -7131,7 +7143,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Chat nickname</source>
-      <translation type="unfinished"/>
+      <translation>Apelido no chat</translation>
     </message>
     <message>
       <source>Name</source>
@@ -7868,6 +7880,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <source>Product</source>
       <translation>Produto</translation>
     </message>
+    <message>
+      <source>API Key</source>
+      <translation>API Key</translation>
+    </message>
   </context>
   <context>
     <name>user/validator</name>
@@ -7936,6 +7952,17 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Secret hash, used for verification</source>
       <translation>Hash secreto, usado para verificações</translation>
+    </message>
+  </context>
+  <context>
+    <name>lhrestapi/index</name>
+    <message>
+      <source>Rest API</source>
+      <translation>Rest API</translation>
+    </message>
+    <message>
+      <source>Rest API Keys</source>
+      <translation>Rest API Keys</translation>
     </message>
   </context>
 </TS>
