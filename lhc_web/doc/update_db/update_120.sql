@@ -9,4 +9,4 @@ CREATE TABLE `lh_admin_theme` (
        PRIMARY KEY (`id`)
 ) DEFAULT CHARSET=utf8;
 
-INSERT INTO `lh_chat_config` (`identifier`, `value`, `type`, `explain`, `hidden`) VALUES ('default_admin_theme_id',	'1',	0,	'Default admin theme',	1);
+INSERT INTO `lh_chat_config` (`identifier`, `value`, `type`, `explain`, `hidden`) VALUES ('default_admin_theme_id',	'0',	0,	'Default admin theme',	1);
