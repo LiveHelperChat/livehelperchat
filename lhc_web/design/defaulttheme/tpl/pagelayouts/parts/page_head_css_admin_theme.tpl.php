@@ -10,10 +10,9 @@ if ($adminThemeId  > 0 ) {
 
     if ($adminTheme instanceof erLhAbstractModelAdminTheme) {
         echo $adminTheme->header_content_front;
+        
+        if ($adminTheme->header_css != '') {
+            echo '<style>',$adminTheme->header_css,'</style>';
+        }
     };
 }; ?>
-<?php if ($adminTheme->header_css != '') : ?>
-<style>
-    <?php echo htmlspecialchars($adminTheme->header_css)?>
-</style>
-<?php endif;?>
