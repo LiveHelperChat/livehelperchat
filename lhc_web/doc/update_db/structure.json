@@ -4446,6 +4446,13 @@
                 "hidden": "0"
             },
             {
+                "identifier": "default_admin_theme_id",
+                "value": "0",
+                "type": "0",
+                "explain": "Default admin theme ID",
+                "hidden": "1"
+            },
+            {
                 "identifier": "max_message_length",
                 "value": "500",
                 "type": "0",

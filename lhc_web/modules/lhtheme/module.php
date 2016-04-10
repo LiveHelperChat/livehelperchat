@@ -25,6 +25,41 @@ $ViewList['default'] = array(
     'functions' => array( 'administratethemes' )
 );
 
+$ViewList['defaultadmintheme'] = array(
+    'params' => array(),
+    'functions' => array( 'administratethemes' )
+);
+
+$ViewList['adminthemes'] = array(
+    'params' => array(),
+    'functions' => array( 'administratethemes' )
+);
+
+$ViewList['adminnewtheme'] = array(
+    'params' => array(),
+    'functions' => array( 'administratethemes' )
+);
+
+$ViewList['adminthemedelete'] = array(
+    'params' => array('id'),
+    'uparams' => array('csfr'),
+    'functions' => array('administratethemes'),
+);
+
+$ViewList['adminthemeedit'] = array(
+    'params' => array('id'),
+    'functions' => array( 'administratethemes' )
+);
+
+$ViewList['deleteresource'] = array (
+    'params' => array('id', 'context', 'hash', ),
+    'functions' => array('administratethemes'),
+);
+
+$ViewList['gethash'] = array (
+    'params' => array(),
+);
+
 $FunctionList['administratethemes'] = array('explain' =>'Allow users to maintain themes');
 
 ?>

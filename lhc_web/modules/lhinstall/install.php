@@ -59,6 +59,9 @@ switch ((int)$Params['user_parameters']['step_id']) {
 		if (!is_writable("var/storagetheme"))
 	       $Errors[] = "var/storagetheme is not writable";
 
+		if (!is_writable("var/storageadmintheme"))
+	       $Errors[] = "var/storageadmintheme is not writable";
+
 		if (!extension_loaded ('pdo_mysql' ))
 	       $Errors[] = "php-pdo extension not detected. Please install php extension";
 		
@@ -464,6 +467,17 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	       `id` int(11) NOT NULL AUTO_INCREMENT,
         	       `name` varchar(250) NOT NULL,
         	       `max_stars` int(11) NOT NULL,
+        	       PRIMARY KEY (`id`)
+        	   ) DEFAULT CHARSET=utf8");
+
+        	   $db->query("CREATE TABLE `lh_admin_theme` (
+        	       `id` int(11) NOT NULL AUTO_INCREMENT,
+        	       `name` varchar(100) NOT NULL,
+        	       `static_content` longtext NOT NULL,
+        	       `static_js_content` longtext NOT NULL,
+        	       `static_css_content` longtext NOT NULL,
+        	       `header_content` text NOT NULL,
+        	       `header_css` text NOT NULL,
         	       PRIMARY KEY (`id`)
         	   ) DEFAULT CHARSET=utf8");
 
@@ -914,6 +928,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('allow_reopen_closed','1', 0, 'Allow user to reopen closed chats?', '0'),
                 ('reopen_as_new','1', 0, 'Reopen closed chat as new? Otherwise it will be reopened as active.', '0'),
                 ('default_theme_id','0', 0, 'Default theme ID.', '1'),  
+                ('default_admin_theme_id','0', 0, 'Default admin theme ID', '1'),  
                 ('translation_data',	'a:6:{i:0;b:0;s:19:\"translation_handler\";s:4:\"bing\";s:19:\"enable_translations\";b:0;s:14:\"bing_client_id\";s:0:\"\";s:18:\"bing_client_secret\";s:0:\"\";s:14:\"google_api_key\";s:0:\"\";}',	0,	'Translation data',	1),              
                 ('disable_html5_storage','1',0,'Disable HMTL5 storage, check it if your site is switching between http and https', '0'),
                 ('automatically_reopen_chat','1',0,'Automatically reopen chat on widget open', '0'),

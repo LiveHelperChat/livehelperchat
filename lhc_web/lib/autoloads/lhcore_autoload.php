@@ -101,6 +101,9 @@ return array_merge(array (
 		'erLhAbstractModelForm'  					=> 'lib/models/lhabstract/erlhabstractmodelform.php',
 		'erLhAbstractModelFormCollected'  			=> 'lib/models/lhabstract/erlhabstractmodelformcollected.php',
 		'erLhAbstractModelWidgetTheme'  			=> 'lib/models/lhabstract/erlhabstractmodelwidgettheme.php',
+		'erLhAbstractModelAdminTheme'  			    => 'lib/models/lhabstract/erlhabstractmodeladmintheme.php',
+		'erLhcoreClassThemeValidator'  			    => 'lib/core/lhtheme/lhthemevalidator.php',
+
 		'erLhAbstractModelProduct'  			    => 'lib/models/lhabstract/erlhabstractmodelproduct.php',
 		'erLhAbstractModelRestAPIKey'  			    => 'lib/models/lhabstract/erlhabstractmodelrestapikey.php',
 

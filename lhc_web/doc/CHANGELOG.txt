@@ -1,6 +1,13 @@
+2.45v
+
+1. Admin themes
+execute doc/update_db/update_120.sql for update
+
 2.44v
 
 1. Rest API Initial version
+
+execute doc/update_db/update_119.sql for update
 
 2.43v
 
