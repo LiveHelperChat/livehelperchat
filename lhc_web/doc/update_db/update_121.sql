@@ -1,0 +1,1 @@
+INSERT INTO `lh_chat_config` (`identifier`, `value`, `type`, `explain`, `hidden`) VALUES ('disable_iframe_sharing',	'1',	0,	'Disable iframes in sharing mode',	0);

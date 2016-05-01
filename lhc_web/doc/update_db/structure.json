@@ -4161,6 +4161,13 @@
                 "hidden": "0"
             },
             {
+                "identifier": "disable_iframe_sharing",
+                "value": "1",
+                "type": "0",
+                "explain": "Disable iframes in sharing mode",
+                "hidden": "0"
+            },
+            {
                 "identifier": "accept_chat_link_timeout",
                 "value": "300",
                 "type": "0",

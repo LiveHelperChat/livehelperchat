@@ -1,3 +1,10 @@
+2.46v
+
+1. Option to disable iframes rendering. It just increases security in some cases.
+2. href links in co-browsing will be replaced with javascript:void(0), so in order operator to click invalid link he will have to type it manually.
+
+execute doc/update_db/update_121.sql for update
+
 2.45v
 
 1. Admin themes

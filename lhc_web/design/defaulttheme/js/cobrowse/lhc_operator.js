@@ -15,6 +15,7 @@ var LHCCoBrowserOperator = (function() {
 		this.mode_co_browse_internal =  params['mode'] ? params['mode'] : 'chat';		
 		this.node_js_settings = params['nodejssettings'];
 		this.disablejs = params['disablejs'];
+		this.disableiframe = typeof params['disableiframe'] != 'undefined' ? params['disableiframe'] : true;
 		this.formsenabled = typeof params['formsenabled'] != 'undefined' ? params['formsenabled'] : true;
 		this.refreshTimeout = null;
 		this.isNodeConnected = false;
@@ -160,6 +161,11 @@ var LHCCoBrowserOperator = (function() {
 			},
 			setAttribute : function(node, attr, val) {
 				
+				if (_this.disableiframe == true && node.nodeName == 'IFRAME' && attr == 'src') {
+					node.setAttribute(attr,"javascript:void(0)"); // By settings this we will know we can't use href link
+					return true;
+				}
+				
 				// don't mess with our helper iframe, strange things starts to happen without this :) 
 				if (node.nodeName == 'IFRAME' && attr == 'id' && val == 'lhc_iframe') {
 					// Remove iframe after tree mirror has done it's job
@@ -200,7 +206,15 @@ var LHCCoBrowserOperator = (function() {
 					if (_this.httpsmode == true && _this.sitehttps == false && node.getAttribute('lhc-css') !== null) {
 						node.setAttribute('href',_this.lhcbase +'/'+_this.chat_id+_this.mode_co_browse+'/?base='+encodeURIComponent(_this.base)+'&css='+encodeURIComponent(val));
 						return true;
-					}					
+					}
+				}
+				
+				// We don't need href links
+				// This way it's also more secure like operator would have to type link directly to test
+				if (node.nodeName == 'A' && attr == 'href') {
+					node.setAttribute(attr,"javascript:void(0)");
+					node.setAttribute('title',val);
+					return true;
 				}
 				
 				// remove anchors's onclick dom0-style handlers so they
