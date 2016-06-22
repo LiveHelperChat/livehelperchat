@@ -58,6 +58,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Hur många dagar som röstwidgeten inte ska expanderas efter senaste visningen</translation>
     </message>
@@ -3666,6 +3670,18 @@
       <translation>Standardstil</translation>
     </message>
     <message>
+      <source>Back office theming</source>
+      <translation>Teman för administratörspanelen</translation>
+    </message>
+    <message>
+      <source>Admin themes</source>
+      <translation>Administratörsteman</translation>
+    </message>
+    <message>
+      <source>Default admin theme</source>
+      <translation>Standard administratörstema</translation>
+    </message>
+    <message>
       <source>Automatic translations</source>
       <translation>Automatiska översättningar</translation>
     </message>
@@ -4435,6 +4451,14 @@
     <message>
       <source>Additional encryption key, min length 40</source>
       <translation>Ytterligare krypteringsnyckel, minimum längd 40 tecken</translation>
+    </message>
+    <message>
+      <source>Please enter resource identifier</source>
+      <translation>Var vänlig skriv in resursidentifieraren</translation>
+    </message>
+    <message>
+      <source>Add resource</source>
+      <translation>Lägg till resurs</translation>
     </message>
     <message>
       <source>Minimum 40 characters for encryption key!</source>
@@ -7016,6 +7040,18 @@
       <translation>Importera en ny stil</translation>
     </message>
     <message>
+      <source>Admin</source>
+      <translation>Administratör</translation>
+    </message>
+    <message>
+      <source>Admin themes</source>
+      <translation>Administratörsteman</translation>
+    </message>
+    <message>
+      <source>Default admin theme</source>
+      <translation>Standard administratörstema</translation>
+    </message>
+    <message>
       <source>Rest API</source>
       <translation>Rest API</translation>
     </message>
@@ -7040,6 +7076,10 @@
     <message>
       <source>Default theme was set</source>
       <translation>Standardstilen var vald</translation>
+    </message>
+    <message>
+      <source>Default admin theme was set</source>
+      <translation>Standard administratörstema valdes</translation>
     </message>
     <message>
       <source>Import theme</source>
@@ -7962,6 +8002,95 @@
     <message>
       <source>Rest API Keys</source>
       <translation>Rest API-nycklar</translation>
+    </message>
+  </context>
+  <context>
+    <name>icclicktocallform/form</name>
+    <message>
+      <source>Settings</source>
+      <translation>Inställningar</translation>
+    </message>
+    <message>
+      <source>Header settings</source>
+      <translation>Inställningar för headern</translation>
+    </message>
+    <message>
+      <source>Header css</source>
+      <translation>CSS för headern</translation>
+    </message>
+    <message>
+      <source>Static content</source>
+      <translation>Statiskt innehåll</translation>
+    </message>
+    <message>
+      <source>JS</source>
+      <translation>JS/JavaScript</translation>
+    </message>
+    <message>
+      <source>CSS</source>
+      <translation>CSS</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Namn</translation>
+    </message>
+    <message>
+      <source>Header content</source>
+      <translation>Innehåll i headern</translation>
+    </message>
+    <message>
+      <source>Resource name for replacement</source>
+      <translation>Resursnamn för ersättning</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Tom...</translation>
+    </message>
+    <message>
+      <source>Invalid CSRF token!</source>
+      <translation>Ogiltigt CSRF-tecken!</translation>
+    </message>
+    <message>
+      <source>Please enter a name</source>
+      <translation>Var vänlig skriv in ett namn</translation>
+    </message>
+    <message>
+      <source>File not chosen for</source>
+      <translation>Ingen fil vald för</translation>
+    </message>
+  </context>
+  <context>
+    <name>lhtheme/admin</name>
+    <message>
+      <source>New admin theme</source>
+      <translation>Nytt administratörstema</translation>
+    </message>
+    <message>
+      <source>Admin themes</source>
+      <translation>Administratörsteman</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Namn</translation>
+    </message>
+    <message>
+      <source>Default admin theme</source>
+      <translation>Standard administratörstema</translation>
+    </message>
+    <message>
+      <source>Edit admin theme</source>
+      <translation>Redigera administratörstema</translation>
+    </message>
+  </context>
+  <context>
+    <name>admintheme/form</name>
+    <message>
+      <source>Edit theme</source>
+      <translation>Redigera temat</translation>
+    </message>
+    <message>
+      <source>Updated</source>
+      <translation>Uppdaterad</translation>
     </message>
   </context>
 </TS>

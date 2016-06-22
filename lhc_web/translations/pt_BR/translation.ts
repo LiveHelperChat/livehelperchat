@@ -58,6 +58,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Por quantos dias o widget de votação não deve ser exibido após última exibição</translation>
     </message>
@@ -3667,6 +3671,18 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Tema padrão</translation>
     </message>
     <message>
+      <source>Back office theming</source>
+      <translation>Tema de Back Office</translation>
+    </message>
+    <message>
+      <source>Admin themes</source>
+      <translation>Temas do Admin</translation>
+    </message>
+    <message>
+      <source>Default admin theme</source>
+      <translation>Tema padrão do Admin</translation>
+    </message>
+    <message>
       <source>Automatic translations</source>
       <translation>Traduções automáticas</translation>
     </message>
@@ -4436,6 +4452,14 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Additional encryption key, min length 40</source>
       <translation>Chave de encriptação adicional, tamanho mínimo de 40</translation>
+    </message>
+    <message>
+      <source>Please enter resource identifier</source>
+      <translation>Favor Informar o identificador de recurso</translation>
+    </message>
+    <message>
+      <source>Add resource</source>
+      <translation>Adicionar recurso</translation>
     </message>
     <message>
       <source>Minimum 40 characters for encryption key!</source>
@@ -7017,6 +7041,18 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Importar um novo tema</translation>
     </message>
     <message>
+      <source>Admin</source>
+      <translation>Admin</translation>
+    </message>
+    <message>
+      <source>Admin themes</source>
+      <translation>Temas do Admin</translation>
+    </message>
+    <message>
+      <source>Default admin theme</source>
+      <translation>Tema padrão do Admin</translation>
+    </message>
+    <message>
       <source>Rest API</source>
       <translation>Rest API</translation>
     </message>
@@ -7041,6 +7077,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Default theme was set</source>
       <translation>Tema padrão foi aplicado</translation>
+    </message>
+    <message>
+      <source>Default admin theme was set</source>
+      <translation>Tema padrão do Admin foi direcionado</translation>
     </message>
     <message>
       <source>Import theme</source>
@@ -7963,6 +8003,96 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Rest API Keys</source>
       <translation>Rest API Keys</translation>
+    </message>
+  </context>
+  <context>
+    <name>icclicktocallform/form</name>
+    <message>
+      <source>Settings</source>
+      <translation>Configurações</translation>
+    </message>
+    <message>
+      <source>Header settings</source>
+      <translation>Configurações de Cabeçalho</translation>
+    </message>
+    <message>
+      <source>Header css</source>
+      <translation>CSS de Cabeçalho</translation>
+    </message>
+    <message>
+      <source>Static content</source>
+      <translation>Conteúdo Estático</translation>
+    </message>
+    <message>
+      <source>JS</source>
+      <translation>JS
+</translation>
+    </message>
+    <message>
+      <source>CSS</source>
+      <translation>CSS</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Nome</translation>
+    </message>
+    <message>
+      <source>Header content</source>
+      <translation>Conteúdo de Cabeçalho</translation>
+    </message>
+    <message>
+      <source>Resource name for replacement</source>
+      <translation>Nome do recurso para substituição</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Vazio...</translation>
+    </message>
+    <message>
+      <source>Invalid CSRF token!</source>
+      <translation>Token CSRF Inválido</translation>
+    </message>
+    <message>
+      <source>Please enter a name</source>
+      <translation>Por favor insira um nome</translation>
+    </message>
+    <message>
+      <source>File not chosen for</source>
+      <translation>Arquivo não escolhido para</translation>
+    </message>
+  </context>
+  <context>
+    <name>lhtheme/admin</name>
+    <message>
+      <source>New admin theme</source>
+      <translation>Novo tema do Admin</translation>
+    </message>
+    <message>
+      <source>Admin themes</source>
+      <translation>Temas do Admin</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Nome</translation>
+    </message>
+    <message>
+      <source>Default admin theme</source>
+      <translation>Tema padrão</translation>
+    </message>
+    <message>
+      <source>Edit admin theme</source>
+      <translation>Editar tema da Área de Admin</translation>
+    </message>
+  </context>
+  <context>
+    <name>admintheme/form</name>
+    <message>
+      <source>Edit theme</source>
+      <translation>Editar tema</translation>
+    </message>
+    <message>
+      <source>Updated</source>
+      <translation>Atualizado</translation>
     </message>
   </context>
 </TS>
