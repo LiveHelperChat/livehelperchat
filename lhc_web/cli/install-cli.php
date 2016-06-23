@@ -1,19 +1,5 @@
 #!/usr/bin/php5
 <?php
-/**
- * Copyright 2016 Luciano Rossi
- * LICENSE:
- *     This program is free software; you can redistribute it and/or
- *     modify it under the terms of the GNU General Public License
- *     as published by the Free Software Foundation; 
- *     This program is distributed in the hope that it will be useful,
- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *     GNU General Public License for more details.
-
- *     You should have received a copy of the GNU General Public License
- *     along with this program in a file named LICENSE.txt.
- */
 
 if (php_sapi_name() != 'cli') {
     echo "PHP code to execute directly on the command line\n";
