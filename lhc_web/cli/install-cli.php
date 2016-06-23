@@ -15,6 +15,11 @@
  *     along with this program in a file named LICENSE.txt.
  */
 
+if (php_sapi_name() != 'cli') {
+    echo "PHP code to execute directly on the command line\n";
+    exit(-1);
+}
+
 ini_set('error_reporting', E_ALL);
 ini_set('register_globals', 0);
 ini_set('display_errors', 1);
@@ -23,7 +28,7 @@ ini_set("max_execution_time", "3600");
 
 require_once "lib/core/lhcore/password.php";
 require_once "ezcomponents/Base/src/base.php"; // dependent on installation method, see below
-include 'cli/lib/install.php';
+require_once 'cli/lib/install.php';
 
 ezcBase::addClassRepository( './','./lib/autoloads');
 
@@ -69,12 +74,13 @@ function validate_args($argv, $argc) {
 
 function print_help() {
     echo "Usage:\n";
-    echo "\tinstall-cli.php file.yaml\n";
+    echo "\tphp install-cli.php settings.ini\n";
     return(1);
 }
 
-function main($yaml_file) {
-    $install = new Install($yaml_file);
+function main($ini_file) {
+
+    $install = new Install($ini_file);
 
     $response = $install->step1();
     if (is_array($response)) {
@@ -100,10 +106,10 @@ function main($yaml_file) {
 }
 
 if (validate_args($argv, $argc)) {
-    echo "Hay errores en los argumentos del programa.\n";
-    echo "Invoque a --help para obtener ayuda.\n";
+    echo "There are some erros with the parameters.\n";
+    echo "Run --help to print the help.\n";
     exit(-1);
 }
 
-$yaml_file = $argv[1];
-main($yaml_file);
+$ini_file = $argv[1];
+main($ini_file);
