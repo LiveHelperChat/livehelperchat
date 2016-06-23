@@ -30,42 +30,21 @@ class Install
     }
 
     function step1() {
-        # Validate if owner or group is www-data.
-        # Validate if which one them has access 'rwx'.
-
         $Errors = array();
-        if (!is_writable("cache/cacheconfig"))
-            $Errors[] = "cache/cacheconfig is not writable";
-
-        if (!is_writable("settings/"))
-            $Errors[] = "settings/ is not writable";
-
-        if (!is_writable("cache/translations"))
-            $Errors[] = "cache/translations is not writable";
-
-        if (!is_writable("cache/userinfo"))
-            $Errors[] = "cache/userinfo is not writable";
-
-        if (!is_writable("cache/compiledtemplates"))
-            $Errors[] = "cache/compiledtemplates is not writable";
-
-        if (!is_writable("var/storage"))
-            $Errors[] = "var/storage is not writable";
-
-        if (!is_writable("var/storageform"))
-            $Errors[] = "var/storageform is not writable";
-
-        if (!is_writable("var/userphoto"))
-            $Errors[] = "var/userphoto is not writable";
-
-        if (!is_writable("var/tmpfiles"))
-            $Errors[] = "var/tmpfiles is not writable";
-
-        if (!is_writable("var/storagetheme"))
-            $Errors[] = "var/storagetheme is not writable";
-
-        if (!is_writable("var/storageadmintheme"))
-            $Errors[] = "var/storageadmintheme is not writable";
+        $directories = $this->_scandir('cache');
+        $this->file_is_writable(array('cache'),'', $Errors);
+        $this->file_is_writable($directories, 'cache/', $Errors);
+        $this->file_is_writable(array('settings'), '', $Errors);
+        $var_directories = array(
+            'var/storage',
+            'var/storageform',
+            'var/storagetheme',
+            'var/storageadmintheme',
+            'var/tmpfiles',
+            'var/userphoto',
+        );
+        $this->file_is_writable(array('var'),'', $Errors);
+        $this->file_is_writable($var_directories, '', $Errors);
 
         if (!extension_loaded ('pdo_mysql' ))
             $Errors[] = "php-pdo extension not detected. Please install php extension";
@@ -97,9 +76,13 @@ class Install
         $Errors = array();
         $database = $this->settings['db'];
         foreach ($database as $key => $value) {
-            #if (empty($database[$key])) {
-            #    $Errors[] = "Please enter database $key";
-            #}
+            if (!filter_var($database[$key], FILTER_UNSAFE_RAW)) {
+                $Errors[] = "Please enter database $key";
+            }
+        }
+        if (!filter_var($database['database'], FILTER_SANITIZE_STRING))
+        {
+            $Errors[] = 'Please enter database name';
         }
 
         if (count($Errors) == 0) {
@@ -1304,5 +1287,43 @@ class Install
             syslog(LOG_ERR, "ERROR: ".$error);
         }
         exit(-1);
+    }
+
+    private function file_perms($file, $octal = true) {
+        if(!file_exists($file)) return false;
+
+        $perms = fileperms($file);
+
+        $cut = $octal ? 2 : 3;
+
+        return substr(decoct($perms), $cut);
+    }
+    private function file_is_writable($directories, $preffix = '', &$Errors) {
+        foreach ($directories as $directory) {
+            $error = false;
+            syslog(LOG_DEBUG, "Evaluate $directory if writable");
+            $owner = fileowner($preffix.$directory);
+            $group = filegroup($preffix.$directory);
+            $permission = $this->file_perms($preffix.$directory);
+            if ($permission[2] == 7) {
+                continue;
+            }
+            if ($owner == 33 and $permission[0] != 7) {
+                $error = true;
+            }
+            if ($group == 33 and $permission[1] != 7) {
+                $error = true;
+            }
+            if ($error) {
+                $Errors[] = $preffix.$directory." is not writable";
+            }
+        }
+    }
+
+    private function _scandir($directory) {
+        $directories = scandir($directory);
+        $directories = array_diff($directories, ['.']);
+        $directories = array_diff($directories, ['..']);
+        return $directories;
     }
 }
