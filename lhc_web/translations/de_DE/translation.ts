@@ -151,7 +151,7 @@
     </message>
     <message>
       <source>Should cronjob run unanswered chats workflow and execute unaswered chats callback, 0 - no, any other number bigger than 0 is a minits how long chat have to be not accepted before executing callback.</source>
-      <translation type="unfinished"/>
+      <translation>Soll der Cronjob den Unbeantwortete Chats Worflow und den Unbeantwortet Chats Callback ausführen? 0 - Nein; Jede andere Nummer größer als 0 gibt an, innerhalb wievielen Minuten der Chat akzeptiert werden muss, bevor der Callback ausgeführt wird.</translation>
     </message>
     <message>
       <source>Should cronjob run departments transfer workflow, even if user leaves a chat</source>
@@ -1806,7 +1806,7 @@
     </message>
     <message>
       <source>Choose other than default recognition language</source>
-      <translation type="unfinished"/>
+      <translation>Wählen Sie eine andere Sprache als die standardmäßig Spracherkennungssprache</translation>
     </message>
     <message>
       <source>Transfer chat</source>
@@ -6612,7 +6612,7 @@
     </message>
     <message>
       <source>Default speech recognition language</source>
-      <translation type="unfinished"/>
+      <translation>Standardmäßige Spracherkennungsprache</translation>
     </message>
   </context>
   <context>
@@ -6708,7 +6708,7 @@
     </message>
     <message>
       <source>Secret hash used for authentification token generation, min 10 characters</source>
-      <translation type="unfinished"/>
+      <translation>Geheimer Hash, wird für die Erzeugung des Authentification Token genutzt. Muss mindestens 10 Zeichen lang sein.</translation>
     </message>
     <message>
       <source>Settings updated</source>
@@ -7707,7 +7707,7 @@
     </message>
     <message>
       <source>Introduction attributes</source>
-      <translation type="unfinished"/>
+      <translation>Einführungsattribute</translation>
     </message>
     <message>
       <source>XLS Columns</source>
@@ -7940,7 +7940,7 @@
     </message>
     <message>
       <source>User action type not set</source>
-      <translation type="unfinished"/>
+      <translation>Nutzeraktionstyp nicht gesetzt</translation>
     </message>
     <message>
       <source>Wrong email address</source>
@@ -7971,7 +7971,7 @@
     </message>
     <message>
       <source>Removed paid chat</source>
-      <translation type="unfinished"/>
+      <translation>Gelöschter Paid Chat</translation>
     </message>
   </context>
   <context>
@@ -8040,7 +8040,7 @@
     </message>
     <message>
       <source>Resource name for replacement</source>
-      <translation type="unfinished"/>
+      <translation>Ressourcenbezeichnung für den Austausch</translation>
     </message>
     <message>
       <source>Empty...</source>

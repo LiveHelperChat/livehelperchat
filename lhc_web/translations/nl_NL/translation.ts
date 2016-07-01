@@ -43,7 +43,7 @@
     </message>
     <message>
       <source>Product module is enabled</source>
-      <translation type="unfinished"/>
+      <translation>Productmodule is ingeschakeld</translation>
     </message>
     <message>
       <source/>
@@ -99,7 +99,7 @@
     </message>
     <message>
       <source>Track users activity on site?</source>
-      <translation type="unfinished"/>
+      <translation>Gebruikersactiviteit op site volgen?</translation>
     </message>
     <message>
       <source>How many days keep records of online users.</source>
@@ -412,7 +412,7 @@
     </message>
     <message>
       <source>Messages style</source>
-      <translation type="unfinished"/>
+      <translation>Berichtstijlen</translation>
     </message>
     <message>
       <source>Need help widget</source>
@@ -428,7 +428,7 @@
     </message>
     <message>
       <source>Live preview</source>
-      <translation type="unfinished"/>
+      <translation>Live voorbeeld</translation>
     </message>
     <message>
       <source>Visitor messages style</source>
@@ -440,15 +440,15 @@
     </message>
     <message>
       <source>General settings</source>
-      <translation type="unfinished"/>
+      <translation>Algemene instellingen</translation>
     </message>
     <message>
       <source>Text changes</source>
-      <translation type="unfinished"/>
+      <translation>Tekstbewerkingen</translation>
     </message>
     <message>
       <source>Disabled</source>
-      <translation type="unfinished"/>
+      <translation>Uitgeschakeld</translation>
     </message>
     <message>
       <source>Name</source>
@@ -672,7 +672,7 @@
     </message>
     <message>
       <source>Location</source>
-      <translation type="unfinished"/>
+      <translation>Locatie</translation>
     </message>
     <message>
       <source>Additional option before department selection</source>
@@ -680,7 +680,7 @@
     </message>
     <message>
       <source>Choose department</source>
-      <translation type="unfinished"/>
+      <translation>Kies afdeling</translation>
     </message>
     <message>
       <source>Widget themes</source>
@@ -1132,7 +1132,7 @@
     </message>
     <message>
       <source>Product</source>
-      <translation type="unfinished"/>
+      <translation>Product</translation>
     </message>
     <message>
       <source>Show product selection based on selected departments</source>
@@ -1208,7 +1208,7 @@
     </message>
     <message>
       <source>Chat expired</source>
-      <translation type="unfinished"/>
+      <translation>Chat verlopen</translation>
     </message>
     <message>
       <source>Invalid hash</source>
@@ -1216,7 +1216,7 @@
     </message>
     <message>
       <source>Chat was removed</source>
-      <translation type="unfinished"/>
+      <translation>Chat is verwijderd</translation>
     </message>
   </context>
   <context>
@@ -1564,7 +1564,7 @@
     </message>
     <message>
       <source>Visible only if online</source>
-      <translation type="unfinished"/>
+      <translation>Alleen zichtbaar wanneer online</translation>
     </message>
     <message>
       <source>Disabled</source>
@@ -1768,7 +1768,7 @@
     </message>
     <message>
       <source>Departments</source>
-      <translation type="unfinished"/>
+      <translation>Afdelingen</translation>
     </message>
     <message>
       <source>Edit a department</source>
@@ -1894,7 +1894,7 @@
     </message>
     <message>
       <source>Product</source>
-      <translation type="unfinished"/>
+      <translation>Product</translation>
     </message>
     <message>
       <source>Country</source>
@@ -1934,7 +1934,7 @@
     </message>
     <message>
       <source>Hidden field</source>
-      <translation type="unfinished"/>
+      <translation>Verborgen veld</translation>
     </message>
     <message>
       <source>Created</source>
@@ -2255,7 +2255,7 @@
     </message>
     <message>
       <source>Sort</source>
-      <translation type="unfinished"/>
+      <translation>Sorteer</translation>
     </message>
     <message>
       <source>Wait time</source>
@@ -2455,11 +2455,11 @@
     </message>
     <message>
       <source>Product</source>
-      <translation type="unfinished"/>
+      <translation>Product</translation>
     </message>
     <message>
       <source>Choose a product</source>
-      <translation type="unfinished"/>
+      <translation>Kies een product</translation>
     </message>
     <message>
       <source>Type your message here and hit enter to send...</source>
@@ -2555,19 +2555,19 @@
     </message>
     <message>
       <source>Could not find a product!</source>
-      <translation type="unfinished"/>
+      <translation>Kan geen product vinden!</translation>
     </message>
     <message>
       <source>Please choose a product!</source>
-      <translation type="unfinished"/>
+      <translation>Kies een product!</translation>
     </message>
     <message>
       <source>Please choose</source>
-      <translation type="unfinished"/>
+      <translation>Kies a.u.b.</translation>
     </message>
     <message>
       <source>Please choose department!</source>
-      <translation type="unfinished"/>
+      <translation>Kies afdeling!</translation>
     </message>
     <message>
       <source>Could not determine a default department!</source>
@@ -2653,7 +2653,7 @@
     </message>
     <message>
       <source>End the chat</source>
-      <translation type="unfinished"/>
+      <translation>Chat beëindigen</translation>
     </message>
     <message>
       <source>Enable/Disable sound about new messages from the operator</source>
@@ -2684,39 +2684,39 @@
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>Instellingen bijgewerkt</translation>
     </message>
     <message>
       <source>Online operators</source>
-      <translation type="unfinished"/>
+      <translation>Online medewerkers</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation type="unfinished"/>
+      <translation>Actieve chats</translation>
     </message>
     <message>
       <source>Online visitors</source>
-      <translation type="unfinished"/>
+      <translation>Online bezoekers</translation>
     </message>
     <message>
       <source>Departments stats</source>
-      <translation type="unfinished"/>
+      <translation>Statistieken van afdelingen</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation type="unfinished"/>
+      <translation>Wachtende chats</translation>
     </message>
     <message>
       <source>Unread chats</source>
-      <translation type="unfinished"/>
+      <translation>Ongelezen chats</translation>
     </message>
     <message>
       <source>Transfered chats</source>
-      <translation type="unfinished"/>
+      <translation>Verplaatste chats</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation type="unfinished"/>
+      <translation>Gesloten chats</translation>
     </message>
   </context>
   <context>
@@ -3128,7 +3128,7 @@
     </message>
     <message>
       <source>Chat list</source>
-      <translation type="unfinished"/>
+      <translation>Chatlijst</translation>
     </message>
     <message>
       <source>Dashboard</source>
@@ -3200,7 +3200,7 @@
     </message>
     <message>
       <source>Operator</source>
-      <translation type="unfinished"/>
+      <translation>Medewerker</translation>
     </message>
     <message>
       <source>has send message to user</source>
@@ -3424,7 +3424,7 @@
     </message>
     <message>
       <source>From</source>
-      <translation type="unfinished"/>
+      <translation>Van</translation>
     </message>
     <message>
       <source>Files upload for users is active</source>
@@ -3440,7 +3440,7 @@
     </message>
     <message>
       <source>Visits</source>
-      <translation type="unfinished"/>
+      <translation>Bezoeken</translation>
     </message>
     <message>
       <source>Country code variable does not exist!</source>
@@ -3519,7 +3519,7 @@
     </message>
     <message>
       <source>Close button</source>
-      <translation type="unfinished"/>
+      <translation>Sluitknop</translation>
     </message>
     <message>
       <source>New chat notification settings</source>
@@ -3628,7 +3628,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Product</source>
-      <translation type="unfinished"/>
+      <translation>Product</translation>
     </message>
     <message>
       <source>Questionary embed code</source>
@@ -3676,11 +3676,11 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Admin themes</source>
-      <translation type="unfinished"/>
+      <translation>Beheerders thema&apos;s</translation>
     </message>
     <message>
       <source>Default admin theme</source>
-      <translation type="unfinished"/>
+      <translation>Standaard beheerders thema</translation>
     </message>
     <message>
       <source>Automatic translations</source>
@@ -3783,7 +3783,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Visitor activity</source>
-      <translation type="unfinished"/>
+      <translation>Bezoekers activiteit</translation>
     </message>
     <message>
       <source>Workflow</source>
@@ -3795,7 +3795,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Online if</source>
-      <translation type="unfinished"/>
+      <translation>Online als</translation>
     </message>
     <message>
       <source>Chat related</source>
@@ -3822,7 +3822,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Status</source>
-      <translation type="unfinished"/>
+      <translation>Status</translation>
     </message>
     <message>
       <source>Open in a new window</source>
@@ -3838,11 +3838,11 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Active chat</source>
-      <translation type="unfinished"/>
+      <translation>Actieve chat</translation>
     </message>
     <message>
       <source>Closed chat</source>
-      <translation type="unfinished"/>
+      <translation>Gesloten chat</translation>
     </message>
     <message>
       <source>Chatbox chat</source>
@@ -3939,7 +3939,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Chat status</source>
-      <translation type="unfinished"/>
+      <translation>Chat status</translation>
     </message>
     <message>
       <source>Pending chats</source>
@@ -3947,11 +3947,11 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Active chats</source>
-      <translation type="unfinished"/>
+      <translation>Actieve chats</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation type="unfinished"/>
+      <translation>Gesloten chats</translation>
     </message>
     <message>
       <source>Chatbox chats</source>
@@ -3963,11 +3963,11 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Has unread messages</source>
-      <translation type="unfinished"/>
+      <translation>Bevat ongelezen berichten</translation>
     </message>
     <message>
       <source>Product</source>
-      <translation type="unfinished"/>
+      <translation>Product</translation>
     </message>
     <message>
       <source>Search</source>
@@ -3995,7 +3995,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Select product</source>
-      <translation type="unfinished"/>
+      <translation>Selecteer product</translation>
     </message>
     <message>
       <source>Type to search</source>
@@ -4031,15 +4031,15 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Username</source>
-      <translation type="unfinished"/>
+      <translation>Gebruikersnaam</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Naam</translation>
     </message>
     <message>
       <source>Surname</source>
-      <translation type="unfinished"/>
+      <translation>Achternaam</translation>
     </message>
   </context>
   <context>
@@ -4094,7 +4094,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Only online</source>
-      <translation type="unfinished"/>
+      <translation>Alleen online</translation>
     </message>
     <message>
       <source>Only explicit online</source>
@@ -4102,15 +4102,15 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Hide hidden</source>
-      <translation type="unfinished"/>
+      <translation>Verberg verborgen</translation>
     </message>
     <message>
       <source>Hide disabled</source>
-      <translation type="unfinished"/>
+      <translation>Verberg uitgeschakelde</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Afdeling</translation>
     </message>
     <message>
       <source>Number of elements in list</source>
@@ -4130,7 +4130,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Transferred chats</source>
-      <translation type="unfinished"/>
+      <translation>Verplaatste chats</translation>
     </message>
     <message>
       <source>Clean cache</source>
@@ -4158,7 +4158,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Questionary</source>
-      <translation>Enquete</translation>
+      <translation>Enquête</translation>
     </message>
     <message>
       <source>New chat request</source>
@@ -4190,7 +4190,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Configuration</source>
-      <translation type="unfinished"/>
+      <translation>Configuratie</translation>
     </message>
     <message>
       <source>Chats list</source>
@@ -4459,7 +4459,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Add resource</source>
-      <translation type="unfinished"/>
+      <translation>Bron toevoegen</translation>
     </message>
     <message>
       <source>Minimum 40 characters for encryption key!</source>
@@ -4542,7 +4542,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Number</source>
-      <translation type="unfinished"/>
+      <translation>Aantal</translation>
     </message>
     <message>
       <source>Time</source>
@@ -4706,7 +4706,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Unanswered chats</source>
-      <translation type="unfinished"/>
+      <translation>Onbeantwoorde chats</translation>
     </message>
     <message>
       <source>Unanswered chats numbers</source>
@@ -5046,18 +5046,18 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Online</source>
-      <translation type="unfinished"/>
+      <translation>Online</translation>
     </message>
     <message>
       <source>Offline</source>
-      <translation type="unfinished"/>
+      <translation>Offline</translation>
     </message>
   </context>
   <context>
     <name>chat/userjoined</name>
     <message>
       <source>Visitor has joined the chat!</source>
-      <translation type="unfinished"/>
+      <translation>Bezoeker heeft zich bij de chat gevoegd!</translation>
     </message>
     <message>
       <source>Visitor has joined the chat from popup chat window!</source>
@@ -5068,7 +5068,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <name>chat/userleftchat</name>
     <message>
       <source>Visitor has left the chat!</source>
-      <translation type="unfinished"/>
+      <translation>Bezoeker heeft de chat verlaten!</translation>
     </message>
     <message>
       <source>Visitor has closed the chat explicitly!</source>
@@ -6081,7 +6081,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <name>permission/editrole</name>
     <message>
       <source>Edit role</source>
-      <translation type="unfinished"/>
+      <translation>Bewerk rol</translation>
     </message>
     <message>
       <source>Title</source>
@@ -6498,7 +6498,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Questionary</source>
-      <translation>Enquete</translation>
+      <translation>Enquête</translation>
     </message>
   </context>
   <context>
@@ -6558,7 +6558,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <name>questionary/votingwidget</name>
     <message>
       <source>Questionary</source>
-      <translation>Enquete</translation>
+      <translation>Enquête</translation>
     </message>
     <message>
       <source>Thank you!</source>
@@ -6893,7 +6893,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Edit user</source>
-      <translation type="unfinished"/>
+      <translation>Bewerk gebruiker</translation>
     </message>
     <message>
       <source>Do not enter a password unless you want to change it</source>
@@ -7022,7 +7022,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <name>theme/index</name>
     <message>
       <source>Products</source>
-      <translation type="unfinished"/>
+      <translation>Producten</translation>
     </message>
     <message>
       <source>Default theme</source>
@@ -7042,15 +7042,15 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Admin</source>
-      <translation type="unfinished"/>
+      <translation>Beheerder</translation>
     </message>
     <message>
       <source>Admin themes</source>
-      <translation type="unfinished"/>
+      <translation>Beheerders thema&apos;s</translation>
     </message>
     <message>
       <source>Default admin theme</source>
-      <translation type="unfinished"/>
+      <translation>Standaard beheerders thema</translation>
     </message>
     <message>
       <source>Rest API</source>
@@ -7080,7 +7080,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Default admin theme was set</source>
-      <translation type="unfinished"/>
+      <translation>Standaard beheerders thema ingesteld</translation>
     </message>
     <message>
       <source>Import theme</source>
@@ -7903,26 +7903,26 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <name>lhproduct/index</name>
     <message>
       <source>Products</source>
-      <translation type="unfinished"/>
+      <translation>Producten</translation>
     </message>
   </context>
   <context>
     <name>abstract/product</name>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Naam</translation>
     </message>
     <message>
       <source>Priority</source>
-      <translation type="unfinished"/>
+      <translation>Prioriteit</translation>
     </message>
     <message>
       <source>Product</source>
-      <translation type="unfinished"/>
+      <translation>Product</translation>
     </message>
     <message>
       <source>API Key</source>
-      <translation type="unfinished"/>
+      <translation>API-sleutel</translation>
     </message>
   </context>
   <context>
@@ -7933,11 +7933,11 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>User exists</source>
-      <translation type="unfinished"/>
+      <translation>Gebruiker bestaat reeds</translation>
     </message>
     <message>
       <source>Passwords mismatch</source>
-      <translation type="unfinished"/>
+      <translation>Wachtwoorden komen niet overeen</translation>
     </message>
     <message>
       <source>User action type not set</source>
@@ -7945,7 +7945,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Wrong email address</source>
-      <translation type="unfinished"/>
+      <translation>Verkeerd emailadres</translation>
     </message>
     <message>
       <source>Please enter a name</source>
@@ -7960,11 +7960,11 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <name>paidchat/expiredchat</name>
     <message>
       <source>Chat</source>
-      <translation type="unfinished"/>
+      <translation>Chat</translation>
     </message>
     <message>
       <source>Chat was closed.</source>
-      <translation type="unfinished"/>
+      <translation>Chat is gesloten.</translation>
     </message>
     <message>
       <source>Invalid hash</source>
@@ -7983,7 +7983,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Enabled</source>
-      <translation type="unfinished"/>
+      <translation>Ingeschakeld</translation>
     </message>
     <message>
       <source>User can not access old chat if chat is closed</source>
@@ -8009,7 +8009,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <name>icclicktocallform/form</name>
     <message>
       <source>Settings</source>
-      <translation type="unfinished"/>
+      <translation>Instellingen</translation>
     </message>
     <message>
       <source>Header settings</source>
@@ -8025,15 +8025,15 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>JS</source>
-      <translation type="unfinished"/>
+      <translation>JS</translation>
     </message>
     <message>
       <source>CSS</source>
-      <translation type="unfinished"/>
+      <translation>CSS</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Naam</translation>
     </message>
     <message>
       <source>Header content</source>
@@ -8045,7 +8045,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Empty...</source>
-      <translation type="unfinished"/>
+      <translation>Leeg...</translation>
     </message>
     <message>
       <source>Invalid CSRF token!</source>
@@ -8064,34 +8064,34 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <name>lhtheme/admin</name>
     <message>
       <source>New admin theme</source>
-      <translation type="unfinished"/>
+      <translation>Nieuw beheerders thema</translation>
     </message>
     <message>
       <source>Admin themes</source>
-      <translation type="unfinished"/>
+      <translation>Beheerders thema&apos;s</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Naam</translation>
     </message>
     <message>
       <source>Default admin theme</source>
-      <translation type="unfinished"/>
+      <translation>Standaard beheerders thema</translation>
     </message>
     <message>
       <source>Edit admin theme</source>
-      <translation type="unfinished"/>
+      <translation>Bewerk beheerders thema</translation>
     </message>
   </context>
   <context>
     <name>admintheme/form</name>
     <message>
       <source>Edit theme</source>
-      <translation type="unfinished"/>
+      <translation>Bewerk thema</translation>
     </message>
     <message>
       <source>Updated</source>
-      <translation type="unfinished"/>
+      <translation>Bijgewerkt</translation>
     </message>
   </context>
 </TS>

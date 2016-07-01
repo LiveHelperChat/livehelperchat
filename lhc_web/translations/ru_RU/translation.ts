@@ -15,7 +15,7 @@
     </message>
     <message>
       <source>List online operators.</source>
-      <translation>Список операторов в онлайне</translation>
+      <translation>Список операторов онлайн</translation>
     </message>
     <message>
       <source/>
@@ -211,7 +211,7 @@
     </message>
     <message>
       <source>List online operators, 0 - no, 1 - yes.</source>
-      <translation type="unfinished"/>
+      <translation>Операторы онлайн, 0 - нет, 1 - да.</translation>
     </message>
     <message>
       <source>Ignore users online statuses and use departments online hours</source>
@@ -412,7 +412,7 @@
     </message>
     <message>
       <source>Messages style</source>
-      <translation type="unfinished"/>
+      <translation>Стиль сообщений</translation>
     </message>
     <message>
       <source>Need help widget</source>
@@ -420,7 +420,7 @@
     </message>
     <message>
       <source>Chat widget</source>
-      <translation type="unfinished"/>
+      <translation>Виджет чата</translation>
     </message>
     <message>
       <source>Custom CSS</source>
@@ -428,19 +428,19 @@
     </message>
     <message>
       <source>Live preview</source>
-      <translation type="unfinished"/>
+      <translation>Предпросмотр</translation>
     </message>
     <message>
       <source>Visitor messages style</source>
-      <translation type="unfinished"/>
+      <translation>Стиль сообщений посетителя</translation>
     </message>
     <message>
       <source>Operator messages style</source>
-      <translation type="unfinished"/>
+      <translation>Стиль сообщений оператора</translation>
     </message>
     <message>
       <source>General settings</source>
-      <translation type="unfinished"/>
+      <translation>Основные настройки</translation>
     </message>
     <message>
       <source>Text changes</source>
@@ -448,7 +448,7 @@
     </message>
     <message>
       <source>Disabled</source>
-      <translation type="unfinished"/>
+      <translation>Отключено</translation>
     </message>
     <message>
       <source>Name</source>
@@ -8045,15 +8045,15 @@
     </message>
     <message>
       <source>Empty...</source>
-      <translation type="unfinished"/>
+      <translation>Пусто...</translation>
     </message>
     <message>
       <source>Invalid CSRF token!</source>
-      <translation type="unfinished"/>
+      <translation>Неверный CSRF токен!</translation>
     </message>
     <message>
       <source>Please enter a name</source>
-      <translation type="unfinished"/>
+      <translation>Введите имя</translation>
     </message>
     <message>
       <source>File not chosen for</source>
@@ -8064,30 +8064,30 @@
     <name>lhtheme/admin</name>
     <message>
       <source>New admin theme</source>
-      <translation type="unfinished"/>
+      <translation>Новая тема админки</translation>
     </message>
     <message>
       <source>Admin themes</source>
-      <translation type="unfinished"/>
+      <translation>Темы админки</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Имя</translation>
     </message>
     <message>
       <source>Default admin theme</source>
-      <translation type="unfinished"/>
+      <translation>Тема админки по умолч.</translation>
     </message>
     <message>
       <source>Edit admin theme</source>
-      <translation type="unfinished"/>
+      <translation>Изм. тему админки</translation>
     </message>
   </context>
   <context>
     <name>admintheme/form</name>
     <message>
       <source>Edit theme</source>
-      <translation type="unfinished"/>
+      <translation>Изм. тему</translation>
     </message>
     <message>
       <source>Updated</source>
