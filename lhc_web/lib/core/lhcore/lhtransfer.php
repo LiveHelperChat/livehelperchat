@@ -69,7 +69,7 @@ class erLhcoreClassTransfer
        $stmt->execute();
        $rows = $stmt->fetchAll();
 
-       return $rows[0];
+       return (isset($rows[0])) ? $rows[0] : false;
    }
 
    public static function getSession()
