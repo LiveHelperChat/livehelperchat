@@ -220,7 +220,9 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
    // Validate post data
    $Errors = erLhcoreClassChatValidator::validateStartChat($inputData,$startDataFields,$chat,$additionalParams);
 
-   if (count($Errors) == 0 && !isset($_POST['switchLang']))
+	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_chat_started',array('chat' => & $chat, 'errors' => & $Errors));
+
+	if (count($Errors) == 0 && !isset($_POST['switchLang']))
    {
    		$chat->setIP();
    		erLhcoreClassModelChat::detectLocation($chat);
@@ -335,8 +337,6 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
 		       	
 		       	$chat->saveThis();
 	       }
-
-	       erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started',array('chat' => & $chat, 'msg' => $messageInitial));
 	       
 	       erLhcoreClassChat::updateDepartmentStats($chat->department);
 	       	       
