@@ -508,7 +508,7 @@ class erLhcoreClassChatValidator {
             		        }
             		    }
 
-            		    $stringParts[] = array('h' => (isset($inputForm->via_hidden[$key]) || $adminField['fieldtype'] == 'hidden'), 'identifier' => $adminField['fieldidentifier'], 'key' => $adminField['fieldname'], 'value' => $valueStore);
+            		    $stringParts[] = array('h' => (isset($inputForm->via_hidden[$key]) || (isset($adminField['fieldtype']) && $adminField['fieldtype'] == 'hidden')), 'identifier' => $adminField['fieldidentifier'], 'key' => $adminField['fieldname'], 'value' => $valueStore);
             		}
                 }
             }
