@@ -19,7 +19,7 @@ if (trim($form->operation) != '')
     $errors = [];
 
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_screenshot_addoperacion',array('chat' => & $Chat, 'errors' => & $errors));
-    // Has access to read, chat
+    // Has access to read, chat && billing success
     if ( erLhcoreClassChat::hasAccessToRead($Chat) && empty($errors) )
     {
         $currentUser = erLhcoreClassUser::instance();
@@ -33,8 +33,10 @@ if (trim($form->operation) != '')
         $Chat->updateThis();
       
         echo json_encode(array('error' => 'false'));
-    } else {
-        echo json_encode(array('error' => 'true', 'result' => 'Errors found' ));
+    } elseif(!empty($errors)) {
+        $tpl = erLhcoreClassTemplate::getInstance('lhkernel/validation_error.tpl.php');
+        $tpl->set('errors', $errors);
+        echo json_encode(array('error' => 'true', 'result' => $tpl->fetch() ));
     }
     
     $db->commit();
