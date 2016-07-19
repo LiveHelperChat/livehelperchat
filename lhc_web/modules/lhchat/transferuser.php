@@ -44,7 +44,9 @@ if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['us
 	    	$tpl->set('msg',erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferuser','Chat was assigned to selected user'));
 	    }
 
-	    echo json_encode(['error' => 'false', 'result' => $tpl->fetch(), 'chat_id' => $Params['user_parameters']['chat_id']]);;
+		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_transfered',array('chat' => & $Chat));
+
+		echo json_encode(['error' => 'false', 'result' => $tpl->fetch(), 'chat_id' => $Params['user_parameters']['chat_id']]);;
 	} elseif (!empty($errors)) {
 		$tpl = erLhcoreClassTemplate::getInstance('lhkernel/validation_error.tpl.php');
 		$tpl->set('errors', $errors);

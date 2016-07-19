@@ -97,7 +97,9 @@ if ($Params['user_parameters_unordered']['hash'] != '' || $Params['user_paramete
 							$fileUpload->extension = 'png';						
 							$fileUpload->saveThis();
 
-                        	if ($chat !== false) {
+							erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.storescreenshot.store',array('chat_file' => & $fileUpload));
+
+							if ($chat !== false) {
 							    
 							    $msg = new erLhcoreClassModelmsg();
 							    $msg->msg = '[file='.$fileUpload->id.'_'.md5($fileUpload->name.'_'.$fileUpload->chat_id).']';

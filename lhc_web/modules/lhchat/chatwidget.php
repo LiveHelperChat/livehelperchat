@@ -281,6 +281,11 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
    				erLhcoreClassChatValidator::updateInitialChatAttributes($chatPrefill, $chat);
    			}
 
+   			erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_offline_request',array(
+   			'input_data' => $inputData,
+   			'chat' => $chat,
+   			'prefill' => array('chatprefill' => isset($chatPrefill) ? $chatPrefill : false)));
+
    			$Result['parent_messages'][] = 'lh_callback:offline_request_cb';
    			$tpl->set('request_send',true);
    		} else {
@@ -375,7 +380,8 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
 	       }
 	       
 	       erLhcoreClassChat::updateDepartmentStats($chat->department);
-       	    
+	       erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started',array('chat' => & $chat, 'msg' => $messageInitial));
+
 	       // Paid chat settings
 	       if (isset($paidChatSettings)) {
 	           erLhcoreClassChatPaid::processPaidChatWorkflow(array(
