@@ -28,6 +28,8 @@ if ( isset($_POST['SendMessage']) ) {
         $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum').' '.(int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','characters for a message');
     }
 
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_startchatwithoperator',array('errors' => & $Errors));
+
     if (count($Errors) == 0) {
 
     	$currentUserData = $currentUser->getUserData();
@@ -65,10 +67,6 @@ if ( isset($_POST['SendMessage']) ) {
     	$transfer->transfer_to_user_id = $user->id;
 
     	erLhcoreClassTransfer::getSession()->save($transfer);
-
-    	
-    	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.startchatwithoperator_started',array('chat' => & $chat, 'transfer' => & $transfer));
-    	
     	
     	// Redirect user
     	erLhcoreClassModule::redirect('chat/single/' . $chat->id);
