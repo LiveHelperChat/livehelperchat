@@ -18,7 +18,7 @@ if (trim($form->operation) != '')
 	$Chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
     $errors = [];
 
-    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_screenshot_addoperacion',array('chat' => & $Chat, 'errors' => & $errors));
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.before_screenshot_addoperacion',array('chat' => & $Chat, 'errors' => & $errors));
     // Has access to read, chat && billing success
     if ( erLhcoreClassChat::hasAccessToRead($Chat) && empty($errors) )
     {
