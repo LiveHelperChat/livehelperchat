@@ -48,7 +48,7 @@ if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['us
 	} elseif (!empty($errors)) {
 		$tpl = erLhcoreClassTemplate::getInstance('lhkernel/validation_error.tpl.php');
 		$tpl->set('errors', $errors);
-		echo json_encode(['error' => 'true', 'result' => $tpl->fetch(), 'chat_id' => $Params['user_parameters']['chat_id']]);
+		echo json_encode(['error' => 'false', 'result' => $tpl->fetch(), 'chat_id' => $Params['user_parameters']['chat_id']]);
 	}
 }
 exit;
