@@ -223,7 +223,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
 	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_chat_started',array('chat' => & $chat, 'errors' => & $Errors));
 
 	if (count($Errors) == 0 && !isset($_POST['switchLang']))
-   {
+    {
    		$chat->setIP();
    		erLhcoreClassModelChat::detectLocation($chat);
    		
@@ -247,11 +247,6 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
    			if (isset($chatPrefill) && ($chatPrefill instanceof erLhcoreClassModelChat)) {
    				erLhcoreClassChatValidator::updateInitialChatAttributes($chatPrefill, $chat);
    			}
-
-   			erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_offline_request',array(
-   			'input_data' => $inputData,
-   			'chat' => $chat,
-   			'prefill' => array('chatprefill' => isset($chatPrefill) ? $chatPrefill : false)));
    			
 	   		$tpl->set('request_send',true);
 	   	} else {

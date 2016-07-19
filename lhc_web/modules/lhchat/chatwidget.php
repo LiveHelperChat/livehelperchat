@@ -251,7 +251,9 @@ if (isset($Result['theme'])) {
 if (isset($_POST['StartChat']) && $disabled_department === false)
 {
    // Validate post data
-   $Errors = erLhcoreClassChatValidator::validateStartChat($inputData,$startDataFields,$chat,$additionalParams);
+    $Errors = erLhcoreClassChatValidator::validateStartChat($inputData,$startDataFields,$chat,$additionalParams);
+
+	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_chat_started', ['chat' => & $chat, 'errors' => & $Errors ]);
 
    if (count($Errors) == 0 && !isset($_POST['switchLang']))
    {   	
@@ -278,12 +280,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
    			if (isset($chatPrefill) && ($chatPrefill instanceof erLhcoreClassModelChat)) {
    				erLhcoreClassChatValidator::updateInitialChatAttributes($chatPrefill, $chat);
    			}
-   			
-   			erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_offline_request',array(
-   			'input_data' => $inputData,
-   			'chat' => $chat,
-   			'prefill' => array('chatprefill' => isset($chatPrefill) ? $chatPrefill : false)));
-   			
+
    			$Result['parent_messages'][] = 'lh_callback:offline_request_cb';
    			$tpl->set('request_send',true);
    		} else {
@@ -378,7 +375,6 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
 	       }
 	       
 	       erLhcoreClassChat::updateDepartmentStats($chat->department);
-	       erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started',array('chat' => & $chat, 'msg' => $messageInitial));
        	    
 	       // Paid chat settings
 	       if (isset($paidChatSettings)) {
