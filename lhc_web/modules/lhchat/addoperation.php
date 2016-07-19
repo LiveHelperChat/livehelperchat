@@ -16,9 +16,11 @@ if (trim($form->operation) != '')
 	$db->beginTransaction();
 			
 	$Chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
+    $errors = [];
 
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_screenshot_addoperacion',array('chat' => & $Chat, 'errors' => & $errors));
     // Has access to read, chat
-    if ( erLhcoreClassChat::hasAccessToRead($Chat) )
+    if ( erLhcoreClassChat::hasAccessToRead($Chat) && empty($errors) )
     {
         $currentUser = erLhcoreClassUser::instance();
 
@@ -31,6 +33,8 @@ if (trim($form->operation) != '')
         $Chat->updateThis();
       
         echo json_encode(array('error' => 'false'));
+    } else {
+        echo json_encode(array('error' => 'true', 'result' => 'Errors found' ));
     }
     
     $db->commit();
