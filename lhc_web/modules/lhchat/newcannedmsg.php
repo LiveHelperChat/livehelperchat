@@ -1,7 +1,4 @@
 <?php
-
-$response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.newcannedmsg', array());
-
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/newcannedmsg.tpl.php');
 $CannedMessage = new erLhcoreClassModelCannedMsg();
 
@@ -18,12 +15,12 @@ if ( isset($_POST['Cancel_action']) ) {
 if (isset($_POST['Save_action']))
 {
     $Errors = erLhcoreClassAdminChatValidatorHelper::validateCannedMessage($CannedMessage, $userDepartments);
-    
+
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_newcannedmsg', array('errors' => & $Errors));
+
     if (count($Errors) == 0)
     {
         $CannedMessage->saveThis();
-        
-        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.newcannedmsg', array('msg' => & $CannedMessage));
         
         erLhcoreClassModule::redirect('chat/cannedmsg');
         exit ;
