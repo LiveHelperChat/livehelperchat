@@ -4,23 +4,29 @@ $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params
 
 if ( erLhcoreClassChat::hasAccessToRead($chat) && $currentUser->hasAccessTo('lhfile','use_operator') === true )
 {
-	$fileData = erLhcoreClassModelChatConfig::fetch('file_configuration');
-	$data = (array)$fileData->data;
+    $errors = [];
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.before_admin_uploadfile.file_store', ['errors' => $errors]);
 
-	$userData = $currentUser->getUserData();
+    if (empty($errors)) {
+        $fileData = erLhcoreClassModelChatConfig::fetch('file_configuration');
+        $data = (array)$fileData->data;
 
-	$path = 'var/storage/'.date('Y').'y/'.date('m').'/'.date('d').'/'.$chat->id.'/';
-	
-	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.uploadfileadmin.file_path',array('path' => & $path, 'storage_id' => $chat->id));
-	
-	$upload_handler = new erLhcoreClassFileUpload(array('name_support' => $userData->name_support, 'user_id' => $currentUser->getUserID(), 'max_file_size' => $data['fs_max']*1024, 'accept_file_types_lhc' => '/\.('.$data['ft_op'].')$/i','chat' => $chat, 'download_via_php' => true, 'upload_dir' => $path));
+        $userData = $currentUser->getUserData();
 
-	if ($upload_handler->uploadedFile instanceof erLhcoreClassModelChatFile)
-	{
-		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.uploadfileadmin.file_store', array('chat_file' => $upload_handler->uploadedFile));
-	}
-	
-	echo json_encode(array('error' => 'false'));
+        $path = 'var/storage/' . date('Y') . 'y/' . date('m') . '/' . date('d') . '/' . $chat->id . '/';
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.uploadfileadmin.file_path', array('path' => & $path, 'storage_id' => $chat->id));
+
+        $upload_handler = new erLhcoreClassFileUpload(array('name_support' => $userData->name_support, 'user_id' => $currentUser->getUserID(), 'max_file_size' => $data['fs_max'] * 1024, 'accept_file_types_lhc' => '/\.(' . $data['ft_op'] . ')$/i', 'chat' => $chat, 'download_via_php' => true, 'upload_dir' => $path));
+
+        if ($upload_handler->uploadedFile instanceof erLhcoreClassModelChatFile) {
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.uploadfileadmin.file_store', array('chat_file' => $upload_handler->uploadedFile));
+        }
+
+        echo json_encode(array('error' => 'false'));
+    } else {
+        echo json_encode(array('error' => 'true', 'errors' => $errors));
+    }
 }
 
 exit;

@@ -2166,7 +2166,10 @@ function lh(){
     		done: function(e,data) {       			
     			if (LHCCallbacks.addFileUserUpload) {
     				LHCCallbacks.addFileUserUpload(data_config.chat_id);
-    			};			
+    			};
+    			if (data.error == 'true' && data.errors != null) {
+    				alert(data.errors.join("\n"));
+				}
     		},
     		progressall: function (e, data) {
     			var progress = parseInt(data.loaded / data.total * 100, 10);
@@ -2252,6 +2255,9 @@ function lh(){
     			if (LHCCallbacks.addFileUpload) {
     				LHCCallbacks.addFileUpload(data_config.chat_id);
     			};
+				if (data.error == 'true' && data.errors != null) {
+					alert(data.errors.join("\n"));
+				}
     		},
     		dropZone: $('#drop-zone-'+data_config.chat_id),
     		pasteZone: $('#CSChatMessage-'+data_config.chat_id),
