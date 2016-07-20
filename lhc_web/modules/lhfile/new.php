@@ -1,6 +1,7 @@
 <?php
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhfile/new.tpl.php');
+$tpl->set('file_uploaded', false);
 
 if (isset($_POST['UploadFileAction'])) {
 
