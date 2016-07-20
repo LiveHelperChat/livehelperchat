@@ -2323,6 +2323,9 @@ function lh(){
     		if (LHCCallbacks.addRemoteCommand) {
     			LHCCallbacks.addRemoteCommand(chat_id);
     		};
+			if (data.error == 'true' && data.errors != null) {
+				alert(data.errors.join("\n"));
+			}
     	});    	
     	if (operation == 'lhc_screenshot') {
     		$('#user-screenshot-container').html('').addClass('screenshot-pending');
