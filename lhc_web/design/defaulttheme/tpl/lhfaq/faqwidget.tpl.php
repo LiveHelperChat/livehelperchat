@@ -45,12 +45,12 @@
 			  <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/faqwidget','Type your question');?></h4>
               <div class="form-group">
 			     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/faqwidget','E-mail')?>:<?php if (erLhcoreClassModelChatConfig::fetch('faq_email_required')->current_value == 1) : ?>*<?php endif;?></label>
-			     <input type="text" class="form-control" name="email" value="<?php echo htmlspecialchars($item_new->email);?>" />
+			     <input type="text" class="form-control" name="email" value="<?= isset($item_new->email) ? htmlspecialchars($item_new->email) : null ?>" />
               </div>
 
 			  <div class="form-group">
 			     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/faqwidget','Question')?>:*</label>
-			     <textarea class="form-control" rows="3" name="question"><?php echo htmlspecialchars($item_new->question);?></textarea>
+			     <textarea class="form-control" rows="3" name="question"><?= isset($item_new->question) ?  htmlspecialchars($item_new->question) : null ?></textarea>
               </div>
 
 			  <input type="submit" class="btn btn-default btn-sm" name="sendAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/faqwidget','Send your question');?>"/>

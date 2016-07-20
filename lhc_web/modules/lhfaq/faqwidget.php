@@ -218,6 +218,8 @@ if ( isset($_POST['send']) )
 		$item_new->url = $dynamic_url;
 	}
 
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('faq.before_filled_by_user', array('faq' => & $item_new, 'errors' => & $Errors));
+
 	if (count($Errors) == 0) {
 		$item_new->active = 0;
 		$item_new->saveThis();		
