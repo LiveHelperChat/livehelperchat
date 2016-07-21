@@ -173,6 +173,8 @@ if ($votingRelative !== false) {
 			}
 		}
 
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('questionaire.before_feedback_left', array('feedback' => & $answer, 'errors' => & $Errors));
+
 		if ( count($Errors) == 0) {
 			$answer->saveThis();
 			
