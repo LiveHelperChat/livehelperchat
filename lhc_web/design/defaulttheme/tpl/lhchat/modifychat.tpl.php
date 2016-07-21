@@ -10,7 +10,7 @@ setTimeout(function(){
 	var originValue = parent.lhinst.closeWindowOnChatCloseDelete;
 	parent.lhinst.closeWindowOnChatCloseDelete = false;
 	parent.lhinst.removeDialogTab('<?php echo $chat->id?>',parent.$('#tabs'),true);
-	parent.lhinst.closeWindowOnChatCloseDelet = originValue;
+	parent.lhinst.closeWindowOnChatCloseDelete = originValue;
 	parent.lhinst.startChat('<?php echo $chat->id?>',parent.$('#tabs'),'<?php echo erLhcoreClassDesign::shrt($chat->nick,10,'...',30,ENT_QUOTES);?>');
 	parent.$('#myModal').modal('hide');
 },3000);
