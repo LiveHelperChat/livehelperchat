@@ -35,10 +35,18 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 	$db->beginTransaction();
 	try {
 		while (true) {
-			
+
+
 			// Auto responder
-			if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && $chat->wait_timeout_send <= 0 && $chat->wait_timeout > 0 && !empty($chat->timeout_message) && (time() - $chat->time) > ($chat->wait_timeout*($chat->wait_timeout_repeat-(abs($chat->wait_timeout_send))))) {
-				erLhcoreClassChatWorkflow::timeoutWorkflow($chat);
+
+            if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && $chat->wait_timeout_send <= 0 && $chat->wait_timeout > 0 && !empty($chat->timeout_message) && (time() - $chat->time) > ($chat->wait_timeout*($chat->wait_timeout_repeat-(abs($chat->wait_timeout_send))))) {
+                $errors = [];
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_triggered',array('chat' => & $chat, 'errors' => & $errors));
+
+                if (empty($errors)) {
+                    erLhcoreClassChatWorkflow::timeoutWorkflow($chat);
+                }
+
 			}
 		
 			if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && $chat->transfer_if_na == 1 && $chat->transfer_timeout_ts < (time()-$chat->transfer_timeout_ac) ) {
