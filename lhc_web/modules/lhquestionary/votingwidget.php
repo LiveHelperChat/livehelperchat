@@ -121,6 +121,7 @@ if ($votingRelative !== false) {
 			}
 		}
 
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('questionaire.before_option_chosen', array('voting' => & $votingAnswer, 'errors' => $Errors));
 
 		if ( count($Errors) == 0) {
 			$votingAnswer->saveThis();
