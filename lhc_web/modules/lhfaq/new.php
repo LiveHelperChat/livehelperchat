@@ -15,6 +15,8 @@ if ( isset($_POST['Save']) )
 
 	$Errors = erLhcoreClassFaq::validateFaq($faq);
 
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('faq.before_created', array('faq' => & $faq, 'errors' => & $Errors));
+
 	if (count($Errors) == 0) {
 		$faq->saveThis();
 		
