@@ -1,6 +1,8 @@
 $( document ).ready(function() {
 	var hash = window.location.hash;	
 	if (hash != '') {
+		var chat_id = hash.match(/\d+$/);
+		$('ul[role="tablist"] a[href="#chat-id-' + chat_id + '"]').tab('show');
 		$('ul[role="tablist"] a[href="' + hash.replace("#/","#") + '"]').tab('show');
 	}
 });
