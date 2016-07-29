@@ -30,5 +30,5 @@
 <script type="text/javascript">
 var GeoLocationData = {zoom:<?php echo $geo_location_data['zoom']?>,lat:<?php echo $geo_location_data['lat']?>,lng:<?php echo $geo_location_data['lng']?>};
 </script>
-<script src="https://maps-api-ssl.google.com/maps/api/js?v=3&sensor=false&callback=gMapsCallback"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?<?php if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'maps_api_key', false)) echo 'key=' . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'maps_api_key', false) . '&'?>callback=gMapsCallback"></script>
 <?php endif;?>
