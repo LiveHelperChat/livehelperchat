@@ -88,6 +88,12 @@ if ((string)$Params['user_parameters_unordered']['hash'] != '' && (!isset($paidC
 	}
 }
 
+if (isset($Params['user_parameters_unordered']['fullheight']) && $Params['user_parameters_unordered']['fullheight'] == 'true') {
+	$modeAppendTheme .= '/(fullheight)/true';
+} else {
+	$modeAppendTheme .= '/(fullheight)/false';
+}
+
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/chatwidget.tpl.php');
 $tpl->set('referer','');
 $tpl->set('referer_site','');
@@ -556,6 +562,12 @@ if (isset($Params['user_parameters_unordered']['sdemo']) && (int)$Params['user_p
     $tpl->set('show_demo',true);
 } else {
     $tpl->set('show_demo',false);
+}
+
+if (isset($Params['user_parameters_unordered']['fullheight']) && $Params['user_parameters_unordered']['fullheight'] == 'true') {
+	$Result['fullheight'] = true;
+} else {
+	$Result['fullheight'] = false;
 }
 
 $Result['content'] = $tpl->fetch();

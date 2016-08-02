@@ -28,19 +28,21 @@ lhinst.isWidgetMode = true;
 $('input[type="text"]').first().click(function(){if (wasFocused == false){wasFocused=true;$(this).select().focus();}});
 $('textarea').first().click(function(){if (wasFocused == false){wasFocused=true;$(this).select();}});
 if (!!window.postMessage) {
-	var heightContent = 0;
-	var heightElement = $('#widget-layout');
-	setInterval(function(){
-		var currentHeight = heightElement.height();
-		if (heightContent != currentHeight){
-			heightContent = currentHeight;
-			try {
-				parent.postMessage('<?php echo $Result['dynamic_height_message']?>:'+(parseInt(heightContent)+<?php (isset($Result['dynamic_height_append'])) ? print $Result['dynamic_height_append'] : print 15?>), '*');
-			} catch(e) {
+    <?php if (!isset($Result['fullheight']) || (isset($Result['fullheight']) && !$Result['fullheight'])) : ?>
+        var heightContent = 0;
+        var heightElement = $('#widget-layout');
+        setInterval(function(){
+            var currentHeight = heightElement.height();
+            if (heightContent != currentHeight){
+                heightContent = currentHeight;
+                try {
+                    parent.postMessage('<?php echo $Result['dynamic_height_message']?>:'+(parseInt(heightContent)+<?php (isset($Result['dynamic_height_append'])) ? print $Result['dynamic_height_append'] : print 15?>), '*');
+                } catch(e) {
 
-			};
-		};
-	},200);
+                };
+            };
+        },200);
+    <?php endif; ?>
 	<?php if (isset($Result['chat']) && is_numeric($Result['chat']->id)) : ?>
 	parent.postMessage("lhc_ch:hash:<?php echo $Result['chat']->id,'_',$Result['chat']->hash?>", '*');
 	parent.postMessage("lhc_ch:hash_resume:<?php echo $Result['chat']->id,'_',$Result['chat']->hash?>", '*');	

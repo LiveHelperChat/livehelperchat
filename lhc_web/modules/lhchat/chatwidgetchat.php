@@ -102,7 +102,11 @@ try {
 } catch(Exception $e) {
    $tpl->setFile('lhchat/errors/chatnotexists.tpl.php');
 }
-
+if (isset($Params['user_parameters_unordered']['fullheight']) && $Params['user_parameters_unordered']['fullheight'] == 'true') {
+    $Result['fullheight'] = true;
+} else {
+    $Result['fullheight'] = false;
+}
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'widget';
 $Result['pagelayout_css_append'] = 'widget-chat';

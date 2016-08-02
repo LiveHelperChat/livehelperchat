@@ -154,6 +154,8 @@
         					<option value="middle_right"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Middle right side of the screen');?></option>
         					<option value="middle_left"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Middle left side of the screen');?></option>
         					<option value="api"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Invisible, only JS API will be included');?></option>
+        					<option value="full_height_right"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Full height right');?></option>
+        					<option value="full_height_left"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Full height left');?></option>
         				</select>
         			</div>
     			</div>
