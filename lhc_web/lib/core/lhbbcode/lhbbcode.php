@@ -327,6 +327,8 @@ class erLhcoreClassBBCode
     	$ret = preg_replace_callback('#\[file="?(.*?)"?\]#is', 'erLhcoreClassBBCode::_make_url_file', $ret);
 
     	$ret = trim($ret);
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.after_make_clickable',array('msg' => & $ret));
     	return $ret;
    }
 

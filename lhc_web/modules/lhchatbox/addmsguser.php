@@ -31,6 +31,8 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && mb_strlen($form->m
         $sender = $_SESSION['lhc_chatbox_nick'] = $msg->name_support = $form->nick;
         $msg->time = time();
 
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chatbox.before_msg_user_saved',array('msg' => & $msg,'chat' => & $Chat));
+
         erLhcoreClassChat::getSession()->save($msg);
 
         // Set last message ID

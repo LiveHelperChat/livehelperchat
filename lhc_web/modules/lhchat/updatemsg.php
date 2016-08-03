@@ -36,7 +36,9 @@ if (trim($form->msg) != '' && $form->hasValidData('msgid'))
 		        if ($Chat->chat_locale != '' && $Chat->chat_locale_to != '') {
 		            erLhcoreClassTranslate::translateChatMsgOperator($Chat, $msg);
 		        }
-		        
+
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_update',array('msg' => & $msg,'chat' => & $Chat));
+
 		        erLhcoreClassChat::getSession()->update($msg);
 		        
 		        $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/syncadmin.tpl.php');

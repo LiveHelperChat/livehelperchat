@@ -1661,6 +1661,9 @@ function lh(){
 					textArea.attr('data-msgid',data.id);
 					textArea.addClass('edit-mode');
 					$('#msg-'+data.id).addClass('edit-mode');
+					if (LHCCallbacks.editPrevious) {
+						LHCCallbacks.editPrevious(chat_id, data);
+					}
 				}
 			});			
 		}
@@ -1675,9 +1678,30 @@ function lh(){
 					textArea.attr('data-msgid',data.id);
 					textArea.addClass('edit-mode');
 					$('#msg-'+data.id).addClass('edit-mode');
+					if (LHCCallbacks.editPreviousUser) {
+						LHCCallbacks.editPreviousUser(data);
+					}
 				}
 			});			
 		}
+	};
+
+	this.afterAdminChatInit = function (chat_id) {
+		if (LHCCallbacks.afterAdminChatInit) {
+			LHCCallbacks.afterAdminChatInit(chat_id);
+		}
+	};
+
+	this.afterUserChatInit = function () {
+		if (LHCCallbacks.afterUserChatInit) {
+			LHCCallbacks.afterUserChatInit();
+		}
+	};
+
+	this.afterChatWidgetInit = function () {
+		if (LHCCallbacks.afterChatWidgetInit) {
+			LHCCallbacks.afterChatWidgetInit();
+		};
 	};
 	
 	this.showMyPermissions = function(user_id) {
@@ -1685,7 +1709,7 @@ function lh(){
 			$('#permissions-summary').html(data);
 		});
 	};
-	
+
     this.addmsguserchatbox = function (chat_id)
     {
     	var nickCurrent = false;

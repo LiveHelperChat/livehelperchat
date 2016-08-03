@@ -34,7 +34,9 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && mb_strlen($form->m
     	        if ($chat->chat_locale != '' && $chat->chat_locale_to != '') {
     	            erLhcoreClassTranslate::translateChatMsgVisitor($chat, $msg);
     	        }
-    	        
+
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_user_saved',array('msg' => & $msg,'chat' => & $chat));
+
     	        erLhcoreClassChat::getSession()->save($msg);
 	        }
 

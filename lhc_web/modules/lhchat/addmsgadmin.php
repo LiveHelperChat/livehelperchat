@@ -63,6 +63,8 @@ if (trim($form->msg) != '')
     	        if ($messageUserId != -1 && $Chat->chat_locale != '' && $Chat->chat_locale_to != '') {
     	            erLhcoreClassTranslate::translateChatMsgOperator($Chat, $msg);
     	        }
+
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved',array('msg' => & $msg,'chat' => & $Chat));
     	        
     	        erLhcoreClassChat::getSession()->save($msg);
     	
