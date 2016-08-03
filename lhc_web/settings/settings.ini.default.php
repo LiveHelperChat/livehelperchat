@@ -21,6 +21,7 @@ return array (
       'date_hour_format' => 'H:i:s',
       'date_date_hour_format' => 'Y-m-d H:i:s',
       'default_site_access' => 'eng',
+      'maps_api_key' => false,
       'extensions' =>
           array (
             // 0 => 'customstatus',
