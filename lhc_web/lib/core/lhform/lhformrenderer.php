@@ -31,7 +31,9 @@ class erLhcoreClassFormRenderer {
     	} elseif (isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER'])) {
     		$contentForm .= "<input type=\"hidden\" name=\"identifier\" value=\"".htmlspecialchars($_SERVER['HTTP_REFERER'])."\" />";
     	}
-    	
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('form.on_form_render',array('form' => & $form, 'errors' => & self::$errors));
+
     	if ( empty(self::$errors) && ezcInputForm::hasPostData()) {
     		self::$isCollected = true;
     	}
