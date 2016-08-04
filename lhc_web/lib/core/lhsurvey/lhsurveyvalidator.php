@@ -22,8 +22,10 @@ class erLhcoreClassSurveyValidator {
 		} else {
 			$surveyItem->stars = $form->StarsValue;
 		}
-				
-		return $Errors;		
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('survey.validate', array('survey' => & $survey, 'errors' => & $Errors));
+
+        return $Errors;
 	}	
 }
 
