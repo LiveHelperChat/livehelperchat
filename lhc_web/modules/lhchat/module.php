@@ -269,8 +269,8 @@ $ViewList['usertyping'] = array(
 );
 
 $ViewList['checkchatstatus'] = array(
-    'params' => array('chat_id','hash','dot'),
-    'uparams' => array('mode','theme')
+    'params' => array('chat_id','hash'),
+    'uparams' => array('mode','theme','dot')
 );
 
 $ViewList['transferuser'] = array(
