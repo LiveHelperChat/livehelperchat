@@ -671,6 +671,8 @@ var LHCCoBrowserOperator = (function() {
 			// called when remote socket is closed
 		} else if (msg.clear) {
 			this.clearPage();
+		} else if (msg.error_msg) {
+			alert(msg.error_msg);
 		} else {
 			//console.log('just message: ', msg);
 		}
