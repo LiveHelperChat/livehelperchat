@@ -383,6 +383,18 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
 					   $chat->saveThis();
 
 					   erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.auto_responder_triggered', array('chat' => & $chat));
+				   } else {
+					   $msg = new erLhcoreClassModelmsg();
+					   $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Auto responder got error:'.' '.rtrim(implode('; ', $beforeAutoResponderErrors), '; '));
+					   $msg->chat_id = $chat->id;
+					   $msg->user_id = -1;
+					   $msg->time = time();
+
+					   if ($chat->last_msg_id < $msg->id) {
+						   $chat->last_msg_id = $msg->id;
+					   }
+
+					   erLhcoreClassChat::getSession()->save($msg);
 				   }
     	       }
 	       } else {
