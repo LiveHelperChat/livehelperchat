@@ -2187,13 +2187,14 @@ function lh(){
     				data.submit();
     			};
     		},
-    		done: function(e,data) {       			
+    		done: function(e,data) {
+				var response = data.response();
+				if (response != undefined && response.result != undefined && response.result.error == 'true' && response.result.error_msg != undefined) {
+					alert(response.result.error_msg);
+				}
     			if (LHCCallbacks.addFileUserUpload) {
     				LHCCallbacks.addFileUserUpload(data_config.chat_id);
-    			};
-    			if (data.error == 'true' && data.errors != null) {
-    				alert(data.errors.join("\n"));
-				}
+    			}
     		},
     		progressall: function (e, data) {
     			var progress = parseInt(data.loaded / data.total * 100, 10);
@@ -2274,14 +2275,17 @@ function lh(){
     				data.submit();
     			};
     		},
-    		done: function(e,data) {       			
-    			lhinst.updateChatFiles(data_config.chat_id); 
-    			if (LHCCallbacks.addFileUpload) {
-    				LHCCallbacks.addFileUpload(data_config.chat_id);
-    			};
-				if (data.error == 'true' && data.errors != null) {
-					alert(data.errors.join("\n"));
+    		done: function(e,data) {
+				var response = data.response();
+				if (response != undefined && response.result != undefined && response.result.error == 'true' && response.result.error_msg != undefined) {
+					alert(response.result.error_msg);
+				} else {
+					lhinst.updateChatFiles(data_config.chat_id);
 				}
+
+				if (LHCCallbacks.addFileUpload) {
+    				LHCCallbacks.addFileUpload(data_config.chat_id);
+    			}
     		},
     		dropZone: $('#drop-zone-'+data_config.chat_id),
     		pasteZone: $('#CSChatMessage-'+data_config.chat_id),

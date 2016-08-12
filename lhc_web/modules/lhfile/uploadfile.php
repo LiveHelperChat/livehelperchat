@@ -28,7 +28,7 @@ if (isset($fileData['active_user_upload']) && $fileData['active_user_upload'] ==
 
             echo json_encode(array('error' => 'false'));
         } else {
-            echo json_encode(array('error' => 'true', 'errors' => $errors));
+            echo json_encode(array('error' => 'true', 'error_msg' => implode(PHP_EOL, $errors)));
         }
 	}
 }

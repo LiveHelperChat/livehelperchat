@@ -25,7 +25,7 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) && $currentUser->hasAccessTo('lhf
 
         echo json_encode(array('error' => 'false'));
     } else {
-        echo json_encode(array('error' => 'true', 'errors' => $errors));
+        echo json_encode(array('error' => 'true', 'error_msg' => implode(PHP_EOL, $errors)));
     }
 }
 
