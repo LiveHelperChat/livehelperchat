@@ -342,7 +342,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
 					$chat->saveThis();
 				} else {
 					$msg = new erLhcoreClassModelmsg();
-					$msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Auto responder got error:'.' '.rtrim(implode('; ', $beforeAutoResponderErrors), '; '));
+					$msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Auto responder got error:'.' '.implode('; ', $beforeAutoResponderErrors));
 					$msg->chat_id = $chat->id;
 					$msg->user_id = -1;
 					$msg->time = time();
