@@ -74,12 +74,18 @@ class erLhcoreClassTranslateBing {
             curl_setopt($ch, CURLOPT_CONNECTTIMEOUT , 5);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-            $rsp = curl_exec($ch); 
-            
+            $rsp = curl_exec($ch);
+
             if (strpos($rsp, '<string') === false){
                 throw new Exception($rsp);
             }
-            
+
+            $errors = [];
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translate.after_bing_translate', array('word' => & $word, 'errors' => & $errors));
+            if(!empty($errors)) {
+                throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Could not translate').' - '.implode('; ', $errors));
+            }
+
             preg_match_all('/<string (.*?)>(.*?)<\/string>/s', $rsp, $matches);            
             return htmlspecialchars_decode($matches[2][0]); 
         }

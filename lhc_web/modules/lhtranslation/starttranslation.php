@@ -37,6 +37,9 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
                 $tpl->set('errors', array($e->getMessage(), erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'Please choose translation languages manually and click Auto translate')));
                 $data['result'] = $tpl->fetch();
                 $data['translation_status'] = false;
+                $chat->chat_locale = '';
+                $chat->chat_locale_to = '';
+                $chat->updateThis();
                 echo json_encode($data);
             }
         }
