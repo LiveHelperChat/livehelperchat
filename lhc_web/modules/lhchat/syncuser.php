@@ -46,7 +46,7 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
                     erLhcoreClassChatWorkflow::timeoutWorkflow($chat);
                 } else {
                     $msg = new erLhcoreClassModelmsg();
-                    $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Auto responder got error:'.' '.rtrim(implode('; ', $errors), '; '));
+                    $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Auto responder got error').': '.implode('; ', $errors);
                     $msg->chat_id = $chat->id;
                     $msg->user_id = -1;
                     $msg->time = time();
