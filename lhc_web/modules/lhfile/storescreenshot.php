@@ -44,7 +44,7 @@ if ($Params['user_parameters_unordered']['hash'] != '' || $Params['user_paramete
                     $chat->support_informed = 1;
                     $chat->user_typing = time();
                     $chat->is_user_typing = 1;
-                    $chat->user_typing_txt = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/screenshot','Screenshot store error:'.' '.implode('; ', $errors)),ENT_QUOTES);
+                    $chat->user_typing_txt = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/screenshot','Screenshot store error').': '.implode('; ', $errors),ENT_QUOTES);
                     $chat->saveThis();
                     echo json_encode(array('stored' => 'false'));
                     exit;
