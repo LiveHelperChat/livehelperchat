@@ -666,11 +666,7 @@ var LHCCoBrowser = (function() {
 					} catch (err) {	}					
 				}
 			};
-		} else if (msg[1] == 'operator_close') {
-			this.stopMirroring();
-			alert('Operator closed chat');
 		}
-		
 	};
 	
 	LHCCoBrowser.prototype.mouseEventListener = function(e) {
@@ -821,16 +817,25 @@ var LHCCoBrowser = (function() {
 		this.sendCommands.push(msg);
 		if (this.updateTimeout === null) {
 			this.updateTimeout = setTimeout(function() {
-				
+
 				if (window.XDomainRequest) xhr = new XDomainRequest();
 				else if (window.XMLHttpRequest) xhr = new XMLHttpRequest();
-				else xhr = new ActiveXObject("Microsoft.XMLHTTP");								
-				xhr.open("POST", _this.url, true);				
+				else xhr = new ActiveXObject("Microsoft.XMLHTTP");
+				xhr.open("POST", _this.url, true);
 				if (typeof xhr.setRequestHeader !== 'undefined'){
 					xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 				};
 				xhr.send("data=" + encodeURIComponent(lh_inst.JSON.stringify(_this.sendCommands)));
-				
+
+				xhr.onload = function() {
+					var response = lh_inst.JSON.parse(xhr.responseText);
+					// stop mirroring if initialize request return an error
+					if (response !== "undefined" && response.disableShare == "true") {
+						alert(response.error_msg);
+						_this.stopMirroring();
+					}
+				};
+
 				_this.sendCommands = [];
 				_this.updateTimeout = null;
 			}, this.isNodeConnected === true ? 0 : 500); // Send grouped changes every 0.5 seconds
