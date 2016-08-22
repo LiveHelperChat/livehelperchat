@@ -666,6 +666,9 @@ var LHCCoBrowser = (function() {
 					} catch (err) {	}					
 				}
 			};
+		} else if (msg[1] == 'operator_close') {
+			this.stopMirroring();
+			alert('Operator closed chat');
 		}
 		
 	};

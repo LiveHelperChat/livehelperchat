@@ -454,6 +454,7 @@ var LHCCoBrowserOperator = (function() {
 
 				this.socket.on('userjoined', function(chat_id) {
 					_this.userJoined(chat_id);
+
 				});
 
 			} catch (err) {
@@ -654,6 +655,8 @@ var LHCCoBrowserOperator = (function() {
 			this.changeSelectValueFromUser(msg);
 		} else if (msg.f && msg.f == 'chkval') {
 			this.changeCheckboxValueFromUser(msg);
+		} else if (msg.f && msg.f == 'operator_close') {
+			this.sendData('lhc_cobrowse_cmd:operator_close');
 		} else if (msg.f) {
 			if (typeof this.mirror != "undefined") {
 				this.mirror[msg.f].apply(this.mirror, msg.args);
