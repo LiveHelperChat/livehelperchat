@@ -127,7 +127,7 @@ class erLhcoreClassChatWorkflow {
     	}
 
     	if (in_array('xmp', $options['options'])) {
-    	    $errors = [];
+    	    $errors = array();
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('xml.before_send_xmp_message', array('chat' => & $chat, 'errors' => & $errors));
 
             if (empty($errors)) {
@@ -156,7 +156,7 @@ class erLhcoreClassChatWorkflow {
     	}
     	
     	if (in_array('xmp_accepted', $options['options'])) {
-            $errors = [];
+            $errors = array();
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('xml.before_send_xmp_message', array('chat' => & $chat, 'errors' => & $errors));
 
             if (empty($errors)) {
@@ -178,7 +178,7 @@ class erLhcoreClassChatWorkflow {
     	}
 
     	if (in_array('xmp', $options['options'])) {
-            $errors = [];
+            $errors = array();
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('xml.before_send_xmp_message', array('chat' => & $chat, 'errors' => & $errors));
 
             if (empty($errors)) {

@@ -4,7 +4,7 @@ if (is_numeric($Params['user_parameters']['chat_id']))
 {
     $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
 
-    $errors = [];
+    $errors = array();
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('speech.before_getchatdialect',array('chat' => & $chat, 'errors' => & $errors));
 
     if(empty($errors)) {

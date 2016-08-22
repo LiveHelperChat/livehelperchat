@@ -6,7 +6,7 @@ if (isset($fileData['active_user_upload']) && $fileData['active_user_upload'] ==
 	$chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
 	if ($chat->hash == $Params['user_parameters']['hash'] && ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT || $chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)) // Allow add messages only if chat is active
 	{
-	    $errors = [];
+	    $errors = array();
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.before_user_uploadfile.file_store', ['errors' => & $errors]);
 
         if (empty($errors)) {

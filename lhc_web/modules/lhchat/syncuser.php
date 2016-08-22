@@ -39,7 +39,7 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 
 			// Auto responder
             if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && $chat->wait_timeout_send <= 0 && $chat->wait_timeout > 0 && !empty($chat->timeout_message) && (time() - $chat->time) > ($chat->wait_timeout*($chat->wait_timeout_repeat-(abs($chat->wait_timeout_send))))) {
-                $errors = [];
+                $errors = array();
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_triggered',array('chat' => & $chat, 'errors' => & $errors));
 
                 if (empty($errors)) {

@@ -314,7 +314,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
 			$responder = erLhAbstractModelAutoResponder::processAutoResponder($chat);
 
 			if ($responder instanceof erLhAbstractModelAutoResponder) {
-				$beforeAutoResponderErrors = [];
+				$beforeAutoResponderErrors = array();
 				erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_triggered', array('chat' => & $chat, 'errors' => & $beforeAutoResponderErrors));
 
 				if (empty($beforeAutoResponderErrors)) {

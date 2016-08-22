@@ -80,7 +80,7 @@ class erLhcoreClassTranslateBing {
                 throw new Exception($rsp);
             }
 
-            $errors = [];
+            $errors = array();
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translate.after_bing_translate', array('word' => & $word, 'errors' => & $errors));
             if(!empty($errors)) {
                 throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Could not translate').' - '.implode('; ', $errors));

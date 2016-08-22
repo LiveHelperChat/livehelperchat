@@ -4,7 +4,7 @@
 if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['user_parameters']['item_id']))
 {
 	$Chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
-	$errors = [];
+	$errors = array();
 
 	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_chat_transfered', ['chat' => & $Chat, 'errors' => & $errors]);
 

@@ -16,7 +16,7 @@ if (trim($form->operation) != '')
     $db->beginTransaction();
 
     $Chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
-    $errors = [];
+    $errors = array();
 
     switch ($form->operation) {
         case 'lhc_screenshot':

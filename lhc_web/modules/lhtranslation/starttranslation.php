@@ -7,7 +7,7 @@ $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params
 
 if ( erLhcoreClassChat::hasAccessToRead($chat) )
 {
-    $errors = [];
+    $errors = array();
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translate.before_messagetranslated', array('chat' => & $chat, 'errors' => & $errors));
 
     if (empty($errors)) {
@@ -44,7 +44,7 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
             }
         }
     } else {
-        $data = ['error' => true];
+        $data = array('error' => true);
         $tpl = erLhcoreClassTemplate::getInstance('lhkernel/validation_error.tpl.php');
         $tpl->set('errors', $errors);
         $data['result'] = $tpl->fetch();

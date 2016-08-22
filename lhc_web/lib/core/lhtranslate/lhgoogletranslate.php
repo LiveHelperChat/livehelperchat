@@ -65,7 +65,7 @@ class erLhcoreClassTranslateGoogle {
             $data = json_decode($rsp,true);
             
             if (isset($data['data']['translations'][0]['translatedText'])){
-                $errors = [];
+                $errors = array();
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translate.after_google_translate', array('word' => & $word, 'errors' => & $errors));
                 if(!empty($errors)) {
                     throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Could not translate').' - '.implode('; ', $errors));

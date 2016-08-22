@@ -37,7 +37,7 @@ if ($Params['user_parameters_unordered']['hash'] != '' || $Params['user_paramete
         if ((($checkHash == true && $chat !== false && $chat->hash == $hash) || $checkHash == false) && (is_object($vid) || ($chat !== false && $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT || $chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT))) {
 
             if (isset($_POST['data'])) {
-                $errors = [];
+                $errors = array();
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.storescreenshot.before_store', array('errors' => & $errors, 'chat' => & $chat, 'data' => $_POST['data']));
 
                 if (!empty($errors) && $chat) {

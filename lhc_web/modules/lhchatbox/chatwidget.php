@@ -26,7 +26,7 @@ if (($Result = $cache->restore($cacheKey)) === false)
         erLhcoreClassModelUserSetting::setSetting('chat_message',(int)$Params['user_parameters_unordered']['sound'] == 1 ? 1 : 0);
     }
 
-    $errors = [];
+    $errors = array();
 
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chatbox.before_created', array('errors' => & $errors));
 
