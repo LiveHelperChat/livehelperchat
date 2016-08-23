@@ -700,12 +700,16 @@ class erLhcoreClassModelChatOnlineUser
                 $logPageView = true;
             }
 
-            $errors = array();
-            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('onlineuser.before_proactive_triggered', array('ou' => & $item, 'errors' => & $errors));
 
-            if (empty($errors) && (!isset($paramsHandle['wopen']) || $paramsHandle['wopen'] == 0) && $item->operator_message == '' && isset($paramsHandle['pro_active_invite']) && $paramsHandle['pro_active_invite'] == 1 && isset($paramsHandle['pro_active_limitation']) && ($paramsHandle['pro_active_limitation'] == -1 || erLhcoreClassChat::getPendingChatsCountPublic($item->dep_id > 0 ? $item->dep_id : false) <= $paramsHandle['pro_active_limitation'])) {
-                //Process pro active chat invitation if this visitor matches any rules
-                erLhAbstractModelProactiveChatInvitation::processProActiveInvitation($item);
+
+            if ((!isset($paramsHandle['wopen']) || $paramsHandle['wopen'] == 0) && $item->operator_message == '' && isset($paramsHandle['pro_active_invite']) && $paramsHandle['pro_active_invite'] == 1 && isset($paramsHandle['pro_active_limitation']) && ($paramsHandle['pro_active_limitation'] == -1 || erLhcoreClassChat::getPendingChatsCountPublic($item->dep_id > 0 ? $item->dep_id : false) <= $paramsHandle['pro_active_limitation'])) {
+                $errors = array();
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('onlineuser.before_proactive_triggered', array('ou' => & $item, 'errors' => & $errors));
+
+                if(empty($errors)) {
+                    //Process pro active chat invitation if this visitor matches any rules
+                    erLhAbstractModelProactiveChatInvitation::processProActiveInvitation($item);
+                }
             }
 
             $activityChanged = false;
