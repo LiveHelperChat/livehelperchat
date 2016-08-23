@@ -277,10 +277,15 @@ function lh(){
     	clearTimeout(this.remarksTimeout);
     	
     	$('#remarks-status-'+chat_id).addClass('warning-color');
+    	$('#main-user-info-remarks-'+chat_id+' .alert').remove();
     	var inst = this;
     	this.remarksTimeout = setTimeout(function(){
     		$.postJSON(inst.wwwDir + 'chat/saveremarks/' + chat_id,{'data':$('#ChatRemarks-'+chat_id).val()}, function(data){
-    			$('#remarks-status-'+chat_id).removeClass('warning-color');
+				if(data.error == 'false') {
+					$('#remarks-status-'+chat_id).removeClass('warning-color');
+				} else {
+					$('#main-user-info-remarks-'+chat_id).prepend(data.result);
+				}
     		});
     	},500);    	
     };
