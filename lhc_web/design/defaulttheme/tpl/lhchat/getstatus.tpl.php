@@ -822,8 +822,10 @@ var lh_inst  = {
     
     cobrowse : null,
     
-    startCoBrowse : function(chatHash,sharemode){
-    	var inst = this;    	
+    startCoBrowse : function(chatHash,sharemode,formsEnabled){
+    	var inst = this;
+		if(typeof formsEnabled == "undefined") formsEnabled = true;
+
     	if (this.isSharing == false && (this.cookieData.shr || <?php echo (int)erLhcoreClassModelChatConfig::fetch('sharing_auto_allow')->current_value?> == 1 || confirm(<?php echo json_encode(htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Allow operator to see your page content?'),ENT_QUOTES))?>)))
     	{
     		this.sharehash = chatHash || this.cookieData.hash || this.cookieData.shr;    		
@@ -838,7 +840,7 @@ var lh_inst  = {
 			        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::designJS('js/cobrowse/compiled/cobrowse.visitor.min.js');?>');
 			        th.appendChild(s);
 			        s.onreadystatechange = s.onload = function(){
-			        	inst.startCoBrowse(inst.sharehash,this.sharemode);
+			        	inst.startCoBrowse(inst.sharehash,this.sharemode,formsEnabled);
 			        };		        
 	    	} else {
 		    	try {	 
@@ -1019,9 +1021,15 @@ var lh_inst  = {
     	} else if (action == 'lhc_chat_closed') {
     		lh_inst.showSurvey();
     	} else if (action == 'lhc_cobrowse') {
-    		lh_inst.startCoBrowse(e.data.split(':')[1],'chat');    	
-    	} else if (action == 'lhc_cobrowse_online') {    		    		
-    		lh_inst.startCoBrowse(e.data.split(':')[1],'onlineuser');    			
+			var formsEnabled = true;
+			if(typeof e.data.split(':')[2] != "undefined" && e.data.split(':')[2] == "forms_disabled") formsEnabled = false;
+
+    		lh_inst.startCoBrowse(e.data.split(':')[1],'chat', formsEnabled);
+    	} else if (action == 'lhc_cobrowse_online') {
+			var formsEnabled = true;
+			if(typeof e.data.split(':')[2] != "undefined" && e.data.split(':')[2] == "forms_disabled") formsEnabled = false;
+
+    		lh_inst.startCoBrowse(e.data.split(':')[1],'onlineuser',formsEnabled);
     	} else if (action == 'lhc_chat_redirect') {
     		document.location = e.data.split(':')[1].replace(new RegExp('__SPLIT__','g'),':');
     	} else if (action == 'lhc_cobrowse_cmd') {
