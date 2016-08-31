@@ -6,7 +6,7 @@ $ViewList = array();
 
 $ViewList['login'] = array(
     'params' => array(),
-    'uparams' => array('r'),
+    'uparams' => array('r','external_request'),
 );
 
 $ViewList['autologin'] = array(
