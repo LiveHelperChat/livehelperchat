@@ -44,12 +44,13 @@ if (isset($_POST['Login']))
     }
 
     if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
-        if(!$isExternalRequest) {
-            erLhcoreClassModule::redirect('user/login');
-        } else {
-            $tpl->set('errors', array(erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','CSRF token is invalid, try to resubmit form')));
+        if($isExternalRequest) {
+            $tpl->set('errors', array(erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','CSFR token is invalid, try to resubmit form')));
             echo json_encode(array('success' => false, 'result' => $tpl->fetch()));
+            exit;
         }
+
+        erLhcoreClassModule::redirect('user/login');
         exit;
     }
 
