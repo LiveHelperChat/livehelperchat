@@ -414,6 +414,8 @@ class erLhcoreClassUser{
    {
        $accessArray = erLhcoreClassRole::accessArrayByUserID( $this->userid );
 
+       erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.after_generate_access_array',array('accessArray' => & $accessArray));
+
        return $accessArray;
    }
 
