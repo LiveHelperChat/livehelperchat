@@ -718,13 +718,8 @@ class erLhcoreClassModelChatOnlineUser
                 $item->user_active = (int)$paramsHandle['uactiv'];
             }
 
-            $errors = array();
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('onlineuser.before_store_chat',
-                array('new_visitor' => $newVisitor, 'log_page_view' => $logPageView, 'activity_changed' => $activityChanged, 'online_user' => $item, 'errors' => & $errors));
-
-            if (!empty($errors)) {
-                return false;
-            }
+                array('new_visitor' => $newVisitor, 'log_page_view' => $logPageView, 'activity_changed' => $activityChanged, 'online_user' => $item, 'errors' => array()));
 
             // Save only then we have to, in general only then page view appears
             if ($item->store_chat == true) {
