@@ -1542,7 +1542,11 @@ function lh(){
 	this.addmsgadmin = function (chat_id)
 	{
 		var textArea = $("#CSChatMessage-"+chat_id);
-		
+
+		if (textArea.is("[readonly]")) {
+			return;
+		}
+
 		var pdata = {
 				msg	: textArea.val()
 		};
