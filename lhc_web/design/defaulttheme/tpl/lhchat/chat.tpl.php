@@ -63,19 +63,17 @@
 	    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/above_text_area_user.tpl.php'));?>	
        
         <textarea class="form-control live-chat-message" rows="4" name="ChatMessage" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Enter your message')?>" id="CSChatMessage" ></textarea>
-	    
-        <script type="text/javascript">        
-        jQuery('#CSChatMessage').bind('keydown', function (evt){
-            if(evt.keyCode == 13) {
-                lhinst.addmsguser();
-                return false;
-            }
-        });        
-        jQuery('#CSChatMessage').bind('keyup', function (evt){
-            if(evt.keyCode == 38) {
-                lhinst.editPreviousUser();
-            }
-		});		
+
+        <script type="text/javascript">
+        jQuery('#CSChatMessage').bind('keydown', 'return', function (evt){
+        	 lhinst.addmsguser();
+        	 return false;
+        }); 
+
+        jQuery('#CSChatMessage').bind('keyup', 'up', function (evt){
+        	 lhinst.editPreviousUser();
+		});
+
         lhinst.initTypingMonitoringUser('<?php echo $chat_id?>');
         lhinst.afterUserChatInit();
         </script>
