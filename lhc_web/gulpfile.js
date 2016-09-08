@@ -7,6 +7,15 @@ webpack = require('webpack'),
 webpackConfig = require('./webpack.config.js');
 bower = require('gulp-bower');
 
+gulp.task('js-hotkeys', function() {
+	var stylePath = ['design/defaulttheme/js/jquery.hotkeys.js'];
+
+	return gulp.src(stylePath)
+		.pipe(concat('jquery.hotkeys.min.js'))
+		.pipe(uglify({preserveComments: 'some'}))
+		.pipe(gulp.dest('design/defaulttheme/js'));
+});
+
 gulp.task('js-cobrowse-operator', function() {
 	var stylePath = ['design/defaulttheme/js/cobrowse/mutation-summary.js',
 	                 'design/defaulttheme/js/cobrowse/tree-mirror.js',

@@ -17,5 +17,5 @@ confLH.repeat_sound = <?php echo (int)$soundData['repeat_sound']?>;
 confLH.repeat_sound_delay = <?php echo (int)$soundData['repeat_sound_delay']?>;
 confLH.show_alert = <?php echo (int)$soundData['show_alert']?>;
 </script>
-<script type="text/javascript" src="<?php echo erLhcoreClassDesign::designJS('vendor/jquery/jquery.min.js;vendor/bootstrap/js/bootstrap.min.js;js/modernizr.js;js/lh.min.js;js/jquery.hotkeys-0.7.9.min.js;js/fileupload/jquery.fileupload.min.js;js/jquery.zoom.min.js;js/datepicker.min.js;js/lh/dist/common.js;js/lh/dist/bundle.js;js/EventEmitter.min.js;js/events.js');?>"></script>
+<script type="text/javascript" src="<?php echo erLhcoreClassDesign::designJS('vendor/jquery/jquery.min.js;vendor/bootstrap/js/bootstrap.min.js;js/modernizr.js;js/lh.min.js;js/jquery.hotkeys.min.js;js/fileupload/jquery.fileupload.min.js;js/jquery.zoom.min.js;js/datepicker.min.js;js/lh/dist/common.js;js/lh/dist/bundle.js;js/EventEmitter.min.js;js/events.js');?>"></script>
 <?php echo isset($Result['additional_header_js']) ? $Result['additional_header_js'] : ''?>
