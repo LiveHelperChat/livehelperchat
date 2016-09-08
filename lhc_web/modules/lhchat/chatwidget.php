@@ -4,6 +4,8 @@
 header('P3P:CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"');
 
 $embedMode = false;
+$fullHeight = (isset($Params['user_parameters_unordered']['fullheight']) && $Params['user_parameters_unordered']['fullheight'] == 'true');
+
 $modeAppend = '';
 if ((string)$Params['user_parameters_unordered']['mode'] == 'embed') {
 	$embedMode = true;
@@ -36,6 +38,9 @@ if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_p
 		}
 	}
 }
+
+$modeAppendTheme .= '/(fullheight)/';
+$modeAppendTheme .= ($fullHeight) ? 'true' : 'false';
 
 // Paid chat workflow
 if ((string)$Params['user_parameters_unordered']['phash'] != '' && (string)$Params['user_parameters_unordered']['pvhash'] != '') {
@@ -88,16 +93,11 @@ if ((string)$Params['user_parameters_unordered']['hash'] != '' && (!isset($paidC
 	}
 }
 
-if (isset($Params['user_parameters_unordered']['fullheight']) && $Params['user_parameters_unordered']['fullheight'] == 'true') {
-	$modeAppendTheme .= '/(fullheight)/true';
-} else {
-	$modeAppendTheme .= '/(fullheight)/false';
-}
-
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/chatwidget.tpl.php');
 $tpl->set('referer','');
 $tpl->set('referer_site','');
 $tpl->set('theme',$theme);
+$tpl->set('fullheight',$fullHeight);
 
 $disabled_department = false;
 
@@ -129,6 +129,7 @@ if (is_array($Params['user_parameters_unordered']['department']) && erLhcoreClas
 $tpl->set('disabled_department',$disabled_department);
 $tpl->set('append_mode',$modeAppend);
 $tpl->set('append_mode_theme',$modeAppendTheme);
+
 
 // Start chat field options
 $startData = erLhcoreClassModelChatConfig::fetch('start_chat_data');
@@ -259,7 +260,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
    // Validate post data
     $Errors = erLhcoreClassChatValidator::validateStartChat($inputData,$startDataFields,$chat,$additionalParams);
 
-	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_chat_started', ['chat' => & $chat, 'errors' => & $Errors, 'offline' => (isset($additionalParams['offline']) && $additionalParams['offline'] == true) ]);
+	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_chat_started', ['chat' => & $chat, 'errors' => & $Errors ]);
 
    if (count($Errors) == 0 && !isset($_POST['switchLang']))
    {   	
@@ -357,7 +358,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
     	       $responder = erLhAbstractModelAutoResponder::processAutoResponder($chat);
     
     	       if ($responder instanceof erLhAbstractModelAutoResponder) {
-				   $beforeAutoResponderErrors = array();
+				   $beforeAutoResponderErrors = [];
 				   erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_triggered',array('chat' => & $chat, 'errors' => & $beforeAutoResponderErrors));
 
 				   if (empty($beforeAutoResponderErrors)) {
@@ -383,18 +384,6 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
 					   $chat->saveThis();
 
 					   erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.auto_responder_triggered', array('chat' => & $chat));
-				   } else {
-					   $msg = new erLhcoreClassModelmsg();
-					   $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Auto responder got error').': '.implode('; ', $beforeAutoResponderErrors);
-					   $msg->chat_id = $chat->id;
-					   $msg->user_id = -1;
-					   $msg->time = time();
-
-					   if ($chat->last_msg_id < $msg->id) {
-						   $chat->last_msg_id = $msg->id;
-					   }
-
-					   erLhcoreClassChat::getSession()->save($msg);
 				   }
     	       }
 	       } else {
@@ -576,12 +565,8 @@ if (isset($Params['user_parameters_unordered']['sdemo']) && (int)$Params['user_p
     $tpl->set('show_demo',false);
 }
 
-if (isset($Params['user_parameters_unordered']['fullheight']) && $Params['user_parameters_unordered']['fullheight'] == 'true') {
-	$Result['fullheight'] = true;
-} else {
-	$Result['fullheight'] = false;
-}
 
+$Result['fullheight'] = $fullHeight;
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'widget';
 $Result['dynamic_height'] = true;
