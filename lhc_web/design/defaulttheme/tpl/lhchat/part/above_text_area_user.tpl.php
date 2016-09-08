@@ -8,7 +8,7 @@
 		<input type="button" class="btn btn-default btn-xs invisible-button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','BB Code')?>" onclick="return lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('chat/bbcodeinsert')?>'})" />
 		<?php endif; ?>
 		
-		<?php if ( (isset($chat_embed_mode) && $chat_embed_mode == true) || (isset($chat_embed_mode) && $chat_embed_mode == true)) : ?>
+		<?php if (isset($chat_embed_mode) && $chat_embed_mode == true) : ?>
 		<input type="button" class="btn btn-default btn-xs invisible-button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close')?>" onclick="lhinst.userclosedchatembed();" />
 		<?php endif;?>
    	</div>

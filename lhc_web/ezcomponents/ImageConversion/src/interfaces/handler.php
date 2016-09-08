@@ -120,7 +120,7 @@ abstract class ezcImageHandler
      */
     protected function checkFileName( $file )
     {
-        if ( strpos( $file, "'" ) !== false || strpos( $file, "'" ) !== false || strpos( $file, '$' ) !== false )
+        if ( strpos( $file, "'" ) !== false || strpos( $file, '$' ) !== false )
         {
             throw new ezcImageFileNameInvalidException( $file );
         }
