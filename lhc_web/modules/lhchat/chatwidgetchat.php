@@ -104,8 +104,10 @@ try {
 }
 if (isset($Params['user_parameters_unordered']['fullheight']) && $Params['user_parameters_unordered']['fullheight'] == 'true') {
     $Result['fullheight'] = true;
+    $tpl->set('fullheight', true);
 } else {
     $Result['fullheight'] = false;
+    $tpl->set('fullheight', false);
 }
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'widget';

@@ -1,7 +1,13 @@
 <!DOCTYPE html>
-
 <html lang="<?php echo erConfigClassLhConfig::getInstance()->getOverrideValue('site', 'content_language')?>" dir="<?php echo erConfigClassLhConfig::getInstance()->getOverrideValue('site', 'dir_language')?>">
 <head>
+    <?php if (isset($Result['fullheight']) && $Result['fullheight']) : ?>
+        <style>
+            html, body {
+                height: 100% !important;
+            }
+        </style>
+    <?php  endif; ?>
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_user.tpl.php'));?>
 <link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::designCSS('css/widget.css;css/widget_override.css');?>" />
 

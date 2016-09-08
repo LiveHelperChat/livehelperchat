@@ -505,12 +505,12 @@ var lh_inst  = {
 		  var widgetHeight = (typeof <?php echo $chatOptionsVariable?> != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt.widget_height != 'undefined') ? parseInt(<?php echo $chatOptionsVariable?>.opt.widget_height) : 340;
 		  var widgetHeightUnit = 'px';
 
-	      if(this.is_full_height == true) {
+	      if(this.is_full_height === true) {
 			widgetHeight = 100;
 			widgetHeightUnit = '%';
 		  }
 
-          this.iframe_html = '<div id="lhc_iframe_container" <?= isset($currentPosition['full_height']) && $currentPosition['full_height'] ? 'style="height:100%"' : '' ?>><iframe id="lhc_iframe" allowTransparency="true" scrolling="no" class="lhc-loading" frameborder="0" ' +
+          this.iframe_html = '<div id="lhc_iframe_container" <?= isset($currentPosition['full_height']) && $currentPosition['full_height'] ? 'style="height: calc(100% - 25px);"' : '' ?>><iframe id="lhc_iframe" allowTransparency="true" scrolling="no" class="lhc-loading" frameborder="0" ' +
                        ( this.initial_iframe_url != '' ? ' src="'    + this.initial_iframe_url + '"' : '' ) +
                        ' width="'+widgetWidth+'"' +
                        ' height="'+widgetHeight+'"' +
@@ -822,10 +822,8 @@ var lh_inst  = {
     
     cobrowse : null,
     
-    startCoBrowse : function(chatHash,sharemode,formsEnabled){
-    	var inst = this;
-		if(typeof formsEnabled == "undefined") formsEnabled = true;
-
+    startCoBrowse : function(chatHash,sharemode){
+    	var inst = this;    	
     	if (this.isSharing == false && (this.cookieData.shr || <?php echo (int)erLhcoreClassModelChatConfig::fetch('sharing_auto_allow')->current_value?> == 1 || confirm(<?php echo json_encode(htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Allow operator to see your page content?'),ENT_QUOTES))?>)))
     	{
     		this.sharehash = chatHash || this.cookieData.hash || this.cookieData.shr;    		
@@ -840,7 +838,7 @@ var lh_inst  = {
 			        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::designJS('js/cobrowse/compiled/cobrowse.visitor.min.js');?>');
 			        th.appendChild(s);
 			        s.onreadystatechange = s.onload = function(){
-			        	inst.startCoBrowse(inst.sharehash,this.sharemode,formsEnabled);
+			        	inst.startCoBrowse(inst.sharehash,this.sharemode);
 			        };		        
 	    	} else {
 		    	try {	 
@@ -1021,15 +1019,9 @@ var lh_inst  = {
     	} else if (action == 'lhc_chat_closed') {
     		lh_inst.showSurvey();
     	} else if (action == 'lhc_cobrowse') {
-			var formsEnabled = true;
-			if(typeof e.data.split(':')[2] != "undefined" && e.data.split(':')[2] == "forms_disabled") formsEnabled = false;
-
-    		lh_inst.startCoBrowse(e.data.split(':')[1],'chat', formsEnabled);
-    	} else if (action == 'lhc_cobrowse_online') {
-			var formsEnabled = true;
-			if(typeof e.data.split(':')[2] != "undefined" && e.data.split(':')[2] == "forms_disabled") formsEnabled = false;
-
-    		lh_inst.startCoBrowse(e.data.split(':')[1],'onlineuser',formsEnabled);
+    		lh_inst.startCoBrowse(e.data.split(':')[1],'chat');    	
+    	} else if (action == 'lhc_cobrowse_online') {    		    		
+    		lh_inst.startCoBrowse(e.data.split(':')[1],'onlineuser');    			
     	} else if (action == 'lhc_chat_redirect') {
     		document.location = e.data.split(':')[1].replace(new RegExp('__SPLIT__','g'),':');
     	} else if (action == 'lhc_cobrowse_cmd') {
