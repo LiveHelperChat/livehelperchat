@@ -337,7 +337,7 @@ class erLhcoreClassModelUser {
 
    public function removeFile()
    {   		   	
-	   	if ($this->filename != '' || $this->filename != '') {
+	   	if ($this->filename != '') {
 	   		if ( file_exists($this->filepath . $this->filename) ) {
 	   			unlink($this->filepath . $this->filename);
 	   		}

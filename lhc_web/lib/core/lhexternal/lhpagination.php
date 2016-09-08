@@ -18,7 +18,7 @@ class lhPaginator {
     var $prev_page;
     var $next_page;
 	
-	function lhPaginator()
+	function __construct()
 	{		
 		$this->mid_range = 10;		
 		$url = erLhcoreClassURL::getInstance();				
