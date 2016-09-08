@@ -85,7 +85,7 @@ class erLhcoreClassTemplate {
      *
      * @param $file string the file name you want to load
      */
-    function erLhcoreClassTemplate($file = null) {
+    function __construct($file = null) {
 
     	    	
         $cfg = erConfigClassLhConfig::getInstance();
