@@ -27,7 +27,7 @@
                 <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
                 <label><input type="checkbox" id="id_GeoDetectionEnabled" name="GeoDetectionEnabled" value="on" <?php isset($geo_data['geo_detection_enabled']) && $geo_data['geo_detection_enabled'] == 1 ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','GEO Enabled');?></label> <br />
-
+                
 				<div role="tabpanel" class="<?php (!isset($geo_data['geo_detection_enabled']) || $geo_data['geo_detection_enabled'] == 0) ? print ' hide' : '' ?>" id="settings-geo">
 
 					<!-- Nav tabs -->
@@ -175,23 +175,25 @@
 				<input type="submit" class="btn btn-default" name="StoreGeoIPConfiguration" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Save'); ?>" />
 
 			</form>
-
-
 		</div>
 		
 		<div role="tabpanel" class="tab-pane" id="mapoptions">
-		     <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Drag a marker where you want to have map centered by default. Zoom is also saved.')?></p>
+		    <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Drag a marker where you want to have map centered by default. Zoom is also saved.')?></p>
+
+		    <div class="form-group">
+		      <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Google Maps API key, saved automatically. After pasting the key, refresh the page.'); ?></label> 
+		      <input class="form-control" type="text" id="id_GMapsAPIKey" value="<?php isset($geo_location_data['gmaps_api_key']) ? print $geo_location_data['gmaps_api_key'] : print '' ?>"> 
+		    </div>
+
       		<div id="map_canvas" style="height:600px;width:100%;"></div>			
 		</div>
 		
 	</div>
 </div>
 
-
-
 <script>
-var marker;
-var map;
+var marker = null;
+var map = null;
 
 function loadMapLocationChoosing(){
 
@@ -226,15 +228,29 @@ function loadMapLocationChoosing(){
 
 	google.maps.event.addListener(map, 'zoom_changed', function() {
 		 var pos = marker.getPosition();
-		 $.postJSON('<?php echo erLhcoreClassDesign::baseurl('chat/geoconfiguration')?>/',{zoom:map.getZoom(),store_map:1,csfr_token:confLH.csrf_token,lat:pos.lat().toFixed(4),lng:pos.lng().toFixed(4)}, function(data){
+		 $.postJSON('<?php echo erLhcoreClassDesign::baseurl('chat/geoconfiguration')?>/',{gmaps_api_key:$('#id_GMapsAPIKey').val(),zoom:map.getZoom(),store_map:1,csfr_token:confLH.csrf_token,lat:pos.lat().toFixed(4),lng:pos.lng().toFixed(4)}, function(data){
 
 	     });
 	});
 
 	google.maps.event.addListener(marker, 'dragend', function(evt) {
-	    $.postJSON('<?php echo erLhcoreClassDesign::baseurl('chat/geoconfiguration')?>/',{zoom:map.getZoom(),store_map:1,csfr_token:confLH.csrf_token,lat:evt.latLng.lat().toFixed(4),lng:evt.latLng.lng().toFixed(4)}, function(data){
+	    $.postJSON('<?php echo erLhcoreClassDesign::baseurl('chat/geoconfiguration')?>/',{gmaps_api_key:$('#id_GMapsAPIKey').val(),zoom:map.getZoom(),store_map:1,csfr_token:confLH.csrf_token,lat:evt.latLng.lat().toFixed(4),lng:evt.latLng.lng().toFixed(4)}, function(data){
 
     	});
+	});
+
+	$('#id_GMapsAPIKey').keyup(function() {
+
+		var pos = marker.getPosition();
+		
+		if (marker != null && map != null && typeof pos != 'undefined') {    		
+    		$.postJSON('<?php echo erLhcoreClassDesign::baseurl('chat/geoconfiguration')?>/',{gmaps_api_key:$('#id_GMapsAPIKey').val(),zoom:map.getZoom(),store_map:1,csfr_token:confLH.csrf_token,lat:pos.lat().toFixed(4),lng:pos.lng().toFixed(4)}, function(data){
+    		});
+		} else {
+			var pos = marker.getPosition();
+    		$.postJSON('<?php echo erLhcoreClassDesign::baseurl('chat/geoconfiguration')?>/',{gmaps_api_key:$('#id_GMapsAPIKey').val(),store_map:1,csfr_token:confLH.csrf_token}, function(data){
+    		});
+		}
 	});
 };
 
@@ -247,4 +263,4 @@ $('#id_GeoDetectionEnabled').change(function(){
 });
 </script>
 
-<script src="https://maps-api-ssl.google.com/maps/api/js?callback=loadMapLocationChoosing"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?<?php if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'maps_api_key', false)) {echo 'key=' , erConfigClassLhConfig::getInstance()->getSetting( 'site', 'maps_api_key', false) , '&';} elseif (isset($geo_location_data['gmaps_api_key'])) {echo 'key=' ,$geo_location_data['gmaps_api_key'], '&';}?>callback=loadMapLocationChoosing"></script>
