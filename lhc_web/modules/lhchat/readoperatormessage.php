@@ -240,7 +240,7 @@ if (isset($_POST['askQuestion']))
 	    if (is_array($customAdminfields)){
 	        foreach ($customAdminfields as $key => $adminField) {
 	
-	            if (isset($form->value_items_admin[$key]) && isset($adminField['isrequired']) && $adminField['isrequired'] == 'true' && ($adminField['visibility'] == 'all' || $adminField['visibility'] == 'on') && (!isset($valuesArray[$key]) || trim($valuesArray[$key]) == '')) {
+	            if (isset($inputData->value_items_admin[$key]) && isset($adminField['isrequired']) && $adminField['isrequired'] == 'true' && ($adminField['visibility'] == 'all' || $adminField['visibility'] == 'on') && (!isset($valuesArray[$key]) || trim($valuesArray[$key]) == '')) {
 	                $Errors[] = trim($adminField['fieldname']).': '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','is required');
 	            }
 	
