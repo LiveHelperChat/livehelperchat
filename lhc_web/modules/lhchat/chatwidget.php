@@ -260,7 +260,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
    // Validate post data
     $Errors = erLhcoreClassChatValidator::validateStartChat($inputData,$startDataFields,$chat,$additionalParams);
 
-	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_chat_started', ['chat' => & $chat, 'errors' => & $Errors ]);
+	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_chat_started', ['chat' => & $chat, 'errors' => & $Errors, 'offline' => (isset($additionalParams['offline']) && $additionalParams['offline'] == true) ]);
 
    if (count($Errors) == 0 && !isset($_POST['switchLang']))
    {   	
@@ -358,7 +358,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
     	       $responder = erLhAbstractModelAutoResponder::processAutoResponder($chat);
     
     	       if ($responder instanceof erLhAbstractModelAutoResponder) {
-				   $beforeAutoResponderErrors = [];
+				   $beforeAutoResponderErrors = array();
 				   erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_triggered',array('chat' => & $chat, 'errors' => & $beforeAutoResponderErrors));
 
 				   if (empty($beforeAutoResponderErrors)) {
@@ -384,6 +384,18 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
 					   $chat->saveThis();
 
 					   erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.auto_responder_triggered', array('chat' => & $chat));
+				   } else {
+					   $msg = new erLhcoreClassModelmsg();
+					   $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Auto responder got error').': '.implode('; ', $beforeAutoResponderErrors);
+					   $msg->chat_id = $chat->id;
+					   $msg->user_id = -1;
+					   $msg->time = time();
+
+					   if ($chat->last_msg_id < $msg->id) {
+						   $chat->last_msg_id = $msg->id;
+					   }
+
+					   erLhcoreClassChat::getSession()->save($msg);
 				   }
     	       }
 	       } else {
