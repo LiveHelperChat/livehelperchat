@@ -4,12 +4,16 @@
 header('P3P:CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"');
 
 $embedMode = false;
+$fullHeight = (isset($Params['user_parameters_unordered']['fullheight']) && $Params['user_parameters_unordered']['fullheight'] == 'true') ? true : false;
 $modeAppend = '';
 
 if ((string)$Params['user_parameters_unordered']['embedmode'] == 'embed') {
 	$embedMode = true;
 	$modeAppend = '/(mode)/embed';
 }
+
+$modeAppend .= '/(fullheight)/';
+$modeAppend .= ($fullHeight) ? 'true' : 'false';
 
 $modeAppendTheme = '';
 if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
@@ -71,7 +75,7 @@ try {
 		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.user_reopened',array('chat' => & $chat));
 		
 		if ($Params['user_parameters_unordered']['mode'] == 'widget'){
-			// Redirect user
+            // Redirect user
 			erLhcoreClassModule::redirect('chat/chatwidgetchat','/' . $chat->id . '/' . $chat->hash . $modeAppend . $modeAppendTheme );
 			exit;
 		} else {
