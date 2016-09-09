@@ -48,3 +48,5 @@ if (empty($limitDepartments) || (isset($showAnyDepartment) && $showAnyDepartment
 
 echo erLhcoreClassRenderHelper::renderCombobox( $params ); ?>
 </div>
+
+<?php include(erLhcoreClassDesign::designtpl('lhchat/part/after_cannedmsgform_multiinclude.tpl.php')); ?>
