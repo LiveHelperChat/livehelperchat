@@ -287,6 +287,14 @@ var lh_inst  = {
 			var inst = this;		
 			this.storePos(dm);
 		};
+		
+		if (typeof initial !== 'undefined' && initial === true) {
+            this.addClass(dm,'lhc-min-append');
+            var that = this;
+            setTimeout(function(){
+                that.removeClass(dm,'lhc-min-append');
+            },700);           
+		}
 	},
 	
     hide : function() {
