@@ -33,6 +33,10 @@ $ViewList['isonlineuser'] = array(
     'params' => array('user_id')
 );
 
+$ViewList['setoperatorstatus'] = array(
+    'params' => array()
+);
+
 $ViewList['isonline'] = array(
     'params' => array()
 );
