@@ -359,10 +359,12 @@ class erLhcoreClassChatWorkflow {
      		
      		$additionalData = $chat->additional_data_array;
      		
-     		foreach ($additionalData as $row) {
-     		    if (isset($row->identifier) && $row->identifier != ''){
-     		        $replaceArray['{'.$row->identifier.'}'] = $row->value;
-     		    }
+     		if (is_array($additionalData)) {
+         		foreach ($additionalData as $row) {
+         		    if (isset($row->identifier) && $row->identifier != ''){
+         		        $replaceArray['{'.$row->identifier.'}'] = $row->value;
+         		    }
+         		}
      		}
      		
      		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow.canned_message_replace',array('chat' => $chat, 'replace_array' => & $replaceArray));

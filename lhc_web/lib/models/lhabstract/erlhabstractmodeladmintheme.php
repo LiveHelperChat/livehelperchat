@@ -111,6 +111,7 @@ class erLhAbstractModelAdminTheme {
 	            break;
 
             case 'header_content_front':
+                $this->header_content_front = '';
                 if ($this->header_content != '') {
                     $this->header_content_front = str_replace($this->replace_array_all['search'], $this->replace_array_all['replace'], $this->header_content);
                 }
