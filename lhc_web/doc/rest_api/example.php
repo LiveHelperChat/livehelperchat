@@ -4,6 +4,16 @@ include 'lhrestapi.php';
 
 $LHCRestAPI = new LHCRestAPI('<address>', '<username>', '<apikey>');
 
+// Set operator status online or offline
+$response = $LHCRestAPI->execute('setoperatorstatus', array(
+    'status' => 'false', // false - offline, true - online
+    // Any argument of below has to be provided
+    //'user_id' => '1',
+    //'username' => 'admin'
+    'email' => 'remdex@gmail.com',
+), true);
+print_r($response);
+
 /* 
  * Possible values for status
  * 
