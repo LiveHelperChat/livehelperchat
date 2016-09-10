@@ -125,6 +125,11 @@ $def->properties['session_id']->columnName   = 'session_id';
 $def->properties['session_id']->propertyName = 'session_id';
 $def->properties['session_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['operation_admin'] = new ezcPersistentObjectProperty();
+$def->properties['operation_admin']->columnName   = 'operation_admin';
+$def->properties['operation_admin']->propertyName = 'operation_admin';
+$def->properties['operation_admin']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 $def->properties['attr_int_1'] = new ezcPersistentObjectProperty();
 $def->properties['attr_int_1']->columnName   = 'attr_int_1';
 $def->properties['attr_int_1']->propertyName = 'attr_int_1';

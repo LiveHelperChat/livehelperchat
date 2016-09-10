@@ -18,6 +18,8 @@ if (erLhcoreClassModelChatConfig::fetchCache('list_online_operators')->current_v
 // We do not need a session anymore
 session_write_close();
 
+$userData = $currentUser->getUserData(true);
+
 $ReturnMessages = array();
 
 $pendingTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_pending_list',1);
@@ -46,7 +48,7 @@ if ($showDepartmentsStats == true) {
     
     // Add permission check if operator does not have permission to see all departments stats
     if ($showDepartmentsStatsAll === false) {
-        $userData = $currentUser->getUserData(true);
+        
         if ( $userData->all_departments == 0 )
         {
             $userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID());
@@ -264,7 +266,14 @@ $currentUser->updateLastVisit();
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.syncadmininterface',array('lists' => & $ReturnMessages));
 
-echo erLhcoreClassChat::safe_json_encode(array('error' => 'false', 'result' => $ReturnMessages ));
+$ou = '';
+if ($userData->operation_admin != '') {
+    $ou = $userData->operation_admin;
+    $userData->operation_admin = '';
+    erLhcoreClassUser::getSession()->update($userData);
+}
+
+echo erLhcoreClassChat::safe_json_encode(array('error' => 'false', 'ou' => $ou, 'result' => $ReturnMessages ));
 
 exit;
 ?>

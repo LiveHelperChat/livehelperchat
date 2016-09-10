@@ -28,10 +28,14 @@ try {
     
     if ($_GET['status'] == 'true') {
         $userData->hide_online = 0;
+        $text = 'flash_on';
     } else {
+        $text = 'flash_off';
         $userData->hide_online = 1;
     }
-    
+
+    $userData->operation_admin .= "$('#online-offline-user').text('" . $text . "');";
+
     erLhcoreClassUser::getSession()->update($userData);
     
     erLhcoreClassUserDep::setHideOnlineStatus($userData);
@@ -40,7 +44,7 @@ try {
         'offline' => $userData->hide_online
     ));
 
-    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.operator_status_changed',array('user' => & $userData));
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.operator_status_changed',array('user' => & $userData, 'reason' => 'rest_api'));
 
 } catch (Exception $e) {
     echo json_encode(array(

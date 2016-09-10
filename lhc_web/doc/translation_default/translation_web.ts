@@ -1105,6 +1105,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Full height right</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Full height left</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Popup window width</source>
       <translation type="unfinished"/>
     </message>
@@ -1954,6 +1962,18 @@
       <source>has accepted the chat!</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Auto responder got error</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Form data not valid</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Has no access to this chat</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/translation</name>
@@ -2054,27 +2074,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Could not detect language</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Could not translate</source>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Could not detect language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Translation configuration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat messages automatic translations has been stopped</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Messages has been translated</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please choose translation languages manually and click Auto translate</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -2247,7 +2255,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Screenshot ready...</source>
+      <source>Screenshot store error</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -3058,6 +3066,10 @@
     </message>
     <message>
       <source>Drag a marker where you want to have map centered by default. Zoom is also saved.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Google Maps API key, saved automatically. After pasting the key, refresh the page.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5343,6 +5355,10 @@
   <context>
     <name>cobrowse/browse</name>
     <message>
+      <source>Click blue eye at the top to request screen share</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Request screen share</source>
       <translation type="unfinished"/>
     </message>
@@ -5360,10 +5376,6 @@
     </message>
     <message>
       <source>On click navigate user browser</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Click blue eye at the top to request screen share</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7441,7 +7453,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>CSFR token is invalid, try to resubmit form</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Incorrect username or password</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Logged in successfully</source>
       <translation type="unfinished"/>
     </message>
   </context>

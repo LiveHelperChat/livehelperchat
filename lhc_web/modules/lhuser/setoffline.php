@@ -12,7 +12,7 @@ if ($Params['user_parameters']['status'] == 'false') {
 erLhcoreClassUser::getSession()->update($userData);
 erLhcoreClassUserDep::setHideOnlineStatus($userData);
 
-erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.operator_status_changed',array('user' => & $userData));
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.operator_status_changed',array('user' => & $userData, 'reason' => 'user_action'));
 
 exit;
 ?>

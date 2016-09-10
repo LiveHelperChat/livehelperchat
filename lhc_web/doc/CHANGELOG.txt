@@ -1,3 +1,13 @@
+2.47v
+
+1. REST API call to change operator status to online/offline
+2. Google Maps API update. You can now have google maps API key defined in back office.
+3. On mizimize header of widget was hidden, it's fixed now.
+4. And a lot of others small changes.
+
+execute doc/update_db/update_122.sql for update
+
+
 2.46v
 
 1. Option to disable iframes rendering. It just increases security in some cases.

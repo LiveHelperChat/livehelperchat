@@ -553,6 +553,10 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
                 	clearTimeout(lhinst.soundIsPlaying);
 				};
 		
+				if (typeof data.ou !== 'undefined') {
+					eval(data.ou);
+				}
+				
 				if ($scope.setTimeoutEnabled == true) {
 					$scope.timeoutControl = setTimeout(function(){
 						$scope.loadChatList();

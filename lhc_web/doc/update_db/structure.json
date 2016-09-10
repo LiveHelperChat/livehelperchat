@@ -3806,6 +3806,14 @@
                 "extra": ""
             },
             {
+                "field": "operation_admin",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "email",
                 "type": "varchar(100)",
                 "null": "NO",

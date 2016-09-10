@@ -37,7 +37,7 @@ if ( $currentUser->hasAccessTo('lhuser','changevisibility') ) {
 	<?php endif;?>
 		
 	<?php if ($canChangeOnlineStatus == true) : ?>
-		<li><a href="#"><i class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Change my status to online/offline');?>" onclick="return lhinst.disableUserAsOnline($(this))"><?php $UserData->hide_online == 1 ? print 'flash_off' : print 'flash_on'?></i></a></li>
+		<li><a href="#"><i id="online-offline-user" class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Change my status to online/offline');?>" onclick="return lhinst.disableUserAsOnline($(this))"><?php $UserData->hide_online == 1 ? print 'flash_off' : print 'flash_on'?></i></a></li>
 	<?php endif;?>
 <?php if (!isset($hideULSetting)) : ?>
 </ul>

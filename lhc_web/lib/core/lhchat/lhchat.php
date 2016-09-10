@@ -59,9 +59,9 @@ class erLhcoreClassChat {
     /**
      * Gets pending chats
      */
-    public static function getPendingChats($limit = 50, $offset = 0, $filterAdditional = array(), $filterAdditionalMainAttr = array())
+    public static function getPendingChats($limit = 50, $offset = 0, $filterAdditional = array(), $filterAdditionalMainAttr = array(), $limitationDepartment = array())
     {
-    	$limitation = self::getDepartmentLimitation();
+    	$limitation = self::getDepartmentLimitation('lh_chat',$limitationDepartment);
 
     	// Does not have any assigned department
     	if ($limitation === false) { return array(); }
@@ -408,13 +408,23 @@ class erLhcoreClassChat {
     	return $result;
     }
 
-    public static function getDepartmentLimitation($tableName = 'lh_chat') {
-    	$currentUser = erLhcoreClassUser::instance();
+    public static function getDepartmentLimitation($tableName = 'lh_chat', $params = array()) {
+    	
     	$LimitationDepartament = '';
-    	$userData = $currentUser->getUserData(true);
+    	
+    	if (!isset($params['user'])) {
+        	$currentUser = erLhcoreClassUser::instance();
+        	$userData = $currentUser->getUserData(true);
+        	$userId = $currentUser->getUserID();
+    	} else {
+    	    $userData = $params['user'];
+    	    $userId = $userData->id;
+    	}
+    	
+    	
     	if ( $userData->all_departments == 0 )
     	{
-    		$userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID());
+    		$userDepartaments = erLhcoreClassUserDep::getUserDepartaments($userId);
 
     		if (count($userDepartaments) == 0) return false;
 

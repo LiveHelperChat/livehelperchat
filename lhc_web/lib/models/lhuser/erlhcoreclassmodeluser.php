@@ -30,7 +30,8 @@ class erLhcoreClassModelUser {
             'chat_nickname' => $this->chat_nickname,
             'attr_int_1' => $this->attr_int_1,
             'attr_int_2' => $this->attr_int_2,
-            'attr_int_3' => $this->attr_int_3
+            'attr_int_3' => $this->attr_int_3,
+            'operation_admin' => $this->operation_admin
         );
    }
       
@@ -405,6 +406,7 @@ class erLhcoreClassModelUser {
     public $active_chats_counter = 0;
     public $closed_chats_counter = 0;
     public $pending_chats_counter = 0;
+    public $operation_admin = '';
     
     public $attr_int_1 = 0;
     public $attr_int_2 = 0;

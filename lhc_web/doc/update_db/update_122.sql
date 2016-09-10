@@ -1,0 +1,1 @@
+ALTER TABLE `lh_users` ADD `operation_admin` text NOT NULL, COMMENT='';
