@@ -39,6 +39,9 @@ try {
     erLhcoreClassRestAPIHandler::outputResponse(array(
         'offline' => $userData->hide_online
     ));
+
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.operator_status_changed',array('user' => & $userData));
+
 } catch (Exception $e) {
     echo json_encode(array(
         'error' => true,
