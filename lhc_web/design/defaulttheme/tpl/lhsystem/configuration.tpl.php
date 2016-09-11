@@ -38,13 +38,10 @@
         				    <li><a href="<?php echo erLhcoreClassDesign::baseurl('abstract/list')?>/EmailTemplate"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','E-mail templates');?></a></li>
         				    <?php endif; ?>			    
         			    <?php endif;?>
-        			    
-        			    <?php if ($currentUser->hasAccessTo('lhsystem','configurelanguages') || $currentUser->hasAccessTo('lhsystem','changelanguage')) : ?>
-        			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('system/languages')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Languages configuration');?></a></li>
-        			    <?php endif; ?>
-        		    
+        		        
+        		        <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/languages.tpl.php'));?>
+        		        
         		        <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/expirecache.tpl.php'));?>
-        			   
         			</ul>
 				</div>
 				

@@ -29,8 +29,8 @@ if ( $currentUser->hasAccessTo('lhuser','changevisibility') ) {
 <?php if (!isset($hideULSetting)) : ?>
 <ul class="list-inline user-settings-list pull-right">
 <?php endif;?>
-	<li><a href="#"><i class="material-icons" onclick="return lhinst.disableChatSoundAdmin($(this))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Enable/Disable sound about new messages from users');?>"><?php $soundMessageEnabled == 0 ? print 'volume_off' : print 'volume_up'?></i></a></li>
-	<li><a href="#"><i class="material-icons" onclick="return lhinst.disableNewChatSoundAdmin($(this))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Enable/Disable sound about new pending chats');?>"><?php $soundNewChatEnabled == 0 ? print 'volume_off' : print 'volume_up'?></i></a></li>
+	
+	<?php include_once(erLhcoreClassDesign::designtpl('lhchat/user_settings_sound.tpl.php'));?>
 		
 	<?php if ($canChangeVisibilityMode == true) : ?>
 	<li><a href="#"><i class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Change my visibility to visible/invisible');?>" onclick="return lhinst.changeVisibility($(this))"><?php $UserData->invisible_mode == 1 ? print 'visibility_off' : print 'visibility'?></i></a></li>
