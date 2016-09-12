@@ -793,7 +793,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_canned_msg` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
-                  `msg` text NOT NULL,
+                  `msg` longtext NOT NULL,
                   `fallback_msg` text NOT NULL,
                   `title` varchar(250) NOT NULL,
                   `explain` varchar(250) NOT NULL,
@@ -1275,7 +1275,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 // Chat messages
                 $db->query("CREATE TABLE IF NOT EXISTS `lh_msg` (
 				  `id` int(11) NOT NULL AUTO_INCREMENT,
-				  `msg` text NOT NULL,
+				  `msg` longtext NOT NULL,
 				  `time` int(11) NOT NULL,
 				  `chat_id` int(11) NOT NULL DEFAULT '0',
 				  `user_id` int(11) NOT NULL DEFAULT '0',
