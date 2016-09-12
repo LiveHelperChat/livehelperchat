@@ -563,6 +563,11 @@ function lh(){
 	               $('#id-operator-typing').css('visibility','hidden');
 	               inst.operatorTyping = false;
 	               
+	               // Execute pending operations
+	       		   if (typeof data.op !== 'undefined' && data.op != '') {
+	       			   inst.executeRemoteCommands(data.op);	   	    			 	    			
+	       		   };
+	       		   
 	               if (data.closed && data.closed == true) {	            	  
 		   			 	if (inst.isWidgetMode && typeof(parent) !== 'undefined' && window.location !== window.parent.location) {		   			 
 		   			 		 parent.postMessage('lhc_chat_closed', '*');
