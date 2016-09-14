@@ -519,7 +519,7 @@ if (isset($_POST['r']))
 	$tpl->set('referer_site',$_POST['r']);
 }
 
-erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.startchat',array('result' => & $Result,'tpl' => $tpl, 'params' => & $Params));
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.startchat',array('result' => & $Result,'tpl' => $tpl, 'params' => & $Params, 'inputData' => & $inputData));
 
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'userchat';
