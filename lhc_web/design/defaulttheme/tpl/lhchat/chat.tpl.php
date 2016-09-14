@@ -88,18 +88,17 @@
     <?php if ( isset($chat_widget_mode) && $chat_widget_mode == true ) : ?>
         lhinst.setWidgetMode(true);
         <?php if($fullheight) : ?>
-        var fullHeightFunction = function() {
-            var bodyHeight = $(document.body).height();
-            $("#widget-layout > .col-xs-12 > div").each(function (key, element) {
-                if ($(element).attr('id') != 'messages') {
-                    bodyHeight -= $(element).outerHeight();
-                }
-            });
+            var fullHeightFunction = function() {
+                var bodyHeight = $(document.body).outerHeight();
+                var messageBlockHeight = $('#messages').outerHeight();
+                var widgetLayoutHeight = $('#widget-layout').outerHeight();
 
-            $('#messagesBlock').height(bodyHeight - 15);
+                var messageBlockFullHeight = bodyHeight - (widgetLayoutHeight - messageBlockHeight);
+
+                $('#messagesBlock').height(messageBlockFullHeight-10);
+                setTimeout(fullHeightFunction, 200);
+            };
             setTimeout(fullHeightFunction, 200);
-        };
-        setTimeout(fullHeightFunction, 200);
         <?php endif; ?>
 	<?php endif; ?>
 
