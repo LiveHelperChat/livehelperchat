@@ -16,9 +16,10 @@
           var messageBlockHeight = $('#messages').outerHeight();
           var widgetLayoutHeight = $('#widget-layout').outerHeight();
 
-          var messageBlockFullHeight = bodyHeight - (widgetLayoutHeight - messageBlockHeight);
+          var messageBlockFullHeight = bodyHeight - (widgetLayoutHeight - messageBlockHeight) - 10;
 
-          $('#messagesBlock').height(messageBlockFullHeight-10);
+          $('#messagesBlockWrap').height(messageBlockFullHeight);
+          $('#messagesBlock').css('max-height',messageBlockFullHeight);
           setTimeout(fullHeightFunction, 200);
       };
       setTimeout(fullHeightFunction, 200);

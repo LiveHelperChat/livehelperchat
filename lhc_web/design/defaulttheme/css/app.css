@@ -575,6 +575,27 @@ div.message-admin+div.message-admin .msg-date,div.message-row.response+div.messa
 	font-size: 12px;
 }
 
+#messages.fullheight {
+	display: table;
+	width: 100%;
+}
+
+#messages.fullheight #messagesBlockWrap {
+	border: 1px solid rgb(204, 204, 204);
+	resize: vertical;
+	background-color: rgb(255, 255, 255);
+	display: table-cell;
+	vertical-align: bottom;
+}
+
+#messages.fullheight #messagesBlock {
+	border: none;
+	resize: none;
+	background-color: transparent;
+	height: auto;
+	max-height: 120px;
+}
+
 .start-chat-intro{
 	font-weight:bold;
 	margin-bottom:10px;
