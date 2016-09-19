@@ -66,7 +66,7 @@ try {
         	$db->commit();
         }
 
-        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat',array('tpl' => & $tpl, 'params' => & $Params, 'chat' => & $chat));
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat',array('result' => & $Result, 'tpl' => & $tpl, 'params' => & $Params, 'chat' => & $chat));
     } else {
         $tpl->setFile( 'lhchat/errors/chatnotexists.tpl.php');
     }
