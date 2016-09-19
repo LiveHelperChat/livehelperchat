@@ -34,26 +34,28 @@
     $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT ||     
     ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT && $chat->time > time()-1800) ||
     (isset($paid_chat_params['allow_read']) && $paid_chat_params['allow_read'] == true)) : ?>
-    <div id="messages" >
-        <div class="msgBlock" <?php if (erLhcoreClassModelChatConfig::fetch('mheight')->current_value > 0) : ?>style="height:<?php echo (int)erLhcoreClassModelChatConfig::fetch('mheight')->current_value?>px"<?php endif?> id="messagesBlock"><?php
-        $lastMessageID = 0;
-        $lastOperatorChanged = false;
-        $lastOperatorId = false;
-        
-        foreach (erLhcoreClassChat::getChatMessages($chat_id) as $msg) : 
-        
-        if ($lastOperatorId !== false && $lastOperatorId != $msg['user_id']) {
-            $lastOperatorChanged = true;
-        } else {
+    <div id="messages"<?php if($fullheight) : ?> class="fullheight"<?php endif ?>>
+        <div id="messagesBlockWrap">
+            <div class="msgBlock" <?php if (erLhcoreClassModelChatConfig::fetch('mheight')->current_value > 0) : ?>style="height:<?php echo (int)erLhcoreClassModelChatConfig::fetch('mheight')->current_value?>px"<?php endif?> id="messagesBlock"><?php
+            $lastMessageID = 0;
             $lastOperatorChanged = false;
-        }
-        
-        $lastOperatorId = $msg['user_id'];        
-        ?>        		
-        <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/user_msg_row.tpl.php'));?>	        	
-        <?php $lastMessageID = $msg['id']; 
-         endforeach; ?>
-       </div>
+            $lastOperatorId = false;
+
+            foreach (erLhcoreClassChat::getChatMessages($chat_id) as $msg) :
+
+            if ($lastOperatorId !== false && $lastOperatorId != $msg['user_id']) {
+                $lastOperatorChanged = true;
+            } else {
+                $lastOperatorChanged = false;
+            }
+
+            $lastOperatorId = $msg['user_id'];
+            ?>
+            <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/user_msg_row.tpl.php'));?>
+            <?php $lastMessageID = $msg['id'];
+             endforeach; ?>
+           </div>
+        </div>
     </div>
     <div id="id-operator-typing"></div>
  
@@ -88,18 +90,18 @@
     <?php if ( isset($chat_widget_mode) && $chat_widget_mode == true ) : ?>
         lhinst.setWidgetMode(true);
         <?php if($fullheight) : ?>
-        var fullHeightFunction = function() {
-            var bodyHeight = $(document.body).height();
-            $("#widget-layout > .col-xs-12 > div").each(function (key, element) {
-                if ($(element).attr('id') != 'messages') {
-                    bodyHeight -= $(element).outerHeight();
-                }
-            });
+            var fullHeightFunction = function() {
+                var bodyHeight = $(document.body).outerHeight();
+                var messageBlockHeight = $('#messages').outerHeight();
+                var widgetLayoutHeight = $('#widget-layout').outerHeight();
 
-            $('#messagesBlock').height(bodyHeight - 15);
+                var messageBlockFullHeight = bodyHeight - (widgetLayoutHeight - messageBlockHeight) - 10;
+
+                $('#messagesBlockWrap').height(messageBlockFullHeight);
+                $('#messagesBlock').css('max-height',messageBlockFullHeight);
+                setTimeout(fullHeightFunction, 200);
+            };
             setTimeout(fullHeightFunction, 200);
-        };
-        setTimeout(fullHeightFunction, 200);
         <?php endif; ?>
 	<?php endif; ?>
 

@@ -569,14 +569,13 @@ if (isset($_POST['r']))
     $tpl->set('referer_site',$_POST['r']);
 }
 
-erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chatwidget',array('tpl' => $tpl, 'params' => & $Params));
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chatwidget',array('result' => & $Result, 'tpl' => & $tpl, 'params' => & $Params, 'inputData' => & $inputData));
 
 if (isset($Params['user_parameters_unordered']['sdemo']) && (int)$Params['user_parameters_unordered']['sdemo'] == 'true') {
     $tpl->set('show_demo',true);
 } else {
     $tpl->set('show_demo',false);
 }
-
 
 $Result['fullheight'] = $fullHeight;
 $Result['content'] = $tpl->fetch();
