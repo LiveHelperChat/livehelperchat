@@ -166,10 +166,14 @@ var lh_inst_page  = {
     		if (parts[1] != '' && parts[2] != '') {
     			lh_inst_page.addCookieAttribute(parts[1],parts[2]);
     		};
+    	} else if (action == 'lhc_chat_redirect') {
+    		document.location = e.data.split(':')[1].replace(new RegExp('__SPLIT__','g'),':');
     	} else if (action == 'lh_callback') {
     		var functionName = e.data.split(':')[1];
     		lh_inst_page.genericCallback(functionName);    	
     	} else if (action == 'lhc_close') {
+    		lh_inst_page.hide();
+    	} else if (action == 'lhc_chat_closed_explicit') {
     		lh_inst_page.hide();
     	}
     }
