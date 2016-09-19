@@ -5,7 +5,7 @@
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_user.tpl.php'));?>
 </head>
 <body>
-
+<?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/before_userchat.tpl.php'));?>
 	<div class="modal-dialog modal-lg" id="user-popup-window">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -51,6 +51,6 @@ if (erConfigClassLhConfig::getInstance()->getSetting('site', 'debug_output') == 
 
 <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/dynamic_height.tpl.php'));?>
 
-
+<?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/after_userchat.tpl.php'));?>
 </body>
 </html>
