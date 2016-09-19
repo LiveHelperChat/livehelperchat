@@ -40,7 +40,7 @@
 	<div class="container-fluid">
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_footer_user.tpl.php'));?>
 </div>
-
+<?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/after_userchat.tpl.php'));?>
 <?php
 
 if (erConfigClassLhConfig::getInstance()->getSetting('site', 'debug_output') == true) {
@@ -50,7 +50,5 @@ if (erConfigClassLhConfig::getInstance()->getSetting('site', 'debug_output') == 
 ?>
 
 <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/dynamic_height.tpl.php'));?>
-
-<?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/after_userchat.tpl.php'));?>
 </body>
 </html>
