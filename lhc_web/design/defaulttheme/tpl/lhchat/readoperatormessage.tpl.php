@@ -2,14 +2,16 @@
 
 <form action="" id="ReadOperatorMessage" method="post" onsubmit="return <?php if (isset($start_data_fields['message_auto_start']) && $start_data_fields['message_auto_start'] == true) : ?>lhinst.prestartChat('<?php echo time()?>',$(this))<?php else : ?>lhinst.addCaptcha('<?php echo time()?>',$(this))<?php endif?>">
 
-<div id="messages" class="read-operator-message">
-     <div class="msgBlock" id="messagesBlock">
-     	<?php include(erLhcoreClassDesign::designtpl('lhchat/lists/operator_message_row.tpl.php'));?>
-     	<?php if (isset($start_data_fields['show_messages_box']) && $start_data_fields['show_messages_box'] == true) : ?>
-     	<?php $formIdentifier = '#ReadOperatorMessage';?>
-     	<?php include(erLhcoreClassDesign::designtpl('lhchat/startchatformsettings/presend_script.tpl.php'));?>
-     	<?php endif;?>
-     </div>
+<div id="messages" class="read-operator-message<?php if($fullheight) : ?> fullheight<?php endif ?>">
+    <div id="messagesBlockWrap">
+		<div class="msgBlock" id="messagesBlock">
+			<?php include(erLhcoreClassDesign::designtpl('lhchat/lists/operator_message_row.tpl.php'));?>
+			<?php if (isset($start_data_fields['show_messages_box']) && $start_data_fields['show_messages_box'] == true) : ?>
+			<?php $formIdentifier = '#ReadOperatorMessage';?>
+			<?php include(erLhcoreClassDesign::designtpl('lhchat/startchatformsettings/presend_script.tpl.php'));?>
+			<?php endif;?>
+		 </div>
+	</div>
 </div>
 
 <?php if (isset($errors)) : ?>

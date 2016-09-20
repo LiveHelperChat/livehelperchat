@@ -9,6 +9,7 @@ header('Cache-Control: post-check=0, pre-check=0', false );
 header('Pragma: no-cache' );
 
 $ignorable_ip = erLhcoreClassModelChatConfig::fetch('ignorable_ip')->current_value;
+$fullHeight = (isset($Params['user_parameters_unordered']['fullheight']) && $Params['user_parameters_unordered']['fullheight'] == 'true') ? true : false;
 
 if ( $ignorable_ip == '' || !erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDetect::getIP(),explode(',',$ignorable_ip))) {
 	$tpl = erLhcoreClassTemplate::getInstance('lhchat/chatcheckoperatormessage.tpl.php');
@@ -51,6 +52,7 @@ if ( $ignorable_ip == '' || !erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDet
 			$userInstance->saveThis();
 		}
 		
+		$tpl->set('fullheight', $fullHeight);
 		$tpl->set('priority',is_numeric($Params['user_parameters_unordered']['priority']) ? (int)$Params['user_parameters_unordered']['priority'] : false);
 		$tpl->set('department',$department !== false ? implode('/', $department) : false);
 		$tpl->set('uarguments',$uarguments !== false ? implode('/', $uarguments) : false);
