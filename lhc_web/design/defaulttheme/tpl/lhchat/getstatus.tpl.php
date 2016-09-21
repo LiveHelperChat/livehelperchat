@@ -1084,6 +1084,8 @@ if ( typeof cookieData === "string" && cookieData ) {
 	lh_inst.storePersistenCookie();
 };
 
+<?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/lhc_chat_after_cookie_multiinclude.tpl.php')); ?>
+
 lh_inst.initSessionStorage();
 lh_inst.initLanguage();
 
