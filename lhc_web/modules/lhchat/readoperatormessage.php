@@ -63,6 +63,8 @@ if ($userInstance->visitor_tz != '') {
 
 $tpl->set('playsound',(string)$Params['user_parameters_unordered']['playsound'] == 'true' && !isset($_POST['askQuestion']) && erLhcoreClassModelChatConfig::fetch('sound_invitation')->current_value == 1);
 
+$fullHeight = (isset($Params['user_parameters_unordered']['fullheight']) && $Params['user_parameters_unordered']['fullheight'] == 'true') ? true : false;
+
 $startData = erLhcoreClassModelChatConfig::fetch('start_chat_data');
 $startDataFields = (array)$startData->data;
 
@@ -94,6 +96,9 @@ if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_p
 		}
 	}
 }
+
+$modeAppendTheme .= '/(fullheight)/';
+$modeAppendTheme .= ($fullHeight) ? 'true' : 'false';
 
 if (isset($_POST['askQuestion']))
 {
@@ -547,6 +552,7 @@ if (!ezcInputForm::hasPostData()) {
 }
 
 $tpl->set('input_data',$inputData);
+$tpl->set('fullheight',$fullHeight);
 
 if (isset($_GET['URLReferer']))
 {
@@ -574,6 +580,7 @@ if (isset($_POST['r']))
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.readoperatormessage',array('tpl' => $tpl, 'params' => & $Params));
 
 $Result['content'] = $tpl->fetch();
+$Result['fullheight'] = $fullHeight;
 $Result['pagelayout'] = 'widget';
 $Result['dynamic_height'] = true;
 $Result['dynamic_height_message'] = 'lhc_sizing_chat';

@@ -326,13 +326,13 @@ $ViewList['reopen'] = array(
 
 $ViewList['readoperatormessage'] = array(
     'params' => array(),
-    'uparams' => array('operator','theme','priority','vid','department','playsound','ua','survey'),
+    'uparams' => array('operator','theme','priority','vid','department','playsound','ua','survey','fullheight'),
 	'multiple_arguments' => array ( 'department', 'ua' )
 );
 
 $ViewList['chatcheckoperatormessage'] = array(
     'params' => array(),
-    'uparams' => array('tz','operator','theme','priority','vid','count_page','identifier','department','ua','survey','uactiv','wopen'),
+    'uparams' => array('tz','operator','theme','priority','vid','count_page','identifier','department','ua','survey','uactiv','wopen','fullheight'),
 	'multiple_arguments' => array ( 'department','ua' )
 );
 
