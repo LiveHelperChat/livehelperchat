@@ -568,7 +568,7 @@ class XMPPHP_XMLStream {
 						if ($searchxml !== null) {
 							if($handler[2] === null) $handler[2] = $this;
 							$this->log->log("Calling {$handler[1]}",  XMPPHP_Log::LEVEL_DEBUG);
-							$handler[2]->$handler[1]($this->xmlobj[2]);
+                            $handler[2]->{$handler[1]}($this->xmlobj[2]);
 						}
 					}
 				}
@@ -588,7 +588,7 @@ class XMPPHP_XMLStream {
 			foreach($this->idhandlers as $id => $handler) {
 				if(array_key_exists('id', $this->xmlobj[2]->attrs) and $this->xmlobj[2]->attrs['id'] == $id) {
 					if($handler[1] === null) $handler[1] = $this;
-					$handler[1]->$handler[0]($this->xmlobj[2]);
+                    $handler[1]->{$handler[0]}($this->xmlobj[2]);
 					#id handlers are only used once
 					unset($this->idhandlers[$id]);
 					break;
