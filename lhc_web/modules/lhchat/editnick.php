@@ -44,7 +44,7 @@ session_write_close();
 if ( function_exists('fastcgi_finish_request') ) {
     fastcgi_finish_request();
 };
-echo "asdasd";
+
 if ($nickChanged === true) {
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.nick_changed',array('chat' => & $chat));
 }
