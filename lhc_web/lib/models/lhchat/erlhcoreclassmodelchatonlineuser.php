@@ -737,6 +737,8 @@ class erLhcoreClassModelChatOnlineUser
                 }
             }
 
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('onlineuser.handle_request', array('online_user' => $item, 'params' => $paramsHandle));
+
             return $item;
         } else {
             // Stop execution on google bot
