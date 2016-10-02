@@ -888,6 +888,14 @@
                 "extra": ""
             },
             {
+                "field": "tag",
+                "type": "varchar(50)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "requires_email",
                 "type": "int(11)",
                 "null": "NO",
@@ -5446,6 +5454,12 @@
     	"lh_abstract_survey_item" : {
     		"new" : {
     			"ftime" : "ALTER TABLE `lh_abstract_survey_item` ADD INDEX `ftime` (`ftime`);"
+    		},
+    		"old" : []
+    	},
+    	"lh_abstract_proactive_chat_invitation" : {
+    		"new" : {
+    			"tag" : "ALTER TABLE `lh_abstract_proactive_chat_invitation` ADD INDEX `tag` (`tag`);"
     		},
     		"old" : []
     	}

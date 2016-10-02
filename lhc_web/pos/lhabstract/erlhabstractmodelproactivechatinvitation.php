@@ -131,6 +131,12 @@ $def->properties['message_returning_nick']->columnName   = 'message_returning_ni
 $def->properties['message_returning_nick']->propertyName = 'message_returning_nick';
 $def->properties['message_returning_nick']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+// Tag for proactive
+$def->properties['tag'] = new ezcPersistentObjectProperty();
+$def->properties['tag']->columnName   = 'tag';
+$def->properties['tag']->propertyName = 'tag';
+$def->properties['tag']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 
 return $def;
 

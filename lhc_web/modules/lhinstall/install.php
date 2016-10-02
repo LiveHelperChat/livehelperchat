@@ -1036,6 +1036,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `operator_name` varchar(100) NOT NULL,
 				  `position` int(11) NOT NULL,
         	   	  `identifier` varchar(50) NOT NULL,
+        	   	  `tag` varchar(50) NOT NULL,
         	   	  `requires_email` int(11) NOT NULL,
         	   	  `requires_username` int(11) NOT NULL,
         	   	  `requires_phone` int(11) NOT NULL,
@@ -1043,6 +1044,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  PRIMARY KEY (`id`),
 				  KEY `time_on_site_pageviews_siteaccess_position` (`time_on_site`,`pageviews`,`siteaccess`,`identifier`,`position`),
         	      KEY `identifier` (`identifier`),
+        	      KEY `tag` (`tag`),
         	      KEY `dep_id` (`dep_id`)
 				) DEFAULT CHARSET=utf8;");
         	   
