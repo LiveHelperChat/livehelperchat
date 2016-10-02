@@ -33,7 +33,7 @@ if ( $currentUser->hasAccessTo('lhuser','changevisibility') ) {
 	<?php include_once(erLhcoreClassDesign::designtpl('lhchat/user_settings_sound.tpl.php'));?>
 		
 	<?php if ($canChangeVisibilityMode == true) : ?>
-	<li><a href="#"><i class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Change my visibility to visible/invisible');?>" onclick="return lhinst.changeVisibility($(this))"><?php $UserData->invisible_mode == 1 ? print 'visibility_off' : print 'visibility'?></i></a></li>
+	<li><a href="#"><i id="vi-in-user" class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Change my visibility to visible/invisible');?>" onclick="return lhinst.changeVisibility($(this))"><?php $UserData->invisible_mode == 1 ? print 'visibility_off' : print 'visibility'?></i></a></li>
 	<?php endif;?>
 		
 	<?php if ($canChangeOnlineStatus == true) : ?>

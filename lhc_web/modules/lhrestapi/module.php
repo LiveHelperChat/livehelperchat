@@ -37,6 +37,10 @@ $ViewList['setoperatorstatus'] = array(
     'params' => array()
 );
 
+$ViewList['setvisibilitystatus'] = array(
+    'params' => array()
+);
+
 $ViewList['isonline'] = array(
     'params' => array()
 );
