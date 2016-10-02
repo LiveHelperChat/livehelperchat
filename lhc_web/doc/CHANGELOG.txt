@@ -1,3 +1,11 @@
+2.48v
+
+1. XMPP Support for PHP7
+2. Full height layout update for proactive invitation
+3. Proactive invitation now supports tag
+
+execute doc/update_db/update_123.sql for update
+
 2.47v
 
 1. REST API call to change operator status to online/offline
