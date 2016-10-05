@@ -52,12 +52,23 @@ class erLhcoreClassUpdate
 				
 				$status = array();
 				$fieldsHandled = array();
+				$existingColumns = array();
+				
+				foreach ($columnsData as $column) {
+				    $existingColumns[] = $column['field'];
+				}
 				
 				foreach ($columnsData as $column) {
 					if (isset($definition['tables_alter'][$table][$column['field']])) {
-						$status[] = '['.$column['field'] . "] field will be renamed";
-						$tablesStatus[$table]['queries'][] = $definition['tables_alter'][$table][$column['field']]['sql'];
-						$fieldsHandled[] = $definition['tables_alter'][$table][$column['field']]['new'];
+					    
+					    if (!in_array($definition['tables_alter'][$table][$column['field']]['new'], $existingColumns)) {
+    						$status[] = '['.$column['field'] . "] field will be renamed";
+    						$tablesStatus[$table]['queries'][] = $definition['tables_alter'][$table][$column['field']]['sql'];
+    						$fieldsHandled[] = $definition['tables_alter'][$table][$column['field']]['new'];
+					    } else {
+					        $status[] = '['.$column['field'] . "] field will be dropped";
+					        $tablesStatus[$table]['queries'][] = "ALTER TABLE `{$table}` DROP `{$column['field']}`,COMMENT=''";
+					    }
 					}
 				}
 
