@@ -40,18 +40,47 @@
 	            )); ?>            	
 		  </div>
 		</div>
-		<div class="col-md-6">
-		   <div class="form-group">
-			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Vote status');?></label>
-			<select name="stars" class="form-control">
-				<option value="0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Any')?></option>
-				<?php for ( $i = 1; $i <= $survey->max_stars; $i++) : ?>
-				    <option value="<?php echo $i?>" <?php $input->stars == $i ? print ' selected="selected" ' : ''?>><?php echo $i,' '?> <?php if ($i == 0) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','star')?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','stars')?><?php endif;?></option>
-				<?php endfor;?>
-			</select>           	
-		  </div>
-		</div>
 	</div>
+	<?php include(erLhcoreClassDesign::designtpl('lhsurvey/forms/fields_names.tpl.php'));?>
+	
+	<div class="row">
+	<?php for ($i = 0; $i < 16; $i++) : ?>    
+    	<?php foreach ($sortOptions as $keyOption => $sortOption) : ?>    	   		    
+    		<?php if ($survey->{$keyOption . '_pos'} == $i && $survey->{$keyOption . '_enabled'} == 1) : ?>
+    			<?php if ($sortOption['type'] == 'stars') : ?>
+    			<div class="col-xs-3">
+    				<div class="form-group">
+				    	<label><?php echo htmlspecialchars($survey->{$sortOption['field'] . '_title'});?></label>
+				    	<select name="<?php echo $sortOption['field']?>" class="form-control">
+				    		<option value="0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Any')?></option>
+				        <?php for ($n = 1; $n <= $survey->{$sortOption['field']}; $n++) : ?>
+				        	<option value="<?php echo $n?>" <?php if ($input->{$sortOption['field']} == $n) : ?>selected="selected"<?php endif;?>><?php echo $n?> stars</option>
+				        <?php endfor;?>      
+				        </select>
+				    </div>
+				</div>
+    			<?php endif;?>
+    			
+    			<?php if ($sortOption['type'] == 'question_options') : ?>
+    			<div class="col-xs-3">
+    				<div class="form-group">
+				    	<label><?php echo htmlspecialchars($survey->{$sortOption['field']});?></label>				    	
+				    	<select name="<?php echo $sortOption['field']?>" class="form-control">
+				    		<option value="0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Any')?></option>
+				        	<?php foreach ($survey->{$sortOption['field'] . '_items_front'} as $key => $item) : ?>
+				        		<option value="<?php echo $key+1?>" <?php if ($input->{$sortOption['field']} == ($key+1)) : ?>selected="selected"<?php endif;?>><?php echo htmlspecialchars($item['option'])?></option>
+				        	<?php endforeach;?>      
+				        </select>				        
+				    </div>
+				</div>
+    			<?php endif;?>
+    			
+			<?php endif;?>
+		<?php endforeach;?>
+	<?php endfor;?>
+	</div>
+	
+	
 	<div class="row">
 	   <div class="col-xs-6">
 	       <label><input ng-model="group_results" ng-init="group_results = <?php ($input->group_results == true) ? print 'true' : 'false' ?>" type="checkbox" name="group_results" value="on" <?php if ($input->group_results == true) : ?>checked="checked"<?php endif;?>/> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Group results by operator');?></label>

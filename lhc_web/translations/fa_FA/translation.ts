@@ -2,66 +2,6 @@
   <context>
     <name>listchatconfig</name>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>List online operators.</source>
-      <translation>نمایش اپراتورهای آنلاین</translation>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Product module is enabled</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>چند روز بعد از آخرین نمایش، ابزارک رأی گیری باز نشود؟</translation>
     </message>
@@ -258,12 +198,16 @@
       <translation>غیرفعال کردن پرینت چت</translation>
     </message>
     <message>
-      <source>Disable option in widget to open new window. Restore icon will be hidden</source>
-      <translation>برای باز کردن پنجره جدید، گزینه موجود در ابزارک را غیرفعال کنید. آیکون بازیابی نمایش داده نخواهد شد. </translation>
+      <source>Hide &apos;New Window&apos; option in Connector Widget</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Disable JS execution in Co-Browsing operator window</source>
       <translation>اجرای JS  را در پنجره اپراتور غیرفعال کنید</translation>
+    </message>
+    <message>
+      <source>Disable iframes in sharing mode</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
@@ -710,8 +654,8 @@
       <translation>نیاز به راهنما؟</translation>
     </message>
     <message>
-      <source>Our staff is always ready to help</source>
-      <translation>پشتیبان ما همیشه برای کمک آماده است</translation>
+      <source>Our staff are always ready to help</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Live help is offline...</source>
@@ -1159,6 +1103,14 @@
       <translation>غیرقابل مشاهده، فقط JS API شامل خواهد شد</translation>
     </message>
     <message>
+      <source>Full height right</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Full height left</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Popup window width</source>
       <translation type="unfinished"/>
     </message>
@@ -1542,10 +1494,6 @@
   </context>
   <context>
     <name>department/edit</name>
-    <message>
-      <source>Priority</source>
-      <translation>اولویت</translation>
-    </message>
     <message>
       <source>Any</source>
       <translation>هریک</translation>
@@ -2012,6 +1960,18 @@
       <source>has accepted the chat!</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Auto responder got error</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Form data not valid</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Has no access to this chat</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/translation</name>
@@ -2112,28 +2072,16 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Could not detect language</source>
-      <translation>زبان شناسایی نشد</translation>
-    </message>
-    <message>
       <source>Could not translate</source>
       <translation>ترجمه امکان پذیر نیست</translation>
     </message>
     <message>
+      <source>Could not detect language</source>
+      <translation>زبان شناسایی نشد</translation>
+    </message>
+    <message>
       <source>Translation configuration</source>
       <translation>تنظیمات ترجمه</translation>
-    </message>
-    <message>
-      <source>Chat messages automatic translations has been stopped</source>
-      <translation>ترجمه خودکار پیام های چت متوقف شد</translation>
-    </message>
-    <message>
-      <source>Messages has been translated</source>
-      <translation>پیام ها ترجمه شد</translation>
-    </message>
-    <message>
-      <source>Please choose translation languages manually and click Auto translate</source>
-      <translation>لطفاً زبان های ترجمه را به طور دستی انتخاب نموده و بر روی ترجمه خودکار کلیک کنید</translation>
     </message>
   </context>
   <context>
@@ -2305,8 +2253,8 @@
       <translation>تصویر</translation>
     </message>
     <message>
-      <source>Screenshot ready...</source>
-      <translation>تصویر آماده است ...</translation>
+      <source>Screenshot store error</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -2415,7 +2363,7 @@
     </message>
     <message>
       <source>There are no online operators at the moment, please leave a message</source>
-      <translation>در حال حاظر اپراتوری آنلاین نیست، لطفا پیام بگذارید.</translation>
+      <translation>در حال حاضر اپراتوری آنلاین نیست، لطفا پیام بگذارید.</translation>
     </message>
     <message>
       <source>File</source>
@@ -3117,6 +3065,10 @@
     <message>
       <source>Drag a marker where you want to have map centered by default. Zoom is also saved.</source>
       <translation>نشانگر را در جایی که می خواهید مرکز نقشه باشد، قرار دهید. بزرگنمایی نیز ذخیره می شود.</translation>
+    </message>
+    <message>
+      <source>Google Maps API key, saved automatically. After pasting the key, refresh the page.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Settings updated</source>
@@ -5008,10 +4960,6 @@
   <context>
     <name>chat/transferchat</name>
     <message>
-      <source>Departments</source>
-      <translation>دپارتمان ها</translation>
-    </message>
-    <message>
       <source>Transfer to a user</source>
       <translation>انتقال به یک کاربر</translation>
     </message>
@@ -5405,6 +5353,10 @@
   <context>
     <name>cobrowse/browse</name>
     <message>
+      <source>Click blue eye at the top to request screen share</source>
+      <translation>برای درخواست به اشتراک گذاری صفحه نمایش بر روی چشم آبی در بالا کلیک کنید</translation>
+    </message>
+    <message>
       <source>Request screen share</source>
       <translation>درخواست به اشتراک گذاری صفحه نمایش</translation>
     </message>
@@ -5423,10 +5375,6 @@
     <message>
       <source>On click navigate user browser</source>
       <translation>در کلیک، مزوزگر کاربر را هدایت کن</translation>
-    </message>
-    <message>
-      <source>Click blue eye at the top to request screen share</source>
-      <translation>برای درخواست به اشتراک گذاری صفحه نمایش بر روی چشم آبی در بالا کلیک کنید</translation>
     </message>
     <message>
       <source>Screen sharing session has finished</source>
@@ -5470,26 +5418,6 @@
   </context>
   <context>
     <name>user/account</name>
-    <message>
-      <source>Please enter a username!</source>
-      <translation>لطفا یک نام کاربری وارد کنید!</translation>
-    </message>
-    <message>
-      <source>User exists!</source>
-      <translation>کاربر وجود دارد!</translation>
-    </message>
-    <message>
-      <source>Wrong email address</source>
-      <translation>آدرس ایمیل اشتباه است</translation>
-    </message>
-    <message>
-      <source>Please enter a name</source>
-      <translation>لطفا یک نام وارد کنید</translation>
-    </message>
-    <message>
-      <source>Passwords mismatch</source>
-      <translation>رمزهای عبور یکسان نیستند</translation>
-    </message>
     <message>
       <source>Updated</source>
       <translation>به روزشده</translation>
@@ -6077,6 +6005,44 @@
     </message>
   </context>
   <context>
+    <name>paidchat/expiredchat</name>
+    <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was closed.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid hash</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Removed paid chat</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>paidchat/settings</name>
+    <message>
+      <source>Paid chat settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User can not access old chat if chat is closed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Secret hash, used for verification</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>permission/editrole</name>
     <message>
       <source>Edit role</source>
@@ -6329,6 +6295,60 @@
     <message>
       <source>System configuration</source>
       <translation>تنظیمات سیستم</translation>
+    </message>
+  </context>
+  <context>
+    <name>lhproduct/index</name>
+    <message>
+      <source>Products</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>theme/index</name>
+    <message>
+      <source>Products</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default theme</source>
+      <translation>قالب پیش فرض</translation>
+    </message>
+    <message>
+      <source>Theme</source>
+      <translation>قالب</translation>
+    </message>
+    <message>
+      <source>Widget themes</source>
+      <translation>قالب های ابزارک</translation>
+    </message>
+    <message>
+      <source>Import a new theme</source>
+      <translation>وارد کردن قالب جدید</translation>
+    </message>
+    <message>
+      <source>Admin</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Admin themes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default admin theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Rest API</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Themes</source>
+      <translation>قالب ها</translation>
+    </message>
+    <message>
+      <source>Import theme</source>
+      <translation>وارد کردن قالب</translation>
     </message>
   </context>
   <context>
@@ -6594,6 +6614,17 @@
     <message>
       <source>You have already send your feedback!</source>
       <translation>شما فیدبک خود را ارسال کرده اید</translation>
+    </message>
+  </context>
+  <context>
+    <name>lhrestapi/index</name>
+    <message>
+      <source>Rest API</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Rest API Keys</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -6879,14 +6910,6 @@
   <context>
     <name>user/edit</name>
     <message>
-      <source>Please enter a name</source>
-      <translation>لطفا یک نام وارد کنید</translation>
-    </message>
-    <message>
-      <source>Passwords mismatch</source>
-      <translation>رمزهای عبور یکسان نیستند</translation>
-    </message>
-    <message>
       <source>Server default time zone</source>
       <translation>منطقه زمانی پیش فرض سرور</translation>
     </message>
@@ -7018,29 +7041,64 @@
     </message>
   </context>
   <context>
-    <name>theme/index</name>
+    <name>icclicktocallform/form</name>
     <message>
-      <source>Products</source>
+      <source>Settings</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Default theme</source>
-      <translation>قالب پیش فرض</translation>
+      <source>Header settings</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Theme</source>
-      <translation>قالب</translation>
+      <source>Header css</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Widget themes</source>
-      <translation>قالب های ابزارک</translation>
+      <source>Static content</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Import a new theme</source>
-      <translation>وارد کردن قالب جدید</translation>
+      <source>JS</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Admin</source>
+      <source>CSS</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Header content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Resource name for replacement</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid CSRF token!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File not chosen for</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>lhtheme/admin</name>
+    <message>
+      <source>New admin theme</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7048,20 +7106,27 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Default admin theme</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Rest API</source>
+      <source>Edit admin theme</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>admintheme/form</name>
+    <message>
+      <source>Edit theme</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Themes</source>
-      <translation>قالب ها</translation>
-    </message>
-    <message>
-      <source>Import theme</source>
-      <translation>وارد کردن قالب</translation>
+      <source>Updated</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -7108,30 +7173,6 @@
   </context>
   <context>
     <name>user/new</name>
-    <message>
-      <source>Please choose a default user group</source>
-      <translation>لطفا یک گروه کاربری پیش فرض انتخاب کنید</translation>
-    </message>
-    <message>
-      <source>Wrong email address</source>
-      <translation>آدرس ایمیل، اشتباه است</translation>
-    </message>
-    <message>
-      <source>Please enter a name</source>
-      <translation>لطفا یک نام وارد کنید</translation>
-    </message>
-    <message>
-      <source>Please enter a username</source>
-      <translation>لطفا نام کاربری را وارد کنید</translation>
-    </message>
-    <message>
-      <source>User exists</source>
-      <translation>کاربر وجود دارد</translation>
-    </message>
-    <message>
-      <source>Passwords mismatch</source>
-      <translation>رمزهای عبور یکسان نیستند</translation>
-    </message>
     <message>
       <source>Invisible mode</source>
       <translation>حالت پنهان</translation>
@@ -7410,8 +7451,16 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>CSFR token is invalid, try to resubmit form</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Incorrect username or password</source>
       <translation>نام کاربری و یا رمز عبور صحیح نیست</translation>
+    </message>
+    <message>
+      <source>Logged in successfully</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -7497,6 +7546,25 @@
     <message>
       <source>Message seen</source>
       <translation>پیام دیده شد</translation>
+    </message>
+  </context>
+  <context>
+    <name>abstract/product</name>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>API Key</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -7625,6 +7693,37 @@
     <message>
       <source>Please enter a valid to date range!</source>
       <translation>لطفا تاریخی معتبر برای پایان وارد کنید!</translation>
+    </message>
+  </context>
+  <context>
+    <name>user/validator</name>
+    <message>
+      <source>Please enter a username</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User exists</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Passwords mismatch</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User action type not set</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wrong email address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a default user group</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -7896,201 +7995,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>لطفا نوع معتبر فایل را وارد کنید!</translation>
-    </message>
-  </context>
-  <context>
-    <name>lhproduct/index</name>
-    <message>
-      <source>Products</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>abstract/product</name>
-    <message>
-      <source>Name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Priority</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Product</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>API Key</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>user/validator</name>
-    <message>
-      <source>Please enter a username</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User exists</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Passwords mismatch</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User action type not set</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Wrong email address</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter a name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please choose a default user group</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>paidchat/expiredchat</name>
-    <message>
-      <source>Chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat was closed.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invalid hash</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Removed paid chat</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>paidchat/settings</name>
-    <message>
-      <source>Paid chat settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Enabled</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User can not access old chat if chat is closed</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Secret hash, used for verification</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>lhrestapi/index</name>
-    <message>
-      <source>Rest API</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Rest API Keys</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>icclicktocallform/form</name>
-    <message>
-      <source>Settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Header settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Header css</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Static content</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>JS</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>CSS</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Header content</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Resource name for replacement</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invalid CSRF token!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter a name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>File not chosen for</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>lhtheme/admin</name>
-    <message>
-      <source>New admin theme</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Admin themes</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Default admin theme</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Edit admin theme</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>admintheme/form</name>
-    <message>
-      <source>Edit theme</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Updated</source>
-      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

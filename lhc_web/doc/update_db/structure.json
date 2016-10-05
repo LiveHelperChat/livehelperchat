@@ -82,9 +82,449 @@
                 "key": "",
                 "default": null,
                 "extra": ""
+            },            
+            {
+                "field": "max_stars_1_title",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
             },
             {
-                "field": "max_stars",
+                "field": "max_stars_1_pos",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "max_stars_1",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "max_stars_1_enabled",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "max_stars_2_title",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "max_stars_2_pos",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "max_stars_2",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "max_stars_2_enabled",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "max_stars_3_title",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "max_stars_3_pos",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "max_stars_3",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "max_stars_3_enabled",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "max_stars_4_title",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "max_stars_4_pos",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "max_stars_4",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "max_stars_4_enabled",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "max_stars_5_title",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "max_stars_5_pos",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "max_stars_5",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "max_stars_5_enabled",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "max_stars_5_title",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_options_1",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_options_1_items",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_options_1_pos",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_options_1_enabled",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_options_2",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_options_2_items",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_options_2_pos",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_options_2_enabled",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_options_3",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_options_3_items",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_options_3_pos",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_options_3_enabled",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_options_4",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_options_4_enabled",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_options_4_items",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_options_4_pos",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_options_5",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_options_5_items",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_options_5_pos",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_options_5_enabled",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_plain_1",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_plain_1_pos",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_plain_1_enabled",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_plain_2",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_plain_2_pos",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_plain_2_enabled",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_plain_3",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_plain_3_pos",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_plain_3_enabled",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_plain_4",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_plain_4_pos",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_plain_4_enabled",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_plain_5",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_plain_5_pos",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_plain_5_enabled",
                 "type": "int(11)",
                 "null": "NO",
                 "key": "",
@@ -278,8 +718,120 @@
                 "extra": ""
             },
             {
-                "field": "stars",
+                "field": "max_stars_1",
                 "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "max_stars_2",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "max_stars_3",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "max_stars_4",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "max_stars_5",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_options_1",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_options_2",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_options_3",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_options_4",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_options_5",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_plain_1",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_plain_2",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_plain_3",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_plain_4",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_plain_5",
+                "type": "text",
                 "null": "NO",
                 "key": "",
                 "default": null,
@@ -5408,6 +5960,14 @@
         "lh_speech_language": "id",
         "lh_speech_language_dialect": "id"
     },
+    "tables_alter" : {
+    	"lh_abstract_survey_item" : {
+    		"stars" : {"sql" : "ALTER TABLE `lh_abstract_survey_item` CHANGE `stars` `max_stars_1` int(11) NOT NULL;", "new" : "max_stars_1"}
+    	},
+    	"lh_abstract_survey" : {
+    		"max_stars" : {"sql" : "ALTER TABLE `lh_abstract_survey` CHANGE `max_stars` `max_stars_1` int(11) NOT NULL;", "new" : "max_stars_1"}    		
+    	}
+    },
     "tables_indexes" : {
     	"lh_grouprole" : {
     		"new" : {"group_id_primary" : "ALTER TABLE `lh_grouprole` ADD INDEX `group_id_primary` (`group_id`);"},
@@ -5453,7 +6013,17 @@
     	},
     	"lh_abstract_survey_item" : {
     		"new" : {
-    			"ftime" : "ALTER TABLE `lh_abstract_survey_item` ADD INDEX `ftime` (`ftime`);"
+    			"ftime" : "ALTER TABLE `lh_abstract_survey_item` ADD INDEX `ftime` (`ftime`);",
+    			"max_stars_1" : "ALTER TABLE `lh_abstract_survey_item` ADD INDEX `max_stars_1` (`max_stars_1`);",
+    			"max_stars_2" : "ALTER TABLE `lh_abstract_survey_item` ADD INDEX `max_stars_2` (`max_stars_2`);",
+    			"max_stars_3" : "ALTER TABLE `lh_abstract_survey_item` ADD INDEX `max_stars_3` (`max_stars_3`);",
+    			"max_stars_4" : "ALTER TABLE `lh_abstract_survey_item` ADD INDEX `max_stars_4` (`max_stars_4`);",
+    			"max_stars_5" : "ALTER TABLE `lh_abstract_survey_item` ADD INDEX `max_stars_5` (`max_stars_5`);",
+    			"question_options_1" : "ALTER TABLE `lh_abstract_survey_item` ADD INDEX `question_options_1` (`question_options_1`);",
+    			"question_options_2" : "ALTER TABLE `lh_abstract_survey_item` ADD INDEX `question_options_2` (`question_options_2`);",
+    			"question_options_3" : "ALTER TABLE `lh_abstract_survey_item` ADD INDEX `question_options_3` (`question_options_3`);",
+    			"question_options_4" : "ALTER TABLE `lh_abstract_survey_item` ADD INDEX `question_options_4` (`question_options_4`);",
+    			"question_options_5" : "ALTER TABLE `lh_abstract_survey_item` ADD INDEX `question_options_5` (`question_options_5`);"
     		},
     		"old" : []
     	},
@@ -5467,8 +6037,8 @@
     "tables_create": {
     	"lh_admin_theme" : "CREATE TABLE `lh_admin_theme` ( `id` int(11) NOT NULL AUTO_INCREMENT, `name` varchar(100) NOT NULL, `static_content` longtext NOT NULL, `static_js_content` longtext NOT NULL, `static_css_content` longtext NOT NULL, `header_content` text NOT NULL, `header_css` text NOT NULL, PRIMARY KEY (`id`)) DEFAULT CHARSET=utf8;",
     	"lh_abstract_product" : "CREATE TABLE `lh_abstract_product` (`id` int(11) NOT NULL AUTO_INCREMENT, `name` varchar(250) NOT NULL, `priority` int(11) NOT NULL, `departament_id` int(11) NOT NULL, `disabled` int(11) NOT NULL, KEY `departament_id` (`departament_id`), PRIMARY KEY (`id`)) DEFAULT CHARSET=utf8;",
-    	"lh_abstract_survey" : "CREATE TABLE `lh_abstract_survey` (`id` int(11) NOT NULL AUTO_INCREMENT,`name` varchar(250) NOT NULL,`max_stars` int(11) NOT NULL, PRIMARY KEY (`id`)) DEFAULT CHARSET=utf8",
-    	"lh_abstract_survey_item" : "CREATE TABLE IF NOT EXISTS `lh_abstract_survey_item` (`id` bigint(20) NOT NULL AUTO_INCREMENT,`survey_id` int(11) NOT NULL,`chat_id` int(11) NOT NULL,`stars` int(11) NOT NULL,`user_id` int(11) NOT NULL,`ftime` int(11) NOT NULL,`dep_id` int(11) NOT NULL, PRIMARY KEY (`id`),KEY `survey_id` (`survey_id`), KEY `chat_id` (`chat_id`),KEY `user_id` (`user_id`), KEY `dep_id` (`dep_id`), KEY `ftime` (`ftime`)) DEFAULT CHARSET=utf8",
+    	"lh_abstract_survey" : "CREATE TABLE `lh_abstract_survey_item` ( `id` bigint(20) NOT NULL AUTO_INCREMENT, `survey_id` int(11) NOT NULL,  `chat_id` int(11) NOT NULL,  `user_id` int(11) NOT NULL,  `ftime` int(11) NOT NULL,  `dep_id` int(11) NOT NULL,  `max_stars_1` int(11) NOT NULL,  `max_stars_2` int(11) NOT NULL,  `max_stars_3` int(11) NOT NULL,  `max_stars_4` int(11) NOT NULL,  `max_stars_5` int(11) NOT NULL,  `question_options_1` int(11) NOT NULL,  `question_options_2` int(11) NOT NULL,  `question_options_3` int(11) NOT NULL,  `question_options_4` int(11) NOT NULL,  `question_options_5` int(11) NOT NULL,  `question_plain_1` text NOT NULL,  `question_plain_2` text NOT NULL,  `question_plain_3` text NOT NULL,  `question_plain_4` text NOT NULL,  `question_plain_5` text NOT NULL,  PRIMARY KEY (`id`),  KEY `survey_id` (`survey_id`),  KEY `chat_id` (`chat_id`),  KEY `user_id` (`user_id`),  KEY `dep_id` (`dep_id`),  KEY `ftime` (`ftime`),  KEY `max_stars_1` (`max_stars_1`),  KEY `max_stars_2` (`max_stars_2`),  KEY `max_stars_3` (`max_stars_3`),  KEY `max_stars_4` (`max_stars_4`),  KEY `max_stars_5` (`max_stars_5`),  KEY `question_options_1` (`question_options_1`),  KEY `question_options_2` (`question_options_2`),  KEY `question_options_3` (`question_options_3`),  KEY `question_options_4` (`question_options_4`),  KEY `question_options_5` (`question_options_5`)) DEFAULT CHARSET=utf8",
+    	"lh_abstract_survey_item" : "CREATE TABLE `lh_abstract_survey_item` (  `id` bigint(20) NOT NULL AUTO_INCREMENT,  `survey_id` int(11) NOT NULL,  `chat_id` int(11) NOT NULL,  `user_id` int(11) NOT NULL,  `ftime` int(11) NOT NULL,  `dep_id` int(11) NOT NULL,  `max_stars_1` int(11) NOT NULL,  `max_stars_2` int(11) NOT NULL,  `max_stars_3` int(11) NOT NULL,  `max_stars_4` int(11) NOT NULL,  `max_stars_5` int(11) NOT NULL,  `question_options_1` int(11) NOT NULL,  `question_options_2` int(11) NOT NULL,  `question_options_3` int(11) NOT NULL,  `question_options_4` int(11) NOT NULL,  `question_options_5` int(11) NOT NULL,  `question_plain_1` text NOT NULL,  `question_plain_2` text NOT NULL,  `question_plain_3` text NOT NULL,  `question_plain_4` text NOT NULL,  `question_plain_5` text NOT NULL,  PRIMARY KEY (`id`),  KEY `survey_id` (`survey_id`),  KEY `chat_id` (`chat_id`),  KEY `user_id` (`user_id`),  KEY `dep_id` (`dep_id`),  KEY `ftime` (`ftime`),  KEY `max_stars_1` (`max_stars_1`),  KEY `max_stars_2` (`max_stars_2`),  KEY `max_stars_3` (`max_stars_3`),  KEY `max_stars_4` (`max_stars_4`),  KEY `max_stars_5` (`max_stars_5`),  KEY `question_options_1` (`question_options_1`),  KEY `question_options_2` (`question_options_2`),  KEY `question_options_3` (`question_options_3`),  KEY `question_options_4` (`question_options_4`),  KEY `question_options_5` (`question_options_5`)) DEFAULT CHARSET=utf8",
     	"lh_speech_language" : "CREATE TABLE IF NOT EXISTS `lh_speech_language` ( `id` int(11) NOT NULL AUTO_INCREMENT,`name` varchar(100) NOT NULL,PRIMARY KEY (`id`)) DEFAULT CHARSET=utf8",
     	"lh_speech_language_dialect" : "CREATE TABLE IF NOT EXISTS `lh_speech_language_dialect` (`id` int(11) NOT NULL AUTO_INCREMENT,`language_id` int(11) NOT NULL, `lang_name` varchar(100) NOT NULL,`lang_code` varchar(100) NOT NULL, PRIMARY KEY (`id`),KEY `language_id` (`language_id`)) DEFAULT CHARSET=utf8",
     	"lh_speech_chat_language" : "CREATE TABLE IF NOT EXISTS `lh_speech_chat_language` (`id` int(11) NOT NULL AUTO_INCREMENT, `chat_id` int(11) NOT NULL, `language_id` int(11) NOT NULL, `dialect` varchar(50) NOT NULL, PRIMARY KEY (`id`), KEY `chat_id` (`chat_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8",

@@ -1,3 +1,9 @@
+2.49v
+
+1. Survey now can have custom fields
+
+execute doc/update_db/update_124.sql for update
+
 2.48v
 
 1. XMPP Support for PHP7

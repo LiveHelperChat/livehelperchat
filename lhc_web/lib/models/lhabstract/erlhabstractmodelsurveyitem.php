@@ -14,12 +14,17 @@ class erLhAbstractModelSurveyItem {
 		$stateArray = array (
 			'id'         	=> $this->id,
 			'survey_id'  	=> $this->survey_id,
-			'chat_id'		=> $this->chat_id,
-			'stars'		    => $this->stars,
+			'chat_id'		=> $this->chat_id,			
 			'user_id'		=> $this->user_id,
 			'dep_id'		=> $this->dep_id,		
 			'ftime'		    => $this->ftime, // Then user was completed by visitor
 		);
+
+		for($i = 1; $i <= 5; $i++) {
+			$stateArray['max_stars_' . $i] = $this->{'max_stars_' . $i};
+			$stateArray['question_options_' . $i] = $this->{'question_options_' . $i};
+			$stateArray['question_plain_' . $i] = $this->{'question_plain_' . $i};		
+		}
 
 		return $stateArray;
 	}
@@ -36,7 +41,18 @@ class erLhAbstractModelSurveyItem {
 	{
 		return $this->survey;
 	}
-	
+
+	public function __construct()
+	{
+		$fields = array();
+		
+		for($i = 1; $i <= 5; $i++) {
+			$this->{'max_stars_' . $i} = 0;
+			$this->{'question_options_' . $i} = 0;
+			$this->{'question_plain_' . $i} = '';			
+		}		
+	}
+
 	public static function getCount($params = array(), $countSelect = 'COUNT(id)')
 	{	
 		$session = erLhcoreClassAbstract::getSession();
@@ -145,6 +161,8 @@ class erLhAbstractModelSurveyItem {
 		return $result;		
 	}
 
+	
+	
 	public function __get($var)
 	{
 	   switch ($var) {
@@ -193,7 +211,7 @@ class erLhAbstractModelSurveyItem {
    	            return round($this->virtual_total_stars/$this->virtual_chats_number,2);
    	        break;
    	                
-	   	default:
+	   	default:	   		
 	   		break;
 	   }
 	}
@@ -334,7 +352,6 @@ class erLhAbstractModelSurveyItem {
    	public $id = NULL;
 	public $survey_id = NULL;
 	public $chat_id = NULL;
-	public $stars = 0;
 	public $user_id = 0;
 	public $ftime = 0;
 	

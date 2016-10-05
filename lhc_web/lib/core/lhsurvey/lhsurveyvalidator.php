@@ -8,24 +8,67 @@ class erLhcoreClassSurveyValidator {
 
 	public static function validateSurvey(erLhAbstractModelSurveyItem & $surveyItem, erLhAbstractModelSurvey $survey)
 	{
-		$definition = array(				
-			'StarsValue' => new ezcInputFormDefinitionElement(
-					ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1, 'max_range' => $survey->max_stars)
-			)
-		);
+		include(erLhcoreClassDesign::designtpl('lhsurvey/forms/fields_names.tpl.php'));
+
+		$definition = array();
+
+		for ($i = 0; $i < 16; $i++) 
+		{
+			foreach ($sortOptions as $keyOption => $sortOption) 
+			{
+	    		if ($survey->{$keyOption . '_pos'} == $i && $survey->{$keyOption . '_enabled'}) {
+	    			if ($sortOption['type'] == 'stars') {
+		    			$definition[$sortOption['field'] . 'Evaluate'] = new ezcInputFormDefinitionElement(
+							ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1, 'max_range' => $survey->$sortOption['field'])
+						);
+	    			} elseif ($sortOption['type'] == 'question') {
+	    				$definition[$sortOption['field'] . 'Question'] = new ezcInputFormDefinitionElement(
+    						ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+    					);
+	    			} elseif ($sortOption['type'] == 'question_options') {
+	    				$definition[$sortOption['field'] . 'EvaluateOption'] = new ezcInputFormDefinitionElement(
+    						ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
+    					);
+	    			}
+	    		}
+			}
+		}
 		
 		$form = new ezcInputForm( INPUT_POST, $definition );
 		$Errors = array();
-			
-		if ( !$form->hasValidData( 'StarsValue' ) ) {
-			$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please choose a star');
-		} else {
-			$surveyItem->stars = $form->StarsValue;
+		
+		for ($i = 0; $i < 16; $i++)
+		{
+			foreach ($sortOptions as $keyOption => $sortOption)
+			{
+				if ($survey->{$keyOption . '_pos'} == $i && $survey->{$keyOption . '_enabled'}) {
+					
+					if ($sortOption['type'] == 'stars') {
+						if (!$form->hasValidData( $sortOption['field'] . 'Evaluate' )) {
+							$Errors[] = '"'.htmlspecialchars(trim($survey->{$keyOption . '_title'})).'" : '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','is required'); 
+						} else {
+							$surveyItem->{$sortOption['field']} = $form->{$sortOption['field'] . 'Evaluate'};
+						}
+					} elseif ($sortOption['type'] == 'question') {						
+						if (!$form->hasValidData( $sortOption['field'] . 'Question' ) /*|| $form->{$sortOption['field'] . 'Question'} == ''*/) { // @todo Make possible to choose field type in the future
+							$Errors[] = htmlspecialchars(trim($survey->{$keyOption})).' : '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','is required'); 
+						} else {
+							$surveyItem->{$sortOption['field']} = $form->{$sortOption['field'] . 'Question'};
+						}
+					} elseif ($sortOption['type'] == 'question_options') {						
+						if (!$form->hasValidData( $sortOption['field'] . 'EvaluateOption' ) ) {
+							$Errors[] = '"'.htmlspecialchars(trim($survey->{$sortOption['field']})).'" : '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','is required'); 
+						} else {
+							$surveyItem->{$sortOption['field']} = $form->{$sortOption['field'] . 'EvaluateOption'};
+						}
+					}
+				}
+			}
 		}
-
-        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('survey.validate', array('survey' => & $survey, 'errors' => & $Errors));
-
-        return $Errors;
+		
+		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('survey.validate', array('survey' => & $survey, 'survey_item' => & $surveyItem, 'errors' => & $Errors));
+		
+		return $Errors;
 	}	
 }
 

@@ -2,66 +2,6 @@
   <context>
     <name>listchatconfig</name>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>List online operators.</source>
-      <translation>Список операторов онлайн</translation>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Product module is enabled</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Сколько дней виджет голосования не будет открыт с последнего показа</translation>
     </message>
@@ -258,12 +198,16 @@
       <translation>Отключить печать чата</translation>
     </message>
     <message>
-      <source>Disable option in widget to open new window. Restore icon will be hidden</source>
-      <translation>Отключить в виджете открытие нового окна. Иконка восстановления должна быть скрыта</translation>
+      <source>Hide &apos;New Window&apos; option in Connector Widget</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Disable JS execution in Co-Browsing operator window</source>
       <translation>Отключить выполнение JS в окне совместного просмотра</translation>
+    </message>
+    <message>
+      <source>Disable iframes in sharing mode</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
@@ -710,8 +654,8 @@
       <translation>Нужна помощь?</translation>
     </message>
     <message>
-      <source>Our staff is always ready to help</source>
-      <translation>Наши сотрудники всегда готовы помочь</translation>
+      <source>Our staff are always ready to help</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Live help is offline...</source>
@@ -1159,6 +1103,14 @@
       <translation>Невидимо, только JS API будет включено</translation>
     </message>
     <message>
+      <source>Full height right</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Full height left</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Popup window width</source>
       <translation>Ширина всплывающего окна</translation>
     </message>
@@ -1542,10 +1494,6 @@
   </context>
   <context>
     <name>department/edit</name>
-    <message>
-      <source>Priority</source>
-      <translation>Приоритет</translation>
-    </message>
     <message>
       <source>Any</source>
       <translation>Любой</translation>
@@ -2013,6 +1961,18 @@
       <source>has accepted the chat!</source>
       <translation>Принял чат!</translation>
     </message>
+    <message>
+      <source>Auto responder got error</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Form data not valid</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Has no access to this chat</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/translation</name>
@@ -2113,28 +2073,16 @@
       <translation>Невозможно определить язык</translation>
     </message>
     <message>
-      <source>Could not detect language</source>
-      <translation>Невозможно определить язык</translation>
-    </message>
-    <message>
       <source>Could not translate</source>
       <translation>Невозможно перевести</translation>
     </message>
     <message>
+      <source>Could not detect language</source>
+      <translation>Невозможно определить язык</translation>
+    </message>
+    <message>
       <source>Translation configuration</source>
       <translation>Настройки перевода</translation>
-    </message>
-    <message>
-      <source>Chat messages automatic translations has been stopped</source>
-      <translation>Автоматический перевод сообщений остановлен</translation>
-    </message>
-    <message>
-      <source>Messages has been translated</source>
-      <translation>Сообщение переведено</translation>
-    </message>
-    <message>
-      <source>Please choose translation languages manually and click Auto translate</source>
-      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -2306,8 +2254,8 @@
       <translation>Снимок экрана</translation>
     </message>
     <message>
-      <source>Screenshot ready...</source>
-      <translation>Снимок готов...</translation>
+      <source>Screenshot store error</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -3118,6 +3066,10 @@
     <message>
       <source>Drag a marker where you want to have map centered by default. Zoom is also saved.</source>
       <translation>Установите маркер в точке, которую Вы хотите сделать центром для карты по-умолчанию. Приближение так же сохраняется.</translation>
+    </message>
+    <message>
+      <source>Google Maps API key, saved automatically. After pasting the key, refresh the page.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Settings updated</source>
@@ -5009,10 +4961,6 @@
   <context>
     <name>chat/transferchat</name>
     <message>
-      <source>Departments</source>
-      <translation>Департаменты</translation>
-    </message>
-    <message>
       <source>Transfer to a user</source>
       <translation>перевести на пользователя</translation>
     </message>
@@ -5406,6 +5354,10 @@
   <context>
     <name>cobrowse/browse</name>
     <message>
+      <source>Click blue eye at the top to request screen share</source>
+      <translation>Нажмите синий глаз вверху для запроса просмотра экрана</translation>
+    </message>
+    <message>
       <source>Request screen share</source>
       <translation>Запрос просмотра экрана</translation>
     </message>
@@ -5424,10 +5376,6 @@
     <message>
       <source>On click navigate user browser</source>
       <translation>По клику навигация браузера пользователя</translation>
-    </message>
-    <message>
-      <source>Click blue eye at the top to request screen share</source>
-      <translation>Нажмите синий глаз вверху для запроса просмотра экрана</translation>
     </message>
     <message>
       <source>Screen sharing session has finished</source>
@@ -5471,26 +5419,6 @@
   </context>
   <context>
     <name>user/account</name>
-    <message>
-      <source>Please enter a username!</source>
-      <translation>Пожалуйста, введите имя пользователя</translation>
-    </message>
-    <message>
-      <source>User exists!</source>
-      <translation>Пользователь существует!</translation>
-    </message>
-    <message>
-      <source>Wrong email address</source>
-      <translation>неправильный e-mail адрес</translation>
-    </message>
-    <message>
-      <source>Please enter a name</source>
-      <translation>Введите имя</translation>
-    </message>
-    <message>
-      <source>Passwords mismatch</source>
-      <translation>Неверный пароль</translation>
-    </message>
     <message>
       <source>Updated</source>
       <translation>Обновлен</translation>
@@ -6078,6 +6006,44 @@
     </message>
   </context>
   <context>
+    <name>paidchat/expiredchat</name>
+    <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was closed.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid hash</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Removed paid chat</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>paidchat/settings</name>
+    <message>
+      <source>Paid chat settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User can not access old chat if chat is closed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Secret hash, used for verification</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>permission/editrole</name>
     <message>
       <source>Edit role</source>
@@ -6330,6 +6296,60 @@
     <message>
       <source>System configuration</source>
       <translation>Настройки Системы</translation>
+    </message>
+  </context>
+  <context>
+    <name>lhproduct/index</name>
+    <message>
+      <source>Products</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>theme/index</name>
+    <message>
+      <source>Products</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default theme</source>
+      <translation>Тема по умолчанию</translation>
+    </message>
+    <message>
+      <source>Theme</source>
+      <translation>Тема</translation>
+    </message>
+    <message>
+      <source>Widget themes</source>
+      <translation>Темы виджетов</translation>
+    </message>
+    <message>
+      <source>Import a new theme</source>
+      <translation>Импорт новой темы</translation>
+    </message>
+    <message>
+      <source>Admin</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Admin themes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default admin theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Rest API</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Themes</source>
+      <translation>Темы</translation>
+    </message>
+    <message>
+      <source>Import theme</source>
+      <translation>Импорт темы</translation>
     </message>
   </context>
   <context>
@@ -6595,6 +6615,17 @@
     <message>
       <source>You have already send your feedback!</source>
       <translation>Вы уже отправили свой отзыв!</translation>
+    </message>
+  </context>
+  <context>
+    <name>lhrestapi/index</name>
+    <message>
+      <source>Rest API</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Rest API Keys</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -6880,14 +6911,6 @@
   <context>
     <name>user/edit</name>
     <message>
-      <source>Please enter a name</source>
-      <translation>Введите имя</translation>
-    </message>
-    <message>
-      <source>Passwords mismatch</source>
-      <translation>Неверный пароль</translation>
-    </message>
-    <message>
       <source>Server default time zone</source>
       <translation>Часовой пояс сервера по умолчанию</translation>
     </message>
@@ -7019,50 +7042,92 @@
     </message>
   </context>
   <context>
-    <name>theme/index</name>
+    <name>icclicktocallform/form</name>
     <message>
-      <source>Products</source>
+      <source>Settings</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Default theme</source>
-      <translation>Тема по умолчанию</translation>
-    </message>
-    <message>
-      <source>Theme</source>
-      <translation>Тема</translation>
-    </message>
-    <message>
-      <source>Widget themes</source>
-      <translation>Темы виджетов</translation>
-    </message>
-    <message>
-      <source>Import a new theme</source>
-      <translation>Импорт новой темы</translation>
-    </message>
-    <message>
-      <source>Admin</source>
+      <source>Header settings</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Header css</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Static content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>JS</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>CSS</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Header content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Resource name for replacement</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Пусто...</translation>
+    </message>
+    <message>
+      <source>Invalid CSRF token!</source>
+      <translation>Неверный CSRF токен!</translation>
+    </message>
+    <message>
+      <source>Please enter a name</source>
+      <translation>Введите имя</translation>
+    </message>
+    <message>
+      <source>File not chosen for</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>lhtheme/admin</name>
+    <message>
+      <source>New admin theme</source>
+      <translation>Новая тема админки</translation>
     </message>
     <message>
       <source>Admin themes</source>
-      <translation type="unfinished"/>
+      <translation>Темы админки</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Имя</translation>
     </message>
     <message>
       <source>Default admin theme</source>
+      <translation>Тема админки по умолч.</translation>
+    </message>
+    <message>
+      <source>Edit admin theme</source>
+      <translation>Изм. тему админки</translation>
+    </message>
+  </context>
+  <context>
+    <name>admintheme/form</name>
+    <message>
+      <source>Edit theme</source>
+      <translation>Изм. тему</translation>
+    </message>
+    <message>
+      <source>Updated</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Rest API</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Themes</source>
-      <translation>Темы</translation>
-    </message>
-    <message>
-      <source>Import theme</source>
-      <translation>Импорт темы</translation>
     </message>
   </context>
   <context>
@@ -7109,30 +7174,6 @@
   </context>
   <context>
     <name>user/new</name>
-    <message>
-      <source>Please choose a default user group</source>
-      <translation>Выберите группу пользователей по умолчанию</translation>
-    </message>
-    <message>
-      <source>Wrong email address</source>
-      <translation>Неправильный e-mail адрес</translation>
-    </message>
-    <message>
-      <source>Please enter a name</source>
-      <translation>Введите имя</translation>
-    </message>
-    <message>
-      <source>Please enter a username</source>
-      <translation>Введите имя пользователя</translation>
-    </message>
-    <message>
-      <source>User exists</source>
-      <translation>Такой пользователь уже существует</translation>
-    </message>
-    <message>
-      <source>Passwords mismatch</source>
-      <translation>Неверный пароль</translation>
-    </message>
     <message>
       <source>Invisible mode</source>
       <translation>Режим невидимки</translation>
@@ -7411,8 +7452,16 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>CSFR token is invalid, try to resubmit form</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Incorrect username or password</source>
       <translation>Неправильное имя пользователя или пароль</translation>
+    </message>
+    <message>
+      <source>Logged in successfully</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -7498,6 +7547,25 @@
     <message>
       <source>Message seen</source>
       <translation>Сообщение видели</translation>
+    </message>
+  </context>
+  <context>
+    <name>abstract/product</name>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>API Key</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -7626,6 +7694,37 @@
     <message>
       <source>Please enter a valid to date range!</source>
       <translation>Пожалуйста, введите правильную дату окончания!</translation>
+    </message>
+  </context>
+  <context>
+    <name>user/validator</name>
+    <message>
+      <source>Please enter a username</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User exists</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Passwords mismatch</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User action type not set</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wrong email address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a default user group</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -7897,201 +7996,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Пожалуйста, введите правильный тип файла</translation>
-    </message>
-  </context>
-  <context>
-    <name>lhproduct/index</name>
-    <message>
-      <source>Products</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>abstract/product</name>
-    <message>
-      <source>Name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Priority</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Product</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>API Key</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>user/validator</name>
-    <message>
-      <source>Please enter a username</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User exists</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Passwords mismatch</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User action type not set</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Wrong email address</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter a name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please choose a default user group</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>paidchat/expiredchat</name>
-    <message>
-      <source>Chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat was closed.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invalid hash</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Removed paid chat</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>paidchat/settings</name>
-    <message>
-      <source>Paid chat settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Enabled</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User can not access old chat if chat is closed</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Secret hash, used for verification</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>lhrestapi/index</name>
-    <message>
-      <source>Rest API</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Rest API Keys</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>icclicktocallform/form</name>
-    <message>
-      <source>Settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Header settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Header css</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Static content</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>JS</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>CSS</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Header content</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Resource name for replacement</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Пусто...</translation>
-    </message>
-    <message>
-      <source>Invalid CSRF token!</source>
-      <translation>Неверный CSRF токен!</translation>
-    </message>
-    <message>
-      <source>Please enter a name</source>
-      <translation>Введите имя</translation>
-    </message>
-    <message>
-      <source>File not chosen for</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>lhtheme/admin</name>
-    <message>
-      <source>New admin theme</source>
-      <translation>Новая тема админки</translation>
-    </message>
-    <message>
-      <source>Admin themes</source>
-      <translation>Темы админки</translation>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation>Имя</translation>
-    </message>
-    <message>
-      <source>Default admin theme</source>
-      <translation>Тема админки по умолч.</translation>
-    </message>
-    <message>
-      <source>Edit admin theme</source>
-      <translation>Изм. тему админки</translation>
-    </message>
-  </context>
-  <context>
-    <name>admintheme/form</name>
-    <message>
-      <source>Edit theme</source>
-      <translation>Изм. тему</translation>
-    </message>
-    <message>
-      <source>Updated</source>
-      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

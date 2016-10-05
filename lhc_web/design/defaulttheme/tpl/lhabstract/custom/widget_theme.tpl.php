@@ -7,14 +7,13 @@
 		<?php if (isset($errors)) : ?>
 			<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 		<?php endif; ?>
-		
+
 		<?php if (isset($updated) && $updated == true) : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/abstract_form','Updated!'); ?>
 			<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 		<?php endif; ?>
 
 		<?php $fields = $object->getFields();?>
-		
-		
+
 		<div role="tabpanel">
         	<!-- Nav tabs -->
         	<ul class="nav nav-tabs" role="tablist">

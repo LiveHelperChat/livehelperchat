@@ -2,66 +2,6 @@
   <context>
     <name>listchatconfig</name>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>List online operators.</source>
-      <translation>Elenco operatori online.</translation>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Product module is enabled</source>
-      <translation>Modulo prodotto attivato</translation>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Per quanti giorni il widget di voto non deve essere mostrato dopo l&apos;ultima visualizzazione</translation>
     </message>
@@ -258,12 +198,16 @@
       <translation>Disabilita stampa della chat</translation>
     </message>
     <message>
-      <source>Disable option in widget to open new window. Restore icon will be hidden</source>
-      <translation>Disabilità l&apos;opzione nel widget per aprire una nuova finestra. Verrà nascosta l&apos;icona Ripristina.</translation>
+      <source>Hide &apos;New Window&apos; option in Connector Widget</source>
+      <translation>Nascondi l&apos;opzione &apos;Nuova finestra&apos; nel Connettore Widget</translation>
     </message>
     <message>
       <source>Disable JS execution in Co-Browsing operator window</source>
       <translation>Disabilitare l&apos;esecuzione di JS in co-Browsing finestra operatore</translation>
+    </message>
+    <message>
+      <source>Disable iframes in sharing mode</source>
+      <translation>Disabilita gli iframe nella modalità condivisa</translation>
     </message>
     <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
@@ -460,7 +404,7 @@
     </message>
     <message>
       <source>Need help header text</source>
-      <translation>&quot;Serve AIuto?&quot; titolo</translation>
+      <translation>&quot;Serve Aiuto?&quot; titolo</translation>
     </message>
     <message>
       <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
@@ -711,8 +655,8 @@
       <translation>Serve Aiuto?</translation>
     </message>
     <message>
-      <source>Our staff is always ready to help</source>
-      <translation>Siamo disponibili in chat!</translation>
+      <source>Our staff are always ready to help</source>
+      <translation>Il nostro staff è sempre pronto ad aiutarvi</translation>
     </message>
     <message>
       <source>Live help is offline...</source>
@@ -1160,6 +1104,14 @@
       <translation>Invisibile, solo gli API JS verranno inclusi</translation>
     </message>
     <message>
+      <source>Full height right</source>
+      <translation>Altezza completa destra</translation>
+    </message>
+    <message>
+      <source>Full height left</source>
+      <translation>Altezza sinistra completa</translation>
+    </message>
+    <message>
       <source>Popup window width</source>
       <translation>Larghezza finestra popup</translation>
     </message>
@@ -1543,10 +1495,6 @@
   </context>
   <context>
     <name>department/edit</name>
-    <message>
-      <source>Priority</source>
-      <translation>Priorità</translation>
-    </message>
     <message>
       <source>Any</source>
       <translation>Qualsiasi</translation>
@@ -2013,6 +1961,18 @@
       <source>has accepted the chat!</source>
       <translation>ha accettato la chat!</translation>
     </message>
+    <message>
+      <source>Auto responder got error</source>
+      <translation>L&apos;autorisponditore ha riportato un errore</translation>
+    </message>
+    <message>
+      <source>Form data not valid</source>
+      <translation>Dati form non validi</translation>
+    </message>
+    <message>
+      <source>Has no access to this chat</source>
+      <translation>Non hai accesso a questa chat</translation>
+    </message>
   </context>
   <context>
     <name>chat/translation</name>
@@ -2113,28 +2073,16 @@
       <translation>Potrebbe non rilevare una lingua</translation>
     </message>
     <message>
-      <source>Could not detect language</source>
-      <translation>Non posso rilevare la lingua</translation>
-    </message>
-    <message>
       <source>Could not translate</source>
       <translation>Non posso tradurre</translation>
     </message>
     <message>
+      <source>Could not detect language</source>
+      <translation>Non posso rilevare la lingua</translation>
+    </message>
+    <message>
       <source>Translation configuration</source>
       <translation>Configurazione di traduzione</translation>
-    </message>
-    <message>
-      <source>Chat messages automatic translations has been stopped</source>
-      <translation>Traduzioni automatiche di messaggi chat si è fermato</translation>
-    </message>
-    <message>
-      <source>Messages has been translated</source>
-      <translation>Il Messaggio è stato tradotto</translation>
-    </message>
-    <message>
-      <source>Please choose translation languages manually and click Auto translate</source>
-      <translation>Si prega di scegliere manualmente le lingue di traduzione e cliccare su Traduci automaticamente</translation>
     </message>
   </context>
   <context>
@@ -2306,8 +2254,8 @@
       <translation>Screenshot</translation>
     </message>
     <message>
-      <source>Screenshot ready...</source>
-      <translation>Screenshot pronto...</translation>
+      <source>Screenshot store error</source>
+      <translation>Errore salvataggio screenshot</translation>
     </message>
   </context>
   <context>
@@ -3120,6 +3068,10 @@
       <translation>Trascinare un marcatore in cui si desidera avere la mappa centrata per impostazione predefinita. Lo Zoom è anche salvato.</translation>
     </message>
     <message>
+      <source>Google Maps API key, saved automatically. After pasting the key, refresh the page.</source>
+      <translation>API Key di Google Maps salvata automaticamente. Dopo aver incollato la API key, ricarica la pagina.</translation>
+    </message>
+    <message>
       <source>Settings updated</source>
       <translation>Impostazioni aggiornate</translation>
     </message>
@@ -3672,15 +3624,15 @@
     </message>
     <message>
       <source>Back office theming</source>
-      <translation type="unfinished"/>
+      <translation>Temi back office</translation>
     </message>
     <message>
       <source>Admin themes</source>
-      <translation type="unfinished"/>
+      <translation>Tema admin</translation>
     </message>
     <message>
       <source>Default admin theme</source>
-      <translation type="unfinished"/>
+      <translation>Tema admin default</translation>
     </message>
     <message>
       <source>Automatic translations</source>
@@ -4455,11 +4407,11 @@
     </message>
     <message>
       <source>Please enter resource identifier</source>
-      <translation type="unfinished"/>
+      <translation>Per favore inserisci l&apos;identificatore della risorsa</translation>
     </message>
     <message>
       <source>Add resource</source>
-      <translation type="unfinished"/>
+      <translation>Aggiungi risorsa</translation>
     </message>
     <message>
       <source>Minimum 40 characters for encryption key!</source>
@@ -5009,10 +4961,6 @@
   <context>
     <name>chat/transferchat</name>
     <message>
-      <source>Departments</source>
-      <translation>Dipartimenti</translation>
-    </message>
-    <message>
       <source>Transfer to a user</source>
       <translation>Trasferisci ad un utente</translation>
     </message>
@@ -5406,6 +5354,10 @@
   <context>
     <name>cobrowse/browse</name>
     <message>
+      <source>Click blue eye at the top to request screen share</source>
+      <translation>Fare clic su occhio blu nella parte superiore per richiedere condivisione schermo</translation>
+    </message>
+    <message>
       <source>Request screen share</source>
       <translation>Condividi schermo richiesta</translation>
     </message>
@@ -5424,10 +5376,6 @@
     <message>
       <source>On click navigate user browser</source>
       <translation>Con un click navigare nel browser utente</translation>
-    </message>
-    <message>
-      <source>Click blue eye at the top to request screen share</source>
-      <translation>Fare clic su occhio blu nella parte superiore per richiedere condivisione schermo</translation>
     </message>
     <message>
       <source>Screen sharing session has finished</source>
@@ -5471,26 +5419,6 @@
   </context>
   <context>
     <name>user/account</name>
-    <message>
-      <source>Please enter a username!</source>
-      <translation>Inserisci username</translation>
-    </message>
-    <message>
-      <source>User exists!</source>
-      <translation>L&apos;utente esiste già!</translation>
-    </message>
-    <message>
-      <source>Wrong email address</source>
-      <translation>Indirizzo e-mail sbagliato</translation>
-    </message>
-    <message>
-      <source>Please enter a name</source>
-      <translation>Inserisci nome</translation>
-    </message>
-    <message>
-      <source>Passwords mismatch</source>
-      <translation>Le password non corrispondono</translation>
-    </message>
     <message>
       <source>Updated</source>
       <translation>Aggiornato</translation>
@@ -6078,6 +6006,44 @@
     </message>
   </context>
   <context>
+    <name>paidchat/expiredchat</name>
+    <message>
+      <source>Chat</source>
+      <translation>Chat</translation>
+    </message>
+    <message>
+      <source>Chat was closed.</source>
+      <translation>La chat è stata chiusa</translation>
+    </message>
+    <message>
+      <source>Invalid hash</source>
+      <translation>Hash non valido</translation>
+    </message>
+    <message>
+      <source>Removed paid chat</source>
+      <translation>Pagamento chat rimosso</translation>
+    </message>
+  </context>
+  <context>
+    <name>paidchat/settings</name>
+    <message>
+      <source>Paid chat settings</source>
+      <translation>Impostazioni pagamento chat</translation>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation>Abilitato</translation>
+    </message>
+    <message>
+      <source>User can not access old chat if chat is closed</source>
+      <translation>L&apos;Utente non ha accesso alle vecchie chat se sono chiuse</translation>
+    </message>
+    <message>
+      <source>Secret hash, used for verification</source>
+      <translation>Hash segreta, usata per la verifica</translation>
+    </message>
+  </context>
+  <context>
     <name>permission/editrole</name>
     <message>
       <source>Edit role</source>
@@ -6330,6 +6296,60 @@
     <message>
       <source>System configuration</source>
       <translation>Configurazione sistema</translation>
+    </message>
+  </context>
+  <context>
+    <name>lhproduct/index</name>
+    <message>
+      <source>Products</source>
+      <translation>Prodotti</translation>
+    </message>
+  </context>
+  <context>
+    <name>theme/index</name>
+    <message>
+      <source>Products</source>
+      <translation>Prodotti</translation>
+    </message>
+    <message>
+      <source>Default theme</source>
+      <translation>Tema di default</translation>
+    </message>
+    <message>
+      <source>Theme</source>
+      <translation>Tema</translation>
+    </message>
+    <message>
+      <source>Widget themes</source>
+      <translation>Temi Widget</translation>
+    </message>
+    <message>
+      <source>Import a new theme</source>
+      <translation>Importa un nuovo tema</translation>
+    </message>
+    <message>
+      <source>Admin</source>
+      <translation>Admin</translation>
+    </message>
+    <message>
+      <source>Admin themes</source>
+      <translation>Temi admin</translation>
+    </message>
+    <message>
+      <source>Default admin theme</source>
+      <translation>Temi admin default</translation>
+    </message>
+    <message>
+      <source>Rest API</source>
+      <translation>Rest API</translation>
+    </message>
+    <message>
+      <source>Themes</source>
+      <translation>Temi</translation>
+    </message>
+    <message>
+      <source>Import theme</source>
+      <translation>Importa tema</translation>
     </message>
   </context>
   <context>
@@ -6595,6 +6615,17 @@
     <message>
       <source>You have already send your feedback!</source>
       <translation>Hai già un tuo commento!</translation>
+    </message>
+  </context>
+  <context>
+    <name>lhrestapi/index</name>
+    <message>
+      <source>Rest API</source>
+      <translation>Rest API</translation>
+    </message>
+    <message>
+      <source>Rest API Keys</source>
+      <translation>Rest API Keys</translation>
     </message>
   </context>
   <context>
@@ -6880,14 +6911,6 @@
   <context>
     <name>user/edit</name>
     <message>
-      <source>Please enter a name</source>
-      <translation>Inserisci nome</translation>
-    </message>
-    <message>
-      <source>Passwords mismatch</source>
-      <translation>Le password non corrispondono</translation>
-    </message>
-    <message>
       <source>Server default time zone</source>
       <translation>Fuso orario predefinito del server</translation>
     </message>
@@ -7019,50 +7042,92 @@
     </message>
   </context>
   <context>
-    <name>theme/index</name>
+    <name>icclicktocallform/form</name>
     <message>
-      <source>Products</source>
-      <translation>Prodotti</translation>
+      <source>Settings</source>
+      <translation>Impostazioni</translation>
     </message>
     <message>
-      <source>Default theme</source>
-      <translation>Tema di default</translation>
+      <source>Header settings</source>
+      <translation>Impostazioni testata</translation>
     </message>
     <message>
-      <source>Theme</source>
-      <translation>Tema</translation>
+      <source>Header css</source>
+      <translation>CSS testata</translation>
     </message>
     <message>
-      <source>Widget themes</source>
-      <translation>Temi Widget</translation>
+      <source>Static content</source>
+      <translation>Contenuto statico</translation>
     </message>
     <message>
-      <source>Import a new theme</source>
-      <translation>Importa un nuovo tema</translation>
+      <source>JS</source>
+      <translation>JS</translation>
     </message>
     <message>
-      <source>Admin</source>
-      <translation type="unfinished"/>
+      <source>CSS</source>
+      <translation>CSS</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Nome</translation>
+    </message>
+    <message>
+      <source>Header content</source>
+      <translation>Contenuto testata</translation>
+    </message>
+    <message>
+      <source>Resource name for replacement</source>
+      <translation>Nome risorsa per la sostituzione</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Vuoto...</translation>
+    </message>
+    <message>
+      <source>Invalid CSRF token!</source>
+      <translation>Token CSRF non valido!</translation>
+    </message>
+    <message>
+      <source>Please enter a name</source>
+      <translation>Per favore inserisci un nome</translation>
+    </message>
+    <message>
+      <source>File not chosen for</source>
+      <translation>File non scelto per</translation>
+    </message>
+  </context>
+  <context>
+    <name>lhtheme/admin</name>
+    <message>
+      <source>New admin theme</source>
+      <translation>Nuovo tema admin</translation>
     </message>
     <message>
       <source>Admin themes</source>
-      <translation type="unfinished"/>
+      <translation>Temi admin</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Nome</translation>
     </message>
     <message>
       <source>Default admin theme</source>
-      <translation type="unfinished"/>
+      <translation>Tema admin default</translation>
     </message>
     <message>
-      <source>Rest API</source>
-      <translation>Rest API</translation>
+      <source>Edit admin theme</source>
+      <translation>Modifica tema admin</translation>
+    </message>
+  </context>
+  <context>
+    <name>admintheme/form</name>
+    <message>
+      <source>Edit theme</source>
+      <translation>Modifica tema</translation>
     </message>
     <message>
-      <source>Themes</source>
-      <translation>Temi</translation>
-    </message>
-    <message>
-      <source>Import theme</source>
-      <translation>Importa tema</translation>
+      <source>Updated</source>
+      <translation>Aggiornato</translation>
     </message>
   </context>
   <context>
@@ -7080,7 +7145,7 @@
     </message>
     <message>
       <source>Default admin theme was set</source>
-      <translation type="unfinished"/>
+      <translation>Il tema default admin è stato impostato</translation>
     </message>
     <message>
       <source>Import theme</source>
@@ -7109,30 +7174,6 @@
   </context>
   <context>
     <name>user/new</name>
-    <message>
-      <source>Please choose a default user group</source>
-      <translation>Seleziona un gruppo di utenti predefinito</translation>
-    </message>
-    <message>
-      <source>Wrong email address</source>
-      <translation>Indirizzo e-mail sbagliato</translation>
-    </message>
-    <message>
-      <source>Please enter a name</source>
-      <translation>Inserisci nome</translation>
-    </message>
-    <message>
-      <source>Please enter a username</source>
-      <translation>Inserisci username</translation>
-    </message>
-    <message>
-      <source>User exists</source>
-      <translation>Utente esiste</translation>
-    </message>
-    <message>
-      <source>Passwords mismatch</source>
-      <translation>Le password non corrispondono</translation>
-    </message>
     <message>
       <source>Invisible mode</source>
       <translation>Modalità invisibile</translation>
@@ -7411,8 +7452,16 @@
       <translation>Siete stati scollegati. Qualcuno ha effetuato il login con questo account da una postazione diversa.</translation>
     </message>
     <message>
+      <source>CSFR token is invalid, try to resubmit form</source>
+      <translation>CSFR token invalido, riprova a inviare nuovamente il form</translation>
+    </message>
+    <message>
       <source>Incorrect username or password</source>
       <translation>Nome utente o password incorretti</translation>
+    </message>
+    <message>
+      <source>Logged in successfully</source>
+      <translation>Autenticazione riuscita</translation>
     </message>
   </context>
   <context>
@@ -7498,6 +7547,25 @@
     <message>
       <source>Message seen</source>
       <translation>Messaggio visto</translation>
+    </message>
+  </context>
+  <context>
+    <name>abstract/product</name>
+    <message>
+      <source>Name</source>
+      <translation>Nome</translation>
+    </message>
+    <message>
+      <source>Priority</source>
+      <translation>Priorità</translation>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation>Prodotto</translation>
+    </message>
+    <message>
+      <source>API Key</source>
+      <translation>API Key</translation>
     </message>
   </context>
   <context>
@@ -7626,6 +7694,37 @@
     <message>
       <source>Please enter a valid to date range!</source>
       <translation>Inserisci una data fine valida</translation>
+    </message>
+  </context>
+  <context>
+    <name>user/validator</name>
+    <message>
+      <source>Please enter a username</source>
+      <translation>Per favore inserisci un nome utente</translation>
+    </message>
+    <message>
+      <source>User exists</source>
+      <translation>Utente esistente</translation>
+    </message>
+    <message>
+      <source>Passwords mismatch</source>
+      <translation>Passwords non corrispondenti</translation>
+    </message>
+    <message>
+      <source>User action type not set</source>
+      <translation>Tipo di azione utente non impostata</translation>
+    </message>
+    <message>
+      <source>Wrong email address</source>
+      <translation>Indirizzo email errato</translation>
+    </message>
+    <message>
+      <source>Please enter a name</source>
+      <translation>Per favore immetti un nome</translation>
+    </message>
+    <message>
+      <source>Please choose a default user group</source>
+      <translation>Per favore scegli un gruppo utente predefinito</translation>
     </message>
   </context>
   <context>
@@ -7897,201 +7996,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Inserisci un formato file valido!</translation>
-    </message>
-  </context>
-  <context>
-    <name>lhproduct/index</name>
-    <message>
-      <source>Products</source>
-      <translation>Prodotti</translation>
-    </message>
-  </context>
-  <context>
-    <name>abstract/product</name>
-    <message>
-      <source>Name</source>
-      <translation>Nome</translation>
-    </message>
-    <message>
-      <source>Priority</source>
-      <translation>Priorità</translation>
-    </message>
-    <message>
-      <source>Product</source>
-      <translation>Prodotto</translation>
-    </message>
-    <message>
-      <source>API Key</source>
-      <translation>API Key</translation>
-    </message>
-  </context>
-  <context>
-    <name>user/validator</name>
-    <message>
-      <source>Please enter a username</source>
-      <translation>Per favore inserisci un nome utente</translation>
-    </message>
-    <message>
-      <source>User exists</source>
-      <translation>Utente esistente</translation>
-    </message>
-    <message>
-      <source>Passwords mismatch</source>
-      <translation>Passwords non corrispondenti</translation>
-    </message>
-    <message>
-      <source>User action type not set</source>
-      <translation>Tipo di azione utente non impostata</translation>
-    </message>
-    <message>
-      <source>Wrong email address</source>
-      <translation>Indirizzo email errato</translation>
-    </message>
-    <message>
-      <source>Please enter a name</source>
-      <translation>Per favore immetti un nome</translation>
-    </message>
-    <message>
-      <source>Please choose a default user group</source>
-      <translation>Per favore scegli un gruppo utente predefinito</translation>
-    </message>
-  </context>
-  <context>
-    <name>paidchat/expiredchat</name>
-    <message>
-      <source>Chat</source>
-      <translation>Chat</translation>
-    </message>
-    <message>
-      <source>Chat was closed.</source>
-      <translation>La chat è stata chiusa</translation>
-    </message>
-    <message>
-      <source>Invalid hash</source>
-      <translation>Hash non valido</translation>
-    </message>
-    <message>
-      <source>Removed paid chat</source>
-      <translation>Pagamento chat rimosso</translation>
-    </message>
-  </context>
-  <context>
-    <name>paidchat/settings</name>
-    <message>
-      <source>Paid chat settings</source>
-      <translation>Impostazioni pagamento chat</translation>
-    </message>
-    <message>
-      <source>Enabled</source>
-      <translation>Abilitato</translation>
-    </message>
-    <message>
-      <source>User can not access old chat if chat is closed</source>
-      <translation>L&apos;Utente non ha accesso alle vecchie chat se sono chiuse</translation>
-    </message>
-    <message>
-      <source>Secret hash, used for verification</source>
-      <translation>Hash segreta, usata per la verifica</translation>
-    </message>
-  </context>
-  <context>
-    <name>lhrestapi/index</name>
-    <message>
-      <source>Rest API</source>
-      <translation>Rest API</translation>
-    </message>
-    <message>
-      <source>Rest API Keys</source>
-      <translation>Rest API Keys</translation>
-    </message>
-  </context>
-  <context>
-    <name>icclicktocallform/form</name>
-    <message>
-      <source>Settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Header settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Header css</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Static content</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>JS</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>CSS</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Header content</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Resource name for replacement</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Vuoto...</translation>
-    </message>
-    <message>
-      <source>Invalid CSRF token!</source>
-      <translation>Token CSRF non valido!</translation>
-    </message>
-    <message>
-      <source>Please enter a name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>File not chosen for</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>lhtheme/admin</name>
-    <message>
-      <source>New admin theme</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Admin themes</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Default admin theme</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Edit admin theme</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>admintheme/form</name>
-    <message>
-      <source>Edit theme</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Updated</source>
-      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

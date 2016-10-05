@@ -1,22 +1,23 @@
 <h1><?php echo htmlspecialchars($survey)?></h1>
 
 <?php include(erLhcoreClassDesign::designtpl('lhsurvey/collected/search_panel.tpl.php')); ?>
+<?php include(erLhcoreClassDesign::designtpl('lhsurvey/forms/fields_names_enabled.tpl.php'));?>
 
 <?php if ($pages->items_total > 0) : ?>
 <table class="table" cellpadding="0" cellspacing="0">
 <thead>
 <tr>
+	<th width="1%"></th>
     <th width="1%">
     <?php if ($input->group_results == true) : ?>
         <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/collected','Chats');?>
     <?php else : ?>
         <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/collected','Chat');?>
     <?php endif;?>
-    
     </th>
     <th width="1%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/collected','Department');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/collected','Operator');?></th>
-    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/collected','Stars');?></th>
+    <th><?php echo implode(', ', $starFields)?></th>
     <?php if ($input->group_results !== true) : ?>
     <th width="1%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/collected','Time');?></th>
     <?php endif;?>
@@ -24,6 +25,7 @@
 </thead>
 <?php foreach ($items as $item) : ?>
     <tr>
+    	<td nowrap="nowrap"><a class="material-icons" onclick="lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('survey/collecteditem')?>/<?php echo $item->id?>'})" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/collected','View information');?>">info_outline</a></td>
     	<td nowrap="nowrap">
     	<?php if ($input->group_results == true) : ?>
     	   <?php echo $item->virtual_chats_number?>
@@ -37,7 +39,7 @@
     	<?php if ($input->group_results == true) : ?>
     	   <?php echo htmlspecialchars(round($item->virtual_total_stars/$item->virtual_chats_number,2))?>
     	<?php else : ?>
-    	   <?php echo htmlspecialchars($item->stars)?>
+    	   <?php $stars = array(); foreach ($enabledStars as $n) {$stars[] = $item->{'max_stars_' . $n};};echo implode(', ', $stars);?>
     	<?php endif;?>
     	</td>
     	<?php if ($input->group_results !== true) : ?>

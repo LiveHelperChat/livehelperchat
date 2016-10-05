@@ -1,14 +1,40 @@
 <?php if ($survey_item->is_filled == false) : ?>
-    <?php if ($survey->max_stars > 0) : ?>        
-        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','How well did we do?')?></label>
-        <?php for ($i = 0; $i < $survey->max_stars; $i++) : ?>
-        <div class="radio radio-widget">
-          <label>
-            <input type="radio" name="StarsValue" value="<?php echo $i+1?>"><?php echo $i+1?>&nbsp;<?php if ($i == 0) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','star')?> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','Poor')?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','stars')?><?php if ($i == $survey->max_stars - 1) : ?> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','Excellent')?><?php endif;endif;?>
-          </label>
-        </div>
-        <?php endfor;?>
-    <?php endif;?>
+
+<?php include(erLhcoreClassDesign::designtpl('lhsurvey/forms/fields_names.tpl.php'));?>
+
+<div class="form-elements">
+    <?php for ($i = 0; $i < 16; $i++) : ?>    
+    	<?php foreach ($sortOptions as $keyOption => $sortOption) : ?>    	   		    
+    		<?php if ($survey->{$keyOption . '_pos'} == $i && $survey->{$keyOption . '_enabled'} == 1) : ?>    		    		    		    		    				    		
+    				<?php if ($sortOption['type'] == 'stars') : ?>    	
+    				<div class="form-group">
+				    	<label><?php echo htmlspecialchars($survey->{$sortOption['field'] . '_title'});?></label>
+				        <?php for ($n = 1; $n <= $survey->{$sortOption['field']}; $n++) : ?>
+				        <div class="radio radio-widget">
+				          	<label><input type="radio" name="<?php echo $sortOption['field']?>Evaluate" <?php if ($survey_item->{$sortOption['field']} == $n) : ?>checked="checked"<?php endif;?> value="<?php echo $n?>"><?php echo $n?>&nbsp;<?php if ($n == 1) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','star')?> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','Poor')?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','stars')?><?php if ($n == $survey->{$sortOption['field']}) : ?> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','Excellent')?><?php endif;endif;?></label>
+				        </div>
+				        <?php endfor;?>
+				    </div>
+    				<?php elseif ($sortOption['type'] == 'question') : ?>
+    				<div class="form-group">
+    					<label><?php echo htmlspecialchars($survey->{$sortOption['field']});?></label>
+    					<textarea class="form-control" name="<?php echo $sortOption['field'] . 'Question'?>"><?php echo htmlspecialchars($survey_item->{$sortOption['field']})?></textarea>
+    				</div>
+    				<?php elseif ($sortOption['type'] == 'question_options') : ?>    				
+    				<div class="form-group">
+    					<label><?php echo htmlspecialchars($survey->{$sortOption['field']});?></label>
+    					<?php foreach ($survey->{$sortOption['field'] . '_items_front'} as $key => $item) : ?>
+    					<div class="radio radio-widget">
+    						<label><input type="radio" name="<?php echo $sortOption['field']?>EvaluateOption" value="<?php echo $key+1?>" <?php if ($survey_item->{$sortOption['field']} === $key+1) : ?>checked="checked"<?php endif;?>/><?php echo htmlspecialchars($item['option'])?></label>
+    					</div>
+    					<?php endforeach;?>
+    				</div>
+    				<?php endif;?>
+    		<?php endif; ?>
+    	<?php endforeach;?>
+    <?php endfor;?>
+</div>
+
 <?php else : ?>
     <div class="alert alert-success" role="alert"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','Thank you for your feedback...')?></div>
 <?php endif; ?>

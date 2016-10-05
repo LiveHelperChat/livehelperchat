@@ -19,10 +19,22 @@ $def->properties['chat_id']->columnName   = 'chat_id';
 $def->properties['chat_id']->propertyName = 'chat_id';
 $def->properties['chat_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
-$def->properties['stars'] = new ezcPersistentObjectProperty();
-$def->properties['stars']->columnName   = 'stars';
-$def->properties['stars']->propertyName = 'stars';
-$def->properties['stars']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+for($i = 1; $i <= 5; $i++) {
+	$def->properties['max_stars_' . $i] = new ezcPersistentObjectProperty();
+	$def->properties['max_stars_' . $i]->columnName   = 'max_stars_' . $i;
+	$def->properties['max_stars_' . $i]->propertyName = 'max_stars_' . $i;
+	$def->properties['max_stars_' . $i]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+	
+	$def->properties['question_options_' . $i] = new ezcPersistentObjectProperty();
+	$def->properties['question_options_' . $i]->columnName   = 'question_options_' . $i;
+	$def->properties['question_options_' . $i]->propertyName = 'question_options_' . $i;
+	$def->properties['question_options_' . $i]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+	
+	$def->properties['question_plain_' . $i] = new ezcPersistentObjectProperty();
+	$def->properties['question_plain_' . $i]->columnName   = 'question_plain_' . $i;
+	$def->properties['question_plain_' . $i]->propertyName = 'question_plain_' . $i;
+	$def->properties['question_plain_' . $i]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+}
 
 $def->properties['user_id'] = new ezcPersistentObjectProperty();
 $def->properties['user_id']->columnName   = 'user_id';

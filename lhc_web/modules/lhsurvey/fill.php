@@ -45,6 +45,8 @@ try {
 
         if ( isset($_POST['Vote']) ) {
             $errors = erLhcoreClassSurveyValidator::validateSurvey($surveyItem, $survey);
+            
+            
             if (empty($errors)) {
                 $surveyItem->saveOrUpdate();
                 $tpl->set('just_stored',true);
@@ -64,6 +66,7 @@ try {
     }
 
 } catch(Exception $e) {
+	print_r($e);
     $tpl->setFile('lhchat/errors/chatnotexists.tpl.php');
 }
 

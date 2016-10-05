@@ -16,7 +16,24 @@ $ViewList['fill'] = array(
 
 $ViewList['collected'] = array(
     'params' => array('survey_id'),
-    'uparams' => array('timefrom','timeto','department_id','user_id','print','xls','stars','group_results','minimum_chats'),
+    'uparams' => array('timefrom','timeto','department_id','user_id','print','xls','group_results','minimum_chats',
+    'max_stars_1',
+    'max_stars_2',
+    'max_stars_3',
+    'max_stars_4',
+    'max_stars_5',
+    'question_options_1',
+    'question_options_2',
+    'question_options_3',
+    'question_options_4',
+    'question_options_5',
+    ),
+    'functions' => array( 'manage_survey' )
+);
+
+$ViewList['collecteditem'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
     'functions' => array( 'manage_survey' )
 );
 
