@@ -37,7 +37,7 @@ $ViewList['setoperatorstatus'] = array(
     'params' => array()
 );
 
-$ViewList['setvisibilitystatus'] = array(
+$ViewList['setinvisibilitystatus'] = array(
     'params' => array()
 );
 
