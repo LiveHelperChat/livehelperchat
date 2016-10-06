@@ -8,7 +8,7 @@
     		<?php if ($survey->{$keyOption . '_pos'} == $i && $survey->{$keyOption . '_enabled'} == 1) : ?>    		    		    		    		    				    		
     				<?php if ($sortOption['type'] == 'stars') : ?>    	
     				<div class="form-group">
-				    	<label><?php echo htmlspecialchars($survey->{$sortOption['field'] . '_title'});?></label>
+				    	<label><?php echo htmlspecialchars($survey->{$sortOption['field'] . '_title'});?><?php if ($survey->{$sortOption['field'] . '_req'} == 1) : ?> *<?php endif;?></label>
 				        <?php for ($n = 1; $n <= $survey->{$sortOption['field']}; $n++) : ?>
 				        <div class="radio radio-widget">
 				          	<label><input type="radio" name="<?php echo $sortOption['field']?>Evaluate" <?php if ($survey_item->{$sortOption['field']} == $n) : ?>checked="checked"<?php endif;?> value="<?php echo $n?>"><?php echo $n?>&nbsp;<?php if ($n == 1) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','star')?> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','Poor')?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','stars')?><?php if ($n == $survey->{$sortOption['field']}) : ?> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','Excellent')?><?php endif;endif;?></label>
@@ -17,12 +17,12 @@
 				    </div>
     				<?php elseif ($sortOption['type'] == 'question') : ?>
     				<div class="form-group">
-    					<label><?php echo htmlspecialchars($survey->{$sortOption['field']});?></label>
+    					<label><?php echo htmlspecialchars($survey->{$sortOption['field']});?><?php if ($survey->{$sortOption['field'] . '_req'} == 1) : ?> *<?php endif;?></label>
     					<textarea class="form-control" name="<?php echo $sortOption['field'] . 'Question'?>"><?php echo htmlspecialchars($survey_item->{$sortOption['field']})?></textarea>
     				</div>
     				<?php elseif ($sortOption['type'] == 'question_options') : ?>    				
     				<div class="form-group">
-    					<label><?php echo htmlspecialchars($survey->{$sortOption['field']});?></label>
+    					<label><?php echo htmlspecialchars($survey->{$sortOption['field']});?><?php if ($survey->{$sortOption['field'] . '_req'} == 1) : ?> *<?php endif;?></label>
     					<?php foreach ($survey->{$sortOption['field'] . '_items_front'} as $key => $item) : ?>
     					<div class="radio radio-widget">
     						<label><input type="radio" name="<?php echo $sortOption['field']?>EvaluateOption" value="<?php echo $key+1?>" <?php if ($survey_item->{$sortOption['field']} === $key+1) : ?>checked="checked"<?php endif;?>/><?php echo htmlspecialchars($item['option'])?></label>

@@ -39,8 +39,9 @@ if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_p
 	}
 }
 
-$modeAppendTheme .= '/(fullheight)/';
-$modeAppendTheme .= ($fullHeight) ? 'true' : 'false';
+if ($fullHeight == true) {
+	$modeAppendTheme .= '/(fullheight)/true';
+}
 
 // Paid chat workflow
 if ((string)$Params['user_parameters_unordered']['phash'] != '' && (string)$Params['user_parameters_unordered']['pvhash'] != '') {

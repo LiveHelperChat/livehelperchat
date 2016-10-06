@@ -183,6 +183,12 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 		    	$saveChat = true;
 		    }
 		    
+		    if ($chat->has_unread_op_messages == 1)
+		    {
+		    	$chat->unread_op_messages_informed = 0;
+		    	$chat->has_unread_op_messages = 0;
+		    	$saveChat = true;
+		    }
 		    
 		    if ($saveChat === true) {
 		    	$chat->updateThis();

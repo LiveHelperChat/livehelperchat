@@ -388,6 +388,25 @@ class erLhcoreClassChatWorkflow {
      		$chat->updateThis();     		     		
      	}     	
      }
+
+     public static function autoInformVisitor($minutesTimeout)
+     {
+     	if ($minutesTimeout > 0) {
+     		$items = erLhcoreClassChat::getList(array('limit' => 10, 'filterlt' => array('last_op_msg_time' => (time() - (1*60))), 'filter' => array('has_unread_op_messages' => 1, 'unread_op_messages_informed' => 0)));
+
+     		// Update chats instantly
+     		foreach ($items as $item) {
+     			$item->has_unread_op_messages = 0;
+     			$item->unread_op_messages_informed = 1;
+     			$item->updateThis();
+     		}
+
+     		// Now inform visitors
+     		foreach ($items as $item) {
+     			erLhcoreClassChatMail::informVisitorUnreadMessage($item);
+     		}
+     	}
+     }
 }
 
 ?>

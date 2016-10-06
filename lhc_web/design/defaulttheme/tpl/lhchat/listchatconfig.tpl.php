@@ -224,14 +224,17 @@
     		    </div>
     		    
 			</div>
-						
+
 			<div role="tabpanel" class="tab-pane" id="workflow">
                 <?php include(erLhcoreClassDesign::designtpl('lhchat/part/listchatconfig/run_unaswered_chat_workflow.tpl.php'));?>
-    		    
+
     		    <?php $attribute = 'run_departments_workflow';$boolValue = true;?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+
+    		    <?php $attribute = 'inform_unread_message';?>
+    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>    		    
 			</div>
-			
+
 			<?php include(erLhcoreClassDesign::designtpl('lhchat/listchatconfig/screen_sharing.tpl.php'));?>
 										
 			<?php endif;?>		

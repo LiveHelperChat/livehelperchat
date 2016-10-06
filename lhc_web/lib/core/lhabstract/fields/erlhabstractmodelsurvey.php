@@ -9,39 +9,6 @@ return array(
         'validation_definition' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         )),
-    
-    'max_stars' => array(
-        'type' => 'text',
-        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','Max stars for feedback'),
-        'required' => false,
-        'hidden' => true,
-        'validation_definition' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-        )),    
-    'max_stars_pos' => array(
-        'type' => 'text',
-        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','Max stars pos'),
-        'required' => false,
-        'hidden' => true,
-        'validation_definition' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-        )),    
-    'max_stars_title' => array(
-        'type' => 'text',
-        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','Title for evaluation'),
-        'required' => false,
-        'hidden' => true,
-        'validation_definition' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-        )),
-    'max_stars_enabled' => array(
-        'type' => 'checkbox',
-        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','Enabled'),
-        'required' => false,
-        'hidden' => true,
-        'validation_definition' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
-        )),
     'max_stars_1' => array(
         'type' => 'text',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','Max stars for feedback'),
@@ -69,6 +36,14 @@ return array(
     'max_stars_1_enabled' => array(
         'type' => 'checkbox',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','Title for evaluation'),
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        )),
+    'max_stars_1_req' => array(
+        'type' => 'checkbox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','Required'),
         'required' => false,
         'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(
@@ -106,6 +81,14 @@ return array(
         'validation_definition' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         )),
+    'max_stars_2_req' => array(
+        'type' => 'checkbox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','Required'),
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        )),
     'max_stars_3' => array(
         'type' => 'text',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','Max stars for feedback'),
@@ -133,6 +116,14 @@ return array(
     'max_stars_3_enabled' => array(
         'type' => 'checkbox',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','Title for evaluation'),
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        )),
+    'max_stars_3_req' => array(
+        'type' => 'checkbox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','Required'),
         'required' => false,
         'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(
@@ -170,6 +161,14 @@ return array(
         'validation_definition' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         )),
+    'max_stars_4_req' => array(
+        'type' => 'checkbox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','Required'),
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        )),
     'max_stars_5' => array(
         'type' => 'text',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','Max stars for feedback'),
@@ -202,6 +201,14 @@ return array(
         'validation_definition' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         )),
+    'max_stars_5_req' => array(
+        'type' => 'checkbox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','Required'),
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        )),
     'question_plain_1' => array(
         'type' => 'text',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','Title for plain question'),
@@ -221,6 +228,14 @@ return array(
     'question_plain_1_enabled' => array(
         'type' => 'checkbox',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','Title for plain question'),
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        )),
+    'question_plain_1_req' => array(
+        'type' => 'checkbox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','Required'),
         'required' => false,
         'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(
@@ -250,6 +265,14 @@ return array(
         'validation_definition' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         )),
+    'question_plain_2_req' => array(
+        'type' => 'checkbox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','Required'),
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        )),
     'question_plain_3' => array(
         'type' => 'text',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','Title for plain question'),
@@ -269,6 +292,14 @@ return array(
     'question_plain_3_enabled' => array(
         'type' => 'checkbox',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','Title for plain question'),
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        )),
+    'question_plain_3_req' => array(
+        'type' => 'checkbox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','Required'),
         'required' => false,
         'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(
@@ -298,6 +329,14 @@ return array(
         'validation_definition' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         )),
+    'question_plain_4_req' => array(
+        'type' => 'checkbox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','Required'),
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        )),
     'question_plain_5' => array(
         'type' => 'text',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','Title for plain question'),
@@ -317,6 +356,14 @@ return array(
     'question_plain_5_enabled' => array(
         'type' => 'checkbox',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','Title for plain question'),
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        )), 
+    'question_plain_5_req' => array(
+        'type' => 'checkbox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','Required'),
         'required' => false,
         'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(
@@ -342,6 +389,14 @@ return array(
     'question_options_1_enabled' => array(
         'type' => 'checkbox',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','Title for custom questions'),
+        'hidden' => true,
+        'required' => false,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        )),
+    'question_options_1_req' => array(
+        'type' => 'checkbox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','Required'),
         'hidden' => true,
         'required' => false,
         'validation_definition' => new ezcInputFormDefinitionElement(
@@ -387,6 +442,14 @@ return array(
         'validation_definition' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         )),
+    'question_options_2_req' => array(
+        'type' => 'checkbox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','Required'),
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        )),
     'question_options_3' => array(
         'type' => 'text',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','Title for custom questions'),
@@ -414,6 +477,14 @@ return array(
     'question_options_3_enabled' => array(
         'type' => 'checkbox',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','Title for custom questions'),
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        )),
+    'question_options_3_req' => array(
+        'type' => 'checkbox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','Required'),
         'required' => false,
         'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(
@@ -451,6 +522,14 @@ return array(
         'validation_definition' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         )),		
+    'question_options_4_req' => array(
+        'type' => 'checkbox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','Required'),
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        )),		
     'question_options_5' => array(
         'type' => 'text',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','Title for custom questions'),
@@ -478,6 +557,14 @@ return array(
     'question_options_5_enabled' => array(
         'type' => 'checkbox',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','Title for custom questions'),
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        )),
+    'question_options_5_req' => array(
+        'type' => 'checkbox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','Required'),
         'required' => false,
         'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(

@@ -53,6 +53,9 @@ class erLhcoreClassChat {
 			'wait_timeout_repeat',
 			// Angular remake
 			'referrer',
+			'last_op_msg_time',
+			'has_unread_op_messages',
+			'unread_op_messages_informed',
 			//'product_id'
 	);
 	
