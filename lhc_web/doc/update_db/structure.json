@@ -100,6 +100,14 @@
                 "extra": ""
             },
             {
+                "field": "max_stars_1_req",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "max_stars_1",
                 "type": "int(11)",
                 "null": "NO",
@@ -148,6 +156,14 @@
                 "extra": ""
             },
             {
+                "field": "max_stars_2_req",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "max_stars_3_title",
                 "type": "varchar(250)",
                 "null": "NO",
@@ -180,6 +196,14 @@
                 "extra": ""
             },
             {
+                "field": "max_stars_3_req",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "max_stars_4_title",
                 "type": "varchar(250)",
                 "null": "NO",
@@ -189,6 +213,14 @@
             },
             {
                 "field": "max_stars_4_pos",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "max_stars_4_req",
                 "type": "int(11)",
                 "null": "NO",
                 "key": "",
@@ -221,6 +253,14 @@
             },
             {
                 "field": "max_stars_5_pos",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "max_stars_5_req",
                 "type": "int(11)",
                 "null": "NO",
                 "key": "",
@@ -276,6 +316,14 @@
                 "extra": ""
             },
             {
+                "field": "question_options_1_req",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "question_options_1_enabled",
                 "type": "int(11)",
                 "null": "NO",
@@ -301,6 +349,14 @@
             },
             {
                 "field": "question_options_2_pos",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_options_2_req",
                 "type": "int(11)",
                 "null": "NO",
                 "key": "",
@@ -340,6 +396,14 @@
                 "extra": ""
             },
             {
+                "field": "question_options_3_req",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "question_options_3_enabled",
                 "type": "int(11)",
                 "null": "NO",
@@ -357,6 +421,14 @@
             },
             {
                 "field": "question_options_4_enabled",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_options_4_req",
                 "type": "int(11)",
                 "null": "NO",
                 "key": "",
@@ -404,6 +476,14 @@
                 "extra": ""
             },
             {
+                "field": "question_options_5_req",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "question_options_5_enabled",
                 "type": "int(11)",
                 "null": "NO",
@@ -436,6 +516,14 @@
                 "extra": ""
             },
             {
+                "field": "question_plain_1_req",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "question_plain_2",
                 "type": "text",
                 "null": "NO",
@@ -460,6 +548,14 @@
                 "extra": ""
             },
             {
+                "field": "question_plain_2_req",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "question_plain_3",
                 "type": "text",
                 "null": "NO",
@@ -469,6 +565,14 @@
             },
             {
                 "field": "question_plain_3_pos",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_plain_3_req",
                 "type": "int(11)",
                 "null": "NO",
                 "key": "",
@@ -508,6 +612,14 @@
                 "extra": ""
             },
             {
+                "field": "question_plain_4_req",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "question_plain_5",
                 "type": "text",
                 "null": "NO",
@@ -525,6 +637,14 @@
             },
             {
                 "field": "question_plain_5_enabled",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_plain_5_req",
                 "type": "int(11)",
                 "null": "NO",
                 "key": "",
@@ -6087,7 +6207,7 @@
     "tables_create": {
     	"lh_admin_theme" : "CREATE TABLE `lh_admin_theme` ( `id` int(11) NOT NULL AUTO_INCREMENT, `name` varchar(100) NOT NULL, `static_content` longtext NOT NULL, `static_js_content` longtext NOT NULL, `static_css_content` longtext NOT NULL, `header_content` text NOT NULL, `header_css` text NOT NULL, PRIMARY KEY (`id`)) DEFAULT CHARSET=utf8;",
     	"lh_abstract_product" : "CREATE TABLE `lh_abstract_product` (`id` int(11) NOT NULL AUTO_INCREMENT, `name` varchar(250) NOT NULL, `priority` int(11) NOT NULL, `departament_id` int(11) NOT NULL, `disabled` int(11) NOT NULL, KEY `departament_id` (`departament_id`), PRIMARY KEY (`id`)) DEFAULT CHARSET=utf8;",
-    	"lh_abstract_survey" : "CREATE TABLE `lh_abstract_survey_item` ( `id` bigint(20) NOT NULL AUTO_INCREMENT, `survey_id` int(11) NOT NULL,  `chat_id` int(11) NOT NULL,  `user_id` int(11) NOT NULL,  `ftime` int(11) NOT NULL,  `dep_id` int(11) NOT NULL,  `max_stars_1` int(11) NOT NULL,  `max_stars_2` int(11) NOT NULL,  `max_stars_3` int(11) NOT NULL,  `max_stars_4` int(11) NOT NULL,  `max_stars_5` int(11) NOT NULL,  `question_options_1` int(11) NOT NULL,  `question_options_2` int(11) NOT NULL,  `question_options_3` int(11) NOT NULL,  `question_options_4` int(11) NOT NULL,  `question_options_5` int(11) NOT NULL,  `question_plain_1` text NOT NULL,  `question_plain_2` text NOT NULL,  `question_plain_3` text NOT NULL,  `question_plain_4` text NOT NULL,  `question_plain_5` text NOT NULL,  PRIMARY KEY (`id`),  KEY `survey_id` (`survey_id`),  KEY `chat_id` (`chat_id`),  KEY `user_id` (`user_id`),  KEY `dep_id` (`dep_id`),  KEY `ftime` (`ftime`),  KEY `max_stars_1` (`max_stars_1`),  KEY `max_stars_2` (`max_stars_2`),  KEY `max_stars_3` (`max_stars_3`),  KEY `max_stars_4` (`max_stars_4`),  KEY `max_stars_5` (`max_stars_5`),  KEY `question_options_1` (`question_options_1`),  KEY `question_options_2` (`question_options_2`),  KEY `question_options_3` (`question_options_3`),  KEY `question_options_4` (`question_options_4`),  KEY `question_options_5` (`question_options_5`)) DEFAULT CHARSET=utf8",
+    	"lh_abstract_survey" : "CREATE TABLE `lh_abstract_survey` (`id` int(11) NOT NULL AUTO_INCREMENT,`name` varchar(250) NOT NULL,`max_stars_1_title` varchar(250) NOT NULL,`max_stars_1_pos` int(11) NOT NULL,`max_stars_2_title` varchar(250) NOT NULL,`max_stars_2_pos` int(11) NOT NULL,`max_stars_2` int(11) NOT NULL,`max_stars_3_title` varchar(250) NOT NULL,`max_stars_3_pos` int(11) NOT NULL,`max_stars_3` int(11) NOT NULL,`max_stars_4_title` varchar(250) NOT NULL,`max_stars_4_pos` int(11) NOT NULL,`max_stars_4` int(11) NOT NULL,`max_stars_5_title` varchar(250) NOT NULL,`max_stars_5_pos` int(11) NOT NULL,`max_stars_5` int(11) NOT NULL,`question_options_1` varchar(250) NOT NULL,`question_options_1_items` text NOT NULL,`question_options_1_pos` int(11) NOT NULL,`question_options_2` varchar(250) NOT NULL,`question_options_2_items` text NOT NULL,`question_options_2_pos` int(11) NOT NULL,`question_options_3` varchar(250) NOT NULL,`question_options_3_items` text NOT NULL,`question_options_3_pos` int(11) NOT NULL,`question_options_4` varchar(250) NOT NULL,`question_options_4_items` text NOT NULL,`question_options_4_pos` int(11) NOT NULL,`question_options_5` varchar(250) NOT NULL,`question_options_5_items` text NOT NULL,`question_options_5_pos` int(11) NOT NULL,`question_plain_1` text NOT NULL,`question_plain_1_pos` int(11) NOT NULL,`question_plain_2` text NOT NULL,`question_plain_2_pos` int(11) NOT NULL,`question_plain_3` text NOT NULL,`question_plain_3_pos` int(11) NOT NULL,`question_plain_4` text NOT NULL,`question_plain_4_pos` int(11) NOT NULL,`question_plain_5` text NOT NULL,`question_plain_5_pos` int(11) NOT NULL,`max_stars_1_enabled` int(11) NOT NULL, `max_stars_2_enabled` int(11) NOT NULL,  `max_stars_3_enabled` int(11) NOT NULL,  `max_stars_4_enabled` int(11) NOT NULL,  `max_stars_5_enabled` int(11) NOT NULL,  `question_options_1_enabled` int(11) NOT NULL,  `question_options_2_enabled` int(11) NOT NULL,  `question_options_3_enabled` int(11) NOT NULL,  `question_options_4_enabled` int(11) NOT NULL,  `question_options_5_enabled` int(11) NOT NULL,  `question_plain_1_enabled` int(11) NOT NULL,  `question_plain_2_enabled` int(11) NOT NULL,  `question_plain_3_enabled` int(11) NOT NULL,  `question_plain_4_enabled` int(11) NOT NULL,  `question_plain_5_enabled` int(11) NOT NULL,  `max_stars_1` int(11) NOT NULL,  `max_stars_1_req` int(11) NOT NULL,  `max_stars_2_req` int(11) NOT NULL,  `max_stars_3_req` int(11) NOT NULL,  `max_stars_4_req` int(11) NOT NULL,  `max_stars_5_req` int(11) NOT NULL,  `question_options_1_req` int(11) NOT NULL,  `question_options_2_req` int(11) NOT NULL,  `question_options_3_req` int(11) NOT NULL,  `question_options_4_req` int(11) NOT NULL,  `question_options_5_req` int(11) NOT NULL,  `question_plain_1_req` int(11) NOT NULL,  `question_plain_2_req` int(11) NOT NULL,  `question_plain_3_req` int(11) NOT NULL,`question_plain_4_req` int(11) NOT NULL,`question_plain_5_req` int(11) NOT NULL, PRIMARY KEY (`id`)) DEFAULT CHARSET=utf8",
     	"lh_abstract_survey_item" : "CREATE TABLE `lh_abstract_survey_item` (  `id` bigint(20) NOT NULL AUTO_INCREMENT,  `survey_id` int(11) NOT NULL,  `chat_id` int(11) NOT NULL,  `user_id` int(11) NOT NULL,  `ftime` int(11) NOT NULL,  `dep_id` int(11) NOT NULL,  `max_stars_1` int(11) NOT NULL,  `max_stars_2` int(11) NOT NULL,  `max_stars_3` int(11) NOT NULL,  `max_stars_4` int(11) NOT NULL,  `max_stars_5` int(11) NOT NULL,  `question_options_1` int(11) NOT NULL,  `question_options_2` int(11) NOT NULL,  `question_options_3` int(11) NOT NULL,  `question_options_4` int(11) NOT NULL,  `question_options_5` int(11) NOT NULL,  `question_plain_1` text NOT NULL,  `question_plain_2` text NOT NULL,  `question_plain_3` text NOT NULL,  `question_plain_4` text NOT NULL,  `question_plain_5` text NOT NULL,  PRIMARY KEY (`id`),  KEY `survey_id` (`survey_id`),  KEY `chat_id` (`chat_id`),  KEY `user_id` (`user_id`),  KEY `dep_id` (`dep_id`),  KEY `ftime` (`ftime`),  KEY `max_stars_1` (`max_stars_1`),  KEY `max_stars_2` (`max_stars_2`),  KEY `max_stars_3` (`max_stars_3`),  KEY `max_stars_4` (`max_stars_4`),  KEY `max_stars_5` (`max_stars_5`),  KEY `question_options_1` (`question_options_1`),  KEY `question_options_2` (`question_options_2`),  KEY `question_options_3` (`question_options_3`),  KEY `question_options_4` (`question_options_4`),  KEY `question_options_5` (`question_options_5`)) DEFAULT CHARSET=utf8",
     	"lh_speech_language" : "CREATE TABLE IF NOT EXISTS `lh_speech_language` ( `id` int(11) NOT NULL AUTO_INCREMENT,`name` varchar(100) NOT NULL,PRIMARY KEY (`id`)) DEFAULT CHARSET=utf8",
     	"lh_speech_language_dialect" : "CREATE TABLE IF NOT EXISTS `lh_speech_language_dialect` (`id` int(11) NOT NULL AUTO_INCREMENT,`language_id` int(11) NOT NULL, `lang_name` varchar(100) NOT NULL,`lang_code` varchar(100) NOT NULL, PRIMARY KEY (`id`),KEY `language_id` (`language_id`)) DEFAULT CHARSET=utf8",

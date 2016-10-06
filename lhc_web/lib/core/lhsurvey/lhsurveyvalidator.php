@@ -45,19 +45,23 @@ class erLhcoreClassSurveyValidator {
 					
 					if ($sortOption['type'] == 'stars') {
 						if (!$form->hasValidData( $sortOption['field'] . 'Evaluate' )) {
-							$Errors[] = '"'.htmlspecialchars(trim($survey->{$keyOption . '_title'})).'" : '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','is required'); 
+						    if ($survey->{$keyOption.'_req'} == 1) {
+							     $Errors[] = '"'.htmlspecialchars(trim($survey->{$keyOption . '_title'})).'" : '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','is required'); 
+						    }
 						} else {
 							$surveyItem->{$sortOption['field']} = $form->{$sortOption['field'] . 'Evaluate'};
 						}
 					} elseif ($sortOption['type'] == 'question') {						
-						if (!$form->hasValidData( $sortOption['field'] . 'Question' ) /*|| $form->{$sortOption['field'] . 'Question'} == ''*/) { // @todo Make possible to choose field type in the future
-							$Errors[] = htmlspecialchars(trim($survey->{$keyOption})).' : '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','is required'); 
+						if (!$form->hasValidData( $sortOption['field'] . 'Question' ) || ($form->{$sortOption['field'] . 'Question'} == '' && $survey->{$keyOption.'_req'} == 1)) { // @todo Make possible to choose field type in the future
+							$Errors[] = '"'.htmlspecialchars(trim($survey->{$keyOption})).'" : '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','is required'); 
 						} else {
 							$surveyItem->{$sortOption['field']} = $form->{$sortOption['field'] . 'Question'};
 						}
 					} elseif ($sortOption['type'] == 'question_options') {						
 						if (!$form->hasValidData( $sortOption['field'] . 'EvaluateOption' ) ) {
-							$Errors[] = '"'.htmlspecialchars(trim($survey->{$sortOption['field']})).'" : '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','is required'); 
+						    if ($survey->{$keyOption.'_req'} == 1) {
+							     $Errors[] = '"'.htmlspecialchars(trim($survey->{$sortOption['field']})).'" : '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','is required'); 
+						    }
 						} else {
 							$surveyItem->{$sortOption['field']} = $form->{$sortOption['field'] . 'EvaluateOption'};
 						}

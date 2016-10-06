@@ -1,8 +1,10 @@
 2.50v
 
 1. Now it's possible to inform user about unread messages from operator.
+2. In survey editing window you can choose what fields are required and what not.
+3. You can now prefill also proactive invitation.
 
-You have to have running
+You have to have running for first enhancement.
 php cron.php -s site_admin -c cron/workflow
 
 execute doc/update_db/update_125.sql for update
