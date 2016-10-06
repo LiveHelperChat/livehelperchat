@@ -11,10 +11,10 @@ $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('message_s
 $tpl->set('visitor',$userInstance);
 
 $inputData = new stdClass();
-$inputData->username = '';
 $inputData->question = '';
-$inputData->email = '';
-$inputData->phone = '';
+$inputData->email = isset($_GET['prefill']['email']) ? (string)$_GET['prefill']['email'] : '';
+$inputData->phone = isset($_GET['prefill']['phone']) ? (string)$_GET['prefill']['phone'] : '';
+$inputData->username = isset($_GET['prefill']['username']) ? (string)$_GET['prefill']['username'] : '';
 
 if (is_array($Params['user_parameters_unordered']['department']) && count($Params['user_parameters_unordered']['department']) == 1){
 	erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);
@@ -149,6 +149,11 @@ if (isset($_POST['askQuestion']))
     $form = new ezcInputForm( INPUT_POST, $validationFields );
     $Errors = array();
     
+    if ( $form->hasValidData( 'hattr' ) && !empty($form->hattr))
+    {
+    	$inputData->hattr = $form->hattr;
+    }
+    
     if ($form->hasValidData( 'DepartmentIDDefined' )) {
     	$inputData->departament_id_array = $form->DepartmentIDDefined;
     }
@@ -160,13 +165,17 @@ if (isset($_POST['askQuestion']))
     }
     
     if ( (!$form->hasValidData( 'Username' ) || trim($form->Username) == '') && $userInstance->requires_username == 1) {
-        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your name');
+    	if (!in_array('username', $inputData->hattr)) {
+        	$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your name');
+    	}
     } elseif ( $form->hasValidData( 'Username' ) ) {
         $inputData->username = $chat->nick = $form->Username;
     }
 
     if ( (!$form->hasValidData( 'Phone' ) || ($form->Phone == '' || mb_strlen($form->Phone) < erLhcoreClassModelChatConfig::fetch('min_phone_length')->current_value)) && ($userInstance->requires_phone == 1)) {
-    	$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your phone');
+    	if (!in_array('phone', $inputData->hattr)) {
+    		$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your phone');
+    	}
     } elseif ($form->hasValidData( 'Phone' )) {
     	$chat->phone = $inputData->phone = $form->Phone;
     }
@@ -178,7 +187,9 @@ if (isset($_POST['askQuestion']))
 
     if ($userInstance->requires_email == 1) {
     	if ( !$form->hasValidData( 'Email' ) ) {
-    		$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a valid email address');
+    		if (!in_array('email', $inputData->hattr)) {
+    			$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a valid email address');
+    		}
     	} else {
     		$inputData->email = $chat->email = $form->Email;
     	}
