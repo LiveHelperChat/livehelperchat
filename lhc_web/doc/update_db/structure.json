@@ -2264,6 +2264,30 @@
                 "extra": ""
             },
             {
+                "field": "last_op_msg_time",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": "0",
+                "extra": ""
+            },
+            {
+                "field": "has_unread_op_messages",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": "0",
+                "extra": ""
+            },
+            {
+                "field": "unread_op_messages_informed",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": "0",
+                "extra": ""
+            },
+            {
                 "field": "unanswered_chat",
                 "type": "int(11)",
                 "null": "NO",
@@ -4736,6 +4760,13 @@
                 "hidden": "0"
             },
             {
+                "identifier": "inform_unread_message",
+                "value": "0",
+                "type": "0",
+                "explain": "Inform visitor if he has unread messages",
+                "hidden": "0"
+            },
+            {
                 "identifier": "accept_chat_link_timeout",
                 "value": "300",
                 "type": "0",
@@ -5950,6 +5981,21 @@
                 "reply_to": "",
                 "reply_to_ac": "0",
                 "recipient": ""
+            },
+            {
+                "id": "11",
+                "name": "You have unread messages",
+                "from_name": "Live Helper Chat",
+                "from_name_ac": "0",
+                "from_email": "",
+                "from_email_ac": "0",
+                "content": "Hello,\r\n\r\nOperator {user} has requested these permissions\n\r\n{permissions}\r\n\r\nSincerely,\r\nLive Support Team",
+                "subject": "Operator has answered to your request",
+                "bcc_recipients": "",
+                "subject_ac": "0",
+                "reply_to": "",
+                "reply_to_ac": "0",
+                "recipient": ""
             }
         ]
     },
@@ -5978,7 +6024,11 @@
     		"old" : []
     	},
     	"lh_chat" : {
-    		"new" : {"unanswered_chat" : "ALTER TABLE `lh_chat` ADD INDEX `unanswered_chat` (`unanswered_chat`);", "product_id" : "ALTER TABLE `lh_chat` ADD INDEX `product_id` (`product_id`);"},
+    		"new" : {
+    			"unanswered_chat" : "ALTER TABLE `lh_chat` ADD INDEX `unanswered_chat` (`unanswered_chat`);", 
+    			"product_id" : "ALTER TABLE `lh_chat` ADD INDEX `product_id` (`product_id`);",
+    			"unread_operator" : "ALTER TABLE `lh_chat` ADD INDEX `unread_operator` (`has_unread_op_messages`, `unread_op_messages_informed`);"
+    		},
     		"old" : []
     	},
     	"lh_users" : {

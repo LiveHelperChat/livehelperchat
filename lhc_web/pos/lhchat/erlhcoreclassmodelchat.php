@@ -323,6 +323,23 @@ $def->properties['unanswered_chat']->columnName   = 'unanswered_chat';
 $def->properties['unanswered_chat']->propertyName = 'unanswered_chat';
 $def->properties['unanswered_chat']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['last_op_msg_time'] = new ezcPersistentObjectProperty();
+$def->properties['last_op_msg_time']->columnName   = 'last_op_msg_time';
+$def->properties['last_op_msg_time']->propertyName = 'last_op_msg_time';
+$def->properties['last_op_msg_time']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['has_unread_op_messages'] = new ezcPersistentObjectProperty();
+$def->properties['has_unread_op_messages']->columnName   = 'has_unread_op_messages';
+$def->properties['has_unread_op_messages']->propertyName = 'has_unread_op_messages';
+$def->properties['has_unread_op_messages']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['unread_op_messages_informed'] = new ezcPersistentObjectProperty();
+$def->properties['unread_op_messages_informed']->columnName   = 'unread_op_messages_informed';
+$def->properties['unread_op_messages_informed']->propertyName = 'unread_op_messages_informed';
+$def->properties['unread_op_messages_informed']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+
+
 
 return $def;
 

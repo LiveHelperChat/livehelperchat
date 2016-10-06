@@ -276,6 +276,9 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `support_informed` int(11) NOT NULL DEFAULT '0',
 				  `unread_messages_informed` int(11) NOT NULL DEFAULT '0',
 				  `reinform_timeout` int(11) NOT NULL DEFAULT '0',
+				  `last_op_msg_time` int(11) NOT NULL DEFAULT '0',
+				  `has_unread_op_messages` int(11) NOT NULL DEFAULT '0',
+				  `unread_op_messages_informed` int(11) NOT NULL DEFAULT '0',
 				  `email` varchar(100) NOT NULL,
 				  `country_code` varchar(100) NOT NULL,
 				  `country_name` varchar(100) NOT NULL,
@@ -322,6 +325,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  KEY `online_user_id` (`online_user_id`),
 				  KEY `dep_id` (`dep_id`),
 				  KEY `product_id` (`product_id`),
+        	   	  KEY `unread_operator` (`has_unread_op_messages`, `unread_op_messages_informed`),
 				  KEY `has_unread_messages_dep_id_id` (`has_unread_messages`,`dep_id`,`id`),
 				  KEY `status_dep_id_id` (`status`,`dep_id`,`id`),
         	   	  KEY `status_dep_id_priority_id` (`status`,`dep_id`,`priority`,`id`),
@@ -751,7 +755,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   		(7,	'New unread message',	'Live Helper Chat',	0,	'',	0,	 0,'Hello,\r\n\r\nUser request data:\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nClick to accept chat automatically\r\n{url_accept}\r\n\r\nSincerely,\r\nLive Support Team',	'New chat request',	0,	'',	0,	'{$adminEmail}',''),
         	   		(8,	'Filled form',	'Live Helper Chat',	0,	'',	0,	 0,'Hello,\r\n\r\nUser has filled a form\r\nForm name - {form_name}\r\nUser IP - {ip}\r\nDownload filled data - {url_download}\r\nIdentifier - {identifier}\r\nView filled data - {url_view}\r\n\r\n {content} \r\n\r\nSincerely,\r\nLive Support Team','Filled form - {form_name}',	0,	'',	0,	'{$adminEmail}',''),
         	   		(9,	'Chat was accepted',	'Live Helper Chat',	0,	'',	0,	 0, 'Hello,\r\n\r\nOperator {user_name} has accepted a chat [{chat_id}]\r\n\r\nUser request data:\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nClick to accept chat automatically\r\n{url_accept}\r\n\r\nSincerely,\r\nLive Support Team',	'Chat was accepted [{chat_id}]',	0,	'',	0,	'{$adminEmail}',''),
-        	        (10, 'Permission request',	'Live Helper Chat',	0,	'',	0,	0, 'Hello,\r\n\r\nOperator {user} has requested these permissions\n\r\n{permissions}\r\n\r\nSincerely,\r\nLive Support Team',	'Permission request from {user}',	0,	'',	0,	'{$adminEmail}',	'');");
+        	        (10, 'Permission request',	'Live Helper Chat',	0,	'',	0,	0, 'Hello,\r\n\r\nOperator {user} has requested these permissions\n\r\n{permissions}\r\n\r\nSincerely,\r\nLive Support Team',	'Permission request from {user}',	0,	'',	0,	'{$adminEmail}',	''),
+        	        (11, 'You have unread messages',	'Live Helper Chat',	0,	'',	0,	'Hello,\r\n\r\nOperator {operator} has answered to you\r\n\r\n{messages}\r\n\r\nSincerely,\r\nLive Support Team','Operator has answered to your request',0,'',0,'','{$adminEmail}','');");
 
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_question` (
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1017,6 +1022,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('track_if_offline',	'0',	0,	'Track online visitors even if there is no online operators',0),
                 ('min_phone_length','8',0,'Minimum phone number length',0),
                 ('mheight','',0,'Messages box height',0),
+                ('inform_unread_message','0',0,'Inform visitor about unread messages from operator, value in minutes. 0 - disabled',0),
                 ('dashboard_order', 'online_operators,departments_stats|pending_chats,unread_chats,transfered_chats|active_chats,closed_chats', '0', 'Home page dashboard widgets order', '0'),
                 ('banned_ip_range','',0,'Which ip should not be allowed to chat',0),
                 ('suggest_leave_msg','1',0,'Suggest user to leave a message then user chooses offline department',0),

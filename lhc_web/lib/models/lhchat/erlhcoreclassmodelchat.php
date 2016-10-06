@@ -26,7 +26,9 @@ class erLhcoreClassModelChat {
                'operator_typing_id' 	=> $this->operator_typing_id,
                'phone'           		=> $this->phone,
                'has_unread_messages'    => $this->has_unread_messages,
+               'has_unread_op_messages' => $this->has_unread_op_messages,
                'last_user_msg_time'     => $this->last_user_msg_time,
+               'last_op_msg_time'     	=> $this->last_op_msg_time,
                'last_msg_id'     		=> $this->last_msg_id,
                'mail_send'     			=> $this->mail_send,
                'lat'     				=> $this->lat,
@@ -44,6 +46,7 @@ class erLhcoreClassModelChat {
 
        		   'online_user_id'     	=> $this->online_user_id,
        		   'unread_messages_informed' => $this->unread_messages_informed,
+       		   'unread_op_messages_informed' => $this->unread_op_messages_informed,
        		   'reinform_timeout'     	=> $this->reinform_timeout,
 
        		   // Wait timeout attribute
@@ -528,7 +531,17 @@ class erLhcoreClassModelChat {
    public $wait_timeout_repeat = 0;
    
    public $unread_messages_informed = 0;
+   
    public $reinform_timeout = 0;
+   
+   // Last operator message time
+   public $last_op_msg_time = 0;
+   
+   // Does chat has unread messages from operator
+   public $has_unread_op_messages = 0; 
+   
+   // Was visitor informed about unread message
+   public $unread_op_messages_informed = 0;
    
    // Time when user closed a chat window
    public $user_closed_ts = 0;

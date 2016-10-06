@@ -464,6 +464,58 @@ class erLhcoreClassChatMail {
     	}
     }
     
+    public static function informVisitorUnreadMessage(erLhcoreClassModelChat $chat)
+    {
+    	if ($chat->email == '') {
+    		return ;
+    	}
+    	
+    	$sendMail = erLhAbstractModelEmailTemplate::fetch(11);
+
+    	$mail = new PHPMailer();
+    	$mail->CharSet = "UTF-8";
+
+    	$fromSet = false;
+    	if ($sendMail->from_email != '') {
+    		$mail->Sender = $mail->From = $sendMail->from_email;
+    		$fromSet = true;
+    	}
+
+    	$mail->FromName = $sendMail->from_name;
+
+    	if ($sendMail->reply_to != '') {
+    		$mail->AddReplyTo($sendMail->reply_to);
+    		if ($fromSet == false) {
+    			$mail->From = $sendMail->reply_to;
+    		}
+    	} elseif ($chat->user !== false) {
+    		$mail->AddReplyTo($chat->user->email, $chat->user->name_support);
+    		if ($fromSet == false) {
+    			$mail->From = $chat->user->email;
+    		}
+    	}
+
+    	$mail->Subject = $sendMail->subject;
+
+    	$messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 10, 'sort' => 'id DESC','filter' => array('chat_id' => $chat->id))));
+    	$messagesContent = '';
+
+    	foreach ($messages as $msg ) {
+    		if ($msg->user_id != -1) {    			
+    			$messagesContent .= date(erLhcoreClassModule::$dateDateHourFormat,$msg->time).' '. ($msg->user_id == 0 ? htmlspecialchars($chat->nick) : htmlspecialchars($msg->name_support)).': '.htmlspecialchars($msg->msg)."\n";
+    		}
+    	}
+
+    	$nameSupport = $chat->user !== false ? $chat->user->name_support : '';
+
+    	$mail->Body = str_replace(array('{messages}','{operator}'), array($messagesContent, $nameSupport), $sendMail->content);
+
+    	self::setupSMTP($mail);
+
+    	$mail->AddAddress( $chat->email );
+    	$mail->Send();
+    }
+    
     public static function informChatClosed(erLhcoreClassModelChat $chat, $operator = false) {
     	$sendMail = erLhAbstractModelEmailTemplate::fetch(5);
     	
