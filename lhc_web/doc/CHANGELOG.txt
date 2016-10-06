@@ -1,3 +1,12 @@
+2.50v
+
+1. Now it's possible to inform user about unread messages from operator.
+
+You have to have running
+php cron.php -s site_admin -c cron/workflow
+
+execute doc/update_db/update_125.sql for update
+
 2.49v
 
 1. Survey now can have custom fields
