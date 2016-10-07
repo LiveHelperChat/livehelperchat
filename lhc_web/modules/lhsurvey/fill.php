@@ -49,6 +49,9 @@ try {
             
             if (empty($errors)) {
                 $surveyItem->saveOrUpdate();
+                
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('survey.filled', array('chat' => & $chat, 'survey' => $survey, 'survey_item' => & $surveyItem));
+                
                 $tpl->set('just_stored',true);
             } else {
                 $tpl->set('errors',$errors);
