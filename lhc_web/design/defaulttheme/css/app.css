@@ -980,6 +980,13 @@ input[type="file"]{
 	table-layout:fixed;
 }
 
+.abbr-list a{
+	position: absolute;
+    display: inline-block;
+    max-width: 100%;
+    overflow: hidden;
+}
+
 .table-fixed {
 	table-layout:fixed;
 }
