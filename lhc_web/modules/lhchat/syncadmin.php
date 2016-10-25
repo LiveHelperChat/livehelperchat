@@ -83,7 +83,11 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
 		                // Fetch content
 		                $templateResult = $tpl->fetch();
 		                
-		                $ReturnMessages[] = array('chat_id' => $chat_id,'nck' => $Chat->nick, 'msfrom' => $MessageID, 'msop' => $firstNewMessage['user_id'], 'mn' => $newMessagesNumber, 'msg' => $msgText, 'content' => $templateResult, 'message_id' => $LastMessageIDs['id']);
+		                $response = array('chat_id' => $chat_id,'nck' => $Chat->nick, 'msfrom' => $MessageID, 'msop' => $firstNewMessage['user_id'], 'mn' => $newMessagesNumber, 'msg' => $msgText, 'content' => $templateResult, 'message_id' => $LastMessageIDs['id']);
+		                
+		                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.syncadmin',array('response' => & $response, 'messages' => $Messages, 'chat' => $Chat));
+		                		                
+		                $ReturnMessages[] = $response;
 		            }
 
 		            if ($Chat->is_user_typing == true) {

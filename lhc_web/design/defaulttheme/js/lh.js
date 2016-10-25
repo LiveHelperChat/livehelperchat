@@ -1272,10 +1272,10 @@ function lh(){
 	  	                				if ($('#msg-'+item.msfrom).attr('data-op-id') != item.msop) {
 	  	                					$('#msg-'+item.msfrom).next().addClass('operator-changes');
 	  	                				}
-	  	                			  }	  	                			
+	  	                			  }
+	  	                			  
+	  	                			  ee.emitEvent('eventSyncAdmin', [item]);	  	                			  
 	                            });
-	
-	        	               
 	        	                
 	                            if ( confLH.new_message_sound_admin_enabled == 1  && data.uw == 'false') {
 	                            	lhinst.playNewMessageSound();
