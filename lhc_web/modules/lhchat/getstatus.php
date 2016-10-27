@@ -94,7 +94,7 @@ $tpl->set('disable_pro_active',(string)$Params['user_parameters_unordered']['dis
 $tpl->set('priority',is_numeric($Params['user_parameters_unordered']['priority']) ? (int)$Params['user_parameters_unordered']['priority'] : false);
 $tpl->set('theme',$theme);
 $tpl->set('operator',is_numeric($Params['user_parameters_unordered']['operator']) ? (int)$Params['user_parameters_unordered']['operator'] : false);
-$tpl->set('survey',is_numeric($Params['user_parameters_unordered']['survey']) && erLhAbstractModelSurvey::fetch($Params['user_parameters_unordered']['survey']) instanceof erLhAbstractModelSurvey ? (int)$Params['user_parameters_unordered']['survey'] : false);
+$tpl->set('survey',is_numeric($Params['user_parameters_unordered']['survey']) ? (int)$Params['user_parameters_unordered']['survey'] : false);
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.getstatus',array('tpl' => & $tpl, 'theme' => $theme, 'validUnits' => $validUnits));
 

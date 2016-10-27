@@ -42,27 +42,30 @@ try {
     if ($chat->hash == $hash)
     {
         $survey = erLhAbstractModelSurvey::fetch($Params['user_parameters_unordered']['survey']);
-        $surveyItem = erLhAbstractModelSurveyItem::getInstance($chat, $survey);
-        
-        if ( isset($_POST['Vote']) ) {
-            $errors = erLhcoreClassSurveyValidator::validateSurvey($surveyItem, $survey);
-            if (empty($errors)) {
-                $surveyItem->saveOrUpdate();  
-                
-                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('survey.filled', array('chat' => & $chat, 'survey' => $survey, 'survey_item' => & $surveyItem));
-                
-                $tpl->set('just_stored',true);
-            } else {
-                $tpl->set('errors',$errors);
-            }
-        }
-           
-        $tpl->set('chat',$chat);
-        $tpl->set('survey',$survey);
-        $tpl->set('survey_item',$surveyItem);
-        
-        $Result['chat'] = $chat;       
+        if($survey instanceof erLhAbstractModelSurvey) {
+            $surveyItem = erLhAbstractModelSurveyItem::getInstance($chat, $survey);
 
+            if (isset($_POST['Vote'])) {
+                $errors = erLhcoreClassSurveyValidator::validateSurvey($surveyItem, $survey);
+                if (empty($errors)) {
+                    $surveyItem->saveOrUpdate();
+
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('survey.filled', array('chat' => & $chat, 'survey' => $survey, 'survey_item' => & $surveyItem));
+
+                    $tpl->set('just_stored', true);
+                } else {
+                    $tpl->set('errors', $errors);
+                }
+            }
+
+            $tpl->set('chat', $chat);
+            $tpl->set('survey', $survey);
+            $tpl->set('survey_item', $surveyItem);
+
+            $Result['chat'] = $chat;
+        } else {
+            $tpl->setFile( 'lhchat/errors/surveynotexists.tpl.php');
+        }
     } else {
         $tpl->setFile( 'lhchat/errors/chatnotexists.tpl.php');
     }

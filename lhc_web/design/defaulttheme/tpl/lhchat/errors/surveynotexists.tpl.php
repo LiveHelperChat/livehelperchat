@@ -1,0 +1,1 @@
+<h2><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatnotexists','Survey not exist please check embed code options');?></h2>
