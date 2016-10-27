@@ -61,8 +61,8 @@
                         <?php if ($canListOnlineUsers == true || $canListOnlineUsersAll == true) : ?>
                             <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_online_op_list_tab.tpl.php')); ?>
                         <?php endif; ?>
-                    <?php elseif($template = erLhcoreClassDesign::designtpl('lhchat/lists/angular_' . trim($frontTab) . '_list_tab.tpl.php')) : ?>
-                        <?php include($template); ?>
+                    <?php else : ?>
+                        <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_custom_list_tab_multiinclude.tpl.php')); ?>
                     <?php endif; ?>
                 <?php endforeach; ?>
             </ul>
@@ -135,8 +135,8 @@
                                     id="online-operator-list"><?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_online_op_list.tpl.php')); ?></div>
                             </div>
                         <?php endif; ?>
-                    <?php elseif($template = erLhcoreClassDesign::designtpl('lhchat/lists/angular_'.trim($frontTab).'_list.tpl.php')): ?>
-                        <?php include($template); ?>
+                    <?php else : ?>
+                        <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_custom_list_multiinclude.tpl.php')); ?>
                     <?php endif; ?>
                 <?php endforeach; ?>
             </div>
