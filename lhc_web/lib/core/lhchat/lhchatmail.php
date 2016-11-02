@@ -522,12 +522,18 @@ class erLhcoreClassChatMail {
     	$mail = new PHPMailer();
     	$mail->CharSet = "UTF-8";
 
-    	if ($sendMail->from_email != '') { 	
-    		$mail->Sender = $mail->From = $sendMail->from_email;
-    	}
+        if($sendMail->from_email == '{chat_email}' && $chat->email != '') {
+            $mail->Sender = $mail->From = $chat->email;
+        } elseif ($sendMail->from_email != '') {
+            $mail->Sender = $mail->From = $sendMail->from_email;
+        }
 
-    	$mail->FromName = $sendMail->from_name;    	
-    	$mail->Subject = $sendMail->subject;
+        $mail->FromName = $sendMail->from_name;
+        $mail->Subject = $sendMail->subject;
+
+        if($sendMail->from_name == '{chat_nick}' && $chat->nick != '') {
+            $mail->FromName = $chat->nick;
+        }
     	   	    	
     	$messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 10,'sort' => 'id DESC','filter' => array('chat_id' => $chat->id))));
     	$messagesContent = '';
