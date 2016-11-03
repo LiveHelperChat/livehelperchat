@@ -279,7 +279,11 @@ class erLhcoreClassChatWorkflow {
     			if ($chat->department !== false) {
     			    erLhcoreClassChat::updateDepartmentStats($chat->department);
     			}
-    			
+
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.delete', array(
+                    'chat' => & $chat
+                ));
+
     			$purgedChatsNumber++;
 	    	}	
     	}    	
