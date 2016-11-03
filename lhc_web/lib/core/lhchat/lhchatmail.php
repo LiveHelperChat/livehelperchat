@@ -522,10 +522,12 @@ class erLhcoreClassChatMail {
     	$mail = new PHPMailer();
     	$mail->CharSet = "UTF-8";
 
-        if($sendMail->from_email == '{chat_email}' && $chat->email != '') {
-            $mail->Sender = $mail->From = $chat->email;
-        } elseif ($sendMail->from_email != '') {
+        if ($sendMail->from_email != '') {
             $mail->Sender = $mail->From = $sendMail->from_email;
+        }
+
+        if($sendMail->from_email == '{chat_email}' && $chat->email != '') {
+            $mail->From = $chat->email;
         }
 
         $mail->FromName = $sendMail->from_name;
