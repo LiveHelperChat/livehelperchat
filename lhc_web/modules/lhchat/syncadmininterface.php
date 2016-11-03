@@ -217,7 +217,7 @@ if ($canListOnlineUsers == true || $canListOnlineUsersAll == true) {
     
 	$onlineOperators = erLhcoreClassModelUserDep::getOnlineOperators($currentUser,$canListOnlineUsersAll,$filter,is_numeric($Params['user_parameters_unordered']['limito']) ? (int)$Params['user_parameters_unordered']['limito'] : 10,$onlineTimeout);
 	
-	erLhcoreClassChat::prefillGetAttributes($onlineOperators,array('lastactivity_ago','user_id','id','name_support','active_chats','departments_names'),array(),array('remove_all' => true));
+	erLhcoreClassChat::prefillGetAttributes($onlineOperators,array('lastactivity_ago','user_id','id','name_official','active_chats','departments_names'),array(),array('remove_all' => true));
 	
 	$ReturnMessages['online_op'] = array('list' => array_values($onlineOperators));
 }
