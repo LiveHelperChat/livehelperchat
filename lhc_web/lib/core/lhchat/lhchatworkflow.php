@@ -226,13 +226,12 @@ class erLhcoreClassChatWorkflow {
     			
     			$chat->chat_duration = erLhcoreClassChat::getChatDurationToUpdateChatID($chat->id);
     			
-    			$chat->updateThis();  
-    			
-    			if ($chat->department !== false) {
-    			    erLhcoreClassChat::updateDepartmentStats($chat->department);
-    			}
+    			$chat->updateThis();
+
+                erLhcoreClassChat::closeChatCallback($chat,$chat->user);
     			
     			erLhcoreClassChat::updateActiveChats($chat->user_id);
+
     			$closedChatsNumber++;
 	    	}
 	    	
@@ -254,12 +253,11 @@ class erLhcoreClassChatWorkflow {
 	    	    }
 	    	     
 	    	    $chat->updateThis();
+
+                erLhcoreClassChat::closeChatCallback($chat,$chat->user);
+
 	    	    erLhcoreClassChat::updateActiveChats($chat->user_id);
-	    	    
-	    	    if ($chat->department !== false) {
-	    	        erLhcoreClassChat::updateDepartmentStats($chat->department);
-	    	    }
-	    	    
+
 	    	    $closedChatsNumber++;
 	    	}	    	
     	}
