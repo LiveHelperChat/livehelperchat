@@ -4,6 +4,8 @@ $tpl = erLhcoreClassTemplate::getInstance('lhdepartment/edit.tpl.php');
 
 $Departament = erLhcoreClassDepartament::getSession()->load( 'erLhcoreClassModelDepartament', (int)$Params['user_parameters']['departament_id'] );
 
+$DepartamentCustomWorkHours = erLhcoreClassModelDepartamentCustomWorkHours::getList(array('filter' => array('dep_id' => $Departament->id),'sort' => 'date_from ASC'));
+
 $userDepartments = true;
 
 /**
@@ -51,6 +53,8 @@ if (isset($_POST['Update_departament']) || isset($_POST['Save_departament'])  )
     {    	
         erLhcoreClassDepartament::getSession()->update($Departament);
 
+        $DepartamentCustomWorkHours = erLhcoreClassDepartament::validateDepartmentCustomWorkHours($Departament, $DepartamentCustomWorkHours);
+
         if (isset($_POST['Save_departament'])) {
             erLhcoreClassModule::redirect('department/departments');
             exit;
@@ -66,9 +70,10 @@ if (isset($_POST['Update_departament']) || isset($_POST['Save_departament'])  )
 $tpl->set('departament',$Departament);
 $tpl->set('currentUser',$currentUser);
 $tpl->set('limitDepartments',$userDepartments !== true ? array('filterin' => array('id' => $userDepartments)) : array());
+$tpl->set('departamentCustomWorkHours', json_encode(erLhcoreClassDepartament::getDepartamentCustomWorkHoursData($DepartamentCustomWorkHours), JSON_HEX_APOS));
 
 $Result['content'] = $tpl->fetch();
-
+$Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.lhc.customdepartmentperiodgenerator.js').'"></script>';
 $Result['path'] = array(
 array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','System configuration')),
 array('url' => erLhcoreClassDesign::baseurl('department/departments'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Departments')),

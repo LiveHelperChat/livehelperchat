@@ -15,15 +15,20 @@ class erLhcoreClassModelDepartament {
                'department_transfer_id' => $this->department_transfer_id,
                'transfer_timeout'    	=> $this->transfer_timeout,
                'identifier'    			=> $this->identifier,
-               'mod'    				=> $this->mod,
-               'tud'    				=> $this->tud,
-               'wed'    				=> $this->wed,
-               'thd'    				=> $this->thd,
-               'frd'    				=> $this->frd,
-               'sad'    				=> $this->sad,
-               'sud'    				=> $this->sud,
-               'start_hour'    			=> $this->start_hour,
-               'end_hour'    			=> $this->end_hour,
+               'mod_start_hour'    		=> $this->mod_start_hour,
+               'mod_end_hour'    		=> $this->mod_end_hour,
+               'tud_start_hour'    		=> $this->tud_start_hour,
+               'tud_end_hour'    		=> $this->tud_end_hour,
+               'wed_start_hour'    		=> $this->wed_start_hour,
+               'wed_end_hour'    		=> $this->wed_end_hour,
+               'thd_start_hour'    		=> $this->thd_start_hour,
+               'thd_end_hour'    		=> $this->thd_end_hour,
+               'frd_start_hour'    		=> $this->frd_start_hour,
+               'frd_end_hour'    		=> $this->frd_end_hour,
+               'sad_start_hour'    		=> $this->sad_start_hour,
+               'sad_end_hour'    		=> $this->sad_end_hour,
+               'sud_start_hour'    		=> $this->sud_start_hour,
+               'sud_end_hour'    		=> $this->sud_end_hour,
                'inform_options'    		=> $this->inform_options,
                'inform_delay'    		=> $this->inform_delay,
                'inform_close'    		=> $this->inform_close,
@@ -131,9 +136,53 @@ class erLhcoreClassModelDepartament {
 	   		case 'end_minutes_front':
 	   				return $this->end_hour - ($this->end_hour_front * 100);
 	   			break;
-	   		
+            case 'mod_start_hour_front':
+            case 'tud_start_hour_front':
+            case 'wed_start_hour_front':
+            case 'thd_start_hour_front':
+            case 'frd_start_hour_front':
+            case 'sad_start_hour_front':
+            case 'sud_start_hour_front':
+                $startHourName = str_replace('_start_hour_front', '', $var).'_start_hour';
+                return $this->$startHourName != -1 ? floor($this->$startHourName/100) : '';
+                break;
+
+            case 'mod_start_minutes_front':
+            case 'tud_start_minutes_front':
+            case 'wed_start_minutes_front':
+            case 'thd_start_minutes_front':
+            case 'frd_start_minutes_front':
+            case 'sad_start_minutes_front':
+            case 'sud_start_minutes_front':
+                $startHourName = str_replace('_start_minutes_front', '', $var).'_start_hour';
+                $startHourFrontName = str_replace('_start_minutes_front', '', $var).'_start_hour_front';
+                return $this->$startHourName != -1 ? $this->$startHourName - ($this->$startHourFrontName * 100) : '';
+                break;
+
+            case 'mod_end_hour_front':
+            case 'tud_end_hour_front':
+            case 'wed_end_hour_front':
+            case 'thd_end_hour_front':
+            case 'frd_end_hour_front':
+            case 'sad_end_hour_front':
+            case 'sud_end_hour_front':
+                $endHourName = str_replace('_end_hour_front', '', $var).'_end_hour';
+                return $this->$endHourName != -1 ? floor($this->$endHourName/100) : '';
+                break;
+
+            case 'mod_end_minutes_front':
+            case 'tud_end_minutes_front':
+            case 'wed_end_minutes_front':
+            case 'thd_end_minutes_front':
+            case 'frd_end_minutes_front':
+            case 'sad_end_minutes_front':
+            case 'sud_end_minutes_front':
+                $endHourName = str_replace('_end_minutes_front', '', $var).'_end_hour';
+                $endHourFrontName = str_replace('_end_minutes_front', '', $var).'_end_hour_front';
+                return $this->$endHourName != -1 ? $this->$endHourName - ($this->$endHourFrontName * 100) : '';
+                break;
+
 	   		default:
-	   			;
 	   		break;
 	   	}
    }
@@ -234,17 +283,22 @@ class erLhcoreClassModelDepartament {
     public $transfer_timeout = 0;
     public $identifier = '';    
     public $xmpp_recipients = '';    
-    public $xmpp_group_recipients = '';    
-    public $mod = 0;
-    public $tud = 0;
-    public $wed = 0;
-    public $thd = 0;
-    public $frd = 0;
-    public $sad = 0;
-    public $sud = 0;
+    public $xmpp_group_recipients = '';
+    public $mod_start_hour = -1;
+    public $mod_end_hour = -1;
+    public $tud_start_hour = -1;
+    public $tud_end_hour = -1;
+    public $wed_start_hour = -1;
+    public $wed_end_hour = -1;
+    public $thd_start_hour = -1;
+    public $thd_end_hour = -1;
+    public $frd_start_hour = -1;
+    public $frd_end_hour = -1;
+    public $sad_start_hour = -1;
+    public $sad_end_hour = -1;
+    public $sud_start_hour = -1;
+    public $sud_end_hour = -1;
     public $inform_delay = 0;
-    public $start_hour = 0;
-    public $end_hour = 0;
     public $inform_options = '';    
     public $inform_close = 0;    
     public $online_hours_active = 0;

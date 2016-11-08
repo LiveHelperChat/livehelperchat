@@ -66,27 +66,6 @@ class erLhcoreClassDepartament{
 	   			),	   			
 	   			'delay_lm' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 5)
-	   			),	   			
-	   			'mod' => new ezcInputFormDefinitionElement(
-	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
-	   			),
-	   			'tud' => new ezcInputFormDefinitionElement(
-	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
-	   			),
-	   			'wed' => new ezcInputFormDefinitionElement(
-	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
-	   			),
-	   			'thd' => new ezcInputFormDefinitionElement(
-	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
-	   			),
-	   			'frd' => new ezcInputFormDefinitionElement(
-	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
-	   			),
-	   			'sad' => new ezcInputFormDefinitionElement(
-	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
-	   			),
-	   			'sud' => new ezcInputFormDefinitionElement(
-	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	   			),
 	   			'OnlineHoursActive' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
@@ -121,20 +100,8 @@ class erLhcoreClassDepartament{
 	   			'MaxWaitTimeoutSeconds' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'int'
 	   			),
-	   			'StartHour' => new ezcInputFormDefinitionElement(
-	   					ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0, 'mx_range' => 24)
-	   			),
-	   			'StartHourMinit' => new ezcInputFormDefinitionElement(
-	   					ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0, 'mx_range' => 60)
-	   			),
 	   			'inform_unread_delay' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 5)
-	   			),
-	   			'EndHour' => new ezcInputFormDefinitionElement(
-	   					ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0, 'mx_range' => 24)
-	   			),
-	   			'EndHourMinit' => new ezcInputFormDefinitionElement(
-	   					ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0, 'mx_range' => 60)
 	   			),
 	   			'inform_delay' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0)
@@ -143,6 +110,32 @@ class erLhcoreClassDepartament{
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'string', null, FILTER_REQUIRE_ARRAY
 	   			),
 	   	);
+
+        foreach (self::getWeekDays() as $dayShort => $dayLong) {
+            $definition[$dayShort] = new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            );
+
+            $key = 'StartHour'.ucfirst($dayShort);
+            $definition[$key] = new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0, 'mx_range' => 24)
+            );
+
+            $key = 'StartMinutes'.ucfirst($dayShort);
+            $definition[$key] = new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0, 'mx_range' => 60)
+            );
+
+            $key = 'EndHour'.ucfirst($dayShort);
+            $definition[$key] = new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0, 'mx_range' => 24)
+            );
+
+            $key = 'EndMinutes'.ucfirst($dayShort);
+            $definition[$key] = new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0, 'mx_range' => 60)
+            );
+        }
 		   	
 	   	
 	   	$form = new ezcInputForm( INPUT_POST, $definition );
@@ -294,48 +287,6 @@ class erLhcoreClassDepartament{
 	   		$department->hidden = 0;
 	   	}
 	   		   	
-	   	if ( $form->hasValidData( 'mod' ) && $form->mod === true ) {
-	   		$department->mod = 1;
-	   	} else {
-	   		$department->mod = 0;
-	   	}
-	   		   	
-	   	if ( $form->hasValidData( 'tud' ) && $form->tud === true ) {
-	   		$department->tud = 1;
-	   	} else {
-	   		$department->tud = 0;
-	   	}
-	   		   	
-	   	if ( $form->hasValidData( 'wed' ) && $form->wed === true ) {
-	   		$department->wed = 1;
-	   	} else {
-	   		$department->wed = 0;
-	   	}
-	   		   	
-	   	if ( $form->hasValidData( 'thd' ) && $form->thd === true ) {
-	   		$department->thd = 1;
-	   	} else {
-	   		$department->thd = 0;
-	   	}
-	   		   	
-	   	if ( $form->hasValidData( 'frd' ) && $form->frd === true ) {
-	   		$department->frd = 1;
-	   	} else {
-	   		$department->frd = 0;
-	   	}
-	   		   	
-	   	if ( $form->hasValidData( 'sad' ) && $form->sad === true ) {
-	   		$department->sad = 1;
-	   	} else {
-	   		$department->sad = 0;
-	   	}
-	   		   	
-	   	if ( $form->hasValidData( 'sud' ) && $form->sud === true ) {
-	   		$department->sud = 1;
-	   	} else {
-	   		$department->sud = 0;
-	   	}
-	   		   	
 	   	if ( $form->hasValidData( 'OnlineHoursActive' ) && $form->OnlineHoursActive === true ) {
 	   		$department->online_hours_active = 1;
 	   	} else {
@@ -349,34 +300,6 @@ class erLhcoreClassDepartament{
 	   		$department->inform_options = serialize(array());
 	   	}
 
-	   	
-	   	if ( $form->hasValidData( 'StartHour' ) ) {
-	   		$startHour = $form->StartHour;
-	   	} else {
-	   		$startHour = 0;
-	   	}
-	   	
-	   	if ( $form->hasValidData( 'EndHour' ) ) {
-	   		$endHour = $form->EndHour;
-	   	} else {
-	   		$endHour = 0;
-	   	}
-	   	
-	   	if ( $form->hasValidData( 'StartHourMinit' ) ) {
-	   		$StartHourMinit =  str_pad($form->StartHourMinit, 2, '0', STR_PAD_LEFT);
-	   	} else {
-	   		$StartHourMinit = '00';
-	   	}
-	   	
-	   	if ( $form->hasValidData( 'EndHourMinit' ) ) {
-	   		$endHourMinit = str_pad($form->EndHourMinit, 2, '0', STR_PAD_LEFT);
-	   	} else {
-	   		$endHourMinit = '00';
-	   	}
-	   	
-	   	$department->start_hour = $startHour.$StartHourMinit;
-	   	$department->end_hour = $endHour.$endHourMinit;
-	   	
 	   	if ( $form->hasValidData( 'inform_delay' )  ) {
 	   		$department->inform_delay = $form->inform_delay;
 	   	} else {
@@ -386,9 +309,163 @@ class erLhcoreClassDepartament{
 	   	if ($department->id > 0 && $department->department_transfer_id == $department->id) {
 	   		$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('departament/edit','Transfer department has to be different one than self');
 	   	}
+
+       foreach (self::getWeekDays() as $dayShort => $dayLong) {
+           if($form->hasValidData( $dayShort ) && $form->$dayShort === true) {
+               $key = 'StartHour' . ucfirst($dayShort);
+               if ($form->hasValidData($key)) {
+                   $startHour = $form->$key;
+               } else {
+                   $startHour = 0;
+               }
+
+               $key = 'EndHour' . ucfirst($dayShort);
+               if ($form->hasValidData($key)) {
+                   $endHour = $form->$key;
+               } else {
+                   $endHour = 0;
+               }
+
+               $key = 'StartMinutes' . ucfirst($dayShort);
+               if ($form->hasValidData($key)) {
+                   $StartMinutes = str_pad($form->$key, 2, '0', STR_PAD_LEFT);
+               } else {
+                   $StartMinutes = '00';
+               }
+
+               $key = 'EndMinutes' . ucfirst($dayShort);
+               if ($form->hasValidData($key)) {
+                   $endHourMinutes = str_pad($form->$key, 2, '0', STR_PAD_LEFT);
+               } else {
+                   $endHourMinutes = '00';
+               }
+
+               $key = $dayShort . '_start_hour';
+               $department->$key = $startHour . $StartMinutes;
+
+               $key = $dayShort . '_end_hour';
+               $department->$key = $endHour . $endHourMinutes;
+           } else {
+               $key = $dayShort . '_start_hour';
+               $department->$key = -1;
+
+               $key = $dayShort . '_end_hour';
+               $department->$key = -1;
+           }
+       }
 	   	
 	   	return $Errors;
    	
+   }
+
+    /**
+     * validate and saves/removes department custom work hours, and return result of current custom work hours
+     *
+     * @param erLhcoreClassModelDepartament $departament
+     * @param erLhcoreClassModelDepartamentCustomWorkHours[] $departamentCustomWorkHours
+     * @return erLhcoreClassModelDepartamentCustomWorkHours[]
+     */
+   public static function validateDepartmentCustomWorkHours(erLhcoreClassModelDepartament $departament, $departamentCustomWorkHours = array())
+   {
+       $availableCustomWorkHours = array();
+
+       $definition = array(
+           'customPeriodId' => new ezcInputFormDefinitionElement(
+               ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY
+           ),
+           'customPeriodDateFrom' => new ezcInputFormDefinitionElement(
+               ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY
+           ),
+           'customPeriodDateTo' => new ezcInputFormDefinitionElement(
+               ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY
+           ),
+           'customPeriodStartHour' => new ezcInputFormDefinitionElement(
+               ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY
+           ),
+           'customPeriodStartHourMin' => new ezcInputFormDefinitionElement(
+               ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY
+           ),
+           'customPeriodEndHour' => new ezcInputFormDefinitionElement(
+               ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY
+           ),
+           'customPeriodEndHourMin' => new ezcInputFormDefinitionElement(
+               ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY
+           ),
+       );
+
+       $form = new ezcInputForm( INPUT_POST, $definition );
+
+       if ( $form->hasValidData( 'customPeriodId' ) && !empty($form->customPeriodId)) {
+           foreach ($form->customPeriodId as $key => $customPeriodId) {
+               if (!$customPeriodId) {
+                   // if id is not defined save new custom departament work hours
+                   $newDepartamentCustomWorkHours = new erLhcoreClassModelDepartamentCustomWorkHours();
+                   $newDepartamentCustomWorkHours->setState(array(
+                       'dep_id'         => $departament->id,
+                       'date_from'      => strtotime($form->customPeriodDateFrom[$key]),
+                       'date_to'        => strtotime($form->customPeriodDateTo[$key]),
+                       'start_hour'     => $form->customPeriodStartHour[$key] . (($form->customPeriodStartHourMin[$key] > 0) ? str_pad($form->customPeriodStartHourMin[$key], 2, '0', STR_PAD_LEFT) : '00'),
+                       'end_hour'       => $form->customPeriodEndHour[$key] . (($form->customPeriodEndHourMin[$key] > 0) ? str_pad($form->customPeriodEndHourMin[$key], 2, '0', STR_PAD_LEFT) : '00'),
+                   ));
+
+                   erLhcoreClassDepartament::getSession()->save($newDepartamentCustomWorkHours);
+
+                   $availableCustomWorkHours[$key]              = $newDepartamentCustomWorkHours;
+                   unset($departamentCustomWorkHours[$customPeriodId]);
+               } elseif($customPeriodId && !empty($departamentCustomWorkHours) && isset($departamentCustomWorkHours[$customPeriodId])) {
+                   // if id isset, unset from provided array
+                   $availableCustomWorkHours[$key] = $departamentCustomWorkHours[$customPeriodId];
+                   unset($departamentCustomWorkHours[$customPeriodId]);
+               }
+           }
+       }
+
+       // if there are left elements, remove them from DB
+       if(!empty($departamentCustomWorkHours)) {
+           foreach ($departamentCustomWorkHours as $departamentCustomWorkHour) {
+               erLhcoreClassDepartament::getSession()->delete($departamentCustomWorkHour);
+           }
+       }
+
+       return $availableCustomWorkHours;
+   }
+
+    /**
+     * Convert departament custom work hours to template data
+     *
+     * @param erLhcoreClassModelDepartamentCustomWorkHours[] $departamentCustomWorkHours
+     * @return array
+     */
+   public static function getDepartamentCustomWorkHoursData($departamentCustomWorkHours = array())
+   {
+       $data = array();
+
+       foreach ($departamentCustomWorkHours as $departamentCustomWorkHour) {
+           $data[] = array(
+               'dep_id'         => $departamentCustomWorkHour->dep_id,
+               'date_from'      => date('Y-m-d', $departamentCustomWorkHour->date_from),
+               'date_to'        => date('Y-m-d', $departamentCustomWorkHour->date_to),
+               'start_hour'     => $departamentCustomWorkHour->start_hour_front,
+               'start_hour_min' => $departamentCustomWorkHour->start_minutes_front,
+               'end_hour'       => $departamentCustomWorkHour->end_hour_front,
+               'end_hour_min'   => $departamentCustomWorkHour->end_minutes_front
+           );
+       }
+
+       return $data;
+   }
+
+   public static function getWeekDays()
+   {
+       return array(
+           'mod' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Monday'),
+           'tud' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Tuesday'),
+           'wed' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Wednesday'),
+           'thd' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Thursday'),
+           'frd' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Friday'),
+           'sad' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Saturday'),
+           'sud' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Sunday')
+       );
    }
    
    public static function getSession()

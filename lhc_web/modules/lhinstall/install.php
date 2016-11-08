@@ -1176,20 +1176,25 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `max_active_chats` int(11) NOT NULL,
 				  `max_timeout_seconds` int(11) NOT NULL,
 				  `identifier` varchar(50) NOT NULL,
-				  `mod` tinyint(1) NOT NULL,
-				  `tud` tinyint(1) NOT NULL,
-				  `wed` tinyint(1) NOT NULL,
-				  `thd` tinyint(1) NOT NULL,
-				  `frd` tinyint(1) NOT NULL,
-				  `sad` tinyint(1) NOT NULL,
-				  `sud` tinyint(1) NOT NULL,
+				  `mod_start_hour` int(4) NOT NULL,
+				  `mod_end_hour` int(4) NOT NULL,
+				  `tud_start_hour` int(4) NOT NULL,
+				  `tud_end_hour` int(4) NOT NULL,
+				  `wed_start_hour` int(4) NOT NULL,
+				  `wed_end_hour` int(4) NOT NULL,
+				  `thd_start_hour` int(4) NOT NULL,
+				  `thd_end_hour` int(4) NOT NULL,
+				  `frd_start_hour` int(4) NOT NULL,
+				  `frd_end_hour` int(4) NOT NULL,
+				  `sad_start_hour` int(4) NOT NULL,
+				  `sad_end_hour` int(4) NOT NULL,
+				  `sud_start_hour` int(4) NOT NULL,
+				  `sud_end_hour` int(4) NOT NULL,
 				  `nc_cb_execute` tinyint(1) NOT NULL,
 				  `na_cb_execute` tinyint(1) NOT NULL,
 				  `inform_unread` tinyint(1) NOT NULL,
 				  `active_balancing` tinyint(1) NOT NULL,
 				  `visible_if_online` tinyint(1) NOT NULL,
-				  `start_hour` int(2) NOT NULL,
-				  `end_hour` int(2) NOT NULL,
 				  `inform_close` int(11) NOT NULL,
 				  `inform_unread_delay` int(11) NOT NULL,
 				  `inform_options` varchar(250) NOT NULL,
@@ -1208,13 +1213,33 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  KEY `attr_int_3` (`attr_int_3`),
 				  KEY `disabled_hidden` (`disabled`, `hidden`),
 				  KEY `sort_priority_name` (`sort_priority`, `name`),
-				  KEY `oha_sh_eh` (`online_hours_active`,`start_hour`,`end_hour`)
+				  KEY `active_mod` (`online_hours_active`,`mod_start_hour`,`mod_end_hour`),
+				  KEY `active_tud` (`online_hours_active`,`tud_start_hour`,`tud_end_hour`),
+				  KEY `active_wed` (`online_hours_active`,`wed_start_hour`,`wed_end_hour`),
+				  KEY `active_thd` (`online_hours_active`,`thd_start_hour`,`thd_end_hour`),
+				  KEY `active_frd` (`online_hours_active`,`frd_start_hour`,`frd_end_hour`),
+				  KEY `active_sad` (`online_hours_active`,`sad_start_hour`,`sad_end_hour`),
+				  KEY `active_sud` (`online_hours_active`,`sud_start_hour`,`sud_end_hour`)
 				) DEFAULT CHARSET=utf8;");
 
         	   
         	   $Departament = new erLhcoreClassModelDepartament();
                $Departament->name = $form->DefaultDepartament;
                erLhcoreClassDepartament::getSession()->save($Departament);
+
+                //Department custom work hours
+                $db->query("CREATE TABLE IF NOT EXISTS `lh_departament_custom_work_hours` (
+				  `id` int(11) NOT NULL AUTO_INCREMENT,
+				  `dep_id` int(11) NOT NULL,
+				  `date_from` int(11) NOT NULL,
+				  `date_to` int(11) NOT NULL,
+				  `start_hour` int(11) NOT NULL,
+				  `end_hour` int(11) NOT NULL,
+				  PRIMARY KEY (`id`),
+				  KEY `dep_id` (`dep_id`),
+				  KEY `date_from` (`date_from`),
+				  KEY `search_active` (`date_from`, `date_to`, `dep_id`)
+				) DEFAULT CHARSET=utf8;");
 
                //Administrators group
                $db->query("CREATE TABLE IF NOT EXISTS `lh_group` (

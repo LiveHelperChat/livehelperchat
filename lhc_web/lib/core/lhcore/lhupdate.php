@@ -70,6 +70,13 @@ class erLhcoreClassUpdate
 					        $tablesStatus[$table]['queries'][] = "ALTER TABLE `{$table}` DROP `{$column['field']}`,COMMENT=''";
 					    }
 					}
+
+					if (isset($definition['tables_drop_column'][$table])) {
+					    if (in_array($column['field'], $definition['tables_drop_column'][$table])) {
+    						$status[] = '['.$column['field'] . "] field will be dropped";
+                            $tablesStatus[$table]['queries'][] = "ALTER TABLE `{$table}` DROP `{$column['field']}`,COMMENT=''";
+					    }
+					}
 				}
 
 				foreach ($columnsDesired as $columnDesired) {

@@ -15,10 +15,13 @@ if (isset($_POST['Save_departament']))
     if (count($Errors) == 0)
     {
         erLhcoreClassDepartament::getSession()->save($Departament);
+
+        erLhcoreClassDepartament::validateDepartmentCustomWorkHours($Departament);
+
         erLhcoreClassModule::redirect('department/departments');
         exit ;
 
-    }  else {
+    } else {
         $tpl->set('errors',$Errors);
     }
 }
@@ -26,7 +29,7 @@ if (isset($_POST['Save_departament']))
 $tpl->set('departament',$Departament);
 
 $Result['content'] = $tpl->fetch();
-
+$Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.lhc.customdepartmentperiodgenerator.js').'"></script>';
 $Result['path'] = array(
 array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/new','System configuration')),
 array('url' => erLhcoreClassDesign::baseurl('department/departments'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/new','Departments')),
