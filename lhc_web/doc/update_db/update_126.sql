@@ -1,3 +1,35 @@
+ALTER TABLE `lh_departament` DROP `mod`,COMMENT='';
+ALTER TABLE `lh_departament` DROP `tud`,COMMENT='';
+ALTER TABLE `lh_departament` DROP `wed`,COMMENT='';
+ALTER TABLE `lh_departament` DROP `thd`,COMMENT='';
+ALTER TABLE `lh_departament` DROP `frd`,COMMENT='';
+ALTER TABLE `lh_departament` DROP `sad`,COMMENT='';
+ALTER TABLE `lh_departament` DROP `sud`,COMMENT='';
+ALTER TABLE `lh_departament` DROP `start_hour`,COMMENT='';
+ALTER TABLE `lh_departament` DROP `end_hour`,COMMENT='';
+ALTER TABLE `lh_departament` ADD `mod_start_hour` int(4) NOT NULL DEFAULT '-1', COMMENT='';
+ALTER TABLE `lh_departament` ADD `mod_end_hour` int(4) NOT NULL DEFAULT '-1', COMMENT='';
+ALTER TABLE `lh_departament` ADD `tud_start_hour` int(4) NOT NULL DEFAULT '-1', COMMENT='';
+ALTER TABLE `lh_departament` ADD `tud_end_hour` int(4) NOT NULL DEFAULT '-1', COMMENT='';
+ALTER TABLE `lh_departament` ADD `wed_start_hour` int(4) NOT NULL DEFAULT '-1', COMMENT='';
+ALTER TABLE `lh_departament` ADD `wed_end_hour` int(4) NOT NULL DEFAULT '-1', COMMENT='';
+ALTER TABLE `lh_departament` ADD `thd_start_hour` int(4) NOT NULL DEFAULT '-1', COMMENT='';
+ALTER TABLE `lh_departament` ADD `thd_end_hour` int(4) NOT NULL DEFAULT '-1', COMMENT='';
+ALTER TABLE `lh_departament` ADD `frd_start_hour` int(4) NOT NULL DEFAULT '-1', COMMENT='';
+ALTER TABLE `lh_departament` ADD `frd_end_hour` int(4) NOT NULL DEFAULT '-1', COMMENT='';
+ALTER TABLE `lh_departament` ADD `sad_start_hour` int(4) NOT NULL DEFAULT '-1', COMMENT='';
+ALTER TABLE `lh_departament` ADD `sad_end_hour` int(4) NOT NULL DEFAULT '-1', COMMENT='';
+ALTER TABLE `lh_departament` ADD `sud_start_hour` int(4) NOT NULL DEFAULT '-1', COMMENT='';
+ALTER TABLE `lh_departament` ADD `sud_end_hour` int(4) NOT NULL DEFAULT '-1', COMMENT='';
+ALTER TABLE `lh_departament` ADD INDEX `active_mod` (`online_hours_active`,`mod_start_hour`,`mod_end_hour`);
+ALTER TABLE `lh_departament` ADD INDEX `active_tud` (`online_hours_active`,`tud_start_hour`,`tud_end_hour`);
+ALTER TABLE `lh_departament` ADD INDEX `active_wed` (`online_hours_active`,`wed_start_hour`,`wed_end_hour`);
+ALTER TABLE `lh_departament` ADD INDEX `active_thd` (`online_hours_active`,`thd_start_hour`,`thd_end_hour`);
+ALTER TABLE `lh_departament` ADD INDEX `active_frd` (`online_hours_active`,`frd_start_hour`,`frd_end_hour`);
+ALTER TABLE `lh_departament` ADD INDEX `active_sad` (`online_hours_active`,`sad_start_hour`,`sad_end_hour`);
+ALTER TABLE `lh_departament` ADD INDEX `active_sud` (`online_hours_active`,`sud_start_hour`,`sud_end_hour`);
+ALTER TABLE `lh_departament` DROP INDEX `oha_sh_eh`;
+
 CREATE TABLE IF NOT EXISTS `lh_departament_custom_work_hours` (
 				  `id` int(11) NOT NULL AUTO_INCREMENT,
 				  `dep_id` int(11) NOT NULL,
