@@ -49,6 +49,14 @@ $ViewList['isonlinedepartment'] = array(
     'params' => array('department_id')
 );
 
+$ViewList['getusers'] = array(
+    'params' => array()
+);
+
+$ViewList['getuser'] = array(
+    'params' => array()
+);
+
 $FunctionList = array();
 $FunctionList['use_admin'] = array('explain' => 'Allow operator to manage REST API');
 
