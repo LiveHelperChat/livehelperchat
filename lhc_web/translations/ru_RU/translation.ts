@@ -341,6 +341,29 @@
     </message>
   </context>
   <context>
+    <name>survey/form</name>
+    <message>
+      <source>Add option</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter a possible answer to your question here...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable stars</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable question</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable question with an answers</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>abstract/widgettheme</name>
     <message>
       <source>Download theme</source>
@@ -767,6 +790,10 @@
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
       <translation>Идентификатор, что должно отображаться это сообщение, идентификатор оставьте пустым для всех</translation>
+    </message>
+    <message>
+      <source>Tag</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Matched times</source>
@@ -1754,6 +1781,18 @@
       <translation>Просмотр экрана</translation>
     </message>
     <message>
+      <source>Print</source>
+      <translation>Печать</translation>
+    </message>
+    <message>
+      <source>Please enter a URL</source>
+      <translation>Пожалуйста, введите URL</translation>
+    </message>
+    <message>
+      <source>Redirect user to another url</source>
+      <translation>Переадресовать пользователя на другой URL</translation>
+    </message>
+    <message>
       <source>Choose other than default recognition language</source>
       <translation>Выберите язык распознавания, отличный от языка по умолчанию</translation>
     </message>
@@ -1824,18 +1863,6 @@
     <message>
       <source>Redirect user to contact form.</source>
       <translation>Перенаправлять пользователя на контактную форму</translation>
-    </message>
-    <message>
-      <source>Print</source>
-      <translation>Печать</translation>
-    </message>
-    <message>
-      <source>Please enter a URL</source>
-      <translation>Пожалуйста, введите URL</translation>
-    </message>
-    <message>
-      <source>Redirect user to another url</source>
-      <translation>Переадресовать пользователя на другой URL</translation>
     </message>
     <message>
       <source>Department</source>
@@ -2535,10 +2562,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Please choose a star</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Please enter a message, max characters</source>
       <translation>Пожалуйста введите сообщение, максимум симоволов</translation>
     </message>
@@ -2609,20 +2632,20 @@
       <translation>Включить звуковые уведомления о новых сообщениях от оператора</translation>
     </message>
     <message>
-      <source>Enable/Disable sound about new messages from users</source>
-      <translation>Вкл./Выкл. звук при получении сообщений от пользователей</translation>
-    </message>
-    <message>
-      <source>Enable/Disable sound about new pending chats</source>
-      <translation>Вкл./Выкл. звук при появлении чата в очереди</translation>
-    </message>
-    <message>
       <source>Change my visibility to visible/invisible</source>
       <translation>Изменить мою видимость на видим/невидим</translation>
     </message>
     <message>
       <source>Change my status to online/offline</source>
       <translation>Изменить свой статус (доступен / не доступен)</translation>
+    </message>
+    <message>
+      <source>Enable/Disable sound about new messages from users</source>
+      <translation>Вкл./Выкл. звук при получении сообщений от пользователей</translation>
+    </message>
+    <message>
+      <source>Enable/Disable sound about new pending chats</source>
+      <translation>Вкл./Выкл. звук при появлении чата в очереди</translation>
     </message>
   </context>
   <context>
@@ -3495,10 +3518,6 @@
       <translation>Шаблоны писем</translation>
     </message>
     <message>
-      <source>Languages configuration</source>
-      <translation>Настройки языка</translation>
-    </message>
-    <message>
       <source>GEO detection configuration</source>
       <translation>Настройки GEO-обнаружения</translation>
     </message>
@@ -3561,6 +3580,10 @@
     <message>
       <source>GEO adjustment</source>
       <translation>GEO регулирование</translation>
+    </message>
+    <message>
+      <source>Languages configuration</source>
+      <translation>Настройки языка</translation>
     </message>
     <message>
       <source>Maintenance</source>
@@ -6677,39 +6700,43 @@
       <translation>Оператор</translation>
     </message>
     <message>
-      <source>Stars</source>
-      <translation>Звезды</translation>
-    </message>
-    <message>
       <source>Time</source>
       <translation>Время</translation>
+    </message>
+    <message>
+      <source>View information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Collected information</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Department name</source>
       <translation>Название отдела</translation>
     </message>
+    <message>
+      <source>Stars</source>
+      <translation>Звезды</translation>
+    </message>
   </context>
   <context>
     <name>survey/fill</name>
-    <message>
-      <source>star</source>
-      <translation>звезда</translation>
-    </message>
-    <message>
-      <source>stars</source>
-      <translation>звезды</translation>
-    </message>
     <message>
       <source>Preview chat</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>How well did we do?</source>
-      <translation type="unfinished"/>
+      <source>star</source>
+      <translation>звезда</translation>
     </message>
     <message>
       <source>Poor</source>
       <translation>Плохо</translation>
+    </message>
+    <message>
+      <source>stars</source>
+      <translation>звезды</translation>
     </message>
     <message>
       <source>Excellent</source>
@@ -7569,6 +7596,41 @@
     </message>
   </context>
   <context>
+    <name>abstract/survey</name>
+    <message>
+      <source>Name</source>
+      <translation>Имя</translation>
+    </message>
+    <message>
+      <source>Max stars for feedback</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max stars pos</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title for evaluation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title for plain question</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title for custom questions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Survey</source>
+      <translation>Отзыв</translation>
+    </message>
+  </context>
+  <context>
     <name>file/file</name>
     <message>
       <source>Download file</source>
@@ -7887,21 +7949,6 @@
     <message>
       <source>E-mail templates</source>
       <translation>Шаблоны писем</translation>
-    </message>
-  </context>
-  <context>
-    <name>abstract/survey</name>
-    <message>
-      <source>Name</source>
-      <translation>Имя</translation>
-    </message>
-    <message>
-      <source>Max stars for feedback</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Survey</source>
-      <translation>Отзыв</translation>
     </message>
   </context>
   <context>

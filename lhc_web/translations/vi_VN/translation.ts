@@ -341,6 +341,29 @@
     </message>
   </context>
   <context>
+    <name>survey/form</name>
+    <message>
+      <source>Add option</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter a possible answer to your question here...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable stars</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable question</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable question with an answers</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>abstract/widgettheme</name>
     <message>
       <source>Download theme</source>
@@ -766,6 +789,10 @@
     </message>
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tag</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1305,7 +1332,7 @@
     </message>
     <message>
       <source>Visitor</source>
-      <translation>Lượt truy cập</translation>
+      <translation>Khách hàng</translation>
     </message>
     <message>
       <source>Chat started</source>
@@ -1753,6 +1780,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Print</source>
+      <translation>In</translation>
+    </message>
+    <message>
+      <source>Please enter a URL</source>
+      <translation>Vui lòng nhập đường link</translation>
+    </message>
+    <message>
+      <source>Redirect user to another url</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Choose other than default recognition language</source>
       <translation type="unfinished"/>
     </message>
@@ -1823,18 +1862,6 @@
     <message>
       <source>Redirect user to contact form.</source>
       <translation>Chuyển hướng người sử dụng đến form liên hệ.</translation>
-    </message>
-    <message>
-      <source>Print</source>
-      <translation>In</translation>
-    </message>
-    <message>
-      <source>Please enter a URL</source>
-      <translation>Vui lòng nhập đường link</translation>
-    </message>
-    <message>
-      <source>Redirect user to another url</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Department</source>
@@ -2534,10 +2561,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Please choose a star</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Please enter a message, max characters</source>
       <translation>Vui lòng nhập tin nhắn, ký tự tối đa</translation>
     </message>
@@ -2608,20 +2631,20 @@
       <translation>Bật / Tắt âm thanh về tin nhắn mới từ các nhà điều hành</translation>
     </message>
     <message>
-      <source>Enable/Disable sound about new messages from users</source>
-      <translation>Bật / Tắt âm thanh về tin nhắn mới từ người dùng</translation>
-    </message>
-    <message>
-      <source>Enable/Disable sound about new pending chats</source>
-      <translation>Bật / Tắt âm thanh về cuộc trò chuyện đang chờ mới</translation>
-    </message>
-    <message>
       <source>Change my visibility to visible/invisible</source>
       <translation>Thay đổi hiển thị của tôi thành: hiển thị/ẩn</translation>
     </message>
     <message>
       <source>Change my status to online/offline</source>
       <translation>Thay đổi trạng thái của mình online / offline</translation>
+    </message>
+    <message>
+      <source>Enable/Disable sound about new messages from users</source>
+      <translation>Bật / Tắt âm thanh về tin nhắn mới từ người dùng</translation>
+    </message>
+    <message>
+      <source>Enable/Disable sound about new pending chats</source>
+      <translation>Bật / Tắt âm thanh về cuộc trò chuyện đang chờ mới</translation>
     </message>
   </context>
   <context>
@@ -3494,10 +3517,6 @@
       <translation>E-mail mẫu</translation>
     </message>
     <message>
-      <source>Languages configuration</source>
-      <translation>Cấu hình ngôn ngữ</translation>
-    </message>
-    <message>
       <source>GEO detection configuration</source>
       <translation>Cấu hình phát hiện GEO</translation>
     </message>
@@ -3560,6 +3579,10 @@
     <message>
       <source>GEO adjustment</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Languages configuration</source>
+      <translation>Cấu hình ngôn ngữ</translation>
     </message>
     <message>
       <source>Maintenance</source>
@@ -6676,39 +6699,43 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Stars</source>
-      <translation>Sao</translation>
+      <source>Time</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Time</source>
+      <source>View information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Collected information</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Department name</source>
       <translation>Bộ phận</translation>
     </message>
+    <message>
+      <source>Stars</source>
+      <translation>Sao</translation>
+    </message>
   </context>
   <context>
     <name>survey/fill</name>
-    <message>
-      <source>star</source>
-      <translation>Sao</translation>
-    </message>
-    <message>
-      <source>stars</source>
-      <translation>Sao</translation>
-    </message>
     <message>
       <source>Preview chat</source>
       <translation>Xem lại cuộc đối thoại</translation>
     </message>
     <message>
-      <source>How well did we do?</source>
-      <translation>Dịch vụ của chúng tôi như thế nào ?</translation>
+      <source>star</source>
+      <translation>Sao</translation>
     </message>
     <message>
       <source>Poor</source>
       <translation>Tệ</translation>
+    </message>
+    <message>
+      <source>stars</source>
+      <translation>Sao</translation>
     </message>
     <message>
       <source>Excellent</source>
@@ -7568,6 +7595,41 @@
     </message>
   </context>
   <context>
+    <name>abstract/survey</name>
+    <message>
+      <source>Name</source>
+      <translation>Tên</translation>
+    </message>
+    <message>
+      <source>Max stars for feedback</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max stars pos</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title for evaluation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title for plain question</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title for custom questions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Survey</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>file/file</name>
     <message>
       <source>Download file</source>
@@ -7886,21 +7948,6 @@
     <message>
       <source>E-mail templates</source>
       <translation>E-mail mẫu</translation>
-    </message>
-  </context>
-  <context>
-    <name>abstract/survey</name>
-    <message>
-      <source>Name</source>
-      <translation>Tên</translation>
-    </message>
-    <message>
-      <source>Max stars for feedback</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Survey</source>
-      <translation type="unfinished"/>
     </message>
   </context>
   <context>

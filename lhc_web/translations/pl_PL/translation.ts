@@ -341,6 +341,29 @@
     </message>
   </context>
   <context>
+    <name>survey/form</name>
+    <message>
+      <source>Add option</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter a possible answer to your question here...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable stars</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable question</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable question with an answers</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>abstract/widgettheme</name>
     <message>
       <source>Download theme</source>
@@ -768,6 +791,10 @@ pokazywany</translation>
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
       <translation>Identyfikator, dla którego pokazywać proaktywne zaproszenie, pozostaw pusty aby pokazywać dla wszystkich</translation>
+    </message>
+    <message>
+      <source>Tag</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Matched times</source>
@@ -1754,6 +1781,18 @@ pokazywany</translation>
       <translation>Dzielenie ekranu</translation>
     </message>
     <message>
+      <source>Print</source>
+      <translation>Drukuj</translation>
+    </message>
+    <message>
+      <source>Please enter a URL</source>
+      <translation>Wpisz URL</translation>
+    </message>
+    <message>
+      <source>Redirect user to another url</source>
+      <translation>Przekieruj użytkownika na inny URL</translation>
+    </message>
+    <message>
       <source>Choose other than default recognition language</source>
       <translation>Wybierz inny niż domyślny język rozpoznawania mowy</translation>
     </message>
@@ -1824,18 +1863,6 @@ pokazywany</translation>
     <message>
       <source>Redirect user to contact form.</source>
       <translation>Przekieruj użytkownika do formularza kontaktowego.</translation>
-    </message>
-    <message>
-      <source>Print</source>
-      <translation>Drukuj</translation>
-    </message>
-    <message>
-      <source>Please enter a URL</source>
-      <translation>Wpisz URL</translation>
-    </message>
-    <message>
-      <source>Redirect user to another url</source>
-      <translation>Przekieruj użytkownika na inny URL</translation>
     </message>
     <message>
       <source>Department</source>
@@ -2535,10 +2562,6 @@ pokazywany</translation>
       <translation>Twoje zapytanie nie zostało przetworzone zgodnie z oczekiwaniami - ale nie martw się, to nie Twoja wina. Wyślij zapytanie ponownie. Jeśli nastąpi ten sam problem, skontaktuj się z nami w inny sposób.</translation>
     </message>
     <message>
-      <source>Please choose a star</source>
-      <translation>Wybierz gwiazdkę</translation>
-    </message>
-    <message>
       <source>Please enter a message, max characters</source>
       <translation>Wpisz wiadomość, max znaków</translation>
     </message>
@@ -2609,20 +2632,20 @@ pokazywany</translation>
       <translation>Włącz/Wyłącz powiadomienia dźwiękowe o nowych wiadomościach od operatora</translation>
     </message>
     <message>
-      <source>Enable/Disable sound about new messages from users</source>
-      <translation>Włącz/Wyłącz powiadomienia dźwiękowe o nowych wiadomościach od użytkowników</translation>
-    </message>
-    <message>
-      <source>Enable/Disable sound about new pending chats</source>
-      <translation>Włącz/Wyłącz powiadomienia dźwiękowe o oczekujących rozmowach</translation>
-    </message>
-    <message>
       <source>Change my visibility to visible/invisible</source>
       <translation>Zmień moją widoczność na widoczny/niewidoczny</translation>
     </message>
     <message>
       <source>Change my status to online/offline</source>
       <translation>Przełącz mój status na dostępny/niedostępny</translation>
+    </message>
+    <message>
+      <source>Enable/Disable sound about new messages from users</source>
+      <translation>Włącz/Wyłącz powiadomienia dźwiękowe o nowych wiadomościach od użytkowników</translation>
+    </message>
+    <message>
+      <source>Enable/Disable sound about new pending chats</source>
+      <translation>Włącz/Wyłącz powiadomienia dźwiękowe o oczekujących rozmowach</translation>
     </message>
   </context>
   <context>
@@ -3495,10 +3518,6 @@ pokazywany</translation>
       <translation>Szablony E-mail</translation>
     </message>
     <message>
-      <source>Languages configuration</source>
-      <translation>Konfiguracja języków</translation>
-    </message>
-    <message>
       <source>GEO detection configuration</source>
       <translation>Konfiguracja geolokalizacji</translation>
     </message>
@@ -3561,6 +3580,10 @@ pokazywany</translation>
     <message>
       <source>GEO adjustment</source>
       <translation>Ustawienia GEO lokalizacji</translation>
+    </message>
+    <message>
+      <source>Languages configuration</source>
+      <translation>Konfiguracja języków</translation>
     </message>
     <message>
       <source>Maintenance</source>
@@ -6677,39 +6700,43 @@ pokazywany</translation>
       <translation>Operator</translation>
     </message>
     <message>
-      <source>Stars</source>
-      <translation>Gwiazdki</translation>
-    </message>
-    <message>
       <source>Time</source>
       <translation>Czas</translation>
+    </message>
+    <message>
+      <source>View information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Collected information</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Department name</source>
       <translation>Nazwa działu</translation>
     </message>
+    <message>
+      <source>Stars</source>
+      <translation>Gwiazdki</translation>
+    </message>
   </context>
   <context>
     <name>survey/fill</name>
-    <message>
-      <source>star</source>
-      <translation>gwiazdka</translation>
-    </message>
-    <message>
-      <source>stars</source>
-      <translation>gwiazdki</translation>
-    </message>
     <message>
       <source>Preview chat</source>
       <translation>Podgląd chatu</translation>
     </message>
     <message>
-      <source>How well did we do?</source>
-      <translation>Jak dobrze nam poszło?</translation>
+      <source>star</source>
+      <translation>gwiazdka</translation>
     </message>
     <message>
       <source>Poor</source>
       <translation>Kiepsko</translation>
+    </message>
+    <message>
+      <source>stars</source>
+      <translation>gwiazdki</translation>
     </message>
     <message>
       <source>Excellent</source>
@@ -7569,6 +7596,41 @@ pokazywany</translation>
     </message>
   </context>
   <context>
+    <name>abstract/survey</name>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max stars for feedback</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max stars pos</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title for evaluation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title for plain question</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title for custom questions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Survey</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>file/file</name>
     <message>
       <source>Download file</source>
@@ -7887,21 +7949,6 @@ pokazywany</translation>
     <message>
       <source>E-mail templates</source>
       <translation>E-mail szablony</translation>
-    </message>
-  </context>
-  <context>
-    <name>abstract/survey</name>
-    <message>
-      <source>Name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Max stars for feedback</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Survey</source>
-      <translation type="unfinished"/>
     </message>
   </context>
   <context>

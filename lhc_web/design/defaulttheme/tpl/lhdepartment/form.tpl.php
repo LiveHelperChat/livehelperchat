@@ -57,9 +57,7 @@
 			    <label><input ng-init="OnlineHoursActive=<?php if ($departament->online_hours_active == 1) : ?>true<?php else : ?>false<?php endif?>" type="checkbox" ng-model="OnlineHoursActive" name="OnlineHoursActive" value="1" <?php if ($departament->online_hours_active == 1) : ?>checked="checked"<?php endif;?>  /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Work hours/work days logic is active');?></label>
 
 		    	<div ng-show="OnlineHoursActive">
-					<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Workdays/work hours, during these days/hours chat will be active automatically');?></h4>
-
-					<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Work hours, 24 hours format, 1 - 24, minutes format 0 - 60');?></h4>
+					<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Workdays/work hours, during these days/hours chat will be active automatically');?>. <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Work hours, 24 hours format, 1 - 24, minutes format 0 - 60');?></p>
 
 					<?php foreach (erLhcoreClassDepartament::getWeekDays() as $dayShort => $dayLong) : ?>
 						<?php
@@ -69,27 +67,50 @@
 							$endHourFrontName = $dayShort.'_end_hour_front';
 							$endMinutesFrontName = $dayShort.'_end_minutes_front';
 						?>
-						<div class="form-inline">
-						   <div class="form-group">
-							   <label><input type="checkbox" name="<?php echo $dayShort ?>" value="1" <?php if ($departament->$startHourName != -1) : ?>checked="checked"<?php endif;?> /> <?php echo $dayLong; ?></label>
+						<div class="row">
+						   <div class="col-xs-12">
+							   <label><input type="checkbox" ng-init="OnlineHoursDayActive<?php echo $dayShort ?>=<?php if ($departament->$startHourName != -1) : ?>true<?php else : ?>false<?php endif?>" ng-model="OnlineHoursDayActive<?php echo $dayShort ?>" name="<?php echo $dayShort ?>" value="1" <?php if ($departament->$startHourName != -1) : ?>checked="checked"<?php endif;?> /> <?php echo $dayLong; ?></label>
 
-							   <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Hours from');?></label>
-							   <input type="text" class="form-control" name="StartHour<?php echo ucfirst($dayShort); ?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Hours from, E.g. 8');?>" value="<?php echo $departament->$startHourFrontName; ?>" placeholder="0" />
-
-							   <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Minutes from');?></label>
-							   <input type="text" class="form-control" name="StartMinutes<?php echo ucfirst($dayShort); ?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Minutes from, E.g. 30');?>" value="<?php echo $departament->$startMinutesFrontName; ?>" placeholder="0" />
-
-							   <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Hours to');?></label>
-							   <input type="text" class="form-control" name="EndHour<?php echo ucfirst($dayShort); ?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Hours to, E.g. 17');?>" value="<?php echo $departament->$endHourFrontName; ?>" placeholder="0" />
-
-							   <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Minutes to');?></label>
-							   <input type="text" class="form-control" name="EndMinutes<?php echo ucfirst($dayShort); ?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Minutes to, E.g. 30');?>" value="<?php echo $departament->$endMinutesFrontName; ?>" placeholder="0" />
+							   <div class="row" ng-show="OnlineHoursDayActive<?php echo $dayShort ?>">
+    							   
+    							   <div class="col-xs-3">							   
+        							   <div class="form-group">
+        							     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Hours from');?></label>
+        							     <input type="number" max="24" class="form-control" name="StartHour<?php echo ucfirst($dayShort); ?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Hours from, E.g. 8');?>" value="<?php echo $departament->$startHourFrontName; ?>" placeholder="0" />
+                                       </div>
+                                   </div>
+                                   
+                                   <div class="col-xs-3"> 
+                                       <div class="form-group">
+        							     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Minutes from');?></label>
+        							     <input type="number" max="60" class="form-control" name="StartMinutes<?php echo ucfirst($dayShort); ?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Minutes from, E.g. 30');?>" value="<?php echo $departament->$startMinutesFrontName; ?>" placeholder="0" />
+                                       </div>
+                                   </div>
+                                   
+                                   <div class="col-xs-3">
+                                       <div class="form-group">
+        							     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Hours to');?></label>
+        							     <input type="number" max="24" class="form-control" name="EndHour<?php echo ucfirst($dayShort); ?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Hours to, E.g. 17');?>" value="<?php echo $departament->$endHourFrontName; ?>" placeholder="0" />
+                                       </div>
+                                   </div>
+                                   
+                                   <div class="col-xs-3">
+                                       <div class="form-group"> 
+        							     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Minutes to');?></label>
+        							     <input type="number" max="60" class="form-control" name="EndMinutes<?php echo ucfirst($dayShort); ?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Minutes to, E.g. 30');?>" value="<?php echo $departament->$endMinutesFrontName; ?>" placeholder="0" />
+        						       </div>
+    						       </div>
+						       
+						       </div>
+						       
 						   </div>
 						</div>
 					<?php endforeach; ?>
 
+					<hr class="mt10 mb10">
+					
 					<div ng-controller="DepartmentCustomPeriodCtrl as dcpc" ng-init='dcpc.customPeriods = <?php echo $departamentCustomWorkHours; ?>'>
-						<h2><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Custom period');?></h2>
+						<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Custom period');?></h4>
 
 						<div class="row">
 							<div class="col-xs-4">
@@ -109,23 +130,30 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-xs-12">
-								<div class="form-inline">
-									<div class="form-group">
-										<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Hours from');?></label>
-										<input type="text" class="form-control" ng-model="dcpc.custom_start_hour" name="custom_start_hour" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Hours from, E.g. 8');?>" placeholder="0" />
-
-										<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Minutes from');?></label>
-										<input type="text" class="form-control" ng-model="dcpc.custom_start_hour_min" name="custom_start_hour_min" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Minutes from, E.g. 30');?>" placeholder="0" />
-
-										<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Hours to');?></label>
-										<input type="text" class="form-control" ng-model="dcpc.custom_end_hour" name="custom_end_hour" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Hours to, E.g. 17');?>" placeholder="0" />
-
-										<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Minutes to');?></label>
-										<input type="text" class="form-control" ng-model="dcpc.custom_end_hour_min" name="custom_end_hour_min" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Minutes to, E.g. 30');?>" placeholder="0" />
-									</div>
-								</div>
-							</div>
+					        <div class="col-xs-2">
+								<div class="form-group">
+									<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Hours from');?></label>
+									<input type="number" max="24" class="form-control" ng-model="dcpc.custom_start_hour" name="custom_start_hour" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Hours from, E.g. 8');?>" placeholder="0" />
+                                </div>
+                            </div>  
+                            <div class="col-xs-2">     
+								<div class="form-group">	
+									<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Minutes from');?></label>
+									<input type="number" max="60" class="form-control" ng-model="dcpc.custom_start_hour_min" name="custom_start_hour_min" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Minutes from, E.g. 30');?>" placeholder="0" />
+                                </div>
+                            </div> 
+                            <div class="col-xs-2">
+                                <div class="form-group">
+									<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Hours to');?></label>
+									<input type="number" max="24" class="form-control" ng-model="dcpc.custom_end_hour" name="custom_end_hour" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Hours to, E.g. 17');?>" placeholder="0" />
+                                </div>
+                            </div>
+                            <div class="col-xs-2">
+                                <div class="form-group">
+									<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Minutes to');?></label>
+									<input type="number" max="60" class="form-control" ng-model="dcpc.custom_end_hour_min" name="custom_end_hour_min" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Minutes to, E.g. 30');?>" placeholder="0" />
+								</div>									
+							</div>									
 						</div>
 						<table id="customPeriodList" class="table table-responsive" ng-show="dcpc.customPeriods.length != 0">
 								<thead>

@@ -341,6 +341,29 @@
     </message>
   </context>
   <context>
+    <name>survey/form</name>
+    <message>
+      <source>Add option</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter a possible answer to your question here...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable stars</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable question</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable question with an answers</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>abstract/widgettheme</name>
     <message>
       <source>Download theme</source>
@@ -766,6 +789,10 @@
     </message>
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tag</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1753,6 +1780,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Print</source>
+      <translation>Printo</translation>
+    </message>
+    <message>
+      <source>Please enter a URL</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Redirect user to another url</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Choose other than default recognition language</source>
       <translation type="unfinished"/>
     </message>
@@ -1823,18 +1862,6 @@
     </message>
     <message>
       <source>Redirect user to contact form.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Print</source>
-      <translation>Printo</translation>
-    </message>
-    <message>
-      <source>Please enter a URL</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Redirect user to another url</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2535,10 +2562,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Please choose a star</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Please enter a message, max characters</source>
       <translation>Ju lutem vendosni nje mesazhin,max karaktere</translation>
     </message>
@@ -2609,20 +2632,20 @@
       <translation>Mundeso / Fik,zërin për mesazhe të reja nga operatori</translation>
     </message>
     <message>
-      <source>Enable/Disable sound about new messages from users</source>
-      <translation>Mundeso/Fik zerin per mesazhet e reja nga perdoruesit</translation>
-    </message>
-    <message>
-      <source>Enable/Disable sound about new pending chats</source>
-      <translation>Mundeso/Fik zerin per bisedat ne pritje</translation>
-    </message>
-    <message>
       <source>Change my visibility to visible/invisible</source>
       <translation>Ndrysho shikimin nga i dukshem/i padukshem</translation>
     </message>
     <message>
       <source>Change my status to online/offline</source>
       <translation>Ndrysho statusin tim nga online/offline</translation>
+    </message>
+    <message>
+      <source>Enable/Disable sound about new messages from users</source>
+      <translation>Mundeso/Fik zerin per mesazhet e reja nga perdoruesit</translation>
+    </message>
+    <message>
+      <source>Enable/Disable sound about new pending chats</source>
+      <translation>Mundeso/Fik zerin per bisedat ne pritje</translation>
     </message>
   </context>
   <context>
@@ -3495,10 +3518,6 @@
       <translation>E-Mail-et Shabllon</translation>
     </message>
     <message>
-      <source>Languages configuration</source>
-      <translation>Konfigurimet e gjuheve</translation>
-    </message>
-    <message>
       <source>GEO detection configuration</source>
       <translation type="unfinished"/>
     </message>
@@ -3561,6 +3580,10 @@
     <message>
       <source>GEO adjustment</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Languages configuration</source>
+      <translation>Konfigurimet e gjuheve</translation>
     </message>
     <message>
       <source>Maintenance</source>
@@ -6677,38 +6700,42 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Stars</source>
+      <source>Time</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Time</source>
+      <source>View information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Collected information</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Department name</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Stars</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>survey/fill</name>
-    <message>
-      <source>star</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>stars</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>Preview chat</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>How well did we do?</source>
+      <source>star</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Poor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>stars</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7569,6 +7596,41 @@
     </message>
   </context>
   <context>
+    <name>abstract/survey</name>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max stars for feedback</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max stars pos</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title for evaluation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title for plain question</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title for custom questions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Survey</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>file/file</name>
     <message>
       <source>Download file</source>
@@ -7886,21 +7948,6 @@
     </message>
     <message>
       <source>E-mail templates</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>abstract/survey</name>
-    <message>
-      <source>Name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Max stars for feedback</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Survey</source>
       <translation type="unfinished"/>
     </message>
   </context>

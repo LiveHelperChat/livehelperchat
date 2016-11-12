@@ -341,6 +341,29 @@
     </message>
   </context>
   <context>
+    <name>survey/form</name>
+    <message>
+      <source>Add option</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter a possible answer to your question here...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable stars</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable question</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable question with an answers</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>abstract/widgettheme</name>
     <message>
       <source>Download theme</source>
@@ -767,6 +790,10 @@
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
       <translation>Identificator, pentru ce identificator acest mesaj ar trebui să fi indicat, lăsaţi gol pentru toate</translation>
+    </message>
+    <message>
+      <source>Tag</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Matched times</source>
@@ -1753,6 +1780,18 @@
       <translation>Partajare ecran</translation>
     </message>
     <message>
+      <source>Print</source>
+      <translation>Printeaza</translation>
+    </message>
+    <message>
+      <source>Please enter a URL</source>
+      <translation>Te rog sa introduci un URL</translation>
+    </message>
+    <message>
+      <source>Redirect user to another url</source>
+      <translation>Redirectioneaza utilizatorul catre un alt URL</translation>
+    </message>
+    <message>
       <source>Choose other than default recognition language</source>
       <translation>Alege o alta limba in afara de limba standard pentru recunoastere vocala</translation>
     </message>
@@ -1823,18 +1862,6 @@
     <message>
       <source>Redirect user to contact form.</source>
       <translation>Redirectioneaza utilizatorul catre formularul de contact.</translation>
-    </message>
-    <message>
-      <source>Print</source>
-      <translation>Printeaza</translation>
-    </message>
-    <message>
-      <source>Please enter a URL</source>
-      <translation>Te rog sa introduci un URL</translation>
-    </message>
-    <message>
-      <source>Redirect user to another url</source>
-      <translation>Redirectioneaza utilizatorul catre un alt URL</translation>
     </message>
     <message>
       <source>Department</source>
@@ -2534,10 +2561,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Please choose a star</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Please enter a message, max characters</source>
       <translation>Te rog sa introduci un mesaj - numar maxim de caractere</translation>
     </message>
@@ -2608,20 +2631,20 @@
       <translation>Activeaza/dezactiveaza alerta sonora pentru mesaje ale operatorului</translation>
     </message>
     <message>
-      <source>Enable/Disable sound about new messages from users</source>
-      <translation>Activeaza/dezactiveaza alerta sonora pentru mesajele de la utilizatori</translation>
-    </message>
-    <message>
-      <source>Enable/Disable sound about new pending chats</source>
-      <translation>Activeaza/dezactiveaza alerta sonora pentru conversatii</translation>
-    </message>
-    <message>
       <source>Change my visibility to visible/invisible</source>
       <translation>Schimba starea mea in vizibil/invizibil</translation>
     </message>
     <message>
       <source>Change my status to online/offline</source>
       <translation>Schimba statusul meu activ/inactiv</translation>
+    </message>
+    <message>
+      <source>Enable/Disable sound about new messages from users</source>
+      <translation>Activeaza/dezactiveaza alerta sonora pentru mesajele de la utilizatori</translation>
+    </message>
+    <message>
+      <source>Enable/Disable sound about new pending chats</source>
+      <translation>Activeaza/dezactiveaza alerta sonora pentru conversatii</translation>
     </message>
   </context>
   <context>
@@ -3494,10 +3517,6 @@
       <translation>Template-uri pentru e-mail</translation>
     </message>
     <message>
-      <source>Languages configuration</source>
-      <translation>Configurarea limbei</translation>
-    </message>
-    <message>
       <source>GEO detection configuration</source>
       <translation>Setari pentru detectarea pozitiei geografice</translation>
     </message>
@@ -3560,6 +3579,10 @@
     <message>
       <source>GEO adjustment</source>
       <translation>Ajustare localizare GEO</translation>
+    </message>
+    <message>
+      <source>Languages configuration</source>
+      <translation>Configurarea limbei</translation>
     </message>
     <message>
       <source>Maintenance</source>
@@ -6676,39 +6699,43 @@
       <translation>Operator</translation>
     </message>
     <message>
-      <source>Stars</source>
-      <translation>Stele</translation>
-    </message>
-    <message>
       <source>Time</source>
       <translation>Ora</translation>
+    </message>
+    <message>
+      <source>View information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Collected information</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Department name</source>
       <translation>Nume departament</translation>
     </message>
+    <message>
+      <source>Stars</source>
+      <translation>Stele</translation>
+    </message>
   </context>
   <context>
     <name>survey/fill</name>
-    <message>
-      <source>star</source>
-      <translation>stea</translation>
-    </message>
-    <message>
-      <source>stars</source>
-      <translation>stele</translation>
-    </message>
     <message>
       <source>Preview chat</source>
       <translation>Previzualizare chat</translation>
     </message>
     <message>
-      <source>How well did we do?</source>
-      <translation>Cum ne-am descurcat?</translation>
+      <source>star</source>
+      <translation>stea</translation>
     </message>
     <message>
       <source>Poor</source>
       <translation>Nesatisfacator</translation>
+    </message>
+    <message>
+      <source>stars</source>
+      <translation>stele</translation>
     </message>
     <message>
       <source>Excellent</source>
@@ -7568,6 +7595,41 @@
     </message>
   </context>
   <context>
+    <name>abstract/survey</name>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max stars for feedback</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max stars pos</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title for evaluation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title for plain question</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title for custom questions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Survey</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>file/file</name>
     <message>
       <source>Download file</source>
@@ -7886,21 +7948,6 @@
     <message>
       <source>E-mail templates</source>
       <translation>Template-uri pentru e-mail</translation>
-    </message>
-  </context>
-  <context>
-    <name>abstract/survey</name>
-    <message>
-      <source>Name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Max stars for feedback</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Survey</source>
-      <translation type="unfinished"/>
     </message>
   </context>
   <context>

@@ -1,3 +1,10 @@
+2.51v
+
+1. Departments groups. Departments groups option will appear in user account under Assigned departments if atleast one department group will be defined.
+2. Option to set departments online hours per day or define nonworking/working days custom hours.
+
+execute doc/update_db/update_126.sql for update
+
 2.50v
 
 1. Now it's possible to inform user about unread messages from operator.

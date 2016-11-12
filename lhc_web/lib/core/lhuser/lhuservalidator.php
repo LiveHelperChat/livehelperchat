@@ -390,7 +390,17 @@ class erLhcoreClassUserValidator {
 		$data['enable_unread_list'] = ( $form->hasValidData( 'unreadTabEnabled' ) && $form->unreadTabEnabled == true ) ? 1 : 0;
 		
 		return $data;
-		
+	}
+	
+	public static function validateDepartmentsGroup(& $userData, $params = array()) {
+	
+	    $globalDepartament = array();
+	
+	    if (isset($_POST['UserDepartamentGroup']) && count($_POST['UserDepartamentGroup']) > 0) {
+	        $globalDepartament = array_merge($_POST['UserDepartamentGroup'], $globalDepartament);
+	    }
+	    	
+	    return $globalDepartament;
 	}
 	
 	public static function validateAccount(& $userData) {

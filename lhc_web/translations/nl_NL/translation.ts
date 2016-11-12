@@ -341,6 +341,29 @@
     </message>
   </context>
   <context>
+    <name>survey/form</name>
+    <message>
+      <source>Add option</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter a possible answer to your question here...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable stars</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable question</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable question with an answers</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>abstract/widgettheme</name>
     <message>
       <source>Download theme</source>
@@ -767,6 +790,10 @@
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
       <translation>Identificatie, voor welke identificatie dit bericht getoond moet worden, laat leeg voor overal</translation>
+    </message>
+    <message>
+      <source>Tag</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Matched times</source>
@@ -1753,6 +1780,18 @@
       <translation>Scherm delen</translation>
     </message>
     <message>
+      <source>Print</source>
+      <translation>Print</translation>
+    </message>
+    <message>
+      <source>Please enter a URL</source>
+      <translation>Voer s.v.p. een link in</translation>
+    </message>
+    <message>
+      <source>Redirect user to another url</source>
+      <translation>Stuur bezoeker door naar een andere link</translation>
+    </message>
+    <message>
       <source>Choose other than default recognition language</source>
       <translation>Kies een andere taal om te herkennen dan de standaard</translation>
     </message>
@@ -1823,18 +1862,6 @@
     <message>
       <source>Redirect user to contact form.</source>
       <translation>Stuur gebruiker door naar contactformulier.</translation>
-    </message>
-    <message>
-      <source>Print</source>
-      <translation>Print</translation>
-    </message>
-    <message>
-      <source>Please enter a URL</source>
-      <translation>Voer s.v.p. een link in</translation>
-    </message>
-    <message>
-      <source>Redirect user to another url</source>
-      <translation>Stuur bezoeker door naar een andere link</translation>
     </message>
     <message>
       <source>Department</source>
@@ -2534,10 +2561,6 @@
       <translation>Uw aanvraag is niet succesvol behandeld, geen zorgen dit was een probleem vanuit ons. Probeer het alstublieft opnieuw. Mocht het nog niet lukken kunt u contact opnemen via een andere manier.</translation>
     </message>
     <message>
-      <source>Please choose a star</source>
-      <translation>Kies een ster</translation>
-    </message>
-    <message>
       <source>Please enter a message, max characters</source>
       <translation>Voer s.v.p. een bericht in, maximaal aantal tekens</translation>
     </message>
@@ -2608,20 +2631,20 @@
       <translation>Speel wel/geen geluid af als een nieuw bericht binnenkomt van een operator</translation>
     </message>
     <message>
-      <source>Enable/Disable sound about new messages from users</source>
-      <translation>Speel wel/geen geluid af als een nieuw bericht binnenkomt</translation>
-    </message>
-    <message>
-      <source>Enable/Disable sound about new pending chats</source>
-      <translation>Speel wel/geen geluid af als er een chat wachtend is</translation>
-    </message>
-    <message>
       <source>Change my visibility to visible/invisible</source>
       <translation>Verander mijn zichtbaarheid naar zichtbaar/onzichtbaar</translation>
     </message>
     <message>
       <source>Change my status to online/offline</source>
       <translation>Verander mijn status naar online/offline</translation>
+    </message>
+    <message>
+      <source>Enable/Disable sound about new messages from users</source>
+      <translation>Speel wel/geen geluid af als een nieuw bericht binnenkomt</translation>
+    </message>
+    <message>
+      <source>Enable/Disable sound about new pending chats</source>
+      <translation>Speel wel/geen geluid af als er een chat wachtend is</translation>
     </message>
   </context>
   <context>
@@ -3495,10 +3518,6 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>E-mail templates</translation>
     </message>
     <message>
-      <source>Languages configuration</source>
-      <translation>Taalinstellingen</translation>
-    </message>
-    <message>
       <source>GEO detection configuration</source>
       <translation>GEO detectie en configuratie</translation>
     </message>
@@ -3561,6 +3580,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>GEO adjustment</source>
       <translation>GEO aanpassingen</translation>
+    </message>
+    <message>
+      <source>Languages configuration</source>
+      <translation>Taalinstellingen</translation>
     </message>
     <message>
       <source>Maintenance</source>
@@ -6677,39 +6700,43 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Operator</translation>
     </message>
     <message>
-      <source>Stars</source>
-      <translation>Sterren</translation>
-    </message>
-    <message>
       <source>Time</source>
       <translation>Tijd</translation>
+    </message>
+    <message>
+      <source>View information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Collected information</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Department name</source>
       <translation>Afdelingsnaam</translation>
     </message>
+    <message>
+      <source>Stars</source>
+      <translation>Sterren</translation>
+    </message>
   </context>
   <context>
     <name>survey/fill</name>
-    <message>
-      <source>star</source>
-      <translation>ster</translation>
-    </message>
-    <message>
-      <source>stars</source>
-      <translation>sterren</translation>
-    </message>
     <message>
       <source>Preview chat</source>
       <translation>Bekijk de chat</translation>
     </message>
     <message>
-      <source>How well did we do?</source>
-      <translation>Hoe tevreden bent u met deze chatsessie?</translation>
+      <source>star</source>
+      <translation>ster</translation>
     </message>
     <message>
       <source>Poor</source>
       <translation>Slecht</translation>
+    </message>
+    <message>
+      <source>stars</source>
+      <translation>sterren</translation>
     </message>
     <message>
       <source>Excellent</source>
@@ -7569,6 +7596,41 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
   </context>
   <context>
+    <name>abstract/survey</name>
+    <message>
+      <source>Name</source>
+      <translation>Naam</translation>
+    </message>
+    <message>
+      <source>Max stars for feedback</source>
+      <translation>Maximaal aantal sterren voor de enquête</translation>
+    </message>
+    <message>
+      <source>Max stars pos</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title for evaluation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title for plain question</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title for custom questions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Survey</source>
+      <translation>Enquête</translation>
+    </message>
+  </context>
+  <context>
     <name>file/file</name>
     <message>
       <source>Download file</source>
@@ -7887,21 +7949,6 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>E-mail templates</source>
       <translation>E-mail templates</translation>
-    </message>
-  </context>
-  <context>
-    <name>abstract/survey</name>
-    <message>
-      <source>Name</source>
-      <translation>Naam</translation>
-    </message>
-    <message>
-      <source>Max stars for feedback</source>
-      <translation>Maximaal aantal sterren voor de enquête</translation>
-    </message>
-    <message>
-      <source>Survey</source>
-      <translation>Enquête</translation>
     </message>
   </context>
   <context>

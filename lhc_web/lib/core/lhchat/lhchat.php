@@ -685,7 +685,7 @@ class erLhcoreClassChat {
                             $rowsNumber++;
                     }
                 } else {
-                    $daysColumns = array_keys(erLhcoreClassDepartament::getWeekDays());
+                    $daysColumns = array('mod','tud','wed','thd','frd','sad','sud');
                     $column = date('N') - 1;
                     $startHoursColumnName = $daysColumns[$column].'_start_hour';
                     $endHoursColumnName = $daysColumns[$column].'_end_hour';
@@ -719,14 +719,14 @@ class erLhcoreClassChat {
                $stmt->bindValue(':date_to',strtotime(date('Y-m-d')),PDO::PARAM_INT);
                $stmt->execute();
                $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+               
                if(!empty($result)) {
                    foreach ($result as $item) {
                        if($item['start_hour'] <= (int)(date('G') . date('i')) && $item['end_hour'] > (int)(date('G') . date('i')))
                            $rowsNumber++;
                    }
-               } else {
-                   $daysColumns = array_keys(erLhcoreClassDepartament::getWeekDays());
+               } else {                   
+                   $daysColumns = array('mod','tud','wed','thd','frd','sad','sud');
                    $column = date('N') - 1;
                    $startHoursColumnName = $daysColumns[$column].'_start_hour';
                    $endHoursColumnName = $daysColumns[$column].'_end_hour';
@@ -735,6 +735,7 @@ class erLhcoreClassChat {
                    $stmt->bindValue(':start_hour', date('G') . date('i'), PDO::PARAM_INT);
                    $stmt->bindValue(':end_hour', date('G') . date('i'), PDO::PARAM_INT);
                    $stmt->execute();
+                  
                    $rowsNumber = $stmt->fetchColumn();
                }
            }

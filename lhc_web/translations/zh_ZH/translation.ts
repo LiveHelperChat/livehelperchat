@@ -341,6 +341,29 @@
     </message>
   </context>
   <context>
+    <name>survey/form</name>
+    <message>
+      <source>Add option</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter a possible answer to your question here...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable stars</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable question</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable question with an answers</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>abstract/widgettheme</name>
     <message>
       <source>Download theme</source>
@@ -767,6 +790,10 @@
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
       <translation>標識符，標識符是什麼，應該顯示這個消息，留下空</translation>
+    </message>
+    <message>
+      <source>Tag</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Matched times</source>
@@ -1753,6 +1780,18 @@
       <translation>屏幕分享</translation>
     </message>
     <message>
+      <source>Print</source>
+      <translation>打印</translation>
+    </message>
+    <message>
+      <source>Please enter a URL</source>
+      <translation>请输入一个URL地址</translation>
+    </message>
+    <message>
+      <source>Redirect user to another url</source>
+      <translation>重定向用户到另一个URL地址</translation>
+    </message>
+    <message>
       <source>Choose other than default recognition language</source>
       <translation type="unfinished"/>
     </message>
@@ -1823,18 +1862,6 @@
     <message>
       <source>Redirect user to contact form.</source>
       <translation>重定向用户联系人窗体。</translation>
-    </message>
-    <message>
-      <source>Print</source>
-      <translation>打印</translation>
-    </message>
-    <message>
-      <source>Please enter a URL</source>
-      <translation>请输入一个URL地址</translation>
-    </message>
-    <message>
-      <source>Redirect user to another url</source>
-      <translation>重定向用户到另一个URL地址</translation>
     </message>
     <message>
       <source>Department</source>
@@ -2534,10 +2561,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Please choose a star</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Please enter a message, max characters</source>
       <translation>请输入一条消息，最大字符</translation>
     </message>
@@ -2608,20 +2631,20 @@
       <translation>启用/禁用声音从运营商新的消息</translation>
     </message>
     <message>
-      <source>Enable/Disable sound about new messages from users</source>
-      <translation>启用/禁用用户的新邮件的声音</translation>
-    </message>
-    <message>
-      <source>Enable/Disable sound about new pending chats</source>
-      <translation>启用/禁用声音有关新挂起聊天</translation>
-    </message>
-    <message>
       <source>Change my visibility to visible/invisible</source>
       <translation>更改我可见到可见/不可见</translation>
     </message>
     <message>
       <source>Change my status to online/offline</source>
       <translation>我的状态更改为联机/脱机</translation>
+    </message>
+    <message>
+      <source>Enable/Disable sound about new messages from users</source>
+      <translation>启用/禁用用户的新邮件的声音</translation>
+    </message>
+    <message>
+      <source>Enable/Disable sound about new pending chats</source>
+      <translation>启用/禁用声音有关新挂起聊天</translation>
     </message>
   </context>
   <context>
@@ -3494,10 +3517,6 @@
       <translation>电子邮件模板</translation>
     </message>
     <message>
-      <source>Languages configuration</source>
-      <translation>语言配置</translation>
-    </message>
-    <message>
       <source>GEO detection configuration</source>
       <translation>GEO检测配置</translation>
     </message>
@@ -3560,6 +3579,10 @@
     <message>
       <source>GEO adjustment</source>
       <translation>地理位置调整</translation>
+    </message>
+    <message>
+      <source>Languages configuration</source>
+      <translation>语言配置</translation>
     </message>
     <message>
       <source>Maintenance</source>
@@ -6676,38 +6699,42 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Stars</source>
+      <source>Time</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Time</source>
+      <source>View information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Collected information</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Department name</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Stars</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>survey/fill</name>
-    <message>
-      <source>star</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>stars</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>Preview chat</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>How well did we do?</source>
+      <source>star</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Poor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>stars</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7568,6 +7595,41 @@
     </message>
   </context>
   <context>
+    <name>abstract/survey</name>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max stars for feedback</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max stars pos</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title for evaluation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title for plain question</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title for custom questions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Survey</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>file/file</name>
     <message>
       <source>Download file</source>
@@ -7886,21 +7948,6 @@
     <message>
       <source>E-mail templates</source>
       <translation>电子邮件模板</translation>
-    </message>
-  </context>
-  <context>
-    <name>abstract/survey</name>
-    <message>
-      <source>Name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Max stars for feedback</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Survey</source>
-      <translation type="unfinished"/>
     </message>
   </context>
   <context>

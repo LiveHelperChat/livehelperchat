@@ -76,6 +76,9 @@ return array_merge(array (
         'erLhcoreClassModelRole'        => 'lib/models/lhpermission/erlhcoreclassmodelrole.php',
         'erLhcoreClassModelRoleFunction'=> 'lib/models/lhpermission/erlhcoreclassmodelrolefunction.php',
         'erLhcoreClassModelDepartament' => 'lib/models/lhdepartament/erlhcoreclassmodeldepartament.php',
+        'erLhcoreClassModelDepartamentGroup' => 'lib/models/lhdepartament/erlhcoreclassmodeldepartamentgroup.php',
+        'erLhcoreClassModelDepartamentGroupMember' => 'lib/models/lhdepartament/erlhcoreclassmodeldepartamentgroupmember.php',
+        'erLhcoreClassModelDepartamentGroupUser' => 'lib/models/lhdepartament/erlhcoreclassmodeldepartamentgroupuser.php',
         'erLhcoreClassModelDepartamentCustomWorkHours' => 'lib/models/lhdepartament/erlhcoreclassmodeldepartamentcustomworkhours.php',
         'erLhcoreClassModelUserDep' 	=> 'lib/models/lhdepartament/erlhcoreclassmodeluserdep.php',
 

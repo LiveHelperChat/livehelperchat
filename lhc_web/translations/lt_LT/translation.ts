@@ -341,6 +341,29 @@
     </message>
   </context>
   <context>
+    <name>survey/form</name>
+    <message>
+      <source>Add option</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter a possible answer to your question here...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable stars</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable question</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable question with an answers</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>abstract/widgettheme</name>
     <message>
       <source>Download theme</source>
@@ -767,6 +790,10 @@
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
       <translation>Identifikatorius, kuriam identifikatoriui ši žinutė turėtų būti rodoma. Palikite tuščia visiems</translation>
+    </message>
+    <message>
+      <source>Tag</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Matched times</source>
@@ -1753,6 +1780,18 @@
       <translation>Ekrano dalinamasis</translation>
     </message>
     <message>
+      <source>Print</source>
+      <translation>Spausdinti</translation>
+    </message>
+    <message>
+      <source>Please enter a URL</source>
+      <translation>Prašome įvesti URL</translation>
+    </message>
+    <message>
+      <source>Redirect user to another url</source>
+      <translation>Nukreipti vartotoją į kitą URL</translation>
+    </message>
+    <message>
       <source>Choose other than default recognition language</source>
       <translation>Pasirinkite kitą negu standartinę atpažinimo kalbą</translation>
     </message>
@@ -1823,18 +1862,6 @@
     <message>
       <source>Redirect user to contact form.</source>
       <translation>Nukreipti vartotoją į kontaktų formą</translation>
-    </message>
-    <message>
-      <source>Print</source>
-      <translation>Spausdinti</translation>
-    </message>
-    <message>
-      <source>Please enter a URL</source>
-      <translation>Prašome įvesti URL</translation>
-    </message>
-    <message>
-      <source>Redirect user to another url</source>
-      <translation>Nukreipti vartotoją į kitą URL</translation>
     </message>
     <message>
       <source>Department</source>
@@ -2534,10 +2561,6 @@
       <translation>Mes negalėjome aptarnauti Jūsų užklausos. Bandykite dar kartą.</translation>
     </message>
     <message>
-      <source>Please choose a star</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Please enter a message, max characters</source>
       <translation>Prašome įvesti žinutę, maksimum simbolių</translation>
     </message>
@@ -2608,20 +2631,20 @@
       <translation>Įjungti/Išjungti garsą apie naujus pranešimus iš operatoriaus</translation>
     </message>
     <message>
-      <source>Enable/Disable sound about new messages from users</source>
-      <translation>Įjungti/Išjungti garsą apie naujus pranešimus iš vartotojų</translation>
-    </message>
-    <message>
-      <source>Enable/Disable sound about new pending chats</source>
-      <translation>Įjungti/Išjungti garsą apie naujas užklausas iš vartotojų</translation>
-    </message>
-    <message>
       <source>Change my visibility to visible/invisible</source>
       <translation>Pakeisti mano matomumą į matomas/nematomas</translation>
     </message>
     <message>
       <source>Change my status to online/offline</source>
       <translation>Pakeisti mano būsena į prisijungusio/atsijungusio</translation>
+    </message>
+    <message>
+      <source>Enable/Disable sound about new messages from users</source>
+      <translation>Įjungti/Išjungti garsą apie naujus pranešimus iš vartotojų</translation>
+    </message>
+    <message>
+      <source>Enable/Disable sound about new pending chats</source>
+      <translation>Įjungti/Išjungti garsą apie naujas užklausas iš vartotojų</translation>
     </message>
   </context>
   <context>
@@ -3494,10 +3517,6 @@
       <translation>El. pašto šablonai</translation>
     </message>
     <message>
-      <source>Languages configuration</source>
-      <translation>Kalbų nustatymai</translation>
-    </message>
-    <message>
       <source>GEO detection configuration</source>
       <translation>GEO detekcijos nustatymai</translation>
     </message>
@@ -3560,6 +3579,10 @@
     <message>
       <source>GEO adjustment</source>
       <translation>GEO tinkinimas</translation>
+    </message>
+    <message>
+      <source>Languages configuration</source>
+      <translation>Kalbų nustatymai</translation>
     </message>
     <message>
       <source>Maintenance</source>
@@ -6676,38 +6699,42 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Stars</source>
+      <source>Time</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Time</source>
+      <source>View information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Collected information</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Department name</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Stars</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>survey/fill</name>
-    <message>
-      <source>star</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>stars</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>Preview chat</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>How well did we do?</source>
+      <source>star</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Poor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>stars</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7568,6 +7595,41 @@
     </message>
   </context>
   <context>
+    <name>abstract/survey</name>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max stars for feedback</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max stars pos</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title for evaluation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title for plain question</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title for custom questions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Survey</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>file/file</name>
     <message>
       <source>Download file</source>
@@ -7886,21 +7948,6 @@
     <message>
       <source>E-mail templates</source>
       <translation>El. pašto šablonai</translation>
-    </message>
-  </context>
-  <context>
-    <name>abstract/survey</name>
-    <message>
-      <source>Name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Max stars for feedback</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Survey</source>
-      <translation type="unfinished"/>
     </message>
   </context>
   <context>

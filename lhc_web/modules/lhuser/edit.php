@@ -87,7 +87,9 @@ if (isset($_POST['UpdateDepartaments_account'])) {
 	} else {
     	erLhcoreClassUserDep::addUserDepartaments(array(), $UserData->id, $UserData);
 	}
-
+	
+	erLhcoreClassModelDepartamentGroupUser::addUserDepartmentGroups($UserData, erLhcoreClassUserValidator::validateDepartmentsGroup($UserData));
+	
 	$tpl->set('account_updated_departaments','done');
    
 }

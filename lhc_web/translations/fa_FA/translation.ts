@@ -341,6 +341,29 @@
     </message>
   </context>
   <context>
+    <name>survey/form</name>
+    <message>
+      <source>Add option</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter a possible answer to your question here...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable stars</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable question</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable question with an answers</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>abstract/widgettheme</name>
     <message>
       <source>Download theme</source>
@@ -769,6 +792,10 @@
       <translation>شناسه، برای چه شناسه ای، این پیام نمایش داده شود؟ برای انتخاب همه شناسه ها، این فیلد را خالی بگذارید. </translation>
     </message>
     <message>
+      <source>Tag</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Matched times</source>
       <translation>زمان همسان</translation>
     </message>
@@ -1080,7 +1107,7 @@
     </message>
     <message>
       <source>Show product selection based on selected departments</source>
-      <translation type="unfinished"/>
+      <translation>نمایش انتخاب محصول بر اساس بخش‌های انتخاب شده</translation>
     </message>
     <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
@@ -1536,7 +1563,7 @@
     </message>
     <message>
       <source>Priority, used for departments sort</source>
-      <translation type="unfinished"/>
+      <translation>اولویت، استفاده شده برای چینش بخش‌ها</translation>
     </message>
     <message>
       <source>Automate online hours</source>
@@ -1716,7 +1743,7 @@
     </message>
     <message>
       <source>Departments</source>
-      <translation type="unfinished"/>
+      <translation>بخش‌ها</translation>
     </message>
     <message>
       <source>Edit a department</source>
@@ -1751,6 +1778,18 @@
     <message>
       <source>Screen sharing</source>
       <translation>به اشتراک گذاری صفحه نمایش</translation>
+    </message>
+    <message>
+      <source>Print</source>
+      <translation>چاپ</translation>
+    </message>
+    <message>
+      <source>Please enter a URL</source>
+      <translation>لطفاً یک آدرس اینترنتی وارد کنید</translation>
+    </message>
+    <message>
+      <source>Redirect user to another url</source>
+      <translation>انتقال کاربر به آدرس دیگر</translation>
     </message>
     <message>
       <source>Choose other than default recognition language</source>
@@ -1823,18 +1862,6 @@
     <message>
       <source>Redirect user to contact form.</source>
       <translation>ارسال کاربر به فرم تماس</translation>
-    </message>
-    <message>
-      <source>Print</source>
-      <translation>چاپ</translation>
-    </message>
-    <message>
-      <source>Please enter a URL</source>
-      <translation>لطفاً یک آدرس اینترنتی وارد کنید</translation>
-    </message>
-    <message>
-      <source>Redirect user to another url</source>
-      <translation>انتقال کاربر به آدرس دیگر</translation>
     </message>
     <message>
       <source>Department</source>
@@ -2171,7 +2198,7 @@
     </message>
     <message>
       <source>Configure dashboard</source>
-      <translation type="unfinished"/>
+      <translation>پیکربندی پیشخوان</translation>
     </message>
     <message>
       <source>Visitor</source>
@@ -2534,10 +2561,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Please choose a star</source>
-      <translation>لطفا یک ستاره را انتخاب کنید</translation>
-    </message>
-    <message>
       <source>Please enter a message, max characters</source>
       <translation>لطفا حداکثر تعداد کاراکترهای یک پیام را وارد کنید</translation>
     </message>
@@ -2608,20 +2631,20 @@
       <translation>فعال/غیرفعال کردن صدا برای دریافت پیام جدید از اپراتور</translation>
     </message>
     <message>
-      <source>Enable/Disable sound about new messages from users</source>
-      <translation>فعال/غیرفعال کردن صدا هنگام دریافت پیام های جدید از کاربران</translation>
-    </message>
-    <message>
-      <source>Enable/Disable sound about new pending chats</source>
-      <translation>فعال/غیرفعال کردن صدا برای چت های در انتظار</translation>
-    </message>
-    <message>
       <source>Change my visibility to visible/invisible</source>
       <translation>تغییر حالت نمایش به قابل مشاهده/ غیرقابل مشاهده</translation>
     </message>
     <message>
       <source>Change my status to online/offline</source>
       <translation>تغیر وضعیت من به آنلاین/آفلاین</translation>
+    </message>
+    <message>
+      <source>Enable/Disable sound about new messages from users</source>
+      <translation>فعال/غیرفعال کردن صدا هنگام دریافت پیام های جدید از کاربران</translation>
+    </message>
+    <message>
+      <source>Enable/Disable sound about new pending chats</source>
+      <translation>فعال/غیرفعال کردن صدا برای چت های در انتظار</translation>
     </message>
   </context>
   <context>
@@ -2648,7 +2671,7 @@
     </message>
     <message>
       <source>Departments stats</source>
-      <translation type="unfinished"/>
+      <translation>آمار بخش‌ها</translation>
     </message>
     <message>
       <source>Pending chats</source>
@@ -3084,7 +3107,7 @@
     </message>
     <message>
       <source>Dashboard</source>
-      <translation type="unfinished"/>
+      <translation>پیشخوان</translation>
     </message>
     <message>
       <source>City</source>
@@ -3479,11 +3502,11 @@
     </message>
     <message>
       <source>Supported: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
-      <translation type="unfinished"/>
+      <translation>پشتیبانی شده: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</translation>
     </message>
     <message>
       <source>Supported: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</source>
-      <translation type="unfinished"/>
+      <translation>پشتیبانی شده: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</translation>
     </message>
     <message>
       <source>Time zone settings</source>
@@ -3492,10 +3515,6 @@
     <message>
       <source>E-mail templates</source>
       <translation>قالب های ایمیل</translation>
-    </message>
-    <message>
-      <source>Languages configuration</source>
-      <translation>تنظیمات زبان</translation>
     </message>
     <message>
       <source>GEO detection configuration</source>
@@ -3560,6 +3579,10 @@
     <message>
       <source>GEO adjustment</source>
       <translation>تنظیم GEO </translation>
+    </message>
+    <message>
+      <source>Languages configuration</source>
+      <translation>تنظیمات زبان</translation>
     </message>
     <message>
       <source>Maintenance</source>
@@ -4037,7 +4060,7 @@
     </message>
     <message>
       <source>All departments</source>
-      <translation type="unfinished"/>
+      <translation>همه‌ی بخش‌ها</translation>
     </message>
     <message>
       <source>Check all</source>
@@ -4069,7 +4092,7 @@
     </message>
     <message>
       <source>Departments stats</source>
-      <translation type="unfinished"/>
+      <translation>آمار بخش‌ها</translation>
     </message>
     <message>
       <source>Online operators</source>
@@ -4121,7 +4144,7 @@
     </message>
     <message>
       <source>Dashboard</source>
-      <translation type="unfinished"/>
+      <translation>پیشخوان</translation>
     </message>
     <message>
       <source>Settings</source>
@@ -4981,15 +5004,15 @@
     </message>
     <message>
       <source>Only departments which are online and explicitly assigned operator are online</source>
-      <translation type="unfinished"/>
+      <translation>فقط بخش‌هایی که آنلاین هستند و صریحا به اپراتور اختصاص داده شده‌اند آنلاین هستند</translation>
     </message>
     <message>
       <source>Exclude hidden departments</source>
-      <translation type="unfinished"/>
+      <translation>به جز بخش‌های مخفی</translation>
     </message>
     <message>
       <source>Exclude disabled departments</source>
-      <translation type="unfinished"/>
+      <translation>به جز بخش‌های غیر فعال</translation>
     </message>
     <message>
       <source>Online</source>
@@ -6676,39 +6699,43 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Stars</source>
+      <source>Time</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Time</source>
+      <source>View information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Collected information</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Department name</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Stars</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>survey/fill</name>
-    <message>
-      <source>star</source>
-      <translation>ستاره</translation>
-    </message>
-    <message>
-      <source>stars</source>
-      <translation>ستاره</translation>
-    </message>
     <message>
       <source>Preview chat</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>How well did we do?</source>
-      <translation>ارزیابی شما؟</translation>
+      <source>star</source>
+      <translation>ستاره</translation>
     </message>
     <message>
       <source>Poor</source>
       <translation>ضعیف</translation>
+    </message>
+    <message>
+      <source>stars</source>
+      <translation>ستاره</translation>
     </message>
     <message>
       <source>Excellent</source>
@@ -7568,6 +7595,41 @@
     </message>
   </context>
   <context>
+    <name>abstract/survey</name>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max stars for feedback</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max stars pos</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title for evaluation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title for plain question</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title for custom questions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Survey</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>file/file</name>
     <message>
       <source>Download file</source>
@@ -7886,21 +7948,6 @@
     <message>
       <source>E-mail templates</source>
       <translation>قالب های ایمیل</translation>
-    </message>
-  </context>
-  <context>
-    <name>abstract/survey</name>
-    <message>
-      <source>Name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Max stars for feedback</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Survey</source>
-      <translation type="unfinished"/>
     </message>
   </context>
   <context>

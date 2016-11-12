@@ -341,6 +341,29 @@
     </message>
   </context>
   <context>
+    <name>survey/form</name>
+    <message>
+      <source>Add option</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter a possible answer to your question here...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable stars</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable question</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable question with an answers</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>abstract/widgettheme</name>
     <message>
       <source>Download theme</source>
@@ -767,6 +790,10 @@
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
       <translation>Identifierare, för vilket identitet ska detta meddelande visas för, lämna blankt för alla</translation>
+    </message>
+    <message>
+      <source>Tag</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Matched times</source>
@@ -1753,6 +1780,18 @@
       <translation>Skärmdelning</translation>
     </message>
     <message>
+      <source>Print</source>
+      <translation>Skriv ut</translation>
+    </message>
+    <message>
+      <source>Please enter a URL</source>
+      <translation>Var vänlig skriv en URL</translation>
+    </message>
+    <message>
+      <source>Redirect user to another url</source>
+      <translation>Vidarebefordra användare till en annan URL</translation>
+    </message>
+    <message>
       <source>Choose other than default recognition language</source>
       <translation>Välj ett annat igenkänningsspråk än det som är standard</translation>
     </message>
@@ -1823,18 +1862,6 @@
     <message>
       <source>Redirect user to contact form.</source>
       <translation>Vidarebefordra användare till kontaktformulär</translation>
-    </message>
-    <message>
-      <source>Print</source>
-      <translation>Skriv ut</translation>
-    </message>
-    <message>
-      <source>Please enter a URL</source>
-      <translation>Var vänlig skriv en URL</translation>
-    </message>
-    <message>
-      <source>Redirect user to another url</source>
-      <translation>Vidarebefordra användare till en annan URL</translation>
     </message>
     <message>
       <source>Department</source>
@@ -2534,10 +2561,6 @@
       <translation>Din förfrågan behandlades inte som förväntat - men oroa dig inte, det var inte ditt fel. Var vänlig skicka din förfrågan igen. Om du upplever samma fel så är du välkommen att kontakta oss.</translation>
     </message>
     <message>
-      <source>Please choose a star</source>
-      <translation>Var vänlig välj en stjärna</translation>
-    </message>
-    <message>
       <source>Please enter a message, max characters</source>
       <translation>Var vänlig skriv ett meddelande, max tecken</translation>
     </message>
@@ -2608,20 +2631,20 @@
       <translation>Av-/aktivera ljud för nya meddelanden från operatören</translation>
     </message>
     <message>
-      <source>Enable/Disable sound about new messages from users</source>
-      <translation>Av-/aktivera ljud för nya meddelanden från användare</translation>
-    </message>
-    <message>
-      <source>Enable/Disable sound about new pending chats</source>
-      <translation>Av-/aktivera ljud för väntande chattar</translation>
-    </message>
-    <message>
       <source>Change my visibility to visible/invisible</source>
       <translation>Ändra min status till synlig/ej synlig</translation>
     </message>
     <message>
       <source>Change my status to online/offline</source>
       <translation>Ändra min status till tillgänglig/frånvarande</translation>
+    </message>
+    <message>
+      <source>Enable/Disable sound about new messages from users</source>
+      <translation>Av-/aktivera ljud för nya meddelanden från användare</translation>
+    </message>
+    <message>
+      <source>Enable/Disable sound about new pending chats</source>
+      <translation>Av-/aktivera ljud för väntande chattar</translation>
     </message>
   </context>
   <context>
@@ -3494,10 +3517,6 @@
       <translation>E-postmallar</translation>
     </message>
     <message>
-      <source>Languages configuration</source>
-      <translation>Språkinställningar</translation>
-    </message>
-    <message>
       <source>GEO detection configuration</source>
       <translation>Geografisk lokaliseringsinställning</translation>
     </message>
@@ -3560,6 +3579,10 @@
     <message>
       <source>GEO adjustment</source>
       <translation>Geo justering</translation>
+    </message>
+    <message>
+      <source>Languages configuration</source>
+      <translation>Språkinställningar</translation>
     </message>
     <message>
       <source>Maintenance</source>
@@ -6676,39 +6699,43 @@
       <translation>Operatör</translation>
     </message>
     <message>
-      <source>Stars</source>
-      <translation>Stjärnor</translation>
-    </message>
-    <message>
       <source>Time</source>
       <translation>Tid</translation>
+    </message>
+    <message>
+      <source>View information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Collected information</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Department name</source>
       <translation>Namn på avdelningen</translation>
     </message>
+    <message>
+      <source>Stars</source>
+      <translation>Stjärnor</translation>
+    </message>
   </context>
   <context>
     <name>survey/fill</name>
-    <message>
-      <source>star</source>
-      <translation>stjärna</translation>
-    </message>
-    <message>
-      <source>stars</source>
-      <translation>stjärnor</translation>
-    </message>
     <message>
       <source>Preview chat</source>
       <translation>Förhandsvisa chatt</translation>
     </message>
     <message>
-      <source>How well did we do?</source>
-      <translation>Hur bra gjorde vi ifrån oss?</translation>
+      <source>star</source>
+      <translation>stjärna</translation>
     </message>
     <message>
       <source>Poor</source>
       <translation>Dåligt</translation>
+    </message>
+    <message>
+      <source>stars</source>
+      <translation>stjärnor</translation>
     </message>
     <message>
       <source>Excellent</source>
@@ -7568,6 +7595,41 @@
     </message>
   </context>
   <context>
+    <name>abstract/survey</name>
+    <message>
+      <source>Name</source>
+      <translation>Namn</translation>
+    </message>
+    <message>
+      <source>Max stars for feedback</source>
+      <translation>Max antal stjärnor för feedback</translation>
+    </message>
+    <message>
+      <source>Max stars pos</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title for evaluation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title for plain question</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title for custom questions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Survey</source>
+      <translation>Undersökning</translation>
+    </message>
+  </context>
+  <context>
     <name>file/file</name>
     <message>
       <source>Download file</source>
@@ -7886,21 +7948,6 @@
     <message>
       <source>E-mail templates</source>
       <translation>E-postmallar</translation>
-    </message>
-  </context>
-  <context>
-    <name>abstract/survey</name>
-    <message>
-      <source>Name</source>
-      <translation>Namn</translation>
-    </message>
-    <message>
-      <source>Max stars for feedback</source>
-      <translation>Max antal stjärnor för feedback</translation>
-    </message>
-    <message>
-      <source>Survey</source>
-      <translation>Undersökning</translation>
     </message>
   </context>
   <context>

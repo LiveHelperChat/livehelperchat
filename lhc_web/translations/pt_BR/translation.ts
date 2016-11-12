@@ -199,7 +199,7 @@
     </message>
     <message>
       <source>Hide &apos;New Window&apos; option in Connector Widget</source>
-      <translation type="unfinished"/>
+      <translation>Ocultar a opção &apos;Nova janela&apos; no Conector Widget</translation>
     </message>
     <message>
       <source>Disable JS execution in Co-Browsing operator window</source>
@@ -207,7 +207,7 @@
     </message>
     <message>
       <source>Disable iframes in sharing mode</source>
-      <translation type="unfinished"/>
+      <translation>Desabilitar iframes em modo de compartilhamento</translation>
     </message>
     <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
@@ -338,6 +338,29 @@
     <message>
       <source>Updated!</source>
       <translation>Atualizado!</translation>
+    </message>
+  </context>
+  <context>
+    <name>survey/form</name>
+    <message>
+      <source>Add option</source>
+      <translation>Adicionar opção</translation>
+    </message>
+    <message>
+      <source>Enter a possible answer to your question here...</source>
+      <translation>Insira uma possível resposta para sua pergunta aqui...</translation>
+    </message>
+    <message>
+      <source>Enable stars</source>
+      <translation>Habilitar as estrelas</translation>
+    </message>
+    <message>
+      <source>Enable question</source>
+      <translation>Habilitar a pergunta</translation>
+    </message>
+    <message>
+      <source>Enable question with an answers</source>
+      <translation>Habilitar a pergunta com uma resposta</translation>
     </message>
   </context>
   <context>
@@ -655,7 +678,7 @@
     </message>
     <message>
       <source>Our staff are always ready to help</source>
-      <translation type="unfinished"/>
+      <translation>Nossa equipe está sempre pronta para ajudar</translation>
     </message>
     <message>
       <source>Live help is offline...</source>
@@ -767,6 +790,10 @@
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
       <translation>Identificador, para qual identificador esta mensagem deve ser mostrada, deixe em branco para todos</translation>
+    </message>
+    <message>
+      <source>Tag</source>
+      <translation>Tag</translation>
     </message>
     <message>
       <source>Matched times</source>
@@ -1104,11 +1131,11 @@
     </message>
     <message>
       <source>Full height right</source>
-      <translation type="unfinished"/>
+      <translation>Altura total à direita</translation>
     </message>
     <message>
       <source>Full height left</source>
-      <translation type="unfinished"/>
+      <translation>Altura total à esquerda</translation>
     </message>
     <message>
       <source>Popup window width</source>
@@ -1753,6 +1780,18 @@
       <translation>Compartilhamento de tela</translation>
     </message>
     <message>
+      <source>Print</source>
+      <translation>Imprimir</translation>
+    </message>
+    <message>
+      <source>Please enter a URL</source>
+      <translation>Digite uma URL</translation>
+    </message>
+    <message>
+      <source>Redirect user to another url</source>
+      <translation>Redirecionar usuário para outra URL</translation>
+    </message>
+    <message>
       <source>Choose other than default recognition language</source>
       <translation>Escolha outro idioma que não seja o padrão</translation>
     </message>
@@ -1823,18 +1862,6 @@
     <message>
       <source>Redirect user to contact form.</source>
       <translation>Redirecionar usuário para o formulário de contato.</translation>
-    </message>
-    <message>
-      <source>Print</source>
-      <translation>Imprimir</translation>
-    </message>
-    <message>
-      <source>Please enter a URL</source>
-      <translation>Digite uma URL</translation>
-    </message>
-    <message>
-      <source>Redirect user to another url</source>
-      <translation>Redirecionar usuário para outra URL</translation>
     </message>
     <message>
       <source>Department</source>
@@ -1962,15 +1989,15 @@
     </message>
     <message>
       <source>Auto responder got error</source>
-      <translation type="unfinished"/>
+      <translation>Erro na resposta automática</translation>
     </message>
     <message>
       <source>Form data not valid</source>
-      <translation type="unfinished"/>
+      <translation>Dados de formulário inválidos</translation>
     </message>
     <message>
       <source>Has no access to this chat</source>
-      <translation type="unfinished"/>
+      <translation>Sem acesso a este bate-papo</translation>
     </message>
   </context>
   <context>
@@ -2254,7 +2281,7 @@
     </message>
     <message>
       <source>Screenshot store error</source>
-      <translation type="unfinished"/>
+      <translation>Erro ao armazenar screenshot</translation>
     </message>
   </context>
   <context>
@@ -2534,10 +2561,6 @@
       <translation>Sua solicitação não foi processada como esperado - mas não se preocupe isso não foi sua culpa. Por favor reenvie sua solicitação. Se você experimentar o mesmo problema, você precisará nos contactar por outros meios.</translation>
     </message>
     <message>
-      <source>Please choose a star</source>
-      <translation>Por favor, escolha uma estrela</translation>
-    </message>
-    <message>
       <source>Please enter a message, max characters</source>
       <translation>Por favor, digite uma mensagem, máximo de caracteres</translation>
     </message>
@@ -2608,20 +2631,20 @@
       <translation>Ativar/desativar som sobre novas mensagens do operador</translation>
     </message>
     <message>
-      <source>Enable/Disable sound about new messages from users</source>
-      <translation>Ativar/Desativar sons de novas mensagens de usuários</translation>
-    </message>
-    <message>
-      <source>Enable/Disable sound about new pending chats</source>
-      <translation>Ativar/Desativar sons de novos chats pendentes</translation>
-    </message>
-    <message>
       <source>Change my visibility to visible/invisible</source>
       <translation>Alterar minha visibilidade para visível/invisível</translation>
     </message>
     <message>
       <source>Change my status to online/offline</source>
       <translation>Alterar meu status para online/offline</translation>
+    </message>
+    <message>
+      <source>Enable/Disable sound about new messages from users</source>
+      <translation>Ativar/Desativar sons de novas mensagens de usuários</translation>
+    </message>
+    <message>
+      <source>Enable/Disable sound about new pending chats</source>
+      <translation>Ativar/Desativar sons de novos chats pendentes</translation>
     </message>
   </context>
   <context>
@@ -3068,7 +3091,7 @@
     </message>
     <message>
       <source>Google Maps API key, saved automatically. After pasting the key, refresh the page.</source>
-      <translation type="unfinished"/>
+      <translation>Chave da API do Google Maps, salvo automaticamente. Depois de colar a chave, atualize a página.</translation>
     </message>
     <message>
       <source>Settings updated</source>
@@ -3495,10 +3518,6 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Modelos de e-mail</translation>
     </message>
     <message>
-      <source>Languages configuration</source>
-      <translation>Configuração de idiomas</translation>
-    </message>
-    <message>
       <source>GEO detection configuration</source>
       <translation>Configuração de Geolocalização</translation>
     </message>
@@ -3561,6 +3580,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>GEO adjustment</source>
       <translation>Ajustes GEO</translation>
+    </message>
+    <message>
+      <source>Languages configuration</source>
+      <translation>Configuração de idiomas</translation>
     </message>
     <message>
       <source>Maintenance</source>
@@ -6677,39 +6700,43 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Atendente</translation>
     </message>
     <message>
-      <source>Stars</source>
-      <translation>Estrelas</translation>
-    </message>
-    <message>
       <source>Time</source>
       <translation>Tempo</translation>
+    </message>
+    <message>
+      <source>View information</source>
+      <translation>Exibir informações</translation>
+    </message>
+    <message>
+      <source>Collected information</source>
+      <translation>Informações coletadas</translation>
     </message>
     <message>
       <source>Department name</source>
       <translation>Nome do departamento</translation>
     </message>
+    <message>
+      <source>Stars</source>
+      <translation>Estrelas</translation>
+    </message>
   </context>
   <context>
     <name>survey/fill</name>
-    <message>
-      <source>star</source>
-      <translation>estrela</translation>
-    </message>
-    <message>
-      <source>stars</source>
-      <translation>estrelas</translation>
-    </message>
     <message>
       <source>Preview chat</source>
       <translation>Pé-visualizar o chat </translation>
     </message>
     <message>
-      <source>How well did we do?</source>
-      <translation>Como está nosso atendimento?</translation>
+      <source>star</source>
+      <translation>estrela</translation>
     </message>
     <message>
       <source>Poor</source>
       <translation>Péssimo</translation>
+    </message>
+    <message>
+      <source>stars</source>
+      <translation>estrelas</translation>
     </message>
     <message>
       <source>Excellent</source>
@@ -7454,7 +7481,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>CSFR token is invalid, try to resubmit form</source>
-      <translation type="unfinished"/>
+      <translation>Token CSFR inválido, tente reenviar o formulário</translation>
     </message>
     <message>
       <source>Incorrect username or password</source>
@@ -7462,7 +7489,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Logged in successfully</source>
-      <translation type="unfinished"/>
+      <translation>Logado com sucesso</translation>
     </message>
   </context>
   <context>
@@ -7567,6 +7594,41 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>API Key</source>
       <translation>API Key</translation>
+    </message>
+  </context>
+  <context>
+    <name>abstract/survey</name>
+    <message>
+      <source>Name</source>
+      <translation>Nome</translation>
+    </message>
+    <message>
+      <source>Max stars for feedback</source>
+      <translation>Deixe seu feedback</translation>
+    </message>
+    <message>
+      <source>Max stars pos</source>
+      <translation>Max estrelas pos</translation>
+    </message>
+    <message>
+      <source>Title for evaluation</source>
+      <translation>Título para avaliação</translation>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation>Habilitado</translation>
+    </message>
+    <message>
+      <source>Title for plain question</source>
+      <translation>Título para pergunta simples</translation>
+    </message>
+    <message>
+      <source>Title for custom questions</source>
+      <translation>Título para perguntas personalizadas</translation>
+    </message>
+    <message>
+      <source>Survey</source>
+      <translation>Questionário</translation>
     </message>
   </context>
   <context>
@@ -7888,21 +7950,6 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>E-mail templates</source>
       <translation>Modelos de e-mail</translation>
-    </message>
-  </context>
-  <context>
-    <name>abstract/survey</name>
-    <message>
-      <source>Name</source>
-      <translation>Nome</translation>
-    </message>
-    <message>
-      <source>Max stars for feedback</source>
-      <translation>Deixe seu feedback</translation>
-    </message>
-    <message>
-      <source>Survey</source>
-      <translation>Questionário</translation>
     </message>
   </context>
   <context>

@@ -341,6 +341,29 @@
     </message>
   </context>
   <context>
+    <name>survey/form</name>
+    <message>
+      <source>Add option</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter a possible answer to your question here...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable stars</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable question</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable question with an answers</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>abstract/widgettheme</name>
     <message>
       <source>Download theme</source>
@@ -767,6 +790,10 @@
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
       <translation>Identifikátor, pro který má být tato zpráva zobrazena, nechte prázdné pro všechny</translation>
+    </message>
+    <message>
+      <source>Tag</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Matched times</source>
@@ -1753,6 +1780,18 @@
       <translation>Sdílení obrazovky</translation>
     </message>
     <message>
+      <source>Print</source>
+      <translation>Tisk</translation>
+    </message>
+    <message>
+      <source>Please enter a URL</source>
+      <translation>Prosím zadejte URL</translation>
+    </message>
+    <message>
+      <source>Redirect user to another url</source>
+      <translation>Přesmětovat uživatele na jinou URL</translation>
+    </message>
+    <message>
       <source>Choose other than default recognition language</source>
       <translation>Vyberte jiný než výchozí jazyk rozpoznávání</translation>
     </message>
@@ -1823,18 +1862,6 @@
     <message>
       <source>Redirect user to contact form.</source>
       <translation>Přesměrovat uživatele do kontaktního formuláře.</translation>
-    </message>
-    <message>
-      <source>Print</source>
-      <translation>Tisk</translation>
-    </message>
-    <message>
-      <source>Please enter a URL</source>
-      <translation>Prosím zadejte URL</translation>
-    </message>
-    <message>
-      <source>Redirect user to another url</source>
-      <translation>Přesmětovat uživatele na jinou URL</translation>
     </message>
     <message>
       <source>Department</source>
@@ -2534,10 +2561,6 @@
       <translation>Vaše žádost nebyl zpracována podle očekávání - ale neboj, nebyla to Vaše chyba. Odešlete, prosím, svou žádost znovu. Pokud narazíte stejný problém, budete nás muset kontaktovat jiným způsobem.</translation>
     </message>
     <message>
-      <source>Please choose a star</source>
-      <translation>Prosím zvolte hvězdičku</translation>
-    </message>
-    <message>
       <source>Please enter a message, max characters</source>
       <translation>Prosím, zadejte zprávu, maxmálně znaků</translation>
     </message>
@@ -2608,20 +2631,20 @@
       <translation>Zapnout/vypnout zvukovou signalizaci nových zpráv od operátora</translation>
     </message>
     <message>
-      <source>Enable/Disable sound about new messages from users</source>
-      <translation>Zapnout/vypnout zvukovou signalizaci nových zpráv od uživatelů</translation>
-    </message>
-    <message>
-      <source>Enable/Disable sound about new pending chats</source>
-      <translation>Zapnout/vypnout zvuk nového čekajícího rozhovoru</translation>
-    </message>
-    <message>
       <source>Change my visibility to visible/invisible</source>
       <translation>Změnit stav na viditelný/neviditelný</translation>
     </message>
     <message>
       <source>Change my status to online/offline</source>
       <translation>Změnit stav na online/offline</translation>
+    </message>
+    <message>
+      <source>Enable/Disable sound about new messages from users</source>
+      <translation>Zapnout/vypnout zvukovou signalizaci nových zpráv od uživatelů</translation>
+    </message>
+    <message>
+      <source>Enable/Disable sound about new pending chats</source>
+      <translation>Zapnout/vypnout zvuk nového čekajícího rozhovoru</translation>
     </message>
   </context>
   <context>
@@ -3494,10 +3517,6 @@
       <translation>Šablona E-mailu</translation>
     </message>
     <message>
-      <source>Languages configuration</source>
-      <translation>Nastavení jazyků</translation>
-    </message>
-    <message>
       <source>GEO detection configuration</source>
       <translation>Nastavení GEO detekce</translation>
     </message>
@@ -3560,6 +3579,10 @@
     <message>
       <source>GEO adjustment</source>
       <translation>GEO přizpůsobení</translation>
+    </message>
+    <message>
+      <source>Languages configuration</source>
+      <translation>Nastavení jazyků</translation>
     </message>
     <message>
       <source>Maintenance</source>
@@ -6676,39 +6699,43 @@
       <translation>Operátor</translation>
     </message>
     <message>
-      <source>Stars</source>
-      <translation>Hvězdičky</translation>
-    </message>
-    <message>
       <source>Time</source>
       <translation>Čas</translation>
+    </message>
+    <message>
+      <source>View information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Collected information</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Department name</source>
       <translation>Název oddělení</translation>
     </message>
+    <message>
+      <source>Stars</source>
+      <translation>Hvězdičky</translation>
+    </message>
   </context>
   <context>
     <name>survey/fill</name>
-    <message>
-      <source>star</source>
-      <translation>hvězdička</translation>
-    </message>
-    <message>
-      <source>stars</source>
-      <translation>hvězdičky</translation>
-    </message>
     <message>
       <source>Preview chat</source>
       <translation>Náhled rozhovoru</translation>
     </message>
     <message>
-      <source>How well did we do?</source>
-      <translation>Jak si vedeme?</translation>
+      <source>star</source>
+      <translation>hvězdička</translation>
     </message>
     <message>
       <source>Poor</source>
       <translation>Špatně</translation>
+    </message>
+    <message>
+      <source>stars</source>
+      <translation>hvězdičky</translation>
     </message>
     <message>
       <source>Excellent</source>
@@ -7568,6 +7595,41 @@
     </message>
   </context>
   <context>
+    <name>abstract/survey</name>
+    <message>
+      <source>Name</source>
+      <translation>Jméno</translation>
+    </message>
+    <message>
+      <source>Max stars for feedback</source>
+      <translation>Maximum hvězdiček ve zpětné vazbě</translation>
+    </message>
+    <message>
+      <source>Max stars pos</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title for evaluation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title for plain question</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title for custom questions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Survey</source>
+      <translation>Průzkum</translation>
+    </message>
+  </context>
+  <context>
     <name>file/file</name>
     <message>
       <source>Download file</source>
@@ -7886,21 +7948,6 @@
     <message>
       <source>E-mail templates</source>
       <translation>Šablona e-mailu</translation>
-    </message>
-  </context>
-  <context>
-    <name>abstract/survey</name>
-    <message>
-      <source>Name</source>
-      <translation>Jméno</translation>
-    </message>
-    <message>
-      <source>Max stars for feedback</source>
-      <translation>Maximum hvězdiček ve zpětné vazbě</translation>
-    </message>
-    <message>
-      <source>Survey</source>
-      <translation>Průzkum</translation>
     </message>
   </context>
   <context>

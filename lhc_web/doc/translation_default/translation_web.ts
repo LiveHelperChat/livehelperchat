@@ -4,6 +4,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -153,6 +157,10 @@
     </message>
     <message>
       <source>List online operators, 0 - no, 1 - yes.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Inform visitor about unread messages from operator, value in minutes. 0 - disabled</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1532,6 +1540,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Edit department group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation type="unfinished"/>
     </message>
@@ -1596,34 +1608,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Monday</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Tuesday</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Wednesday</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Thursday</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Friday</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Saturday</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Sunday</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Work hours, 24 hours format, 1 - 24, minutes format 0 - 60</source>
       <translation type="unfinished"/>
     </message>
@@ -1657,6 +1641,42 @@
     </message>
     <message>
       <source>Minutes to, E.g. 30</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom period</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom work day</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Period</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>End time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Remove</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1740,15 +1760,47 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>System configuration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Departments</source>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Monday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tuesday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wednesday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Thursday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Friday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Saturday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sunday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Edit a department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Departments groups</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -1760,6 +1812,10 @@
     </message>
     <message>
       <source>Chat was deleted</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Survey not exist please check embed code options</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -3511,6 +3567,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Departments groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Time zone settings</source>
       <translation type="unfinished"/>
     </message>
@@ -3680,10 +3744,6 @@
     </message>
     <message>
       <source>Speech</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Departments</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5437,6 +5497,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Departments groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>System configuration</source>
       <translation type="unfinished"/>
     </message>
@@ -5560,10 +5632,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>All departments</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Pending chats tab enabled</source>
       <translation type="unfinished"/>
     </message>
@@ -5589,6 +5657,18 @@
     </message>
     <message>
       <source>Account updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>All departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Individual departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Departments groups</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5623,6 +5703,10 @@
     <name>department/new</name>
     <message>
       <source>New department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New department group</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7203,6 +7287,14 @@
   <context>
     <name>user/new</name>
     <message>
+      <source>All departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Invisible mode</source>
       <translation type="unfinished"/>
     </message>
@@ -7224,10 +7316,6 @@
     </message>
     <message>
       <source>Do not show user status as online</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>All departments</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7268,10 +7356,6 @@
     </message>
     <message>
       <source>Save</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Departments</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7599,6 +7683,10 @@
   <context>
     <name>abstract/survey</name>
     <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation type="unfinished"/>
     </message>
@@ -7615,7 +7703,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Enabled</source>
+      <source>Required</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8043,6 +8131,13 @@
     <name>file/configurations</name>
     <message>
       <source>Please enter valid file type!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>departament/editgroup</name>
+    <message>
+      <source>Please enter a department group name</source>
       <translation type="unfinished"/>
     </message>
   </context>

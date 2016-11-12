@@ -341,6 +341,29 @@
     </message>
   </context>
   <context>
+    <name>survey/form</name>
+    <message>
+      <source>Add option</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter a possible answer to your question here...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable stars</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable question</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable question with an answers</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>abstract/widgettheme</name>
     <message>
       <source>Download theme</source>
@@ -767,6 +790,10 @@
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
       <translation>Tunnus, mihin tunnukseen viesti liitetään. Jätä tyhjäksi jos kaikille</translation>
+    </message>
+    <message>
+      <source>Tag</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Matched times</source>
@@ -1753,6 +1780,18 @@
       <translation>Näytön jakaminen</translation>
     </message>
     <message>
+      <source>Print</source>
+      <translation>Tulosta</translation>
+    </message>
+    <message>
+      <source>Please enter a URL</source>
+      <translation>Anna URL osoite</translation>
+    </message>
+    <message>
+      <source>Redirect user to another url</source>
+      <translation>Uudelleenohjaa käyttäjä toiseen URL osoitteeseen</translation>
+    </message>
+    <message>
       <source>Choose other than default recognition language</source>
       <translation>Valitse muu kuin oletustunnistuskieli</translation>
     </message>
@@ -1823,18 +1862,6 @@
     <message>
       <source>Redirect user to contact form.</source>
       <translation>Uudelleenohjaa käyttäjä kontaktilomakkeelle.</translation>
-    </message>
-    <message>
-      <source>Print</source>
-      <translation>Tulosta</translation>
-    </message>
-    <message>
-      <source>Please enter a URL</source>
-      <translation>Anna URL osoite</translation>
-    </message>
-    <message>
-      <source>Redirect user to another url</source>
-      <translation>Uudelleenohjaa käyttäjä toiseen URL osoitteeseen</translation>
     </message>
     <message>
       <source>Department</source>
@@ -2534,10 +2561,6 @@
       <translation>Pyyntöäsi ei voitu käsitellä. Yritä uudestaan tai ota yhteyttä muulla tavoin, kiitos.</translation>
     </message>
     <message>
-      <source>Please choose a star</source>
-      <translation>Valitse tähti</translation>
-    </message>
-    <message>
       <source>Please enter a message, max characters</source>
       <translation>Syötä viesti, kirjaimia korkeintaan</translation>
     </message>
@@ -2608,20 +2631,20 @@
       <translation>Äänet päälle/pois uusista viesteistä</translation>
     </message>
     <message>
-      <source>Enable/Disable sound about new messages from users</source>
-      <translation>Äänet päälle/pois uusista keskustelijoista</translation>
-    </message>
-    <message>
-      <source>Enable/Disable sound about new pending chats</source>
-      <translation>Äänet päälle/pois uusista odottavista keskusteluista</translation>
-    </message>
-    <message>
       <source>Change my visibility to visible/invisible</source>
       <translation>Vaihda näkyvyyttäni (näkyvissä/piilossa)</translation>
     </message>
     <message>
       <source>Change my status to online/offline</source>
       <translation>Muuta statukseni online/offline</translation>
+    </message>
+    <message>
+      <source>Enable/Disable sound about new messages from users</source>
+      <translation>Äänet päälle/pois uusista keskustelijoista</translation>
+    </message>
+    <message>
+      <source>Enable/Disable sound about new pending chats</source>
+      <translation>Äänet päälle/pois uusista odottavista keskusteluista</translation>
     </message>
   </context>
   <context>
@@ -3494,10 +3517,6 @@
       <translation>Sähköpostipohjat</translation>
     </message>
     <message>
-      <source>Languages configuration</source>
-      <translation>Kielten asetukset</translation>
-    </message>
-    <message>
       <source>GEO detection configuration</source>
       <translation>GEO sijaintiasetukset</translation>
     </message>
@@ -3560,6 +3579,10 @@
     <message>
       <source>GEO adjustment</source>
       <translation>Sijainnin säätö</translation>
+    </message>
+    <message>
+      <source>Languages configuration</source>
+      <translation>Kielten asetukset</translation>
     </message>
     <message>
       <source>Maintenance</source>
@@ -6676,39 +6699,43 @@
       <translation>Operaattori</translation>
     </message>
     <message>
-      <source>Stars</source>
-      <translation>Tähtiä</translation>
-    </message>
-    <message>
       <source>Time</source>
       <translation>Aika</translation>
+    </message>
+    <message>
+      <source>View information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Collected information</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Department name</source>
       <translation>Osaston nimi</translation>
     </message>
+    <message>
+      <source>Stars</source>
+      <translation>Tähtiä</translation>
+    </message>
   </context>
   <context>
     <name>survey/fill</name>
-    <message>
-      <source>star</source>
-      <translation>tähti</translation>
-    </message>
-    <message>
-      <source>stars</source>
-      <translation>tähtiä</translation>
-    </message>
     <message>
       <source>Preview chat</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>How well did we do?</source>
-      <translation>Oletko tyytyväinen?</translation>
+      <source>star</source>
+      <translation>tähti</translation>
     </message>
     <message>
       <source>Poor</source>
       <translation>Huono</translation>
+    </message>
+    <message>
+      <source>stars</source>
+      <translation>tähtiä</translation>
     </message>
     <message>
       <source>Excellent</source>
@@ -7568,6 +7595,41 @@
     </message>
   </context>
   <context>
+    <name>abstract/survey</name>
+    <message>
+      <source>Name</source>
+      <translation>Nimi</translation>
+    </message>
+    <message>
+      <source>Max stars for feedback</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max stars pos</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title for evaluation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title for plain question</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title for custom questions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Survey</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>file/file</name>
     <message>
       <source>Download file</source>
@@ -7886,21 +7948,6 @@
     <message>
       <source>E-mail templates</source>
       <translation>Sähköposti pohjat</translation>
-    </message>
-  </context>
-  <context>
-    <name>abstract/survey</name>
-    <message>
-      <source>Name</source>
-      <translation>Nimi</translation>
-    </message>
-    <message>
-      <source>Max stars for feedback</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Survey</source>
-      <translation type="unfinished"/>
     </message>
   </context>
   <context>

@@ -430,6 +430,86 @@ class erLhcoreClassDepartament{
        return $availableCustomWorkHours;
    }
 
+   /**
+    * Validates department group submit
+    * 
+    * @param erLhcoreClassModelDepartamentGroup $departamentGroup
+    */
+   public static function validateDepartmentGroup(erLhcoreClassModelDepartamentGroup $departamentGroup)
+   {
+       $availableCustomWorkHours = array();
+       
+       $definition = array(
+           'Name' => new ezcInputFormDefinitionElement(
+               ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+           )
+       );
+       
+       $form = new ezcInputForm( INPUT_POST, $definition );
+       $Errors = array();
+        
+       if ( !$form->hasValidData( 'Name' ) || $form->Name == '' ) {
+           $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('departament/editgroup','Please enter a department group name');
+       } else {
+           $departamentGroup->name = $form->Name;
+       }
+       
+       return $Errors;
+   }
+   
+   /**
+    * Validates department group submit
+    * 
+    * @param erLhcoreClassModelDepartamentGroup $departamentGroup
+    * 
+    */
+   public static function validateDepartmentGroupDepartments(erLhcoreClassModelDepartamentGroup $departamentGroup)
+   {
+       $definition = array(
+           'departaments' => new ezcInputFormDefinitionElement(
+               ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY
+           ));
+       
+       $form = new ezcInputForm( INPUT_POST, $definition );
+       $Errors = array();
+       
+       if ( $form->hasValidData( 'departaments' ) && !empty($form->departaments)) {
+           // Remove old departaments
+           self::assignDepartmentsToGroup($departamentGroup, $form->departaments);
+       } else {
+           // Remove old departaments
+           self::assignDepartmentsToGroup($departamentGroup, array());
+       }
+   }
+   
+   public static function assignDepartmentsToGroup(erLhcoreClassModelDepartamentGroup $departamentGroup, $ids)
+   {
+       $members = erLhcoreClassModelDepartamentGroupMember::getList(array('limit' => false,'filter' => array('dep_group_id' => $departamentGroup->id)));
+       
+       $newMembers = array();
+       $removeMembers = array();       
+       $oldMembers = array();
+       
+       // Remove old members
+       foreach ($members as $member) {
+           if (!in_array($member->dep_id, $ids)) {
+               $member->removeThis();
+           } else {
+               $oldMembers[] = $member->dep_id;
+           }
+       }
+       
+       // Store new members
+       foreach ($ids as $id) {
+           if (!in_array($id, $oldMembers)) {
+               $member = new erLhcoreClassModelDepartamentGroupMember();
+               $member->dep_id = $id;
+               $member->dep_group_id = $departamentGroup->id;
+               $member->saveThis();
+           }
+       }
+   }
+   
     /**
      * Convert departament custom work hours to template data
      *
@@ -456,7 +536,7 @@ class erLhcoreClassDepartament{
    }
 
    public static function getWeekDays()
-   {
+   {        
        return array(
            'mod' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Monday'),
            'tud' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Tuesday'),
@@ -467,7 +547,7 @@ class erLhcoreClassDepartament{
            'sud' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Sunday')
        );
    }
-   
+         
    public static function getSession()
    {
         if ( !isset( self::$persistentSession ) )

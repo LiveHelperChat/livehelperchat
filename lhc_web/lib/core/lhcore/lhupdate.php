@@ -2,8 +2,8 @@
 
 class erLhcoreClassUpdate
 {
-	const DB_VERSION = 125;
-	const LHC_RELEASE = 250;
+	const DB_VERSION = 126;
+	const LHC_RELEASE = 251;
 
 	public static function doTablesUpdate($definition){
 		$updateInformation = self::getTablesStatus($definition);
@@ -33,7 +33,7 @@ class erLhcoreClassUpdate
 		
 		// Get archive tables		
 		$archives = erLhcoreClassChat::getList(array('offset' => 0, 'limit' => 1000000,'sort' => 'id ASC'), 'erLhcoreClassModelChatArchiveRange', 'lh_chat_archive_range');
-		
+			
 		// Update archives tables also
 		foreach ($archives as $archive) {
 		    $archive->setTables();
@@ -132,7 +132,7 @@ class erLhcoreClassUpdate
 				$tablesStatus[$table]['queries'][] = $definition['tables_create'][$table];
 			}			
 		}
-				
+		
 		foreach ($definition['tables_indexes'] as $table => $dataTableIndex) {		    
 		    try {
     		    $sql = 'SHOW INDEX FROM '.$table;
@@ -140,7 +140,7 @@ class erLhcoreClassUpdate
     		    $stmt->execute();
     		    $columnsData = $stmt->fetchAll(PDO::FETCH_ASSOC); 
     		    $status = array();
-    		    
+    		       		    
     		    $existingIndexes = array();
     		    foreach ($columnsData as $indexData) {
     		        $existingIndexes[] = $indexData['key_name'];
@@ -168,7 +168,7 @@ class erLhcoreClassUpdate
     		        $tablesStatus[$table]['error'] = true;
     		    }
     		    
-		    } catch (Exception $e) {
+		    } catch (Exception $e) {		        
 		        // Just not existing table perhaps
 		    }	    
 		}

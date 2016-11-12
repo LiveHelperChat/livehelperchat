@@ -145,17 +145,14 @@
 			<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 		<?php endif; ?>
 		
-		<?php $userDepartaments = erLhcoreClassUserDep::getUserDepartaments($user->id); ?>
+		<?php 
+		  $userDepartaments = erLhcoreClassUserDep::getUserDepartamentsIndividual($user->id); 
+		  $userDepartamentsGroup = erLhcoreClassModelDepartamentGroupUser::getUserGroupsIds($user->id);
+		?>
 		
 		<form action="<?php echo erLhcoreClassDesign::baseurl('user/edit')?>/<?php echo $user->id?>#departments" method="post">
 		
-			<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
-		
-		    <label><input type="checkbox" value="on" name="all_departments" <?php echo $user->all_departments == 1 ? 'checked="checked"' : '' ?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','All departments')?></label><br>
-		
-		    <?php foreach (erLhcoreClassDepartament::getDepartaments() as $departament) : ?>
-		        <label><input type="checkbox" name="UserDepartament[]" value="<?php echo $departament['id']?>"<?php in_array($departament['id'],$userDepartaments) ? print 'checked="checked"' : '';?>/><?php echo htmlspecialchars($departament['name'])?></label><br>
-		    <?php endforeach; ?>
+		    <?php include(erLhcoreClassDesign::designtpl('lhuser/account/departments_assignment.tpl.php'));?>
 		    
 		    <input type="submit" class="btn btn-default" name="UpdateDepartaments_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Update');?>"/>
 		</form> 

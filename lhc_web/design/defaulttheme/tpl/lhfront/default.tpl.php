@@ -25,8 +25,7 @@
 
     <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/online_settings_general.tpl.php')); ?>
 
-    <div ng-controller="OnlineCtrl as online"
-         ng-init='groupByField = <?php echo json_encode($ogroupBy) ?>;online.maxRows=<?php echo (int)$omaxRows ?>;online.updateTimeout=<?php echo (int)$oupdTimeout ?>;online.userTimeout = <?php echo (int)$ouserTimeout ?>;online.department=<?php echo (int)$onlineDepartment ?>;online.soundEnabled=<?php echo $soundUserNotification == 1 ? 'true' : 'false' ?>;online.notificationEnabled=<?php echo $browserNotification == 1 ? 'true' : 'false' ?>'>
+    <div ng-controller="OnlineCtrl as online" ng-init='groupByField = <?php echo json_encode($ogroupBy) ?>;online.maxRows=<?php echo (int)$omaxRows ?>;online.updateTimeout=<?php echo (int)$oupdTimeout ?>;online.userTimeout = <?php echo (int)$ouserTimeout ?>;online.department=<?php echo (int)$onlineDepartment ?>;online.soundEnabled=<?php echo $soundUserNotification == 1 ? 'true' : 'false' ?>;online.notificationEnabled=<?php echo $browserNotification == 1 ? 'true' : 'false' ?>'>
 
         <div role="tabpanel" id="tabs" ng-cloak>
             <ul class="nav nav-pills" role="tablist">
@@ -83,8 +82,7 @@
                                 <div id="pending-chat-list">
                                     <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_pending_list.tpl.php')); ?>
                                 </div>
-                                <a class="btn btn-default btn-sm"
-                                   href="<?php echo erLhcoreClassDesign::baseurl('chat/list') ?>/(chat_status)/0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'All pending chats'); ?></a>
+                                <a class="btn btn-default btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('chat/list') ?>/(chat_status)/0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'All pending chats'); ?></a>
                             </div>
                         <?php endif; ?>
                     <?php elseif (trim($frontTab) == 'active_chats' && $online_chat_enabled_pre == true) : ?>
@@ -94,8 +92,7 @@
                                 <div id="active-chat-list">
                                     <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_active_list.tpl.php')); ?>
                                 </div>
-                                <a class="btn btn-default btn-sm"
-                                   href="<?php echo erLhcoreClassDesign::baseurl('chat/list') ?>/(chat_status)/1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'All active chats'); ?></a>
+                                <a class="btn btn-default btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('chat/list') ?>/(chat_status)/1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'All active chats'); ?></a>
                             </div>
                         <?php endif; ?>
 
@@ -103,10 +100,8 @@
 
                         <?php if ($unreadTabEnabled == true) : ?>
                             <div role="tabpanel" class="tab-pane form-group" id="unreadchats">
-                                <div
-                                    id="unread-chat-list"><?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_unread_list.tpl.php')); ?></div>
-                                <a class="btn btn-default btn-sm"
-                                   href="<?php echo erLhcoreClassDesign::baseurl('chat/list') ?>/(hum)/1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'All unread chats'); ?></a>
+                                <div id="unread-chat-list"><?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_unread_list.tpl.php')); ?></div>
+                                <a class="btn btn-default btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('chat/list') ?>/(hum)/1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'All unread chats'); ?></a>
                             </div>
                         <?php endif; ?>
 
@@ -114,10 +109,8 @@
 
                         <?php if ($closedTabEnabled == true) : ?>
                             <div role="tabpanel" class="tab-pane form-group" id="closedchats">
-                                <div
-                                    id="closed-chat-list"><?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_closed_list.tpl.php')); ?></div>
-                                <a class="btn btn-default btn-sm"
-                                   href="<?php echo erLhcoreClassDesign::baseurl('chat/list') ?>/(chat_status)/2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'All closed chats'); ?></a>
+                                <div id="closed-chat-list"><?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_closed_list.tpl.php')); ?></div>
+                                <a class="btn btn-default btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('chat/list') ?>/(chat_status)/2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'All closed chats'); ?></a>
                             </div>
                         <?php endif; ?>
 
@@ -131,8 +124,7 @@
 
                         <?php if ($canListOnlineUsers == true || $canListOnlineUsersAll == true) : ?>
                             <div role="tabpanel" class="tab-pane form-group" id="onlineoperators">
-                                <div
-                                    id="online-operator-list"><?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_online_op_list.tpl.php')); ?></div>
+                                <div id="online-operator-list"><?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_online_op_list.tpl.php')); ?></div>
                             </div>
                         <?php endif; ?>
                     <?php else : ?>

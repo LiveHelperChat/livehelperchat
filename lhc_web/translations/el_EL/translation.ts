@@ -341,6 +341,29 @@
     </message>
   </context>
   <context>
+    <name>survey/form</name>
+    <message>
+      <source>Add option</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter a possible answer to your question here...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable stars</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable question</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable question with an answers</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>abstract/widgettheme</name>
     <message>
       <source>Download theme</source>
@@ -767,6 +790,10 @@
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
       <translation>Αναγνωριστικό, για ποιο προσδιοριστικό πρέπει να εμφανιστεί αυτό το μήνυμα, αφήστε κενό για όλους</translation>
+    </message>
+    <message>
+      <source>Tag</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Matched times</source>
@@ -1753,6 +1780,18 @@
       <translation>Οθόνη μοιράζομαι</translation>
     </message>
     <message>
+      <source>Print</source>
+      <translation>Εκτύπωση</translation>
+    </message>
+    <message>
+      <source>Please enter a URL</source>
+      <translation>Πληκτρολογήστε μια διεύθυνση URL</translation>
+    </message>
+    <message>
+      <source>Redirect user to another url</source>
+      <translation>Ανακατευθύνει το χρήστη σε ένα άλλο url</translation>
+    </message>
+    <message>
       <source>Choose other than default recognition language</source>
       <translation>Επιλέξτε εκτός από την προεπιλεγμένη γλώσσα αναγνώρισης</translation>
     </message>
@@ -1823,18 +1862,6 @@
     <message>
       <source>Redirect user to contact form.</source>
       <translation>Ανακατεύθυνση χρήστη για την φόρμα επικοινωνίας.</translation>
-    </message>
-    <message>
-      <source>Print</source>
-      <translation>Εκτύπωση</translation>
-    </message>
-    <message>
-      <source>Please enter a URL</source>
-      <translation>Πληκτρολογήστε μια διεύθυνση URL</translation>
-    </message>
-    <message>
-      <source>Redirect user to another url</source>
-      <translation>Ανακατευθύνει το χρήστη σε ένα άλλο url</translation>
     </message>
     <message>
       <source>Department</source>
@@ -2534,10 +2561,6 @@
       <translation>Το αίτημά σας δεν διεκπεραιώθηκε όπως ήταν αναμενόμενο - αλλά μην ανησυχείτε δεν ήταν το ελάττωμά σας. Παρακαλείσθε να υποβάλει εκ νέου το αίτημά σας. Εάν αντιμετωπίζετε το ίδιο ζήτημα που θα πρέπει να επικοινωνήσετε μαζί μας μέσω άλλων μέσων.</translation>
     </message>
     <message>
-      <source>Please choose a star</source>
-      <translation>Παρακαλώ επιλέξτε ένα αστέρι</translation>
-    </message>
-    <message>
       <source>Please enter a message, max characters</source>
       <translation>Παρακαλούμε εισάγετε ένα μήνυμα, max χαρακτήρες</translation>
     </message>
@@ -2608,20 +2631,20 @@
       <translation>Ενεργοποίηση/Απενεργοποίηση ήχου για νέα μηνύματα από τον φορέα εκμετάλλευσης</translation>
     </message>
     <message>
-      <source>Enable/Disable sound about new messages from users</source>
-      <translation>Ενεργοποίηση/Απενεργοποίηση ήχων νέων μηνυμάτων από τους χρήστες</translation>
-    </message>
-    <message>
-      <source>Enable/Disable sound about new pending chats</source>
-      <translation>Ενεργοποίηση/Απενεργοποίηση ήχου για νέα εν αναμονή συνομιλία</translation>
-    </message>
-    <message>
       <source>Change my visibility to visible/invisible</source>
       <translation>Αλλάξετε την προβολή μου σε ορατό/αόρατο</translation>
     </message>
     <message>
       <source>Change my status to online/offline</source>
       <translation>Αλλαγή κατάστασης μου σε απευθείας σύνδεση/χωρίς σύνδεση</translation>
+    </message>
+    <message>
+      <source>Enable/Disable sound about new messages from users</source>
+      <translation>Ενεργοποίηση/Απενεργοποίηση ήχων νέων μηνυμάτων από τους χρήστες</translation>
+    </message>
+    <message>
+      <source>Enable/Disable sound about new pending chats</source>
+      <translation>Ενεργοποίηση/Απενεργοποίηση ήχου για νέα εν αναμονή συνομιλία</translation>
     </message>
   </context>
   <context>
@@ -3494,10 +3517,6 @@
       <translation>Πρότυπα ηλεκτρονικού ταχυδρομείου</translation>
     </message>
     <message>
-      <source>Languages configuration</source>
-      <translation>Διαμόρφωση γλώσσες</translation>
-    </message>
-    <message>
       <source>GEO detection configuration</source>
       <translation>Ρύθμιση παραμέτρων ανίχνευσης GEO</translation>
     </message>
@@ -3560,6 +3579,10 @@
     <message>
       <source>GEO adjustment</source>
       <translation>GEO προσαρμογής</translation>
+    </message>
+    <message>
+      <source>Languages configuration</source>
+      <translation>Διαμόρφωση γλώσσες</translation>
     </message>
     <message>
       <source>Maintenance</source>
@@ -6676,39 +6699,43 @@
       <translation>Τελεστής</translation>
     </message>
     <message>
-      <source>Stars</source>
-      <translation>Αστέρια</translation>
-    </message>
-    <message>
       <source>Time</source>
       <translation>Χρόνος</translation>
+    </message>
+    <message>
+      <source>View information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Collected information</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Department name</source>
       <translation>Το πεδίο ονόματος τμήματος</translation>
     </message>
+    <message>
+      <source>Stars</source>
+      <translation>Αστέρια</translation>
+    </message>
   </context>
   <context>
     <name>survey/fill</name>
-    <message>
-      <source>star</source>
-      <translation>αστέρι</translation>
-    </message>
-    <message>
-      <source>stars</source>
-      <translation>αστέρια</translation>
-    </message>
     <message>
       <source>Preview chat</source>
       <translation>Προεπισκόπηση συνομιλίας</translation>
     </message>
     <message>
-      <source>How well did we do?</source>
-      <translation>Πόσο καλά κάναμε;</translation>
+      <source>star</source>
+      <translation>αστέρι</translation>
     </message>
     <message>
       <source>Poor</source>
       <translation>Κακή</translation>
+    </message>
+    <message>
+      <source>stars</source>
+      <translation>αστέρια</translation>
     </message>
     <message>
       <source>Excellent</source>
@@ -7568,6 +7595,41 @@
     </message>
   </context>
   <context>
+    <name>abstract/survey</name>
+    <message>
+      <source>Name</source>
+      <translation>Όνομα</translation>
+    </message>
+    <message>
+      <source>Max stars for feedback</source>
+      <translation>Max αστέρια για ανατροφοδότηση</translation>
+    </message>
+    <message>
+      <source>Max stars pos</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title for evaluation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title for plain question</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title for custom questions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Survey</source>
+      <translation>Έρευνα</translation>
+    </message>
+  </context>
+  <context>
     <name>file/file</name>
     <message>
       <source>Download file</source>
@@ -7886,21 +7948,6 @@
     <message>
       <source>E-mail templates</source>
       <translation>Πρότυπα ηλεκτρονικού ταχυδρομείου</translation>
-    </message>
-  </context>
-  <context>
-    <name>abstract/survey</name>
-    <message>
-      <source>Name</source>
-      <translation>Όνομα</translation>
-    </message>
-    <message>
-      <source>Max stars for feedback</source>
-      <translation>Max αστέρια για ανατροφοδότηση</translation>
-    </message>
-    <message>
-      <source>Survey</source>
-      <translation>Έρευνα</translation>
     </message>
   </context>
   <context>

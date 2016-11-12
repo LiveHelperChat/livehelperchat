@@ -1222,6 +1222,28 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  KEY `active_sud` (`online_hours_active`,`sud_start_hour`,`sud_end_hour`)
 				) DEFAULT CHARSET=utf8;");
 
+        	   $db->query("CREATE TABLE `lh_departament_group_user` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `dep_group_id` int(11) NOT NULL,
+                  `user_id` int(11) NOT NULL,
+                  PRIMARY KEY (`id`),
+                  KEY `dep_group_id` (`dep_group_id`),
+                  KEY `user_id` (`user_id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
+
+        	   $db->query("CREATE TABLE `lh_departament_group_member` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `dep_id` int(11) NOT NULL,
+                  `dep_group_id` int(11) NOT NULL,
+                  PRIMARY KEY (`id`),
+                  KEY `dep_group_id` (`dep_group_id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
+
+        	   $db->query("CREATE TABLE `lh_departament_group` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `name` varchar(50) NOT NULL,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
         	   
         	   $Departament = new erLhcoreClassModelDepartament();
                $Departament->name = $form->DefaultDepartament;
@@ -1349,22 +1371,26 @@ switch ((int)$Params['user_parameters']['step_id']) {
 
                 // User departaments
                 $db->query("CREATE TABLE IF NOT EXISTS `lh_userdep` (
-				  `id` int(11) NOT NULL AUTO_INCREMENT,
-				  `user_id` int(11) NOT NULL,
-				  `dep_id` int(11) NOT NULL,
-				  `last_activity` int(11) NOT NULL,
-				  `hide_online` int(11) NOT NULL,
-				  `last_accepted` int(11) NOT NULL,
-				  `active_chats` int(11) NOT NULL,
-				  PRIMARY KEY (`id`),
-				  KEY `user_id` (`user_id`),
-				  KEY `last_activity_hide_online_dep_id` (`last_activity`,`hide_online`,`dep_id`),
-				  KEY `dep_id` (`dep_id`)
-				) DEFAULT CHARSET=utf8;");
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `user_id` int(11) NOT NULL,
+                  `dep_id` int(11) NOT NULL,
+                  `last_activity` int(11) NOT NULL,
+                  `hide_online` int(11) NOT NULL,
+                  `last_accepted` int(11) NOT NULL,
+                  `active_chats` int(11) NOT NULL,
+                  `type` int(11) NOT NULL DEFAULT '0',
+                  `dep_group_id` int(11) NOT NULL DEFAULT '0',
+                  PRIMARY KEY (`id`),
+                  KEY `last_activity_hide_online_dep_id` (`last_activity`,`hide_online`,`dep_id`),
+                  KEY `dep_id` (`dep_id`),
+                  KEY `user_id_type` (`user_id`,`type`)
+                ) DEFAULT CHARSET=utf8");
 
                 // Insert record to departament instantly
-                $db->query("INSERT INTO `lh_userdep` (`user_id`,`dep_id`,`last_activity`,`hide_online`,`last_accepted`,`active_chats`) VALUES ({$UserData->id},0,0,0,0,0)");
+                $db->query("INSERT INTO `lh_userdep` (`user_id`,`dep_id`,`last_activity`,`hide_online`,`last_accepted`,`active_chats`,`type`,`dep_group_id`) VALUES ({$UserData->id},0,0,0,0,0,0,0)");
 
+                
+                
                 // Transfer chat
                 $db->query("CREATE TABLE IF NOT EXISTS `lh_transfer` (
 				  `id` int(11) NOT NULL AUTO_INCREMENT,
