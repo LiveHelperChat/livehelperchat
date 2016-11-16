@@ -6,7 +6,7 @@ if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['us
 	$Chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
 	$errors = array();
 
-	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_chat_transfered', ['chat' => & $Chat, 'errors' => & $errors]);
+	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_chat_transfered', array('chat' => & $Chat, 'errors' => & $errors));
 
 	if ( erLhcoreClassChat::hasAccessToRead($Chat) && empty($errors) )
 	{

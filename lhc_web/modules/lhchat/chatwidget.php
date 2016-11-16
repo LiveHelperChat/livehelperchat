@@ -261,7 +261,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
    // Validate post data
     $Errors = erLhcoreClassChatValidator::validateStartChat($inputData,$startDataFields,$chat,$additionalParams);
 
-	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_chat_started', ['chat' => & $chat, 'errors' => & $Errors, 'offline' => (isset($additionalParams['offline']) && $additionalParams['offline'] == true) ]);
+	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_chat_started', array('chat' => & $chat, 'errors' => & $Errors, 'offline' => (isset($additionalParams['offline']) && $additionalParams['offline'] == true)));
 
    if (count($Errors) == 0 && !isset($_POST['switchLang']))
    {   	
