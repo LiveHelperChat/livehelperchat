@@ -749,6 +749,11 @@ class erLhcoreClassChat {
      */
     public static function getLoggedDepartmentsIds($departmentsIds, $exclipic = false)
     {
+        if (empty($departmentsIds))
+        {
+            return array();
+        }
+
         $isOnlineUser = (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'];
 
         $db = ezcDbInstance::get();
