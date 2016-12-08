@@ -386,7 +386,7 @@ $ViewList['onlineusers'] = array(
 
 $ViewList['jsononlineusers'] = array(
     'params' => array(),
-    'uparams' => array('department','maxrows'),
+    'uparams' => array('department','maxrows','timeout'),
     'functions' => array( 'use_onlineusers' )
 );
 
