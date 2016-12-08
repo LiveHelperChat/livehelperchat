@@ -190,6 +190,10 @@ if ( erLhcoreClassUser::instance()->hasAccessTo('lhuser','personalcannedmsg') ) 
 	
 }
 
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.account', array('userData' => & $UserData, 'tpl' => & $tpl));
+
 $Result['content'] = $tpl->fetch();
+
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.account_result', array('result' => & $Result));
 
 ?>
