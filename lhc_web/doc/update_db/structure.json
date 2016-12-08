@@ -282,15 +282,7 @@
                 "key": "",
                 "default": null,
                 "extra": ""
-            },
-            {
-                "field": "max_stars_5_title",
-                "type": "varchar(250)",
-                "null": "NO",
-                "key": "",
-                "default": null,
-                "extra": ""
-            },
+            },          
             {
                 "field": "question_options_1",
                 "type": "varchar(250)",
