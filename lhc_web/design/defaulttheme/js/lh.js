@@ -1234,7 +1234,6 @@ function lh(){
 
             setTimeout(function(){
             	audio.play();
-            	console.log("Play here");
             },500);
 	    }
 	};
