@@ -652,13 +652,16 @@ class erLhcoreClassChat {
        
        if ($dep_id !== false) {
        		$exclipicFilter = ($exclipic == false) ? ' OR dep_id = 0' : '';
-       		
+       		       		       			
        		if ($ignoreUserStatus === false) {       		
 				if (is_numeric($dep_id)) {
 		           $stmt = $db->prepare("SELECT COUNT(id) AS found FROM lh_userdep WHERE (last_activity > :last_activity AND hide_online = 0) AND (dep_id = :dep_id {$exclipicFilter})");
 		           $stmt->bindValue(':dep_id',$dep_id,PDO::PARAM_INT);
 		           $stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
 				} elseif ( is_array($dep_id) ) {
+					if (empty($dep_id)) {
+						$dep_id = array(-1);
+					}
 					$stmt = $db->prepare('SELECT COUNT(id) AS found FROM lh_userdep WHERE (last_activity > :last_activity AND hide_online = 0) AND (dep_id IN ('. implode(',', $dep_id) .") {$exclipicFilter})");
 					$stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
 				}
