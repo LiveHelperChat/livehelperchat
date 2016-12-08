@@ -18,7 +18,6 @@ ALTER TABLE `lh_abstract_survey` ADD `max_stars_5_title` varchar(250) NOT NULL, 
 ALTER TABLE `lh_abstract_survey` ADD `max_stars_5_pos` int(11) NOT NULL, COMMENT='';
 ALTER TABLE `lh_abstract_survey` ADD `max_stars_5` int(11) NOT NULL, COMMENT='';
 ALTER TABLE `lh_abstract_survey` ADD `max_stars_5_enabled` int(11) NOT NULL, COMMENT='';
-ALTER TABLE `lh_abstract_survey` ADD `max_stars_5_title` varchar(250) NOT NULL, COMMENT='';
 ALTER TABLE `lh_abstract_survey` ADD `question_options_1` varchar(250) NOT NULL, COMMENT='';
 ALTER TABLE `lh_abstract_survey` ADD `question_options_1_items` text NOT NULL, COMMENT='';
 ALTER TABLE `lh_abstract_survey` ADD `question_options_1_pos` int(11) NOT NULL, COMMENT='';
