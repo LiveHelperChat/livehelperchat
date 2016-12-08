@@ -98,6 +98,12 @@
 	                    'list_function'  => 'erLhAbstractModelProduct::getList'
 	         )); ?>
 		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+		    	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chat ID');?></label>
+				<input type="text" class="form-control" name="chat_id" value="<?php echo htmlspecialchars($input->chat_id)?>" />
+			</div>
+		</div>
     </div>
 
 	<div class="btn-group" role="group" aria-label="...">

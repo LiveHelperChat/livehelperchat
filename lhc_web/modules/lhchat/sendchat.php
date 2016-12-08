@@ -51,7 +51,7 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'] && ($c
             $tpl->set('chat', $chat);
             $tpl->set('messages', $messages);
 
-            $mailTemplate->content = str_replace(array('{user_chat_nick}','{messages_content}'), array($chat->nick,$tpl->fetch()), $mailTemplate->content);
+            $mailTemplate->content = str_replace(array('{user_chat_nick}','{messages_content}','{chat_id}'), array($chat->nick, $tpl->fetch(), $chat->id), $mailTemplate->content);
 
             erLhcoreClassChatMail::sendMail($mailTemplate, $chat);
 
