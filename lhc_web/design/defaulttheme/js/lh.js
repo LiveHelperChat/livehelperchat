@@ -1224,6 +1224,21 @@ function lh(){
 	    }
 	};
 
+	this.playPreloadSound = function() {
+		if (Modernizr.audio) {
+    	    var audio = new Audio();
+
+            audio.src = Modernizr.audio.ogg ? WWW_DIR_JAVASCRIPT_FILES + '/silence.ogg' :
+                        Modernizr.audio.mp3 ? WWW_DIR_JAVASCRIPT_FILES + '/silence.mp3' : WWW_DIR_JAVASCRIPT_FILES + '/silence.wav';
+            audio.load();
+
+            setTimeout(function(){
+            	audio.play();
+            	console.log("Play here");
+            },500);
+	    }
+	};
+	
     this.syncadmincall = function()
 	{
 	    if (this.chatsSynchronising.length > 0)
@@ -2409,6 +2424,7 @@ function lh(){
 }
 
 var lhinst = new lh();
+lhinst.playPreloadSound();
 
 function gMapsCallback(){
 
