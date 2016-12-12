@@ -927,7 +927,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
         	   `user_id` int(11) NOT NULL,
         	   `identifier` varchar(50) NOT NULL,
-        	   `value` varchar(255) NOT NULL,
+        	   `value` text NOT NULL,
         	   PRIMARY KEY (`id`),
         	   KEY `user_id` (`user_id`,`identifier`)
         	   ) DEFAULT CHARSET=utf8;");
@@ -1038,7 +1038,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('min_phone_length','8',0,'Minimum phone number length',0),
                 ('mheight','',0,'Messages box height',0),
                 ('inform_unread_message','0',0,'Inform visitor about unread messages from operator, value in minutes. 0 - disabled',0),
-                ('dashboard_order', 'online_operators,departments_stats|pending_chats,unread_chats,transfered_chats|active_chats,closed_chats', '0', 'Home page dashboard widgets order', '0'),
+                ('dashboard_order', '[[\"online_operators\",\"departments_stats\",\"online_visitors\"],[\"pending_chats\",\"unread_chats\",\"transfered_chats\"],[\"active_chats\",\"closed_chats\"]]', '0', 'Home page dashboard widgets order', '0'),
                 ('banned_ip_range','',0,'Which ip should not be allowed to chat',0),
                 ('suggest_leave_msg','1',0,'Suggest user to leave a message then user chooses offline department',0),
                 ('checkstatus_timeout','0',0,'Interval between chat status checks in seconds, 0 disabled.',0),

@@ -12,7 +12,7 @@ try {
     }
 	
     $settingHandler = erLhcoreClassModelUserSettingOption::fetch($Params['user_parameters']['identifier']);
-        
+    
     // Never trust user input    
     erLhcoreClassModelUserSetting::setSetting($Params['user_parameters']['identifier'],(string)$_POST['value']);
     exit;

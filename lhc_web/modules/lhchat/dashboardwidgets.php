@@ -1,19 +1,15 @@
 <?php
 $tpl = erLhcoreClassTemplate::getInstance('lhchat/dashboardwidgets.tpl.php');
 
-$dashboardOrderString = (string) erLhcoreClassModelUserSetting::getSetting('dwo', '');
+$dashboardOrder = json_decode(erLhcoreClassModelUserSetting::getSetting('dwo', ''),true);
 
-if (empty($dashboardOrderString)) {
-    $dashboardOrderString = erLhcoreClassModelChatConfig::fetch('dashboard_order')->current_value;
+if ($dashboardOrder === null) {
+	$dashboardOrder = json_decode(erLhcoreClassModelChatConfig::fetch('dashboard_order')->current_value,true);
 }
 
 $widgetsUser = array();
-
-$dashboardOrder = array_filter(explode('|', $dashboardOrderString));
-
 foreach ($dashboardOrder as $widgetsColumn) {
-    $widgetsColumnItems = array_filter(explode(',', $widgetsColumn));
-    foreach ($widgetsColumnItems as $widget) {
+    foreach ($widgetsColumn as $widget) {
         $widgetsUser[] = $widget;
     }
 }
@@ -44,45 +40,26 @@ if (ezcInputForm::hasPostData()) {
         // Add new widgets
         foreach ($form->WidgetsUser as $newUserWidget) {
             if (! in_array($newUserWidget, $widgetsUser)) {
-                $dashboardOrderString = $newUserWidget . ',' . $dashboardOrderString;
+                $dashboardOrder[0][] = $newUserWidget;
                 $widgetsUser[] = $newUserWidget;
             }
         }
-        
+
         // Remove removed widgets
         foreach ($widgetsUser as $userWidget) {
             if (! in_array($userWidget, $form->WidgetsUser)) {
-                $dashboardOrderString = str_replace($userWidget, '', $dashboardOrderString);
+                foreach ($dashboardOrder as $key => $widgetsColumn) {
+                	if (in_array($userWidget, $widgetsColumn)) {
+                		unset($widgetsColumn[array_search($userWidget, $widgetsColumn)]);
+                		$dashboardOrder[$key] = $widgetsColumn;
+                	}
+                }
                 unset($widgetsUser[array_search($userWidget, $widgetsUser)]);
             }
         }
-        
-        // Minimum 3 columns
-        $accCount = substr_count($dashboardOrderString,'|');
-        $missingTimes = 2 - $accCount;
-        
-        // Append to the end
-        if ($missingTimes > 0) {
-            $dashboardOrderString .= str_repeat('|', $missingTimes);
-        }
-  
-        // Just cleanup
-        $dashboardOrderString = str_replace(array(
-            ',,',
-            ',,,',
-            ',,,,',
-            '|,',
-            ',|'
-        ), array(
-            ',',
-            ',',
-            ',',
-            '|',
-            '|'
-        ), $dashboardOrderString);
-        
+                
         // Store settings in user scope now
-        erLhcoreClassModelUserSetting::setSetting('dwo', $dashboardOrderString);
+        erLhcoreClassModelUserSetting::setSetting('dwo', json_encode($dashboardOrder));
         
         $tpl->set('updated', true);
     }
