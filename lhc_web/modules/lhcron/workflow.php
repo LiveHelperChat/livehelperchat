@@ -50,4 +50,6 @@ erLhcoreClassChatWorkflow::autoInformVisitor(erLhcoreClassModelChatConfig::fetch
 
 echo "Ended chat/workflow\n";
 
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow',array());
+
 ?>
