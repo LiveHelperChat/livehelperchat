@@ -57,7 +57,14 @@ if (ezcInputForm::hasPostData()) {
                 unset($widgetsUser[array_search($userWidget, $widgetsUser)]);
             }
         }
-                
+        if (count($dashboardOrder) == 1) {
+            $dashboardOrder[] = array();
+            $dashboardOrder[] = array();
+        }  
+              
+        if (count($dashboardOrder) == 2) {
+            $dashboardOrder[] = array();
+        }        
         // Store settings in user scope now
         erLhcoreClassModelUserSetting::setSetting('dwo', json_encode($dashboardOrder));
         
