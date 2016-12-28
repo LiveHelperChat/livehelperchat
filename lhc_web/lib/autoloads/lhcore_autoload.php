@@ -19,6 +19,7 @@ return array_merge(array (
 
         'erLhcoreClassTransfer' => 'lib/core/lhcore/lhtransfer.php',
         'PHPMailer'             => 'lib/core/lhcore/class.phpmailer.php',
+        'SMTP'                  => 'lib/core/lhcore/class.smtp.php',
 		'ezcAuthenticationDatabaseCredentialFilter' => 'lib/core/lhuser/lhauthenticationdatabasecredentialfilter.php',
 
         'erLhcoreClassRole'     => 'lib/core/lhpermission/lhrole.php',
