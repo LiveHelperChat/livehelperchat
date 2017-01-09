@@ -120,6 +120,11 @@ h1 {
 	font-size:28px;
 }
 
+.label-menu{
+	font-size:14px !important;
+	padding-left:24px !important; 
+}
+
 .tr-msg{
 	font-style: italic;
 	display: block;

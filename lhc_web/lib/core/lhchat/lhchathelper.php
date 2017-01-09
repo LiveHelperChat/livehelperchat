@@ -9,7 +9,7 @@ class erLhcoreClassChatHelper
     public static function redirectToContactForm($params)
     {
         $msg = new erLhcoreClassModelmsg();
-        $msg->msg = (string) $params['user'] . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'has redirected user to contact form!');
+        $msg->msg = (string) $params['user'] . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'has redirected visitor to contact form!');
         $msg->chat_id = $params['chat']->id;
         $msg->user_id = - 1;
         
@@ -35,6 +35,46 @@ class erLhcoreClassChatHelper
         $params['chat']->updateThis();        
     }
 
+    /**
+     * Redirect user to survey form
+     * */
+    public static function redirectToSurvey($params)
+    {
+        $msg = new erLhcoreClassModelmsg();
+        $msg->msg = (string) $params['user'] . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'has redirected visitor to survey form!');
+        $msg->chat_id = $params['chat']->id;
+        $msg->user_id = - 1;
+        
+        $params['chat']->last_user_msg_time = $msg->time = time();
+        erLhcoreClassChat::getSession()->save($msg);
+        
+        $surveyItem = erLhAbstractModelSurveyItem::findOne(array('filter' => array('chat_id' => $params['chat']->id)));
+        
+        // Make form temporary so user can fill a survey again
+        if ($surveyItem instanceof erLhAbstractModelSurveyItem) {
+            $surveyItem->status = erLhAbstractModelSurveyItem::STATUS_TEMP;
+            $surveyItem->saveThis();
+        }
+        
+        // Set last message ID
+        if ($params['chat']->last_msg_id < $msg->id) {
+            if ($params['chat']->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
+                $params['chat']->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;
+            }
+            $params['chat']->last_msg_id = $msg->id;
+        }
+        
+        if ($params['chat']->user_id == 0) {
+            $params['chat']->user_id = $params['user']->id;
+        }
+        
+        $params['chat']->support_informed = 1;
+        $params['chat']->has_unread_messages = 0;
+        
+        $params['chat']->status_sub = erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW;
+        $params['chat']->saveThis();
+    }
+    
     public static function closeChat($params)
     {
         if ($params['chat']->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {

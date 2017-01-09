@@ -36,5 +36,7 @@
 </div>
 
 <?php else : ?>
-    <div class="alert alert-success" role="alert"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','Thank you for your feedback...')?></div>
+<div class="alert alert-success" role="alert">
+    <?php if ($survey->feedback_text != '') : ?><?php echo htmlspecialchars($survey->feedback_text)?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','Thank you for your feedback...')?><?php endif; ?>    
+</div>
 <?php endif; ?>

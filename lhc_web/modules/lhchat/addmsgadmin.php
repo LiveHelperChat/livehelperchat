@@ -38,7 +38,10 @@ if (trim($form->msg) != '')
 	            $statusCommand = erLhcoreClassChatCommand::processCommand(array('user' => $userData, 'msg' => $msgText, 'chat' => & $Chat));
 	            if ($statusCommand['processed'] === true) {
 	                $messageUserId = -1; // Message was processed set as internal message
-	                $msgText = trim('[b]'.$userData->name_support.'[/b]: '.$msgText .' '. ($statusCommand['process_status'] != '' ? '|| '.$statusCommand['process_status'] : ''));
+	                
+	                $rawMessage = !isset($statusCommand['raw_message']) ? $msgText : $statusCommand['raw_message'];
+	                
+	                $msgText = trim('[b]'.$userData->name_support.'[/b]: '.$rawMessage .' '. ($statusCommand['process_status'] != '' ? '|| '.$statusCommand['process_status'] : ''));
 	                
 	                if (isset($statusCommand['ignore']) && $statusCommand['ignore'] == true) {
 	                    $ignoreMessage = true;

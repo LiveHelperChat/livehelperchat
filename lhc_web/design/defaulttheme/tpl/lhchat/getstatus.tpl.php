@@ -298,7 +298,7 @@ var lh_inst  = {
 	},
 	
     hide : function() {
-       
+              
         if (!lh_inst.cookieData.hash || lh_inst.hasSurvey == false || lh_inst.surveyShown == true) {
 
             <?php if ((int)erLhcoreClassModelChatConfig::fetch('on_close_exit_chat')->current_value == 1) : ?>  
@@ -315,7 +315,7 @@ var lh_inst  = {
             this.removeCookieAttr('hash');
             this.removeCookieAttr('pos');
             this.removeCookieAttr('m');
-            
+                    
             <?php if ($check_operator_messages == 'true' && $disable_pro_active == false) : ?>
             this.startNewMessageCheck();
             <?php endif; ?>
@@ -1021,6 +1021,8 @@ var lh_inst  = {
     		}
     	} else if (action == 'lhc_open_restore') {    		
     		lh_inst.lh_openchatWindow();    		
+    	} else if (action == 'lhc_continue_chat') {    		
+    		lh_inst.showStartWindow();    		
     	} else if (action == 'lhc_cfrefresh') {    		
     		lh_inst.refreshCustomFields();    		
     	} else if (action == 'lhc_screenshot') {

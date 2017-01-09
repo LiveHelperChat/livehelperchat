@@ -451,6 +451,8 @@ class erLhcoreClassModelChat {
    const STATUS_SUB_CONTACT_FORM = 2;
    const STATUS_SUB_USER_CLOSED_CHAT = 3;
    const STATUS_SUB_START_ON_KEY_UP = 4;
+   const STATUS_SUB_SURVEY_SHOW = 5;
+   const STATUS_SUB_SURVEY_COLLECTED = 6;
       
    const USER_STATUS_JOINED_CHAT = 0;
    const USER_STATUS_CLOSED_CHAT = 1;

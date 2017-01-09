@@ -14,6 +14,11 @@ $ViewList['fill'] = array(
     'uparams' => array('chatid','ua','switchform','operator','theme','vid','sound','hash','hash_resume','mode','offline','leaveamessage','department','priority','chatprefill','survey','eclose')
 );
 
+$ViewList['backtochat'] = array(
+    'params' => array('chat_id','hash','survey'),
+    'uparams' => array()
+);
+
 $ViewList['collected'] = array(
     'params' => array('survey_id'),
     'uparams' => array('timefrom','timeto','department_id','user_id','print','xls','group_results','minimum_chats',

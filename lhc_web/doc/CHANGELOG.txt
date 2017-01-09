@@ -1,3 +1,11 @@
+2.52v
+
+1. Option to redirect user to survey in the middle of the chat. At the moment it works only in the widget mode. Not full chat mode. Will be updated in the future.
+2. Option to have always open last 10 visitor active chats.
+3. Chat will not scroll to the bottom if visitor scrolls chat at the top and visitors writes a new message.
+
+execute doc/update_db/update_127.sql for update
+
 2.51v
 
 1. Departments groups. Departments groups option will appear in user account under Assigned departments if atleast one department group will be defined.

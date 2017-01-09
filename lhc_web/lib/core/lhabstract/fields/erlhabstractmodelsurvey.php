@@ -9,6 +9,14 @@ return array(
         'validation_definition' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         )),
+    'feedback_text' => array(
+        'type' => 'text',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','Feedback text'),
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        )),
     'max_stars_1' => array(
         'type' => 'text',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','Max stars for feedback'),

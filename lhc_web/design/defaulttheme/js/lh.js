@@ -186,6 +186,16 @@ function lh(){
         }
     };
 
+    this.startChatBackground = function (chat_id,tabs,name) {
+    	if ( this.chatUnderSynchronization(chat_id) == false ) {  
+	    	var rememberAppend = this.disableremember == false ? '/(remember)/true' : '';
+	    	this.addTab(tabs, this.wwwDir +'chat/adminchat/'+chat_id+rememberAppend, name, chat_id, false); 
+	    	return true;
+    	}
+    	
+    	return false;
+    };
+    
     this.protectCSFR = function()
     {
     	$('a.csfr-required').click(function(){
@@ -445,6 +455,18 @@ function lh(){
     	});
     };
 
+    this.makeAbstractRequest = function(chat_id, inst) { 
+    	$.get(inst.attr('href'), function(data) {
+    		lhinst.syncadmininterfacestatic();	
+    		
+			if (LHCCallbacks.userRedirectedSurvey) {
+	       		LHCCallbacks.userRedirectedSurvey(chat_id);
+			};
+			
+    	});
+    	return false;
+    };
+    
     this.refreshOnlineUserInfo = function(inst) {
     	 inst.addClass('disabled');
     	 $.get(this.wwwDir + 'chat/refreshonlineinfo/' + inst.attr('rel'),{ }, function(data){
@@ -992,6 +1014,19 @@ function lh(){
 	    };
 	};
 	
+	this.continueChatFromSurvey = function(survey_id)
+	{
+		if (this.isWidgetMode && typeof(parent) !== 'undefined' && window.location !== window.parent.location) {	
+			$.postJSON(this.wwwDir + "survey/backtochat/" + this.chat_id + '/' + this.hash + '/' + survey_id , function(data){				
+				 parent.postMessage('lhc_continue_chat', '*');
+		    });
+		} else {
+			//this.chatClosed();
+		}
+		
+		return false;
+	}
+	
 	this.explicitClose = false;
 	
 	this.explicitChatCloseByUser = function()
@@ -1257,13 +1292,18 @@ function lh(){
 	        	            {
 	        	            	
 	        	                $.each(data.result,function(i,item) {
-	        	                	
-	        	                	  var messageBlock = $('#messagesBlock-'+item.chat_id);
-	        	                	
+
+	        	                	  var messageBlock = $('#messagesBlock-'+item.chat_id);   
+	        	                	  var scrollHeight = messageBlock.prop("scrollHeight");
+	        	                	  var isAtTheBottom = Math.abs((scrollHeight - messageBlock.prop("scrollTop")) - messageBlock.prop("clientHeight"));
+
 	        	                	  messageBlock.find('.pending-storage').remove();
-	        	                	  messageBlock.append(item.content);
-	        	                	  messageBlock.animate({ scrollTop: messageBlock.prop("scrollHeight") }, 1000);
-	        	                	  
+	        	                	  messageBlock.append(item.content);	
+
+	        	                	  if (isAtTheBottom < 20) {
+	        	                		  messageBlock.animate({ scrollTop: scrollHeight }, 1000);
+	        	                	  }
+
 	        		                  lhinst.updateChatLastMessageID(item.chat_id,item.message_id);
 	
 	        		                  var mainElement = $('#chat-tab-link-'+item.chat_id);

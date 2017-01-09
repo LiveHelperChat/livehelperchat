@@ -15,6 +15,11 @@
 <?php echo erLhcoreClassAbstract::renderInput('name', $fields['name'], $object)?>
 </div>
 
+<div class="form-group">
+<label><?php echo $fields['feedback_text']['trans'];?></label>
+<?php echo erLhcoreClassAbstract::renderInput('feedback_text', $fields['feedback_text'], $object)?>
+</div>
+
 <?php include(erLhcoreClassDesign::designtpl('lhsurvey/forms/fields_names.tpl.php'));?>
 
 <?php 

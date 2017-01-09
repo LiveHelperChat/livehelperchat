@@ -100,6 +100,9 @@ if ($activeTabEnabled == true) {
 	erLhcoreClassChat::prefillGetAttributes($chats,array('time_created_front','department_name','plain_user_name','product_name'),array('product_id','product','department','time','status','user_id','user'));	
 	$ReturnMessages['active_chats'] = array('list' => array_values($chats));	
 	$chatsList[] = & $ReturnMessages['active_chats']['list'];
+	
+	
+	
 }
 
 if ($closedTabEnabled == true) {
@@ -261,6 +264,16 @@ if (!empty($chatsList)) {
     erLhcoreClassChat::setOnlineStatus($chatsList);
 }
 
+$my_active_chats = array();
+
+if ($activeTabEnabled == true && isset($Params['user_parameters_unordered']['topen']) && $Params['user_parameters_unordered']['topen'] == 'true') {
+    $activeMyChats = erLhcoreClassChat::getActiveChats(10, 0, array('filter' => array('user_id' => $currentUser->getUserID())));
+    
+    erLhcoreClassChat::prefillGetAttributes($activeMyChats,array('id','nick'),array(),array('remove_all' => true));
+    
+    $my_active_chats = array_values($activeMyChats);
+}
+
 // Update last visit
 $currentUser->updateLastVisit();
 
@@ -273,7 +286,7 @@ if ($userData->operation_admin != '') {
     erLhcoreClassUser::getSession()->update($userData);
 }
 
-echo erLhcoreClassChat::safe_json_encode(array('error' => 'false', 'ou' => $ou, 'result' => $ReturnMessages ));
+echo erLhcoreClassChat::safe_json_encode(array('error' => 'false', 'mac' => $my_active_chats, 'ou' => $ou, 'result' => $ReturnMessages ));
 
 exit;
 ?>

@@ -108,6 +108,10 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 				        $firstNewMessage = current($Messages);
 				        $operatorId = $firstNewMessage['user_id'];
 				        
+				        if ($operatorId == -1) {
+				        	$operatorId = 0;
+				        }
+				        
 				        // Get Last message ID
 				        end($Messages);
 				        $LastMessageIDs = current($Messages);
@@ -161,15 +165,17 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 		    	
 		    	$responseArray['closed'] = true;
 		    }
-	
+		    
 		    if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED) {
 		    	$checkStatus = 't';
 		    	$chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_DEFAULT;
 		    	$saveChat = true;
 		    }
 	
-		    if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM) {
-		    	$checkStatus = 't';
+		    if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW) {
+		    	$blocked = 'true';
+		    	$breakSync = true;		    	
+		    	$responseArray['closed'] = true;
 		    }
 	
 		    if ($chat->operation != '') {	    	

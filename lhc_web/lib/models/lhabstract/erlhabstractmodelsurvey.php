@@ -98,7 +98,9 @@ class erLhAbstractModelSurvey {
 			'question_plain_5'         => $this->question_plain_5,
 			'question_plain_5_pos'     => $this->question_plain_5_pos,
 			'question_plain_5_enabled' => $this->question_plain_5_enabled,
-			'question_plain_5_req'     => $this->question_plain_5_req
+			'question_plain_5_req'     => $this->question_plain_5_req,
+		    
+			'feedback_text'            => $this->feedback_text
 		);
 
 		return $stateArray;
@@ -364,6 +366,8 @@ class erLhAbstractModelSurvey {
 	public $question_plain_5_pos = 0;
 	public $question_plain_5_enabled = 0;
 	public $question_plain_5_req = 0;
+	
+	public $feedback_text = '';
 	
 	public $hide_add = false;
 	public $hide_delete = false;

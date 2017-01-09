@@ -50,6 +50,20 @@ services.factory('LiveHelperChatFactory', ['$http','$q',function ($http, $q) {
 		return deferred.promise;
 	};
 
+	this.loadActiveChats = function() {
+		var deferred = $q.defer();		
+		$http.get(WWW_DIR_JAVASCRIPT + 'chat/loadactivechats').success(function(data) {
+			 if (typeof data.error_url !== 'undefined') {
+				 document.location = data.error_url;
+			 } else {
+				 deferred.resolve(data);
+			 }			 
+		}).error(function(){
+			deferred.reject('error');
+		});		
+		return deferred.promise;
+	};
+	
 	this.truncate = function (text, length, end) {
         if (isNaN(length))
             length = 10;
@@ -307,7 +321,11 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		if (typeof _that.closedd_products == 'object' && _that.closedd_products.length > 0) {
 			filter += '/(closeddprod)/'+_that.closedd_products.join('/');
 		}
-
+		
+		if (typeof _that.toggleWidgetData['track_open_chats'] !== 'undefined' && _that.toggleWidgetData['track_open_chats'] == true) {
+			filter += '/(topen)/true';
+		}
+		
 		return filter;
 	}
 	
@@ -557,6 +575,14 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 					eval(data.ou);
 				}
 				
+				if (typeof data.mac !== 'undefined' && data.mac.length > 0) {
+					var tabs = $('#tabs');
+					
+					angular.forEach(data.mac, function(item, key) {
+						lhinst.startChatBackground(item.id,tabs,LiveHelperChatFactory.truncate(item.nick,10),false);
+					});
+				}
+				
 				if ($scope.setTimeoutEnabled == true) {
 					$scope.timeoutControl = setTimeout(function(){
 						$scope.loadChatList();
@@ -569,7 +595,21 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 				},confLH.back_office_sinterval);
 		});
 	};
-		
+
+	this.appendActiveChats = function(){
+		LiveHelperChatFactory.loadActiveChats().then(function(data) {
+			
+			var tabs = $('#tabs');
+			angular.forEach(data.result, function(item, key) {
+				lhinst.startChatBackground(item.id, tabs, LiveHelperChatFactory.truncate(item.nick,10));
+			});
+			
+			setTimeout(function(){
+				lhinst.syncadmininterfacestatic();
+     	    },1000);
+		});
+	};
+
 	this.previewChat = function(chat_id){		
 		lhc.previewChat(chat_id);
 	};		

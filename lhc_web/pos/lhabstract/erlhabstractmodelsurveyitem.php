@@ -51,6 +51,11 @@ $def->properties['ftime']->columnName   = 'ftime';
 $def->properties['ftime']->propertyName = 'ftime';
 $def->properties['ftime']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['status'] = new ezcPersistentObjectProperty();
+$def->properties['status']->columnName   = 'status';
+$def->properties['status']->propertyName = 'status';
+$def->properties['status']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

@@ -14,6 +14,11 @@ $def->properties['name']->columnName   = 'name';
 $def->properties['name']->propertyName = 'name';
 $def->properties['name']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['feedback_text'] = new ezcPersistentObjectProperty();
+$def->properties['feedback_text']->columnName   = 'feedback_text';
+$def->properties['feedback_text']->propertyName = 'feedback_text';
+$def->properties['feedback_text']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 for ($i = 1; $i <= 5; $i++) {
     // Stars
     $def->properties['max_stars_'.$i] = new ezcPersistentObjectProperty();

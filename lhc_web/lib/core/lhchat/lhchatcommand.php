@@ -23,7 +23,8 @@ class erLhcoreClassChatCommand
         '!active' => 'self::activeChat',
         '!remark' => 'self::addRemark',
         '!info' => 'self::info',
-        '!help' => 'self::help'
+        '!help' => 'self::help',
+    	'!note' => 'self::notice'
     );
 
     private static function extractCommand($message)
@@ -87,7 +88,23 @@ class erLhcoreClassChatCommand
             'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'Nick changed!')
         );
     }
-
+    
+    /**
+     * Just adds message from operator
+     *
+     * @param array $params
+     *
+     * @return boolean
+     */
+    public static function notice($params)
+    {
+    	return array(
+    			'processed' => true,
+    			'process_status' => '',
+    			'raw_message' => $params['argument']
+    	);
+    }
+    
     /**
      * Updates chat email.
      *

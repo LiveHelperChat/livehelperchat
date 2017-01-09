@@ -45,24 +45,36 @@ try {
         if($survey instanceof erLhAbstractModelSurvey) {
             $surveyItem = erLhAbstractModelSurveyItem::getInstance($chat, $survey);
 
+            $collectedSurvey = false;
+            
             if (isset($_POST['Vote'])) {
                 $errors = erLhcoreClassSurveyValidator::validateSurvey($surveyItem, $survey);
                 if (empty($errors)) {
+                    $surveyItem->status =  erLhAbstractModelSurveyItem::STATUS_PERSISTENT;
                     $surveyItem->saveOrUpdate();
 
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('survey.filled', array('chat' => & $chat, 'survey' => $survey, 'survey_item' => & $surveyItem));
 
                     $tpl->set('just_stored', true);
+                    
+                    $collectedSurvey = true;
+                                       
                 } else {
                     $tpl->set('errors', $errors);
                 }
             }
-
+            
+            if (($collectedSurvey === true || $surveyItem->is_filled == true) && $chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW) {
+                $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_SURVEY_COLLECTED;
+                $chat->saveThis();                
+            }
+            
             $tpl->set('chat', $chat);
             $tpl->set('survey', $survey);
             $tpl->set('survey_item', $surveyItem);
 
             $Result['chat'] = $chat;
+            
         } else {
             $tpl->setFile( 'lhchat/errors/surveynotexists.tpl.php');
         }

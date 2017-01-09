@@ -49,7 +49,9 @@
 <?php endforeach; ?>
 </table>
 
-
+<?php if (isset($_GET['show']) && is_numeric($_GET['show'])) : ?>
+<script>lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('survey/collecteditem')?>/<?php echo $item->id?>'});</script>
+<?php endif; ?>
 
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/secure_links.tpl.php')); ?>
 

@@ -82,6 +82,14 @@
                 "key": "",
                 "default": null,
                 "extra": ""
+            },
+            {
+                "field": "feedback_text",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
             },            
             {
                 "field": "max_stars_1_title",
@@ -827,6 +835,14 @@
                 "null": "NO",
                 "key": "MUL",
                 "default": null,
+                "extra": ""
+            },
+            {
+                "field": "status",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": "0",
                 "extra": ""
             },
             {

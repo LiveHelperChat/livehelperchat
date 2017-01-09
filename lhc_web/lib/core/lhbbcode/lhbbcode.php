@@ -262,8 +262,8 @@ class erLhcoreClassBBCode
          }
    }
 
-   public static function _make_url_file($matches){
-
+   public static function _make_url_file($matches)
+   {
    		if (isset($matches[1])){
    			list($fileID,$hash) = explode('_',$matches[1]);
    			try {
@@ -282,6 +282,34 @@ class erLhcoreClassBBCode
    		return '';
    }
 
+   public static function _make_url_survey($matches)
+   {
+       if (isset($matches[1])){
+                  
+           list($surveyId, $surveyItemId) = explode('_',str_replace(array('"','&quot;'),'', $matches[1]));
+           
+           try {
+                             
+               if (is_numeric($surveyItemId) && is_numeric($surveyId)) {
+
+                   $surveyItem = erLhAbstractModelSurveyItem::fetch($surveyItemId);
+
+                   if ($surveyId == $surveyItem->survey_id) 
+                   {
+                       $survey = erLhAbstractModelSurvey::fetch($surveyId);
+                       return "<a href=\"" . erLhcoreClassDesign::baseurl('survey/collected')."/{$survey->id}?show={$surveyItem->id}\" target=\"_blank\" class=\"link\" >" . erTranslationClassLhTranslation::getInstance()->getTranslation('file/file','Collected survey data') . ' - ' . htmlspecialchars($survey->name) . "</a>";
+                   }
+               }
+               
+           } catch (Exception $e) {
+       
+           }
+       
+           return '';
+       }
+       return '';
+   }
+   
    public static function _make_url_mail_file($matches){
 
    		if (isset($matches[1])){
@@ -330,13 +358,16 @@ class erLhcoreClassBBCode
 
     	// File block
     	$ret = preg_replace_callback('#\[file="?(.*?)"?\]#is', 'erLhcoreClassBBCode::_make_url_file', $ret);
+    	
+    	// Survey
+    	$ret = preg_replace_callback('#\[survey="?(.*?)"?\]#is', 'erLhcoreClassBBCode::_make_url_survey', $ret);
 
     	$ret = trim($ret);
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.after_make_clickable',array('msg' => & $ret));
     	return $ret;
    }
-
+   
    public static function parseForMail($ret){
    		// File block
    		$ret = preg_replace_callback('#\[file="?(.*?)"?\]#is', 'erLhcoreClassBBCode::_make_url_mail_file', $ret);
