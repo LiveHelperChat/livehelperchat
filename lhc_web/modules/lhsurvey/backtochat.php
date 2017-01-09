@@ -68,7 +68,7 @@ try {
                 fastcgi_finish_request();
             };
             
-            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.addmsguser',array('chat' => & $chat, 'msg' => & $msg));
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('survey.back_to_chat',array('chat' => & $chat, 'msg' => & $msg));
         }        
     }
     
