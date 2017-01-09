@@ -470,6 +470,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   $db->query("CREATE TABLE `lh_abstract_survey` (
         	      `id` int(11) NOT NULL AUTO_INCREMENT,
                   `name` varchar(250) NOT NULL,
+                  `feedback_text` text NOT NULL,
                   `max_stars_1_title` varchar(250) NOT NULL,
                   `max_stars_1_pos` int(11) NOT NULL,
                   `max_stars_2_title` varchar(250) NOT NULL,
@@ -565,6 +566,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_abstract_survey_item` (
         	      `id` bigint(20) NOT NULL AUTO_INCREMENT,
 				  `survey_id` int(11) NOT NULL,
+				  `status` int(11) NOT NULL,
 				  `chat_id` int(11) NOT NULL,
 				  `user_id` int(11) NOT NULL,
 				  `ftime` int(11) NOT NULL,
