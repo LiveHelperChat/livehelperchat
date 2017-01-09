@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Сколько дней виджет голосования не будет открыт с последнего показа</translation>
     </message>
@@ -152,6 +156,10 @@
     <message>
       <source>List online operators, 0 - no, 1 - yes.</source>
       <translation>Операторы онлайн, 0 - нет, 1 - да.</translation>
+    </message>
+    <message>
+      <source>Inform visitor about unread messages from operator, value in minutes. 0 - disabled</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Ignore users online statuses and use departments online hours</source>
@@ -1530,6 +1538,10 @@
       <translation>Редактировать департамент</translation>
     </message>
     <message>
+      <source>Edit department group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation>Название</translation>
     </message>
@@ -1594,34 +1606,6 @@
       <translation>Рабочие дни/часы во время которых чат будет в режиме онлайн</translation>
     </message>
     <message>
-      <source>Monday</source>
-      <translation>Понедельник</translation>
-    </message>
-    <message>
-      <source>Tuesday</source>
-      <translation>Вторник</translation>
-    </message>
-    <message>
-      <source>Wednesday</source>
-      <translation>Среда</translation>
-    </message>
-    <message>
-      <source>Thursday</source>
-      <translation>Четверг</translation>
-    </message>
-    <message>
-      <source>Friday</source>
-      <translation>Пятница</translation>
-    </message>
-    <message>
-      <source>Saturday</source>
-      <translation>Суббота</translation>
-    </message>
-    <message>
-      <source>Sunday</source>
-      <translation>Воскресенье</translation>
-    </message>
-    <message>
       <source>Work hours, 24 hours format, 1 - 24, minutes format 0 - 60</source>
       <translation>Часы работы, 24-часовой формат, 1 - 24, формат минут 0 - 60</translation>
     </message>
@@ -1656,6 +1640,42 @@
     <message>
       <source>Minutes to, E.g. 30</source>
       <translation>Минуты по. Например, 30</translation>
+    </message>
+    <message>
+      <source>Custom period</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom work day</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Period</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>End time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Remove</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>XMPP recipients</source>
@@ -1739,16 +1759,48 @@
       <translation>Нет</translation>
     </message>
     <message>
-      <source>System configuration</source>
-      <translation>Настройки Системы</translation>
-    </message>
-    <message>
       <source>Departments</source>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Monday</source>
+      <translation>Понедельник</translation>
+    </message>
+    <message>
+      <source>Tuesday</source>
+      <translation>Вторник</translation>
+    </message>
+    <message>
+      <source>Wednesday</source>
+      <translation>Среда</translation>
+    </message>
+    <message>
+      <source>Thursday</source>
+      <translation>Четверг</translation>
+    </message>
+    <message>
+      <source>Friday</source>
+      <translation>Пятница</translation>
+    </message>
+    <message>
+      <source>Saturday</source>
+      <translation>Суббота</translation>
+    </message>
+    <message>
+      <source>Sunday</source>
+      <translation>Воскресенье</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>Настройки Системы</translation>
+    </message>
+    <message>
       <source>Edit a department</source>
       <translation>Изменить департамент</translation>
+    </message>
+    <message>
+      <source>Departments groups</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -1760,6 +1812,10 @@
     <message>
       <source>Chat was deleted</source>
       <translation>Чат удален</translation>
+    </message>
+    <message>
+      <source>Survey not exist please check embed code options</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -3510,6 +3566,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Departments</source>
+      <translation>Департаменты</translation>
+    </message>
+    <message>
+      <source>Departments groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Time zone settings</source>
       <translation>Настройка часовых поясов</translation>
     </message>
@@ -3680,10 +3744,6 @@
     <message>
       <source>Speech</source>
       <translation>Речь</translation>
-    </message>
-    <message>
-      <source>Departments</source>
-      <translation>Департаменты</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -5436,6 +5496,18 @@
       <translation>Вы уверены</translation>
     </message>
     <message>
+      <source>Departments groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>System configuration</source>
       <translation>Настройки Системы</translation>
     </message>
@@ -5559,10 +5631,6 @@
       <translation>Возврат</translation>
     </message>
     <message>
-      <source>All departments</source>
-      <translation>Все департаменты</translation>
-    </message>
-    <message>
       <source>Pending chats tab enabled</source>
       <translation>Включить вкладку чатов в очереди</translation>
     </message>
@@ -5589,6 +5657,18 @@
     <message>
       <source>Account updated</source>
       <translation>Аккаунт обновлен</translation>
+    </message>
+    <message>
+      <source>All departments</source>
+      <translation>Все департаменты</translation>
+    </message>
+    <message>
+      <source>Individual departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Departments groups</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
@@ -5623,6 +5703,10 @@
     <message>
       <source>New department</source>
       <translation>Новый департамент</translation>
+    </message>
+    <message>
+      <source>New department group</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>System configuration</source>
@@ -7202,6 +7286,14 @@
   <context>
     <name>user/new</name>
     <message>
+      <source>All departments</source>
+      <translation>Все департаменты</translation>
+    </message>
+    <message>
+      <source>Departments</source>
+      <translation>Департамент</translation>
+    </message>
+    <message>
       <source>Invisible mode</source>
       <translation>Режим невидимки</translation>
     </message>
@@ -7224,10 +7316,6 @@
     <message>
       <source>Do not show user status as online</source>
       <translation>Скрывать онлайн статус пользователя</translation>
-    </message>
-    <message>
-      <source>All departments</source>
-      <translation>Все департаменты</translation>
     </message>
     <message>
       <source>New user</source>
@@ -7268,10 +7356,6 @@
     <message>
       <source>Save</source>
       <translation>Сохранить</translation>
-    </message>
-    <message>
-      <source>Departments</source>
-      <translation>Департамент</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -7598,6 +7682,10 @@
   <context>
     <name>abstract/survey</name>
     <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation>Имя</translation>
     </message>
@@ -7614,7 +7702,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Enabled</source>
+      <source>Required</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8043,6 +8131,13 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Пожалуйста, введите правильный тип файла</translation>
+    </message>
+  </context>
+  <context>
+    <name>departament/editgroup</name>
+    <message>
+      <source>Please enter a department group name</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

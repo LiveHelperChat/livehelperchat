@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Por cuantos días el widget de votación no será expandido después de mostrarlo la última vez</translation>
     </message>
@@ -154,6 +158,10 @@
       <translation>Lista de operadores en línea, 0 - no,  1 - sí.</translation>
     </message>
     <message>
+      <source>Inform visitor about unread messages from operator, value in minutes. 0 - disabled</source>
+      <translation>Advertir al visitante sobre mensajes sin leer del operador de chat, valor en minutos. 0 significa deshablitado</translation>
+    </message>
+    <message>
       <source>Ignore users online statuses and use departments online hours</source>
       <translation>Ignorar el estado en línea de los usuario y utilizar los horarios de los departamentos</translation>
     </message>
@@ -207,7 +215,7 @@
     </message>
     <message>
       <source>Disable iframes in sharing mode</source>
-      <translation type="unfinished"/>
+      <translation>Deshabilitar Iframes en modo compartido</translation>
     </message>
     <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
@@ -344,23 +352,23 @@
     <name>survey/form</name>
     <message>
       <source>Add option</source>
-      <translation type="unfinished"/>
+      <translation>Añadir opción</translation>
     </message>
     <message>
       <source>Enter a possible answer to your question here...</source>
-      <translation type="unfinished"/>
+      <translation>Introduzca un posible respuesta a su pregunta aquí</translation>
     </message>
     <message>
       <source>Enable stars</source>
-      <translation type="unfinished"/>
+      <translation>Activar votación mediante estrellas</translation>
     </message>
     <message>
       <source>Enable question</source>
-      <translation type="unfinished"/>
+      <translation>Activar pregunta</translation>
     </message>
     <message>
       <source>Enable question with an answers</source>
-      <translation type="unfinished"/>
+      <translation>Activar pregunta con respuesta</translation>
     </message>
   </context>
   <context>
@@ -431,11 +439,11 @@
     </message>
     <message>
       <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
-      <translation type="unfinished"/>
+      <translation>Tiempo para el toolotip &quot;necesita ayuda&quot;, despues de cuantas horas transcurridas debe mostrarse de nuevo.</translation>
     </message>
     <message>
       <source>Show need help tooltip?</source>
-      <translation type="unfinished"/>
+      <translation>Mostrar tooltip &quot;Necesita ayuda?&quot;</translation>
     </message>
     <message>
       <source>Need help standard text</source>
@@ -443,7 +451,7 @@
     </message>
     <message>
       <source>Widget border width (px)</source>
-      <translation type="unfinished"/>
+      <translation>Borde del Widget (en px)</translation>
     </message>
     <message>
       <source>Online status text</source>
@@ -491,19 +499,19 @@
     </message>
     <message>
       <source>Hide widget close button</source>
-      <translation type="unfinished"/>
+      <translation>Oculta botón para cerrar Widget</translation>
     </message>
     <message>
       <source>Hide popup option</source>
-      <translation type="unfinished"/>
+      <translation>Ocultar la opción PopUp, para abrir chat en nueva ventana</translation>
     </message>
     <message>
       <source>Header height (px)</source>
-      <translation type="unfinished"/>
+      <translation>Altura de Header (px)</translation>
     </message>
     <message>
       <source>Header padding (px)</source>
-      <translation type="unfinished"/>
+      <translation>Header padding (px)</translation>
     </message>
     <message>
       <source>Site URL</source>
@@ -543,19 +551,19 @@
     </message>
     <message>
       <source>Text when user starts chat based on proactive invitation</source>
-      <translation type="unfinished"/>
+      <translation>Texto que debe mostrarse cuando un usuario inicia un chat mediante invitación proactiva</translation>
     </message>
     <message>
       <source>Text when operator closes a chat</source>
-      <translation type="unfinished"/>
+      <translation>Texto cuando un operador cierra un chat</translation>
     </message>
     <message>
       <source>Text when user starts a chat and is waiting for operator to join a chat</source>
-      <translation type="unfinished"/>
+      <translation>Texto que debe aparecer cuando un usuario comienza un chat y esta esperando que se una un operador</translation>
     </message>
     <message>
       <source>Text when user starts a chat but department is offline</source>
-      <translation type="unfinished"/>
+      <translation>Texto cuando un usuario inicia un chat pero el departamento esta offilne</translation>
     </message>
     <message>
       <source>Leave a message form text</source>
@@ -607,35 +615,35 @@
     </message>
     <message>
       <source>Visitor buble background color</source>
-      <translation type="unfinished"/>
+      <translation>Color de fondo para el bocadillo de chat del visitante</translation>
     </message>
     <message>
       <source>Visitor title color</source>
-      <translation type="unfinished"/>
+      <translation>Color de Título para visitante</translation>
     </message>
     <message>
       <source>Visitor text color</source>
-      <translation type="unfinished"/>
+      <translation>Color de texto para visitante</translation>
     </message>
     <message>
       <source>Operator buble background color</source>
-      <translation type="unfinished"/>
+      <translation>Color de fondo para el bocadillo de chat del operador</translation>
     </message>
     <message>
       <source>Operator title color</source>
-      <translation type="unfinished"/>
+      <translation>Color de titulo para operador</translation>
     </message>
     <message>
       <source>Operator text color</source>
-      <translation type="unfinished"/>
+      <translation>Color de texto para operador</translation>
     </message>
     <message>
       <source>Show voting thumbs?</source>
-      <translation type="unfinished"/>
+      <translation>Mostrar votación mediante pulgar arriba o pulgar abajo?</translation>
     </message>
     <message>
       <source>Use different title for department? E.g Location</source>
-      <translation type="unfinished"/>
+      <translation>Utilizar diferentes títulos para el departamento? Por ejemplo Ubicación</translation>
     </message>
     <message>
       <source>Location</source>
@@ -643,7 +651,7 @@
     </message>
     <message>
       <source>Additional option before department selection</source>
-      <translation type="unfinished"/>
+      <translation>Opción adicional antes de la selección del departamento</translation>
     </message>
     <message>
       <source>Choose department</source>
@@ -678,7 +686,7 @@
     </message>
     <message>
       <source>Our staff are always ready to help</source>
-      <translation type="unfinished"/>
+      <translation>Nuestro personal siempre está listo para ayudar</translation>
     </message>
     <message>
       <source>Live help is offline...</source>
@@ -737,7 +745,7 @@
     </message>
     <message>
       <source>Show visitor this message when wait timeout passes</source>
-      <translation type="unfinished"/>
+      <translation>Mostrar al visitante este mensaje cuando el tiempo de espera es sobrepasado</translation>
     </message>
     <message>
       <source>Auto responder</source>
@@ -793,7 +801,7 @@
     </message>
     <message>
       <source>Tag</source>
-      <translation type="unfinished"/>
+      <translation>Etiqueta</translation>
     </message>
     <message>
       <source>Matched times</source>
@@ -1530,6 +1538,10 @@
       <translation>Editar departamento</translation>
     </message>
     <message>
+      <source>Edit department group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation>Nombre</translation>
     </message>
@@ -1594,34 +1606,6 @@
       <translation>Horas / días de trabajo, durante esta horas / días el chat se activará automáticamente</translation>
     </message>
     <message>
-      <source>Monday</source>
-      <translation>Lunes</translation>
-    </message>
-    <message>
-      <source>Tuesday</source>
-      <translation>Martes</translation>
-    </message>
-    <message>
-      <source>Wednesday</source>
-      <translation>Miércoles</translation>
-    </message>
-    <message>
-      <source>Thursday</source>
-      <translation>Jueves</translation>
-    </message>
-    <message>
-      <source>Friday</source>
-      <translation>Viernes</translation>
-    </message>
-    <message>
-      <source>Saturday</source>
-      <translation>Sábado</translation>
-    </message>
-    <message>
-      <source>Sunday</source>
-      <translation>Domingo</translation>
-    </message>
-    <message>
       <source>Work hours, 24 hours format, 1 - 24, minutes format 0 - 60</source>
       <translation>Horas de trabajo, formato de 1 a 24 horas y de 0 a 60 minutos.</translation>
     </message>
@@ -1656,6 +1640,42 @@
     <message>
       <source>Minutes to, E.g. 30</source>
       <translation>Minutos hasta, Ej. 30</translation>
+    </message>
+    <message>
+      <source>Custom period</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom work day</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Period</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>End time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Remove</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>XMPP recipients</source>
@@ -1738,16 +1758,48 @@
       <translation>Ninguno</translation>
     </message>
     <message>
-      <source>System configuration</source>
-      <translation>Configuración del sistema</translation>
-    </message>
-    <message>
       <source>Departments</source>
       <translation>Departamentos</translation>
     </message>
     <message>
+      <source>Monday</source>
+      <translation>Lunes</translation>
+    </message>
+    <message>
+      <source>Tuesday</source>
+      <translation>Martes</translation>
+    </message>
+    <message>
+      <source>Wednesday</source>
+      <translation>Miércoles</translation>
+    </message>
+    <message>
+      <source>Thursday</source>
+      <translation>Jueves</translation>
+    </message>
+    <message>
+      <source>Friday</source>
+      <translation>Viernes</translation>
+    </message>
+    <message>
+      <source>Saturday</source>
+      <translation>Sábado</translation>
+    </message>
+    <message>
+      <source>Sunday</source>
+      <translation>Domingo</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>Configuración del sistema</translation>
+    </message>
+    <message>
       <source>Edit a department</source>
       <translation>Editar un departamento</translation>
+    </message>
+    <message>
+      <source>Departments groups</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -1759,6 +1811,10 @@
     <message>
       <source>Chat was deleted</source>
       <translation>El chat ha sido eliminado</translation>
+    </message>
+    <message>
+      <source>Survey not exist please check embed code options</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -2434,7 +2490,7 @@
     </message>
     <message>
       <source>Choose a product</source>
-      <translation type="unfinished"/>
+      <translation>Seleccione un producto o servicio</translation>
     </message>
     <message>
       <source>Type your message here and hit enter to send...</source>
@@ -2530,11 +2586,11 @@
     </message>
     <message>
       <source>Could not find a product!</source>
-      <translation type="unfinished"/>
+      <translation>No se encuentra este producto o servicio</translation>
     </message>
     <message>
       <source>Please choose a product!</source>
-      <translation type="unfinished"/>
+      <translation>Por favor seleccione un producto o servicio</translation>
     </message>
     <message>
       <source>Please choose</source>
@@ -3509,6 +3565,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Departments</source>
+      <translation>Departamentos</translation>
+    </message>
+    <message>
+      <source>Departments groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Time zone settings</source>
       <translation>Configuraciones de zona horaria</translation>
     </message>
@@ -3679,10 +3743,6 @@
     <message>
       <source>Speech</source>
       <translation>hablar</translation>
-    </message>
-    <message>
-      <source>Departments</source>
-      <translation>Departamentos</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -3969,7 +4029,7 @@
     </message>
     <message>
       <source>Select product</source>
-      <translation type="unfinished"/>
+      <translation>Seleccione producto o servicio</translation>
     </message>
     <message>
       <source>Type to search</source>
@@ -5435,6 +5495,18 @@
       <translation>¿Está seguro?</translation>
     </message>
     <message>
+      <source>Departments groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>System configuration</source>
       <translation>Configuración del sistema</translation>
     </message>
@@ -5558,10 +5630,6 @@
       <translation>Volver</translation>
     </message>
     <message>
-      <source>All departments</source>
-      <translation>Todos los departamentos</translation>
-    </message>
-    <message>
       <source>Pending chats tab enabled</source>
       <translation>Pestaña de chats pendientes habilitada</translation>
     </message>
@@ -5588,6 +5656,18 @@
     <message>
       <source>Account updated</source>
       <translation>Cuenta actualizada</translation>
+    </message>
+    <message>
+      <source>All departments</source>
+      <translation>Todos los departamentos</translation>
+    </message>
+    <message>
+      <source>Individual departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Departments groups</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
@@ -5622,6 +5702,10 @@
     <message>
       <source>New department</source>
       <translation>Nuevo departamento</translation>
+    </message>
+    <message>
+      <source>New department group</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>System configuration</source>
@@ -6324,14 +6408,14 @@
     <name>lhproduct/index</name>
     <message>
       <source>Products</source>
-      <translation type="unfinished"/>
+      <translation>Productos</translation>
     </message>
   </context>
   <context>
     <name>theme/index</name>
     <message>
       <source>Products</source>
-      <translation type="unfinished"/>
+      <translation>Productos</translation>
     </message>
     <message>
       <source>Default theme</source>
@@ -7201,6 +7285,14 @@
   <context>
     <name>user/new</name>
     <message>
+      <source>All departments</source>
+      <translation>Todos los departamentos</translation>
+    </message>
+    <message>
+      <source>Departments</source>
+      <translation>Departamentos</translation>
+    </message>
+    <message>
       <source>Invisible mode</source>
       <translation>Modo invisible</translation>
     </message>
@@ -7223,10 +7315,6 @@
     <message>
       <source>Do not show user status as online</source>
       <translation>No mostrar el estado del usuario como en línea</translation>
-    </message>
-    <message>
-      <source>All departments</source>
-      <translation>Todos los departamentos</translation>
     </message>
     <message>
       <source>New user</source>
@@ -7267,10 +7355,6 @@
     <message>
       <source>Save</source>
       <translation>Guardar</translation>
-    </message>
-    <message>
-      <source>Departments</source>
-      <translation>Departamentos</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -7597,6 +7681,10 @@
   <context>
     <name>abstract/survey</name>
     <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation type="unfinished"/>
     </message>
@@ -7613,7 +7701,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Enabled</source>
+      <source>Required</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8042,6 +8130,13 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Por favor, introduzca un tipo de archivo válido</translation>
+    </message>
+  </context>
+  <context>
+    <name>departament/editgroup</name>
+    <message>
+      <source>Please enter a department group name</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

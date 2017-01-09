@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Po kolik dní by se neměl hlasovací widget zvětšovat od posledního zobrazení</translation>
     </message>
@@ -152,6 +156,10 @@
     <message>
       <source>List online operators, 0 - no, 1 - yes.</source>
       <translation>Seznam online operátorů, 0 - ne, 1 - ano</translation>
+    </message>
+    <message>
+      <source>Inform visitor about unread messages from operator, value in minutes. 0 - disabled</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Ignore users online statuses and use departments online hours</source>
@@ -344,7 +352,7 @@
     <name>survey/form</name>
     <message>
       <source>Add option</source>
-      <translation type="unfinished"/>
+      <translation>Přidat možnost</translation>
     </message>
     <message>
       <source>Enter a possible answer to your question here...</source>
@@ -352,22 +360,22 @@
     </message>
     <message>
       <source>Enable stars</source>
-      <translation type="unfinished"/>
+      <translation>Zapnout hvězdy</translation>
     </message>
     <message>
       <source>Enable question</source>
-      <translation type="unfinished"/>
+      <translation>Zapnout otázku</translation>
     </message>
     <message>
       <source>Enable question with an answers</source>
-      <translation type="unfinished"/>
+      <translation>Aktivovat otázku s odpovědí</translation>
     </message>
   </context>
   <context>
     <name>abstract/widgettheme</name>
     <message>
       <source>Download theme</source>
-      <translation>Stáhnout téma</translation>
+      <translation>Stáhnout šablonu</translation>
     </message>
     <message>
       <source>Status widget style</source>
@@ -678,7 +686,7 @@
     </message>
     <message>
       <source>Our staff are always ready to help</source>
-      <translation type="unfinished"/>
+      <translation>Náš tým je vždy k dispozici poskytnout vám pomoc</translation>
     </message>
     <message>
       <source>Live help is offline...</source>
@@ -793,7 +801,7 @@
     </message>
     <message>
       <source>Tag</source>
-      <translation type="unfinished"/>
+      <translation>Tag</translation>
     </message>
     <message>
       <source>Matched times</source>
@@ -883,7 +891,7 @@
     </message>
     <message>
       <source>Theme</source>
-      <translation>Téma</translation>
+      <translation>Šablona</translation>
     </message>
     <message>
       <source>Default</source>
@@ -1530,6 +1538,10 @@
       <translation>Upravit oddělení</translation>
     </message>
     <message>
+      <source>Edit department group</source>
+      <translation>Upravit skupinu oddělení</translation>
+    </message>
+    <message>
       <source>Name</source>
       <translation>Nadpis</translation>
     </message>
@@ -1594,34 +1606,6 @@
       <translation>Pracovní doba/pracovní dny, během těchto hodin/dnů je rozhovor automaticky aktivován</translation>
     </message>
     <message>
-      <source>Monday</source>
-      <translation>Pondělí</translation>
-    </message>
-    <message>
-      <source>Tuesday</source>
-      <translation>Úterý</translation>
-    </message>
-    <message>
-      <source>Wednesday</source>
-      <translation>Středa</translation>
-    </message>
-    <message>
-      <source>Thursday</source>
-      <translation>Čtvrtek</translation>
-    </message>
-    <message>
-      <source>Friday</source>
-      <translation>Pátek</translation>
-    </message>
-    <message>
-      <source>Saturday</source>
-      <translation>Sobota</translation>
-    </message>
-    <message>
-      <source>Sunday</source>
-      <translation>Neděle</translation>
-    </message>
-    <message>
       <source>Work hours, 24 hours format, 1 - 24, minutes format 0 - 60</source>
       <translation>Pracovní doba, 24hodinový formát, 1-24, formát minut 0-60</translation>
     </message>
@@ -1656,6 +1640,42 @@
     <message>
       <source>Minutes to, E.g. 30</source>
       <translation>Minuty do, např. 30</translation>
+    </message>
+    <message>
+      <source>Custom period</source>
+      <translation>Vlastní období</translation>
+    </message>
+    <message>
+      <source>Date from</source>
+      <translation>Datum od</translation>
+    </message>
+    <message>
+      <source>Custom work day</source>
+      <translation>Vlastní pracovní den</translation>
+    </message>
+    <message>
+      <source>Date to</source>
+      <translation>Datum do</translation>
+    </message>
+    <message>
+      <source>Add</source>
+      <translation>Přidat</translation>
+    </message>
+    <message>
+      <source>Period</source>
+      <translation>Období</translation>
+    </message>
+    <message>
+      <source>Start time</source>
+      <translation>Čas začátku</translation>
+    </message>
+    <message>
+      <source>End time</source>
+      <translation>Čas konce</translation>
+    </message>
+    <message>
+      <source>Remove</source>
+      <translation>Odstranit</translation>
     </message>
     <message>
       <source>XMPP recipients</source>
@@ -1738,16 +1758,48 @@
       <translation>Žádný</translation>
     </message>
     <message>
-      <source>System configuration</source>
-      <translation>Nastavení systému</translation>
-    </message>
-    <message>
       <source>Departments</source>
       <translation>Oddělení</translation>
     </message>
     <message>
+      <source>Monday</source>
+      <translation>Pondělí</translation>
+    </message>
+    <message>
+      <source>Tuesday</source>
+      <translation>Úterý</translation>
+    </message>
+    <message>
+      <source>Wednesday</source>
+      <translation>Středa</translation>
+    </message>
+    <message>
+      <source>Thursday</source>
+      <translation>Čtvrtek</translation>
+    </message>
+    <message>
+      <source>Friday</source>
+      <translation>Pátek</translation>
+    </message>
+    <message>
+      <source>Saturday</source>
+      <translation>Sobota</translation>
+    </message>
+    <message>
+      <source>Sunday</source>
+      <translation>Neděle</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>Nastavení systému</translation>
+    </message>
+    <message>
       <source>Edit a department</source>
       <translation>Upravit oddělení</translation>
+    </message>
+    <message>
+      <source>Departments groups</source>
+      <translation>Skupiny oddělení</translation>
     </message>
   </context>
   <context>
@@ -1759,6 +1811,10 @@
     <message>
       <source>Chat was deleted</source>
       <translation>Rozhovor byl smazán</translation>
+    </message>
+    <message>
+      <source>Survey not exist please check embed code options</source>
+      <translation>Tento průzkum neexistuje, prosím zkontrolujte vložený kód</translation>
     </message>
   </context>
   <context>
@@ -1989,15 +2045,15 @@
     </message>
     <message>
       <source>Auto responder got error</source>
-      <translation type="unfinished"/>
+      <translation>Automatický odpovídač oznámil chybu</translation>
     </message>
     <message>
       <source>Form data not valid</source>
-      <translation type="unfinished"/>
+      <translation>Neplatný formát data</translation>
     </message>
     <message>
       <source>Has no access to this chat</source>
-      <translation type="unfinished"/>
+      <translation>Nemá přístup k tomuto rozhovoru</translation>
     </message>
   </context>
   <context>
@@ -2281,7 +2337,7 @@
     </message>
     <message>
       <source>Screenshot store error</source>
-      <translation type="unfinished"/>
+      <translation>Chyby při ukládání snímku obrazovky</translation>
     </message>
   </context>
   <context>
@@ -3509,6 +3565,14 @@
       <translation>Podporované: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</translation>
     </message>
     <message>
+      <source>Departments</source>
+      <translation>Oddělení</translation>
+    </message>
+    <message>
+      <source>Departments groups</source>
+      <translation>Skupiny oddělení</translation>
+    </message>
+    <message>
       <source>Time zone settings</source>
       <translation>Nastavení časové zóny</translation>
     </message>
@@ -3646,15 +3710,15 @@
     </message>
     <message>
       <source>Back office theming</source>
-      <translation type="unfinished"/>
+      <translation>Nastavení vzhledu rozhraní pro operátory</translation>
     </message>
     <message>
       <source>Admin themes</source>
-      <translation type="unfinished"/>
+      <translation>Administrátoské šablony</translation>
     </message>
     <message>
       <source>Default admin theme</source>
-      <translation type="unfinished"/>
+      <translation>Výchozí šablona administrátora</translation>
     </message>
     <message>
       <source>Automatic translations</source>
@@ -3679,10 +3743,6 @@
     <message>
       <source>Speech</source>
       <translation>Řeč</translation>
-    </message>
-    <message>
-      <source>Departments</source>
-      <translation>Oddělení</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -4429,11 +4489,11 @@
     </message>
     <message>
       <source>Please enter resource identifier</source>
-      <translation type="unfinished"/>
+      <translation>Prosím zadejte identifikátor zdroje</translation>
     </message>
     <message>
       <source>Add resource</source>
-      <translation type="unfinished"/>
+      <translation>Přidat zdroj</translation>
     </message>
     <message>
       <source>Minimum 40 characters for encryption key!</source>
@@ -4484,7 +4544,7 @@
     </message>
     <message>
       <source>Average in seconds</source>
-      <translation>Průměr ve vteřinách</translation>
+      <translation>Průměr v sekundách</translation>
     </message>
     <message>
       <source>Wait time</source>
@@ -4580,7 +4640,7 @@
     </message>
     <message>
       <source>AVG wait time in seconds, max 10 mininutes</source>
-      <translation>Průměrný čas čekání ve vteřinách, max 10 minut</translation>
+      <translation>Průměrný čas čekání v sekundách, max 10 minut</translation>
     </message>
     <message>
       <source>Chatbox chats</source>
@@ -5435,6 +5495,18 @@
       <translation>Jste si jistý?</translation>
     </message>
     <message>
+      <source>Departments groups</source>
+      <translation>Skupiny oddělení</translation>
+    </message>
+    <message>
+      <source>Group</source>
+      <translation>Skupina</translation>
+    </message>
+    <message>
+      <source>Edit</source>
+      <translation>Upravit</translation>
+    </message>
+    <message>
       <source>System configuration</source>
       <translation>Nastavení systému</translation>
     </message>
@@ -5558,10 +5630,6 @@
       <translation>Vrátit</translation>
     </message>
     <message>
-      <source>All departments</source>
-      <translation>Všechna oddělení</translation>
-    </message>
-    <message>
       <source>Pending chats tab enabled</source>
       <translation>Záložka čekajících rozhovorů povolena</translation>
     </message>
@@ -5590,6 +5658,18 @@
       <translation>Účet aktualizován</translation>
     </message>
     <message>
+      <source>All departments</source>
+      <translation>Všechna oddělení</translation>
+    </message>
+    <message>
+      <source>Individual departments</source>
+      <translation>Jednotlivá oddělení</translation>
+    </message>
+    <message>
+      <source>Departments groups</source>
+      <translation>Skupiny oddělení</translation>
+    </message>
+    <message>
       <source>User receives other operators permissions request</source>
       <translation>Uživatel dostává požadavky na oprávnění jiných operátorů</translation>
     </message>
@@ -5614,7 +5694,7 @@
     </message>
     <message>
       <source>Automatically assign chat to another operator if operator did not accepted chat in seconds, 0 - disabled</source>
-      <translation>Automaticky přiřadit rozhovor jinému operátorovi, pokud operátor neakceptuje rozhovor v uvedených vteřinách, 0 - vypnuto</translation>
+      <translation>Automaticky přiřadit rozhovor jinému operátorovi, pokud operátor neakceptuje rozhovor do nastaveného limitu v sekundách, 0 - vypnuto</translation>
     </message>
   </context>
   <context>
@@ -5622,6 +5702,10 @@
     <message>
       <source>New department</source>
       <translation>Nové oddělení</translation>
+    </message>
+    <message>
+      <source>New department group</source>
+      <translation>Nová skupina oddělení</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -6339,7 +6423,7 @@
     </message>
     <message>
       <source>Theme</source>
-      <translation>Téma</translation>
+      <translation>Šbalona</translation>
     </message>
     <message>
       <source>Widget themes</source>
@@ -6351,15 +6435,15 @@
     </message>
     <message>
       <source>Admin</source>
-      <translation type="unfinished"/>
+      <translation>Admin</translation>
     </message>
     <message>
       <source>Admin themes</source>
-      <translation type="unfinished"/>
+      <translation>Administrátorskí šablona</translation>
     </message>
     <message>
       <source>Default admin theme</source>
-      <translation type="unfinished"/>
+      <translation>Výchozí šablona administrátora</translation>
     </message>
     <message>
       <source>Rest API</source>
@@ -6367,11 +6451,11 @@
     </message>
     <message>
       <source>Themes</source>
-      <translation>Témata</translation>
+      <translation>Šablony</translation>
     </message>
     <message>
       <source>Import theme</source>
-      <translation>Import téma</translation>
+      <translation>Import šablony</translation>
     </message>
   </context>
   <context>
@@ -6589,7 +6673,7 @@
     </message>
     <message>
       <source>Revote time (hours), before can revote. Default 0 - never. Higher value allow revote after seconds expire since last vote</source>
-      <translation>Čas znovuhodnocení (hodiny), než bude povoleno opět volit. Výchozí 0 - nikdy. Vyšší hodnota umožňuje znovuhodnotit po vteřinách od posledního hodnocení.</translation>
+      <translation>Čas (v hodinách), než bude povoleno opětovně volit. Výchozí 0 - nikdy. Vyšší hodnota umožňuje opětovné volbu po uplynutí času v sekundách od poslední volby.</translation>
     </message>
     <message>
       <source>Active</source>
@@ -6704,11 +6788,11 @@
     </message>
     <message>
       <source>View information</source>
-      <translation type="unfinished"/>
+      <translation>Zobrazit informace</translation>
     </message>
     <message>
       <source>Collected information</source>
-      <translation type="unfinished"/>
+      <translation>Sdružené informace</translation>
     </message>
     <message>
       <source>Department name</source>
@@ -6896,7 +6980,7 @@
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Nastavená bylo aktualizováno</translation>
+      <translation>Nastavený bylo aktualizováno</translation>
     </message>
   </context>
   <context>
@@ -7071,35 +7155,35 @@
     <name>icclicktocallform/form</name>
     <message>
       <source>Settings</source>
-      <translation type="unfinished"/>
+      <translation>Nastavení</translation>
     </message>
     <message>
       <source>Header settings</source>
-      <translation type="unfinished"/>
+      <translation>Nastavení hlavičky</translation>
     </message>
     <message>
       <source>Header css</source>
-      <translation type="unfinished"/>
+      <translation>Hlavička CSS</translation>
     </message>
     <message>
       <source>Static content</source>
-      <translation type="unfinished"/>
+      <translation>Statický obsah</translation>
     </message>
     <message>
       <source>JS</source>
-      <translation type="unfinished"/>
+      <translation>JS</translation>
     </message>
     <message>
       <source>CSS</source>
-      <translation type="unfinished"/>
+      <translation>CSS</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Jméno</translation>
     </message>
     <message>
       <source>Header content</source>
-      <translation type="unfinished"/>
+      <translation>Obsah hlavičky</translation>
     </message>
     <message>
       <source>Resource name for replacement</source>
@@ -7107,53 +7191,53 @@
     </message>
     <message>
       <source>Empty...</source>
-      <translation type="unfinished"/>
+      <translation>Prázdné...</translation>
     </message>
     <message>
       <source>Invalid CSRF token!</source>
-      <translation type="unfinished"/>
+      <translation>Neplatný CSRF token!</translation>
     </message>
     <message>
       <source>Please enter a name</source>
-      <translation type="unfinished"/>
+      <translation>Prosím zadejte jméno</translation>
     </message>
     <message>
       <source>File not chosen for</source>
-      <translation type="unfinished"/>
+      <translation>Soubor nebyl zvolen pro</translation>
     </message>
   </context>
   <context>
     <name>lhtheme/admin</name>
     <message>
       <source>New admin theme</source>
-      <translation type="unfinished"/>
+      <translation>Nová šablona administrátora</translation>
     </message>
     <message>
       <source>Admin themes</source>
-      <translation type="unfinished"/>
+      <translation>Šablony administrátora</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Jméno</translation>
     </message>
     <message>
       <source>Default admin theme</source>
-      <translation type="unfinished"/>
+      <translation>Výchozí šablona administrátora</translation>
     </message>
     <message>
       <source>Edit admin theme</source>
-      <translation type="unfinished"/>
+      <translation>Upravit administrátorskou šablonu</translation>
     </message>
   </context>
   <context>
     <name>admintheme/form</name>
     <message>
       <source>Edit theme</source>
-      <translation type="unfinished"/>
+      <translation>Upravit šablonu</translation>
     </message>
     <message>
       <source>Updated</source>
-      <translation type="unfinished"/>
+      <translation>Aktualizováno</translation>
     </message>
   </context>
   <context>
@@ -7171,11 +7255,11 @@
     </message>
     <message>
       <source>Default admin theme was set</source>
-      <translation type="unfinished"/>
+      <translation>Výchozí šablona administrátora byla nastavena</translation>
     </message>
     <message>
       <source>Import theme</source>
-      <translation>Importovat téma</translation>
+      <translation>Importovat šablonu</translation>
     </message>
     <message>
       <source>File</source>
@@ -7187,11 +7271,11 @@
     </message>
     <message>
       <source>Theme imported</source>
-      <translation>Téma bylo naimportováno</translation>
+      <translation>Šbablona byla naimportována</translation>
     </message>
     <message>
       <source>Could not import a new theme!</source>
-      <translation>Nelze naimportovat nové téma!</translation>
+      <translation>Nelze naimportovat novou šablonu!</translation>
     </message>
     <message>
       <source>Invalid file!</source>
@@ -7200,6 +7284,14 @@
   </context>
   <context>
     <name>user/new</name>
+    <message>
+      <source>All departments</source>
+      <translation>Všechna oddělení</translation>
+    </message>
+    <message>
+      <source>Departments</source>
+      <translation>Oddělení</translation>
+    </message>
     <message>
       <source>Invisible mode</source>
       <translation>Neviditelný mód</translation>
@@ -7223,10 +7315,6 @@
     <message>
       <source>Do not show user status as online</source>
       <translation>Nezobrazovat stav uživatele jako online</translation>
-    </message>
-    <message>
-      <source>All departments</source>
-      <translation>Všechna oddělení</translation>
     </message>
     <message>
       <source>New user</source>
@@ -7267,10 +7355,6 @@
     <message>
       <source>Save</source>
       <translation>Uložit</translation>
-    </message>
-    <message>
-      <source>Departments</source>
-      <translation>Oddělení</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -7479,7 +7563,7 @@
     </message>
     <message>
       <source>CSFR token is invalid, try to resubmit form</source>
-      <translation type="unfinished"/>
+      <translation>CSFR token je neplatný, zkuste formulář znovu odeslat</translation>
     </message>
     <message>
       <source>Incorrect username or password</source>
@@ -7487,7 +7571,7 @@
     </message>
     <message>
       <source>Logged in successfully</source>
-      <translation type="unfinished"/>
+      <translation>Přihlášení bylo úspěšné</translation>
     </message>
   </context>
   <context>
@@ -7597,6 +7681,10 @@
   <context>
     <name>abstract/survey</name>
     <message>
+      <source>Enabled</source>
+      <translation>Zapnuto</translation>
+    </message>
+    <message>
       <source>Name</source>
       <translation>Jméno</translation>
     </message>
@@ -7606,23 +7694,23 @@
     </message>
     <message>
       <source>Max stars pos</source>
-      <translation type="unfinished"/>
+      <translation>Max počet hvězd</translation>
     </message>
     <message>
       <source>Title for evaluation</source>
-      <translation type="unfinished"/>
+      <translation>Nadpis pro kontrolu</translation>
     </message>
     <message>
-      <source>Enabled</source>
-      <translation type="unfinished"/>
+      <source>Required</source>
+      <translation>Vyžadováno</translation>
     </message>
     <message>
       <source>Title for plain question</source>
-      <translation type="unfinished"/>
+      <translation>Název prosté otázky</translation>
     </message>
     <message>
       <source>Title for custom questions</source>
-      <translation type="unfinished"/>
+      <translation>Název vlastních otázek</translation>
     </message>
     <message>
       <source>Survey</source>
@@ -7724,7 +7812,7 @@
     </message>
     <message>
       <source>Chat average in seconds</source>
-      <translation>Průměr rozhovorů ve vteřinách</translation>
+      <translation>Průměr délky rozhovorů v sekundách</translation>
     </message>
   </context>
   <context>
@@ -8042,6 +8130,13 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Prosím vyberte platný typ souboru!</translation>
+    </message>
+  </context>
+  <context>
+    <name>departament/editgroup</name>
+    <message>
+      <source>Please enter a department group name</source>
+      <translation>Prosím zadejte název skupiny oddělení</translation>
     </message>
   </context>
 </TS>

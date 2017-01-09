@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -151,6 +155,10 @@
     </message>
     <message>
       <source>List online operators, 0 - no, 1 - yes.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Inform visitor about unread messages from operator, value in minutes. 0 - disabled</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1530,6 +1538,10 @@
       <translation>Bộ phận sửa</translation>
     </message>
     <message>
+      <source>Edit department group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation>Tên</translation>
     </message>
@@ -1594,34 +1606,6 @@
       <translation>Ngày/Giờ làm việc, trong những ngày/giờ này trò chuyện sẽ tự động được hoạt động </translation>
     </message>
     <message>
-      <source>Monday</source>
-      <translation>Thứ hai</translation>
-    </message>
-    <message>
-      <source>Tuesday</source>
-      <translation>Thứ ba</translation>
-    </message>
-    <message>
-      <source>Wednesday</source>
-      <translation>Thứ tư</translation>
-    </message>
-    <message>
-      <source>Thursday</source>
-      <translation>Thứ năm</translation>
-    </message>
-    <message>
-      <source>Friday</source>
-      <translation>Thứ sáu</translation>
-    </message>
-    <message>
-      <source>Saturday</source>
-      <translation>Thứ bảy</translation>
-    </message>
-    <message>
-      <source>Sunday</source>
-      <translation>Chủ Nhật</translation>
-    </message>
-    <message>
       <source>Work hours, 24 hours format, 1 - 24, minutes format 0 - 60</source>
       <translation type="unfinished"/>
     </message>
@@ -1655,6 +1639,42 @@
     </message>
     <message>
       <source>Minutes to, E.g. 30</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom period</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom work day</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Period</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>End time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Remove</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1738,16 +1758,48 @@
       <translation>Không có</translation>
     </message>
     <message>
-      <source>System configuration</source>
-      <translation>Cấu hình hệ thống</translation>
-    </message>
-    <message>
       <source>Departments</source>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Monday</source>
+      <translation>Thứ hai</translation>
+    </message>
+    <message>
+      <source>Tuesday</source>
+      <translation>Thứ ba</translation>
+    </message>
+    <message>
+      <source>Wednesday</source>
+      <translation>Thứ tư</translation>
+    </message>
+    <message>
+      <source>Thursday</source>
+      <translation>Thứ năm</translation>
+    </message>
+    <message>
+      <source>Friday</source>
+      <translation>Thứ sáu</translation>
+    </message>
+    <message>
+      <source>Saturday</source>
+      <translation>Thứ bảy</translation>
+    </message>
+    <message>
+      <source>Sunday</source>
+      <translation>Chủ Nhật</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>Cấu hình hệ thống</translation>
+    </message>
+    <message>
       <source>Edit a department</source>
       <translation>Chỉnh sửa một bộ phận</translation>
+    </message>
+    <message>
+      <source>Departments groups</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -1759,6 +1811,10 @@
     <message>
       <source>Chat was deleted</source>
       <translation>Trò chuyện đã bị xóa</translation>
+    </message>
+    <message>
+      <source>Survey not exist please check embed code options</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -3509,6 +3565,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Departments</source>
+      <translation>Bộ phận</translation>
+    </message>
+    <message>
+      <source>Departments groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Time zone settings</source>
       <translation>Cài đặt múi giờ</translation>
     </message>
@@ -3679,10 +3743,6 @@
     <message>
       <source>Speech</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Departments</source>
-      <translation>Bộ phận</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -5435,6 +5495,18 @@
       <translation>Bạn có chắc không?</translation>
     </message>
     <message>
+      <source>Departments groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>System configuration</source>
       <translation>Cấu hình hệ thống</translation>
     </message>
@@ -5558,10 +5630,6 @@
       <translation>Quay trở lại</translation>
     </message>
     <message>
-      <source>All departments</source>
-      <translation>Tất cả các phòng ban</translation>
-    </message>
-    <message>
       <source>Pending chats tab enabled</source>
       <translation>Cấp phát thẻ trò chuyện kích hoạt</translation>
     </message>
@@ -5588,6 +5656,18 @@
     <message>
       <source>Account updated</source>
       <translation>Tài khoản được cập nhật</translation>
+    </message>
+    <message>
+      <source>All departments</source>
+      <translation>Tất cả các phòng ban</translation>
+    </message>
+    <message>
+      <source>Individual departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Departments groups</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
@@ -5622,6 +5702,10 @@
     <message>
       <source>New department</source>
       <translation>Bộ phận mới</translation>
+    </message>
+    <message>
+      <source>New department group</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>System configuration</source>
@@ -7201,6 +7285,14 @@
   <context>
     <name>user/new</name>
     <message>
+      <source>All departments</source>
+      <translation>Bộ phận</translation>
+    </message>
+    <message>
+      <source>Departments</source>
+      <translation>Bộ phận</translation>
+    </message>
+    <message>
       <source>Invisible mode</source>
       <translation>Chế độ ẩn</translation>
     </message>
@@ -7223,10 +7315,6 @@
     <message>
       <source>Do not show user status as online</source>
       <translation>Không hiển thị tình trạng người sử dụng như trực tuyến</translation>
-    </message>
-    <message>
-      <source>All departments</source>
-      <translation>Bộ phận</translation>
     </message>
     <message>
       <source>New user</source>
@@ -7267,10 +7355,6 @@
     <message>
       <source>Save</source>
       <translation>Lưu</translation>
-    </message>
-    <message>
-      <source>Departments</source>
-      <translation>Bộ phận</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -7597,6 +7681,10 @@
   <context>
     <name>abstract/survey</name>
     <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation>Tên</translation>
     </message>
@@ -7613,7 +7701,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Enabled</source>
+      <source>Required</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8042,6 +8130,13 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Vui lòng nhập loại tệp tin!</translation>
+    </message>
+  </context>
+  <context>
+    <name>departament/editgroup</name>
+    <message>
+      <source>Please enter a department group name</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

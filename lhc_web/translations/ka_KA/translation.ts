@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>რამდენი დღე  არ უნდა გაფართივდეს ხმის მიცემის ვიდჯეტი ბოლო ჩვენებიდან</translation>
     </message>
@@ -151,6 +155,10 @@
     </message>
     <message>
       <source>List online operators, 0 - no, 1 - yes.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Inform visitor about unread messages from operator, value in minutes. 0 - disabled</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1530,6 +1538,10 @@
       <translation>დეპარტამენტის რედაქტირება</translation>
     </message>
     <message>
+      <source>Edit department group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation>სახელი</translation>
     </message>
@@ -1594,34 +1606,6 @@
       <translation>სამუშაო დღეები/სამუშაო საათები, ამ დღეების/საათებია განმავლობაში ჩეთი ავტომატურად აქტიური იქნება.</translation>
     </message>
     <message>
-      <source>Monday</source>
-      <translation>ორშაბათი</translation>
-    </message>
-    <message>
-      <source>Tuesday</source>
-      <translation>სამშაბათი</translation>
-    </message>
-    <message>
-      <source>Wednesday</source>
-      <translation>ოთხშაბათი</translation>
-    </message>
-    <message>
-      <source>Thursday</source>
-      <translation>ხუთშაბათი</translation>
-    </message>
-    <message>
-      <source>Friday</source>
-      <translation>პარასკევი</translation>
-    </message>
-    <message>
-      <source>Saturday</source>
-      <translation>შაბათი</translation>
-    </message>
-    <message>
-      <source>Sunday</source>
-      <translation>კვირა</translation>
-    </message>
-    <message>
       <source>Work hours, 24 hours format, 1 - 24, minutes format 0 - 60</source>
       <translation>სამუშაო საათები, 24 საათიანი ფორმატი, 1-24, წუთების ფორმატი 0-60</translation>
     </message>
@@ -1656,6 +1640,42 @@
     <message>
       <source>Minutes to, E.g. 30</source>
       <translation>წუთები მაგ. 30-მდე</translation>
+    </message>
+    <message>
+      <source>Custom period</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom work day</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Period</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>End time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Remove</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>XMPP recipients</source>
@@ -1738,16 +1758,48 @@
       <translation>არაფერი</translation>
     </message>
     <message>
-      <source>System configuration</source>
-      <translation>სისტემის კონფიგურაცია</translation>
-    </message>
-    <message>
       <source>Departments</source>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Monday</source>
+      <translation>ორშაბათი</translation>
+    </message>
+    <message>
+      <source>Tuesday</source>
+      <translation>სამშაბათი</translation>
+    </message>
+    <message>
+      <source>Wednesday</source>
+      <translation>ოთხშაბათი</translation>
+    </message>
+    <message>
+      <source>Thursday</source>
+      <translation>ხუთშაბათი</translation>
+    </message>
+    <message>
+      <source>Friday</source>
+      <translation>პარასკევი</translation>
+    </message>
+    <message>
+      <source>Saturday</source>
+      <translation>შაბათი</translation>
+    </message>
+    <message>
+      <source>Sunday</source>
+      <translation>კვირა</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>სისტემის კონფიგურაცია</translation>
+    </message>
+    <message>
       <source>Edit a department</source>
       <translation>დეპარტამენტის რედაქტირება</translation>
+    </message>
+    <message>
+      <source>Departments groups</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -1759,6 +1811,10 @@
     <message>
       <source>Chat was deleted</source>
       <translation>ჩეთი წაშლილია</translation>
+    </message>
+    <message>
+      <source>Survey not exist please check embed code options</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -3509,6 +3565,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Departments</source>
+      <translation>დეპარტამენტები</translation>
+    </message>
+    <message>
+      <source>Departments groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Time zone settings</source>
       <translation>დროის სარტყელის პარამეტრები</translation>
     </message>
@@ -3679,10 +3743,6 @@
     <message>
       <source>Speech</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Departments</source>
-      <translation>დეპარტამენტები</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -5435,6 +5495,18 @@
       <translation>დარწმუნებული ხართ?</translation>
     </message>
     <message>
+      <source>Departments groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>System configuration</source>
       <translation>სისტემის კონფიგურაცია</translation>
     </message>
@@ -5558,10 +5630,6 @@
       <translation>დაბრუნება</translation>
     </message>
     <message>
-      <source>All departments</source>
-      <translation>ყველა დეპარტამენტი</translation>
-    </message>
-    <message>
       <source>Pending chats tab enabled</source>
       <translation>მომლოდინე ჩეთების ღილაკის ჩართვა</translation>
     </message>
@@ -5588,6 +5656,18 @@
     <message>
       <source>Account updated</source>
       <translation>ანგარიში განახლდა</translation>
+    </message>
+    <message>
+      <source>All departments</source>
+      <translation>ყველა დეპარტამენტი</translation>
+    </message>
+    <message>
+      <source>Individual departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Departments groups</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
@@ -5622,6 +5702,10 @@
     <message>
       <source>New department</source>
       <translation>ახალი დეპარტამენტი</translation>
+    </message>
+    <message>
+      <source>New department group</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>System configuration</source>
@@ -7201,6 +7285,14 @@
   <context>
     <name>user/new</name>
     <message>
+      <source>All departments</source>
+      <translation>ყველა დეპარტამენტი</translation>
+    </message>
+    <message>
+      <source>Departments</source>
+      <translation>დეპარტამეტები</translation>
+    </message>
+    <message>
       <source>Invisible mode</source>
       <translation>უხილავი რეჟიმი</translation>
     </message>
@@ -7223,10 +7315,6 @@
     <message>
       <source>Do not show user status as online</source>
       <translation>არ აჩვენო მომხმარებლის სტატუსი როგორც ონლაინ</translation>
-    </message>
-    <message>
-      <source>All departments</source>
-      <translation>ყველა დეპარტამენტი</translation>
     </message>
     <message>
       <source>New user</source>
@@ -7267,10 +7355,6 @@
     <message>
       <source>Save</source>
       <translation>შენახვა</translation>
-    </message>
-    <message>
-      <source>Departments</source>
-      <translation>დეპარტამეტები</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -7597,6 +7681,10 @@
   <context>
     <name>abstract/survey</name>
     <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation type="unfinished"/>
     </message>
@@ -7613,7 +7701,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Enabled</source>
+      <source>Required</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8042,6 +8130,13 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>გთხოვთ, შეიტანეთ ვალიდური ტიპის ფაილი!</translation>
+    </message>
+  </context>
+  <context>
+    <name>departament/editgroup</name>
+    <message>
+      <source>Please enter a department group name</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

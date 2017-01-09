@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Berapa hari widget pemungutan suara tidak harus diperluas setelah pertunjukan yang terakhir</translation>
     </message>
@@ -151,6 +155,10 @@
     </message>
     <message>
       <source>List online operators, 0 - no, 1 - yes.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Inform visitor about unread messages from operator, value in minutes. 0 - disabled</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1530,6 +1538,10 @@
       <translation>Ubah departemen</translation>
     </message>
     <message>
+      <source>Edit department group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation>Nama</translation>
     </message>
@@ -1594,34 +1606,6 @@
       <translation>Hari kerja/jam kerja, selama hari/jam ini percakapan akan diaktifkan secara otomatis</translation>
     </message>
     <message>
-      <source>Monday</source>
-      <translation>Senin</translation>
-    </message>
-    <message>
-      <source>Tuesday</source>
-      <translation>Selasa</translation>
-    </message>
-    <message>
-      <source>Wednesday</source>
-      <translation>Rabu</translation>
-    </message>
-    <message>
-      <source>Thursday</source>
-      <translation>Kamis</translation>
-    </message>
-    <message>
-      <source>Friday</source>
-      <translation>Jumat</translation>
-    </message>
-    <message>
-      <source>Saturday</source>
-      <translation>Sabtu</translation>
-    </message>
-    <message>
-      <source>Sunday</source>
-      <translation>Minggu</translation>
-    </message>
-    <message>
       <source>Work hours, 24 hours format, 1 - 24, minutes format 0 - 60</source>
       <translation>Jam kerja, format 24 jam, 1 - 24, format menit 0-60</translation>
     </message>
@@ -1656,6 +1640,42 @@
     <message>
       <source>Minutes to, E.g. 30</source>
       <translation>Sampai menit ke, cth: 30</translation>
+    </message>
+    <message>
+      <source>Custom period</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom work day</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Period</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>End time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Remove</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>XMPP recipients</source>
@@ -1738,16 +1758,48 @@
       <translation>Tidak satu pun </translation>
     </message>
     <message>
-      <source>System configuration</source>
-      <translation>Konfigurasi sistem</translation>
-    </message>
-    <message>
       <source>Departments</source>
       <translation>Departemen</translation>
     </message>
     <message>
+      <source>Monday</source>
+      <translation>Senin</translation>
+    </message>
+    <message>
+      <source>Tuesday</source>
+      <translation>Selasa</translation>
+    </message>
+    <message>
+      <source>Wednesday</source>
+      <translation>Rabu</translation>
+    </message>
+    <message>
+      <source>Thursday</source>
+      <translation>Kamis</translation>
+    </message>
+    <message>
+      <source>Friday</source>
+      <translation>Jumat</translation>
+    </message>
+    <message>
+      <source>Saturday</source>
+      <translation>Sabtu</translation>
+    </message>
+    <message>
+      <source>Sunday</source>
+      <translation>Minggu</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>Konfigurasi sistem</translation>
+    </message>
+    <message>
       <source>Edit a department</source>
       <translation>Ubah departemen</translation>
+    </message>
+    <message>
+      <source>Departments groups</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -1759,6 +1811,10 @@
     <message>
       <source>Chat was deleted</source>
       <translation>Percakapan sudah dihapus</translation>
+    </message>
+    <message>
+      <source>Survey not exist please check embed code options</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -3509,6 +3565,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Departments</source>
+      <translation>Departemen</translation>
+    </message>
+    <message>
+      <source>Departments groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Time zone settings</source>
       <translation>Pengaturan zona waktu</translation>
     </message>
@@ -3679,10 +3743,6 @@
     <message>
       <source>Speech</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Departments</source>
-      <translation>Departemen</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -5435,6 +5495,18 @@
       <translation>Apa kamu yakin?</translation>
     </message>
     <message>
+      <source>Departments groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>System configuration</source>
       <translation>Konfigurasi sistem</translation>
     </message>
@@ -5558,10 +5630,6 @@
       <translation>Kembali</translation>
     </message>
     <message>
-      <source>All departments</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Pending chats tab enabled</source>
       <translation>Tab percakapan tertunda diaktifkan</translation>
     </message>
@@ -5588,6 +5656,18 @@
     <message>
       <source>Account updated</source>
       <translation>Akun diperbarui</translation>
+    </message>
+    <message>
+      <source>All departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Individual departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Departments groups</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
@@ -5622,6 +5702,10 @@
     <message>
       <source>New department</source>
       <translation>Departemen baru</translation>
+    </message>
+    <message>
+      <source>New department group</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>System configuration</source>
@@ -7201,6 +7285,14 @@
   <context>
     <name>user/new</name>
     <message>
+      <source>All departments</source>
+      <translation>Semua departemen</translation>
+    </message>
+    <message>
+      <source>Departments</source>
+      <translation>Departemen</translation>
+    </message>
+    <message>
       <source>Invisible mode</source>
       <translation type="unfinished"/>
     </message>
@@ -7223,10 +7315,6 @@
     <message>
       <source>Do not show user status as online</source>
       <translation>Jangan menampilkan status pengguna sebagai online</translation>
-    </message>
-    <message>
-      <source>All departments</source>
-      <translation>Semua departemen</translation>
     </message>
     <message>
       <source>New user</source>
@@ -7267,10 +7355,6 @@
     <message>
       <source>Save</source>
       <translation>Simpan</translation>
-    </message>
-    <message>
-      <source>Departments</source>
-      <translation>Departemen</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -7597,6 +7681,10 @@
   <context>
     <name>abstract/survey</name>
     <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation type="unfinished"/>
     </message>
@@ -7613,7 +7701,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Enabled</source>
+      <source>Required</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8042,6 +8130,13 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Silakan masukkan tipe berkas yang sah!</translation>
+    </message>
+  </context>
+  <context>
+    <name>departament/editgroup</name>
+    <message>
+      <source>Please enter a department group name</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

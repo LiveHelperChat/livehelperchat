@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -151,6 +155,10 @@
     </message>
     <message>
       <source>List online operators, 0 - no, 1 - yes.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Inform visitor about unread messages from operator, value in minutes. 0 - disabled</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1530,6 +1538,10 @@
       <translation>Deparmanı düzenle</translation>
     </message>
     <message>
+      <source>Edit department group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation>İsim</translation>
     </message>
@@ -1594,34 +1606,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Monday</source>
-      <translation>Pazartesi</translation>
-    </message>
-    <message>
-      <source>Tuesday</source>
-      <translation>Salı</translation>
-    </message>
-    <message>
-      <source>Wednesday</source>
-      <translation>Çarşamba</translation>
-    </message>
-    <message>
-      <source>Thursday</source>
-      <translation>Perşembe</translation>
-    </message>
-    <message>
-      <source>Friday</source>
-      <translation>Cuma</translation>
-    </message>
-    <message>
-      <source>Saturday</source>
-      <translation>Cumartesi</translation>
-    </message>
-    <message>
-      <source>Sunday</source>
-      <translation>Pazar</translation>
-    </message>
-    <message>
       <source>Work hours, 24 hours format, 1 - 24, minutes format 0 - 60</source>
       <translation type="unfinished"/>
     </message>
@@ -1655,6 +1639,42 @@
     </message>
     <message>
       <source>Minutes to, E.g. 30</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom period</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom work day</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Period</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>End time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Remove</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1738,16 +1758,48 @@
       <translation>Hiçbiri</translation>
     </message>
     <message>
-      <source>System configuration</source>
-      <translation>Sistem ayarları</translation>
-    </message>
-    <message>
       <source>Departments</source>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Monday</source>
+      <translation>Pazartesi</translation>
+    </message>
+    <message>
+      <source>Tuesday</source>
+      <translation>Salı</translation>
+    </message>
+    <message>
+      <source>Wednesday</source>
+      <translation>Çarşamba</translation>
+    </message>
+    <message>
+      <source>Thursday</source>
+      <translation>Perşembe</translation>
+    </message>
+    <message>
+      <source>Friday</source>
+      <translation>Cuma</translation>
+    </message>
+    <message>
+      <source>Saturday</source>
+      <translation>Cumartesi</translation>
+    </message>
+    <message>
+      <source>Sunday</source>
+      <translation>Pazar</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>Sistem ayarları</translation>
+    </message>
+    <message>
       <source>Edit a department</source>
       <translation>Bir departmanı düzenle</translation>
+    </message>
+    <message>
+      <source>Departments groups</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -1759,6 +1811,10 @@
     <message>
       <source>Chat was deleted</source>
       <translation>Konuşma silindi</translation>
+    </message>
+    <message>
+      <source>Survey not exist please check embed code options</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -3511,6 +3567,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Departments</source>
+      <translation>Departmanlar</translation>
+    </message>
+    <message>
+      <source>Departments groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Time zone settings</source>
       <translation>Saat dilimi ayarları</translation>
     </message>
@@ -3681,10 +3745,6 @@
     <message>
       <source>Speech</source>
       <translation>Konuşma</translation>
-    </message>
-    <message>
-      <source>Departments</source>
-      <translation>Departmanlar</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -5437,6 +5497,18 @@
       <translation>Emin misiniz? </translation>
     </message>
     <message>
+      <source>Departments groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>System configuration</source>
       <translation>Sistem ayarları</translation>
     </message>
@@ -5560,10 +5632,6 @@
       <translation>Dön</translation>
     </message>
     <message>
-      <source>All departments</source>
-      <translation>Tüm departmanlar</translation>
-    </message>
-    <message>
       <source>Pending chats tab enabled</source>
       <translation>Beklemedeki konuşmalar sekmesi etkinleştirildi</translation>
     </message>
@@ -5590,6 +5658,18 @@
     <message>
       <source>Account updated</source>
       <translation>Hesap güncellendi</translation>
+    </message>
+    <message>
+      <source>All departments</source>
+      <translation>Tüm departmanlar</translation>
+    </message>
+    <message>
+      <source>Individual departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Departments groups</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
@@ -5624,6 +5704,10 @@
     <message>
       <source>New department</source>
       <translation>Yeni departman</translation>
+    </message>
+    <message>
+      <source>New department group</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>System configuration</source>
@@ -7203,6 +7287,14 @@
   <context>
     <name>user/new</name>
     <message>
+      <source>All departments</source>
+      <translation>Tüm departmanlar</translation>
+    </message>
+    <message>
+      <source>Departments</source>
+      <translation>Departmanlar</translation>
+    </message>
+    <message>
       <source>Invisible mode</source>
       <translation>Görünmez mod</translation>
     </message>
@@ -7225,10 +7317,6 @@
     <message>
       <source>Do not show user status as online</source>
       <translation>Kullanıcı durumunu çevrimci olarak gösterme</translation>
-    </message>
-    <message>
-      <source>All departments</source>
-      <translation>Tüm departmanlar</translation>
     </message>
     <message>
       <source>New user</source>
@@ -7269,10 +7357,6 @@
     <message>
       <source>Save</source>
       <translation>Kaydet</translation>
-    </message>
-    <message>
-      <source>Departments</source>
-      <translation>Departmanlar</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -7599,6 +7683,10 @@
   <context>
     <name>abstract/survey</name>
     <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation type="unfinished"/>
     </message>
@@ -7615,7 +7703,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Enabled</source>
+      <source>Required</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8044,6 +8132,13 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Lütfen geçerli bir dosya türü girin!</translation>
+    </message>
+  </context>
+  <context>
+    <name>departament/editgroup</name>
+    <message>
+      <source>Please enter a department group name</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

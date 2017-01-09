@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Przez ile dni, od czasu ostatniego wyświetlenia, widżet głosowania ma się nie wyświetlać</translation>
     </message>
@@ -152,6 +156,10 @@
     <message>
       <source>List online operators, 0 - no, 1 - yes.</source>
       <translation>Pokazuj operatorów online. 0 - nie, 1 - tak.</translation>
+    </message>
+    <message>
+      <source>Inform visitor about unread messages from operator, value in minutes. 0 - disabled</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Ignore users online statuses and use departments online hours</source>
@@ -1531,6 +1539,10 @@ pokazywany</translation>
       <translation>Edytuj wydział</translation>
     </message>
     <message>
+      <source>Edit department group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation>Nazwa</translation>
     </message>
@@ -1595,34 +1607,6 @@ pokazywany</translation>
       <translation>Dni/godziny pracy, w ciągu tych dni/godzin rozmowa automatycznie będzie aktywna</translation>
     </message>
     <message>
-      <source>Monday</source>
-      <translation>Poniedziałek</translation>
-    </message>
-    <message>
-      <source>Tuesday</source>
-      <translation>Wtorek</translation>
-    </message>
-    <message>
-      <source>Wednesday</source>
-      <translation>Środa</translation>
-    </message>
-    <message>
-      <source>Thursday</source>
-      <translation>Czwartek</translation>
-    </message>
-    <message>
-      <source>Friday</source>
-      <translation>Piątek</translation>
-    </message>
-    <message>
-      <source>Saturday</source>
-      <translation>Sobota</translation>
-    </message>
-    <message>
-      <source>Sunday</source>
-      <translation>Niedziela</translation>
-    </message>
-    <message>
       <source>Work hours, 24 hours format, 1 - 24, minutes format 0 - 60</source>
       <translation>Godziny robocze, format 24-godzinny (1-24), minuty w formacie 0-60</translation>
     </message>
@@ -1657,6 +1641,42 @@ pokazywany</translation>
     <message>
       <source>Minutes to, E.g. 30</source>
       <translation>Minuty godziny zamknięcia, np. 30</translation>
+    </message>
+    <message>
+      <source>Custom period</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom work day</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Period</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>End time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Remove</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>XMPP recipients</source>
@@ -1739,16 +1759,48 @@ pokazywany</translation>
       <translation>Nic</translation>
     </message>
     <message>
-      <source>System configuration</source>
-      <translation>Konfiguracja systemu</translation>
-    </message>
-    <message>
       <source>Departments</source>
       <translation>Działy</translation>
     </message>
     <message>
+      <source>Monday</source>
+      <translation>Poniedziałek</translation>
+    </message>
+    <message>
+      <source>Tuesday</source>
+      <translation>Wtorek</translation>
+    </message>
+    <message>
+      <source>Wednesday</source>
+      <translation>Środa</translation>
+    </message>
+    <message>
+      <source>Thursday</source>
+      <translation>Czwartek</translation>
+    </message>
+    <message>
+      <source>Friday</source>
+      <translation>Piątek</translation>
+    </message>
+    <message>
+      <source>Saturday</source>
+      <translation>Sobota</translation>
+    </message>
+    <message>
+      <source>Sunday</source>
+      <translation>Niedziela</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>Konfiguracja systemu</translation>
+    </message>
+    <message>
       <source>Edit a department</source>
       <translation>Edytuj Wydział</translation>
+    </message>
+    <message>
+      <source>Departments groups</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -1760,6 +1812,10 @@ pokazywany</translation>
     <message>
       <source>Chat was deleted</source>
       <translation>Rozmowy zostały usunięte</translation>
+    </message>
+    <message>
+      <source>Survey not exist please check embed code options</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -3510,6 +3566,14 @@ pokazywany</translation>
       <translation>Wspierane: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</translation>
     </message>
     <message>
+      <source>Departments</source>
+      <translation>Wydziały</translation>
+    </message>
+    <message>
+      <source>Departments groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Time zone settings</source>
       <translation>Ustawienia strefy czasowej</translation>
     </message>
@@ -3680,10 +3744,6 @@ pokazywany</translation>
     <message>
       <source>Speech</source>
       <translation>Mowa</translation>
-    </message>
-    <message>
-      <source>Departments</source>
-      <translation>Wydziały</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -5436,6 +5496,18 @@ pokazywany</translation>
       <translation>Czy na pewno?</translation>
     </message>
     <message>
+      <source>Departments groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>System configuration</source>
       <translation>Konfiguracja systemu</translation>
     </message>
@@ -5559,10 +5631,6 @@ pokazywany</translation>
       <translation>Powrót</translation>
     </message>
     <message>
-      <source>All departments</source>
-      <translation>Wszystkie wydziały</translation>
-    </message>
-    <message>
       <source>Pending chats tab enabled</source>
       <translation>Włącz zakładkę - oczekujących czatów</translation>
     </message>
@@ -5589,6 +5657,18 @@ pokazywany</translation>
     <message>
       <source>Account updated</source>
       <translation>Konto zaktualizowane</translation>
+    </message>
+    <message>
+      <source>All departments</source>
+      <translation>Wszystkie wydziały</translation>
+    </message>
+    <message>
+      <source>Individual departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Departments groups</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
@@ -5623,6 +5703,10 @@ pokazywany</translation>
     <message>
       <source>New department</source>
       <translation>Nowy wydział</translation>
+    </message>
+    <message>
+      <source>New department group</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>System configuration</source>
@@ -7202,6 +7286,14 @@ pokazywany</translation>
   <context>
     <name>user/new</name>
     <message>
+      <source>All departments</source>
+      <translation>Wszystkie wydziały</translation>
+    </message>
+    <message>
+      <source>Departments</source>
+      <translation>Wydziały</translation>
+    </message>
+    <message>
       <source>Invisible mode</source>
       <translation>Tryb niewidzialności </translation>
     </message>
@@ -7224,10 +7316,6 @@ pokazywany</translation>
     <message>
       <source>Do not show user status as online</source>
       <translation>Nie pokazuj statusu użytkownika, gdy jest on-line</translation>
-    </message>
-    <message>
-      <source>All departments</source>
-      <translation>Wszystkie wydziały</translation>
     </message>
     <message>
       <source>New user</source>
@@ -7268,10 +7356,6 @@ pokazywany</translation>
     <message>
       <source>Save</source>
       <translation>Zapisz</translation>
-    </message>
-    <message>
-      <source>Departments</source>
-      <translation>Wydziały</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -7598,6 +7682,10 @@ pokazywany</translation>
   <context>
     <name>abstract/survey</name>
     <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation type="unfinished"/>
     </message>
@@ -7614,7 +7702,7 @@ pokazywany</translation>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Enabled</source>
+      <source>Required</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8043,6 +8131,13 @@ pokazywany</translation>
     <message>
       <source>Please enter valid file type!</source>
       <translation>Podaj poprawny typ pliku!</translation>
+    </message>
+  </context>
+  <context>
+    <name>departament/editgroup</name>
+    <message>
+      <source>Please enter a department group name</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

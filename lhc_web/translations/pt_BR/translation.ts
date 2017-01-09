@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Por quantos dias o widget de votação não deve ser exibido após última exibição</translation>
     </message>
@@ -152,6 +156,10 @@
     <message>
       <source>List online operators, 0 - no, 1 - yes.</source>
       <translation>Listar operadores online, 0 - não, 1 - sim.</translation>
+    </message>
+    <message>
+      <source>Inform visitor about unread messages from operator, value in minutes. 0 - disabled</source>
+      <translation>Informar o visitante sobre as mensagens não lidas do operador, valor em minutos. 0 - desativado</translation>
     </message>
     <message>
       <source>Ignore users online statuses and use departments online hours</source>
@@ -1530,6 +1538,10 @@
       <translation>Editar departamento</translation>
     </message>
     <message>
+      <source>Edit department group</source>
+      <translation>Editar departamento</translation>
+    </message>
+    <message>
       <source>Name</source>
       <translation>Nome</translation>
     </message>
@@ -1594,34 +1606,6 @@
       <translation>Dias úteis/ horas de trabalho, durante estes dias/horas o chat estará ativo automaticamente</translation>
     </message>
     <message>
-      <source>Monday</source>
-      <translation>Segunda-feira</translation>
-    </message>
-    <message>
-      <source>Tuesday</source>
-      <translation>Terça-feira</translation>
-    </message>
-    <message>
-      <source>Wednesday</source>
-      <translation>Quarta-feira</translation>
-    </message>
-    <message>
-      <source>Thursday</source>
-      <translation>Quinta-feira</translation>
-    </message>
-    <message>
-      <source>Friday</source>
-      <translation>Sexta-feira</translation>
-    </message>
-    <message>
-      <source>Saturday</source>
-      <translation>Sábado</translation>
-    </message>
-    <message>
-      <source>Sunday</source>
-      <translation>Domingo</translation>
-    </message>
-    <message>
       <source>Work hours, 24 hours format, 1 - 24, minutes format 0 - 60</source>
       <translation>Horas de trabalho, formato de horas 1 - 24, formato de minutos 0 - 60</translation>
     </message>
@@ -1656,6 +1640,42 @@
     <message>
       <source>Minutes to, E.g. 30</source>
       <translation>Minutos para, Ex. 30</translation>
+    </message>
+    <message>
+      <source>Custom period</source>
+      <translation>Período personalizado</translation>
+    </message>
+    <message>
+      <source>Date from</source>
+      <translation>Data à partir de</translation>
+    </message>
+    <message>
+      <source>Custom work day</source>
+      <translation>Dias úteis personalizado</translation>
+    </message>
+    <message>
+      <source>Date to</source>
+      <translation>Data até</translation>
+    </message>
+    <message>
+      <source>Add</source>
+      <translation>Adicionar</translation>
+    </message>
+    <message>
+      <source>Period</source>
+      <translation>Período</translation>
+    </message>
+    <message>
+      <source>Start time</source>
+      <translation>Iniciar em</translation>
+    </message>
+    <message>
+      <source>End time</source>
+      <translation>Terminar em</translation>
+    </message>
+    <message>
+      <source>Remove</source>
+      <translation>Remover</translation>
     </message>
     <message>
       <source>XMPP recipients</source>
@@ -1738,16 +1758,48 @@
       <translation>Nenhum</translation>
     </message>
     <message>
-      <source>System configuration</source>
-      <translation>Configuração do sistema</translation>
-    </message>
-    <message>
       <source>Departments</source>
       <translation>Departamentos</translation>
     </message>
     <message>
+      <source>Monday</source>
+      <translation>Segunda-feira</translation>
+    </message>
+    <message>
+      <source>Tuesday</source>
+      <translation>Terça-feira</translation>
+    </message>
+    <message>
+      <source>Wednesday</source>
+      <translation>Quarta-feira</translation>
+    </message>
+    <message>
+      <source>Thursday</source>
+      <translation>Quinta-feira</translation>
+    </message>
+    <message>
+      <source>Friday</source>
+      <translation>Sexta-feira</translation>
+    </message>
+    <message>
+      <source>Saturday</source>
+      <translation>Sábado</translation>
+    </message>
+    <message>
+      <source>Sunday</source>
+      <translation>Domingo</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>Configuração do sistema</translation>
+    </message>
+    <message>
       <source>Edit a department</source>
       <translation>Editar um departamento</translation>
+    </message>
+    <message>
+      <source>Departments groups</source>
+      <translation>Departamentos</translation>
     </message>
   </context>
   <context>
@@ -1759,6 +1811,10 @@
     <message>
       <source>Chat was deleted</source>
       <translation>O chat foi apagado</translation>
+    </message>
+    <message>
+      <source>Survey not exist please check embed code options</source>
+      <translation>Pesquisa não existente, verifique as opções no código</translation>
     </message>
   </context>
   <context>
@@ -3510,6 +3566,14 @@
 dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</translation>
     </message>
     <message>
+      <source>Departments</source>
+      <translation>Departamentos</translation>
+    </message>
+    <message>
+      <source>Departments groups</source>
+      <translation>Departamentos</translation>
+    </message>
+    <message>
       <source>Time zone settings</source>
       <translation>Definições de fuso horário</translation>
     </message>
@@ -3680,10 +3744,6 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Speech</source>
       <translation>Falar</translation>
-    </message>
-    <message>
-      <source>Departments</source>
-      <translation>Departamentos</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -5436,6 +5496,18 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Confirma?</translation>
     </message>
     <message>
+      <source>Departments groups</source>
+      <translation>Departamentos</translation>
+    </message>
+    <message>
+      <source>Group</source>
+      <translation>Grupo</translation>
+    </message>
+    <message>
+      <source>Edit</source>
+      <translation>Editar</translation>
+    </message>
+    <message>
       <source>System configuration</source>
       <translation>Configuração do sistema</translation>
     </message>
@@ -5559,10 +5631,6 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Voltar</translation>
     </message>
     <message>
-      <source>All departments</source>
-      <translation>Todos os departamentos</translation>
-    </message>
-    <message>
       <source>Pending chats tab enabled</source>
       <translation>Aba de chats pendentes ativada</translation>
     </message>
@@ -5589,6 +5657,18 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Account updated</source>
       <translation>Cadastro atualizado</translation>
+    </message>
+    <message>
+      <source>All departments</source>
+      <translation>Todos os departamentos</translation>
+    </message>
+    <message>
+      <source>Individual departments</source>
+      <translation>Departamentos individuais</translation>
+    </message>
+    <message>
+      <source>Departments groups</source>
+      <translation>Departamentos</translation>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
@@ -5622,6 +5702,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <name>department/new</name>
     <message>
       <source>New department</source>
+      <translation>Novo departamento</translation>
+    </message>
+    <message>
+      <source>New department group</source>
       <translation>Novo departamento</translation>
     </message>
     <message>
@@ -7203,6 +7287,14 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
   <context>
     <name>user/new</name>
     <message>
+      <source>All departments</source>
+      <translation>Todos os departamentos</translation>
+    </message>
+    <message>
+      <source>Departments</source>
+      <translation>Departamentos</translation>
+    </message>
+    <message>
       <source>Invisible mode</source>
       <translation>Modo invisível</translation>
     </message>
@@ -7225,10 +7317,6 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Do not show user status as online</source>
       <translation>Não mostrar o status do usuário como on-line</translation>
-    </message>
-    <message>
-      <source>All departments</source>
-      <translation>Todos os departamentos</translation>
     </message>
     <message>
       <source>New user</source>
@@ -7269,10 +7357,6 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Save</source>
       <translation>Salvar</translation>
-    </message>
-    <message>
-      <source>Departments</source>
-      <translation>Departamentos</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -7599,6 +7683,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
   <context>
     <name>abstract/survey</name>
     <message>
+      <source>Enabled</source>
+      <translation>Habilitado</translation>
+    </message>
+    <message>
       <source>Name</source>
       <translation>Nome</translation>
     </message>
@@ -7615,8 +7703,8 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Título para avaliação</translation>
     </message>
     <message>
-      <source>Enabled</source>
-      <translation>Habilitado</translation>
+      <source>Required</source>
+      <translation>Requerido</translation>
     </message>
     <message>
       <source>Title for plain question</source>
@@ -8044,6 +8132,13 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Please enter valid file type!</source>
       <translation>Por favor insira um tipo de arquivo válido!</translation>
+    </message>
+  </context>
+  <context>
+    <name>departament/editgroup</name>
+    <message>
+      <source>Please enter a department group name</source>
+      <translation>Digite um Departamento</translation>
     </message>
   </context>
 </TS>
