@@ -1,4 +1,4 @@
-<div class="pull-right" ng-init="lhc.getToggleWidget('track_open_chats')">
+<div class="navbar-right mr-0" ng-init="lhc.getToggleWidget('track_open_chats')">
     <ul class="nav navbar-nav">  
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="material-icons mr-0">settings_applications</i></a>
