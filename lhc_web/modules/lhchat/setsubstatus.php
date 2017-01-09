@@ -12,6 +12,8 @@ if ($chat->user_id == $currentUser->getUserID())
     if ($Params['user_parameters']['substatus'] == erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW)
     {
         erLhcoreClassChatHelper::redirectToSurvey(array('chat' => $chat, 'user' => $currentUser->getUserData()));
+        
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.set_sub_status',array('chat' => & $chat));
     }
 }
 
