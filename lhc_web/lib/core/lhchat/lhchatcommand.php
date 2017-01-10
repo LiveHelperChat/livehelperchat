@@ -24,7 +24,8 @@ class erLhcoreClassChatCommand
         '!remark' => 'self::addRemark',
         '!info' => 'self::info',
         '!help' => 'self::help',
-    	'!note' => 'self::notice'
+    	'!note' => 'self::notice',
+    	'!transferforce' => 'self::transferforce'
     );
 
     private static function extractCommand($message)
