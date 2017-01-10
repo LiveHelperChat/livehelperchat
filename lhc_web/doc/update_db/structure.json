@@ -2392,6 +2392,14 @@
                 "extra": ""
             },
             {
+                "field": "status_sub_sub",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": "0",
+                "extra": ""
+            },
+            {
                 "field": "last_op_msg_time",
                 "type": "int(11)",
                 "null": "NO",

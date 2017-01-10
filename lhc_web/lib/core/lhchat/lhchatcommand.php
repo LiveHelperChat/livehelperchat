@@ -139,6 +139,71 @@ class erLhcoreClassChatCommand
     }
 
     /**
+     * Option to transfer user to another user via command line directly
+     * */
+    public static function transferforce($params)
+    {
+        $user = erLhcoreClassModelUser::findOne(array('filter' => array('username' => $params['argument'])));
+        
+        // Try find user by e-mail
+        if (!($user instanceof erLhcoreClassModelUser)) {
+            $user = erLhcoreClassModelUser::findOne(array('filter' => array('email' => $params['argument'])));
+        }
+        
+        if ($user instanceof erLhcoreClassModelUser) {
+            
+            $permissionsArray = erLhcoreClassRole::accessArrayByUserID($params['user']->id);
+            
+            if ($params['chat']->user_id == $params['user']->id || erLhcoreClassRole::canUseByModuleAndFunction($permissionsArray, 'lhchat', 'allowtransferdirectly')) {
+                                                
+                $params['chat']->user_id = $user->id;
+                $params['chat']->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
+                $params['chat']->user_typing_txt = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','Chat has been transfered to'),ENT_QUOTES) . ' - ' . (string)$user;
+                $params['chat']->user_typing  = time();
+                     
+                // Change department if user cannot read current department, so chat appears in right menu
+                $filter = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($user->id);
+                if ($filter !== true && !in_array($params['chat']->dep_id, $filter)) {
+                    $dep_id = erLhcoreClassUserDep::getDefaultUserDepartment($user->id);
+                    if ($dep_id > 0) {
+                        $params['chat']->dep_id = $dep_id;
+                        $params['chat']->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
+                    }
+                }
+                
+                $params['chat']->status_sub_sub = erLhcoreClassModelChat::STATUS_SUB_SUB_TRANSFERED;
+    
+                // Update UI
+                if (! isset($params['no_ui_update'])) {
+                    $params['chat']->operation_admin .= "lhinst.updateVoteStatus(" . $params['chat']->id . ");";
+                }
+    
+                // All ok, we can make changes
+                erLhcoreClassChat::getSession()->update($params['chat']);
+                
+                // Chat was transfered callback
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_transfered_force', array('chat' => & $params['chat']));
+                
+                return array(
+                    'processed' => true,
+                    'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','Chat has been transfered to') . '-' . (string)$user
+                );
+            
+            } else {
+                return array(
+                    'processed' => true,
+                    'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'You do not have permission to transfer chat directly!')
+                );
+            }            
+        } else {
+            return array(
+                'processed' => true,
+                'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'User could not be found!')
+            );
+        }
+    }
+    
+    /**
      * Updates chat phone
      *
      * @param array $params            

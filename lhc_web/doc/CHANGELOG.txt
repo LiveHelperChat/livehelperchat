@@ -1,3 +1,10 @@
+2.53v
+
+1. Option to transfer chat to another operator directly with !transferforce command
+!transferforce <username | email>
+
+execute doc/update_db/update_128.sql for update
+
 2.52v
 
 1. Option to redirect user to survey in the middle of the chat. At the moment it works only in the widget mode. Not full chat mode. Will be updated in the future.
