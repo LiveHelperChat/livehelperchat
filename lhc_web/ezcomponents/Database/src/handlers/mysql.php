@@ -107,10 +107,33 @@ class ezcDbHandlerMysql extends ezcDbHandler
         {
             $dsn .= ";unix_socket=$socket";
         }
-
+        
+        $this->dbParams = $dbParams;
+        $this->dsn = $dsn;
+        
         parent::__construct( $dbParams, $dsn );
     }
 
+    private $dbParams = null;
+    private $dsn = null;
+    private $reconnectedCounter = 0;
+    
+    /**
+     * Checks connection and reconnects if required
+     * */
+    public function reconnect()
+    {
+        try {
+            $this->query('SELECT 1');
+        } catch (Exception $e) {
+            if ($e->errorInfo[1] == 2006 && $this->reconnectedCounter < 5) {
+                $this->reconnectedCounter++;
+                parent::__construct( $this->dbParams, $this->dsn );
+                $this->query('SET NAMES utf8');
+            }
+        }
+    }
+    
     /**
      * Returns 'mysql'.
      *
