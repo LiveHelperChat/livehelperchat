@@ -124,7 +124,7 @@ class ezcDbHandlerMysql extends ezcDbHandler
     public function reconnect()
     {
         try {
-            $this->query('SELECT 1');
+            @$this->query('SELECT 1');
         } catch (Exception $e) {
             if ($e->errorInfo[1] == 2006 && $this->reconnectedCounter < 5) {
                 $this->reconnectedCounter++;
