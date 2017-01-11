@@ -177,7 +177,11 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 		    	$breakSync = true;		    	
 		    	$responseArray['closed'] = true;
 		    }
-	
+		    
+		    if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM) {
+		        $checkStatus = 't';
+		    }
+		    
 		    if ($chat->operation != '') {	    	
 		    	$operation = explode("\n", trim($chat->operation));
 		    	$chat->operation = '';
