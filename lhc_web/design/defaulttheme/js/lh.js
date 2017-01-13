@@ -1328,7 +1328,7 @@ function lh(){
 	  	                				}
 	  	                			  }
 	  	                			  
-	  	                			  ee.emitEvent('eventSyncAdmin', [item]);	  	                			  
+	  	                			  ee.emitEvent('eventSyncAdmin', [item,i]);	  	                			  
 	                            });
 	        	                
 	                            if ( confLH.new_message_sound_admin_enabled == 1  && data.uw == 'false') {
