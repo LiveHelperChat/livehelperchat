@@ -533,36 +533,41 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 						
 				var hasPendingItems = false;
 				var lastNotifiedId = 0;
+													
+				ee.emitEvent('eventLoadChatList', [data, $scope, _that]);
 				
-				angular.forEach(data.result, function(item, key){					
-					$scope[key] = item;					
-					if ( item.last_id_identifier ) {
-	                    if (lhinst.trackLastIDS[item.last_id_identifier] == undefined ) {
-	                    	lhinst.trackLastIDS[item.last_id_identifier] = parseInt(item.last_id);
-	                    } else if (lhinst.trackLastIDS[item.last_id_identifier] < parseInt(item.last_id)) {
-	                    	lhinst.trackLastIDS[item.last_id_identifier] = parseInt(item.last_id);
-	                    	if (lastNotifiedId != lhinst.trackLastIDS[item.last_id_identifier]) {
-	                    		lastNotifiedId = lhinst.trackLastIDS[item.last_id_identifier];
-	                    		lhinst.playSoundNewAction(item.last_id_identifier,parseInt(item.last_id),(item.nick ? item.nick : 'Live Help'),(item.msg ? item.msg : confLH.transLation.new_chat));
-	                    		_that.lastidEvent = parseInt(item.last_id);
-	                    	}
-	                    } else if (lhinst.trackLastIDS[item.last_id_identifier] > parseInt(item.last_id)) {
-	                    	lhinst.trackLastIDS[item.last_id_identifier] = parseInt(item.last_id);
-	                    };
-	                    
-	                    if (item.last_id == 0) {
-	                    	lhinst.trackLastIDS[item.last_id_identifier] = 0;
-	                    };
-	                    
-	                    if (parseInt(item.last_id) > 0 && _that.lastidEvent == item.last_id) {
-	                    	hasPendingItems = true;
-	                    };	                    
-	                    
-	                };
-				});
-					
-				ee.emitEvent('eventLoadChatList', [data.result]);
-				
+				if (typeof data.items_processed == 'undefined') {
+					angular.forEach(data.result, function(item, key){					
+						$scope[key] = item;					
+						if ( item.last_id_identifier ) {
+		                    if (lhinst.trackLastIDS[item.last_id_identifier] == undefined ) {
+		                    	lhinst.trackLastIDS[item.last_id_identifier] = parseInt(item.last_id);
+		                    } else if (lhinst.trackLastIDS[item.last_id_identifier] < parseInt(item.last_id)) {
+		                    	lhinst.trackLastIDS[item.last_id_identifier] = parseInt(item.last_id);
+		                    	if (lastNotifiedId != lhinst.trackLastIDS[item.last_id_identifier]) {
+		                    		lastNotifiedId = lhinst.trackLastIDS[item.last_id_identifier];
+		                    		lhinst.playSoundNewAction(item.last_id_identifier,parseInt(item.last_id),(item.nick ? item.nick : 'Live Help'),(item.msg ? item.msg : confLH.transLation.new_chat));
+		                    		_that.lastidEvent = parseInt(item.last_id);
+		                    	}
+		                    } else if (lhinst.trackLastIDS[item.last_id_identifier] > parseInt(item.last_id)) {
+		                    	lhinst.trackLastIDS[item.last_id_identifier] = parseInt(item.last_id);
+		                    };
+		                    
+		                    if (item.last_id == 0) {
+		                    	lhinst.trackLastIDS[item.last_id_identifier] = 0;
+		                    };
+		                    
+		                    if (parseInt(item.last_id) > 0 && _that.lastidEvent == item.last_id) {
+		                    	hasPendingItems = true;
+		                    };	                    
+		                    
+		                };
+					});				
+				} else {
+					hasPendingItems = data.items_processed_has_pending_items;
+					lastNotifiedId = data.items_processed_last_notified_id;
+				}
+								
 				if (hasPendingItems == false) {
 					lhinst.hideNotifications();
                 };
