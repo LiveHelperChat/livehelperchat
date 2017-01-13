@@ -30,7 +30,7 @@
 
 	<?php if ($voting->is_voting == 1) : ?>
 		<?php foreach ($voting->options as $option) : ?>
-			<label><input type="radio" name="Option" value="<?php echo $option->id?>" /> <?php echo htmlspecialchars($option->option_name)?></label>
+			<label><input type="radio" name="Option" value="<?php echo $option->id?>" />&nbsp;<?php echo htmlspecialchars($option->option_name)?></label>&nbsp;
 		<?php endforeach;?>
 		<br>
 		<input type="submit" class="btn btn-default btn-sm" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/votingwidget','Vote');?>" name="VoteActionButton">
