@@ -10,6 +10,10 @@ $tpl = erLhcoreClassTemplate::getInstance( 'lhstatistic/statistic.tpl.php');
 
 $validTabs = array('active','total','last24','chatsstatistic');
 
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.valid_tabs', array(
+    'valid_tabs' => & $validTabs
+));
+
 $tab = isset($Params['user_parameters_unordered']['tab']) && in_array($Params['user_parameters_unordered']['tab'],$validTabs) ? $Params['user_parameters_unordered']['tab'] : 'active';
 
 if ($tab == 'active') {
@@ -85,6 +89,10 @@ if ($tab == 'active') {
     $tpl->set('input',$filterParams['input_form']);
     $tpl->set('filter24',$filter24);
     
+} else {
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.process_tab', array(
+        'tpl' => & $tpl
+    ));
 }
 
 $tpl->set('tab',$tab);
