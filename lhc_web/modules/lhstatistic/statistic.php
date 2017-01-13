@@ -91,7 +91,8 @@ if ($tab == 'active') {
     
 } else {
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.process_tab', array(
-        'tpl' => & $tpl
+        'tpl' => & $tpl,
+        'params' => $Params
     ));
 }
 
