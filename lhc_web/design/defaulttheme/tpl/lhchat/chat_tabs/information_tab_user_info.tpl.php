@@ -68,6 +68,9 @@
 
 
 <table class="table table-condensed">
+
+    <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/above_department_extension_multiinclude.tpl.php'));?>
+
 	<?php if ( $chat->department !== false ) : ?>
 	<tr>
 		<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Department')?></td>
