@@ -1001,6 +1001,7 @@ var lh_inst  = {
     },  
        
     handleMessage : function(e) {
+        if (typeof e.data !== 'string') { return; }
     	var action = e.data.split(':')[0];    	
     	    	
     	if (action == 'lhc_sizing_chat') {
