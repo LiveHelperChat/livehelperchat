@@ -90,6 +90,8 @@ if (isset($_POST['UpdateDepartaments_account'])) {
 	
 	erLhcoreClassModelDepartamentGroupUser::addUserDepartmentGroups($UserData, erLhcoreClassUserValidator::validateDepartmentsGroup($UserData));
 	
+	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.after_user_departments_update',array('user' => & $UserData));
+	
 	$tpl->set('account_updated_departaments','done');
    
 }
