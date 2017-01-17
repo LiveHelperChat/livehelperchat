@@ -18,7 +18,8 @@ if ($pages->items_total > 0) {
     <th width="1%">ID</th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Title/Message');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Delay');?></th>
-    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Position');?></th>
+    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Position');?></th>    
+    <?php include(erLhcoreClassDesign::designtpl('lhuser/parts/cannedmsg/custom_column_multiinclude.tpl.php'));?>    
     <th width="1%">&nbsp;</th>
     <th width="1%">&nbsp;</th>
 </tr>
@@ -29,6 +30,7 @@ if ($pages->items_total > 0) {
         <td><?php echo nl2br(htmlspecialchars($message->title != '' ? $message->title : $message->msg))?></td>
         <td><?php echo $message->delay?></td>
         <td><?php echo $message->position?></td>
+        <?php include(erLhcoreClassDesign::designtpl('lhuser/parts/cannedmsg/custom_column_content_multiinclude.tpl.php'));?>
         <td nowrap><a class="btn btn-default btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('user/account')?>/(msg)/<?php echo $message->id?>/(tab)/canned"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Edit message');?></a></td>
         <td nowrap><a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="csfr-required btn btn-danger btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('user/account')?>/(action)/delete/(tab)/canned/(msg)/<?php echo $message->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Delete message');?></a></td>
     </tr>
@@ -90,7 +92,7 @@ if ($pages->items_total > 0) {
         <input type="text" class="form-control" name="Position" value="<?php echo $canned_msg->position?>" />
     </div>
  	    
- 	    
+ 	<?php include(erLhcoreClassDesign::designtpl('lhuser/parts/cannedmsg/custom_fields_multiinclude.tpl.php'));?>  
  	    
 	<div class="btn-group" role="group" aria-label="...">
 		<input type="submit" class="btn btn-default" name="Save_canned_action" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>"/>

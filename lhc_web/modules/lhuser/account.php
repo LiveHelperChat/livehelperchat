@@ -155,7 +155,10 @@ if ( erLhcoreClassUser::instance()->hasAccessTo('lhuser','personalcannedmsg') ) 
 				
 		if (count($Errors) == 0) {		
 			$cannedMessage->user_id = $UserData->id;
-			$cannedMessage->saveThis();			
+			$cannedMessage->saveThis();	
+			
+			erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.canned_msg_after_save',array('msg' => & $cannedMessage));
+			
 			$tpl->set('updated_canned',true);
 		}  else {
 			$tpl->set('errors_canned',$Errors);
