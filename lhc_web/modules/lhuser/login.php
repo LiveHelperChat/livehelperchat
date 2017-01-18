@@ -75,6 +75,9 @@ if (isset($_POST['Login']))
                 exit;
             }
         } else {
+            
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.login_after_success_authenticate', array('current_user' => & $currentUser));
+            
             if($isExternalRequest) {
                 $tpl->set('msg', erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Logged in successfully'));
 
