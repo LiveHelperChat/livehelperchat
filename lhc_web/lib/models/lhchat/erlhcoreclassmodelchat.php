@@ -9,6 +9,7 @@ class erLhcoreClassModelChat {
                'nick'            		=> $this->nick,
                'status'          		=> $this->status,
                'status_sub'          	=> $this->status_sub,
+               'status_sub_arg'         => $this->status_sub_arg,
                'time'            		=> $this->time,
                'user_id'         		=> $this->user_id,
                'hash'            		=> $this->hash,
@@ -551,6 +552,8 @@ class erLhcoreClassModelChat {
    public $unanswered_chat = 0;
    
    public $product_id = 0;
+   
+   public $status_sub_arg = '';
    
    // Time since last assignment
    public $tslasign = 0;

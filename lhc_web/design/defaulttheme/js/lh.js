@@ -941,14 +941,25 @@ function lh(){
 	this.transferChat = function(chat_id)
 	{
 		var user_id = $('[name=TransferTo'+chat_id+']:checked').val();
-
+		
 		$.postJSON(this.wwwDir + this.trasnsferuser + chat_id + '/' + user_id ,{'type':'user'}, function(data){
 			if (data.error == 'false') {
 				$('#transfer-block-'+data.chat_id).html(data.result);
 			};
 		});
 	};
-
+		
+	this.chooseSurvey = function(chat_id)
+	{
+		var survey_id = $('[name=SurveyItem'+chat_id+']:checked').val();
+		
+		$.postJSON(this.wwwDir + "survey/choosesurvey/" + chat_id + '/' + survey_id, function(data){
+			if (data.error == 'false') {
+				$('#survey-block-'+data.chat_id).html(data.result);
+			};
+		});
+	};
+		
 	this.redirectContact = function(chat_id,message){		
 		if (typeof message === 'undefined' || confirm(message)){	
 			$.postJSON(this.wwwDir + 'chat/redirectcontact/' + chat_id, function(data){				

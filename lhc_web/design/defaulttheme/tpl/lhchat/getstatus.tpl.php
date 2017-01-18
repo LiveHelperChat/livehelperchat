@@ -158,6 +158,7 @@ var lh_inst  = {
     },
 
     hasSurvey : <?php echo $survey !== false ? 'true ': 'false'?>,
+    survey_id : <?php echo $survey !== false ? '/(survey)/' . $survey : ''?>,
     surveyShown : false,
     explicitClose : false,
     windowname : "startchatwindow",
@@ -180,6 +181,10 @@ var lh_inst  = {
     	};    	
     	return this.domain;
     },
+    
+    appendSurvey : function() {
+        // Continue
+    }
     
     addCss : function(css_content) {
         var head = document.getElementsByTagName('head')[0];

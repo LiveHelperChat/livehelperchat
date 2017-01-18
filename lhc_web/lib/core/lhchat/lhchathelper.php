@@ -71,8 +71,39 @@ class erLhcoreClassChatHelper
         $params['chat']->support_informed = 1;
         $params['chat']->has_unread_messages = 0;
         
+        // Store survey id
+        if ( isset($params['survey_id']) ) {
+            $subArg = $params['chat']->status_sub_arg;
+            $argStore = array();
+
+            if ($subArg != '') {
+                $argStore = json_decode($subArg,true);
+            }
+            
+            $argStore['survey_id'] = $params['survey_id'];
+            
+            $params['chat']->status_sub_arg = json_encode($argStore);            
+        }
+        
         $params['chat']->status_sub = erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW;
         $params['chat']->saveThis();
+    }
+    
+    public static function getSubStatusArguments( $chat )
+    {
+        if ($chat->status_sub_arg != '') {
+            $args = json_decode($chat->status_sub_arg, true);            
+            reset($args);
+            $string = array();
+            
+	        while (list ($key, $value) = each($args)) {
+	            $string [] = $key . ':' . $value ;
+	        }
+	      	        
+	        return implode(':', $string);
+        }
+        
+        return '';
     }
     
     public static function closeChat($params)
