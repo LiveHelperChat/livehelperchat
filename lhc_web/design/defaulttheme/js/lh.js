@@ -158,6 +158,8 @@ function lh(){
     		 		
     		$('#chat-id-'+chat_id).html(data);  
     		$('#CSChatMessage-'+chat_id).focus();
+    		
+    		ee.emitEvent('chatTabLoaded', [chat_id]);	 
     	});
     };
 
