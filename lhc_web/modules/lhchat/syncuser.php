@@ -176,6 +176,11 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 		    	$blocked = 'true';
 		    	$breakSync = true;		    	
 		    	$responseArray['closed'] = true;
+		    	
+		    	if ($chat->status_sub_arg != '') {		    	    
+		    	    $args = json_decode($chat->status_sub_arg,true);		    	    		    	    
+		    	    $responseArray['closed_arg'] = erLhcoreClassChatHelper::getSubStatusArguments($chat);		    	    
+		    	}
 		    }
 
 		    if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM) {

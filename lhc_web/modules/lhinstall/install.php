@@ -301,6 +301,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `city` varchar(100) NOT NULL,
 				  `operation` text NOT NULL,
 				  `operation_admin` varchar(200) NOT NULL,
+				  `status_sub_arg` varchar(200) NOT NULL,
 				  `chat_locale` varchar(10) NOT NULL,
 				  `chat_locale_to` varchar(10) NOT NULL,
 				  `mail_send` int(11) NOT NULL,

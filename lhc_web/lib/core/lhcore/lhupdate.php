@@ -2,8 +2,8 @@
 
 class erLhcoreClassUpdate
 {
-	const DB_VERSION = 127;
-	const LHC_RELEASE = 252;
+	const DB_VERSION = 128;
+	const LHC_RELEASE = 253;
 
 	public static function doTablesUpdate($definition){
 		$updateInformation = self::getTablesStatus($definition);

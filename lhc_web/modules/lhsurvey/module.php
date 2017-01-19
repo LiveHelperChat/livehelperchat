@@ -19,6 +19,12 @@ $ViewList['backtochat'] = array(
     'uparams' => array()
 );
 
+$ViewList['choosesurvey'] = array(
+    'params' => array('chat_id','survey_id'),
+    'uparams' => array(),
+    'functions' => array( 'manage_survey' )
+);
+
 $ViewList['collected'] = array(
     'params' => array('survey_id'),
     'uparams' => array('timefrom','timeto','department_id','user_id','print','xls','group_results','minimum_chats',

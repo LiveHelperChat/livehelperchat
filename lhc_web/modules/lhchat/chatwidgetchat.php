@@ -31,9 +31,6 @@ if ($Params['user_parameters_unordered']['cstarted'] !== null && $Params['user_p
 	$Result['parent_messages'][] = 'lh_callback:' . (string)strip_tags($Params['user_parameters_unordered']['cstarted']);
 }
 
-
-
-
 try {
 
     $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
@@ -61,7 +58,8 @@ try {
 
         // If survey send parent message instantly
         if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW) {
-            $Result['parent_messages'][] = 'lhc_chat_closed';
+            $args = erLhcoreClassChatHelper::getSubStatusArguments($chat);
+            $Result['parent_messages'][] = 'lhc_chat_closed' . ($args != '' ? ':' . $args : '');
         }
     
         // User online
