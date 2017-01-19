@@ -87,7 +87,8 @@ class erLhcoreClassUserDep{
    }
    
    public static function getDefaultUserDepartment($userID = false) {
-   		return array_shift(self::getUserDepartaments($userID = false));
+        $userDepartments = self::getUserDepartaments($userID);
+   		return array_shift($userDepartments);
    }
       
    public static function addUserDepartaments($Departaments, $userID = false, $UserData = false)

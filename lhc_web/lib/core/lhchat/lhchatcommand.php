@@ -164,10 +164,9 @@ class erLhcoreClassChatCommand
                 // Change department if user cannot read current department, so chat appears in right menu
                 $filter = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($user->id);
                 if ($filter !== true && !in_array($params['chat']->dep_id, $filter)) {
-                    $dep_id = erLhcoreClassUserDep::getDefaultUserDepartment($user->id);
+                    $dep_id = erLhcoreClassUserDep::getDefaultUserDepartment($user->id);                    
                     if ($dep_id > 0) {
-                        $params['chat']->dep_id = $dep_id;
-                        $params['chat']->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
+                        $params['chat']->dep_id = $dep_id;                       
                     }
                 }
                 
