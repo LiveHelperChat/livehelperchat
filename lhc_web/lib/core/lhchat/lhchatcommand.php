@@ -185,7 +185,7 @@ class erLhcoreClassChatCommand
                 
                 return array(
                     'processed' => true,
-                    'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','Chat has been transfered to') . '-' . (string)$user
+                    'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','Chat has been transfered to') . ' - ' . (string)$user
                 );
             
             } else {
