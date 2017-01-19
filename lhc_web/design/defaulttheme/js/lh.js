@@ -589,10 +589,10 @@ function lh(){
 	       		   if (typeof data.op !== 'undefined' && data.op != '') {
 	       			   inst.executeRemoteCommands(data.op);	   	    			 	    			
 	       		   };
-	       		   
+	       		   	       		   
 	               if (data.closed && data.closed == true) {	            	  
-		   			 	if (inst.isWidgetMode && typeof(parent) !== 'undefined' && window.location !== window.parent.location) {		   			 
-		   			 		 parent.postMessage('lhc_chat_closed', '*');
+		   			 	if (inst.isWidgetMode && typeof(parent) !== 'undefined' && window.location !== window.parent.location) {	
+		   			 		 parent.postMessage('lhc_chat_closed' + (typeof data.closed_arg !== 'undefined' ? ':'+data.closed_arg : ''), '*');
 		   				} else {		   				
 		   					inst.chatClosed();
 		   				}

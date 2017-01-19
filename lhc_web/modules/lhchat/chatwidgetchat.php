@@ -60,8 +60,6 @@ try {
         if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW) {
             $args = erLhcoreClassChatHelper::getSubStatusArguments($chat);
             $Result['parent_messages'][] = 'lhc_chat_closed' . ($args != '' ? ':' . $args : '');
-            
-            print_r($Result['parent_messages']);exit;
         }
     
         // User online

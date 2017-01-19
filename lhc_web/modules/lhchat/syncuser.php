@@ -179,7 +179,7 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 		    	
 		    	if ($chat->status_sub_arg != '') {		    	    
 		    	    $args = json_decode($chat->status_sub_arg,true);		    	    		    	    
-		    	    $responseArray['closed_arg'] = erLhcoreClassChatHelper::getSubStatusArguments();		    	    
+		    	    $responseArray['closed_arg'] = erLhcoreClassChatHelper::getSubStatusArguments($chat);		    	    
 		    	}
 		    }
 

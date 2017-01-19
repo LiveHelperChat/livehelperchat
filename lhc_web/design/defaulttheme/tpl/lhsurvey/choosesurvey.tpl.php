@@ -5,7 +5,7 @@
 
 <div class="mx170">
     <?php foreach (erLhAbstractModelSurvey::getList() as $item) : ?>
-        <label><input type="radio" name="SurveyItem<?php echo $chat->id?>" value="<?php echo $item->id?>" />&nbsp;<?php echo htmlspecialchars($item->name)?></label>
+        <div><label><input type="radio" name="SurveyItem<?php echo $chat->id?>" value="<?php echo $item->id?>" />&nbsp;<?php echo htmlspecialchars($item->name)?></label></div>
     <?php endforeach;?>
 </div>
 
