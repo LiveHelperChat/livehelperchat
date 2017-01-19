@@ -2,6 +2,7 @@
 
 1. Option to transfer chat to another operator directly with !transferforce command
 !transferforce <username | email>
+2. Option to transfer user to survey by choosing survey itself.
 
 execute doc/update_db/update_128.sql for update
 

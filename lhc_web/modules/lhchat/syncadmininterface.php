@@ -106,7 +106,6 @@ if ($activeTabEnabled == true) {
 	{
 	   if ($chat->status_sub_sub == erLhcoreClassModelChat::STATUS_SUB_SUB_TRANSFERED && $chat->user_id == $userData->id) {
 	       $chat->status_sub_sub = erLhcoreClassModelChat::STATUS_SUB_SUB_DEFAULT;
-	       //$chat->updateThis();
 	       $chatsForced[] = array(
 	           'id' => $chat->id,
 	           'nick' => $chat->nick,

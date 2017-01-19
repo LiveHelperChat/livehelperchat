@@ -2398,8 +2398,8 @@
                 "key": "",
                 "default": "",
                 "extra": ""
-			},
-			{
+            },
+            {
                 "field": "status_sub_sub",
                 "type": "int(11)",
                 "null": "NO",
