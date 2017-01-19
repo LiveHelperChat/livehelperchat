@@ -78,6 +78,7 @@ if ($showDepartmentsStats == true) {
     $ReturnMessages['departments_stats'] = array('list' => array_values($departments));
 }
 
+$chatsForced = array();
 
 if ($activeTabEnabled == true) {
 	/**
@@ -95,14 +96,33 @@ if ($activeTabEnabled == true) {
         erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['activedprod']);
         $filter['filterin']['product_id'] = $Params['user_parameters_unordered']['activedprod'];
     }
-
+  
 	$chats = erLhcoreClassChat::getActiveChats($limitList,0,$filter);
+		
+	// Collect chats which were transfered
+	$lastTransferedForceId = 0;
+	$transferedArray = array();
+	foreach ($chats as $chat)
+	{
+	   if ($chat->status_sub_sub == erLhcoreClassModelChat::STATUS_SUB_SUB_TRANSFERED && $chat->user_id == $userData->id) {
+	       $chat->status_sub_sub = erLhcoreClassModelChat::STATUS_SUB_SUB_DEFAULT;
+	       //$chat->updateThis();
+	       $chatsForced[] = array(
+	           'id' => $chat->id,
+	           'nick' => $chat->nick,
+	       );
+	       $transferedArray[] = $chat->id;
+	   }
+	}
+
+	if (!empty($transferedArray)) {
+	    $db = ezcDbInstance::get();
+	    $db->query('UPDATE `lh_chat` SET `status_sub_sub` = 0 WHERE `id` IN (' . implode(',', $transferedArray) . ')');
+	}
+
 	erLhcoreClassChat::prefillGetAttributes($chats,array('time_created_front','department_name','plain_user_name','product_name'),array('product_id','product','department','time','status','user_id','user'));	
 	$ReturnMessages['active_chats'] = array('list' => array_values($chats));	
 	$chatsList[] = & $ReturnMessages['active_chats']['list'];
-	
-	
-	
 }
 
 if ($closedTabEnabled == true) {
@@ -286,7 +306,13 @@ if ($userData->operation_admin != '') {
     erLhcoreClassUser::getSession()->update($userData);
 }
 
-echo erLhcoreClassChat::safe_json_encode(array('error' => 'false', 'mac' => $my_active_chats, 'ou' => $ou, 'result' => $ReturnMessages ));
+$responseSync = array('error' => 'false', 'mac' => $my_active_chats, 'ou' => $ou, 'result' => $ReturnMessages );
+
+if (!empty($chatsForced)) {
+     $responseSync['fs'] = $chatsForced;
+}
+
+echo erLhcoreClassChat::safe_json_encode($responseSync);
 
 exit;
 ?>

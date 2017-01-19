@@ -575,9 +575,15 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
                 if ($scope.pending_chats.length == 0) {
                 	clearTimeout(lhinst.soundIsPlaying);
 				};
-		
+				
 				if (typeof data.ou !== 'undefined') {
 					eval(data.ou);
+				}
+		
+				if (typeof data.fs !== 'undefined' && data.fs.length > 0) {
+					angular.forEach(data.fs, function(item, key) {
+						lhinst.playSoundNewAction('pending_transfered',parseInt(item.id),(item.nick ? item.nick : 'Live Help'), confLH.transLation.transfered);
+					});
 				}
 				
 				if (typeof data.mac !== 'undefined' && data.mac.length > 0) {
