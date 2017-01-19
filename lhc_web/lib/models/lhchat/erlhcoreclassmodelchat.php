@@ -9,6 +9,8 @@ class erLhcoreClassModelChat {
                'nick'            		=> $this->nick,
                'status'          		=> $this->status,
                'status_sub'          	=> $this->status_sub,
+               'status_sub_arg'         => $this->status_sub_arg,
+               'status_sub_sub'         => $this->status_sub_sub,
                'time'            		=> $this->time,
                'user_id'         		=> $this->user_id,
                'hash'            		=> $this->hash,
@@ -453,6 +455,9 @@ class erLhcoreClassModelChat {
    const STATUS_SUB_START_ON_KEY_UP = 4;
    const STATUS_SUB_SURVEY_SHOW = 5;
    const STATUS_SUB_SURVEY_COLLECTED = 6;
+   
+   const STATUS_SUB_SUB_DEFAULT = 0;
+   const STATUS_SUB_SUB_TRANSFERED = 1;
       
    const USER_STATUS_JOINED_CHAT = 0;
    const USER_STATUS_CLOSED_CHAT = 1;
@@ -462,8 +467,16 @@ class erLhcoreClassModelChat {
    
    public $id = null;
    public $nick = '';
+   
+   // General chat statusses
    public $status = self::STATUS_PENDING_CHAT;
+   
+   // Used for visitors
    public $status_sub = self::STATUS_SUB_DEFAULT;
+   
+   // Used for operators
+   public $status_sub_sub = self::STATUS_SUB_SUB_DEFAULT;
+   
    public $time = '';
    public $user_id = '';
    public $hash = '';
@@ -551,6 +564,8 @@ class erLhcoreClassModelChat {
    public $unanswered_chat = 0;
    
    public $product_id = 0;
+   
+   public $status_sub_arg = '';
    
    // Time since last assignment
    public $tslasign = 0;

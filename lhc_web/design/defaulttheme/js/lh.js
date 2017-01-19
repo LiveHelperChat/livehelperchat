@@ -591,10 +591,10 @@ function lh(){
 	       		   if (typeof data.op !== 'undefined' && data.op != '') {
 	       			   inst.executeRemoteCommands(data.op);	   	    			 	    			
 	       		   };
-	       		   
+	       		   	       		   
 	               if (data.closed && data.closed == true) {	            	  
-		   			 	if (inst.isWidgetMode && typeof(parent) !== 'undefined' && window.location !== window.parent.location) {		   			 
-		   			 		 parent.postMessage('lhc_chat_closed', '*');
+		   			 	if (inst.isWidgetMode && typeof(parent) !== 'undefined' && window.location !== window.parent.location) {	
+		   			 		 parent.postMessage('lhc_chat_closed' + (typeof data.closed_arg !== 'undefined' ? ':'+data.closed_arg : ''), '*');
 		   				} else {		   				
 		   					inst.chatClosed();
 		   				}
@@ -943,14 +943,25 @@ function lh(){
 	this.transferChat = function(chat_id)
 	{
 		var user_id = $('[name=TransferTo'+chat_id+']:checked').val();
-
+		
 		$.postJSON(this.wwwDir + this.trasnsferuser + chat_id + '/' + user_id ,{'type':'user'}, function(data){
 			if (data.error == 'false') {
 				$('#transfer-block-'+data.chat_id).html(data.result);
 			};
 		});
 	};
-
+		
+	this.chooseSurvey = function(chat_id)
+	{
+		var survey_id = $('[name=SurveyItem'+chat_id+']:checked').val();
+		
+		$.postJSON(this.wwwDir + "survey/choosesurvey/" + chat_id + '/' + survey_id, function(data){
+			if (data.error == 'false') {
+				$('#survey-block-'+data.chat_id).html(data.result);
+			};
+		});
+	};
+		
 	this.redirectContact = function(chat_id,message){		
 		if (typeof message === 'undefined' || confirm(message)){	
 			$.postJSON(this.wwwDir + 'chat/redirectcontact/' + chat_id, function(data){				
@@ -1502,7 +1513,7 @@ function lh(){
 	};	
 	
 	this.playSoundNewAction = function(identifier,chat_id,nick,message) {
-	    if (confLH.new_chat_sound_enabled == 1 && (identifier == 'pending_chat' || identifier == 'transfer_chat' || identifier == 'unread_chat')) {
+	    if (confLH.new_chat_sound_enabled == 1 && (identifier == 'pending_chat' || identifier == 'transfer_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered')) {
 	    	this.soundPlayedTimes = 0;
 	        this.playNewChatAudio();
 	    };
@@ -1512,7 +1523,7 @@ function lh(){
     	};
 
 	    var inst = this;
-	    if ( (identifier == 'pending_chat' || identifier == 'transfer_chat' || identifier == 'unread_chat') && (window.webkitNotifications || window.Notification)) {
+	    if ( (identifier == 'pending_chat' || identifier == 'transfer_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered') && (window.webkitNotifications || window.Notification)) {
 
 	    	 if (window.webkitNotifications) {
 		    	  var havePermission = window.webkitNotifications.checkPermission();
@@ -1524,7 +1535,7 @@ function lh(){
 		    	      message
 		    	    );
 		    	    notification.onclick = function () {
-		    	    	if (identifier == 'pending_chat' || identifier == 'unread_chat'){
+		    	    	if (identifier == 'pending_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered'){
 		    	    		inst.startChatNewWindow(chat_id,'ChatRequest');
 		    	    	} else {
 		    	    		inst.startChatNewWindowTransferByTransfer(chat_id);
@@ -1532,20 +1543,27 @@ function lh(){
 		    	        notification.cancel();
 		    	    };
 		    	    notification.show();
-		    	    this.notificationsArray.push(notification);
+		    	    
+		    	    if (identifier != 'pending_transfered') {
+		    	    	this.notificationsArray.push(notification);
+		    	    }
 		    	  }
 	    	  } else if(window.Notification) {
 	    		  if (window.Notification.permission == 'granted') {
 		  				var notification = new Notification(nick, { icon: WWW_DIR_JAVASCRIPT_FILES_NOTIFICATION + '/notification.png', body: message });
+		  				
 		  				notification.onclick = function () {
-			    	    	if (identifier == 'pending_chat' || identifier == 'unread_chat'){
+			    	    	if (identifier == 'pending_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered') {
 			    	    		inst.startChatNewWindow(chat_id,'ChatRequest');
 			    	    	} else {
 			    	    		inst.startChatNewWindowTransferByTransfer(chat_id);
 			    	    	};
 			    	        notification.close();
 			    	    };
-			    	    this.notificationsArray.push(notification);
+			    	    
+			    	    if (identifier != 'pending_transfered') {
+			    	    	this.notificationsArray.push(notification);
+			    	    }
 		    	   }
 	    	  }
 

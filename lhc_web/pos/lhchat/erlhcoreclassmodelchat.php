@@ -30,6 +30,22 @@ $def->properties['status_sub']->columnName   = 'status_sub';
 $def->properties['status_sub']->propertyName = 'status_sub';
 $def->properties['status_sub']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+/**
+ * Stores additional persisten arguments for substatus changes. Application logic is responsible for for clearing these.
+ */
+$def->properties['status_sub_arg'] = new ezcPersistentObjectProperty();
+$def->properties['status_sub_arg']->columnName   = 'status_sub_arg';
+$def->properties['status_sub_arg']->propertyName = 'status_sub_arg';
+$def->properties['status_sub_arg']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+/**
+* Sub status, used for operators only. Should not influce user actions. Just operators.
+* */
+$def->properties['status_sub_sub'] = new ezcPersistentObjectProperty();
+$def->properties['status_sub_sub']->columnName   = 'status_sub_sub';
+$def->properties['status_sub_sub']->propertyName = 'status_sub_sub';
+$def->properties['status_sub_sub']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['time'] = new ezcPersistentObjectProperty();
 $def->properties['time']->columnName   = 'time';
 $def->properties['time']->propertyName = 'time';
