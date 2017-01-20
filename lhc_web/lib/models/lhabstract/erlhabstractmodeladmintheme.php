@@ -12,6 +12,24 @@ class erLhAbstractModelAdminTheme {
 
     public static $dbSortOrder = 'DESC';
 
+    public function removeThis()
+    {
+        $attributes = array (
+            'static_content',
+            'static_js_content',
+            'static_css_content'
+        );
+    
+        foreach ($attributes as $attr) {
+            foreach ($this->{$attr . '_array'} as $key => $data) {
+                $this->removeResource($attr, $key);
+            }
+        }
+    
+        erLhcoreClassAbstract::getSession()->delete($this);
+    }
+    
+    
 	public function getState()
 	{
 		$stateArray = array(
@@ -46,6 +64,11 @@ class erLhAbstractModelAdminTheme {
 	            erLhcoreClassFileUpload::removeRecursiveIfEmpty('var/storageadmintheme/',str_replace('var/storageadmintheme/','',$content[$key]['file_dir']));
 	        }
 
+	        $std = new stdClass();
+	        $std->name = $content[$key]['file'];
+	        
+	        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.remove_file', array('chat_file' => & $std, 'files_path_storage' => 'images_path' ));
+	        
 	        // Remove removed attribute
 	        unset($content[$key]);
 	
@@ -97,7 +120,7 @@ class erLhAbstractModelAdminTheme {
 	
 	            foreach ($this->{$varAttr[$var]} as $content) {
 	                $return['search'][] = '{{'.$content['name'].'}}';
-	                $return['replace'][] = '/' . $content['file_dir'] . $content['file'];
+	                $return['replace'][] = ($content['file_dir'] != '' ? erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ) . '/' . $content['file_dir'] . $content['file'];
 	            }
 	
 	            $this->$var = $return;
