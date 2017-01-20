@@ -381,6 +381,8 @@ class erLhcoreClassChatWorkflow {
      		     		
      		$chat->last_user_msg_time = $msg->time = time();
      		 
+     		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow.canned_message_before_save',array('msg' => & $msg, 'chat' => & $chat));
+     		
      		erLhcoreClassChat::getSession()->save($msg);
      		 
      		if ($chat->last_msg_id < $msg->id) {
