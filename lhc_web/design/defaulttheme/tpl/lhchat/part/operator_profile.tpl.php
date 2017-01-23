@@ -1,13 +1,15 @@
 <div class="operator-info float-break">
 	<div class="pull-left pr5">
 		<?php if ($user->has_photo) : ?>
-     			<img src="<?php echo $user->photo_path?>" alt="<?php echo htmlspecialchars($user->name_support)?>" />
+     			<?php include(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile_name_support_img.tpl.php'));?>
      	<?php else : ?>
      		<i class="icon-assistant material-icons">account_box</i>
      	<?php endif;?>
      </div>
      <div class="pl10">        
-	    <div><strong><?php echo htmlspecialchars($user->name_support)?></strong></div>
+	    
+	    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile_name_support.tpl.php'));?>
+	    
 	    <?php if (isset($extraMessage)) : ?>
 	    	<i><?php echo $extraMessage;?></i>
 	    <?php endif;?>

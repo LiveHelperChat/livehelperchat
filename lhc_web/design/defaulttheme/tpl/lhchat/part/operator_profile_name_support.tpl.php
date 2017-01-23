@@ -1,0 +1,1 @@
+<div><strong><?php echo htmlspecialchars($user->name_support)?></strong></div>

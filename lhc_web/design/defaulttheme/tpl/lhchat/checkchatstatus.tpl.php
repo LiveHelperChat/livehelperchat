@@ -1,6 +1,7 @@
 <?php if ($is_activated == true || $is_proactive_based == true) : ?>
     <?php if ($chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT && ($user = $chat->user) !== false) : ?>
-    	<?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile.tpl.php'));?>
+        <?php include(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile_main_pre.tpl.php')); ?>
+    	<?php include(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile.tpl.php'));?>
     <?php elseif ($is_proactive_based == true) : ?>
     <h4>
     	<?php if ($theme !== false  && $theme->support_joined != '') : ?>
