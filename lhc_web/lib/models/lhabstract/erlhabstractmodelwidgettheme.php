@@ -74,6 +74,8 @@ class erLhAbstractModelWidgetTheme {
 			'buble_operator_text_color' => $this->buble_operator_text_color,
 		);
 
+		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('lhabstract.erlhabstractmodelwidgettheme.getstate',array('state' => & $stateArray, 'object' => & $this));
+		
 		return $stateArray;
 	}
 

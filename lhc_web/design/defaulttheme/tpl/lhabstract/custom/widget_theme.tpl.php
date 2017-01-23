@@ -98,6 +98,8 @@
 						<?php echo erLhcoreClassAbstract::renderInput('explain_text', $fields['explain_text'], $object)?>
 						</div>
 						
+						<?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/widget_theme_status.tpl.php'));?>
+						
         		</div>        		
         		<div role="tabpanel" class="tab-pane" id="messagesstyle">
                 	    <h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Live preview')?></h3>
