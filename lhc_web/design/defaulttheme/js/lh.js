@@ -607,7 +607,7 @@ function lh(){
 
         inst.syncroRequestSend = false;
     };
-    
+        
     this.chatClosed = function() {
     	if (this.survey !== null) {
     		var modeWindow = this.isWidgetMode == true ? '/(mode)/widget' : '';
@@ -616,9 +616,11 @@ function lh(){
 		    var modeEmbed = this.isEmbedMode == true ? '/(modeembed)/embed' : '';
 		    var fillType = this.isWidgetMode == true ? 'fillwidget' : 'fill';
 		    var explicitClose =  this.explicitClose == true ? '/(eclose)/t' : '';
-		    
 		    document.location = this.wwwDir + 'survey/'+fillType+'/(survey)/' + this.survey + '/(chatid)/' +this.chat_id + '/(hash)/'+ this.hash + modeWindow + operatorTyping + themeWindow + modeEmbed + explicitClose;
+		    return true;
     	}
+    	
+    	return false;
     };
     
     this.executeRemoteCommands = function(operations)
@@ -1022,9 +1024,13 @@ function lh(){
 
 	this.userclosedchatembed = function()
 	{
-	    if (!!window.postMessage) {
+	    if (!!window.postMessage && typeof(parent) !== 'undefined' && window.location !== window.parent.location) {
 	    	parent.postMessage("lhc_chat_closed_explicit", '*');
-	    };
+	    } else {
+	    	if (this.chatClosed() == false) {
+				window.close();
+			}
+	    }
 	};
 	
 	this.continueChatFromSurvey = function(survey_id)
@@ -1034,7 +1040,7 @@ function lh(){
 				 parent.postMessage('lhc_continue_chat', '*');
 		    });
 		} else {
-			//this.chatClosed();
+			this.chatClosed();
 		}
 		
 		return false;
@@ -1048,8 +1054,10 @@ function lh(){
 		
 		if (this.isWidgetMode && typeof(parent) !== 'undefined' && window.location !== window.parent.location) {		   			 
 	 		 parent.postMessage('lhc_chat_closed_explicit', '*');
-		} else {
-			this.chatClosed();
+		} else {			
+			if (this.chatClosed() == false) {
+				window.close();
+			}
 		}
 	};
 	
