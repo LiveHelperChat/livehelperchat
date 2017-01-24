@@ -19,7 +19,7 @@ class erLhcoreClassSurveyValidator {
 	    		if ($survey->{$keyOption . '_pos'} == $i && $survey->{$keyOption . '_enabled'}) {
 	    			if ($sortOption['type'] == 'stars') {
 		    			$definition[$sortOption['field'] . 'Evaluate'] = new ezcInputFormDefinitionElement(
-							ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1, 'max_range' => $survey->$sortOption['field'])
+							ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1, 'max_range' => $survey->{$sortOption['field']})
 						);
 	    			} elseif ($sortOption['type'] == 'question') {
 	    				$definition[$sortOption['field'] . 'Question'] = new ezcInputFormDefinitionElement(

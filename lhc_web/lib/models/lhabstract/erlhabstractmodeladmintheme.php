@@ -74,7 +74,7 @@ class erLhAbstractModelAdminTheme {
 	
 	        // Set attr
 	        $this->{$scope . '_array'} = $content;
-	        $this->$scope = json_encode($content,JSON_HEX_APOS);
+	        $this->{$scope} = json_encode($content,JSON_HEX_APOS);
 	        $this->saveThis();
 	    }
 	}

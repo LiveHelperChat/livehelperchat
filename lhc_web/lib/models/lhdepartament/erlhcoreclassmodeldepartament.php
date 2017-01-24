@@ -144,7 +144,7 @@ class erLhcoreClassModelDepartament {
             case 'sad_start_hour_front':
             case 'sud_start_hour_front':
                 $startHourName = str_replace('_start_hour_front', '', $var).'_start_hour';
-                return $this->$startHourName != -1 ? floor($this->$startHourName/100) : '';
+                return $this->{$startHourName} != -1 ? floor($this->{$startHourName}/100) : '';
                 break;
 
             case 'mod_start_minutes_front':
@@ -156,7 +156,7 @@ class erLhcoreClassModelDepartament {
             case 'sud_start_minutes_front':
                 $startHourName = str_replace('_start_minutes_front', '', $var).'_start_hour';
                 $startHourFrontName = str_replace('_start_minutes_front', '', $var).'_start_hour_front';
-                return $this->$startHourName != -1 ? $this->$startHourName - ($this->$startHourFrontName * 100) : '';
+                return $this->{$startHourName} != -1 ? $this->{$startHourName} - ($this->{$startHourFrontName} * 100) : '';
                 break;
 
             case 'mod_end_hour_front':
@@ -167,7 +167,7 @@ class erLhcoreClassModelDepartament {
             case 'sad_end_hour_front':
             case 'sud_end_hour_front':
                 $endHourName = str_replace('_end_hour_front', '', $var).'_end_hour';
-                return $this->$endHourName != -1 ? floor($this->$endHourName/100) : '';
+                return $this->{$endHourName} != -1 ? floor($this->{$endHourName}/100) : '';
                 break;
 
             case 'mod_end_minutes_front':
@@ -179,7 +179,7 @@ class erLhcoreClassModelDepartament {
             case 'sud_end_minutes_front':
                 $endHourName = str_replace('_end_minutes_front', '', $var).'_end_hour';
                 $endHourFrontName = str_replace('_end_minutes_front', '', $var).'_end_hour_front';
-                return $this->$endHourName != -1 ? $this->$endHourName - ($this->$endHourFrontName * 100) : '';
+                return $this->$endHourName != -1 ? $this->{$endHourName} - ($this->{$endHourFrontName} * 100) : '';
                 break;
 
 	   		default:
