@@ -139,6 +139,8 @@ lhc_Cookies.defaults = {path:"/",secure: <?php erLhcoreClassModelChatConfig::fet
 
 <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/options_variable.tpl.php')); ?>
 
+<?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/custom_get_status_js.tpl.php')); ?>
+
 var lh_inst  = {
    JSON : {
             parse: window.JSON && (window.JSON.parse || window.JSON.decode) || String.prototype.evalJSON && function(str){return String(str).evalJSON();} || $.parseJSON || $.evalJSON,
@@ -156,7 +158,7 @@ var lh_inst  = {
     urlopen : function(){   
     	return "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>"+this.lang+"/chat/startchat<?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : ''?>"+this.survey_id;
     },
-
+	<?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/custom_get_status_lh_inst_js.tpl.php')); ?>	
     hasSurvey : <?php echo $survey !== false ? 'true ': 'false'?>,
     survey_id : '<?php echo $survey !== false ? '/(survey)/' . $survey : ''?>',
     surveyShown : false,
