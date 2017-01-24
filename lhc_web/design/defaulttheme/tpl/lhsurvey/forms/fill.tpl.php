@@ -25,7 +25,7 @@
     					<label><?php echo htmlspecialchars($survey->{$sortOption['field']});?><?php if ($survey->{$sortOption['field'] . '_req'} == 1) : ?> *<?php endif;?></label>
     					<?php foreach ($survey->{$sortOption['field'] . '_items_front'} as $key => $item) : ?>
     					<div class="radio radio-widget">
-    						<label><input type="radio" name="<?php echo $sortOption['field']?>EvaluateOption" value="<?php echo $key+1?>" <?php if ($survey_item->{$sortOption['field']} === $key+1) : ?>checked="checked"<?php endif;?>/><?php echo htmlspecialchars($item['option'])?></label>
+    						<label><input type="radio" name="<?php echo $sortOption['field']?>EvaluateOption" value="<?php echo $key+1?>" <?php if ((int)$survey_item->{$sortOption['field']} === $key+1) : ?>checked="checked"<?php endif;?>/><?php echo htmlspecialchars($item['option'])?></label>
     					</div>
     					<?php endforeach;?>
     				</div>
