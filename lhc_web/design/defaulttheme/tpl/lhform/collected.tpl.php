@@ -30,7 +30,7 @@
     	<td>
     	<div class="page-url"><span><?php echo htmlspecialchars($item->identifier)?></span></div>
     	</td>
-        <td><?php echo htmlspecialchars($item->getAttrValue($form->intro_attr))?></td>
+        <td><?php echo $form->intro_attr != '' ? htmlspecialchars($item->getAttrValue($form->intro_attr)) : ''?></td>
         <td><?php echo $item->ctime_front?></td>
         <td><?php echo htmlspecialchars($item->ip)?></td>
         <td nowrap>

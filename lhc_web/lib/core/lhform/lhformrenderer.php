@@ -301,6 +301,12 @@ class erLhcoreClassFormRenderer {
     	return "<input class=\"form-control\" type=\"text\" name=\"{$params['name']}\" id=\"id_{$params['name']}\" {$additionalAttributes} {$placeholder} value=\"".htmlspecialchars($value)."\" /><script>$(function() {\$('#id_{$params['name']}').fdatepicker({format: '{$params['format']}'});});</script>";    	
     }
     
+    public static function renderInputTypeTranslate($params)
+    {        
+        if (isset($params['context']) && isset($params['text'])) {           
+            return erTranslationClassLhTranslation::getInstance()->getTranslation($params['context'],$params['text']);
+        }
+    }
     
     public static function renderInputTypeCombobox($params) {    	
     	$additionalAttributes = self::renderAdditionalAtrributes($params);
