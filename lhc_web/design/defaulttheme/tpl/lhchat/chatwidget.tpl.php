@@ -26,9 +26,9 @@
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
 
-<?php 
-$hasExtraField = false;
+<?php include(erLhcoreClassDesign::designtpl('lhchat/chatwidget/chatwidget_pre_form_multiinclude.tpl.php'));?>
 
+<?php $hasExtraField = false;
 
 if ($theme !== false && $theme->explain_text != '') : ?>
 <p class="start-chat-intro"><?php echo erLhcoreClassBBCode::make_clickable(htmlspecialchars($theme->explain_text))?></p>
@@ -52,10 +52,7 @@ if ($theme !== false && $theme->explain_text != '') : ?>
 		<?php if (in_array('username', $input_data->hattr)) : ?>
 			<input type="hidden" name="Username" value="<?php echo htmlspecialchars($input_data->username);?>" />
 		<?php else : ?>
-	    <div class="col-xs-6 form-group<?php if (isset($errors['nick'])) : ?> has-error<?php endif;?>">
-	        <label class="control-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Name');?><?php if (isset($start_data_fields['name_require_option']) && $start_data_fields['name_require_option'] == 'required') : ?>*<?php endif;?></label>
-	        <input type="text" class="form-control" name="Username" value="<?php echo htmlspecialchars($input_data->username);?>" />
-	    </div>    
+		    <?php include(erLhcoreClassDesign::designtpl('lhchat/chatwidget/form_parts/name_hidden.tpl.php'));?>
 	    <?php endif; ?>    
     <?php endif; ?>
     
