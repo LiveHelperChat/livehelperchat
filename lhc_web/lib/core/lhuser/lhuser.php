@@ -278,6 +278,7 @@ class erLhcoreClassUser{
        
        $this->session->destroy();
        
+       session_destroy();
        session_regenerate_id(true);
    }
 

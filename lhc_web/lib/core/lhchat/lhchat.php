@@ -87,7 +87,7 @@ class erLhcoreClassChat {
     	if (!empty($filterAdditional)) {
     		$filter = array_merge_recursive($filter,$filterAdditional);
     	}
-
+    	    	
     	return self::getList($filter);
     }
 
