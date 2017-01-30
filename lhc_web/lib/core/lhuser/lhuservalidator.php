@@ -546,7 +546,10 @@ class erLhcoreClassUserValidator {
 		} else {
 			$userData->xmpp_username = '';
 		}
-
+		
+		// new event for save additional account fields
+		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.account.update', array('userData' => & $userData, 'errors' => & $Errors));
+		
 		return $Errors;
 		
 	}
