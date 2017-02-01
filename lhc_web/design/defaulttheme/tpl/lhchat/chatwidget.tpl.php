@@ -163,7 +163,6 @@ $('#id_Question').on('keydown', function (e) {
 });
 <?php endif;?>
 
-
 var formSubmitted = false;
 jQuery('#id_Question').bind('keydown', 'return', function (evt){
 	if (formSubmitted == false) {
@@ -178,6 +177,8 @@ jQuery('#id_Question').bind('keydown', 'return', function (evt){
 </script>
 <?php endif;?>
 
+<?php include(erLhcoreClassDesign::designtpl('lhchat/chatwidget/chatwidget_post_multiinclude.tpl.php'));?>
+
 <?php else : ?>
 	<?php if (isset($start_data_fields['show_operator_profile']) && $start_data_fields['show_operator_profile'] == true) : ?>
 	
@@ -191,10 +192,15 @@ jQuery('#id_Question').bind('keydown', 'return', function (evt){
 	<?php if (isset($errors)) : ?>
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 	<?php endif; ?>
+	
+	<?php include(erLhcoreClassDesign::designtpl('lhchat/chatwidget/chatwidget_pre_offline_form_multiinclude.tpl.php'));?>
 
 	<?php include(erLhcoreClassDesign::designtpl('lhchat/offline_form.tpl.php'));?>
+	
+	<?php include(erLhcoreClassDesign::designtpl('lhchat/chatwidget/chatwidget_post_offline_form_multiinclude.tpl.php'));?>
+	
+	
 <?php endif;?>
 
 <?php endif;?>
 
-<?php include(erLhcoreClassDesign::designtpl('lhchat/chatwidget/chatwidget_post_multiinclude.tpl.php'));?>
