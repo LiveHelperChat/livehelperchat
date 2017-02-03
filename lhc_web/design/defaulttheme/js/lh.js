@@ -1121,7 +1121,8 @@ function lh(){
 		    		$.postJSON(www_dir + inst.addmsgurl + chat_id, pdata , function(data){
 		    			if (LHCCallbacks.addmsgadmin) {
 		            		LHCCallbacks.addmsgadmin(chat_id);
-		            	};
+		            	};		            	
+		            	ee.emitEvent('chatAddMsgAdmin', [chat_id]);		            	
 		    			lhinst.syncadmincall();
 		    			return true;
 		    		});
@@ -1133,8 +1134,9 @@ function lh(){
 	    		$('#CSChatMessage-'+chat_id).val('');
 	    		$.postJSON(this.wwwDir + this.addmsgurl + chat_id, pdata , function(data){
 	    			if (LHCCallbacks.addmsgadmin) {
-	            		LHCCallbacks.addmsgadmin(chat_id);
+	            		LHCCallbacks.addmsgadmin(chat_id);	            		
 	            	};
+	            	ee.emitEvent('chatAddMsgAdmin', [chat_id]);	
 	    			lhinst.syncadmincall();
 	    			return true;
 	    		});
@@ -1629,6 +1631,8 @@ function lh(){
 		        		LHCCallbacks.addmsgadmin(chat_id);
 		        	};
 		        	
+		        	ee.emitEvent('chatAddMsgAdmin', [chat_id]);	
+		        	
 					return true;
 				}
 			});
@@ -1654,6 +1658,8 @@ function lh(){
 					if (LHCCallbacks.addmsgadmin) {
 		        		LHCCallbacks.addmsgadmin(chat_id);
 		        	};
+		        	
+		        	ee.emitEvent('chatAddMsgAdmin', [chat_id]);	
 		        	
 		        	if (data.r != '') {
 	            		$('#messagesBlock-'+chat_id).append(data.r);
@@ -1693,6 +1699,8 @@ function lh(){
 		        	if (LHCCallbacks.addmsgadmin) {
 		        		LHCCallbacks.addmsgadmin(elementAdd.chat_id);
 		        	};
+		        	
+		        	ee.emitEvent('chatAddMsgAdmin', [chat_id]);	
 		        	
 		        	if (data.r != '') {
 	            		$('#messagesBlock-'+elementAdd.chat_id).append(data.r);
