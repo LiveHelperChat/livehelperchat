@@ -269,10 +269,17 @@ class erLhcoreClassBBCode
    			try {
    				$file = erLhcoreClassModelChatFile::fetch($fileID);
 
+   				// AWS plugin changes file name, but we always use original name
+   				$parts = explode('/', $file->name);
+   				end($parts);
+   				$name = end($parts);
+   				
    				// Check that user has permission to see the chat. Let say if user purposely types file bbcode
-   				if ($hash == md5($file->name.'_'.$file->chat_id)) {
+   				if ($hash == md5($name.'_'.$file->chat_id)) {
+   				    $hash = md5($file->name.'_'.$file->chat_id);
    					return "<a href=\"" . erLhcoreClassDesign::baseurl('file/downloadfile')."/{$file->id}/{$hash}\" target=\"_blank\" class=\"link\" >" . erTranslationClassLhTranslation::getInstance()->getTranslation('file/file','Download file').' - '.htmlspecialchars($file->upload_name).' ['.$file->extension.']' . "</a>";
    				}
+   				
    			} catch (Exception $e) {
 
    			}
