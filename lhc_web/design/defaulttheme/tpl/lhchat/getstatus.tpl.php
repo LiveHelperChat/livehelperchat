@@ -682,6 +682,13 @@ var lh_inst  = {
         this.tag = this.tag != '' ? this.tag + ',' + tag : '&tag='+tag; 
     },
     
+    updateAttribute : function(attributes) {         
+        var xhr = new XMLHttpRequest();
+        xhr.open( "POST", '<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/updateattribute'+this.getAppendCookieArguments(), true);
+     	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+     	xhr.send( "data=" + encodeURIComponent( this.JSON.stringify(attributes) ) );
+    },
+    
     startNewMessageCheck : function() {
     	var vid = this.cookieDataPers.vid;
     	var inst = this;

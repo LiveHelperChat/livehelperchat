@@ -11,6 +11,11 @@ $ViewList['adminchat'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['updateattribute'] = array(
+		'params' => array(),
+		'uparams' => array('hash','hash_resume','vid'),
+);
+
 $ViewList['redirectcontact'] = array(
     'params' => array('chat_id'),
     'uparams' => array(),
