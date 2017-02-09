@@ -1695,7 +1695,7 @@ class erLhcoreClassChat {
                return 'Syntax error, malformed JSON'; // or trigger_error() or throw new Exception()
            case JSON_ERROR_UTF8:
                $clean = self::utf8ize($value);
-               return safe_json_encode($clean);
+               return self::safe_json_encode($clean);
            default:
                return 'Unknown error'; // or trigger_error() or throw new Exception()
                 
