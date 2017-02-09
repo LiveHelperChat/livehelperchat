@@ -261,6 +261,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `nick` varchar(50) NOT NULL,
 				  `status` int(11) NOT NULL DEFAULT '0',
 				  `status_sub` int(11) NOT NULL DEFAULT '0',
+				  `status_sub_sub` int(11) NOT NULL DEFAULT '0',
 				  `time` int(11) NOT NULL,
 				  `user_id` int(11) NOT NULL,
 				  `hash` varchar(40) NOT NULL,
@@ -276,6 +277,9 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `support_informed` int(11) NOT NULL DEFAULT '0',
 				  `unread_messages_informed` int(11) NOT NULL DEFAULT '0',
 				  `reinform_timeout` int(11) NOT NULL DEFAULT '0',
+				  `last_op_msg_time` int(11) NOT NULL DEFAULT '0',
+				  `has_unread_op_messages` int(11) NOT NULL DEFAULT '0',
+				  `unread_op_messages_informed` int(11) NOT NULL DEFAULT '0',
 				  `email` varchar(100) NOT NULL,
 				  `country_code` varchar(100) NOT NULL,
 				  `country_name` varchar(100) NOT NULL,
@@ -298,6 +302,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `city` varchar(100) NOT NULL,
 				  `operation` text NOT NULL,
 				  `operation_admin` varchar(200) NOT NULL,
+				  `status_sub_arg` varchar(200) NOT NULL,
 				  `chat_locale` varchar(10) NOT NULL,
 				  `chat_locale_to` varchar(10) NOT NULL,
 				  `mail_send` int(11) NOT NULL,
@@ -322,6 +327,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  KEY `online_user_id` (`online_user_id`),
 				  KEY `dep_id` (`dep_id`),
 				  KEY `product_id` (`product_id`),
+        	   	  KEY `unread_operator` (`has_unread_op_messages`, `unread_op_messages_informed`),
 				  KEY `has_unread_messages_dep_id_id` (`has_unread_messages`,`dep_id`,`id`),
 				  KEY `status_dep_id_id` (`status`,`dep_id`,`id`),
         	   	  KEY `status_dep_id_priority_id` (`status`,`dep_id`,`priority`,`id`),
@@ -347,12 +353,12 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_abstract_auto_responder` (
 				  `id` int(11) NOT NULL AUTO_INCREMENT,
 				  `siteaccess` varchar(3) NOT NULL,
-				  `wait_message` varchar(250) NOT NULL,
+				  `wait_message` text NOT NULL,
 				  `wait_timeout` int(11) NOT NULL,
 				  `position` int(11) NOT NULL,
 				  `dep_id` int(11) NOT NULL,
         	      `repeat_number` int(11) NOT NULL DEFAULT '1',
-				  `timeout_message` varchar(250) NOT NULL,
+				  `timeout_message` text NOT NULL,
 				  PRIMARY KEY (`id`),
 				  KEY `siteaccess_position` (`siteaccess`,`position`)
 				) DEFAULT CHARSET=utf8;");
@@ -464,10 +470,80 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   ) DEFAULT CHARSET=utf8");
         	           	   
         	   $db->query("CREATE TABLE `lh_abstract_survey` (
-        	       `id` int(11) NOT NULL AUTO_INCREMENT,
-        	       `name` varchar(250) NOT NULL,
-        	       `max_stars` int(11) NOT NULL,
-        	       PRIMARY KEY (`id`)
+        	      `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `name` varchar(250) NOT NULL,
+                  `feedback_text` text NOT NULL,
+                  `max_stars_1_title` varchar(250) NOT NULL,
+                  `max_stars_1_pos` int(11) NOT NULL,
+                  `max_stars_2_title` varchar(250) NOT NULL,
+                  `max_stars_2_pos` int(11) NOT NULL,
+                  `max_stars_2` int(11) NOT NULL,
+                  `max_stars_3_title` varchar(250) NOT NULL,
+                  `max_stars_3_pos` int(11) NOT NULL,
+                  `max_stars_3` int(11) NOT NULL,
+                  `max_stars_4_title` varchar(250) NOT NULL,
+                  `max_stars_4_pos` int(11) NOT NULL,
+                  `max_stars_4` int(11) NOT NULL,
+                  `max_stars_5_title` varchar(250) NOT NULL,
+                  `max_stars_5_pos` int(11) NOT NULL,
+                  `max_stars_5` int(11) NOT NULL,
+                  `question_options_1` varchar(250) NOT NULL,
+                  `question_options_1_items` text NOT NULL,
+                  `question_options_1_pos` int(11) NOT NULL,
+                  `question_options_2` varchar(250) NOT NULL,
+                  `question_options_2_items` text NOT NULL,
+                  `question_options_2_pos` int(11) NOT NULL,
+                  `question_options_3` varchar(250) NOT NULL,
+                  `question_options_3_items` text NOT NULL,
+                  `question_options_3_pos` int(11) NOT NULL,
+                  `question_options_4` varchar(250) NOT NULL,
+                  `question_options_4_items` text NOT NULL,
+                  `question_options_4_pos` int(11) NOT NULL,
+                  `question_options_5` varchar(250) NOT NULL,
+                  `question_options_5_items` text NOT NULL,
+                  `question_options_5_pos` int(11) NOT NULL,
+                  `question_plain_1` text NOT NULL,
+                  `question_plain_1_pos` int(11) NOT NULL,
+                  `question_plain_2` text NOT NULL,
+                  `question_plain_2_pos` int(11) NOT NULL,
+                  `question_plain_3` text NOT NULL,
+                  `question_plain_3_pos` int(11) NOT NULL,
+                  `question_plain_4` text NOT NULL,
+                  `question_plain_4_pos` int(11) NOT NULL,
+                  `question_plain_5` text NOT NULL,
+                  `question_plain_5_pos` int(11) NOT NULL,
+                  `max_stars_1_enabled` int(11) NOT NULL,
+                  `max_stars_2_enabled` int(11) NOT NULL,
+                  `max_stars_3_enabled` int(11) NOT NULL,
+                  `max_stars_4_enabled` int(11) NOT NULL,
+                  `max_stars_5_enabled` int(11) NOT NULL,
+                  `question_options_1_enabled` int(11) NOT NULL,
+                  `question_options_2_enabled` int(11) NOT NULL,
+                  `question_options_3_enabled` int(11) NOT NULL,
+                  `question_options_4_enabled` int(11) NOT NULL,
+                  `question_options_5_enabled` int(11) NOT NULL,
+                  `question_plain_1_enabled` int(11) NOT NULL,
+                  `question_plain_2_enabled` int(11) NOT NULL,
+                  `question_plain_3_enabled` int(11) NOT NULL,
+                  `question_plain_4_enabled` int(11) NOT NULL,
+                  `question_plain_5_enabled` int(11) NOT NULL,
+                  `max_stars_1` int(11) NOT NULL,
+                  `max_stars_1_req` int(11) NOT NULL,
+                  `max_stars_2_req` int(11) NOT NULL,
+                  `max_stars_3_req` int(11) NOT NULL,
+                  `max_stars_4_req` int(11) NOT NULL,
+                  `max_stars_5_req` int(11) NOT NULL,
+                  `question_options_1_req` int(11) NOT NULL,
+                  `question_options_2_req` int(11) NOT NULL,
+                  `question_options_3_req` int(11) NOT NULL,
+                  `question_options_4_req` int(11) NOT NULL,
+                  `question_options_5_req` int(11) NOT NULL,
+                  `question_plain_1_req` int(11) NOT NULL,
+                  `question_plain_2_req` int(11) NOT NULL,
+                  `question_plain_3_req` int(11) NOT NULL,
+                  `question_plain_4_req` int(11) NOT NULL,
+                  `question_plain_5_req` int(11) NOT NULL,
+                  PRIMARY KEY (`id`)
         	   ) DEFAULT CHARSET=utf8");
 
         	   $db->query("CREATE TABLE `lh_admin_theme` (
@@ -490,19 +566,44 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	       KEY `chat_id` (`chat_id`)) DEFAULT CHARSET=utf8");
 
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_abstract_survey_item` (
-        	       `id` bigint(20) NOT NULL AUTO_INCREMENT,
-        	       `survey_id` int(11) NOT NULL,
-        	       `chat_id` int(11) NOT NULL,
-        	       `stars` int(11) NOT NULL,
-        	       `user_id` int(11) NOT NULL,
-        	       `ftime` int(11) NOT NULL,
-        	       `dep_id` int(11) NOT NULL,
-        	       PRIMARY KEY (`id`),
-        	       KEY `survey_id` (`survey_id`),
-        	       KEY `chat_id` (`chat_id`),
-        	       KEY `user_id` (`user_id`),
-        	       KEY `dep_id` (`dep_id`),
-        	       KEY `ftime` (`ftime`)
+        	      `id` bigint(20) NOT NULL AUTO_INCREMENT,
+				  `survey_id` int(11) NOT NULL,
+				  `status` int(11) NOT NULL,
+				  `chat_id` int(11) NOT NULL,
+				  `user_id` int(11) NOT NULL,
+				  `ftime` int(11) NOT NULL,
+				  `dep_id` int(11) NOT NULL,
+				  `max_stars_1` int(11) NOT NULL,
+				  `max_stars_2` int(11) NOT NULL,
+				  `max_stars_3` int(11) NOT NULL,
+				  `max_stars_4` int(11) NOT NULL,
+				  `max_stars_5` int(11) NOT NULL,
+				  `question_options_1` int(11) NOT NULL,
+				  `question_options_2` int(11) NOT NULL,
+				  `question_options_3` int(11) NOT NULL,
+				  `question_options_4` int(11) NOT NULL,
+				  `question_options_5` int(11) NOT NULL,
+				  `question_plain_1` text NOT NULL,
+				  `question_plain_2` text NOT NULL,
+				  `question_plain_3` text NOT NULL,
+				  `question_plain_4` text NOT NULL,
+				  `question_plain_5` text NOT NULL,
+				  PRIMARY KEY (`id`),
+				  KEY `survey_id` (`survey_id`),
+				  KEY `chat_id` (`chat_id`),
+				  KEY `user_id` (`user_id`),
+				  KEY `dep_id` (`dep_id`),
+				  KEY `ftime` (`ftime`),
+				  KEY `max_stars_1` (`max_stars_1`),
+				  KEY `max_stars_2` (`max_stars_2`),
+				  KEY `max_stars_3` (`max_stars_3`),
+				  KEY `max_stars_4` (`max_stars_4`),
+				  KEY `max_stars_5` (`max_stars_5`),
+				  KEY `question_options_1` (`question_options_1`),
+				  KEY `question_options_2` (`question_options_2`),
+				  KEY `question_options_3` (`question_options_3`),
+				  KEY `question_options_4` (`question_options_4`),
+				  KEY `question_options_5` (`question_options_5`)
         	   ) DEFAULT CHARSET=utf8");
         	   
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_speech_language` (
@@ -666,14 +767,15 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   $db->query("INSERT INTO `lh_abstract_email_template` (`id`, `name`, `from_name`, `from_name_ac`, `from_email`, `from_email_ac`, `user_mail_as_sender`, `content`, `subject`, `subject_ac`, `reply_to`, `reply_to_ac`, `recipient`,`bcc_recipients`) VALUES
         	   		(1,'Send mail to user','Live Helper Chat',0,'',0, 0,'Dear {user_chat_nick},\r\n\r\n{additional_message}\r\n\r\nLive Support response:\r\n{messages_content}\r\n\r\nSincerely,\r\nLive Support Team\r\n','{name_surname} has responded to your request',	1,'',1,'',''),
         	   		(2,'Support request from user',	'',	0,	'',	0,	 0,'Hello,\r\n\r\nUser request data:\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nAdditional data, if any:\r\n{additional_data}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nLink to chat if any:\r\n{prefillchat}\r\n\r\nSincerely,\r\nLive Support Team',	'Support request from user',	0,	'',	0,	'{$adminEmail}',''),
-        	   		(3,	'User mail for himself',	'Live Helper Chat',	0,	'',	0,	 0,'Dear {user_chat_nick},\r\n\r\nTranscript:\r\n{messages_content}\r\n\r\nSincerely,\r\nLive Support Team\r\n',	'Chat transcript',	0,	'',	0,	'',''),
+        	   		(3,	'User mail for himself',	'Live Helper Chat',	0,	'',	0,	 0,'Dear {user_chat_nick},\r\n\r\nTranscript:\r\n{messages_content}\r\nChat ID: {chat_id}\n\r\nSincerely,\r\nLive Support Team\r\n',	'Chat transcript',	0,	'',	0,	'',''),
         	   		(4,	'New chat request',	'Live Helper Chat',	0,	'',	0,	 0,'Hello,\r\n\r\nUser request data:\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nClick to accept chat automatically\r\n{url_accept}\r\n\r\nSincerely,\r\nLive Support Team',	'New chat request',	0,	'',	0,	'{$adminEmail}',''),
         	   		(5,	'Chat was closed',	'Live Helper Chat',	0,	'',	0,	 0,'Hello,\r\n\r\n{operator} has closed a chat\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nAdditional data, if any:\r\n{additional_data}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nSincerely,\r\nLive Support Team',	'Chat was closed',	0,	'',	0,	'',''),
         	   		(6,	'New FAQ question',	'Live Helper Chat',	0,	'',	0,	 0,'Hello,\r\n\r\nNew FAQ question\r\nEmail: {email}\r\n\r\nQuestion:\r\n{question}\r\n\r\nQuestion URL:\r\n{url_question}\r\n\r\nURL to answer a question:\r\n{url_request}\r\n\r\nSincerely,\r\nLive Support Team',	'New FAQ question',	0,	'',	0,	'',	''),
         	   		(7,	'New unread message',	'Live Helper Chat',	0,	'',	0,	 0,'Hello,\r\n\r\nUser request data:\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nClick to accept chat automatically\r\n{url_accept}\r\n\r\nSincerely,\r\nLive Support Team',	'New chat request',	0,	'',	0,	'{$adminEmail}',''),
         	   		(8,	'Filled form',	'Live Helper Chat',	0,	'',	0,	 0,'Hello,\r\n\r\nUser has filled a form\r\nForm name - {form_name}\r\nUser IP - {ip}\r\nDownload filled data - {url_download}\r\nIdentifier - {identifier}\r\nView filled data - {url_view}\r\n\r\n {content} \r\n\r\nSincerely,\r\nLive Support Team','Filled form - {form_name}',	0,	'',	0,	'{$adminEmail}',''),
         	   		(9,	'Chat was accepted',	'Live Helper Chat',	0,	'',	0,	 0, 'Hello,\r\n\r\nOperator {user_name} has accepted a chat [{chat_id}]\r\n\r\nUser request data:\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nClick to accept chat automatically\r\n{url_accept}\r\n\r\nSincerely,\r\nLive Support Team',	'Chat was accepted [{chat_id}]',	0,	'',	0,	'{$adminEmail}',''),
-        	        (10, 'Permission request',	'Live Helper Chat',	0,	'',	0,	0, 'Hello,\r\n\r\nOperator {user} has requested these permissions\n\r\n{permissions}\r\n\r\nSincerely,\r\nLive Support Team',	'Permission request from {user}',	0,	'',	0,	'{$adminEmail}',	'');");
+        	        (10, 'Permission request',	'Live Helper Chat',	0,	'',	0,	0, 'Hello,\r\n\r\nOperator {user} has requested these permissions\n\r\n{permissions}\r\n\r\nSincerely,\r\nLive Support Team',	'Permission request from {user}',	0,	'',	0,	'{$adminEmail}',''),
+        	        (11, 'You have unread messages',	'Live Helper Chat',	0,	'',	0, 0,	'Hello,\r\n\r\nOperator {operator} has answered to you\r\n\r\n{messages}\r\n\r\nSincerely,\r\nLive Support Team','Operator has answered to your request',0,'',0,'{$adminEmail}','');");
 
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_question` (
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -829,7 +931,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
         	   `user_id` int(11) NOT NULL,
         	   `identifier` varchar(50) NOT NULL,
-        	   `value` varchar(255) NOT NULL,
+        	   `value` text NOT NULL,
         	   PRIMARY KEY (`id`),
         	   KEY `user_id` (`user_id`,`identifier`)
         	   ) DEFAULT CHARSET=utf8;");
@@ -900,7 +1002,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('ignorable_ip',	'',	0,	'Which ip should be ignored in online users list, separate by comma',0),
                 ('run_departments_workflow', 0, 0, 'Should cronjob run departments transfer workflow, even if user leaves a chat',	0),
                 ('geo_location_data', 'a:3:{s:4:\"zoom\";i:4;s:3:\"lat\";s:7:\"49.8211\";s:3:\"lng\";s:7:\"11.7835\";}', '0', '', '1'),
-                ('xmp_data','a:14:{i:0;b:0;s:4:\"host\";s:15:\"talk.google.com\";s:6:\"server\";s:9:\"gmail.com\";s:8:\"resource\";s:6:\"xmpphp\";s:4:\"port\";s:4:\"5222\";s:7:\"use_xmp\";i:0;s:8:\"username\";s:0:\"\";s:8:\"password\";s:0:\"\";s:11:\"xmp_message\";s:78:\"New chat request [{chat_id}]\r\n{messages}\r\nClick to accept a chat\r\n{url_accept}\";s:10:\"recipients\";s:0:\"\";s:20:\"xmp_accepted_message\";s:69:\"{user_name} has accepted a chat [{chat_id}]\r\n{messages}\r\n{url_accept}\";s:16:\"use_standard_xmp\";i:0;s:15:\"test_recipients\";s:0:\"\";s:21:\"test_group_recipients\";s:0:\"\";}',0,'XMP data',1),
+                ('xmp_data','a:14:{i:0;b:0;s:4:\"host\";s:15:\"talk.google.com\";s:6:\"server\";s:9:\"gmail.com\";s:8:\"resource\";s:6:\"xmpphp\";s:4:\"port\";s:4:\"5222\";s:7:\"use_xmp\";i:0;s:8:\"username\";s:0:\"\";s:8:\"password\";s:0:\"\";s:11:\"xmp_message\";s:98:\"New chat request [{chat_id}] from [{department}]\r\n{messages}\r\nClick to accept a chat\r\n{url_accept}\";s:10:\"recipients\";s:0:\"\";s:20:\"xmp_accepted_message\";s:89:\"{user_name} has accepted a chat [{chat_id}] from [{department}]\r\n{messages}\r\n{url_accept}\";s:16:\"use_standard_xmp\";i:0;s:15:\"test_recipients\";s:0:\"\";s:21:\"test_group_recipients\";s:0:\"\";}',0,'XMP data',1),
                 ('run_unaswered_chat_workflow', 0, 0, 'Should cronjob run unanswered chats workflow and execute unaswered chats callback, 0 - no, any other number bigger than 0 is a minits how long chat have to be not accepted before executing callback.',0),
                 ('disable_popup_restore', 0, 0, 'Disable option in widget to open new window. Restore icon will be hidden',	0),
                 ('accept_tos_link', '#', 0, 'Change to your site Terms of Service', 0),
@@ -939,7 +1041,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('track_if_offline',	'0',	0,	'Track online visitors even if there is no online operators',0),
                 ('min_phone_length','8',0,'Minimum phone number length',0),
                 ('mheight','',0,'Messages box height',0),
-                ('dashboard_order', 'online_operators,departments_stats|pending_chats,unread_chats,transfered_chats|active_chats,closed_chats', '0', 'Home page dashboard widgets order', '0'),
+                ('inform_unread_message','0',0,'Inform visitor about unread messages from operator, value in minutes. 0 - disabled',0),
+                ('dashboard_order', '[[\"online_operators\",\"departments_stats\",\"online_visitors\"],[\"pending_chats\",\"unread_chats\",\"transfered_chats\"],[\"active_chats\",\"closed_chats\"]]', '0', 'Home page dashboard widgets order', '0'),
                 ('banned_ip_range','',0,'Which ip should not be allowed to chat',0),
                 ('suggest_leave_msg','1',0,'Suggest user to leave a message then user chooses offline department',0),
                 ('checkstatus_timeout','0',0,'Interval between chat status checks in seconds, 0 disabled.',0),
@@ -1036,6 +1139,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `operator_name` varchar(100) NOT NULL,
 				  `position` int(11) NOT NULL,
         	   	  `identifier` varchar(50) NOT NULL,
+        	   	  `tag` varchar(50) NOT NULL,
         	   	  `requires_email` int(11) NOT NULL,
         	   	  `requires_username` int(11) NOT NULL,
         	   	  `requires_phone` int(11) NOT NULL,
@@ -1043,6 +1147,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  PRIMARY KEY (`id`),
 				  KEY `time_on_site_pageviews_siteaccess_position` (`time_on_site`,`pageviews`,`siteaccess`,`identifier`,`position`),
         	      KEY `identifier` (`identifier`),
+        	      KEY `tag` (`tag`),
         	      KEY `dep_id` (`dep_id`)
 				) DEFAULT CHARSET=utf8;");
         	   
@@ -1075,20 +1180,25 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `max_active_chats` int(11) NOT NULL,
 				  `max_timeout_seconds` int(11) NOT NULL,
 				  `identifier` varchar(50) NOT NULL,
-				  `mod` tinyint(1) NOT NULL,
-				  `tud` tinyint(1) NOT NULL,
-				  `wed` tinyint(1) NOT NULL,
-				  `thd` tinyint(1) NOT NULL,
-				  `frd` tinyint(1) NOT NULL,
-				  `sad` tinyint(1) NOT NULL,
-				  `sud` tinyint(1) NOT NULL,
+				  `mod_start_hour` int(4) NOT NULL,
+				  `mod_end_hour` int(4) NOT NULL,
+				  `tud_start_hour` int(4) NOT NULL,
+				  `tud_end_hour` int(4) NOT NULL,
+				  `wed_start_hour` int(4) NOT NULL,
+				  `wed_end_hour` int(4) NOT NULL,
+				  `thd_start_hour` int(4) NOT NULL,
+				  `thd_end_hour` int(4) NOT NULL,
+				  `frd_start_hour` int(4) NOT NULL,
+				  `frd_end_hour` int(4) NOT NULL,
+				  `sad_start_hour` int(4) NOT NULL,
+				  `sad_end_hour` int(4) NOT NULL,
+				  `sud_start_hour` int(4) NOT NULL,
+				  `sud_end_hour` int(4) NOT NULL,
 				  `nc_cb_execute` tinyint(1) NOT NULL,
 				  `na_cb_execute` tinyint(1) NOT NULL,
 				  `inform_unread` tinyint(1) NOT NULL,
 				  `active_balancing` tinyint(1) NOT NULL,
 				  `visible_if_online` tinyint(1) NOT NULL,
-				  `start_hour` int(2) NOT NULL,
-				  `end_hour` int(2) NOT NULL,
 				  `inform_close` int(11) NOT NULL,
 				  `inform_unread_delay` int(11) NOT NULL,
 				  `inform_options` varchar(250) NOT NULL,
@@ -1107,13 +1217,55 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  KEY `attr_int_3` (`attr_int_3`),
 				  KEY `disabled_hidden` (`disabled`, `hidden`),
 				  KEY `sort_priority_name` (`sort_priority`, `name`),
-				  KEY `oha_sh_eh` (`online_hours_active`,`start_hour`,`end_hour`)
+				  KEY `active_mod` (`online_hours_active`,`mod_start_hour`,`mod_end_hour`),
+				  KEY `active_tud` (`online_hours_active`,`tud_start_hour`,`tud_end_hour`),
+				  KEY `active_wed` (`online_hours_active`,`wed_start_hour`,`wed_end_hour`),
+				  KEY `active_thd` (`online_hours_active`,`thd_start_hour`,`thd_end_hour`),
+				  KEY `active_frd` (`online_hours_active`,`frd_start_hour`,`frd_end_hour`),
+				  KEY `active_sad` (`online_hours_active`,`sad_start_hour`,`sad_end_hour`),
+				  KEY `active_sud` (`online_hours_active`,`sud_start_hour`,`sud_end_hour`)
 				) DEFAULT CHARSET=utf8;");
 
+        	   $db->query("CREATE TABLE `lh_departament_group_user` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `dep_group_id` int(11) NOT NULL,
+                  `user_id` int(11) NOT NULL,
+                  PRIMARY KEY (`id`),
+                  KEY `dep_group_id` (`dep_group_id`),
+                  KEY `user_id` (`user_id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
+
+        	   $db->query("CREATE TABLE `lh_departament_group_member` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `dep_id` int(11) NOT NULL,
+                  `dep_group_id` int(11) NOT NULL,
+                  PRIMARY KEY (`id`),
+                  KEY `dep_group_id` (`dep_group_id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
+
+        	   $db->query("CREATE TABLE `lh_departament_group` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `name` varchar(50) NOT NULL,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
         	   
         	   $Departament = new erLhcoreClassModelDepartament();
                $Departament->name = $form->DefaultDepartament;
                erLhcoreClassDepartament::getSession()->save($Departament);
+
+                //Department custom work hours
+                $db->query("CREATE TABLE IF NOT EXISTS `lh_departament_custom_work_hours` (
+				  `id` int(11) NOT NULL AUTO_INCREMENT,
+				  `dep_id` int(11) NOT NULL,
+				  `date_from` int(11) NOT NULL,
+				  `date_to` int(11) NOT NULL,
+				  `start_hour` int(11) NOT NULL,
+				  `end_hour` int(11) NOT NULL,
+				  PRIMARY KEY (`id`),
+				  KEY `dep_id` (`dep_id`),
+				  KEY `date_from` (`date_from`),
+				  KEY `search_active` (`date_from`, `date_to`, `dep_id`)
+				) DEFAULT CHARSET=utf8;");
 
                //Administrators group
                $db->query("CREATE TABLE IF NOT EXISTS `lh_group` (
@@ -1223,22 +1375,26 @@ switch ((int)$Params['user_parameters']['step_id']) {
 
                 // User departaments
                 $db->query("CREATE TABLE IF NOT EXISTS `lh_userdep` (
-				  `id` int(11) NOT NULL AUTO_INCREMENT,
-				  `user_id` int(11) NOT NULL,
-				  `dep_id` int(11) NOT NULL,
-				  `last_activity` int(11) NOT NULL,
-				  `hide_online` int(11) NOT NULL,
-				  `last_accepted` int(11) NOT NULL,
-				  `active_chats` int(11) NOT NULL,
-				  PRIMARY KEY (`id`),
-				  KEY `user_id` (`user_id`),
-				  KEY `last_activity_hide_online_dep_id` (`last_activity`,`hide_online`,`dep_id`),
-				  KEY `dep_id` (`dep_id`)
-				) DEFAULT CHARSET=utf8;");
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `user_id` int(11) NOT NULL,
+                  `dep_id` int(11) NOT NULL,
+                  `last_activity` int(11) NOT NULL,
+                  `hide_online` int(11) NOT NULL,
+                  `last_accepted` int(11) NOT NULL,
+                  `active_chats` int(11) NOT NULL,
+                  `type` int(11) NOT NULL DEFAULT '0',
+                  `dep_group_id` int(11) NOT NULL DEFAULT '0',
+                  PRIMARY KEY (`id`),
+                  KEY `last_activity_hide_online_dep_id` (`last_activity`,`hide_online`,`dep_id`),
+                  KEY `dep_id` (`dep_id`),
+                  KEY `user_id_type` (`user_id`,`type`)
+                ) DEFAULT CHARSET=utf8");
 
                 // Insert record to departament instantly
-                $db->query("INSERT INTO `lh_userdep` (`user_id`,`dep_id`,`last_activity`,`hide_online`,`last_accepted`,`active_chats`) VALUES ({$UserData->id},0,0,0,0,0)");
+                $db->query("INSERT INTO `lh_userdep` (`user_id`,`dep_id`,`last_activity`,`hide_online`,`last_accepted`,`active_chats`,`type`,`dep_group_id`) VALUES ({$UserData->id},0,0,0,0,0,0,0)");
 
+                
+                
                 // Transfer chat
                 $db->query("CREATE TABLE IF NOT EXISTS `lh_transfer` (
 				  `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1350,6 +1506,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                     array('module' => 'lhsystem','function' => 'changelanguage'),
                     array('module' => 'lhchat',  'function' => 'allowredirect'),
                     array('module' => 'lhchat',  'function' => 'allowtransfer'),
+                    array('module' => 'lhchat',  'function' => 'allowtransferdirectly'),
                     array('module' => 'lhchat',  'function' => 'administratecannedmsg'),
                     array('module' => 'lhchat',  'function' => 'sees_all_online_visitors'),
                     array('module' => 'lhpermission',   'function' => 'see_permissions'),

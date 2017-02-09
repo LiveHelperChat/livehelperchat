@@ -36,22 +36,23 @@ $( document ).ready(function() {
         update: function() {
         	if (savingSettings == false)
     		{
-                var settings = '';            
-            	panelList.each(function(indexColumn, panelListColumn) {
+        		var settingsJSON = [];
+
+        		panelList.each(function(indexColumn, panelListColumn) {
         			savingSettings = true;
-                	if (indexColumn > 0) {
-                		settings = settings + '|';            		
-                    }
-                    
+
+        			var items = [];        			        			
+           	                    
                 	$(panelListColumn).find('.panel-dashboard').each(function(index, elem) { 
-                    	if (index > 0) {
-                    		settings = settings + ',';
-                        }                  
-                        settings = settings + $(elem).attr('data-panel-id');
+                		items.push($(elem).attr('data-panel-id'));
                     });
-                });
             	
-            	$.post(WWW_DIR_JAVASCRIPT + 'user/setsettingajaxraw/dwo',{'value':settings}, function() {
+                	settingsJSON.push(items);                	
+                });
+
+        		var toJson = Object.toJSON || window.JSON && (window.JSON.stringify || window.JSON.encode) || $.toJSON;
+        		        		
+        		$.post(WWW_DIR_JAVASCRIPT + 'user/setsettingajaxraw/dwo',{'value':toJson(settingsJSON)}, function() {
             		savingSettings = false;
         		});
     		}    		    		 

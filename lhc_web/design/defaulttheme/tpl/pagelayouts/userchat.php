@@ -31,8 +31,10 @@
 					</div>
 				</div>
 			</div>
-			<div class="modal-body">      
-                <?php echo $Result['content'];?>  
+			<div class="modal-body">
+                <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/userchat/before_content.tpl.php'));?>
+                    <?php echo $Result['content'];?>
+                <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/userchat/after_content.tpl.php'));?>
             </div>
 		</div>
 	</div>

@@ -20,7 +20,7 @@ $filterSearch = $filterParams['filter'];
 if ($filterParams['input_form']->group_results == true) {
     $filterSearch['group'] = 'user_id';
     $filterSearch['sort'] = 'total_stars DESC';
-    $filterSearch['select_columns'] = array('count(id) as chats_number','SUM(stars) as total_stars');
+    $filterSearch['select_columns'] = array('count(id) as chats_number','SUM(max_stars_1) as total_stars');
     
     if (is_numeric($filterParams['input_form']->minimum_chats) && $filterParams['input_form']->minimum_chats > 0) {
         $filterSearch['having'] = 'count(id) > ' . (int)$filterParams['input_form']->minimum_chats ;
@@ -36,6 +36,7 @@ if ($Params['user_parameters_unordered']['print'] == 1) {
     $tpl = erLhcoreClassTemplate::getInstance('lhsurvey/printsurvey.tpl.php');
     $items = erLhAbstractModelSurveyItem::getList(array_merge($filterSearch,array('offset' => 0, 'limit' => 100000)));        
     $tpl->set('items',$items);
+    $tpl->set('survey',$survey);
     $Result['content'] = $tpl->fetch();
     $Result['pagelayout'] = 'print';
     return;

@@ -97,6 +97,34 @@ class erLhcoreClassThemeValidator
                             erLhcoreClassFileUpload::mkdirRecursive( $dir );
                             $customFields[$key]['file'] = erLhcoreClassSearchHandler::moveUploadedFile($resource . '_file_' . $key, $dir . '/','.' );
                             $customFields[$key]['file_dir'] = $dir;
+
+                            // Because S3 plugin accepts only objects, we create one for thing
+                            $std = new stdClass();
+                            $std->type = self::get_mime($customFields[$key]['file_dir'] . $customFields[$key]['file']);
+                            $std->file_path_server = $customFields[$key]['file_dir'] . $customFields[$key]['file'];
+                            $std->name = $customFields[$key]['file'];
+                            $std->file_dir = $customFields[$key]['file_dir'];
+                            
+                            try {
+                                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.file_new_admin.file_store', array(
+                                    'chat_file' => $std,
+                                    'type' => 'type',
+                                    'name' => 'name',
+                                    'files_path' => 'file_dir',
+                                    'files_path_storage' => 'images_path',
+                                    'acl_rule' => 'public-read',
+                                ));
+                            
+                                // Update fields if they have changed
+                                if ($std->file_dir != $customFields[$key]['file_dir'] && $std->name != $customFields[$key]['file']) {
+                                    $customFields[$key]['file'] = $std->name;
+                                    $customFields[$key]['file_dir'] = $std->file_dir;
+                                }
+                            
+                            } catch (Exception $e) {
+                                $Errors[] = $e->getMessage();
+                            }
+                            
                         }
                     }
                     
@@ -109,5 +137,25 @@ class erLhcoreClassThemeValidator
         }
         
         return $Errors;
+    }
+    
+    /**
+     * Helper function
+     * */
+    public static function get_mime($file) {
+        if (function_exists("finfo_file")) {
+            $finfo = finfo_open(FILEINFO_MIME_TYPE); // return mime type ala mimetype extension
+            $mime = finfo_file($finfo, $file);
+            finfo_close($finfo);
+            return $mime;
+        } else if (function_exists("mime_content_type")) {
+            return mime_content_type($file);
+        } else if (!stristr(ini_get("disable_functions"), "shell_exec")) {
+            $file = escapeshellarg($file);
+            $mime = shell_exec("file -bi " . $file);
+            return $mime;
+        } else {
+            return false;
+        }
     }
 }

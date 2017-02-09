@@ -25,7 +25,7 @@ if (isset($_POST['Save_action']))
     {
         $CannedMessage->saveThis();
         
-        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.newcannedmsg', array('msg' => & $CannedMessage));
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.newcannedmsg_saved', array('msg' => & $CannedMessage));
 
         erLhcoreClassModule::redirect('chat/cannedmsg');
         exit ;

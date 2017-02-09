@@ -50,6 +50,20 @@ services.factory('LiveHelperChatFactory', ['$http','$q',function ($http, $q) {
 		return deferred.promise;
 	};
 
+	this.loadActiveChats = function() {
+		var deferred = $q.defer();		
+		$http.get(WWW_DIR_JAVASCRIPT + 'chat/loadactivechats').success(function(data) {
+			 if (typeof data.error_url !== 'undefined') {
+				 document.location = data.error_url;
+			 } else {
+				 deferred.resolve(data);
+			 }			 
+		}).error(function(){
+			deferred.reject('error');
+		});		
+		return deferred.promise;
+	};
+	
 	this.truncate = function (text, length, end) {
         if (isNaN(length))
             length = 10;
@@ -307,7 +321,11 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		if (typeof _that.closedd_products == 'object' && _that.closedd_products.length > 0) {
 			filter += '/(closeddprod)/'+_that.closedd_products.join('/');
 		}
-
+		
+		if (typeof _that.toggleWidgetData['track_open_chats'] !== 'undefined' && _that.toggleWidgetData['track_open_chats'] == true) {
+			filter += '/(topen)/true';
+		}
+		
 		return filter;
 	}
 	
@@ -515,46 +533,98 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 						
 				var hasPendingItems = false;
 				var lastNotifiedId = 0;
+													
+				ee.emitEvent('eventLoadChatList', [data, $scope, _that]);
 				
-				angular.forEach(data.result, function(item, key){					
-					$scope[key] = item;					
-					if ( item.last_id_identifier ) {
-	                    if (lhinst.trackLastIDS[item.last_id_identifier] == undefined ) {
-	                    	lhinst.trackLastIDS[item.last_id_identifier] = parseInt(item.last_id);
-	                    } else if (lhinst.trackLastIDS[item.last_id_identifier] < parseInt(item.last_id)) {
-	                    	lhinst.trackLastIDS[item.last_id_identifier] = parseInt(item.last_id);
-	                    	if (lastNotifiedId != lhinst.trackLastIDS[item.last_id_identifier]) {
-	                    		lastNotifiedId = lhinst.trackLastIDS[item.last_id_identifier];
-	                    		lhinst.playSoundNewAction(item.last_id_identifier,parseInt(item.last_id),(item.nick ? item.nick : 'Live Help'),(item.msg ? item.msg : confLH.transLation.new_chat));
-	                    		_that.lastidEvent = parseInt(item.last_id);
-	                    	}
-	                    } else if (lhinst.trackLastIDS[item.last_id_identifier] > parseInt(item.last_id)) {
-	                    	lhinst.trackLastIDS[item.last_id_identifier] = parseInt(item.last_id);
-	                    };
-	                    
-	                    if (item.last_id == 0) {
-	                    	lhinst.trackLastIDS[item.last_id_identifier] = 0;
-	                    };
-	                    
-	                    if (parseInt(item.last_id) > 0 && _that.lastidEvent == item.last_id) {
-	                    	hasPendingItems = true;
-	                    };	                    
-	                    
-	                };
-				});
+				if (typeof data.items_processed == 'undefined') {
 					
-				ee.emitEvent('eventLoadChatList', [data.result]);
-				
-				if (hasPendingItems == false) {
+					var notifiedChatsIds = [];
+					
+					angular.forEach(data.result, function(item, key){					
+						$scope[key] = item;					
+						if ( item.last_id_identifier ) {
+		                    if (lhinst.trackLastIDS[item.last_id_identifier] == undefined ) {
+		                    	lhinst.trackLastIDS[item.last_id_identifier] = parseInt(item.last_id);
+		                    	
+		                    	if (typeof item.uid != 'undefined') {
+		                    		lhinst.trackLastIDSUser[item.last_id_identifier] = parseInt(item.uid);	
+		                    	}
+		                    	
+		                    } else if (lhinst.trackLastIDS[item.last_id_identifier] < parseInt(item.last_id)) {
+		                    	lhinst.trackLastIDS[item.last_id_identifier] = parseInt(item.last_id);
+		                    			                    	
+		                    	if (lastNotifiedId != lhinst.trackLastIDS[item.last_id_identifier] && (parseInt(item.uid) == 0 || (parseInt(item.uid) > 0 && lhinst.trackLastIDSUser[item.last_id_identifier] != item.uid))) {
+		                    		lastNotifiedId = lhinst.trackLastIDS[item.last_id_identifier];
+		                    		_that.lastidEvent = parseInt(item.last_id);
+		                    		
+		                    		if (notifiedChatsIds.indexOf(item.last_id) === -1) {
+		                    			lhinst.playSoundNewAction(item.last_id_identifier,parseInt(item.last_id),(item.nick ? item.nick : 'Live Help'),(item.msg ? item.msg : confLH.transLation.new_chat), item.nt, item.uid);
+		                    			notifiedChatsIds.push(item.last_id);		                    		
+		                    		}
+		                    		
+		                    		lhinst.trackLastIDSUser[item.last_id_identifier] = parseInt(item.uid);
+		                    	}
+		                    	
+		                    } else if (lhinst.trackLastIDS[item.last_id_identifier] > parseInt(item.last_id)) {
+		                    	lhinst.trackLastIDS[item.last_id_identifier] = parseInt(item.last_id);
+		                    	lhinst.trackLastIDSUser[item.last_id_identifier] = parseInt(item.uid);
+		                    } else if (lhinst.trackLastIDS[item.last_id_identifier] == parseInt(item.last_id) && typeof item.uid != 'undefined' && lhinst.trackLastIDSUser[item.last_id_identifier] != parseInt(item.uid)) {
+		                    	
+		                    	if (typeof lhinst.notificationsArray[item.last_id] != 'undefined') {		                    	
+		                    		lhinst.notificationsArray[item.last_id].close();
+		                    		delete lhinst.notificationsArray[item.last_id];	                   		
+		                    	}
+		                    	
+		                    	if (notifiedChatsIds.indexOf(item.last_id) === -1) {
+		                    		_that.lastidEvent = parseInt(item.last_id);
+		                    		lastNotifiedId = lhinst.trackLastIDS[item.last_id_identifier];
+		                    		lhinst.playSoundNewAction(item.last_id_identifier,parseInt(item.last_id),(item.nick ? item.nick : 'Live Help'),(item.msg ? item.msg : confLH.transLation.new_chat), item.nt, item.uid);
+		                    		notifiedChatsIds.push(item.last_id);
+		                    	}
+		                    	
+	                    		lhinst.trackLastIDSUser[item.last_id_identifier] = parseInt(item.uid);
+		                    }
+		                    
+		                    if (item.last_id == 0) {
+		                    	lhinst.trackLastIDSUser[item.last_id_identifier] = lhinst.trackLastIDS[item.last_id_identifier] = 0;
+		                    };
+		                    
+		                    if (parseInt(item.last_id) > 0 && _that.lastidEvent == item.last_id) {
+		                    	hasPendingItems = true;
+		                    };	                    
+		                };
+					});	
+					
+					
+				} else {
+					hasPendingItems = data.items_processed_has_pending_items;
+					lastNotifiedId = data.items_processed_last_notified_id;
+				}
+								
+				if (hasPendingItems == false) {	
 					lhinst.hideNotifications();
                 };
                 
                 if ($scope.pending_chats.length == 0) {
                 	clearTimeout(lhinst.soundIsPlaying);
 				};
-		
+				
 				if (typeof data.ou !== 'undefined') {
 					eval(data.ou);
+				}
+		
+				if (typeof data.fs !== 'undefined' && data.fs.length > 0) {
+					angular.forEach(data.fs, function(item, key) {
+						lhinst.playSoundNewAction('pending_transfered',parseInt(item.id),(item.nick ? item.nick : 'Live Help'), confLH.transLation.transfered, item.nt, item.uid);
+					});
+				}
+				
+				if (typeof data.mac !== 'undefined' && data.mac.length > 0) {
+					var tabs = $('#tabs');
+					
+					angular.forEach(data.mac, function(item, key) {
+						lhinst.startChatBackground(item.id,tabs,LiveHelperChatFactory.truncate(item.nick,10),false);
+					});
 				}
 				
 				if ($scope.setTimeoutEnabled == true) {
@@ -564,12 +634,27 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 				};
 				
 		},function(error){
+			console.log(error);
 				$scope.timeoutControl = setTimeout(function(){
 					$scope.loadChatList();
 				},confLH.back_office_sinterval);
 		});
 	};
-		
+
+	this.appendActiveChats = function(){
+		LiveHelperChatFactory.loadActiveChats().then(function(data) {
+			
+			var tabs = $('#tabs');
+			angular.forEach(data.result, function(item, key) {
+				lhinst.startChatBackground(item.id, tabs, LiveHelperChatFactory.truncate(item.nick,10));
+			});
+			
+			setTimeout(function(){
+				lhinst.syncadmininterfacestatic();
+     	    },1000);
+		});
+	};
+
 	this.previewChat = function(chat_id){		
 		lhc.previewChat(chat_id);
 	};		

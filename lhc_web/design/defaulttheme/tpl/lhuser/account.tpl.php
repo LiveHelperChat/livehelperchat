@@ -81,13 +81,8 @@
 	    <?php include(erLhcoreClassDesign::designtpl('lhuser/parts/time_zone.tpl.php'));?>
 	    
 	    <div class="row">	   
-    	   	<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','changevisibility')) : ?>
-    	   	<div class="col-xs-6"> 	    
-        	   	<div class="form-group">
-        		  <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Chat status will not change upon pending chat opening');?>"><input type="checkbox" value="on" name="UserInvisible" <?php echo $user->invisible_mode == 1 ? 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Invisible mode')?></label>
-        		</div>
-    		</div>
-    		<?php endif; ?>
+    	   	<?php include(erLhcoreClassDesign::designtpl('lhuser/account/part/visibility.tpl.php'));?>
+    		
     	   	<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','receivepermissionrequest')) : ?>
     	   	<div class="col-xs-6">
         	   	<div class="form-group">
@@ -130,17 +125,16 @@
 	
 	<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','see_assigned_departments')) : ?>
 	<div role="tabpanel" class="tab-pane <?php if ($tab == 'tab_departments') : ?>active<?php endif;?>" id="departments" >
-    	<?php $userDepartaments = erLhcoreClassUserDep::getUserDepartaments(); ?>
+    	<?php 
+    	   $userDepartaments = erLhcoreClassUserDep::getUserDepartamentsIndividual();
+    	   $userDepartamentsGroup = erLhcoreClassModelDepartamentGroupUser::getUserGroupsIds($user->id);
+    	?>
     	<?php if ($editdepartaments === true) { ?>
     	<form action="<?php echo erLhcoreClassDesign::baseurl('user/account')?>#departments" method="post">
-    
-    	<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
-    
-        	<label><input type="checkbox" value="on" name="all_departments" <?php echo $user->all_departments == 1 ? 'checked="checked"' : '' ?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','All departments')?></label><br>
-        	<?php foreach (erLhcoreClassDepartament::getDepartaments() as $departament) : ?>
-        	    <label><input type="checkbox" name="UserDepartament[]" value="<?php echo $departament['id']?>" <?php echo in_array($departament['id'],$userDepartaments) ? 'checked="checked"' : '';?> /><?php echo htmlspecialchars($departament['name'])?></label><br>
-        	<?php endforeach; ?>
-    	    <input type="submit" class="btn btn-default" name="UpdateDepartaments_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Update');?>" />
+            <?php include(erLhcoreClassDesign::designtpl('lhuser/account/departments_assignment.tpl.php'));?>
+            
+            <input type="submit" class="btn btn-default" name="UpdateDepartaments_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Update');?>" />
+            
 		</form>
     	<?php } else {?>
         	<?php foreach (erLhcoreClassDepartament::getDepartaments() as $departament) : ?>

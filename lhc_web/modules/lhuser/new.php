@@ -5,6 +5,7 @@ $tpl = erLhcoreClassTemplate::getInstance( 'lhuser/new.tpl.php');
 $UserData = new erLhcoreClassModelUser();
 
 $UserDepartaments = isset($_POST['UserDepartament']) ? $_POST['UserDepartament'] : array();
+$userDepartamentsGroup = isset($_POST['UserDepartamentGroup']) ? $_POST['UserDepartamentGroup'] : array();
 
 $userParams = array('show_all_pending' => 1, 'global_departament' => array());
 
@@ -42,6 +43,8 @@ if (isset($_POST['Update_account']))
             	$UserData->saveThis();
             }
     
+            erLhcoreClassModelDepartamentGroupUser::addUserDepartmentGroups($UserData, erLhcoreClassUserValidator::validateDepartmentsGroup($UserData));
+            
             erLhcoreClassModelUserSetting::setSetting('show_all_pending', $userParams['show_all_pending'], $UserData->id);
 
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.user_created',array('userData' => & $UserData, 'password' => $UserData->password_front));
@@ -68,7 +71,8 @@ if (isset($_POST['Update_account']))
 }
 
 $tpl->set('user',$UserData);
-$tpl->set('userdepartaments',$UserDepartaments);
+$tpl->set('userDepartaments',$UserDepartaments);
+$tpl->set('userDepartamentsGroup',$userDepartamentsGroup);
 $tpl->set('show_all_pending',$userParams['show_all_pending']);
 
 $Result['content'] = $tpl->fetch();

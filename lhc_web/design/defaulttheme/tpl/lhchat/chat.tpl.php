@@ -5,7 +5,8 @@
 		<?php if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?>
 			<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','This chat is closed.'); ?></h4>
 	   <?php elseif (($user = $chat->user) !== false) : ?>
-               <?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile.tpl.php')); ?>
+               <?php include(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile_main_pre.tpl.php')); ?>
+               <?php include(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile.tpl.php')); ?>
 		<?php else : ?>
 			<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Pending confirm')?></h4>
 		<?php endif; ?>
@@ -34,7 +35,7 @@
     $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT ||     
     ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT && $chat->time > time()-1800) ||
     (isset($paid_chat_params['allow_read']) && $paid_chat_params['allow_read'] == true)) : ?>
-    <div id="messages"<?php if($fullheight) : ?> class="fullheight"<?php endif ?>>
+    <div id="messages"<?php if (isset($fullheight) && $fullheight == true) : ?> class="fullheight"<?php endif ?>>
         <div id="messagesBlockWrap">
             <div class="msgBlock" <?php if (erLhcoreClassModelChatConfig::fetch('mheight')->current_value > 0) : ?>style="height:<?php echo (int)erLhcoreClassModelChatConfig::fetch('mheight')->current_value?>px"<?php endif?> id="messagesBlock"><?php
             $lastMessageID = 0;
@@ -89,7 +90,7 @@
 
     <?php if ( isset($chat_widget_mode) && $chat_widget_mode == true ) : ?>
         lhinst.setWidgetMode(true);
-        <?php if($fullheight) : ?>
+        <?php if (isset($fullheight) && $fullheight == true) : ?>
             var fullHeightFunction = function() {
                 var bodyHeight = $(document.body).outerHeight();
                 var messageBlockHeight = $('#messages').outerHeight();

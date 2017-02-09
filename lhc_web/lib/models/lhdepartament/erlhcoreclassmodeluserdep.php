@@ -39,6 +39,11 @@ class erLhcoreClassModelUserDep {
 					$this->name_support = $this->user->name_support;
 					return $this->name_support;
 				break;
+
+			case 'name_official':
+					$this->name_official = $this->user->name_official;
+					return $this->name_official;
+				break;
 							
 			case 'departments_names':
 			         $this->departments_names = array();

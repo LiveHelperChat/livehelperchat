@@ -318,7 +318,7 @@ class erLhcoreClassChatStatistic {
     		$generalFilter = ' AND '.$generalFilter;
     	}
     	
-    	$sql = "SELECT count(id) AS number_of_chats,country_name FROM lh_chat WHERE {$appendFilterTime} {$generalFilter} GROUP BY country_code ORDER BY number_of_chats DESC LIMIT 20";
+    	$sql = "SELECT count(id) AS number_of_chats,country_name FROM lh_chat WHERE {$appendFilterTime} {$generalFilter} GROUP BY country_code,country_name ORDER BY number_of_chats DESC LIMIT 20";
     	$db = ezcDbInstance::get();
     	$stmt = $db->prepare($sql);
     	

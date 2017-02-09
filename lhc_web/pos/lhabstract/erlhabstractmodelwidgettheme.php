@@ -348,6 +348,8 @@ $def->properties['buble_operator_text_color']->columnName   = 'buble_operator_te
 $def->properties['buble_operator_text_color']->propertyName = 'buble_operator_text_color';
 $def->properties['buble_operator_text_color']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('lhabstract.erlhabstractmodelwidgettheme.posdefinition',array('def' => & $def));
+
 return $def;
 
 ?>

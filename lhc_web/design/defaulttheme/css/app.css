@@ -120,6 +120,11 @@ h1 {
 	font-size:28px;
 }
 
+.label-menu{
+	font-size:14px !important;
+	padding-left:24px !important; 
+}
+
 .tr-msg{
 	font-style: italic;
 	display: block;
@@ -242,6 +247,10 @@ option.offline-dep{
 
 .mt10 {
     margin-top:10px;
+}
+
+.mt25 {
+    margin-top:25px;
 }
 
 .mb6 {
@@ -978,6 +987,13 @@ input[type="file"]{
 	text-overflow: ellipsis;
 	overflow:hidden; 
 	table-layout:fixed;
+}
+
+.online-users-table .abbr-list a{
+	position: absolute;
+    display: inline-block;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .table-fixed {

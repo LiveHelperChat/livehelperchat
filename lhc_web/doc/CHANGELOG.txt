@@ -1,3 +1,51 @@
+2.53v
+
+1. Option to transfer chat to another operator directly with !transferforce command
+!transferforce <username | email>
+2. Option to transfer user to survey by choosing survey itself.
+
+execute doc/update_db/update_128.sql for update
+
+2.52v
+
+1. Option to redirect user to survey in the middle of the chat. At the moment it works only in the widget mode. Not full chat mode. Will be updated in the future.
+2. Option to have always open last 10 visitor active chats.
+3. Chat will not scroll to the bottom if visitor scrolls chat at the top and visitors writes a new message.
+
+execute doc/update_db/update_127.sql for update
+
+2.51v
+
+1. Departments groups. Departments groups option will appear in user account under Assigned departments if atleast one department group will be defined.
+2. Option to set departments online hours per day or define nonworking/working days custom hours.
+
+execute doc/update_db/update_126.sql for update
+
+2.50v
+
+1. Now it's possible to inform user about unread messages from operator.
+2. In survey editing window you can choose what fields are required and what not.
+3. You can now prefill also proactive invitation.
+
+You have to have running for first enhancement.
+php cron.php -s site_admin -c cron/workflow
+
+execute doc/update_db/update_125.sql for update
+
+2.49v
+
+1. Survey now can have custom fields
+
+execute doc/update_db/update_124.sql for update
+
+2.48v
+
+1. XMPP Support for PHP7
+2. Full height layout update for proactive invitation
+3. Proactive invitation now supports tag
+
+execute doc/update_db/update_123.sql for update
+
 2.47v
 
 1. REST API call to change operator status to online/offline

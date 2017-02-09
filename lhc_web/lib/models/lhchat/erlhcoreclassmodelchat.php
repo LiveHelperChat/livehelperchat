@@ -9,6 +9,8 @@ class erLhcoreClassModelChat {
                'nick'            		=> $this->nick,
                'status'          		=> $this->status,
                'status_sub'          	=> $this->status_sub,
+               'status_sub_arg'         => $this->status_sub_arg,
+               'status_sub_sub'         => $this->status_sub_sub,
                'time'            		=> $this->time,
                'user_id'         		=> $this->user_id,
                'hash'            		=> $this->hash,
@@ -26,7 +28,9 @@ class erLhcoreClassModelChat {
                'operator_typing_id' 	=> $this->operator_typing_id,
                'phone'           		=> $this->phone,
                'has_unread_messages'    => $this->has_unread_messages,
+               'has_unread_op_messages' => $this->has_unread_op_messages,
                'last_user_msg_time'     => $this->last_user_msg_time,
+               'last_op_msg_time'     	=> $this->last_op_msg_time,
                'last_msg_id'     		=> $this->last_msg_id,
                'mail_send'     			=> $this->mail_send,
                'lat'     				=> $this->lat,
@@ -44,6 +48,7 @@ class erLhcoreClassModelChat {
 
        		   'online_user_id'     	=> $this->online_user_id,
        		   'unread_messages_informed' => $this->unread_messages_informed,
+       		   'unread_op_messages_informed' => $this->unread_op_messages_informed,
        		   'reinform_timeout'     	=> $this->reinform_timeout,
 
        		   // Wait timeout attribute
@@ -448,6 +453,11 @@ class erLhcoreClassModelChat {
    const STATUS_SUB_CONTACT_FORM = 2;
    const STATUS_SUB_USER_CLOSED_CHAT = 3;
    const STATUS_SUB_START_ON_KEY_UP = 4;
+   const STATUS_SUB_SURVEY_SHOW = 5;
+   const STATUS_SUB_SURVEY_COLLECTED = 6;
+   
+   const STATUS_SUB_SUB_DEFAULT = 0;
+   const STATUS_SUB_SUB_TRANSFERED = 1;
       
    const USER_STATUS_JOINED_CHAT = 0;
    const USER_STATUS_CLOSED_CHAT = 1;
@@ -457,8 +467,16 @@ class erLhcoreClassModelChat {
    
    public $id = null;
    public $nick = '';
+   
+   // General chat statusses
    public $status = self::STATUS_PENDING_CHAT;
+   
+   // Used for visitors
    public $status_sub = self::STATUS_SUB_DEFAULT;
+   
+   // Used for operators
+   public $status_sub_sub = self::STATUS_SUB_SUB_DEFAULT;
+   
    public $time = '';
    public $user_id = '';
    public $hash = '';
@@ -528,7 +546,17 @@ class erLhcoreClassModelChat {
    public $wait_timeout_repeat = 0;
    
    public $unread_messages_informed = 0;
+   
    public $reinform_timeout = 0;
+   
+   // Last operator message time
+   public $last_op_msg_time = 0;
+   
+   // Does chat has unread messages from operator
+   public $has_unread_op_messages = 0; 
+   
+   // Was visitor informed about unread message
+   public $unread_op_messages_informed = 0;
    
    // Time when user closed a chat window
    public $user_closed_ts = 0;
@@ -536,6 +564,8 @@ class erLhcoreClassModelChat {
    public $unanswered_chat = 0;
    
    public $product_id = 0;
+   
+   public $status_sub_arg = '';
    
    // Time since last assignment
    public $tslasign = 0;

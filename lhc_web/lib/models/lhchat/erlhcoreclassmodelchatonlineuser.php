@@ -706,9 +706,9 @@ class erLhcoreClassModelChatOnlineUser
                 $errors = array();
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('onlineuser.before_proactive_triggered', array('ou' => & $item, 'errors' => & $errors));
 
-                if(empty($errors)) {
+                if (empty($errors)) {
                     //Process pro active chat invitation if this visitor matches any rules
-                    erLhAbstractModelProactiveChatInvitation::processProActiveInvitation($item);
+                    erLhAbstractModelProactiveChatInvitation::processProActiveInvitation($item, array('tag' => isset($paramsHandle['tag']) ? $paramsHandle['tag'] : ''));
                 }
             }
 
@@ -736,6 +736,8 @@ class erLhcoreClassModelChatOnlineUser
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed_chat', array('chat_id' => $item->chat_id));
                 }
             }
+
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('onlineuser.handle_request', array('online_user' => $item, 'params' => $paramsHandle));
 
             return $item;
         } else {

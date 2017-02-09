@@ -7,6 +7,12 @@ if ($department !== false){
 	$filter['filter']['dep_id'] = $department;
 }
 
+$timeout = (int)$Params['user_parameters_unordered']['timeout'];
+
+if ($timeout > 0) {
+	$filter['filtergt']['last_visit'] = (time()-$timeout);
+}
+
 /**
  * Append user departments filter
  * */

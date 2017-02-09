@@ -14,7 +14,7 @@
 		</div>
 		
 		<div ng-if="field.file">
-		   <a target="_blank" href="/{{field.file_dir}}{{field.file}}">{{field.file}}</a>
+		   <a target="_blank" href="{{field.file_dir != '' ? '<?php echo erLhcoreClassSystem::instance()->wwwDir()?>' : '<?php echo erLhcoreClassSystem::instance()->wwwImagesDir()?>'}}/{{field.file_dir}}{{field.file}}">{{field.file}}</a>
 		</div>
 		
 		<button type="button" class="btn btn-danger btn-sm" ng-click="cform.<?php echo $paramsResourceRepeat['delete']?>('<?php echo $form->id?>',field)"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Remove')?></button>
@@ -39,7 +39,7 @@
 		</div>
 		
 		<div ng-if="field.file">
-		   <a target="_blank" href="/{{field.file_dir}}{{field.file}}">{{field.file}}</a>
+		   <a target="_blank" href="{{field.file_dir != '' ? '<?php echo erLhcoreClassSystem::instance()->wwwDir()?>' : '<?php echo erLhcoreClassSystem::instance()->wwwImagesDir()?>'}}/{{field.file_dir}}{{field.file}}">{{field.file}}</a>
 		</div>
 		
 		<button type="button" class="btn btn-danger btn-sm" ng-click="cform.<?php echo $paramsResourceRepeat['delete']?>('<?php echo $form->id?>',field)"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Remove')?></button>

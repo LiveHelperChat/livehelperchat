@@ -226,13 +226,12 @@ class erLhcoreClassChatWorkflow {
     			
     			$chat->chat_duration = erLhcoreClassChat::getChatDurationToUpdateChatID($chat->id);
     			
-    			$chat->updateThis();  
-    			
-    			if ($chat->department !== false) {
-    			    erLhcoreClassChat::updateDepartmentStats($chat->department);
-    			}
+    			$chat->updateThis();
+
+                erLhcoreClassChat::closeChatCallback($chat,$chat->user);
     			
     			erLhcoreClassChat::updateActiveChats($chat->user_id);
+
     			$closedChatsNumber++;
 	    	}
 	    	
@@ -254,12 +253,11 @@ class erLhcoreClassChatWorkflow {
 	    	    }
 	    	     
 	    	    $chat->updateThis();
+
+                erLhcoreClassChat::closeChatCallback($chat,$chat->user);
+
 	    	    erLhcoreClassChat::updateActiveChats($chat->user_id);
-	    	    
-	    	    if ($chat->department !== false) {
-	    	        erLhcoreClassChat::updateDepartmentStats($chat->department);
-	    	    }
-	    	    
+
 	    	    $closedChatsNumber++;
 	    	}	    	
     	}
@@ -281,7 +279,11 @@ class erLhcoreClassChatWorkflow {
     			if ($chat->department !== false) {
     			    erLhcoreClassChat::updateDepartmentStats($chat->department);
     			}
-    			
+
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.delete', array(
+                    'chat' => & $chat
+                ));
+
     			$purgedChatsNumber++;
 	    	}	
     	}    	
@@ -290,31 +292,47 @@ class erLhcoreClassChatWorkflow {
     }
     
     public static function autoAssign(& $chat, $department) {    	
+        
     	if ( $department->active_balancing == 1 && ($chat->user_id == 0 || ($department->max_timeout_seconds > 0 && $chat->tslasign < time()-$department->max_timeout_seconds)) ){
 	    	$isOnlineUser = (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'];
-	
-	    	$appendSQL = '';
-	    	if ($department->max_active_chats > 0){
-	    		$appendSQL = ' AND active_chats < :max_active_chats';
-	    	}
-	    	
-	    	$sql = "SELECT user_id FROM lh_userdep WHERE hide_online = 0 AND dep_id = :dep_id AND last_activity > :last_activity AND user_id != :user_id {$appendSQL} ORDER BY last_accepted ASC LIMIT 1";
 	    	    	
-	    	$db = ezcDbInstance::get();
-	    	$stmt = $db->prepare($sql);
-	    	$stmt->bindValue(':dep_id',$department->id,PDO::PARAM_INT);
-	    	$stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
-	    	$stmt->bindValue(':user_id',$chat->user_id,PDO::PARAM_INT);
+	    	$statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow.autoassign', array(
+	    	    'department' => & $department,
+	    	    'chat' => & $chat,
+	    	    'is_online' => & $isOnlineUser,
+	    	));
 	    		    	
-	    	if ($department->max_active_chats > 0) {
-	    		$stmt->bindValue(':max_active_chats',$department->max_active_chats,PDO::PARAM_INT);
+	    	// There was no callbacks or file not found etc, we try to download from standard location
+	    	if ($statusWorkflow === false) {
+
+	    	    $appendSQL = '';
+	    	    if ($department->max_active_chats > 0){
+	    	        $appendSQL = ' AND active_chats < :max_active_chats';
+	    	    }
+
+	    	    $sql = "SELECT user_id FROM lh_userdep WHERE hide_online = 0 AND dep_id = :dep_id AND last_activity > :last_activity AND user_id != :user_id {$appendSQL} ORDER BY last_accepted ASC LIMIT 1";
+
+	    	    $db = ezcDbInstance::get();
+	    	    $stmt = $db->prepare($sql);
+	    	    $stmt->bindValue(':dep_id',$department->id,PDO::PARAM_INT);
+	    	    $stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
+	    	    $stmt->bindValue(':user_id',$chat->user_id,PDO::PARAM_INT);
+
+	    	    if ($department->max_active_chats > 0) {
+	    	        $stmt->bindValue(':max_active_chats',$department->max_active_chats,PDO::PARAM_INT);
+	    	    }
+
+	    	    $stmt->execute();
+
+	    	    $user_id = $stmt->fetchColumn();
+
+	    	} else {
+	    	    $db = ezcDbInstance::get();
+	    	    $user_id = $statusWorkflow['user_id'];
 	    	}
 	    	
-	    	$stmt->execute();
-	
-	    	$user_id = $stmt->fetchColumn();
-	
 	    	if ($user_id > 0) {
+	    	   
 	    		erLhcoreClassChat::updateActiveChats($chat->user_id);    		
 	    		$chat->tslasign = time();
 	    		$chat->user_id = $user_id;
@@ -379,6 +397,8 @@ class erLhcoreClassChatWorkflow {
      		     		
      		$chat->last_user_msg_time = $msg->time = time();
      		 
+     		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow.canned_message_before_save',array('msg' => & $msg, 'chat' => & $chat));
+     		
      		erLhcoreClassChat::getSession()->save($msg);
      		 
      		if ($chat->last_msg_id < $msg->id) {
@@ -387,6 +407,25 @@ class erLhcoreClassChatWorkflow {
      		 
      		$chat->updateThis();     		     		
      	}     	
+     }
+
+     public static function autoInformVisitor($minutesTimeout)
+     {
+     	if ($minutesTimeout > 0) {
+     		$items = erLhcoreClassChat::getList(array('limit' => 10, 'filterlt' => array('last_op_msg_time' => (time() - (1*60))), 'filter' => array('has_unread_op_messages' => 1, 'unread_op_messages_informed' => 0)));
+
+     		// Update chats instantly
+     		foreach ($items as $item) {
+     			$item->has_unread_op_messages = 0;
+     			$item->unread_op_messages_informed = 1;
+     			$item->updateThis();
+     		}
+
+     		// Now inform visitors
+     		foreach ($items as $item) {
+     			erLhcoreClassChatMail::informVisitorUnreadMessage($item);
+     		}
+     	}
      }
 }
 

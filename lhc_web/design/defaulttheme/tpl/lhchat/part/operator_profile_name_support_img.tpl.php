@@ -1,0 +1,1 @@
+<img src="<?php echo $user->photo_path?>" alt="<?php echo htmlspecialchars($user->name_support)?>" />

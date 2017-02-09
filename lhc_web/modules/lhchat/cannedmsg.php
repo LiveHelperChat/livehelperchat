@@ -24,7 +24,8 @@ if (is_numeric($Params['user_parameters_unordered']['id']) && $Params['user_para
     	}
 
         $Msg = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelCannedMsg', (int)$Params['user_parameters_unordered']['id']);        
-        if ($userDepartments === true || in_array($Msg->department_id, $userDepartments)){        
+        if ($userDepartments === true || in_array($Msg->department_id, $userDepartments)) {
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.cannedmsg_before_remove',array('msg' => & $Msg));
         	$Msg->removeThis();
         }
         

@@ -19,6 +19,7 @@ return array_merge(array (
 
         'erLhcoreClassTransfer' => 'lib/core/lhcore/lhtransfer.php',
         'PHPMailer'             => 'lib/core/lhcore/class.phpmailer.php',
+        'SMTP'                  => 'lib/core/lhcore/class.smtp.php',
 		'ezcAuthenticationDatabaseCredentialFilter' => 'lib/core/lhuser/lhauthenticationdatabasecredentialfilter.php',
 
         'erLhcoreClassRole'     => 'lib/core/lhpermission/lhrole.php',
@@ -76,6 +77,10 @@ return array_merge(array (
         'erLhcoreClassModelRole'        => 'lib/models/lhpermission/erlhcoreclassmodelrole.php',
         'erLhcoreClassModelRoleFunction'=> 'lib/models/lhpermission/erlhcoreclassmodelrolefunction.php',
         'erLhcoreClassModelDepartament' => 'lib/models/lhdepartament/erlhcoreclassmodeldepartament.php',
+        'erLhcoreClassModelDepartamentGroup' => 'lib/models/lhdepartament/erlhcoreclassmodeldepartamentgroup.php',
+        'erLhcoreClassModelDepartamentGroupMember' => 'lib/models/lhdepartament/erlhcoreclassmodeldepartamentgroupmember.php',
+        'erLhcoreClassModelDepartamentGroupUser' => 'lib/models/lhdepartament/erlhcoreclassmodeldepartamentgroupuser.php',
+        'erLhcoreClassModelDepartamentCustomWorkHours' => 'lib/models/lhdepartament/erlhcoreclassmodeldepartamentcustomworkhours.php',
         'erLhcoreClassModelUserDep' 	=> 'lib/models/lhdepartament/erlhcoreclassmodeluserdep.php',
 
 		// Questionary module

@@ -1,6 +1,6 @@
 <?php 
 
-return array(
+$fields = array(
    				'name' => array(
    						'type' => 'text',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Name'),
@@ -519,4 +519,6 @@ return array(
                 )),
    		);
 
-?>
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('lhabstract.erlhabstractmodelwidgettheme.fields',array('fields' => & $fields));
+
+return $fields;

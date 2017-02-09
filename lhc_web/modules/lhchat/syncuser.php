@@ -108,6 +108,10 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 				        $firstNewMessage = current($Messages);
 				        $operatorId = $firstNewMessage['user_id'];
 				        
+				        if ($operatorId == -1) {
+				        	$operatorId = 0;
+				        }
+				        
 				        // Get Last message ID
 				        end($Messages);
 				        $LastMessageIDs = current($Messages);
@@ -120,6 +124,9 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 				}
 				
 				if ( $chat->is_operator_typing == true && $Params['user_parameters_unordered']['ot'] != 't' ) {
+				    
+				    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.syncuser.operator_typing',array('chat' => & $chat));
+				    
 					$ott = ($chat->operator_typing_user !== false) ? $chat->operator_typing_user->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','is typing now...') : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Operator is typing now...');
 					$breakSync = true;
 				}  elseif ($Params['user_parameters_unordered']['ot'] == 't' && $chat->is_operator_typing == false) {
@@ -161,17 +168,28 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 		    	
 		    	$responseArray['closed'] = true;
 		    }
-	
+		    
 		    if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED) {
 		    	$checkStatus = 't';
 		    	$chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_DEFAULT;
 		    	$saveChat = true;
 		    }
 	
-		    if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM) {
-		    	$checkStatus = 't';
+		    if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW) {
+		    	$blocked = 'true';
+		    	$breakSync = true;		    	
+		    	$responseArray['closed'] = true;
+		    	
+		    	if ($chat->status_sub_arg != '') {		    	    
+		    	    $args = json_decode($chat->status_sub_arg,true);		    	    		    	    
+		    	    $responseArray['closed_arg'] = erLhcoreClassChatHelper::getSubStatusArguments($chat);		    	    
+		    	}
 		    }
-	
+
+		    if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM) {
+		        $checkStatus = 't';
+		    }
+		    
 		    if ($chat->operation != '') {	    	
 		    	$operation = explode("\n", trim($chat->operation));
 		    	$chat->operation = '';
@@ -183,6 +201,12 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 		    	$saveChat = true;
 		    }
 		    
+		    if ($chat->has_unread_op_messages == 1)
+		    {
+		    	$chat->unread_op_messages_informed = 0;
+		    	$chat->has_unread_op_messages = 0;
+		    	$saveChat = true;
+		    }
 		    
 		    if ($saveChat === true) {
 		    	$chat->updateThis();

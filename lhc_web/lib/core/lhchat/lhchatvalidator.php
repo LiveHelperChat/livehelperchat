@@ -702,7 +702,7 @@ class erLhcoreClassChatValidator {
             // Removed hidden admin fields
             foreach ($currentChatData as $key => $data) {
                 /**
-                 * Clean ony if
+                 * Clean only if
                  * 1. Field is hidden
                  * 2. Field is hidden manually
                  * 3. Field is back office custom field
@@ -826,6 +826,56 @@ class erLhcoreClassChatValidator {
         }
     
         return $Errors;
+    }
+    
+    public static function validateUpdateAttribute($chat, $dataUpdate)
+    {
+    	if (is_array($dataUpdate)) {
+    		$currentChatData = json_decode($chat->additional_data, true);
+    		
+    		if (!is_array($currentChatData)) {
+    			$currentChatData = array();
+    		}
+
+    		$fieldsToUpdate = array_keys($dataUpdate);
+	
+    		// Removed hidden admin fields
+    		foreach ($currentChatData as $key => $data) {
+    			/**
+    			 * Clean only if
+    			 * 1. Field is hidden
+    			 * 2. Field is hidden manually
+    			 * 3. Field is back office custom field
+    			 * */
+    			if (in_array($data['key'], $fieldsToUpdate)) {
+    				unset($currentChatData[$key]);
+    			}
+    		}
+
+    		foreach ($dataUpdate as $field => $attrValue) {
+    			
+    			$valueStore = $attrValue['val'];
+    			$hiddenField = false;
+    			
+    			if (isset($attrValue['enc']) && $attrValue['enc'] == true) {
+    				$hiddenField = true;
+	    			try {
+	                     $valueStore = self::decryptAdditionalField($valueStore);
+	                } catch (Exception $e) {
+	                     $valueStore = $e->getMessage();
+	                }
+    			}
+    			
+    			$currentChatData[] = array('h' => $hiddenField, 'key' => $field, 'value' => $valueStore);
+    		}
+    		
+    		// To reset index
+    		$currentChatData = array_values($currentChatData);
+    		
+    		if (!empty($currentChatData)) {
+    			$chat->additional_data = json_encode($currentChatData);
+    		}
+    	}
     }
 }
 

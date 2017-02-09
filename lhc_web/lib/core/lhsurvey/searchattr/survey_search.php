@@ -77,18 +77,31 @@ $fieldsSearch['minimum_chats'] = array (
 	)
 );
 
-$fieldsSearch['stars'] = array (
-	'type' => 'text',
-	'trans' => 'Stars',
-	'required' => false,
-	'valid_if_filled' => false,
-	'filter_type' => 'filter',
-	'filter_table_field' => 'stars',
-	'validation_definition' => new ezcInputFormDefinitionElement(
-		ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 1)
-	)
-);
-	    
+for ($i = 1; $i <= 5; $i++) {
+	$fieldsSearch['max_stars_' . $i] = array (
+			'type' => 'text',
+			'trans' => 'Stars',
+			'required' => false,
+			'valid_if_filled' => false,
+			'filter_type' => 'filter',
+			'filter_table_field' => 'max_stars_' . $i,
+			'validation_definition' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 1)
+					)
+	);	
+	$fieldsSearch['question_options_' . $i] = array (
+			'type' => 'text',
+			'trans' => 'Options questions',
+			'required' => false,
+			'valid_if_filled' => false,
+			'filter_type' => 'filter',
+			'filter_table_field' => 'question_options_' . $i,
+			'validation_definition' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 1)
+					)
+	);	
+}
+
 $fieldSortAttr = array (
 'field'      => false,
 'default'    => false,

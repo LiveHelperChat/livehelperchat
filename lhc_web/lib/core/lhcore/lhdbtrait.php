@@ -401,11 +401,37 @@ trait erLhcoreClassDBTrait {
 	            $conditions[] = $fieldValue;
 	        }
 	    }
-	
+	    
+	    if (isset($params['customfilter']) && count($params['customfilter']) > 0)
+	    {
+	        foreach ($params['customfilter'] as $fieldValue)
+	        {
+	            $conditions[] = $fieldValue;
+	        }
+	    }
+	    
+	    if (isset($params['innerjoin']) && count($params['innerjoin']) > 0) {
+	        foreach ($params['innerjoin'] as $table => $joinOn) {
+	            $q->innerJoin($table, $q->expr->eq($joinOn[0], $joinOn[1]));
+	        }
+	    }
+	    
 	    if(isset($params['group']) && $params['group'] != '') {
 	        $q->groupBy($params['group']);
 	    }
-	
+	    
+	    if (isset($params['having']) && $params['having'] != '') {
+	        $q->having($params['having']);
+	    }
+	    
+	    if (isset($params['use_index'])) {
+	        $q->useIndex( $params['use_index'] );
+	    }
+	    
+	    if (isset($params['select_columns']) && !empty($params['select_columns'])) {
+	        $q->select($params['select_columns']);
+	    }
+	    
 	    return $conditions;
 	}
 	

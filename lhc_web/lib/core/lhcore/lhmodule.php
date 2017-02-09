@@ -47,7 +47,9 @@ class erLhcoreClassModule{
 	                   	return $Result;
                    	} else {
                    	    if (isset($Params['module']['ajax']) && $Params['module']['ajax'] == true){
-                   	        echo json_encode(array('error_url' => erLhcoreClassDesign::baseurl('user/login')));
+                   	        // echo json_encode(array('error_url' => erLhcoreClassDesign::baseurl('user/login')));
+                   	        // exit;                   	        
+                   	        self::redirect('user/login');
                    	        exit;
                    	    } else {
                        		self::redirect('user/login');

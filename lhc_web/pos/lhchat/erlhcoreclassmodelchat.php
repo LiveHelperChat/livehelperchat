@@ -30,6 +30,22 @@ $def->properties['status_sub']->columnName   = 'status_sub';
 $def->properties['status_sub']->propertyName = 'status_sub';
 $def->properties['status_sub']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+/**
+ * Stores additional persisten arguments for substatus changes. Application logic is responsible for for clearing these.
+ */
+$def->properties['status_sub_arg'] = new ezcPersistentObjectProperty();
+$def->properties['status_sub_arg']->columnName   = 'status_sub_arg';
+$def->properties['status_sub_arg']->propertyName = 'status_sub_arg';
+$def->properties['status_sub_arg']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+/**
+* Sub status, used for operators only. Should not influce user actions. Just operators.
+* */
+$def->properties['status_sub_sub'] = new ezcPersistentObjectProperty();
+$def->properties['status_sub_sub']->columnName   = 'status_sub_sub';
+$def->properties['status_sub_sub']->propertyName = 'status_sub_sub';
+$def->properties['status_sub_sub']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['time'] = new ezcPersistentObjectProperty();
 $def->properties['time']->columnName   = 'time';
 $def->properties['time']->propertyName = 'time';
@@ -322,6 +338,23 @@ $def->properties['unanswered_chat'] = new ezcPersistentObjectProperty();
 $def->properties['unanswered_chat']->columnName   = 'unanswered_chat';
 $def->properties['unanswered_chat']->propertyName = 'unanswered_chat';
 $def->properties['unanswered_chat']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['last_op_msg_time'] = new ezcPersistentObjectProperty();
+$def->properties['last_op_msg_time']->columnName   = 'last_op_msg_time';
+$def->properties['last_op_msg_time']->propertyName = 'last_op_msg_time';
+$def->properties['last_op_msg_time']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['has_unread_op_messages'] = new ezcPersistentObjectProperty();
+$def->properties['has_unread_op_messages']->columnName   = 'has_unread_op_messages';
+$def->properties['has_unread_op_messages']->propertyName = 'has_unread_op_messages';
+$def->properties['has_unread_op_messages']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['unread_op_messages_informed'] = new ezcPersistentObjectProperty();
+$def->properties['unread_op_messages_informed']->columnName   = 'unread_op_messages_informed';
+$def->properties['unread_op_messages_informed']->propertyName = 'unread_op_messages_informed';
+$def->properties['unread_op_messages_informed']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+
 
 
 return $def;

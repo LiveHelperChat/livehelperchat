@@ -11,6 +11,11 @@ $ViewList['adminchat'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['updateattribute'] = array(
+		'params' => array(),
+		'uparams' => array('hash','hash_resume','vid'),
+);
+
 $ViewList['redirectcontact'] = array(
     'params' => array('chat_id'),
     'uparams' => array(),
@@ -41,6 +46,12 @@ $ViewList['printchatadmin'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['loadactivechats'] = array(
+    'params' => array(),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
 $ViewList['previewchat'] = array(
     'params' => array('chat_id'),
     'functions' => array( 'use' )
@@ -48,6 +59,11 @@ $ViewList['previewchat'] = array(
 
 $ViewList['closechatadmin'] = array(
     'params' => array('chat_id'),
+    'functions' => array( 'use' )
+);
+
+$ViewList['setsubstatus'] = array(
+    'params' => array('chat_id','substatus'),
     'functions' => array( 'use' )
 );
 
@@ -111,7 +127,7 @@ $ViewList['delete'] = array(
 
 $ViewList['syncadmininterface'] = array(
     'params' => array(),
-    'uparams' => array('departmentd','operatord','actived','pendingd','closedd','unreadd','limita','limitp','limitc','limitu','limito','limitd','activedprod','unreaddprod','pendingdprod','closeddprod','psort'),
+    'uparams' => array('topen','departmentd','operatord','actived','pendingd','closedd','unreadd','limita','limitp','limitc','limitu','limito','limitd','activedprod','unreaddprod','pendingdprod','closeddprod','psort'),
     'ajax' => true,
     'functions' => array( 'use' ),
     'multiple_arguments' => array ( 'operatord', 'actived', 'closedd' , 'pendingd', 'unreadd','departmentd','activedprod','unreaddprod','pendingdprod','closeddprod')
@@ -374,7 +390,8 @@ $ViewList['chatwidgetchat'] = array(
 );
 
 $ViewList['userclosechat'] = array(
-    'params' => array('chat_id','hash','eclose')
+    'params' => array('chat_id','hash'),
+    'uparams' => array('eclose'),
 );
 
 $ViewList['onlineusers'] = array(
@@ -386,7 +403,7 @@ $ViewList['onlineusers'] = array(
 
 $ViewList['jsononlineusers'] = array(
     'params' => array(),
-    'uparams' => array('department','maxrows'),
+    'uparams' => array('department','maxrows','timeout'),
     'functions' => array( 'use_onlineusers' )
 );
 
@@ -481,6 +498,7 @@ $FunctionList['administratecannedmsg'] = array('explain' =>'Allow operator chang
 $FunctionList['allowopenremotechat'] = array('explain' =>'Allow operator to open other operators chats from same department');
 $FunctionList['allowreopenremote'] = array('explain' =>'Allow operator to reopen other operators chats');
 $FunctionList['allowtransfertoanyuser'] = array('explain' =>'Allow operator to transfer chat to any online operator, not only his own department users');
+$FunctionList['allowtransferdirectly'] = array('explain' =>'Allow operator to transfer chat directly to other operator');
 $FunctionList['use_onlineusers'] = array('explain' =>'Allow operator to view online visitors');
 $FunctionList['chattabschrome'] = array('explain' =>'Allow operator to use chrome extension');
 $FunctionList['canchangechatstatus'] = array('explain' =>'Allow operator to change chat status');

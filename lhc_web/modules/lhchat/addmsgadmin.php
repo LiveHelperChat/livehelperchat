@@ -38,7 +38,10 @@ if (trim($form->msg) != '')
 	            $statusCommand = erLhcoreClassChatCommand::processCommand(array('user' => $userData, 'msg' => $msgText, 'chat' => & $Chat));
 	            if ($statusCommand['processed'] === true) {
 	                $messageUserId = -1; // Message was processed set as internal message
-	                $msgText = trim('[b]'.$userData->name_support.'[/b]: '.$msgText .' '. ($statusCommand['process_status'] != '' ? '|| '.$statusCommand['process_status'] : ''));
+	                
+	                $rawMessage = !isset($statusCommand['raw_message']) ? $msgText : $statusCommand['raw_message'];
+	                
+	                $msgText = trim('[b]'.$userData->name_support.'[/b]: '.$rawMessage .' '. ($statusCommand['process_status'] != '' ? '|| '.$statusCommand['process_status'] : ''));
 	                
 	                if (isset($statusCommand['ignore']) && $statusCommand['ignore'] == true) {
 	                    $ignoreMessage = true;
@@ -71,10 +74,13 @@ if (trim($form->msg) != '')
     	        // Set last message ID
     	        if ($Chat->last_msg_id < $msg->id) {
     	        	
-    	        	$stmt = $db->prepare('UPDATE lh_chat SET status = :status, user_status = :user_status, last_msg_id = :last_msg_id WHERE id = :id');
+    	        	$stmt = $db->prepare('UPDATE lh_chat SET status = :status, user_status = :user_status, last_msg_id = :last_msg_id, last_op_msg_time = :last_op_msg_time, has_unread_op_messages = :has_unread_op_messages, unread_op_messages_informed = :unread_op_messages_informed WHERE id = :id');
     	        	$stmt->bindValue(':id',$Chat->id,PDO::PARAM_INT);
     	        	$stmt->bindValue(':last_msg_id',$msg->id,PDO::PARAM_INT);
-    	        		        	
+    	        	$stmt->bindValue(':last_op_msg_time',time(),PDO::PARAM_INT);
+    	        	$stmt->bindValue(':has_unread_op_messages',1,PDO::PARAM_INT);
+    	        	$stmt->bindValue(':unread_op_messages_informed',0,PDO::PARAM_INT);
+    	        	
     	        	if ($userData->invisible_mode == 0 && $messageUserId > 0) { // Change status only if it's not internal command
     		        	if ($Chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
     		        		$Chat->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;        		

@@ -111,7 +111,11 @@ if ($allowEditDepartaments && isset($_POST['UpdateDepartaments_account'])) {
 	} else {
 		erLhcoreClassUserDep::addUserDepartaments(array(), false, $UserData);
 	}
-   
+   		
+	erLhcoreClassModelDepartamentGroupUser::addUserDepartmentGroups($UserData, erLhcoreClassUserValidator::validateDepartmentsGroup($UserData));
+	
+	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.after_user_departments_update',array('user' => & $UserData));
+	
 	$tpl->set('account_updated_departaments','done');
 	$tpl->set('tab','tab_departments');
    
@@ -153,7 +157,10 @@ if ( erLhcoreClassUser::instance()->hasAccessTo('lhuser','personalcannedmsg') ) 
 				
 		if (count($Errors) == 0) {		
 			$cannedMessage->user_id = $UserData->id;
-			$cannedMessage->saveThis();			
+			$cannedMessage->saveThis();	
+			
+			erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.canned_msg_after_save',array('msg' => & $cannedMessage));
+			
 			$tpl->set('updated_canned',true);
 		}  else {
 			$tpl->set('errors_canned',$Errors);
@@ -188,6 +195,10 @@ if ( erLhcoreClassUser::instance()->hasAccessTo('lhuser','personalcannedmsg') ) 
 	
 }
 
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.account', array('userData' => & $UserData, 'tpl' => & $tpl));
+
 $Result['content'] = $tpl->fetch();
+
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.account_result', array('result' => & $Result));
 
 ?>
