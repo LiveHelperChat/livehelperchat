@@ -19,7 +19,8 @@
 					</tr>
 				</thead>
 				<tr ng-repeat="operator in online_op.list track by operator.id">
-					<td><a ng-show="operator.user_id != <?php echo erLhcoreClassUser::instance()->getUserID();?>" href="#" ng-click="lhc.startChatOperator(operator.user_id)" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Start chat');?>"><i class="material-icons">chat</i></a> {{operator.name_official}}</td>
+					<?php /*ng-class="{'chat-pending' : operator.hide_online,'chat-active' : !operator.hide_online}"*/ ?>
+					<td><a ng-show="operator.user_id != <?php echo erLhcoreClassUser::instance()->getUserID();?>" href="#" ng-click="lhc.startChatOperator(operator.user_id)" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Start chat');?>"><i class="material-icons">chat</i></a><i class="material-icons" >{{operator.hide_online == 1 ? 'flash_off' : 'flash_on'}}</i> {{operator.name_official}}</td>
 					<td>
 						<div class="abbr-list" title="{{operator.lastactivity_ago}}">{{operator.lastactivity_ago}}</div>
 					</td>
