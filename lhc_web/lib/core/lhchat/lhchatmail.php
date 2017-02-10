@@ -12,36 +12,36 @@ class erLhcoreClassChatMail {
         if ($response !== false && isset($response['status']) && $response['status'] == erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
             return;
         }
-	    
-	        
+
+
 		$smtpData = erLhcoreClassModelChatConfig::fetch('smtp_data');
 		$data = (array)$smtpData->data;
 
 		if ( isset($data['sender']) && $data['sender'] != '' ) {
 		    $phpMailer->Sender = $data['sender'];
 		}
-		
+
 		if ($phpMailer->From == 'root@localhost') {
 		    $phpMailer->From = $data['default_from'];
 		}
-		
+
 		if ($phpMailer->FromName == 'Root User') {
 		    $phpMailer->FromName = $data['default_from_name'];
 		}
-		
+
 		if ( isset($data['use_smtp']) && $data['use_smtp'] == 1 ) {
 			$phpMailer->IsSMTP();
 			$phpMailer->Host = $data['host'];
 			$phpMailer->Port = $data['port'];
-			
-			if ($data['username'] != '' && $data['password'] != '') {			
+
+			if ($data['username'] != '' && $data['password'] != '') {
 				$phpMailer->Username = $data['username'];
 				$phpMailer->Password = $data['password'];
 				$phpMailer->SMTPAuth = true;
 				$phpMailer->From = isset($data['default_from']) ? $data['default_from'] : $data['username'];
 			} else {
 			    $phpMailer->From = '';
-			}			
+			}
 		}
 	}
 
@@ -55,7 +55,7 @@ class erLhcoreClassChatMail {
 		$mail->AddAddress( $userData->email );
 
 		self::setupSMTP($mail);
-		
+
 		try {
 			return $mail->Send();
 		} catch (Exception $e) {
@@ -68,17 +68,17 @@ class erLhcoreClassChatMail {
     public static function prepareSendMail(erLhAbstractModelEmailTemplate & $sendMail)
     {
     	$currentUser = erLhcoreClassUser::instance();
-    	
-    	if ($currentUser->isLogged() == true){    	
-	    	$userData = $currentUser->getUserData();  	
-	    		    	    	
+
+    	if ($currentUser->isLogged() == true){
+	    	$userData = $currentUser->getUserData();
+
 	    	$sendMail->subject = str_replace(array('{name_surname}'),array($userData->name.' '.$userData->surname),$sendMail->subject);
 	    	$sendMail->from_name = str_replace(array('{name_surname}'),array($userData->name.' '.$userData->surname),$sendMail->from_name);
-	
+
 	    	if (empty($sendMail->from_email)) {
 	    		$sendMail->from_email = $userData->email;
 	    	}
-	
+
 	    	if (empty($sendMail->reply_to)) {
 	    		$sendMail->reply_to = $userData->email;
 	    	}
@@ -106,21 +106,21 @@ class erLhcoreClassChatMail {
     	} else {
     		$messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 100,'sort' => 'id DESC','customfilter' => array('user_id != -1'), 'filter' => array('chat_id' => $chat->id))));
     	}
-    	
+
     	// Fetch chat messages
     	$tpl = new erLhcoreClassTemplate( 'lhchat/messagelist/plain.tpl.php');
     	$tpl->set('chat', $chat);
     	$tpl->set('messages', $messages);
 
     	$sendMail->content = str_replace(array('{user_chat_nick}','{messages_content}','{chat_id}'), array($chat->nick,$tpl->fetch(),$chat->id), $sendMail->content);
-    	
+
     	if ($form->hasValidData( 'Message' ) )
     	{
     		$sendMail->content = str_replace('{additional_message}', $form->Message, $sendMail->content);
     	}
 
     	$sendMail->content = erLhcoreClassBBCode::parseForMail($sendMail->content);
-    	
+
     	if ( $form->hasValidData( 'FromEmail' ) ) {
     		$sendMail->from_email = $form->FromEmail;
     	}
@@ -163,30 +163,30 @@ class erLhcoreClassChatMail {
 
     	$mail = new PHPMailer();
     	$mail->CharSet = "UTF-8";
-    	
+
     	if ($sendMail->from_email != '') {
     		$mail->Sender = $mail->From = $sendMail->from_email;
     	}
-    	
+
     	$mail->FromName = $sendMail->from_name;
     	$mail->Subject = $sendMail->subject;
-    	
+
     	if ($sendMail->reply_to != '') {
     		$mail->AddReplyTo($sendMail->reply_to,$sendMail->from_name);
     	}
-    	    	
+
     	$mail->Body = $sendMail->content;
     	$mail->AddAddress( $sendMail->recipient );
 
     	self::setupSMTP($mail);
-    	
+
     	if ($sendMail->bcc_recipients != '') {
     		$recipientsBCC = explode(',',$sendMail->bcc_recipients);
     		foreach ($recipientsBCC as $recipientBCC) {
     			$mail->AddBCC(trim($recipientBCC));
     		}
     	}
-    	
+
     	$mail->Send();
     	$mail->ClearAddresses();
     }
@@ -199,19 +199,19 @@ class erLhcoreClassChatMail {
     	$mail->CharSet = "UTF-8";
 
     	$mail->FromName = $sendMail->from_name;
-    	
+
     	if ($sendMail->from_email != '') {
     		$mail->From = $mail->Sender = $sendMail->from_email;
     	}
 
-    	if ($faq->email != ''){    
+    	if ($faq->email != ''){
     		$mail->AddReplyTo($faq->email);
     	}
 
     	$mail->Subject = $sendMail->subject;
-    	
+
     	$mail->Body = str_replace(array('{email}','{question}','{url_request}','{url_question}'), array($faq->email,$faq->question,erLhcoreClassXMP::getBaseHost() . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('user/login').'/(r)/'.rawurlencode(base64_encode('faq/view/'.$faq->id)),$faq->url), $sendMail->content);
-    	
+
     	if ($sendMail->recipient != '') { // Perhaps template has default recipient
     		$emailRecipient = explode(',',$sendMail->recipient);
     	} else { // Lets find first user and send him an e-mail
@@ -219,39 +219,39 @@ class erLhcoreClassChatMail {
     		$user = array_pop($list);
     		$emailRecipient = array($user->email);
     	}
-    	
+
     	foreach ($emailRecipient as $receiver) {
     		$mail->AddAddress( $receiver );
     	}
-    	
+
     	self::setupSMTP($mail);
-    	
-    	$mail->Send();    	
+
+    	$mail->Send();
     }
-    
+
     public static function sendMailRequestPermission(erLhcoreClassModelUser $recipient, erLhcoreClassModelUser $sender, $requestedPermissions) {
         $sendMail = erLhAbstractModelEmailTemplate::fetch(10);
-        
+
         $mail = new PHPMailer();
         $mail->CharSet = "UTF-8";
-        
+
         if ($sendMail->from_email != '') {
             $mail->From = $mail->Sender = $sendMail->from_email;
         }
-                     
+
         $mail->Subject = str_replace(array('{user}'),array((string)$sender),$sendMail->subject);
         $mail->AddReplyTo($sender->email,(string)$sender);
-                 
+
         $mail->Body = str_replace(array('{permissions}','{user}'), array($requestedPermissions,(string)$sender), $sendMail->content);
-        
+
         $mail->AddAddress( $recipient->email );
-        
+
         self::setupSMTP($mail);
-                     
+
         $mail->Send();
         $mail->ClearAddresses();
     }
-    
+
     public static function sendMailRequest($inputData, erLhcoreClassModelChat $chat, $params = array()) {
 
     	$sendMail = erLhAbstractModelEmailTemplate::fetch(2);
@@ -261,18 +261,17 @@ class erLhcoreClassChatMail {
 
     	if ($sendMail->from_email != '') {
     		$mail->From = $mail->Sender = $sendMail->from_email;
-    	}    	
-        	
-    	$mail->FromName = $sendMail->from_name;
-    	    	
+    	}
+
+			$mail->FromName = str_replace('{name}',$chat->nick,$sendMail->from_name);
     	$mail->Subject = str_replace(array('{name}','{department}','{country}','{city}'),array($chat->nick,(string)$chat->department,$chat->country_name,$chat->city),$sendMail->subject);
     	$mail->AddReplyTo($chat->email,$chat->nick);
-    	
-    	$prefillchat = '-'; 
+
+    	$prefillchat = '-';
     	if (isset($params['chatprefill']) && $params['chatprefill'] instanceof erLhcoreClassModelChat){
     		$prefillchat = erLhcoreClassXMP::getBaseHost() . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('user/login').'/(r)/'.rawurlencode(base64_encode('chat/single/'.$params['chatprefill']->id));
     	}
-    	
+
     	// Format user friendly additional data
     	if ($chat->additional_data != '') {
     	    $paramsAdditional = json_decode($chat->additional_data,true);
@@ -281,26 +280,26 @@ class erLhcoreClassChatMail {
     	        foreach ($paramsAdditional as $param) {
     	            $elementsAdditional[] = $param['key'].' - '.$param['value'];
     	        }
-    	        
+
     	        $additional_data = implode("\n", $elementsAdditional);
     	    } else {
     	        $additional_data = $chat->additional_data;
     	    }
-    	    
+
     	} else {
     	    $additional_data = '';
     	}
-    	
-    	
+
+
     	$mail->Body = str_replace(array('{phone}','{name}','{email}','{message}','{additional_data}','{url_request}','{ip}','{department}','{country}','{city}','{prefillchat}'), array($chat->phone,$chat->nick,$chat->email,$inputData->question,$additional_data,(isset($_POST['URLRefer']) ? $_POST['URLRefer'] : ''),erLhcoreClassIPDetect::getIP(),(string)$chat->department,$chat->country_name,$chat->city,$prefillchat), $sendMail->content);
 
     	/*
     	 * Attatch file
     	 * */
-    	if ($inputData->has_file == true) { 
+    	if ($inputData->has_file == true) {
     		$mail->AddAttachment($inputData->file_location,'file.'.$inputData->file_extension);
     	}
-    	
+
     	$emailRecipient = array();
     	if ($chat->department !== false && $chat->department->email != '') { // Perhaps department has assigned email
     		$emailRecipient = explode(',',$chat->department->email);
@@ -321,40 +320,40 @@ class erLhcoreClassChatMail {
     	if ($sendMail->bcc_recipients != '') {
     		$recipientsBCC = explode(',',$sendMail->bcc_recipients);
     		foreach ($recipientsBCC as $recipientBCC) {
-    			$mail->AddBCC(trim($recipientBCC));    			
+    			$mail->AddBCC(trim($recipientBCC));
     		}
     	}
-    	
-    	if ($sendMail->user_mail_as_sender == 1 && $chat->email != '') {    	       	 
+
+    	if ($sendMail->user_mail_as_sender == 1 && $chat->email != '') {
     	   $mail->From = $chat->email;
-    	   $mail->FromName = $chat->nick;    	  
+    	   $mail->FromName = $chat->nick;
     	}
-    	    	
+
     	$mail->Send();
     	$mail->ClearAddresses();
     }
-    
+
     public static function sendMailUnacceptedChat(erLhcoreClassModelChat $chat, $templateID = 4) {
     	$sendMail = erLhAbstractModelEmailTemplate::fetch($templateID);
-    	
+
     	$mail = new PHPMailer();
     	$mail->CharSet = "UTF-8";
-    	
-    	if ($sendMail->from_email != '') { 	
+
+    	if ($sendMail->from_email != '') {
     		$mail->Sender = $mail->From = $sendMail->from_email;
     	}
-    	
+
     	$mail->FromName = $sendMail->from_name;
-    	
-    	if ($chat->email != '') {    		
+
+    	if ($chat->email != '') {
     		$mail->AddReplyTo($chat->email,$chat->nick);
     	}
-    	  	
+
     	$mail->Subject = str_replace(array('{chat_id}'), array($chat->id), $sendMail->subject);
-    	   	    	
+
     	$messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 10,'sort' => 'id DESC','filter' => array('chat_id' => $chat->id))));
     	$messagesContent = '';
-    	
+
     	foreach ($messages as $msg ) {
 	    	 if ($msg->user_id == -1) {
 	    		$messagesContent .= date(erLhcoreClassModule::$dateDateHourFormat,$msg->time).' '. erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmin','System assistant').': '.htmlspecialchars($msg->msg)."\n";
@@ -362,7 +361,7 @@ class erLhcoreClassChatMail {
 	    		$messagesContent .= date(erLhcoreClassModule::$dateDateHourFormat,$msg->time).' '. ($msg->user_id == 0 ? htmlspecialchars($chat->nick) : htmlspecialchars($msg->name_support)).': '.htmlspecialchars($msg->msg)."\n";
 	    	 }
     	}
-    	
+
     	$emailRecipient = array();
     	if ($chat->department !== false && $chat->department->email != '') { // Perhaps department has assigned email
     		$emailRecipient = explode(',',$chat->department->email);
@@ -373,12 +372,12 @@ class erLhcoreClassChatMail {
     		$user = array_pop($list);
     		$emailRecipient = array($user->email);
     	}
-    	
+
     	self::setupSMTP($mail);
-    	
+
     	$cfgSite = erConfigClassLhConfig::getInstance();
     	$secretHash = $cfgSite->getSetting( 'site', 'secrethash' );
-    	    	
+
     	// Format user friendly additional data
     	if ($chat->additional_data != '') {
     	    $paramsAdditional = json_decode($chat->additional_data,true);
@@ -387,24 +386,24 @@ class erLhcoreClassChatMail {
     	        foreach ($paramsAdditional as $param) {
     	            $elementsAdditional[] = $param['key'].' - '.$param['value'];
     	        }
-    	        
+
     	        $additional_data = implode("\n", $elementsAdditional);
     	    } else {
     	        $additional_data = $chat->additional_data;
     	    }
-    	    
+
     	} else {
     	    $additional_data = '';
     	}
-    	
-    	foreach ($emailRecipient as $receiver) {   
+
+    	foreach ($emailRecipient as $receiver) {
     		$veryfyEmail = 	sha1(sha1($receiver.$secretHash).$secretHash);
     		$mail->Body = str_replace(array('{user_name}','{chat_id}','{phone}','{name}','{email}','{message}','{additional_data}','{url_request}','{ip}','{department}','{url_accept}','{country}','{city}'), array($chat->user_name,$chat->id,$chat->phone,$chat->nick,$chat->email,$messagesContent,$additional_data,$chat->referrer,erLhcoreClassIPDetect::getIP(),(string)$chat->department,'http://' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('chat/accept').'/'.erLhcoreClassModelChatAccept::generateAcceptLink($chat).'/'.$veryfyEmail.'/'.$receiver,$chat->country_name,$chat->city), $sendMail->content);
-    		$mail->AddAddress( $receiver );    		    		
+    		$mail->AddAddress( $receiver );
     		$mail->Send();
     		$mail->ClearAddresses();
     	}
-    	
+
     	if ($sendMail->bcc_recipients != '') {
     		$recipientsBCC = explode(',',$sendMail->bcc_recipients);
     		foreach ($recipientsBCC as $receiver) {
@@ -414,28 +413,28 @@ class erLhcoreClassChatMail {
     			$mail->AddAddress( $receiver );
     			$mail->Send();
     			$mail->ClearAddresses();
-    			
+
     		}
     	}
     }
-    
+
     public static function informFormFilled($formCollected, $params = array()) {
     	$sendMail = erLhAbstractModelEmailTemplate::fetch(8);
-    	
+
     	$mail = new PHPMailer();
     	$mail->CharSet = "UTF-8";
-    	
+
     	if ($sendMail->from_email != '') {
     		$mail->From = $mail->Sender = $sendMail->from_email;
     	}
-    	
+
     	if (isset($params['email']) && $params['email'] !== false && $params['email'] != '')
     	{
-    	    $mail->AddReplyTo($params['email']);    	    
+    	    $mail->AddReplyTo($params['email']);
     	}
-    	
-    	$mail->FromName = $sendMail->from_name;    	
-    	$mail->Subject = str_replace(array('{form_name}'),array($formCollected->form),$sendMail->subject);   	     	
+
+    	$mail->FromName = $sendMail->from_name;
+    	$mail->Subject = str_replace(array('{form_name}'),array($formCollected->form),$sendMail->subject);
     	$mail->Body = str_replace(array('{identifier}','{form_name}','{content}','{ip}','{url_download}','{url_view}'), array($formCollected->identifier,(string)$formCollected->form, $formCollected->form_content, $formCollected->ip, erLhcoreClassXMP::getBaseHost() . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurldirect('user/login').'/(r)/'.rawurlencode(base64_encode('form/downloaditem/'.$formCollected->id)), erLhcoreClassXMP::getBaseHost() . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurldirect('user/login').'/(r)/'.rawurlencode(base64_encode('form/viewcollected/'.$formCollected->id))), $sendMail->content);
 
     	$emailRecipient = array();
@@ -445,20 +444,20 @@ class erLhcoreClassChatMail {
     		$emailRecipient = array($sendMail->recipient);
     	}
 
-    	if (!empty($emailRecipient)) {    	
+    	if (!empty($emailRecipient)) {
 	    	foreach ($emailRecipient as $receiver) {
 	    		$mail->AddAddress( $receiver );
 	    	}
-	    	
+
 	    	self::setupSMTP($mail);
-	    	
+
 	    	if ($sendMail->bcc_recipients != '') {
 	    		$recipientsBCC = explode(',',$sendMail->bcc_recipients);
 	    		foreach ($recipientsBCC as $recipientBCC) {
 	    			$mail->AddBCC(trim($recipientBCC));
 	    		}
 	    	}
-	    	
+
 	    	$mail->Send();
 	    	$mail->ClearAddresses();
     	}
@@ -539,7 +538,7 @@ class erLhcoreClassChatMail {
     	   	    	
     	$messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 10,'sort' => 'id DESC','filter' => array('chat_id' => $chat->id))));
     	$messagesContent = '';
-    	
+
     	foreach ($messages as $msg ) {
 	    	 if ($msg->user_id == -1) {
 	    		$messagesContent .= date(erLhcoreClassModule::$dateDateHourFormat,$msg->time).' '. erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmin','System assistant').': '.htmlspecialchars($msg->msg)."\n";
@@ -547,27 +546,27 @@ class erLhcoreClassChatMail {
 	    		$messagesContent .= date(erLhcoreClassModule::$dateDateHourFormat,$msg->time).' '. ($msg->user_id == 0 ? htmlspecialchars($chat->nick) : htmlspecialchars($msg->name_support)).': '.htmlspecialchars($msg->msg)."\n";
 	    	 }
     	}
-    	
+
     	$emailRecipient = array();
     	if ($sendMail->recipient != '') { // This time we give priority to template recipients
-    		$emailRecipient = explode(',',$sendMail->recipient);    		
-    	}elseif ($chat->department !== false && $chat->department->email != '') {    			
-    		$emailRecipient = explode(',',$chat->department->email);    		
+    		$emailRecipient = explode(',',$sendMail->recipient);
+    	}elseif ($chat->department !== false && $chat->department->email != '') {
+    		$emailRecipient = explode(',',$chat->department->email);
     	} else { // Lets find first user and send him an e-mail
     		$list = erLhcoreClassModelUser::getUserList(array('limit' => 1,'sort' => 'id ASC'));
     		$user = array_pop($list);
     		$emailRecipient = array($user->email);
     	}
-    	
+
     	self::setupSMTP($mail);
-    	
+
     	$cfgSite = erConfigClassLhConfig::getInstance();
     	$secretHash = $cfgSite->getSetting( 'site', 'secrethash' );
-    	
-    	if ($chat->email != '') {    	
+
+    	if ($chat->email != '') {
     		$mail->AddReplyTo($chat->email, $chat->nick);
     	}
-    	
+
     	// Format user friendly additional data
     	if ($chat->additional_data != '') {
     	    $paramsAdditional = json_decode($chat->additional_data,true);
@@ -576,40 +575,40 @@ class erLhcoreClassChatMail {
     	        foreach ($paramsAdditional as $param) {
     	            $elementsAdditional[] = $param['key'].' - '.$param['value'];
     	        }
-    	        
+
     	        $additional_data = implode("\n", $elementsAdditional);
     	    } else {
     	        $additional_data = $chat->additional_data;
     	    }
-    	    
+
     	} else {
     	    $additional_data = '';
     	}
-    	
-    	foreach ($emailRecipient as $receiver) {   
+
+    	foreach ($emailRecipient as $receiver) {
     		$veryfyEmail = 	sha1(sha1($receiver.$secretHash).$secretHash);
     		$mail->Body = str_replace(array('{chat_id}','{phone}','{name}','{email}','{message}','{additional_data}','{url_request}','{ip}','{department}','{url_accept}','{operator}','{country}','{city}'), array($chat->id,$chat->phone,$chat->nick,$chat->email,$messagesContent,$additional_data,$chat->referrer,$chat->ip,(string)$chat->department,(isset($_SERVER['HTTP_HOST'])) ? 'http://' . $_SERVER['HTTP_HOST'] : erLhcoreClassModelChatConfig::fetch('customer_site_url')->current_value . erLhcoreClassDesign::baseurl('chat/accept').'/'.erLhcoreClassModelChatAccept::generateAcceptLink($chat).'/'.$veryfyEmail.'/'.$receiver,$operator,$chat->country_name,$chat->city), $sendMail->content);
-    		$mail->AddAddress( $receiver );    		    		
+    		$mail->AddAddress( $receiver );    		    	
     		$mail->Send();
     		$mail->ClearAddresses();
     	}
-    	    	
+
     	if ($sendMail->bcc_recipients != '') {
     		$recipientsBCC = explode(',',$sendMail->bcc_recipients);
-    		foreach ($recipientsBCC as $receiver) {    			
+    		foreach ($recipientsBCC as $receiver) {
     			$receiver = trim($receiver);
     			$veryfyEmail = 	sha1(sha1($receiver.$secretHash).$secretHash);
 	    		$mail->Body = str_replace(array('{chat_id}','{phone}','{name}','{email}','{message}','{additional_data}','{url_request}','{ip}','{department}','{url_accept}','{operator}','{country}','{city}'), array($chat->id,$chat->phone,$chat->nick,$chat->email,$messagesContent,$additional_data,$chat->referrer,$chat->ip,(string)$chat->department,(isset($_SERVER['HTTP_HOST'])) ? 'http://' . $_SERVER['HTTP_HOST'] : erLhcoreClassModelChatConfig::fetch('customer_site_url')->current_value . erLhcoreClassDesign::baseurl('chat/accept').'/'.erLhcoreClassModelChatAccept::generateAcceptLink($chat).'/'.$veryfyEmail.'/'.$receiver,$operator,$chat->country_name,$chat->city), $sendMail->content);
 	    		$mail->AddAddress( $receiver );    		    		
 	    		$mail->Send();
-	    		$mail->ClearAddresses();    			 
+	    		$mail->ClearAddresses();
     		}
-    	}    	
-    	
-    	
+    	}
+
+
     }
-    
-    
+
+
 
 }
 
