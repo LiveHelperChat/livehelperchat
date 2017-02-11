@@ -456,7 +456,7 @@ class erLhcoreClassChatMail {
             $surveyContent .= "===========================\n";
         }
         
-        return $surveyContent;
+        return $surveyContent == '' ? '-' : $surveyContent;
     }
     
     public static function informFormFilled($formCollected, $params = array()) {
