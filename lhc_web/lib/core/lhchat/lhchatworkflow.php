@@ -225,6 +225,7 @@ class erLhcoreClassChatWorkflow {
     			}
     			
     			$chat->chat_duration = erLhcoreClassChat::getChatDurationToUpdateChatID($chat->id);
+    			$chat->has_unread_messages = 0;
     			
     			$chat->updateThis();
 
