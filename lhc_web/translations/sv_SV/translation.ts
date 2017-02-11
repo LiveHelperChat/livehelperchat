@@ -6,6 +6,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Hur många dagar som röstwidgeten inte ska expanderas efter senaste visningen</translation>
     </message>
@@ -1335,6 +1339,10 @@
       <translation>Felaktig hash eller så är autoskapandet avaktiverat</translation>
     </message>
     <message>
+      <source>Back to chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Switch to widget</source>
       <translation>Växla till widget</translation>
     </message>
@@ -1846,6 +1854,10 @@
     <message>
       <source>Redirect user to another url</source>
       <translation>Vidarebefordra användare till en annan URL</translation>
+    </message>
+    <message>
+      <source>Redirect user to survey</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Choose other than default recognition language</source>
@@ -4002,6 +4014,10 @@
     <message>
       <source>Product</source>
       <translation>Produkt</translation>
+    </message>
+    <message>
+      <source>Chat ID</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Search</source>
@@ -7689,6 +7705,10 @@
       <translation>Namn</translation>
     </message>
     <message>
+      <source>Feedback text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Max stars for feedback</source>
       <translation>Max antal stjärnor för feedback</translation>
     </message>
@@ -7722,6 +7742,10 @@
     <message>
       <source>Download file</source>
       <translation>Ladda ner filen</translation>
+    </message>
+    <message>
+      <source>Collected survey data</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
