@@ -6,6 +6,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Per quanti giorni il widget di voto non deve essere mostrato dopo l&apos;ultima visualizzazione</translation>
     </message>
@@ -159,7 +163,7 @@
     </message>
     <message>
       <source>Inform visitor about unread messages from operator, value in minutes. 0 - disabled</source>
-      <translation type="unfinished"/>
+      <translation>Informare il visitatore circa messaggi dell&apos;operatore non letti, valore in minuti, 0 - disabilitato</translation>
     </message>
     <message>
       <source>Ignore users online statuses and use departments online hours</source>
@@ -352,23 +356,23 @@
     <name>survey/form</name>
     <message>
       <source>Add option</source>
-      <translation type="unfinished"/>
+      <translation>Aggiungi opzione</translation>
     </message>
     <message>
       <source>Enter a possible answer to your question here...</source>
-      <translation type="unfinished"/>
+      <translation>Inserisci qui una possibile risposta alla domanda...</translation>
     </message>
     <message>
       <source>Enable stars</source>
-      <translation type="unfinished"/>
+      <translation>Attiva stelle</translation>
     </message>
     <message>
       <source>Enable question</source>
-      <translation type="unfinished"/>
+      <translation>Attiva domanda</translation>
     </message>
     <message>
       <source>Enable question with an answers</source>
-      <translation type="unfinished"/>
+      <translation>Attiva domanda con risposte</translation>
     </message>
   </context>
   <context>
@@ -802,7 +806,7 @@
     </message>
     <message>
       <source>Tag</source>
-      <translation type="unfinished"/>
+      <translation>Tag/Etichetta</translation>
     </message>
     <message>
       <source>Matched times</source>
@@ -1336,6 +1340,10 @@
       <translation>Hash non valido o la creazione automatica è disabilitata</translation>
     </message>
     <message>
+      <source>Back to chat</source>
+      <translation>Tornare alla chat</translation>
+    </message>
+    <message>
       <source>Switch to widget</source>
       <translation>Passa la chat al widget</translation>
     </message>
@@ -1540,7 +1548,7 @@
     </message>
     <message>
       <source>Edit department group</source>
-      <translation type="unfinished"/>
+      <translation>Modifica gruppo dipartimenti</translation>
     </message>
     <message>
       <source>Name</source>
@@ -1644,39 +1652,39 @@
     </message>
     <message>
       <source>Custom period</source>
-      <translation type="unfinished"/>
+      <translation>Periodo di default</translation>
     </message>
     <message>
       <source>Date from</source>
-      <translation type="unfinished"/>
+      <translation>Data inizio</translation>
     </message>
     <message>
       <source>Custom work day</source>
-      <translation type="unfinished"/>
+      <translation>Giorno di lavoro personalizzato</translation>
     </message>
     <message>
       <source>Date to</source>
-      <translation type="unfinished"/>
+      <translation>Data fine</translation>
     </message>
     <message>
       <source>Add</source>
-      <translation type="unfinished"/>
+      <translation>Aggiungi</translation>
     </message>
     <message>
       <source>Period</source>
-      <translation type="unfinished"/>
+      <translation>Periodo</translation>
     </message>
     <message>
       <source>Start time</source>
-      <translation type="unfinished"/>
+      <translation>Ora di inizio</translation>
     </message>
     <message>
       <source>End time</source>
-      <translation type="unfinished"/>
+      <translation>Ora di fine</translation>
     </message>
     <message>
       <source>Remove</source>
-      <translation type="unfinished"/>
+      <translation>Rimuovere</translation>
     </message>
     <message>
       <source>XMPP recipients</source>
@@ -1800,7 +1808,7 @@
     </message>
     <message>
       <source>Departments groups</source>
-      <translation type="unfinished"/>
+      <translation>Gruppi di reparti / dipartimenti</translation>
     </message>
   </context>
   <context>
@@ -1815,7 +1823,7 @@
     </message>
     <message>
       <source>Survey not exist please check embed code options</source>
-      <translation type="unfinished"/>
+      <translation>Il sondaggio non esiste. Si prega di controllare le opzioni del codice Embed</translation>
     </message>
   </context>
   <context>
@@ -1847,6 +1855,10 @@
     <message>
       <source>Redirect user to another url</source>
       <translation>Reindirizzare l&apos;utente ad un altro url</translation>
+    </message>
+    <message>
+      <source>Redirect user to survey</source>
+      <translation>Reindirizzare al sondaggio</translation>
     </message>
     <message>
       <source>Choose other than default recognition language</source>
@@ -3571,7 +3583,7 @@
     </message>
     <message>
       <source>Departments groups</source>
-      <translation type="unfinished"/>
+      <translation>Gruppo reparti / dipartimenti</translation>
     </message>
     <message>
       <source>Time zone settings</source>
@@ -4003,6 +4015,10 @@
     <message>
       <source>Product</source>
       <translation>Prodotto</translation>
+    </message>
+    <message>
+      <source>Chat ID</source>
+      <translation>ID chat</translation>
     </message>
     <message>
       <source>Search</source>
@@ -5497,15 +5513,15 @@
     </message>
     <message>
       <source>Departments groups</source>
-      <translation type="unfinished"/>
+      <translation>Gruppo reparti / dipartimenti</translation>
     </message>
     <message>
       <source>Group</source>
-      <translation type="unfinished"/>
+      <translation>Gruppo</translation>
     </message>
     <message>
       <source>Edit</source>
-      <translation type="unfinished"/>
+      <translation>Modifica</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -5632,19 +5648,19 @@
     </message>
     <message>
       <source>Pending chats tab enabled</source>
-      <translation>In attesa scheda chat abilitata</translation>
+      <translation>Scheda chat in attesa abilitata</translation>
     </message>
     <message>
       <source>Active chats tab enabled</source>
-      <translation>Attivazione scheda chat abilitata</translation>
+      <translation>Scheda chat attive abilitata</translation>
     </message>
     <message>
       <source>Unread chats tab enabled</source>
-      <translation>Non letti scheda chat abilitata</translation>
+      <translation>Scheda chat non lette attivata</translation>
     </message>
     <message>
       <source>Closed chats tab enabled</source>
-      <translation>Chiuse scheda chat abilitata</translation>
+      <translation>Scheda chat chiude abilitata</translation>
     </message>
     <message>
       <source>I can see all pending chats, not only assigned to me</source>
@@ -5668,7 +5684,7 @@
     </message>
     <message>
       <source>Departments groups</source>
-      <translation type="unfinished"/>
+      <translation>Gruppi di reparti / dipartimenti</translation>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
@@ -5706,7 +5722,7 @@
     </message>
     <message>
       <source>New department group</source>
-      <translation type="unfinished"/>
+      <translation>Nuovo gruppo dipartimenti</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -6789,11 +6805,11 @@
     </message>
     <message>
       <source>View information</source>
-      <translation type="unfinished"/>
+      <translation>Visualizza informazioni</translation>
     </message>
     <message>
       <source>Collected information</source>
-      <translation type="unfinished"/>
+      <translation>Informazioni collezionate</translation>
     </message>
     <message>
       <source>Department name</source>
@@ -7683,11 +7699,15 @@
     <name>abstract/survey</name>
     <message>
       <source>Enabled</source>
-      <translation type="unfinished"/>
+      <translation>Abilitato</translation>
     </message>
     <message>
       <source>Name</source>
       <translation>Nome</translation>
+    </message>
+    <message>
+      <source>Feedback text</source>
+      <translation>Testo di feedback</translation>
     </message>
     <message>
       <source>Max stars for feedback</source>
@@ -7695,15 +7715,15 @@
     </message>
     <message>
       <source>Max stars pos</source>
-      <translation type="unfinished"/>
+      <translation>Stelle massime</translation>
     </message>
     <message>
       <source>Title for evaluation</source>
-      <translation type="unfinished"/>
+      <translation>Titolo per la valutazione</translation>
     </message>
     <message>
       <source>Required</source>
-      <translation type="unfinished"/>
+      <translation>Obbligatorio</translation>
     </message>
     <message>
       <source>Title for plain question</source>
@@ -7723,6 +7743,10 @@
     <message>
       <source>Download file</source>
       <translation>Scarica il file</translation>
+    </message>
+    <message>
+      <source>Collected survey data</source>
+      <translation>Dati raccolti</translation>
     </message>
   </context>
   <context>
@@ -8137,7 +8161,7 @@
     <name>departament/editgroup</name>
     <message>
       <source>Please enter a department group name</source>
-      <translation type="unfinished"/>
+      <translation>Si prega di inserire un nome di gruppo del reparto</translation>
     </message>
   </context>
 </TS>

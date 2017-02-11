@@ -6,6 +6,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Πόσες ημέρες ψηφοφορίας widget δεν θα πρέπει να επεκταθεί μετά από την τελευταία εμφάνιση</translation>
     </message>
@@ -1335,6 +1339,10 @@
       <translation>Μη έγκυρη hash ή αυτόματη δημιουργία είναι άτομα με ειδικές ανάγκες</translation>
     </message>
     <message>
+      <source>Back to chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Switch to widget</source>
       <translation>Μεταβείτε σε widget</translation>
     </message>
@@ -1846,6 +1854,10 @@
     <message>
       <source>Redirect user to another url</source>
       <translation>Ανακατευθύνει το χρήστη σε ένα άλλο url</translation>
+    </message>
+    <message>
+      <source>Redirect user to survey</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Choose other than default recognition language</source>
@@ -4002,6 +4014,10 @@
     <message>
       <source>Product</source>
       <translation>Προϊόντος</translation>
+    </message>
+    <message>
+      <source>Chat ID</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Search</source>
@@ -7689,6 +7705,10 @@
       <translation>Όνομα</translation>
     </message>
     <message>
+      <source>Feedback text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Max stars for feedback</source>
       <translation>Max αστέρια για ανατροφοδότηση</translation>
     </message>
@@ -7722,6 +7742,10 @@
     <message>
       <source>Download file</source>
       <translation>Κατεβάστε το αρχείο</translation>
+    </message>
+    <message>
+      <source>Collected survey data</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

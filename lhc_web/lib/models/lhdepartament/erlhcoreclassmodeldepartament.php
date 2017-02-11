@@ -32,6 +32,8 @@ class erLhcoreClassModelDepartament {
                'inform_options'    		=> $this->inform_options,
                'inform_delay'    		=> $this->inform_delay,
                'inform_close'    		=> $this->inform_close,
+               'inform_close_all'    	=> $this->inform_close_all,
+               'inform_close_all_email' => $this->inform_close_all_email,
                'online_hours_active'    => $this->online_hours_active,
                'disabled'    			=> $this->disabled,
                'hidden'    				=> $this->hidden,
@@ -50,6 +52,7 @@ class erLhcoreClassModelDepartament {
                'active_chats_counter' 	=> $this->active_chats_counter,
                'pending_chats_counter' 	=> $this->pending_chats_counter,
                'closed_chats_counter' 	=> $this->closed_chats_counter,
+               'product_configuration' 	=> $this->product_configuration,
        );
    }
 
@@ -79,7 +82,13 @@ class erLhcoreClassModelDepartament {
 
 	   	// Delete user assigned departaments
 	   	$q = ezcDbInstance::get()->createDeleteQuery();
-	   	$q->deleteFrom( 'lh_departament' )->where( $q->expr->eq( 'id', $this->id ) );
+	   	$q->deleteFrom( 'lh_userdep' )->where( $q->expr->eq( 'dep_id', $this->id ) );
+	   	$stmt = $q->prepare();
+	   	$stmt->execute();
+	   	
+	   	// Delete departament products
+	   	$q = ezcDbInstance::get()->createDeleteQuery();
+	   	$q->deleteFrom( 'lh_abstract_product_departament' )->where( $q->expr->eq( 'departament_id', $this->id ) );
 	   	$stmt = $q->prepare();
 	   	$stmt->execute();
    }
@@ -132,7 +141,15 @@ class erLhcoreClassModelDepartament {
 	   		case 'end_hour_front':
 	   				return floor($this->end_hour/100);
 	   			break;
-
+	   			
+	   		case 'product_configuration_array':
+	   		        $this->product_configuration_array = array();
+	   		        if ($this->product_configuration != '') {
+	   		            $this->product_configuration_array = json_decode($this->product_configuration,true);
+	   		        }
+	   		        return $this->product_configuration_array;
+	   		    break;
+	   		    
 	   		case 'end_minutes_front':
 	   				return $this->end_hour - ($this->end_hour_front * 100);
 	   			break;
@@ -315,10 +332,13 @@ class erLhcoreClassModelDepartament {
     public $attr_int_2 = 0;
     public $attr_int_3 = 0;
     public $visible_if_online = 0;
+    public $inform_close_all = 0;
+    public $inform_close_all_email = '';
     
     public $active_chats_counter = 0;
     public $pending_chats_counter = 0;
     public $closed_chats_counter = 0;
+    public $product_configuration = '';
     
     // 0 - disabled
     // > 0 - delay in seconds

@@ -6,6 +6,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Por quantos dias o widget de votação não deve ser exibido após última exibição</translation>
     </message>
@@ -207,7 +211,7 @@
     </message>
     <message>
       <source>Hide &apos;New Window&apos; option in Connector Widget</source>
-      <translation>Ocultar a opção &apos;Nova janela&apos; no Conector Widget</translation>
+      <translation>Ocultar a opção &apos;Nova janela&apos; no conector Widget</translation>
     </message>
     <message>
       <source>Disable JS execution in Co-Browsing operator window</source>
@@ -1335,6 +1339,10 @@
       <translation>hash inválido ou a criação automática está desabilitada</translation>
     </message>
     <message>
+      <source>Back to chat</source>
+      <translation>Voltar ao chat</translation>
+    </message>
+    <message>
       <source>Switch to widget</source>
       <translation>Alternar para o widget</translation>
     </message>
@@ -1846,6 +1854,10 @@
     <message>
       <source>Redirect user to another url</source>
       <translation>Redirecionar usuário para outra URL</translation>
+    </message>
+    <message>
+      <source>Redirect user to survey</source>
+      <translation>Redirecionar o usuário para exame</translation>
     </message>
     <message>
       <source>Choose other than default recognition language</source>
@@ -4003,6 +4015,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Product</source>
       <translation>Produto</translation>
+    </message>
+    <message>
+      <source>Chat ID</source>
+      <translation>Chat ID</translation>
     </message>
     <message>
       <source>Search</source>
@@ -7691,6 +7707,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Nome</translation>
     </message>
     <message>
+      <source>Feedback text</source>
+      <translation>Texto de feedback</translation>
+    </message>
+    <message>
       <source>Max stars for feedback</source>
       <translation>Deixe seu feedback</translation>
     </message>
@@ -7724,6 +7744,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Download file</source>
       <translation>Baixar arquivo</translation>
+    </message>
+    <message>
+      <source>Collected survey data</source>
+      <translation>Dados coletados no exame</translation>
     </message>
   </context>
   <context>
@@ -7875,7 +7899,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Please choose a default user group</source>
-      <translation>Por favor, escolha um grupo de usuário padrão</translation>
+      <translation>Por favor escolha um grupo de usuário padrão</translation>
     </message>
   </context>
   <context>
@@ -8138,7 +8162,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <name>departament/editgroup</name>
     <message>
       <source>Please enter a department group name</source>
-      <translation>Digite um Departamento</translation>
+      <translation>Por favor digite o nome de um departamento</translation>
     </message>
   </context>
 </TS>

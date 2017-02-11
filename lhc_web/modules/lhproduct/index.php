@@ -3,11 +3,15 @@
 $tpl = erLhcoreClassTemplate::getInstance('lhproduct/index.tpl.php');
 
 $attr = erLhcoreClassModelChatConfig::fetch('product_enabled_module');
+$attr2 = erLhcoreClassModelChatConfig::fetch('product_show_departament');
 
 if ( ezcInputForm::hasPostData() ) {
 
     $definition = array(
         'product_enabled_moduleValueParam' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
+        'product_show_departamentValueParam' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         )
     );
@@ -23,6 +27,14 @@ if ( ezcInputForm::hasPostData() ) {
     }
     
     $attr->saveThis();
+    
+    if ( $form->hasValidData( 'product_show_departamentValueParam' ) && $form->product_show_departamentValueParam == true ) {
+        $attr2->value = 1;
+    } else {
+        $attr2->value = 0;
+    }
+    
+    $attr2->saveThis();
     
     $CacheManager = erConfigClassLhCacheConfig::getInstance();
     $CacheManager->expireCache();

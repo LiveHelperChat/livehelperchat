@@ -6,6 +6,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Сколько дней виджет голосования не будет открыт с последнего показа</translation>
     </message>
@@ -1335,6 +1339,10 @@
       <translation>Неверный хэш или автосоздание отключено</translation>
     </message>
     <message>
+      <source>Back to chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Switch to widget</source>
       <translation>Переключить к виджету</translation>
     </message>
@@ -1847,6 +1855,10 @@
     <message>
       <source>Redirect user to another url</source>
       <translation>Переадресовать пользователя на другой URL</translation>
+    </message>
+    <message>
+      <source>Redirect user to survey</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Choose other than default recognition language</source>
@@ -4002,6 +4014,10 @@
     </message>
     <message>
       <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat ID</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7690,6 +7706,10 @@
       <translation>Имя</translation>
     </message>
     <message>
+      <source>Feedback text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Max stars for feedback</source>
       <translation type="unfinished"/>
     </message>
@@ -7723,6 +7743,10 @@
     <message>
       <source>Download file</source>
       <translation>Скачать файл</translation>
+    </message>
+    <message>
+      <source>Collected survey data</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

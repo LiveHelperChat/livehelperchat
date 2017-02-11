@@ -54,7 +54,9 @@ if (isset($_POST['Update_departament']) || isset($_POST['Save_departament'])  )
         erLhcoreClassDepartament::getSession()->update($Departament);
 
         $DepartamentCustomWorkHours = erLhcoreClassDepartament::validateDepartmentCustomWorkHours($Departament, $DepartamentCustomWorkHours);
-
+        
+        erLhcoreClassDepartament::validateDepartmentProducts($Departament);
+        
         if (isset($_POST['Save_departament'])) {
             erLhcoreClassModule::redirect('department/departments');
             exit;

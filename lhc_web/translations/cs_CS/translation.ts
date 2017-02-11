@@ -6,6 +6,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Po kolik dní by se neměl hlasovací widget zvětšovat od posledního zobrazení</translation>
     </message>
@@ -1335,6 +1339,10 @@
       <translation>Neplatný hash nebo je vypná volba jeho  automatického vytvoření</translation>
     </message>
     <message>
+      <source>Back to chat</source>
+      <translation>Zpět k rozhovoru</translation>
+    </message>
+    <message>
       <source>Switch to widget</source>
       <translation>Přepnout na widget</translation>
     </message>
@@ -1846,6 +1854,10 @@
     <message>
       <source>Redirect user to another url</source>
       <translation>Přesmětovat uživatele na jinou URL</translation>
+    </message>
+    <message>
+      <source>Redirect user to survey</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Choose other than default recognition language</source>
@@ -4002,6 +4014,10 @@
     <message>
       <source>Product</source>
       <translation>Výrobek</translation>
+    </message>
+    <message>
+      <source>Chat ID</source>
+      <translation>ID rozhovoru</translation>
     </message>
     <message>
       <source>Search</source>
@@ -7689,6 +7705,10 @@
       <translation>Jméno</translation>
     </message>
     <message>
+      <source>Feedback text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Max stars for feedback</source>
       <translation>Maximum hvězdiček ve zpětné vazbě</translation>
     </message>
@@ -7722,6 +7742,10 @@
     <message>
       <source>Download file</source>
       <translation>Stáhnout soubor</translation>
+    </message>
+    <message>
+      <source>Collected survey data</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

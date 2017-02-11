@@ -6,6 +6,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Kiek dienų balsavimo widgetas neturėtų būti išskleistas po paskutinio parodymo</translation>
     </message>
@@ -27,7 +31,7 @@
     </message>
     <message>
       <source>Track is user still on site, chat status checks also has to be enabled</source>
-      <translation>Sekti ar vartotojas yra vis dar puslapyje, pokalbių būsėnos sekimas irgi turi būti įjungtas</translation>
+      <translation>Sekti ar vartotojas yra vis dar puslapyje, pokalbių būsenos sekimas irgi turi būti įjungtas</translation>
     </message>
     <message>
       <source>Track online visitors even if there is no online operators</source>
@@ -403,7 +407,7 @@
     </message>
     <message>
       <source>Live preview</source>
-      <translation type="unfinished"/>
+      <translation>Tiesioginė peržiūra</translation>
     </message>
     <message>
       <source>Visitor messages style</source>
@@ -1335,6 +1339,10 @@
       <translation>Nekorektiškas maišos kodas arba auto sukūrimas yra išjungtas</translation>
     </message>
     <message>
+      <source>Back to chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Switch to widget</source>
       <translation>Sumažinti į puslapį</translation>
     </message>
@@ -1659,7 +1667,7 @@
     </message>
     <message>
       <source>Add</source>
-      <translation type="unfinished"/>
+      <translation>Pridėti</translation>
     </message>
     <message>
       <source>Period</source>
@@ -1675,7 +1683,7 @@
     </message>
     <message>
       <source>Remove</source>
-      <translation type="unfinished"/>
+      <translation>Pašalinti</translation>
     </message>
     <message>
       <source>XMPP recipients</source>
@@ -1848,6 +1856,10 @@
       <translation>Nukreipti vartotoją į kitą URL</translation>
     </message>
     <message>
+      <source>Redirect user to survey</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Choose other than default recognition language</source>
       <translation>Pasirinkite kitą negu standartinę atpažinimo kalbą</translation>
     </message>
@@ -1965,7 +1977,7 @@
     </message>
     <message>
       <source>Hidden field</source>
-      <translation type="unfinished"/>
+      <translation>Paslėptas laukas</translation>
     </message>
     <message>
       <source>Created</source>
@@ -2041,7 +2053,7 @@
     </message>
     <message>
       <source>has accepted the chat!</source>
-      <translation type="unfinished"/>
+      <translation>patvirtino pokalbį!</translation>
     </message>
     <message>
       <source>Auto responder got error</source>
@@ -2053,7 +2065,7 @@
     </message>
     <message>
       <source>Has no access to this chat</source>
-      <translation type="unfinished"/>
+      <translation>Neturi prieigos prie šio pokalbio</translation>
     </message>
   </context>
   <context>
@@ -2152,7 +2164,7 @@
     </message>
     <message>
       <source>Could not detect a language</source>
-      <translation type="unfinished"/>
+      <translation>Nepavyko nustatyti kalbos</translation>
     </message>
     <message>
       <source>Could not translate</source>
@@ -4001,6 +4013,10 @@
     </message>
     <message>
       <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat ID</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6788,15 +6804,15 @@
     </message>
     <message>
       <source>View information</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti informaciją</translation>
     </message>
     <message>
       <source>Collected information</source>
-      <translation type="unfinished"/>
+      <translation>Surinkta informacija</translation>
     </message>
     <message>
       <source>Department name</source>
-      <translation type="unfinished"/>
+      <translation>Departamento pavadinimas</translation>
     </message>
     <message>
       <source>Stars</source>
@@ -6807,7 +6823,7 @@
     <name>survey/fill</name>
     <message>
       <source>Preview chat</source>
-      <translation type="unfinished"/>
+      <translation>Peržiūrėti pokalbį</translation>
     </message>
     <message>
       <source>star</source>
@@ -6827,11 +6843,11 @@
     </message>
     <message>
       <source>Thank you for your feedback...</source>
-      <translation type="unfinished"/>
+      <translation>Dėkojame už jūsų atsiliepimą...</translation>
     </message>
     <message>
       <source>Please complete this short evaluation survey</source>
-      <translation type="unfinished"/>
+      <translation>Prašome užpildyti šią trumpą vertinimo apklausą</translation>
     </message>
   </context>
   <context>
@@ -7191,7 +7207,7 @@
     </message>
     <message>
       <source>Empty...</source>
-      <translation type="unfinished"/>
+      <translation>Tuščia...</translation>
     </message>
     <message>
       <source>Invalid CSRF token!</source>
@@ -7689,6 +7705,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Feedback text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Max stars for feedback</source>
       <translation type="unfinished"/>
     </message>
@@ -7722,6 +7742,10 @@
     <message>
       <source>Download file</source>
       <translation>Parsisiųsti failą</translation>
+    </message>
+    <message>
+      <source>Collected survey data</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -8079,7 +8103,7 @@
     <name>chat/refreshcustomfields</name>
     <message>
       <source>Data refreshed</source>
-      <translation type="unfinished"/>
+      <translation>Duomenys įkelti iš naujo</translation>
     </message>
   </context>
   <context>

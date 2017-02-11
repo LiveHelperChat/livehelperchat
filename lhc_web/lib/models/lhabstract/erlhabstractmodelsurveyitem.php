@@ -61,7 +61,12 @@ class erLhAbstractModelSurveyItem {
 	   switch ($var) {
 	       
 	   	case 'survey':
-	   	       $this->survey = '';
+	   	       $this->survey = false;
+	   	       
+	   	       if ($this->survey_id > 0) {
+	   	           $this->survey = erLhAbstractModelSurvey::fetch($this->survey_id);
+	   	       }
+	   	       
 	   		   return $this->survey;
 	   		break;
 	       

@@ -6,6 +6,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Przez ile dni, od czasu ostatniego wyświetlenia, widżet głosowania ma się nie wyświetlać</translation>
     </message>
@@ -1336,6 +1340,10 @@ pokazywany</translation>
       <translation>Nieprawidłowy kod, lub automatyczne tworzenie jest wyłączone</translation>
     </message>
     <message>
+      <source>Back to chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Switch to widget</source>
       <translation>Przełącz na widget</translation>
     </message>
@@ -1847,6 +1855,10 @@ pokazywany</translation>
     <message>
       <source>Redirect user to another url</source>
       <translation>Przekieruj użytkownika na inny URL</translation>
+    </message>
+    <message>
+      <source>Redirect user to survey</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Choose other than default recognition language</source>
@@ -4002,6 +4014,10 @@ pokazywany</translation>
     </message>
     <message>
       <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat ID</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7690,6 +7706,10 @@ pokazywany</translation>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Feedback text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Max stars for feedback</source>
       <translation type="unfinished"/>
     </message>
@@ -7723,6 +7743,10 @@ pokazywany</translation>
     <message>
       <source>Download file</source>
       <translation>Pobierz plik</translation>
+    </message>
+    <message>
+      <source>Collected survey data</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

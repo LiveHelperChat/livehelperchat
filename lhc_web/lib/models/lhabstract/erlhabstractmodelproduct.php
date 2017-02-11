@@ -3,7 +3,7 @@
  * 
  * @author Remigijus Kiminas
  * 
- * @desc Main chat survey object
+ * @desc Main chat product object
  *
  */
 

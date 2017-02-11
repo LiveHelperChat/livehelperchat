@@ -6,6 +6,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>多少天投票窗口小部件不应扩大后最后的展示</translation>
     </message>
@@ -1335,6 +1339,10 @@
       <translation>無效的哈希或自動創建禁用</translation>
     </message>
     <message>
+      <source>Back to chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Switch to widget</source>
       <translation>开关部件</translation>
     </message>
@@ -1846,6 +1854,10 @@
     <message>
       <source>Redirect user to another url</source>
       <translation>重定向用户到另一个URL地址</translation>
+    </message>
+    <message>
+      <source>Redirect user to survey</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Choose other than default recognition language</source>
@@ -4001,6 +4013,10 @@
     </message>
     <message>
       <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat ID</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7689,6 +7705,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Feedback text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Max stars for feedback</source>
       <translation type="unfinished"/>
     </message>
@@ -7722,6 +7742,10 @@
     <message>
       <source>Download file</source>
       <translation>下载文件</translation>
+    </message>
+    <message>
+      <source>Collected survey data</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

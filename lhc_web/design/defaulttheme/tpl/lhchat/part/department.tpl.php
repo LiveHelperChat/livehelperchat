@@ -1,4 +1,53 @@
-<?php 
+<?php
+
+/**
+ * Products logic
+ */
+if (erLhcoreClassModelChatConfig::fetch('product_enabled_module')->current_value == 1) {
+
+    $filter = array('sort' => 'priority ASC, name ASC');
+    
+    if (isset($input_data->product_id_array) && !empty($input_data->product_id_array)) {
+        $filter['filterin']['id'] = $input_data->product_id_array;
+    }
+    
+    if (isset($input_data->departament_id_array) && !empty($input_data->departament_id_array)) {
+        $filter['filterin']['departament_id'] = $input_data->departament_id_array;
+    }
+    
+    if ($input_data->departament_id > 0) {
+        $filter['filterin']['departament_id'][] = $input_data->departament_id;
+    }
+    
+    $filter['filter']['disabled'] = 0;
+
+    if (erLhcoreClassModelChatConfig::fetch('product_show_departament')->current_value == 0) { 
+        $products = erLhAbstractModelProduct::getList($filter);
+        
+        if (!empty($products)) {
+            $departmentsOptions['hide_department'] = true;
+        }
+        
+    } elseif (erLhcoreClassModelChatConfig::fetch('product_show_departament')->current_value == 1) { ?>
+    <script>
+    $(document).ready(function() {
+        function updateProducts(dep_id) {
+        	$.getJSON("<?php echo erLhcoreClassDesign::baseurl('product/getproducts')?>/" + dep_id + "/<?php echo $input_data->product_id?>", function(data) {
+        		$('#ProductContainer').html(data.result);
+	    	});
+        };        
+        $('#id_DepartamentID').change(function() {	
+        	updateProducts($(this).val());        	
+        });
+        updateProducts($('#id_DepartamentID').find('option:selected').val());          
+    });
+    </script>
+    <?php }
+}
+
+/**
+ * Department logic
+ */
 
 $filter = array('filter' => array('disabled' => 0, 'hidden' => 0));
 

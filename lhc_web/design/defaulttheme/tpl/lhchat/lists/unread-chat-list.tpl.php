@@ -1,5 +1,5 @@
 <?php if (count($chats) > 0) { ?>
-<ul class="no-bullet small-list">
+<ul class="no-bullet fs12">
 	<?php foreach ($chats as $chat) : ?>
 	      <li class="chat-row-<?php echo $chat->id;?>">
 	      <?php if ( !empty($chat->country_code) ) : ?><img src="<?php echo erLhcoreClassDesign::design('images/flags');?>/<?php echo $chat->country_code?>.png" alt="<?php echo htmlspecialchars($chat->country_name)?>" title="<?php echo htmlspecialchars($chat->country_name)?>" /><?php endif; ?>

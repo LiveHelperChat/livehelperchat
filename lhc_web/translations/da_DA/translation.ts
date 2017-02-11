@@ -6,6 +6,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Antal dage afstemnings widget ikke skal udvides efter sidste succesfulde visning</translation>
     </message>
@@ -31,7 +35,7 @@
     </message>
     <message>
       <source>Track online visitors even if there is no online operators</source>
-      <translation type="unfinished"/>
+      <translation>Spor online besøgende selvom der ingen online operatører er</translation>
     </message>
     <message>
       <source>Track users footprint. For this also online visitors tracking should be enabled</source>
@@ -1335,6 +1339,10 @@
       <translation>Ugyldig hash eller automatisk oprettelse er deaktiveret</translation>
     </message>
     <message>
+      <source>Back to chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Switch to widget</source>
       <translation type="unfinished"/>
     </message>
@@ -1845,6 +1853,10 @@
     </message>
     <message>
       <source>Redirect user to another url</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Redirect user to survey</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4001,6 +4013,10 @@
     </message>
     <message>
       <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat ID</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7689,6 +7705,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Feedback text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Max stars for feedback</source>
       <translation type="unfinished"/>
     </message>
@@ -7722,6 +7742,10 @@
     <message>
       <source>Download file</source>
       <translation>Hent filen</translation>
+    </message>
+    <message>
+      <source>Collected survey data</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

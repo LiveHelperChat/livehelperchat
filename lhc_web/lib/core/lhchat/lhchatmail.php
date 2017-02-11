@@ -169,7 +169,7 @@ class erLhcoreClassChatMail {
     	}
     	
     	$mail->FromName = $sendMail->from_name;
-    	$mail->Subject = $sendMail->subject;
+    	$mail->Subject = str_replace(array('{chat_id}'), array($chat->id), $sendMail->subject);
     	
     	if ($sendMail->reply_to != '') {
     		$mail->AddReplyTo($sendMail->reply_to,$sendMail->from_name);
@@ -265,7 +265,7 @@ class erLhcoreClassChatMail {
         	
     	$mail->FromName = $sendMail->from_name;
     	    	
-    	$mail->Subject = str_replace(array('{name}','{department}','{country}','{city}'),array($chat->nick,(string)$chat->department,$chat->country_name,$chat->city),$sendMail->subject);
+    	$mail->Subject = str_replace(array('{name}','{department}','{country}','{city}','{chat_id}'),array($chat->nick,(string)$chat->department,$chat->country_name,$chat->city,$chat->id),$sendMail->subject);
     	$mail->AddReplyTo($chat->email,$chat->nick);
     	
     	$prefillchat = '-'; 
@@ -397,10 +397,12 @@ class erLhcoreClassChatMail {
     	    $additional_data = '';
     	}
     	
+    	$surveyContent = self::getSurveyContent($chat);
+    	    	
     	foreach ($emailRecipient as $receiver) {   
     		$veryfyEmail = 	sha1(sha1($receiver.$secretHash).$secretHash);
-    		$mail->Body = str_replace(array('{user_name}','{chat_id}','{phone}','{name}','{email}','{message}','{additional_data}','{url_request}','{ip}','{department}','{url_accept}','{country}','{city}'), array($chat->user_name,$chat->id,$chat->phone,$chat->nick,$chat->email,$messagesContent,$additional_data,$chat->referrer,erLhcoreClassIPDetect::getIP(),(string)$chat->department,'http://' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('chat/accept').'/'.erLhcoreClassModelChatAccept::generateAcceptLink($chat).'/'.$veryfyEmail.'/'.$receiver,$chat->country_name,$chat->city), $sendMail->content);
-    		$mail->AddAddress( $receiver );    		    		
+    		$mail->Body = str_replace(array('{survey}','{chat_duration}','{waited}','{created}','{user_left}','{user_name}','{chat_id}','{phone}','{name}','{email}','{message}','{additional_data}','{url_request}','{ip}','{department}','{url_accept}','{country}','{city}'), array($surveyContent, ($chat->chat_duration > 0 ? $chat->chat_duration_front : '-'), ($chat->wait_time > 0 ? $chat->wait_time_front : '-'), $chat->time_created_front, ($chat->user_closed_ts > 0 && $chat->user_status == 1 ? $chat->user_closed_ts_front : '-'),$chat->user_name,$chat->id,$chat->phone,$chat->nick,$chat->email,$messagesContent,$additional_data,$chat->referrer,erLhcoreClassIPDetect::getIP(),(string)$chat->department,'http://' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('chat/accept').'/'.erLhcoreClassModelChatAccept::generateAcceptLink($chat).'/'.$veryfyEmail.'/'.$receiver,$chat->country_name,$chat->city), $sendMail->content);
+    		$mail->AddAddress( $receiver );
     		$mail->Send();
     		$mail->ClearAddresses();
     	}
@@ -410,13 +412,51 @@ class erLhcoreClassChatMail {
     		foreach ($recipientsBCC as $receiver) {
     			$receiver = trim($receiver);
     			$veryfyEmail = 	sha1(sha1($receiver.$secretHash).$secretHash);
-    			$mail->Body = str_replace(array('{user_name}','{chat_id}','{phone}','{name}','{email}','{message}','{additional_data}','{url_request}','{ip}','{department}','{url_accept}','{country}','{city}'), array($chat->user_name,$chat->id,$chat->phone,$chat->nick,$chat->email,$messagesContent,$additional_data,$chat->referrer,erLhcoreClassIPDetect::getIP(),(string)$chat->department,'http://' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('chat/accept').'/'.erLhcoreClassModelChatAccept::generateAcceptLink($chat).'/'.$veryfyEmail.'/'.$receiver,$chat->country_name,$chat->city), $sendMail->content);
+    			$mail->Body = str_replace(array('{survey}','{chat_duration}','{waited}','{created}','{user_left}','{user_name}','{chat_id}','{phone}','{name}','{email}','{message}','{additional_data}','{url_request}','{ip}','{department}','{url_accept}','{country}','{city}'), array($surveyContent, ($chat->chat_duration > 0 ? $chat->chat_duration_front : '-'), ($chat->wait_time > 0 ? $chat->wait_time_front : '-'), $chat->time_created_front, ($chat->user_closed_ts > 0 && $chat->user_status == 1 ? $chat->user_closed_ts_front : '-'),$chat->user_name,$chat->id,$chat->phone,$chat->nick,$chat->email,$messagesContent,$additional_data,$chat->referrer,erLhcoreClassIPDetect::getIP(),(string)$chat->department,'http://' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('chat/accept').'/'.erLhcoreClassModelChatAccept::generateAcceptLink($chat).'/'.$veryfyEmail.'/'.$receiver,$chat->country_name,$chat->city), $sendMail->content);
     			$mail->AddAddress( $receiver );
     			$mail->Send();
-    			$mail->ClearAddresses();
-    			
+    			$mail->ClearAddresses();    			
     		}
     	}
+    }
+
+    public static function getSurveyContent($chat)
+    {
+        $surveyContent = '';
+        include (erLhcoreClassDesign::designtpl('lhsurvey/forms/fields_names.tpl.php'));
+        
+        foreach (erLhAbstractModelSurveyItem::getList(array(
+            'filter' => array(
+                'chat_id' => $chat->id
+            )
+        )) as $survey_item) {
+            $survey = $survey_item->survey;
+            $surveyContent .= "[[" . (string) $survey_item->survey . "]]\n";
+            for ($i = 0; $i < 16; $i ++) {
+                foreach ($sortOptions as $keyOption => $sortOption) {
+                    if ($survey->{$keyOption . '_pos'} == $i && $survey->{$keyOption . '_enabled'} == 1) {
+                        if ($sortOption['type'] == 'stars') {
+                            $surveyContent .= "\n==" . $survey->{$sortOption['field'] . '_title'} . "==\n";
+                            $surveyContent .= $survey_item->{$sortOption['field']} . "\n";
+                        } elseif ($sortOption['type'] == 'question') {
+                            $surveyContent .= "\n==" . $survey->{$sortOption['field']} . "==\n";
+                            $surveyContent .= $survey_item->{$sortOption['field']} . "\n";
+                        } elseif ($sortOption['type'] == 'question_options') {
+                            $surveyContent .= "\n==" . $survey->{$sortOption['field']} . "==\n";
+                            $options = $survey->{$sortOption['field'] . '_items_front'};
+                            if (isset($options[$survey_item->{$sortOption['field']} - 1])) {
+                                $surveyContent .= $options[$survey_item->{$sortOption['field']} - 1]['option'] . "\n";
+                            } else {
+                                $surveyContent .= $survey_item->{$sortOption['field']} . "\n";
+                            }
+                        }
+                    }
+                }
+            }
+            $surveyContent .= "===========================\n";
+        }
+        
+        return $surveyContent == '' ? '-' : $surveyContent;
     }
     
     public static function informFormFilled($formCollected, $params = array()) {
@@ -531,7 +571,7 @@ class erLhcoreClassChatMail {
         }
 
         $mail->FromName = $sendMail->from_name;
-        $mail->Subject = $sendMail->subject;
+        $mail->Subject = str_replace(array('{chat_id}'), array($chat->id), $sendMail->subject);;
 
         if($sendMail->from_name == '{chat_nick}' && $chat->nick != '') {
             $mail->FromName = $chat->nick;
@@ -549,16 +589,24 @@ class erLhcoreClassChatMail {
     	}
     	
     	$emailRecipient = array();
+    	$emailRecipientAll = array();
+    	    	    	    
+    	if ($chat->department !== false && $chat->department->inform_close_all == 1 && $chat->department->inform_close_all_email != '') {
+    	    $emailRecipientAll = explode(',', $chat->department->inform_close_all_email);
+    	}
+    	    	
     	if ($sendMail->recipient != '') { // This time we give priority to template recipients
     		$emailRecipient = explode(',',$sendMail->recipient);    		
-    	}elseif ($chat->department !== false && $chat->department->email != '') {    			
+    	} elseif ($chat->department !== false && $chat->department->email != '' && $chat->department->inform_close == 1) {    			
     		$emailRecipient = explode(',',$chat->department->email);    		
-    	} else { // Lets find first user and send him an e-mail
+    	} elseif (empty($emailRecipientAll)) { // Lets find first user and send him an e-mail
     		$list = erLhcoreClassModelUser::getUserList(array('limit' => 1,'sort' => 'id ASC'));
     		$user = array_pop($list);
     		$emailRecipient = array($user->email);
     	}
     	
+    	$emailRecipient = array_unique(array_merge($emailRecipient,$emailRecipientAll));
+
     	self::setupSMTP($mail);
     	
     	$cfgSite = erConfigClassLhConfig::getInstance();
@@ -586,9 +634,11 @@ class erLhcoreClassChatMail {
     	    $additional_data = '';
     	}
     	
+    	$surveyContent = self::getSurveyContent($chat);
+
     	foreach ($emailRecipient as $receiver) {   
     		$veryfyEmail = 	sha1(sha1($receiver.$secretHash).$secretHash);
-    		$mail->Body = str_replace(array('{chat_id}','{phone}','{name}','{email}','{message}','{additional_data}','{url_request}','{ip}','{department}','{url_accept}','{operator}','{country}','{city}'), array($chat->id,$chat->phone,$chat->nick,$chat->email,$messagesContent,$additional_data,$chat->referrer,$chat->ip,(string)$chat->department,(isset($_SERVER['HTTP_HOST'])) ? 'http://' . $_SERVER['HTTP_HOST'] : erLhcoreClassModelChatConfig::fetch('customer_site_url')->current_value . erLhcoreClassDesign::baseurl('chat/accept').'/'.erLhcoreClassModelChatAccept::generateAcceptLink($chat).'/'.$veryfyEmail.'/'.$receiver,$operator,$chat->country_name,$chat->city), $sendMail->content);
+    		$mail->Body = str_replace(array('{survey}','{chat_duration}','{waited}','{created}','{user_left}','{chat_id}','{phone}','{name}','{email}','{message}','{additional_data}','{url_request}','{ip}','{department}','{url_accept}','{operator}','{country}','{city}'), array($surveyContent,($chat->chat_duration > 0 ? $chat->chat_duration_front : '-'), ($chat->wait_time > 0 ? $chat->wait_time_front : '-'), $chat->time_created_front, ($chat->user_closed_ts > 0 && $chat->user_status == 1 ? $chat->user_closed_ts_front : '-'),$chat->id,$chat->phone,$chat->nick,$chat->email,$messagesContent,$additional_data,$chat->referrer,$chat->ip,(string)$chat->department,(isset($_SERVER['HTTP_HOST'])) ? 'http://' . $_SERVER['HTTP_HOST'] : erLhcoreClassModelChatConfig::fetch('customer_site_url')->current_value . erLhcoreClassDesign::baseurl('chat/accept').'/'.erLhcoreClassModelChatAccept::generateAcceptLink($chat).'/'.$veryfyEmail.'/'.$receiver,$operator,$chat->country_name,$chat->city), $sendMail->content);
     		$mail->AddAddress( $receiver );    		    		
     		$mail->Send();
     		$mail->ClearAddresses();
@@ -599,7 +649,7 @@ class erLhcoreClassChatMail {
     		foreach ($recipientsBCC as $receiver) {    			
     			$receiver = trim($receiver);
     			$veryfyEmail = 	sha1(sha1($receiver.$secretHash).$secretHash);
-	    		$mail->Body = str_replace(array('{chat_id}','{phone}','{name}','{email}','{message}','{additional_data}','{url_request}','{ip}','{department}','{url_accept}','{operator}','{country}','{city}'), array($chat->id,$chat->phone,$chat->nick,$chat->email,$messagesContent,$additional_data,$chat->referrer,$chat->ip,(string)$chat->department,(isset($_SERVER['HTTP_HOST'])) ? 'http://' . $_SERVER['HTTP_HOST'] : erLhcoreClassModelChatConfig::fetch('customer_site_url')->current_value . erLhcoreClassDesign::baseurl('chat/accept').'/'.erLhcoreClassModelChatAccept::generateAcceptLink($chat).'/'.$veryfyEmail.'/'.$receiver,$operator,$chat->country_name,$chat->city), $sendMail->content);
+	    		$mail->Body = str_replace(array('{survey}','{chat_duration}','{waited}','{created}','{user_left}','{chat_id}','{phone}','{name}','{email}','{message}','{additional_data}','{url_request}','{ip}','{department}','{url_accept}','{operator}','{country}','{city}'), array($surveyContent,($chat->chat_duration > 0 ? $chat->chat_duration_front : '-'), ($chat->wait_time > 0 ? $chat->wait_time_front : '-'), $chat->time_created_front, ($chat->user_closed_ts > 0 && $chat->user_status == 1 ? $chat->user_closed_ts_front : '-'),$chat->id,$chat->phone,$chat->nick,$chat->email,$messagesContent,$additional_data,$chat->referrer,$chat->ip,(string)$chat->department,(isset($_SERVER['HTTP_HOST'])) ? 'http://' . $_SERVER['HTTP_HOST'] : erLhcoreClassModelChatConfig::fetch('customer_site_url')->current_value . erLhcoreClassDesign::baseurl('chat/accept').'/'.erLhcoreClassModelChatAccept::generateAcceptLink($chat).'/'.$veryfyEmail.'/'.$receiver,$operator,$chat->country_name,$chat->city), $sendMail->content);
 	    		$mail->AddAddress( $receiver );    		    		
 	    		$mail->Send();
 	    		$mail->ClearAddresses();    			 

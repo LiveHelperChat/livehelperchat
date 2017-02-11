@@ -345,13 +345,70 @@ class erLhcoreClassChatValidator {
 
                 try {
                     $product = erLhAbstractModelProduct::fetch($chat->product_id);
-                    $chat->dep_id = $product->departament_id;                                        
+                    
+                    if (erLhcoreClassModelChatConfig::fetch('product_show_departament')->current_value == 0) {
+                        $chat->dep_id = $product->departament_id;   
+                    } else {
+                        if ($form->hasValidData( 'DepartamentID' ) && erLhcoreClassModelDepartament::getCount(array('filter' => array('id' => $form->DepartamentID, 'disabled' => 0))) > 0) {
+                            $chat->dep_id = $form->DepartamentID;
+                        } else {
+                            $Errors['department'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please choose department!');
+                        }
+                    }
+                    
                 } catch (Exception $e) {
                     $Errors['ProductID'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Could not find a product!');
                 }
 
             } else {
-                $Errors['ProductID'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please choose a product!');
+                
+                if (erLhcoreClassModelChatConfig::fetch('product_show_departament')->current_value == 1) {
+                    
+                    if ($form->hasValidData( 'DepartamentID' ) && erLhcoreClassModelDepartament::getCount(array('filter' => array('id' => $form->DepartamentID, 'disabled' => 0))) > 0) {
+                        $chat->dep_id = $form->DepartamentID;
+                    } elseif ($form->hasValidData( 'DepartamentID' ) && $form->DepartamentID == -1) {
+                        $chat->dep_id == 0;
+                    
+                        if (isset($additionalParams['theme']) && $additionalParams['theme'] !== false && $additionalParams['theme']->department_title != '') {
+                            $Errors['department'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please choose').' '.htmlspecialchars($additionalParams['theme']->department_title).'!';
+                        } else {
+                            $Errors['department'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please choose department!');
+                        }
+                    
+                    } elseif ($chat->dep_id == 0 || erLhcoreClassModelDepartament::getCount(array('filter' => array('id' => $chat->dep_id,'disabled' => 0))) == 0) {
+                    
+                        // Perhaps extension overrides default department?
+                        $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.validate_department', array('input_form' => $inputForm));
+                    
+                        // There was no callbacks or file not found etc, we try to download from standard location
+                        if ($response === false) {
+                            $departments = erLhcoreClassModelDepartament::getList(array('limit' => 1,'filter' => array('disabled' => 0)));
+                            if (!empty($departments) ) {
+                                $department = array_shift($departments);
+                                $chat->dep_id = $department->id;
+                            } else {
+                                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Could not determine a default department!');
+                            }
+                        } else {
+                            $chat->dep_id = $response['department_id'];
+                        }
+                    }
+                    
+                    // Is product required or not?
+                    if ( $chat->dep_id > 0 ) {
+                        try {
+                            $dep = erLhcoreClassModelDepartament::fetch($chat->dep_id);
+                            if (isset($dep->product_configuration_array['products_enabled']) && $dep->product_configuration_array['products_enabled'] == 1 && isset($dep->product_configuration_array['products_required']) && $dep->product_configuration_array['products_required'] == 1) {
+                                $Errors['ProductID'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please choose a product!');
+                            }
+                        } catch (Exception $e) {
+                            
+                        }
+                    }
+
+                } else {
+                    $Errors['ProductID'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please choose a product!');
+                }
             }
 
         } else {

@@ -181,6 +181,21 @@ $def->properties['sort_priority']->columnName   = 'sort_priority';
 $def->properties['sort_priority']->propertyName = 'sort_priority';
 $def->properties['sort_priority']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['inform_close_all'] = new ezcPersistentObjectProperty();
+$def->properties['inform_close_all']->columnName   = 'inform_close_all';
+$def->properties['inform_close_all']->propertyName = 'inform_close_all';
+$def->properties['inform_close_all']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['inform_close_all_email'] = new ezcPersistentObjectProperty();
+$def->properties['inform_close_all_email']->columnName   = 'inform_close_all_email';
+$def->properties['inform_close_all_email']->propertyName = 'inform_close_all_email';
+$def->properties['inform_close_all_email']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['product_configuration'] = new ezcPersistentObjectProperty();
+$def->properties['product_configuration']->columnName   = 'product_configuration';
+$def->properties['product_configuration']->propertyName = 'product_configuration';
+$def->properties['product_configuration']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 return $def;
 
 ?>
