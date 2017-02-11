@@ -169,7 +169,7 @@ class erLhcoreClassChatMail {
     	}
     	
     	$mail->FromName = $sendMail->from_name;
-    	$mail->Subject = $sendMail->subject;
+    	$mail->Subject = str_replace(array('{chat_id}'), array($chat->id), $sendMail->subject);
     	
     	if ($sendMail->reply_to != '') {
     		$mail->AddReplyTo($sendMail->reply_to,$sendMail->from_name);
@@ -265,7 +265,7 @@ class erLhcoreClassChatMail {
         	
     	$mail->FromName = $sendMail->from_name;
     	    	
-    	$mail->Subject = str_replace(array('{name}','{department}','{country}','{city}'),array($chat->nick,(string)$chat->department,$chat->country_name,$chat->city),$sendMail->subject);
+    	$mail->Subject = str_replace(array('{name}','{department}','{country}','{city}','{chat_id}'),array($chat->nick,(string)$chat->department,$chat->country_name,$chat->city,$chat->id),$sendMail->subject);
     	$mail->AddReplyTo($chat->email,$chat->nick);
     	
     	$prefillchat = '-'; 
@@ -531,7 +531,7 @@ class erLhcoreClassChatMail {
         }
 
         $mail->FromName = $sendMail->from_name;
-        $mail->Subject = $sendMail->subject;
+        $mail->Subject = str_replace(array('{chat_id}'), array($chat->id), $sendMail->subject);;
 
         if($sendMail->from_name == '{chat_nick}' && $chat->nick != '') {
             $mail->FromName = $chat->nick;
