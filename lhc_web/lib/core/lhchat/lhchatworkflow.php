@@ -230,7 +230,7 @@ class erLhcoreClassChatWorkflow {
     			$chat->updateThis();
 
                 erLhcoreClassChat::closeChatCallback($chat, $chat->user);
-                
+                                
     			erLhcoreClassChat::updateActiveChats($chat->user_id);
     			
     			$closedChatsNumber++;

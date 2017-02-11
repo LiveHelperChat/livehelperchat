@@ -85,6 +85,11 @@ $instance->Language = $optionsSiteAccess['locale'];
 $instance->ThemeSite = $optionsSiteAccess['theme'];
 $instance->WWWDirLang = '/'.$helpOption->value;
 
+erLhcoreClassModule::$defaultTimeZone = $cfgSite->getSetting('site', 'time_zone', false);
+erLhcoreClassModule::$dateFormat = $cfgSite->getSetting('site', 'date_format', false);
+erLhcoreClassModule::$dateHourFormat = $cfgSite->getSetting('site', 'date_hour_format', false);
+erLhcoreClassModule::$dateDateHourFormat = $cfgSite->getSetting('site', 'date_date_hour_format', false);
+
 // Attatch extensions events listeners
 erLhcoreClassModule::attatchExtensionListeners();
 
