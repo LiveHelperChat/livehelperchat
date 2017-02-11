@@ -191,6 +191,11 @@ $def->properties['inform_close_all_email']->columnName   = 'inform_close_all_ema
 $def->properties['inform_close_all_email']->propertyName = 'inform_close_all_email';
 $def->properties['inform_close_all_email']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['product_configuration'] = new ezcPersistentObjectProperty();
+$def->properties['product_configuration']->columnName   = 'product_configuration';
+$def->properties['product_configuration']->propertyName = 'product_configuration';
+$def->properties['product_configuration']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 return $def;
 
 ?>

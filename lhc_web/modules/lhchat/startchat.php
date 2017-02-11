@@ -233,6 +233,11 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
    			exit('Chat not available in your country');
    		}
    		
+   		// Because product can have different department than selected product, we reasign chat to correct department if required
+   		if ($chat->product_id > 0) {
+   		    $chat->dep_id = $chat->product->departament_id;
+   		}
+   		
    		if ( (isset($additionalParams['offline']) && $additionalParams['offline'] == true) || $statusGeoAdjustment['status'] == 'offline') {
 	   		
    		    $attributePresend = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_offline_request_presend',array(

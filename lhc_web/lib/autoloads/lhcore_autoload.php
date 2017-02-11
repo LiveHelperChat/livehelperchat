@@ -110,6 +110,7 @@ return array_merge(array (
 		'erLhcoreClassThemeValidator'  			    => 'lib/core/lhtheme/lhthemevalidator.php',
 
 		'erLhAbstractModelProduct'  			    => 'lib/models/lhabstract/erlhabstractmodelproduct.php',
+		'erLhAbstractModelProductDepartament'  		=> 'lib/models/lhabstract/erlhabstractmodelproductdepartament.php',
 		'erLhAbstractModelRestAPIKey'  			    => 'lib/models/lhabstract/erlhabstractmodelrestapikey.php',
 
 		'erLhcoreClassFormRenderer'  		=> 'lib/core/lhform/lhformrenderer.php',

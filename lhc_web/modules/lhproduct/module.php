@@ -10,6 +10,10 @@ $ViewList['index'] = array(
     'functions' => array( 'administratethemes' )
 );
 
+$ViewList['getproducts'] = array(
+    'params' => array('id','product_id')
+);
+
 $FunctionList['manage_product'] = array('explain' =>'Allow users to maintain themes');
 
 ?>

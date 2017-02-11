@@ -115,6 +115,15 @@ class erLhcoreClassDepartament{
 	   			'inform_close_all_email' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'string'
 	   			),
+	   			'DepartamentProducts' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'int', null, FILTER_REQUIRE_ARRAY
+	   			),
+	   			'products_enabled' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	   			),
+	   			'products_required' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	   			),
 	   	);
 
         foreach (self::getWeekDays() as $dayShort => $dayLong) {
@@ -310,7 +319,24 @@ class erLhcoreClassDepartament{
 	   	} else {
 	   		$department->online_hours_active = 0;
 	   	}
-	   		   	
+
+	   	$productsConfiguration = array();
+	   	
+	   	if ( $form->hasValidData( 'products_enabled' ) && $form->products_enabled === true ) {
+	   		$productsConfiguration['products_enabled'] = 1;
+	   	} else {
+	   		$productsConfiguration['products_enabled'] = 0;
+	   	}
+	   	
+	   	if ( $form->hasValidData( 'products_required' ) && $form->products_required === true ) {
+	   		$productsConfiguration['products_required'] = 1;
+	   	} else {
+	   		$productsConfiguration['products_required'] = 0;
+	   	}
+	   	
+	   	$department->product_configuration_array = $productsConfiguration;
+	   	$department->product_configuration = json_encode($productsConfiguration);
+	   	
 	   	if ( $form->hasValidData( 'inform_options' ) ) {
 	   		$department->inform_options = serialize($form->inform_options);
 	   		$department->inform_options_array = $form->inform_options;
@@ -371,9 +397,34 @@ class erLhcoreClassDepartament{
                $department->$key = -1;
            }
        }
-	   	
-	   	return $Errors;
-   	
+       
+       if ( $form->hasValidData( 'DepartamentProducts' ) && !empty($form->DepartamentProducts)) {
+           $department->departament_products_id = $form->DepartamentProducts;
+       } else {
+           $department->departament_products_id = array();
+       }
+       
+	   return $Errors;   	
+   }
+
+   public static function validateDepartmentProducts(erLhcoreClassModelDepartament $departament)
+   {
+       /**
+        * Remove old
+        */
+       $db = ezcDbInstance::get();
+       $stmt = $db->prepare('DELETE FROM lh_abstract_product_departament WHERE departament_id = :departament_id');
+       $stmt->bindValue(':departament_id',$departament->id,PDO::PARAM_INT);
+       $stmt->execute();
+       
+       if (is_array($departament->departament_products_id)) {
+           foreach ($departament->departament_products_id as $id) {
+               $item = new erLhAbstractModelProductDepartament();
+               $item->product_id = $id;
+               $item->departament_id = $departament->id;
+               $item->saveThis();
+           }
+       }       
    }
 
     /**
