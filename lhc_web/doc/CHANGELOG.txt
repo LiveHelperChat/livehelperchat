@@ -1,3 +1,13 @@
+2.54v
+
+1. If pending chat is assigned to any operator, it's name will be shown.
+2. Reduced font size of lists in right column
+3. New variables for templates content {survey}, {chat_duration}, {waited}, {created}, {user_left}
+4. If chat is automatically closed it will be unmarked as unread
+5. Survey results also will be seen in survey popup which are called in chat window directly.
+
+execute doc/update_db/update_129.sql for update
+
 2.53v
 
 1. Option to transfer chat to another operator directly with !transferforce command

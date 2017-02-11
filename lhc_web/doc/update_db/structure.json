@@ -652,6 +652,32 @@
                 "extra": ""
             }
         ],
+        "lh_abstract_product_departament": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "product_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": "0",
+                "extra": ""
+            },
+            {
+                "field": "departament_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": "0",
+                "extra": ""
+            }
+        ],
         "lh_chat_paid": [
             {
                 "field": "id",
@@ -6435,6 +6461,7 @@
     	}
     },
     "tables_create": {
+    	"lh_abstract_product_departament" : "CREATE TABLE `lh_abstract_product_departament` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `product_id` int(11) NOT NULL,  `departament_id` int(11) NOT NULL,  PRIMARY KEY (`id`),  KEY `departament_id` (`departament_id`)) DEFAULT CHARSET=utf8;",
     	"lh_admin_theme" : "CREATE TABLE `lh_admin_theme` ( `id` int(11) NOT NULL AUTO_INCREMENT, `name` varchar(100) NOT NULL, `static_content` longtext NOT NULL, `static_js_content` longtext NOT NULL, `static_css_content` longtext NOT NULL, `header_content` text NOT NULL, `header_css` text NOT NULL, PRIMARY KEY (`id`)) DEFAULT CHARSET=utf8;",
     	"lh_abstract_product" : "CREATE TABLE `lh_abstract_product` (`id` int(11) NOT NULL AUTO_INCREMENT, `name` varchar(250) NOT NULL, `priority` int(11) NOT NULL, `departament_id` int(11) NOT NULL, `disabled` int(11) NOT NULL, KEY `departament_id` (`departament_id`), PRIMARY KEY (`id`)) DEFAULT CHARSET=utf8;",
     	"lh_abstract_survey" : "CREATE TABLE `lh_abstract_survey` (`id` int(11) NOT NULL AUTO_INCREMENT,`name` varchar(250) NOT NULL,`max_stars_1_title` varchar(250) NOT NULL,`max_stars_1_pos` int(11) NOT NULL,`max_stars_2_title` varchar(250) NOT NULL,`max_stars_2_pos` int(11) NOT NULL,`max_stars_2` int(11) NOT NULL,`max_stars_3_title` varchar(250) NOT NULL,`max_stars_3_pos` int(11) NOT NULL,`max_stars_3` int(11) NOT NULL,`max_stars_4_title` varchar(250) NOT NULL,`max_stars_4_pos` int(11) NOT NULL,`max_stars_4` int(11) NOT NULL,`max_stars_5_title` varchar(250) NOT NULL,`max_stars_5_pos` int(11) NOT NULL,`max_stars_5` int(11) NOT NULL,`question_options_1` varchar(250) NOT NULL,`question_options_1_items` text NOT NULL,`question_options_1_pos` int(11) NOT NULL,`question_options_2` varchar(250) NOT NULL,`question_options_2_items` text NOT NULL,`question_options_2_pos` int(11) NOT NULL,`question_options_3` varchar(250) NOT NULL,`question_options_3_items` text NOT NULL,`question_options_3_pos` int(11) NOT NULL,`question_options_4` varchar(250) NOT NULL,`question_options_4_items` text NOT NULL,`question_options_4_pos` int(11) NOT NULL,`question_options_5` varchar(250) NOT NULL,`question_options_5_items` text NOT NULL,`question_options_5_pos` int(11) NOT NULL,`question_plain_1` text NOT NULL,`question_plain_1_pos` int(11) NOT NULL,`question_plain_2` text NOT NULL,`question_plain_2_pos` int(11) NOT NULL,`question_plain_3` text NOT NULL,`question_plain_3_pos` int(11) NOT NULL,`question_plain_4` text NOT NULL,`question_plain_4_pos` int(11) NOT NULL,`question_plain_5` text NOT NULL,`question_plain_5_pos` int(11) NOT NULL,`max_stars_1_enabled` int(11) NOT NULL, `max_stars_2_enabled` int(11) NOT NULL,  `max_stars_3_enabled` int(11) NOT NULL,  `max_stars_4_enabled` int(11) NOT NULL,  `max_stars_5_enabled` int(11) NOT NULL,  `question_options_1_enabled` int(11) NOT NULL,  `question_options_2_enabled` int(11) NOT NULL,  `question_options_3_enabled` int(11) NOT NULL,  `question_options_4_enabled` int(11) NOT NULL,  `question_options_5_enabled` int(11) NOT NULL,  `question_plain_1_enabled` int(11) NOT NULL,  `question_plain_2_enabled` int(11) NOT NULL,  `question_plain_3_enabled` int(11) NOT NULL,  `question_plain_4_enabled` int(11) NOT NULL,  `question_plain_5_enabled` int(11) NOT NULL,  `max_stars_1` int(11) NOT NULL,  `max_stars_1_req` int(11) NOT NULL,  `max_stars_2_req` int(11) NOT NULL,  `max_stars_3_req` int(11) NOT NULL,  `max_stars_4_req` int(11) NOT NULL,  `max_stars_5_req` int(11) NOT NULL,  `question_options_1_req` int(11) NOT NULL,  `question_options_2_req` int(11) NOT NULL,  `question_options_3_req` int(11) NOT NULL,  `question_options_4_req` int(11) NOT NULL,  `question_options_5_req` int(11) NOT NULL,  `question_plain_1_req` int(11) NOT NULL,  `question_plain_2_req` int(11) NOT NULL,  `question_plain_3_req` int(11) NOT NULL,`question_plain_4_req` int(11) NOT NULL,`question_plain_5_req` int(11) NOT NULL, PRIMARY KEY (`id`)) DEFAULT CHARSET=utf8",

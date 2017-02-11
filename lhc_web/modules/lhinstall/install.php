@@ -1152,8 +1152,6 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	      KEY `dep_id` (`dep_id`)
 				) DEFAULT CHARSET=utf8;");
         	   
-        	
-        	   
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_accept` (
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
         	   `chat_id` int(11) NOT NULL,
@@ -1237,21 +1235,29 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   PRIMARY KEY (`id`),
                   KEY `dep_group_id` (`dep_group_id`),
                   KEY `user_id` (`user_id`)
-                ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
-
+                ) DEFAULT CHARSET=utf8;");
+        	           	   
+        	   $db->query("CREATE TABLE `lh_abstract_product_departament` (
+        	       `id` int(11) NOT NULL AUTO_INCREMENT,
+        	       `product_id` int(11) NOT NULL,
+        	       `departament_id` int(11) NOT NULL,
+        	       PRIMARY KEY (`id`),
+        	       KEY `departament_id` (`departament_id`)
+        	   ) DEFAULT CHARSET=utf8;");
+        	   
         	   $db->query("CREATE TABLE `lh_departament_group_member` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
                   `dep_id` int(11) NOT NULL,
                   `dep_group_id` int(11) NOT NULL,
                   PRIMARY KEY (`id`),
                   KEY `dep_group_id` (`dep_group_id`)
-                ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
+                ) DEFAULT CHARSET=utf8;");
 
         	   $db->query("CREATE TABLE `lh_departament_group` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
                   `name` varchar(50) NOT NULL,
                   PRIMARY KEY (`id`)
-                ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
+                ) DEFAULT CHARSET=utf8;");
         	   
         	   $Departament = new erLhcoreClassModelDepartament();
                $Departament->name = $form->DefaultDepartament;
