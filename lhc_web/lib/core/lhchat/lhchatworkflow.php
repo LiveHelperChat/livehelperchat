@@ -229,13 +229,13 @@ class erLhcoreClassChatWorkflow {
     			
     			$chat->updateThis();
 
-                erLhcoreClassChat::closeChatCallback($chat,$chat->user);
-    			
+                erLhcoreClassChat::closeChatCallback($chat, $chat->user);
+                
     			erLhcoreClassChat::updateActiveChats($chat->user_id);
-
+    			
     			$closedChatsNumber++;
 	    	}
-	    	
+	    		    	
 	    	// Close pending chats where the only message is user initial message
 	    	foreach (erLhcoreClassChat::getList(array('limit' => 500,'filterlt' => array('time' => $delay), 'filterin' => array('status' => array(erLhcoreClassModelChat::STATUS_PENDING_CHAT, erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)),'filter' => array('last_user_msg_time' => 0))) as $chat) {
 	    	    $chat->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
@@ -255,7 +255,7 @@ class erLhcoreClassChatWorkflow {
 	    	     
 	    	    $chat->updateThis();
 
-                erLhcoreClassChat::closeChatCallback($chat,$chat->user);
+                erLhcoreClassChat::closeChatCallback($chat, $chat->user);
 
 	    	    erLhcoreClassChat::updateActiveChats($chat->user_id);
 

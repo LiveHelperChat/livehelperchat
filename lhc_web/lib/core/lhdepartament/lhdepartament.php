@@ -109,6 +109,12 @@ class erLhcoreClassDepartament{
 	   			'inform_options' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'string', null, FILTER_REQUIRE_ARRAY
 	   			),
+	   			'inform_close_all' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	   			),
+	   			'inform_close_all_email' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'string'
+	   			),
 	   	);
 
         foreach (self::getWeekDays() as $dayShort => $dayLong) {
@@ -255,6 +261,18 @@ class erLhcoreClassDepartament{
 	   		$department->inform_close = 0;
 	   	}
 	   		   	
+	   	if ( $form->hasValidData( 'inform_close_all' ) && $form->inform_close_all === true ) {
+	   		$department->inform_close_all = 1;
+	   	} else {
+	   		$department->inform_close_all = 0;
+	   	}
+	   		   	
+	   	if ( $form->hasValidData( 'inform_close_all_email' ) ) {
+	   		$department->inform_close_all_email = $form->inform_close_all_email;
+	   	} else {
+	   		$department->inform_close_all_email = '';
+	   	}
+
 	   	if ( $form->hasValidData( 'inform_unread' ) && $form->inform_unread === true ) {
 	   		$department->inform_unread = 1;
 	   	} else {

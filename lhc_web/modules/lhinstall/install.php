@@ -1210,6 +1210,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `active_chats_counter` int(11) NOT NULL,
 				  `pending_chats_counter` int(11) NOT NULL,
 				  `closed_chats_counter` int(11) NOT NULL,
+				  `inform_close_all` int(11) NOT NULL,
+				  `inform_close_all_email` varchar(250) NOT NULL,
 				  PRIMARY KEY (`id`),
 				  KEY `identifier` (`identifier`),
 				  KEY `attr_int_1` (`attr_int_1`),

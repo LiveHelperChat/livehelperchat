@@ -32,6 +32,8 @@ class erLhcoreClassModelDepartament {
                'inform_options'    		=> $this->inform_options,
                'inform_delay'    		=> $this->inform_delay,
                'inform_close'    		=> $this->inform_close,
+               'inform_close_all'    	=> $this->inform_close_all,
+               'inform_close_all_email' => $this->inform_close_all_email,
                'online_hours_active'    => $this->online_hours_active,
                'disabled'    			=> $this->disabled,
                'hidden'    				=> $this->hidden,
@@ -315,6 +317,8 @@ class erLhcoreClassModelDepartament {
     public $attr_int_2 = 0;
     public $attr_int_3 = 0;
     public $visible_if_online = 0;
+    public $inform_close_all = 0;
+    public $inform_close_all_email = '';
     
     public $active_chats_counter = 0;
     public $pending_chats_counter = 0;

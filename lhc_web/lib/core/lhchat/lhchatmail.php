@@ -549,16 +549,24 @@ class erLhcoreClassChatMail {
     	}
     	
     	$emailRecipient = array();
+    	$emailRecipientAll = array();
+    	    	    	    
+    	if ($chat->department !== false && $chat->department->inform_close_all == 1 && $chat->department->inform_close_all_email != '') {
+    	    $emailRecipientAll = explode(',', $chat->department->inform_close_all_email);
+    	}
+    	    	
     	if ($sendMail->recipient != '') { // This time we give priority to template recipients
     		$emailRecipient = explode(',',$sendMail->recipient);    		
-    	}elseif ($chat->department !== false && $chat->department->email != '') {    			
+    	} elseif ($chat->department !== false && $chat->department->email != '' && $chat->department->inform_close == 1) {    			
     		$emailRecipient = explode(',',$chat->department->email);    		
-    	} else { // Lets find first user and send him an e-mail
+    	} elseif (empty($emailRecipientAll)) { // Lets find first user and send him an e-mail
     		$list = erLhcoreClassModelUser::getUserList(array('limit' => 1,'sort' => 'id ASC'));
     		$user = array_pop($list);
     		$emailRecipient = array($user->email);
     	}
     	
+    	$emailRecipient = array_unique(array_merge($emailRecipient,$emailRecipientAll));
+
     	self::setupSMTP($mail);
     	
     	$cfgSite = erConfigClassLhConfig::getInstance();

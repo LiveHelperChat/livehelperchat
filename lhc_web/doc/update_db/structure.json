@@ -3942,6 +3942,22 @@
                 "key": "",
                 "default": 0,
                 "extra": ""
+            },
+            {
+                "field": "inform_close_all",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": 0,
+                "extra": ""
+            },
+            {
+                "field": "inform_close_all_email",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": 0,
+                "extra": ""
             }
         ],
         "lh_departament_custom_work_hours": [

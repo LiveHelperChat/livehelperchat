@@ -1139,7 +1139,7 @@ class erLhcoreClassChat {
 	   	    self::updateDepartmentStats($dep);
 	   	}
 	   	
-	   	if ( $dep !== false && $dep->inform_close == 1) {
+	   	if ( $dep !== false && ($dep->inform_close == 1 || $dep->inform_close_all == 1)) {
 	   		erLhcoreClassChatMail::informChatClosed($chat, $operator);
 	   	}
    }
