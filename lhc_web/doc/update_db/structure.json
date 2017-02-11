@@ -5619,6 +5619,13 @@
                 "hidden": "0"
             },
             {
+                "identifier": "product_show_departament",
+                "value": "0",
+                "type": "0",
+                "explain": "Enable products show by departments",
+                "hidden": "1"
+            },
+            {
                 "identifier": "suggest_leave_msg",
                 "value": "1",
                 "type": "0",
