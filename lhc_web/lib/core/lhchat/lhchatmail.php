@@ -346,10 +346,13 @@ class erLhcoreClassChatMail {
     	
     	$mail->FromName = $sendMail->from_name;
     	
-    	if ($chat->email != '') {    		
+    	if ($sendMail->reply_to != '') {
+    	    $mail->AddReplyTo($sendMail->reply_to,$sendMail->from_name);
+    	} elseif ($chat->email != '') {    		
     		$mail->AddReplyTo($chat->email,$chat->nick);
     	}
-    	  	
+
+    	
     	$mail->Subject = str_replace(array('{chat_id}'), array($chat->id), $sendMail->subject);
     	   	    	
     	$messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 10,'sort' => 'id DESC','filter' => array('chat_id' => $chat->id))));
@@ -612,7 +615,9 @@ class erLhcoreClassChatMail {
     	$cfgSite = erConfigClassLhConfig::getInstance();
     	$secretHash = $cfgSite->getSetting( 'site', 'secrethash' );
     	
-    	if ($chat->email != '') {    	
+    	if ($sendMail->reply_to != '') {
+    	    $mail->AddReplyTo($sendMail->reply_to,$sendMail->from_name);
+    	} elseif ($chat->email != '') {    	
     		$mail->AddReplyTo($chat->email, $chat->nick);
     	}
     	
