@@ -59,7 +59,7 @@ class erLhcoreClassDepartament{
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'int'
 	   			),
 	   			'TansferDepartmentID' => new ezcInputFormDefinitionElement(
-	   					ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1)
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
 	   			),
 	   			'TransferTimeout' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 5)
