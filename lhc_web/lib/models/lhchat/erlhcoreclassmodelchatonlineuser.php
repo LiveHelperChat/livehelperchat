@@ -584,7 +584,6 @@ class erLhcoreClassModelChatOnlineUser
 
     public static function handleRequest($paramsHandle = array())
     {
-
         if (isset($_SERVER['HTTP_USER_AGENT']) && !self::isBot($_SERVER['HTTP_USER_AGENT'])) {
             $newVisitor = false;
 
@@ -741,6 +740,7 @@ class erLhcoreClassModelChatOnlineUser
 
             return $item;
         } else {
+            throw new Exception('Invalid HTTP_USER_AGENT!');
             // Stop execution on google bot
             exit;
         }

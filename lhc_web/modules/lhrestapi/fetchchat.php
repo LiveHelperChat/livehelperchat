@@ -10,10 +10,21 @@ try {
     $chat = erLhcoreClassModelChat::fetch((int)$_GET['chat_id']);
 
     if (erLhcoreClassRestAPIHandler::hasAccessToRead($chat) == true) {
+        
+        $chat = erLhcoreClassModelChat::fetch((int)$_GET['chat_id']);
+        
+        if (isset($_GET['hash']) && $chat->hash != $_GET['hash']) {
+            throw new Exception('Invalid hash');
+        }
+        
+        erLhcoreClassChat::prefillGetAttributesObject($chat, array('user','plain_user_name'), array('user'), array('do_not_clean' => true));
+        
         erLhcoreClassRestAPIHandler::outputResponse(array(
             'error' => false,
-            'chat' => erLhcoreClassModelChat::fetch((int)$_GET['chat_id'])
+            'chat' => $chat
         ));
+        
+        
     } else {
         throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('lhrestapi/validation', 'You do not have permission to read this chat!'));
     }
