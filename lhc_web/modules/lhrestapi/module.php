@@ -57,6 +57,42 @@ $ViewList['getuser'] = array(
     'params' => array()
 );
 
+/**
+ * Calls dedicated to users
+ * */
+// Starts chat and returns chat data including chat id and hash
+$ViewList['startchat'] = array(
+    'params' => array(),
+    'uparams' => array('ua','operator','er','vid','hash_resume','sound','hash','offline','leaveamessage','department','priority','chatprefill','survey','prod','phash','pvhash'),
+    'multiple_arguments' => array ( 'department', 'ua', 'prod' )
+);
+
+$ViewList['addmsguser'] = array(
+    'params' => array()
+);
+
+// Checks is there any pending messages for online visitor and if there is return it
+$ViewList['chatcheckoperatormessage'] = array(
+    'params' => array()
+);
+
+// Updates additional chat attributes
+$ViewList['updatechatattributes'] = array(
+    'params' => array()
+);
+
+// Returns generated VID id, if VID is provided 
+$ViewList['pageview'] = array(
+    'params' => array()
+);
+
+// Closes chat from visitor perspective
+$ViewList['closechatasvisitor'] = array(
+    'params' => array()
+);
+
+
+
 $FunctionList = array();
 $FunctionList['use_admin'] = array('explain' => 'Allow operator to manage REST API');
 

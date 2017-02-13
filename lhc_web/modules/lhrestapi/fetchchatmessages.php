@@ -9,9 +9,21 @@ try {
     $chat = erLhcoreClassModelChat::fetch((int)$_GET['chat_id']);
     
     if (erLhcoreClassRestAPIHandler::hasAccessToRead($chat) == true) {
+        
+        $messages = erLhcoreClassChat::getPendingMessages($chat->id,isset($_GET['last_message_id']) ? (int)$_GET['last_message_id'] : 0);
+        
+        if (isset($_GET['ignore_system_messages']) &&  $_GET['ignore_system_messages'] == true)
+        {
+            foreach ($messages as $key => $data) {
+                if ($data['user_id'] == -1) {
+                    unset($messages[$key]);
+                }
+            }
+        }
+        
         erLhcoreClassRestAPIHandler::outputResponse(array(
             'error' => false,
-            'messages' =>  erLhcoreClassChat::getPendingMessages($chat->id,isset($_GET['last_message_id']) ? (int)$_GET['last_message_id'] : 0)
+            'messages' => array_values($messages)
         ));
     } else {
         throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('lhrestapi/validation', 'You do not have permission to read this chat!'));

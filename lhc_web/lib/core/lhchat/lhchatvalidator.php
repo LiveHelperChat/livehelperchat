@@ -162,18 +162,21 @@ class erLhcoreClassChatValidator {
             FILTER_REQUIRE_ARRAY
         );
         
-        // Captcha stuff        
-        if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
-        	// Start session if required only
-        	$currentUser = erLhcoreClassUser::instance();
-        	$hashCaptcha = isset($_SESSION[$_SERVER['REMOTE_ADDR']]['form']) ? $_SESSION[$_SERVER['REMOTE_ADDR']]['form'] : null;
-    		$nameField = 'captcha_'.$hashCaptcha;    	
-        	$validationFields[$nameField] = new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'string' );
-        } else {        
-	        $nameField = 'captcha_'.sha1(erLhcoreClassIPDetect::getIP().$_POST['tscaptcha'].erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
-	        $validationFields[$nameField] = new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'string' );
+        if (!isset($additionalParams['ignore_captcha']) || $additionalParams['ignore_captcha'] == false)
+        {
+            // Captcha stuff        
+            if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
+            	// Start session if required only
+            	$currentUser = erLhcoreClassUser::instance();
+            	$hashCaptcha = isset($_SESSION[$_SERVER['REMOTE_ADDR']]['form']) ? $_SESSION[$_SERVER['REMOTE_ADDR']]['form'] : null;
+        		$nameField = 'captcha_'.$hashCaptcha;    	
+            	$validationFields[$nameField] = new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'string' );
+            } else {        
+    	        $nameField = 'captcha_'.sha1(erLhcoreClassIPDetect::getIP().$_POST['tscaptcha'].erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
+    	        $validationFields[$nameField] = new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'string' );
+            }
         }
-
+        
         // Custom start chat fields
         $validationFields['value_items_admin'] = new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
@@ -209,16 +212,19 @@ class erLhcoreClassChatValidator {
         	$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','You do not have permission to chat! Please contact site owner.');
         }
        
-        if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
-        	if ( !$form->hasValidData( $nameField ) || $form->$nameField == '' || $form->$nameField < time()-600 || $hashCaptcha != sha1($_SERVER['REMOTE_ADDR'].$form->$nameField.erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ))){
-        		$Errors['captcha'] = erTranslationClassLhTranslation::getInstance()->getTranslation("chat/startchat","Your request was not processed as expected - but don't worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.");
-        	}
-        } else {
-        	// Captcha validation
-        	if ( !$form->hasValidData( $nameField ) || $form->$nameField == '' || $form->$nameField < time()-600 )
-        	{
-        		$Errors['captcha'] = erTranslationClassLhTranslation::getInstance()->getTranslation("chat/startchat","Your request was not processed as expected - but don't worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.");
-        	}
+        if (!isset($additionalParams['ignore_captcha']) || $additionalParams['ignore_captcha'] == false)
+        {
+            if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
+            	if ( !$form->hasValidData( $nameField ) || $form->$nameField == '' || $form->$nameField < time()-600 || $hashCaptcha != sha1($_SERVER['REMOTE_ADDR'].$form->$nameField.erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ))){
+            		$Errors['captcha'] = erTranslationClassLhTranslation::getInstance()->getTranslation("chat/startchat","Your request was not processed as expected - but don't worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.");
+            	}
+            } else {
+            	// Captcha validation
+            	if ( !$form->hasValidData( $nameField ) || $form->$nameField == '' || $form->$nameField < time()-600 )
+            	{
+            		$Errors['captcha'] = erTranslationClassLhTranslation::getInstance()->getTranslation("chat/startchat","Your request was not processed as expected - but don't worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.");
+            	}
+            }
         }
         
         if (isset($validationFields['Username'])) {
