@@ -3,7 +3,7 @@
 // Check is there online user instance and user has messsages from operator in that case he have seen message from operator
 if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 ) {
 
-    $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('message_seen_timeout' => erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value, 'vid' => $Params['user_parameters_unordered']['vid']));
+    $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('message_seen_timeout' => erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value, 'vid' => $_GET['vid']));
 
     if ($userInstance !== false && $userInstance->has_message_from_operator == true) {
         $userInstance->message_seen = 1;
@@ -12,8 +12,11 @@ if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value
     }
 }
 
-if ($Params['user_parameters_unordered']['hash'] != '') {
-    list($chatID,$hash) = explode('_',$Params['user_parameters_unordered']['hash']);
+if ($_GET['hash'] != '') {
+    
+    $chatID = $_GET['chat_id'];
+    $hash = $_GET['hash'];
+    
     try {
 	        $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $chatID);
 	        if ($chat->hash == $hash && $chat->user_status != 1) {
