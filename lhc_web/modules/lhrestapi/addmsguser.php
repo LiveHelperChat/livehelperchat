@@ -7,7 +7,7 @@ $definition = array(
 );
 
 $form = new ezcInputForm( INPUT_POST, $definition );
-$error = 'f';
+$error = false;
 
 if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && mb_strlen($form->msg) < (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value)
 {
@@ -71,7 +71,7 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && mb_strlen($form->m
 	    
 	    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.addmsguser',array('chat' => & $chat, 'msg' => & $msg));
 	    
-	    erLhcoreClassRestAPIHandler::outputResponse(array('error' => $error, 'result' => true));
+	    erLhcoreClassRestAPIHandler::outputResponse(array('error' => false, 'result' => true));
 	    exit;
 	    
 	} catch (Exception $e) {
@@ -79,9 +79,8 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && mb_strlen($form->m
     }
     
 } else {
-	$error = 't';
 	$r = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a message, max characters').' - '.(int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value;
-	echo erLhcoreClassRestAPIHandler::outputResponse(array('error' => $error, 'result' => $r));
+	echo erLhcoreClassRestAPIHandler::outputResponse(array('error' => true, 'result' => $r));
 	exit;
 }
 
