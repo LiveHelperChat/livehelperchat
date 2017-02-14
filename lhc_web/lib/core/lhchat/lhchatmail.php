@@ -353,7 +353,7 @@ class erLhcoreClassChatMail {
     	}
 
     	
-    	$mail->Subject = str_replace(array('{chat_id}'), array($chat->id), $sendMail->subject);
+    	$mail->Subject = str_replace(array('{chat_id}','{department}'), array($chat->id,(string)$chat->department), $sendMail->subject);
     	   	    	
     	$messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 10,'sort' => 'id DESC','filter' => array('chat_id' => $chat->id))));
     	$messagesContent = '';
@@ -574,7 +574,7 @@ class erLhcoreClassChatMail {
         }
 
         $mail->FromName = $sendMail->from_name;
-        $mail->Subject = str_replace(array('{chat_id}'), array($chat->id), $sendMail->subject);;
+        $mail->Subject = str_replace(array('{chat_id}','{department}'), array($chat->id,(string)$chat->department), $sendMail->subject);;
 
         if($sendMail->from_name == '{chat_nick}' && $chat->nick != '') {
             $mail->FromName = $chat->nick;
