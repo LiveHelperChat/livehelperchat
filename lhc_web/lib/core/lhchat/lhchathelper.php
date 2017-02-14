@@ -112,6 +112,7 @@ class erLhcoreClassChatHelper
             
             $params['chat']->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
             $params['chat']->chat_duration = erLhcoreClassChat::getChatDurationToUpdateChatID($params['chat']->id);
+            $params['chat']->has_unread_messages = 0;
             
             $msg = new erLhcoreClassModelmsg();
             $msg->msg = (string) $params['user'] . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'has closed the chat!');
