@@ -61,7 +61,7 @@ if (erLhcoreClassModelChatConfig::fetch('track_is_online')->current_value && $Pa
 			        list($chatId) = explode('_', (string)$Params['user_parameters_unordered']['hash_resume']);
 			    }
 			    
-			    if (is_numeric($chatId)) {
+			    if (isset($chatId) && is_numeric($chatId)) {
 			         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed_chat',array('chat_id' => $chatId));
 			    }
 			}

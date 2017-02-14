@@ -450,15 +450,22 @@ class erLhcoreClassChatValidator {
             }
         }
 
-        // Set chat attributes for transfer workflow logic
-        if ($chat->department !== false && $chat->department->department_transfer_id > 0) {
+        $department = false;
+        
+        if ($chat->product_id > 0) {
+           $department = $chat->product->departament;
+        } elseif ($chat->department !== false) {
+           $department = $chat->department;
+        }
+                        
+        if ($department !== false && $department->department_transfer_id > 0) {
         	$chat->transfer_if_na = 1;
         	$chat->transfer_timeout_ts = time();
-        	$chat->transfer_timeout_ac = $chat->department->transfer_timeout;
+        	$chat->transfer_timeout_ac = $department->transfer_timeout;
         }
         
-        if ($chat->department !== false && $chat->department->inform_unread == 1) {
-        	$chat->reinform_timeout = $chat->department->inform_unread_delay;        	
+        if ($department !== false && $department->inform_unread == 1) {
+        	$chat->reinform_timeout = $department->inform_unread_delay;        	
         }
         
         $inputForm->departament_id = $chat->dep_id;
@@ -466,8 +473,8 @@ class erLhcoreClassChatValidator {
         if ( $inputForm->priority !== false && is_numeric($inputForm->priority) ) {
         	$chat->priority = (int)$inputForm->priority;
         } else {
-        	if ($chat->department !== false) {
-        		$chat->priority = $chat->department->priority;
+        	if ($department !== false) {
+        		$chat->priority = $department->priority;
         	}
         }
 

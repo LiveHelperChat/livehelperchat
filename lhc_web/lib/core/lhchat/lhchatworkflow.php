@@ -252,7 +252,8 @@ class erLhcoreClassChatWorkflow {
 	    	    if ($chat->last_msg_id < $msg->id) {
 	    	        $chat->last_msg_id = $msg->id;
 	    	    }
-	    	     
+	    	    
+	    	    $chat->has_unread_messages = 0;
 	    	    $chat->updateThis();
 
                 erLhcoreClassChat::closeChatCallback($chat, $chat->user);
