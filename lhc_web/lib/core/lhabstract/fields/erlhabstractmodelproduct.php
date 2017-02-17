@@ -30,6 +30,6 @@ return array(
         	    'source' => 'erLhcoreClassModelDepartament::getList',                	    
         	    'params_call' => array(),
         	    'validation_definition' => new ezcInputFormDefinitionElement(
-        	        ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1)
+        	        ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
         ))
 );
