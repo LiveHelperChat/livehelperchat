@@ -88,6 +88,10 @@
                             </select>
 						</div>
 						
+						<div class="form-group">
+							<label><input type="checkbox" id="DetectLanguage" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Try to detect language automatically');?></label>
+						</div>
+						
 						<div class="row">
 						  <div class="col-md-6">
 						        <div class="form-group">
@@ -123,12 +127,7 @@
                                     'list_function'  => 'erLhAbstractModelProduct::getList'
                             )); ?>
         				</div>
-    				</div>
-				    <div class="col-md-6">
-    				    <div class="form-group">
-        					<label><input type="checkbox" id="pds" checked="checked" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Show product selection based on selected departments')?></label>
-        				</div>
-    				</div>
+    				</div>				    
 				</div>
 				<?php endif;?>
 		</div>
@@ -271,14 +270,29 @@ function generateEmbedCode(){
     }
     
     <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/options_variable.tpl.php')); ?>
-    
+
+    var id_detect_language = $('#DetectLanguage').is(':checked') ? true : false;
+
+    var langDetectScript = '';
+
+    if (id_detect_language == true) {
+    	langDetectScript = "var _l = '';"+
+		"var _m = document.getElementsByTagName('meta');"+   
+        "var _cl = '';"+
+        "for (i=0; i < _m.length; i++) {if ( _m[i].getAttribute('http-equiv') == 'content-language' ) {_cl = _m[i].getAttribute('content');}}"+
+        "if (document.documentElement.lang != '') _l = document.documentElement.lang;"+
+        "if (_cl != '' && _cl != _l) _l = _cl;"+
+        "if (_l == undefined || _l == '') {_l = '" + siteAccess + "';"+
+        "} else {_l = _l[0].toLowerCase() + _l[1].toLowerCase(); if ('<?php echo erConfigClassLhConfig::getInstance()->getSetting( 'site', 'default_site_access' )?>' == _l) {_l = ''} else {_l = _l + '/';}}\n";
+    }
+
     var script = '<script type="text/javascript">'+"\n"+"var <?php echo $chatOptionsVariable?> = {};\n"+
       '<?php echo $chatOptionsVariable?>.opt = {widget_height:'+$('#id_widget_height').val()+',widget_width:'+$('#id_widget_width').val()+',popup_height:'+$('#id_popup_height').val()+',popup_width:'+$('#id_popup_width').val()+id_embed_domain+'};\n'+
-      '(function() {'+"\n"+
+      '(function() {'+"\n"+langDetectScript+
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
         'var referrer = (document.referrer) ? encodeURIComponent(document.referrer.substr(document.referrer.indexOf(\'://\')+1)) : \'\';'+"\n"+
         'var location  = (document.location) ? encodeURIComponent(window.location.href.substring(window.location.protocol.length)) : \'\';'+"\n"+
-        'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chat/getstatus<?php isset($userArgument) ? print $userArgument : ''?>'+uaArguments+id_internal_popup+id_position+id_ma+id_hide_then_offline+id_disable_online_tracking+id_check_operator_message+top+topposition+id_show_leave_form+id_department+id_operator+id_identifier+id_disable_pro_active_invitations+id_theme+id_disable_responsive+id_product+id_survey+'?r=\'+referrer+\'&l=\'+location;'+"\n"+
+        'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+(id_detect_language == false ? siteAccess : '\'+_l+\'')+'chat/getstatus<?php isset($userArgument) ? print $userArgument : ''?>'+uaArguments+id_internal_popup+id_position+id_ma+id_hide_then_offline+id_disable_online_tracking+id_check_operator_message+top+topposition+id_show_leave_form+id_department+id_operator+id_identifier+id_disable_pro_active_invitations+id_theme+id_disable_responsive+id_product+id_survey+'?r=\'+referrer+\'&l=\'+location;'+"\n"+
         'var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(po, s);'+"\n"+
       '})();'+"\n"+
     '</scr'+'ipt>';
@@ -286,7 +300,7 @@ function generateEmbedCode(){
     $('#HMLTContent').text(id_tag+script);
 };
 
-$('#LocaleID,#id_embed_domain,#id_product_id,#id_disable_online_tracking,#MinimizeID,#id_operator,#DepartmentID,#HttpMode,#ThemeID,#id_Survey,#id_disable_pro_active_invitations,#id_site_identifier,#id_internal_popup,#id_disable_responsive,#id_position_bottom,#PositionID,#id_show_leave_form,#id_hide_then_offline,#id_check_operator_message,#UnitsTop,#id_top_text,#id_popup_width,#id_popup_height,#id_widget_width,#id_widget_height').change(function(){
+$('#LocaleID,#id_embed_domain,#DetectLanguage,#id_product_id,#id_disable_online_tracking,#MinimizeID,#id_operator,#DepartmentID,#HttpMode,#ThemeID,#id_Survey,#id_disable_pro_active_invitations,#id_site_identifier,#id_internal_popup,#id_disable_responsive,#id_position_bottom,#PositionID,#id_show_leave_form,#id_hide_then_offline,#id_check_operator_message,#UnitsTop,#id_top_text,#id_popup_width,#id_popup_height,#id_widget_width,#id_widget_height').change(function(){
     generateEmbedCode();
 });
 
