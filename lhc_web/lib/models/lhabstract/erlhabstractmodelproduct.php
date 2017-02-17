@@ -117,8 +117,8 @@ class erLhAbstractModelProduct {
 	{
 	    $q = ezcDbInstance::get()->createDeleteQuery();
 	    
-	    // Messages
-	    $q->deleteFrom( 'lh_abstract_product' )->where( $q->expr->eq( 'survey_id', $this->id ) );
+	    // Delete related product departments
+	    $q->deleteFrom( 'lh_abstract_product_departament' )->where( $q->expr->eq( 'product_id', $this->id ) );
 	    $stmt = $q->prepare();
 	    $stmt->execute();
 	    
