@@ -102,22 +102,29 @@ class erLhcoreClassURL extends ezcUrl {
                 	}               	         	
                 }
                 
-                // To reset possition counter
-                $urlCfgDefault->removeOrderedParameter('siteaccess');
-                $urlCfgDefault->removeOrderedParameter('module');
-                $urlCfgDefault->removeOrderedParameter('function');
-
-                // Reinit parameters
-                $urlCfgDefault->addOrderedParameter( 'module' );
-                $urlCfgDefault->addOrderedParameter( 'function' );
-           
-                //Apply default configuration
-                $urlInstance->applyConfiguration($urlCfgDefault);
-
-                if ($optionsSiteAccess['locale'] != 'en_EN')
+                if ($siteaccess !== $defaultSiteAccess)
                 {
-                    $urlInstance->setParam('module',$urlInstance->getParam( 'module' ));
-                    $urlInstance->setParam('function',$urlInstance->getParam( 'function' ));
+                    // Just in case first url part consists of two letter, let's assume it's language argument and keep everytying as is
+                    if (strlen($siteaccess) != 2)
+                    {
+                        // To reset possition counter
+                        $urlCfgDefault->removeOrderedParameter('siteaccess');
+                        $urlCfgDefault->removeOrderedParameter('module');
+                        $urlCfgDefault->removeOrderedParameter('function');
+                    
+                        // Reinit parameters
+                        $urlCfgDefault->addOrderedParameter( 'module' );
+                        $urlCfgDefault->addOrderedParameter( 'function' );
+                    
+                        //Apply default configuration
+                        $urlInstance->applyConfiguration($urlCfgDefault);
+                    
+                        if ($optionsSiteAccess['locale'] != 'en_EN')
+                        {
+                            $urlInstance->setParam('module',$urlInstance->getParam( 'module' ));
+                            $urlInstance->setParam('function',$urlInstance->getParam( 'function' ));
+                        }
+                    }
                 }
             }
 
