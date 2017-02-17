@@ -86,7 +86,11 @@ class erLhAbstractModelProduct {
 	   		break;
 
 	   	case 'departament':
-	   	       $this->departament = erLhcoreClassModelDepartament::fetch($this->departament_id);
+	   	       try {
+	   	           $this->departament = erLhcoreClassModelDepartament::fetch($this->departament_id);
+	   	       } catch (Exception $e) {
+	   	           $this->departament = false;
+	   	       }
 	   		   return $this->departament;
 	   		break;
 
