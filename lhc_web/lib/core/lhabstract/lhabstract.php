@@ -80,7 +80,7 @@ class erLhcoreClassAbstract {
         	        $return = '<select class="form-control" name="AbstractInput_'.$name.'"'.$onchange.'>';
         	        
         	        if (!isset($attr['hide_optional']) || $attr['hide_optional'] == false){
-            	    	$return .= '<option value="0">Choose option</option>';
+            	    	$return .= '<option value="">Choose option</option>';
         	        }
             	    
             	    $items = call_user_func($attr['source'],$attr['params_call']);
