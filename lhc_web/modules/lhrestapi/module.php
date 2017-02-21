@@ -71,18 +71,15 @@ $ViewList['addmsguser'] = array(
     'params' => array()
 );
 
-// Checks is there any pending messages for online visitor and if there is return it
+// Checks is there any pending messages for online visitor and if there is return action what to do next
 $ViewList['chatcheckoperatormessage'] = array(
-    'params' => array()
+    'params' => array(),
+    'uparams' => array('tz','operator','theme','priority','vid','count_page','identifier','department','ua','survey','uactiv','wopen'),
+    'multiple_arguments' => array ( 'department','ua' )
 );
 
 // Updates additional chat attributes
 $ViewList['updatechatattributes'] = array(
-    'params' => array()
-);
-
-// Returns generated VID id, if VID is provided 
-$ViewList['pageview'] = array(
     'params' => array()
 );
 
@@ -91,7 +88,10 @@ $ViewList['closechatasvisitor'] = array(
     'params' => array()
 );
 
-
+$ViewList['checkchatstatus'] = array(
+    'params' => array(),
+    'uparams' => array('mode','theme','dot')
+);
 
 $FunctionList = array();
 $FunctionList['use_admin'] = array('explain' => 'Allow operator to manage REST API');

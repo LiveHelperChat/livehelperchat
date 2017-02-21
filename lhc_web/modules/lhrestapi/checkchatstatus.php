@@ -1,17 +1,12 @@
 <?php
 
-$activated = 'false';
-$result = 'false';
+
 $ott = '';
 $ru = '';
-
-$tpl = erLhcoreClassTemplate::getInstance('lhchat/checkchatstatus.tpl.php');
-$tpl->set('theme',false);
 
 if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
     try {
         $theme = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
-        $tpl->set('theme',$theme);
     } catch (Exception $e) {
 
     }
@@ -20,7 +15,6 @@ if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_p
     if ($defaultTheme > 0) {
         try {
             $theme = erLhAbstractModelWidgetTheme::fetch($defaultTheme);
-            $tpl->set('theme',$theme);
         } catch (Exception $e) {
              
         }
@@ -29,10 +23,13 @@ if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_p
 
 $responseArray = array();
 
-try {
-    $chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['chat_id']);
+$hash = $_GET['hash'];
+$chat_id = $_GET['chat_id'];
 
-    if ($chat->hash === $Params['user_parameters']['hash']) {
+try {
+    $chat = erLhcoreClassModelChat::fetch($chat_id);
+
+    if ($chat->hash === $hash) {
 
     	// Main unasnwered chats callback
     	if ( $chat->na_cb_executed == 0 && $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && erLhcoreClassModelChatConfig::fetch('run_unaswered_chat_workflow')->current_value > 0) {    		
@@ -88,35 +85,33 @@ try {
     	}    	
     	
 	    if ( erLhcoreClassChat::isOnline($chat->dep_id,false,array('online_timeout' => (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'])) ) {
-	         $tpl->set('is_online',true);
+	        $is_online = true;
 	    } else {
-	         $tpl->set('is_online',false);
+	        $is_online = false;
 	    }
 
 	    if ( $chat->chat_initiator == erLhcoreClassModelChat::CHAT_INITIATOR_PROACTIVE ) {
-	         $tpl->set('is_proactive_based',true);
+	        $is_proactive_based = true;
 	    } else {
-	         $tpl->set('is_proactive_based',false);
+	        $is_proactive_based = false;
 	    }
 
 	    if ($chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT) {
-	       $activated = 'true';
-	       $tpl->set('is_activated',true);
+	       $is_activated = true;
 	       $ott = ($chat->user !== false) ? $chat->user->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','is typing now...') : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Operator is typing now...');
 	    } else {
-	       $tpl->set('is_activated',false);
+	       $is_activated = false;
 	    }
 
 	    if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
-	    	$activated = 'true';
-	    	$tpl->set('is_closed',true);
-	    	$responseArray['closed'] = true;
+	    	$is_activated = true;
+	    	$is_closed = true;
 	    } else {
-	    	$tpl->set('is_closed',false);
+	    	$is_closed = false;
 	    }
 	    
 	    if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM && $contactRedirected == false) {
-	    	$activated = 'false';
+	    	$is_activated = false;
 	    	$department = $chat->department;
 	    	if ($department !== false) {
 	    		$baseURL = (isset($Params['user_parameters_unordered']['mode']) && $Params['user_parameters_unordered']['mode'] == 'widget') ? erLhcoreClassDesign::baseurl('chat/chatwidget') : erLhcoreClassDesign::baseurl('chat/startchat');
@@ -131,20 +126,23 @@ try {
 	    		// We do not store last msg time for chat here, because in any case none of opeators has opened it
 	    	}
 	    }
-	    
-	    
-	    $tpl->set('chat', $chat);
     }
 
 } catch (Exception $e) {
+    echo json_encode(array(
+        'error' => true,
+        'result' => $e->getMessage()
+    ));
     exit;
 }
 
-$responseArray['error'] = 'false';
-$responseArray['ru'] = $ru;
-$responseArray['ott'] = $ott;
-$responseArray['result'] = $tpl->fetch();
-$responseArray['activated'] = $activated;
+$responseArray['error'] = false;
+$responseArray['result'] = array(
+    'ru' => $ru,
+    'ott' => $ott,
+    'activated' => $is_activated,
+    'closed' => $is_closed,
+);
 
 echo json_encode($responseArray);
 exit;

@@ -22,8 +22,6 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && mb_strlen($form->m
 	    
 	    if (isset($_POST['hash']) && $chat->hash == $_POST['hash'] && ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT || $chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)) // Allow add messages only if chat is active
 	    {
-	        
-	        
 	        $db->beginTransaction();
 	        
 	        $messagesToStore = explode('[[msgitm]]', trim($form->msg));

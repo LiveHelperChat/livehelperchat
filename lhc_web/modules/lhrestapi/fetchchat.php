@@ -23,8 +23,7 @@ try {
             'error' => false,
             'chat' => $chat
         ));
-        
-        
+   
     } else {
         throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('lhrestapi/validation', 'You do not have permission to read this chat!'));
     }

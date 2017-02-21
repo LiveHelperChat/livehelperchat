@@ -36,7 +36,7 @@ if ($_GET['hash'] != '') {
 				        }
 				        
 				        // User Closed Chat
-				        if ($Params['user_parameters_unordered']['eclose'] == 't') {
+				        if ($_GET['eclose'] == 'true') {
 				            $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT;
 				            
 				            $msg = new erLhcoreClassModelmsg();

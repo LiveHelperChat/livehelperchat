@@ -76,9 +76,11 @@ try {
 
     if (count($Errors) == 0)
     {
-        /* $chat->setIP();
-        erLhcoreClassModelChat::detectLocation($chat); */
-        
+        if (isset($_POST['ip'])) {
+            $chat->ip = $_POST['ip'];
+            erLhcoreClassModelChat::detectLocation($chat);
+        }
+                
         $chat->time = time();
         $chat->status = 0;
         
@@ -184,28 +186,16 @@ try {
         erLhcoreClassChat::updateDepartmentStats($chat->department);
 
         erLhcoreClassChat::prefillGetAttributesObject($chat, array('user','plain_user_name'), array('user'), array('do_not_clean' => true));
-
-        /* 'plain_user_name':
-        $this->plain_user_name = false;
-        
-        if ($this->user !== false) {
-            $this->plain_user_name = (string)$this->user->name_support;
-        }
-        return $this->plain_user_name;
-        break;
-         
-        case 'user': */
             
-            
-        echo erLhcoreClassRestAPIHandler::outputResponse(array('error' => false, 'content' => array('chat' => $chat->getState())));
+        echo erLhcoreClassRestAPIHandler::outputResponse(array('error' => false, 'result' => array('chat' => $chat->getState())));
     } else {
-        echo erLhcoreClassRestAPIHandler::outputResponse(array('error' => true, 'content' => $Errors));
+        echo erLhcoreClassRestAPIHandler::outputResponse(array('error' => true, 'result' => array('errors' => $Errors)));
     }
 
 } catch (Exception $e) {
     echo json_encode(array(
         'error' => true,
-        'result' => $e->getMessage()
+        'result' => array('errors' => $e->getMessage())
     ));
 }
 
