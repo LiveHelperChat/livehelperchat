@@ -27,15 +27,34 @@ class LHCRestAPI {
 	 * 
 	 * @return string
 	 */
-	private function executeRequest($function, $params)
+	private function executeRequest($function, $params, $uparams = array(), $method = 'GET', $manualAppend = '')
 	{
 		$ch = curl_init();
 		$headers = array('Accept' => 'application/json');
 
+		$uparamsArg = '';
+		
+		if (!empty($uparams) && is_array($uparams)) {
+		    $parts = array();
+		    foreach ($uparams as $param => $value) {
+		        $parts[] = '/('.$param .')/'.$value;
+		    }
+		    $uparamsArg = implode('', $parts);
+		    
+		}
+		
+		$requestArgs = ($method == 'GET') ? '?' .http_build_query($params) : '';
+		
+		if ($method == 'POST') {
+		    curl_setopt($ch,CURLOPT_POST,1);
+		    curl_setopt($ch,CURLOPT_POSTFIELDS,$params);
+		}
+		
 		curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
 		curl_setopt($ch, CURLOPT_USERPWD, $this->username . ':' . $this->apiKey);		
-		curl_setopt($ch, CURLOPT_URL, $this->host . '/restapi/' . $function . '?' .http_build_query($params));
+		curl_setopt($ch, CURLOPT_URL, $this->host . '/restapi/' . $function . $manualAppend . $uparamsArg . $requestArgs);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_USERAGENT,'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13');
 		curl_setopt($ch, CURLOPT_TIMEOUT, 5);
 		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT , 5);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -46,10 +65,10 @@ class LHCRestAPI {
 
 		return $content;
 	}
-		
-	public function execute($function, $params, $jsonObject = true)
+
+	public function execute($function, $params, $uparams = array(), $method = 'GET', $jsonObject = true, $manualAppend = '')
 	{
-	    $response = $this->executeRequest($function, $params);
+	    $response = $this->executeRequest($function, $params, $uparams, $method, $manualAppend);
 	    
 	    if ($jsonObject == false) {
 	        return $response;

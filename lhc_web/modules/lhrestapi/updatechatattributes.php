@@ -1,15 +1,22 @@
 <?php
-header ( 'content-type: application/json; charset=utf-8' );
-header ( 'Access-Control-Allow-Origin: *' );
-header ( 'Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept' );
-
-$hash = $_POST['hash'];
-$chatID = $_POST['chat_id'];
 
 try {
-	$chat = erLhcoreClassChat::getSession ()->load ( 'erLhcoreClassModelChat', $chatID );
 	
-	if ($chat !== false && $chat->hash == $hash) {
+    erLhcoreClassRestAPIHandler::validateRequest();
+    
+	if (isset($_POST['chat_id'])) {
+	    $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $_POST['chat_id']);
+	} else {
+	    throw new Exception('chat_id has to be provided!');
+	}
+	
+	if (isset($_POST['hash'])) {
+	    $hash = $_POST['hash'];
+	} else {
+	    throw new Exception('hash has to be provided!');
+	}
+	
+	if ($chat->hash == $_POST['hash']) {
 		
 		$data = $_POST ['data'];
 		$jsonData = json_decode ( $data, true );
@@ -23,15 +30,17 @@ try {
 		
 		// Force operators to check for new messages
 		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed_chat', array(
-				'chat' => & $chat
+            'chat' => & $chat
 		));
 		
-		echo json_encode(array('error' => false, 'stored' => true));
+		echo json_encode(array('stored' => 'true'));
 		exit;
 	}
 } catch ( Exception $e ) {
-    echo json_encode(array('error' => true, 'result' => $e->getMessage()));
-    exit;
+    echo json_encode(array(
+        'error' => true,
+        'result' => array('errors' => $e->getMessage())
+    ));
 }
 exit ();
 
