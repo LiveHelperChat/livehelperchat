@@ -1,8 +1,12 @@
 <?php
 
+try {
+    
+erLhcoreClassRestAPIHandler::validateRequest();
 
 $ott = '';
 $ru = '';
+$user = false;
 
 if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
     try {
@@ -23,10 +27,21 @@ if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_p
 
 $responseArray = array();
 
-$hash = $_GET['hash'];
-$chat_id = $_GET['chat_id'];
-
 try {
+	
+	if (isset($_GET['hash'])) {
+		$hash = $_GET['hash'];
+	} else {
+		throw new Exception('Please provide hash');
+	}
+	
+	if (isset($_GET['chat_id'])) {
+		$chat_id = $_GET['chat_id'];
+	} else {
+		throw new Exception('Please provide chat_id');
+	}
+
+
     $chat = erLhcoreClassModelChat::fetch($chat_id);
 
     if ($chat->hash === $hash) {
@@ -128,6 +143,43 @@ try {
 	    }
     }
 
+    $status = '';
+    $nameSupport = '';
+	if ($is_activated == true || $is_proactive_based == true) {
+		if ($chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT && ($user = $chat->user) !== false) {
+			$status = $user->name_support . ' ' . erTranslationClassLhTranslation::getInstance ()->getTranslation ( 'chat/checkchatstatus', 'has joined this chat' );
+			$nameSupport = $user->name_support;
+		} elseif ($is_proactive_based == true) {
+			if ($theme !== false && $theme->support_joined != '') {
+				$status = $theme->support_joined;
+			} else {
+				$status = erTranslationClassLhTranslation::getInstance ()->getTranslation ( 'chat/checkchatstatus', 'A support staff member has joined this chat' );
+			}
+		}
+	} elseif ($is_closed == true) {
+		if ($theme !== false && $theme->support_closed != '') {
+			$status = $theme->support_closed;
+		} else {
+			$status = erTranslationClassLhTranslation::getInstance ()->getTranslation ( 'chat/checkchatstatus', 'A support staff member has closed this chat' );
+		}
+	} elseif ($is_online == true) {
+		if ($chat->number_in_queue > 1) {
+			$status = erTranslationClassLhTranslation::getInstance ()->getTranslation ( 'chat/checkchatstatus', 'You are number' ) . ' ' . $chat->number_in_queue . ' ' . erTranslationClassLhTranslation::getInstance ()->getTranslation ( 'chat/checkchatstatus', 'in the queue. Please wait...' );
+		} else {
+			if ($theme !== false && $theme->pending_join != '') {
+				$status = $theme->pending_join;
+			} else {
+				$status = erTranslationClassLhTranslation::getInstance ()->getTranslation ( 'chat/checkchatstatus', 'Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages' );
+			}
+		}
+	} else {
+		if ($theme !== false && $theme->noonline_operators != '') {
+			$status = $theme->noonline_operators;
+		} else {
+			$status = erTranslationClassLhTranslation::getInstance ()->getTranslation ( 'chat/checkchatstatus', 'At this moment there are no logged in support staff members, but you can leave your messages' );
+		}
+	}
+
 } catch (Exception $e) {
     echo json_encode(array(
         'error' => true,
@@ -138,12 +190,23 @@ try {
 
 $responseArray['error'] = false;
 $responseArray['result'] = array(
+    'status' => $status,
     'ru' => $ru,
     'ott' => $ott,
+    'user' => $user,
     'activated' => $is_activated,
     'closed' => $is_closed,
+	'name_support' => $nameSupport
 );
 
 echo json_encode($responseArray);
+
+} catch ( Exception $e ) {
+    echo json_encode(array(
+        'error' => true,
+        'result' => array('errors' => $e->getMessage())
+    ));
+}
+
 exit;
 ?>

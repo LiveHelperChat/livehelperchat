@@ -36,7 +36,7 @@ if ($_GET['hash'] != '') {
 				        }
 				        
 				        // User Closed Chat
-				        if ($_GET['eclose'] == 'true') {
+				        if (isset($_GET['eclose']) && $_GET['eclose'] == true) {
 				            $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT;
 				            
 				            $msg = new erLhcoreClassModelmsg();
@@ -67,10 +67,23 @@ if ($_GET['hash'] != '') {
 				        }
 				        
 			        $db->commit();
-	        
+			        
+			        echo json_encode(array(
+			        		'error' => false,
+			        		'result' => true
+			        ));
+	        } else {
+	        	echo json_encode(array(
+	        			'error' => false,
+	        			'result' => true
+	        	));
 	        }
+	        
     } catch (Exception $e) {
-        // Do nothing
+       echo json_encode(array(
+	        'error' => true,
+	        'result' => $e->getMessage()
+	    ));
     }
 }
 

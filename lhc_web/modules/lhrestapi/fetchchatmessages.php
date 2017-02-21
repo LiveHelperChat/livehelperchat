@@ -66,18 +66,20 @@ try {
         }  elseif ($chat->is_operator_typing == false) {
             $ott = '';
         }
-                
-        $messages = erLhcoreClassChat::getPendingMessages($chat->id,isset($_GET['last_message_id']) ? (int)$_GET['last_message_id'] : 0);
-        
+
+        $lastMessageId = isset($_GET['last_message_id']) ? (int)$_GET['last_message_id'] : 0;
+        $messages = erLhcoreClassChat::getPendingMessages($chat->id, $lastMessageId);
+
         if (isset($_GET['ignore_system_messages']) &&  $_GET['ignore_system_messages'] == true)
         {
             foreach ($messages as $key => $data) {
                 if ($data['user_id'] == -1) {
                     unset($messages[$key]);
                 }
+                $lastMessageId = $data['id'];
             }
         }
-        
+                
         $checkStatus = false;
         
         // Closed
@@ -124,7 +126,13 @@ try {
         
         erLhcoreClassRestAPIHandler::outputResponse(array(
             'error' => false,
-            'result' => array('messages' => array_values($messages), 'ot' => $ott, 'closed' => $closed, 'check_status' => $checkStatus)
+            'result' => array(
+            		'messages' => array_values($messages), 
+            		'ot' => $ott, 
+            		'closed' => $closed, 
+            		'check_status' => $checkStatus,
+            		'lmid' => $lastMessageId
+            )
         ));
         
     } else {

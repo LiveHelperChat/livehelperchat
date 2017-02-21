@@ -659,7 +659,12 @@ class erLhcoreClassModelChatOnlineUser
                 self::cleanupOnlineUsers();
                 return false;
             }
-
+            
+            if (isset($_POST['onattr']) && !empty($_POST['onattr']) && $item->online_attr != $_POST['onattr']) {
+            	$item->online_attr = $_POST['onattr'];
+            	$item->store_chat = true;
+            }
+            	
             if (isset($paramsHandle['pages_count']) && $paramsHandle['pages_count'] == true) {
                 $item->pages_count++;
                 $item->tt_pages_count++;

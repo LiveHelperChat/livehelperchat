@@ -17,7 +17,7 @@ try {
             throw new Exception('Invalid hash');
         }
         
-        erLhcoreClassChat::prefillGetAttributesObject($chat, array('user','plain_user_name'), array('user'), array('do_not_clean' => true));
+        erLhcoreClassChat::prefillGetAttributesObject($chat, array('user','plain_user_name'), array(), array('do_not_clean' => true));
         
         erLhcoreClassRestAPIHandler::outputResponse(array(
             'error' => false,

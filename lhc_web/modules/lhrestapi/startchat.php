@@ -91,10 +91,16 @@ try {
         if ( empty($chat->nick) ) {
             $chat->nick = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor');
         }
-
+        
+        // Update chat attributes
+        $data = $_POST ['data'];
+        $jsonData = json_decode ( $data, true );
+        
+        erLhcoreClassChatValidator::validateUpdateAttribute ( $chat, $jsonData);
+        
         // Store chat
         $chat->saveThis();
-        
+                
         // Assign chat to user
         if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 ) {           
            
@@ -102,6 +108,23 @@ try {
             $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('check_message_operator' => true, 'message_seen_timeout' => erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value, 'vid' => $Params['user_parameters_unordered']['vid']));
             
             if ($userInstance !== false) {
+                
+                if (isset($_POST['proactive']) && $_POST['proactive'] == 1 && $userInstance->has_message_from_operator) {
+                    
+                    // Store Message from operator
+                    $msg = new erLhcoreClassModelmsg();
+                    $msg->msg = trim($userInstance->operator_message);
+                    $msg->chat_id = $chat->id;
+                    $msg->name_support = $userInstance->operator_user !== false ? trim($userInstance->operator_user->name_support) : (!empty($userInstance->operator_user_proactive) ? $userInstance->operator_user_proactive : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support'));
+                    $msg->user_id = $userInstance->operator_user_id > 0 ? $userInstance->operator_user_id : -2;
+                    $msg->time = time()-7; // Deduct 7 seconds so for user all looks more natural
+                    
+                    erLhcoreClassChat::getSession()->save($msg);
+                    
+                    $chat->last_msg_id = $msg->id;
+                    $chat->saveThis();
+                }
+                
                 $userInstance->chat_id = $chat->id;
                 $userInstance->dep_id = $chat->dep_id;
                 $userInstance->message_seen = 1;

@@ -78,7 +78,13 @@ try {
     		
     		if ($userInstance->has_message_from_operator) {
     		    $urlAppend = ($department !== false ? '/(department)/'.$department : '') . ($theme !== false ? '/(theme)/'.$theme : '') . ($operator !== false ? '/(operator)/'.$operator : '') . ($priority !== false ? '/(priority)/'.$priority : '') . ($uarguments !== false ? '/(ua)/'.$uarguments : '') . ($survey !== false ? '/(survey)/'.$survey : '') . '/(vid)/' . $vid . ($userInstance->invitation_assigned == true ? '/(playsound)/true' : '');
-    		    echo json_encode(array('error' => false, 'result' => array('vid' => $userInstance->vid, 'action' => 'read_message', 'args' => array('url_append' => $urlAppend))));
+    		    
+    		    $name_support = null;
+    		    if ($userInstance->operator_user !== false) {
+    		        $name_support = $userInstance->operator_user->name_support;
+    		    }
+    		    
+    		    echo json_encode(array('error' => false, 'result' => array('vid' => $userInstance->vid, 'action' => 'read_message', 'args' => array('name_support' => $name_support, 'message' => $userInstance->operator_message, 'url_append' => $urlAppend))));
     		    exit;
     		}
     		
