@@ -1700,7 +1700,7 @@ function lh(){
 		        		LHCCallbacks.addmsgadmin(elementAdd.chat_id);
 		        	};
 		        	
-		        	ee.emitEvent('chatAddMsgAdmin', [chat_id]);	
+		        	ee.emitEvent('chatAddMsgAdmin', [elementAdd.chat_id]);	
 		        	
 		        	if (data.r != '') {
 	            		$('#messagesBlock-'+elementAdd.chat_id).append(data.r);
