@@ -310,7 +310,7 @@
         )); ?> 
     </div>   
   
-    <div class="col-md-6">
+    <div class="col-md-6">    
 		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Date range from to');?></label>
 		<div class="row">
 			<div class="col-md-6">
@@ -320,7 +320,15 @@
 				<input class="form-control" type="text" name="timeto" id="id_timeto" placeholder="E.g <?php echo date('Y-m-d')?>" value="<?php echo htmlspecialchars($input->timeto)?>" />
 			</div>
 		</div>
-	</div>
+	</div>	
+	<?php 
+	/**
+	 * Not implemented at the moment 
+	<div class="col-md-3">	   
+	    <br>
+    	<label><input type="checkbox" value="on" name="comparetopast" <?php $input->comparetopast == 1 ? print 'checked="checked"' : ''?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Compare to past');?></label>    	
+    </div>*/
+	?>
 </div>
 	
 	<input type="submit" name="doSearch" class="btn btn-default" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" />
