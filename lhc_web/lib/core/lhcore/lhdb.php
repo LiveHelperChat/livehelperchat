@@ -17,7 +17,7 @@ class erLhcoreClassLazyDatabaseConfiguration implements ezcBaseConfigurationInit
                          $db = ezcDbFactory::create( "mysql://{$slaveParams['user']}:{$slaveParams['password']}@{$slaveParams['host']}:{$slaveParams['port']}/{$slaveParams['database']}" );
                          $db->query('SET NAMES utf8');
                      } catch (Exception $e){
-                         log_error($e);
+                         error_log($e);
                          die('Cannot connect to database.') ;
                      }
                      return $db;
@@ -30,7 +30,7 @@ class erLhcoreClassLazyDatabaseConfiguration implements ezcBaseConfigurationInit
                         self::$connectionMaster = $db;
                         return $db;
                     } catch (Exception $e) {
-                      log_error($e);
+                      error_log($e);
                       die('Cannot connect to database.....') ;
                     }
                  }
@@ -42,7 +42,7 @@ class erLhcoreClassLazyDatabaseConfiguration implements ezcBaseConfigurationInit
                     $db = ezcDbFactory::create( "mongodb://{$cfg->getSetting( 'dbmongo', 'user' )}:{$cfg->getSetting( 'dbmongo', 'password' )}@{$cfg->getSetting( 'dbmongo', 'host' )}:{$cfg->getSetting( 'dbmongo', 'port' )}/{$cfg->getSetting( 'dbmongo', 'database' )}" );
                     return $db;
                  } catch (Exception $e) {
-                    log_error($e);
+                    error_log($e);
                     die('Cannot connect to mongo database.') ;
                  }
                  break;
@@ -61,7 +61,7 @@ class erLhcoreClassLazyDatabaseConfiguration implements ezcBaseConfigurationInit
                 		header('Location: ' .erLhcoreClassDesign::baseurldirect('site_admin/install/install') );
                 		exit;
                   	}
-                    	log_error($e);
+                    	error_log($e);
                   	die('Cannot connect to database. If you are installing application please use /index.php/install/install url. If you keep getting this error please check that application can write to cache folder and cgi.fix_pathinfo = 1') ;
                 }
              }
