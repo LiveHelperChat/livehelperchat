@@ -71,6 +71,10 @@ $ViewList['addmsguser'] = array(
     'params' => array()
 );
 
+$ViewList['setnewvid'] = array(
+    'params' => array()
+);
+
 // Checks is there any pending messages for online visitor and if there is return action what to do next
 $ViewList['chatcheckoperatormessage'] = array(
     'params' => array(),

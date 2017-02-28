@@ -224,7 +224,11 @@ class erLhcoreClassChatHelper
     	$old = erLhcoreClassModelChatOnlineUser::fetchByVid($data['vid']);
     	$new = erLhcoreClassModelChatOnlineUser::fetchByVid($data['new']);
 
-    	if ($new === false) {
+    	if ($old === false) {
+    	    throw new Exception('Invalid VID value');
+    	}
+    	
+    	if ($new === false && $old !== false) {
     		// If new record not found just update old vid to new vid hash
     		$old->vid = $data['new'];
     		$old->saveThis();
