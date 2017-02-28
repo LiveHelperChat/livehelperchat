@@ -16,6 +16,11 @@ $ViewList['updateattribute'] = array(
 		'uparams' => array('hash','hash_resume','vid'),
 );
 
+$ViewList['setnewvid'] = array(
+		'params' => array(),
+		'uparams' => array(),
+);
+
 $ViewList['redirectcontact'] = array(
     'params' => array('chat_id'),
     'uparams' => array(),

@@ -521,6 +521,32 @@ var lh_inst  = {
 	    } catch(err) { };
     },
 
+	setVid : function(vid) {
+		if ((this.cookieDataPers.vid && vid != this.cookieDataPers.vid) || !this.cookieDataPers.vid) {
+		
+			var old = this.cookieDataPers.vid;			
+			this.addCookieAttributePersistent('vid',vid);
+			
+			<?php if ($trackOnline == true && $disable_online_tracking == false) : ?>
+			lh_inst.stopCheckNewMessage();
+			lh_inst.logPageView();
+			if (!lh_inst.cookieData.hash) {
+				lh_inst.startNewMessageCheck();
+			}
+			<?php endif;?>
+			
+			if (old && old != this.cookieDataPers.vid) {
+				var inst = this;
+				setTimeout(function(){
+					var xhr = new XMLHttpRequest();
+			        xhr.open( "POST", '<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+inst.lang+'/chat/setnewvid', true);
+			     	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			     	xhr.send( "data=" + encodeURIComponent( inst.JSON.stringify({'vid':old,'new':vid}) ) );
+				},1000);				
+			}						
+		}
+	},
+
     storeSesCookie : function(){
     	<?php if ($trackDomain == '' && $disableHTML5Storage == 0) : ?>
     	if (localStorage) {
@@ -909,7 +935,7 @@ lh_inst.storeReferrer(<?php echo json_encode($referrer)?>);
 
 lh_inst.checkStatusChat();
 lh_inst.attatchActivityListeners();
-
+lh_inst.genericCallback('loaded');
 <?php
 endif; // hide if offline
 exit; ?>

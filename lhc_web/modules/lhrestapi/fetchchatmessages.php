@@ -88,10 +88,12 @@ try {
             $closed = true;
         }
         
-        if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED) {
-            $checkStatus = true;
-            $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_DEFAULT;
-            $saveChat = true;
+        if (isset($_GET['workflow']) && $_GET['workflow'] == true) {
+            if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED) {
+                $checkStatus = true;
+                $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_DEFAULT;
+                $saveChat = true;
+            }
         }
         
         if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW) {        
@@ -102,22 +104,26 @@ try {
             $checkStatus = true;
         }
         
-        if ($chat->operation != '') {
-            $operation = explode("\n", trim($chat->operation));
-            $chat->operation = '';
-            $saveChat = true;
+        if (isset($_GET['workflow']) && $_GET['workflow'] == true) {
+            if ($chat->operation != '') {
+                $operation = explode("\n", trim($chat->operation));
+                $chat->operation = '';
+                $saveChat = true;
+            }
         }
         
-        if ($chat->user_status != 0) {
-            $chat->user_status = 0;
-            $saveChat = true;
-        }
+        if (isset($_GET['workflow']) && $_GET['workflow'] == true) {
+            if ($chat->user_status != 0) {
+                $chat->user_status = 0;
+                $saveChat = true;
+            }
         
-        if ($chat->has_unread_op_messages == 1)
-        {
-            $chat->unread_op_messages_informed = 0;
-            $chat->has_unread_op_messages = 0;
-            $saveChat = true;
+            if ($chat->has_unread_op_messages == 1)
+            {
+                $chat->unread_op_messages_informed = 0;
+                $chat->has_unread_op_messages = 0;
+                $saveChat = true;
+            }
         }
         
         if ($saveChat === true) {

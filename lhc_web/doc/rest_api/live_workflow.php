@@ -176,7 +176,6 @@ if ($response->error == false) {
     // This request can be executed every 3-5 seconds it checks is there any new messages
     $response = $LHCRestAPI->execute('fetchchatmessages', array(
         'chat_id' => $id,
-        'hash' => $hash,
         'last_message_id' => 0, // Optional, return messages from this <optional>
         'ignore_system_messages' => true,
         'workflow' => true
