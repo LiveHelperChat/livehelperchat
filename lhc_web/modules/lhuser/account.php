@@ -91,6 +91,21 @@ if (isset($_POST['Update'])) {
     
 }
 
+if (isset($_POST['UpdateNotifications_account'])) {
+    
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+        erLhcoreClassModule::redirect('user/account');
+        exit;
+    }
+    
+    $validateNotificationsData = erLhcoreClassUserValidator::validateNotifications();
+    
+    erLhcoreClassModelUserSetting::setSetting('show_alert_chat', $validateNotificationsData['show_alert_chat']);
+    
+    $tpl->set('account_updated','done');
+    $tpl->set('tab','tab_notifications');  
+}
+
 $currentUser = erLhcoreClassUser::instance();
 
 $allowEditDepartaments = $currentUser->hasAccessTo('lhuser','editdepartaments');
@@ -120,6 +135,8 @@ if ($allowEditDepartaments && isset($_POST['UpdateDepartaments_account'])) {
 	$tpl->set('tab','tab_departments');
    
 }
+
+
 
 // If already set during account update
 if (!isset($UserData)) {

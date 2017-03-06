@@ -1558,9 +1558,15 @@ function lh(){
 	    if (confLH.show_alert == 1) {
 	    	setTimeout(function() {
 	    		if ($('#right-pending-chats ul').size() > 0) {
-		    		if (confirm(confLH.transLation.new_chat)){		    		
-		    			if (identifier == 'pending_chat'){
-		    	    		inst.startChatNewWindow(chat_id,'ChatRequest');
+		    		if (confirm(confLH.transLation.new_chat+"\n\n"+message)){
+		    			
+		    			if (identifier == 'pending_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered') {
+		    	    		if ($('#tabs').size() > 0) {
+		    	    			window.focus();
+		    	    			inst.startChat(chat_id, $('#tabs'), nt);
+		    	    		} else {
+		    	    			inst.startChatNewWindow(chat_id,'ChatRequest');
+		    	    		}
 		    	    	} else {
 		    	    		inst.startChatNewWindowTransferByTransfer(chat_id);
 		    	    	};
