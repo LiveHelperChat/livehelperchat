@@ -15,7 +15,7 @@ confLH.transLation = {'new_chat':'<?php echo erTranslationClassLhTranslation::ge
 confLH.csrf_token = '<?php echo erLhcoreClassUser::instance()->getCSFRToken()?>';
 confLH.repeat_sound = <?php echo (int)$soundData['repeat_sound']?>;
 confLH.repeat_sound_delay = <?php echo (int)$soundData['repeat_sound_delay']?>;
-confLH.show_alert = <?php echo (int)$soundData['show_alert']?>;
+confLH.show_alert = <?php echo (int)erLhcoreClassModelUserSetting::getSetting('show_alert_chat',0)?>;
 confLH.user_id = '<?php echo erLhcoreClassUser::instance()->getUserID()?>';
 </script>
 <script type="text/javascript" src="<?php echo erLhcoreClassDesign::designJS('vendor/jquery/jquery.min.js;vendor/bootstrap/js/bootstrap.min.js;js/modernizr.js;js/lh.min.js;js/jquery.hotkeys.min.js;js/fileupload/jquery.fileupload.min.js;js/jquery.zoom.min.js;js/datepicker.min.js;js/lh/dist/common.js;js/lh/dist/bundle.js;js/EventEmitter.min.js;js/events.js');?>"></script>

@@ -392,6 +392,24 @@ class erLhcoreClassUserValidator {
 		return $data;
 	}
 	
+	public static function validateNotifications() {
+	    $data = array();
+	    
+	    $definition = array(
+	        'show_alert_chat' => new ezcInputFormDefinitionElement(
+	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	        )
+	    );
+	    
+	    $form = new ezcInputForm( INPUT_POST, $definition );
+	    
+	    $Errors = array();
+	    
+	    $data['show_alert_chat'] = ( $form->hasValidData( 'show_alert_chat' ) && $form->show_alert_chat == true ) ? 1 : 0;
+	    
+	    return $data;
+	}
+	
 	public static function validateDepartmentsGroup(& $userData, $params = array()) {
 	
 	    $globalDepartament = array();
