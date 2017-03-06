@@ -65,7 +65,7 @@
 	    
 	    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/above_text_area_user.tpl.php'));?>	
        
-        <textarea tabindex="1" class="form-control live-chat-message" rows="4" name="ChatMessage" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Enter your message')?>" id="CSChatMessage" ></textarea>
+        <textarea class="form-control live-chat-message" rows="4" aria-required="true" required name="ChatMessage" aria-label="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your message');?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Enter your message')?>" id="CSChatMessage" ></textarea>
 
         <script type="text/javascript">
         jQuery('#CSChatMessage').bind('keydown', 'return', function (evt){

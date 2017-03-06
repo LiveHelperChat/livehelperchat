@@ -1,7 +1,7 @@
 <div class="user-chatwidget-buttons" id="ChatSendButtonContainer"> 
     <div class="btn-group pull-right" role="group">
         
-        <button type="button" tabindex="2" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+        <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
               <i class="material-icons mr-0">&#xE254;</i>
               <span class="caret"></span>
         </button>
