@@ -42,7 +42,7 @@ $langArray = array(
         <ul class="dropdown-menu f-dropdown-lang" role="menu">
           
           <?php foreach ($enabledLanguages as $siteAccess) : ?>
-    		<li><a onclick="return lhinst.switchLang($('#form-start-chat'),'<?php echo $siteAccess?>')" href="#"><?php echo $langArray[$siteAccess]?></a>
+    		<li role="menuitem"><a onclick="return lhinst.switchLang($('#form-start-chat'),'<?php echo $siteAccess?>')" href="#"><?php echo $langArray[$siteAccess]?></a>
     	<?php endforeach;?> 
           
         </ul>

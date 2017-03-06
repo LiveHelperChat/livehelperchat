@@ -1,6 +1,6 @@
 <?php if ($leaveamessage == true && (int)erLhcoreClassModelChatConfig::fetch('suggest_leave_msg')->current_value == 1) : ?>
 
-<div id="offline-modal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div id="offline-modal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog"  aria-hidden="true">
     <div class="modal-dialog modal-lg">
     <div class="modal-content">    
          <div class="modal-header">           
