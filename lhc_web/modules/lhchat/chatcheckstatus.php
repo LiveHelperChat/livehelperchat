@@ -22,6 +22,7 @@ if ($Params['user_parameters_unordered']['wopen'] != 1)
     }
     
     $tpl->set('status',$Params['user_parameters_unordered']['status'] == 'true' ? true : false);
+    $tpl->set('hide_offline',$Params['user_parameters_unordered']['hide_offline'] == 'true' ? true : false);
     
     echo $tpl->fetch();
 }

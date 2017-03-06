@@ -147,34 +147,6 @@ h1 {
 	white-space: nowrap;
 }
 
-.user-chatwidget-buttons{
-	position:absolute;
-	top:0;
-	right:0;
-}
-
-.invisible-button{
-	display:none;
-}
-
-.user-chatwidget-buttons:hover .invisible-button{
-	display:inherit;
-}
-
-.trigger-button{
-	padding-right:4px !important;
-	padding-left:4px !important;
-	border-bottom-left-radius: 15px;
-}
-
-.user-chatwidget-buttons:hover .trigger-button{
-	display:none;
-}
-
-.user-chatwidget-buttons > ul {
-	line-height:1;
-}
-
 a.icon-mail-send{
 	color:green;
 }
@@ -641,6 +613,28 @@ div.message-admin+div.message-admin .msg-date,div.message-row.response+div.messa
 	width:41px !important;
 	min-width:41px;
 	
+}
+
+.user-chatwidget-buttons{
+	position:absolute;
+	top:0;
+	right:0;
+}
+
+.text-edit-menu{
+	min-width:100px;
+	text-align:center;
+	padding:0px;
+}
+.text-edit-menu>li>a{
+	padding:3px;
+}
+.text-edit-menu>li{
+	padding:0;
+}
+
+.text-edit-menu>li{
+	display:inline-block;
 }
 
 .widget-options li a {

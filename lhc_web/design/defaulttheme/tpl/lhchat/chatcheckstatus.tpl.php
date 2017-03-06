@@ -3,6 +3,11 @@
 lh_inst.isOnline = false;
 lh_inst.showStatusWidget();
 lh_inst.stopCheckNewMessage();
+
+<?php if ($hide_offline == true) : ?>
+lh_inst.toggleStatusWidget(true);
+<?php endif;?>
+
 <?php elseif ($status == false && $isOnlineHelp == true) : ?>
 lh_inst.isOnline = true;
 lh_inst.showStatusWidget();

@@ -1061,6 +1061,7 @@ function lh(){
 				window.close();
 			}
 		}
+		return false;
 	};
 	
 	this.restoreWidget = function(hash){
@@ -2086,18 +2087,18 @@ function lh(){
     
     this.disableChatSoundUser = function(inst)
     {
-    	if (inst.text() == 'volume_off') {
+    	if (inst.find('> i').text() == 'volume_off') {
     		$.get(this.wwwDir+  'user/setsettingajax/chat_message/1');
     		confLH.new_message_sound_user_enabled = 1;
-    		inst.text('volume_up');
+    		inst.find('> i').text('volume_up');
     	} else {
     		$.get(this.wwwDir+  'user/setsettingajax/chat_message/0');
     		confLH.new_message_sound_user_enabled = 0;
-    		inst.text('volume_off');
+    		inst.find('> i').text('volume_off');
     	};
 
     	if (!!window.postMessage && parent) {
-    		if (inst.text() == 'volume_off') {
+    		if (inst.find('> i').text() == 'volume_off') {
     			parent.postMessage("lhc_ch:s:0", '*');
     		} else {
     			parent.postMessage("lhc_ch:s:1", '*');

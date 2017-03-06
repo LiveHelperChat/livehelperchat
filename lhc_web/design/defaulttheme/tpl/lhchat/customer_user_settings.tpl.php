@@ -6,10 +6,8 @@ $soundMessageEnabled = erLhcoreClassModelUserSetting::getSetting('chat_message',
   <div class="btn-group pull-right" role="group">
     <?php include(erLhcoreClassDesign::designtpl('lhchat/customer_user_settings_multiinclude.tpl.php'));?>
     
-    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-      <i class="material-icons mr-0">settings_applications</i>
-      <span class="caret"></span>
-    </button>  
+    <?php include(erLhcoreClassDesign::designtpl('lhchat/customer_user_settings/settings_applications.tpl.php'));?>
+       
     <ul role="menu" data-dropdown-content class="dropdown-menu widget-options">
 		 
 	     <?php include(erLhcoreClassDesign::designtpl('lhchat/customer_user_settings/option_sound.tpl.php'));?>
@@ -17,17 +15,17 @@ $soundMessageEnabled = erLhcoreClassModelUserSetting::getSetting('chat_message',
 	     <?php if (isset($chat)) : ?>
 	     
     	     <?php if ((int)erLhcoreClassModelChatConfig::fetch('disable_print')->current_value == 0) : ?>
-    		      <li><a target="_blank" href="<?php echo erLhcoreClassDesign::baseurl('chat/printchat')?>/<?php echo $chat->id?>/<?php echo $chat->hash?>" class="material-icons mat-100 mr-0" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Print')?>">print</a></li>
+    		      <?php include(erLhcoreClassDesign::designtpl('lhchat/customer_user_settings/option_print.tpl.php'));?>
     		 <?php endif;?>
     		 				 
     		 <?php if ((int)erLhcoreClassModelChatConfig::fetch('disable_send')->current_value == 0) : ?>
-    		      <li><a target="_blank" onclick="lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('chat/sendchat')?>/<?php echo $chat->id?>/<?php echo $chat->hash?>'});return false;" href="#" class="material-icons mat-100 mr-0" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Send chat transcript to your e-mail')?>">email</a></li>
+    		      <?php include(erLhcoreClassDesign::designtpl('lhchat/customer_user_settings/option_transcript.tpl.php'));?>
     		 <?php endif;?>
     		 
     		 <?php include(erLhcoreClassDesign::designtpl('lhchat/customer_user_settings/user_file_upload.tpl.php'));?>
-
+ 
     		 <?php if ((int)erLhcoreClassModelChatConfig::fetch('hide_button_dropdown')->current_value == 0 && isset($chat_widget_mode) && $chat_widget_mode == true) : ?>
-    		      <li><a onclick="lhinst.explicitChatCloseByUser();" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','End the chat')?>"><i class="material-icons mr-0">close</i></a></li>
+    		      <?php include(erLhcoreClassDesign::designtpl('lhchat/customer_user_settings/option_close.tpl.php'));?>
     		 <?php endif;?>
 
 		 <?php endif; ?>
