@@ -68,7 +68,6 @@ $tpl->set('position',$Params['user_parameters_unordered']['position']);
 $tpl->set('minimize_action',$Params['user_parameters_unordered']['ma']);
 $tpl->set('identifier',(!is_null($Params['user_parameters_unordered']['identifier']) && !empty($Params['user_parameters_unordered']['identifier'])) ? (string)$Params['user_parameters_unordered']['identifier'] : false);
 $tpl->set('leaveamessage',(string)$Params['user_parameters_unordered']['leaveamessage'] == 'true');
-$tpl->set('noresponse',(string)$Params['user_parameters_unordered']['noresponse'] == 'true');
 $tpl->set('hide_offline',$Params['user_parameters_unordered']['hide_offline']);
 
 if (is_array($Params['user_parameters_unordered']['department'])){

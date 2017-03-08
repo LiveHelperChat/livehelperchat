@@ -170,6 +170,7 @@ var lh_inst  = {
 					dm.style.left = '0px';	
 					<?php endif;?>													
 			<?php endif;?>
+			this.removeClass(document.body,'lhc-opened');			
 		} else {	
 			dm.attrIsMin = false;
 			<?php if ($currentPosition['posv'] == 'b') : ?>
@@ -187,7 +188,8 @@ var lh_inst  = {
 			this.removeCookieAttr('m');
 			this.removeClass(dm,'lhc-min');
 			var inst = this;		
-			this.storePos(dm);
+			this.storePos(dm);			
+			this.addClass(document.body,'lhc-opened');
 		};
 		
 		if (typeof initial !== 'undefined' && initial === true) {
@@ -197,6 +199,8 @@ var lh_inst  = {
                 that.removeClass(dm,'lhc-min-append');
             },700);           
 		}
+		
+		 
 	},
 	
     hide : function() {
@@ -217,6 +221,8 @@ var lh_inst  = {
             this.removeCookieAttr('hash');
             this.removeCookieAttr('pos');
             this.removeCookieAttr('m');
+                    
+            this.removeClass(document.body,'lhc-opened');
                     
             <?php if ($check_operator_messages == 'true' && $disable_pro_active == false) : ?>
             this.startNewMessageCheck();

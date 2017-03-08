@@ -20,11 +20,8 @@ showStartWindow : function(url_to_open,delayShow) {
       		this.chatOpenedCallback(this.isOnline == false ? 'internal_offline' : 'internal');	
             this.initial_iframe_url = "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>"+this.lang+"/chat/chatwidget<?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?= isset($currentPosition['full_height']) && $currentPosition['full_height'] ?  '/(fullheight)/true' : '/(fullheight)/false' ?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : '' ?>"+this.getAppendCookieArguments()+'?URLReferer='+locationCurrent+this.parseOptions()+this.parseStorageArguments()+'&dt='+encodeURIComponent(document.title);
       };
-
-      if (window.innerWidth < 768) {
-      	window.open(this.initial_iframe_url,"_blank");
-      	return;
-      };
+       
+      this.addClass(document.body,'lhc-opened');
       
       lh_inst.surveyShown = false;                             
       lh_inst.timeoutStatusWidgetOpen = 1;
