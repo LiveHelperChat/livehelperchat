@@ -30,22 +30,31 @@ $response = $LHCRestAPI->execute('chats', array(
     'departament_id' => 5,
     'user_id' => 1,
     'update_activity' => 1 // Forces to update last acitivity, can be used with any call <optional>
-), true);
+));
 print_r($response);
 
 // Returns departments
 $response = $LHCRestAPI->execute('departaments', array(   
-), true);
+));
 print_r($response);
 
 // Fetch chat
 $response = $LHCRestAPI->execute('fetchchat', array(   
     'chat_id' => 5388
-), true);
+));
 print_r($response);
 
 $response = $LHCRestAPI->execute('fetchchatmessages', array(   
     'chat_id' => 5388,
     'last_message_id' => 3203, // Optional, return messages from this <optional>
-), true);
+));
 print_r($response);
+
+// Examples with XML
+$response = $LHCRestAPI->execute('fetchchatmessages', array(
+    'chat_id' => 6724,
+    'last_message_id' => 0, // Optional, return messages from this <optional>
+    'format' => 'xml'
+),array(),'GET',false);
+print_r($response);
+
