@@ -7,7 +7,7 @@ try {
     erLhcoreClassRestAPIHandler::validateRequest();
     erLhcoreClassRestAPIHandler::outputResponse(erLhcoreClassRestAPIHandler::validateDepartaments());
 } catch (Exception $e) {
-    echo json_encode(array(
+    echo erLhcoreClassRestAPIHandler::outputResponse(array(
         'error' => true,
         'result' => $e->getMessage()
     ));

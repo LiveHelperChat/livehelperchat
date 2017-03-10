@@ -181,7 +181,7 @@ try {
 	}
 
 } catch (Exception $e) {
-    echo json_encode(array(
+    echo erLhcoreClassRestAPIHandler::outputResponse(array(
         'error' => true,
         'result' => $e->getMessage()
     ));
@@ -199,10 +199,10 @@ $responseArray['result'] = array(
 	'name_support' => $nameSupport
 );
 
-echo json_encode($responseArray);
+echo erLhcoreClassRestAPIHandler::outputResponse($responseArray);
 
 } catch ( Exception $e ) {
-    echo json_encode(array(
+    echo erLhcoreClassRestAPIHandler::outputResponse(array(
         'error' => true,
         'result' => array('errors' => $e->getMessage())
     ));

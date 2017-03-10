@@ -101,15 +101,15 @@ try {
     			$userInstance->saveThis();
     		}
     		
-    		echo json_encode(array('error' => false, 'result' => array('action' => 'continue',  'vid' => $userInstance->vid,)));
+    		echo erLhcoreClassRestAPIHandler::outputResponse(array('error' => false, 'result' => array('action' => 'continue',  'vid' => $userInstance->vid,)));
     	} else {
-    	    echo json_encode(array('error' => false, 'result' => array('action' => 'disable_check')));
+    	    echo erLhcoreClassRestAPIHandler::outputResponse(array('error' => false, 'result' => array('action' => 'disable_check')));
     	}
     } else {
-        echo json_encode(array('error' => false, 'result' => array('action' => 'disable_check')));
+        echo erLhcoreClassRestAPIHandler::outputResponse(array('error' => false, 'result' => array('action' => 'disable_check')));
     }
 } catch ( Exception $e ) {
-    echo json_encode(array(
+    echo erLhcoreClassRestAPIHandler::outputResponse(array(
         'error' => true,
         'result' => array('errors' => $e->getMessage())
     ));

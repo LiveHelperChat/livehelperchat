@@ -69,7 +69,7 @@ class LHCRestAPI {
 	public function execute($function, $params, $uparams = array(), $method = 'GET', $jsonObject = true, $manualAppend = '')
 	{
 	    $response = $this->executeRequest($function, $params, $uparams, $method, $manualAppend);
-	    
+	   	    
 	    if ($jsonObject == false) {
 	        return $response;
 	    }

@@ -23,11 +23,11 @@ try {
             'result' => 'merged'
         ));
     } catch (Exception $e) {
-        echo json_encode(array('error' => false, 'result' => $e->getMessage()));
+        echo erLhcoreClassRestAPIHandler::outputResponse(array('error' => false, 'result' => $e->getMessage()));
     }
         
 } catch (Exception $e) {
-    echo json_encode(array(
+    echo erLhcoreClassRestAPIHandler::outputResponse(array(
         'error' => true,
         'result' => $e->getMessage()
     ));

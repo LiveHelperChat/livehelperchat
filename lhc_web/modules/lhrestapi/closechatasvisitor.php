@@ -68,19 +68,19 @@ if ($_GET['hash'] != '') {
 				        
 			        $db->commit();
 			        
-			        echo json_encode(array(
+			        echo erLhcoreClassRestAPIHandler::outputResponse(array(
 			        		'error' => false,
 			        		'result' => true
 			        ));
 	        } else {
-	        	echo json_encode(array(
+	        	echo erLhcoreClassRestAPIHandler::outputResponse(array(
 	        			'error' => false,
 	        			'result' => true
 	        	));
 	        }
 	        
     } catch (Exception $e) {
-       echo json_encode(array(
+       echo erLhcoreClassRestAPIHandler::outputResponse(array(
 	        'error' => true,
 	        'result' => $e->getMessage()
 	    ));

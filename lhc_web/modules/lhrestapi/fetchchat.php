@@ -29,7 +29,7 @@ try {
     }
 
 } catch (Exception $e) {
-    echo json_encode(array(
+    echo erLhcoreClassRestAPIHandler::outputResponse(array(
         'error' => true,
         'result' => $e->getMessage()
     ));

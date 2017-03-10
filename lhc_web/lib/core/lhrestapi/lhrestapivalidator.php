@@ -260,17 +260,78 @@ class erLhcoreClassRestAPIHandler
     }
 
     /**
+     * php array to xml conversion even for nested data
+     *
+     * @link http://stackoverflow.com/q/14136714/367456
+     * @see http://stackoverflow.com/a/14143759/367456 for description
+     * @author hakre <http://hakre.wordpress.com/credits>
+     */
+    public static function formatXML($data)
+    {
+        $createArrayImporter = function (SimpleXMLElement $subject) {
+            $add = function (SimpleXMLElement $subject, $key, $value) use (&$add) {
+                $hasKey    = is_string($key);
+                $isString  = is_string($value);
+                $isArray   = is_array($value);
+                $count     = count($value);
+                $isIndexed = $isArray && $count > 1 && array_keys($value) === range(0, $count - 1);
+                $isKeyed   = $isArray && $count && !$isIndexed;
+                switch (true) {
+                    case $isString && $hasKey:
+                        return $subject->addChild($key, $value);
+                    case $isIndexed && $hasKey:
+                        foreach ($value as $oneof_value) {
+                            $add($subject, $key, $oneof_value);
+                        }
+                        return $subject->$key;
+                    case $isKeyed && $hasKey:
+                        $subject = $subject->addChild($key);
+                        // fall-through intended
+                    case $isKeyed:
+                        foreach ($value as $oneof_key => $oneof_value) {
+                            $add($subject, $oneof_key, $oneof_value);
+                        }
+                        return true;
+                    default:
+                        trigger_error('Unknown Nodetype ' . print_r($value, 1));
+                }
+            };
+            return function (Array $array) use ($subject, $add) {
+                $add($subject, null, $array);
+                return $subject;
+            };
+        };
+        
+        $xml      = new SimpleXMLElement('<root/>');
+        $importer = $createArrayImporter($xml);
+        
+        $SimpleXML = $importer($data);
+        
+        $dom                     = new DOMDocument();
+        $dom->preserveWhiteSpace = false;
+        $dom->formatOutput       = true;
+        $dom->loadXML($SimpleXML->asXML());
+        
+        return $dom->saveXML();
+    }
+    
+    /**
      *
      * @param array $data            
      */
     public static function outputResponse($data)
     {
-        $json = json_encode($data, JSON_PRETTY_PRINT);
-        
-        if (isset($_GET['callback'])) {
-            echo $_GET['callback'] . '(' . $json . ')';
+        if ($_GET['format'] == 'xml') {
+           echo self::formatXML($data);           
         } else {
-            echo $json;
+        
+            $json = json_encode($data, JSON_PRETTY_PRINT);
+            
+            if (isset($_GET['callback'])) {
+                echo $_GET['callback'] . '(' . $json . ')';
+            } else {
+                echo $json;
+            }
         }
     }
 

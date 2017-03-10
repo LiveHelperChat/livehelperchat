@@ -33,11 +33,11 @@ try {
             'chat' => & $chat
 		));
 		
-		echo json_encode(array('stored' => 'true'));
+		echo erLhcoreClassRestAPIHandler::outputResponse(array('stored' => 'true'));
 		exit;
 	}
 } catch ( Exception $e ) {
-    echo json_encode(array(
+    echo erLhcoreClassRestAPIHandler::outputResponse(array(
         'error' => true,
         'result' => array('errors' => $e->getMessage())
     ));
