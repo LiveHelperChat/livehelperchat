@@ -161,6 +161,9 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 		        $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/errors/chatclosed.tpl.php');
 		        $tpl->set('theme',$theme);
 		        $tpl->set('modeembed',isset($Params['user_parameters_unordered']['mode']) ? $Params['user_parameters_unordered']['mode'] : '');
+		        
+		        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_chat_closed_tpl',array('chat' => & $chat, 'tpl' => & $tpl));
+		        
 		        $status = $tpl->fetch();
 		        
 		    	$blocked = 'true';
@@ -252,6 +255,9 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
     $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/errors/chatclosed.tpl.php');
     $tpl->set('theme',$theme);
     $tpl->set('modeembed',$Params['user_parameters_unordered']['modeembed']);
+    
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_chat_closed_tpl',array('chat' => & $chat, 'tpl' => & $tpl));
+    
     $status = $tpl->fetch();
     
     $blocked = 'true';

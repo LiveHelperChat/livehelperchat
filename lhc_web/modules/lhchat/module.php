@@ -11,6 +11,12 @@ $ViewList['adminchat'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['getcannedfiltered'] = array(
+    'params' => array('chat_id'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
 $ViewList['updateattribute'] = array(
 		'params' => array(),
 		'uparams' => array('hash','hash_resume','vid'),

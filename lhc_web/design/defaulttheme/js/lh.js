@@ -1785,6 +1785,56 @@ function lh(){
 		};
 	};
 	
+	this.addAdminChatFinished = function(chat_id, last_message_id){
+		
+		var _that = this;
+		
+		jQuery('#CSChatMessage-'+chat_id).bind('keydown', 'return', function (evt){
+			_that.addmsgadmin(chat_id);
+			 		return false;			
+		});
+		
+		jQuery('#CSChatMessage-'+chat_id).bind('keyup', 'up', function (evt){
+			_that.editPrevious(chat_id);	
+		});
+		
+		this.initTypingMonitoringAdmin(chat_id);
+		
+		this.afterAdminChatInit(chat_id);
+		
+		this.addSynchroChat(chat_id,last_message_id);
+
+		$('#messagesBlock-'+chat_id).animate({ scrollTop: $('#messagesBlock-'+chat_id).prop('scrollHeight') }, 1000);
+
+		// Start synchronisation
+		this.startSyncAdmin();	
+		
+		jQuery('#id_CannedMessageSearch-'+chat_id).keyup(function(evt) {
+			
+			if ($(this).val() != '') {
+				jQuery('#id_CannedMessage-'+chat_id).attr('size',10);	
+			} else {
+				jQuery('#id_CannedMessage-'+chat_id).removeAttr('size');
+			}
+			
+			var q = $(this).val();
+			$.getJSON(_that.wwwDir + 'chat/getcannedfiltered/' + chat_id, {q: q}, function(data) {
+                 if (data.error == false) {
+                	 $('#id_CannedMessage-'+chat_id).html(data.result);
+                	 
+                	 if (q != '') {
+                		 var options = $('#id_CannedMessage-'+chat_id).find('option');
+                		 if (options.size() > 1) {
+                			 $(options[1]).attr('selected','selected');
+                		 }
+                	 }
+                 }                 
+            }); 
+		});
+				
+		ee.emitEvent('adminChatLoaded', [chat_id,last_message_id]);
+	};
+	
 	this.showMyPermissions = function(user_id) {
 		$.get(this.wwwDir + 'permission/getpermissionsummary/'+user_id, function(data){
 			$('#permissions-summary').html(data);

@@ -69,11 +69,8 @@ showStartWindow : function(url_to_open,delayShow) {
  			lhc_obj.removeClass(document.getElementById('lhc_container'),'lhc-delayed');
  			lhc_obj.toggleStatusWidget(true);
  		},(typeof delayShow !== 'undefined') ? 1300 : 290);
-                
-      var closeHandler = document.getElementById('lhc_close');
-      if (closeHandler !== null){
-          closeHandler.onclick = function() { lhc_obj.hide(); lh_inst.chatClosedCallback('user'); return false; };
-      };
+      
+      <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/functions/part/close_handler.tpl.php')); ?>		
       
       document.getElementById('lhc_min').onclick = function() { lhc_obj.min(); return false; };
       <?php if (erLhcoreClassModelChatConfig::fetch('disable_popup_restore')->current_value == 0 && ($theme === false || $theme->hide_popup == 0)) : ?>

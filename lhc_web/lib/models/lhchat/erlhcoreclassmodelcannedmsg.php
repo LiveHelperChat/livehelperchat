@@ -90,19 +90,65 @@ class erLhcoreClassModelCannedMsg
         $this->replaceData = $replaceData;
     }
 
-    public static function getCannedMessages($department_id, $user_id)
+    public static function getCannedMessages($department_id, $user_id, $paramsFilter = array())
     {
         $session = erLhcoreClassChat::getSession();
         $q = $session->createFindQuery('erLhcoreClassModelCannedMsg');
-        $q->where($q->expr->lOr($q->expr->eq('department_id', $q->bindValue($department_id)), $q->expr->lAnd($q->expr->eq('department_id', $q->bindValue(0)), $q->expr->eq('user_id', $q->bindValue(0))), $q->expr->eq('user_id', $q->bindValue($user_id))));
+        $filter = array();
+        $filter[] = $q->expr->lOr($q->expr->eq('department_id', $q->bindValue($department_id)), $q->expr->lAnd($q->expr->eq('department_id', $q->bindValue(0)), $q->expr->eq('user_id', $q->bindValue(0))), $q->expr->eq('user_id', $q->bindValue($user_id)));
+        
+        if (isset($paramsFilter['q']) && $paramsFilter['q'] != '') {
+            $filter[] = $q->expr->like('msg', $q->bindValue('%' . $paramsFilter['q'] . '%'));
+        }
+        
+        $q->where($filter);
         
         $q->limit(5000, 0);
-        $q->orderBy('position ASC, title ASC');
+        $q->orderBy('department_id ASC, position ASC, title ASC');
         $items = $session->find($q);
         
         return $items;
     }
 
+    public static function groupItems($items, $chat, $nameSupport)
+    {  
+        $replaceArray = array(
+            '{nick}' => $chat->nick,
+            '{email}' => $chat->email,
+            '{phone}' => $chat->phone,
+            '{operator}' => $nameSupport
+        );
+        
+        $additionalData = $chat->additional_data_array;
+        
+        if (is_array($additionalData)) {
+            foreach ($additionalData as $row) {
+                if (isset($row->identifier) && $row->identifier != '') {
+                    $replaceArray['{' . $row->identifier . '}'] = $row->value;
+                }
+            }
+        }
+        
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow.canned_message_replace', array(
+            'chat' => $chat,
+            'replace_array' => & $replaceArray
+        ));
+        
+        $grouped = array();
+        
+        foreach ($items as $item) {
+            
+            $item->setReplaceData($replaceArray);
+            
+            $type = $item->department_id > 0 ? 0 : ($item->user_id > 0 ? 1 : 2);
+            $id = $item->department_id > 0 ? $item->department_id : ($item->user_id > 0 ? $item->user_id : 0);
+            
+            $grouped[$type . '_' . $id][] = $item;
+        }
+        
+        return $grouped;
+    }
+    
     private $replaceData = array();
 
     public $id = null;
