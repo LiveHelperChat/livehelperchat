@@ -94,18 +94,34 @@ class erLhcoreClassModelCannedMsg
     {
         $session = erLhcoreClassChat::getSession();
         $q = $session->createFindQuery('erLhcoreClassModelCannedMsg');
+        
         $filter = array();
-        $filter[] = $q->expr->lOr($q->expr->eq('department_id', $q->bindValue($department_id)), $q->expr->lAnd($q->expr->eq('department_id', $q->bindValue(0)), $q->expr->eq('user_id', $q->bindValue(0))), $q->expr->eq('user_id', $q->bindValue($user_id)));
+        $items = array();
         
-        if (isset($paramsFilter['q']) && $paramsFilter['q'] != '') {
-            $filter[] = $q->expr->like('msg', $q->bindValue('%' . $paramsFilter['q'] . '%'));
+        $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow.canned_message_filter', array(
+        		'params_filter' => $paramsFilter,
+        		'filter' => & $filter,
+        		'department_id' => $department_id,
+        		'user_id' => $user_id,
+        		'q' => $q,
+        		'items' => & $items,
+        		'session' => & $session
+        ));
+        
+        if ($response === false) {
+	        // Extension did not changed any filters, use default        
+	        $filter[] = $q->expr->lOr($q->expr->eq('department_id', $q->bindValue($department_id)), $q->expr->lAnd($q->expr->eq('department_id', $q->bindValue(0)), $q->expr->eq('user_id', $q->bindValue(0))), $q->expr->eq('user_id', $q->bindValue($user_id)));
+	
+	        if (isset($paramsFilter['q']) && $paramsFilter['q'] != '') {
+	            $filter[] = $q->expr->like('msg', $q->bindValue('%' . $paramsFilter['q'] . '%'));
+	        }
+	          
+	        $q->where($filter);
+	       
+	        $q->limit(5000, 0);
+	        $q->orderBy('position ASC, title ASC');
+	        $items = $session->find($q);
         }
-        
-        $q->where($filter);
-        
-        $q->limit(5000, 0);
-        $q->orderBy('department_id ASC, position ASC, title ASC');
-        $items = $session->find($q);
         
         return $items;
     }
