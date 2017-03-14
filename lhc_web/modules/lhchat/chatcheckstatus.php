@@ -22,7 +22,6 @@ if ($Params['user_parameters_unordered']['wopen'] != 1)
     }
     
     $tpl->set('status',$Params['user_parameters_unordered']['status'] == 'true' ? true : false);
-    $tpl->set('hide_offline',$Params['user_parameters_unordered']['hide_offline'] == 'true' ? true : false);
     
     echo $tpl->fetch();
 }
@@ -62,7 +61,7 @@ if (erLhcoreClassModelChatConfig::fetch('track_is_online')->current_value && $Pa
 			        list($chatId) = explode('_', (string)$Params['user_parameters_unordered']['hash_resume']);
 			    }
 			    
-			    if (isset($chatId) && is_numeric($chatId)) {
+			    if (is_numeric($chatId)) {
 			         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed_chat',array('chat_id' => $chatId));
 			    }
 			}

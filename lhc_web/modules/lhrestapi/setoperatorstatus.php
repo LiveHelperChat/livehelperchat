@@ -47,7 +47,7 @@ try {
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.operator_status_changed',array('user' => & $userData, 'reason' => 'rest_api'));
 
 } catch (Exception $e) {
-    echo erLhcoreClassRestAPIHandler::outputResponse(array(
+    echo json_encode(array(
         'error' => true,
         'result' => $e->getMessage()
     ));

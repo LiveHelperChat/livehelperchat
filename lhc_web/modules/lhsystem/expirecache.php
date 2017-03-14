@@ -2,7 +2,7 @@
 
 
 $CacheManager = erConfigClassLhCacheConfig::getInstance();
-$CacheManager->expireCache(true);
+$CacheManager->expireCache();
 header('Location: ' . $_SERVER['HTTP_REFERER']);
 exit;
 

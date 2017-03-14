@@ -81,6 +81,7 @@ class erLhcoreClassChatValidator {
                 $validationFields['AcceptTOS'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'boolean' );
             }
             
+            
         } else {
             if ((isset($start_data_fields['name_visible_in_page_widget']) && $start_data_fields['name_visible_in_page_widget'] == true && !isset($additionalParams['offline'])) || (isset($additionalParams['offline']) && isset($start_data_fields['offline_name_visible_in_page_widget']) && $start_data_fields['offline_name_visible_in_page_widget'] == true)) {
                 $validationFields['Username'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
@@ -161,21 +162,18 @@ class erLhcoreClassChatValidator {
             FILTER_REQUIRE_ARRAY
         );
         
-        if (!isset($additionalParams['ignore_captcha']) || $additionalParams['ignore_captcha'] == false)
-        {
-            // Captcha stuff        
-            if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
-            	// Start session if required only
-            	$currentUser = erLhcoreClassUser::instance();
-            	$hashCaptcha = isset($_SESSION[$_SERVER['REMOTE_ADDR']]['form']) ? $_SESSION[$_SERVER['REMOTE_ADDR']]['form'] : null;
-        		$nameField = 'captcha_'.$hashCaptcha;    	
-            	$validationFields[$nameField] = new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'string' );
-            } else {        
-    	        $nameField = 'captcha_'.sha1(erLhcoreClassIPDetect::getIP().$_POST['tscaptcha'].erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
-    	        $validationFields[$nameField] = new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'string' );
-            }
+        // Captcha stuff        
+        if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
+        	// Start session if required only
+        	$currentUser = erLhcoreClassUser::instance();
+        	$hashCaptcha = isset($_SESSION[$_SERVER['REMOTE_ADDR']]['form']) ? $_SESSION[$_SERVER['REMOTE_ADDR']]['form'] : null;
+    		$nameField = 'captcha_'.$hashCaptcha;    	
+        	$validationFields[$nameField] = new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'string' );
+        } else {        
+	        $nameField = 'captcha_'.sha1(erLhcoreClassIPDetect::getIP().$_POST['tscaptcha'].erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
+	        $validationFields[$nameField] = new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'string' );
         }
-        
+
         // Custom start chat fields
         $validationFields['value_items_admin'] = new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
@@ -211,19 +209,16 @@ class erLhcoreClassChatValidator {
         	$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','You do not have permission to chat! Please contact site owner.');
         }
        
-        if (!isset($additionalParams['ignore_captcha']) || $additionalParams['ignore_captcha'] == false)
-        {
-            if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
-            	if ( !$form->hasValidData( $nameField ) || $form->$nameField == '' || $form->$nameField < time()-600 || $hashCaptcha != sha1($_SERVER['REMOTE_ADDR'].$form->$nameField.erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ))){
-            		$Errors['captcha'] = erTranslationClassLhTranslation::getInstance()->getTranslation("chat/startchat","Your request was not processed as expected - but don't worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.");
-            	}
-            } else {
-            	// Captcha validation
-            	if ( !$form->hasValidData( $nameField ) || $form->$nameField == '' || $form->$nameField < time()-600 )
-            	{
-            		$Errors['captcha'] = erTranslationClassLhTranslation::getInstance()->getTranslation("chat/startchat","Your request was not processed as expected - but don't worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.");
-            	}
-            }
+        if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
+        	if ( !$form->hasValidData( $nameField ) || $form->$nameField == '' || $form->$nameField < time()-600 || $hashCaptcha != sha1($_SERVER['REMOTE_ADDR'].$form->$nameField.erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ))){
+        		$Errors['captcha'] = erTranslationClassLhTranslation::getInstance()->getTranslation("chat/startchat","Your request was not processed as expected - but don't worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.");
+        	}
+        } else {
+        	// Captcha validation
+        	if ( !$form->hasValidData( $nameField ) || $form->$nameField == '' || $form->$nameField < time()-600 )
+        	{
+        		$Errors['captcha'] = erTranslationClassLhTranslation::getInstance()->getTranslation("chat/startchat","Your request was not processed as expected - but don't worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.");
+        	}
         }
         
         if (isset($validationFields['Username'])) {
@@ -350,70 +345,13 @@ class erLhcoreClassChatValidator {
 
                 try {
                     $product = erLhAbstractModelProduct::fetch($chat->product_id);
-                    
-                    if (erLhcoreClassModelChatConfig::fetch('product_show_departament')->current_value == 0) {
-                        $chat->dep_id = $product->departament_id;   
-                    } else {
-                        if ($form->hasValidData( 'DepartamentID' ) && erLhcoreClassModelDepartament::getCount(array('filter' => array('id' => $form->DepartamentID, 'disabled' => 0))) > 0) {
-                            $chat->dep_id = $form->DepartamentID;
-                        } else {
-                            $Errors['department'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please choose department!');
-                        }
-                    }
-                    
+                    $chat->dep_id = $product->departament_id;                                        
                 } catch (Exception $e) {
                     $Errors['ProductID'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Could not find a product!');
                 }
 
             } else {
-                
-                if (erLhcoreClassModelChatConfig::fetch('product_show_departament')->current_value == 1) {
-                    
-                    if ($form->hasValidData( 'DepartamentID' ) && erLhcoreClassModelDepartament::getCount(array('filter' => array('id' => $form->DepartamentID, 'disabled' => 0))) > 0) {
-                        $chat->dep_id = $form->DepartamentID;
-                    } elseif ($form->hasValidData( 'DepartamentID' ) && $form->DepartamentID == -1) {
-                        $chat->dep_id == 0;
-                    
-                        if (isset($additionalParams['theme']) && $additionalParams['theme'] !== false && $additionalParams['theme']->department_title != '') {
-                            $Errors['department'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please choose').' '.htmlspecialchars($additionalParams['theme']->department_title).'!';
-                        } else {
-                            $Errors['department'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please choose department!');
-                        }
-                    
-                    } elseif ($chat->dep_id == 0 || erLhcoreClassModelDepartament::getCount(array('filter' => array('id' => $chat->dep_id,'disabled' => 0))) == 0) {
-                    
-                        // Perhaps extension overrides default department?
-                        $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.validate_department', array('input_form' => $inputForm));
-                    
-                        // There was no callbacks or file not found etc, we try to download from standard location
-                        if ($response === false) {
-                            $departments = erLhcoreClassModelDepartament::getList(array('limit' => 1,'filter' => array('disabled' => 0)));
-                            if (!empty($departments) ) {
-                                $department = array_shift($departments);
-                                $chat->dep_id = $department->id;
-                            } else {
-                                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Could not determine a default department!');
-                            }
-                        } else {
-                            $chat->dep_id = $response['department_id'];
-                        }
-                    }
-                    
-                    // Is product required or not?
-                    if ( $chat->dep_id > 0 ) {
-                        try {
-                            $dep = erLhcoreClassModelDepartament::fetch($chat->dep_id);
-                            if (isset($dep->product_configuration_array['products_enabled']) && $dep->product_configuration_array['products_enabled'] == 1 && isset($dep->product_configuration_array['products_required']) && $dep->product_configuration_array['products_required'] == 1) {
-                                $Errors['ProductID'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please choose a product!');
-                            }
-                        } catch (Exception $e) {
-                            
-                        }
-                    }
-
-                } else {
-                    $Errors['ProductID'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please choose a product!');
-                }
+                $Errors['ProductID'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please choose a product!');
             }
 
         } else {
@@ -449,22 +387,15 @@ class erLhcoreClassChatValidator {
             }
         }
 
-        $department = false;
-        
-        if ($chat->product_id > 0) {
-           $department = $chat->product->departament;
-        } elseif ($chat->department !== false) {
-           $department = $chat->department;
-        }
-                        
-        if ($department !== false && $department->department_transfer_id > 0) {
+        // Set chat attributes for transfer workflow logic
+        if ($chat->department !== false && $chat->department->department_transfer_id > 0) {
         	$chat->transfer_if_na = 1;
         	$chat->transfer_timeout_ts = time();
-        	$chat->transfer_timeout_ac = $department->transfer_timeout;
+        	$chat->transfer_timeout_ac = $chat->department->transfer_timeout;
         }
         
-        if ($department !== false && $department->inform_unread == 1) {
-        	$chat->reinform_timeout = $department->inform_unread_delay;        	
+        if ($chat->department !== false && $chat->department->inform_unread == 1) {
+        	$chat->reinform_timeout = $chat->department->inform_unread_delay;        	
         }
         
         $inputForm->departament_id = $chat->dep_id;
@@ -472,8 +403,8 @@ class erLhcoreClassChatValidator {
         if ( $inputForm->priority !== false && is_numeric($inputForm->priority) ) {
         	$chat->priority = (int)$inputForm->priority;
         } else {
-        	if ($department !== false) {
-        		$chat->priority = $department->priority;
+        	if ($chat->department !== false) {
+        		$chat->priority = $chat->department->priority;
         	}
         }
 
@@ -771,7 +702,7 @@ class erLhcoreClassChatValidator {
             // Removed hidden admin fields
             foreach ($currentChatData as $key => $data) {
                 /**
-                 * Clean only if
+                 * Clean ony if
                  * 1. Field is hidden
                  * 2. Field is hidden manually
                  * 3. Field is back office custom field
@@ -895,56 +826,6 @@ class erLhcoreClassChatValidator {
         }
     
         return $Errors;
-    }
-    
-    public static function validateUpdateAttribute($chat, $dataUpdate)
-    {
-    	if (is_array($dataUpdate)) {
-    		$currentChatData = json_decode($chat->additional_data, true);
-    		
-    		if (!is_array($currentChatData)) {
-    			$currentChatData = array();
-    		}
-
-    		$fieldsToUpdate = array_keys($dataUpdate);
-	
-    		// Removed hidden admin fields
-    		foreach ($currentChatData as $key => $data) {
-    			/**
-    			 * Clean only if
-    			 * 1. Field is hidden
-    			 * 2. Field is hidden manually
-    			 * 3. Field is back office custom field
-    			 * */
-    			if (in_array($data['key'], $fieldsToUpdate)) {
-    				unset($currentChatData[$key]);
-    			}
-    		}
-
-    		foreach ($dataUpdate as $field => $attrValue) {
-    			
-    			$valueStore = $attrValue['val'];
-    			$hiddenField = false;
-    			
-    			if (isset($attrValue['enc']) && $attrValue['enc'] == true) {
-    				$hiddenField = true;
-	    			try {
-	                     $valueStore = self::decryptAdditionalField($valueStore);
-	                } catch (Exception $e) {
-	                     $valueStore = $e->getMessage();
-	                }
-    			}
-    			
-    			$currentChatData[] = array('h' => $hiddenField, 'key' => $field, 'value' => $valueStore);
-    		}
-    		
-    		// To reset index
-    		$currentChatData = array_values($currentChatData);
-    		
-    		if (!empty($currentChatData)) {
-    			$chat->additional_data = json_encode($currentChatData);
-    		}
-    	}
     }
 }
 

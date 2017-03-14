@@ -234,7 +234,6 @@ class erLhcoreClassModelChat {
        	        if ($this->user !== false) {
        	            $this->plain_user_name = (string)$this->user->name_support;
        	        }
-       	        
        			return $this->plain_user_name;
        		break;	
        		

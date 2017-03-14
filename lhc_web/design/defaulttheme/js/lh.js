@@ -139,7 +139,7 @@ function lh(){
     		setTimeout(function(){
     			inst.find('.msg-nm').remove();
     			inst.removeClass('has-pm');    			
-    			$('#messagesBlock-'+chat_id).stop(true,false).animate({ scrollTop: $('#messagesBlock-'+chat_id).prop('scrollHeight') }, 500);
+    			$('#messagesBlock-'+chat_id).animate({ scrollTop: $('#messagesBlock-'+chat_id).prop('scrollHeight') }, 1000);
     			$('#CSChatMessage-'+chat_id).focus();
     		},500);
     		
@@ -535,16 +535,11 @@ function lh(){
     	            if (data.result != 'false' && data.status == 'true')
     	            {
     	            		var messageBlock = $('#messagesBlock');
-    	            		var scrollHeight = messageBlock.prop("scrollHeight");
-    	            		var isAtTheBottom = Math.abs((scrollHeight - messageBlock.prop("scrollTop")) - messageBlock.prop("clientHeight"));
-    	            		
+    	            	
     	            		messageBlock.find('.pending-storage').remove();
     	            		messageBlock.append(data.result);
-    	            		
-	  	                	if (isAtTheBottom < 20) {
-	  	                		messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
-	  	                	}  	                	  
-    	            		
+    	            		messageBlock.animate({ scrollTop: messageBlock.prop('scrollHeight') }, 1000);
+
                 			// If one the message owner is not current user play sound
                 			if ( confLH.new_message_sound_user_enabled == 1 && data.uw == 'false') {
                 			     inst.playNewMessageSound();
@@ -1066,7 +1061,6 @@ function lh(){
 				window.close();
 			}
 		}
-		return false;
 	};
 	
 	this.restoreWidget = function(hash){
@@ -1127,8 +1121,7 @@ function lh(){
 		    		$.postJSON(www_dir + inst.addmsgurl + chat_id, pdata , function(data){
 		    			if (LHCCallbacks.addmsgadmin) {
 		            		LHCCallbacks.addmsgadmin(chat_id);
-		            	};		            	
-		            	ee.emitEvent('chatAddMsgAdmin', [chat_id]);		            	
+		            	};
 		    			lhinst.syncadmincall();
 		    			return true;
 		    		});
@@ -1140,9 +1133,8 @@ function lh(){
 	    		$('#CSChatMessage-'+chat_id).val('');
 	    		$.postJSON(this.wwwDir + this.addmsgurl + chat_id, pdata , function(data){
 	    			if (LHCCallbacks.addmsgadmin) {
-	            		LHCCallbacks.addmsgadmin(chat_id);	            		
+	            		LHCCallbacks.addmsgadmin(chat_id);
 	            	};
-	            	ee.emitEvent('chatAddMsgAdmin', [chat_id]);	
 	    			lhinst.syncadmincall();
 	    			return true;
 	    		});
@@ -1332,7 +1324,7 @@ function lh(){
 	        	                	  messageBlock.append(item.content);	
 
 	        	                	  if (isAtTheBottom < 20) {
-	        	                		  messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
+	        	                		  messageBlock.animate({ scrollTop: scrollHeight }, 1000);
 	        	                	  }
 
 	        		                  lhinst.updateChatLastMessageID(item.chat_id,item.message_id);
@@ -1557,21 +1549,21 @@ function lh(){
     	    	this.notificationsArray[chat_id] = notification;	
     	    	this.notificationsArrayMap.push(this.notificationsArray[chat_id]);
 			};			    	  
+			 
 	    };
 	    
-	    if (confLH.show_alert == 1) {	    	
-    		if (confirm(confLH.transLation.new_chat+"\n\n"+message)) {
-    			if (identifier == 'pending_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered') {
-    	    		if ($('#tabs').size() > 0) {
-    	    			window.focus();
-    	    			inst.startChat(chat_id, $('#tabs'), nt);
-    	    		} else {
-    	    			inst.startChatNewWindow(chat_id,'ChatRequest');
-    	    		}
-    	    	} else {
-    	    		inst.startChatNewWindowTransferByTransfer(chat_id);
-    	    	};
-    		};
+	    if (confLH.show_alert == 1) {
+	    	setTimeout(function() {
+	    		if ($('#right-pending-chats ul').size() > 0) {
+		    		if (confirm(confLH.transLation.new_chat)){		    		
+		    			if (identifier == 'pending_chat'){
+		    	    		inst.startChatNewWindow(chat_id,'ChatRequest');
+		    	    	} else {
+		    	    		inst.startChatNewWindowTransferByTransfer(chat_id);
+		    	    	};
+		    		};
+	    		};	    		
+	    	},5000);	    	
 	    };
 	};
 
@@ -1637,8 +1629,6 @@ function lh(){
 		        		LHCCallbacks.addmsgadmin(chat_id);
 		        	};
 		        	
-		        	ee.emitEvent('chatAddMsgAdmin', [chat_id]);	
-		        	
 					return true;
 				}
 			});
@@ -1653,7 +1643,7 @@ function lh(){
 			    text: pdata.msg
 			}).appendTo(messagesBlock);
 			
-			messagesBlock.stop(true,false).animate({ scrollTop: messagesBlock.prop('scrollHeight') }, 500);
+			messagesBlock.animate({ scrollTop: messagesBlock.prop('scrollHeight') }, 500);
 			
 			if (this.addingUserMessage == false && this.addUserMessageQueue.length == 0)
 			{
@@ -1665,11 +1655,9 @@ function lh(){
 		        		LHCCallbacks.addmsgadmin(chat_id);
 		        	};
 		        	
-		        	ee.emitEvent('chatAddMsgAdmin', [chat_id]);	
-		        	
 		        	if (data.r != '') {
 	            		$('#messagesBlock-'+chat_id).append(data.r);
-		                $('#messagesBlock-'+chat_id).stop(true,false).animate({ scrollTop: $("#messagesBlock-"+chat_id).prop("scrollHeight") }, 500);
+		                $('#messagesBlock-'+chat_id).animate({ scrollTop: $("#messagesBlock-"+chat_id).prop("scrollHeight") }, 1000);
 	            	};
 	            	
 					lhinst.syncadmincall();		
@@ -1706,11 +1694,9 @@ function lh(){
 		        		LHCCallbacks.addmsgadmin(elementAdd.chat_id);
 		        	};
 		        	
-		        	ee.emitEvent('chatAddMsgAdmin', [elementAdd.chat_id]);	
-		        	
 		        	if (data.r != '') {
 	            		$('#messagesBlock-'+elementAdd.chat_id).append(data.r);
-		                $('#messagesBlock-'+elementAdd.chat_id).animate({ scrollTop: $("#messagesBlock-"+elementAdd.chat_id).prop("scrollHeight") }, 500);
+		                $('#messagesBlock-'+elementAdd.chat_id).animate({ scrollTop: $("#messagesBlock-"+elementAdd.chat_id).prop("scrollHeight") }, 1000);
 	            	};
 	            	
 	            	lhinst.syncadmincall();	
@@ -1785,56 +1771,6 @@ function lh(){
 		};
 	};
 	
-	this.addAdminChatFinished = function(chat_id, last_message_id){
-		
-		var _that = this;
-		
-		jQuery('#CSChatMessage-'+chat_id).bind('keydown', 'return', function (evt){
-			_that.addmsgadmin(chat_id);
-			 		return false;			
-		});
-		
-		jQuery('#CSChatMessage-'+chat_id).bind('keyup', 'up', function (evt){
-			_that.editPrevious(chat_id);	
-		});
-		
-		this.initTypingMonitoringAdmin(chat_id);
-		
-		this.afterAdminChatInit(chat_id);
-		
-		this.addSynchroChat(chat_id,last_message_id);
-
-		$('#messagesBlock-'+chat_id).animate({ scrollTop: $('#messagesBlock-'+chat_id).prop('scrollHeight') }, 1000);
-
-		// Start synchronisation
-		this.startSyncAdmin();	
-		
-		jQuery('#id_CannedMessageSearch-'+chat_id).keyup(function(evt) {
-			
-			if ($(this).val() != '') {
-				jQuery('#id_CannedMessage-'+chat_id).attr('size',10);	
-			} else {
-				jQuery('#id_CannedMessage-'+chat_id).removeAttr('size');
-			}
-			
-			var q = $(this).val();
-			$.getJSON(_that.wwwDir + 'chat/getcannedfiltered/' + chat_id, {q: q}, function(data) {
-                 if (data.error == false) {
-                	 $('#id_CannedMessage-'+chat_id).html(data.result);
-                	 
-                	 if (q != '') {
-                		 var options = $('#id_CannedMessage-'+chat_id).find('option');
-                		 if (options.size() > 1) {
-                			 $(options[1]).attr('selected','selected');
-                		 }
-                	 }
-                 }                 
-            }); 
-		});
-				
-		ee.emitEvent('adminChatLoaded', [chat_id,last_message_id]);
-	};
-	
 	this.showMyPermissions = function(user_id) {
 		$.get(this.wwwDir + 'permission/getpermissionsummary/'+user_id, function(data){
 			$('#permissions-summary').html(data);
@@ -1897,7 +1833,7 @@ function lh(){
     		}
 		});
     };
-       
+    
     this.addmsguser = function ()
     {
     	if (LHCCallbacks.addmsguserbefore) {
@@ -1937,13 +1873,11 @@ function lh(){
 					
 			var messagesBlock = $('#messagesBlock');
 			
-						
 			jQuery('<div/>', {
 			    'class': 'message-row pending-storage',					   
 			    text: pdata.msg
 			}).appendTo(messagesBlock);
-			
-			messagesBlock.stop(true,false).animate({ scrollTop: messagesBlock.prop('scrollHeight') }, 500);	
+			messagesBlock.animate({ scrollTop: messagesBlock.prop('scrollHeight') }, 500);
 						
 			if (this.addingUserMessage == false && this.addUserMessageQueue.length == 0)
 			{
@@ -2144,18 +2078,18 @@ function lh(){
     
     this.disableChatSoundUser = function(inst)
     {
-    	if (inst.find('> i').text() == 'volume_off') {
+    	if (inst.text() == 'volume_off') {
     		$.get(this.wwwDir+  'user/setsettingajax/chat_message/1');
     		confLH.new_message_sound_user_enabled = 1;
-    		inst.find('> i').text('volume_up');
+    		inst.text('volume_up');
     	} else {
     		$.get(this.wwwDir+  'user/setsettingajax/chat_message/0');
     		confLH.new_message_sound_user_enabled = 0;
-    		inst.find('> i').text('volume_off');
+    		inst.text('volume_off');
     	};
 
     	if (!!window.postMessage && parent) {
-    		if (inst.find('> i').text() == 'volume_off') {
+    		if (inst.text() == 'volume_off') {
     			parent.postMessage("lhc_ch:s:0", '*');
     		} else {
     			parent.postMessage("lhc_ch:s:1", '*');
@@ -2186,7 +2120,7 @@ function lh(){
     	    			    'class': 'message-row response',					   
     	    			    text: $('#id_Question').val()
     	    			}).appendTo('#messagesBlock').prepend('<span class="usr-tit vis-tit">'+visitorTitle+'</span>');
-    	            	$('#messagesBlock').stop(true,false).animate({ scrollTop: $('#messagesBlock').prop('scrollHeight') }, 500);
+    	            	$('#messagesBlock').animate({ scrollTop: $('#messagesBlock').prop('scrollHeight') }, 1000);
     	            	this.pendingMessagesToStore.push($('#id_Question').val());    	  			
         	  			$('#id_Question').val('');   
     		  		}
@@ -2198,7 +2132,7 @@ function lh(){
     	    			    'class': 'message-row response',					   
     	    			    text: $('#id_Question').val()
     	    			}).appendTo('#messagesBlock').prepend('<span class="usr-tit vis-tit">'+visitorTitle+'</span>');
-    	            	$('#messagesBlock').stop(true,false).animate({ scrollTop: $('#messagesBlock').prop('scrollHeight') }, 500);
+    	            	$('#messagesBlock').animate({ scrollTop: $('#messagesBlock').prop('scrollHeight') }, 1000);
     				};
     	  			this.pendingMessagesToStore.push($('#id_Question').val());    	  			
     	  			$('#id_Question').val('');    	  			   	  			
@@ -2268,7 +2202,7 @@ function lh(){
 	    			    'class': 'message-row response',					   
 	    			    text: $('#id_Question').val()
 	    			}).appendTo('#messagesBlock').prepend('<span class="usr-tit vis-tit">'+visitorTitle+'</span>');
-	            	$('#messagesBlock').stop(true,false).animate({ scrollTop: $('#messagesBlock').prop('scrollHeight') }, 500);
+	            	$('#messagesBlock').animate({ scrollTop: $('#messagesBlock').prop('scrollHeight') }, 1000);
 				};	  			
 	  			this.pendingMessagesToStore.push($('#id_Question').val());
 	  			$('#id_Question').val('');

@@ -4,11 +4,11 @@ return array(
     'user_id' => array(
         'type' => 'combobox',
         'trans' => 'User',
-        'required' => true,
+        'required' => false,
         'frontend' => 'user',
         'params_call' => array(),
         'source' => 'erLhcoreClassModelUser::getUserList',
-        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::REQUIRED, 'int')
+        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
     ),
     'api_key' => array(
         'type' => 'text',

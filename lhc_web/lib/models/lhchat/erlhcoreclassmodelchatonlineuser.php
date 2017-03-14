@@ -584,6 +584,7 @@ class erLhcoreClassModelChatOnlineUser
 
     public static function handleRequest($paramsHandle = array())
     {
+
         if (isset($_SERVER['HTTP_USER_AGENT']) && !self::isBot($_SERVER['HTTP_USER_AGENT'])) {
             $newVisitor = false;
 
@@ -627,7 +628,7 @@ class erLhcoreClassModelChatOnlineUser
 
                 } else {
                     $item = new erLhcoreClassModelChatOnlineUser();
-                    $item->ip = isset($paramsHandle['ip']) ? $paramsHandle['ip'] : erLhcoreClassIPDetect::getIP();
+                    $item->ip = erLhcoreClassIPDetect::getIP();
                     $item->vid = $paramsHandle['vid'];
                     $item->identifier = (isset($paramsHandle['identifier']) && !empty($paramsHandle['identifier'])) ? $paramsHandle['identifier'] : '';
                     $item->referrer = isset($_GET['r']) ? rawurldecode($_GET['r']) : '';
@@ -659,12 +660,7 @@ class erLhcoreClassModelChatOnlineUser
                 self::cleanupOnlineUsers();
                 return false;
             }
-            
-            if (isset($_POST['onattr']) && !empty($_POST['onattr']) && $item->online_attr != $_POST['onattr']) {
-            	$item->online_attr = $_POST['onattr'];
-            	$item->store_chat = true;
-            }
-            	
+
             if (isset($paramsHandle['pages_count']) && $paramsHandle['pages_count'] == true) {
                 $item->pages_count++;
                 $item->tt_pages_count++;
@@ -696,9 +692,9 @@ class erLhcoreClassModelChatOnlineUser
 
             // Update variables only if it's not JS to check for operator message
             if (!isset($paramsHandle['check_message_operator']) || (isset($paramsHandle['pages_count']) && $paramsHandle['pages_count'] == true)) {
-                $item->user_agent = isset($_POST['ua']) ? $_POST['ua'] : (isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '');
+                $item->user_agent = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '';
                 $item->current_page = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
-                $item->page_title = isset($_POST['dt']) ? $_POST['dt'] : (isset($_GET['dt']) ? (string)rawurldecode($_GET['dt']) : '');
+                $item->page_title = isset($_GET['dt']) ? (string)rawurldecode($_GET['dt']) : '';
                 $item->last_visit = time();
                 $item->store_chat = true;
                 $logPageView = true;
@@ -745,7 +741,6 @@ class erLhcoreClassModelChatOnlineUser
 
             return $item;
         } else {
-            throw new Exception('Invalid HTTP_USER_AGENT!');
             // Stop execution on google bot
             exit;
         }

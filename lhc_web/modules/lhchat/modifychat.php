@@ -15,9 +15,6 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) && $currentUser->hasAccessTo('lhc
 
 	  	if (count($Errors) == 0) {	  		
 	  		$chat->saveThis();
-
-	  		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.modified',array('chat' => & $chat, 'params' => $Params));
-
 	  		$tpl->set('chat_updated',true);
 	  	} else {
 	  		$tpl->set('errors',$Errors);

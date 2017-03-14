@@ -1139,7 +1139,7 @@ class erLhcoreClassChat {
 	   	    self::updateDepartmentStats($dep);
 	   	}
 	   	
-	   	if ( $dep !== false && ($dep->inform_close == 1 || $dep->inform_close_all == 1)) {
+	   	if ( $dep !== false && $dep->inform_close == 1) {
 	   		erLhcoreClassChatMail::informChatClosed($chat, $operator);
 	   	}
    }
@@ -1695,7 +1695,7 @@ class erLhcoreClassChat {
                return 'Syntax error, malformed JSON'; // or trigger_error() or throw new Exception()
            case JSON_ERROR_UTF8:
                $clean = self::utf8ize($value);
-               return self::safe_json_encode($clean);
+               return safe_json_encode($clean);
            default:
                return 'Unknown error'; // or trigger_error() or throw new Exception()
                 

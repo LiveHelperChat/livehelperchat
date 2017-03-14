@@ -38,10 +38,8 @@
 	<li role="presentation" <?php if ($tab == 'tab_permission') : ?>class="active"<?php endif;?>><a href="#permission" aria-controls="permission" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Permissions');?></a></li>
 	<?php endif;?>
 	
-	<?php include(erLhcoreClassDesign::designtpl('lhuser/menu_tabs/notifications_tab.tpl.php'));?>
-	
 	<?php include(erLhcoreClassDesign::designtpl('lhuser/menu_tabs/custom_multiinclude_tab.tpl.php'));?>
-
+	
 </ul>
 
 <div class="tab-content">
@@ -132,7 +130,7 @@
     	   $userDepartamentsGroup = erLhcoreClassModelDepartamentGroupUser::getUserGroupsIds($user->id);
     	?>
     	<?php if ($editdepartaments === true) { ?>
-    	<form action="<?php echo erLhcoreClassDesign::baseurl('user/account')?>#departments" method="post" enctype="multipart/form-data">
+    	<form action="<?php echo erLhcoreClassDesign::baseurl('user/account')?>#departments" method="post">
             <?php include(erLhcoreClassDesign::designtpl('lhuser/account/departments_assignment.tpl.php'));?>
             
             <input type="submit" class="btn btn-default" name="UpdateDepartaments_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Update');?>" />
@@ -205,8 +203,6 @@
 		<div id="permissions-summary"></div>		
     </div>
 	<?php endif;?>
-	
-	<?php include(erLhcoreClassDesign::designtpl('lhuser/menu_tabs_content/notifications_tab.tpl.php'));?>
 	
 	<?php include(erLhcoreClassDesign::designtpl('lhuser/menu_tabs_content/custom_multiinclude_tab.tpl.php'));?>
 	

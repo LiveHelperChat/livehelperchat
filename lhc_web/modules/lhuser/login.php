@@ -56,7 +56,7 @@ if (isset($_POST['Login']))
 
     $beforeLoginAuthenticateErrors = array();
 
-    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.login_before_authenticate', array('errors' => & $beforeLoginAuthenticateErrors, 'tpl' => & $tpl));
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.login_before_authenticate', array('errors' => & $beforeLoginAuthenticateErrors));
 
     if (!empty($beforeLoginAuthenticateErrors)) {
         $tpl->set('errors', $beforeLoginAuthenticateErrors);
@@ -76,22 +76,19 @@ if (isset($_POST['Login']))
             }
         } else {
             
-            $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.login_after_success_authenticate', array('current_user' => & $currentUser, 'tpl' => & $tpl));
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.login_after_success_authenticate', array('current_user' => & $currentUser));
             
-            if ($response === false)
-            {
-                if($isExternalRequest) {
-                    $tpl->set('msg', erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Logged in successfully'));
-    
-                    echo json_encode(array('success' => true, 'result' => $tpl->fetch()));
-                    exit;
-                }
-                if ($redirect != '') {
-                    erLhcoreClassModule::redirect(base64_decode($redirect));
-                } else {
-                    erLhcoreClassModule::redirect();
-                    exit;
-                }
+            if($isExternalRequest) {
+                $tpl->set('msg', erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Logged in successfully'));
+
+                echo json_encode(array('success' => true, 'result' => $tpl->fetch()));
+                exit;
+            }
+            if ($redirect != '') {
+                erLhcoreClassModule::redirect(base64_decode($redirect));
+            } else {
+                erLhcoreClassModule::redirect();
+                exit;
             }
         }
 

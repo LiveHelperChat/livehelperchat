@@ -69,7 +69,7 @@ class erLhcoreClassChatStatistic {
     /*
      * Returns last 12 month chats statistic
      * */
-    public static function getNumberOfChatsPerMonth($filter = array(), $paramsExecution = array())
+    public static function getNumberOfChatsPerMonth($filter = array())
     {	
     	$numberOfChats = array();
     	$departmentFilter = array();
@@ -116,16 +116,8 @@ class erLhcoreClassChatStatistic {
     				
     				'chatinitdefault' 	=> (int)erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filter' => array('chat_initiator' => erLhcoreClassModelChat::CHAT_INITIATOR_DEFAULT),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m\') = '. date('Ym',$dateUnix))))),    		
     				'chatinitproact' 	=> (int)erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filter' => array('chat_initiator' => erLhcoreClassModelChat::CHAT_INITIATOR_PROACTIVE),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m\') = '. date('Ym',$dateUnix))))),    		
-    		);    		    		
+    		);
     	}
-    	
-    	$numberOfChats = array_reverse($numberOfChats,true);
-    	
-    	// @todo for future
-    	if (isset($paramsExecution['comparetopast'])) {
-    	    
-    	}
-    	
     	return $numberOfChats;
     }
     
@@ -201,8 +193,9 @@ class erLhcoreClassChatStatistic {
     		);
     	}
     	
-    	return $numberOfChats;
+    	return array_reverse($numberOfChats,true);
     }
+    
     
     public static function getNumberOfChatsWaitTime($filter = array())
     {	
@@ -212,9 +205,7 @@ class erLhcoreClassChatStatistic {
     		$dateUnix = mktime(0,0,0,date('m')-$i,1,date('y'));
     		$numberOfChats[$dateUnix] = (int)erLhcoreClassChat::getCount(array_merge_recursive($filter,array('customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m\') = '. date('Ym',$dateUnix)),'filtergt' => array('chat_duration' => 0),'filterlt' =>  array('wait_time' => 600),'filtergt' =>  array('wait_time' => 0))),'lh_chat','AVG(wait_time)');
     	}
-
-    	$numberOfChats = array_reverse($numberOfChats,true);
-    	
+    	    	
     	return $numberOfChats;
     }
         
@@ -250,7 +241,7 @@ class erLhcoreClassChatStatistic {
     		$numberOfChats[$dateUnix] = (int)erLhcoreClassChat::getCount(array_merge_recursive($filter,array('customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m%d\') = '. date('Ymd',$dateUnix)),'filtergt' => array('chat_duration' => 0),'filterlt' =>  array('wait_time' => 600),'filtergt' =>  array('wait_time' => 0))),'lh_chat','AVG(wait_time)');
     	}
     	    	
-    	return $numberOfChats;
+    	return array_reverse($numberOfChats,true);
     }
     
     public static function getNumberOfChatsPerMonthUnanswered($filter = array())
