@@ -1,1 +1,0 @@
-<li role="menuitem"><a onclick="return lhinst.explicitChatCloseByUser();" href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','End the chat')?>"><i class="material-icons mr-0">close</i></a></li>

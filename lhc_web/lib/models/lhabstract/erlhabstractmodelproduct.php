@@ -3,7 +3,7 @@
  * 
  * @author Remigijus Kiminas
  * 
- * @desc Main chat product object
+ * @desc Main chat survey object
  *
  */
 
@@ -86,11 +86,7 @@ class erLhAbstractModelProduct {
 	   		break;
 
 	   	case 'departament':
-	   	       try {
-	   	           $this->departament = erLhcoreClassModelDepartament::fetch($this->departament_id);
-	   	       } catch (Exception $e) {
-	   	           $this->departament = false;
-	   	       }
+	   	       $this->departament = erLhcoreClassModelDepartament::fetch($this->departament_id);
 	   		   return $this->departament;
 	   		break;
 
@@ -121,8 +117,8 @@ class erLhAbstractModelProduct {
 	{
 	    $q = ezcDbInstance::get()->createDeleteQuery();
 	    
-	    // Delete related product departments
-	    $q->deleteFrom( 'lh_abstract_product_departament' )->where( $q->expr->eq( 'product_id', $this->id ) );
+	    // Messages
+	    $q->deleteFrom( 'lh_abstract_product' )->where( $q->expr->eq( 'survey_id', $this->id ) );
 	    $stmt = $q->prepare();
 	    $stmt->execute();
 	    

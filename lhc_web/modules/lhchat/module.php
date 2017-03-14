@@ -11,22 +11,6 @@ $ViewList['adminchat'] = array(
     'functions' => array( 'use' )
 );
 
-$ViewList['getcannedfiltered'] = array(
-    'params' => array('chat_id'),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['updateattribute'] = array(
-		'params' => array(),
-		'uparams' => array('hash','hash_resume','vid'),
-);
-
-$ViewList['setnewvid'] = array(
-		'params' => array(),
-		'uparams' => array(),
-);
-
 $ViewList['redirectcontact'] = array(
     'params' => array('chat_id'),
     'uparams' => array(),
@@ -143,6 +127,18 @@ $ViewList['syncadmininterface'] = array(
     'functions' => array( 'use' ),
     'multiple_arguments' => array ( 'operatord', 'actived', 'closedd' , 'pendingd', 'unreadd','departmentd','activedprod','unreaddprod','pendingdprod','closeddprod')
 );
+
+
+
+$ViewList['getnotificationsdata'] = array(
+    'params' => array(),
+    'uparams' => array('id'),
+    'ajax' => true,
+    'functions' => array( 'use' ),
+    'multiple_arguments' => array ( 'id')
+);
+
+
 
 $ViewList['loadinitialdata'] = array(
     'params' => array(),
@@ -318,13 +314,13 @@ $ViewList['blockedusers'] = array(
 
 $ViewList['getstatus'] = array(
     'params' => array(),
-    'uparams' => array('ua','ma','operator','theme','priority','disable_pro_active','click','position','hide_offline','check_operator_messages','top','units','leaveamessage','department','identifier','survey','dot'),
+    'uparams' => array('ua','ma','operator','theme','noresponse','priority','disable_pro_active','click','position','hide_offline','check_operator_messages','top','units','leaveamessage','department','identifier','survey','dot'),
 	'multiple_arguments' => array ( 'department', 'ua' )
 );
 
 $ViewList['chatcheckstatus'] = array(
     'params' => array(),
-    'uparams' => array('status','department','vid','uactiv','wopen','uaction','hash','hash_resume','dot','hide_offline'),
+    'uparams' => array('status','department','vid','uactiv','wopen','uaction','hash','hash_resume','dot'),
 	'multiple_arguments' => array ( 'department' )
 );
 

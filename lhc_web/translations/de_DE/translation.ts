@@ -6,10 +6,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Wie viele Tage lang soll das Bewertungs-Widget seit der letzten Anzeige nicht erweitert werden</translation>
     </message>
@@ -1339,10 +1335,6 @@
       <translation>Ungültiger Hash oder die automatische Erstellung ist deaktiviert</translation>
     </message>
     <message>
-      <source>Back to chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Switch to widget</source>
       <translation>Zum Widget wechseln</translation>
     </message>
@@ -1854,10 +1846,6 @@
     <message>
       <source>Redirect user to another url</source>
       <translation>Nutzer auf eine andere URL weiterleiten.</translation>
-    </message>
-    <message>
-      <source>Redirect user to survey</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Choose other than default recognition language</source>
@@ -4014,10 +4002,6 @@
     <message>
       <source>Product</source>
       <translation>Produkt</translation>
-    </message>
-    <message>
-      <source>Chat ID</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Search</source>
@@ -7705,10 +7689,6 @@
       <translation>Name</translation>
     </message>
     <message>
-      <source>Feedback text</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Max stars for feedback</source>
       <translation>Maximale Sterne für das Feedback</translation>
     </message>
@@ -7742,10 +7722,6 @@
     <message>
       <source>Download file</source>
       <translation>Download Datei</translation>
-    </message>
-    <message>
-      <source>Collected survey data</source>
-      <translation type="unfinished"/>
     </message>
   </context>
   <context>

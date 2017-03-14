@@ -1,53 +1,4 @@
-<?php
-
-/**
- * Products logic
- */
-if (erLhcoreClassModelChatConfig::fetch('product_enabled_module')->current_value == 1) {
-
-    $filter = array('sort' => 'priority ASC, name ASC');
-    
-    if (isset($input_data->product_id_array) && !empty($input_data->product_id_array)) {
-        $filter['filterin']['id'] = $input_data->product_id_array;
-    }
-    
-    if (isset($input_data->departament_id_array) && !empty($input_data->departament_id_array)) {
-        $filter['filterin']['departament_id'] = $input_data->departament_id_array;
-    }
-    
-    if ($input_data->departament_id > 0) {
-        $filter['filterin']['departament_id'][] = $input_data->departament_id;
-    }
-    
-    $filter['filter']['disabled'] = 0;
-
-    if (erLhcoreClassModelChatConfig::fetch('product_show_departament')->current_value == 0) { 
-        $products = erLhAbstractModelProduct::getList($filter);
-        
-        if (!empty($products)) {
-            $departmentsOptions['hide_department'] = true;
-        }
-        
-    } elseif (erLhcoreClassModelChatConfig::fetch('product_show_departament')->current_value == 1) { ?>
-    <script>
-    $(document).ready(function() {
-        function updateProducts(dep_id) {
-        	$.getJSON("<?php echo erLhcoreClassDesign::baseurl('product/getproducts')?>/" + dep_id + "/<?php echo $input_data->product_id?>", function(data) {
-        		$('#ProductContainer').html(data.result);
-	    	});
-        };        
-        $('#id_DepartamentID').change(function() {	
-        	updateProducts($(this).val());        	
-        });
-        updateProducts($('#id_DepartamentID').find('option:selected').val());          
-    });
-    </script>
-    <?php }
-}
-
-/**
- * Department logic
- */
+<?php 
 
 $filter = array('filter' => array('disabled' => 0, 'hidden' => 0));
 
@@ -68,7 +19,7 @@ if (count($departments) > 1) : $hasExtraField = true;?>
 
 <?php if (!isset($departmentsOptions['hide_department']) || $departmentsOptions['hide_department'] == false) : ?>
 <div class="form-group<?php if (isset($errors['department'])) : ?> has-error<?php endif;?>">
-    <label class="control-label" id="label-department">
+    <label class="control-label">
     <?php if (isset($theme) && $theme !== false && $theme->department_title != '') : ?>
         <?php echo htmlspecialchars($theme->department_title)?>
     <?php else : ?>
@@ -76,7 +27,7 @@ if (count($departments) > 1) : $hasExtraField = true;?>
     <?php endif;?>
     </label>
     
-    <select aria-labelledby="label-department" class="form-control" name="DepartamentID" id="id_DepartamentID">
+    <select class="form-control" name="DepartamentID" id="id_DepartamentID">
         <?php if (isset($theme) && $theme !== false && $theme->department_select != '') : ?>
             <option value="-1"><?php echo htmlspecialchars($theme->department_select)?></option>
         <?php endif;?>

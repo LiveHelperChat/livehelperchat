@@ -6,10 +6,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Berapa hari widget pemungutan suara tidak harus diperluas setelah pertunjukan yang terakhir</translation>
     </message>
@@ -1339,10 +1335,6 @@
       <translation>Hash tidak sah atau pembuatan otomatis dimatikan</translation>
     </message>
     <message>
-      <source>Back to chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Switch to widget</source>
       <translation>Pindah ke widget</translation>
     </message>
@@ -1854,10 +1846,6 @@
     <message>
       <source>Redirect user to another url</source>
       <translation>Mengarahkan pengguna ke URL lain</translation>
-    </message>
-    <message>
-      <source>Redirect user to survey</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Choose other than default recognition language</source>
@@ -4013,10 +4001,6 @@
     </message>
     <message>
       <source>Product</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat ID</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7705,10 +7689,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Feedback text</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Max stars for feedback</source>
       <translation type="unfinished"/>
     </message>
@@ -7742,10 +7722,6 @@
     <message>
       <source>Download file</source>
       <translation>Unduh berkas</translation>
-    </message>
-    <message>
-      <source>Collected survey data</source>
-      <translation type="unfinished"/>
     </message>
   </context>
   <context>

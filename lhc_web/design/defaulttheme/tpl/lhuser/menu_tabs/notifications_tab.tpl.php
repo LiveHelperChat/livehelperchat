@@ -1,1 +1,0 @@
-<li role="presentation" <?php if ($tab == 'tab_notifications') : ?>class="active"<?php endif;?>><a href="#notifications" aria-controls="notifications" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Notifications');?></a></li>

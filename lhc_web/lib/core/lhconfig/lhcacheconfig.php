@@ -72,7 +72,7 @@ class erConfigClassLhCacheConfig
     	$this->expiredInRuntime = $expired;
     }
     
-    public function expireCache($forceClean = false)
+    public function expireCache()
     {
         if (isset($_SESSION['lhc_chat_config'])) {
             unset($_SESSION['lhc_chat_config']);
@@ -96,23 +96,13 @@ class erConfigClassLhCacheConfig
 			    unlink($compiledClass);
 			}
 	
-			$compiledTemplates = ezcBaseFile::findRecursive( 'cache/compiledtemplates',array( '@(\.php)@' ) );
+			$compiledTemplates = ezcBaseFile::findRecursive( 'cache/compiledtemplates',array( '@(\.php|\.js|\.css)@' ) );
 	
 			foreach ($compiledTemplates as $compiledTemplate)
 			{
 				unlink($compiledTemplate);
 			}
-			
-			
-			$compiledTemplates = ezcBaseFile::findRecursive( 'cache/compiledtemplates',array( '@(\.js|\.css)@' ) );
 	
-			foreach ($compiledTemplates as $compiledTemplate)
-			{
-			    if ($forceClean == true || filemtime($compiledTemplate) < time()-24*3600) {
-			        unlink($compiledTemplate);
-			    }
-			}
-						
 			$instance = CSCacheAPC::getMem();
 			$instance->increaseImageManipulationCache();
 	

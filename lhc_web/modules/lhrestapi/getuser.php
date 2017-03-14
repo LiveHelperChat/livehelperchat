@@ -53,10 +53,15 @@ try
     // loose password
     unset($user->password);
     
-    erLhcoreClassRestAPIHandler::outputResponse(array('error' => false, 'result' => $user));
+    erLhcoreClassRestAPIHandler::outputResponse(array
+            (
+                'error' => false, 
+                'result' => $user
+            )
+    );
     
 } catch (Exception $e) {
-    echo erLhcoreClassRestAPIHandler::outputResponse(array(
+    echo json_encode(array(
         'error' => true,
         'result' => $e->getMessage()
     ));

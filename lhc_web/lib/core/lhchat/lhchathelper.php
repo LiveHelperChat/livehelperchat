@@ -112,7 +112,6 @@ class erLhcoreClassChatHelper
             
             $params['chat']->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
             $params['chat']->chat_duration = erLhcoreClassChat::getChatDurationToUpdateChatID($params['chat']->id);
-            $params['chat']->has_unread_messages = 0;
             
             $msg = new erLhcoreClassModelmsg();
             $msg->msg = (string) $params['user'] . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'has closed the chat!');
@@ -201,67 +200,6 @@ class erLhcoreClassChatHelper
         if ($chat->department !== false) {
             erLhcoreClassChat::updateDepartmentStats($chat->department);
         }
-    }
-    
-    /**
-     * 
-     * Converts old online visitor data to new online visitor data
-     * 
-     * @param array $data
-     * 
-     * @throws Exception
-     */
-    public static function mergeVid($data)
-    {
-    	if (!isset($data['vid'])) {
-    		throw new Exception('Old vid not provided');
-    	}
-
-    	if (!isset($data['new'])) {
-    		throw new Exception('New vid not provided');
-    	}
-
-    	$old = erLhcoreClassModelChatOnlineUser::fetchByVid($data['vid']);
-    	$new = erLhcoreClassModelChatOnlineUser::fetchByVid($data['new']);
-
-    	if ($old === false) {
-    	    throw new Exception('Invalid VID value');
-    	}
-    	
-    	if ($new === false && $old !== false) {
-    		// If new record not found just update old vid to new vid hash
-    		$old->vid = $data['new'];
-    		$old->saveThis();
-    	} else if ($new !== false && $old !== false) {
-    		$db = ezcDbInstance::get();
-    		
-    		$stmt = $db->prepare('UPDATE lh_chat_online_user_footprint SET online_user_id = :new_online_user_id WHERE online_user_id = :old_online_user_id');
-    		$stmt->bindValue(':new_online_user_id',$new->id,PDO::PARAM_INT);
-    		$stmt->bindValue(':old_online_user_id',$old->id,PDO::PARAM_INT);
-    		$stmt->execute();
-
-    		$stmt = $db->prepare('UPDATE lh_chat SET online_user_id = :new_online_user_id WHERE online_user_id = :old_online_user_id');
-    		$stmt->bindValue(':new_online_user_id',$new->id,PDO::PARAM_INT);
-    		$stmt->bindValue(':old_online_user_id',$old->id,PDO::PARAM_INT);
-    		$stmt->execute();
-
-    		$stmt = $db->prepare('UPDATE lh_cobrowse SET online_user_id = :new_online_user_id WHERE online_user_id = :old_online_user_id');
-    		$stmt->bindValue(':new_online_user_id',$new->id,PDO::PARAM_INT);
-    		$stmt->bindValue(':old_online_user_id',$old->id,PDO::PARAM_INT);
-    		$stmt->execute();
-
-    		$stmt = $db->prepare('UPDATE lh_chat_file SET online_user_id = :new_online_user_id WHERE online_user_id = :old_online_user_id');
-    		$stmt->bindValue(':new_online_user_id',$new->id,PDO::PARAM_INT);
-    		$stmt->bindValue(':old_online_user_id',$old->id,PDO::PARAM_INT);
-    		$stmt->execute();
-    		
-    		// count pages count to new
-    		$new->pages_count += $old->pages_count;
-    		$new->tt_pages_count += $old->tt_pages_count;
-    		$new->saveThis();
-    		    		
-    		$old->removeThis();
-    	}
     }
 }
 
