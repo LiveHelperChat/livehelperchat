@@ -7,7 +7,7 @@ subStatus = '<div id="lhc_need_help_container" style="<?php echo $currentPositio
 '<span id="lhc_need_help_triangle" style="<?php echo $currentPosition['nh_tr_pos']?>"></span>'+
 '<a id="lhc_need_help_close" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>" onclick="return lh_inst.lhc_need_help_hide();" href="#">&#xd7;</a>';
 if (imageTooltip !== false) {
-subStatus += '<div onclick="return lh_inst.lhc_need_help_click();" id="lhc_need_help_image"><img width="60" height="60" src="' + imageTooltip + '"></div>';
+subStatus += '<div onclick="return lh_inst.lhc_need_help_click();" id="lhc_need_help_image"><img width="60" alt="" height="60" src="' + imageTooltip + '"></div>';
 };
 subStatus += '<div onclick="return lh_inst.lhc_need_help_click();" id="lhc_need_help_main_title">'+titleText+'</div>'+
 '<span onclick="return lh_inst.lhc_need_help_click();" id="lhc_need_help_sub_title">'+subTitleText+'</span>'+
