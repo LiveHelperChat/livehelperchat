@@ -1,1 +1,1 @@
-<a class="btn btn-default btn-xs closebutton" onclick="lhinst.userclosedchatandbrowser();" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close')?>"><i class="material-icons mr-0">&#xE5CD;</i></a>
+<a class="btn btn-default btn-xs closebutton" onclick="lhinst.userclosedchatandbrowser();" href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close')?>"><i title="close" class="material-icons mr-0">close</i></a>

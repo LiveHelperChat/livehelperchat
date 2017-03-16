@@ -357,7 +357,7 @@ div.system-response {
 	font-weight:bold;
 	font-style: italic;
 	/*background-color:rgb(66, 65, 65);*/
-	color:#99BE7B;
+	color:#007693;
 	margin-right:5px;
 	padding:2px 0px;
 	border-bottom-right-radius: 7px;
@@ -379,11 +379,11 @@ div.system-response {
 }
 
 .op-tit{
-	color:#8EC1D9;	
+	color:#007693;	
 }
 
 .vis-tit{
-	color:#99BE7B;
+	color:#467000;
 }
 
 div.message-row {
@@ -871,7 +871,7 @@ ul.mb0 {
 
 .icon-assistant{
 	font-size:50px;
-	color:#CCC;
+	color:#949494;
 	padding-top:5px;
 }
 
