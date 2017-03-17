@@ -126,13 +126,13 @@ class erLhcoreClassModelCannedMsg
         return $items;
     }
 
-    public static function groupItems($items, $chat, $nameSupport)
+    public static function groupItems($items, $chat, $user)
     {  
         $replaceArray = array(
             '{nick}' => $chat->nick,
             '{email}' => $chat->email,
             '{phone}' => $chat->phone,
-            '{operator}' => $nameSupport
+            '{operator}' => $user->name_support
         );
         
         $additionalData = $chat->additional_data_array;
@@ -147,7 +147,8 @@ class erLhcoreClassModelCannedMsg
         
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow.canned_message_replace', array(
             'chat' => $chat,
-            'replace_array' => & $replaceArray
+            'replace_array' => & $replaceArray,
+            'user' => $user
         ));
         
         $grouped = array();

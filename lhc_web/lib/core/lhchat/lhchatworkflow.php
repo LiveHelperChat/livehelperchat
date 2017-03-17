@@ -387,7 +387,7 @@ class erLhcoreClassChatWorkflow {
          		}
      		}
      		
-     		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow.canned_message_replace',array('chat' => $chat, 'replace_array' => & $replaceArray));
+     		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow.canned_message_replace',array('user' => $chat->user, 'chat' => $chat, 'replace_array' => & $replaceArray));
      		
      		$cannedMsg->setReplaceData($replaceArray);
      		

@@ -2,11 +2,10 @@
 $chat = erLhcoreClassChat::getSession()->load('erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
 
 if (erLhcoreClassChat::hasAccessToRead($chat)) {
-    $nameSupport = (string) erLhcoreClassUser::instance()->getUserData(true)->name_support;
 
     $grouped = erLhcoreClassModelCannedMsg::groupItems(erLhcoreClassModelCannedMsg::getCannedMessages($chat->dep_id, erLhcoreClassUser::instance()->getUserID(), array(
         'q' => (isset($_GET['q']) ? $_GET['q'] : '')
-    )), $chat, $nameSupport);
+    )), $chat, erLhcoreClassUser::instance()->getUserData(true));
 
     $tpl = erLhcoreClassTemplate::getInstance('lhchat/part/canned_messages_options.tpl.php');
     $tpl->set('canned_options',$grouped);

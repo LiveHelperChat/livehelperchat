@@ -27,6 +27,8 @@ if (erLhcoreClassChat::hasAccessToRead($chat)) {
                 'allow_close_remote' => $currentUser->hasAccessTo('lhchat', 'allowcloseremote')
             ));
             
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed',array('chat' => & $chat, 'user' => $currentUser));
+            
             echo json_encode(array(
                 'error' => 'false'
             ));
