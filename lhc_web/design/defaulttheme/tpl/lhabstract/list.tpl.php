@@ -10,7 +10,7 @@
 			<tr>
 	    	<?php foreach ($fields as $field) : ?>
 	    		<?php if (!isset($field['hidden'])) : ?>
-	        		<th nowrap <?php echo isset($field['width']) ? "width=\"{$field['width']}%\"" : ''?>><?php echo $field['trans']?></th>
+	        		<th <?php echo isset($field['width']) ? "width=\"{$field['width']}%\"" : ''?>><?php echo $field['trans']?></th>
 	        	<?php endif;?>
 	    	<?php endforeach;?>
 	    	<th width="1%">&nbsp;</th>
