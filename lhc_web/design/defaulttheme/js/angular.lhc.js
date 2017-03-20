@@ -610,12 +610,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	                    });
 	                }
 				}
-		
-                if ($scope.pending_chats.length == 0) {
-                	lhinst.hideNotifications();
-                	clearTimeout(lhinst.soundIsPlaying);
-				}
-				
+						
 				if (typeof data.ou !== 'undefined') {
 					eval(data.ou);
 				}

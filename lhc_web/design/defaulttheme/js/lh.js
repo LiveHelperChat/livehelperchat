@@ -1595,23 +1595,7 @@ function lh(){
     		};
 	    };
 	};
-
-	this.hideNotifications = function() {				
-		clearTimeout(this.soundIsPlaying);
-				
-		$.each(this.notificationsArrayMap,function(i,item) {
-			try {				
-				item.close();				
-			} catch(err) {		     
-	        	console.log(err);
-	        };
-		});
 		
-		// Reset array
-		this.notificationsArray = [];
-		this.notificationsArrayMap = [];
-	};
-	
 	this.syncadmininterfacestatic = function()
 	{
 		try {
