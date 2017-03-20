@@ -547,6 +547,7 @@ div.message-admin+div.message-admin .msg-date,div.message-row.response+div.messa
 }
 
 
+div.message-row.response+div.message-row.response:hover .msg-date,
 .message-block .message-row:hover .msg-date,
 #messagesBlock .message-row:hover .msg-date{
 	display:inherit;
