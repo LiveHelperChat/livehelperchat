@@ -398,6 +398,9 @@ class erLhcoreClassUserValidator {
 	    $definition = array(
 	        'show_alert_chat' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	        ),
+	        'sn_off' => new ezcInputFormDefinitionElement(
+	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	        )
 	    );
 	    
@@ -406,6 +409,7 @@ class erLhcoreClassUserValidator {
 	    $Errors = array();
 	    
 	    $data['show_alert_chat'] = ( $form->hasValidData( 'show_alert_chat' ) && $form->show_alert_chat == true ) ? 1 : 0;
+	    $data['sn_off'] = ( $form->hasValidData( 'sn_off' ) && $form->sn_off == true ) ? 1 : 0;
 	    
 	    return $data;
 	}
