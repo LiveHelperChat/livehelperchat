@@ -183,54 +183,30 @@ if ($pendingTabEnabled == true) {
 	/**
 	 * Get last pending chat
 	 * */
-	$lastPendingChatID = 0;
-	$lastChatNickTab = $lastChatNick = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor');
-	$lastMessage = erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','New chat request');
-	$lastChatUserId = 0;
-	
-	if (!empty($pendingChats)) {
-		$lastPendingChatID = max(array_keys($pendingChats));
-		$chatRecent = reset($pendingChats);
-		$lastChatNick = $chatRecent->nick.' | '.$chatRecent->department;
-		$lastMessage = erLhcoreClassChat::getGetLastChatMessagePending($chatRecent->id);
-		$lastChatNickTab = $chatRecent->nick;
-		$lastChatUserId = $chatRecent->user_id;
-	}
-
-	erLhcoreClassChat::prefillGetAttributes($pendingChats,array('time_created_front','product_name','department_name','wait_time_pending','wait_time_seconds','plain_user_name'), array('product_id','product','department','time','status','user_id','user'));
-	$ReturnMessages['pending_chats'] = array('list' => array_values($pendingChats), 'uid' => $lastChatUserId,'nick' => $lastChatNick, 'nt' => $lastChatNickTab,'msg' => $lastMessage, 'last_id_identifier' => 'pending_chat', 'last_id' => $lastPendingChatID);
+	erLhcoreClassChat::prefillGetAttributes($pendingChats,array('time_created_front','product_name','department_name','wait_time_pending','wait_time_seconds','plain_user_name'), array('product_id','product','department','time','status','user'));
+	$ReturnMessages['pending_chats'] = array('list' => array_values($pendingChats), 'last_id_identifier' => 'pending_chat');
 
 	$chatsList[] = & $ReturnMessages['pending_chats']['list'];
 }
 
 // Transfered chats
 $transferchatsUser = erLhcoreClassTransfer::getTransferChats();
-$lastPendingTransferID = 0;
-if (!empty($transferchatsUser)){
-	    reset($transferchatsUser);
-	    $chatPending = current($transferchatsUser);
-	    $lastPendingTransferID = $chatPending['transfer_id'];
-	    
-	    foreach ($transferchatsUser as & $transf){
-	    	$transf['time_front'] = date(erLhcoreClassModule::$dateDateHourFormat,$transf['time']);
-	    }
+if (!empty($transferchatsUser)) {    
+    foreach ($transferchatsUser as & $transf) {
+    	$transf['time_front'] = date(erLhcoreClassModule::$dateDateHourFormat,$transf['time']);
+    }
 }
 
 // Transfered chats to departments
 $transferchatsDep = erLhcoreClassTransfer::getTransferChats(array('department_transfers' => true));
-if (!empty($transferchatsDep)){
-	reset($transferchatsDep);
-	$chatPending = current($transferchatsDep);
-	if ($chatPending['transfer_id'] > $lastPendingTransferID) {
-		$lastPendingTransferID = $chatPending['transfer_id'];
-	}
+if (!empty($transferchatsDep)) {
 	foreach ($transferchatsDep as & $transf){
 		$transf['time_front'] = date(erLhcoreClassModule::$dateDateHourFormat,$transf['time']);
 	}
 }
 
-$ReturnMessages['transfer_chats'] = array('list' => array_values($transferchatsUser),'last_id_identifier' => 'transfer_chat', 'uid' => 0, 'last_id' => $lastPendingTransferID);
-$ReturnMessages['transfer_dep_chats'] = array('list' => array_values($transferchatsDep),'last_id_identifier' => 'transfer_chat', 'uid' => 0, 'last_id' => $lastPendingTransferID);
+$ReturnMessages['transfer_chats'] = array('list' => array_values($transferchatsUser),'last_id_identifier' => 'transfer_chat');
+$ReturnMessages['transfer_dep_chats'] = array('list' => array_values($transferchatsDep),'last_id_identifier' => 'transfer_chat_dep');
 
 if ($canListOnlineUsers == true || $canListOnlineUsersAll == true) {
     
@@ -267,21 +243,8 @@ if ($unreadTabEnabled == true) {
 	// Unread chats
 	$unreadChats = erLhcoreClassChat::getUnreadMessagesChats($limitList,0,$filter);
 
-	$lastPendingChatID = 0;
-	$lastChatNickTab = $lastChatNick = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor');
-	$lastMessage = erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','New unread message');
-	$lastChatUserId = 0;
-	if (!empty($unreadChats)) {
-		$lastPendingChatID = max(array_keys($unreadChats));
-		$chatRecent = reset($unreadChats);
-		$lastChatNick = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Unread message') . ' | ' .$chatRecent->nick . ' | ' . $chatRecent->department;
-		$lastMessage = erLhcoreClassChat::getGetLastChatMessagePending($chatRecent->id);
-		$lastChatNickTab = $chatRecent->nick;
-		$lastChatUserId = $chatRecent->user_id;
-	}
-	
-	erLhcoreClassChat::prefillGetAttributes($unreadChats,array('time_created_front','product_name','department_name','unread_time','plain_user_name'),array('product_id','product','department','time','status','user_id','user'));
-	$ReturnMessages['unread_chats'] = array('msg' => $lastMessage, 'nick' => $lastChatNick, 'uid' => $lastChatUserId, 'nt' => $lastChatNickTab, 'last_id' => $lastPendingChatID, 'last_id_identifier' => 'unread_chat', 'list' => array_values($unreadChats));
+	erLhcoreClassChat::prefillGetAttributes($unreadChats, array('time_created_front','product_name','department_name','unread_time','plain_user_name'), array('product_id','product','department','time','status','user'));
+	$ReturnMessages['unread_chats'] = array('last_id_identifier' => 'unread_chat', 'list' => array_values($unreadChats));
 	
 	$chatsList[] = & $ReturnMessages['unread_chats']['list'];
 }

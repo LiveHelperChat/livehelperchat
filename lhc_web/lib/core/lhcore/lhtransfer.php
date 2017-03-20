@@ -2,9 +2,6 @@
 
 class erLhcoreClassTransfer
 {
-
-
-
 	public static function getDepartmentLimitation(){
 		$currentUser = erLhcoreClassUser::instance();
 		$LimitationDepartament = '';
@@ -42,22 +39,25 @@ class erLhcoreClassTransfer
 	       		$limitationSQL = ' AND '.$limitation;
 	       	}
 
-	       	$stmt = $db->prepare('SELECT lh_chat.*,lh_transfer.id as transfer_id FROM lh_chat INNER JOIN lh_transfer ON lh_transfer.chat_id = lh_chat.id WHERE transfer_user_id != :transfer_user_id '.$limitationSQL.' ORDER BY lh_transfer.id DESC LIMIT 10');
+	       	$stmt = $db->prepare('SELECT lh_chat.*,lh_transfer.id as transfer_id, lh_transfer.transfer_to_user_id FROM lh_chat INNER JOIN lh_transfer ON lh_transfer.chat_id = lh_chat.id WHERE transfer_user_id != :transfer_user_id '.$limitationSQL.' ORDER BY lh_transfer.id DESC LIMIT 10');
 	       	$stmt->bindValue( ':transfer_user_id',$currentUser->getUserID());
 	       	$stmt->setFetchMode(PDO::FETCH_ASSOC);
 	       	$stmt->execute();
 	       	$rows = $stmt->fetchAll();
        } else {
-	       	$stmt = $db->prepare('SELECT lh_chat.*,lh_transfer.id as transfer_id FROM lh_chat INNER JOIN lh_transfer ON lh_transfer.chat_id = lh_chat.id WHERE lh_transfer.transfer_to_user_id = :user_id ORDER BY lh_transfer.id DESC LIMIT 10');
+	       	$stmt = $db->prepare('SELECT lh_chat.*,lh_transfer.id as transfer_id, lh_transfer.transfer_to_user_id FROM lh_chat INNER JOIN lh_transfer ON lh_transfer.chat_id = lh_chat.id WHERE lh_transfer.transfer_to_user_id = :user_id ORDER BY lh_transfer.id DESC LIMIT 10');
 	       	$stmt->bindValue( ':user_id',$currentUser->getUserID());
 	       	$stmt->setFetchMode(PDO::FETCH_ASSOC);
 	       	$stmt->execute();
 	       	$rows = $stmt->fetchAll();
        }
-
+       
+       foreach ($rows as & $row) {
+            $row['user_id'] = $row['transfer_to_user_id'];
+       }
+       
        return $rows;
    }
-
 
    public static function getTransferByChat($chat_id)
    {

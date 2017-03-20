@@ -11,6 +11,14 @@ $ViewList['adminchat'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['getnotificationsdata'] = array(
+    'params' => array(),
+    'uparams' => array('id'),
+    'ajax' => true,
+    'functions' => array( 'use' ),
+    'multiple_arguments' => array ( 'id')
+);
+
 $ViewList['getcannedfiltered'] = array(
     'params' => array('chat_id'),
     'uparams' => array(),
@@ -121,7 +129,7 @@ $ViewList['transferchat'] = array(
 
 $ViewList['accepttransfer'] = array(
     'params' => array('transfer_id'),
-    'uparams' => array('postaction'),
+    'uparams' => array('postaction','mode'),
     'functions' => array( 'use' )
 );
 

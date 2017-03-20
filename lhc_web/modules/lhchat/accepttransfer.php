@@ -1,8 +1,21 @@
 <?php
 
 try {
-	$chatTransfer = erLhcoreClassTransfer::getSession()->load( 'erLhcoreClassModelTransfer', $Params['user_parameters']['transfer_id']);
-	$chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $chatTransfer->chat_id);
+    if ($Params['user_parameters_unordered']['mode'] == 'chat') {
+        $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['transfer_id']);
+        
+        $transferLegacy = erLhcoreClassTransfer::getTransferByChat($chat->id);
+        
+        if (is_array($transferLegacy)) {
+            $chatTransfer = erLhcoreClassTransfer::getSession()->load('erLhcoreClassModelTransfer', $transferLegacy['id']);
+        } else {
+            exit;
+        }
+        
+    } else {    
+    	$chatTransfer = erLhcoreClassTransfer::getSession()->load( 'erLhcoreClassModelTransfer', $Params['user_parameters']['transfer_id']);
+    	$chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $chatTransfer->chat_id);
+    }
 } catch (Exception $e) {
 	exit;
 }
