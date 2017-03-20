@@ -1791,7 +1791,8 @@ function lh(){
 		
 		jQuery('#CSChatMessage-'+chat_id).bind('keydown', 'return', function (evt){
 			_that.addmsgadmin(chat_id);
-			 		return false;			
+			ee.emitEvent('afterAdminMessageSent',[chat_id]);
+			return false;			
 		});
 		
 		jQuery('#CSChatMessage-'+chat_id).bind('keyup', 'up', function (evt){
