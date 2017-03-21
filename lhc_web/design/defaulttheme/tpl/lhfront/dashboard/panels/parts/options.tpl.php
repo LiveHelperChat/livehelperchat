@@ -25,7 +25,7 @@
 		<div class="col-xs-4">
 				
 			<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
-	                    'input_name'     => 'user_id',
+	                    'input_name'     => 'user_id_' . $optinsPanel['userid'],
 						'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select operator'),
 	                    'selected_id'    => 0,
 						'ng-model' => "lhc." . $optinsPanel['userid'],
