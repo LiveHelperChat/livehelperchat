@@ -156,6 +156,7 @@ return array_merge(array (
 		'erLhcoreClassGalleryImagemagickHandler'    => 'lib/core/lhcore/lhgalleryconverterhandler.php',
 		'erLhcoreClassGalleryGDHandler'             => 'lib/core/lhcore/lhgallerygdconverterhandler.php',
 		
+		'Mobile_Detect'								=> 'lib/core/lhexternal/Mobile_Detect.php',
 		'XMPPHP_XMPP'								=> 'lib/core/lhxmp/XMPPHP/XMPP.php',
 		'erLhcoreClassXMP'							=> 'lib/core/lhxmp/lhxmp.php',		
 		'erLhcoreClassModelChatAccept'				=> 'lib/models/lhchat/erlhcoreclassmodelchataccept.php',

@@ -1,3 +1,22 @@
+2.55v
+
+1. Device type detection
+2. Option to filter by nick active and pending chats widget
+3. Notifications workflow refactored, just to simplify the code
+4. Issues/Improvements
+https://github.com/LiveHelperChat/livehelperchat/issues/955
+https://github.com/LiveHelperChat/livehelperchat/issues/960
+https://github.com/LiveHelperChat/livehelperchat/issues/967
+https://github.com/LiveHelperChat/livehelperchat/issues/983
+https://github.com/LiveHelperChat/livehelperchat/issues/987
+https://github.com/LiveHelperChat/livehelperchat/pull/979
+5. Accesibility changes according to reports
+6. Animation fixed, once message is send it was not possible to user scroll for some time
+7. Theme adop to mobile devices, widget display and widget status
+8. And many other small fixes.
+
+execute doc/update_db/update_130.sql for update
+
 2.54v
 
 1. If pending chat is assigned to any operator, it's name will be shown.

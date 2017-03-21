@@ -354,8 +354,15 @@ $def->properties['unread_op_messages_informed']->columnName   = 'unread_op_messa
 $def->properties['unread_op_messages_informed']->propertyName = 'unread_op_messages_informed';
 $def->properties['unread_op_messages_informed']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['device_type'] = new ezcPersistentObjectProperty();
+$def->properties['device_type']->columnName   = 'device_type';
+$def->properties['device_type']->propertyName = 'device_type';
+$def->properties['device_type']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
-
+$def->properties['uagent'] = new ezcPersistentObjectProperty();
+$def->properties['uagent']->columnName   = 'uagent';
+$def->properties['uagent']->propertyName = 'uagent';
+$def->properties['uagent']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 return $def;
 

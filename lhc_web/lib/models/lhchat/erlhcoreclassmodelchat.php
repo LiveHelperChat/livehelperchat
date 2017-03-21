@@ -92,6 +92,9 @@ class erLhcoreClassModelChat {
            
                // Product ID
                'product_id'    	        => $this->product_id,
+       		
+               'uagent'    	        	=> $this->uagent,
+               'device_type'    	    => $this->device_type,
        );
    }
 
@@ -575,6 +578,11 @@ class erLhcoreClassModelChat {
    
    public $chat_locale_to = '';
    
+   public $uagent = '';
+   
+   // 0 - PC, 1 - mobile, 2 - tablet
+   public $device_type = 0;
+
    public $updateIgnoreColumns = array();
 }
 

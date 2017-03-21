@@ -56,6 +56,8 @@ class erLhcoreClassChat {
 			'last_op_msg_time',
 			'has_unread_op_messages',
 			'unread_op_messages_informed',
+			'uagent',
+			'device_type',
 			//'product_id'
 	);
 	
