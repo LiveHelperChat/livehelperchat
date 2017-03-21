@@ -234,7 +234,7 @@ class erLhcoreClassChatHelper
     		$old->saveThis();
     	} else if ($new !== false && $old !== false) {
     		$db = ezcDbInstance::get();
-    		
+
     		$stmt = $db->prepare('UPDATE lh_chat_online_user_footprint SET online_user_id = :new_online_user_id WHERE online_user_id = :old_online_user_id');
     		$stmt->bindValue(':new_online_user_id',$new->id,PDO::PARAM_INT);
     		$stmt->bindValue(':old_online_user_id',$old->id,PDO::PARAM_INT);
@@ -258,6 +258,14 @@ class erLhcoreClassChatHelper
     		// count pages count to new
     		$new->pages_count += $old->pages_count;
     		$new->tt_pages_count += $old->tt_pages_count;
+    		$new->first_visit = $old->first_visit;
+    		$new->notes += trim("\n" . $old->notes);
+    		$new->total_visits += $old->total_visits;
+    		$new->invitation_count += $old->invitation_count;
+    		$new->time_on_site += $old->time_on_site;
+    		$new->tt_time_on_site += $old->tt_time_on_site;
+    		$new->referrer = $old->referrer;
+    		
     		$new->saveThis();
     		    		
     		$old->removeThis();
