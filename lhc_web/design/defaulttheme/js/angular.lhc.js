@@ -151,6 +151,10 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	this.limitc = this.restoreLocalSetting('limitc',10,false);
 	this.limitd = this.restoreLocalSetting('limitd',10,false);
 	
+	// Active chat's operators filter
+	this.activeu = this.restoreLocalSetting('activeu',0,false);
+	this.pendingu = this.restoreLocalSetting('pendingu',0,false);
+	
 	// Main left menu of pagelayout
 	$scope.lmtoggle = this.restoreLocalSetting('lmtoggle','false',false) != 'false';
 	
@@ -260,7 +264,15 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		filter += '/(limito)/'+parseInt(_that.limito);
 		filter += '/(limitc)/'+parseInt(_that.limitc);
 		filter += '/(limitd)/'+parseInt(_that.limitd);
-				
+		
+		if (parseInt(_that.activeu) > 0) {
+			filter += '/(activeu)/'+_that.activeu;
+		}
+		
+		if (parseInt(_that.pendingu) > 0) {
+			filter += '/(pendingu)/'+_that.pendingu;
+		}
+		
 		if (typeof _that.actived == 'object') {	
 			if (_that.actived.length > 0) {
 				filter += '/(actived)/'+_that.actived.join('/');
@@ -419,6 +431,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	    	}	
 		}
 		
+		_that.isListLoaded = false;
 		$scope.loadChatList();
 	};
 
@@ -439,7 +452,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	    		};
 	    	}
 		}
-	
+		_that.isListLoaded = false;
 		$scope.loadChatList();
 	};
 
@@ -494,6 +507,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		}
 
 		if (loadlList == true) {
+			_that.isListLoaded = false;
 			$scope.loadChatList();
 		}
 	};
@@ -525,7 +539,23 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 			$scope.loadChatList();
 		};
 	});
-		
+	
+	$scope.$watch('lhc.activeu', function(newVal,oldVal) {       
+		if (newVal != oldVal) {	
+			_that.storeLocalSetting('activeu',newVal);
+			_that.isListLoaded = false;
+			$scope.loadChatList();
+		};
+	});
+	
+	$scope.$watch('lhc.pendingu', function(newVal,oldVal) {       
+		if (newVal != oldVal) {	
+			_that.storeLocalSetting('pendingu',newVal);
+			_that.isListLoaded = false;
+			$scope.loadChatList();
+		};
+	});
+	
 	$scope.loadChatList = function() {
 		
 		if (localStorage) {

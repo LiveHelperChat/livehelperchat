@@ -1,6 +1,6 @@
 <div class="pl10 pr10 pt10">
 	<div class="row">
-		<div class="col-xs-9">
+		<div class="col-xs-<?php isset($optinsPanel['userid']) ? print 6 : print 10?>">
 			<div class="btn-group btn-block btn-block-department">
 				<button type="button" class="btn btn-default btn-block btn-sm dropdown-toggle btn-department-dropdown" data-toggle="dropdown" aria-expanded="false">
 					{{lhc.<?php echo $optinsPanel['panelid']?>.length == 0 ? "<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','All departments');?>" : lhc.<?php echo $optinsPanel['panelid']?>Names.join(", ")}} <span class="caret"></span>
@@ -21,7 +21,22 @@
 				</ul>
 			</div>
 		</div>
-		<div class="col-xs-3">
+		<?php if (isset($optinsPanel['userid'])) : ?>
+		<div class="col-xs-4">
+				
+			<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
+	                    'input_name'     => 'user_id',
+						'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select operator'),
+	                    'selected_id'    => 0,
+						'ng-model' => "lhc." . $optinsPanel['userid'],
+			            'css_class'      => 'form-control input-sm',
+						'display_name' => 'name_official',
+	                    'list_function'  => 'erLhcoreClassModelUser::getUserList'
+	            )); ?>
+	            
+		</div>
+		<?php endif; ?>
+		<div class="col-xs-2">
 			<select class="form-control input-sm" ng-model="lhc.<?php echo $optinsPanel['limitid']?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Number of elements in list');?>">
 				<option value="5">5</option>
 				<option value="10">10</option>

@@ -60,7 +60,7 @@ class erLhcoreClassRenderHelper {
         $title = isset($params['title_element']) ? ' title="'.$params['title_element'].'" ' : null;
 
         $ismultiple = isset($params['multiple']) ? 'multiple' : '';
-        $ngmodel = isset($params['ng-model']) ? ' ng-model="'.$params['ng-model'].' "' : '';
+        $ngmodel = isset($params['ng-model']) ? ' ng-model="'.$params['ng-model'].'" ' : '';
 
         $output = '<select '.$ismultiple.' id="id_'.$params['input_name'].'" name="'.$params['input_name'].'"'.$ngmodel.$onchange.$disbled.$class.$title.'>' . $output;
 

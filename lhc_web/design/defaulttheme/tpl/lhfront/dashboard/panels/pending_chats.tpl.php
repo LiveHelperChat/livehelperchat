@@ -6,7 +6,7 @@
 		</div>
 		<div ng-if="lhc.toggleWidgetData['pchats_widget_exp'] !== true">
 
-			  <?php $optinsPanel = array('panelid' => 'pendingd','limitid' => 'limitp'); ?>
+			  <?php $optinsPanel = array('panelid' => 'pendingd','limitid' => 'limitp', 'userid' => 'pendingu'); ?>
 			  <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/parts/options.tpl.php'));?>
 
 			  <div class="panel-list" ng-if="pending_chats.list.length > 0">

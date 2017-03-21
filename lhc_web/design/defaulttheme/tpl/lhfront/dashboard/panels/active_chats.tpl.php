@@ -7,7 +7,7 @@
 
 		<div ng-if="lhc.toggleWidgetData['activec_widget_exp'] !== true">
 
-			<?php $optinsPanel = array('panelid' => 'actived','limitid' => 'limita'); ?>
+			<?php $optinsPanel = array('panelid' => 'actived','limitid' => 'limita', 'userid' => 'activeu'); ?>
 			<?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/parts/options.tpl.php'));?>
 
 			<div ng-if="active_chats.list.length > 0" class="panel-list">

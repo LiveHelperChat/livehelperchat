@@ -96,7 +96,11 @@ if ($activeTabEnabled == true) {
         erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['activedprod']);
         $filter['filterin']['product_id'] = $Params['user_parameters_unordered']['activedprod'];
     }
-  
+    
+    if (is_numeric($Params['user_parameters_unordered']['activeu'])) {
+    	$filter['filter']['user_id'] = $Params['user_parameters_unordered']['activeu'];
+    }    
+       
 	$chats = erLhcoreClassChat::getActiveChats($limitList,0,$filter);
 		
 	// Collect chats which were transfered
@@ -154,7 +158,9 @@ if ($pendingTabEnabled == true) {
 	
 	$additionalFilter = array('ignore_fields' => erLhcoreClassChat::$chatListIgnoreField);
 	
-	if ($showAllPending == 0) {
+	if (is_numeric($Params['user_parameters_unordered']['pendingu'])) {
+		$additionalFilter['filter']['user_id'] = $Params['user_parameters_unordered']['pendingu'];
+	} elseif ($showAllPending == 0) {
 		$additionalFilter['filter']['user_id'] = $currentUser->getUserID();
 	}
 	
