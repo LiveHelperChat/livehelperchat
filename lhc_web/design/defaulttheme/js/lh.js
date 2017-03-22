@@ -138,8 +138,8 @@ function lh(){
     			inst.removeClass('has-pm');    			
     			$('#messagesBlock-'+chat_id).stop(true,false).animate({ scrollTop: $('#messagesBlock-'+chat_id).prop('scrollHeight') }, 500);
     			$('#CSChatMessage-'+chat_id).focus();
+    			ee.emitEvent('chatTabClicked', [chat_id, inst]);
     		},500);
-    		
     	});
     	
     	var hash = window.location.hash.replace('#/','#');	
