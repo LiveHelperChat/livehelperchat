@@ -184,7 +184,8 @@ function lh(){
     		tabs.find('> div.tab-content > div.active').removeClass('active');
     		tabs.find('> div.tab-content > #chat-id-'+chat_id).addClass('active');  
     		window.location.hash = '#/chat-id-'+chat_id;
-        }
+        }        
+        ee.emitEvent('chatStartTab', [chat_id]);	
     };
 
     this.startChatBackground = function (chat_id,tabs,name) {
@@ -193,7 +194,7 @@ function lh(){
 	    	this.addTab(tabs, this.wwwDir +'chat/adminchat/'+chat_id+rememberAppend, name, chat_id, false); 
 	    	return true;
     	}
-    	
+    	ee.emitEvent('chatStartBackground', [chat_id]);	
     	return false;
     };
     
@@ -864,6 +865,8 @@ function lh(){
 	    	inst.syncadmininterfacestatic();
 	    },1000);	   
         return false;
+        
+        ee.emitEvent('chatStartOpenWindow', [chat_id]);	
 	};
 	
 	this.startCoBrowse = function(chat_id)
