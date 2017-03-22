@@ -84,7 +84,6 @@ function lh(){
     
     // Notifications array
     this.notificationsArray = [];
-    this.notificationsArrayMap = [];
 
     this.speechHandler = false;
     
@@ -1590,7 +1589,6 @@ function lh(){
     	    	}
     	    	
     	    	this.notificationsArray[chat_id] = notification;	
-    	    	this.notificationsArrayMap.push(this.notificationsArray[chat_id]);
 			};			    	  
 	    };
 	    
@@ -1869,17 +1867,7 @@ function lh(){
 	{
 		if (typeof this.notificationsArray[chat_id] !== 'undefined'){
 			this.notificationsArray[chat_id].close();
-						
-			// Reset array
-			this.notificationsArray = [];
-			this.notificationsArrayMap = [];
-			var index = this.notificationsArrayMap.indexOf(this.notificationsArray[chat_id]);
-			
-			if (index !== -1) {
-				delete this.notificationsArray[chat_id];
-				delete this.notificationsArrayMap[index];
-			};
-			
+			delete this.notificationsArray[chat_id];
 			clearTimeout(this.soundIsPlaying);
 		};
 	}
