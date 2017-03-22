@@ -612,7 +612,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		                        	_that.statusNotifications[item.last_id_identifier] = new Array();
 		                        };
 		                        
-		                        if (_that.isListLoaded == true && ((_that.statusNotifications[item.last_id_identifier].indexOf(identifierElement) == -1 && userId == 0 && chatsSkipped == 0) || (_that.statusNotifications[item.last_id_identifier].indexOf(identifierElement) == -1 && userId == confLH.user_id)) ) {
+		                        if (_that.isListLoaded == true && chatsSkipped == 0 && ((_that.statusNotifications[item.last_id_identifier].indexOf(identifierElement) == -1 && userId == 0) || (_that.statusNotifications[item.last_id_identifier].indexOf(identifierElement) == -1 && userId == confLH.user_id)) ) {
 		                        	chatsToNotify.push(itemList.id);	
 		                        } else {
 		                        	chatsSkipped++;
