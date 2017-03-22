@@ -680,7 +680,6 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 			for (var i = oldStatus.length - 1; i >= 0; i--) {
 			  var key = oldStatus[i];
 			  if (-1 === newStatus.indexOf(key)) {
-				  console.log('Hiding - '+key.split('_')[0]);
 				  lhinst.hideNotification(key.split('_')[0]);
 			  }
 			}
