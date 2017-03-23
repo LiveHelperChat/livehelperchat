@@ -10,6 +10,10 @@
        url('../fonts/MaterialIcons-Regular.ttf') format('truetype');
 }
 
+div.message-row {
+overflow-wrap: break-word;
+}
+
 .material-icons {
   font-family: 'Material Icons';
   font-weight: normal;
