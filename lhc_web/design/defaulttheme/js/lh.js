@@ -1806,15 +1806,61 @@ function lh(){
 		
 		var _that = this;
 		
-		jQuery('#CSChatMessage-'+chat_id).bind('keydown', 'return', function (evt){
+		var $textarea = jQuery('#CSChatMessage-'+chat_id);
+		
+		$textarea.bind('keydown', 'return', function (evt){
 			_that.addmsgadmin(chat_id);
 			ee.emitEvent('afterAdminMessageSent',[chat_id]);
+			$textarea[0].rows = 2;
 			return false;			
 		});
 		
-		jQuery('#CSChatMessage-'+chat_id).bind('keyup', 'up', function (evt){
+		$textarea.bind('keyup', 'up', function (evt){
 			_that.editPrevious(chat_id);	
 		});
+		
+		$textarea.bind('keyup', function (evt){
+			var ta = $textarea[0];
+			var maxrows = 30;
+			var lh = ta.clientHeight / ta.rows;
+			while (ta.scrollHeight > ta.clientHeight && !window.opera && ta.rows < maxrows) {
+				ta.style.overflow = 'hidden';
+				ta.rows += 1;
+			}
+			if (ta.scrollHeight > ta.clientHeight) ta.style.overflow = 'auto';	
+		});
+		
+		
+		// Resize by user 
+		$messageBlock = $('#messagesBlock-'+chat_id);
+		
+		$messageBlock.css('height',this.getLocalValue('lhc_mheight','200'));
+		
+		$messageBlock.data('resized',false);
+		$messageBlock.data('y', $messageBlock.outerHeight()); 
+	
+		$messageBlock.bind('mouseup mousemove',function(event) {
+			  var $this = jQuery(this);
+ 			  
+		      if ($this.outerHeight() != $this.data('y')) {
+		    	   if ($this.data('resized') == false) {
+		    		   $this.css('height','1px');
+		    		   $this.data('resized',true)
+		    	   }
+		    	   
+		    	   if (this.resize_timeout) {
+		    		   clearTimeout(this.resize_timeout);
+		    	   }
+		    	   
+		    	   this.resize_timeout = setTimeout(function(){
+		    		   _that.setLocalValue('lhc_mheight', $this.outerHeight());
+		    		   $this.data('y', $this.outerHeight());
+		    	   },100);
+		      }
+		});
+		
+		
+		
 		
 		this.initTypingMonitoringAdmin(chat_id);
 		
@@ -1861,6 +1907,28 @@ function lh(){
 		} catch(e) {};
 		
 		ee.emitEvent('adminChatLoaded', [chat_id,last_message_id]);
+	};
+	
+	this.getLocalValue = function(variable,defaultValue) {
+		try {
+			if (localStorage) {
+				var value = localStorage.getItem(variable);
+				if (value !== null) {					
+						return value;					
+				} else {
+					return defaultValue;
+				}
+			}
+		} catch(e) {}
+		return defaultValue;
+	};
+	
+	this.setLocalValue = function(key,val){
+		try {
+	    	if (localStorage) {
+				localStorage.setItem(key,val);				
+			}
+    	} catch(e) {}	
 	};
 	
 	this.hideNotification = function(chat_id)

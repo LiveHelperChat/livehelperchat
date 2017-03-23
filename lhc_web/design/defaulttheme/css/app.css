@@ -336,10 +336,13 @@ option.offline-dep{
 
 .msgBlock-admin{
 	height:200px;
+	min-height:200px;
 }
 
 textarea[name=ChatMessage]{
-	resize: vertical;
+	min-height:50px;
+	overflow:hidden;
+	resize: none;
 }
 
 .msg-date {
