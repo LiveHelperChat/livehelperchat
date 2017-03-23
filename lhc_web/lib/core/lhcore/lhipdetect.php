@@ -11,8 +11,10 @@ class erLhcoreClassIPDetect {
 			self::$couldflareRun = true;
 		}
 		
-		if ( isset($_SERVER['HTTP_X_FORWARDED_FOR']) && $_SERVER['HTTP_X_FORWARDED_FOR'] != '' ) {
-			$_SERVER['REMOTE_ADDR'] = $_SERVER['HTTP_X_FORWARDED_FOR'];		
+	   if ( isset($_SERVER['HTTP_X_FORWARDED_FOR']) && $_SERVER['HTTP_X_FORWARDED_FOR'] != '' ) {
+			$_SERVER['REMOTE_ADDR'] = str_replace(' ', '', $_SERVER['HTTP_X_FORWARDED_FOR']);	
+            $parts = explode(',', $_SERVER['REMOTE_ADDR']);
+            $_SERVER['REMOTE_ADDR'] = $parts[0];
 		}
 		
 		return $_SERVER["REMOTE_ADDR"];
