@@ -102,6 +102,7 @@ if (isset($_POST['UpdateNotifications_account'])) {
     
     erLhcoreClassModelUserSetting::setSetting('show_alert_chat', $validateNotificationsData['show_alert_chat']);
     erLhcoreClassModelUserSetting::setSetting('sn_off', $validateNotificationsData['sn_off']);
+    erLhcoreClassModelUserSetting::setSetting('ownntfonly', $validateNotificationsData['ownntfonly']);
     
     $tpl->set('account_updated','done');
     $tpl->set('tab','tab_notifications');  

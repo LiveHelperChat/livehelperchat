@@ -169,6 +169,10 @@ function lh(){
     };
 
     this.startChat = function (chat_id,tabs,name,focusTab) {
+    	    	
+    	this.removeBackgroundChat(chat_id);
+    	this.hideNotification(chat_id);
+    	
         if ( this.chatUnderSynchronization(chat_id) == false ) {        	
         	var focusTabAction = typeof focusTab !== 'undefined' ? focusTab : true;
         	var rememberAppend = this.disableremember == false ? '/(remember)/true' : '';
@@ -183,17 +187,22 @@ function lh(){
     		tabs.find('> div.tab-content > div.active').removeClass('active');
     		tabs.find('> div.tab-content > #chat-id-'+chat_id).addClass('active');  
     		window.location.hash = '#/chat-id-'+chat_id;
-        }        
+        }
+        
         ee.emitEvent('chatStartTab', [chat_id]);	
     };
 
+    this.backgroundChats = [];
+    
     this.startChatBackground = function (chat_id,tabs,name) {
     	if ( this.chatUnderSynchronization(chat_id) == false ) {  
+    		this.backgroundChats.push(parseInt(chat_id));
 	    	var rememberAppend = this.disableremember == false ? '/(remember)/true' : '';
-	    	this.addTab(tabs, this.wwwDir +'chat/adminchat/'+chat_id+rememberAppend, name, chat_id, false); 
+	    	this.addTab(tabs, this.wwwDir +'chat/adminchat/'+chat_id+rememberAppend+'/(arg)/background', name, chat_id, false); 
+	    	ee.emitEvent('chatStartBackground', [chat_id]);	
 	    	return true;
     	}
-    	ee.emitEvent('chatStartBackground', [chat_id]);	
+    	
     	return false;
     };
     
@@ -1802,7 +1811,7 @@ function lh(){
 		};
 	};
 	
-	this.addAdminChatFinished = function(chat_id, last_message_id){
+	this.addAdminChatFinished = function(chat_id, last_message_id, arg) {
 		
 		var _that = this;
 		
@@ -1859,9 +1868,6 @@ function lh(){
 		      }
 		});
 		
-		
-		
-		
 		this.initTypingMonitoringAdmin(chat_id);
 		
 		this.afterAdminChatInit(chat_id);
@@ -1895,9 +1901,17 @@ function lh(){
                  }                 
             }); 
 		});
-		
-		this.hideNotification(chat_id);
-		
+
+		// Hide notification only if chat was not started in background
+		if (arg === null || typeof arg !== 'object' || arg.indexOf('background') === -1) {
+			this.hideNotification(chat_id);
+		} else {
+			$('#chat-tab-link-'+chat_id).click(function() {
+				_that.removeBackgroundChat(parseInt(chat_id));
+				_that.hideNotification(parseInt(chat_id));
+			});
+		}
+	
 		try {
 			if (localStorage) {			
 				if (localStorage.getItem('lhc_rch') == 1) {
@@ -1906,7 +1920,14 @@ function lh(){
 			}
 		} catch(e) {};
 		
-		ee.emitEvent('adminChatLoaded', [chat_id,last_message_id]);
+		ee.emitEvent('adminChatLoaded', [chat_id,last_message_id,arg]);
+	};
+	
+	this.removeBackgroundChat = function(chat_id) {
+		var index = this.backgroundChats.indexOf(parseInt(chat_id));
+		if (index !== -1) {
+			delete this.backgroundChats[index];
+		};
 	};
 	
 	this.getLocalValue = function(variable,defaultValue) {
@@ -1933,7 +1954,8 @@ function lh(){
 	
 	this.hideNotification = function(chat_id)
 	{
-		if (typeof this.notificationsArray[chat_id] !== 'undefined'){
+		chat_id = parseInt(chat_id);
+		if (typeof this.notificationsArray[chat_id] !== 'undefined' && this.backgroundChats.indexOf(chat_id) == -1) {
 			this.notificationsArray[chat_id].close();
 			delete this.notificationsArray[chat_id];
 			clearTimeout(this.soundIsPlaying);

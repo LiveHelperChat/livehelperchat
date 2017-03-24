@@ -7,8 +7,9 @@ $ViewList = array();
 
 $ViewList['adminchat'] = array(
     'params' => array('chat_id'),
-    'uparams' => array('remember'),
-    'functions' => array( 'use' )
+    'uparams' => array('remember','arg'),
+    'functions' => array( 'use' ),
+    'multiple_arguments' => array('arg')
 );
 
 $ViewList['getnotificationsdata'] = array(

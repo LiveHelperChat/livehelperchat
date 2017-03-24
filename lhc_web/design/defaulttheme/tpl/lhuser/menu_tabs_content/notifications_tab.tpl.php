@@ -15,11 +15,17 @@
              </div>
              
     	     <div class="form-group">
-                <label><input type="checkbox" name="show_alert_chat" value="on" <?php erLhcoreClassModelUserSetting::getSetting('show_alert_chat',0) == 1 ? print 'checked="checked"' : '' ?>> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Show alert for new chats')?></label>
+                <label><input type="checkbox" name="ownntfonly" value="on" <?php erLhcoreClassModelUserSetting::getSetting('ownntfonly',0) == 1 ? print 'checked="checked"' : '' ?>> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Show notification only if I am an owner pending chat')?></label>
+                <br/><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','You will stop receive notifications for pending chats if you are not an owner')?></i></small>
     	     </div>
-             
-    	     <div class="form-group">
+    	     
+             <div class="form-group">
                 <label><input type="checkbox" name="sn_off" value="on" <?php erLhcoreClassModelUserSetting::getSetting('sn_off',1) == 1 ? print 'checked="checked"' : '' ?>> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Show notifications if I am offline')?></label>
+                <br/><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','You will not receive notifications if you are not online')?></i></small>
+    	     </div>
+    	     
+    	     <div class="form-group">
+                <label><input type="checkbox" name="show_alert_chat" value="on" <?php erLhcoreClassModelUserSetting::getSetting('show_alert_chat',0) == 1 ? print 'checked="checked"' : '' ?>> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Show alert for new chats')?></label>
     	     </div>
                 	     
     	     <input type="submit" class="btn btn-default" name="UpdateNotifications_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Update');?>" />

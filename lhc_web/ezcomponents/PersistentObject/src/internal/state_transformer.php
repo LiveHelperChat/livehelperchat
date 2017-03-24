@@ -50,7 +50,7 @@ class ezcPersistentStateTransformer
         {
             if ( $key === $def->idProperty->resultColumnName )
             {
-                $result[$def->idProperty->propertyName] = $value;
+                $result[$def->idProperty->propertyName] = ($def->idProperty->propertyType == ezcPersistentObjectProperty::PHP_TYPE_INT ? (int)$value : $value);
             }
             else
             {
@@ -58,7 +58,7 @@ class ezcPersistentStateTransformer
                     $result[$def->columns[$key]->propertyName] = ( 
                         !is_null( $def->columns[$key]->converter )
                             ? $def->columns[$key]->converter->fromDatabase( $value )
-                            : $value );
+                            : ($def->columns[$key]->propertyType == ezcPersistentObjectProperty::PHP_TYPE_INT ? (int)$value : $value));
                 } else {
                     $result['virtual_' . $key] = $value;
                 }

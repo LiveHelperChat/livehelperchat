@@ -39,8 +39,10 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
     	try {    	
 		    foreach ($_POST['chats'] as $chat_id_list)
 		    {
-		        list($chat_id,$MessageID) = explode(',',$chat_id_list);
-		
+		        list($chat_id, $MessageID ) = explode(',',$chat_id_list);
+		        $chat_id = (int)$chat_id;
+		        $MessageID = (int)$MessageID;
+		        
 		        $Chat = erLhcoreClassModelChat::fetch($chat_id);
 		        $Chat->updateIgnoreColumns = array('last_msg_id');
 		        

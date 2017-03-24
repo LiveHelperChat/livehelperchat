@@ -612,7 +612,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		                        	_that.statusNotifications[item.last_id_identifier] = new Array();
 		                        };
 		                        
-		                        if (_that.isListLoaded == true && chatsSkipped == 0 && ((_that.statusNotifications[item.last_id_identifier].indexOf(identifierElement) == -1 && userId == 0) || (_that.statusNotifications[item.last_id_identifier].indexOf(identifierElement) == -1 && userId == confLH.user_id)) ) {
+		                        if (_that.isListLoaded == true && chatsSkipped == 0 && ((_that.statusNotifications[item.last_id_identifier].indexOf(identifierElement) == -1 && userId == 0 && confLH.ownntfonly == 0) || (_that.statusNotifications[item.last_id_identifier].indexOf(identifierElement) == -1 && userId == confLH.user_id)) ) {
 		                        	chatsToNotify.push(itemList.id);	
 		                        } else {
 		                        	chatsSkipped++;
@@ -679,7 +679,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		if (typeof oldStatus !== 'undefined') {			
 			for (var i = oldStatus.length - 1; i >= 0; i--) {
 			  var key = oldStatus[i];
-			  if (-1 === newStatus.indexOf(key)) {
+			  if (-1 === newStatus.indexOf(key)) {				
 				  lhinst.hideNotification(key.split('_')[0]);
 			  }
 			}

@@ -43,6 +43,8 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
 	    	$chatDataChanged = true;
 	    }
 	    
+	    $tpl->set('arg', $Params['user_parameters_unordered']['arg']);
+	    
 	    // Store who has acceped a chat so other operators will be able easily indicate this
 	    if ($operatorAccepted == true) {
 	    	         	        
@@ -97,7 +99,9 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
 	    };
 	    exit;	    
 	}
-    
+	
+	
+	
 	echo $tpl->fetch();
 	exit;    
 

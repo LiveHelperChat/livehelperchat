@@ -37,4 +37,4 @@
 	</div>
 </div>
 
-<script type="text/javascript">lhinst.addAdminChatFinished('<?php echo $chat->id;?>','<?php echo $LastMessageID?>');</script>
+<script type="text/javascript">lhinst.addAdminChatFinished(<?php echo $chat->id;?>,<?php echo $LastMessageID?>,<?php echo json_encode($arg)?>);</script>
