@@ -95,6 +95,91 @@ header('Content-Type: application/json');
                 }
             }
          }         
+      },
+      "/restapi/logout":{
+         "post":{
+            "tags":[
+               "api"
+            ],
+            "summary":"Revokes token if it's found",
+            "description":"",
+            "produces":[
+               "application/json"
+            ],
+            "parameters":[
+               {
+                    "name":"token",
+					"in":"formData",
+					"description":"Token",
+					"required":true,
+					"type":"string",
+					"format":"int32"
+               }
+            ],
+            "responses": {
+                "200": {
+                    "description": "Login",
+                    "schema": {
+                    	
+                    }
+                },
+                "400": {
+                    "description": "Error",
+                    "schema": {
+                    	
+                    }
+                }
+            }
+         }         
+      },
+      "/restapi/loginbytoken":{
+         "get":{
+            "tags":[
+               "api"
+            ],
+            "summary":"Logins user by token",
+            "description":"",            
+            "parameters":[
+               {
+                    "name":"token",
+					"in":"query",
+					"description":"Token",
+					"required":true,
+					"type":"string",
+					"format":"int32"
+               },
+               {
+                    "name":"r",
+					"in":"query",
+					"description":"Redirect url",
+					"required":false,
+					"type":"string",
+					"format":"int32"
+               },              
+               {
+                  "name":"api",
+                  "description":"Is it api mode",
+                  "required":false,
+                  "type":"boolean",                      
+                  "default":true,                      
+                  "in":"query"
+               }
+            ],
+            "responses": {
+                "200": {
+                    "description": "Login",
+                    "schema": {
+                    	
+                    }
+                },
+                "400": {
+                    "description": "Error",
+                    "schema": {
+                    	
+                    }
+                }
+            }
+         }         
       }
    },   
    "definitions":{      

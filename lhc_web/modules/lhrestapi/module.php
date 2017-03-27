@@ -61,6 +61,14 @@ $ViewList['login'] = array(
     'params' => array()
 );
 
+$ViewList['loginbytoken'] = array(
+    'params' => array()
+);
+
+$ViewList['logout'] = array(
+    'params' => array()
+);
+
 $ViewList['swagger'] = array(
     'params' => array()
 );
