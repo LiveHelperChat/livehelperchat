@@ -1563,6 +1563,10 @@ function lh(){
 	
 	this.playSoundNewAction = function(identifier,chat_id,nick,message,nt) {
 		
+		if (this.backgroundChats.indexOf(parseInt(chat_id)) != -1) {
+			return ;
+		}
+		
 		if (confLH.new_chat_sound_enabled == 1 && (confLH.sn_off == 1 || $('#online-offline-user').text() == 'flash_on') && (identifier == 'pending_chat' || identifier == 'transfer_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered')) {
 	    	this.soundPlayedTimes = 0;
 	        this.playNewChatAudio();
