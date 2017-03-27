@@ -350,8 +350,6 @@ class erLhcoreClassChatWorkflow {
     	    		$chat->user_id = $user_id;
     	    		$chat->updateThis();
     	    		
-    	    		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed_auto_assign',array('chat' => & $chat));
-    	    		
     	    		$stmt = $db->prepare('UPDATE lh_userdep SET last_accepted = :last_accepted WHERE user_id = :user_id');
     	    		$stmt->bindValue(':last_accepted',time(),PDO::PARAM_INT);
     	    		$stmt->bindValue(':user_id',$user_id,PDO::PARAM_INT);
@@ -359,7 +357,11 @@ class erLhcoreClassChatWorkflow {
     	    	}
     	    	
     	    	$db->commit();
-    	    	 
+    	    	
+    	    	if ($user_id > 0) {
+    	    	    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed_auto_assign',array('chat' => & $chat));
+    	    	}
+    	    	
 	    	} catch (Exception $e) {
 	    	    $db->rollback();
 	    	    throw $e;
