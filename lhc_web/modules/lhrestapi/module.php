@@ -57,6 +57,14 @@ $ViewList['getuser'] = array(
     'params' => array()
 );
 
+$ViewList['login'] = array(
+    'params' => array()
+);
+
+$ViewList['swagger'] = array(
+    'params' => array()
+);
+
 /**
  * Calls dedicated to users
  * */

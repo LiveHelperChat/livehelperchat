@@ -33,13 +33,23 @@ foreach ($items as $item) {
         $notification_message_type = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Pending Chat');
     } elseif ($itemsTypes[$item->id] == 'transfer_chat' || ($itemsTypes[$item->id] == 'transfer_chat_dep')) {
         $notification_message_type = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Transfer Chat');
+    } elseif ($itemsTypes[$item->id] == 'active_chat') {
+        $notification_message_type = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Assigned Chat');
     }
         
+    $type = $itemsTypes[$item->id];
+    
+    if ($type == 'active_chat') {
+        $type = 'pending_chat';
+    } elseif ($type == 'transfer_chat_dep') {
+        $type = 'transfer_chat';
+    }
+    
     $returnArray[] = array(
         'nick' => $notification_message_type . ' | ' . $item->nick . ' | ' . $item->department,
         'msg' => erLhcoreClassChat::getGetLastChatMessagePending($item->id),
         'nt' => $item->nick,
-        'last_id_identifier' => ($itemsTypes[$item->id] == 'transfer_chat_dep' ? 'transfer_chat' : $itemsTypes[$item->id]),
+        'last_id_identifier' => $type,
         'last_id' => $item->id
     );
 }
