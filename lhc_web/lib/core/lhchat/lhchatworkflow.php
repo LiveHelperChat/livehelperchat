@@ -308,6 +308,10 @@ class erLhcoreClassChatWorkflow {
 	    	    $stmt->bindValue(':dep_id',$department->id);
 	    	    $stmt->execute();
 	    	    
+	    	    $stmt = $db->prepare('SELECT 1 FROM lh_chat WHERE id = :id FOR UPDATE;');
+	    	    $stmt->bindValue(':id',$chat->id);
+	    	    $stmt->execute();
+	    	    
     	    	$statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow.autoassign', array(
     	    	    'department' => & $department,
     	    	    'chat' => & $chat,
