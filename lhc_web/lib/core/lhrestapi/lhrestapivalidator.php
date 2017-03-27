@@ -271,7 +271,7 @@ class erLhcoreClassRestAPIHandler
         $createArrayImporter = function (SimpleXMLElement $subject) {
             $add = function (SimpleXMLElement $subject, $key, $value) use (&$add) {
                 $hasKey    = is_string($key);
-                $isString  = is_string($value);
+                $isString  = is_string($value) || is_numeric($value);
                 $isArray   = is_array($value);
                 $count     = count($value);
                 $isIndexed = $isArray && $count > 1 && array_keys($value) === range(0, $count - 1);
@@ -322,7 +322,7 @@ class erLhcoreClassRestAPIHandler
     public static function outputResponse($data)
     {
         if ($_GET['format'] == 'xml') {
-           echo self::formatXML($data);           
+           echo self::formatXML(json_decode(json_encode($data),true));            
         } else {
         
             $json = json_encode($data, JSON_PRETTY_PRINT);
