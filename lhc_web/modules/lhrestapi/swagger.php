@@ -74,10 +74,10 @@ header('Content-Type: application/json');
                {
                     "name":"device",
 					"in":"formData",
-					"description":"0 - androind, 1 - iphone",
+					"description":"Device type",
 					"required":false,
-					"type":"integer",
-					"format":"int32"
+					"type":"string",
+					"enum": ["unknown","ios","android"]
                }
             ],
             "responses": {
@@ -88,7 +88,7 @@ header('Content-Type: application/json');
                     }
                 },
                 "400": {
-                    "description": "Invalid username or password",
+                    "description": "Error",
                     "schema": {
                     	
                     }

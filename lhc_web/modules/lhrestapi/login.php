@@ -12,15 +12,44 @@ try {
     {
         $sessionToken = null;
         
-        if (isset($_POST['generate_token'])) {
+        if (isset($_POST['generate_token']) && $_POST['generate_token'] == 'true') {
             
-            $uSession = new erLhcoreClassModelUserSession();
+            $typeValid = array(
+                "unknown" => erLhcoreClassModelUserSession::DEVICE_TYPE_UNKNOWN,
+                "android" => erLhcoreClassModelUserSession::DEVICE_TYPE_ANDROID,
+                "ios" => erLhcoreClassModelUserSession::DEVICE_TYPE_IOS
+            );
+                       
+            $deviceToken = '';
+            $device = erLhcoreClassModelUserSession::DEVICE_TYPE_UNKNOWN;
+            
+            if ((isset($_POST['device']) && key_exists($_POST['device'], $typeValid)) && $_POST['device'] != '') {
+                $device = $typeValid[$_POST['device']];
+                if (!isset($_POST['device_token']) || $_POST['device_token'] == '') {
+                    throw new Exception('Please provide device token!');
+                } else {
+                    $deviceToken = $_POST['device_token'];
+                }
+            } else {
+                throw new Exception('Device not provided!');
+            }
+            
+            $uSession = erLhcoreClassModelUserSession::findOne(array('filter' => array('device_token' => $deviceToken, 'device_type' => $device)));
+            
+            if (!($uSession instanceof erLhcoreClassModelUserSession)) {            
+                $uSession = new erLhcoreClassModelUserSession();
+            }
+            
             $uSession->token = erLhcoreClassModelForgotPassword::randomPassword(40);
-            $uSession->device_token = isset($_POST['device_token']) ? $_POST['device_token'] : '';
+            $uSession->device_token = $deviceToken;
             $uSession->user_id = $currentUser->getUserID();
-            $uSession->created_on = time();
+            
+            if ($uSession->created_on == 0) {
+                $uSession->created_on = time();
+            }
+            
             $uSession->updated_on = time();
-            $uSession->device_type = isset($_POST['device']) ? $_POST['device'] : '';
+            $uSession->device_type = $device;
             $uSession->saveThis();
             
             $sessionToken = $uSession->token;

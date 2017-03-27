@@ -26,6 +26,10 @@ class erLhcoreClassModelUserSession
         );
     }
 
+    const DEVICE_TYPE_UNKNOWN = 0;
+    const DEVICE_TYPE_ANDROID = 1;
+    const DEVICE_TYPE_IOS = 2;
+    
     public $id = null;
 
     public $token = '';
