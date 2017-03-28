@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
     exit(0);
 }
 
-$modeAPI = isset($_GET['api']) && $_GET['api'] == true;
+$modeAPI = isset($_GET['api']) && $_GET['api'] == 'true';
 
 try {
     
