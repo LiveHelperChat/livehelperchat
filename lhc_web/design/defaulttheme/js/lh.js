@@ -127,7 +127,7 @@ function lh(){
     this.tabIconContent = 'face';
     this.tabIconClass = 'icon-user-status material-icons icon-user-online';
     
-    this.addTab = function(tabs, url, name, chat_id, focusTab) {
+    this.addTab = function(tabs, url, name, chat_id, focusTab) {    
     	// If tab already exits return
     	if (tabs.find('#chat-tab-link-'+chat_id).size() > 0) {
     		return ;
@@ -1712,7 +1712,14 @@ function lh(){
 					inst.addingUserMessage = false;
 					
 					return true;
-				});
+				}).fail(function() {	
+					inst.addUserMessageQueue.push({'pdata':pdata,'url':inst.wwwDir + inst.addmsgurl + chat_id,'chat_id':chat_id});
+		        	clearTimeout(inst.addDelayedTimeout);
+		        	inst.addDelayedTimeout = setTimeout(function(){		        		
+		        		inst.addDelayedMessageAdmin();
+		        	},50);
+		        	inst.addingUserMessage = false;
+		    	});
 				
 			} else {
 				this.addUserMessageQueue.push({'pdata':pdata,'url':this.wwwDir + this.addmsgurl + chat_id,'chat_id':chat_id});
@@ -1757,6 +1764,14 @@ function lh(){
 		        		clearTimeout(inst.addDelayedTimeout);	        		
 		            	inst.addDelayedMessageAdmin();	            	
 		        	}
+		        	
+				}).fail(function() {					
+					inst.addUserMessageQueue.unshift(elementAdd);
+					inst.addingUserMessage = false;
+					clearTimeout(inst.addDelayedTimeout);
+					inst.addDelayedTimeout = setTimeout(function(){
+		        		inst.addDelayedMessageAdmin();
+					}, 500);
 				});
     		}
     		
