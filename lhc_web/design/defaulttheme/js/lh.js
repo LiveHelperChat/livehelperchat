@@ -127,7 +127,12 @@ function lh(){
     this.tabIconContent = 'face';
     this.tabIconClass = 'icon-user-status material-icons icon-user-online';
     
-    this.addTab = function(tabs, url, name, chat_id, focusTab) {    	    	
+    this.addTab = function(tabs, url, name, chat_id, focusTab) {
+    	// If tab already exits return
+    	if (tabs.find('#chat-tab-link-'+chat_id).size() > 0) {
+    		return ;
+    	}
+    	
     	tabs.find('> ul').append('<li role="presentation" id="chat-tab-li-'+chat_id+'" ><a href="#chat-id-'+chat_id+'" id="chat-tab-link-'+chat_id+'" aria-controls="chat-id-'+chat_id+'" role="tab" data-toggle="tab"><i id="user-chat-status-'+chat_id+'" class="'+this.tabIconClass+'">'+this.tabIconContent+'</i>' + name.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '<span onclick="return lhinst.removeDialogTab('+chat_id+',$(\'#tabs\'),true)" class="material-icons icon-close-chat">close</span></a></li>')
     	
     	$('#chat-tab-link-'+chat_id).click(function() {
