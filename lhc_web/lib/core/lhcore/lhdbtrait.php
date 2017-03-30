@@ -36,6 +36,19 @@ trait erLhcoreClassDBTrait {
 		$this->clearCache();
 	}
 	
+	public function syncAndLock() {
+	    
+	    $db = ezcDbInstance::get();
+	    
+	    $stmt = $db->prepare('SELECT * FROM ' . self::$dbTable . ' WHERE id = :id FOR UPDATE;');
+	    $stmt->bindValue(':id',$this->id);
+	    $stmt->execute();
+	    
+	    $data = $stmt->fetch(PDO::FETCH_ASSOC);
+	    
+	    $this->setState($data);	    
+	}
+	
 	public function beforeSave() {
 	
 	}

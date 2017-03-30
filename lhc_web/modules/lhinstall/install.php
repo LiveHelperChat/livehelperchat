@@ -1464,7 +1464,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `user_id` int(11) NOT NULL DEFAULT '0',
 				  `name_support` varchar(100) NOT NULL,
 				  PRIMARY KEY (`id`),
-				  KEY `chat_id_id` (`chat_id`, `id`)
+				  KEY `chat_id_id` (`chat_id`, `id`),
+				  KEY `user_id` (`user_id`)
 				) DEFAULT CHARSET=utf8;");
 
                 // Forgot password table

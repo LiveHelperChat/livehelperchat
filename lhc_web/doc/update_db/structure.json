@@ -6526,6 +6526,12 @@
     		},
     		"old" : []
     	},
+    	"lh_msg" : {
+    		"new" : {
+    			"user_id" : "ALTER TABLE `lh_msg` ADD INDEX `user_id` (`user_id`);"
+    		},
+    		"old" : []
+    	},
     	"lh_abstract_survey_item" : {
     		"new" : {
     			"ftime" : "ALTER TABLE `lh_abstract_survey_item` ADD INDEX `ftime` (`ftime`);",

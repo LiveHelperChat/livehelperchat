@@ -2,6 +2,16 @@
 
 class erLhcoreClassModelChat {
 
+   use erLhcoreClassDBTrait;
+    
+   public static $dbTable = 'lh_chat';
+    
+   public static $dbTableId = 'id';
+   
+   public static $dbSessionHandler = 'erLhcoreClassChat::getSession';
+    
+   public static $dbSortOrder = 'DESC';
+    
    public function getState()
    {
        return array(
@@ -98,77 +108,57 @@ class erLhcoreClassModelChat {
        );
    }
 
-   public function setState( array $properties )
+   public function beforeRemove()
    {
-       foreach ( $properties as $key => $val )
-       {
-           $this->$key = $val;
+       $q = ezcDbInstance::get()->createDeleteQuery();
+       
+       // Messages
+       $q->deleteFrom( 'lh_msg' )->where( $q->expr->eq( 'chat_id', $this->id ) );
+       $stmt = $q->prepare();
+       $stmt->execute();
+       
+       // Transfered chats
+       $q->deleteFrom( 'lh_transfer' )->where( $q->expr->eq( 'chat_id', $this->id ) );
+       $stmt = $q->prepare();
+       $stmt->execute();
+       
+       // Delete user footprint
+       $q->deleteFrom( 'lh_chat_online_user_footprint' )->where( $q->expr->eq( 'chat_id', $this->id ) );
+       $stmt = $q->prepare();
+       $stmt->execute();
+        
+       // Delete screen sharing
+       $q->deleteFrom( 'lh_cobrowse' )->where( $q->expr->eq( 'chat_id', $this->id ) );
+       $stmt = $q->prepare();
+       $stmt->execute();
+        
+       // Delete speech settings
+       $q->deleteFrom( 'lh_speech_chat_language' )->where( $q->expr->eq( 'chat_id', $this->id ) );
+       $stmt = $q->prepare();
+       $stmt->execute();
+        
+       // Survey
+       $q->deleteFrom( 'lh_abstract_survey_item' )->where( $q->expr->eq( 'chat_id', $this->id ) );
+       $stmt = $q->prepare();
+       $stmt->execute();
+        
+       // Paid chats
+       $q->deleteFrom( 'lh_chat_paid' )->where( $q->expr->eq( 'chat_id', $this->id ) );
+       $stmt = $q->prepare();
+       $stmt->execute();
+       
+       erLhcoreClassModelChatFile::deleteByChatId($this->id);
+   }
+   
+   public function afterRemove()
+   {
+       erLhcoreClassChat::updateActiveChats($this->user_id);
+        
+       if ($this->department !== false) {
+           erLhcoreClassChat::updateDepartmentStats($this->department);
        }
    }
-
-   public function removeThis()
-   {
-	   	$q = ezcDbInstance::get()->createDeleteQuery();
-
-	   	// Messages
-	   	$q->deleteFrom( 'lh_msg' )->where( $q->expr->eq( 'chat_id', $this->id ) );
-	   	$stmt = $q->prepare();
-	   	$stmt->execute();
-
-	   	// Transfered chats
-	   	$q->deleteFrom( 'lh_transfer' )->where( $q->expr->eq( 'chat_id', $this->id ) );
-	   	$stmt = $q->prepare();
-	   	$stmt->execute();
-
-	   	// Delete user footprint
-	   	$q->deleteFrom( 'lh_chat_online_user_footprint' )->where( $q->expr->eq( 'chat_id', $this->id ) );
-	   	$stmt = $q->prepare();
-	   	$stmt->execute();
-	   	
-	   	// Delete screen sharing
-	   	$q->deleteFrom( 'lh_cobrowse' )->where( $q->expr->eq( 'chat_id', $this->id ) );
-	   	$stmt = $q->prepare();
-	   	$stmt->execute();
-	   	
-	   	// Delete speech settings
-	   	$q->deleteFrom( 'lh_speech_chat_language' )->where( $q->expr->eq( 'chat_id', $this->id ) );
-	   	$stmt = $q->prepare();
-	   	$stmt->execute();
-	   	
-	   	// Survey
-	   	$q->deleteFrom( 'lh_abstract_survey_item' )->where( $q->expr->eq( 'chat_id', $this->id ) );
-	   	$stmt = $q->prepare();
-	   	$stmt->execute();
-	   	
-	   	// Paid chats
-	   	$q->deleteFrom( 'lh_chat_paid' )->where( $q->expr->eq( 'chat_id', $this->id ) );
-	   	$stmt = $q->prepare();
-	   	$stmt->execute();
-
-	   	erLhcoreClassModelChatFile::deleteByChatId($this->id);
-
-	   	erLhcoreClassChat::getSession()->delete($this);
-	   	
-	   	erLhcoreClassChat::updateActiveChats($this->user_id);
-	   	
-	   	if ($this->department !== false) {
-	   	    erLhcoreClassChat::updateDepartmentStats($this->department);
-	   	}
-   }
-
-   public static function fetch($chat_id) {
-       	 $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', (int)$chat_id );
-       	 return $chat;
-   }
-
-   public function saveThis() {
-       	 erLhcoreClassChat::getSession()->saveOrUpdate($this);
-   }
-
-   public function updateThis() {
-       	 erLhcoreClassChat::getSession()->update($this,$this->updateIgnoreColumns);
-   }
-
+   
    public function setIP()
    {
        $this->ip = erLhcoreClassIPDetect::getIP();

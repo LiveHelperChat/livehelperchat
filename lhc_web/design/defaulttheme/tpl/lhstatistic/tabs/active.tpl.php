@@ -1,3 +1,65 @@
+<form action="" method="get">
+
+<div class="row form-group">
+
+	<div class="col-md-3">
+	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','User');?></label>
+	<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
+                'input_name'     => 'user_id',
+				'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select user'),
+                'selected_id'    => $input->user_id,
+	            'css_class'      => 'form-control',
+	            'display_name'   => 'name_official',
+                'list_function'  => 'erLhcoreClassModelUser::getUserList'
+        )); ?>
+    </div>   
+
+	<div class="col-md-3">
+	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department');?></label>
+
+	<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
+                'input_name'     => 'department_id',
+				'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose department'),
+                'selected_id'    => $input->department_id,	
+	            'css_class'      => 'form-control',			
+                'list_function'  => 'erLhcoreClassModelDepartament::getList'
+        )); ?> 
+    </div>   
+  
+    <div class="col-md-6">    
+		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Date range from to');?></label>
+		<div class="row">
+			<div class="col-md-6">
+				<input class="form-control" type="text" name="timefrom" id="id_timefrom" placeholder="E.g <?php echo date('Y-m-d',time()-7*24*3600)?>" value="<?php echo htmlspecialchars($input->timefrom)?>" />
+			</div>
+			<div class="col-md-6">
+				<input class="form-control" type="text" name="timeto" id="id_timeto" placeholder="E.g <?php echo date('Y-m-d')?>" value="<?php echo htmlspecialchars($input->timeto)?>" />
+			</div>
+		</div>
+	</div>	
+	<?php 
+	/**
+	 * Not implemented at the moment 
+	<div class="col-md-3">	   
+	    <br>
+    	<label><input type="checkbox" value="on" name="comparetopast" <?php $input->comparetopast == 1 ? print 'checked="checked"' : ''?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Compare to past');?></label>    	
+    </div>*/
+	?>
+</div>
+	
+	<input type="submit" name="doSearch" class="btn btn-default" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" />
+	
+	<script>
+	$(function() {
+		$('#id_timefrom,#id_timeto').fdatepicker({
+			format: 'yyyy-mm-dd'
+		});
+	});
+	</script>							
+</form>
+
+<?php if (isset($_GET['doSearch'])) : ?>
+
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
   	google.load("visualization", "1", {packages:["corechart"]});
@@ -282,65 +344,7 @@
 				
 </script> 
 		
-<form action="" method="get">
 
-<div class="row form-group">
-
-	<div class="col-md-3">
-	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','User');?></label>
-	<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
-                'input_name'     => 'user_id',
-				'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select user'),
-                'selected_id'    => $input->user_id,
-	            'css_class'      => 'form-control',
-	            'display_name'   => 'name_official',
-                'list_function'  => 'erLhcoreClassModelUser::getUserList'
-        )); ?>
-    </div>   
-
-	<div class="col-md-3">
-	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department');?></label>
-
-	<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
-                'input_name'     => 'department_id',
-				'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose department'),
-                'selected_id'    => $input->department_id,	
-	            'css_class'      => 'form-control',			
-                'list_function'  => 'erLhcoreClassModelDepartament::getList'
-        )); ?> 
-    </div>   
-  
-    <div class="col-md-6">    
-		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Date range from to');?></label>
-		<div class="row">
-			<div class="col-md-6">
-				<input class="form-control" type="text" name="timefrom" id="id_timefrom" placeholder="E.g <?php echo date('Y-m-d',time()-7*24*3600)?>" value="<?php echo htmlspecialchars($input->timefrom)?>" />
-			</div>
-			<div class="col-md-6">
-				<input class="form-control" type="text" name="timeto" id="id_timeto" placeholder="E.g <?php echo date('Y-m-d')?>" value="<?php echo htmlspecialchars($input->timeto)?>" />
-			</div>
-		</div>
-	</div>	
-	<?php 
-	/**
-	 * Not implemented at the moment 
-	<div class="col-md-3">	   
-	    <br>
-    	<label><input type="checkbox" value="on" name="comparetopast" <?php $input->comparetopast == 1 ? print 'checked="checked"' : ''?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Compare to past');?></label>    	
-    </div>*/
-	?>
-</div>
-	
-	<input type="submit" name="doSearch" class="btn btn-default" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" />
-	
-	<script>
-	$(function() {
-		$('#id_timefrom,#id_timeto').fdatepicker({
-			format: 'yyyy-mm-dd'
-		});
-	});
-	</script>							
-</form>
 
 <h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/chats_statistic.tpl.php'));?></h5>
 <hr>
@@ -387,3 +391,9 @@
 	<div class="col-xs-6"><div id="chart_div_upvotes" style="width: 100%; height: 300px;"></div></div>
 	<div class="col-xs-6"><div id="chart_div_downvotes" style="width: 100%; height: 300px;"></div></div>
 </div>
+<?php else : ?>
+<br/>
+<div class="alert alert-info">
+  <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Please choose statistic parameters first!');?>
+</div>
+<?php endif; ?>

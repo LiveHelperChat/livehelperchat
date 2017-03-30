@@ -16,6 +16,9 @@ erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.valid_tabs'
 
 $tab = isset($Params['user_parameters_unordered']['tab']) && in_array($Params['user_parameters_unordered']['tab'],$validTabs) ? $Params['user_parameters_unordered']['tab'] : 'active';
 
+// We do not need a session anymore
+session_write_close();
+
 if ($tab == 'active') {
     
     if (isset($_GET['doSearch'])) {
@@ -31,20 +34,21 @@ if ($tab == 'active') {
         exit;
     }
 
-    $tpl->setArray(array(
-        'userStats' => erLhcoreClassChatStatistic::getRatingByUser(30,$filterParams['filter']),
-        'countryStats' => erLhcoreClassChatStatistic::getTopChatsByCountry(30,$filterParams['filter']),
-        'userChatsStats' => erLhcoreClassChatStatistic::numberOfChatsDialogsByUser(30,$filterParams['filter']),
-        'userChatsAverageStats' => erLhcoreClassChatStatistic::averageOfChatsDialogsByUser(30,$filterParams['filter']),
-        'userWaitTimeByOperator' => erLhcoreClassChatStatistic::avgWaitTimeyUser(30,$filterParams['filter']),
-        'numberOfChatsPerMonth' => erLhcoreClassChatStatistic::getNumberOfChatsPerMonth($filterParams['filter'], array('comparetopast' => $filterParams['input']->comparetopast)),
-        //'numberOfChatsUnansweredMonth' => erLhcoreClassChatStatistic::getNumberOfChatsPerMonthUnanswered($filterParams['filter']),
-        'numberOfChatsPerWaitTimeMonth' => erLhcoreClassChatStatistic::getNumberOfChatsWaitTime($filterParams['filter']),
-        'numberOfChatsPerHour' => erLhcoreClassChatStatistic::getWorkLoadStatistic($filterParams['filter']),
-        'averageChatTime' => erLhcoreClassChatStatistic::getAverageChatduration(30,$filterParams['filter']),
-        'numberOfMsgByUser' => erLhcoreClassChatStatistic::numberOfMessagesByUser(30,$filterParams['filter']),
-        'urlappend' => erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form'])
-    ));
+    if (isset($_GET['doSearch'])) {
+        $tpl->setArray(array(
+            'userStats' => erLhcoreClassChatStatistic::getRatingByUser(30,$filterParams['filter']),
+            'countryStats' => erLhcoreClassChatStatistic::getTopChatsByCountry(30,$filterParams['filter']),
+            'userChatsStats' => erLhcoreClassChatStatistic::numberOfChatsDialogsByUser(30,$filterParams['filter']),
+            'userChatsAverageStats' => erLhcoreClassChatStatistic::averageOfChatsDialogsByUser(30,$filterParams['filter']),
+            'userWaitTimeByOperator' => erLhcoreClassChatStatistic::avgWaitTimeyUser(30,$filterParams['filter']),
+            'numberOfChatsPerMonth' => erLhcoreClassChatStatistic::getNumberOfChatsPerMonth($filterParams['filter'], array('comparetopast' => $filterParams['input']->comparetopast)),
+            'numberOfChatsPerWaitTimeMonth' => erLhcoreClassChatStatistic::getNumberOfChatsWaitTime($filterParams['filter']),
+            'numberOfChatsPerHour' => erLhcoreClassChatStatistic::getWorkLoadStatistic($filterParams['filter']),
+            'averageChatTime' => erLhcoreClassChatStatistic::getAverageChatduration(30,$filterParams['filter']),
+            'numberOfMsgByUser' => erLhcoreClassChatStatistic::numberOfMessagesByUser(30,$filterParams['filter']),
+            'urlappend' => erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form'])
+        ));
+    }
     
 } elseif ($tab == 'chatsstatistic') {
     
@@ -55,23 +59,25 @@ if ($tab == 'active') {
     }
     
     $tpl->set('input',$filterParams['input_form']);
-
+    
     $tpl->set('groupby',$filterParams['input_form']->groupby == 1 ? 'Y.m.d' : 'Y.m');
     
-    if ($filterParams['input_form']->groupby == 1) {
-        $tpl->setArray(array(
-            'numberOfChatsPerMonth' => erLhcoreClassChatStatistic::getNumberOfChatsPerDay($filterParams['filter']),
-            'numberOfChatsPerWaitTimeMonth' => erLhcoreClassChatStatistic::getNumberOfChatsWaitTimePerDay($filterParams['filter']),
-            'urlappend' => erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form'])
-        ));
-    } else {
-        $tpl->setArray(array(
-            'numberOfChatsPerMonth' => erLhcoreClassChatStatistic::getNumberOfChatsPerMonth($filterParams['filter']),
-            'numberOfChatsPerWaitTimeMonth' => erLhcoreClassChatStatistic::getNumberOfChatsWaitTime($filterParams['filter']),
-            'urlappend' => erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form'])
-        ));
+    if (isset($_GET['doSearch'])) {                    
+        if ($filterParams['input_form']->groupby == 1) {
+            $tpl->setArray(array(
+                'numberOfChatsPerMonth' => erLhcoreClassChatStatistic::getNumberOfChatsPerDay($filterParams['filter']),
+                'numberOfChatsPerWaitTimeMonth' => erLhcoreClassChatStatistic::getNumberOfChatsWaitTimePerDay($filterParams['filter']),
+                'urlappend' => erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form'])
+            ));
+        } else {
+            $tpl->setArray(array(
+                'numberOfChatsPerMonth' => erLhcoreClassChatStatistic::getNumberOfChatsPerMonth($filterParams['filter']),
+                'numberOfChatsPerWaitTimeMonth' => erLhcoreClassChatStatistic::getNumberOfChatsWaitTime($filterParams['filter']),
+                'urlappend' => erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form'])
+            ));
+        }
     }
-     
+    
 } else if ($tab == 'last24') {
     
     if (isset($_GET['doSearch'])) {

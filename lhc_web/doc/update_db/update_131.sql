@@ -11,3 +11,5 @@ CREATE TABLE `lh_users_session` (
                   KEY `device_token_device_type` (`device_token`,`device_type`),
                   KEY `token` (`token`)
                 ) DEFAULT CHARSET=utf8;
+
+ALTER TABLE `lh_msg` ADD INDEX `user_id` (`user_id`);

@@ -68,6 +68,9 @@ try {
         	$db = ezcDbInstance::get();
         	$db->beginTransaction();
 	        	
+        	$chat->syncAndLock();
+        	    
+    	    if ($chat->user_status != 0) {
 	        	$chat->support_informed = 1;
 	        	$chat->user_typing = time();// Show for shorter period these status messages
 	        	$chat->is_user_typing = 1;
@@ -95,7 +98,8 @@ try {
 	        		        	
 	        	$chat->user_status = erLhcoreClassModelChat::USER_STATUS_JOINED_CHAT;
 	        	erLhcoreClassChat::getSession()->update($chat);
-
+    	    }
+        	    
         	$db->commit();
         };
 

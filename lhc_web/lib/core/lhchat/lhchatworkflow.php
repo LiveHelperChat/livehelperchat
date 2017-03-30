@@ -308,58 +308,59 @@ class erLhcoreClassChatWorkflow {
 	    	    $stmt->bindValue(':dep_id',$department->id);
 	    	    $stmt->execute();
 	    	    
-	    	    $stmt = $db->prepare('SELECT 1 FROM lh_chat WHERE id = :id FOR UPDATE;');
-	    	    $stmt->bindValue(':id',$chat->id);
-	    	    $stmt->execute();
+	    	    $chat->syncAndLock();
 	    	    
-    	    	$statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow.autoassign', array(
-    	    	    'department' => & $department,
-    	    	    'chat' => & $chat,
-    	    	    'is_online' => & $isOnlineUser,
-    	    	));
-    	    		    	
-    	    	// There was no callbacks or file not found etc, we try to download from standard location
-    	    	if ($statusWorkflow === false) {
-    
-    	    	    $appendSQL = '';
-    	    	    if ($department->max_active_chats > 0){
-    	    	        $appendSQL = ' AND active_chats < :max_active_chats';
-    	    	    }
-    
-    	    	    $sql = "SELECT user_id FROM lh_userdep WHERE hide_online = 0 AND dep_id = :dep_id AND last_activity > :last_activity AND user_id != :user_id {$appendSQL} ORDER BY last_accepted ASC LIMIT 1";
-    
-    	    	    $db = ezcDbInstance::get();
-    	    	    $stmt = $db->prepare($sql);
-    	    	    $stmt->bindValue(':dep_id',$department->id,PDO::PARAM_INT);
-    	    	    $stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
-    	    	    $stmt->bindValue(':user_id',$chat->user_id,PDO::PARAM_INT);
-    
-    	    	    if ($department->max_active_chats > 0) {
-    	    	        $stmt->bindValue(':max_active_chats',$department->max_active_chats,PDO::PARAM_INT);
-    	    	    }
-    
-    	    	    $stmt->execute();
-    
-    	    	    $user_id = $stmt->fetchColumn();
-    
-    	    	} else {
-    	    	    $db = ezcDbInstance::get();
-    	    	    $user_id = $statusWorkflow['user_id'];
-    	    	}
-    	    	
-    	    	if ($user_id > 0) {
-    	    	   
-    	    		erLhcoreClassChat::updateActiveChats($chat->user_id);    		
-    	    		$chat->tslasign = time();
-    	    		$chat->user_id = $user_id;
-    	    		$chat->updateThis();
-    	    		
-    	    		$stmt = $db->prepare('UPDATE lh_userdep SET last_accepted = :last_accepted WHERE user_id = :user_id');
-    	    		$stmt->bindValue(':last_accepted',time(),PDO::PARAM_INT);
-    	    		$stmt->bindValue(':user_id',$user_id,PDO::PARAM_INT);
-    	    		$stmt->execute();
-    	    	}
-    	    	
+	    	    if ($chat->user_id == 0 && $chat->tslasign < time()-$department->max_timeout_seconds) {
+	    	    
+        	    	$statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow.autoassign', array(
+        	    	    'department' => & $department,
+        	    	    'chat' => & $chat,
+        	    	    'is_online' => & $isOnlineUser,
+        	    	));
+        	    		    	
+        	    	// There was no callbacks or file not found etc, we try to download from standard location
+        	    	if ($statusWorkflow === false) {
+        
+        	    	    $appendSQL = '';
+        	    	    if ($department->max_active_chats > 0){
+        	    	        $appendSQL = ' AND active_chats < :max_active_chats';
+        	    	    }
+        
+        	    	    $sql = "SELECT user_id FROM lh_userdep WHERE hide_online = 0 AND dep_id = :dep_id AND last_activity > :last_activity AND user_id != :user_id {$appendSQL} ORDER BY last_accepted ASC LIMIT 1";
+        
+        	    	    $db = ezcDbInstance::get();
+        	    	    $stmt = $db->prepare($sql);
+        	    	    $stmt->bindValue(':dep_id',$department->id,PDO::PARAM_INT);
+        	    	    $stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
+        	    	    $stmt->bindValue(':user_id',$chat->user_id,PDO::PARAM_INT);
+        
+        	    	    if ($department->max_active_chats > 0) {
+        	    	        $stmt->bindValue(':max_active_chats',$department->max_active_chats,PDO::PARAM_INT);
+        	    	    }
+        
+        	    	    $stmt->execute();
+        
+        	    	    $user_id = $stmt->fetchColumn();
+        
+        	    	} else {
+        	    	    $db = ezcDbInstance::get();
+        	    	    $user_id = $statusWorkflow['user_id'];
+        	    	}
+        	    	
+        	    	if ($user_id > 0) {
+        	    	   
+        	    		erLhcoreClassChat::updateActiveChats($chat->user_id);    		
+        	    		$chat->tslasign = time();
+        	    		$chat->user_id = $user_id;
+        	    		$chat->updateThis();
+        	    		
+        	    		$stmt = $db->prepare('UPDATE lh_userdep SET last_accepted = :last_accepted WHERE user_id = :user_id');
+        	    		$stmt->bindValue(':last_accepted',time(),PDO::PARAM_INT);
+        	    		$stmt->bindValue(':user_id',$user_id,PDO::PARAM_INT);
+        	    		$stmt->execute();
+        	    	}
+	    	    }
+	    	    
     	    	$db->commit();
     	    	
     	    	if ($user_id > 0) {
