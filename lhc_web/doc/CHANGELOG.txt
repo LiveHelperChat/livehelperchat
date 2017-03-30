@@ -1,3 +1,8 @@
+2.56v
+
+1. REST API for registering mobile devices. Perhaps someone in the future will make open source app etc.
+2. And just various small fixes.
+
 2.55v
 
 1. Device type detection
