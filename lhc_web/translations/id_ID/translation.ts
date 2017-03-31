@@ -10,6 +10,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Berapa hari widget pemungutan suara tidak harus diperluas setelah pertunjukan yang terakhir</translation>
     </message>
@@ -1602,6 +1606,10 @@
       <translation>Penugasan secara otomatis</translation>
     </message>
     <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Miscellaneous</source>
       <translation>Bermacam-macam</translation>
     </message>
@@ -1742,6 +1750,14 @@
       <translation>Menginformasikan ketika percakapan ditutup oleh operator, hanya email pemberitahuan yang dikirim.</translation>
     </message>
     <message>
+      <source>Inform then chat is closed automatically, only mail notification is send.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Additional e-mail address address to inform about closed chats, to this e-mail will be send all notifications about closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>To what department chat should be transferred if it is not accepted</source>
       <translation type="unfinished"/>
     </message>
@@ -1756,6 +1772,22 @@
     <message>
       <source>Execute unanswered chat logic again for recipient department?</source>
       <translation>Jalankan lagi percakapan logika tidak terjawab untuk departemen penerima?</translation>
+    </message>
+    <message>
+      <source>Based on selected department these products will be shown</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable products </source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assigned products</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
@@ -1848,12 +1880,24 @@
       <translation>Mencetak</translation>
     </message>
     <message>
+      <source>Redirect user to contact form.</source>
+      <translation>Mengarahkan pengguna ke formulir kontak.</translation>
+    </message>
+    <message>
       <source>Please enter a URL</source>
       <translation>Masukkan URL</translation>
     </message>
     <message>
       <source>Redirect user to another url</source>
       <translation>Mengarahkan pengguna ke URL lain</translation>
+    </message>
+    <message>
+      <source>Mail was send</source>
+      <translation>Surat telah terkirim</translation>
+    </message>
+    <message>
+      <source>Send mail</source>
+      <translation>Kirim surat</translation>
     </message>
     <message>
       <source>Redirect user to survey</source>
@@ -1908,28 +1952,12 @@
       <translation>Merubah informasi percakapan utama</translation>
     </message>
     <message>
-      <source>Close dialog</source>
-      <translation>Menutup percakapan</translation>
-    </message>
-    <message>
       <source>Close chat</source>
       <translation>Tutup percakapan</translation>
     </message>
     <message>
       <source>Delete chat</source>
       <translation>Hapus percakapan</translation>
-    </message>
-    <message>
-      <source>Mail was send</source>
-      <translation>Surat telah terkirim</translation>
-    </message>
-    <message>
-      <source>Send mail</source>
-      <translation>Kirim surat</translation>
-    </message>
-    <message>
-      <source>Redirect user to contact form.</source>
-      <translation>Mengarahkan pengguna ke formulir kontak.</translation>
     </message>
     <message>
       <source>Department</source>
@@ -2024,12 +2052,12 @@
       <translation>Ditandai</translation>
     </message>
     <message>
-      <source>Notes</source>
-      <translation>Catatan</translation>
+      <source>Close dialog</source>
+      <translation>Menutup percakapan</translation>
     </message>
     <message>
-      <source>Send</source>
-      <translation>Kirim</translation>
+      <source>Notes</source>
+      <translation>Catatan</translation>
     </message>
     <message>
       <source>Reopen chat</source>
@@ -2046,6 +2074,10 @@
     <message>
       <source>Send delayed canned message instantly</source>
       <translation>Kirim pesan kaleng tertunda secara langsung</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>Kirim</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -2425,10 +2457,6 @@
       <translation>Departemen nonaktif</translation>
     </message>
     <message>
-      <source>Name</source>
-      <translation>Nama</translation>
-    </message>
-    <message>
       <source>E-mail</source>
       <translation>E-mail</translation>
     </message>
@@ -2447,6 +2475,10 @@
     <message>
       <source>Please enter a message...</source>
       <translation>Silakan masukkan pesan...</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Nama</translation>
     </message>
     <message>
       <source>Live support is not available in your country</source>
@@ -2497,14 +2529,6 @@
       <translation>Ada pertanyaan? Tanyakan kepada kami!</translation>
     </message>
     <message>
-      <source>Product</source>
-      <translation>Produk</translation>
-    </message>
-    <message>
-      <source>Choose a product</source>
-      <translation>Pilih produk</translation>
-    </message>
-    <message>
       <source>Type your message here and hit enter to send...</source>
       <translation>Ketik pesan Anda di sini dan tekan enter untuk mengirim..</translation>
     </message>
@@ -2543,6 +2567,14 @@
     <message>
       <source>Me</source>
       <translation>Saya</translation>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation>Produk</translation>
+    </message>
+    <message>
+      <source>Choose a product</source>
+      <translation>Pilih produk</translation>
     </message>
     <message>
       <source>Choose your language</source>
@@ -2597,24 +2629,24 @@
       <translation>File tidak valid</translation>
     </message>
     <message>
-      <source>Could not find a product!</source>
-      <translation>Tidak dapat menemukan produk!</translation>
+      <source>Please choose department!</source>
+      <translation>Silahkan pilih departemen</translation>
     </message>
     <message>
-      <source>Please choose a product!</source>
-      <translation>Silakan pilih produk!</translation>
+      <source>Could not find a product!</source>
+      <translation>Tidak dapat menemukan produk!</translation>
     </message>
     <message>
       <source>Please choose</source>
       <translation>Silahkan pilih</translation>
     </message>
     <message>
-      <source>Please choose department!</source>
-      <translation>Silahkan pilih departemen</translation>
-    </message>
-    <message>
       <source>Could not determine a default department!</source>
       <translation>Tidak dapat menentukan departemen default!</translation>
+    </message>
+    <message>
+      <source>Please choose a product!</source>
+      <translation>Silakan pilih produk!</translation>
     </message>
     <message>
       <source>is required</source>
@@ -4215,6 +4247,10 @@
       <translation>Permintaan percakapan baru</translation>
     </message>
     <message>
+      <source>New chat has been transfered to you directly!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat</source>
       <translation type="unfinished"/>
     </message>
@@ -5618,10 +5654,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Chat status will not change upon pending chat opening</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>I receive other operators permissions request</source>
       <translation type="unfinished"/>
     </message>
@@ -5683,6 +5715,10 @@
     </message>
     <message>
       <source>Departments groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat status will not change upon pending chat opening</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7309,11 +7345,11 @@
       <translation>Departemen</translation>
     </message>
     <message>
-      <source>Invisible mode</source>
+      <source>I receive other operators permissions request</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>I receive other operators permissions request</source>
+      <source>Invisible mode</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8065,6 +8101,10 @@
   <context>
     <name>chat/accepttrasnfer</name>
     <message>
+      <source>Chat has been transfered to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>has joined the chat!</source>
       <translation>Pengguna telah bergabung dengan percakapan!</translation>
     </message>
@@ -8103,6 +8143,10 @@
     <name>chat/refreshcustomfields</name>
     <message>
       <source>Data refreshed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom chat data was saved</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -8160,6 +8204,21 @@
     <name>departament/editgroup</name>
     <message>
       <source>Please enter a department group name</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>survey/choosesurvey</name>
+    <message>
+      <source>Survey</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Collected information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor was redirected to survey, you can now close this window.</source>
       <translation type="unfinished"/>
     </message>
   </context>

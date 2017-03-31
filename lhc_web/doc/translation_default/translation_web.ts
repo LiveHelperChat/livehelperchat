@@ -16,6 +16,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -699,11 +703,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Live help is offline...</source>
+      <source>Allow operator to see your page content?</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Allow operator to see your page content?</source>
+      <source>Live Help</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live help is offline...</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -851,6 +859,10 @@
   </context>
   <context>
     <name>system/htmlcode</name>
+    <message>
+      <source>Show product selection based on selected departments</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>HTML code</source>
       <translation type="unfinished"/>
@@ -1116,15 +1128,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Try to detect language automatically</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Survey at the end of chat</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Product</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Show product selection based on selected departments</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1282,6 +1294,10 @@
     </message>
     <message>
       <source>User is typing now...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You are not chat owner, type with caution</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1970,6 +1986,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Device</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Country</source>
       <translation type="unfinished"/>
     </message>
@@ -2034,6 +2054,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Computer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Smartphone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tablet</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
       <translation type="unfinished"/>
     </message>
@@ -2066,7 +2098,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Select a canned message</source>
+      <source>Type to search</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2083,6 +2115,10 @@
     </message>
     <message>
       <source>Messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Select a canned message</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2455,6 +2491,10 @@
   <context>
     <name>chat/startchat</name>
     <message>
+      <source>Enter your message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department is disabled</source>
       <translation type="unfinished"/>
     </message>
@@ -2463,11 +2503,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Enter your email address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Phone</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Enter your message</source>
+      <source>Enter your phone</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2480,6 +2524,10 @@
     </message>
     <message>
       <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter your name</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2671,11 +2719,23 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Fill in the form to start a chat</source>
+      <source>Pending Chat</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Unread message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transfer Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assigned Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Fill in the form to start a chat</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -2717,19 +2777,19 @@
   <context>
     <name>chat/user_settings</name>
     <message>
-      <source>Print</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Send chat transcript to your e-mail</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>End the chat</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Enable/Disable sound about new messages from the operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Print</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send chat transcript to your e-mail</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3807,6 +3867,26 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Show notification only if I am an owner pending chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You will stop receive notifications for pending chats if you are not an owner</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show notifications if I am offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You will not receive notifications if you are not online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show alert for new chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>File configuration</source>
       <translation type="unfinished"/>
     </message>
@@ -4086,6 +4166,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Select operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Compare to past</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Choose department</source>
       <translation type="unfinished"/>
     </message>
@@ -4128,6 +4216,10 @@
   </context>
   <context>
     <name>pagelayout/pagelayout</name>
+    <message>
+      <source>New unread message</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Empty...</source>
       <translation type="unfinished"/>
@@ -4290,10 +4382,6 @@
     </message>
     <message>
       <source>Logout</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>New unread message</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -4654,6 +4742,10 @@
     </message>
     <message>
       <source>All operators statistic will be downloaded</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose statistic parameters first!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5729,6 +5821,10 @@
     </message>
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Notifications</source>
       <translation type="unfinished"/>
     </message>
     <message>

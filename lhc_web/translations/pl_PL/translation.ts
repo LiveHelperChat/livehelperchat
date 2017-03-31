@@ -10,6 +10,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Przez ile dni, od czasu ostatniego wyświetlenia, widżet głosowania ma się nie wyświetlać</translation>
     </message>
@@ -167,7 +171,7 @@
     </message>
     <message>
       <source>Ignore users online statuses and use departments online hours</source>
-      <translation>Pomiń status dostępności operatorów i zastosuj godziny pracy wydziału.</translation>
+      <translation>Pomiń status dostępności operatorów i zastosuj godziny pracy działu.</translation>
     </message>
     <message>
       <source>Which ip should be ignored in online users list, separate by comma</source>
@@ -179,7 +183,7 @@
     </message>
     <message>
       <source>Hide disabled department widget</source>
-      <translation>Ukryj widżet dla nieaktywnego wydziału</translation>
+      <translation>Ukryj widżet dla nieaktywnego działu</translation>
     </message>
     <message>
       <source>Hide close button in dropdown</source>
@@ -334,7 +338,7 @@
     </message>
     <message>
       <source>Delete department</source>
-      <translation>Usuń wydział</translation>
+      <translation>Usuń dział</translation>
     </message>
     <message>
       <source>Test</source>
@@ -356,11 +360,11 @@
     <name>survey/form</name>
     <message>
       <source>Add option</source>
-      <translation type="unfinished"/>
+      <translation>Dodaj opcje</translation>
     </message>
     <message>
       <source>Enter a possible answer to your question here...</source>
-      <translation type="unfinished"/>
+      <translation>Wprowadź możliwą odpowiedź na pytanie tutaj...</translation>
     </message>
     <message>
       <source>Enable stars</source>
@@ -427,7 +431,7 @@
     </message>
     <message>
       <source>Disabled</source>
-      <translation type="unfinished"/>
+      <translation>Wyłączony</translation>
     </message>
     <message>
       <source>Name</source>
@@ -690,7 +694,7 @@
     </message>
     <message>
       <source>Our staff are always ready to help</source>
-      <translation type="unfinished"/>
+      <translation>Nasi pracownicy są zawsze do usług</translation>
     </message>
     <message>
       <source>Live help is offline...</source>
@@ -725,7 +729,7 @@
     </message>
     <message>
       <source>Department</source>
-      <translation>Wydział</translation>
+      <translation>Dział</translation>
     </message>
     <message>
       <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
@@ -806,7 +810,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Tag</source>
-      <translation type="unfinished"/>
+      <translation>Tag</translation>
     </message>
     <message>
       <source>Matched times</source>
@@ -1064,7 +1068,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation>Wydział</translation>
+      <translation>Dział</translation>
     </message>
     <message>
       <source>Any</source>
@@ -1116,11 +1120,11 @@ pokazywany</translation>
     </message>
     <message>
       <source>Product</source>
-      <translation type="unfinished"/>
+      <translation>Produkt</translation>
     </message>
     <message>
       <source>Show product selection based on selected departments</source>
-      <translation type="unfinished"/>
+      <translation>Pokaż opcje wyboru produktu na podstawie wybranego działu</translation>
     </message>
     <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
@@ -1200,15 +1204,15 @@ pokazywany</translation>
     </message>
     <message>
       <source>Chat expired</source>
-      <translation type="unfinished"/>
+      <translation>Rozmowa wygasła</translation>
     </message>
     <message>
       <source>Invalid hash</source>
-      <translation type="unfinished"/>
+      <translation>Nieprawidłowy skrót</translation>
     </message>
     <message>
       <source>Chat was removed</source>
-      <translation type="unfinished"/>
+      <translation>Rozmowa została usunięta</translation>
     </message>
   </context>
   <context>
@@ -1341,7 +1345,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Back to chat</source>
-      <translation type="unfinished"/>
+      <translation>Wróć do rozmowy</translation>
     </message>
     <message>
       <source>Switch to widget</source>
@@ -1453,7 +1457,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation>Wydział</translation>
+      <translation>Dział</translation>
     </message>
     <message>
       <source>User</source>
@@ -1529,7 +1533,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Please choose a department</source>
-      <translation>Proszę wybrać wydział</translation>
+      <translation>Proszę wybrać dział</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -1544,7 +1548,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Edit department</source>
-      <translation>Edytuj wydział</translation>
+      <translation>Edytuj dział</translation>
     </message>
     <message>
       <source>Edit department group</source>
@@ -1603,6 +1607,10 @@ pokazywany</translation>
       <translation>Automatyczne przypisanie</translation>
     </message>
     <message>
+      <source>Product</source>
+      <translation>Produkt</translation>
+    </message>
+    <message>
       <source>Miscellaneous</source>
       <translation>Inne</translation>
     </message>
@@ -1652,39 +1660,39 @@ pokazywany</translation>
     </message>
     <message>
       <source>Custom period</source>
-      <translation type="unfinished"/>
+      <translation>Okres niestandardowy</translation>
     </message>
     <message>
       <source>Date from</source>
-      <translation type="unfinished"/>
+      <translation>Data od</translation>
     </message>
     <message>
       <source>Custom work day</source>
-      <translation type="unfinished"/>
+      <translation>Niestandardowy dzień roboczy</translation>
     </message>
     <message>
       <source>Date to</source>
-      <translation type="unfinished"/>
+      <translation>Data do</translation>
     </message>
     <message>
       <source>Add</source>
-      <translation type="unfinished"/>
+      <translation>Dodaj</translation>
     </message>
     <message>
       <source>Period</source>
-      <translation type="unfinished"/>
+      <translation>Okres</translation>
     </message>
     <message>
       <source>Start time</source>
-      <translation type="unfinished"/>
+      <translation>Czas rozpoczęcia</translation>
     </message>
     <message>
       <source>End time</source>
-      <translation type="unfinished"/>
+      <translation>Czas zakończenia</translation>
     </message>
     <message>
       <source>Remove</source>
-      <translation type="unfinished"/>
+      <translation>Usuń</translation>
     </message>
     <message>
       <source>XMPP recipients</source>
@@ -1712,7 +1720,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Send XMPP messages to all department operators</source>
-      <translation>Wyślij wiadomość XMPP do wszystkich operatorów</translation>
+      <translation>Wyślij wiadomość XMPP do wszystkich operatorów działu</translation>
     </message>
     <message>
       <source>Mail messages</source>
@@ -1743,20 +1751,44 @@ pokazywany</translation>
       <translation>Informuj kiedy rozmowa jest zamknięta przez operatora, tylko powiadomienie mailowe jest wysyłane.</translation>
     </message>
     <message>
+      <source>Inform then chat is closed automatically, only mail notification is send.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Additional e-mail address address to inform about closed chats, to this e-mail will be send all notifications about closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>To what department chat should be transferred if it is not accepted</source>
       <translation>Do jakiego działu przekazać chat jeśli nie zostanie zaakceptowany?</translation>
     </message>
     <message>
       <source>Timeout in seconds before chat is transferred to another department. Minimum 5 seconds.</source>
-      <translation>Limit czasu w sekundach zanim rozmowa zostaje przeniesiona do innego wydziału. Minimum 5 sekund.</translation>
+      <translation>Limit czasu w sekundach zanim rozmowa zostaje przeniesiona do innego działu. Minimum 5 sekund.</translation>
     </message>
     <message>
       <source>Execute new chat logic again for recipient department?</source>
-      <translation>Ponowne wykonanie nowej logiki dla rozmowy  dla odbiorcy w departamencie po przeniesieniu?</translation>
+      <translation>Ponowne wykonanie logiki nowej rozmowy dla odbiorcy w dziale po przeniesieniu?</translation>
     </message>
     <message>
       <source>Execute unanswered chat logic again for recipient department?</source>
-      <translation>Ponowne wykonanie logiki dla rozmów bez odpowiedzi w departamencie?</translation>
+      <translation>Ponowne wykonanie logiki dla rozmów bez odpowiedzi w dziale?</translation>
+    </message>
+    <message>
+      <source>Based on selected department these products will be shown</source>
+      <translation>Na podstawie wybranego działu widoczne będą możliwe do wyboru produkty</translation>
+    </message>
+    <message>
+      <source>Enable products </source>
+      <translation>Włącz produkty</translation>
+    </message>
+    <message>
+      <source>Required</source>
+      <translation>Wymagane</translation>
+    </message>
+    <message>
+      <source>Assigned products</source>
+      <translation>Przypisane produkty</translation>
     </message>
     <message>
       <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
@@ -1804,11 +1836,11 @@ pokazywany</translation>
     </message>
     <message>
       <source>Edit a department</source>
-      <translation>Edytuj Wydział</translation>
+      <translation>Edytuj dział</translation>
     </message>
     <message>
       <source>Departments groups</source>
-      <translation type="unfinished"/>
+      <translation>Grupy działów</translation>
     </message>
   </context>
   <context>
@@ -1849,6 +1881,10 @@ pokazywany</translation>
       <translation>Drukuj</translation>
     </message>
     <message>
+      <source>Redirect user to contact form.</source>
+      <translation>Przekieruj użytkownika do formularza kontaktowego.</translation>
+    </message>
+    <message>
       <source>Please enter a URL</source>
       <translation>Wpisz URL</translation>
     </message>
@@ -1857,8 +1893,16 @@ pokazywany</translation>
       <translation>Przekieruj użytkownika na inny URL</translation>
     </message>
     <message>
+      <source>Mail was send</source>
+      <translation>Wiadomość pocztowa została wysłana.</translation>
+    </message>
+    <message>
+      <source>Send mail</source>
+      <translation>Wyśli wiadomość</translation>
+    </message>
+    <message>
       <source>Redirect user to survey</source>
-      <translation type="unfinished"/>
+      <translation>Przekieruj użytkownika do ankiety</translation>
     </message>
     <message>
       <source>Choose other than default recognition language</source>
@@ -1909,10 +1953,6 @@ pokazywany</translation>
       <translation>Edytuj główne informacje czatu</translation>
     </message>
     <message>
-      <source>Close dialog</source>
-      <translation>Zamknij okno </translation>
-    </message>
-    <message>
       <source>Close chat</source>
       <translation>Zamknij rozmowe</translation>
     </message>
@@ -1921,24 +1961,12 @@ pokazywany</translation>
       <translation>Usuń rozmowe</translation>
     </message>
     <message>
-      <source>Mail was send</source>
-      <translation>Wiadomość pocztowa została wysłana.</translation>
-    </message>
-    <message>
-      <source>Send mail</source>
-      <translation>Wyśli wiadomość</translation>
-    </message>
-    <message>
-      <source>Redirect user to contact form.</source>
-      <translation>Przekieruj użytkownika do formularza kontaktowego.</translation>
-    </message>
-    <message>
       <source>Department</source>
-      <translation>Wydział</translation>
+      <translation>Dział</translation>
     </message>
     <message>
       <source>Product</source>
-      <translation type="unfinished"/>
+      <translation>Produkt</translation>
     </message>
     <message>
       <source>Country</source>
@@ -2025,12 +2053,12 @@ pokazywany</translation>
       <translation>Uwagi</translation>
     </message>
     <message>
-      <source>Notes</source>
-      <translation>Notatki</translation>
+      <source>Close dialog</source>
+      <translation>Zamknij okno </translation>
     </message>
     <message>
-      <source>Send</source>
-      <translation>Wyśli</translation>
+      <source>Notes</source>
+      <translation>Notatki</translation>
     </message>
     <message>
       <source>Reopen chat</source>
@@ -2047,6 +2075,10 @@ pokazywany</translation>
     <message>
       <source>Send delayed canned message instantly</source>
       <translation>Wyślij gotową wiadomość natychmiast</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>Wyśli</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -2066,7 +2098,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Has no access to this chat</source>
-      <translation type="unfinished"/>
+      <translation>Nie ma dostępu do tej rozmowy</translation>
     </message>
   </context>
   <context>
@@ -2299,7 +2331,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Sort</source>
-      <translation type="unfinished"/>
+      <translation>Sortuj</translation>
     </message>
     <message>
       <source>Wait time</source>
@@ -2423,11 +2455,7 @@ pokazywany</translation>
     <name>chat/startchat</name>
     <message>
       <source>Department is disabled</source>
-      <translation>Wydział jest wyłączony</translation>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation>Imię</translation>
+      <translation>Dział jest wyłączony</translation>
     </message>
     <message>
       <source>E-mail</source>
@@ -2448,6 +2476,10 @@ pokazywany</translation>
     <message>
       <source>Please enter a message...</source>
       <translation>Wprowadź wiadomość...</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Imię</translation>
     </message>
     <message>
       <source>Live support is not available in your country</source>
@@ -2487,7 +2519,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation>Wydział</translation>
+      <translation>Dział</translation>
     </message>
     <message>
       <source>Offline</source>
@@ -2496,14 +2528,6 @@ pokazywany</translation>
     <message>
       <source>Have a question? Ask us!</source>
       <translation>Masz pytanie? Zapytaj nas!</translation>
-    </message>
-    <message>
-      <source>Product</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose a product</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Type your message here and hit enter to send...</source>
@@ -2544,6 +2568,14 @@ pokazywany</translation>
     <message>
       <source>Me</source>
       <translation>Ja</translation>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation>Produkt</translation>
+    </message>
+    <message>
+      <source>Choose a product</source>
+      <translation>Wybierz produkt</translation>
     </message>
     <message>
       <source>Choose your language</source>
@@ -2598,24 +2630,24 @@ pokazywany</translation>
       <translation>Nieprawidłowy plik</translation>
     </message>
     <message>
-      <source>Could not find a product!</source>
-      <translation type="unfinished"/>
+      <source>Please choose department!</source>
+      <translation>Wybierz dział!</translation>
     </message>
     <message>
-      <source>Please choose a product!</source>
-      <translation type="unfinished"/>
+      <source>Could not find a product!</source>
+      <translation>Nie znaleziono produktu!</translation>
     </message>
     <message>
       <source>Please choose</source>
       <translation>Wybierz</translation>
     </message>
     <message>
-      <source>Please choose department!</source>
-      <translation>Wybierz dział!</translation>
+      <source>Could not determine a default department!</source>
+      <translation>Nie można określić domyślnego działu</translation>
     </message>
     <message>
-      <source>Could not determine a default department!</source>
-      <translation>Nie można określić domyślnego wydziału</translation>
+      <source>Please choose a product!</source>
+      <translation>Wybierz produkt!</translation>
     </message>
     <message>
       <source>is required</source>
@@ -2623,7 +2655,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Could not decrypt data!</source>
-      <translation type="unfinished"/>
+      <translation>Nie udało się odszyfrowac danych!</translation>
     </message>
     <message>
       <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
@@ -3380,7 +3412,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation>Wydział</translation>
+      <translation>Dział</translation>
     </message>
     <message>
       <source>Refresh list every</source>
@@ -3579,7 +3611,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Departments</source>
-      <translation>Wydziały</translation>
+      <translation>Działy</translation>
     </message>
     <message>
       <source>Departments groups</source>
@@ -3679,7 +3711,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Product</source>
-      <translation type="unfinished"/>
+      <translation>Produkt</translation>
     </message>
     <message>
       <source>Questionary embed code</source>
@@ -3687,7 +3719,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Rest API</source>
-      <translation type="unfinished"/>
+      <translation>API REST</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
@@ -3727,11 +3759,11 @@ pokazywany</translation>
     </message>
     <message>
       <source>Admin themes</source>
-      <translation type="unfinished"/>
+      <translation>Motywy administratora</translation>
     </message>
     <message>
       <source>Default admin theme</source>
-      <translation type="unfinished"/>
+      <translation>Domyślny motyw administratora</translation>
     </message>
     <message>
       <source>Automatic translations</source>
@@ -3958,7 +3990,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation>Wydział</translation>
+      <translation>Dział</translation>
     </message>
     <message>
       <source>User</source>
@@ -4014,7 +4046,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Product</source>
-      <translation type="unfinished"/>
+      <translation>Produkt</translation>
     </message>
     <message>
       <source>Chat ID</source>
@@ -4038,7 +4070,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Select department</source>
-      <translation>Wybierz wydział</translation>
+      <translation>Wybierz dział</translation>
     </message>
     <message>
       <source>Select user</source>
@@ -4046,7 +4078,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Select product</source>
-      <translation type="unfinished"/>
+      <translation>Wybierz produkt</translation>
     </message>
     <message>
       <source>Type to search</source>
@@ -4082,15 +4114,15 @@ pokazywany</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation type="unfinished"/>
+      <translation>Nazwa użytkownika</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Imię</translation>
     </message>
     <message>
       <source>Surname</source>
-      <translation type="unfinished"/>
+      <translation>Nazwisko</translation>
     </message>
   </context>
   <context>
@@ -4153,15 +4185,15 @@ pokazywany</translation>
     </message>
     <message>
       <source>Hide hidden</source>
-      <translation type="unfinished"/>
+      <translation>Ukryj ukryte</translation>
     </message>
     <message>
       <source>Hide disabled</source>
-      <translation type="unfinished"/>
+      <translation>Ukryj nieaktywne</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Dział</translation>
     </message>
     <message>
       <source>Number of elements in list</source>
@@ -4214,6 +4246,10 @@ pokazywany</translation>
     <message>
       <source>New chat request</source>
       <translation>Nowe prośby o rozmowe</translation>
+    </message>
+    <message>
+      <source>New chat has been transfered to you directly!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chat</source>
@@ -4498,27 +4534,27 @@ pokazywany</translation>
     </message>
     <message>
       <source>Encryption key, min length 40</source>
-      <translation type="unfinished"/>
+      <translation>Klucz szyfrujący, minimum 40 znaków</translation>
     </message>
     <message>
       <source>Additional encryption key, min length 40</source>
-      <translation type="unfinished"/>
+      <translation>Dodatkowy klucz szyfrujący, minimum 40 znaków</translation>
     </message>
     <message>
       <source>Please enter resource identifier</source>
-      <translation type="unfinished"/>
+      <translation>Wprowadź identyfikator zasobu</translation>
     </message>
     <message>
       <source>Add resource</source>
-      <translation type="unfinished"/>
+      <translation>Dodaj zasób</translation>
     </message>
     <message>
       <source>Minimum 40 characters for encryption key!</source>
-      <translation type="unfinished"/>
+      <translation>Klucz szyfrujący musi mieć conajmniej 40 znaków!</translation>
     </message>
     <message>
       <source>Minimum 40 characters for additional encryption key!</source>
-      <translation type="unfinished"/>
+      <translation>Dodatkowy klucz szyfrujący musi mieć conajmniej 40 znaków!</translation>
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>
@@ -5065,7 +5101,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Transfer to a department</source>
-      <translation>Przeniesione do wydziału</translation>
+      <translation>Przenieś do działu</translation>
     </message>
     <message>
       <source>Logged in users</source>
@@ -5073,7 +5109,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Transfer a chat to one of your departments users</source>
-      <translation>Przenieś rozmowę do jednego z wydziałów użytkowników</translation>
+      <translation>Przenieś rozmowę do jednego z użytkowników działów</translation>
     </message>
     <message>
       <source>Transfer</source>
@@ -5085,19 +5121,19 @@ pokazywany</translation>
     </message>
     <message>
       <source>Exclude hidden departments</source>
-      <translation type="unfinished"/>
+      <translation>Pomiń ukryte działy</translation>
     </message>
     <message>
       <source>Exclude disabled departments</source>
-      <translation type="unfinished"/>
+      <translation>Pomiń nieaktywne działy</translation>
     </message>
     <message>
       <source>Online</source>
-      <translation type="unfinished"/>
+      <translation>Dostępny</translation>
     </message>
     <message>
       <source>Offline</source>
-      <translation type="unfinished"/>
+      <translation>Niedostępny</translation>
     </message>
   </context>
   <context>
@@ -5489,7 +5525,7 @@ pokazywany</translation>
     <name>department/departments</name>
     <message>
       <source>Departments</source>
-      <translation>Wydziały</translation>
+      <translation>Działy</translation>
     </message>
     <message>
       <source>Name</source>
@@ -5501,11 +5537,11 @@ pokazywany</translation>
     </message>
     <message>
       <source>Edit department</source>
-      <translation>Edytuj wydział</translation>
+      <translation>Edytuj dział</translation>
     </message>
     <message>
       <source>New department</source>
-      <translation>Nowy wydział</translation>
+      <translation>Nowy dział</translation>
     </message>
     <message>
       <source>Are you sure?</source>
@@ -5517,11 +5553,11 @@ pokazywany</translation>
     </message>
     <message>
       <source>Group</source>
-      <translation type="unfinished"/>
+      <translation>Grupa</translation>
     </message>
     <message>
       <source>Edit</source>
-      <translation type="unfinished"/>
+      <translation>Edytuj</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -5552,7 +5588,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Assigned departments</source>
-      <translation>Przypisane wydziały</translation>
+      <translation>Przypisane działy</translation>
     </message>
     <message>
       <source>Visible lists</source>
@@ -5619,10 +5655,6 @@ pokazywany</translation>
       <translation>Stanowisko</translation>
     </message>
     <message>
-      <source>Chat status will not change upon pending chat opening</source>
-      <translation>Status rozmowy nie ulegnie zmianie do czasu otwarcia rozmowy</translation>
-    </message>
-    <message>
       <source>I receive other operators permissions request</source>
       <translation type="unfinished"/>
     </message>
@@ -5676,7 +5708,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>All departments</source>
-      <translation>Wszystkie wydziały</translation>
+      <translation>Wszystkie działy</translation>
     </message>
     <message>
       <source>Individual departments</source>
@@ -5685,6 +5717,10 @@ pokazywany</translation>
     <message>
       <source>Departments groups</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat status will not change upon pending chat opening</source>
+      <translation>Status rozmowy nie ulegnie zmianie do czasu otwarcia rozmowy</translation>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
@@ -5718,7 +5754,7 @@ pokazywany</translation>
     <name>department/new</name>
     <message>
       <source>New department</source>
-      <translation>Nowy wydział</translation>
+      <translation>Nowy dział</translation>
     </message>
     <message>
       <source>New department group</source>
@@ -5730,7 +5766,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Departments</source>
-      <translation>Wydziały</translation>
+      <translation>Działy</translation>
     </message>
   </context>
   <context>
@@ -6132,15 +6168,15 @@ pokazywany</translation>
     <name>paidchat/expiredchat</name>
     <message>
       <source>Chat</source>
-      <translation type="unfinished"/>
+      <translation>Rozmowa</translation>
     </message>
     <message>
       <source>Chat was closed.</source>
-      <translation type="unfinished"/>
+      <translation>Rozmowa została zamknięta.</translation>
     </message>
     <message>
       <source>Invalid hash</source>
-      <translation type="unfinished"/>
+      <translation>Nieprawidłowy skrót</translation>
     </message>
     <message>
       <source>Removed paid chat</source>
@@ -6155,15 +6191,15 @@ pokazywany</translation>
     </message>
     <message>
       <source>Enabled</source>
-      <translation type="unfinished"/>
+      <translation>Włączony</translation>
     </message>
     <message>
       <source>User can not access old chat if chat is closed</source>
-      <translation type="unfinished"/>
+      <translation>Użytkownik nie może otworzyć starej rozmowy po jej zamknięciu</translation>
     </message>
     <message>
       <source>Secret hash, used for verification</source>
-      <translation type="unfinished"/>
+      <translation>Tajny klucz, używany do weryfikacji</translation>
     </message>
   </context>
   <context>
@@ -6425,14 +6461,14 @@ pokazywany</translation>
     <name>lhproduct/index</name>
     <message>
       <source>Products</source>
-      <translation type="unfinished"/>
+      <translation>Produkty</translation>
     </message>
   </context>
   <context>
     <name>theme/index</name>
     <message>
       <source>Products</source>
-      <translation type="unfinished"/>
+      <translation>Produkty</translation>
     </message>
     <message>
       <source>Default theme</source>
@@ -6452,7 +6488,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Admin</source>
-      <translation type="unfinished"/>
+      <translation>Administrator</translation>
     </message>
     <message>
       <source>Admin themes</source>
@@ -6464,7 +6500,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Rest API</source>
-      <translation type="unfinished"/>
+      <translation>API REST</translation>
     </message>
     <message>
       <source>Themes</source>
@@ -6744,11 +6780,11 @@ pokazywany</translation>
     <name>lhrestapi/index</name>
     <message>
       <source>Rest API</source>
-      <translation type="unfinished"/>
+      <translation>API REST</translation>
     </message>
     <message>
       <source>Rest API Keys</source>
-      <translation type="unfinished"/>
+      <translation>Klucz API REST</translation>
     </message>
   </context>
   <context>
@@ -7095,7 +7131,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Assigned departments</source>
-      <translation>Przypisane wydziały</translation>
+      <translation>Przypisane działy</translation>
     </message>
     <message>
       <source>User time zone</source>
@@ -7172,27 +7208,27 @@ pokazywany</translation>
     <name>icclicktocallform/form</name>
     <message>
       <source>Settings</source>
-      <translation type="unfinished"/>
+      <translation>Ustawienia</translation>
     </message>
     <message>
       <source>Header settings</source>
-      <translation type="unfinished"/>
+      <translation>Ustawienia nagłówka</translation>
     </message>
     <message>
       <source>Header css</source>
-      <translation type="unfinished"/>
+      <translation>CSS nagłówka</translation>
     </message>
     <message>
       <source>Static content</source>
-      <translation type="unfinished"/>
+      <translation>Zawartość statyczna</translation>
     </message>
     <message>
       <source>JS</source>
-      <translation type="unfinished"/>
+      <translation>JS</translation>
     </message>
     <message>
       <source>CSS</source>
-      <translation type="unfinished"/>
+      <translation>CSS</translation>
     </message>
     <message>
       <source>Name</source>
@@ -7200,7 +7236,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Header content</source>
-      <translation type="unfinished"/>
+      <translation>Zawartość nagłówka</translation>
     </message>
     <message>
       <source>Resource name for replacement</source>
@@ -7208,7 +7244,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation type="unfinished"/>
+      <translation>Pusty...</translation>
     </message>
     <message>
       <source>Invalid CSRF token!</source>
@@ -7231,7 +7267,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Admin themes</source>
-      <translation type="unfinished"/>
+      <translation>Motyw administratora</translation>
     </message>
     <message>
       <source>Name</source>
@@ -7239,22 +7275,22 @@ pokazywany</translation>
     </message>
     <message>
       <source>Default admin theme</source>
-      <translation type="unfinished"/>
+      <translation>Domyślny motyw administratora</translation>
     </message>
     <message>
       <source>Edit admin theme</source>
-      <translation type="unfinished"/>
+      <translation>Edytuj motyw administratora</translation>
     </message>
   </context>
   <context>
     <name>admintheme/form</name>
     <message>
       <source>Edit theme</source>
-      <translation type="unfinished"/>
+      <translation>Edytuj motyw</translation>
     </message>
     <message>
       <source>Updated</source>
-      <translation type="unfinished"/>
+      <translation>Zaktualizowany</translation>
     </message>
   </context>
   <context>
@@ -7303,19 +7339,19 @@ pokazywany</translation>
     <name>user/new</name>
     <message>
       <source>All departments</source>
-      <translation>Wszystkie wydziały</translation>
+      <translation>Wszystkie działy</translation>
     </message>
     <message>
       <source>Departments</source>
-      <translation>Wydziały</translation>
-    </message>
-    <message>
-      <source>Invisible mode</source>
-      <translation>Tryb niewidzialności </translation>
+      <translation>Działy</translation>
     </message>
     <message>
       <source>I receive other operators permissions request</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invisible mode</source>
+      <translation>Tryb niewidzialności </translation>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
@@ -7398,7 +7434,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Disabled</source>
-      <translation type="unfinished"/>
+      <translation>Wyłączony</translation>
     </message>
     <message>
       <source>Update</source>
@@ -7588,7 +7624,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Logged in successfully</source>
-      <translation type="unfinished"/>
+      <translation>Poprawnie zalogowany</translation>
     </message>
   </context>
   <context>
@@ -7684,22 +7720,22 @@ pokazywany</translation>
     </message>
     <message>
       <source>Priority</source>
-      <translation type="unfinished"/>
+      <translation>Priorytet</translation>
     </message>
     <message>
       <source>Product</source>
-      <translation type="unfinished"/>
+      <translation>Produkt</translation>
     </message>
     <message>
       <source>API Key</source>
-      <translation type="unfinished"/>
+      <translation>Klucz API</translation>
     </message>
   </context>
   <context>
     <name>abstract/survey</name>
     <message>
       <source>Enabled</source>
-      <translation type="unfinished"/>
+      <translation>Włączony</translation>
     </message>
     <message>
       <source>Name</source>
@@ -7723,7 +7759,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Required</source>
-      <translation type="unfinished"/>
+      <translation>Wymagany</translation>
     </message>
     <message>
       <source>Title for plain question</source>
@@ -7735,7 +7771,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Survey</source>
-      <translation type="unfinished"/>
+      <translation>Ankieta</translation>
     </message>
   </context>
   <context>
@@ -7821,7 +7857,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Came from</source>
-      <translation type="unfinished"/>
+      <translation>Przyszedł z</translation>
     </message>
     <message>
       <source>Link</source>
@@ -7851,7 +7887,7 @@ pokazywany</translation>
     <name>departament/edit</name>
     <message>
       <source>Please enter a department name</source>
-      <translation>Proszę wpisać nazwę wydziału</translation>
+      <translation>Proszę wpisać nazwę działu</translation>
     </message>
     <message>
       <source>Minimum 5 seconds</source>
@@ -7859,7 +7895,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Transfer department has to be different one than self</source>
-      <translation>Wydział do przeniesienia musi być różny od bieżącego</translation>
+      <translation>Dział do przeniesienia musi być różny od bieżącego</translation>
     </message>
     <message>
       <source>Please enter a valid from date range!</source>
@@ -7874,15 +7910,15 @@ pokazywany</translation>
     <name>user/validator</name>
     <message>
       <source>Please enter a username</source>
-      <translation type="unfinished"/>
+      <translation>Wprowadź nazwę użytkownika</translation>
     </message>
     <message>
       <source>User exists</source>
-      <translation type="unfinished"/>
+      <translation>Użytkownik istnieje</translation>
     </message>
     <message>
       <source>Passwords mismatch</source>
-      <translation type="unfinished"/>
+      <translation>Hasła nie są identyczne</translation>
     </message>
     <message>
       <source>User action type not set</source>
@@ -7890,7 +7926,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Wrong email address</source>
-      <translation type="unfinished"/>
+      <translation>Zły adres e-mail</translation>
     </message>
     <message>
       <source>Please enter a name</source>
@@ -8028,7 +8064,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>From e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Adres nadawcy</translation>
     </message>
     <message>
       <source>Allow to change from e-mail</source>
@@ -8065,6 +8101,10 @@ pokazywany</translation>
   </context>
   <context>
     <name>chat/accepttrasnfer</name>
+    <message>
+      <source>Chat has been transfered to</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>has joined the chat!</source>
       <translation>dołączył do rozmowy!</translation>
@@ -8106,6 +8146,10 @@ pokazywany</translation>
       <source>Data refreshed</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Custom chat data was saved</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/reopenchat</name>
@@ -8129,7 +8173,7 @@ pokazywany</translation>
     <name>chat/transferuser</name>
     <message>
       <source>Chat was assigned to selected department</source>
-      <translation>Rozmowa została przydzielona do wybranego wydziału</translation>
+      <translation>Rozmowa została przydzielona do wybranego działu</translation>
     </message>
     <message>
       <source>Chat was assigned to selected user</source>
@@ -8161,6 +8205,21 @@ pokazywany</translation>
     <name>departament/editgroup</name>
     <message>
       <source>Please enter a department group name</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>survey/choosesurvey</name>
+    <message>
+      <source>Survey</source>
+      <translation>Ankieta</translation>
+    </message>
+    <message>
+      <source>Collected information</source>
+      <translation>Zebrane informacje</translation>
+    </message>
+    <message>
+      <source>Visitor was redirected to survey, you can now close this window.</source>
       <translation type="unfinished"/>
     </message>
   </context>

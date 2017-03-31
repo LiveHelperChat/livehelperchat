@@ -10,6 +10,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -1602,6 +1606,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Miscellaneous</source>
       <translation type="unfinished"/>
     </message>
@@ -1742,6 +1750,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Inform then chat is closed automatically, only mail notification is send.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Additional e-mail address address to inform about closed chats, to this e-mail will be send all notifications about closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>To what department chat should be transferred if it is not accepted</source>
       <translation type="unfinished"/>
     </message>
@@ -1755,6 +1771,22 @@
     </message>
     <message>
       <source>Execute unanswered chat logic again for recipient department?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Based on selected department these products will be shown</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable products </source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assigned products</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1848,12 +1880,24 @@
       <translation>Yazdır</translation>
     </message>
     <message>
+      <source>Redirect user to contact form.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter a URL</source>
       <translation>Lütfen bir URL girin</translation>
     </message>
     <message>
       <source>Redirect user to another url</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail was send</source>
+      <translation>E-posta gönderildi</translation>
+    </message>
+    <message>
+      <source>Send mail</source>
+      <translation>Posta gönder</translation>
     </message>
     <message>
       <source>Redirect user to survey</source>
@@ -1908,28 +1952,12 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Close dialog</source>
-      <translation>Dialoğu kapat.</translation>
-    </message>
-    <message>
       <source>Close chat</source>
       <translation>Konuşmayı kapat</translation>
     </message>
     <message>
       <source>Delete chat</source>
       <translation>Konuşmayı sil</translation>
-    </message>
-    <message>
-      <source>Mail was send</source>
-      <translation>E-posta gönderildi</translation>
-    </message>
-    <message>
-      <source>Send mail</source>
-      <translation>Posta gönder</translation>
-    </message>
-    <message>
-      <source>Redirect user to contact form.</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Department</source>
@@ -2024,12 +2052,12 @@
       <translation>Düşünceler</translation>
     </message>
     <message>
-      <source>Notes</source>
-      <translation>Notlar</translation>
+      <source>Close dialog</source>
+      <translation>Dialoğu kapat.</translation>
     </message>
     <message>
-      <source>Send</source>
-      <translation>Gönder</translation>
+      <source>Notes</source>
+      <translation>Notlar</translation>
     </message>
     <message>
       <source>Reopen chat</source>
@@ -2046,6 +2074,10 @@
     <message>
       <source>Send delayed canned message instantly</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>Gönder</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -2425,10 +2457,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Name</source>
-      <translation>İsim</translation>
-    </message>
-    <message>
       <source>E-mail</source>
       <translation>E-posta</translation>
     </message>
@@ -2447,6 +2475,10 @@
     <message>
       <source>Please enter a message...</source>
       <translation>Lütfen mesajınızı girin...</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>İsim</translation>
     </message>
     <message>
       <source>Live support is not available in your country</source>
@@ -2497,14 +2529,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Product</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose a product</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Type your message here and hit enter to send...</source>
       <translation>Mesajınızı buraya girin ve göndermek için enter&apos;a basın...</translation>
     </message>
@@ -2542,6 +2566,14 @@
     </message>
     <message>
       <source>Me</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a product</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2597,11 +2629,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Could not find a product!</source>
+      <source>Please choose department!</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Please choose a product!</source>
+      <source>Could not find a product!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2609,11 +2641,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Please choose department!</source>
+      <source>Could not determine a default department!</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Could not determine a default department!</source>
+      <source>Please choose a product!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4217,6 +4249,10 @@
       <translation>Yeni konuşma isteği</translation>
     </message>
     <message>
+      <source>New chat has been transfered to you directly!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat</source>
       <translation>Sohbet</translation>
     </message>
@@ -5620,10 +5656,6 @@
       <translation>İş unvanı</translation>
     </message>
     <message>
-      <source>Chat status will not change upon pending chat opening</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>I receive other operators permissions request</source>
       <translation type="unfinished"/>
     </message>
@@ -5685,6 +5717,10 @@
     </message>
     <message>
       <source>Departments groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat status will not change upon pending chat opening</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7311,12 +7347,12 @@
       <translation>Departmanlar</translation>
     </message>
     <message>
-      <source>Invisible mode</source>
-      <translation>Görünmez mod</translation>
-    </message>
-    <message>
       <source>I receive other operators permissions request</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invisible mode</source>
+      <translation>Görünmez mod</translation>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
@@ -8067,6 +8103,10 @@
   <context>
     <name>chat/accepttrasnfer</name>
     <message>
+      <source>Chat has been transfered to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>has joined the chat!</source>
       <translation>konuşmaya katıldı!</translation>
     </message>
@@ -8105,6 +8145,10 @@
     <name>chat/refreshcustomfields</name>
     <message>
       <source>Data refreshed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom chat data was saved</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -8162,6 +8206,21 @@
     <name>departament/editgroup</name>
     <message>
       <source>Please enter a department group name</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>survey/choosesurvey</name>
+    <message>
+      <source>Survey</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Collected information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor was redirected to survey, you can now close this window.</source>
       <translation type="unfinished"/>
     </message>
   </context>

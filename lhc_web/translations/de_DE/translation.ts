@@ -10,6 +10,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Wie viele Tage lang soll das Bewertungs-Widget seit der letzten Anzeige nicht erweitert werden</translation>
     </message>
@@ -1602,6 +1606,10 @@
       <translation>Automatische Zuordnung</translation>
     </message>
     <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Miscellaneous</source>
       <translation>Verschiedene</translation>
     </message>
@@ -1742,6 +1750,14 @@
       <translation>Nachricht wenn Chat vom Operator geschlossen wurde und nur eine E-Mail versendet wurde.</translation>
     </message>
     <message>
+      <source>Inform then chat is closed automatically, only mail notification is send.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Additional e-mail address address to inform about closed chats, to this e-mail will be send all notifications about closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>To what department chat should be transferred if it is not accepted</source>
       <translation>Zu welcher Abteilung soll der Chat übergeben werden soll, wenn er nicht akzeptiert wurde</translation>
     </message>
@@ -1756,6 +1772,22 @@
     <message>
       <source>Execute unanswered chat logic again for recipient department?</source>
       <translation>&quot;Unbeantworteter Chat&quot;-Logik erneut für erhaltende Abteilung ausführen?</translation>
+    </message>
+    <message>
+      <source>Based on selected department these products will be shown</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable products </source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assigned products</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
@@ -1848,12 +1880,24 @@
       <translation>Drucken</translation>
     </message>
     <message>
+      <source>Redirect user to contact form.</source>
+      <translation>Nutzer auf Kontaktformular weiterleiten.</translation>
+    </message>
+    <message>
       <source>Please enter a URL</source>
       <translation>Geben Sie bitte eine URL ein</translation>
     </message>
     <message>
       <source>Redirect user to another url</source>
       <translation>Nutzer auf eine andere URL weiterleiten.</translation>
+    </message>
+    <message>
+      <source>Mail was send</source>
+      <translation>Nachricht wurde gesendet</translation>
+    </message>
+    <message>
+      <source>Send mail</source>
+      <translation>E-Mail senden</translation>
     </message>
     <message>
       <source>Redirect user to survey</source>
@@ -1908,28 +1952,12 @@
       <translation>Hauptchat Information bearbeiten</translation>
     </message>
     <message>
-      <source>Close dialog</source>
-      <translation>Dialog schließen</translation>
-    </message>
-    <message>
       <source>Close chat</source>
       <translation>Chat schließen</translation>
     </message>
     <message>
       <source>Delete chat</source>
       <translation>Chat löschen</translation>
-    </message>
-    <message>
-      <source>Mail was send</source>
-      <translation>Nachricht wurde gesendet</translation>
-    </message>
-    <message>
-      <source>Send mail</source>
-      <translation>E-Mail senden</translation>
-    </message>
-    <message>
-      <source>Redirect user to contact form.</source>
-      <translation>Nutzer auf Kontaktformular weiterleiten.</translation>
     </message>
     <message>
       <source>Department</source>
@@ -2024,12 +2052,12 @@
       <translation>Bemerkungen</translation>
     </message>
     <message>
-      <source>Notes</source>
-      <translation>Notizen</translation>
+      <source>Close dialog</source>
+      <translation>Dialog schließen</translation>
     </message>
     <message>
-      <source>Send</source>
-      <translation>Senden</translation>
+      <source>Notes</source>
+      <translation>Notizen</translation>
     </message>
     <message>
       <source>Reopen chat</source>
@@ -2046,6 +2074,10 @@
     <message>
       <source>Send delayed canned message instantly</source>
       <translation>Zeitverzögerte, vorgefertigte Nachricht sofort senden</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>Senden</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -2425,10 +2457,6 @@
       <translation>Abteilung wurde deaktiviert</translation>
     </message>
     <message>
-      <source>Name</source>
-      <translation>Name</translation>
-    </message>
-    <message>
       <source>E-mail</source>
       <translation>E-Mail</translation>
     </message>
@@ -2447,6 +2475,10 @@
     <message>
       <source>Please enter a message...</source>
       <translation>Bitte Nachricht eingeben...</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Name</translation>
     </message>
     <message>
       <source>Live support is not available in your country</source>
@@ -2497,14 +2529,6 @@
       <translation>Sie haben eine Frage? Fragen Sie uns!</translation>
     </message>
     <message>
-      <source>Product</source>
-      <translation>Produkt</translation>
-    </message>
-    <message>
-      <source>Choose a product</source>
-      <translation>Produkt auswählen</translation>
-    </message>
-    <message>
       <source>Type your message here and hit enter to send...</source>
       <translation>Hier die Nachricht eingeben und für das Senden auf Enter drücken...</translation>
     </message>
@@ -2543,6 +2567,14 @@
     <message>
       <source>Me</source>
       <translation>Ich</translation>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation>Produkt</translation>
+    </message>
+    <message>
+      <source>Choose a product</source>
+      <translation>Produkt auswählen</translation>
     </message>
     <message>
       <source>Choose your language</source>
@@ -2597,24 +2629,24 @@
       <translation>Ungültige Datei</translation>
     </message>
     <message>
-      <source>Could not find a product!</source>
-      <translation>Produkt konnte nicht gefunden werden</translation>
+      <source>Please choose department!</source>
+      <translation>Bitte wählen Sie eine Abteilung aus!</translation>
     </message>
     <message>
-      <source>Please choose a product!</source>
-      <translation>Bitte wählen Sie ein Produkt aus</translation>
+      <source>Could not find a product!</source>
+      <translation>Produkt konnte nicht gefunden werden</translation>
     </message>
     <message>
       <source>Please choose</source>
       <translation>Bitte wählen Sie aus</translation>
     </message>
     <message>
-      <source>Please choose department!</source>
-      <translation>Bitte wählen Sie eine Abteilung aus!</translation>
-    </message>
-    <message>
       <source>Could not determine a default department!</source>
       <translation>Standard-Abteilung ist nicht definiert!</translation>
+    </message>
+    <message>
+      <source>Please choose a product!</source>
+      <translation>Bitte wählen Sie ein Produkt aus</translation>
     </message>
     <message>
       <source>is required</source>
@@ -4215,6 +4247,10 @@
       <translation>Neue Chat-Anfrage</translation>
     </message>
     <message>
+      <source>New chat has been transfered to you directly!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat</source>
       <translation>Chat</translation>
     </message>
@@ -5618,10 +5654,6 @@
       <translation>Funktion oder Aufgabe</translation>
     </message>
     <message>
-      <source>Chat status will not change upon pending chat opening</source>
-      <translation>Chat-Status-Änderung wird nicht auf wartende Chats angewendet</translation>
-    </message>
-    <message>
       <source>I receive other operators permissions request</source>
       <translation>Ich erhalten die Berechtigungsanfragen anderer Operatoren</translation>
     </message>
@@ -5684,6 +5716,10 @@
     <message>
       <source>Departments groups</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat status will not change upon pending chat opening</source>
+      <translation>Chat-Status-Änderung wird nicht auf wartende Chats angewendet</translation>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
@@ -7309,12 +7345,12 @@
       <translation>Abteilungen</translation>
     </message>
     <message>
-      <source>Invisible mode</source>
-      <translation>Unsichtbar Modus</translation>
-    </message>
-    <message>
       <source>I receive other operators permissions request</source>
       <translation>Ich erhalte von anderen Operatoren Berechtigungsanfragen</translation>
+    </message>
+    <message>
+      <source>Invisible mode</source>
+      <translation>Unsichtbar Modus</translation>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
@@ -8065,6 +8101,10 @@
   <context>
     <name>chat/accepttrasnfer</name>
     <message>
+      <source>Chat has been transfered to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>has joined the chat!</source>
       <translation>nimmt am Chat teil!</translation>
     </message>
@@ -8104,6 +8144,10 @@
     <message>
       <source>Data refreshed</source>
       <translation>Daten erneuert</translation>
+    </message>
+    <message>
+      <source>Custom chat data was saved</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -8160,6 +8204,21 @@
     <name>departament/editgroup</name>
     <message>
       <source>Please enter a department group name</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>survey/choosesurvey</name>
+    <message>
+      <source>Survey</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Collected information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor was redirected to survey, you can now close this window.</source>
       <translation type="unfinished"/>
     </message>
   </context>

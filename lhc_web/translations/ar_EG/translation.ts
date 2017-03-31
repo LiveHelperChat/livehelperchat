@@ -10,6 +10,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -59,11 +63,11 @@
     </message>
     <message>
       <source>Play sound on invitation to chat.</source>
-      <translation type="unfinished"/>
+      <translation>تشغيل التنبية الصوتي في حالة وجود دعوة إلى الشات</translation>
     </message>
     <message>
       <source>Show users option to switch language at widget</source>
-      <translation type="unfinished"/>
+      <translation>عرض اللغات للمستخدم للتبديل بينها</translation>
     </message>
     <message>
       <source>Between what languages user should be able to switch</source>
@@ -127,7 +131,7 @@
     </message>
     <message>
       <source>On chat close exit chat</source>
-      <translation type="unfinished"/>
+      <translation>إغلاق الشات عند مغادرته</translation>
     </message>
     <message>
       <source/>
@@ -207,7 +211,7 @@
     </message>
     <message>
       <source>Disable chat print</source>
-      <translation type="unfinished"/>
+      <translation>عدم تفعيل طباعة الشات</translation>
     </message>
     <message>
       <source>Hide &apos;New Window&apos; option in Connector Widget</source>
@@ -231,11 +235,11 @@
     </message>
     <message>
       <source>Your site URL address</source>
-      <translation type="unfinished"/>
+      <translation>رابط الموقع الخاص بك</translation>
     </message>
     <message>
       <source>Your company name - visible in bottom left corner</source>
-      <translation type="unfinished"/>
+      <translation>إسم الشركة الخاصة بك ، سوف يظهر في الجانب العلوي لليسار</translation>
     </message>
     <message>
       <source>Interval between chat status checks in seconds, 0 disabled.</source>
@@ -314,15 +318,15 @@
     </message>
     <message>
       <source>Send</source>
-      <translation type="unfinished"/>
+      <translation>أرسل</translation>
     </message>
     <message>
       <source>Save and continue</source>
-      <translation type="unfinished"/>
+      <translation>حفظ وإستمرار</translation>
     </message>
     <message>
       <source>Continue</source>
-      <translation type="unfinished"/>
+      <translation>إستمرار</translation>
     </message>
     <message>
       <source>Start archiving</source>
@@ -330,19 +334,19 @@
     </message>
     <message>
       <source>Return</source>
-      <translation type="unfinished"/>
+      <translation>العودة</translation>
     </message>
     <message>
       <source>Delete department</source>
-      <translation type="unfinished"/>
+      <translation>حذف القسم</translation>
     </message>
     <message>
       <source>Test</source>
-      <translation type="unfinished"/>
+      <translation>إختبار</translation>
     </message>
     <message>
       <source>Send test message</source>
-      <translation type="unfinished"/>
+      <translation>أرسل رسالة إختبار</translation>
     </message>
   </context>
   <context>
@@ -356,7 +360,7 @@
     <name>survey/form</name>
     <message>
       <source>Add option</source>
-      <translation type="unfinished"/>
+      <translation>إضافة خيار</translation>
     </message>
     <message>
       <source>Enter a possible answer to your question here...</source>
@@ -368,11 +372,11 @@
     </message>
     <message>
       <source>Enable question</source>
-      <translation type="unfinished"/>
+      <translation>تفعيل السؤال</translation>
     </message>
     <message>
       <source>Enable question with an answers</source>
-      <translation type="unfinished"/>
+      <translation>تفعيل السؤال والأجوبة</translation>
     </message>
   </context>
   <context>
@@ -403,11 +407,11 @@
     </message>
     <message>
       <source>Custom CSS</source>
-      <translation type="unfinished"/>
+      <translation>css مُخصص</translation>
     </message>
     <message>
       <source>Live preview</source>
-      <translation type="unfinished"/>
+      <translation>معاينة مباشرة</translation>
     </message>
     <message>
       <source>Visitor messages style</source>
@@ -423,7 +427,7 @@
     </message>
     <message>
       <source>Text changes</source>
-      <translation type="unfinished"/>
+      <translation>تغييرات النص</translation>
     </message>
     <message>
       <source>Disabled</source>
@@ -431,11 +435,11 @@
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>الإسم</translation>
     </message>
     <message>
       <source>Name of the company</source>
-      <translation type="unfinished"/>
+      <translation>إسم الشركة</translation>
     </message>
     <message>
       <source>Need help header text</source>
@@ -483,7 +487,7 @@
     </message>
     <message>
       <source>Text color</source>
-      <translation type="unfinished"/>
+      <translation>لون النص</translation>
     </message>
     <message>
       <source>Operator image in chat widget</source>
@@ -1602,6 +1606,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Miscellaneous</source>
       <translation type="unfinished"/>
     </message>
@@ -1742,6 +1750,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Inform then chat is closed automatically, only mail notification is send.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Additional e-mail address address to inform about closed chats, to this e-mail will be send all notifications about closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>To what department chat should be transferred if it is not accepted</source>
       <translation type="unfinished"/>
     </message>
@@ -1755,6 +1771,22 @@
     </message>
     <message>
       <source>Execute unanswered chat logic again for recipient department?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Based on selected department these products will be shown</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable products </source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assigned products</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1848,12 +1880,24 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Redirect user to contact form.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter a URL</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Redirect user to another url</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail was send</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send mail</source>
+      <translation>أرسِل رسالة بريدية</translation>
     </message>
     <message>
       <source>Redirect user to survey</source>
@@ -1908,28 +1952,12 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Close dialog</source>
-      <translation>أغلق الحوار</translation>
-    </message>
-    <message>
       <source>Close chat</source>
       <translation>أغلق المحادثة</translation>
     </message>
     <message>
       <source>Delete chat</source>
       <translation>أزِل المحادثة</translation>
-    </message>
-    <message>
-      <source>Mail was send</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Send mail</source>
-      <translation>أرسِل رسالة بريدية</translation>
-    </message>
-    <message>
-      <source>Redirect user to contact form.</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Department</source>
@@ -2024,12 +2052,12 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Notes</source>
-      <translation type="unfinished"/>
+      <source>Close dialog</source>
+      <translation>أغلق الحوار</translation>
     </message>
     <message>
-      <source>Send</source>
-      <translation>أرسِل</translation>
+      <source>Notes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Reopen chat</source>
@@ -2046,6 +2074,10 @@
     <message>
       <source>Send delayed canned message instantly</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>أرسِل</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -2425,10 +2457,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Name</source>
-      <translation>الاسم</translation>
-    </message>
-    <message>
       <source>E-mail</source>
       <translation>البريد الإلكتروني</translation>
     </message>
@@ -2447,6 +2475,10 @@
     <message>
       <source>Please enter a message...</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>الاسم</translation>
     </message>
     <message>
       <source>Live support is not available in your country</source>
@@ -2497,14 +2529,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Product</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose a product</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Type your message here and hit enter to send...</source>
       <translation type="unfinished"/>
     </message>
@@ -2542,6 +2566,14 @@
     </message>
     <message>
       <source>Me</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a product</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2597,11 +2629,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Could not find a product!</source>
+      <source>Please choose department!</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Please choose a product!</source>
+      <source>Could not find a product!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2609,11 +2641,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Please choose department!</source>
+      <source>Could not determine a default department!</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Could not determine a default department!</source>
+      <source>Please choose a product!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4215,6 +4247,10 @@
       <translation>طلب شات جديد</translation>
     </message>
     <message>
+      <source>New chat has been transfered to you directly!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat</source>
       <translation type="unfinished"/>
     </message>
@@ -5618,10 +5654,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Chat status will not change upon pending chat opening</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>I receive other operators permissions request</source>
       <translation type="unfinished"/>
     </message>
@@ -5683,6 +5715,10 @@
     </message>
     <message>
       <source>Departments groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat status will not change upon pending chat opening</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7309,11 +7345,11 @@
       <translation>الأقسام</translation>
     </message>
     <message>
-      <source>Invisible mode</source>
+      <source>I receive other operators permissions request</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>I receive other operators permissions request</source>
+      <source>Invisible mode</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8065,6 +8101,10 @@
   <context>
     <name>chat/accepttrasnfer</name>
     <message>
+      <source>Chat has been transfered to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>has joined the chat!</source>
       <translation type="unfinished"/>
     </message>
@@ -8103,6 +8143,10 @@
     <name>chat/refreshcustomfields</name>
     <message>
       <source>Data refreshed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom chat data was saved</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -8160,6 +8204,21 @@
     <name>departament/editgroup</name>
     <message>
       <source>Please enter a department group name</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>survey/choosesurvey</name>
+    <message>
+      <source>Survey</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Collected information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor was redirected to survey, you can now close this window.</source>
       <translation type="unfinished"/>
     </message>
   </context>

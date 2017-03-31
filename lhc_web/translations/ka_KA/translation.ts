@@ -10,6 +10,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>რამდენი დღე  არ უნდა გაფართივდეს ხმის მიცემის ვიდჯეტი ბოლო ჩვენებიდან</translation>
     </message>
@@ -1602,6 +1606,10 @@
       <translation>ავტო მიკუთვნება</translation>
     </message>
     <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Miscellaneous</source>
       <translation>სხვადასხვა</translation>
     </message>
@@ -1742,6 +1750,14 @@
       <translation>ინფორმირება, როცა ჩეთი დაიხურება ოპერატორის მიერ. მხოლოდ ელ. ფოსტით შეტყობინება  გაიგზავნა.</translation>
     </message>
     <message>
+      <source>Inform then chat is closed automatically, only mail notification is send.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Additional e-mail address address to inform about closed chats, to this e-mail will be send all notifications about closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>To what department chat should be transferred if it is not accepted</source>
       <translation type="unfinished"/>
     </message>
@@ -1756,6 +1772,22 @@
     <message>
       <source>Execute unanswered chat logic again for recipient department?</source>
       <translation>ხელახლა შეასრულოს პასუხგაუცემელი ჩეთის ლოგიკა ადრესატების დეპარტამენტისთვის?</translation>
+    </message>
+    <message>
+      <source>Based on selected department these products will be shown</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable products </source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assigned products</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
@@ -1848,12 +1880,24 @@
       <translation>დაბეჭდვა</translation>
     </message>
     <message>
+      <source>Redirect user to contact form.</source>
+      <translation>მომხმარებლის გადამისამართება საკონტაქტო ფორმაზე</translation>
+    </message>
+    <message>
       <source>Please enter a URL</source>
       <translation>გთხოვთ დაბეჭდეთ URL</translation>
     </message>
     <message>
       <source>Redirect user to another url</source>
       <translation>მომხმარებლის გადართვა სხვა url-ზე</translation>
+    </message>
+    <message>
+      <source>Mail was send</source>
+      <translation>წერილი გაიგზავნა</translation>
+    </message>
+    <message>
+      <source>Send mail</source>
+      <translation>ელ.ფოსტის გაგზავნა</translation>
     </message>
     <message>
       <source>Redirect user to survey</source>
@@ -1908,28 +1952,12 @@
       <translation>მთავარი ჩეთის  ინფორმაციის რედაქტირება</translation>
     </message>
     <message>
-      <source>Close dialog</source>
-      <translation>დიალოგის დახურვა</translation>
-    </message>
-    <message>
       <source>Close chat</source>
       <translation>ჩეთის დახურვა</translation>
     </message>
     <message>
       <source>Delete chat</source>
       <translation>ჩეთის წაშლა</translation>
-    </message>
-    <message>
-      <source>Mail was send</source>
-      <translation>წერილი გაიგზავნა</translation>
-    </message>
-    <message>
-      <source>Send mail</source>
-      <translation>ელ.ფოსტის გაგზავნა</translation>
-    </message>
-    <message>
-      <source>Redirect user to contact form.</source>
-      <translation>მომხმარებლის გადამისამართება საკონტაქტო ფორმაზე</translation>
     </message>
     <message>
       <source>Department</source>
@@ -2024,12 +2052,12 @@
       <translation>შენიშვნები</translation>
     </message>
     <message>
-      <source>Notes</source>
-      <translation type="unfinished"/>
+      <source>Close dialog</source>
+      <translation>დიალოგის დახურვა</translation>
     </message>
     <message>
-      <source>Send</source>
-      <translation>გაგზავნა</translation>
+      <source>Notes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Reopen chat</source>
@@ -2046,6 +2074,10 @@
     <message>
       <source>Send delayed canned message instantly</source>
       <translation>შეკავებული კონსერვირებული შეტყობენიებების მომენტალურად გაგზავნა </translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>გაგზავნა</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -2425,10 +2457,6 @@
       <translation>დეპარტამენტი გამორთულია</translation>
     </message>
     <message>
-      <source>Name</source>
-      <translation>სახელი</translation>
-    </message>
-    <message>
       <source>E-mail</source>
       <translation>ელ. ფოსტა</translation>
     </message>
@@ -2447,6 +2475,10 @@
     <message>
       <source>Please enter a message...</source>
       <translation>გთხოვთ, დაბეჭდეთ შეტყობინება</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>სახელი</translation>
     </message>
     <message>
       <source>Live support is not available in your country</source>
@@ -2497,14 +2529,6 @@
       <translation>კითხვა გაქვთ? გვკითხეთ!</translation>
     </message>
     <message>
-      <source>Product</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose a product</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Type your message here and hit enter to send...</source>
       <translation>დაბეჭდეთ თქვენი შეტყობინება აქ და დააჭირეთ შეტანის კლავიშს, რომ გააგზავნოთ</translation>
     </message>
@@ -2542,6 +2566,14 @@
     </message>
     <message>
       <source>Me</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a product</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2597,11 +2629,11 @@
       <translation>არასწორი ფაილი</translation>
     </message>
     <message>
-      <source>Could not find a product!</source>
+      <source>Please choose department!</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Please choose a product!</source>
+      <source>Could not find a product!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2609,12 +2641,12 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Please choose department!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Could not determine a default department!</source>
       <translation>ნაგულისხმევი დეპატრამენტი ვერ განისაზღვრა!</translation>
+    </message>
+    <message>
+      <source>Please choose a product!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>is required</source>
@@ -4215,6 +4247,10 @@
       <translation>ახალი ჩეთის მოთხოვნა</translation>
     </message>
     <message>
+      <source>New chat has been transfered to you directly!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat</source>
       <translation type="unfinished"/>
     </message>
@@ -5618,10 +5654,6 @@
       <translation>სამუშაოს დასახელება</translation>
     </message>
     <message>
-      <source>Chat status will not change upon pending chat opening</source>
-      <translation>ჩეთის სტატუსი არ შეიცვლება მომლოდინე ჩეთის გახსნამდე</translation>
-    </message>
-    <message>
       <source>I receive other operators permissions request</source>
       <translation type="unfinished"/>
     </message>
@@ -5684,6 +5716,10 @@
     <message>
       <source>Departments groups</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat status will not change upon pending chat opening</source>
+      <translation>ჩეთის სტატუსი არ შეიცვლება მომლოდინე ჩეთის გახსნამდე</translation>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
@@ -7309,12 +7345,12 @@
       <translation>დეპარტამეტები</translation>
     </message>
     <message>
-      <source>Invisible mode</source>
-      <translation>უხილავი რეჟიმი</translation>
-    </message>
-    <message>
       <source>I receive other operators permissions request</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invisible mode</source>
+      <translation>უხილავი რეჟიმი</translation>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
@@ -8065,6 +8101,10 @@
   <context>
     <name>chat/accepttrasnfer</name>
     <message>
+      <source>Chat has been transfered to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>has joined the chat!</source>
       <translation>შემოუერთდა ჩეთს!</translation>
     </message>
@@ -8103,6 +8143,10 @@
     <name>chat/refreshcustomfields</name>
     <message>
       <source>Data refreshed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom chat data was saved</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -8160,6 +8204,21 @@
     <name>departament/editgroup</name>
     <message>
       <source>Please enter a department group name</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>survey/choosesurvey</name>
+    <message>
+      <source>Survey</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Collected information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor was redirected to survey, you can now close this window.</source>
       <translation type="unfinished"/>
     </message>
   </context>

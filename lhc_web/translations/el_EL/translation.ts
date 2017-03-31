@@ -10,6 +10,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Πόσες ημέρες ψηφοφορίας widget δεν θα πρέπει να επεκταθεί μετά από την τελευταία εμφάνιση</translation>
     </message>
@@ -1602,6 +1606,10 @@
       <translation>Αυτόματη εκχώρηση</translation>
     </message>
     <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Miscellaneous</source>
       <translation>Διάφορα</translation>
     </message>
@@ -1742,6 +1750,14 @@
       <translation>Ενημερώνει τότε chat κλείνεται με χειριστή, ειδοποίηση για αλληλογραφία είναι το αποστολή.</translation>
     </message>
     <message>
+      <source>Inform then chat is closed automatically, only mail notification is send.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Additional e-mail address address to inform about closed chats, to this e-mail will be send all notifications about closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>To what department chat should be transferred if it is not accepted</source>
       <translation>Να τι τμήμα συνομιλίας να μετατίθενται, αν δεν είναι αποδεκτό</translation>
     </message>
@@ -1756,6 +1772,22 @@
     <message>
       <source>Execute unanswered chat logic again for recipient department?</source>
       <translation>Εκτέλεση αναπάντητα chat λογικής και πάλι για το λαμβάνον τμήμα;</translation>
+    </message>
+    <message>
+      <source>Based on selected department these products will be shown</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable products </source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assigned products</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
@@ -1848,12 +1880,24 @@
       <translation>Εκτύπωση</translation>
     </message>
     <message>
+      <source>Redirect user to contact form.</source>
+      <translation>Ανακατεύθυνση χρήστη για την φόρμα επικοινωνίας.</translation>
+    </message>
+    <message>
       <source>Please enter a URL</source>
       <translation>Πληκτρολογήστε μια διεύθυνση URL</translation>
     </message>
     <message>
       <source>Redirect user to another url</source>
       <translation>Ανακατευθύνει το χρήστη σε ένα άλλο url</translation>
+    </message>
+    <message>
+      <source>Mail was send</source>
+      <translation>Το email στάλθηκε</translation>
+    </message>
+    <message>
+      <source>Send mail</source>
+      <translation>Αποστολή μηνύματος</translation>
     </message>
     <message>
       <source>Redirect user to survey</source>
@@ -1908,28 +1952,12 @@
       <translation>Επεξεργαστείτε πληροφορίες κύρια συνομιλίας</translation>
     </message>
     <message>
-      <source>Close dialog</source>
-      <translation>Κλείσιμο διαλόγου</translation>
-    </message>
-    <message>
       <source>Close chat</source>
       <translation>Κλείσιμο συνομιλίας</translation>
     </message>
     <message>
       <source>Delete chat</source>
       <translation>Διαγραφή συνομιλίας</translation>
-    </message>
-    <message>
-      <source>Mail was send</source>
-      <translation>Το email στάλθηκε</translation>
-    </message>
-    <message>
-      <source>Send mail</source>
-      <translation>Αποστολή μηνύματος</translation>
-    </message>
-    <message>
-      <source>Redirect user to contact form.</source>
-      <translation>Ανακατεύθυνση χρήστη για την φόρμα επικοινωνίας.</translation>
     </message>
     <message>
       <source>Department</source>
@@ -2024,12 +2052,12 @@
       <translation>Παρατηρήσεις</translation>
     </message>
     <message>
-      <source>Notes</source>
-      <translation>Σημειώσεις</translation>
+      <source>Close dialog</source>
+      <translation>Κλείσιμο διαλόγου</translation>
     </message>
     <message>
-      <source>Send</source>
-      <translation>Αποστολή</translation>
+      <source>Notes</source>
+      <translation>Σημειώσεις</translation>
     </message>
     <message>
       <source>Reopen chat</source>
@@ -2046,6 +2074,10 @@
     <message>
       <source>Send delayed canned message instantly</source>
       <translation>Στείλτε την καθυστερημένη κονσερβοποιημένο μήνυμα αμέσως</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>Αποστολή</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -2425,10 +2457,6 @@
       <translation>Τμήμα είναι άτομα με ειδικές ανάγκες</translation>
     </message>
     <message>
-      <source>Name</source>
-      <translation>Όνομα</translation>
-    </message>
-    <message>
       <source>E-mail</source>
       <translation>E-mail</translation>
     </message>
@@ -2447,6 +2475,10 @@
     <message>
       <source>Please enter a message...</source>
       <translation>Παρακαλούμε εισάγετε ένα μήνυμα...</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Όνομα</translation>
     </message>
     <message>
       <source>Live support is not available in your country</source>
@@ -2497,14 +2529,6 @@
       <translation>Έχετε μια ερώτηση; Ρωτήστε μας!</translation>
     </message>
     <message>
-      <source>Product</source>
-      <translation>Προϊόντος</translation>
-    </message>
-    <message>
-      <source>Choose a product</source>
-      <translation>Επιλέξτε ένα προϊόν</translation>
-    </message>
-    <message>
       <source>Type your message here and hit enter to send...</source>
       <translation>Πληκτρολογήστε το μήνυμά σας εδώ και πατήστε enter για να στείλετε...</translation>
     </message>
@@ -2543,6 +2567,14 @@
     <message>
       <source>Me</source>
       <translation>Μου</translation>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation>Προϊόντος</translation>
+    </message>
+    <message>
+      <source>Choose a product</source>
+      <translation>Επιλέξτε ένα προϊόν</translation>
     </message>
     <message>
       <source>Choose your language</source>
@@ -2597,24 +2629,24 @@
       <translation>Αρχείο δεν είναι έγκυρο</translation>
     </message>
     <message>
-      <source>Could not find a product!</source>
-      <translation>Δεν μπόρεσα να βρω ένα προϊόν!</translation>
+      <source>Please choose department!</source>
+      <translation>Παρακαλούμε επιλέξτε τμήμα!</translation>
     </message>
     <message>
-      <source>Please choose a product!</source>
-      <translation>Παρακαλούμε επιλέξτε ένα προϊόν!</translation>
+      <source>Could not find a product!</source>
+      <translation>Δεν μπόρεσα να βρω ένα προϊόν!</translation>
     </message>
     <message>
       <source>Please choose</source>
       <translation>Παρακαλώ επιλέξτε</translation>
     </message>
     <message>
-      <source>Please choose department!</source>
-      <translation>Παρακαλούμε επιλέξτε τμήμα!</translation>
-    </message>
-    <message>
       <source>Could not determine a default department!</source>
       <translation>Δεν μπόρεσε να προσδιορίσει ένα προεπιλεγμένο τμήμα!</translation>
+    </message>
+    <message>
+      <source>Please choose a product!</source>
+      <translation>Παρακαλούμε επιλέξτε ένα προϊόν!</translation>
     </message>
     <message>
       <source>is required</source>
@@ -4215,6 +4247,10 @@
       <translation>Αίτημα νέας συνομιλίας</translation>
     </message>
     <message>
+      <source>New chat has been transfered to you directly!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat</source>
       <translation>Chat</translation>
     </message>
@@ -5618,10 +5654,6 @@
       <translation>Τιτλος</translation>
     </message>
     <message>
-      <source>Chat status will not change upon pending chat opening</source>
-      <translation>Κατάστασής της συζήτησής δεν θα αλλάξει κατά την εν αναμονή chat άνοιγμα</translation>
-    </message>
-    <message>
       <source>I receive other operators permissions request</source>
       <translation>Λάβω άλλη αίτηση δικαιώματα φορέων</translation>
     </message>
@@ -5684,6 +5716,10 @@
     <message>
       <source>Departments groups</source>
       <translation>Ομάδες τμημάτων</translation>
+    </message>
+    <message>
+      <source>Chat status will not change upon pending chat opening</source>
+      <translation>Κατάστασής της συζήτησής δεν θα αλλάξει κατά την εν αναμονή chat άνοιγμα</translation>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
@@ -7309,12 +7345,12 @@
       <translation>Τμήματα</translation>
     </message>
     <message>
-      <source>Invisible mode</source>
-      <translation>Invisible μοντέλο</translation>
-    </message>
-    <message>
       <source>I receive other operators permissions request</source>
       <translation>Λάβω άλλη αίτηση δικαιώματα φορέων</translation>
+    </message>
+    <message>
+      <source>Invisible mode</source>
+      <translation>Invisible μοντέλο</translation>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
@@ -8065,6 +8101,10 @@
   <context>
     <name>chat/accepttrasnfer</name>
     <message>
+      <source>Chat has been transfered to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>has joined the chat!</source>
       <translation>έχει ενταχθεί στο chat!</translation>
     </message>
@@ -8104,6 +8144,10 @@
     <message>
       <source>Data refreshed</source>
       <translation>Αναζωογονείται δεδομένων</translation>
+    </message>
+    <message>
+      <source>Custom chat data was saved</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -8161,6 +8205,21 @@
     <message>
       <source>Please enter a department group name</source>
       <translation>Παρακαλώ εισάγετε ένα όνομα ομάδας τμήμα</translation>
+    </message>
+  </context>
+  <context>
+    <name>survey/choosesurvey</name>
+    <message>
+      <source>Survey</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Collected information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor was redirected to survey, you can now close this window.</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

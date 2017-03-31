@@ -10,6 +10,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Kiek dienų balsavimo widgetas neturėtų būti išskleistas po paskutinio parodymo</translation>
     </message>
@@ -1602,6 +1606,10 @@
       <translation>Automatinis priskyrimas</translation>
     </message>
     <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Miscellaneous</source>
       <translation>Įvairūs</translation>
     </message>
@@ -1742,6 +1750,14 @@
       <translation>Informuoti kada pokalbis būna uždarytas administratoriaus, tik el. pašto žinutė būna išsiųsta</translation>
     </message>
     <message>
+      <source>Inform then chat is closed automatically, only mail notification is send.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Additional e-mail address address to inform about closed chats, to this e-mail will be send all notifications about closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>To what department chat should be transferred if it is not accepted</source>
       <translation type="unfinished"/>
     </message>
@@ -1756,6 +1772,22 @@
     <message>
       <source>Execute unanswered chat logic again for recipient department?</source>
       <translation>Vykdyti neatsakyto pokalbio scenarijų perleistam departamentui?</translation>
+    </message>
+    <message>
+      <source>Based on selected department these products will be shown</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable products </source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assigned products</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
@@ -1848,12 +1880,24 @@
       <translation>Spausdinti</translation>
     </message>
     <message>
+      <source>Redirect user to contact form.</source>
+      <translation>Nukreipti vartotoją į kontaktų formą</translation>
+    </message>
+    <message>
       <source>Please enter a URL</source>
       <translation>Prašome įvesti URL</translation>
     </message>
     <message>
       <source>Redirect user to another url</source>
       <translation>Nukreipti vartotoją į kitą URL</translation>
+    </message>
+    <message>
+      <source>Mail was send</source>
+      <translation>Laiškas buvo išsiųstas</translation>
+    </message>
+    <message>
+      <source>Send mail</source>
+      <translation>Siųsti el. laišką</translation>
     </message>
     <message>
       <source>Redirect user to survey</source>
@@ -1908,28 +1952,12 @@
       <translation>Koreguoti pagrindinę chato informaciją</translation>
     </message>
     <message>
-      <source>Close dialog</source>
-      <translation>Uždaryti dialogą</translation>
-    </message>
-    <message>
       <source>Close chat</source>
       <translation>Uždaryti pokalbį</translation>
     </message>
     <message>
       <source>Delete chat</source>
       <translation>Ištrinti pokalbį</translation>
-    </message>
-    <message>
-      <source>Mail was send</source>
-      <translation>Laiškas buvo išsiųstas</translation>
-    </message>
-    <message>
-      <source>Send mail</source>
-      <translation>Siųsti el. laišką</translation>
-    </message>
-    <message>
-      <source>Redirect user to contact form.</source>
-      <translation>Nukreipti vartotoją į kontaktų formą</translation>
     </message>
     <message>
       <source>Department</source>
@@ -2024,12 +2052,12 @@
       <translation>Pastabos</translation>
     </message>
     <message>
-      <source>Notes</source>
-      <translation>Pastabos</translation>
+      <source>Close dialog</source>
+      <translation>Uždaryti dialogą</translation>
     </message>
     <message>
-      <source>Send</source>
-      <translation>Siųsti</translation>
+      <source>Notes</source>
+      <translation>Pastabos</translation>
     </message>
     <message>
       <source>Reopen chat</source>
@@ -2046,6 +2074,10 @@
     <message>
       <source>Send delayed canned message instantly</source>
       <translation>Siųsti uždelstą žinutė tuoj pat</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>Siųsti</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -2425,10 +2457,6 @@
       <translation>Departamentas išjungtas</translation>
     </message>
     <message>
-      <source>Name</source>
-      <translation>Vardas</translation>
-    </message>
-    <message>
       <source>E-mail</source>
       <translation>El. paštas</translation>
     </message>
@@ -2447,6 +2475,10 @@
     <message>
       <source>Please enter a message...</source>
       <translation>Prašome įvesti žinutę...</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Vardas</translation>
     </message>
     <message>
       <source>Live support is not available in your country</source>
@@ -2497,14 +2529,6 @@
       <translation>Turime klausimų? Klauskite!</translation>
     </message>
     <message>
-      <source>Product</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose a product</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Type your message here and hit enter to send...</source>
       <translation>Įveskite savo žinutę ir paspauskite enter</translation>
     </message>
@@ -2542,6 +2566,14 @@
     </message>
     <message>
       <source>Me</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a product</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2597,11 +2629,11 @@
       <translation>Nekorektiškas failas</translation>
     </message>
     <message>
-      <source>Could not find a product!</source>
+      <source>Please choose department!</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Please choose a product!</source>
+      <source>Could not find a product!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2609,12 +2641,12 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Please choose department!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Could not determine a default department!</source>
       <translation>Negalima nustatyti numatyto departamento!</translation>
+    </message>
+    <message>
+      <source>Please choose a product!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>is required</source>
@@ -4215,6 +4247,10 @@
       <translation>Naujas užklausimas</translation>
     </message>
     <message>
+      <source>New chat has been transfered to you directly!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat</source>
       <translation type="unfinished"/>
     </message>
@@ -5618,10 +5654,6 @@
       <translation>Pareigos darbe</translation>
     </message>
     <message>
-      <source>Chat status will not change upon pending chat opening</source>
-      <translation>Pokalbio būsena nepasikeis atsidarius laukiantį pokalbį</translation>
-    </message>
-    <message>
       <source>I receive other operators permissions request</source>
       <translation>Aš gaunu kitų operatorių užklausas</translation>
     </message>
@@ -5684,6 +5716,10 @@
     <message>
       <source>Departments groups</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat status will not change upon pending chat opening</source>
+      <translation>Pokalbio būsena nepasikeis atsidarius laukiantį pokalbį</translation>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
@@ -7309,12 +7345,12 @@
       <translation>Departamentai</translation>
     </message>
     <message>
-      <source>Invisible mode</source>
-      <translation>Nematomas rešimas</translation>
-    </message>
-    <message>
       <source>I receive other operators permissions request</source>
       <translation>Aš gaunu kitų operatorių užklausas</translation>
+    </message>
+    <message>
+      <source>Invisible mode</source>
+      <translation>Nematomas rešimas</translation>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
@@ -8065,6 +8101,10 @@
   <context>
     <name>chat/accepttrasnfer</name>
     <message>
+      <source>Chat has been transfered to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>has joined the chat!</source>
       <translation>prisijungė prie pokalbio</translation>
     </message>
@@ -8104,6 +8144,10 @@
     <message>
       <source>Data refreshed</source>
       <translation>Duomenys įkelti iš naujo</translation>
+    </message>
+    <message>
+      <source>Custom chat data was saved</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -8160,6 +8204,21 @@
     <name>departament/editgroup</name>
     <message>
       <source>Please enter a department group name</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>survey/choosesurvey</name>
+    <message>
+      <source>Survey</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Collected information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor was redirected to survey, you can now close this window.</source>
       <translation type="unfinished"/>
     </message>
   </context>

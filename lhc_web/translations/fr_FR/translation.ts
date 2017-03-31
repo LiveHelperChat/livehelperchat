@@ -10,6 +10,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Nombre de jours avant que le widget de vote ne soit ré-affiché</translation>
     </message>
@@ -1602,6 +1606,10 @@
       <translation>Attribution automatique</translation>
     </message>
     <message>
+      <source>Product</source>
+      <translation>Produit</translation>
+    </message>
+    <message>
       <source>Miscellaneous</source>
       <translation>Divers</translation>
     </message>
@@ -1742,6 +1750,14 @@
       <translation>Informer que le chat a été fermé par l&apos;opérateur</translation>
     </message>
     <message>
+      <source>Inform then chat is closed automatically, only mail notification is send.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Additional e-mail address address to inform about closed chats, to this e-mail will be send all notifications about closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>To what department chat should be transferred if it is not accepted</source>
       <translation>À quel département le chat devrait être transferé s&apos;il n&apos;est pas accepté</translation>
     </message>
@@ -1756,6 +1772,22 @@
     <message>
       <source>Execute unanswered chat logic again for recipient department?</source>
       <translation>Éxécuter la logique de chat en attente à nouveau pour le département destinataire?</translation>
+    </message>
+    <message>
+      <source>Based on selected department these products will be shown</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable products </source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Required</source>
+      <translation>Obligatoire</translation>
+    </message>
+    <message>
+      <source>Assigned products</source>
+      <translation>Produits assignés</translation>
     </message>
     <message>
       <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
@@ -1848,12 +1880,24 @@
       <translation>Imprimer</translation>
     </message>
     <message>
+      <source>Redirect user to contact form.</source>
+      <translation>Rediriger l&apos;utilisateur vers le formulaire de contact.</translation>
+    </message>
+    <message>
       <source>Please enter a URL</source>
       <translation>Merci d&apos;entrer un URL</translation>
     </message>
     <message>
       <source>Redirect user to another url</source>
       <translation>Rediriger l&apos;utilisateur vers un autre URL</translation>
+    </message>
+    <message>
+      <source>Mail was send</source>
+      <translation>Le mail a été envoyé</translation>
+    </message>
+    <message>
+      <source>Send mail</source>
+      <translation>Envoyer un courriel</translation>
     </message>
     <message>
       <source>Redirect user to survey</source>
@@ -1908,28 +1952,12 @@
       <translation>Modifier les informations du chat principal</translation>
     </message>
     <message>
-      <source>Close dialog</source>
-      <translation>Fermer le dialogue</translation>
-    </message>
-    <message>
       <source>Close chat</source>
       <translation>Fermer chat</translation>
     </message>
     <message>
       <source>Delete chat</source>
       <translation>Supprimer le chat</translation>
-    </message>
-    <message>
-      <source>Mail was send</source>
-      <translation>Le mail a été envoyé</translation>
-    </message>
-    <message>
-      <source>Send mail</source>
-      <translation>Envoyer un courriel</translation>
-    </message>
-    <message>
-      <source>Redirect user to contact form.</source>
-      <translation>Rediriger l&apos;utilisateur vers le formulaire de contact.</translation>
     </message>
     <message>
       <source>Department</source>
@@ -2024,12 +2052,12 @@
       <translation>Remarques</translation>
     </message>
     <message>
-      <source>Notes</source>
-      <translation>Notes</translation>
+      <source>Close dialog</source>
+      <translation>Fermer le dialogue</translation>
     </message>
     <message>
-      <source>Send</source>
-      <translation>Envoyer</translation>
+      <source>Notes</source>
+      <translation>Notes</translation>
     </message>
     <message>
       <source>Reopen chat</source>
@@ -2046,6 +2074,10 @@
     <message>
       <source>Send delayed canned message instantly</source>
       <translation>Envoyer instantanément le message prédéfini différé</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>Envoyer</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -2425,10 +2457,6 @@
       <translation>Le département est désactivé</translation>
     </message>
     <message>
-      <source>Name</source>
-      <translation>Nom</translation>
-    </message>
-    <message>
       <source>E-mail</source>
       <translation>Courriel</translation>
     </message>
@@ -2447,6 +2475,10 @@
     <message>
       <source>Please enter a message...</source>
       <translation>Merci d&apos;entrer un message...</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Nom</translation>
     </message>
     <message>
       <source>Live support is not available in your country</source>
@@ -2497,14 +2529,6 @@
       <translation>Vous avez une question? Demandez-nous!</translation>
     </message>
     <message>
-      <source>Product</source>
-      <translation>Produit</translation>
-    </message>
-    <message>
-      <source>Choose a product</source>
-      <translation>Choisir un produit</translation>
-    </message>
-    <message>
       <source>Type your message here and hit enter to send...</source>
       <translation>Tapez votre message ici et tapez &quot;Entrée&quot; pour envoyer...</translation>
     </message>
@@ -2543,6 +2567,14 @@
     <message>
       <source>Me</source>
       <translation>Moi</translation>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation>Produit</translation>
+    </message>
+    <message>
+      <source>Choose a product</source>
+      <translation>Choisir un produit</translation>
     </message>
     <message>
       <source>Choose your language</source>
@@ -2597,24 +2629,24 @@
       <translation>Fichier invalide</translation>
     </message>
     <message>
-      <source>Could not find a product!</source>
-      <translation>Produit introuvable !</translation>
+      <source>Please choose department!</source>
+      <translation>Veuillez choisir un département</translation>
     </message>
     <message>
-      <source>Please choose a product!</source>
-      <translation>Veuillez choisir un produit !</translation>
+      <source>Could not find a product!</source>
+      <translation>Produit introuvable !</translation>
     </message>
     <message>
       <source>Please choose</source>
       <translation>Veuillez choisir</translation>
     </message>
     <message>
-      <source>Please choose department!</source>
-      <translation>Veuillez choisir un département</translation>
-    </message>
-    <message>
       <source>Could not determine a default department!</source>
       <translation>Impossible de déterminer le département par défaut</translation>
+    </message>
+    <message>
+      <source>Please choose a product!</source>
+      <translation>Veuillez choisir un produit !</translation>
     </message>
     <message>
       <source>is required</source>
@@ -4215,6 +4247,10 @@
       <translation>Nouvelle demande de chat</translation>
     </message>
     <message>
+      <source>New chat has been transfered to you directly!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat</source>
       <translation>Chat</translation>
     </message>
@@ -5618,10 +5654,6 @@
       <translation>Fonction</translation>
     </message>
     <message>
-      <source>Chat status will not change upon pending chat opening</source>
-      <translation>Le statut du chat ne changera pas en provenance de chat en attente</translation>
-    </message>
-    <message>
       <source>I receive other operators permissions request</source>
       <translation type="unfinished"/>
     </message>
@@ -5684,6 +5716,10 @@
     <message>
       <source>Departments groups</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat status will not change upon pending chat opening</source>
+      <translation>Le statut du chat ne changera pas en provenance de chat en attente</translation>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
@@ -6139,7 +6175,7 @@
     </message>
     <message>
       <source>Invalid hash</source>
-      <translation type="unfinished"/>
+      <translation>Hash invalide</translation>
     </message>
     <message>
       <source>Removed paid chat</source>
@@ -6455,7 +6491,7 @@
     </message>
     <message>
       <source>Admin themes</source>
-      <translation type="unfinished"/>
+      <translation>Thèmes admin</translation>
     </message>
     <message>
       <source>Default admin theme</source>
@@ -7187,11 +7223,11 @@
     </message>
     <message>
       <source>JS</source>
-      <translation type="unfinished"/>
+      <translation>JS</translation>
     </message>
     <message>
       <source>CSS</source>
-      <translation type="unfinished"/>
+      <translation>CSS</translation>
     </message>
     <message>
       <source>Name</source>
@@ -7309,12 +7345,12 @@
       <translation>Départements</translation>
     </message>
     <message>
-      <source>Invisible mode</source>
-      <translation>Mode invisible</translation>
-    </message>
-    <message>
       <source>I receive other operators permissions request</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invisible mode</source>
+      <translation>Mode invisible</translation>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
@@ -7691,7 +7727,7 @@
     </message>
     <message>
       <source>API Key</source>
-      <translation type="unfinished"/>
+      <translation>Clé API</translation>
     </message>
   </context>
   <context>
@@ -8065,6 +8101,10 @@
   <context>
     <name>chat/accepttrasnfer</name>
     <message>
+      <source>Chat has been transfered to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>has joined the chat!</source>
       <translation>a rejoint le chat !</translation>
     </message>
@@ -8103,6 +8143,10 @@
     <name>chat/refreshcustomfields</name>
     <message>
       <source>Data refreshed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom chat data was saved</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -8160,6 +8204,21 @@
     <name>departament/editgroup</name>
     <message>
       <source>Please enter a department group name</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>survey/choosesurvey</name>
+    <message>
+      <source>Survey</source>
+      <translation>Sondage</translation>
+    </message>
+    <message>
+      <source>Collected information</source>
+      <translation>Informations collectées</translation>
+    </message>
+    <message>
+      <source>Visitor was redirected to survey, you can now close this window.</source>
       <translation type="unfinished"/>
     </message>
   </context>

@@ -10,6 +10,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Hoeveel dagen moet de stemwidget verborgen worden na de laatste weergave?</translation>
     </message>
@@ -1602,6 +1606,10 @@
       <translation>Automatisch toewijzen</translation>
     </message>
     <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Miscellaneous</source>
       <translation>Verschillende</translation>
     </message>
@@ -1742,6 +1750,14 @@
       <translation>Informeer wanneer chat is afgesloten door de operator, alleen een email-notificatie wordt verzonden.</translation>
     </message>
     <message>
+      <source>Inform then chat is closed automatically, only mail notification is send.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Additional e-mail address address to inform about closed chats, to this e-mail will be send all notifications about closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>To what department chat should be transferred if it is not accepted</source>
       <translation type="unfinished"/>
     </message>
@@ -1756,6 +1772,22 @@
     <message>
       <source>Execute unanswered chat logic again for recipient department?</source>
       <translation>Onbeantwoorde chat logica opnieuw uitvoeren voor ontvanger&apos;s afdeling?</translation>
+    </message>
+    <message>
+      <source>Based on selected department these products will be shown</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable products </source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assigned products</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
@@ -1848,12 +1880,24 @@
       <translation>Print</translation>
     </message>
     <message>
+      <source>Redirect user to contact form.</source>
+      <translation>Stuur gebruiker door naar contactformulier.</translation>
+    </message>
+    <message>
       <source>Please enter a URL</source>
       <translation>Voer s.v.p. een link in</translation>
     </message>
     <message>
       <source>Redirect user to another url</source>
       <translation>Stuur bezoeker door naar een andere link</translation>
+    </message>
+    <message>
+      <source>Mail was send</source>
+      <translation>Email is verzonden</translation>
+    </message>
+    <message>
+      <source>Send mail</source>
+      <translation>Stuur email</translation>
     </message>
     <message>
       <source>Redirect user to survey</source>
@@ -1908,28 +1952,12 @@
       <translation>Verander algemene chatinformatie</translation>
     </message>
     <message>
-      <source>Close dialog</source>
-      <translation>Sluit chatdialoog</translation>
-    </message>
-    <message>
       <source>Close chat</source>
       <translation>Sluit chat</translation>
     </message>
     <message>
       <source>Delete chat</source>
       <translation>Verwijder chat</translation>
-    </message>
-    <message>
-      <source>Mail was send</source>
-      <translation>Email is verzonden</translation>
-    </message>
-    <message>
-      <source>Send mail</source>
-      <translation>Stuur email</translation>
-    </message>
-    <message>
-      <source>Redirect user to contact form.</source>
-      <translation>Stuur gebruiker door naar contactformulier.</translation>
     </message>
     <message>
       <source>Department</source>
@@ -2024,12 +2052,12 @@
       <translation>Opmerkingen</translation>
     </message>
     <message>
-      <source>Notes</source>
-      <translation>Notities</translation>
+      <source>Close dialog</source>
+      <translation>Sluit chatdialoog</translation>
     </message>
     <message>
-      <source>Send</source>
-      <translation>Verstuur</translation>
+      <source>Notes</source>
+      <translation>Notities</translation>
     </message>
     <message>
       <source>Reopen chat</source>
@@ -2046,6 +2074,10 @@
     <message>
       <source>Send delayed canned message instantly</source>
       <translation>Stuur voorgeprogrammeerd bericht meteen</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>Verstuur</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -2425,10 +2457,6 @@
       <translation>Afdeling is uitgeschakeld</translation>
     </message>
     <message>
-      <source>Name</source>
-      <translation>Naam</translation>
-    </message>
-    <message>
       <source>E-mail</source>
       <translation>E-mail</translation>
     </message>
@@ -2447,6 +2475,10 @@
     <message>
       <source>Please enter a message...</source>
       <translation>Voer hier uw bericht in...</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Naam</translation>
     </message>
     <message>
       <source>Live support is not available in your country</source>
@@ -2497,14 +2529,6 @@
       <translation>Heeft u een vraag? Vraag het ons!</translation>
     </message>
     <message>
-      <source>Product</source>
-      <translation>Product</translation>
-    </message>
-    <message>
-      <source>Choose a product</source>
-      <translation>Kies een product</translation>
-    </message>
-    <message>
       <source>Type your message here and hit enter to send...</source>
       <translation>Typ hier uw bericht en druk op enter om te versturen</translation>
     </message>
@@ -2543,6 +2567,14 @@
     <message>
       <source>Me</source>
       <translation>Ik</translation>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation>Product</translation>
+    </message>
+    <message>
+      <source>Choose a product</source>
+      <translation>Kies een product</translation>
     </message>
     <message>
       <source>Choose your language</source>
@@ -2597,24 +2629,24 @@
       <translation>Ongeldig bestand</translation>
     </message>
     <message>
-      <source>Could not find a product!</source>
-      <translation>Kan geen product vinden!</translation>
+      <source>Please choose department!</source>
+      <translation>Kies afdeling!</translation>
     </message>
     <message>
-      <source>Please choose a product!</source>
-      <translation>Kies een product!</translation>
+      <source>Could not find a product!</source>
+      <translation>Kan geen product vinden!</translation>
     </message>
     <message>
       <source>Please choose</source>
       <translation>Kies a.u.b.</translation>
     </message>
     <message>
-      <source>Please choose department!</source>
-      <translation>Kies afdeling!</translation>
-    </message>
-    <message>
       <source>Could not determine a default department!</source>
       <translation>Kon de standaard afdeling niet bepalen!</translation>
+    </message>
+    <message>
+      <source>Please choose a product!</source>
+      <translation>Kies een product!</translation>
     </message>
     <message>
       <source>is required</source>
@@ -4216,6 +4248,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Nieuwe chat aanvraag</translation>
     </message>
     <message>
+      <source>New chat has been transfered to you directly!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat</source>
       <translation>Chat</translation>
     </message>
@@ -5619,10 +5655,6 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Job titel</translation>
     </message>
     <message>
-      <source>Chat status will not change upon pending chat opening</source>
-      <translation>Chat status zal niet veranderen wanneer een chat opent</translation>
-    </message>
-    <message>
       <source>I receive other operators permissions request</source>
       <translation>Ik ontvang permissie aanvragen van andere operators</translation>
     </message>
@@ -5685,6 +5717,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Departments groups</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat status will not change upon pending chat opening</source>
+      <translation>Chat status zal niet veranderen wanneer een chat opent</translation>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
@@ -7310,12 +7346,12 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Afdelingen</translation>
     </message>
     <message>
-      <source>Invisible mode</source>
-      <translation>Onzichtbare modus</translation>
-    </message>
-    <message>
       <source>I receive other operators permissions request</source>
       <translation>Ik ontvang permissie aanvragen van andere operators</translation>
+    </message>
+    <message>
+      <source>Invisible mode</source>
+      <translation>Onzichtbare modus</translation>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
@@ -8066,6 +8102,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
   <context>
     <name>chat/accepttrasnfer</name>
     <message>
+      <source>Chat has been transfered to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>has joined the chat!</source>
       <translation>heeft zich bij de chat gevoegd!</translation>
     </message>
@@ -8104,6 +8144,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <name>chat/refreshcustomfields</name>
     <message>
       <source>Data refreshed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom chat data was saved</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -8161,6 +8205,21 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <name>departament/editgroup</name>
     <message>
       <source>Please enter a department group name</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>survey/choosesurvey</name>
+    <message>
+      <source>Survey</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Collected information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor was redirected to survey, you can now close this window.</source>
       <translation type="unfinished"/>
     </message>
   </context>

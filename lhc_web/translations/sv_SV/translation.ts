@@ -10,6 +10,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Hur många dagar som röstwidgeten inte ska expanderas efter senaste visningen</translation>
     </message>
@@ -1602,6 +1606,10 @@
       <translation>Automatisk tilldelning</translation>
     </message>
     <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Miscellaneous</source>
       <translation>Blandat</translation>
     </message>
@@ -1742,6 +1750,14 @@
       <translation>Informera sedan stängs chatten av operatören, endast e-postnotifikation är tillgänglig.</translation>
     </message>
     <message>
+      <source>Inform then chat is closed automatically, only mail notification is send.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Additional e-mail address address to inform about closed chats, to this e-mail will be send all notifications about closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>To what department chat should be transferred if it is not accepted</source>
       <translation>Till vilken avdelning som chatten ska överföras om den inte accepteras</translation>
     </message>
@@ -1756,6 +1772,22 @@
     <message>
       <source>Execute unanswered chat logic again for recipient department?</source>
       <translation>Kör obesvarad chattlogik för mottagrens avdelning?</translation>
+    </message>
+    <message>
+      <source>Based on selected department these products will be shown</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable products </source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assigned products</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
@@ -1848,12 +1880,24 @@
       <translation>Skriv ut</translation>
     </message>
     <message>
+      <source>Redirect user to contact form.</source>
+      <translation>Vidarebefordra användare till kontaktformulär</translation>
+    </message>
+    <message>
       <source>Please enter a URL</source>
       <translation>Var vänlig skriv en URL</translation>
     </message>
     <message>
       <source>Redirect user to another url</source>
       <translation>Vidarebefordra användare till en annan URL</translation>
+    </message>
+    <message>
+      <source>Mail was send</source>
+      <translation>Mejlet skickades</translation>
+    </message>
+    <message>
+      <source>Send mail</source>
+      <translation>Skicka e-post</translation>
     </message>
     <message>
       <source>Redirect user to survey</source>
@@ -1908,28 +1952,12 @@
       <translation>Redigera huvudinformationen för chatten</translation>
     </message>
     <message>
-      <source>Close dialog</source>
-      <translation>Stäng dialogrutan</translation>
-    </message>
-    <message>
       <source>Close chat</source>
       <translation>Stäng chatt</translation>
     </message>
     <message>
       <source>Delete chat</source>
       <translation>Ta bort chatt</translation>
-    </message>
-    <message>
-      <source>Mail was send</source>
-      <translation>Mejlet skickades</translation>
-    </message>
-    <message>
-      <source>Send mail</source>
-      <translation>Skicka e-post</translation>
-    </message>
-    <message>
-      <source>Redirect user to contact form.</source>
-      <translation>Vidarebefordra användare till kontaktformulär</translation>
     </message>
     <message>
       <source>Department</source>
@@ -2024,12 +2052,12 @@
       <translation>Anmärkningar</translation>
     </message>
     <message>
-      <source>Notes</source>
-      <translation>Anteckningar</translation>
+      <source>Close dialog</source>
+      <translation>Stäng dialogrutan</translation>
     </message>
     <message>
-      <source>Send</source>
-      <translation>Skicka</translation>
+      <source>Notes</source>
+      <translation>Anteckningar</translation>
     </message>
     <message>
       <source>Reopen chat</source>
@@ -2046,6 +2074,10 @@
     <message>
       <source>Send delayed canned message instantly</source>
       <translation>Skicka snabbmeddelande direkt</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>Skicka</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -2425,10 +2457,6 @@
       <translation>Avdelningen är inaktiverad</translation>
     </message>
     <message>
-      <source>Name</source>
-      <translation>Namn</translation>
-    </message>
-    <message>
       <source>E-mail</source>
       <translation>E-post</translation>
     </message>
@@ -2447,6 +2475,10 @@
     <message>
       <source>Please enter a message...</source>
       <translation>Var vänlig skriv ett meddelande...</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Namn</translation>
     </message>
     <message>
       <source>Live support is not available in your country</source>
@@ -2497,14 +2529,6 @@
       <translation>Har du en fråga? Kontakta oss!</translation>
     </message>
     <message>
-      <source>Product</source>
-      <translation>Produkt</translation>
-    </message>
-    <message>
-      <source>Choose a product</source>
-      <translation>Välj en produkt</translation>
-    </message>
-    <message>
       <source>Type your message here and hit enter to send...</source>
       <translation>Skriv in ditt meddelande och tryck enter för att skicka...</translation>
     </message>
@@ -2543,6 +2567,14 @@
     <message>
       <source>Me</source>
       <translation>Jag</translation>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation>Produkt</translation>
+    </message>
+    <message>
+      <source>Choose a product</source>
+      <translation>Välj en produkt</translation>
     </message>
     <message>
       <source>Choose your language</source>
@@ -2597,24 +2629,24 @@
       <translation>Ogiltig fil</translation>
     </message>
     <message>
-      <source>Could not find a product!</source>
-      <translation>Kunde inte hitta en produkt!</translation>
+      <source>Please choose department!</source>
+      <translation>Var vänlig välj avdelning!</translation>
     </message>
     <message>
-      <source>Please choose a product!</source>
-      <translation>Var vänlig välj en produkt!</translation>
+      <source>Could not find a product!</source>
+      <translation>Kunde inte hitta en produkt!</translation>
     </message>
     <message>
       <source>Please choose</source>
       <translation>Var vänlig välj</translation>
     </message>
     <message>
-      <source>Please choose department!</source>
-      <translation>Var vänlig välj avdelning!</translation>
-    </message>
-    <message>
       <source>Could not determine a default department!</source>
       <translation>Kunde inte avgöra en standard avdelning</translation>
+    </message>
+    <message>
+      <source>Please choose a product!</source>
+      <translation>Var vänlig välj en produkt!</translation>
     </message>
     <message>
       <source>is required</source>
@@ -4215,6 +4247,10 @@
       <translation>Ny chattförfrågan</translation>
     </message>
     <message>
+      <source>New chat has been transfered to you directly!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat</source>
       <translation>Chatt</translation>
     </message>
@@ -5618,10 +5654,6 @@
       <translation>Jobbtitel</translation>
     </message>
     <message>
-      <source>Chat status will not change upon pending chat opening</source>
-      <translation>Chattens status kommer inte ändras vid öppning av chatt i vänteläge</translation>
-    </message>
-    <message>
       <source>I receive other operators permissions request</source>
       <translation>Jag mottager andra operatörers behörighetsförfrågan</translation>
     </message>
@@ -5684,6 +5716,10 @@
     <message>
       <source>Departments groups</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat status will not change upon pending chat opening</source>
+      <translation>Chattens status kommer inte ändras vid öppning av chatt i vänteläge</translation>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
@@ -7309,12 +7345,12 @@
       <translation>Avdelningar</translation>
     </message>
     <message>
-      <source>Invisible mode</source>
-      <translation>Ej synligt läge</translation>
-    </message>
-    <message>
       <source>I receive other operators permissions request</source>
       <translation>Jag mottager andra operatörers behörighetsförfrågan</translation>
+    </message>
+    <message>
+      <source>Invisible mode</source>
+      <translation>Ej synligt läge</translation>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
@@ -8065,6 +8101,10 @@
   <context>
     <name>chat/accepttrasnfer</name>
     <message>
+      <source>Chat has been transfered to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>has joined the chat!</source>
       <translation>har gått med i chatten!</translation>
     </message>
@@ -8104,6 +8144,10 @@
     <message>
       <source>Data refreshed</source>
       <translation>Uppdaterad data</translation>
+    </message>
+    <message>
+      <source>Custom chat data was saved</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -8160,6 +8204,21 @@
     <name>departament/editgroup</name>
     <message>
       <source>Please enter a department group name</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>survey/choosesurvey</name>
+    <message>
+      <source>Survey</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Collected information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor was redirected to survey, you can now close this window.</source>
       <translation type="unfinished"/>
     </message>
   </context>

@@ -10,6 +10,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Po kolik dní by se neměl hlasovací widget zvětšovat od posledního zobrazení</translation>
     </message>
@@ -211,7 +215,7 @@
     </message>
     <message>
       <source>Hide &apos;New Window&apos; option in Connector Widget</source>
-      <translation type="unfinished"/>
+      <translation>Skrýt možnost &apos;Nové okno&apos; ve wigetu</translation>
     </message>
     <message>
       <source>Disable JS execution in Co-Browsing operator window</source>
@@ -1602,6 +1606,10 @@
       <translation>Automatické přiřazení</translation>
     </message>
     <message>
+      <source>Product</source>
+      <translation>Výrobek</translation>
+    </message>
+    <message>
       <source>Miscellaneous</source>
       <translation>Různé</translation>
     </message>
@@ -1742,6 +1750,14 @@
       <translation>Informovat o ukončení rozhovoru operátorem, je odesláno pouze emailové upozornění.</translation>
     </message>
     <message>
+      <source>Inform then chat is closed automatically, only mail notification is send.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Additional e-mail address address to inform about closed chats, to this e-mail will be send all notifications about closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>To what department chat should be transferred if it is not accepted</source>
       <translation>Na jaké oddělení by měl být rozhovor přesměrován, pokud nebyl přijat</translation>
     </message>
@@ -1756,6 +1772,22 @@
     <message>
       <source>Execute unanswered chat logic again for recipient department?</source>
       <translation>Spustit znovu logiku nezodpovězených rozhovorů pro oddělení příjemce?</translation>
+    </message>
+    <message>
+      <source>Based on selected department these products will be shown</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable products </source>
+      <translation>Aktivovat produkt</translation>
+    </message>
+    <message>
+      <source>Required</source>
+      <translation>Vyžadováno</translation>
+    </message>
+    <message>
+      <source>Assigned products</source>
+      <translation>Přiřazené výrobky</translation>
     </message>
     <message>
       <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
@@ -1848,12 +1880,24 @@
       <translation>Tisk</translation>
     </message>
     <message>
+      <source>Redirect user to contact form.</source>
+      <translation>Přesměrovat uživatele do kontaktního formuláře.</translation>
+    </message>
+    <message>
       <source>Please enter a URL</source>
       <translation>Prosím zadejte URL</translation>
     </message>
     <message>
       <source>Redirect user to another url</source>
       <translation>Přesmětovat uživatele na jinou URL</translation>
+    </message>
+    <message>
+      <source>Mail was send</source>
+      <translation>E-mail byl odeslán</translation>
+    </message>
+    <message>
+      <source>Send mail</source>
+      <translation>Odeslat e-mail</translation>
     </message>
     <message>
       <source>Redirect user to survey</source>
@@ -1908,28 +1952,12 @@
       <translation>Upravit hlavní informace o rozhovoru</translation>
     </message>
     <message>
-      <source>Close dialog</source>
-      <translation>Uzavřít</translation>
-    </message>
-    <message>
       <source>Close chat</source>
       <translation>Ukončit rozhovor</translation>
     </message>
     <message>
       <source>Delete chat</source>
       <translation>Smazat rozhovor</translation>
-    </message>
-    <message>
-      <source>Mail was send</source>
-      <translation>E-mail byl odeslán</translation>
-    </message>
-    <message>
-      <source>Send mail</source>
-      <translation>Odeslat e-mail</translation>
-    </message>
-    <message>
-      <source>Redirect user to contact form.</source>
-      <translation>Přesměrovat uživatele do kontaktního formuláře.</translation>
     </message>
     <message>
       <source>Department</source>
@@ -2024,12 +2052,12 @@
       <translation>Poznámky</translation>
     </message>
     <message>
-      <source>Notes</source>
-      <translation>Poznámky</translation>
+      <source>Close dialog</source>
+      <translation>Uzavřít</translation>
     </message>
     <message>
-      <source>Send</source>
-      <translation>Odeslat</translation>
+      <source>Notes</source>
+      <translation>Poznámky</translation>
     </message>
     <message>
       <source>Reopen chat</source>
@@ -2046,6 +2074,10 @@
     <message>
       <source>Send delayed canned message instantly</source>
       <translation>Odeslat ihned zpožděné předpřipraveé zprávy</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>Odeslat</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -2425,10 +2457,6 @@
       <translation>Oddělení je neaktivní</translation>
     </message>
     <message>
-      <source>Name</source>
-      <translation>Jméno</translation>
-    </message>
-    <message>
       <source>E-mail</source>
       <translation>E-mail</translation>
     </message>
@@ -2447,6 +2475,10 @@
     <message>
       <source>Please enter a message...</source>
       <translation>Prosím, napište zprávu...</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Jméno</translation>
     </message>
     <message>
       <source>Live support is not available in your country</source>
@@ -2497,14 +2529,6 @@
       <translation>Máte dotaz? Zeptejte se nás!</translation>
     </message>
     <message>
-      <source>Product</source>
-      <translation>Výrobek</translation>
-    </message>
-    <message>
-      <source>Choose a product</source>
-      <translation>Zvolte výrobek</translation>
-    </message>
-    <message>
       <source>Type your message here and hit enter to send...</source>
       <translation>Zadejte text své zprávy a odešlete ji stisknutím enter...</translation>
     </message>
@@ -2543,6 +2567,14 @@
     <message>
       <source>Me</source>
       <translation>Já</translation>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation>Výrobek</translation>
+    </message>
+    <message>
+      <source>Choose a product</source>
+      <translation>Zvolte výrobek</translation>
     </message>
     <message>
       <source>Choose your language</source>
@@ -2597,24 +2629,24 @@
       <translation>Neplatný soubor</translation>
     </message>
     <message>
-      <source>Could not find a product!</source>
-      <translation>Nepodařilo se najít výrobek!</translation>
+      <source>Please choose department!</source>
+      <translation>Vyberte, prosím, oddělení!</translation>
     </message>
     <message>
-      <source>Please choose a product!</source>
-      <translation>Prosím, zvolte výrobek!</translation>
+      <source>Could not find a product!</source>
+      <translation>Nepodařilo se najít výrobek!</translation>
     </message>
     <message>
       <source>Please choose</source>
       <translation>Vyberte, prosím</translation>
     </message>
     <message>
-      <source>Please choose department!</source>
-      <translation>Vyberte, prosím, oddělení!</translation>
-    </message>
-    <message>
       <source>Could not determine a default department!</source>
       <translation>Nelze zjistit výchozí oddělení!</translation>
+    </message>
+    <message>
+      <source>Please choose a product!</source>
+      <translation>Prosím, zvolte výrobek!</translation>
     </message>
     <message>
       <source>is required</source>
@@ -4215,6 +4247,10 @@
       <translation>Nový požadavek na rozhovor</translation>
     </message>
     <message>
+      <source>New chat has been transfered to you directly!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat</source>
       <translation>Rozhovor</translation>
     </message>
@@ -5618,10 +5654,6 @@
       <translation>Název pozice</translation>
     </message>
     <message>
-      <source>Chat status will not change upon pending chat opening</source>
-      <translation>Status rozhovoru nebude změněn do otevření čekající konverzace</translation>
-    </message>
-    <message>
       <source>I receive other operators permissions request</source>
       <translation>Dostávám požadaveky na oprávnění jiných operátorů</translation>
     </message>
@@ -5684,6 +5716,10 @@
     <message>
       <source>Departments groups</source>
       <translation>Skupiny oddělení</translation>
+    </message>
+    <message>
+      <source>Chat status will not change upon pending chat opening</source>
+      <translation>Status rozhovoru nebude změněn do otevření čekající konverzace</translation>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
@@ -7309,12 +7345,12 @@
       <translation>Oddělení</translation>
     </message>
     <message>
-      <source>Invisible mode</source>
-      <translation>Neviditelný mód</translation>
-    </message>
-    <message>
       <source>I receive other operators permissions request</source>
       <translation>Dostávám požadavky na oprávnění jiných operátorů</translation>
+    </message>
+    <message>
+      <source>Invisible mode</source>
+      <translation>Neviditelný mód</translation>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
@@ -7706,7 +7742,7 @@
     </message>
     <message>
       <source>Feedback text</source>
-      <translation type="unfinished"/>
+      <translation>Text zpětné vazby</translation>
     </message>
     <message>
       <source>Max stars for feedback</source>
@@ -8065,6 +8101,10 @@
   <context>
     <name>chat/accepttrasnfer</name>
     <message>
+      <source>Chat has been transfered to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>has joined the chat!</source>
       <translation>se připojil k rozhovoru!</translation>
     </message>
@@ -8104,6 +8144,10 @@
     <message>
       <source>Data refreshed</source>
       <translation>Data aktualizována</translation>
+    </message>
+    <message>
+      <source>Custom chat data was saved</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -8161,6 +8205,21 @@
     <message>
       <source>Please enter a department group name</source>
       <translation>Prosím zadejte název skupiny oddělení</translation>
+    </message>
+  </context>
+  <context>
+    <name>survey/choosesurvey</name>
+    <message>
+      <source>Survey</source>
+      <translation>Průzkum</translation>
+    </message>
+    <message>
+      <source>Collected information</source>
+      <translation>Sdružené informace</translation>
+    </message>
+    <message>
+      <source>Visitor was redirected to survey, you can now close this window.</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>
