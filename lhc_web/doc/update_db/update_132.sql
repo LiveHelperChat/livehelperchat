@@ -1,0 +1,2 @@
+CREATE TABLE `lh_canned_msg_tag_link` ( `id` int(11) NOT NULL AUTO_INCREMENT, `tag_id` int(11) NOT NULL, `canned_id` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `canned_id` (`canned_id`), KEY `tag_id` (`tag_id`)) DEFAULT CHARSET=utf8;
+CREATE TABLE `lh_canned_msg_tag` ( `id` int(11) NOT NULL AUTO_INCREMENT, `tag` varchar(40) NOT NULL, `cnt` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `tag` (`tag`)) DEFAULT CHARSET=utf8;

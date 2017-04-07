@@ -1,7 +1,16 @@
+2.57v
+
+1. Canned messages with hashes. Just type # and get suggested canned messages.
+2. In canned messages edit window you can enter tags, tags has to be separated by ","
+
+execute doc/update_db/update_132.sql for update
+
 2.56v
 
 1. REST API for registering mobile devices. Perhaps someone in the future will make open source app etc.
 2. And just various small fixes.
+
+execute doc/update_db/update_131.sql for update
 
 2.55v
 

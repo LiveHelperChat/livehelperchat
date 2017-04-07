@@ -14,12 +14,16 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Колко дни след последното показване да не се показва приставката за гласуване?</translation>
     </message>
     <message>
       <source>Use secure cookie, check this if you want to force SSL all the time</source>
-      <translation>Използване на кукита за сигурност, отметнете това, ако искате да използвате SSL винаги</translation>
+      <translation>Използване на SSL кукита - изберете това, ако искате да използвате SSL винаги</translation>
     </message>
     <message>
       <source>Which ip should be allowed to update DB by executing http request, separate by comma?</source>
@@ -31,7 +35,7 @@
     </message>
     <message>
       <source>Should mouse movement be tracked as activity measure, if not checked only basic events would be tracked</source>
-      <translation type="unfinished"/>
+      <translation>Движението на мишката да се счита ли като активност? Ако не е избрано, само обикновените действия ще бъдат следени</translation>
     </message>
     <message>
       <source>Track is user still on site, chat status checks also has to be enabled</source>
@@ -51,7 +55,7 @@
     </message>
     <message>
       <source>Track users activity on site?</source>
-      <translation type="unfinished"/>
+      <translation>Да се следят ли потребителските активности на сайта?</translation>
     </message>
     <message>
       <source>How many days keep records of online users.</source>
@@ -131,7 +135,7 @@
     </message>
     <message>
       <source>On chat close exit chat</source>
-      <translation type="unfinished"/>
+      <translation>Изход от чата при затварянето му</translation>
     </message>
     <message>
       <source/>
@@ -163,11 +167,11 @@
     </message>
     <message>
       <source>List online operators, 0 - no, 1 - yes.</source>
-      <translation type="unfinished"/>
+      <translation>Да се показват ли операторите на линия - 0 = не, 1 = да.</translation>
     </message>
     <message>
       <source>Inform visitor about unread messages from operator, value in minutes. 0 - disabled</source>
-      <translation type="unfinished"/>
+      <translation>Да се информира ли посетителят за непрочетени съобщения? Въведете стойност в минути, 0 за изключване на тази опция</translation>
     </message>
     <message>
       <source>Ignore users online statuses and use departments online hours</source>
@@ -179,7 +183,7 @@
     </message>
     <message>
       <source>Hide right column in frontpage</source>
-      <translation type="unfinished"/>
+      <translation>Скриване на дясната колона на началната страница</translation>
     </message>
     <message>
       <source>Hide disabled department widget</source>
@@ -697,12 +701,16 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Live help is offline...</source>
-      <translation>Онлайн помощ - извън линия...</translation>
-    </message>
-    <message>
       <source>Allow operator to see your page content?</source>
       <translation>Позволи на оператора да вижда съдържанието на гледаната от Вас страница?</translation>
+    </message>
+    <message>
+      <source>Live Help</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live help is offline...</source>
+      <translation>Онлайн помощ - извън линия...</translation>
     </message>
     <message>
       <source>Screen shared, click to finish</source>
@@ -849,6 +857,10 @@
   </context>
   <context>
     <name>system/htmlcode</name>
+    <message>
+      <source>Show product selection based on selected departments</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>HTML code</source>
       <translation>HTML код</translation>
@@ -1114,15 +1126,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Try to detect language automatically</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Survey at the end of chat</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Product</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Show product selection based on selected departments</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1281,6 +1293,10 @@
     <message>
       <source>User is typing now...</source>
       <translation>В момента потребителят пише...</translation>
+    </message>
+    <message>
+      <source>You are not chat owner, type with caution</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Change chat status</source>
@@ -1968,6 +1984,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Device</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Country</source>
       <translation>Страна</translation>
     </message>
@@ -2032,6 +2052,18 @@
       <translation>Модератор на чата</translation>
     </message>
     <message>
+      <source>Computer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Smartphone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tablet</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
       <translation>Не бе открит. Проверете дали GEO проследяването е включено.</translation>
     </message>
@@ -2064,8 +2096,8 @@
       <translation>Отвори наново чата</translation>
     </message>
     <message>
-      <source>Select a canned message</source>
-      <translation>Изберете автоматично съобщение</translation>
+      <source>Type to search</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Fill textarea with canned message</source>
@@ -2082,6 +2114,10 @@
     <message>
       <source>Messages</source>
       <translation>Съобщения</translation>
+    </message>
+    <message>
+      <source>Select a canned message</source>
+      <translation>Изберете автоматично съобщение</translation>
     </message>
     <message>
       <source>has accepted the chat!</source>
@@ -2453,6 +2489,10 @@
   <context>
     <name>chat/startchat</name>
     <message>
+      <source>Enter your message</source>
+      <translation>Въведете Вашето съобщение</translation>
+    </message>
+    <message>
       <source>Department is disabled</source>
       <translation>Отделът не е активен</translation>
     </message>
@@ -2461,12 +2501,16 @@
       <translation>Е-поща</translation>
     </message>
     <message>
+      <source>Enter your email address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Phone</source>
       <translation>Телефон</translation>
     </message>
     <message>
-      <source>Enter your message</source>
-      <translation>Въведете Вашето съобщение</translation>
+      <source>Enter your phone</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Your question</source>
@@ -2479,6 +2523,10 @@
     <message>
       <source>Name</source>
       <translation>Име</translation>
+    </message>
+    <message>
+      <source>Enter your name</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Live support is not available in your country</source>
@@ -2669,12 +2717,24 @@
       <translation>Посетител</translation>
     </message>
     <message>
-      <source>Fill in the form to start a chat</source>
-      <translation>Попълнете формуляра, за да започнете чат</translation>
+      <source>Pending Chat</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Unread message</source>
       <translation>Непрочетено съобщение</translation>
+    </message>
+    <message>
+      <source>Transfer Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assigned Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Fill in the form to start a chat</source>
+      <translation>Попълнете формуляра, за да започнете чат</translation>
     </message>
   </context>
   <context>
@@ -2715,20 +2775,20 @@
   <context>
     <name>chat/user_settings</name>
     <message>
-      <source>Print</source>
-      <translation>Отпечатване</translation>
-    </message>
-    <message>
-      <source>Send chat transcript to your e-mail</source>
-      <translation>Изпратете запис на чата на е-мейла си</translation>
-    </message>
-    <message>
       <source>End the chat</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Enable/Disable sound about new messages from the operator</source>
       <translation>Включване/Изключване на звуци за нови съобщения от оператора</translation>
+    </message>
+    <message>
+      <source>Print</source>
+      <translation>Отпечатване</translation>
+    </message>
+    <message>
+      <source>Send chat transcript to your e-mail</source>
+      <translation>Изпратете запис на чата на е-мейла си</translation>
     </message>
     <message>
       <source>Change my visibility to visible/invisible</source>
@@ -3805,6 +3865,26 @@
       <translation>Система</translation>
     </message>
     <message>
+      <source>Show notification only if I am an owner pending chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You will stop receive notifications for pending chats if you are not an owner</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show notifications if I am offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You will not receive notifications if you are not online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show alert for new chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>File configuration</source>
       <translation>Настройки на файл</translation>
     </message>
@@ -4084,6 +4164,14 @@
       <translation>Напишете тук, за да търсите</translation>
     </message>
     <message>
+      <source>Select operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Compare to past</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Choose department</source>
       <translation>Избери отдел</translation>
     </message>
@@ -4126,6 +4214,10 @@
   </context>
   <context>
     <name>pagelayout/pagelayout</name>
+    <message>
+      <source>New unread message</source>
+      <translation>Ново непрочетено съобщение</translation>
+    </message>
     <message>
       <source>Empty...</source>
       <translation>Празно...</translation>
@@ -4289,10 +4381,6 @@
     <message>
       <source>Logout</source>
       <translation>Излизане</translation>
-    </message>
-    <message>
-      <source>New unread message</source>
-      <translation>Ново непрочетено съобщение</translation>
     </message>
   </context>
   <context>
@@ -4653,6 +4741,10 @@
     <message>
       <source>All operators statistic will be downloaded</source>
       <translation>Всички операторски статистика ще бъдат изтеглени</translation>
+    </message>
+    <message>
+      <source>Please choose statistic parameters first!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Parameter</source>
@@ -5728,6 +5820,10 @@
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
       <translation>Потребителят може да вижда всички изчакващи чатове, не само тези, насочени към него</translation>
+    </message>
+    <message>
+      <source>Notifications</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Personal canned messages</source>

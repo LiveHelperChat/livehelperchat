@@ -32,6 +32,9 @@ class erLhcoreClassAdminChatValidatorHelper {
             ),
             'AutoSend' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            ),
+            'Tags' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             )
         );
         
@@ -75,6 +78,11 @@ class erLhcoreClassAdminChatValidatorHelper {
         if ( $form->hasValidData( 'Delay' )  )
         {
             $cannedMessage->delay = $form->Delay;
+        }
+        
+        if ( $form->hasValidData( 'Tags' )  )
+        {
+            $cannedMessage->tags_plain = $form->Tags;
         }
         
         if ( $form->hasValidData( 'DepartmentID' )  ) {

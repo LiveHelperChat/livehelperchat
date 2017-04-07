@@ -1275,3 +1275,43 @@ input[type="file"]{
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(240, 173, 78, 0.6);
 	outline: 0 none;
 }
+
+.canned-suggester{
+	position:absolute;
+	background-color:#f5f5f5;
+	bottom:54px;
+	border:1px solid #ddd;
+	font-size:12px;
+}
+
+.current-hash-content ul{
+	margin-bottom:0;
+}
+
+.canned-list {
+	margin-bottom:0;
+}
+
+.canned-list a{
+	display:block;
+	padding:2px 5px;
+}
+
+.current-hash-content ul li span{
+	display: table-cell;
+	padding:2px 5px;
+	cursor:pointer;
+}
+
+.canned-list li.current-item a,
+.current-hash-content li.current-item,
+.current-hash-content ul li:hover,
+.canned-list a:hover{background-color:#cecece;}
+.canned-list > li{position:relative;}
+.canned-list > li > ul {display: none;}
+
+
+
+.message-container-admin{
+	position:relative;
+}

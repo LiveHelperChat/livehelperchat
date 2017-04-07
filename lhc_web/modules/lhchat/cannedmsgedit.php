@@ -27,7 +27,7 @@ if (isset($_POST['Update_action']) || isset($_POST['Save_action'])  )
     if (count($Errors) == 0)
     {
         $Msg->saveThis();
-
+        
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.canned_msg_after_save',array('msg' => & $Msg));
         
         if (isset($_POST['Save_action'])) {

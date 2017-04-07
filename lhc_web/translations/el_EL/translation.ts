@@ -14,6 +14,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Πόσες ημέρες ψηφοφορίας widget δεν θα πρέπει να επεκταθεί μετά από την τελευταία εμφάνιση</translation>
     </message>
@@ -697,12 +701,16 @@
       <translation>Το προσωπικό μας είναι πάντα έτοιμο να βοηθήσει</translation>
     </message>
     <message>
-      <source>Live help is offline...</source>
-      <translation>Η ζωντανή βοήθεια είναι σε μη απευθείας σύνδεση...</translation>
-    </message>
-    <message>
       <source>Allow operator to see your page content?</source>
       <translation>Να επιτρέπεται σε χειριστή να δει το περιεχόμενο της σελίδας σας;</translation>
+    </message>
+    <message>
+      <source>Live Help</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live help is offline...</source>
+      <translation>Η ζωντανή βοήθεια είναι σε μη απευθείας σύνδεση...</translation>
     </message>
     <message>
       <source>Screen shared, click to finish</source>
@@ -849,6 +857,10 @@
   </context>
   <context>
     <name>system/htmlcode</name>
+    <message>
+      <source>Show product selection based on selected departments</source>
+      <translation>Εμφάνιση επιλογή προϊόντων βάσει επιλεγμένων τμημάτων</translation>
+    </message>
     <message>
       <source>HTML code</source>
       <translation>Κώδικα HTML</translation>
@@ -1114,16 +1126,16 @@
       <translation>Απενεργοποιήσετε την online παρακολούθηση, υπερισχύει η διαμόρφωση του συστήματος</translation>
     </message>
     <message>
+      <source>Try to detect language automatically</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Survey at the end of chat</source>
       <translation>Έρευνα στο τέλος της συνομιλίας</translation>
     </message>
     <message>
       <source>Product</source>
       <translation>Προϊόντος</translation>
-    </message>
-    <message>
-      <source>Show product selection based on selected departments</source>
-      <translation>Εμφάνιση επιλογή προϊόντων βάσει επιλεγμένων τμημάτων</translation>
     </message>
     <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
@@ -1281,6 +1293,10 @@
     <message>
       <source>User is typing now...</source>
       <translation>User is χαρακτηριστικός τώρα...</translation>
+    </message>
+    <message>
+      <source>You are not chat owner, type with caution</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Change chat status</source>
@@ -1968,6 +1984,10 @@
       <translation>Προϊόντος</translation>
     </message>
     <message>
+      <source>Device</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Country</source>
       <translation>Χώρα</translation>
     </message>
@@ -2032,6 +2052,18 @@
       <translation>Κάτοχος συνομιλίας</translation>
     </message>
     <message>
+      <source>Computer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Smartphone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tablet</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
       <translation>Δεν θα μπορούσα να ανιχνεύσει. Βεβαιωθείτε ότι είναι ενεργοποιημένος ο εντοπισμός GEO.</translation>
     </message>
@@ -2064,8 +2096,8 @@
       <translation>Ανοίξτε πάλι το chat</translation>
     </message>
     <message>
-      <source>Select a canned message</source>
-      <translation>Επιλέξτε ένα προκαθορισμένο μήνυμα</translation>
+      <source>Type to search</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Fill textarea with canned message</source>
@@ -2082,6 +2114,10 @@
     <message>
       <source>Messages</source>
       <translation>Μηνύματα</translation>
+    </message>
+    <message>
+      <source>Select a canned message</source>
+      <translation>Επιλέξτε ένα προκαθορισμένο μήνυμα</translation>
     </message>
     <message>
       <source>has accepted the chat!</source>
@@ -2453,6 +2489,10 @@
   <context>
     <name>chat/startchat</name>
     <message>
+      <source>Enter your message</source>
+      <translation>Εισάγετε το μήνυμά σας</translation>
+    </message>
+    <message>
       <source>Department is disabled</source>
       <translation>Τμήμα είναι άτομα με ειδικές ανάγκες</translation>
     </message>
@@ -2461,12 +2501,16 @@
       <translation>E-mail</translation>
     </message>
     <message>
+      <source>Enter your email address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Phone</source>
       <translation>Τηλέφωνο</translation>
     </message>
     <message>
-      <source>Enter your message</source>
-      <translation>Εισάγετε το μήνυμά σας</translation>
+      <source>Enter your phone</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Your question</source>
@@ -2479,6 +2523,10 @@
     <message>
       <source>Name</source>
       <translation>Όνομα</translation>
+    </message>
+    <message>
+      <source>Enter your name</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Live support is not available in your country</source>
@@ -2669,12 +2717,24 @@
       <translation>Επισκέπτης</translation>
     </message>
     <message>
-      <source>Fill in the form to start a chat</source>
-      <translation>Συμπληρώστε την φόρμα για να ξεκινήσετε μια συνομιλία</translation>
+      <source>Pending Chat</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Unread message</source>
       <translation>Μη αναγνωσμένο μήνυμα</translation>
+    </message>
+    <message>
+      <source>Transfer Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assigned Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Fill in the form to start a chat</source>
+      <translation>Συμπληρώστε την φόρμα για να ξεκινήσετε μια συνομιλία</translation>
     </message>
   </context>
   <context>
@@ -2715,20 +2775,20 @@
   <context>
     <name>chat/user_settings</name>
     <message>
-      <source>Print</source>
-      <translation>Εκτύπωση</translation>
-    </message>
-    <message>
-      <source>Send chat transcript to your e-mail</source>
-      <translation>Αποστολή αντιγράφου συνομιλίας στο e-mail σας</translation>
-    </message>
-    <message>
       <source>End the chat</source>
       <translation>Τέλος το chat</translation>
     </message>
     <message>
       <source>Enable/Disable sound about new messages from the operator</source>
       <translation>Ενεργοποίηση/Απενεργοποίηση ήχου για νέα μηνύματα από τον φορέα εκμετάλλευσης</translation>
+    </message>
+    <message>
+      <source>Print</source>
+      <translation>Εκτύπωση</translation>
+    </message>
+    <message>
+      <source>Send chat transcript to your e-mail</source>
+      <translation>Αποστολή αντιγράφου συνομιλίας στο e-mail σας</translation>
     </message>
     <message>
       <source>Change my visibility to visible/invisible</source>
@@ -3805,6 +3865,26 @@
       <translation>Σύστημα</translation>
     </message>
     <message>
+      <source>Show notification only if I am an owner pending chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You will stop receive notifications for pending chats if you are not an owner</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show notifications if I am offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You will not receive notifications if you are not online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show alert for new chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>File configuration</source>
       <translation>Αρχείο ρύθμισης παραμέτρων</translation>
     </message>
@@ -4084,6 +4164,14 @@
       <translation>Πληκτρολόγηση για αναζήτηση</translation>
     </message>
     <message>
+      <source>Select operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Compare to past</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Choose department</source>
       <translation>Επιλέξτε τμήμα</translation>
     </message>
@@ -4126,6 +4214,10 @@
   </context>
   <context>
     <name>pagelayout/pagelayout</name>
+    <message>
+      <source>New unread message</source>
+      <translation>Νέα μη αναγνωσμένο μήνυμα</translation>
+    </message>
     <message>
       <source>Empty...</source>
       <translation>Άδειο...</translation>
@@ -4289,10 +4381,6 @@
     <message>
       <source>Logout</source>
       <translation>Αποσύνδεση</translation>
-    </message>
-    <message>
-      <source>New unread message</source>
-      <translation>Νέα μη αναγνωσμένο μήνυμα</translation>
     </message>
   </context>
   <context>
@@ -4653,6 +4741,10 @@
     <message>
       <source>All operators statistic will be downloaded</source>
       <translation>Θα μεταφορτωθεί όλα φορείς στατιστικής</translation>
+    </message>
+    <message>
+      <source>Please choose statistic parameters first!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Parameter</source>
@@ -5728,6 +5820,10 @@
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
       <translation>Χρήστης μπορεί να δει όλα σε εκκρεμότητα συνομιλίες, όχι μόνο που του ανατίθενται</translation>
+    </message>
+    <message>
+      <source>Notifications</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Personal canned messages</source>

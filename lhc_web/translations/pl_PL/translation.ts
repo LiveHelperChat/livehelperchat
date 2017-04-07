@@ -14,6 +14,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Przez ile dni, od czasu ostatniego wyświetlenia, widżet głosowania ma się nie wyświetlać</translation>
     </message>
@@ -697,12 +701,16 @@
       <translation>Nasi pracownicy są zawsze do usług</translation>
     </message>
     <message>
-      <source>Live help is offline...</source>
-      <translation>Pomoc na żywo jest niedostępna</translation>
-    </message>
-    <message>
       <source>Allow operator to see your page content?</source>
       <translation>Zezwalam konsultantowi na podgląd strony, którą przeglądam?</translation>
+    </message>
+    <message>
+      <source>Live Help</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live help is offline...</source>
+      <translation>Pomoc na żywo jest niedostępna</translation>
     </message>
     <message>
       <source>Screen shared, click to finish</source>
@@ -850,6 +858,10 @@ pokazywany</translation>
   </context>
   <context>
     <name>system/htmlcode</name>
+    <message>
+      <source>Show product selection based on selected departments</source>
+      <translation>Pokaż opcje wyboru produktu na podstawie wybranego działu</translation>
+    </message>
     <message>
       <source>HTML code</source>
       <translation>kod HTML </translation>
@@ -1115,16 +1127,16 @@ pokazywany</translation>
       <translation>Wyłącz śledzenie aktywności, nadpisuje konfigurację systemu</translation>
     </message>
     <message>
+      <source>Try to detect language automatically</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Survey at the end of chat</source>
       <translation>Ankieta po zakończeniu czatu</translation>
     </message>
     <message>
       <source>Product</source>
       <translation>Produkt</translation>
-    </message>
-    <message>
-      <source>Show product selection based on selected departments</source>
-      <translation>Pokaż opcje wyboru produktu na podstawie wybranego działu</translation>
     </message>
     <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
@@ -1282,6 +1294,10 @@ pokazywany</translation>
     <message>
       <source>User is typing now...</source>
       <translation>Użytkownik pisze ...</translation>
+    </message>
+    <message>
+      <source>You are not chat owner, type with caution</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Change chat status</source>
@@ -1969,6 +1985,10 @@ pokazywany</translation>
       <translation>Produkt</translation>
     </message>
     <message>
+      <source>Device</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Country</source>
       <translation>Kraj</translation>
     </message>
@@ -2033,6 +2053,18 @@ pokazywany</translation>
       <translation>Właściciel rozmowy</translation>
     </message>
     <message>
+      <source>Computer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Smartphone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tablet</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
       <translation>Nie można wykryć GEO. Upewnij się czy GEO jest włączone.</translation>
     </message>
@@ -2065,8 +2097,8 @@ pokazywany</translation>
       <translation>Ponownie otwórz okno czat</translation>
     </message>
     <message>
-      <source>Select a canned message</source>
-      <translation>Wybierz gotową wiadomość</translation>
+      <source>Type to search</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Fill textarea with canned message</source>
@@ -2083,6 +2115,10 @@ pokazywany</translation>
     <message>
       <source>Messages</source>
       <translation>Wiadomości</translation>
+    </message>
+    <message>
+      <source>Select a canned message</source>
+      <translation>Wybierz gotową wiadomość</translation>
     </message>
     <message>
       <source>has accepted the chat!</source>
@@ -2454,6 +2490,10 @@ pokazywany</translation>
   <context>
     <name>chat/startchat</name>
     <message>
+      <source>Enter your message</source>
+      <translation>Wpisz swoją wiadomość</translation>
+    </message>
+    <message>
       <source>Department is disabled</source>
       <translation>Dział jest wyłączony</translation>
     </message>
@@ -2462,12 +2502,16 @@ pokazywany</translation>
       <translation>E-mail</translation>
     </message>
     <message>
+      <source>Enter your email address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Phone</source>
       <translation>Telefon</translation>
     </message>
     <message>
-      <source>Enter your message</source>
-      <translation>Wpisz swoją wiadomość</translation>
+      <source>Enter your phone</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Your question</source>
@@ -2480,6 +2524,10 @@ pokazywany</translation>
     <message>
       <source>Name</source>
       <translation>Imię</translation>
+    </message>
+    <message>
+      <source>Enter your name</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Live support is not available in your country</source>
@@ -2670,12 +2718,24 @@ pokazywany</translation>
       <translation>Gość</translation>
     </message>
     <message>
-      <source>Fill in the form to start a chat</source>
-      <translation>Wypełnij formularz, aby rozpocząć rozmowę</translation>
+      <source>Pending Chat</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Unread message</source>
       <translation>Nieprzeczytana wiadomość</translation>
+    </message>
+    <message>
+      <source>Transfer Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assigned Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Fill in the form to start a chat</source>
+      <translation>Wypełnij formularz, aby rozpocząć rozmowę</translation>
     </message>
   </context>
   <context>
@@ -2716,20 +2776,20 @@ pokazywany</translation>
   <context>
     <name>chat/user_settings</name>
     <message>
-      <source>Print</source>
-      <translation>Drukuj</translation>
-    </message>
-    <message>
-      <source>Send chat transcript to your e-mail</source>
-      <translation>Wyślij zapis rozmowy na maila</translation>
-    </message>
-    <message>
       <source>End the chat</source>
       <translation>Zakończ chat</translation>
     </message>
     <message>
       <source>Enable/Disable sound about new messages from the operator</source>
       <translation>Włącz/Wyłącz powiadomienia dźwiękowe o nowych wiadomościach od operatora</translation>
+    </message>
+    <message>
+      <source>Print</source>
+      <translation>Drukuj</translation>
+    </message>
+    <message>
+      <source>Send chat transcript to your e-mail</source>
+      <translation>Wyślij zapis rozmowy na maila</translation>
     </message>
     <message>
       <source>Change my visibility to visible/invisible</source>
@@ -3806,6 +3866,26 @@ pokazywany</translation>
       <translation>System</translation>
     </message>
     <message>
+      <source>Show notification only if I am an owner pending chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You will stop receive notifications for pending chats if you are not an owner</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show notifications if I am offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You will not receive notifications if you are not online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show alert for new chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>File configuration</source>
       <translation>Konfiguracja plików</translation>
     </message>
@@ -4085,6 +4165,14 @@ pokazywany</translation>
       <translation>Wpisz, aby wyszukać</translation>
     </message>
     <message>
+      <source>Select operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Compare to past</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Choose department</source>
       <translation>Wybierz dział</translation>
     </message>
@@ -4127,6 +4215,10 @@ pokazywany</translation>
   </context>
   <context>
     <name>pagelayout/pagelayout</name>
+    <message>
+      <source>New unread message</source>
+      <translation>Nowa, nieprzeczytania wiadomość</translation>
+    </message>
     <message>
       <source>Empty...</source>
       <translation>Lista jest pusta...</translation>
@@ -4290,10 +4382,6 @@ pokazywany</translation>
     <message>
       <source>Logout</source>
       <translation>Wyloguj</translation>
-    </message>
-    <message>
-      <source>New unread message</source>
-      <translation>Nowa, nieprzeczytania wiadomość</translation>
     </message>
   </context>
   <context>
@@ -4654,6 +4742,10 @@ pokazywany</translation>
     <message>
       <source>All operators statistic will be downloaded</source>
       <translation>Statystyki wszystkich operatorów zostaną pobrane</translation>
+    </message>
+    <message>
+      <source>Please choose statistic parameters first!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Parameter</source>
@@ -5729,6 +5821,10 @@ pokazywany</translation>
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
       <translation>Użytkownik może wyświetlić wszystkie oczekujące rozmowy, nie tylko przypisane do niego</translation>
+    </message>
+    <message>
+      <source>Notifications</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Personal canned messages</source>

@@ -1260,7 +1260,10 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `name` varchar(50) NOT NULL,
                   PRIMARY KEY (`id`)
                 ) DEFAULT CHARSET=utf8;");
-        	   
+
+        	   $db->query("CREATE TABLE `lh_canned_msg_tag_link` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `tag_id` int(11) NOT NULL,  `canned_id` int(11) NOT NULL,  PRIMARY KEY (`id`), KEY `canned_id` (`canned_id`), KEY `tag_id` (`tag_id`)) DEFAULT CHARSET=utf8;");
+        	   $db->query("CREATE TABLE `lh_canned_msg_tag` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `tag` varchar(40) NOT NULL, PRIMARY KEY (`id`), KEY `tag` (`tag`)) DEFAULT CHARSET=utf8;");
+
         	   $Departament = new erLhcoreClassModelDepartament();
                $Departament->name = $form->DefaultDepartament;
                erLhcoreClassDepartament::getSession()->save($Departament);
@@ -1549,6 +1552,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                     array('module' => 'lhstatistic',   	'function' => 'use'),
                     array('module' => 'lhspeech', 'function' => 'changedefaultlanguage'),
                     array('module' => 'lhspeech', 'function' => 'use'),
+                    array('module' => 'lhcannedmsg', 'function' => 'use'),
                     array('module' => 'lhspeech', 'function' => 'change_chat_recognition'),
                 );
                 

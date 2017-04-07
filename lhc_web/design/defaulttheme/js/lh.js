@@ -1834,18 +1834,20 @@ function lh(){
 			LHCCallbacks.afterChatWidgetInit();
 		};
 	};
-	
+		
 	this.addAdminChatFinished = function(chat_id, last_message_id, arg) {
 		
 		var _that = this;
 		
 		var $textarea = jQuery('#CSChatMessage-'+chat_id);
 		
-		$textarea.bind('keydown', 'return', function (evt){
-			_that.addmsgadmin(chat_id);
-			ee.emitEvent('afterAdminMessageSent',[chat_id]);
-			$textarea[0].rows = 2;
-			return false;			
+		var cannedMessageSuggest = new LHCCannedMessageAutoSuggest({'chat_id':chat_id});
+		
+		$textarea.bind('keydown', 'return', function (evt){			
+				_that.addmsgadmin(chat_id);
+				ee.emitEvent('afterAdminMessageSent',[chat_id]);
+				$textarea[0].rows = 2;
+				return false;				
 		});
 		
 		$textarea.bind('keyup', 'up', function (evt){
@@ -1860,9 +1862,8 @@ function lh(){
 				ta.style.overflow = 'hidden';
 				ta.rows += 1;
 			}
-			if (ta.scrollHeight > ta.clientHeight) ta.style.overflow = 'auto';	
+			if (ta.scrollHeight > ta.clientHeight) ta.style.overflow = 'auto';							
 		});
-		
 		
 		// Resize by user 
 		$messageBlock = $('#messagesBlock-'+chat_id);
@@ -2807,9 +2808,6 @@ function gMapsCallback(){
 		},500);	
 		showMarkers();
 	});
-	
-	
-
 };
 
 var focused = true;

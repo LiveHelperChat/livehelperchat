@@ -14,6 +14,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Hur många dagar som röstwidgeten inte ska expanderas efter senaste visningen</translation>
     </message>
@@ -697,12 +701,16 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Live help is offline...</source>
-      <translation>Livehjälpen är otillgänglig...</translation>
-    </message>
-    <message>
       <source>Allow operator to see your page content?</source>
       <translation>Tillåt operatören att se ditt sidinnehåll?</translation>
+    </message>
+    <message>
+      <source>Live Help</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live help is offline...</source>
+      <translation>Livehjälpen är otillgänglig...</translation>
     </message>
     <message>
       <source>Screen shared, click to finish</source>
@@ -849,6 +857,10 @@
   </context>
   <context>
     <name>system/htmlcode</name>
+    <message>
+      <source>Show product selection based on selected departments</source>
+      <translation>Visa produktval baserat på valda avdelningar</translation>
+    </message>
     <message>
       <source>HTML code</source>
       <translation>HTML kod</translation>
@@ -1114,16 +1126,16 @@
       <translation>Inaktivera onlinespårning, åsidosätter systemkonfiguration</translation>
     </message>
     <message>
+      <source>Try to detect language automatically</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Survey at the end of chat</source>
       <translation>Undersökning i slutet av chatten</translation>
     </message>
     <message>
       <source>Product</source>
       <translation>Produkt</translation>
-    </message>
-    <message>
-      <source>Show product selection based on selected departments</source>
-      <translation>Visa produktval baserat på valda avdelningar</translation>
     </message>
     <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
@@ -1281,6 +1293,10 @@
     <message>
       <source>User is typing now...</source>
       <translation>Användaren skriver...</translation>
+    </message>
+    <message>
+      <source>You are not chat owner, type with caution</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Change chat status</source>
@@ -1968,6 +1984,10 @@
       <translation>Produkt</translation>
     </message>
     <message>
+      <source>Device</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Country</source>
       <translation>Land</translation>
     </message>
@@ -2032,6 +2052,18 @@
       <translation>Chattägare</translation>
     </message>
     <message>
+      <source>Computer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Smartphone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tablet</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
       <translation>Kunde inte hitta. Kontrollera att GEO spårning är aktiverad.</translation>
     </message>
@@ -2064,8 +2096,8 @@
       <translation>Återuppta chatten</translation>
     </message>
     <message>
-      <source>Select a canned message</source>
-      <translation>Välj snabbmeddelande</translation>
+      <source>Type to search</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Fill textarea with canned message</source>
@@ -2082,6 +2114,10 @@
     <message>
       <source>Messages</source>
       <translation>Meddelanden</translation>
+    </message>
+    <message>
+      <source>Select a canned message</source>
+      <translation>Välj snabbmeddelande</translation>
     </message>
     <message>
       <source>has accepted the chat!</source>
@@ -2453,6 +2489,10 @@
   <context>
     <name>chat/startchat</name>
     <message>
+      <source>Enter your message</source>
+      <translation>Lämna ditt meddelande</translation>
+    </message>
+    <message>
       <source>Department is disabled</source>
       <translation>Avdelningen är inaktiverad</translation>
     </message>
@@ -2461,12 +2501,16 @@
       <translation>E-post</translation>
     </message>
     <message>
+      <source>Enter your email address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Phone</source>
       <translation>Telefon</translation>
     </message>
     <message>
-      <source>Enter your message</source>
-      <translation>Lämna ditt meddelande</translation>
+      <source>Enter your phone</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Your question</source>
@@ -2479,6 +2523,10 @@
     <message>
       <source>Name</source>
       <translation>Namn</translation>
+    </message>
+    <message>
+      <source>Enter your name</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Live support is not available in your country</source>
@@ -2669,12 +2717,24 @@
       <translation>Besökare</translation>
     </message>
     <message>
-      <source>Fill in the form to start a chat</source>
-      <translation>Fyll i formuläret för att starta en chatt</translation>
+      <source>Pending Chat</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Unread message</source>
       <translation>Oläst meddelande</translation>
+    </message>
+    <message>
+      <source>Transfer Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assigned Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Fill in the form to start a chat</source>
+      <translation>Fyll i formuläret för att starta en chatt</translation>
     </message>
   </context>
   <context>
@@ -2715,20 +2775,20 @@
   <context>
     <name>chat/user_settings</name>
     <message>
-      <source>Print</source>
-      <translation>Skriv ut</translation>
-    </message>
-    <message>
-      <source>Send chat transcript to your e-mail</source>
-      <translation>Skicka chattloggen till din e-post</translation>
-    </message>
-    <message>
       <source>End the chat</source>
       <translation>Avsluta chatten</translation>
     </message>
     <message>
       <source>Enable/Disable sound about new messages from the operator</source>
       <translation>Av-/aktivera ljud för nya meddelanden från operatören</translation>
+    </message>
+    <message>
+      <source>Print</source>
+      <translation>Skriv ut</translation>
+    </message>
+    <message>
+      <source>Send chat transcript to your e-mail</source>
+      <translation>Skicka chattloggen till din e-post</translation>
     </message>
     <message>
       <source>Change my visibility to visible/invisible</source>
@@ -3805,6 +3865,26 @@
       <translation>System</translation>
     </message>
     <message>
+      <source>Show notification only if I am an owner pending chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You will stop receive notifications for pending chats if you are not an owner</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show notifications if I am offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You will not receive notifications if you are not online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show alert for new chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>File configuration</source>
       <translation>Filinställningar</translation>
     </message>
@@ -4084,6 +4164,14 @@
       <translation>Skriv in för att söka</translation>
     </message>
     <message>
+      <source>Select operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Compare to past</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Choose department</source>
       <translation>Välj avdelning</translation>
     </message>
@@ -4126,6 +4214,10 @@
   </context>
   <context>
     <name>pagelayout/pagelayout</name>
+    <message>
+      <source>New unread message</source>
+      <translation>Nytt oläst meddelande</translation>
+    </message>
     <message>
       <source>Empty...</source>
       <translation>Tom...</translation>
@@ -4289,10 +4381,6 @@
     <message>
       <source>Logout</source>
       <translation>Logga ut</translation>
-    </message>
-    <message>
-      <source>New unread message</source>
-      <translation>Nytt oläst meddelande</translation>
     </message>
   </context>
   <context>
@@ -4653,6 +4741,10 @@
     <message>
       <source>All operators statistic will be downloaded</source>
       <translation>All operatörsstatistik kommer att laddas ner</translation>
+    </message>
+    <message>
+      <source>Please choose statistic parameters first!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Parameter</source>
@@ -5728,6 +5820,10 @@
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
       <translation>Användare kan se alla väntande chattar, inte endast dem som är tilldelade användaren</translation>
+    </message>
+    <message>
+      <source>Notifications</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Personal canned messages</source>

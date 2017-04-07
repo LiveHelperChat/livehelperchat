@@ -14,6 +14,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Per quanti giorni il widget di voto non deve essere mostrato dopo l&apos;ultima visualizzazione</translation>
     </message>
@@ -698,12 +702,16 @@
       <translation>Il nostro staff è sempre pronto ad aiutarvi</translation>
     </message>
     <message>
-      <source>Live help is offline...</source>
-      <translation>Supporto live offline...</translation>
-    </message>
-    <message>
       <source>Allow operator to see your page content?</source>
       <translation>Permettere all&apos;operatore di vedere il contenuto della pagina?</translation>
+    </message>
+    <message>
+      <source>Live Help</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live help is offline...</source>
+      <translation>Supporto live offline...</translation>
     </message>
     <message>
       <source>Screen shared, click to finish</source>
@@ -850,6 +858,10 @@
   </context>
   <context>
     <name>system/htmlcode</name>
+    <message>
+      <source>Show product selection based on selected departments</source>
+      <translation>Selezione prodotto in base ai dipartimenti selezionati</translation>
+    </message>
     <message>
       <source>HTML code</source>
       <translation>HTML-Code</translation>
@@ -1115,16 +1127,16 @@
       <translation>Disattiva tracking online, sovrascrive la configurazione di sistema</translation>
     </message>
     <message>
+      <source>Try to detect language automatically</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Survey at the end of chat</source>
       <translation>Sondaggio al termine della chat</translation>
     </message>
     <message>
       <source>Product</source>
       <translation>Prodotto</translation>
-    </message>
-    <message>
-      <source>Show product selection based on selected departments</source>
-      <translation>Selezione prodotto in base ai dipartimenti selezionati</translation>
     </message>
     <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
@@ -1282,6 +1294,10 @@
     <message>
       <source>User is typing now...</source>
       <translation>Utente sta scrivendo...</translation>
+    </message>
+    <message>
+      <source>You are not chat owner, type with caution</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Change chat status</source>
@@ -1969,6 +1985,10 @@
       <translation>Prodotto</translation>
     </message>
     <message>
+      <source>Device</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Country</source>
       <translation>Nazione</translation>
     </message>
@@ -2033,6 +2053,18 @@
       <translation>Chat proprietario</translation>
     </message>
     <message>
+      <source>Computer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Smartphone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tablet</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
       <translation>NOn posso verificare. Assicurati che GEO verifica sia attiva.</translation>
     </message>
@@ -2065,8 +2097,8 @@
       <translation>Riapri la chat</translation>
     </message>
     <message>
-      <source>Select a canned message</source>
-      <translation>Seleziona un messaggio predefinito</translation>
+      <source>Type to search</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Fill textarea with canned message</source>
@@ -2083,6 +2115,10 @@
     <message>
       <source>Messages</source>
       <translation>Messaggi</translation>
+    </message>
+    <message>
+      <source>Select a canned message</source>
+      <translation>Seleziona un messaggio predefinito</translation>
     </message>
     <message>
       <source>has accepted the chat!</source>
@@ -2454,6 +2490,10 @@
   <context>
     <name>chat/startchat</name>
     <message>
+      <source>Enter your message</source>
+      <translation>Inserisci il tuo messaggio</translation>
+    </message>
+    <message>
       <source>Department is disabled</source>
       <translation>Dipartimento disattivato</translation>
     </message>
@@ -2462,12 +2502,16 @@
       <translation>E-Mail</translation>
     </message>
     <message>
+      <source>Enter your email address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Phone</source>
       <translation>Telefono</translation>
     </message>
     <message>
-      <source>Enter your message</source>
-      <translation>Inserisci il tuo messaggio</translation>
+      <source>Enter your phone</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Your question</source>
@@ -2480,6 +2524,10 @@
     <message>
       <source>Name</source>
       <translation>Nome</translation>
+    </message>
+    <message>
+      <source>Enter your name</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Live support is not available in your country</source>
@@ -2670,12 +2718,24 @@
       <translation>Visitatore</translation>
     </message>
     <message>
-      <source>Fill in the form to start a chat</source>
-      <translation>Compila questo modulo per avviare una chat</translation>
+      <source>Pending Chat</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Unread message</source>
       <translation>Messaggio non letto</translation>
+    </message>
+    <message>
+      <source>Transfer Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assigned Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Fill in the form to start a chat</source>
+      <translation>Compila questo modulo per avviare una chat</translation>
     </message>
   </context>
   <context>
@@ -2716,20 +2776,20 @@
   <context>
     <name>chat/user_settings</name>
     <message>
-      <source>Print</source>
-      <translation>Stampa</translation>
-    </message>
-    <message>
-      <source>Send chat transcript to your e-mail</source>
-      <translation>Invia la cronologia chat via e-mail</translation>
-    </message>
-    <message>
       <source>End the chat</source>
       <translation>Terminare la chat</translation>
     </message>
     <message>
       <source>Enable/Disable sound about new messages from the operator</source>
       <translation>Abilita/disabilita suono per i nuovi messaggi operatore</translation>
+    </message>
+    <message>
+      <source>Print</source>
+      <translation>Stampa</translation>
+    </message>
+    <message>
+      <source>Send chat transcript to your e-mail</source>
+      <translation>Invia la cronologia chat via e-mail</translation>
     </message>
     <message>
       <source>Change my visibility to visible/invisible</source>
@@ -3806,6 +3866,26 @@
       <translation>Sistema</translation>
     </message>
     <message>
+      <source>Show notification only if I am an owner pending chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You will stop receive notifications for pending chats if you are not an owner</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show notifications if I am offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You will not receive notifications if you are not online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show alert for new chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>File configuration</source>
       <translation>Configurazione files</translation>
     </message>
@@ -4085,6 +4165,14 @@
       <translation>Digita per cercare</translation>
     </message>
     <message>
+      <source>Select operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Compare to past</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Choose department</source>
       <translation>Scegli il dipartimento</translation>
     </message>
@@ -4127,6 +4215,10 @@
   </context>
   <context>
     <name>pagelayout/pagelayout</name>
+    <message>
+      <source>New unread message</source>
+      <translation>Nuovo messaggio non letto</translation>
+    </message>
     <message>
       <source>Empty...</source>
       <translation>Vuoto...</translation>
@@ -4290,10 +4382,6 @@
     <message>
       <source>Logout</source>
       <translation>Logout</translation>
-    </message>
-    <message>
-      <source>New unread message</source>
-      <translation>Nuovo messaggio non letto</translation>
     </message>
   </context>
   <context>
@@ -4654,6 +4742,10 @@
     <message>
       <source>All operators statistic will be downloaded</source>
       <translation>Tutte le statistiche di operatori saranno scaricate</translation>
+    </message>
+    <message>
+      <source>Please choose statistic parameters first!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Parameter</source>
@@ -5729,6 +5821,10 @@
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
       <translation>L&apos;utente può vedere tutte le chat in attesa, non solo quelle assegnatemi</translation>
+    </message>
+    <message>
+      <source>Notifications</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Personal canned messages</source>
@@ -7763,11 +7859,11 @@
     </message>
     <message>
       <source>Title for plain question</source>
-      <translation type="unfinished"/>
+      <translation>Titolo per la domanda statica</translation>
     </message>
     <message>
       <source>Title for custom questions</source>
-      <translation type="unfinished"/>
+      <translation>Titolo per domande personalizzate</translation>
     </message>
     <message>
       <source>Survey</source>
@@ -8216,11 +8312,11 @@
     </message>
     <message>
       <source>Collected information</source>
-      <translation type="unfinished"/>
+      <translation>Informazioni raccolte</translation>
     </message>
     <message>
       <source>Visitor was redirected to survey, you can now close this window.</source>
-      <translation type="unfinished"/>
+      <translation>Il visitatore è stato reindirizzato al sondaggio, ora è possibile chiudere questa finestra.</translation>
     </message>
   </context>
 </TS>

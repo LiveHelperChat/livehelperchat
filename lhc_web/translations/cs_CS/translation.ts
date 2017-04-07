@@ -14,6 +14,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Po kolik dní by se neměl hlasovací widget zvětšovat od posledního zobrazení</translation>
     </message>
@@ -697,12 +701,16 @@
       <translation>Náš tým je vždy k dispozici poskytnout vám pomoc</translation>
     </message>
     <message>
-      <source>Live help is offline...</source>
-      <translation>Online pomoc je nyní nedostupná...</translation>
-    </message>
-    <message>
       <source>Allow operator to see your page content?</source>
       <translation>Chcete umožnit operátorovi vidět obsah vámi zobrazené stránky?</translation>
+    </message>
+    <message>
+      <source>Live Help</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live help is offline...</source>
+      <translation>Online pomoc je nyní nedostupná...</translation>
     </message>
     <message>
       <source>Screen shared, click to finish</source>
@@ -849,6 +857,10 @@
   </context>
   <context>
     <name>system/htmlcode</name>
+    <message>
+      <source>Show product selection based on selected departments</source>
+      <translation>Zobrazit výběr výrobků založený na vybraném oddělení</translation>
+    </message>
     <message>
       <source>HTML code</source>
       <translation>HTML kód</translation>
@@ -1114,16 +1126,16 @@
       <translation>Vypnout online sledování, přepisuje systémové nastavení</translation>
     </message>
     <message>
+      <source>Try to detect language automatically</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Survey at the end of chat</source>
       <translation>Průzkum na konci rozhovoru</translation>
     </message>
     <message>
       <source>Product</source>
       <translation>Výrobek</translation>
-    </message>
-    <message>
-      <source>Show product selection based on selected departments</source>
-      <translation>Zobrazit výběr výrobků založený na vybraném oddělení</translation>
     </message>
     <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
@@ -1281,6 +1293,10 @@
     <message>
       <source>User is typing now...</source>
       <translation>Uživatel píše...</translation>
+    </message>
+    <message>
+      <source>You are not chat owner, type with caution</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Change chat status</source>
@@ -1968,6 +1984,10 @@
       <translation>Výrobek</translation>
     </message>
     <message>
+      <source>Device</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Country</source>
       <translation>Země</translation>
     </message>
@@ -2032,6 +2052,18 @@
       <translation>Vlastník rozhovoru</translation>
     </message>
     <message>
+      <source>Computer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Smartphone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tablet</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
       <translation>Nelze zjistit. Ujistěte se, že máte aktivní GEO zjišťování.</translation>
     </message>
@@ -2064,8 +2096,8 @@
       <translation>Znovuotevřít rozhovor</translation>
     </message>
     <message>
-      <source>Select a canned message</source>
-      <translation>Vyberte předdefinovanou zprávu</translation>
+      <source>Type to search</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Fill textarea with canned message</source>
@@ -2082,6 +2114,10 @@
     <message>
       <source>Messages</source>
       <translation>Zprávy</translation>
+    </message>
+    <message>
+      <source>Select a canned message</source>
+      <translation>Vyberte předdefinovanou zprávu</translation>
     </message>
     <message>
       <source>has accepted the chat!</source>
@@ -2453,6 +2489,10 @@
   <context>
     <name>chat/startchat</name>
     <message>
+      <source>Enter your message</source>
+      <translation>Napište text zprávy</translation>
+    </message>
+    <message>
       <source>Department is disabled</source>
       <translation>Oddělení je neaktivní</translation>
     </message>
@@ -2461,12 +2501,16 @@
       <translation>E-mail</translation>
     </message>
     <message>
+      <source>Enter your email address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Phone</source>
       <translation>Telefon</translation>
     </message>
     <message>
-      <source>Enter your message</source>
-      <translation>Napište text zprávy</translation>
+      <source>Enter your phone</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Your question</source>
@@ -2479,6 +2523,10 @@
     <message>
       <source>Name</source>
       <translation>Jméno</translation>
+    </message>
+    <message>
+      <source>Enter your name</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Live support is not available in your country</source>
@@ -2669,12 +2717,24 @@
       <translation>Návštěvník</translation>
     </message>
     <message>
-      <source>Fill in the form to start a chat</source>
-      <translation>Vyplňte formulář k zahájení rozhovoru</translation>
+      <source>Pending Chat</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Unread message</source>
       <translation>Nepřečtená zpráva</translation>
+    </message>
+    <message>
+      <source>Transfer Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assigned Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Fill in the form to start a chat</source>
+      <translation>Vyplňte formulář k zahájení rozhovoru</translation>
     </message>
   </context>
   <context>
@@ -2715,20 +2775,20 @@
   <context>
     <name>chat/user_settings</name>
     <message>
-      <source>Print</source>
-      <translation>Tisk</translation>
-    </message>
-    <message>
-      <source>Send chat transcript to your e-mail</source>
-      <translation>Odeslat přepis rozhovoru na Váš email</translation>
-    </message>
-    <message>
       <source>End the chat</source>
       <translation>Konec rozhovoru</translation>
     </message>
     <message>
       <source>Enable/Disable sound about new messages from the operator</source>
       <translation>Zapnout/vypnout zvukovou signalizaci nových zpráv od operátora</translation>
+    </message>
+    <message>
+      <source>Print</source>
+      <translation>Tisk</translation>
+    </message>
+    <message>
+      <source>Send chat transcript to your e-mail</source>
+      <translation>Odeslat přepis rozhovoru na Váš email</translation>
     </message>
     <message>
       <source>Change my visibility to visible/invisible</source>
@@ -3805,6 +3865,26 @@
       <translation>Systém</translation>
     </message>
     <message>
+      <source>Show notification only if I am an owner pending chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You will stop receive notifications for pending chats if you are not an owner</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show notifications if I am offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You will not receive notifications if you are not online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show alert for new chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>File configuration</source>
       <translation>Nastavení souborü</translation>
     </message>
@@ -4084,6 +4164,14 @@
       <translation>Pište pro hledání</translation>
     </message>
     <message>
+      <source>Select operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Compare to past</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Choose department</source>
       <translation>Zvolte oddělení</translation>
     </message>
@@ -4126,6 +4214,10 @@
   </context>
   <context>
     <name>pagelayout/pagelayout</name>
+    <message>
+      <source>New unread message</source>
+      <translation>Nová nepřečtená zpráva</translation>
+    </message>
     <message>
       <source>Empty...</source>
       <translation>Prázdné...</translation>
@@ -4289,10 +4381,6 @@
     <message>
       <source>Logout</source>
       <translation>Odhlásit se</translation>
-    </message>
-    <message>
-      <source>New unread message</source>
-      <translation>Nová nepřečtená zpráva</translation>
     </message>
   </context>
   <context>
@@ -4653,6 +4741,10 @@
     <message>
       <source>All operators statistic will be downloaded</source>
       <translation>Budou staženy statistiky všech operátorů</translation>
+    </message>
+    <message>
+      <source>Please choose statistic parameters first!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Parameter</source>
@@ -5728,6 +5820,10 @@
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
       <translation>Uživatel může vidět všechny čekající rozhovory, ne pouze ty přiřazené jemu</translation>
+    </message>
+    <message>
+      <source>Notifications</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Personal canned messages</source>
