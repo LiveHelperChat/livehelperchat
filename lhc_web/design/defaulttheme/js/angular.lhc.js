@@ -832,7 +832,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	        		}});        		
 	            }); 
 	        	
-	        }, 60*1000);  
+	        }, _that.timeoutActivityTime*1000);  
         }      
     };
 	
