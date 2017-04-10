@@ -20,6 +20,7 @@ class erLhcoreClassModelUser {
             'job_title' => $this->job_title,
             'time_zone' => $this->time_zone,
             'invisible_mode' => $this->invisible_mode,
+            'inactive_mode' => $this->inactive_mode,
             'xmpp_username' => $this->xmpp_username,
             'rec_per_req' => $this->rec_per_req,
             'session_id' => $this->session_id,
@@ -409,6 +410,7 @@ class erLhcoreClassModelUser {
     public $closed_chats_counter = 0;
     public $pending_chats_counter = 0;
     public $operation_admin = '';
+    public $inactive_mode = 0;
     
     public $attr_int_1 = 0;
     public $attr_int_2 = 0;

@@ -74,6 +74,11 @@ $def->properties['invisible_mode']->columnName   = 'invisible_mode';
 $def->properties['invisible_mode']->propertyName = 'invisible_mode';
 $def->properties['invisible_mode']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['inactive_mode'] = new ezcPersistentObjectProperty();
+$def->properties['inactive_mode']->columnName   = 'inactive_mode';
+$def->properties['inactive_mode']->propertyName = 'inactive_mode';
+$def->properties['inactive_mode']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['active_chats_counter'] = new ezcPersistentObjectProperty();
 $def->properties['active_chats_counter']->columnName   = 'active_chats_counter';
 $def->properties['active_chats_counter']->propertyName = 'active_chats_counter';

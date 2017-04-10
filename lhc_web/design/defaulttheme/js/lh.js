@@ -38,6 +38,9 @@ function lh(){
     this.operatorTyping = false;
     this.appendSyncArgument = '';
     
+    // Disable sync, is used in angular controllers before migration to new JS structure
+    this.disableSync = false;
+    
     // On chat hash and chat_id is based web user chating. Hash make sure chat security.
     this.chat_id = null;
     this.hash = null;

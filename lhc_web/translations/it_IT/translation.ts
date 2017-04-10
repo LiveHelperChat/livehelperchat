@@ -707,7 +707,7 @@
     </message>
     <message>
       <source>Live Help</source>
-      <translation type="unfinished"/>
+      <translation>Aiuto dal vivo</translation>
     </message>
     <message>
       <source>Live help is offline...</source>
@@ -1128,7 +1128,7 @@
     </message>
     <message>
       <source>Try to detect language automatically</source>
-      <translation type="unfinished"/>
+      <translation>Tenta di rilevare la lingua automaticamente</translation>
     </message>
     <message>
       <source>Survey at the end of chat</source>
@@ -1297,7 +1297,7 @@
     </message>
     <message>
       <source>You are not chat owner, type with caution</source>
-      <translation type="unfinished"/>
+      <translation>Non sei proprietario di chat, scrivi con cautela</translation>
     </message>
     <message>
       <source>Change chat status</source>
@@ -1986,7 +1986,7 @@
     </message>
     <message>
       <source>Device</source>
-      <translation type="unfinished"/>
+      <translation>Dispositivo</translation>
     </message>
     <message>
       <source>Country</source>
@@ -2054,15 +2054,15 @@
     </message>
     <message>
       <source>Computer</source>
-      <translation type="unfinished"/>
+      <translation>Computer</translation>
     </message>
     <message>
       <source>Smartphone</source>
-      <translation type="unfinished"/>
+      <translation>Smartphone</translation>
     </message>
     <message>
       <source>Tablet</source>
-      <translation type="unfinished"/>
+      <translation>Tablet</translation>
     </message>
     <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
@@ -2098,7 +2098,7 @@
     </message>
     <message>
       <source>Type to search</source>
-      <translation type="unfinished"/>
+      <translation>Scrivere per cercare</translation>
     </message>
     <message>
       <source>Fill textarea with canned message</source>
@@ -2503,7 +2503,7 @@
     </message>
     <message>
       <source>Enter your email address</source>
-      <translation type="unfinished"/>
+      <translation>Inserisci il tuo indirizzo e-mail</translation>
     </message>
     <message>
       <source>Phone</source>
@@ -2511,7 +2511,7 @@
     </message>
     <message>
       <source>Enter your phone</source>
-      <translation type="unfinished"/>
+      <translation>Inserisci il tuo telefono</translation>
     </message>
     <message>
       <source>Your question</source>
@@ -2527,7 +2527,7 @@
     </message>
     <message>
       <source>Enter your name</source>
-      <translation type="unfinished"/>
+      <translation>Inserisci il tuo nome</translation>
     </message>
     <message>
       <source>Live support is not available in your country</source>
@@ -2719,7 +2719,7 @@
     </message>
     <message>
       <source>Pending Chat</source>
-      <translation type="unfinished"/>
+      <translation>Chat in attesa</translation>
     </message>
     <message>
       <source>Unread message</source>
@@ -2727,11 +2727,11 @@
     </message>
     <message>
       <source>Transfer Chat</source>
-      <translation type="unfinished"/>
+      <translation>Trasferimento Chat</translation>
     </message>
     <message>
       <source>Assigned Chat</source>
-      <translation type="unfinished"/>
+      <translation>Chat assegnate</translation>
     </message>
     <message>
       <source>Fill in the form to start a chat</source>
@@ -3867,23 +3867,23 @@
     </message>
     <message>
       <source>Show notification only if I am an owner pending chat</source>
-      <translation type="unfinished"/>
+      <translation>Visualizza notifica solo se io sono un proprietario di chat in attesa</translation>
     </message>
     <message>
       <source>You will stop receive notifications for pending chats if you are not an owner</source>
-      <translation type="unfinished"/>
+      <translation>Si smetterà di ricevere notifiche per chat in attesa se non si è un proprietario</translation>
     </message>
     <message>
       <source>Show notifications if I am offline</source>
-      <translation type="unfinished"/>
+      <translation>Mostra notifiche se sono offline</translation>
     </message>
     <message>
       <source>You will not receive notifications if you are not online</source>
-      <translation type="unfinished"/>
+      <translation>Non riceverai notifiche se non si è online</translation>
     </message>
     <message>
       <source>Show alert for new chats</source>
-      <translation type="unfinished"/>
+      <translation>Visualizza avviso in alert per nuove chat</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -4166,11 +4166,11 @@
     </message>
     <message>
       <source>Select operator</source>
-      <translation type="unfinished"/>
+      <translation>Selezionare operatore</translation>
     </message>
     <message>
       <source>Compare to past</source>
-      <translation type="unfinished"/>
+      <translation>Confronta al passato</translation>
     </message>
     <message>
       <source>Choose department</source>
@@ -4745,7 +4745,7 @@
     </message>
     <message>
       <source>Please choose statistic parameters first!</source>
-      <translation type="unfinished"/>
+      <translation>Si prega di scegliere i parametri statistica prima!</translation>
     </message>
     <message>
       <source>Parameter</source>
@@ -5824,7 +5824,7 @@
     </message>
     <message>
       <source>Notifications</source>
-      <translation type="unfinished"/>
+      <translation>Notifiche</translation>
     </message>
     <message>
       <source>Personal canned messages</source>

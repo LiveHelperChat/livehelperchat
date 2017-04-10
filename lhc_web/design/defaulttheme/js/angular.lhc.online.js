@@ -95,6 +95,11 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
         };
         
 		this.updateList = function(){
+			
+			if (lhinst.disableSync == true) {			
+				return;
+			}
+			
 			OnlineUsersFactory.loadOnlineUsers({timeout: that.userTimeout,department : that.department, max_rows : that.maxRows}).then(function(data){
 							
 				that.onlineusers = data;

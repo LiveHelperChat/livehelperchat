@@ -105,6 +105,16 @@ $ViewList['setinvisible'] = array (
 		'params' => array('status')
 );
 
+$ViewList['setinactive'] = array (
+		'functions' => array( 'selfedit' ),
+		'params' => array('status')
+);
+
+$ViewList['wentinactive'] = array (
+		'functions' => array( 'selfedit' ),
+		'params' => array()
+);
+
 $ViewList['autologinconfig'] = array(
     'params' => array(),
     'uparams' => array('csfr'),

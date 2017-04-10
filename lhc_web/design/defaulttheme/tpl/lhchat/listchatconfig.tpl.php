@@ -143,6 +143,12 @@
     		    <?php $attribute = 'accept_chat_link_timeout'?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>	
     		    
+    		    <?php $attribute = 'activity_timeout'?>
+    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>	
+    		    
+    		    <?php $attribute = 'activity_track_all';$boolValue = true;?>
+    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>	
+    		    
     		    <?php $attribute = 'disable_print';$boolValue = true;?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
     		    		    

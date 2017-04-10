@@ -5014,6 +5014,14 @@
                 "extra": ""
             },
             {
+                "field": "inactive_mode",
+                "type": "tinyint(1)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "active_chats_counter",
                 "type": "int(11)",
                 "null": "NO",
@@ -5434,6 +5442,20 @@
                 "value": "1",
                 "type": "0",
                 "explain": "Show BB Code button",
+                "hidden": "0"
+            },
+            {
+                "identifier": "activity_timeout",
+                "value": "5",
+                "type": "0",
+                "explain": "How long operator should go offline automatically because of inactivity. Value in minutes",
+                "hidden": "0"
+            },
+            {
+                "identifier": "activity_track_all",
+                "value": "0",
+                "type": "0",
+                "explain": "Track all logged operators activity and ignore their individual settings.",
                 "hidden": "0"
             },
             {
