@@ -1,6 +1,6 @@
 <?php
 
-$Module = array( "name" => "Chat",
+$Module = array( "name" => "Canned Messages",
 				 'variable_params' => true );
 
 $ViewList = array();
