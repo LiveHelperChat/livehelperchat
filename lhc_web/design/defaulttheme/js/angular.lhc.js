@@ -792,9 +792,8 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 			_that.resetTimeoutActivity();
         }; 
                 
-        //this.addEvent(window,'mousemove',resetTimeout);     
-        //this.addEvent(document,'mousemove',resetTimeout);  
-        
+        this.addEvent(window,'mousemove',resetTimeout);     
+        this.addEvent(document,'mousemove',resetTimeout);
         this.addEvent(window,'mousedown',resetTimeout);
         this.addEvent(window,'click',resetTimeout);
         this.addEvent(window,'scroll',resetTimeout);        
