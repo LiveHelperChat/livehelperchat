@@ -2,8 +2,6 @@
 
 class erLhcoreClassPermission{
     
-    
-    
    function __construct()
    {
  

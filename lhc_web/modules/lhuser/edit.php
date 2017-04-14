@@ -11,6 +11,10 @@ try {
 
 $tpl->set('tab',$Params['user_parameters_unordered']['tab'] == 'canned' ? 'tab_canned' : '');
 
+$can_edit_groups = erLhcoreClassGroupRole::canEditUserGroups(erLhcoreClassUser::instance()->getUserData(), $UserData);
+
+$groups_can_edit = erLhcoreClassUser::instance()->hasAccessTo('lhuser', 'editusergroupall') == true ? true : erLhcoreClassGroupRole::getGroupsAccessedByUser(erLhcoreClassUser::instance()->getUserData());
+
 if (isset($_POST['Update_account']) || isset($_POST['Save_account'])) {
 	
 	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
@@ -18,7 +22,9 @@ if (isset($_POST['Update_account']) || isset($_POST['Save_account'])) {
 		exit;
 	}
 	
-	$Errors = erLhcoreClassUserValidator::validateUserEdit($UserData);
+	$params = array('can_edit_groups' => $can_edit_groups, 'groups_can_edit' => $groups_can_edit);
+	
+	$Errors = erLhcoreClassUserValidator::validateUserEdit($UserData, $params);
 	
     if ( isset($_POST['DeletePhoto']) ) {
     	$UserData->removeFile();
@@ -36,8 +42,10 @@ if (isset($_POST['Update_account']) || isset($_POST['Save_account'])) {
 
         erLhcoreClassUserDep::setHideOnlineStatus($UserData);
         
-		$UserData->setUserGroups();
-
+        if ($can_edit_groups == true) {
+            $UserData->setUserGroups();
+        }
+        
         $CacheManager = erConfigClassLhCacheConfig::getInstance();
         $CacheManager->expireCache();
        
@@ -52,8 +60,7 @@ if (isset($_POST['Update_account']) || isset($_POST['Save_account'])) {
 
     }  else {
         $tpl->set('errors',$Errors);
-    }
-    
+    }    
 }
 
 if (isset($_POST['UpdatePending_account'])) {
@@ -96,6 +103,11 @@ if (isset($_POST['UpdateDepartaments_account'])) {
    
 }
 
+
+$userGroupFilter = $groups_can_edit === true ? array() : array('filterin' => array('id' => $groups_can_edit));
+
+$tpl->set('user_groups_filter',$userGroupFilter);
+$tpl->set('can_edit_groups',$can_edit_groups);
 $tpl->set('user',$UserData);
 
 $Result['content'] = $tpl->fetch();

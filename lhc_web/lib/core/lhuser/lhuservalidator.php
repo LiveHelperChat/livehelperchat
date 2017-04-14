@@ -92,36 +92,38 @@ class erLhcoreClassUserValidator {
 			
 		} elseif ($params['user_edit'] && $params['user_edit'] == true) {
 			
-			if ( !$form->hasValidData( 'Username' ) || $form->Username == '') {
-				$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','Please enter a username');
-			} else {
-				
-				if($form->Username != $userData->username) {
-					
-					$userData->username = $form->Username;
-					
-					if(erLhcoreClassModelUser::userExists($userData->username) === true) {
-						$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','User exists');
-					}
-				}
-			}	
-			
-			if ( $form->hasValidData( 'Password' ) && $form->hasValidData( 'Password1' ) ) {
-			    $userData->password_temp_1 = $form->Password;
-			    $userData->password_temp_2 = $form->Password1;
-			}
-			
-			if ( $form->hasInputField( 'Password' ) && (!$form->hasInputField( 'Password1' ) || $form->Password != $form->Password1 ) ) {
-				$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','Passwords mismatch');
-			} else {
-				
-				if ($form->hasInputField( 'Password' ) && $form->hasInputField( 'Password1' ) && $form->Password != '' && $form->Password1 != '') {
-					$userData->setPassword($form->Password);
-					$userData->password_front = $form->Password;
-				}
-				
-			}
-			
+		    if ((isset($params['can_edit_groups']) && $params['can_edit_groups'] == true) || !isset($params['can_edit_groups'])) {
+    			if ( !$form->hasValidData( 'Username' ) || $form->Username == '') {
+    				$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','Please enter a username');
+    			} else {
+    				
+    				if($form->Username != $userData->username) {
+    					
+    					$userData->username = $form->Username;
+    					
+    					if(erLhcoreClassModelUser::userExists($userData->username) === true) {
+    						$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','User exists');
+    					}
+    				}
+    			}	
+    			
+    			if ( $form->hasValidData( 'Password' ) && $form->hasValidData( 'Password1' ) ) {
+    			    $userData->password_temp_1 = $form->Password;
+    			    $userData->password_temp_2 = $form->Password1;
+    			}
+    			
+    			if ( $form->hasInputField( 'Password' ) && (!$form->hasInputField( 'Password1' ) || $form->Password != $form->Password1 ) ) {
+    				$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','Passwords mismatch');
+    			} else {
+    				
+    				if ($form->hasInputField( 'Password' ) && $form->hasInputField( 'Password1' ) && $form->Password != '' && $form->Password1 != '') {
+    					$userData->setPassword($form->Password);
+    					$userData->password_front = $form->Password;
+    				}
+    				
+    			}
+		    }
+		    
 		}  else {
 			$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','User action type not set');
 		}
@@ -174,12 +176,6 @@ class erLhcoreClassUserValidator {
 			$userData->xmpp_username = '';
 		}
 		
-		if ( $form->hasValidData( 'UserDisabled' ) && $form->UserDisabled == true )	{
-			$userData->disabled = 1;
-		} else {
-			$userData->disabled = 0;
-		}
-		
 		if ( $form->hasValidData( 'HideMyStatus' ) && $form->HideMyStatus == true )	{
 			$userData->hide_online = 1;
 		} else {
@@ -198,10 +194,31 @@ class erLhcoreClassUserValidator {
 			$userData->rec_per_req = 0;
 		}
 		
-		if ( $form->hasValidData( 'DefaultGroup' ) ) {
-			$userData->user_groups_id = $form->DefaultGroup;
-		} else {
-			$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','Please choose a default user group');
+		if ((isset($params['can_edit_groups']) && $params['can_edit_groups'] == true) || !isset($params['can_edit_groups'])) {
+
+		    if ( $form->hasValidData( 'UserDisabled' ) && $form->UserDisabled == true )	{
+		        $userData->disabled = 1;
+		    } else {
+		        $userData->disabled = 0;
+		    }
+		    
+    		if ( $form->hasValidData( 'DefaultGroup' ) ) {
+    		    
+    		    if ($params['groups_can_edit'] == true) {
+    		        $userData->user_groups_id = $form->DefaultGroup;
+    		    } else {
+    		        $unknownGroups = array_diff($form->DefaultGroup, $params['groups_can_edit']);
+    		        
+    		        if (empty($unknownGroups)) {
+    		            $userData->user_groups_id = $form->DefaultGroup;
+    		        } else {
+    		            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','You are trying to assign group which are not known!');
+    		        }
+    		    }
+    		    
+    		} else {
+    			$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','Please choose a default user group');
+    		}
 		}
 		
 		return $Errors;
@@ -298,7 +315,6 @@ class erLhcoreClassUserValidator {
 		}
 		
 		return $Errors;
-		
 	}
 	
 	public static function validateUserNew(& $userData, & $params = array()) {
@@ -307,11 +323,11 @@ class erLhcoreClassUserValidator {
 		
 		$Errors = self::validateUser($userData, $params);
 		
-		if(isset($params['global_departament'])) {
+		if (isset($params['global_departament'])) {
 			$params['global_departament'] = self::validateDepartments($userData);
 		}
 		
-		if(isset($params['show_all_pending'])) {
+		if (isset($params['show_all_pending'])) {
 			$params['show_all_pending'] = self::validateShowAllPendingOption();
 		}
 		

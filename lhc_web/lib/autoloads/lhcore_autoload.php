@@ -59,6 +59,7 @@ return array_merge(array (
         'erLhcoreClassModelUserSession'     => 'lib/models/lhuser/erlhcoreclassmodelusersession.php',
 		'erLhcoreClassModelUserRemember' 	=> 'lib/models/lhuser/erlhcoreclassmodeluserremember.php',
         'erLhcoreClassModelGroup'           => 'lib/models/lhuser/erlhcoreclassmodelgroup.php',
+        'erLhcoreClassModelGroupWork'       => 'lib/models/lhuser/erlhcoreclassmodelgroupwork.php',
         'erLhcoreClassModelGroupUser'       => 'lib/models/lhuser/erlhcoreclassmodelgroupuser.php',
         'erLhcoreClassModelForgotPassword'  => 'lib/models/lhuser/erlhcoreclassmodelforgotpassword.php',
 

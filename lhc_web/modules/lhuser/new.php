@@ -7,9 +7,12 @@ $UserData = new erLhcoreClassModelUser();
 $UserDepartaments = isset($_POST['UserDepartament']) ? $_POST['UserDepartament'] : array();
 $userDepartamentsGroup = isset($_POST['UserDepartamentGroup']) ? $_POST['UserDepartamentGroup'] : array();
 
-$userParams = array('show_all_pending' => 1, 'global_departament' => array());
 
 $tpl->set('tab',$Params['user_parameters_unordered']['tab'] == 'canned' ? 'tab_canned' : '');
+
+$groups_can_edit = erLhcoreClassUser::instance()->hasAccessTo('lhuser', 'editusergroupall') == true ? true : erLhcoreClassGroupRole::getGroupsAccessedByUser(erLhcoreClassUser::instance()->getUserData());
+
+$userParams = array('show_all_pending' => 1, 'global_departament' => array(), 'groups_can_edit' => $groups_can_edit);
 
 if (isset($_POST['Update_account']))
 {
@@ -74,6 +77,9 @@ $tpl->set('user',$UserData);
 $tpl->set('userDepartaments',$UserDepartaments);
 $tpl->set('userDepartamentsGroup',$userDepartamentsGroup);
 $tpl->set('show_all_pending',$userParams['show_all_pending']);
+
+$userGroupFilter = $groups_can_edit === true ? array() : array('filterin' => array('id' => $groups_can_edit));
+$tpl->set('user_groups_filter',$userGroupFilter);
 
 $Result['content'] = $tpl->fetch();
 

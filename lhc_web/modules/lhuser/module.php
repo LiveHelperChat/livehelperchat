@@ -128,6 +128,7 @@ $FunctionList['deletegroup'] = array('explain' => 'Allow user to delete group');
 $FunctionList['createuser'] = array('explain' => 'Allow user to create another user');
 $FunctionList['deleteuser'] = array('explain' => 'Allow user to delete another user');
 $FunctionList['edituser'] = array('explain' => 'Allow user to edit another user');
+$FunctionList['editusergroupall'] = array('explain' => 'Allow user to edit another user groups even he is not a member of it.');
 $FunctionList['grouplist'] = array('explain' => 'Allow user to list group');
 $FunctionList['userlist'] = array('explain' => 'Allow user to list users');
 $FunctionList['selfedit'] = array('explain' => 'Allow user to edit his own data');
