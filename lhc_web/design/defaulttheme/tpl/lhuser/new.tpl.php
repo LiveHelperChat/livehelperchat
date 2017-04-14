@@ -33,12 +33,12 @@
 					
 		<div class="form-group">
 		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Password');?></label>
-		  <input type="password" class="form-control" name="Password" value="<?php echo htmlspecialchars(isset($user->password_temp_1) ? $user->password_temp_1 : '');?>" />
+		  <input type="password" class="form-control" autocomplete="new-password" name="Password" value="<?php echo htmlspecialchars(isset($user->password_temp_1) ? $user->password_temp_1 : '');?>" />
 		</div>
 		
 		<div class="form-group">
 		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Repeat the new password');?></label>
-		  <input type="password" class="form-control" name="Password1" value="<?php echo htmlspecialchars(isset($user->password_temp_2) ? $user->password_temp_2 : '');?>" />
+		  <input type="password" class="form-control" autocomplete="new-password" name="Password1" value="<?php echo htmlspecialchars(isset($user->password_temp_2) ? $user->password_temp_2 : '');?>" />
 		</div>
 		
 		<div class="form-group">
@@ -100,8 +100,9 @@
 		                    'input_name'     => 'DefaultGroup[]',
 		                    'selected_id'    => $user->user_groups_id,
 							'multiple' 		 => true,
-		                     'css_class'       => 'form-control',
-		                    'list_function'  => 'erLhcoreClassModelGroup::getList'
+		                    'css_class'       => 'form-control',
+		                    'list_function'  => 'erLhcoreClassModelGroup::getList',
+		                    'list_function_params'  => $user_groups_filter
 		            )); ?>
 		</div>
 		

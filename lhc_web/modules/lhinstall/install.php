@@ -1411,8 +1411,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 // Insert record to departament instantly
                 $db->query("INSERT INTO `lh_userdep` (`user_id`,`dep_id`,`last_activity`,`hide_online`,`last_accepted`,`active_chats`,`type`,`dep_group_id`) VALUES ({$UserData->id},0,0,0,0,0,0,0)");
 
-                
-                
+                $db->query("CREATE TABLE `lh_group_work` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `group_id` int(11) NOT NULL, `group_work_id` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `group_id` (`group_id`)) DEFAULT CHARSET=utf8;");
+
                 // Transfer chat
                 $db->query("CREATE TABLE IF NOT EXISTS `lh_transfer` (
 				  `id` int(11) NOT NULL AUTO_INCREMENT,

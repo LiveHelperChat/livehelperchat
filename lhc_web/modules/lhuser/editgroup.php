@@ -12,9 +12,12 @@ if (isset($_POST['Update_group']) )
         ),
         'Disabled' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
+        'MemberGroup' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'string', null, FILTER_REQUIRE_ARRAY
         )
     );
-
+   
     $form = new ezcInputForm( INPUT_POST, $definition );
     $Errors = array();
 
@@ -38,8 +41,12 @@ if (isset($_POST['Update_group']) )
     {
         $Group->name = $form->Name;
 
+        if ($form->hasValidData('MemberGroup') && !empty($form->MemberGroup)) {
+            erLhcoreClassGroupRole::assignGroupMembers($Group, $form->MemberGroup);
+        }
+        
         erLhcoreClassUser::getSession()->update($Group);
-
+        
         erLhcoreClassModule::redirect('user/grouplist');
         exit;
 
@@ -113,6 +120,8 @@ if (isset($_GET['adduser']))
 }
 
 $tpl->set('group',$Group);
+$tpl->set('group_work',erLhcoreClassModelGroupWork::getList(array('filter' => array('group_id' => $Group->id))));
+
 
 $Result['content'] = $tpl->fetch();
 

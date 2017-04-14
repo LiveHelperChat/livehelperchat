@@ -60,10 +60,10 @@
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Username');?></label> <input type="text" class="form-control" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Your username');?>" name="Username" value="<?php echo htmlspecialchars($user->username);?>" />
 			</div>
 			<div class="form-group">
-				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Password');?></label> <input type="password" class="form-control" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Enter a new password');?>" name="Password" value="<?php echo htmlspecialchars(isset($user->password_temp_1) ? $user->password_temp_1 : '');?>" />
+				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Password');?></label> <input autocomplete="new-password" type="password" class="form-control" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Enter a new password');?>" name="Password" value="<?php echo htmlspecialchars(isset($user->password_temp_1) ? $user->password_temp_1 : '');?>" />
 			</div>
 			<div class="form-group">
-				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Repeat password');?></label> <input type="password" class="form-control" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Repeat the new password');?>" name="Password1" value="<?php echo htmlspecialchars(isset($user->password_temp_2) ? $user->password_temp_2 : '');?>" />
+				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Repeat password');?></label> <input autocomplete="new-password" type="password" class="form-control" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Repeat the new password');?>" name="Password1" value="<?php echo htmlspecialchars(isset($user->password_temp_2) ? $user->password_temp_2 : '');?>" />
 			</div>
 			<div class="form-group">
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Email');?></label> <input type="text" class="form-control" value="<?php echo $user->email;?>" name="Email" placeholder="Your email address" id="email" class="required email valid">

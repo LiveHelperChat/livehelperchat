@@ -59,6 +59,68 @@ class erLhcoreClassGroupRole{
        erLhcoreClassRole::getSession()->delete($AssignedUser);
    }
 
+   public static function assignGroupMembers($group, $members)
+   {             
+       $currentGroups = erLhcoreClassModelGroupWork::getList(array('filter' => array('group_id' => $group->id)));
+       
+       $currentGroupsIds = array();
+       
+       foreach ($currentGroups as $currentGroup) {
+           $currentGroupsIds[] = $currentGroup->group_work_id;
+       }
+       
+       $groupsToAssign = array_diff($members, $currentGroupsIds);
+       
+       foreach ($groupsToAssign as $groupToAssign) {
+           $groupWork = new erLhcoreClassModelGroupWork();
+           $groupWork->group_id = $group->id;
+           $groupWork->group_work_id = $groupToAssign;
+           $groupWork->saveThis();
+       }
+       
+       $groupsToRemoveId = array_diff($currentGroupsIds, $members);
+       
+       if (!empty($groupsToRemoveId)) {
+            $groupsToRemove = erLhcoreClassModelGroupWork::getList(array('filterin' => array('group_work_id' => $groupsToRemoveId),'filter' => array('group_id' => $group->id)));
+            foreach ($groupsToRemove as $groupToRemove) {
+                $groupToRemove->removeThis();
+            }
+       }
+   }
+   
+   public static function getGroupsAccessedByUser($userEditing)
+   {
+       $groups = $userEditing->user_groups_id;
+       $groupsAccessed = erLhcoreClassModelGroupWork::getList(array('filterin' => array('group_id' => $groups)));
+       
+       foreach ($groupsAccessed as $groupAccessed) {
+           $groups[] = $groupAccessed->group_work_id;
+       }
+       
+       return array_unique($groups);
+   }
+   
+   public static function canEditUserGroups($userEditing, $userToEdit)
+   {
+       $accessArray = erLhcoreClassRole::accessArrayByUserID( $userEditing->id );
+       $canGlobalEdit = erLhcoreClassRole::canUseByModuleAndFunction($accessArray, 'lhuser', 'editusergroupall');
+       
+       if ($canGlobalEdit == true) {
+           return true;
+       }
+       
+       // Returns list of agroups user can work with
+       $groups = self::getGroupsAccessedByUser($userEditing);
+       
+       $groupsDifferences = array_diff($userToEdit->user_groups_id, $groups);
+       
+       // If user can access all groups
+       if (empty($groupsDifferences)){
+           return true;
+       }
+       
+       return false;
+   }
 
 }
 

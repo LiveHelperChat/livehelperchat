@@ -34,17 +34,17 @@
 	        
 	        <div class="form-group">
     		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Username');?></label>
-    		  <input class="form-control" type="text" name="Username" value="<?php echo htmlspecialchars($user->username);?>" />
+    		  <input <?php if ($can_edit_groups === false) : ?>disabled="disabled"<?php endif;?> class="form-control" type="text" name="Username" value="<?php echo htmlspecialchars($user->username);?>" />
     		</div>
     		
     		<div class="form-group">
         		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Password');?></label>
-        		<input type="password" class="form-control" name="Password" value="<?php echo htmlspecialchars(isset($user->password_temp_1) ? $user->password_temp_1 : '');?>" />
+        		<input autocomplete="new-password" type="password" <?php if ($can_edit_groups === false) : ?>disabled="disabled"<?php endif;?> class="form-control" name="Password" value="<?php echo htmlspecialchars(isset($user->password_temp_1) ? $user->password_temp_1 : '');?>" />
     		</div>
     		
     		<div class="form-group">
         		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Repeat the new password');?></label>
-        		<input type="password" class="form-control" name="Password1" value="<?php echo htmlspecialchars(isset($user->password_temp_2) ? $user->password_temp_2 : '');?>" />
+        		<input autocomplete="new-password" type="password" <?php if ($can_edit_groups === false) : ?>disabled="disabled"<?php endif;?> class="form-control" name="Password1" value="<?php echo htmlspecialchars(isset($user->password_temp_2) ? $user->password_temp_2 : '');?>" />
     		</div>
     		
     		<div class="form-group">
@@ -112,6 +112,7 @@
     		</div>
     		<?php endif;?>
     		
+    		<?php if ($can_edit_groups === true) : ?>
     		<div class="form-group">
         		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','User group')?></label>
         		<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
@@ -119,11 +120,13 @@
                         'selected_id'    => $user->user_groups_id,
     					'multiple' 		 => true,
         		        'css_class'       => 'form-control',
-                        'list_function'  => 'erLhcoreClassModelGroup::getList'
+                        'list_function'  => 'erLhcoreClassModelGroup::getList',
+                        'list_function_params'  => $user_groups_filter
                 )); ?>
     		</div>
     		
     		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Disabled')?>&nbsp;<input type="checkbox" value="on" name="UserDisabled" <?php echo $user->disabled == 1 ? 'checked="checked"' : '' ?> /></label><br>
+    		<?php endif; ?>
     		
     		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Do not show user status as online')?>&nbsp;<input type="checkbox" value="on" name="HideMyStatus" <?php echo $user->hide_online == 1 ? 'checked="checked"' : '' ?> /></label><br>
     		

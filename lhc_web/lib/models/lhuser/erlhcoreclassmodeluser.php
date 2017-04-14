@@ -358,7 +358,7 @@ class erLhcoreClassModelUser {
 	   	}
    }
 
-	public function setUserGroups() {
+   public function setUserGroups() {
    		
 		erLhcoreClassModelGroupUser::removeUserFromGroups($this->id);
 		
