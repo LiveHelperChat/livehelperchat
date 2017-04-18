@@ -130,6 +130,9 @@ function lh(){
     this.tabIconContent = 'face';
     this.tabIconClass = 'icon-user-status material-icons icon-user-online';
     
+    this.audio = new Audio();
+    this.audio.autoplay = 'autoplay';
+    
     this.addTab = function(tabs, url, name, chat_id, focusTab) {    
     	// If tab already exits return
     	if (tabs.find('#chat-tab-link-'+chat_id).size() > 0) {
@@ -1293,12 +1296,9 @@ function lh(){
 	this.playNewMessageSound = function() {
 
 	    if (Modernizr.audio) {
-    	    var audio = new Audio();
-    	    audio.autoplay = 'autoplay';
-            audio.src = Modernizr.audio.ogg ? WWW_DIR_JAVASCRIPT_FILES + '/new_message.ogg' :
+    	    this.audio.src = Modernizr.audio.ogg ? WWW_DIR_JAVASCRIPT_FILES + '/new_message.ogg' :
                         Modernizr.audio.mp3 ? WWW_DIR_JAVASCRIPT_FILES + '/new_message.mp3' : WWW_DIR_JAVASCRIPT_FILES + '/new_message.wav';
-
-            audio.load();
+    	    this.audio.load();
 	    };
 
 	    if(!$("textarea[name=ChatMessage]").is(":focus")) {
@@ -1307,33 +1307,18 @@ function lh(){
 	};
 
 	this.playInvitationSound = function() {
-
 		if (Modernizr.audio) {
-    	    var audio = new Audio();
-
-            audio.src = Modernizr.audio.ogg ? WWW_DIR_JAVASCRIPT_FILES + '/invitation.ogg' :
+    	    this.audio.src = Modernizr.audio.ogg ? WWW_DIR_JAVASCRIPT_FILES + '/invitation.ogg' :
                         Modernizr.audio.mp3 ? WWW_DIR_JAVASCRIPT_FILES + '/invitation.mp3' : WWW_DIR_JAVASCRIPT_FILES + '/invitation.wav';
-            audio.load();
-
-            setTimeout(function(){
-            	audio.play();
-            },500);
-
-
+    	    this.audio.load();
 	    }
 	};
 
 	this.playPreloadSound = function() {
-		if (Modernizr.audio) {
-    	    var audio = new Audio();
-
-            audio.src = Modernizr.audio.ogg ? WWW_DIR_JAVASCRIPT_FILES + '/silence.ogg' :
-                        Modernizr.audio.mp3 ? WWW_DIR_JAVASCRIPT_FILES + '/silence.mp3' : WWW_DIR_JAVASCRIPT_FILES + '/silence.wav';
-            audio.load();
-
-            setTimeout(function(){
-            	audio.play();
-            },500);
+		if (Modernizr.audio) { 		
+			this.audio.src = Modernizr.audio.ogg ? WWW_DIR_JAVASCRIPT_FILES + '/silence.ogg' :
+				Modernizr.audio.mp3 ? WWW_DIR_JAVASCRIPT_FILES + '/silence.mp3' : WWW_DIR_JAVASCRIPT_FILES + '/silence.wav';		
+            this.audio.load();
 	    }
 	};
 	
@@ -1484,15 +1469,11 @@ function lh(){
 		clearTimeout(this.soundIsPlaying);
 		this.soundPlayedTimes++;
 		if (Modernizr.audio) {
-			
-    	    var audio = new Audio();
-            audio.src = Modernizr.audio.ogg ? WWW_DIR_JAVASCRIPT_FILES + '/new_chat.ogg' :
+					
+			this.audio.src = Modernizr.audio.ogg ? WWW_DIR_JAVASCRIPT_FILES + '/new_chat.ogg' :
                         Modernizr.audio.mp3 ? WWW_DIR_JAVASCRIPT_FILES + '/new_chat.mp3' : WWW_DIR_JAVASCRIPT_FILES + '/new_chat.wav';
-            audio.load();
-            setTimeout(function(){
-            	audio.play();
-            },500);
-
+			this.audio.load();
+			
             if (confLH.repeat_sound > this.soundPlayedTimes) {
             	var inst = this;
             	this.soundIsPlaying = setTimeout(function(){inst.playNewChatAudio();},confLH.repeat_sound_delay*1000);
@@ -2684,6 +2665,15 @@ function lh(){
 
 var lhinst = new lh();
 lhinst.playPreloadSound();
+
+function preloadSound() {
+	lhinst.playPreloadSound();
+	jQuery(document).off("click", preloadSound);
+	jQuery(document).off("touchstart", preloadSound);
+}
+
+jQuery(document).on("click", preloadSound);
+jQuery(document).on("touchstart", preloadSound);
 
 function gMapsCallback(){
 
