@@ -41,6 +41,8 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
 				        	$chat->user_typing_txt = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat','Visitor has left the chat!'),ENT_QUOTES);
 				        }
 				        
+				        $explicitClosed = false;
+				        
 				        // User Closed Chat
 				        if ($Params['user_parameters_unordered']['eclose'] == 't') {
 				            $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT;
@@ -59,6 +61,8 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
 				            if ($chat->last_msg_id < $msg->id) {
 				               $chat->last_msg_id = $msg->id;
 				            }
+				            
+				            $explicitClosed = true;
 				        }
 				        
 				        if ( ($onlineuser = $chat->online_user) !== false) {
@@ -70,6 +74,10 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
 				        				        
 				        if ($chat->has_unread_messages == 1 && $chat->last_user_msg_time < (time() - 5)) {
 				            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.unread_chat',array('chat' => & $chat));
+				        }
+				        
+				        if ($explicitClosed == true) {
+				            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.explicitly_closed',array('chat' => & $chat));
 				        }
 				        
 			        $db->commit();
