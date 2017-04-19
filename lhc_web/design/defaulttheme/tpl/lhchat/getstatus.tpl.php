@@ -51,6 +51,7 @@ var lh_inst  = {
     survey_id : '<?php echo $survey !== false ? '/(survey)/' . $survey : ''?>',
     surveyShown : false,
     explicitClose : false,
+    dynamicAssigned : false,
     windowname : "startchatwindow",
 	substatus : '',
     cookieData : {},
@@ -449,11 +450,12 @@ var lh_inst  = {
     	
         this.timeoutInstance = setTimeout(function() {
             lh_inst.removeById('lhc_operator_message');
+            var dynamic = lh_inst.dynamicAssigned == true ? '/(dyn)/true' : '/(dyn)/false';
             var th = document.getElementsByTagName('head')[0];
             var s = document.createElement('script');
             s.setAttribute('id','lhc_operator_message');
             s.setAttribute('type','text/javascript');
-            s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+lh_inst.lang+'/chat/chatcheckoperatormessage<?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : '' ?><?= isset($currentPosition['full_height']) && $currentPosition['full_height'] ?  '/(fullheight)/true' : '/(fullheight)/false' ?>/(vid)/'+vid + lh_inst.survey_id + '/(uactiv)/'+lh_inst.userActive+'/(wopen)/'+lh_inst.timeoutStatusWidgetOpen+'?l='+locationCurrent+inst.tag+'&dt='+encodeURIComponent(document.title)+'&ts='+Date.now());
+            s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+lh_inst.lang+'/chat/chatcheckoperatormessage<?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : '' ?><?= isset($currentPosition['full_height']) && $currentPosition['full_height'] ?  '/(fullheight)/true' : '/(fullheight)/false' ?>/(vid)/'+vid + lh_inst.survey_id + '/(uactiv)/'+lh_inst.userActive+'/(wopen)/'+lh_inst.timeoutStatusWidgetOpen+dynamic+'?l='+locationCurrent+inst.tag+'&dt='+encodeURIComponent(document.title)+'&ts='+Date.now());
             th.appendChild(s);
             lh_inst.startNewMessageCheck();        
         }, <?php echo (int)(erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['check_for_operator_msg']*1000); ?> );
@@ -490,9 +492,11 @@ var lh_inst  = {
         var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));
         var tzOffset = this.getTzOffset();
         
+        var dynamic = this.dynamicAssigned == true ? '/(dyn)/true' : '/(dyn)/false';
+        
         s.setAttribute('id','lhc_operator_message');
         s.setAttribute('type','text/javascript');
-        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/chatcheckoperatormessage<?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : '' ?><?= isset($currentPosition['full_height']) && $currentPosition['full_height'] ?  '/(fullheight)/true' : '/(fullheight)/false' ?>/(tz)/' + tzOffset + this.survey_id + '/(count_page)/1/(vid)/'+vid+'/(uactiv)/'+lh_inst.userActive+'/(wopen)/'+lh_inst.timeoutStatusWidgetOpen+'?l='+locationCurrent+this.tag+this.parseStorageArguments()+this.parseOptionsOnline()+'&dt='+encodeURIComponent(document.title)+'&ts='+Date.now());
+        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/chatcheckoperatormessage<?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : '' ?><?= isset($currentPosition['full_height']) && $currentPosition['full_height'] ?  '/(fullheight)/true' : '/(fullheight)/false' ?>/(tz)/' + tzOffset + this.survey_id + '/(count_page)/1/(vid)/'+vid+'/(uactiv)/'+lh_inst.userActive+'/(wopen)/'+lh_inst.timeoutStatusWidgetOpen+dynamic+'?l='+locationCurrent+this.tag+this.parseStorageArguments()+this.parseOptionsOnline()+'&dt='+encodeURIComponent(document.title)+'&ts='+Date.now());
         th.appendChild(s);
     },
 

@@ -1600,6 +1600,14 @@
                 "extra": ""
             },
             {
+                "field": "dynamic_invitation",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "hide_after_ntimes",
                 "type": "int(11)",
                 "null": "NO",
@@ -6642,7 +6650,8 @@
     	},
     	"lh_abstract_proactive_chat_invitation" : {
     		"new" : {
-    			"tag" : "ALTER TABLE `lh_abstract_proactive_chat_invitation` ADD INDEX `tag` (`tag`);"
+    			"tag" : "ALTER TABLE `lh_abstract_proactive_chat_invitation` ADD INDEX `tag` (`tag`);",
+    			"dynamic_invitation" : "ALTER TABLE `lh_abstract_proactive_chat_invitation` ADD INDEX `dynamic_invitation` (`dynamic_invitation`);"
     		},
     		"old" : []
     	}

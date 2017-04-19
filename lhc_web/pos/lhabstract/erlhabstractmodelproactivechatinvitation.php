@@ -137,6 +137,10 @@ $def->properties['tag']->columnName   = 'tag';
 $def->properties['tag']->propertyName = 'tag';
 $def->properties['tag']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['dynamic_invitation'] = new ezcPersistentObjectProperty();
+$def->properties['dynamic_invitation']->columnName   = 'dynamic_invitation';
+$def->properties['dynamic_invitation']->propertyName = 'dynamic_invitation';
+$def->properties['dynamic_invitation']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 return $def;
 
