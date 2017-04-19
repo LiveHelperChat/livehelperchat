@@ -79,6 +79,7 @@ var lh_inst  = {
             var value = args[(i*2)+1];
             if (argument == 'survey_id') {
                 this.survey_id = '/(survey)/'+value;
+                this.hasSurvey = true;
             }
         }        
     },
