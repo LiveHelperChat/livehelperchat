@@ -3,7 +3,7 @@
 <head>
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_user.tpl.php'));?>
 <link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::designCSS('css/jquery-ui-1.10.4.custom.css');?>" />
-<script type="text/javascript" language="javascript" src="<?php echo erLhcoreClassDesign::designJS('js/jquery-ui-1.10.4.custom.min.js');?>"></script>
+<script type="text/javascript" src="<?php echo erLhcoreClassDesign::designJS('js/jquery-ui-1.10.4.custom.min.js');?>"></script>
 </head>
 <body>
 
@@ -29,7 +29,7 @@
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_footer_user.tpl.php'));?>
 </div>
 
-<script type="text/javascript" language="javascript" src="<?php echo erLhcoreClassDesign::designJS('js/angular.min.js');?>"></script>
+<script type="text/javascript" src="<?php echo erLhcoreClassDesign::designJS('js/angular.min.js');?>"></script>
 
 <?php if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) == true) {
 		$debug = ezcDebug::getInstance();
