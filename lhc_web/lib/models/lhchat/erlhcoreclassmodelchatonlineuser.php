@@ -583,8 +583,7 @@ class erLhcoreClassModelChatOnlineUser
     }
     
     public static function getDynamicInvitation($paramsHandle = array())
-    {
-        echo "console.log('WORKS')";      
+    {    
         return erLhAbstractModelProactiveChatInvitation::processProActiveInvitationDynamic($paramsHandle['online_user'], array('tag' => isset($paramsHandle['tag']) ? $paramsHandle['tag'] : ''));
     }
     

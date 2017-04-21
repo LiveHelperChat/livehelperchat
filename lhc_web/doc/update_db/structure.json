@@ -1608,6 +1608,22 @@
                 "extra": ""
             },
             {
+                "field": "iddle_for",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "event_type",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "hide_after_ntimes",
                 "type": "int(11)",
                 "null": "NO",

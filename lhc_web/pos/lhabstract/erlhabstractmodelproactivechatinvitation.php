@@ -137,10 +137,23 @@ $def->properties['tag']->columnName   = 'tag';
 $def->properties['tag']->propertyName = 'tag';
 $def->properties['tag']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+// Is it dynamic invitation
 $def->properties['dynamic_invitation'] = new ezcPersistentObjectProperty();
 $def->properties['dynamic_invitation']->columnName   = 'dynamic_invitation';
 $def->properties['dynamic_invitation']->propertyName = 'dynamic_invitation';
-$def->properties['dynamic_invitation']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+$def->properties['dynamic_invitation']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+// Mouse iddle timeout
+$def->properties['iddle_for'] = new ezcPersistentObjectProperty();
+$def->properties['iddle_for']->columnName   = 'iddle_for';
+$def->properties['iddle_for']->propertyName = 'iddle_for';
+$def->properties['iddle_for']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+// Dynamic event type
+$def->properties['event_type'] = new ezcPersistentObjectProperty();
+$def->properties['event_type']->columnName   = 'event_type';
+$def->properties['event_type']->propertyName = 'event_type';
+$def->properties['event_type']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
 return $def;
 

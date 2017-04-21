@@ -7,7 +7,17 @@ $tpl->set('referer','');
 $tpl->set('referer_site','');
 $tpl->set('theme',false);
 
-$userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('message_seen_timeout' => erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value, 'check_message_operator' => true, 'vid' => (string)$Params['user_parameters_unordered']['vid']));
+$checkMessage = true;
+if (is_numeric($Params['user_parameters_unordered']['inv'])){
+    $checkMessage = false;
+}
+
+$userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('message_seen_timeout' => erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value, 'check_message_operator' => $checkMessage, 'vid' => (string)$Params['user_parameters_unordered']['vid']));
+
+if (is_numeric($Params['user_parameters_unordered']['inv'])) {
+    erLhAbstractModelProactiveChatInvitation::setInvitation($userInstance, (int)$Params['user_parameters_unordered']['inv']);    
+}
+
 $tpl->set('visitor',$userInstance);
 
 $inputData = new stdClass();

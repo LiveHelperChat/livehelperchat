@@ -362,7 +362,7 @@ $ViewList['reopen'] = array(
 
 $ViewList['readoperatormessage'] = array(
     'params' => array(),
-    'uparams' => array('operator','theme','priority','vid','department','playsound','ua','survey','fullheight'),
+    'uparams' => array('operator','theme','priority','vid','department','playsound','ua','survey','fullheight','inv'),
 	'multiple_arguments' => array ( 'department', 'ua' )
 );
 

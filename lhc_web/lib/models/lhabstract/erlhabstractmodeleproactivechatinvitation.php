@@ -30,7 +30,9 @@ class erLhAbstractModelProactiveChatInvitation {
 			'operator_ids'	    => $this->operator_ids,
 			'requires_phone'	=> $this->requires_phone,
 			'tag' => $this->tag,
-			'dynamic_invitation' => $this->dynamic_invitation
+			'dynamic_invitation' => $this->dynamic_invitation,
+			'iddle_for' => $this->iddle_for,
+			'event_type' => $this->event_type
 		);
 			
 		return $stateArray;
@@ -272,16 +274,54 @@ class erLhAbstractModelProactiveChatInvitation {
    		                'hidden' => true,
            		        'validation_definition' => new ezcInputFormDefinitionElement(
            		            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
-   		        )),
+   		       )),
    		       'dynamic_invitation' => array(
-           		        'type' => 'text',
-           		        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','How many times repeat message?'),
-           		        'required' => true,
+           		        'type' => 'checkbox',
+           		        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','This is dynamic invitation'),
+           		        'required' => false,
    		                'hidden' => true,
            		        'validation_definition' => new ezcInputFormDefinitionElement(
-           		            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
-   		        )),
+           		            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+   		       )),  		    
+   		       'event_type' => array(
+           		        'type' => 'combobox',
+                    	'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Choose a dynamic event'),
+                    	'required' => false,
+                    	'hidden' => true,
+   		                'name_attr' => 'name',
+   		                'params_call' => array(),
+                    	'source' => 'erLhAbstractModelProactiveChatInvitation::getEventTypes',                    	
+                    	'validation_definition' => new ezcInputFormDefinitionElement(
+                    	    ezcInputFormDefinitionElement::OPTIONAL, 'int'
+               )),  		    
+   		       'iddle_for' => array(
+           		        'type' => 'text',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Show invitation if visitor is iddle for'),
+   						'required' => false,
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   			   )),  		    
    		);
+	}
+	
+	public static function getEventTypes()
+	{
+	    $items = array();
+	    
+	    $item = new stdClass();
+	    $item->id = 1;
+	    $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Mouse leaving browser window');
+	    
+	    $items[] = $item;
+	    
+	    $item = new stdClass();
+	    $item->id = 2;
+	    $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Visitor iddle for time in seconds');
+	     
+	    $items[] = $item;
+	    
+	    return $items;
 	}
 
 	public function getModuleTranslations()
@@ -457,8 +497,49 @@ class erLhAbstractModelProactiveChatInvitation {
 	    ->limit( 10 );
 
 	    $messagesToUser = $session->find( $q );
-
+	    
 	    return $messagesToUser;
+	}
+	
+	public static function setInvitation(erLhcoreClassModelChatOnlineUser & $item, $invitationId) {
+	    
+	    $message = self::fetch($invitationId);
+	    
+	    if ($item->total_visits == 1 || $message->message_returning == '') {
+	        $item->operator_message = $message->message;
+	    } else {
+	        if ($item->chat !== false && $item->chat->nick != '') {
+	            $nick = $item->chat->nick;
+	        } elseif ($message->message_returning_nick != '') {
+	            $nick = $message->message_returning_nick;
+	        } else {
+	            $nick = '';
+	        }
+	    
+	        $item->operator_message = str_replace('{nick}', $nick, $message->message_returning);
+	    }
+
+	    $item->operator_user_proactive = $message->operator_name;
+	    $item->invitation_id = $message->id;
+	    $item->invitation_seen_count = 0;
+	    $item->requires_email = $message->requires_email;
+	    $item->requires_username = $message->requires_username;
+	    $item->requires_phone = $message->requires_phone;
+	    $item->invitation_count++;
+	    $item->store_chat = true;
+	    $item->invitation_assigned = true;
+	    $item->last_visit = time();
+	    
+	    if ($message->show_random_operator == 1) {
+	        $item->operator_user_id = erLhcoreClassChat::getRandomOnlineUserID(array('operators' => explode(',',trim($message->operator_ids))));
+	    }
+	    
+	    $message->executed_times += 1;
+	    $message->updateThis();
+	    	
+	    $item->saveThis();
+	    
+	    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('onlineuser.proactive_triggered', array('message' => & $message, 'ou' => & $item));
 	}
 	
 	public static function processProActiveInvitation(erLhcoreClassModelChatOnlineUser & $item, $params = array()) {
@@ -559,6 +640,8 @@ class erLhAbstractModelProactiveChatInvitation {
 	public $operator_ids = '';
 	public $tag = '';
 	public $dynamic_invitation = 0;
+	public $iddle_for = 0;
+	public $event_type = 0;
 
 	public $hide_add = false;
 	public $hide_delete = false;
