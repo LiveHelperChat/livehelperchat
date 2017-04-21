@@ -63,7 +63,7 @@ try {
         }
     
         // User online
-        if ($chat->user_status != 0) {
+        if (/* $chat->user_status != 0 */1==1) {
 
         	$db = ezcDbInstance::get();
         	$db->beginTransaction();
@@ -95,11 +95,18 @@ try {
 	        		$onlineuser->reopen_chat = 0;
 	        		$onlineuser->saveThis();
 	        	}
-	        		        	
+
 	        	$chat->user_status = erLhcoreClassModelChat::USER_STATUS_JOINED_CHAT;
+
+	        	// Update nick if required
+	        	if (isset($_GET['prefill']['username']) && $chat->nick != $_GET['prefill']['username'] && $chat->nick == erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor')) {
+	        	    $chat->nick = $_GET['prefill']['username'];
+	        	    $chat->operation_admin .= "lhinst.updateVoteStatus(".$chat->id.");";
+	        	}
+
 	        	erLhcoreClassChat::getSession()->update($chat);
     	    }
-        	    
+    	            	    
         	$db->commit();
         };
 
