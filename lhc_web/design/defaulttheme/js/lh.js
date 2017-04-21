@@ -706,6 +706,7 @@ function lh(){
 
 	this.closeActiveChatDialog = function(chat_id, tabs, hidetab)
 	{
+			
 	    $.ajax({
 	        type: "POST",
 	        url: this.wwwDir + this.closechatadmin + chat_id,
@@ -718,15 +719,11 @@ function lh(){
 	    };
 
 	    if (hidetab == true) {
-	    				
-			var index = tabs.find('> ul > #chat-tab-li-'+chat_id).index();
-	    	tabs.find('> ul > #chat-tab-li-'+chat_id).remove();
-	    	tabs.find('#chat-id-'+chat_id).remove();	    	
-	    	var link = tabs.find('> ul > li:eq('+ (index - 1)+') > a');
-	    	link.tab('show');
+	    	    	
+	    	var location = this.smartTabFocus(tabs, chat_id);
 	    	
 	    	setTimeout(function() {
-	    		window.location.hash = link.attr('href').replace('#','#/');
+	    		window.location.hash =  location;
 	    	},500);
 	    	
 	        if (this.closeWindowOnChatCloseDelete == true)
@@ -744,7 +741,31 @@ function lh(){
 	    this.syncadmininterfacestatic();
 
 	};
-
+	
+	this.smartTabFocus = function(tabs, chat_id) {			
+		var index = tabs.find('> ul > #chat-tab-li-'+chat_id).index();
+    	tabs.find('> ul > #chat-tab-li-'+chat_id).remove();
+    	tabs.find('#chat-id-'+chat_id).remove();	    	
+    	var linkTab = tabs.find('> ul > li:eq('+ (index - 1)+')');
+    	  
+    	if (linkTab.attr('id') !== undefined){
+    		var link = linkTab.find('> a');
+    	} else {
+    		linkTabRight = tabs.find('> ul > li:eq('+ (index)+')');
+    		if (linkTabRight.size() > 0) {
+    			var link = linkTabRight.find('> a');
+    		} else {
+    			var link = linkTab.find('> a');
+    		}
+    	}
+    	
+    	if (!tabs.find('> ul > li.active').length) {
+    		link.tab('show');
+    	}
+    	
+    	return link.attr('href').replace('#','#/');
+	};
+	
 	this.startChatCloseTabNewWindow = function(chat_id, tabs, name)
 	{
 		window.open(this.wwwDir + 'chat/single/'+chat_id,'chatwindow-chat-id-'+chat_id,"menubar=1,resizable=1,width=800,height=650");
@@ -754,12 +775,8 @@ function lh(){
 	        url: this.wwwDir + 'chat/adminleftchat/' + chat_id,
 	        async: true
 	    });
-
-	    var index = tabs.find('> ul > #chat-tab-li-'+chat_id).index();
-    	tabs.find('> ul > #chat-tab-li-'+chat_id).remove();
-    	tabs.find('#chat-id-'+chat_id).remove();	    	
-    	tabs.find('> ul > li:eq('+ (index - 1)+')').addClass('active');
-    	tabs.find('> div.tab-content > div:eq(' + (index - 1) + ')').addClass("active");
+   	
+    	this.smartTabFocus(tabs, chat_id);
     	
         if (this.closeWindowOnChatCloseDelete == true)
         {
@@ -789,16 +806,10 @@ function lh(){
 		        async: true
 		    });
 	    	
-	    	var index = tabs.find('> ul > #chat-tab-li-'+chat_id).index();
-	    	tabs.find('> ul > #chat-tab-li-'+chat_id).remove();
-	    	tabs.find('#chat-id-'+chat_id).remove();	
-	    	
-	    	if (!tabs.find('> ul > li.active').length) {
-                tabs.find('> ul > li:eq(' + (index - 1) + ') > a').tab('show');             
-            }
+	    	var location = this.smartTabFocus(tabs, chat_id);
 	    	
 	    	setTimeout(function() {
-	    		window.location.hash = tabs.find('> ul > li:eq(' + (index - 1) + ') > a').attr('href').replace('#','#/');
+	    		window.location.hash = location;
 	    	},500);
 	    	
 	        if (this.closeWindowOnChatCloseDelete == true)
@@ -842,16 +853,11 @@ function lh(){
 	    });
 	    
 	     if (hidetab == true) {
-
-	        // Remove active tab
-			var index = tabs.find('> ul > #chat-tab-li-'+chat_id).index();
-	    	tabs.find('> ul > #chat-tab-li-'+chat_id).remove();
-	    	tabs.find('#chat-id-'+chat_id).remove();	    	
-	    	var link = tabs.find('> ul > li:eq('+ (index - 1)+') > a');
-	    	link.tab('show');
+   	
+	    	var location = this.smartTabFocus(tabs, chat_id);
 	    	
 	    	setTimeout(function() {
-	    		window.location.hash = link.attr('href').replace('#','#/');
+	    		window.location.hash = location;
 	    	},500);
 	    	
 	        if (this.closeWindowOnChatCloseDelete == true)
