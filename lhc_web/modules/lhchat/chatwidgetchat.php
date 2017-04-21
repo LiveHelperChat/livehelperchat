@@ -63,7 +63,7 @@ try {
         }
     
         // User online
-        if (/* $chat->user_status != 0 */1==1) {
+        if ( $chat->user_status != 0) {
 
         	$db = ezcDbInstance::get();
         	$db->beginTransaction();
