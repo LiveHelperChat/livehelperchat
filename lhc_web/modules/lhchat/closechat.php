@@ -15,12 +15,19 @@ if ($chat->user_id == $currentUser->getUserID() || $currentUser->hasAccessTo('lh
 		exit;
 	}
 	
+	$db = ezcDbInstance::get();
+	$db->beginTransaction();
+	
+	$chat->syncAndLock();
+	
 	$userData = $currentUser->getUserData(true);
 	
 	erLhcoreClassChatHelper::closeChat(array(
 	   'user' => $userData,
 	   'chat' => $chat,
 	));
+	
+	$db->commit();
 }
 
 CSCacheAPC::getMem()->removeFromArray('lhc_open_chats', (int)$Params['user_parameters']['chat_id']);

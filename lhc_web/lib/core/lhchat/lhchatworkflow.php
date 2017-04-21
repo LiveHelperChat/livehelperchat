@@ -361,11 +361,11 @@ class erLhcoreClassChatWorkflow {
         	    	}
 	    	    }
 	    	    
+	    	    if ($user_id > 0) {
+	    	        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed_auto_assign',array('chat' => & $chat));
+	    	    }
+	    	    
     	    	$db->commit();
-    	    	
-    	    	if ($user_id > 0) {
-    	    	    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed_auto_assign',array('chat' => & $chat));
-    	    	}
     	    	
 	    	} catch (Exception $e) {
 	    	    $db->rollback();

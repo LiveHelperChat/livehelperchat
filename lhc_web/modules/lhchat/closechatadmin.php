@@ -15,6 +15,11 @@ if ($chat->user_id == $currentUser->getUserID() || $currentUser->hasAccessTo('lh
 {
 	if ($chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
 
+	    $db = ezcDbInstance::get();
+	    $db->beginTransaction();
+	    
+	    $chat->syncAndLock();
+	    
 	    $chat->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
 	    $chat->chat_duration = erLhcoreClassChat::getChatDurationToUpdateChatID($chat->id);
 	    $chat->has_unread_messages = 0;
@@ -39,6 +44,8 @@ if ($chat->user_id == $currentUser->getUserID() || $currentUser->hasAccessTo('lh
 	    
 	    // Execute callback for close chat
 	    erLhcoreClassChat::closeChatCallback($chat,$userData);	   
+	    
+	    $db->commit();
 	}
 }
 

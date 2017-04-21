@@ -34,6 +34,11 @@ try {
 
     if ($chat->hash === $Params['user_parameters']['hash']) {
 
+        $db = ezcDbInstance::get();
+        $db->beginTransaction();
+         
+        $chat->syncAndLock();
+        
     	// Main unasnwered chats callback
     	if ( $chat->na_cb_executed == 0 && $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && erLhcoreClassModelChatConfig::fetch('run_unaswered_chat_workflow')->current_value > 0) {    		
     		$delay = time()-(erLhcoreClassModelChatConfig::fetch('run_unaswered_chat_workflow')->current_value*60);    		
@@ -132,8 +137,10 @@ try {
 	    	}
 	    }
 	    
-	    
 	    $tpl->set('chat', $chat);
+	    
+	    $db->commit();
+	    
     }
 
 } catch (Exception $e) {

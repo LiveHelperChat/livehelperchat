@@ -13,6 +13,8 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 		$db = ezcDbInstance::get();
 		$db->beginTransaction();
 
+		    $chat->syncAndLock();
+		
 		    // User closed chat
 		    $chat->user_status = erLhcoreClassModelChat::USER_STATUS_CLOSED_CHAT;
 		    $chat->support_informed = 1;
