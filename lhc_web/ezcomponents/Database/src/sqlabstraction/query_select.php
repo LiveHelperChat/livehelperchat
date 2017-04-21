@@ -123,6 +123,9 @@ class ezcQuerySelect extends ezcQuery
      */
     protected $lastInvokedMethod = null;
 
+    
+    protected $lockString = null;
+    
     /**
      * Constructs a new ezcQuery object.
      *
@@ -861,6 +864,14 @@ class ezcQuerySelect extends ezcQuery
     }
 
     /**
+     * Appends lock query
+     */
+    public function doLock()
+    {
+        $this->lockString = 'FOR UPDATE';
+    }
+    
+    /**
      * Returns dummy table name.
      *
      * If your select query just evaluates an expression
@@ -927,6 +938,12 @@ class ezcQuerySelect extends ezcQuery
         {
             $query = "{$query} {$this->limitString}";
         }
+        
+        if ( $this->lockString != null )
+        {
+            $query = "{$query} {$this->lockString}";
+        }
+                
         return $query;
     }
 

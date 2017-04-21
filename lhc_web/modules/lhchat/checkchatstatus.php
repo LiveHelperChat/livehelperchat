@@ -30,15 +30,13 @@ if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_p
 $responseArray = array();
 
 try {
-    $chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['chat_id']);
+    
+    $db = ezcDbInstance::get();
+    $db->beginTransaction();
+    
+    $chat = erLhcoreClassModelChat::fetchAndLock($Params['user_parameters']['chat_id']);
 
-    if ($chat->hash === $Params['user_parameters']['hash']) {
-
-        $db = ezcDbInstance::get();
-        $db->beginTransaction();
-         
-        $chat->syncAndLock();
-        
+    if ($chat->hash === $Params['user_parameters']['hash']) {        
     	// Main unasnwered chats callback
     	if ( $chat->na_cb_executed == 0 && $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && erLhcoreClassModelChatConfig::fetch('run_unaswered_chat_workflow')->current_value > 0) {    		
     		$delay = time()-(erLhcoreClassModelChatConfig::fetch('run_unaswered_chat_workflow')->current_value*60);    		
@@ -138,12 +136,11 @@ try {
 	    }
 	    
 	    $tpl->set('chat', $chat);
-	    
-	    $db->commit();
-	    
     }
-
+    
+    $db->commit();
 } catch (Exception $e) {
+    $db->rollback();
     exit;
 }
 

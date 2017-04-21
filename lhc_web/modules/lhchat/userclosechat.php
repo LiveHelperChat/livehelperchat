@@ -1,7 +1,11 @@
 <?php
 
+
+$db = ezcDbInstance::get();
+$db->beginTransaction();
+
 try {
-    $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
+    $chat = erLhcoreClassModelChat::fetchAndLock($Params['user_parameters']['chat_id']);
 } catch (Exception $e) {
     $chat = false;
 }
@@ -10,11 +14,6 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 {
 	if ($chat->user_status != 1) {
 
-		$db = ezcDbInstance::get();
-		$db->beginTransaction();
-
-		    $chat->syncAndLock();
-		
 		    // User closed chat
 		    $chat->user_status = erLhcoreClassModelChat::USER_STATUS_CLOSED_CHAT;
 		    $chat->support_informed = 1;
@@ -59,8 +58,6 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 
 	    $db->commit();
 	}
-
-
 }
 
 echo json_encode(array('error' => 'false', 'result' => 'ok'));

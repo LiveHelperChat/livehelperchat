@@ -32,8 +32,10 @@ if ($Params['user_parameters_unordered']['cstarted'] !== null && $Params['user_p
 }
 
 try {
-
-    $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
+    $db = ezcDbInstance::get();
+    $db->beginTransaction();
+    
+    $chat = erLhcoreClassModelChat::fetchAndLock($Params['user_parameters']['chat_id']);
 
     erLhcoreClassChat::setTimeZoneByChat($chat);
  
@@ -61,15 +63,10 @@ try {
             $args = erLhcoreClassChatHelper::getSubStatusArguments($chat);
             $Result['parent_messages'][] = 'lhc_chat_closed' . ($args != '' ? ':' . $args : '');
         }
-    
+
         // User online
         if ( $chat->user_status != 0) {
 
-        	$db = ezcDbInstance::get();
-        	$db->beginTransaction();
-	        	
-        	$chat->syncAndLock();
-        	    
     	    if ($chat->user_status != 0) {
 	        	$chat->support_informed = 1;
 	        	$chat->user_typing = time();// Show for shorter period these status messages
@@ -106,18 +103,21 @@ try {
 
 	        	erLhcoreClassChat::getSession()->update($chat);
     	    }
-    	            	    
-        	$db->commit();
         };
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chatwidgetchat',array('result' => & $Result , 'tpl' => & $tpl, 'params' => & $Params, 'chat' => & $chat));
+        
+        $db->commit();
+        
     } else {
         $tpl->setFile( 'lhchat/errors/chatnotexists.tpl.php');
     }
 
 } catch(Exception $e) {
+    $db->rollback();
    $tpl->setFile('lhchat/errors/chatnotexists.tpl.php');
 }
+
 if (isset($Params['user_parameters_unordered']['fullheight']) && $Params['user_parameters_unordered']['fullheight'] == 'true') {
     $Result['fullheight'] = true;
     $tpl->set('fullheight', true);
@@ -125,6 +125,7 @@ if (isset($Params['user_parameters_unordered']['fullheight']) && $Params['user_p
     $Result['fullheight'] = false;
     $tpl->set('fullheight', false);
 }
+
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'widget';
 $Result['pagelayout_css_append'] = 'widget-chat';

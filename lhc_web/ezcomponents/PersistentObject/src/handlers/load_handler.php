@@ -42,7 +42,17 @@ class ezcPersistentLoadHandler extends ezcPersistentSessionHandler
 
         return $object;
     }
+    
+    public function loadAndLock( $class, $id )
+    {
+        $def    = $this->definitionManager->fetchDefinition( $class );
+        $object = new $def->class;
 
+        $this->loadIntoObject( $object, $id, true);
+
+        return $object;
+    }
+    
     /**
      * Returns the persistent object of class $class with id $id.
      *
@@ -86,7 +96,7 @@ class ezcPersistentLoadHandler extends ezcPersistentSessionHandler
      * @param object $object
      * @param int $id
      */
-    public function loadIntoObject( $object, $id )
+    public function loadIntoObject( $object, $id, $lock = false )
     {
         $def = $this->definitionManager->fetchDefinition(
             get_class( $object ) 
@@ -105,6 +115,11 @@ class ezcPersistentLoadHandler extends ezcPersistentSessionHandler
             )
         );
 
+        // This is lock query
+        if ($lock === true) {
+            $q->doLock();
+        }
+                
         // Execute and fetch rows.
         $stmt = $this->session->performQuery( $q );
         $row  = $stmt->fetch( PDO::FETCH_ASSOC );

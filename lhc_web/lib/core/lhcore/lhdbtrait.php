@@ -46,9 +46,9 @@ trait erLhcoreClassDBTrait {
 	    
 	    $data = $stmt->fetch(PDO::FETCH_ASSOC);
 	    
-	    $this->setState($data);	    
+	    $this->setState($data);	
 	}
-	
+		
 	public function beforeSave() {
 	
 	}
@@ -128,6 +128,19 @@ trait erLhcoreClassDBTrait {
 	
 		return $GLOBALS[__CLASS__.$id];
 		
+	}
+	
+	public static function fetchAndLock($id, $useCache = true)
+	{
+	    if (isset($GLOBALS[__CLASS__.$id]) && $useCache == true) return $GLOBALS[__CLASS__.$id];
+	    
+	    try {
+	        $GLOBALS[__CLASS__.$id] = self::getSession()->loadAndLock( __CLASS__, $id );
+	    } catch (Exception $e) {
+	        $GLOBALS[__CLASS__.$id] = false;
+	    }
+	    
+	    return $GLOBALS[__CLASS__.$id];
 	}
 	
 	/**

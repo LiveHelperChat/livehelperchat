@@ -2,8 +2,10 @@
 
 $tpl = erLhcoreClassTemplate::getInstance('lhchat/adminchat.tpl.php');
 
-$chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
-$tpl->set('chat',$chat);
+$db = ezcDbInstance::get();
+$db->beginTransaction();
+
+$chat = erLhcoreClassModelChat::fetchAndLock($Params['user_parameters']['chat_id']);
 
 if ( erLhcoreClassChat::hasAccessToRead($chat) )
 {
@@ -14,14 +16,9 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
 	}
 	
 	if ($userData->invisible_mode == 0) {	
-		
-	    $db = ezcDbInstance::get();
-	    
+		  
 	    try {
-	        $db->beginTransaction();
-	        
-	        $chat->syncAndLock();
-	    
+	        	    
     		$operatorAccepted = false;
     		$chatDataChanged = false;
     		
@@ -77,7 +74,8 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
     	    }
     
     	    erLhcoreClassChat::getSession()->update($chat);
-    		    	    
+    		 
+    	    $tpl->set('chat',$chat);
     	    echo $tpl->fetch();	  
     	    flush();	    	    
     	    session_write_close();	  
@@ -110,6 +108,7 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
 	        echo $e->getMessage();
 	    }
 	} else {
+	    $tpl->set('chat',$chat);
 	    echo $tpl->fetch();
 	}
 

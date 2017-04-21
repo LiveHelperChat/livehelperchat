@@ -24,13 +24,13 @@ if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value
 if ($Params['user_parameters_unordered']['hash'] != '') {
     list($chatID,$hash) = explode('_',$Params['user_parameters_unordered']['hash']);
     try {
-	        $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $chatID);
+	        
+            $db = ezcDbInstance::get();
+            $db->beginTransaction();
+            
+            $chat = erLhcoreClassModelChat::fetchAndLock($chatID);
+    	        
 	        if ($chat->hash == $hash &&  $chat->user_status != 1) {	                
-
-	                $db = ezcDbInstance::get();
-		        	$db->beginTransaction();
-		        	
-		        	    $chat->syncAndLock();
 		        	
 				        // User closed chat
 				        $chat->user_status = erLhcoreClassModelChat::USER_STATUS_CLOSED_CHAT;
@@ -81,16 +81,9 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
 				        if ($explicitClosed == true) {
 				            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.explicitly_closed',array('chat' => & $chat));
 				        }
-				        
-			        $db->commit();
 	        
 	        } elseif ($chat->hash == $hash && $Params['user_parameters_unordered']['eclose'] == 't' && $chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT) {
-	            
-	            $db = ezcDbInstance::get();
-	            $db->beginTransaction();
-	            
-	                $chat->syncAndLock();
-	               
+	                  	                	               
                     // From now chat will be closed explicitly
                     $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT;
 
@@ -116,10 +109,12 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
                     }
 
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.explicitly_closed',array('chat' => & $chat));
-                    
-                $db->commit();
 	        }
+	        
+	        $db->commit();
+	        
     } catch (Exception $e) {
+        $db->rollback();
         // Do nothing
     }
 }

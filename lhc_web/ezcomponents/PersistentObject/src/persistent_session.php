@@ -68,7 +68,25 @@ class ezcPersistentSession implements ezcPersistentSessionFoundation
     {
         return $this->loadHandler->load( $class, $id );
     }
-
+    
+    /**
+     * Returns the persistent object of class $class with id $id. Also locks the record itself.
+     *
+     * @throws ezcPersistentObjectException
+     *         if the object is not available.
+     * @throws ezcPersistentObjectException
+     *         if there is no such persistent class.
+     *
+     * @param string $class
+     * @param int $id
+     *
+     * @return object
+     */
+    public function loadAndLock( $class, $id )
+    {
+        return $this->loadHandler->loadAndLock( $class, $id );
+    }
+       
     /**
      * Returns the persistent object of class $class with id $id.
      *

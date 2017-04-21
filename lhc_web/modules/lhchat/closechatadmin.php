@@ -8,17 +8,15 @@ if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_S
 	exit;
 }
 
-$chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
+$db = ezcDbInstance::get();
+$db->beginTransaction();
+
+$chat = erLhcoreClassModelChat::fetchAndLock($Params['user_parameters']['chat_id']);
 
 // Chat can be closed only by owner
 if ($chat->user_id == $currentUser->getUserID() || $currentUser->hasAccessTo('lhchat','allowcloseremote'))
 {
 	if ($chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
-
-	    $db = ezcDbInstance::get();
-	    $db->beginTransaction();
-	    
-	    $chat->syncAndLock();
 	    
 	    $chat->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
 	    $chat->chat_duration = erLhcoreClassChat::getChatDurationToUpdateChatID($chat->id);
@@ -43,11 +41,11 @@ if ($chat->user_id == $currentUser->getUserID() || $currentUser->hasAccessTo('lh
 	    }
 	    
 	    // Execute callback for close chat
-	    erLhcoreClassChat::closeChatCallback($chat,$userData);	   
-	    
-	    $db->commit();
+	    erLhcoreClassChat::closeChatCallback($chat,$userData);
 	}
 }
+
+$db->commit();
 
 CSCacheAPC::getMem()->removeFromArray('lhc_open_chats', (int)$Params['user_parameters']['chat_id']);
 

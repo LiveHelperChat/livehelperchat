@@ -149,7 +149,7 @@ class erLhcoreClassModelChat {
        
        erLhcoreClassModelChatFile::deleteByChatId($this->id);
    }
-   
+
    public function afterRemove()
    {
        erLhcoreClassChat::updateActiveChats($this->user_id);
