@@ -18,6 +18,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>NodeJS support enabled</source>
+      <translation>תמיכה NodeJS</translation>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>List online operators, 0 - no, 1 - yes.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide &apos;New Window&apos; option in Connector Widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>כמה ימים אשף ההצבעה לא יוצג אחרי מופע אחרון?</translation>
     </message>
@@ -94,8 +110,8 @@
       <translation>socket.io נתיב, אופציונלי</translation>
     </message>
     <message>
-      <source>NodeJS support enabled</source>
-      <translation>תמיכה NodeJS</translation>
+      <source>NodeJs support enabled</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Do not ask permission for users to see their screen</source>
@@ -166,7 +182,7 @@
       <translation>אורך ההודעה המרבי של תווים</translation>
     </message>
     <message>
-      <source>List online operators, 0 - no, 1 - yes.</source>
+      <source>List online operators.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -218,7 +234,7 @@
       <translation>חסום אפשרות להדפסת שיחה</translation>
     </message>
     <message>
-      <source>Hide &apos;New Window&apos; option in Connector Widget</source>
+      <source>Disable option in widget to open new window. Restore icon will be hidden</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -276,6 +292,14 @@
     <message>
       <source>Allow user to reopen closed chats?</source>
       <translation>לאפשר למשתמש לפתוח חלון צ&apos;אט שנסגר ?</translation>
+    </message>
+    <message>
+      <source>Track all logged operators activity and ignore their individual settings.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How long operator should go offline automatically because of inactivity. Value in minutes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Change to your site Terms of Service</source>
@@ -1525,6 +1549,10 @@
     <message>
       <source>Delay in seconds</source>
       <translation>עיכוב בשניות</translation>
+    </message>
+    <message>
+      <source>Tag&apos;s</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Canned messages</source>
@@ -3882,6 +3910,34 @@
     </message>
     <message>
       <source>Show alert for new chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Activity tracking is set at global level. Your settings will be be ignored. Timeout value still will be taken from your account settings.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Change my online/offline status based on my activity</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>After certain period of time if no actions are detected you will be marked as offline automatically</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose timeout value</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Select after how long of inactivity you will be marked as offline automatically</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use default system value</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>minutes</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8315,6 +8371,25 @@
     </message>
     <message>
       <source>Visitor was redirected to survey, you can now close this window.</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>user/wentinactive</name>
+    <message>
+      <source>Because of inactivity you went offline, click continue to go online.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Continue</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Logout</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline</source>
       <translation type="unfinished"/>
     </message>
   </context>

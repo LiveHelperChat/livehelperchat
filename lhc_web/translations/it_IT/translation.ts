@@ -18,6 +18,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>NodeJS support enabled</source>
+      <translation>Supporto NodeJS abilitato</translation>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>List online operators, 0 - no, 1 - yes.</source>
+      <translation>Elencare operatori online, 0 - no, 1 - si.</translation>
+    </message>
+    <message>
+      <source>Hide &apos;New Window&apos; option in Connector Widget</source>
+      <translation>Nascondi l&apos;opzione &apos;Nuova finestra&apos; nel Connettore Widget</translation>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Per quanti giorni il widget di voto non deve essere mostrato dopo l&apos;ultima visualizzazione</translation>
     </message>
@@ -94,8 +110,8 @@
       <translation>Socket.io percorso, opzionale</translation>
     </message>
     <message>
-      <source>NodeJS support enabled</source>
-      <translation>Supporto NodeJS abilitato</translation>
+      <source>NodeJs support enabled</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Do not ask permission for users to see their screen</source>
@@ -166,8 +182,8 @@
       <translation>Lunghezza massima messaggio in caratteri</translation>
     </message>
     <message>
-      <source>List online operators, 0 - no, 1 - yes.</source>
-      <translation>Elencare operatori online, 0 - no, 1 - si.</translation>
+      <source>List online operators.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Inform visitor about unread messages from operator, value in minutes. 0 - disabled</source>
@@ -218,8 +234,8 @@
       <translation>Disabilita stampa della chat</translation>
     </message>
     <message>
-      <source>Hide &apos;New Window&apos; option in Connector Widget</source>
-      <translation>Nascondi l&apos;opzione &apos;Nuova finestra&apos; nel Connettore Widget</translation>
+      <source>Disable option in widget to open new window. Restore icon will be hidden</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Disable JS execution in Co-Browsing operator window</source>
@@ -276,6 +292,14 @@
     <message>
       <source>Allow user to reopen closed chats?</source>
       <translation>Consentire all&apos;utente di riaprire chat chiuse?</translation>
+    </message>
+    <message>
+      <source>Track all logged operators activity and ignore their individual settings.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How long operator should go offline automatically because of inactivity. Value in minutes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Change to your site Terms of Service</source>
@@ -1526,6 +1550,10 @@
     <message>
       <source>Delay in seconds</source>
       <translation>Ritardo in secondi</translation>
+    </message>
+    <message>
+      <source>Tag&apos;s</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Canned messages</source>
@@ -3884,6 +3912,34 @@
     <message>
       <source>Show alert for new chats</source>
       <translation>Visualizza avviso in alert per nuove chat</translation>
+    </message>
+    <message>
+      <source>Activity tracking is set at global level. Your settings will be be ignored. Timeout value still will be taken from your account settings.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Change my online/offline status based on my activity</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>After certain period of time if no actions are detected you will be marked as offline automatically</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose timeout value</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Select after how long of inactivity you will be marked as offline automatically</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use default system value</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>minutes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>File configuration</source>
@@ -8317,6 +8373,25 @@
     <message>
       <source>Visitor was redirected to survey, you can now close this window.</source>
       <translation>Il visitatore è stato reindirizzato al sondaggio, ora è possibile chiudere questa finestra.</translation>
+    </message>
+  </context>
+  <context>
+    <name>user/wentinactive</name>
+    <message>
+      <source>Because of inactivity you went offline, click continue to go online.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Continue</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Logout</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>
