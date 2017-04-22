@@ -443,7 +443,12 @@ if (isset($_POST['askQuestion']))
 	       	$chat->transfer_timeout_ts = time();
 	       	$chat->transfer_timeout_ac = $chat->department->transfer_timeout;
        }
-
+       
+       // Detect device
+       $detect = new Mobile_Detect;
+       $chat->uagent = $detect->getUserAgent();
+       $chat->device_type = ($detect->isMobile() ? ($detect->isTablet() ? 2 : 1) : 0);
+       
        $chat->last_msg_id = $msg->id;
        $chat->last_user_msg_time = time();
        $chat->saveThis();
