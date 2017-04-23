@@ -19,7 +19,7 @@ class erLhcoreClassBBCode
     	if ( empty($url) )
     		return $matches[0];
 
-    	return $matches[1] . "<a href=\"$url\" class=\"link\" target=\"_blank\">$url</a>" . $suffix;
+    	return $matches[1] . "<a href=\"$url\" class=\"link\" rel=\"noopener\" target=\"_blank\">$url</a>" . $suffix;
    }
 
    private static $outArray = null;
@@ -173,7 +173,7 @@ class erLhcoreClassBBCode
 			$in = 'http://' . $in;
 		}
 
-        return '<a class=\"link\" target=\"_blank\" href="'.$in.'">'.$matches[2].'</a>';
+        return '<a class=\"link\" target=\"_blank\" rel=\"noopener\" href="'.$in.'">'.$matches[2].'</a>';
    }
 
    public static function _make_flattr_embed($matches){
@@ -219,7 +219,7 @@ class erLhcoreClassBBCode
     		$ret = substr($dest, -1);
     		$dest = substr($dest, 0, strlen($dest)-1);
     	}
-    	return $matches[1] . "<a href=\"$dest\" class=\"link\" target=\"_blank\">$dest</a>$ret";
+    	return $matches[1] . "<a href=\"$dest\" class=\"link\" rel=\"noopener\" target=\"_blank\">$dest</a>$ret";
    }
 
    // From WP :)
@@ -277,7 +277,7 @@ class erLhcoreClassBBCode
    				// Check that user has permission to see the chat. Let say if user purposely types file bbcode
    				if ($hash == md5($name.'_'.$file->chat_id)) {
    				    $hash = md5($file->name.'_'.$file->chat_id);
-   					return "<a href=\"" . erLhcoreClassDesign::baseurl('file/downloadfile')."/{$file->id}/{$hash}\" target=\"_blank\" class=\"link\" >" . erTranslationClassLhTranslation::getInstance()->getTranslation('file/file','Download file').' - '.htmlspecialchars($file->upload_name).' ['.$file->extension.']' . "</a>";
+   					return "<a href=\"" . erLhcoreClassDesign::baseurl('file/downloadfile')."/{$file->id}/{$hash}\" target=\"_blank\" rel=\"noopener\" class=\"link\" >" . erTranslationClassLhTranslation::getInstance()->getTranslation('file/file','Download file').' - '.htmlspecialchars($file->upload_name).' ['.$file->extension.']' . "</a>";
    				}
    				
    			} catch (Exception $e) {
@@ -304,7 +304,7 @@ class erLhcoreClassBBCode
                    if ($surveyId == $surveyItem->survey_id) 
                    {
                        $survey = erLhAbstractModelSurvey::fetch($surveyId);
-                       return "<a href=\"" . erLhcoreClassDesign::baseurl('survey/collected')."/{$survey->id}?show={$surveyItem->id}\" target=\"_blank\" class=\"link\" >" . erTranslationClassLhTranslation::getInstance()->getTranslation('file/file','Collected survey data') . ' - ' . htmlspecialchars($survey->name) . "</a>";
+                       return "<a href=\"" . erLhcoreClassDesign::baseurl('survey/collected')."/{$survey->id}?show={$surveyItem->id}\" target=\"_blank\" rel=\"noopener\" class=\"link\" >" . erTranslationClassLhTranslation::getInstance()->getTranslation('file/file','Collected survey data') . ' - ' . htmlspecialchars($survey->name) . "</a>";
                    }
                }
                

@@ -32,10 +32,10 @@
 								</ul>
 							</div>
 							<div class="abbr-list pt5" ng-if="ou.page_title || ou.current_page">
-								<i class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Page');?>">&#xE8A0;</i><a target="_blank" href="{{ou.current_page}}" title="{{ou.current_page}}">{{ou.page_title || ou.current_page}}</a>
+								<i class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Page');?>">&#xE8A0;</i><a target="_blank" rel="noopener" href="{{ou.current_page}}" title="{{ou.current_page}}">{{ou.page_title || ou.current_page}}</a>
 							</div>
 							<div class="abbr-list pt5" ng-if="ou.referrer != ''">
-								<i class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','From');?>">&#xE8A0;</i><a target="_blank" href="http:{{ou.referrer}}" title="{{ou.referrer}}">{{ou.referrer}}</a>
+								<i class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','From');?>">&#xE8A0;</i><a target="_blank" rel="noopener" href="http:{{ou.referrer}}" title="{{ou.referrer}}">{{ou.referrer}}</a>
 							</div>
 						</td>
 					</tr>
