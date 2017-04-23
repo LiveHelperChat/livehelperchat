@@ -17,6 +17,8 @@ class erLhcoreClassIPDetect {
             $_SERVER['REMOTE_ADDR'] = $parts[0];
 		}
 		
+		$_SERVER['REMOTE_ADDR'] = strip_tags($_SERVER['REMOTE_ADDR']);
+		
 		return $_SERVER["REMOTE_ADDR"];
 	}
 

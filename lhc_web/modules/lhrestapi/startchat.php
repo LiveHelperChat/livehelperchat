@@ -77,7 +77,7 @@ try {
     if (count($Errors) == 0)
     {
         if (isset($_POST['ip'])) {
-            $chat->ip = $_POST['ip'];
+            $chat->ip = strip_tags($_POST['ip']);
             erLhcoreClassModelChat::detectLocation($chat);
         }
                 

@@ -117,7 +117,7 @@
 	<?php endif;?>
 	<tr>
 		<td>IP</td>
-		<td><?php echo $chat->ip?></td>
+		<td><?php echo htmlspecialchars($chat->ip)?></td>
 	</tr>
 	<?php if (!empty($chat->referrer)) : ?>
 	<tr>

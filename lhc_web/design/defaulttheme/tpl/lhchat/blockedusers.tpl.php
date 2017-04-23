@@ -35,7 +35,7 @@
 <?php foreach ($items as $departament) : ?>
     <tr>
         <td><?php echo $departament->id?></td>
-        <td><?php echo $departament->ip?></td>
+        <td><?php echo htmlspecialchars($departament->ip)?></td>
         <td><?php echo htmlspecialchars($departament->datets_front)?></td>
         <td><?php echo htmlspecialchars($departament->user)?></td>
         <td nowrap><a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="csfr-required btn btn-danger btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('chat/blockedusers')?>/(remove_block)/<?php echo $departament->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Remove block');?></a></td>

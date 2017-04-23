@@ -9,7 +9,7 @@
 <page_referrer><![CDATA[ <?php echo htmlspecialchars($chat->session_referrer)?> ]]></page_referrer>
 <chat_initiator><![CDATA[ <?php echo $chat->chat_initiator?> ]]></chat_initiator>
 <nick><![CDATA[ <?php echo htmlspecialchars($chat->nick)?>]]></nick>
-<ip_address><?php echo $chat->ip?></ip_address>
+<ip_address><?php echo htmlspecialchars($chat->ip)?></ip_address>
 <unanswered><?php echo $chat->na_cb_executed?></unanswered>
 <priority><?php echo $chat->priority?></priority>
 <country_code><?php echo $chat->country_code?></country_code>

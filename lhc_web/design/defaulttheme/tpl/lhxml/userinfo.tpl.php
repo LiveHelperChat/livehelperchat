@@ -1,6 +1,6 @@
 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('lhxml/userinfo','ID');?>: <?php echo $onlineUsers->id; ?>
 <br>
-<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('lhxml/userinfo','IP address');?>: <?php echo $onlineUsers->ip; ?>
+<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('lhxml/userinfo','IP address');?>: <?php echo htmlspecialchars($onlineUsers->ip); ?>
 <br>
 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('lhxml/userinfo','Current page');?>: <?php echo $onlineUsers->current_page; ?>
 <br>
