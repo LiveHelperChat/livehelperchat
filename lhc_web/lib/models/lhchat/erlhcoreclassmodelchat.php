@@ -21,6 +21,7 @@ class erLhcoreClassModelChat {
                'status_sub'          	=> $this->status_sub,
                'status_sub_arg'         => $this->status_sub_arg,
                'status_sub_sub'         => $this->status_sub_sub,
+               'sender_user_id'         => $this->sender_user_id,
                'time'            		=> $this->time,
                'user_id'         		=> $this->user_id,
                'hash'            		=> $this->hash,
@@ -472,7 +473,8 @@ class erLhcoreClassModelChat {
    public $status_sub_sub = self::STATUS_SUB_SUB_DEFAULT;
    
    public $time = '';
-   public $user_id = '';
+   public $user_id = 0;
+   public $sender_user_id = 0;
    public $hash = '';
    public $ip = '';
    public $referrer = '';

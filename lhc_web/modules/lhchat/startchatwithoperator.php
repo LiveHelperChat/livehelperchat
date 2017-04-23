@@ -9,7 +9,6 @@ $msg = new erLhcoreClassModelmsg();
 
 $tpl->set('user',$user);
 
-
 if ( isset($_POST['SendMessage']) ) {
 
     $validationFields = array();
@@ -34,6 +33,9 @@ if ( isset($_POST['SendMessage']) ) {
 
     	$currentUserData = $currentUser->getUserData();
 
+    	$chat = erLhcoreClassModelChat::findOne(array('filter' => array('status' => erLhcoreClassModelChat::STATUS_OPERATORS_CHAT, 'sender_user_id' => $currentUser->getUserID(), 'user_id' => $user->id)));
+    	
+    	
     	$chat = new erLhcoreClassModelChat();
     	$chat->time = time();
     	$chat->status = erLhcoreClassModelChat::STATUS_OPERATORS_CHAT;
@@ -44,7 +46,9 @@ if ( isset($_POST['SendMessage']) ) {
     	$chat->nick = $currentUserData->name.' '.$currentUserData->surname;
     	$chat->user_id = $user->id; // Assign chat to receiver operator, this way he will get permission to open chat
     	$chat->dep_id = erLhcoreClassUserDep::getDefaultUserDepartment(); // Set default department to chat creator, this way current user will get permission to open it
-
+    	
+    	//sender_user_id
+    	
     	// Store chat
     	erLhcoreClassChat::getSession()->save($chat);
 
@@ -81,6 +85,9 @@ if ( isset($_POST['SendMessage']) ) {
 
 $tpl->set('msg',$msg);
 
-$Result['content'] = $tpl->fetch();
-$Result['pagelayout'] = 'popup';
+echo $tpl->fetch();
+exit;
+
+/* $Result['content'] = $tpl->fetch();
+$Result['pagelayout'] = 'popup'; */
 ?>
