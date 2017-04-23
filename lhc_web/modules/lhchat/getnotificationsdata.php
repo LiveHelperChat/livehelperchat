@@ -1,5 +1,5 @@
 <?php
-
+header ( 'content-type: application/json; charset=utf-8' );
 $itemsID = array();
 $itemsTypes = array();
 $type = 'pending_chat';

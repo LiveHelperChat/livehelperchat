@@ -55,6 +55,7 @@ if ($userDepartments !== true){
 }
 
 if ($is_ajax == true) {
+    header('content-type: application/json; charset=utf-8');
 	$items = erLhcoreClassModelChatOnlineUser::getList($filter);
 	
 	erLhcoreClassChat::$trackActivity = (int)erLhcoreClassModelChatConfig::fetchCache('track_activity')->current_value == 1;

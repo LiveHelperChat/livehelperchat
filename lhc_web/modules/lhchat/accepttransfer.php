@@ -1,4 +1,5 @@
 <?php
+header('content-type: application/json; charset=utf-8');
 
 try {
     if ($Params['user_parameters_unordered']['mode'] == 'chat') {
@@ -94,6 +95,6 @@ if ($Params['user_parameters_unordered']['postaction'] == 'singlewindow') {
 	exit;
 }
 
-echo json_encode(array('error' => 'false', 'chat_id' => $chat->id));
+echo erLhcoreClassChat::safe_json_encode(array('error' => 'false', 'chat_id' => $chat->id));
 exit;
 ?>

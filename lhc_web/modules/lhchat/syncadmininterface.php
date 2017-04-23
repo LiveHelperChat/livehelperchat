@@ -1,5 +1,5 @@
 <?php
-
+header ( 'content-type: application/json; charset=utf-8' );
 $currentUser = erLhcoreClassUser::instance();
 
 $onlineTimeout = (int)erLhcoreClassModelChatConfig::fetchCache('sync_sound_settings')->data['online_timeout'];

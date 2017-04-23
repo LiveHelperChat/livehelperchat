@@ -1,4 +1,5 @@
 <?php
+header('content-type: application/json; charset=utf-8');
 /**
  * These operations are executed directly in an iframe. Most of the time it's postMessage
  * */

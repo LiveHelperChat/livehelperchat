@@ -1,4 +1,7 @@
 <?php
+
+header('content-type: application/json; charset=utf-8');
+
 $chat = erLhcoreClassChat::getSession()->load('erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
 
 if (erLhcoreClassChat::hasAccessToRead($chat)) {
@@ -10,13 +13,13 @@ if (erLhcoreClassChat::hasAccessToRead($chat)) {
     $tpl = erLhcoreClassTemplate::getInstance('lhchat/part/canned_messages_options.tpl.php');
     $tpl->set('canned_options',$grouped);
 
-    echo json_encode(array(
+    echo erLhcoreClassChat::safe_json_encode(array(
         'error' => false,
         'result' => $tpl->fetch()
     ));
 
 } else {
-    echo json_encode(array(
+    echo erLhcoreClassChat::safe_json_encode(array(
         'error' => true,
         'result' => 'no permission'
     ));

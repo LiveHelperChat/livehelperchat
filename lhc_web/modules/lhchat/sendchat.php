@@ -16,7 +16,9 @@ if ((int)erLhcoreClassModelChatConfig::fetch('disable_send')->current_value == 1
 if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'] && ($chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT || $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT || erLhcoreClassChat::canReopen($chat,true)))
 {
     if ( ezcInputForm::hasPostData() ) {
-
+        
+        header('content-type: application/json; charset=utf-8');
+        
         $definition = array(
             'email' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'validate_email'

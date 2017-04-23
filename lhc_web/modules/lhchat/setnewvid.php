@@ -11,7 +11,7 @@ if (isset($_POST['data'])) {
 	try {
 		erLhcoreClassChatHelper::mergeVid($jsonData);
 	} catch (Exception $e) {
-		echo json_encode(array('error' => false, 'result' => $e->getMessage()));
+		echo erLhcoreClassChat::safe_json_encode(array('error' => false, 'result' => $e->getMessage()));
 	}
 }
 

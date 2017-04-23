@@ -1,5 +1,6 @@
 <?php
 
+header ( 'content-type: application/json; charset=utf-8' );
 $timeCurrent = time();
 $pollingEnabled = (int)erLhcoreClassModelChatConfig::fetchCache('sync_sound_settings')->data['long_polling_enabled'];
 $pollingServerTimeout = (int)erLhcoreClassModelChatConfig::fetchCache('sync_sound_settings')->data['connection_timeout'];
@@ -136,6 +137,6 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
 
 
 
-echo json_encode(array('error' => 'false','uw' => $userOwner, 'result_status' => $content_status, 'result' => $content ));
+echo erLhcoreClassChat::safe_json_encode(array('error' => 'false','uw' => $userOwner, 'result_status' => $content_status, 'result' => $content ));
 exit;
 ?>

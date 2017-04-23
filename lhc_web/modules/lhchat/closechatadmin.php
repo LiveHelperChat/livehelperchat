@@ -1,5 +1,7 @@
 <?php
 
+header('content-type: application/json; charset=utf-8');
+
 // Set new chat owner
 $currentUser = erLhcoreClassUser::instance();
 

@@ -1,5 +1,7 @@
 <?php
 
+header('content-type: application/json; charset=utf-8');
+
 $definition = array(
         'msg' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::REQUIRED, 'unsafe_raw'
@@ -48,7 +50,7 @@ if (trim($form->msg) != '' && $form->hasValidData('msgid'))
 			    $Chat->operation .= "lhinst.updateMessageRow({$msg->id});\n";
 			    $Chat->updateThis();
 			    
-		        echo json_encode(array('error' => 'f','msg' => trim($tpl->fetch())));
+		        echo erLhcoreClassChat::safe_json_encode(array('error' => 'f','msg' => trim($tpl->fetch())));
 	        }	        
 	    }   
 	     	    
@@ -59,7 +61,7 @@ if (trim($form->msg) != '' && $form->hasValidData('msgid'))
     }
 
 } else {
-    echo json_encode(array('error' => 't', 'r' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a message, max characters').' - '.(int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value));
+    echo erLhcoreClassChat::safe_json_encode(array('error' => 't', 'r' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a message, max characters').' - '.(int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value));
 }
 
 

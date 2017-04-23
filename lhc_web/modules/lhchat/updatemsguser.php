@@ -1,4 +1,5 @@
 <?php
+header('content-type: application/json; charset=utf-8');
 
 $definition = array(
         'msg' => new ezcInputFormDefinitionElement(
@@ -45,7 +46,7 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && mb_strlen($form->m
 		    			    			    	
 		    	$chat->updateThis();
 		    	
-		    	echo json_encode(array('error' => 'f', 'msg' => trim($tpl->fetch())));	 
+		    	echo erLhcoreClassChat::safe_json_encode(array('error' => 'f', 'msg' => trim($tpl->fetch())));	 
 	    	}	    	
 	    }	    
 	    $db->commit();
@@ -53,7 +54,7 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && mb_strlen($form->m
    		$db->rollback();
     }    
 } else {
-	echo json_encode(array('error' => 't', 'msg' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a message, max characters').' - '.(int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value));
+	echo erLhcoreClassChat::safe_json_encode(array('error' => 't', 'msg' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a message, max characters').' - '.(int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value));
 }
 
 exit;

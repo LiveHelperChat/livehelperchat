@@ -1,5 +1,6 @@
 <?php
 
+header('content-type: application/json; charset=utf-8');
 
 $db = ezcDbInstance::get();
 $db->beginTransaction();

@@ -1,5 +1,6 @@
 <?php
 
+header('content-type: application/json; charset=utf-8');
 $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
 
 if ($chat->hash == $Params['user_parameters']['hash'] && ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT || $chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)) // Allow add messages only if chat is active
@@ -23,7 +24,7 @@ if ($chat->hash == $Params['user_parameters']['hash'] && ($chat->status == erLhc
         exit;
 }
 
-echo json_encode(array('error' => 'true'));
+echo erLhcoreClassChat::safe_json_encode(array('error' => 'true'));
 exit;
 
 ?>

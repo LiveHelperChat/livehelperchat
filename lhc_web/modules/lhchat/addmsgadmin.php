@@ -1,5 +1,5 @@
 <?php
-
+header ( 'content-type: application/json; charset=utf-8' );
 $definition = array(
         'msg' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::REQUIRED, 'unsafe_raw'
@@ -22,7 +22,7 @@ if (trim($form->msg) != '')
 	        $currentUser = erLhcoreClassUser::instance();
 	
 	        if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
-	        	echo json_encode(array('error' => 'true', 'result' => 'Invalid CSRF Token' ));
+	        	echo erLhcoreClassChat::safe_json_encode(array('error' => 'true', 'result' => 'Invalid CSRF Token' ));
 	        	$db->rollback();
 	        	exit;
 	        }
@@ -102,7 +102,7 @@ if (trim($form->msg) != '')
     	        }
 	        }
 	              
-	        echo json_encode(array('error' => 'false','r' => $returnBody));
+	        echo erLhcoreClassChat::safe_json_encode(array('error' => 'false','r' => $returnBody));
 	        
 	        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin',array('msg' => & $msg,'chat' => & $Chat));
 	    }   
@@ -114,7 +114,7 @@ if (trim($form->msg) != '')
     }
 
 } else {
-    echo json_encode(array('error' => 'true'));
+    echo erLhcoreClassChat::safe_json_encode(array('error' => 'true'));
 }
 
 

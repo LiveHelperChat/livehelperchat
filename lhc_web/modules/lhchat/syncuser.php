@@ -1,5 +1,5 @@
 <?php
-
+header ( 'content-type: application/json; charset=utf-8' );
 $timeCurrent = time();
 $pollingEnabled = (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['long_polling_enabled'];
 $pollingServerTimeout = (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['connection_timeout'];
@@ -274,7 +274,7 @@ $responseArray['result'] = trim($content) == '' ? 'false' : trim($content);
 $responseArray['status'] = $status;
 $responseArray['blocked'] = $blocked;
 
-echo json_encode($responseArray);
+echo erLhcoreClassChat::safe_json_encode($responseArray);
 exit;
 
 ?>

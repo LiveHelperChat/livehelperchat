@@ -1,4 +1,5 @@
 <?php
+header('content-type: application/json; charset=utf-8');
 
 $chats = erLhcoreClassChat::getActiveChats(10,0,array('filter' => array('user_id' => erLhcoreClassUser::instance()->getUserID())));
 

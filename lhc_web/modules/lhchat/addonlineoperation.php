@@ -1,4 +1,5 @@
 <?php
+header('content-type: application/json; charset=utf-8');
 /**
  * These operations are executed directly in user site. Not in iframe
  * */

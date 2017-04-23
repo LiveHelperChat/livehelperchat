@@ -1,4 +1,5 @@
 <?php
+header('content-type: application/json; charset=utf-8');
 
 if (is_numeric($Params['user_parameters']['chat_id']))
 {
