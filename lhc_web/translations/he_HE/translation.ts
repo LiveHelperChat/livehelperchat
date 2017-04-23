@@ -1,38 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="he">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="he" version="2.0">
   <context>
     <name>listchatconfig</name>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>NodeJS support enabled</source>
-      <translation>תמיכה NodeJS</translation>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>List online operators, 0 - no, 1 - yes.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Hide &apos;New Window&apos; option in Connector Widget</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>כמה ימים אשף ההצבעה לא יוצג אחרי מופע אחרון?</translation>
@@ -110,8 +78,8 @@
       <translation>socket.io נתיב, אופציונלי</translation>
     </message>
     <message>
-      <source>NodeJs support enabled</source>
-      <translation type="unfinished"/>
+      <source>NodeJS support enabled</source>
+      <translation>תמיכה NodeJS</translation>
     </message>
     <message>
       <source>Do not ask permission for users to see their screen</source>
@@ -182,7 +150,7 @@
       <translation>אורך ההודעה המרבי של תווים</translation>
     </message>
     <message>
-      <source>List online operators.</source>
+      <source>List online operators, 0 - no, 1 - yes.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -234,7 +202,7 @@
       <translation>חסום אפשרות להדפסת שיחה</translation>
     </message>
     <message>
-      <source>Disable option in widget to open new window. Restore icon will be hidden</source>
+      <source>Hide &apos;New Window&apos; option in Connector Widget</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -298,7 +266,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>How long operator should go offline automatically because of inactivity. Value in minutes</source>
+      <source>How long operator should go offline automatically because of inactivity</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -881,10 +849,6 @@
   </context>
   <context>
     <name>system/htmlcode</name>
-    <message>
-      <source>Show product selection based on selected departments</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>HTML code</source>
       <translation>קוד HTML</translation>
@@ -1902,6 +1866,257 @@
     </message>
   </context>
   <context>
+    <name>chat/startchat</name>
+    <message>
+      <source>Enter your message</source>
+      <translation>הקלד את הודעתך:</translation>
+    </message>
+    <message>
+      <source>Department is disabled</source>
+      <translation>המחלקה מנוטרלת</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>דוא&quot;ל</translation>
+    </message>
+    <message>
+      <source>Enter your email address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>טלפון</translation>
+    </message>
+    <message>
+      <source>Enter your phone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Your question</source>
+      <translation>השאלה שלך</translation>
+    </message>
+    <message>
+      <source>Please enter a message...</source>
+      <translation>הקלד הודעה...</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>שם</translation>
+    </message>
+    <message>
+      <source>Enter your name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live support is not available in your country</source>
+      <translation>תמיכה לא זמינה במדינתך</translation>
+    </message>
+    <message>
+      <source>Live Support</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>There are no online operators at the moment, please leave a message</source>
+      <translation>אין כרגע מפעילים זמינים. אנא השאר הודעה</translation>
+    </message>
+    <message>
+      <source>File</source>
+      <translation>קובץ</translation>
+    </message>
+    <message>
+      <source>Your request was sent!</source>
+      <translation>בקשתך נשלחה!</translation>
+    </message>
+    <message>
+      <source>Leave a message</source>
+      <translation>השאר הודעה</translation>
+    </message>
+    <message>
+      <source>I accept my personal data will be handled according to</source>
+      <translation>אני מאפשר שהמידע האישי שלי יטופל בהתאם ל</translation>
+    </message>
+    <message>
+      <source>our terms and to the Law</source>
+      <translation>תנאים שלנו ולחוק</translation>
+    </message>
+    <message>
+      <source>Start chat</source>
+      <translation>התחל צ&apos;אט</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>מחלקה</translation>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation>לא מקוון</translation>
+    </message>
+    <message>
+      <source>Have a question? Ask us!</source>
+      <translation>יש לך שאלה? שאל/י אותנו!</translation>
+    </message>
+    <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>הקלד/י הודעתך ולחץ/י אנטר לשליחה</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>שלח</translation>
+    </message>
+    <message>
+      <source>Department is offline</source>
+      <translation>המחלקה לא מקוונת</translation>
+    </message>
+    <message>
+      <source>Go to leave a message form</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Cancel and choose another department</source>
+      <translation>בטל ובחר מחלקה אחרת</translation>
+    </message>
+    <message>
+      <source>characters</source>
+      <translation>תווים</translation>
+    </message>
+    <message>
+      <source>Personal assistant</source>
+      <translation>עוזר אישי</translation>
+    </message>
+    <message>
+      <source>Fill out this form to start a chat</source>
+      <translation>מלא/י את הטופס להתחלת שיחה</translation>
+    </message>
+    <message>
+      <source>There are no online operators at the moment, please leave your message</source>
+      <translation>אין כרגע מפעילים זמינים. אנא השאר הודעה</translation>
+    </message>
+    <message>
+      <source>Me</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation>מוצר</translation>
+    </message>
+    <message>
+      <source>Choose a product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose your language</source>
+      <translation>בחר שפה</translation>
+    </message>
+    <message>
+      <source>Invalid CSRF token!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a valid email address</source>
+      <translation>אנא הזן כתובת דוא&quot;ל חוקית</translation>
+    </message>
+    <message>
+      <source>Maximum 50 characters</source>
+      <translation>מקסימום 50 תווים</translation>
+    </message>
+    <message>
+      <source>You do not have permission to chat! Please contact site owner.</source>
+      <translation>אין לך הרשאה לצ&apos;אט, צור קשר עם בעל האתר</translation>
+    </message>
+    <message>
+      <source>Please enter your name</source>
+      <translation>אנא הזן שם</translation>
+    </message>
+    <message>
+      <source>Please enter your message</source>
+      <translation>הקלד/י הודעה...</translation>
+    </message>
+    <message>
+      <source>Maximum</source>
+      <translation>מקסימום</translation>
+    </message>
+    <message>
+      <source>characters for a message</source>
+      <translation>תווים להודעה</translation>
+    </message>
+    <message>
+      <source>You have to accept our Terms Of Service</source>
+      <translation>עליך לקבל את תנאי השימוש</translation>
+    </message>
+    <message>
+      <source>Please enter your phone</source>
+      <translation>אנא הזן טלפון</translation>
+    </message>
+    <message>
+      <source>Maximum 100 characters for phone</source>
+      <translation>מקסימום 100 תווים עבור טלפון</translation>
+    </message>
+    <message>
+      <source>Invalid file</source>
+      <translation>קובץ לא תקין</translation>
+    </message>
+    <message>
+      <source>Please choose department!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not find a product!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not determine a default department!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a product!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>is required</source>
+      <translation>נדרש</translation>
+    </message>
+    <message>
+      <source>Could not decrypt data!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
+      <translation>בקשתך לא עובדה כראוי, אך אל דאגה, זה לא באשמתך. אנא שלח מחדש את הבקשה. אם נתקלת בבעיה דומה, פנה אלינו באמצעים אחרים.</translation>
+    </message>
+    <message>
+      <source>Please enter a message, max characters</source>
+      <translation>הקלד/י הודעה..., מקסימום תווים</translation>
+    </message>
+    <message>
+      <source>Visitor</source>
+      <translation>מבקר</translation>
+    </message>
+    <message>
+      <source>Pending Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unread message</source>
+      <translation>הודעה שלא נקראה</translation>
+    </message>
+    <message>
+      <source>Transfer Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assigned Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Fill in the form to start a chat</source>
+      <translation>מלא/י את הטופס להתחלת צ&apos;אט</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/adminchat</name>
     <message>
       <source>Attach uploaded file</source>
@@ -2165,6 +2380,117 @@
     </message>
   </context>
   <context>
+    <name>chat/syncadmininterface</name>
+    <message>
+      <source>Open in a new window</source>
+      <translation>פתח בחלון חדש</translation>
+    </message>
+    <message>
+      <source>No previous chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>h.</source>
+      <translation>ש.</translation>
+    </message>
+    <message>
+      <source>m.</source>
+      <translation>ד.</translation>
+    </message>
+    <message>
+      <source>s.</source>
+      <translation>ש.</translation>
+    </message>
+    <message>
+      <source>ago</source>
+      <translation>לפני</translation>
+    </message>
+    <message>
+      <source>Add chat</source>
+      <translation>הוסף שיחה</translation>
+    </message>
+    <message>
+      <source>Start chat</source>
+      <translation>התחל צ&apos;אט</translation>
+    </message>
+    <message>
+      <source>Last activity</source>
+      <translation>פעילות אחרונה</translation>
+    </message>
+    <message>
+      <source>Redirect user to contact form.</source>
+      <translation>מפנה את המשתמש לטופס יצירת קשר</translation>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation>האם אתה בטוח?</translation>
+    </message>
+    <message>
+      <source>Accept chat</source>
+      <translation>קבל צ&apos;אט</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>ריק...</translation>
+    </message>
+    <message>
+      <source>Configure dashboard</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor</source>
+      <translation>מבקר</translation>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation>מפעיל</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>מחלקה</translation>
+    </message>
+    <message>
+      <source>Nothing found</source>
+      <translation>לא נמצא דבר</translation>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation>צ&apos;אטים בהמתנה</translation>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>צ&apos;אטים פעילים</translation>
+    </message>
+    <message>
+      <source>Last activity ago</source>
+      <translation>פעילות אחרונה לפני</translation>
+    </message>
+    <message>
+      <source>Sort</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wait time</source>
+      <translation>זמן המתנה</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transfer time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time ago</source>
+      <translation>לפני זמן</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/translation</name>
     <message>
       <source>Visitor language</source>
@@ -2307,117 +2633,6 @@
     </message>
   </context>
   <context>
-    <name>chat/syncadmininterface</name>
-    <message>
-      <source>Open in a new window</source>
-      <translation>פתח בחלון חדש</translation>
-    </message>
-    <message>
-      <source>No previous chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>h.</source>
-      <translation>ש.</translation>
-    </message>
-    <message>
-      <source>m.</source>
-      <translation>ד.</translation>
-    </message>
-    <message>
-      <source>s.</source>
-      <translation>ש.</translation>
-    </message>
-    <message>
-      <source>ago</source>
-      <translation>לפני</translation>
-    </message>
-    <message>
-      <source>Add chat</source>
-      <translation>הוסף שיחה</translation>
-    </message>
-    <message>
-      <source>Start chat</source>
-      <translation>התחל צ&apos;אט</translation>
-    </message>
-    <message>
-      <source>Last activity</source>
-      <translation>פעילות אחרונה</translation>
-    </message>
-    <message>
-      <source>Redirect user to contact form.</source>
-      <translation>מפנה את המשתמש לטופס יצירת קשר</translation>
-    </message>
-    <message>
-      <source>Are you sure?</source>
-      <translation>האם אתה בטוח?</translation>
-    </message>
-    <message>
-      <source>Accept chat</source>
-      <translation>קבל צ&apos;אט</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>ריק...</translation>
-    </message>
-    <message>
-      <source>Configure dashboard</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Visitor</source>
-      <translation>מבקר</translation>
-    </message>
-    <message>
-      <source>Operator</source>
-      <translation>מפעיל</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>מחלקה</translation>
-    </message>
-    <message>
-      <source>Nothing found</source>
-      <translation>לא נמצא דבר</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>צ&apos;אטים בהמתנה</translation>
-    </message>
-    <message>
-      <source>Active chats</source>
-      <translation>צ&apos;אטים פעילים</translation>
-    </message>
-    <message>
-      <source>Last activity ago</source>
-      <translation>פעילות אחרונה לפני</translation>
-    </message>
-    <message>
-      <source>Sort</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Wait time</source>
-      <translation>זמן המתנה</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Created</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Transfer time</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Time ago</source>
-      <translation>לפני זמן</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/screenshot</name>
     <message>
       <source>Take user screenshot</source>
@@ -2512,257 +2727,6 @@
     <message>
       <source>SMTP</source>
       <translation>SMTP</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/startchat</name>
-    <message>
-      <source>Enter your message</source>
-      <translation>הקלד את הודעתך:</translation>
-    </message>
-    <message>
-      <source>Department is disabled</source>
-      <translation>המחלקה מנוטרלת</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>דוא&quot;ל</translation>
-    </message>
-    <message>
-      <source>Enter your email address</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>טלפון</translation>
-    </message>
-    <message>
-      <source>Enter your phone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Your question</source>
-      <translation>השאלה שלך</translation>
-    </message>
-    <message>
-      <source>Please enter a message...</source>
-      <translation>הקלד הודעה...</translation>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation>שם</translation>
-    </message>
-    <message>
-      <source>Enter your name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Live support is not available in your country</source>
-      <translation>תמיכה לא זמינה במדינתך</translation>
-    </message>
-    <message>
-      <source>Live Support</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>There are no online operators at the moment, please leave a message</source>
-      <translation>אין כרגע מפעילים זמינים. אנא השאר הודעה</translation>
-    </message>
-    <message>
-      <source>File</source>
-      <translation>קובץ</translation>
-    </message>
-    <message>
-      <source>Your request was sent!</source>
-      <translation>בקשתך נשלחה!</translation>
-    </message>
-    <message>
-      <source>Leave a message</source>
-      <translation>השאר הודעה</translation>
-    </message>
-    <message>
-      <source>I accept my personal data will be handled according to</source>
-      <translation>אני מאפשר שהמידע האישי שלי יטופל בהתאם ל</translation>
-    </message>
-    <message>
-      <source>our terms and to the Law</source>
-      <translation>תנאים שלנו ולחוק</translation>
-    </message>
-    <message>
-      <source>Start chat</source>
-      <translation>התחל צ&apos;אט</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>מחלקה</translation>
-    </message>
-    <message>
-      <source>Offline</source>
-      <translation>לא מקוון</translation>
-    </message>
-    <message>
-      <source>Have a question? Ask us!</source>
-      <translation>יש לך שאלה? שאל/י אותנו!</translation>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>הקלד/י הודעתך ולחץ/י אנטר לשליחה</translation>
-    </message>
-    <message>
-      <source>Send</source>
-      <translation>שלח</translation>
-    </message>
-    <message>
-      <source>Department is offline</source>
-      <translation>המחלקה לא מקוונת</translation>
-    </message>
-    <message>
-      <source>Go to leave a message form</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Cancel and choose another department</source>
-      <translation>בטל ובחר מחלקה אחרת</translation>
-    </message>
-    <message>
-      <source>characters</source>
-      <translation>תווים</translation>
-    </message>
-    <message>
-      <source>Personal assistant</source>
-      <translation>עוזר אישי</translation>
-    </message>
-    <message>
-      <source>Fill out this form to start a chat</source>
-      <translation>מלא/י את הטופס להתחלת שיחה</translation>
-    </message>
-    <message>
-      <source>There are no online operators at the moment, please leave your message</source>
-      <translation>אין כרגע מפעילים זמינים. אנא השאר הודעה</translation>
-    </message>
-    <message>
-      <source>Me</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Product</source>
-      <translation>מוצר</translation>
-    </message>
-    <message>
-      <source>Choose a product</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose your language</source>
-      <translation>בחר שפה</translation>
-    </message>
-    <message>
-      <source>Invalid CSRF token!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter a valid email address</source>
-      <translation>אנא הזן כתובת דוא&quot;ל חוקית</translation>
-    </message>
-    <message>
-      <source>Maximum 50 characters</source>
-      <translation>מקסימום 50 תווים</translation>
-    </message>
-    <message>
-      <source>You do not have permission to chat! Please contact site owner.</source>
-      <translation>אין לך הרשאה לצ&apos;אט, צור קשר עם בעל האתר</translation>
-    </message>
-    <message>
-      <source>Please enter your name</source>
-      <translation>אנא הזן שם</translation>
-    </message>
-    <message>
-      <source>Please enter your message</source>
-      <translation>הקלד/י הודעה...</translation>
-    </message>
-    <message>
-      <source>Maximum</source>
-      <translation>מקסימום</translation>
-    </message>
-    <message>
-      <source>characters for a message</source>
-      <translation>תווים להודעה</translation>
-    </message>
-    <message>
-      <source>You have to accept our Terms Of Service</source>
-      <translation>עליך לקבל את תנאי השימוש</translation>
-    </message>
-    <message>
-      <source>Please enter your phone</source>
-      <translation>אנא הזן טלפון</translation>
-    </message>
-    <message>
-      <source>Maximum 100 characters for phone</source>
-      <translation>מקסימום 100 תווים עבור טלפון</translation>
-    </message>
-    <message>
-      <source>Invalid file</source>
-      <translation>קובץ לא תקין</translation>
-    </message>
-    <message>
-      <source>Please choose department!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Could not find a product!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please choose</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Could not determine a default department!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please choose a product!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>is required</source>
-      <translation>נדרש</translation>
-    </message>
-    <message>
-      <source>Could not decrypt data!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
-      <translation>בקשתך לא עובדה כראוי, אך אל דאגה, זה לא באשמתך. אנא שלח מחדש את הבקשה. אם נתקלת בבעיה דומה, פנה אלינו באמצעים אחרים.</translation>
-    </message>
-    <message>
-      <source>Please enter a message, max characters</source>
-      <translation>הקלד/י הודעה..., מקסימום תווים</translation>
-    </message>
-    <message>
-      <source>Visitor</source>
-      <translation>מבקר</translation>
-    </message>
-    <message>
-      <source>Pending Chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Unread message</source>
-      <translation>הודעה שלא נקראה</translation>
-    </message>
-    <message>
-      <source>Transfer Chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Assigned Chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Fill in the form to start a chat</source>
-      <translation>מלא/י את הטופס להתחלת צ&apos;אט</translation>
     </message>
   </context>
   <context>
@@ -4270,10 +4234,6 @@
   </context>
   <context>
     <name>pagelayout/pagelayout</name>
-    <message>
-      <source>New unread message</source>
-      <translation>הודעה חדשה שלא נקראה </translation>
-    </message>
     <message>
       <source>Empty...</source>
       <translation>ריק...</translation>
@@ -5902,6 +5862,13 @@
     </message>
   </context>
   <context>
+    <name>gallery/album_list_admin</name>
+    <message>
+      <source>Are you sure?</source>
+      <translation>האם אתה בטוח?</translation>
+    </message>
+  </context>
+  <context>
     <name>department/new</name>
     <message>
       <source>New department</source>
@@ -6969,6 +6936,21 @@
     </message>
   </context>
   <context>
+    <name>survey/choosesurvey</name>
+    <message>
+      <source>Survey</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Collected information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor was redirected to survey, you can now close this window.</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>survey/collected</name>
     <message>
       <source>Chats</source>
@@ -7489,14 +7471,6 @@
   <context>
     <name>user/new</name>
     <message>
-      <source>All departments</source>
-      <translation>כל המחלקות</translation>
-    </message>
-    <message>
-      <source>Departments</source>
-      <translation>מחלקות</translation>
-    </message>
-    <message>
       <source>I receive other operators permissions request</source>
       <translation type="unfinished"/>
     </message>
@@ -7582,6 +7556,10 @@
     <message>
       <source>Title</source>
       <translation>כותרת</translation>
+    </message>
+    <message>
+      <source>Member of this group can work with the following groups</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Disabled</source>
@@ -7729,13 +7707,6 @@
     </message>
   </context>
   <context>
-    <name>gallery/album_list_admin</name>
-    <message>
-      <source>Are you sure?</source>
-      <translation>האם אתה בטוח?</translation>
-    </message>
-  </context>
-  <context>
     <name>user/login</name>
     <message>
       <source>Please login</source>
@@ -7829,6 +7800,25 @@
     </message>
   </context>
   <context>
+    <name>user/wentinactive</name>
+    <message>
+      <source>Because of inactivity you went offline, click continue to go online.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Continue</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Logout</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>lhxml/userinfo</name>
     <message>
       <source>ID</source>
@@ -7885,10 +7875,6 @@
   <context>
     <name>abstract/survey</name>
     <message>
-      <source>Enabled</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Name</source>
       <translation type="unfinished"/>
     </message>
@@ -7933,6 +7919,21 @@
     </message>
     <message>
       <source>Collected survey data</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/accepttrasnfer</name>
+    <message>
+      <source>Chat has been transfered to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>has joined the chat!</source>
+      <translation>הצטרף לצ&apos;אט</translation>
+    </message>
+    <message>
+      <source>has accepted a chat!</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -8058,6 +8059,13 @@
     </message>
   </context>
   <context>
+    <name>departament/editgroup</name>
+    <message>
+      <source>Please enter a department group name</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>user/validator</name>
     <message>
       <source>Please enter a username</source>
@@ -8081,6 +8089,10 @@
     </message>
     <message>
       <source>Please enter a name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You are trying to assign group which are not known!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8251,21 +8263,6 @@
     </message>
   </context>
   <context>
-    <name>chat/accepttrasnfer</name>
-    <message>
-      <source>Chat has been transfered to</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>has joined the chat!</source>
-      <translation>הצטרף לצ&apos;אט</translation>
-    </message>
-    <message>
-      <source>has accepted a chat!</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
     <name>chat/deletechatadmin</name>
     <message>
       <source>You do not have rights to delete a chat</source>
@@ -8350,47 +8347,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>אנא הזן סוג קובץ תקין</translation>
-    </message>
-  </context>
-  <context>
-    <name>departament/editgroup</name>
-    <message>
-      <source>Please enter a department group name</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>survey/choosesurvey</name>
-    <message>
-      <source>Survey</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Collected information</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Visitor was redirected to survey, you can now close this window.</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>user/wentinactive</name>
-    <message>
-      <source>Because of inactivity you went offline, click continue to go online.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Continue</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Logout</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Offline</source>
-      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

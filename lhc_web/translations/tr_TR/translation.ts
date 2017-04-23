@@ -1,38 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="tr">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="tr" version="2.0">
   <context>
     <name>listchatconfig</name>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>NodeJS support enabled</source>
-      <translation>NodeJS desteği aktif</translation>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>List online operators, 0 - no, 1 - yes.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Hide &apos;New Window&apos; option in Connector Widget</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
@@ -110,8 +78,8 @@
       <translation>socket.io yolu, isteğe bağlı</translation>
     </message>
     <message>
-      <source>NodeJs support enabled</source>
-      <translation type="unfinished"/>
+      <source>NodeJS support enabled</source>
+      <translation>NodeJS desteği aktif</translation>
     </message>
     <message>
       <source>Do not ask permission for users to see their screen</source>
@@ -182,7 +150,7 @@
       <translation>Karakter olarak maksimum mesaj uzunluğu</translation>
     </message>
     <message>
-      <source>List online operators.</source>
+      <source>List online operators, 0 - no, 1 - yes.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -234,7 +202,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Disable option in widget to open new window. Restore icon will be hidden</source>
+      <source>Hide &apos;New Window&apos; option in Connector Widget</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -298,7 +266,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>How long operator should go offline automatically because of inactivity. Value in minutes</source>
+      <source>How long operator should go offline automatically because of inactivity</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -881,10 +849,6 @@
   </context>
   <context>
     <name>system/htmlcode</name>
-    <message>
-      <source>Show product selection based on selected departments</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>HTML code</source>
       <translation>HTML kod</translation>
@@ -1902,6 +1866,257 @@
     </message>
   </context>
   <context>
+    <name>chat/startchat</name>
+    <message>
+      <source>Enter your message</source>
+      <translation>Mesajınızı girin</translation>
+    </message>
+    <message>
+      <source>Department is disabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-posta</translation>
+    </message>
+    <message>
+      <source>Enter your email address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Telefon</translation>
+    </message>
+    <message>
+      <source>Enter your phone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Your question</source>
+      <translation>Sorunuz</translation>
+    </message>
+    <message>
+      <source>Please enter a message...</source>
+      <translation>Lütfen mesajınızı girin...</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>İsim</translation>
+    </message>
+    <message>
+      <source>Enter your name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live support is not available in your country</source>
+      <translation>Canlı destek ülkeniz için kullanılamaz</translation>
+    </message>
+    <message>
+      <source>Live Support</source>
+      <translation>Canlı Destek</translation>
+    </message>
+    <message>
+      <source>There are no online operators at the moment, please leave a message</source>
+      <translation>Şu anda online operatör yok, lütfen mesaj bırakın </translation>
+    </message>
+    <message>
+      <source>File</source>
+      <translation>Dosya</translation>
+    </message>
+    <message>
+      <source>Your request was sent!</source>
+      <translation>İsteğiniz gönderildi!</translation>
+    </message>
+    <message>
+      <source>Leave a message</source>
+      <translation>Mesaj bırak</translation>
+    </message>
+    <message>
+      <source>I accept my personal data will be handled according to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>our terms and to the Law</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start chat</source>
+      <translation>Konuşma başlat</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Departman</translation>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation>Çevrimdışı</translation>
+    </message>
+    <message>
+      <source>Have a question? Ask us!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Mesajınızı buraya girin ve göndermek için enter&apos;a basın...</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>Gönder</translation>
+    </message>
+    <message>
+      <source>Department is offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Go to leave a message form</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Cancel and choose another department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>characters</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Personal assistant</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Fill out this form to start a chat</source>
+      <translation>Bir konuşmaya başlamak için bu formu doldurun</translation>
+    </message>
+    <message>
+      <source>There are no online operators at the moment, please leave your message</source>
+      <translation>Şu anda online operatör yok, lütfen mesajınızı bırakın</translation>
+    </message>
+    <message>
+      <source>Me</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose your language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid CSRF token!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a valid email address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Maximum 50 characters</source>
+      <translation>Maksimum 50 karakter</translation>
+    </message>
+    <message>
+      <source>You do not have permission to chat! Please contact site owner.</source>
+      <translation>Konuşma yapmaya izniniz yok! Lütfen site sahibi ile iletişime geçin.</translation>
+    </message>
+    <message>
+      <source>Please enter your name</source>
+      <translation>Lütfen adınızı girin</translation>
+    </message>
+    <message>
+      <source>Please enter your message</source>
+      <translation>Lütfen mesajınızı girin</translation>
+    </message>
+    <message>
+      <source>Maximum</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>characters for a message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You have to accept our Terms Of Service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter your phone</source>
+      <translation>Lütfen telefonunuzu girin</translation>
+    </message>
+    <message>
+      <source>Maximum 100 characters for phone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose department!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not find a product!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not determine a default department!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a product!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>is required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not decrypt data!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a message, max characters</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor</source>
+      <translation>Ziyaretçi</translation>
+    </message>
+    <message>
+      <source>Pending Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unread message</source>
+      <translation>Okunmamış mesaj</translation>
+    </message>
+    <message>
+      <source>Transfer Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assigned Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Fill in the form to start a chat</source>
+      <translation>Konuşmaya başlamak için formu doldurun</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/adminchat</name>
     <message>
       <source>Attach uploaded file</source>
@@ -2165,6 +2380,117 @@
     </message>
   </context>
   <context>
+    <name>chat/syncadmininterface</name>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Yeni pencerede aç</translation>
+    </message>
+    <message>
+      <source>No previous chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>h.</source>
+      <translation>h.</translation>
+    </message>
+    <message>
+      <source>m.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>s.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>ago</source>
+      <translation>öncew</translation>
+    </message>
+    <message>
+      <source>Add chat</source>
+      <translation>Konuşma ekle</translation>
+    </message>
+    <message>
+      <source>Start chat</source>
+      <translation>Konuşma başlat</translation>
+    </message>
+    <message>
+      <source>Last activity</source>
+      <translation>Son aktivite</translation>
+    </message>
+    <message>
+      <source>Redirect user to contact form.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation>Emin misiniz? </translation>
+    </message>
+    <message>
+      <source>Accept chat</source>
+      <translation>Konuşmayı kabul et</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Boş...</translation>
+    </message>
+    <message>
+      <source>Configure dashboard</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor</source>
+      <translation>Ziyaretçi</translation>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nothing found</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation>Bekleyen sohbetler</translation>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Aktif sohbetler</translation>
+    </message>
+    <message>
+      <source>Last activity ago</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sort</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wait time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transfer time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time ago</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>chat/translation</name>
     <message>
       <source>Visitor language</source>
@@ -2307,117 +2633,6 @@
     </message>
   </context>
   <context>
-    <name>chat/syncadmininterface</name>
-    <message>
-      <source>Open in a new window</source>
-      <translation>Yeni pencerede aç</translation>
-    </message>
-    <message>
-      <source>No previous chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>h.</source>
-      <translation>h.</translation>
-    </message>
-    <message>
-      <source>m.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>s.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>ago</source>
-      <translation>öncew</translation>
-    </message>
-    <message>
-      <source>Add chat</source>
-      <translation>Konuşma ekle</translation>
-    </message>
-    <message>
-      <source>Start chat</source>
-      <translation>Konuşma başlat</translation>
-    </message>
-    <message>
-      <source>Last activity</source>
-      <translation>Son aktivite</translation>
-    </message>
-    <message>
-      <source>Redirect user to contact form.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Are you sure?</source>
-      <translation>Emin misiniz? </translation>
-    </message>
-    <message>
-      <source>Accept chat</source>
-      <translation>Konuşmayı kabul et</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Boş...</translation>
-    </message>
-    <message>
-      <source>Configure dashboard</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Visitor</source>
-      <translation>Ziyaretçi</translation>
-    </message>
-    <message>
-      <source>Operator</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Nothing found</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>Bekleyen sohbetler</translation>
-    </message>
-    <message>
-      <source>Active chats</source>
-      <translation>Aktif sohbetler</translation>
-    </message>
-    <message>
-      <source>Last activity ago</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Sort</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Wait time</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Created</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Transfer time</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Time ago</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
     <name>chat/screenshot</name>
     <message>
       <source>Take user screenshot</source>
@@ -2512,257 +2727,6 @@
     <message>
       <source>SMTP</source>
       <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/startchat</name>
-    <message>
-      <source>Enter your message</source>
-      <translation>Mesajınızı girin</translation>
-    </message>
-    <message>
-      <source>Department is disabled</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-posta</translation>
-    </message>
-    <message>
-      <source>Enter your email address</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>Telefon</translation>
-    </message>
-    <message>
-      <source>Enter your phone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Your question</source>
-      <translation>Sorunuz</translation>
-    </message>
-    <message>
-      <source>Please enter a message...</source>
-      <translation>Lütfen mesajınızı girin...</translation>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation>İsim</translation>
-    </message>
-    <message>
-      <source>Enter your name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Live support is not available in your country</source>
-      <translation>Canlı destek ülkeniz için kullanılamaz</translation>
-    </message>
-    <message>
-      <source>Live Support</source>
-      <translation>Canlı Destek</translation>
-    </message>
-    <message>
-      <source>There are no online operators at the moment, please leave a message</source>
-      <translation>Şu anda online operatör yok, lütfen mesaj bırakın </translation>
-    </message>
-    <message>
-      <source>File</source>
-      <translation>Dosya</translation>
-    </message>
-    <message>
-      <source>Your request was sent!</source>
-      <translation>İsteğiniz gönderildi!</translation>
-    </message>
-    <message>
-      <source>Leave a message</source>
-      <translation>Mesaj bırak</translation>
-    </message>
-    <message>
-      <source>I accept my personal data will be handled according to</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>our terms and to the Law</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Start chat</source>
-      <translation>Konuşma başlat</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Departman</translation>
-    </message>
-    <message>
-      <source>Offline</source>
-      <translation>Çevrimdışı</translation>
-    </message>
-    <message>
-      <source>Have a question? Ask us!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Mesajınızı buraya girin ve göndermek için enter&apos;a basın...</translation>
-    </message>
-    <message>
-      <source>Send</source>
-      <translation>Gönder</translation>
-    </message>
-    <message>
-      <source>Department is offline</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Go to leave a message form</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Cancel and choose another department</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>characters</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Personal assistant</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Fill out this form to start a chat</source>
-      <translation>Bir konuşmaya başlamak için bu formu doldurun</translation>
-    </message>
-    <message>
-      <source>There are no online operators at the moment, please leave your message</source>
-      <translation>Şu anda online operatör yok, lütfen mesajınızı bırakın</translation>
-    </message>
-    <message>
-      <source>Me</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Product</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose a product</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose your language</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invalid CSRF token!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter a valid email address</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Maximum 50 characters</source>
-      <translation>Maksimum 50 karakter</translation>
-    </message>
-    <message>
-      <source>You do not have permission to chat! Please contact site owner.</source>
-      <translation>Konuşma yapmaya izniniz yok! Lütfen site sahibi ile iletişime geçin.</translation>
-    </message>
-    <message>
-      <source>Please enter your name</source>
-      <translation>Lütfen adınızı girin</translation>
-    </message>
-    <message>
-      <source>Please enter your message</source>
-      <translation>Lütfen mesajınızı girin</translation>
-    </message>
-    <message>
-      <source>Maximum</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>characters for a message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>You have to accept our Terms Of Service</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter your phone</source>
-      <translation>Lütfen telefonunuzu girin</translation>
-    </message>
-    <message>
-      <source>Maximum 100 characters for phone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invalid file</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please choose department!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Could not find a product!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please choose</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Could not determine a default department!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please choose a product!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>is required</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Could not decrypt data!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter a message, max characters</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Visitor</source>
-      <translation>Ziyaretçi</translation>
-    </message>
-    <message>
-      <source>Pending Chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Unread message</source>
-      <translation>Okunmamış mesaj</translation>
-    </message>
-    <message>
-      <source>Transfer Chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Assigned Chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Fill in the form to start a chat</source>
-      <translation>Konuşmaya başlamak için formu doldurun</translation>
     </message>
   </context>
   <context>
@@ -4272,10 +4236,6 @@
   </context>
   <context>
     <name>pagelayout/pagelayout</name>
-    <message>
-      <source>New unread message</source>
-      <translation>Yeni okunmayan mesaj</translation>
-    </message>
     <message>
       <source>Empty...</source>
       <translation>Boş...</translation>
@@ -5904,6 +5864,13 @@
     </message>
   </context>
   <context>
+    <name>gallery/album_list_admin</name>
+    <message>
+      <source>Are you sure?</source>
+      <translation>Emin misiniz? </translation>
+    </message>
+  </context>
+  <context>
     <name>department/new</name>
     <message>
       <source>New department</source>
@@ -6971,6 +6938,21 @@
     </message>
   </context>
   <context>
+    <name>survey/choosesurvey</name>
+    <message>
+      <source>Survey</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Collected information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor was redirected to survey, you can now close this window.</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>survey/collected</name>
     <message>
       <source>Chats</source>
@@ -7491,14 +7473,6 @@
   <context>
     <name>user/new</name>
     <message>
-      <source>All departments</source>
-      <translation>Tüm departmanlar</translation>
-    </message>
-    <message>
-      <source>Departments</source>
-      <translation>Departmanlar</translation>
-    </message>
-    <message>
       <source>I receive other operators permissions request</source>
       <translation type="unfinished"/>
     </message>
@@ -7584,6 +7558,10 @@
     <message>
       <source>Title</source>
       <translation>Başlık</translation>
+    </message>
+    <message>
+      <source>Member of this group can work with the following groups</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Disabled</source>
@@ -7731,13 +7709,6 @@
     </message>
   </context>
   <context>
-    <name>gallery/album_list_admin</name>
-    <message>
-      <source>Are you sure?</source>
-      <translation>Emin misiniz? </translation>
-    </message>
-  </context>
-  <context>
     <name>user/login</name>
     <message>
       <source>Please login</source>
@@ -7831,6 +7802,25 @@
     </message>
   </context>
   <context>
+    <name>user/wentinactive</name>
+    <message>
+      <source>Because of inactivity you went offline, click continue to go online.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Continue</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Logout</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>lhxml/userinfo</name>
     <message>
       <source>ID</source>
@@ -7887,10 +7877,6 @@
   <context>
     <name>abstract/survey</name>
     <message>
-      <source>Enabled</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Name</source>
       <translation type="unfinished"/>
     </message>
@@ -7936,6 +7922,21 @@
     <message>
       <source>Collected survey data</source>
       <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/accepttrasnfer</name>
+    <message>
+      <source>Chat has been transfered to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>has joined the chat!</source>
+      <translation>konuşmaya katıldı!</translation>
+    </message>
+    <message>
+      <source>has accepted a chat!</source>
+      <translation>konuşmayı kabul etti!</translation>
     </message>
   </context>
   <context>
@@ -8060,6 +8061,13 @@
     </message>
   </context>
   <context>
+    <name>departament/editgroup</name>
+    <message>
+      <source>Please enter a department group name</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>user/validator</name>
     <message>
       <source>Please enter a username</source>
@@ -8084,6 +8092,10 @@
     <message>
       <source>Please enter a name</source>
       <translation>Lütfen isim girin</translation>
+    </message>
+    <message>
+      <source>You are trying to assign group which are not known!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please choose a default user group</source>
@@ -8253,21 +8265,6 @@
     </message>
   </context>
   <context>
-    <name>chat/accepttrasnfer</name>
-    <message>
-      <source>Chat has been transfered to</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>has joined the chat!</source>
-      <translation>konuşmaya katıldı!</translation>
-    </message>
-    <message>
-      <source>has accepted a chat!</source>
-      <translation>konuşmayı kabul etti!</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/deletechatadmin</name>
     <message>
       <source>You do not have rights to delete a chat</source>
@@ -8352,47 +8349,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Lütfen geçerli bir dosya türü girin!</translation>
-    </message>
-  </context>
-  <context>
-    <name>departament/editgroup</name>
-    <message>
-      <source>Please enter a department group name</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>survey/choosesurvey</name>
-    <message>
-      <source>Survey</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Collected information</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Visitor was redirected to survey, you can now close this window.</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>user/wentinactive</name>
-    <message>
-      <source>Because of inactivity you went offline, click continue to go online.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Continue</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Logout</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Offline</source>
-      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

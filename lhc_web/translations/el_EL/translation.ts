@@ -1,38 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="el">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="el" version="2.0">
   <context>
     <name>listchatconfig</name>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>NodeJS support enabled</source>
-      <translation>Ενεργοποιημένη την υποστήριξη NodeJS</translation>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>List online operators, 0 - no, 1 - yes.</source>
-      <translation>Κατάλογος σε απευθείας σύνδεση φορείς, 0 - ΟΧΙ, 1 - ναι.</translation>
-    </message>
-    <message>
-      <source>Hide &apos;New Window&apos; option in Connector Widget</source>
-      <translation>Απόκρυψη &apos;Νέο παράθυρο&apos; επιλογή σύνδεσης Widget</translation>
-    </message>
     <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Πόσες ημέρες ψηφοφορίας widget δεν θα πρέπει να επεκταθεί μετά από την τελευταία εμφάνιση</translation>
@@ -110,8 +78,8 @@
       <translation>διαδρομή socket.io, προαιρετικά</translation>
     </message>
     <message>
-      <source>NodeJs support enabled</source>
-      <translation type="unfinished"/>
+      <source>NodeJS support enabled</source>
+      <translation>Ενεργοποιημένη την υποστήριξη NodeJS</translation>
     </message>
     <message>
       <source>Do not ask permission for users to see their screen</source>
@@ -182,8 +150,8 @@
       <translation>Μέγιστη μήνυμα μήκος σε χαρακτήρες</translation>
     </message>
     <message>
-      <source>List online operators.</source>
-      <translation type="unfinished"/>
+      <source>List online operators, 0 - no, 1 - yes.</source>
+      <translation>Κατάλογος σε απευθείας σύνδεση φορείς, 0 - ΟΧΙ, 1 - ναι.</translation>
     </message>
     <message>
       <source>Inform visitor about unread messages from operator, value in minutes. 0 - disabled</source>
@@ -234,8 +202,8 @@
       <translation>Απενεργοποιήσετε την εκτύπωση της συνομιλίας</translation>
     </message>
     <message>
-      <source>Disable option in widget to open new window. Restore icon will be hidden</source>
-      <translation type="unfinished"/>
+      <source>Hide &apos;New Window&apos; option in Connector Widget</source>
+      <translation>Απόκρυψη &apos;Νέο παράθυρο&apos; επιλογή σύνδεσης Widget</translation>
     </message>
     <message>
       <source>Disable JS execution in Co-Browsing operator window</source>
@@ -298,7 +266,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>How long operator should go offline automatically because of inactivity. Value in minutes</source>
+      <source>How long operator should go offline automatically because of inactivity</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -881,10 +849,6 @@
   </context>
   <context>
     <name>system/htmlcode</name>
-    <message>
-      <source>Show product selection based on selected departments</source>
-      <translation>Εμφάνιση επιλογή προϊόντων βάσει επιλεγμένων τμημάτων</translation>
-    </message>
     <message>
       <source>HTML code</source>
       <translation>Κώδικα HTML</translation>
@@ -1902,6 +1866,257 @@
     </message>
   </context>
   <context>
+    <name>chat/startchat</name>
+    <message>
+      <source>Enter your message</source>
+      <translation>Εισάγετε το μήνυμά σας</translation>
+    </message>
+    <message>
+      <source>Department is disabled</source>
+      <translation>Τμήμα είναι άτομα με ειδικές ανάγκες</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Enter your email address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Τηλέφωνο</translation>
+    </message>
+    <message>
+      <source>Enter your phone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Your question</source>
+      <translation>Η ερώτησή σας</translation>
+    </message>
+    <message>
+      <source>Please enter a message...</source>
+      <translation>Παρακαλούμε εισάγετε ένα μήνυμα...</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Όνομα</translation>
+    </message>
+    <message>
+      <source>Enter your name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live support is not available in your country</source>
+      <translation>Ζωντανή υποστήριξη δεν είναι διαθέσιμη στη χώρα σας</translation>
+    </message>
+    <message>
+      <source>Live Support</source>
+      <translation>Υποστήριξη σε πραγματικό χρόνο</translation>
+    </message>
+    <message>
+      <source>There are no online operators at the moment, please leave a message</source>
+      <translation>Δεν υπάρχουν συνδεδεμένοι φορείς αυτή τη στιγμή, παρακαλώ αφήστε ένα μήνυμα</translation>
+    </message>
+    <message>
+      <source>File</source>
+      <translation>Αρχείο</translation>
+    </message>
+    <message>
+      <source>Your request was sent!</source>
+      <translation>Το αίτημά σας εστάλη!</translation>
+    </message>
+    <message>
+      <source>Leave a message</source>
+      <translation>Αφήστε ένα μήνυμα</translation>
+    </message>
+    <message>
+      <source>I accept my personal data will be handled according to</source>
+      <translation>Δέχομαι ότι προσωπικά μου δεδομένα θα διεκπεραιώνονται σύμφωνα με</translation>
+    </message>
+    <message>
+      <source>our terms and to the Law</source>
+      <translation>τους όρους μας και με το νόμο</translation>
+    </message>
+    <message>
+      <source>Start chat</source>
+      <translation>ΖΩΝΤΑΝΗ ΣΥΝΔΕΣΗ</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Τμήμα</translation>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation>Εκτός σύνδεσης</translation>
+    </message>
+    <message>
+      <source>Have a question? Ask us!</source>
+      <translation>Έχετε μια ερώτηση; Ρωτήστε μας!</translation>
+    </message>
+    <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Πληκτρολογήστε το μήνυμά σας εδώ και πατήστε enter για να στείλετε...</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>Αποστολή</translation>
+    </message>
+    <message>
+      <source>Department is offline</source>
+      <translation>Τμήμα είναι συνδεδεμένος</translation>
+    </message>
+    <message>
+      <source>Go to leave a message form</source>
+      <translation>Πάει να φύγει ένα μήνυμα μορφή</translation>
+    </message>
+    <message>
+      <source>Cancel and choose another department</source>
+      <translation>Ακυρώσετε και να επιλέξετε ένα άλλο τμήμα</translation>
+    </message>
+    <message>
+      <source>characters</source>
+      <translation>χαρακτήρες</translation>
+    </message>
+    <message>
+      <source>Personal assistant</source>
+      <translation>Προσωπικός βοηθός</translation>
+    </message>
+    <message>
+      <source>Fill out this form to start a chat</source>
+      <translation>Συμπληρώστε τη φόρμα για να ξεκινήσετε μια συνομιλία</translation>
+    </message>
+    <message>
+      <source>There are no online operators at the moment, please leave your message</source>
+      <translation>Δεν υπάρχουν συνδεδεμένοι φορείς αυτή τη στιγμή, παρακαλώ αφήστε το μήνυμά σας</translation>
+    </message>
+    <message>
+      <source>Me</source>
+      <translation>Μου</translation>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation>Προϊόντος</translation>
+    </message>
+    <message>
+      <source>Choose a product</source>
+      <translation>Επιλέξτε ένα προϊόν</translation>
+    </message>
+    <message>
+      <source>Choose your language</source>
+      <translation>Επιλέξτε τη γλώσσα σας</translation>
+    </message>
+    <message>
+      <source>Invalid CSRF token!</source>
+      <translation>Διακριτικό δεν είναι έγκυρο: CSRF!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid email address</source>
+      <translation>Παρακαλώ εισάγετε μια έγκυρη διεύθυνση email</translation>
+    </message>
+    <message>
+      <source>Maximum 50 characters</source>
+      <translation>Έως 50 χαρακτήρες</translation>
+    </message>
+    <message>
+      <source>You do not have permission to chat! Please contact site owner.</source>
+      <translation>Δεν έχετε άδεια για να κάνει chat! Παρακαλούμε επικοινωνήστε με ιδιοκτήτη της ιστοσελίδας.</translation>
+    </message>
+    <message>
+      <source>Please enter your name</source>
+      <translation>Παρακαλώ εισάγετε το όνομά σας</translation>
+    </message>
+    <message>
+      <source>Please enter your message</source>
+      <translation>Παρακαλούμε εισάγετε το μήνυμά σας</translation>
+    </message>
+    <message>
+      <source>Maximum</source>
+      <translation>Μέγιστο</translation>
+    </message>
+    <message>
+      <source>characters for a message</source>
+      <translation>χαρακτήρες για ένα μήνυμα</translation>
+    </message>
+    <message>
+      <source>You have to accept our Terms Of Service</source>
+      <translation>Πρέπει να αποδεχτείτε τους όρους παροχής υπηρεσιών</translation>
+    </message>
+    <message>
+      <source>Please enter your phone</source>
+      <translation>Παρακαλώ εισάγετε το τηλέφωνό σας</translation>
+    </message>
+    <message>
+      <source>Maximum 100 characters for phone</source>
+      <translation>Έως 100 χαρακτήρες για το τηλέφωνο</translation>
+    </message>
+    <message>
+      <source>Invalid file</source>
+      <translation>Αρχείο δεν είναι έγκυρο</translation>
+    </message>
+    <message>
+      <source>Please choose department!</source>
+      <translation>Παρακαλούμε επιλέξτε τμήμα!</translation>
+    </message>
+    <message>
+      <source>Could not find a product!</source>
+      <translation>Δεν μπόρεσα να βρω ένα προϊόν!</translation>
+    </message>
+    <message>
+      <source>Please choose</source>
+      <translation>Παρακαλώ επιλέξτε</translation>
+    </message>
+    <message>
+      <source>Could not determine a default department!</source>
+      <translation>Δεν μπόρεσε να προσδιορίσει ένα προεπιλεγμένο τμήμα!</translation>
+    </message>
+    <message>
+      <source>Please choose a product!</source>
+      <translation>Παρακαλούμε επιλέξτε ένα προϊόν!</translation>
+    </message>
+    <message>
+      <source>is required</source>
+      <translation>είναι απαιτούμενο</translation>
+    </message>
+    <message>
+      <source>Could not decrypt data!</source>
+      <translation>Δεν θα μπορούσε να αποκρυπτογραφήσει δεδομένα!</translation>
+    </message>
+    <message>
+      <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
+      <translation>Το αίτημά σας δεν διεκπεραιώθηκε όπως ήταν αναμενόμενο - αλλά μην ανησυχείτε δεν ήταν το ελάττωμά σας. Παρακαλείσθε να υποβάλει εκ νέου το αίτημά σας. Εάν αντιμετωπίζετε το ίδιο ζήτημα που θα πρέπει να επικοινωνήσετε μαζί μας μέσω άλλων μέσων.</translation>
+    </message>
+    <message>
+      <source>Please enter a message, max characters</source>
+      <translation>Παρακαλούμε εισάγετε ένα μήνυμα, max χαρακτήρες</translation>
+    </message>
+    <message>
+      <source>Visitor</source>
+      <translation>Επισκέπτης</translation>
+    </message>
+    <message>
+      <source>Pending Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unread message</source>
+      <translation>Μη αναγνωσμένο μήνυμα</translation>
+    </message>
+    <message>
+      <source>Transfer Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assigned Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Fill in the form to start a chat</source>
+      <translation>Συμπληρώστε την φόρμα για να ξεκινήσετε μια συνομιλία</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/adminchat</name>
     <message>
       <source>Attach uploaded file</source>
@@ -2165,6 +2380,117 @@
     </message>
   </context>
   <context>
+    <name>chat/syncadmininterface</name>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Άνοιγμα σε νέο παράθυρο</translation>
+    </message>
+    <message>
+      <source>No previous chats</source>
+      <translation>Καμία προηγούμενη συνομιλίες</translation>
+    </message>
+    <message>
+      <source>h.</source>
+      <translation>h.</translation>
+    </message>
+    <message>
+      <source>m.</source>
+      <translation>μ.</translation>
+    </message>
+    <message>
+      <source>s.</source>
+      <translation>s.</translation>
+    </message>
+    <message>
+      <source>ago</source>
+      <translation>πριν</translation>
+    </message>
+    <message>
+      <source>Add chat</source>
+      <translation>Προσθέστε το chat</translation>
+    </message>
+    <message>
+      <source>Start chat</source>
+      <translation>ΖΩΝΤΑΝΗ ΣΥΝΔΕΣΗ</translation>
+    </message>
+    <message>
+      <source>Last activity</source>
+      <translation>Τελευταία δραστηριότητα</translation>
+    </message>
+    <message>
+      <source>Redirect user to contact form.</source>
+      <translation>Ανακατεύθυνση χρήστη για την φόρμα επικοινωνίας.</translation>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation>Είσαι σίγουρος?</translation>
+    </message>
+    <message>
+      <source>Accept chat</source>
+      <translation>Δεχθεί συνομιλίας</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Άδειο...</translation>
+    </message>
+    <message>
+      <source>Configure dashboard</source>
+      <translation>Διαμορφώσετε το ταμπλό</translation>
+    </message>
+    <message>
+      <source>Visitor</source>
+      <translation>Επισκέπτης</translation>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation>Τελεστής</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Τμήμα</translation>
+    </message>
+    <message>
+      <source>Nothing found</source>
+      <translation>Τίποτα δεν βρέθηκε</translation>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation>Συνομιλίες σε εκκρεμότητα</translation>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Ενεργό συνομιλίες</translation>
+    </message>
+    <message>
+      <source>Last activity ago</source>
+      <translation>Τελευταία δραστηριότητα πριν από</translation>
+    </message>
+    <message>
+      <source>Sort</source>
+      <translation>Είδος</translation>
+    </message>
+    <message>
+      <source>Wait time</source>
+      <translation>Χρόνος αναμονής</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Διαγραφή συνομιλίας</translation>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation>Δημιουργήθηκε</translation>
+    </message>
+    <message>
+      <source>Transfer time</source>
+      <translation>Χρόνος μεταφοράς</translation>
+    </message>
+    <message>
+      <source>Time ago</source>
+      <translation>Πριν από καιρό</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/translation</name>
     <message>
       <source>Visitor language</source>
@@ -2307,117 +2633,6 @@
     </message>
   </context>
   <context>
-    <name>chat/syncadmininterface</name>
-    <message>
-      <source>Open in a new window</source>
-      <translation>Άνοιγμα σε νέο παράθυρο</translation>
-    </message>
-    <message>
-      <source>No previous chats</source>
-      <translation>Καμία προηγούμενη συνομιλίες</translation>
-    </message>
-    <message>
-      <source>h.</source>
-      <translation>h.</translation>
-    </message>
-    <message>
-      <source>m.</source>
-      <translation>μ.</translation>
-    </message>
-    <message>
-      <source>s.</source>
-      <translation>s.</translation>
-    </message>
-    <message>
-      <source>ago</source>
-      <translation>πριν</translation>
-    </message>
-    <message>
-      <source>Add chat</source>
-      <translation>Προσθέστε το chat</translation>
-    </message>
-    <message>
-      <source>Start chat</source>
-      <translation>ΖΩΝΤΑΝΗ ΣΥΝΔΕΣΗ</translation>
-    </message>
-    <message>
-      <source>Last activity</source>
-      <translation>Τελευταία δραστηριότητα</translation>
-    </message>
-    <message>
-      <source>Redirect user to contact form.</source>
-      <translation>Ανακατεύθυνση χρήστη για την φόρμα επικοινωνίας.</translation>
-    </message>
-    <message>
-      <source>Are you sure?</source>
-      <translation>Είσαι σίγουρος?</translation>
-    </message>
-    <message>
-      <source>Accept chat</source>
-      <translation>Δεχθεί συνομιλίας</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Άδειο...</translation>
-    </message>
-    <message>
-      <source>Configure dashboard</source>
-      <translation>Διαμορφώσετε το ταμπλό</translation>
-    </message>
-    <message>
-      <source>Visitor</source>
-      <translation>Επισκέπτης</translation>
-    </message>
-    <message>
-      <source>Operator</source>
-      <translation>Τελεστής</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Τμήμα</translation>
-    </message>
-    <message>
-      <source>Nothing found</source>
-      <translation>Τίποτα δεν βρέθηκε</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>Συνομιλίες σε εκκρεμότητα</translation>
-    </message>
-    <message>
-      <source>Active chats</source>
-      <translation>Ενεργό συνομιλίες</translation>
-    </message>
-    <message>
-      <source>Last activity ago</source>
-      <translation>Τελευταία δραστηριότητα πριν από</translation>
-    </message>
-    <message>
-      <source>Sort</source>
-      <translation>Είδος</translation>
-    </message>
-    <message>
-      <source>Wait time</source>
-      <translation>Χρόνος αναμονής</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>Διαγραφή συνομιλίας</translation>
-    </message>
-    <message>
-      <source>Created</source>
-      <translation>Δημιουργήθηκε</translation>
-    </message>
-    <message>
-      <source>Transfer time</source>
-      <translation>Χρόνος μεταφοράς</translation>
-    </message>
-    <message>
-      <source>Time ago</source>
-      <translation>Πριν από καιρό</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/screenshot</name>
     <message>
       <source>Take user screenshot</source>
@@ -2512,257 +2727,6 @@
     <message>
       <source>SMTP</source>
       <translation>SMTP</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/startchat</name>
-    <message>
-      <source>Enter your message</source>
-      <translation>Εισάγετε το μήνυμά σας</translation>
-    </message>
-    <message>
-      <source>Department is disabled</source>
-      <translation>Τμήμα είναι άτομα με ειδικές ανάγκες</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-mail</translation>
-    </message>
-    <message>
-      <source>Enter your email address</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>Τηλέφωνο</translation>
-    </message>
-    <message>
-      <source>Enter your phone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Your question</source>
-      <translation>Η ερώτησή σας</translation>
-    </message>
-    <message>
-      <source>Please enter a message...</source>
-      <translation>Παρακαλούμε εισάγετε ένα μήνυμα...</translation>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation>Όνομα</translation>
-    </message>
-    <message>
-      <source>Enter your name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Live support is not available in your country</source>
-      <translation>Ζωντανή υποστήριξη δεν είναι διαθέσιμη στη χώρα σας</translation>
-    </message>
-    <message>
-      <source>Live Support</source>
-      <translation>Υποστήριξη σε πραγματικό χρόνο</translation>
-    </message>
-    <message>
-      <source>There are no online operators at the moment, please leave a message</source>
-      <translation>Δεν υπάρχουν συνδεδεμένοι φορείς αυτή τη στιγμή, παρακαλώ αφήστε ένα μήνυμα</translation>
-    </message>
-    <message>
-      <source>File</source>
-      <translation>Αρχείο</translation>
-    </message>
-    <message>
-      <source>Your request was sent!</source>
-      <translation>Το αίτημά σας εστάλη!</translation>
-    </message>
-    <message>
-      <source>Leave a message</source>
-      <translation>Αφήστε ένα μήνυμα</translation>
-    </message>
-    <message>
-      <source>I accept my personal data will be handled according to</source>
-      <translation>Δέχομαι ότι προσωπικά μου δεδομένα θα διεκπεραιώνονται σύμφωνα με</translation>
-    </message>
-    <message>
-      <source>our terms and to the Law</source>
-      <translation>τους όρους μας και με το νόμο</translation>
-    </message>
-    <message>
-      <source>Start chat</source>
-      <translation>ΖΩΝΤΑΝΗ ΣΥΝΔΕΣΗ</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Τμήμα</translation>
-    </message>
-    <message>
-      <source>Offline</source>
-      <translation>Εκτός σύνδεσης</translation>
-    </message>
-    <message>
-      <source>Have a question? Ask us!</source>
-      <translation>Έχετε μια ερώτηση; Ρωτήστε μας!</translation>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Πληκτρολογήστε το μήνυμά σας εδώ και πατήστε enter για να στείλετε...</translation>
-    </message>
-    <message>
-      <source>Send</source>
-      <translation>Αποστολή</translation>
-    </message>
-    <message>
-      <source>Department is offline</source>
-      <translation>Τμήμα είναι συνδεδεμένος</translation>
-    </message>
-    <message>
-      <source>Go to leave a message form</source>
-      <translation>Πάει να φύγει ένα μήνυμα μορφή</translation>
-    </message>
-    <message>
-      <source>Cancel and choose another department</source>
-      <translation>Ακυρώσετε και να επιλέξετε ένα άλλο τμήμα</translation>
-    </message>
-    <message>
-      <source>characters</source>
-      <translation>χαρακτήρες</translation>
-    </message>
-    <message>
-      <source>Personal assistant</source>
-      <translation>Προσωπικός βοηθός</translation>
-    </message>
-    <message>
-      <source>Fill out this form to start a chat</source>
-      <translation>Συμπληρώστε τη φόρμα για να ξεκινήσετε μια συνομιλία</translation>
-    </message>
-    <message>
-      <source>There are no online operators at the moment, please leave your message</source>
-      <translation>Δεν υπάρχουν συνδεδεμένοι φορείς αυτή τη στιγμή, παρακαλώ αφήστε το μήνυμά σας</translation>
-    </message>
-    <message>
-      <source>Me</source>
-      <translation>Μου</translation>
-    </message>
-    <message>
-      <source>Product</source>
-      <translation>Προϊόντος</translation>
-    </message>
-    <message>
-      <source>Choose a product</source>
-      <translation>Επιλέξτε ένα προϊόν</translation>
-    </message>
-    <message>
-      <source>Choose your language</source>
-      <translation>Επιλέξτε τη γλώσσα σας</translation>
-    </message>
-    <message>
-      <source>Invalid CSRF token!</source>
-      <translation>Διακριτικό δεν είναι έγκυρο: CSRF!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid email address</source>
-      <translation>Παρακαλώ εισάγετε μια έγκυρη διεύθυνση email</translation>
-    </message>
-    <message>
-      <source>Maximum 50 characters</source>
-      <translation>Έως 50 χαρακτήρες</translation>
-    </message>
-    <message>
-      <source>You do not have permission to chat! Please contact site owner.</source>
-      <translation>Δεν έχετε άδεια για να κάνει chat! Παρακαλούμε επικοινωνήστε με ιδιοκτήτη της ιστοσελίδας.</translation>
-    </message>
-    <message>
-      <source>Please enter your name</source>
-      <translation>Παρακαλώ εισάγετε το όνομά σας</translation>
-    </message>
-    <message>
-      <source>Please enter your message</source>
-      <translation>Παρακαλούμε εισάγετε το μήνυμά σας</translation>
-    </message>
-    <message>
-      <source>Maximum</source>
-      <translation>Μέγιστο</translation>
-    </message>
-    <message>
-      <source>characters for a message</source>
-      <translation>χαρακτήρες για ένα μήνυμα</translation>
-    </message>
-    <message>
-      <source>You have to accept our Terms Of Service</source>
-      <translation>Πρέπει να αποδεχτείτε τους όρους παροχής υπηρεσιών</translation>
-    </message>
-    <message>
-      <source>Please enter your phone</source>
-      <translation>Παρακαλώ εισάγετε το τηλέφωνό σας</translation>
-    </message>
-    <message>
-      <source>Maximum 100 characters for phone</source>
-      <translation>Έως 100 χαρακτήρες για το τηλέφωνο</translation>
-    </message>
-    <message>
-      <source>Invalid file</source>
-      <translation>Αρχείο δεν είναι έγκυρο</translation>
-    </message>
-    <message>
-      <source>Please choose department!</source>
-      <translation>Παρακαλούμε επιλέξτε τμήμα!</translation>
-    </message>
-    <message>
-      <source>Could not find a product!</source>
-      <translation>Δεν μπόρεσα να βρω ένα προϊόν!</translation>
-    </message>
-    <message>
-      <source>Please choose</source>
-      <translation>Παρακαλώ επιλέξτε</translation>
-    </message>
-    <message>
-      <source>Could not determine a default department!</source>
-      <translation>Δεν μπόρεσε να προσδιορίσει ένα προεπιλεγμένο τμήμα!</translation>
-    </message>
-    <message>
-      <source>Please choose a product!</source>
-      <translation>Παρακαλούμε επιλέξτε ένα προϊόν!</translation>
-    </message>
-    <message>
-      <source>is required</source>
-      <translation>είναι απαιτούμενο</translation>
-    </message>
-    <message>
-      <source>Could not decrypt data!</source>
-      <translation>Δεν θα μπορούσε να αποκρυπτογραφήσει δεδομένα!</translation>
-    </message>
-    <message>
-      <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
-      <translation>Το αίτημά σας δεν διεκπεραιώθηκε όπως ήταν αναμενόμενο - αλλά μην ανησυχείτε δεν ήταν το ελάττωμά σας. Παρακαλείσθε να υποβάλει εκ νέου το αίτημά σας. Εάν αντιμετωπίζετε το ίδιο ζήτημα που θα πρέπει να επικοινωνήσετε μαζί μας μέσω άλλων μέσων.</translation>
-    </message>
-    <message>
-      <source>Please enter a message, max characters</source>
-      <translation>Παρακαλούμε εισάγετε ένα μήνυμα, max χαρακτήρες</translation>
-    </message>
-    <message>
-      <source>Visitor</source>
-      <translation>Επισκέπτης</translation>
-    </message>
-    <message>
-      <source>Pending Chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Unread message</source>
-      <translation>Μη αναγνωσμένο μήνυμα</translation>
-    </message>
-    <message>
-      <source>Transfer Chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Assigned Chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Fill in the form to start a chat</source>
-      <translation>Συμπληρώστε την φόρμα για να ξεκινήσετε μια συνομιλία</translation>
     </message>
   </context>
   <context>
@@ -4270,10 +4234,6 @@
   </context>
   <context>
     <name>pagelayout/pagelayout</name>
-    <message>
-      <source>New unread message</source>
-      <translation>Νέα μη αναγνωσμένο μήνυμα</translation>
-    </message>
     <message>
       <source>Empty...</source>
       <translation>Άδειο...</translation>
@@ -5902,6 +5862,13 @@
     </message>
   </context>
   <context>
+    <name>gallery/album_list_admin</name>
+    <message>
+      <source>Are you sure?</source>
+      <translation>Είσαι σίγουρος?</translation>
+    </message>
+  </context>
+  <context>
     <name>department/new</name>
     <message>
       <source>New department</source>
@@ -6969,6 +6936,21 @@
     </message>
   </context>
   <context>
+    <name>survey/choosesurvey</name>
+    <message>
+      <source>Survey</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Collected information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor was redirected to survey, you can now close this window.</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>survey/collected</name>
     <message>
       <source>Chats</source>
@@ -7489,14 +7471,6 @@
   <context>
     <name>user/new</name>
     <message>
-      <source>All departments</source>
-      <translation>Όλα τα τμήματα</translation>
-    </message>
-    <message>
-      <source>Departments</source>
-      <translation>Τμήματα</translation>
-    </message>
-    <message>
       <source>I receive other operators permissions request</source>
       <translation>Λάβω άλλη αίτηση δικαιώματα φορέων</translation>
     </message>
@@ -7582,6 +7556,10 @@
     <message>
       <source>Title</source>
       <translation>Τίτλος</translation>
+    </message>
+    <message>
+      <source>Member of this group can work with the following groups</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Disabled</source>
@@ -7729,13 +7707,6 @@
     </message>
   </context>
   <context>
-    <name>gallery/album_list_admin</name>
-    <message>
-      <source>Are you sure?</source>
-      <translation>Είσαι σίγουρος?</translation>
-    </message>
-  </context>
-  <context>
     <name>user/login</name>
     <message>
       <source>Please login</source>
@@ -7829,6 +7800,25 @@
     </message>
   </context>
   <context>
+    <name>user/wentinactive</name>
+    <message>
+      <source>Because of inactivity you went offline, click continue to go online.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Continue</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Logout</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>lhxml/userinfo</name>
     <message>
       <source>ID</source>
@@ -7885,10 +7875,6 @@
   <context>
     <name>abstract/survey</name>
     <message>
-      <source>Enabled</source>
-      <translation>Ενεργοποιημένη</translation>
-    </message>
-    <message>
       <source>Name</source>
       <translation>Όνομα</translation>
     </message>
@@ -7934,6 +7920,21 @@
     <message>
       <source>Collected survey data</source>
       <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/accepttrasnfer</name>
+    <message>
+      <source>Chat has been transfered to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>has joined the chat!</source>
+      <translation>έχει ενταχθεί στο chat!</translation>
+    </message>
+    <message>
+      <source>has accepted a chat!</source>
+      <translation>δέχθηκε μια συνομιλία!</translation>
     </message>
   </context>
   <context>
@@ -8058,6 +8059,13 @@
     </message>
   </context>
   <context>
+    <name>departament/editgroup</name>
+    <message>
+      <source>Please enter a department group name</source>
+      <translation>Παρακαλώ εισάγετε ένα όνομα ομάδας τμήμα</translation>
+    </message>
+  </context>
+  <context>
     <name>user/validator</name>
     <message>
       <source>Please enter a username</source>
@@ -8082,6 +8090,10 @@
     <message>
       <source>Please enter a name</source>
       <translation>Παρακαλούμε εισάγετε όνομα</translation>
+    </message>
+    <message>
+      <source>You are trying to assign group which are not known!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please choose a default user group</source>
@@ -8251,21 +8263,6 @@
     </message>
   </context>
   <context>
-    <name>chat/accepttrasnfer</name>
-    <message>
-      <source>Chat has been transfered to</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>has joined the chat!</source>
-      <translation>έχει ενταχθεί στο chat!</translation>
-    </message>
-    <message>
-      <source>has accepted a chat!</source>
-      <translation>δέχθηκε μια συνομιλία!</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/deletechatadmin</name>
     <message>
       <source>You do not have rights to delete a chat</source>
@@ -8350,47 +8347,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Παρακαλούμε, εισάγετε έγκυρο αρχείο τύπου!</translation>
-    </message>
-  </context>
-  <context>
-    <name>departament/editgroup</name>
-    <message>
-      <source>Please enter a department group name</source>
-      <translation>Παρακαλώ εισάγετε ένα όνομα ομάδας τμήμα</translation>
-    </message>
-  </context>
-  <context>
-    <name>survey/choosesurvey</name>
-    <message>
-      <source>Survey</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Collected information</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Visitor was redirected to survey, you can now close this window.</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>user/wentinactive</name>
-    <message>
-      <source>Because of inactivity you went offline, click continue to go online.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Continue</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Logout</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Offline</source>
-      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

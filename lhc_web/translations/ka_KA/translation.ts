@@ -1,38 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ka">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ka" version="2.0">
   <context>
     <name>listchatconfig</name>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>NodeJS support enabled</source>
-      <translation>NodeJS  მხარდაჭერა ჩართულია</translation>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>List online operators, 0 - no, 1 - yes.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Hide &apos;New Window&apos; option in Connector Widget</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>რამდენი დღე  არ უნდა გაფართივდეს ხმის მიცემის ვიდჯეტი ბოლო ჩვენებიდან</translation>
@@ -110,8 +78,8 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>NodeJs support enabled</source>
-      <translation type="unfinished"/>
+      <source>NodeJS support enabled</source>
+      <translation>NodeJS  მხარდაჭერა ჩართულია</translation>
     </message>
     <message>
       <source>Do not ask permission for users to see their screen</source>
@@ -182,7 +150,7 @@
       <translation>შეტყობინების მაქსიმალური სიგრძე სიმბოლოებში</translation>
     </message>
     <message>
-      <source>List online operators.</source>
+      <source>List online operators, 0 - no, 1 - yes.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -234,7 +202,7 @@
       <translation>ჩეთის ამობეჭდვის გამორთვა</translation>
     </message>
     <message>
-      <source>Disable option in widget to open new window. Restore icon will be hidden</source>
+      <source>Hide &apos;New Window&apos; option in Connector Widget</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -298,7 +266,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>How long operator should go offline automatically because of inactivity. Value in minutes</source>
+      <source>How long operator should go offline automatically because of inactivity</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -881,10 +849,6 @@
   </context>
   <context>
     <name>system/htmlcode</name>
-    <message>
-      <source>Show product selection based on selected departments</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>HTML code</source>
       <translation>HTML კოდი</translation>
@@ -1902,6 +1866,257 @@
     </message>
   </context>
   <context>
+    <name>chat/startchat</name>
+    <message>
+      <source>Enter your message</source>
+      <translation>შეიტანეთ თქვენი შეტყობინება</translation>
+    </message>
+    <message>
+      <source>Department is disabled</source>
+      <translation>დეპარტამენტი გამორთულია</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>ელ. ფოსტა</translation>
+    </message>
+    <message>
+      <source>Enter your email address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>ტელეფონი</translation>
+    </message>
+    <message>
+      <source>Enter your phone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Your question</source>
+      <translation>თქვენი შეკითხვა</translation>
+    </message>
+    <message>
+      <source>Please enter a message...</source>
+      <translation>გთხოვთ, დაბეჭდეთ შეტყობინება</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>სახელი</translation>
+    </message>
+    <message>
+      <source>Enter your name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live support is not available in your country</source>
+      <translation>ინტერაქტიული მხარდაჭერა არ არის ხელმისაწვდომი თქვენს ქვეყანაში</translation>
+    </message>
+    <message>
+      <source>Live Support</source>
+      <translation>ონალინ მხარდაჭერა</translation>
+    </message>
+    <message>
+      <source>There are no online operators at the moment, please leave a message</source>
+      <translation>ამ მომენტისთვის ინლაინში არსერთი ოპერატორი არა რის, გთხოვთ, დატოვოთ შეტყობინება</translation>
+    </message>
+    <message>
+      <source>File</source>
+      <translation>ფაილი</translation>
+    </message>
+    <message>
+      <source>Your request was sent!</source>
+      <translation>თქვენი მოთხოვნა გაიგზავნა!</translation>
+    </message>
+    <message>
+      <source>Leave a message</source>
+      <translation>დატოვეთ შეტყობინება</translation>
+    </message>
+    <message>
+      <source>I accept my personal data will be handled according to</source>
+      <translation>მე ვადასტურებ, რომ ჩემი პერსონალური მონაცემები დამუშავებული იქნება --ის შესაბამისად</translation>
+    </message>
+    <message>
+      <source>our terms and to the Law</source>
+      <translation>ჩვენი პირპბები და კანონმდებლობა</translation>
+    </message>
+    <message>
+      <source>Start chat</source>
+      <translation>ჩეთის დაწყება</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>დეპარტამენტი</translation>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation>კავშირგარეშე</translation>
+    </message>
+    <message>
+      <source>Have a question? Ask us!</source>
+      <translation>კითხვა გაქვთ? გვკითხეთ!</translation>
+    </message>
+    <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>დაბეჭდეთ თქვენი შეტყობინება აქ და დააჭირეთ შეტანის კლავიშს, რომ გააგზავნოთ</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>გაგზავნა</translation>
+    </message>
+    <message>
+      <source>Department is offline</source>
+      <translation>დეპარტამენტი კავშირგარეშეა</translation>
+    </message>
+    <message>
+      <source>Go to leave a message form</source>
+      <translation>შეტყობინების დატივების  ფორმაში შესვლა</translation>
+    </message>
+    <message>
+      <source>Cancel and choose another department</source>
+      <translation>გაუქმება და სხვა დეპარტამენტის არჩევა</translation>
+    </message>
+    <message>
+      <source>characters</source>
+      <translation>სიმბოლოები</translation>
+    </message>
+    <message>
+      <source>Personal assistant</source>
+      <translation>პერსონალური ასისტენტი</translation>
+    </message>
+    <message>
+      <source>Fill out this form to start a chat</source>
+      <translation>ჩეთის დასაწყებად შეავსეთ ეს ფორმა.</translation>
+    </message>
+    <message>
+      <source>There are no online operators at the moment, please leave your message</source>
+      <translation>ამ მომენტისთვის ინლაინში არსერთი ოპერატორი არა რის, გთხოვთ, დატოვოთ თქვენი შეტყობინება</translation>
+    </message>
+    <message>
+      <source>Me</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose your language</source>
+      <translation>აირჩიეთ ენა</translation>
+    </message>
+    <message>
+      <source>Invalid CSRF token!</source>
+      <translation>არასწორი CSRF  მარკერი</translation>
+    </message>
+    <message>
+      <source>Please enter a valid email address</source>
+      <translation>გთხოვთ შეიტანოთ  ელ.ფოსტის ვალიდური მისამართი</translation>
+    </message>
+    <message>
+      <source>Maximum 50 characters</source>
+      <translation>მაქსიმუმ 50 სიმბოლო</translation>
+    </message>
+    <message>
+      <source>You do not have permission to chat! Please contact site owner.</source>
+      <translation>თქვენ არ გაქვთ ჩეთის ნებართვა! გთხოვთ. დაუკავშრდეთ საიტის მფლობელს.</translation>
+    </message>
+    <message>
+      <source>Please enter your name</source>
+      <translation>გთხოვთ, შეიტანეთ თქვენი სახელი</translation>
+    </message>
+    <message>
+      <source>Please enter your message</source>
+      <translation>გთხოვთ შეიტანეთ თქვენი შეტყობინება</translation>
+    </message>
+    <message>
+      <source>Maximum</source>
+      <translation>მაქსიმუმი</translation>
+    </message>
+    <message>
+      <source>characters for a message</source>
+      <translation>სიმბოლოები შეტყობინებისთვის</translation>
+    </message>
+    <message>
+      <source>You have to accept our Terms Of Service</source>
+      <translation>თქვენ უნდა დაეთანხმოთ ჩვენი მომსახურების პირობებს</translation>
+    </message>
+    <message>
+      <source>Please enter your phone</source>
+      <translation>გთხოვთ შეიტანეთ თქვენი ტელეფონის ნომერი</translation>
+    </message>
+    <message>
+      <source>Maximum 100 characters for phone</source>
+      <translation>მაქსიმუმ 100 სიმბოლო ტელეფონისთვის</translation>
+    </message>
+    <message>
+      <source>Invalid file</source>
+      <translation>არასწორი ფაილი</translation>
+    </message>
+    <message>
+      <source>Please choose department!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not find a product!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not determine a default department!</source>
+      <translation>ნაგულისხმევი დეპატრამენტი ვერ განისაზღვრა!</translation>
+    </message>
+    <message>
+      <source>Please choose a product!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>is required</source>
+      <translation>აუცილებელია</translation>
+    </message>
+    <message>
+      <source>Could not decrypt data!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a message, max characters</source>
+      <translation>გთხოვთ, შეიტანეთ შეტყობინება, მაქსიმალური სიმბოლოები</translation>
+    </message>
+    <message>
+      <source>Visitor</source>
+      <translation>ვიზიტორი</translation>
+    </message>
+    <message>
+      <source>Pending Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unread message</source>
+      <translation>წაუკითხავი შეტყობინება</translation>
+    </message>
+    <message>
+      <source>Transfer Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assigned Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Fill in the form to start a chat</source>
+      <translation> ჩეთის დასაწყებად შეავსეთ ფორმა</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/adminchat</name>
     <message>
       <source>Attach uploaded file</source>
@@ -2165,6 +2380,117 @@
     </message>
   </context>
   <context>
+    <name>chat/syncadmininterface</name>
+    <message>
+      <source>Open in a new window</source>
+      <translation>ახალ ფანჯარაში გახსნა</translation>
+    </message>
+    <message>
+      <source>No previous chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>h.</source>
+      <translation>სთ.</translation>
+    </message>
+    <message>
+      <source>m.</source>
+      <translation>წთ.</translation>
+    </message>
+    <message>
+      <source>s.</source>
+      <translation>წმ.</translation>
+    </message>
+    <message>
+      <source>ago</source>
+      <translation>წინათ</translation>
+    </message>
+    <message>
+      <source>Add chat</source>
+      <translation>ჩეთის დამატება</translation>
+    </message>
+    <message>
+      <source>Start chat</source>
+      <translation>ჩეთის დაწყება</translation>
+    </message>
+    <message>
+      <source>Last activity</source>
+      <translation>ბოლო აქტოვობა</translation>
+    </message>
+    <message>
+      <source>Redirect user to contact form.</source>
+      <translation>მომხმარებლის გადამისამართება საკონტაქტო ფორმაზე</translation>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation>დარწმუნებული ხართ?</translation>
+    </message>
+    <message>
+      <source>Accept chat</source>
+      <translation>თანხმობა ჩეთზე</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>ცარიელი</translation>
+    </message>
+    <message>
+      <source>Configure dashboard</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nothing found</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last activity ago</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sort</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wait time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transfer time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time ago</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>chat/translation</name>
     <message>
       <source>Visitor language</source>
@@ -2307,117 +2633,6 @@
     </message>
   </context>
   <context>
-    <name>chat/syncadmininterface</name>
-    <message>
-      <source>Open in a new window</source>
-      <translation>ახალ ფანჯარაში გახსნა</translation>
-    </message>
-    <message>
-      <source>No previous chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>h.</source>
-      <translation>სთ.</translation>
-    </message>
-    <message>
-      <source>m.</source>
-      <translation>წთ.</translation>
-    </message>
-    <message>
-      <source>s.</source>
-      <translation>წმ.</translation>
-    </message>
-    <message>
-      <source>ago</source>
-      <translation>წინათ</translation>
-    </message>
-    <message>
-      <source>Add chat</source>
-      <translation>ჩეთის დამატება</translation>
-    </message>
-    <message>
-      <source>Start chat</source>
-      <translation>ჩეთის დაწყება</translation>
-    </message>
-    <message>
-      <source>Last activity</source>
-      <translation>ბოლო აქტოვობა</translation>
-    </message>
-    <message>
-      <source>Redirect user to contact form.</source>
-      <translation>მომხმარებლის გადამისამართება საკონტაქტო ფორმაზე</translation>
-    </message>
-    <message>
-      <source>Are you sure?</source>
-      <translation>დარწმუნებული ხართ?</translation>
-    </message>
-    <message>
-      <source>Accept chat</source>
-      <translation>თანხმობა ჩეთზე</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>ცარიელი</translation>
-    </message>
-    <message>
-      <source>Configure dashboard</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Visitor</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Operator</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Nothing found</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Active chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Last activity ago</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Sort</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Wait time</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Created</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Transfer time</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Time ago</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
     <name>chat/screenshot</name>
     <message>
       <source>Take user screenshot</source>
@@ -2512,257 +2727,6 @@
     <message>
       <source>SMTP</source>
       <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/startchat</name>
-    <message>
-      <source>Enter your message</source>
-      <translation>შეიტანეთ თქვენი შეტყობინება</translation>
-    </message>
-    <message>
-      <source>Department is disabled</source>
-      <translation>დეპარტამენტი გამორთულია</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>ელ. ფოსტა</translation>
-    </message>
-    <message>
-      <source>Enter your email address</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>ტელეფონი</translation>
-    </message>
-    <message>
-      <source>Enter your phone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Your question</source>
-      <translation>თქვენი შეკითხვა</translation>
-    </message>
-    <message>
-      <source>Please enter a message...</source>
-      <translation>გთხოვთ, დაბეჭდეთ შეტყობინება</translation>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation>სახელი</translation>
-    </message>
-    <message>
-      <source>Enter your name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Live support is not available in your country</source>
-      <translation>ინტერაქტიული მხარდაჭერა არ არის ხელმისაწვდომი თქვენს ქვეყანაში</translation>
-    </message>
-    <message>
-      <source>Live Support</source>
-      <translation>ონალინ მხარდაჭერა</translation>
-    </message>
-    <message>
-      <source>There are no online operators at the moment, please leave a message</source>
-      <translation>ამ მომენტისთვის ინლაინში არსერთი ოპერატორი არა რის, გთხოვთ, დატოვოთ შეტყობინება</translation>
-    </message>
-    <message>
-      <source>File</source>
-      <translation>ფაილი</translation>
-    </message>
-    <message>
-      <source>Your request was sent!</source>
-      <translation>თქვენი მოთხოვნა გაიგზავნა!</translation>
-    </message>
-    <message>
-      <source>Leave a message</source>
-      <translation>დატოვეთ შეტყობინება</translation>
-    </message>
-    <message>
-      <source>I accept my personal data will be handled according to</source>
-      <translation>მე ვადასტურებ, რომ ჩემი პერსონალური მონაცემები დამუშავებული იქნება --ის შესაბამისად</translation>
-    </message>
-    <message>
-      <source>our terms and to the Law</source>
-      <translation>ჩვენი პირპბები და კანონმდებლობა</translation>
-    </message>
-    <message>
-      <source>Start chat</source>
-      <translation>ჩეთის დაწყება</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>დეპარტამენტი</translation>
-    </message>
-    <message>
-      <source>Offline</source>
-      <translation>კავშირგარეშე</translation>
-    </message>
-    <message>
-      <source>Have a question? Ask us!</source>
-      <translation>კითხვა გაქვთ? გვკითხეთ!</translation>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>დაბეჭდეთ თქვენი შეტყობინება აქ და დააჭირეთ შეტანის კლავიშს, რომ გააგზავნოთ</translation>
-    </message>
-    <message>
-      <source>Send</source>
-      <translation>გაგზავნა</translation>
-    </message>
-    <message>
-      <source>Department is offline</source>
-      <translation>დეპარტამენტი კავშირგარეშეა</translation>
-    </message>
-    <message>
-      <source>Go to leave a message form</source>
-      <translation>შეტყობინების დატივების  ფორმაში შესვლა</translation>
-    </message>
-    <message>
-      <source>Cancel and choose another department</source>
-      <translation>გაუქმება და სხვა დეპარტამენტის არჩევა</translation>
-    </message>
-    <message>
-      <source>characters</source>
-      <translation>სიმბოლოები</translation>
-    </message>
-    <message>
-      <source>Personal assistant</source>
-      <translation>პერსონალური ასისტენტი</translation>
-    </message>
-    <message>
-      <source>Fill out this form to start a chat</source>
-      <translation>ჩეთის დასაწყებად შეავსეთ ეს ფორმა.</translation>
-    </message>
-    <message>
-      <source>There are no online operators at the moment, please leave your message</source>
-      <translation>ამ მომენტისთვის ინლაინში არსერთი ოპერატორი არა რის, გთხოვთ, დატოვოთ თქვენი შეტყობინება</translation>
-    </message>
-    <message>
-      <source>Me</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Product</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose a product</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose your language</source>
-      <translation>აირჩიეთ ენა</translation>
-    </message>
-    <message>
-      <source>Invalid CSRF token!</source>
-      <translation>არასწორი CSRF  მარკერი</translation>
-    </message>
-    <message>
-      <source>Please enter a valid email address</source>
-      <translation>გთხოვთ შეიტანოთ  ელ.ფოსტის ვალიდური მისამართი</translation>
-    </message>
-    <message>
-      <source>Maximum 50 characters</source>
-      <translation>მაქსიმუმ 50 სიმბოლო</translation>
-    </message>
-    <message>
-      <source>You do not have permission to chat! Please contact site owner.</source>
-      <translation>თქვენ არ გაქვთ ჩეთის ნებართვა! გთხოვთ. დაუკავშრდეთ საიტის მფლობელს.</translation>
-    </message>
-    <message>
-      <source>Please enter your name</source>
-      <translation>გთხოვთ, შეიტანეთ თქვენი სახელი</translation>
-    </message>
-    <message>
-      <source>Please enter your message</source>
-      <translation>გთხოვთ შეიტანეთ თქვენი შეტყობინება</translation>
-    </message>
-    <message>
-      <source>Maximum</source>
-      <translation>მაქსიმუმი</translation>
-    </message>
-    <message>
-      <source>characters for a message</source>
-      <translation>სიმბოლოები შეტყობინებისთვის</translation>
-    </message>
-    <message>
-      <source>You have to accept our Terms Of Service</source>
-      <translation>თქვენ უნდა დაეთანხმოთ ჩვენი მომსახურების პირობებს</translation>
-    </message>
-    <message>
-      <source>Please enter your phone</source>
-      <translation>გთხოვთ შეიტანეთ თქვენი ტელეფონის ნომერი</translation>
-    </message>
-    <message>
-      <source>Maximum 100 characters for phone</source>
-      <translation>მაქსიმუმ 100 სიმბოლო ტელეფონისთვის</translation>
-    </message>
-    <message>
-      <source>Invalid file</source>
-      <translation>არასწორი ფაილი</translation>
-    </message>
-    <message>
-      <source>Please choose department!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Could not find a product!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please choose</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Could not determine a default department!</source>
-      <translation>ნაგულისხმევი დეპატრამენტი ვერ განისაზღვრა!</translation>
-    </message>
-    <message>
-      <source>Please choose a product!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>is required</source>
-      <translation>აუცილებელია</translation>
-    </message>
-    <message>
-      <source>Could not decrypt data!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter a message, max characters</source>
-      <translation>გთხოვთ, შეიტანეთ შეტყობინება, მაქსიმალური სიმბოლოები</translation>
-    </message>
-    <message>
-      <source>Visitor</source>
-      <translation>ვიზიტორი</translation>
-    </message>
-    <message>
-      <source>Pending Chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Unread message</source>
-      <translation>წაუკითხავი შეტყობინება</translation>
-    </message>
-    <message>
-      <source>Transfer Chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Assigned Chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Fill in the form to start a chat</source>
-      <translation> ჩეთის დასაწყებად შეავსეთ ფორმა</translation>
     </message>
   </context>
   <context>
@@ -4270,10 +4234,6 @@
   </context>
   <context>
     <name>pagelayout/pagelayout</name>
-    <message>
-      <source>New unread message</source>
-      <translation>ახალი წაუკითხავი შეტყობინება</translation>
-    </message>
     <message>
       <source>Empty...</source>
       <translation>ცარიელი</translation>
@@ -5902,6 +5862,13 @@
     </message>
   </context>
   <context>
+    <name>gallery/album_list_admin</name>
+    <message>
+      <source>Are you sure?</source>
+      <translation>დარწმუნებული ხართ?</translation>
+    </message>
+  </context>
+  <context>
     <name>department/new</name>
     <message>
       <source>New department</source>
@@ -6969,6 +6936,21 @@
     </message>
   </context>
   <context>
+    <name>survey/choosesurvey</name>
+    <message>
+      <source>Survey</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Collected information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor was redirected to survey, you can now close this window.</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>survey/collected</name>
     <message>
       <source>Chats</source>
@@ -7489,14 +7471,6 @@
   <context>
     <name>user/new</name>
     <message>
-      <source>All departments</source>
-      <translation>ყველა დეპარტამენტი</translation>
-    </message>
-    <message>
-      <source>Departments</source>
-      <translation>დეპარტამეტები</translation>
-    </message>
-    <message>
       <source>I receive other operators permissions request</source>
       <translation type="unfinished"/>
     </message>
@@ -7582,6 +7556,10 @@
     <message>
       <source>Title</source>
       <translation>სათაური</translation>
+    </message>
+    <message>
+      <source>Member of this group can work with the following groups</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Disabled</source>
@@ -7729,13 +7707,6 @@
     </message>
   </context>
   <context>
-    <name>gallery/album_list_admin</name>
-    <message>
-      <source>Are you sure?</source>
-      <translation>დარწმუნებული ხართ?</translation>
-    </message>
-  </context>
-  <context>
     <name>user/login</name>
     <message>
       <source>Please login</source>
@@ -7829,6 +7800,25 @@
     </message>
   </context>
   <context>
+    <name>user/wentinactive</name>
+    <message>
+      <source>Because of inactivity you went offline, click continue to go online.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Continue</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Logout</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>lhxml/userinfo</name>
     <message>
       <source>ID</source>
@@ -7885,10 +7875,6 @@
   <context>
     <name>abstract/survey</name>
     <message>
-      <source>Enabled</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Name</source>
       <translation type="unfinished"/>
     </message>
@@ -7934,6 +7920,21 @@
     <message>
       <source>Collected survey data</source>
       <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/accepttrasnfer</name>
+    <message>
+      <source>Chat has been transfered to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>has joined the chat!</source>
+      <translation>შემოუერთდა ჩეთს!</translation>
+    </message>
+    <message>
+      <source>has accepted a chat!</source>
+      <translation>დაადასტურა ჩეთი!</translation>
     </message>
   </context>
   <context>
@@ -8058,6 +8059,13 @@
     </message>
   </context>
   <context>
+    <name>departament/editgroup</name>
+    <message>
+      <source>Please enter a department group name</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>user/validator</name>
     <message>
       <source>Please enter a username</source>
@@ -8081,6 +8089,10 @@
     </message>
     <message>
       <source>Please enter a name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You are trying to assign group which are not known!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8251,21 +8263,6 @@
     </message>
   </context>
   <context>
-    <name>chat/accepttrasnfer</name>
-    <message>
-      <source>Chat has been transfered to</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>has joined the chat!</source>
-      <translation>შემოუერთდა ჩეთს!</translation>
-    </message>
-    <message>
-      <source>has accepted a chat!</source>
-      <translation>დაადასტურა ჩეთი!</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/deletechatadmin</name>
     <message>
       <source>You do not have rights to delete a chat</source>
@@ -8350,47 +8347,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>გთხოვთ, შეიტანეთ ვალიდური ტიპის ფაილი!</translation>
-    </message>
-  </context>
-  <context>
-    <name>departament/editgroup</name>
-    <message>
-      <source>Please enter a department group name</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>survey/choosesurvey</name>
-    <message>
-      <source>Survey</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Collected information</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Visitor was redirected to survey, you can now close this window.</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>user/wentinactive</name>
-    <message>
-      <source>Because of inactivity you went offline, click continue to go online.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Continue</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Logout</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Offline</source>
-      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

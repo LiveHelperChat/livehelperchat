@@ -1,38 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="fi_FI">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="fi_FI" version="2.0">
   <context>
     <name>listchatconfig</name>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>NodeJS support enabled</source>
-      <translation>NodeJS tuki aktivoitu</translation>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>List online operators, 0 - no, 1 - yes.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Hide &apos;New Window&apos; option in Connector Widget</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Kuinka monta päivää edellisen äänestyksen jälkeen äänestys-widgetti pidetään piilossa</translation>
@@ -110,8 +78,8 @@
       <translation>Jätä viesti -lomakkeen teksti</translation>
     </message>
     <message>
-      <source>NodeJs support enabled</source>
-      <translation type="unfinished"/>
+      <source>NodeJS support enabled</source>
+      <translation>NodeJS tuki aktivoitu</translation>
     </message>
     <message>
       <source>Do not ask permission for users to see their screen</source>
@@ -182,7 +150,7 @@
       <translation>Maksimi viestin pituus merkkeinä</translation>
     </message>
     <message>
-      <source>List online operators.</source>
+      <source>List online operators, 0 - no, 1 - yes.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -234,7 +202,7 @@
       <translation>Estä keskustelun tulostaminen</translation>
     </message>
     <message>
-      <source>Disable option in widget to open new window. Restore icon will be hidden</source>
+      <source>Hide &apos;New Window&apos; option in Connector Widget</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -298,7 +266,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>How long operator should go offline automatically because of inactivity. Value in minutes</source>
+      <source>How long operator should go offline automatically because of inactivity</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -881,10 +849,6 @@
   </context>
   <context>
     <name>system/htmlcode</name>
-    <message>
-      <source>Show product selection based on selected departments</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>HTML code</source>
       <translation>HTML koodi</translation>
@@ -1902,6 +1866,257 @@
     </message>
   </context>
   <context>
+    <name>chat/startchat</name>
+    <message>
+      <source>Enter your message</source>
+      <translation>Kirjoita viestisi</translation>
+    </message>
+    <message>
+      <source>Department is disabled</source>
+      <translation>Yksikkö on estetty</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Enter your email address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Puhelin</translation>
+    </message>
+    <message>
+      <source>Enter your phone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Your question</source>
+      <translation>Kysymyksesi</translation>
+    </message>
+    <message>
+      <source>Please enter a message...</source>
+      <translation>Ole hyvä ja kirjoita viestisi tähän</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Nimi</translation>
+    </message>
+    <message>
+      <source>Enter your name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live support is not available in your country</source>
+      <translation>Live tuki ei ole saatavilla maassasi</translation>
+    </message>
+    <message>
+      <source>Live Support</source>
+      <translation>Online tuki</translation>
+    </message>
+    <message>
+      <source>There are no online operators at the moment, please leave a message</source>
+      <translation>Tällä hetkellä ei ole yhtään operaattoria linjoilla, ole hyvä ja jätä viesti</translation>
+    </message>
+    <message>
+      <source>File</source>
+      <translation>Tiedosto</translation>
+    </message>
+    <message>
+      <source>Your request was sent!</source>
+      <translation>Pyyntösi lähetettiin</translation>
+    </message>
+    <message>
+      <source>Leave a message</source>
+      <translation>Jätä viesti</translation>
+    </message>
+    <message>
+      <source>I accept my personal data will be handled according to</source>
+      <translation>Hyväksyn, että henkilökohtaisia tietojani käsitellään seuraavasti</translation>
+    </message>
+    <message>
+      <source>our terms and to the Law</source>
+      <translation>käyttöehdoissamme ja laissa</translation>
+    </message>
+    <message>
+      <source>Start chat</source>
+      <translation>Aloita keskustelu</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Yksikkö</translation>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation>offline</translation>
+    </message>
+    <message>
+      <source>Have a question? Ask us!</source>
+      <translation>Onko sinulla kysyttävää ? Kysy meiltä !</translation>
+    </message>
+    <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Kirjoita viestisi ja paina enteriä lähettääksesi...</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>Lähetä</translation>
+    </message>
+    <message>
+      <source>Department is offline</source>
+      <translation>Yksikkö on offline-tilassa</translation>
+    </message>
+    <message>
+      <source>Go to leave a message form</source>
+      <translation>Siirry Jätä viesti -lomakkeeseen</translation>
+    </message>
+    <message>
+      <source>Cancel and choose another department</source>
+      <translation>Peru ja valitse toinen yksikkö</translation>
+    </message>
+    <message>
+      <source>characters</source>
+      <translation>merkit</translation>
+    </message>
+    <message>
+      <source>Personal assistant</source>
+      <translation>Henkilökohtainen avustaja</translation>
+    </message>
+    <message>
+      <source>Fill out this form to start a chat</source>
+      <translation>Täytä lomake aloittaaksesi keskustelun</translation>
+    </message>
+    <message>
+      <source>There are no online operators at the moment, please leave your message</source>
+      <translation>Tällä hetkellä ei ole opraattoreita linjoilla, ole hyvä ja jätä viesti</translation>
+    </message>
+    <message>
+      <source>Me</source>
+      <translation>Minä</translation>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation>Tuote</translation>
+    </message>
+    <message>
+      <source>Choose a product</source>
+      <translation>Valitse tuote</translation>
+    </message>
+    <message>
+      <source>Choose your language</source>
+      <translation>Valitse kieli</translation>
+    </message>
+    <message>
+      <source>Invalid CSRF token!</source>
+      <translation>Virheellinen CSRF token!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid email address</source>
+      <translation>Täytä sähköpostisosoite oikein</translation>
+    </message>
+    <message>
+      <source>Maximum 50 characters</source>
+      <translation>Maksimissaan 50 merkkiä</translation>
+    </message>
+    <message>
+      <source>You do not have permission to chat! Please contact site owner.</source>
+      <translation>Sinulla ei ole oikeuksia keskustella. ota yhteytää sivuston omistajaan.</translation>
+    </message>
+    <message>
+      <source>Please enter your name</source>
+      <translation>Kirjoita nimesi</translation>
+    </message>
+    <message>
+      <source>Please enter your message</source>
+      <translation>Kirjoita viestisi</translation>
+    </message>
+    <message>
+      <source>Maximum</source>
+      <translation>Maximi</translation>
+    </message>
+    <message>
+      <source>characters for a message</source>
+      <translation>merkkiä viestissä</translation>
+    </message>
+    <message>
+      <source>You have to accept our Terms Of Service</source>
+      <translation>Sinun täytyy hyväksyä käyttöehtomme</translation>
+    </message>
+    <message>
+      <source>Please enter your phone</source>
+      <translation>Kirjotia puhelin numerosi</translation>
+    </message>
+    <message>
+      <source>Maximum 100 characters for phone</source>
+      <translation>Maksimissaan 100 merkkiä puhelinnumeroon</translation>
+    </message>
+    <message>
+      <source>Invalid file</source>
+      <translation>Virheellinen tiedosto!</translation>
+    </message>
+    <message>
+      <source>Please choose department!</source>
+      <translation>Valitse osasto!</translation>
+    </message>
+    <message>
+      <source>Could not find a product!</source>
+      <translation>Tuotetta ei löytynyt!</translation>
+    </message>
+    <message>
+      <source>Please choose</source>
+      <translation>Valitse</translation>
+    </message>
+    <message>
+      <source>Could not determine a default department!</source>
+      <translation>En löytänyt oletusyksikköä!</translation>
+    </message>
+    <message>
+      <source>Please choose a product!</source>
+      <translation>Valitse tuote!</translation>
+    </message>
+    <message>
+      <source>is required</source>
+      <translation>vaaditaan</translation>
+    </message>
+    <message>
+      <source>Could not decrypt data!</source>
+      <translation>Salatun tiedon avaus epäonnistui.</translation>
+    </message>
+    <message>
+      <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
+      <translation>Pyyntöäsi ei voitu käsitellä. Yritä uudestaan tai ota yhteyttä muulla tavoin, kiitos.</translation>
+    </message>
+    <message>
+      <source>Please enter a message, max characters</source>
+      <translation>Syötä viesti, kirjaimia korkeintaan</translation>
+    </message>
+    <message>
+      <source>Visitor</source>
+      <translation>Vierailija</translation>
+    </message>
+    <message>
+      <source>Pending Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unread message</source>
+      <translation>Lukematon viesti</translation>
+    </message>
+    <message>
+      <source>Transfer Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assigned Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Fill in the form to start a chat</source>
+      <translation>Täytä lomake aloittaaksesi keskustelun</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/adminchat</name>
     <message>
       <source>Attach uploaded file</source>
@@ -2165,6 +2380,117 @@
     </message>
   </context>
   <context>
+    <name>chat/syncadmininterface</name>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Avaa uudessa ikkunassa</translation>
+    </message>
+    <message>
+      <source>No previous chats</source>
+      <translation>Ei aiempia keskusteluita</translation>
+    </message>
+    <message>
+      <source>h.</source>
+      <translation>h.</translation>
+    </message>
+    <message>
+      <source>m.</source>
+      <translation>m.</translation>
+    </message>
+    <message>
+      <source>s.</source>
+      <translation>s.</translation>
+    </message>
+    <message>
+      <source>ago</source>
+      <translation>sitten</translation>
+    </message>
+    <message>
+      <source>Add chat</source>
+      <translation>Lisää keskustelu</translation>
+    </message>
+    <message>
+      <source>Start chat</source>
+      <translation>Aloita keskustelu</translation>
+    </message>
+    <message>
+      <source>Last activity</source>
+      <translation>Viimeismmät toimet</translation>
+    </message>
+    <message>
+      <source>Redirect user to contact form.</source>
+      <translation>Uudelleenohjaa käyttäjä kontaktilomakkeelle.</translation>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation>Oletko varma?</translation>
+    </message>
+    <message>
+      <source>Accept chat</source>
+      <translation>Hyväksy keskustelu</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Tyhjä...</translation>
+    </message>
+    <message>
+      <source>Configure dashboard</source>
+      <translation>Kojelaudan asetukset</translation>
+    </message>
+    <message>
+      <source>Visitor</source>
+      <translation>Vieras</translation>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation>Operaattori</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Osasto</translation>
+    </message>
+    <message>
+      <source>Nothing found</source>
+      <translation>Mitään ei löytynyt</translation>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation>Odottavat viestit</translation>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Aktiiviset viestit</translation>
+    </message>
+    <message>
+      <source>Last activity ago</source>
+      <translation>Viimeisimmästä aktiviteetista</translation>
+    </message>
+    <message>
+      <source>Sort</source>
+      <translation>Järjestä</translation>
+    </message>
+    <message>
+      <source>Wait time</source>
+      <translation>Odotusaika</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Poista keskustelu</translation>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation>Luotu</translation>
+    </message>
+    <message>
+      <source>Transfer time</source>
+      <translation>Siirtoaika</translation>
+    </message>
+    <message>
+      <source>Time ago</source>
+      <translation>Aikaa sitten</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/translation</name>
     <message>
       <source>Visitor language</source>
@@ -2307,117 +2633,6 @@
     </message>
   </context>
   <context>
-    <name>chat/syncadmininterface</name>
-    <message>
-      <source>Open in a new window</source>
-      <translation>Avaa uudessa ikkunassa</translation>
-    </message>
-    <message>
-      <source>No previous chats</source>
-      <translation>Ei aiempia keskusteluita</translation>
-    </message>
-    <message>
-      <source>h.</source>
-      <translation>h.</translation>
-    </message>
-    <message>
-      <source>m.</source>
-      <translation>m.</translation>
-    </message>
-    <message>
-      <source>s.</source>
-      <translation>s.</translation>
-    </message>
-    <message>
-      <source>ago</source>
-      <translation>sitten</translation>
-    </message>
-    <message>
-      <source>Add chat</source>
-      <translation>Lisää keskustelu</translation>
-    </message>
-    <message>
-      <source>Start chat</source>
-      <translation>Aloita keskustelu</translation>
-    </message>
-    <message>
-      <source>Last activity</source>
-      <translation>Viimeismmät toimet</translation>
-    </message>
-    <message>
-      <source>Redirect user to contact form.</source>
-      <translation>Uudelleenohjaa käyttäjä kontaktilomakkeelle.</translation>
-    </message>
-    <message>
-      <source>Are you sure?</source>
-      <translation>Oletko varma?</translation>
-    </message>
-    <message>
-      <source>Accept chat</source>
-      <translation>Hyväksy keskustelu</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Tyhjä...</translation>
-    </message>
-    <message>
-      <source>Configure dashboard</source>
-      <translation>Kojelaudan asetukset</translation>
-    </message>
-    <message>
-      <source>Visitor</source>
-      <translation>Vieras</translation>
-    </message>
-    <message>
-      <source>Operator</source>
-      <translation>Operaattori</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Osasto</translation>
-    </message>
-    <message>
-      <source>Nothing found</source>
-      <translation>Mitään ei löytynyt</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>Odottavat viestit</translation>
-    </message>
-    <message>
-      <source>Active chats</source>
-      <translation>Aktiiviset viestit</translation>
-    </message>
-    <message>
-      <source>Last activity ago</source>
-      <translation>Viimeisimmästä aktiviteetista</translation>
-    </message>
-    <message>
-      <source>Sort</source>
-      <translation>Järjestä</translation>
-    </message>
-    <message>
-      <source>Wait time</source>
-      <translation>Odotusaika</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>Poista keskustelu</translation>
-    </message>
-    <message>
-      <source>Created</source>
-      <translation>Luotu</translation>
-    </message>
-    <message>
-      <source>Transfer time</source>
-      <translation>Siirtoaika</translation>
-    </message>
-    <message>
-      <source>Time ago</source>
-      <translation>Aikaa sitten</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/screenshot</name>
     <message>
       <source>Take user screenshot</source>
@@ -2512,257 +2727,6 @@
     <message>
       <source>SMTP</source>
       <translation>SMTP</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/startchat</name>
-    <message>
-      <source>Enter your message</source>
-      <translation>Kirjoita viestisi</translation>
-    </message>
-    <message>
-      <source>Department is disabled</source>
-      <translation>Yksikkö on estetty</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-mail</translation>
-    </message>
-    <message>
-      <source>Enter your email address</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>Puhelin</translation>
-    </message>
-    <message>
-      <source>Enter your phone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Your question</source>
-      <translation>Kysymyksesi</translation>
-    </message>
-    <message>
-      <source>Please enter a message...</source>
-      <translation>Ole hyvä ja kirjoita viestisi tähän</translation>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation>Nimi</translation>
-    </message>
-    <message>
-      <source>Enter your name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Live support is not available in your country</source>
-      <translation>Live tuki ei ole saatavilla maassasi</translation>
-    </message>
-    <message>
-      <source>Live Support</source>
-      <translation>Online tuki</translation>
-    </message>
-    <message>
-      <source>There are no online operators at the moment, please leave a message</source>
-      <translation>Tällä hetkellä ei ole yhtään operaattoria linjoilla, ole hyvä ja jätä viesti</translation>
-    </message>
-    <message>
-      <source>File</source>
-      <translation>Tiedosto</translation>
-    </message>
-    <message>
-      <source>Your request was sent!</source>
-      <translation>Pyyntösi lähetettiin</translation>
-    </message>
-    <message>
-      <source>Leave a message</source>
-      <translation>Jätä viesti</translation>
-    </message>
-    <message>
-      <source>I accept my personal data will be handled according to</source>
-      <translation>Hyväksyn, että henkilökohtaisia tietojani käsitellään seuraavasti</translation>
-    </message>
-    <message>
-      <source>our terms and to the Law</source>
-      <translation>käyttöehdoissamme ja laissa</translation>
-    </message>
-    <message>
-      <source>Start chat</source>
-      <translation>Aloita keskustelu</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Yksikkö</translation>
-    </message>
-    <message>
-      <source>Offline</source>
-      <translation>offline</translation>
-    </message>
-    <message>
-      <source>Have a question? Ask us!</source>
-      <translation>Onko sinulla kysyttävää ? Kysy meiltä !</translation>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Kirjoita viestisi ja paina enteriä lähettääksesi...</translation>
-    </message>
-    <message>
-      <source>Send</source>
-      <translation>Lähetä</translation>
-    </message>
-    <message>
-      <source>Department is offline</source>
-      <translation>Yksikkö on offline-tilassa</translation>
-    </message>
-    <message>
-      <source>Go to leave a message form</source>
-      <translation>Siirry Jätä viesti -lomakkeeseen</translation>
-    </message>
-    <message>
-      <source>Cancel and choose another department</source>
-      <translation>Peru ja valitse toinen yksikkö</translation>
-    </message>
-    <message>
-      <source>characters</source>
-      <translation>merkit</translation>
-    </message>
-    <message>
-      <source>Personal assistant</source>
-      <translation>Henkilökohtainen avustaja</translation>
-    </message>
-    <message>
-      <source>Fill out this form to start a chat</source>
-      <translation>Täytä lomake aloittaaksesi keskustelun</translation>
-    </message>
-    <message>
-      <source>There are no online operators at the moment, please leave your message</source>
-      <translation>Tällä hetkellä ei ole opraattoreita linjoilla, ole hyvä ja jätä viesti</translation>
-    </message>
-    <message>
-      <source>Me</source>
-      <translation>Minä</translation>
-    </message>
-    <message>
-      <source>Product</source>
-      <translation>Tuote</translation>
-    </message>
-    <message>
-      <source>Choose a product</source>
-      <translation>Valitse tuote</translation>
-    </message>
-    <message>
-      <source>Choose your language</source>
-      <translation>Valitse kieli</translation>
-    </message>
-    <message>
-      <source>Invalid CSRF token!</source>
-      <translation>Virheellinen CSRF token!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid email address</source>
-      <translation>Täytä sähköpostisosoite oikein</translation>
-    </message>
-    <message>
-      <source>Maximum 50 characters</source>
-      <translation>Maksimissaan 50 merkkiä</translation>
-    </message>
-    <message>
-      <source>You do not have permission to chat! Please contact site owner.</source>
-      <translation>Sinulla ei ole oikeuksia keskustella. ota yhteytää sivuston omistajaan.</translation>
-    </message>
-    <message>
-      <source>Please enter your name</source>
-      <translation>Kirjoita nimesi</translation>
-    </message>
-    <message>
-      <source>Please enter your message</source>
-      <translation>Kirjoita viestisi</translation>
-    </message>
-    <message>
-      <source>Maximum</source>
-      <translation>Maximi</translation>
-    </message>
-    <message>
-      <source>characters for a message</source>
-      <translation>merkkiä viestissä</translation>
-    </message>
-    <message>
-      <source>You have to accept our Terms Of Service</source>
-      <translation>Sinun täytyy hyväksyä käyttöehtomme</translation>
-    </message>
-    <message>
-      <source>Please enter your phone</source>
-      <translation>Kirjotia puhelin numerosi</translation>
-    </message>
-    <message>
-      <source>Maximum 100 characters for phone</source>
-      <translation>Maksimissaan 100 merkkiä puhelinnumeroon</translation>
-    </message>
-    <message>
-      <source>Invalid file</source>
-      <translation>Virheellinen tiedosto!</translation>
-    </message>
-    <message>
-      <source>Please choose department!</source>
-      <translation>Valitse osasto!</translation>
-    </message>
-    <message>
-      <source>Could not find a product!</source>
-      <translation>Tuotetta ei löytynyt!</translation>
-    </message>
-    <message>
-      <source>Please choose</source>
-      <translation>Valitse</translation>
-    </message>
-    <message>
-      <source>Could not determine a default department!</source>
-      <translation>En löytänyt oletusyksikköä!</translation>
-    </message>
-    <message>
-      <source>Please choose a product!</source>
-      <translation>Valitse tuote!</translation>
-    </message>
-    <message>
-      <source>is required</source>
-      <translation>vaaditaan</translation>
-    </message>
-    <message>
-      <source>Could not decrypt data!</source>
-      <translation>Salatun tiedon avaus epäonnistui.</translation>
-    </message>
-    <message>
-      <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
-      <translation>Pyyntöäsi ei voitu käsitellä. Yritä uudestaan tai ota yhteyttä muulla tavoin, kiitos.</translation>
-    </message>
-    <message>
-      <source>Please enter a message, max characters</source>
-      <translation>Syötä viesti, kirjaimia korkeintaan</translation>
-    </message>
-    <message>
-      <source>Visitor</source>
-      <translation>Vierailija</translation>
-    </message>
-    <message>
-      <source>Pending Chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Unread message</source>
-      <translation>Lukematon viesti</translation>
-    </message>
-    <message>
-      <source>Transfer Chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Assigned Chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Fill in the form to start a chat</source>
-      <translation>Täytä lomake aloittaaksesi keskustelun</translation>
     </message>
   </context>
   <context>
@@ -4270,10 +4234,6 @@
   </context>
   <context>
     <name>pagelayout/pagelayout</name>
-    <message>
-      <source>New unread message</source>
-      <translation>Uusi lukematon viesti</translation>
-    </message>
     <message>
       <source>Empty...</source>
       <translation>Tyhjä...</translation>
@@ -5902,6 +5862,13 @@
     </message>
   </context>
   <context>
+    <name>gallery/album_list_admin</name>
+    <message>
+      <source>Are you sure?</source>
+      <translation>Oletko varma?</translation>
+    </message>
+  </context>
+  <context>
     <name>department/new</name>
     <message>
       <source>New department</source>
@@ -6969,6 +6936,21 @@
     </message>
   </context>
   <context>
+    <name>survey/choosesurvey</name>
+    <message>
+      <source>Survey</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Collected information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor was redirected to survey, you can now close this window.</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>survey/collected</name>
     <message>
       <source>Chats</source>
@@ -7489,14 +7471,6 @@
   <context>
     <name>user/new</name>
     <message>
-      <source>All departments</source>
-      <translation>Kaikki yksiköt</translation>
-    </message>
-    <message>
-      <source>Departments</source>
-      <translation>Yksiköt</translation>
-    </message>
-    <message>
       <source>I receive other operators permissions request</source>
       <translation>Vastaanotin toisen operaattorin oikeuspyynnön</translation>
     </message>
@@ -7582,6 +7556,10 @@
     <message>
       <source>Title</source>
       <translation>Nimi</translation>
+    </message>
+    <message>
+      <source>Member of this group can work with the following groups</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Disabled</source>
@@ -7729,13 +7707,6 @@
     </message>
   </context>
   <context>
-    <name>gallery/album_list_admin</name>
-    <message>
-      <source>Are you sure?</source>
-      <translation>Oletko varma?</translation>
-    </message>
-  </context>
-  <context>
     <name>user/login</name>
     <message>
       <source>Please login</source>
@@ -7829,6 +7800,25 @@
     </message>
   </context>
   <context>
+    <name>user/wentinactive</name>
+    <message>
+      <source>Because of inactivity you went offline, click continue to go online.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Continue</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Logout</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>lhxml/userinfo</name>
     <message>
       <source>ID</source>
@@ -7885,10 +7875,6 @@
   <context>
     <name>abstract/survey</name>
     <message>
-      <source>Enabled</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Name</source>
       <translation>Nimi</translation>
     </message>
@@ -7934,6 +7920,21 @@
     <message>
       <source>Collected survey data</source>
       <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/accepttrasnfer</name>
+    <message>
+      <source>Chat has been transfered to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>has joined the chat!</source>
+      <translation>on liittynyt keskusteluun!</translation>
+    </message>
+    <message>
+      <source>has accepted a chat!</source>
+      <translation>on hyväksynyt keskustelun!</translation>
     </message>
   </context>
   <context>
@@ -8058,6 +8059,13 @@
     </message>
   </context>
   <context>
+    <name>departament/editgroup</name>
+    <message>
+      <source>Please enter a department group name</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>user/validator</name>
     <message>
       <source>Please enter a username</source>
@@ -8081,6 +8089,10 @@
     </message>
     <message>
       <source>Please enter a name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You are trying to assign group which are not known!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8251,21 +8263,6 @@
     </message>
   </context>
   <context>
-    <name>chat/accepttrasnfer</name>
-    <message>
-      <source>Chat has been transfered to</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>has joined the chat!</source>
-      <translation>on liittynyt keskusteluun!</translation>
-    </message>
-    <message>
-      <source>has accepted a chat!</source>
-      <translation>on hyväksynyt keskustelun!</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/deletechatadmin</name>
     <message>
       <source>You do not have rights to delete a chat</source>
@@ -8350,47 +8347,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Anna kelvollinen tiedoston tyyppi!</translation>
-    </message>
-  </context>
-  <context>
-    <name>departament/editgroup</name>
-    <message>
-      <source>Please enter a department group name</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>survey/choosesurvey</name>
-    <message>
-      <source>Survey</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Collected information</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Visitor was redirected to survey, you can now close this window.</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>user/wentinactive</name>
-    <message>
-      <source>Because of inactivity you went offline, click continue to go online.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Continue</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Logout</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Offline</source>
-      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

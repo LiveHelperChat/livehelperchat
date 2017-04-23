@@ -1,38 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="fa">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="fa" version="2.0">
   <context>
     <name>listchatconfig</name>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>NodeJS support enabled</source>
-      <translation>پشتیبانی NodeJS  فعال شد</translation>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>List online operators, 0 - no, 1 - yes.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Hide &apos;New Window&apos; option in Connector Widget</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>چند روز بعد از آخرین نمایش، ابزارک رأی گیری باز نشود؟</translation>
@@ -110,8 +78,8 @@
       <translation>مسیر socket.io ، اختیاری</translation>
     </message>
     <message>
-      <source>NodeJs support enabled</source>
-      <translation type="unfinished"/>
+      <source>NodeJS support enabled</source>
+      <translation>پشتیبانی NodeJS  فعال شد</translation>
     </message>
     <message>
       <source>Do not ask permission for users to see their screen</source>
@@ -182,7 +150,7 @@
       <translation>حداکثر تعداد کاراکترهای پیام</translation>
     </message>
     <message>
-      <source>List online operators.</source>
+      <source>List online operators, 0 - no, 1 - yes.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -234,7 +202,7 @@
       <translation>غیرفعال کردن پرینت چت</translation>
     </message>
     <message>
-      <source>Disable option in widget to open new window. Restore icon will be hidden</source>
+      <source>Hide &apos;New Window&apos; option in Connector Widget</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -298,7 +266,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>How long operator should go offline automatically because of inactivity. Value in minutes</source>
+      <source>How long operator should go offline automatically because of inactivity</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -881,10 +849,6 @@
   </context>
   <context>
     <name>system/htmlcode</name>
-    <message>
-      <source>Show product selection based on selected departments</source>
-      <translation>نمایش انتخاب محصول بر اساس بخش‌های انتخاب شده</translation>
-    </message>
     <message>
       <source>HTML code</source>
       <translation>کد HTML</translation>
@@ -1902,6 +1866,257 @@
     </message>
   </context>
   <context>
+    <name>chat/startchat</name>
+    <message>
+      <source>Enter your message</source>
+      <translation>پیام خود را وارد کنید</translation>
+    </message>
+    <message>
+      <source>Department is disabled</source>
+      <translation>دپارتمان غیرفعال شده</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>ایمیل</translation>
+    </message>
+    <message>
+      <source>Enter your email address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>تلفن</translation>
+    </message>
+    <message>
+      <source>Enter your phone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Your question</source>
+      <translation>سوال شما</translation>
+    </message>
+    <message>
+      <source>Please enter a message...</source>
+      <translation>لطفا&quot; پیام خود را وارد نمایید</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>نام</translation>
+    </message>
+    <message>
+      <source>Enter your name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live support is not available in your country</source>
+      <translation>پشتیبانی آنلاین در کشور شما در دسترس نمی باشد</translation>
+    </message>
+    <message>
+      <source>Live Support</source>
+      <translation>پشتیبان آنلاین</translation>
+    </message>
+    <message>
+      <source>There are no online operators at the moment, please leave a message</source>
+      <translation>در حال حاضر اپراتوری آنلاین نیست، لطفا پیام بگذارید.</translation>
+    </message>
+    <message>
+      <source>File</source>
+      <translation>فایل</translation>
+    </message>
+    <message>
+      <source>Your request was sent!</source>
+      <translation>درخواست شما ارسال شد!</translation>
+    </message>
+    <message>
+      <source>Leave a message</source>
+      <translation>وارد کردن پیام</translation>
+    </message>
+    <message>
+      <source>I accept my personal data will be handled according to</source>
+      <translation>من موافقم که اطلاعات شخصی من به کار گرفته شود مطابق با</translation>
+    </message>
+    <message>
+      <source>our terms and to the Law</source>
+      <translation>شرایط و ضوابط ما</translation>
+    </message>
+    <message>
+      <source>Start chat</source>
+      <translation>شروع چت</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>دپارتمان</translation>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation>آفلاین</translation>
+    </message>
+    <message>
+      <source>Have a question? Ask us!</source>
+      <translation>سوالات خود را با ما در میان بگذارید.</translation>
+    </message>
+    <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>پیام خود را اینجا وارد کنید و برای ارسال دکمه enter را بزنید ...</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>ارسال</translation>
+    </message>
+    <message>
+      <source>Department is offline</source>
+      <translation>دپارتمان آفلاین می باشد</translation>
+    </message>
+    <message>
+      <source>Go to leave a message form</source>
+      <translation>فرم پیام را وارد کنید</translation>
+    </message>
+    <message>
+      <source>Cancel and choose another department</source>
+      <translation>لغو و انتخاب دپارتمان دیگر</translation>
+    </message>
+    <message>
+      <source>characters</source>
+      <translation>کاراکترها</translation>
+    </message>
+    <message>
+      <source>Personal assistant</source>
+      <translation>دستیار شخصی</translation>
+    </message>
+    <message>
+      <source>Fill out this form to start a chat</source>
+      <translation>برای شروع چت این فرم را پر کنید</translation>
+    </message>
+    <message>
+      <source>There are no online operators at the moment, please leave your message</source>
+      <translation>در حال حاضر، اپراتوری آنلاین نیست، لطفا پیام خود را بگذارید</translation>
+    </message>
+    <message>
+      <source>Me</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose your language</source>
+      <translation>زبان خود را انتخاب نمایید</translation>
+    </message>
+    <message>
+      <source>Invalid CSRF token!</source>
+      <translation>CSRF token نامعتبر است!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid email address</source>
+      <translation>لطفا یک آدرس ایمیل معتبر وارد کنید</translation>
+    </message>
+    <message>
+      <source>Maximum 50 characters</source>
+      <translation>حداکثر 50 کاراکتر</translation>
+    </message>
+    <message>
+      <source>You do not have permission to chat! Please contact site owner.</source>
+      <translation>شما نمی توانید چت کنید، لطفا با مالک سایت تماس بگیرید.</translation>
+    </message>
+    <message>
+      <source>Please enter your name</source>
+      <translation>لطفا نام خود را وارد کنید</translation>
+    </message>
+    <message>
+      <source>Please enter your message</source>
+      <translation>لطفا پیام خود را وارد کنید</translation>
+    </message>
+    <message>
+      <source>Maximum</source>
+      <translation>حداکثر</translation>
+    </message>
+    <message>
+      <source>characters for a message</source>
+      <translation>کاراکترهای پیام</translation>
+    </message>
+    <message>
+      <source>You have to accept our Terms Of Service</source>
+      <translation>شما باید شرایط خدمات را بپذیرید</translation>
+    </message>
+    <message>
+      <source>Please enter your phone</source>
+      <translation>لطفا شماره تلفن خود را وارد کنید</translation>
+    </message>
+    <message>
+      <source>Maximum 100 characters for phone</source>
+      <translation>حداکثر 100 کاراکتر برای شماره تلفن</translation>
+    </message>
+    <message>
+      <source>Invalid file</source>
+      <translation>فایل نامعتبر است</translation>
+    </message>
+    <message>
+      <source>Please choose department!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not find a product!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not determine a default department!</source>
+      <translation>دپارتمان پیش فرض مشخص نیست</translation>
+    </message>
+    <message>
+      <source>Please choose a product!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>is required</source>
+      <translation>الزامی است</translation>
+    </message>
+    <message>
+      <source>Could not decrypt data!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a message, max characters</source>
+      <translation>لطفا حداکثر تعداد کاراکترهای یک پیام را وارد کنید</translation>
+    </message>
+    <message>
+      <source>Visitor</source>
+      <translation>بازدیدکننده</translation>
+    </message>
+    <message>
+      <source>Pending Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unread message</source>
+      <translation>پیام خوانده نشده</translation>
+    </message>
+    <message>
+      <source>Transfer Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assigned Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Fill in the form to start a chat</source>
+      <translation>برای شروع چت، فرم را پر کنید</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/adminchat</name>
     <message>
       <source>Attach uploaded file</source>
@@ -2165,6 +2380,117 @@
     </message>
   </context>
   <context>
+    <name>chat/syncadmininterface</name>
+    <message>
+      <source>Open in a new window</source>
+      <translation>در پنجره جدید باز کن</translation>
+    </message>
+    <message>
+      <source>No previous chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>h.</source>
+      <translation>.h</translation>
+    </message>
+    <message>
+      <source>m.</source>
+      <translation>m.</translation>
+    </message>
+    <message>
+      <source>s.</source>
+      <translation>s.</translation>
+    </message>
+    <message>
+      <source>ago</source>
+      <translation>قبل</translation>
+    </message>
+    <message>
+      <source>Add chat</source>
+      <translation>افزودن چت</translation>
+    </message>
+    <message>
+      <source>Start chat</source>
+      <translation>شروع چت</translation>
+    </message>
+    <message>
+      <source>Last activity</source>
+      <translation>فعالیت اخیر</translation>
+    </message>
+    <message>
+      <source>Redirect user to contact form.</source>
+      <translation>ارسال کاربر به فرم تماس</translation>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation>آیا مطمئن هستید؟</translation>
+    </message>
+    <message>
+      <source>Accept chat</source>
+      <translation>پذیرفتن چت</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>خالی...</translation>
+    </message>
+    <message>
+      <source>Configure dashboard</source>
+      <translation>پیکربندی پیشخوان</translation>
+    </message>
+    <message>
+      <source>Visitor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nothing found</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last activity ago</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sort</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wait time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transfer time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time ago</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>chat/translation</name>
     <message>
       <source>Visitor language</source>
@@ -2307,117 +2633,6 @@
     </message>
   </context>
   <context>
-    <name>chat/syncadmininterface</name>
-    <message>
-      <source>Open in a new window</source>
-      <translation>در پنجره جدید باز کن</translation>
-    </message>
-    <message>
-      <source>No previous chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>h.</source>
-      <translation>.h</translation>
-    </message>
-    <message>
-      <source>m.</source>
-      <translation>m.</translation>
-    </message>
-    <message>
-      <source>s.</source>
-      <translation>s.</translation>
-    </message>
-    <message>
-      <source>ago</source>
-      <translation>قبل</translation>
-    </message>
-    <message>
-      <source>Add chat</source>
-      <translation>افزودن چت</translation>
-    </message>
-    <message>
-      <source>Start chat</source>
-      <translation>شروع چت</translation>
-    </message>
-    <message>
-      <source>Last activity</source>
-      <translation>فعالیت اخیر</translation>
-    </message>
-    <message>
-      <source>Redirect user to contact form.</source>
-      <translation>ارسال کاربر به فرم تماس</translation>
-    </message>
-    <message>
-      <source>Are you sure?</source>
-      <translation>آیا مطمئن هستید؟</translation>
-    </message>
-    <message>
-      <source>Accept chat</source>
-      <translation>پذیرفتن چت</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>خالی...</translation>
-    </message>
-    <message>
-      <source>Configure dashboard</source>
-      <translation>پیکربندی پیشخوان</translation>
-    </message>
-    <message>
-      <source>Visitor</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Operator</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Nothing found</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Active chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Last activity ago</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Sort</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Wait time</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Created</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Transfer time</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Time ago</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
     <name>chat/screenshot</name>
     <message>
       <source>Take user screenshot</source>
@@ -2512,257 +2727,6 @@
     <message>
       <source>SMTP</source>
       <translation>SMTP</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/startchat</name>
-    <message>
-      <source>Enter your message</source>
-      <translation>پیام خود را وارد کنید</translation>
-    </message>
-    <message>
-      <source>Department is disabled</source>
-      <translation>دپارتمان غیرفعال شده</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>ایمیل</translation>
-    </message>
-    <message>
-      <source>Enter your email address</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>تلفن</translation>
-    </message>
-    <message>
-      <source>Enter your phone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Your question</source>
-      <translation>سوال شما</translation>
-    </message>
-    <message>
-      <source>Please enter a message...</source>
-      <translation>لطفا&quot; پیام خود را وارد نمایید</translation>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation>نام</translation>
-    </message>
-    <message>
-      <source>Enter your name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Live support is not available in your country</source>
-      <translation>پشتیبانی آنلاین در کشور شما در دسترس نمی باشد</translation>
-    </message>
-    <message>
-      <source>Live Support</source>
-      <translation>پشتیبان آنلاین</translation>
-    </message>
-    <message>
-      <source>There are no online operators at the moment, please leave a message</source>
-      <translation>در حال حاضر اپراتوری آنلاین نیست، لطفا پیام بگذارید.</translation>
-    </message>
-    <message>
-      <source>File</source>
-      <translation>فایل</translation>
-    </message>
-    <message>
-      <source>Your request was sent!</source>
-      <translation>درخواست شما ارسال شد!</translation>
-    </message>
-    <message>
-      <source>Leave a message</source>
-      <translation>وارد کردن پیام</translation>
-    </message>
-    <message>
-      <source>I accept my personal data will be handled according to</source>
-      <translation>من موافقم که اطلاعات شخصی من به کار گرفته شود مطابق با</translation>
-    </message>
-    <message>
-      <source>our terms and to the Law</source>
-      <translation>شرایط و ضوابط ما</translation>
-    </message>
-    <message>
-      <source>Start chat</source>
-      <translation>شروع چت</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>دپارتمان</translation>
-    </message>
-    <message>
-      <source>Offline</source>
-      <translation>آفلاین</translation>
-    </message>
-    <message>
-      <source>Have a question? Ask us!</source>
-      <translation>سوالات خود را با ما در میان بگذارید.</translation>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>پیام خود را اینجا وارد کنید و برای ارسال دکمه enter را بزنید ...</translation>
-    </message>
-    <message>
-      <source>Send</source>
-      <translation>ارسال</translation>
-    </message>
-    <message>
-      <source>Department is offline</source>
-      <translation>دپارتمان آفلاین می باشد</translation>
-    </message>
-    <message>
-      <source>Go to leave a message form</source>
-      <translation>فرم پیام را وارد کنید</translation>
-    </message>
-    <message>
-      <source>Cancel and choose another department</source>
-      <translation>لغو و انتخاب دپارتمان دیگر</translation>
-    </message>
-    <message>
-      <source>characters</source>
-      <translation>کاراکترها</translation>
-    </message>
-    <message>
-      <source>Personal assistant</source>
-      <translation>دستیار شخصی</translation>
-    </message>
-    <message>
-      <source>Fill out this form to start a chat</source>
-      <translation>برای شروع چت این فرم را پر کنید</translation>
-    </message>
-    <message>
-      <source>There are no online operators at the moment, please leave your message</source>
-      <translation>در حال حاضر، اپراتوری آنلاین نیست، لطفا پیام خود را بگذارید</translation>
-    </message>
-    <message>
-      <source>Me</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Product</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose a product</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose your language</source>
-      <translation>زبان خود را انتخاب نمایید</translation>
-    </message>
-    <message>
-      <source>Invalid CSRF token!</source>
-      <translation>CSRF token نامعتبر است!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid email address</source>
-      <translation>لطفا یک آدرس ایمیل معتبر وارد کنید</translation>
-    </message>
-    <message>
-      <source>Maximum 50 characters</source>
-      <translation>حداکثر 50 کاراکتر</translation>
-    </message>
-    <message>
-      <source>You do not have permission to chat! Please contact site owner.</source>
-      <translation>شما نمی توانید چت کنید، لطفا با مالک سایت تماس بگیرید.</translation>
-    </message>
-    <message>
-      <source>Please enter your name</source>
-      <translation>لطفا نام خود را وارد کنید</translation>
-    </message>
-    <message>
-      <source>Please enter your message</source>
-      <translation>لطفا پیام خود را وارد کنید</translation>
-    </message>
-    <message>
-      <source>Maximum</source>
-      <translation>حداکثر</translation>
-    </message>
-    <message>
-      <source>characters for a message</source>
-      <translation>کاراکترهای پیام</translation>
-    </message>
-    <message>
-      <source>You have to accept our Terms Of Service</source>
-      <translation>شما باید شرایط خدمات را بپذیرید</translation>
-    </message>
-    <message>
-      <source>Please enter your phone</source>
-      <translation>لطفا شماره تلفن خود را وارد کنید</translation>
-    </message>
-    <message>
-      <source>Maximum 100 characters for phone</source>
-      <translation>حداکثر 100 کاراکتر برای شماره تلفن</translation>
-    </message>
-    <message>
-      <source>Invalid file</source>
-      <translation>فایل نامعتبر است</translation>
-    </message>
-    <message>
-      <source>Please choose department!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Could not find a product!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please choose</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Could not determine a default department!</source>
-      <translation>دپارتمان پیش فرض مشخص نیست</translation>
-    </message>
-    <message>
-      <source>Please choose a product!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>is required</source>
-      <translation>الزامی است</translation>
-    </message>
-    <message>
-      <source>Could not decrypt data!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter a message, max characters</source>
-      <translation>لطفا حداکثر تعداد کاراکترهای یک پیام را وارد کنید</translation>
-    </message>
-    <message>
-      <source>Visitor</source>
-      <translation>بازدیدکننده</translation>
-    </message>
-    <message>
-      <source>Pending Chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Unread message</source>
-      <translation>پیام خوانده نشده</translation>
-    </message>
-    <message>
-      <source>Transfer Chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Assigned Chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Fill in the form to start a chat</source>
-      <translation>برای شروع چت، فرم را پر کنید</translation>
     </message>
   </context>
   <context>
@@ -4270,10 +4234,6 @@
   </context>
   <context>
     <name>pagelayout/pagelayout</name>
-    <message>
-      <source>New unread message</source>
-      <translation>پیام خوانده نشده جدید</translation>
-    </message>
     <message>
       <source>Empty...</source>
       <translation>خالی ...</translation>
@@ -5902,6 +5862,13 @@
     </message>
   </context>
   <context>
+    <name>gallery/album_list_admin</name>
+    <message>
+      <source>Are you sure?</source>
+      <translation>آیا مطمئن هستید؟</translation>
+    </message>
+  </context>
+  <context>
     <name>department/new</name>
     <message>
       <source>New department</source>
@@ -6969,6 +6936,21 @@
     </message>
   </context>
   <context>
+    <name>survey/choosesurvey</name>
+    <message>
+      <source>Survey</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Collected information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor was redirected to survey, you can now close this window.</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>survey/collected</name>
     <message>
       <source>Chats</source>
@@ -7489,14 +7471,6 @@
   <context>
     <name>user/new</name>
     <message>
-      <source>All departments</source>
-      <translation>تمامی دپارتمان ها</translation>
-    </message>
-    <message>
-      <source>Departments</source>
-      <translation>دپارتمان ها</translation>
-    </message>
-    <message>
       <source>I receive other operators permissions request</source>
       <translation>من درخواست دسترسی سایر اپراتورها را دریافت می کنم</translation>
     </message>
@@ -7582,6 +7556,10 @@
     <message>
       <source>Title</source>
       <translation>عنوان</translation>
+    </message>
+    <message>
+      <source>Member of this group can work with the following groups</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Disabled</source>
@@ -7729,13 +7707,6 @@
     </message>
   </context>
   <context>
-    <name>gallery/album_list_admin</name>
-    <message>
-      <source>Are you sure?</source>
-      <translation>آیا مطمئن هستید؟</translation>
-    </message>
-  </context>
-  <context>
     <name>user/login</name>
     <message>
       <source>Please login</source>
@@ -7829,6 +7800,25 @@
     </message>
   </context>
   <context>
+    <name>user/wentinactive</name>
+    <message>
+      <source>Because of inactivity you went offline, click continue to go online.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Continue</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Logout</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>lhxml/userinfo</name>
     <message>
       <source>ID</source>
@@ -7885,10 +7875,6 @@
   <context>
     <name>abstract/survey</name>
     <message>
-      <source>Enabled</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Name</source>
       <translation type="unfinished"/>
     </message>
@@ -7934,6 +7920,21 @@
     <message>
       <source>Collected survey data</source>
       <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/accepttrasnfer</name>
+    <message>
+      <source>Chat has been transfered to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>has joined the chat!</source>
+      <translation>به چت وارد شده است.</translation>
+    </message>
+    <message>
+      <source>has accepted a chat!</source>
+      <translation>گفتگو را پذیرفت!</translation>
     </message>
   </context>
   <context>
@@ -8058,6 +8059,13 @@
     </message>
   </context>
   <context>
+    <name>departament/editgroup</name>
+    <message>
+      <source>Please enter a department group name</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>user/validator</name>
     <message>
       <source>Please enter a username</source>
@@ -8081,6 +8089,10 @@
     </message>
     <message>
       <source>Please enter a name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You are trying to assign group which are not known!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8251,21 +8263,6 @@
     </message>
   </context>
   <context>
-    <name>chat/accepttrasnfer</name>
-    <message>
-      <source>Chat has been transfered to</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>has joined the chat!</source>
-      <translation>به چت وارد شده است.</translation>
-    </message>
-    <message>
-      <source>has accepted a chat!</source>
-      <translation>گفتگو را پذیرفت!</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/deletechatadmin</name>
     <message>
       <source>You do not have rights to delete a chat</source>
@@ -8350,47 +8347,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>لطفا نوع معتبر فایل را وارد کنید!</translation>
-    </message>
-  </context>
-  <context>
-    <name>departament/editgroup</name>
-    <message>
-      <source>Please enter a department group name</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>survey/choosesurvey</name>
-    <message>
-      <source>Survey</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Collected information</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Visitor was redirected to survey, you can now close this window.</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>user/wentinactive</name>
-    <message>
-      <source>Because of inactivity you went offline, click continue to go online.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Continue</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Logout</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Offline</source>
-      <translation type="unfinished"/>
     </message>
   </context>
 </TS>
