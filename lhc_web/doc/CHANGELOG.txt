@@ -1,3 +1,11 @@
+2.60v
+
+1. Possible XSS attack patch by faking HTTP_X_FORWARDED_FOR headers. https://github.com/LiveHelperChat/livehelperchat/commit/eee03f77f3f51fed613c5e306152ea60255edba2
+For quick fix you can just add this line https://github.com/LiveHelperChat/livehelperchat/commit/eee03f77f3f51fed613c5e306152ea60255edba2#diff-530588a4db273d4c39a44978784df71eR20
+2. Various other small UX fixes
+
+No database updates this time.
+
 2.59v
 
 1. During group editing you can choose with what groups members of this group can work with.  That means if operator is assigned to Operators group he will be able to work with only with groups defined in the list or the one he is assigned to.
