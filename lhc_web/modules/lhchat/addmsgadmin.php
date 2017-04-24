@@ -101,7 +101,27 @@ if (trim($form->msg) != '')
     	        	$stmt->execute();	        	
     	        }
 	        }
-	              
+
+	        if ($Chat->status == erLhcoreClassModelChat::STATUS_OPERATORS_CHAT) {
+	            
+	            $transfer = erLhcoreClassModelTransfer::findOne(array('filter' => array('transfer_user_id' => $currentUser->getUserID(), 'transfer_to_user_id' => ($Chat->user_id == $currentUser->getUserID() ? $Chat->sender_user_id : $Chat->user_id))));
+	            
+	            if ($transfer === false) {
+    	            $transfer = new erLhcoreClassModelTransfer();
+    	            
+    	            $transfer->chat_id = $Chat->id;
+    	            
+    	            $transfer->from_dep_id = $Chat->dep_id;
+    	            
+    	            // User which is transfering
+    	            $transfer->transfer_user_id = $currentUser->getUserID();
+    	            
+    	            // To what user
+    	            $transfer->transfer_to_user_id = $Chat->user_id == $currentUser->getUserID() ? $Chat->sender_user_id : $Chat->user_id;
+    	            $transfer->saveThis();
+	            }
+	        }
+	        
 	        echo erLhcoreClassChat::safe_json_encode(array('error' => 'false','r' => $returnBody));
 	        
 	        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin',array('msg' => & $msg,'chat' => & $Chat));

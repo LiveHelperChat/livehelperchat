@@ -359,6 +359,11 @@ $def->properties['device_type']->columnName   = 'device_type';
 $def->properties['device_type']->propertyName = 'device_type';
 $def->properties['device_type']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['sender_user_id'] = new ezcPersistentObjectProperty();
+$def->properties['sender_user_id']->columnName   = 'sender_user_id';
+$def->properties['sender_user_id']->propertyName = 'sender_user_id';
+$def->properties['sender_user_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['uagent'] = new ezcPersistentObjectProperty();
 $def->properties['uagent']->columnName   = 'uagent';
 $def->properties['uagent']->propertyName = 'uagent';

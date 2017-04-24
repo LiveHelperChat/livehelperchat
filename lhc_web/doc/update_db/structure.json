@@ -2568,6 +2568,14 @@
                 "extra": ""
             },
             {
+                "field": "sender_user_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": "0",
+                "extra": ""
+            },
+            {
                 "field": "has_unread_op_messages",
                 "type": "int(11)",
                 "null": "NO",
@@ -6577,9 +6585,11 @@
     		"new" : {
     			"unanswered_chat" : "ALTER TABLE `lh_chat` ADD INDEX `unanswered_chat` (`unanswered_chat`);", 
     			"product_id" : "ALTER TABLE `lh_chat` ADD INDEX `product_id` (`product_id`);",
-    			"unread_operator" : "ALTER TABLE `lh_chat` ADD INDEX `unread_operator` (`has_unread_op_messages`, `unread_op_messages_informed`);"
+    			"unread_operator" : "ALTER TABLE `lh_chat` ADD INDEX `unread_operator` (`has_unread_op_messages`, `unread_op_messages_informed`);",
+    			"user_id_sender_user_id" : "ALTER TABLE `lh_chat` ADD INDEX `user_id_sender_user_id` (`user_id`, `sender_user_id`);",
+    			"sender_user_id" : "ALTER TABLE `lh_chat` ADD INDEX `sender_user_id` (`sender_user_id`);"
     		},
-    		"old" : []
+    		"old" : ["user_id"]
     	},
     	"lh_users" : {
     		"new" : {"rec_per_req" : "ALTER TABLE `lh_users` ADD INDEX `rec_per_req` (`rec_per_req`);"},
