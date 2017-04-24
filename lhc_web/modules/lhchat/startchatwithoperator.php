@@ -104,6 +104,4 @@ $tpl->set('msg',$msg);
 echo $tpl->fetch();
 exit;
 
-/* $Result['content'] = $tpl->fetch();
-$Result['pagelayout'] = 'popup'; */
 ?>
