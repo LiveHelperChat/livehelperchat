@@ -60,6 +60,17 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
 		            		 $Chat->saveThis();
 		            	}
 		
+		            	// Auto accept transfered chats if I have opened this chat
+		            	if ($Chat->status == erLhcoreClassModelChat::STATUS_OPERATORS_CHAT) {
+		            	    
+		            	   $q = $db->createDeleteQuery();
+       
+                           // Delete transfered chat's to me
+                           $q->deleteFrom( 'lh_transfer' )->where( $q->expr->eq( 'chat_id', $Chat->id ), $q->expr->eq( 'transfer_to_user_id', $currentUser->getUserID() ) );
+                           $stmt = $q->prepare();
+                           $stmt->execute();
+		            	}
+		            	
 		            	$newMessagesNumber = count($Messages);
 		
 		                $tpl->set('messages',$Messages);
@@ -102,6 +113,8 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
 		            if ($Chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT || $Chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
 		                $ReturnStatuses[$chat_id]['uc'] = 'true';
 		            }
+		            
+		            
 		            
 		            if ($Chat->operation_admin != '') {
 		            	$ReturnStatuses[$chat_id]['oad'] = $Chat->operation_admin;

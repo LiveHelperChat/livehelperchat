@@ -1,8 +1,15 @@
-<?php $modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Start chat with operator') . ' - ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Start chat with operator')?>
+<?php $modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Start chat with operator') . ' - ' . htmlspecialchars(trim($user->name . ' ' . $user->surname));?>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_header.tpl.php'));?>
 
 <?php if (isset($errors)) : ?>
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
+<?php endif; ?>
+
+<?php if (isset($started_chat)) : ?>
+<script>
+$('#myModal').modal('hide');
+lhinst.startChat(<?php echo $started_chat->id?>,$('#tabs'),'<?php echo erLhcoreClassDesign::shrt($started_chat->nick,10,'...',30,ENT_QUOTES)?>');
+</script>
 <?php endif; ?>
 
 <form action="<?php echo erLhcoreClassDesign::baseurl('chat/startchatwithoperator')?>/<?php echo $user->id?>" method="post" onsubmit="return lhinst.submitModalForm($(this))">

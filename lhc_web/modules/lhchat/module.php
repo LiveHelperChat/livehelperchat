@@ -104,6 +104,7 @@ $ViewList['notificationsettings'] = array(
 
 $ViewList['startchatwithoperator'] = array(
     'params' => array('user_id'),
+    'uparams' => array('mode'),
     'functions' => array( 'use' )
 );
 

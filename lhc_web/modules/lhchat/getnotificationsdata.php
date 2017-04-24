@@ -27,16 +27,27 @@ $returnArray = array();
 
 foreach ($items as $item) {
     
+    $nick = $item->nick;
+    $department = (string)$item->department;
+        
     if ($itemsTypes[$item->id] == 'unread_chat') {
         $notification_message_type = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Unread message');
     } elseif ($itemsTypes[$item->id] == 'pending_chat') {
         $notification_message_type = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Pending Chat');
     } elseif ($itemsTypes[$item->id] == 'transfer_chat' || ($itemsTypes[$item->id] == 'transfer_chat_dep')) {
-        $notification_message_type = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Transfer Chat');
+        
+        if ($item->status == erLhcoreClassModelChat::STATUS_OPERATORS_CHAT) {
+            $notification_message_type = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','New message from operator');
+            $nick = '';
+            $department = '';
+        } else {
+            $notification_message_type = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Transfer Chat');
+        }
+        
     } elseif ($itemsTypes[$item->id] == 'active_chat') {
         $notification_message_type = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Assigned Chat');
     }
-        
+    
     $type = $itemsTypes[$item->id];
     
     if ($type == 'active_chat') {
@@ -44,9 +55,11 @@ foreach ($items as $item) {
     } elseif ($type == 'transfer_chat_dep') {
         $type = 'transfer_chat';
     }
-    
+
+    $titleParts = array_filter(array($notification_message_type, $nick, $department));
+
     $returnArray[] = array(
-        'nick' => $notification_message_type . ' | ' . $item->nick . ' | ' . $item->department,
+        'nick' => implode(' | ', $titleParts),
         'msg' => erLhcoreClassChat::getGetLastChatMessagePending($item->id),
         'nt' => $item->nick,
         'last_id_identifier' => $type,

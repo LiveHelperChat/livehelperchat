@@ -1,13 +1,32 @@
 <?php
 
-$tpl = erLhcoreClassTemplate::getInstance('lhchat/startchatwithoperator.tpl.php');
-
 $user = erLhcoreClassModelUser::fetch((int)$Params['user_parameters']['user_id']);
+
 $currentUser = erLhcoreClassUser::instance();
 
-$msg = new erLhcoreClassModelmsg();
+if ($Params['user_parameters_unordered']['mode'] == 'check')
+{
+    $chat = erLhcoreClassModelChat::findOne(array('filter' => array('status' => erLhcoreClassModelChat::STATUS_OPERATORS_CHAT, 'sender_user_id' => $currentUser->getUserID(), 'user_id' => $user->id)));
+    
+    if (!($chat instanceof erLhcoreClassModelChat))
+    {
+        $chat = erLhcoreClassModelChat::findOne(array('filter' => array('status' => erLhcoreClassModelChat::STATUS_OPERATORS_CHAT, 'sender_user_id' => $user->id, 'user_id' => $currentUser->getUserID())));
+    }
+    
+    // We have found previous chat, we do not need anything more
+    if ($chat instanceof erLhcoreClassModelChat)
+    {
+        header ( 'content-type: application/json; charset=utf-8' );
+        
+        // Started chat
+        echo erLhcoreClassChat::safe_json_encode(array('nick' => $chat->nick, 'has_chat' => true, 'chat_id' => $chat->id));
+        exit;
+    }
+}
 
+$tpl = erLhcoreClassTemplate::getInstance('lhchat/startchatwithoperator.tpl.php');
 $tpl->set('user',$user);
+$msg = new erLhcoreClassModelmsg();
 
 if ( isset($_POST['SendMessage']) ) {
 
@@ -32,31 +51,29 @@ if ( isset($_POST['SendMessage']) ) {
     if (count($Errors) == 0) {
 
     	$currentUserData = $currentUser->getUserData();
-
-    	$chat = erLhcoreClassModelChat::findOne(array('filter' => array('status' => erLhcoreClassModelChat::STATUS_OPERATORS_CHAT, 'sender_user_id' => $currentUser->getUserID(), 'user_id' => $user->id)));
     	
+    	if (!($chat instanceof erLhcoreClassModelChat))
+    	{
+    	    $chat = new erLhcoreClassModelChat();
+    	    $chat->time = time();
+    	    $chat->status = erLhcoreClassModelChat::STATUS_OPERATORS_CHAT;
+    	    $chat->setIP();
+    	    $chat->hash = erLhcoreClassChat::generateHash();
+    	    $chat->referrer = '';
+    	    $chat->session_referrer = '';
+    	    $chat->nick = $currentUserData->name.' '.$currentUserData->surname;
+    	    $chat->user_id = $user->id; // Assign chat to receiver operator, this way he will get permission to open chat
+    	    $chat->dep_id = erLhcoreClassUserDep::getDefaultUserDepartment(); // Set default department to chat creator, this way current user will get permission to open it
+    	    $chat->sender_user_id = $currentUser->getUserID();
+    	    
+    	    $chat->saveThis();
+    	}
     	
-    	$chat = new erLhcoreClassModelChat();
-    	$chat->time = time();
-    	$chat->status = erLhcoreClassModelChat::STATUS_OPERATORS_CHAT;
-    	$chat->setIP();
-    	$chat->hash = erLhcoreClassChat::generateHash();
-    	$chat->referrer = '';
-    	$chat->session_referrer = '';
-    	$chat->nick = $currentUserData->name.' '.$currentUserData->surname;
-    	$chat->user_id = $user->id; // Assign chat to receiver operator, this way he will get permission to open chat
-    	$chat->dep_id = erLhcoreClassUserDep::getDefaultUserDepartment(); // Set default department to chat creator, this way current user will get permission to open it
-    	
-    	//sender_user_id
-    	
-    	// Store chat
-    	erLhcoreClassChat::getSession()->save($chat);
-
     	// Store User Message
     	$msg->chat_id = $chat->id;
     	$msg->user_id = $currentUser->getUserID();
     	$msg->time = time();
-    	$msg->name_support = $currentUserData->name.' '.$currentUserData->surname;
+    	$msg->name_support = trim($currentUserData->name.' '.$currentUserData->surname);
     	erLhcoreClassChat::getSession()->save($msg);
 
     	$transfer = new erLhcoreClassModelTransfer();
@@ -74,10 +91,9 @@ if ( isset($_POST['SendMessage']) ) {
     	
     	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.startchatwithoperator_started',array('chat' => & $chat, 'transfer' => & $transfer));
 
-    	// Redirect user
-    	erLhcoreClassModule::redirect('chat/single/' . $chat->id);
-    	exit;
-
+    	// Started chat
+    	$tpl->set('started_chat', $chat);
+    	
     } else {
         $tpl->set('errors',$Errors);
     }

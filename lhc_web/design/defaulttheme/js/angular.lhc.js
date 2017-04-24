@@ -79,8 +79,18 @@ services.factory('LiveHelperChatFactory', ['$http','$q',function ($http, $q) {
 	};
 	
 	this.setInactive = function(status) {
+		var deferred = $q.defer();
+		$http.get(WWW_DIR_JAVASCRIPT + 'user/setinactive/'+status).success(function(data) {
+			deferred.resolve(data);
+		}).error(function(){
+			deferred.reject('error');
+		});
+		return deferred.promise;
+	};
+	
+	this.getActiveOperatorChat = function(user_id) {
         var deferred = $q.defer();
-        $http.get(WWW_DIR_JAVASCRIPT + 'user/setinactive/'+status).success(function(data) {
+        $http.get(WWW_DIR_JAVASCRIPT + 'chat/startchatwithoperator/'+user_id+'/(mode)/check').success(function(data) {
         	deferred.resolve(data);
         }).error(function(){
             deferred.reject('error');
@@ -636,7 +646,9 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		                        };
 		                        
 		                        if (_that.isListLoaded == true && chatsSkipped == 0 && ((_that.statusNotifications[item.last_id_identifier].indexOf(identifierElement) == -1 && userId == 0 && confLH.ownntfonly == 0) || (_that.statusNotifications[item.last_id_identifier].indexOf(identifierElement) == -1 && userId == confLH.user_id)) ) {
-		                        	chatsToNotify.push(itemList.id);	
+		                        	if (lhinst.chatsSynchronising.indexOf(parseInt(itemList.id)) === -1) { // Don't show notification if chat is under sync already
+		                        		chatsToNotify.push(itemList.id);
+		                        	}
 		                        } else {
 		                        	chatsSkipped++;
 		                        };		                        
@@ -756,8 +768,13 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	};
 	
 	this.startChatOperator = function(user_id) {
-		//window.open(WWW_DIR_JAVASCRIPT + 'chat/startchatwithoperator/'+user_id,'operatorchatwindow-'+user_id,'menubar=1,resizable=1,width=780,height=450');
-		lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'chat/startchatwithoperator/'+user_id}); 		
+		LiveHelperChatFactory.getActiveOperatorChat(user_id).then(function(data) {
+			if (data.has_chat === true) {
+				lhinst.startChat(data.chat_id,$('#tabs'),LiveHelperChatFactory.truncate(data.nick,10));
+			} else {
+				lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'chat/startchatwithoperator/'+user_id});
+			}
+		});	
 	};
 	
 	this.addEvent = (function () {
