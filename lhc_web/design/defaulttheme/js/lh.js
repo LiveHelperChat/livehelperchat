@@ -764,6 +764,7 @@ function lh(){
     		
     		if (link.attr('id') !== undefined) {
         		var new_chat_id = link.attr('href').replace('#chat-id-','');
+        		this.removeBackgroundChat(new_chat_id);
         		this.hideNotification(new_chat_id);
         		ee.emitEvent('chatTabFocused', [new_chat_id]);
         	}
