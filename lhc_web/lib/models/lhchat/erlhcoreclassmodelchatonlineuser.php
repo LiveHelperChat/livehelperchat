@@ -660,6 +660,14 @@ class erLhcoreClassModelChatOnlineUser
                 return false;
             }
             
+            $ip = isset($paramsHandle['ip']) ? $paramsHandle['ip'] : erLhcoreClassIPDetect::getIP();
+            
+            if ($item->ip != $ip) {
+                $item->ip = $ip;
+                self::detectLocation($item);
+                $item->store_chat = true;
+            }
+            
             if (isset($_POST['onattr']) && !empty($_POST['onattr']) && $item->online_attr != $_POST['onattr']) {
             	$item->online_attr = $_POST['onattr'];
             	$item->store_chat = true;
