@@ -761,6 +761,12 @@ function lh(){
     	
     	if (!tabs.find('> ul > li.active').length) {
     		link.tab('show');
+    		
+    		if (link.attr('id') !== undefined) {
+        		var new_chat_id = link.attr('href').replace('#chat-id-','');
+        		this.hideNotification(new_chat_id);
+        		ee.emitEvent('chatTabFocused', [new_chat_id]);
+        	}
     	}
     	
     	return link.attr('href').replace('#','#/');
