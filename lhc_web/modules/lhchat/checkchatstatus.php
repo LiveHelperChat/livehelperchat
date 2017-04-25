@@ -35,8 +35,16 @@ try {
     $db->beginTransaction();
     
     $chat = erLhcoreClassModelChat::fetchAndLock($Params['user_parameters']['chat_id']);
+    
+    if ($chat->hash === $Params['user_parameters']['hash']) {   
 
-    if ($chat->hash === $Params['user_parameters']['hash']) {        
+        if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
+            // Lock chat record for update untill we finish this procedure
+            $stmt = $db->prepare('SELECT 1 FROM lh_userdep WHERE dep_id = :dep_id FOR UPDATE;');
+            $stmt->bindValue(':dep_id',$chat->dep_id);
+            $stmt->execute();
+        }
+        
     	// Main unasnwered chats callback
     	if ( $chat->na_cb_executed == 0 && $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && erLhcoreClassModelChatConfig::fetch('run_unaswered_chat_workflow')->current_value > 0) {    		
     		$delay = time()-(erLhcoreClassModelChatConfig::fetch('run_unaswered_chat_workflow')->current_value*60);    		
