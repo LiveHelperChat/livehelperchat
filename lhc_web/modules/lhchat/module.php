@@ -370,7 +370,7 @@ $ViewList['readoperatormessage'] = array(
 $ViewList['chatcheckoperatormessage'] = array(
     'params' => array(),
     'uparams' => array('tz','operator','theme','priority','vid','count_page','identifier','department','ua','survey','uactiv','wopen','fullheight','dyn'),
-	'multiple_arguments' => array ( 'department','ua' )
+	'multiple_arguments' => array ( 'department','ua','dyn' )
 );
 
 $ViewList['logpageview'] = array(

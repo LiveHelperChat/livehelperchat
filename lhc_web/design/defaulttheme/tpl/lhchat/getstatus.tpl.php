@@ -51,7 +51,7 @@ var lh_inst  = {
     survey_id : '<?php echo $survey !== false ? '/(survey)/' . $survey : ''?>',
     surveyShown : false,
     explicitClose : false,
-    dynamicAssigned : false,
+    dynamicAssigned : [],
     windowname : "startchatwindow",
 	substatus : '',
     cookieData : {},
@@ -459,7 +459,7 @@ var lh_inst  = {
     	
         this.timeoutInstance = setTimeout(function() {
             lh_inst.removeById('lhc_operator_message');
-            var dynamic = lh_inst.dynamicAssigned == true ? '/(dyn)/true' : '/(dyn)/false';
+            var dynamic = inst.dynamicAssigned.length > 0 ? '/(dyn)/' +  inst.dynamicAssigned.join('/') : '';                     
             var th = document.getElementsByTagName('head')[0];
             var s = document.createElement('script');
             s.setAttribute('id','lhc_operator_message');
@@ -500,8 +500,8 @@ var lh_inst  = {
         var s = document.createElement('script');
         var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));
         var tzOffset = this.getTzOffset();
-        
-        var dynamic = this.dynamicAssigned == true ? '/(dyn)/true' : '/(dyn)/false';
+           
+        var dynamic = this.dynamicAssigned.length > 0 ? '/(dyn)/' +  this.dynamicAssigned.join('/'): '';
         
         s.setAttribute('id','lhc_operator_message');
         s.setAttribute('type','text/javascript');

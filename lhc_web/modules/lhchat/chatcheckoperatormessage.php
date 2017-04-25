@@ -62,7 +62,7 @@ if ( $ignorable_ip == '' || !erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDet
 		$tpl->set('vid',(string)$Params['user_parameters_unordered']['vid']);
 		$tpl->set('survey',is_numeric($Params['user_parameters_unordered']['survey']) ? (int)$Params['user_parameters_unordered']['survey'] : false);
 		
-		$dynamic = (string)$Params['user_parameters_unordered']['dyn'] == 'false';
+		$dynamic = true;
 		
 		if ($userInstance->reopen_chat == 1 && ($chat = $userInstance->chat) !== false && $chat->user_status == erLhcoreClassModelChat::USER_STATUS_PENDING_REOPEN) {
 			$tpl->set('reopen_chat',$chat);
@@ -76,9 +76,10 @@ if ( $ignorable_ip == '' || !erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDet
 			$userInstance->operation_chat = '';
 			$userInstance->saveThis();
 		}
-
+		
 		// If there is no assigned default proactive invitations find dynamic one triggers
 		if ($dynamic == true && $userInstance->operator_message == '' && $userInstance->message_seen == 0 && (int)$Params['user_parameters_unordered']['wopen'] == 0) {
+		     $tpl->set('dynamic_processed',is_array($Params['user_parameters_unordered']['dyn']) ? $Params['user_parameters_unordered']['dyn'] : array());
 		     $tpl->set('dynamic',$dynamic);
 		     $tpl->set('dynamic_invitation', erLhcoreClassModelChatOnlineUser::getDynamicInvitation(array('online_user' => $userInstance, 'tag' => isset($_GET['tag']) ? $_GET['tag'] : false)));
 		}
