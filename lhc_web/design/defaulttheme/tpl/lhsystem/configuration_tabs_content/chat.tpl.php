@@ -31,6 +31,10 @@
         		    <?php if ($currentUser->hasAccessTo('lhabstract','use')) : ?>
         
         		   		<?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/proactive.tpl.php'));?>	
+        		   		
+        		   		<?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/proactive_variables.tpl.php'));?>	
+        		   		
+        		   		<?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/proactive_events.tpl.php'));?>	
         
         			    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/autoresponder.tpl.php'));?>
         	    
