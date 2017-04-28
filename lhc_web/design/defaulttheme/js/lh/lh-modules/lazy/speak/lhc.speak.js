@@ -145,7 +145,10 @@ module.exports = (function() {
 
     LHCSpeechToText.prototype.listen = function(params) {
         if (this.browserSupported === true) {
-            // Stop any previous chat listening
+
+            var _this = this;            
+
+	    // Stop any previous chat listening
             if (this.chat_id !== false && this.chat_id != params['chat_id']) {
             	$('#CSChatMessage-' + this.chat_id).unbind('input propertychange', function() {
                     // do nothing
