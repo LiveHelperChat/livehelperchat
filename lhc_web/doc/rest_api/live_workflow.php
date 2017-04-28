@@ -79,6 +79,7 @@ if ($vid !== false) {
     $response = $LHCRestAPI->execute('chatcheckoperatormessage', array(
         'ip' => '88.118.220.88',
         'dt' => 'APPLICATIN_NAME - Some Application Specific Window',
+        'l' => '#',
         'ua' => '', // User Agent
     ), array(
         'vid' => $vid,
