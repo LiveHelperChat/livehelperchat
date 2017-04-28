@@ -26,11 +26,12 @@ $addMessage = false;
 $urlAppend = '';
 
 // Check's for messages from operator or just log new page view ir $vid is not set
-if ($vid === false) {
+/* if ($vid === false) {
 
     $response = $LHCRestAPI->execute('chatcheckoperatormessage', array(
         'ip' => '88.118.220.88',
         'dt' => 'APPLICATIN_NAME - Some Application Specific Window',
+        'l' => '//google.com',
         'ua' => '', // User Agent
         'onattr' => json_encode(array('chat_id' => 'chat id here')) // Store additional chat attributes
      ), array(
@@ -45,11 +46,15 @@ if ($vid === false) {
         'uactiv' => 1       // Is user considered active or not
     ), 'POST');
 
+    print_r($response);
+    
     // If there is no error set $vid
     if ($response->error == false && isset($response->result->vid)) {
     	$vid = $response->result->vid;
     }
-}
+} */
+
+;
 
 // Make sure there is no errors, so we can use vid from response
 if ($vid !== false) {
@@ -62,7 +67,7 @@ if ($vid !== false) {
         'ip' => '88.118.220.88',
         'dt' => 'APPLICATIN_NAME - Some Application Specific Window',
         'ua' => '', // User Agent
-    	'onattr' => json_encode(array('chat_id' => 'chat id here')) // Store additional chat attributes
+    	'onattr' => json_encode(array('chat_id' => 'new chat data')) // Store additional chat attributes
     ), array(
         'vid' => $vid,  // Use VID from previous request
         'count_page' => 0,  // Do not count as page view, just message check from operator
@@ -74,6 +79,7 @@ if ($vid !== false) {
         'department' => 5,  
         'uactiv' => 1       
     ), 'POST');
+exit;
 
     // Count another page view
     $response = $LHCRestAPI->execute('chatcheckoperatormessage', array(
