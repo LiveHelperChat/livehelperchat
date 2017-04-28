@@ -705,7 +705,7 @@ class erLhcoreClassModelChatOnlineUser
             // Update variables only if it's not JS to check for operator message
             if (!isset($paramsHandle['check_message_operator']) || (isset($paramsHandle['pages_count']) && $paramsHandle['pages_count'] == true)) {
                 $item->user_agent = isset($_POST['ua']) ? $_POST['ua'] : (isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '');
-                $item->current_page = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
+                $item->current_page = isset($_POST['l']) ? $_POST['l'] : (isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '');
                 $item->page_title = isset($_POST['dt']) ? $_POST['dt'] : (isset($_GET['dt']) ? (string)rawurldecode($_GET['dt']) : '');
                 $item->last_visit = time();
                 $item->store_chat = true;
