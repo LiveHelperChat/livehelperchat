@@ -85,7 +85,7 @@
 	  var data = google.visualization.arrayToDataTable([
 	    ['<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','User');?>', '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Thumbs up');?>']
 	    <?php foreach ($userStats['thumbsup'] as $data) : ?>
-	    	<?php echo ',[\''.htmlspecialchars(erLhcoreClassModelUser::fetch($data['user_id'],true)->username,ENT_QUOTES).'\','.$data['number_of_chats'].']'?>
+	    	<?php echo ',[\''.htmlspecialchars(erLhcoreClassModelUser::fetch($data['user_id'],true)->name_official,ENT_QUOTES).'\','.$data['number_of_chats'].']'?>
 	    <?php endforeach;?>
 	  ]);			  
 	  var view = new google.visualization.DataView(data);
@@ -105,7 +105,7 @@
 	  var data = google.visualization.arrayToDataTable([
 	    ['<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','User');?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Thumbs down');?>']
 	    <?php foreach ($userStats['thumbdown'] as $data) : ?>
-	    	<?php echo ',[\''.htmlspecialchars(erLhcoreClassModelUser::fetch($data['user_id'],true)->username,ENT_QUOTES).'\','.$data['number_of_chats'].']'?>
+	    	<?php echo ',[\''.htmlspecialchars(erLhcoreClassModelUser::fetch($data['user_id'],true)->name_official,ENT_QUOTES).'\','.$data['number_of_chats'].']'?>
 	    <?php endforeach;?>
 	  ]);			  
 	  var view = new google.visualization.DataView(data);
