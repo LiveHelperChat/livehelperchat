@@ -18,6 +18,13 @@ if ($Params['user_parameters_unordered']['mode'] == 'check')
     {
         header ( 'content-type: application/json; charset=utf-8' );
         
+        // Remove transfer if it exists
+        $transfer = erLhcoreClassModelTransfer::findOne(array('filter' => array('transfer_to_user_id' => $currentUser->getUserID(), 'chat_id' => $chat->id)));
+        
+        if ($transfer instanceof erLhcoreClassModelTransfer) {
+            $transfer->removeThis();
+        }
+        
         // Started chat
         echo erLhcoreClassChat::safe_json_encode(array('nick' => $chat->nick, 'has_chat' => true, 'chat_id' => $chat->id));
         exit;
