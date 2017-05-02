@@ -64,7 +64,9 @@ var LHCSpeechToTextCallbackListener = (function() {
             }
 
             $('#CSChatMessage-' + this.chat_id).val(this.originText + this.final_transcript + interim_transcript).focus();
-
+            
+            ee.emitEvent('afterSpeechToTextCallbackResult',[this.chat_id, this.originText + this.final_transcript + interim_transcript]);
+            
             // Pretend that operator is typing
             lhinst.operatorTypingCallback(this.chat_id);
         }
