@@ -581,7 +581,12 @@ class erLhcoreClassModelChatOnlineUser
 
         return false;
     }
-
+    
+    public static function getDynamicInvitation($paramsHandle = array())
+    {    
+        return erLhAbstractModelProactiveChatInvitation::processProActiveInvitationDynamic($paramsHandle['online_user'], array('tag' => isset($paramsHandle['tag']) ? $paramsHandle['tag'] : ''));
+    }
+    
     public static function handleRequest($paramsHandle = array())
     {
         if (isset($_SERVER['HTTP_USER_AGENT']) && !self::isBot($_SERVER['HTTP_USER_AGENT'])) {
