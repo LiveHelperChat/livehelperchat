@@ -1,3 +1,11 @@
+2.62v
+
+1. UX improvements for chat's between operators
+2. Dynamic proactive events. It's possible to setup proactive invitation based on user iddle time and mouse leaving a screen.
+3. It's possible now to speak and edit text at the same time.
+
+execute doc/update_db/update_135.sql for update
+
 2.61v
 
 1. Workflow improvements for chat between operators
