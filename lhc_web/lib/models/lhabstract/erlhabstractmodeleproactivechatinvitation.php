@@ -95,13 +95,13 @@ class erLhAbstractModelProactiveChatInvitation {
 	    
 	    $item = new stdClass();
 	    $item->id = 1;
-	    $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Mouse leaving browser window');
+	    $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Mouse leaves a browser window');
 	    
 	    $items[] = $item;
 	    
 	    $item = new stdClass();
 	    $item->id = 2;
-	    $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Visitor iddle for time in seconds');
+	    $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Visitor idle N seconds on site');
 	     
 	    $items[] = $item;
 	    
