@@ -361,7 +361,7 @@ class erLhcoreClassChatWorkflow {
         	    	}
 	    	    }
 	    	    
-	    	    if ($user_id > 0) {
+	    	    if (isset($user_id) && $user_id > 0) {
 	    	        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed_auto_assign',array('chat' => & $chat));
 	    	    }
 	    	    
