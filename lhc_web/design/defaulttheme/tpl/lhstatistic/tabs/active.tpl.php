@@ -85,7 +85,7 @@
 	  var data = google.visualization.arrayToDataTable([
 	    ['<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','User');?>', '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Thumbs up');?>']
 	    <?php foreach ($userStats['thumbsup'] as $data) : ?>
-	    	<?php echo ',[\''.htmlspecialchars(erLhcoreClassModelUser::fetch($data['user_id'],true)->username,ENT_QUOTES).'\','.$data['number_of_chats'].']'?>
+	    	<?php echo ',[\''.htmlspecialchars(erLhcoreClassModelUser::fetch($data['user_id'],true)->name_official,ENT_QUOTES).'\','.$data['number_of_chats'].']'?>
 	    <?php endforeach;?>
 	  ]);			  
 	  var view = new google.visualization.DataView(data);
@@ -105,7 +105,7 @@
 	  var data = google.visualization.arrayToDataTable([
 	    ['<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','User');?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Thumbs down');?>']
 	    <?php foreach ($userStats['thumbdown'] as $data) : ?>
-	    	<?php echo ',[\''.htmlspecialchars(erLhcoreClassModelUser::fetch($data['user_id'],true)->username,ENT_QUOTES).'\','.$data['number_of_chats'].']'?>
+	    	<?php echo ',[\''.htmlspecialchars(erLhcoreClassModelUser::fetch($data['user_id'],true)->name_official,ENT_QUOTES).'\','.$data['number_of_chats'].']'?>
 	    <?php endforeach;?>
 	  ]);			  
 	  var view = new google.visualization.DataView(data);
@@ -145,7 +145,7 @@
 		  var data = google.visualization.arrayToDataTable([
 		    ['<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','User');?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Chats');?>']
 		    <?php foreach ($userChatsStats as $data) : ?>
-		    	<?php $obUser = erLhcoreClassModelUser::fetch($data['user_id'],true); echo ',[\''.htmlspecialchars((is_object($obUser) ? $obUser->username : $data['user_id']),ENT_QUOTES).'\','.$data['number_of_chats'].']'?>
+		    	<?php $obUser = erLhcoreClassModelUser::fetch($data['user_id'],true); echo ',[\''.htmlspecialchars((is_object($obUser) ? $obUser->name_official : $data['user_id']),ENT_QUOTES).'\','.$data['number_of_chats'].']'?>
 		    <?php endforeach;?>
 		  ]);   
 		  var options = {		    
@@ -164,7 +164,7 @@
 		  var data = google.visualization.arrayToDataTable([
 		    ['<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','User');?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Average in seconds');?>']
 		    <?php foreach ($userChatsAverageStats as $data) : ?>
-		    	<?php $obUser = erLhcoreClassModelUser::fetch($data['user_id'],true); echo ',[\''.htmlspecialchars((is_object($obUser) ? $obUser->username : $data['user_id']),ENT_QUOTES).'\','.$data['avg_chat_duration'].']'?>
+		    	<?php $obUser = erLhcoreClassModelUser::fetch($data['user_id'],true); echo ',[\''.htmlspecialchars((is_object($obUser) ? $obUser->name_official : $data['user_id']),ENT_QUOTES).'\','.$data['avg_chat_duration'].']'?>
 		    <?php endforeach;?>
 		  ]);   
 		  var options = {		    
@@ -183,7 +183,7 @@
 		  var data = google.visualization.arrayToDataTable([
 		    ['<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','User');?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Wait time');?>']
 		    <?php foreach ($userWaitTimeByOperator as $data) : ?>
-		    	<?php $obUser = erLhcoreClassModelUser::fetch($data['user_id'],true); echo ',[\''.htmlspecialchars((is_object($obUser) ? $obUser->username : $data['user_id']),ENT_QUOTES).'\','.$data['avg_wait_time'].']'?>
+		    	<?php $obUser = erLhcoreClassModelUser::fetch($data['user_id'],true); echo ',[\''.htmlspecialchars((is_object($obUser) ? $obUser->name_official : $data['user_id']),ENT_QUOTES).'\','.$data['avg_wait_time'].']'?>
 		    <?php endforeach;?>
 		  ]);   
 		  var options = {
@@ -212,7 +212,7 @@
 		    } else {				        				    
 		        $operatorObj = erLhcoreClassModelUser::fetch($data['user_id'],true);				        
 		        if (is_object($operatorObj) ) {
-		    	   $operator = $operatorObj->username;
+		    	   $operator = $operatorObj->name_official;
 		        } else {
 		           $operator = '['.$data['user_id'].']';
 		        }

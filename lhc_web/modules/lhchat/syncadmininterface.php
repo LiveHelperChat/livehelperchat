@@ -197,8 +197,21 @@ if ($pendingTabEnabled == true) {
 
 // Transfered chats
 $transferchatsUser = erLhcoreClassTransfer::getTransferChats();
+
+// How many chat's there is for operator assigned. Operators Chats
+$operatorsCount = 0;
+
+// What operators has send a messages
+$operatorsSend = array();
+
 if (!empty($transferchatsUser)) {    
     foreach ($transferchatsUser as & $transf) {
+
+        if ($transf['status'] == erLhcoreClassModelChat::STATUS_OPERATORS_CHAT) {
+            $operatorsCount++;
+            $operatorsSend[] = (int)$transf['transfer_user_id'];
+        }
+
     	$transf['time_front'] = date(erLhcoreClassModule::$dateDateHourFormat,$transf['time']);
     }
 }
@@ -227,7 +240,7 @@ if ($canListOnlineUsers == true || $canListOnlineUsersAll == true) {
 	
 	erLhcoreClassChat::prefillGetAttributes($onlineOperators,array('lastactivity_ago','user_id','id','name_official','active_chats','departments_names','hide_online'),array(),array('remove_all' => true));
 	
-	$ReturnMessages['online_op'] = array('list' => array_values($onlineOperators));
+	$ReturnMessages['online_op'] = array('list' => array_values($onlineOperators), 'op_cc' => $operatorsCount, 'op_sn' => $operatorsSend);
 }
 
 if ($unreadTabEnabled == true) {
