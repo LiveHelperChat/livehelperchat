@@ -31,6 +31,11 @@ $ViewList['updateattribute'] = array(
 		'uparams' => array('hash','hash_resume','vid'),
 );
 
+$ViewList['logevent'] = array(
+		'params' => array(),
+		'uparams' => array('hash','hash_resume','vid'),
+);
+
 $ViewList['setnewvid'] = array(
 		'params' => array(),
 		'uparams' => array(),
