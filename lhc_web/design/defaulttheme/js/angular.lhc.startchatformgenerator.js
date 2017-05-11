@@ -32,10 +32,6 @@ lhcAppControllers.controller('StartChatFormCtrl',['$scope','$http','$location','
 			that.startchatfields.splice(that.startchatfields.indexOf(field),1);
 		};	
 		
-		this.deleteField = function(field) {								
-			that.startchatfields.splice(that.startchatfields.indexOf(field),1);
-		};	
-		
 		this.moveLeftField = function(field) {
 			that.move(field,-1);
 		}

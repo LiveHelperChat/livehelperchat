@@ -29,6 +29,11 @@ $def->properties['is_persistent']->columnName   = 'is_persistent';
 $def->properties['is_persistent']->propertyName = 'is_persistent';
 $def->properties['is_persistent']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['filter_val'] = new ezcPersistentObjectProperty();
+$def->properties['filter_val']->columnName   = 'filter_val';
+$def->properties['filter_val']->propertyName = 'filter_val';
+$def->properties['filter_val']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

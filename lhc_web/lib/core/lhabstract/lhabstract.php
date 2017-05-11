@@ -232,8 +232,13 @@ class erLhcoreClassAbstract {
             }
         }
 
+        if (method_exists($object,'validateInput')) {
+            $object->validateInput(array(
+                'errors' => & $Errors
+            ));
+        }
+        
         return $Errors;
-
     }
 
     public static function getSession()

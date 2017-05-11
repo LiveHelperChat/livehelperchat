@@ -127,7 +127,12 @@ class erLhAbstractModelProactiveChatInvitation {
 	   	       $this->left_menu = '';
 	   		   return $this->left_menu;
 	   		break;
-
+	   		
+	   	case 'events':
+	   	       $this->events = erLhAbstractModelProactiveChatInvitationEvent::getList(array('filter' => array('invitation_id' => $this->id)));
+	   	       return $this->events;
+	   	    break;
+	   	    
 	   	default:
 	   		break;
 	   }
@@ -281,7 +286,46 @@ class erLhAbstractModelProactiveChatInvitation {
 			erLhcoreClassChatEventDispatcher::getInstance()->dispatch('onlineuser.proactive_triggered', array('message' => & $message, 'ou' => & $item));
 		}
 	}
+	
+	public function customForm(){
+	    return 'proactive_invitation.tpl.php';
+	}
+	
+	public function dependFooterJs(){
+	    return '<script type="text/javascript" src="'.erLhcoreClassDesign::designJS('js/angular.lhc.events.js').'"></script>';
+	}
+	
+	public function validateInput($params)
+	{
+	    $params['obj'] = & $this;
+	    erLhcoreClassChatEvent::validateProactive($params);
+	}
+	
+	public function afterUpdate()
+	{
+	    $ids = array();
+	    
+	    // Save events and collect id's
+	    foreach ($this->events as $event) {
+	        $event->saveThis();
+	        $ids[] = $event->id;
+	    }
+	    
+	    // Remove old, non-existing events
+	    foreach (erLhAbstractModelProactiveChatInvitationEvent::getList(array('filter' => array('invitation_id' => $this->id))) as $oldEvent) {
+	        if (!in_array($oldEvent->id, $ids)) {
+	            $oldEvent->removeThis();
+	        }
+	    }	    
+	}
 
+	public function afterRemove()
+	{
+	    foreach (erLhAbstractModelProactiveChatInvitationEvent::getList(array('filter' => array('invitation_id' => $this->id))) as $oldEvent) {
+            $oldEvent->removeThis();
+	    }
+	}
+	
    	public $id = null;
 	public $siteaccess = '';
 	public $time_on_site = 0;

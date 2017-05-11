@@ -74,6 +74,10 @@ if (method_exists($ObjectData,'dependJs')) {
 	$Result['additional_header_js'] = $ObjectData->dependJs();
 }
 
+if (method_exists($ObjectData,'dependFooterJs')) {
+	$Result['additional_footer_js'] = $ObjectData->dependFooterJs();
+}
+
 if (isset($object_trans['path'])){
 	$Result['path'][] = $object_trans['path'];
 	$Result['path'][] = array('url' => erLhcoreClassDesign::baseurl('abstract/list').'/'.$Params['user_parameters']['identifier'], 'title' => $object_trans['name']);

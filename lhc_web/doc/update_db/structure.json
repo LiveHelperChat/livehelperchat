@@ -718,6 +718,14 @@
                 "key": "",
                 "default": "0",
                 "extra": ""
+            },
+            {
+                "field": "filter_val",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": "0",
+                "extra": ""
             }
         ],
         "lh_abstract_proactive_chat_event": [
@@ -759,6 +767,48 @@
                 "null": "NO",
                 "key": "",
                 "default": "",
+                "extra": ""
+            }
+        ],
+        "lh_abstract_proactive_chat_invitation_event": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "invitation_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": "0",
+                "extra": ""
+            },
+            {
+                "field": "event_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": "0",
+                "extra": ""
+            },
+            {
+                "field": "min_number",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": "0",
+                "extra": ""
+            },
+            {
+                "field": "during_seconds",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": "0",
                 "extra": ""
             }
         ],
@@ -6822,7 +6872,8 @@
         "lh_canned_msg_tag_link": "CREATE TABLE `lh_canned_msg_tag_link` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `tag_id` int(11) NOT NULL,  `canned_id` int(11) NOT NULL,  PRIMARY KEY (`id`), KEY `canned_id` (`canned_id`), KEY `tag_id` (`tag_id`)) DEFAULT CHARSET=utf8",
         "lh_canned_msg_tag": "CREATE TABLE `lh_canned_msg_tag` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `tag` varchar(40) NOT NULL, PRIMARY KEY (`id`), KEY `tag` (`tag`)) DEFAULT CHARSET=utf8",
         "lh_group_work": "CREATE TABLE `lh_group_work` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `group_id` int(11) NOT NULL, `group_work_id` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `group_id` (`group_id`)) DEFAULT CHARSET=utf8",
-        "lh_abstract_proactive_chat_variables": "CREATE TABLE `lh_abstract_proactive_chat_variables` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `name` varchar(50) NOT NULL, `identifier` varchar(50) NOT NULL, `store_timeout` int(11) NOT NULL, `is_persistent` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `identifier` (`identifier`)) DEFAULT CHARSET=utf8",
-        "lh_abstract_proactive_chat_event": "CREATE TABLE `lh_abstract_proactive_chat_event` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `vid_id` int(11) NOT NULL, `ev_id` int(11) NOT NULL, `ts` int(11) NOT NULL, `val` varchar(50) NOT NULL, PRIMARY KEY (`id`), KEY `vid_id` (`vid_id`)) DEFAULT CHARSET=utf8"
+        "lh_abstract_proactive_chat_variables": "CREATE TABLE `lh_abstract_proactive_chat_variables` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `name` varchar(50) NOT NULL, `identifier` varchar(50) NOT NULL, `store_timeout` int(11) NOT NULL, `is_persistent` int(11) NOT NULL, `filter_val` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `identifier` (`identifier`)) DEFAULT CHARSET=utf8",
+        "lh_abstract_proactive_chat_event": "CREATE TABLE `lh_abstract_proactive_chat_event` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `vid_id` int(11) NOT NULL, `ev_id` int(11) NOT NULL, `ts` int(11) NOT NULL, `val` varchar(50) NOT NULL, PRIMARY KEY (`id`), KEY `vid_id` (`vid_id`)) DEFAULT CHARSET=utf8",
+        "lh_abstract_proactive_chat_invitation_event": "CREATE TABLE `lh_abstract_proactive_chat_invitation_event` ( `id` int(11) NOT NULL AUTO_INCREMENT, `invitation_id` int(11) NOT NULL, `event_id` int(11) NOT NULL, `min_number` int(11) NOT NULL, `during_seconds` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `invitation_id` (`invitation_id`)) DEFAULT CHARSET=utf8"
     }
 }

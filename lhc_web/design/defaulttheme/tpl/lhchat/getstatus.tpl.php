@@ -520,7 +520,24 @@ var lh_inst  = {
         s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/logpageview<?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : '' ?>/(tz)/'+tzOffset+'/(vid)/' + vid + this.survey_id + '/(uactiv)/'+lh_inst.userActive+'/(wopen)/'+lh_inst.timeoutStatusWidgetOpen+'?l='+locationCurrent+this.parseStorageArguments()+this.parseOptionsOnline()+'&dt='+encodeURIComponent(document.title)+'&ts='+Date.now());
         th.appendChild(s);
     },
-
+    
+    storeEvents : function() {
+        if (typeof <?php echo $chatOptionsVariable?>.events != 'undefined') {
+            if (<?php echo $chatOptionsVariable?>.events.length > 0) {
+                 var xhr = new XMLHttpRequest();
+                 xhr.open( "POST", '<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/logevent'+this.getAppendCookieArguments(), true);
+             	 xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+             	 xhr.send( "data=" + encodeURIComponent( this.JSON.stringify(<?php echo $chatOptionsVariable?>.events) ) );
+             	 <?php echo $chatOptionsVariable?>.events = new Array();
+            }
+        }
+    },
+    
+    logEvent : function(events) {
+        <?php echo $chatOptionsVariable?>.events = events;
+        this.storeEvents();
+    },
+    
     removeCookieAttr : function(attr){
     	if (this.cookieData[attr]) {
     		delete this.cookieData[attr];
@@ -958,6 +975,7 @@ lh_inst.storeReferrer(<?php echo json_encode($referrer)?>);
 
 lh_inst.checkStatusChat();
 lh_inst.attatchActivityListeners();
+lh_inst.storeEvents();
 lh_inst.genericCallback('loaded');
 <?php
 endif; // hide if offline

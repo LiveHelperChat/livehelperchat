@@ -5,7 +5,6 @@
  * */
 
 class erLhcoreClassAdminChatValidatorHelper {
-
     
     public static function validateCannedMessage(erLhcoreClassModelCannedMsg & $cannedMessage, $userDepartments) {
         $definition = array(

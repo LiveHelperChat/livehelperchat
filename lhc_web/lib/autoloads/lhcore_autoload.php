@@ -101,8 +101,9 @@ return array_merge(array (
 		'erLhcoreClassModelFaq' 	=> 'lib/models/lhfaq/erlhcoreclassmodelfaq.php',
 
 		// Abstract module
-		'erLhAbstractModelEmailTemplate' 			=> 'lib/models/lhabstract/erlhabstractmodelemailtemplate.php',
-		'erLhAbstractModelProactiveChatInvitation'  => 'lib/models/lhabstract/erlhabstractmodeleproactivechatinvitation.php',
+		'erLhAbstractModelEmailTemplate' 			      => 'lib/models/lhabstract/erlhabstractmodelemailtemplate.php',
+		'erLhAbstractModelProactiveChatInvitation'        => 'lib/models/lhabstract/erlhabstractmodeleproactivechatinvitation.php',
+		'erLhAbstractModelProactiveChatInvitationEvent'   => 'lib/models/lhabstract/erlhabstractmodeleproactivechatinvitationevent.php',
 		'erLhAbstractModelProactiveChatVariables'   => 'lib/models/lhabstract/erlhabstractmodeleproactivechatvariables.php',
 		'erLhAbstractModelProactiveChatEvent'       => 'lib/models/lhabstract/erlhabstractmodeleproactivechatevent.php',
 		'erLhAbstractModelAutoResponder'  			=> 'lib/models/lhabstract/erlhabstractmodelautoresponder.php',
@@ -204,16 +205,17 @@ return array_merge(array (
 		// Co browse
 		'erLhcoreClassCoBrowse' 					=> 'lib/core/lhcobrowse/lhcobrowse.php',
 		'erLhcoreClassModelCoBrowse' 				=> 'lib/models/lhcobrowse/erlhcoreclassmodelcobrowse.php',
-    
+
         // Translations
         'erLhcoreClassTranslate'                    => 'lib/core/lhtranslate/lhtranslate.php',
         'erLhcoreClassTranslateBing'                => 'lib/core/lhtranslate/lhbingtranslate.php',
         'erLhcoreClassTranslateGoogle'              => 'lib/core/lhtranslate/lhgoogletranslate.php',
-	
+
 		'erLhcoreClassDBTrait'       				=> 'lib/core/lhcore/lhdbtrait.php',
 		'lhSecurity'       				            => 'lib/core/lhexternal/lhsecurity.php',
 		'erLhcoreClassChatPaid'       				=> 'lib/core/lhchat/lhchatpaid.php',
-		
+
+		'erLhcoreClassChatEvent'       				=> 'lib/core/lhchat/lhchatevent.php',
 ),
 include('var/autoloads/lhextension_autoload.php')
 );
