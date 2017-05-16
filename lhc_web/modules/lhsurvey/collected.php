@@ -43,7 +43,7 @@ if ($Params['user_parameters_unordered']['print'] == 1) {
 }
 
 $pages = new lhPaginator();
-$pages->serverURL = erLhcoreClassDesign::baseurl('survey/collected').'/'.$survey->id . $append;
+$pages->serverURL = erLhcoreClassDesign::baseurl('survey/collected') . '/' . $survey->id . $append;
 
 if ($filterParams['input_form']->group_results == true) {
    $filtercount = $filterSearch;
