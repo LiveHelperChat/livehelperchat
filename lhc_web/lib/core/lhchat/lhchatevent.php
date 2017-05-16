@@ -1,12 +1,18 @@
 <?php
 
 /**
- * Responsible for events tracking
+ * @desc Responsible for events tracking.
  * 
  * */
 class erLhcoreClassChatEvent
 {
-
+    /**
+     * @desc Logs provided events
+     * 
+     * @param array $events
+     * 
+     * @param erLhcoreClassModelChatOnlineUser $vid
+     */
     public static function logEvents($events, erLhcoreClassModelChatOnlineUser $vid)
     {
         $ids = array();
@@ -71,6 +77,10 @@ class erLhcoreClassChatEvent
                 $eventsTouched[] = $eventObj;
             }
         }
+        
+        if (!empty($eventsTouched)) {
+            self::processInvitation($vid, $eventsTouched);
+        }
     }
     
     /**
@@ -78,14 +88,122 @@ class erLhcoreClassChatEvent
      * 1. we find all proactive invitation which has any of logged variables
      * 2. Then we go foreach invitation and search does it meets our requirement.
      * 
+     * @param erLhcoreClassModelChatOnlineUser $vid
+     * 
+     * @param array of erLhAbstractModelProactiveChatEvent
+     * 
      */
-    public function processInvitation(erLhcoreClassModelChatOnlineUser $vid, $events)
+    public static function processInvitation(erLhcoreClassModelChatOnlineUser $vid, $events)
     {
-        /* event_trigger_invitation
-        proactive_invitation_id
-        id event_id min_number since_last */
+        $idEv = array();
+        
+        foreach ($events as $evn) {
+            $idEv[] = $evn->ev_id;
+        }
+        
+        // Select related invitations
+        $sql = "SELECT invitation_id FROM lh_abstract_proactive_chat_invitation_event WHERE event_id IN (" . implode(',', $idEv) . ') GROUP BY invitation_id';
+        
+        $db = ezcDbInstance::get();
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
+        $rows = $stmt->fetchAll(PDO::FETCH_COLUMN);
+        
+        $eventsToMatch = erLhAbstractModelProactiveChatInvitationEvent::getList(array('filterin' => array('invitation_id' => $rows)));
+        
+        $invitationsConditions = array();
+        
+        foreach ($eventsToMatch as $event) {
+            $invitationsConditions[$event->invitation_id][] = $event;
+        }
+
+        $invitationsValid = array();
+        
+        foreach ($invitationsConditions as $invitationId => $conditionGroup) {
+            
+            $conditionsMet = true;
+             
+            foreach ($conditionGroup as $condition) {
+                $sqlConditions = array();
+                $sqlConditions['filter']['vid_id'] = $vid->id;
+                
+                if ($condition->during_seconds > 0) {
+                    $sqlConditions['filtergt']['ts'] = time() - $condition->during_seconds;
+                }
+
+                $sqlConditions['filter']['ev_id'] = $condition->event_id;
+
+                $foundTimes = erLhAbstractModelProactiveChatEvent::getCount($sqlConditions);
+                                
+                // No need to process any futher if atleast one condition is not met
+                if ($foundTimes == 0 || ($foundTimes < $condition->min_number)) {                                        
+                    $conditionsMet = false;
+                    break;
+                }                
+            }
+            
+            if ($conditionsMet == true) {
+                $invitationsValid[] = $invitationId;
+            }
+        }
+        
+        if (!empty($invitationsValid)) {
+
+            $enabledInvitations = true;
+            
+            if ($vid->reopen_chat == 1 && ($chat = $vid->chat) !== false && $chat->user_status == erLhcoreClassModelChat::USER_STATUS_PENDING_REOPEN) {
+                $enabledInvitations = false;
+            }
+                                    
+            // If there is no assigned default proactive invitations find dynamic one triggers
+            if ($enabledInvitations == true && $vid->operator_message == '' && $vid->message_seen == 0) {
+                erLhAbstractModelProactiveChatInvitation::processProActiveInvitation($vid, array('ignore_event' => true, 'invitation_id' => $invitationsValid));
+                $vid->saveThis();
+            }
+        }
     }
 
+    /**
+     * @desc If page view is executed and invitation is found and this invitations has events to be triggered. This function checks does required events are valid for specific user.
+     * 
+     * @param erLhcoreClassModelChatOnlineUser $vid
+     * 
+     * @param erLhAbstractModelProactiveChatInvitation $invitation
+     * 
+     * @return boolean
+     */
+    public static function isConditionsSatisfied(erLhcoreClassModelChatOnlineUser $vid, erLhAbstractModelProactiveChatInvitation $invitation)
+    {
+        $conditionGroup = erLhAbstractModelProactiveChatInvitationEvent::getList(array('filter' => array('invitation_id' => $invitation->id)));
+
+        foreach ($conditionGroup as $condition) {
+            $sqlConditions = array();
+            $sqlConditions['filter']['vid_id'] = $vid->id;
+        
+            if ($condition->during_seconds > 0) {
+                $sqlConditions['filtergt']['ts'] = time() - $condition->during_seconds;
+            }
+        
+            $sqlConditions['filter']['ev_id'] = $condition->event_id;
+        
+            $foundTimes = erLhAbstractModelProactiveChatEvent::getCount($sqlConditions);
+        
+            // No need to process any futher if atleast one condition is not met
+            if ($foundTimes == 0 || ($foundTimes < $condition->min_number)) {
+                return false;
+                break;
+            }
+        }
+
+        return true;
+        
+    }
+    
+    /**
+     * @desc Validates proactive invitation editing and creates event triggers
+     * 
+     * @param array $params
+     */
     public static function validateProactive($params)
     {
         $definition = array(           

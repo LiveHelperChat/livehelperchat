@@ -41,6 +41,7 @@ class erLhAbstractModelProactiveChatInvitation {
 			'requires_phone'	=> $this->requires_phone,
 			'tag' => $this->tag,
 			'dynamic_invitation' => $this->dynamic_invitation,
+			'event_invitation' => $this->event_invitation,
 			'iddle_for' => $this->iddle_for,
 			'event_type' => $this->event_type
 		);
@@ -234,11 +235,17 @@ class erLhAbstractModelProactiveChatInvitation {
 		    $appendTag = 'AND (tag = \'\')';
 		}
 		
+		$appendInvitationsId = '';
+		if ( isset($params['invitation_id']) && !empty($params['invitation_id']) ) {
+		    $appendInvitationsId = 'AND id IN ('.implode(',', $params['invitation_id']).')';
+		}
+
 		$q->where( $q->expr->lte( 'time_on_site', $q->bindValue( $item->time_on_site ) ).' AND '.$q->expr->lte( 'pageviews', $q->bindValue( $item->pages_count ) ).'
 				AND ('.$q->expr->eq( 'siteaccess', $q->bindValue( erLhcoreClassSystem::instance()->SiteAccess ) ).' OR siteaccess = \'\')
 				AND ('.$q->expr->eq( 'identifier', $q->bindValue( $item->identifier ) ).' OR identifier = \'\')
 				' . $appendTag . '
 		        AND `dynamic_invitation` = 0
+		        ' . $appendInvitationsId . '
 				AND ('.$q->expr->eq( 'dep_id', $q->bindValue( $item->dep_id ) ).' OR dep_id = 0)
 				AND ('.$q->expr->like( $session->database->quote(trim($referrer)), 'concat(referrer,\'%\')' ).' OR referrer = \'\')'
 		)
@@ -246,9 +253,17 @@ class erLhAbstractModelProactiveChatInvitation {
 		->limit( 1 );
 		
 		$messagesToUser = $session->find( $q );
-
+		
 		if ( !empty($messagesToUser) ) {
 			$message = array_shift($messagesToUser);
+			
+			if ($message->event_invitation == 1 && (!isset($params['ignore_event']) || $params['ignore_event'] == 0)) {
+			    
+			    // Event conditions does not satisfied
+			    if (erLhcoreClassChatEvent::isConditionsSatisfied($item, $message) === false) {
+			        return;
+			    }
+			}
 			
 			// Use default message if first time visit or returning message is empty
 			if ($item->total_visits == 1 || $message->message_returning == '') {			
@@ -275,7 +290,7 @@ class erLhAbstractModelProactiveChatInvitation {
 			$item->store_chat = true;
 			$item->invitation_assigned = true;
 			$item->last_visit = time();
-
+			
 			if ($message->show_random_operator == 1) {
 				$item->operator_user_id = erLhcoreClassChat::getRandomOnlineUserID(array('operators' => explode(',',trim($message->operator_ids))));				
 			}
@@ -316,7 +331,15 @@ class erLhAbstractModelProactiveChatInvitation {
 	        if (!in_array($oldEvent->id, $ids)) {
 	            $oldEvent->removeThis();
 	        }
-	    }	    
+	    }	
+
+	    if (empty($ids) && $this->event_invitation == 1) {
+	        $this->event_invitation = 0;
+	        $this->saveThis();
+	    } elseif (!empty($ids) && $this->event_invitation == 0) {
+	        $this->event_invitation = 1;
+	        $this->saveThis();
+	    }
 	}
 
 	public function afterRemove()
@@ -352,6 +375,7 @@ class erLhAbstractModelProactiveChatInvitation {
 	public $operator_ids = '';
 	public $tag = '';
 	public $dynamic_invitation = 0;
+	public $event_invitation = 0;
 	public $iddle_for = 0;
 	public $event_type = 0;
 

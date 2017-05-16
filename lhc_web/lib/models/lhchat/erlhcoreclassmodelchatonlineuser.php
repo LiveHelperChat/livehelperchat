@@ -74,6 +74,11 @@ class erLhcoreClassModelChatOnlineUser
         $q->deleteFrom('lh_chat_online_user_footprint')->where($q->expr->eq('chat_id', 0), $q->expr->eq('online_user_id', $this->id));
         $stmt = $q->prepare();
         $stmt->execute();
+        
+        // Delete realted events
+        $q->deleteFrom('lh_abstract_proactive_chat_event')->where( $q->expr->eq('vid_id', $this->id));
+        $stmt = $q->prepare();
+        $stmt->execute();
 
         erLhcoreClassChat::getSession()->delete($this);
     }
@@ -544,6 +549,10 @@ class erLhcoreClassModelChatOnlineUser
         $stmt->bindValue(':last_activity', (int)(time() - $timeoutCleanup * 24 * 3600), PDO::PARAM_INT);
         $stmt->execute();
 
+        $stmt = $db->prepare('DELETE FROM lh_abstract_proactive_chat_event WHERE ts < :ts');
+        $stmt->bindValue(':ts', (int)(time() - $timeoutCleanup * 24 * 3600), PDO::PARAM_INT);
+        $stmt->execute();
+
         $stmt = $db->prepare('DELETE FROM lh_chat_online_user_footprint WHERE chat_id = 0 AND vtime < :last_activity');
         $stmt->bindValue(':last_activity', (int)(time() - $timeoutCleanup * 24 * 3600), PDO::PARAM_INT);
         $stmt->execute();
@@ -555,6 +564,9 @@ class erLhcoreClassModelChatOnlineUser
         $db = ezcDbInstance::get();
 
         $stmt = $db->prepare('DELETE FROM lh_chat_online_user');
+        $stmt->execute();
+
+        $stmt = $db->prepare('DELETE FROM lh_abstract_proactive_chat_event');
         $stmt->execute();
 
         $stmt = $db->prepare('DELETE FROM lh_chat_online_user_footprint WHERE chat_id = 0');

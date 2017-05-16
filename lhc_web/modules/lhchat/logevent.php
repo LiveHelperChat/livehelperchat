@@ -35,6 +35,7 @@ try {
 		exit;
 	}
 } catch ( Exception $e ) {
+    echo $e->getMessage();
 }
 exit ();
 

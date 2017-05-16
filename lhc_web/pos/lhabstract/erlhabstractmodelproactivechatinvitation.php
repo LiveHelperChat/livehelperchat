@@ -155,6 +155,12 @@ $def->properties['event_type']->columnName   = 'event_type';
 $def->properties['event_type']->propertyName = 'event_type';
 $def->properties['event_type']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+// Event invitation
+$def->properties['event_invitation'] = new ezcPersistentObjectProperty();
+$def->properties['event_invitation']->columnName   = 'event_invitation';
+$def->properties['event_invitation']->propertyName = 'event_invitation';
+$def->properties['event_invitation']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>
