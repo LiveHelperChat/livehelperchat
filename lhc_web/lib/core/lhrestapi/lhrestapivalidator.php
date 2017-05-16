@@ -133,11 +133,31 @@ class erLhcoreClassRestAPIHandler
                     'validator' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', array(
                         'min_range' => 1
                     ))
+                ),
+                'limit' => array(
+                    'type' => 'general',
+                    'field' => 'limit',
+                    'validator' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', array(
+                        'min_range' => 1
+                    ))
+                ),
+                'offset' => array(
+                    'type' => 'general',
+                    'field' => 'offset',
+                    'validator' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', array(
+                        'min_range' => 1
+                    ))
                 )
             )
         );
         
+        $filterlt = array('id');
+        
         $filter = self::formatFilter($validAttributes);
+        
+        if (isset($_GET['filtergt']['id']) && is_numeric($_GET['filtergt']['id'])){
+            $filter['filtergt']['id'] = (int)$_GET['filtergt']['id'];
+        }
         
         $limitation = self::getLimitation();
         
@@ -148,12 +168,10 @@ class erLhcoreClassRestAPIHandler
                 'list_count' => 0
             );
         }
-        
-        
+                
         if ($limitation !== true) {
             $filter['customfilter'][] = $limitation;
         }
-        
         
         // Get chats list
         $chats = erLhcoreClassChat::getList($filter);
@@ -321,7 +339,7 @@ class erLhcoreClassRestAPIHandler
      */
     public static function outputResponse($data)
     {
-        if ($_GET['format'] == 'xml') {
+        if (isset($_GET['format']) && $_GET['format'] == 'xml') {
            echo self::formatXML(json_decode(json_encode($data),true));            
         } else {
         
