@@ -35,18 +35,20 @@ if ($Params['user_parameters_unordered']['hash'] != '' || $Params['user_paramete
 
         if ( (($checkHash == true && $chat !== false && $chat->hash == $hash) || $checkHash == false) && ( is_object($vid) || ($chat !== false && $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT || $chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT))) {
             
-            erLhcoreClassChatValidator::validateCustomFieldsRefresh($chat);      
-            
-            $chat->user_typing = time();
-            $chat->user_typing_txt = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/refreshcustomfields','Data refreshed');
-            $chat->operation_admin .= "lhinst.updateVoteStatus(".$chat->id.");";
-            $chat->saveThis();
-            
-            // Force operators to check for new messages
-            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed_chat', array(
-                'chat' => & $chat
-            ));
-                        
+            if ($chat instanceof erLhcoreClassModelChat)
+            {
+                erLhcoreClassChatValidator::validateCustomFieldsRefresh($chat);      
+                
+                $chat->user_typing = time();
+                $chat->user_typing_txt = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/refreshcustomfields','Data refreshed');
+                $chat->operation_admin .= "lhinst.updateVoteStatus(".$chat->id.");";
+                $chat->saveThis();
+                
+                // Force operators to check for new messages
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed_chat', array(
+                    'chat' => & $chat
+                ));
+            }       
             echo json_encode(array('stored' => 'true'));
             exit;
         }

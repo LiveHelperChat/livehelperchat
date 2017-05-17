@@ -111,8 +111,10 @@ class erLhcoreClassChatMail {
     	$tpl = new erLhcoreClassTemplate( 'lhchat/messagelist/plain.tpl.php');
     	$tpl->set('chat', $chat);
     	$tpl->set('messages', $messages);
-
-    	$sendMail->content = str_replace(array('{user_chat_nick}','{messages_content}','{chat_id}'), array($chat->nick,$tpl->fetch(),$chat->id), $sendMail->content);
+    	
+    	$surveyContent = self::getSurveyContent($chat);
+    	
+    	$sendMail->content = str_replace(array('{user_chat_nick}','{messages_content}','{chat_id}','{survey}'), array($chat->nick,$tpl->fetch(),$chat->id,$surveyContent), $sendMail->content);
     	
     	if ($form->hasValidData( 'Message' ) )
     	{
