@@ -134,7 +134,7 @@ class erLhcoreClassChatEvent
                 $foundTimes = erLhAbstractModelProactiveChatEvent::getCount($sqlConditions);
                                 
                 // No need to process any futher if atleast one condition is not met
-                if ($foundTimes == 0 || ($foundTimes < $condition->min_number)) {                                        
+                if ($foundTimes == 0 || ($foundTimes <= $condition->min_number)) {                                        
                     $conditionsMet = false;
                     break;
                 }                
@@ -187,7 +187,7 @@ class erLhcoreClassChatEvent
             $foundTimes = erLhAbstractModelProactiveChatEvent::getCount($sqlConditions);
         
             // No need to process any futher if atleast one condition is not met
-            if ($foundTimes == 0 || ($foundTimes < $condition->min_number)) {
+            if ($foundTimes == 0 || ($foundTimes <= $condition->min_number)) {
                 return false;
                 break;
             }
