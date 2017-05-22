@@ -958,7 +958,6 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	       `name` varchar(50) NOT NULL,
         	       `identifier` varchar(50) NOT NULL,
         	       `store_timeout` int(11) NOT NULL,
-        	       `is_persistent` int(11) NOT NULL DEFAULT '0',
         	       `filter_val` int(11) NOT NULL DEFAULT '0',
         	       PRIMARY KEY (`id`),
         	       KEY `identifier` (`identifier`)

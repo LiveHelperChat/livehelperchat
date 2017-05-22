@@ -52,11 +52,9 @@ class erLhcoreClassChatEvent
                     )
                 );
                 
-                if ($variablesKeyed[$event['id']]->is_persistent == 0) {
-                    if ($variablesKeyed[$event['id']]->store_timeout > 0) {
-                        $filter['filtergt']['ts'] = time() - $variablesKeyed[$event['id']]->store_timeout;
-                    }
-                }  
+                if ($variablesKeyed[$event['id']]->store_timeout > 0) {
+                    $filter['filtergt']['ts'] = time() - $variablesKeyed[$event['id']]->store_timeout;
+                }
                 
                 if ($variablesKeyed[$event['id']]->filter_val == 1 && isset($event['val']) && $event['val'] == '') {
                     $filter['filter']['val'] = $event['val'];

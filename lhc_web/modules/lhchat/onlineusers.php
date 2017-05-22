@@ -25,7 +25,8 @@ if (is_numeric($Params['user_parameters_unordered']['deletevisitor']) && $Params
 		$visitor = erLhcoreClassModelChatOnlineUser::fetch($Params['user_parameters_unordered']['deletevisitor']);
 		$visitor->removeThis();
 	} catch (Exception $e) {
-
+        print_r($e);
+        exit;
 	}
 
     erLhcoreClassModule::redirect('chat/onlineusers');

@@ -24,11 +24,6 @@ $def->properties['store_timeout']->columnName   = 'store_timeout';
 $def->properties['store_timeout']->propertyName = 'store_timeout';
 $def->properties['store_timeout']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
-$def->properties['is_persistent'] = new ezcPersistentObjectProperty();
-$def->properties['is_persistent']->columnName   = 'is_persistent';
-$def->properties['is_persistent']->propertyName = 'is_persistent';
-$def->properties['is_persistent']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
 $def->properties['filter_val'] = new ezcPersistentObjectProperty();
 $def->properties['filter_val']->columnName   = 'filter_val';
 $def->properties['filter_val']->propertyName = 'filter_val';

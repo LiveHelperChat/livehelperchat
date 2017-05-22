@@ -75,6 +75,9 @@ class erLhcoreClassModelChatOnlineUser
         $stmt = $q->prepare();
         $stmt->execute();
         
+        
+        $q = ezcDbInstance::get()->createDeleteQuery();
+        
         // Delete realted events
         $q->deleteFrom('lh_abstract_proactive_chat_event')->where( $q->expr->eq('vid_id', $this->id));
         $stmt = $q->prepare();
@@ -545,18 +548,17 @@ class erLhcoreClassModelChatOnlineUser
 
         $timeoutCleanup = erLhcoreClassModelChatConfig::fetch('tracked_users_cleanup')->current_value;
 
-        $stmt = $db->prepare('DELETE FROM lh_chat_online_user WHERE last_visit < :last_activity');
+        $stmt = $db->prepare('DELETE T2 FROM lh_abstract_proactive_chat_event as T2 INNER JOIN lh_chat_online_user as T1 ON T1.id = T2.vid_id WHERE last_visit < :last_activity');
         $stmt->bindValue(':last_activity', (int)(time() - $timeoutCleanup * 24 * 3600), PDO::PARAM_INT);
         $stmt->execute();
 
-        $stmt = $db->prepare('DELETE FROM lh_abstract_proactive_chat_event WHERE ts < :ts');
-        $stmt->bindValue(':ts', (int)(time() - $timeoutCleanup * 24 * 3600), PDO::PARAM_INT);
+        $stmt = $db->prepare('DELETE FROM lh_chat_online_user WHERE last_visit < :last_activity');
+        $stmt->bindValue(':last_activity', (int)(time() - $timeoutCleanup * 24 * 3600), PDO::PARAM_INT);
         $stmt->execute();
 
         $stmt = $db->prepare('DELETE FROM lh_chat_online_user_footprint WHERE chat_id = 0 AND vtime < :last_activity');
         $stmt->bindValue(':last_activity', (int)(time() - $timeoutCleanup * 24 * 3600), PDO::PARAM_INT);
         $stmt->execute();
-
     }
 
     public static function cleanAllRecords()

@@ -19,8 +19,7 @@ class erLhAbstractModelProactiveChatVariables{
 			'name'  		=> $this->name,
 			'identifier'  	=> $this->identifier,
 			'store_timeout' => $this->store_timeout,
-			'filter_val'    => $this->filter_val,
-			'is_persistent' => $this->is_persistent			
+			'filter_val'    => $this->filter_val
 		);
 
 		return $stateArray;
@@ -65,7 +64,6 @@ class erLhAbstractModelProactiveChatVariables{
 	public $name = '';
 	public $identifier = '';
 	public $store_timeout = 0;
-	public $is_persistent = 0;
 	public $filter_val = 0;
 
 	public $hide_add = false;
