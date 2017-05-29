@@ -26,6 +26,18 @@ $fieldsSearch['disabled'] = array (
     )
 );
 
+$fieldsSearch['visible_if_online'] = array (
+    'type' => 'text',
+    'trans' => 'Sort by',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filter',
+    'filter_table_field' => 'visible_if_online',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+            ezcInputFormDefinitionElement::OPTIONAL, 'int'
+    )
+);
+
 $fieldsSearch['name'] = array (
     'type' => 'text',
     'trans' => 'Sort by',

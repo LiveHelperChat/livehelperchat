@@ -21,6 +21,16 @@
 		</div>
 		<div class="col-md-3">
 		   <div class="form-group">
+			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Visible only if online');?></label>
+			<select class="form-control" name="visible_if_online">
+                <option>All</option>
+                <option value="1" <?php $input->visible_if_online === 1 ? print 'selected="selected"' : ''?>>Yes</option>
+                <option value="0" <?php $input->visible_if_online === 0 ? print 'selected="selected"' : ''?>>No</option>
+			</select>
+		   </div>
+		</div>
+		<div class="col-md-3">
+		   <div class="form-group">
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Disabled');?></label>
 			<select class="form-control" name="disabled">
                 <option>All</option>

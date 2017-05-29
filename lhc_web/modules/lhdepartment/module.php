@@ -6,6 +6,7 @@ $ViewList = array();
 
 $ViewList['departments'] = array(
     'params' => array(),
+    'uparams' => array('visible_if_online','hidden','disabled'),
     'functions' => array( 'list' )
     );
 
