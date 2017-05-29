@@ -16,9 +16,11 @@ try {
         if (isset($_GET['hash']) && $chat->hash != $_GET['hash']) {
             throw new Exception('Invalid hash');
         }
-        
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('api.fetchchat', array('chat' => & $chat));
+
         erLhcoreClassChat::prefillGetAttributesObject($chat, array('user','plain_user_name'), array(), array('do_not_clean' => true));
-        
+
         erLhcoreClassRestAPIHandler::outputResponse(array(
             'error' => false,
             'chat' => $chat
