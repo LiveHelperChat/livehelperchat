@@ -1,6 +1,19 @@
 <?php 
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept');
+
+if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+
+    if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD']))
+        // may also be using PUT, PATCH, HEAD etc
+        header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+
+    if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']))
+        header("Access-Control-Allow-Headers: {$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}");
+
+    exit(0);
+}
+
 header('Content-Type: application/json');
 ?>
 {
@@ -132,6 +145,55 @@ header('Content-Type: application/json');
             }
          }         
       },
+      "/restapi/fetchchat":{
+         "get":{
+            "tags":[
+               "api"
+            ],
+            "summary":"Fetch chat information",
+            "description":"",
+            "produces":[
+               "application/json"
+            ],
+            "parameters":[               
+               {
+                    "name":"chat_id",
+					"in":"query",
+					"description":"Redirect url",
+					"required":false,
+					"type":"string",
+					"format":"int32"
+               },
+               {
+                    "name":"hash",
+					"in":"query",
+					"description":"Hash, optional variable. If provided it will be validated against chat hash also.",
+					"required":false,
+					"type":"string",
+					"format":"int32"
+               }
+            ],
+            "responses": {
+                "200": {
+                    "description": "Fetch chat information",
+                    "schema": {
+                    	
+                    }
+                },
+                "400": {
+                    "description": "Error",
+                    "schema": {
+                    	
+                    }
+                }
+            },
+            "security": [
+                {
+                    "login": []
+                }
+            ]
+         }         
+      },
       "/restapi/loginbytoken":{
          "get":{
             "tags":[
@@ -181,7 +243,13 @@ header('Content-Type: application/json');
             }
          }         
       }
-   },   
+   },  
+   "securityDefinitions": {
+        "login": {
+            "type": "basic",
+            "description": "Basic authentication"
+        }
+   }, 
    "definitions":{      
       "Callback":{
          "type":"object",
