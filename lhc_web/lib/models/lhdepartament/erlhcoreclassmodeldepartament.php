@@ -2,98 +2,91 @@
 
 class erLhcoreClassModelDepartament {
 
+    use erLhcoreClassDBTrait;
+   
+    public static $dbTable = 'lh_departament';
+    
+    public static $dbTableId = 'id';
+    
+    public static $dbSessionHandler = 'erLhcoreClassDepartament::getSession';
+    
+    public static $dbSortOrder = 'ASC';
+    
     public function getState()
-   {
-       return array(
-               'id'       				=> $this->id,
-               'name'     				=> $this->name,
-               'email'     				=> $this->email,
-               'xmpp_recipients'     	=> $this->xmpp_recipients,
-               'xmpp_group_recipients'  => $this->xmpp_group_recipients,
-               'priority'     			=> $this->priority,
-               'sort_priority'     		=> $this->sort_priority,
-               'department_transfer_id' => $this->department_transfer_id,
-               'transfer_timeout'    	=> $this->transfer_timeout,
-               'identifier'    			=> $this->identifier,
-               'mod_start_hour'    		=> $this->mod_start_hour,
-               'mod_end_hour'    		=> $this->mod_end_hour,
-               'tud_start_hour'    		=> $this->tud_start_hour,
-               'tud_end_hour'    		=> $this->tud_end_hour,
-               'wed_start_hour'    		=> $this->wed_start_hour,
-               'wed_end_hour'    		=> $this->wed_end_hour,
-               'thd_start_hour'    		=> $this->thd_start_hour,
-               'thd_end_hour'    		=> $this->thd_end_hour,
-               'frd_start_hour'    		=> $this->frd_start_hour,
-               'frd_end_hour'    		=> $this->frd_end_hour,
-               'sad_start_hour'    		=> $this->sad_start_hour,
-               'sad_end_hour'    		=> $this->sad_end_hour,
-               'sud_start_hour'    		=> $this->sud_start_hour,
-               'sud_end_hour'    		=> $this->sud_end_hour,
-               'inform_options'    		=> $this->inform_options,
-               'inform_delay'    		=> $this->inform_delay,
-               'inform_close'    		=> $this->inform_close,
-               'inform_close_all'    	=> $this->inform_close_all,
-               'inform_close_all_email' => $this->inform_close_all_email,
-               'online_hours_active'    => $this->online_hours_active,
-               'disabled'    			=> $this->disabled,
-               'hidden'    				=> $this->hidden,
-               'visible_if_online'    	=> $this->visible_if_online,
-               'delay_lm' 				=> $this->delay_lm,
-               'inform_unread' 			=> $this->inform_unread,
-               'inform_unread_delay' 	=> $this->inform_unread_delay,
-               'na_cb_execute' 			=> $this->na_cb_execute,
-               'nc_cb_execute' 			=> $this->nc_cb_execute,
-               'active_balancing' 		=> $this->active_balancing,
-               'max_active_chats' 		=> $this->max_active_chats,
-               'max_timeout_seconds' 	=> $this->max_timeout_seconds,
-               'attr_int_1' 	        => $this->attr_int_1,
-               'attr_int_2' 	        => $this->attr_int_2,
-               'attr_int_3' 	        => $this->attr_int_3,
-               'active_chats_counter' 	=> $this->active_chats_counter,
-               'pending_chats_counter' 	=> $this->pending_chats_counter,
-               'closed_chats_counter' 	=> $this->closed_chats_counter,
-               'product_configuration' 	=> $this->product_configuration,
-       );
-   }
+    {
+        return array(
+            'id' => $this->id,
+            'name' => $this->name,
+            'email' => $this->email,
+            'xmpp_recipients' => $this->xmpp_recipients,
+            'xmpp_group_recipients' => $this->xmpp_group_recipients,
+            'priority' => $this->priority,
+            'sort_priority' => $this->sort_priority,
+            'department_transfer_id' => $this->department_transfer_id,
+            'transfer_timeout' => $this->transfer_timeout,
+            'identifier' => $this->identifier,
+            'mod_start_hour' => $this->mod_start_hour,
+            'mod_end_hour' => $this->mod_end_hour,
+            'tud_start_hour' => $this->tud_start_hour,
+            'tud_end_hour' => $this->tud_end_hour,
+            'wed_start_hour' => $this->wed_start_hour,
+            'wed_end_hour' => $this->wed_end_hour,
+            'thd_start_hour' => $this->thd_start_hour,
+            'thd_end_hour' => $this->thd_end_hour,
+            'frd_start_hour' => $this->frd_start_hour,
+            'frd_end_hour' => $this->frd_end_hour,
+            'sad_start_hour' => $this->sad_start_hour,
+            'sad_end_hour' => $this->sad_end_hour,
+            'sud_start_hour' => $this->sud_start_hour,
+            'sud_end_hour' => $this->sud_end_hour,
+            'inform_options' => $this->inform_options,
+            'inform_delay' => $this->inform_delay,
+            'inform_close' => $this->inform_close,
+            'inform_close_all' => $this->inform_close_all,
+            'inform_close_all_email' => $this->inform_close_all_email,
+            'online_hours_active' => $this->online_hours_active,
+            'disabled' => $this->disabled,
+            'hidden' => $this->hidden,
+            'visible_if_online' => $this->visible_if_online,
+            'delay_lm' => $this->delay_lm,
+            'inform_unread' => $this->inform_unread,
+            'inform_unread_delay' => $this->inform_unread_delay,
+            'na_cb_execute' => $this->na_cb_execute,
+            'nc_cb_execute' => $this->nc_cb_execute,
+            'active_balancing' => $this->active_balancing,
+            'max_active_chats' => $this->max_active_chats,
+            'max_timeout_seconds' => $this->max_timeout_seconds,
+            'attr_int_1' => $this->attr_int_1,
+            'attr_int_2' => $this->attr_int_2,
+            'attr_int_3' => $this->attr_int_3,
+            'active_chats_counter' => $this->active_chats_counter,
+            'pending_chats_counter' => $this->pending_chats_counter,
+            'closed_chats_counter' => $this->closed_chats_counter,
+            'product_configuration' => $this->product_configuration
+        );
+    }
 
-   public function setState( array $properties )
-   {
-       foreach ( $properties as $key => $val )
-       {
-           $this->$key = $val;
-       }
-   }
+    public function __toString()
+    {
+        return $this->name;
+    }
 
-   public static function fetch($dep_id, $useCache = false) {
+    public function beforeRemove()
+    {        
+        // Delete user assigned departaments
+        $q = ezcDbInstance::get()->createDeleteQuery();
+        $q->deleteFrom('lh_userdep')->where($q->expr->eq('dep_id', $this->id));
+        $stmt = $q->prepare();
+        $stmt->execute();
+        
+        // Delete departament products
+        $q = ezcDbInstance::get()->createDeleteQuery();
+        $q->deleteFrom('lh_abstract_product_departament')->where($q->expr->eq('departament_id', $this->id));
+        $stmt = $q->prepare();
+        $stmt->execute();
+    }
 
-   		if ($useCache == true && isset($GLOBALS['lhCacheDepartmentDepartaments_'.$dep_id])) return $GLOBALS['lhCacheDepartmentDepartaments_'.$dep_id];
-
-   		$GLOBALS['lhCacheDepartmentDepartaments_'.$dep_id] = erLhcoreClassDepartament::getSession()->load( 'erLhcoreClassModelDepartament', (int)$dep_id );
-
-   		return $GLOBALS['lhCacheDepartmentDepartaments_'.$dep_id];
-   }
-
-   public function __toString() {
-   		return $this->name;
-   }
-
-   public function removeThis() {
-	   	erLhcoreClassDepartament::getSession()->delete($this);
-
-	   	// Delete user assigned departaments
-	   	$q = ezcDbInstance::get()->createDeleteQuery();
-	   	$q->deleteFrom( 'lh_userdep' )->where( $q->expr->eq( 'dep_id', $this->id ) );
-	   	$stmt = $q->prepare();
-	   	$stmt->execute();
-	   	
-	   	// Delete departament products
-	   	$q = ezcDbInstance::get()->createDeleteQuery();
-	   	$q->deleteFrom( 'lh_abstract_product_departament' )->where( $q->expr->eq( 'departament_id', $this->id ) );
-	   	$stmt = $q->prepare();
-	   	$stmt->execute();
-   }
-
-   public function __get($var) {
+    public function __get($var) {
 	   	switch ($var) {
 	   		case 'is_online':
 	   			$this->is_online = erLhcoreClassChat::isOnline($this->id);
@@ -202,95 +195,8 @@ class erLhcoreClassModelDepartament {
 	   		default:
 	   		break;
 	   	}
-   }
-
-   public static function getCount($params = array())
-   {
-       $session = erLhcoreClassDepartament::getSession();
-       $q = $session->database->createSelectQuery();
-       $q->select( "COUNT(id)" )->from( "lh_departament" );
-
-       if (isset($params['filter']) && count($params['filter']) > 0)
-       {
-           $conditions = array();
-
-           foreach ($params['filter'] as $field => $fieldValue)
-           {
-               $conditions[] = $q->expr->eq( $field, $q->bindValue($fieldValue) );
-           }
-
-           $q->where(
-                 $conditions
-           );
-      }
-
-      $stmt = $q->prepare();
-      $stmt->execute();
-      $result = $stmt->fetchColumn();
-
-      return $result;
-   }
-
-   public static function getList($paramsSearch = array())
-   {
-       $paramsDefault = array('limit' => 500000, 'offset' => 0);
-
-       $params = array_merge($paramsDefault,$paramsSearch);
-
-       $session = erLhcoreClassDepartament::getSession();
-       $q = $session->createFindQuery( 'erLhcoreClassModelDepartament' );
-
-       $conditions = array();
-
-      if (isset($params['filter']) && count($params['filter']) > 0)
-      {
-           foreach ($params['filter'] as $field => $fieldValue)
-           {
-               $conditions[] = $q->expr->eq( $field, $q->bindValue($fieldValue) );
-           }
-      }
-
-      if (isset($params['filterin']) && count($params['filterin']) > 0)
-      {
-           foreach ($params['filterin'] as $field => $fieldValue)
-           {
-               $conditions[] = $q->expr->in( $field, $fieldValue );
-           }
-      }
-
-      if (isset($params['filterlt']) && count($params['filterlt']) > 0)
-      {
-           foreach ($params['filterlt'] as $field => $fieldValue)
-           {
-               $conditions[] = $q->expr->lt( $field, $q->bindValue($fieldValue) );
-           }
-      }
-
-      if (isset($params['filtergt']) && count($params['filtergt']) > 0)
-      {
-           foreach ($params['filtergt'] as $field => $fieldValue)
-           {
-               $conditions[] = $q->expr->gt( $field,$q->bindValue( $fieldValue ));
-           }
-      }
-
-      if (count($conditions) > 0)
-      {
-          $q->where(
-                     $conditions
-          );
-      }
-
-      $q->limit($params['limit'],$params['offset']);
-
-      $q->orderBy(isset($params['sort']) ? $params['sort'] : 'id ASC' );
-
-
-       $objects = $session->find( $q );
-
-      return $objects;
-   }
-
+    }
+   
     public $id = null;
     public $name = '';
     public $email = '';
