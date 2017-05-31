@@ -100,6 +100,9 @@ class erLhcoreClassDepartament{
 	   			'MaxWaitTimeoutSeconds' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'int'
 	   			),
+	   			'pending_max' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'int'
+	   			),
 	   			'inform_unread_delay' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 5)
 	   			),
@@ -225,6 +228,13 @@ class erLhcoreClassDepartament{
 	   		$department->delay_lm = $form->delay_lm;
 	   	} else {
 	   		$department->delay_lm = 0;
+	   	}
+	   	
+	   	if ( $form->hasValidData( 'pending_max' ) )
+	   	{
+	   		$department->pending_max = $form->pending_max;
+	   	} else {
+	   		$department->pending_max = 0;
 	   	}
 	   	
 	   	if ( $form->hasValidData( 'Email' ) ) {	   	

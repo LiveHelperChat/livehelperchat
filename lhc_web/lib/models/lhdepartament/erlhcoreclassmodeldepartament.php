@@ -62,7 +62,8 @@ class erLhcoreClassModelDepartament {
             'active_chats_counter' => $this->active_chats_counter,
             'pending_chats_counter' => $this->pending_chats_counter,
             'closed_chats_counter' => $this->closed_chats_counter,
-            'product_configuration' => $this->product_configuration
+            'product_configuration' => $this->product_configuration,
+            'pending_max' => $this->pending_max
         );
     }
 
@@ -240,6 +241,7 @@ class erLhcoreClassModelDepartament {
     public $visible_if_online = 0;
     public $inform_close_all = 0;
     public $inform_close_all_email = '';
+    public $pending_max = 0;
     
     public $active_chats_counter = 0;
     public $pending_chats_counter = 0;

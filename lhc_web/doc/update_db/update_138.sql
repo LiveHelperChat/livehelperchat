@@ -1,0 +1,1 @@
+ALTER TABLE `lh_departament` ADD `pending_max` int(11) NOT NULL, COMMENT='';

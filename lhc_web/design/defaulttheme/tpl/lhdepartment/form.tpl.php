@@ -19,6 +19,11 @@
 </div>
 
 <div class="form-group">
+    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Maximum pending chats, if this limit is reached department becomes offline automatically');?></label>
+    <input type="text" class="form-control" name="pending_max"  value="<?php echo htmlspecialchars($departament->pending_max);?>" />
+</div>
+
+<div class="form-group">
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, ');?></label>
     <input type="text" class="form-control" name="delay_lm"  value="<?php echo htmlspecialchars($departament->delay_lm);?>" />
 </div>
