@@ -51,6 +51,7 @@ var lh_inst  = {
     survey_id : '<?php echo $survey !== false ? '/(survey)/' . $survey : ''?>',
     surveyShown : false,
     explicitClose : false,
+    isProactivePending : 0,
     dynamicAssigned : [],
     windowname : "startchatwindow",
 	substatus : '',
@@ -202,12 +203,10 @@ var lh_inst  = {
                 that.removeClass(dm,'lhc-min-append');
             },700);           
 		}
-		
-		 
 	},
 	
     hide : function() {
-              
+        this.isProactivePending = 0;      
         if (!lh_inst.cookieData.hash || lh_inst.hasSurvey == false || lh_inst.surveyShown == true) {
 
             <?php if ((int)erLhcoreClassModelChatConfig::fetch('on_close_exit_chat')->current_value == 1) : ?>  
@@ -774,21 +773,21 @@ var lh_inst  = {
         var s = document.createElement('script');
         s.setAttribute('id','lhc_check_status');
         s.setAttribute('type','text/javascript');
-        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/chatcheckstatus<?php $department !== false ? print '/(department)/'.$department : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : '' ?><?php $disable_online_tracking === true ? print '/(dot)/true' : ''?><?php $hide_offline == 'true' ? print '/(hide_offline)/true' : ''?>/(status)/' + this.isOnline + this.survey_id + (this.cookieDataPers.vid ? '/(vid)/'+this.cookieDataPers.vid : '')+ hashAppend + hashResume + '/(uactiv)/'+this.userActive+'/(wopen)/'+this.timeoutStatusWidgetOpen + '/(uaction)/'+sender+'/?ts='+Date.now());
+        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/chatcheckstatus<?php $department !== false ? print '/(department)/'.$department : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : '' ?><?php $disable_online_tracking === true ? print '/(dot)/true' : ''?><?php $hide_offline == 'true' ? print '/(hide_offline)/true' : ''?>/(status)/' + this.isOnline + this.survey_id + (this.cookieDataPers.vid ? '/(vid)/'+this.cookieDataPers.vid : '')+ hashAppend + hashResume + '/(uactiv)/'+this.userActive+'/(wopen)/'+this.timeoutStatusWidgetOpen + '/(uaction)/'+sender+'/(isproactive)/'+this.isProactivePending+'/?ts='+Date.now());
         th.appendChild(s);
     },
-    
+
     checkStatusChat : function() {
-    	<?php if ((int)erLhcoreClassModelChatConfig::fetch('checkstatus_timeout')->current_value > 0) : ?>       
-    	clearTimeout(this.timeoutStatuscheck);
-    	var _that = this;
-        this.timeoutStatuscheck = setTimeout(function() {
-            _that.syncUserStatus(0);
-            _that.checkStatusChat();        
-        },<?php echo ((int)erLhcoreClassModelChatConfig::fetch('checkstatus_timeout')->current_value)*1000; ?>);
-        <?php endif;?>  
+    	if (<?php echo (int)erLhcoreClassModelChatConfig::fetch('checkstatus_timeout')->current_value > 0 ? 'true' : 'false' ?> || this.isProactivePending === 1) {
+        	clearTimeout(this.timeoutStatuscheck);
+        	var _that = this;
+            this.timeoutStatuscheck = setTimeout(function() {
+                _that.syncUserStatus(0);
+                _that.checkStatusChat();        
+            },<?php echo ((int)erLhcoreClassModelChatConfig::fetch('checkstatus_timeout')->current_value > 0 ? (int)erLhcoreClassModelChatConfig::fetch('checkstatus_timeout')->current_value : 10)*1000; ?>);       
+        }
     },
-      
+
     refreshCustomFields : function() {
         var xhr = new XMLHttpRequest();
         xhr.open( "POST", '<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+lh_inst.lang+'/chat/refreshcustomfields'+this.getAppendCookieArguments() , true);

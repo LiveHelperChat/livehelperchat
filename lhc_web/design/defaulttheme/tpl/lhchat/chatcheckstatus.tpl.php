@@ -4,6 +4,10 @@ lh_inst.isOnline = false;
 lh_inst.showStatusWidget();
 lh_inst.stopCheckNewMessage();
 
+<?php if ($isproactive == true) : ?>
+lh_inst.hide();
+<?php endif;?>
+
 <?php if ($hide_offline == true) : ?>
 lh_inst.toggleStatusWidget(true);
 <?php endif;?>

@@ -88,4 +88,6 @@ showStartWindow : function(url_to_open,delayShow) {
 	  		this.toggleStatusWidget(true);
 	  }
 	  
+	  // If proactive invitation is shown. Check for status changes and hide popup if operator goes offline
+	  this.checkStatusChat();	  
 },
