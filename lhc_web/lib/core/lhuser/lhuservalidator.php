@@ -390,6 +390,9 @@ class erLhcoreClassUserValidator {
 			),
 			'unreadTabEnabled' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+			),
+			'mychatsTabEnabled' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 			)
 		);
 		
@@ -404,6 +407,8 @@ class erLhcoreClassUserValidator {
 		$data['enable_close_list'] = ( $form->hasValidData( 'closedTabEnabled' ) && $form->closedTabEnabled == true ) ? 1 : 0;
 		
 		$data['enable_unread_list'] = ( $form->hasValidData( 'unreadTabEnabled' ) && $form->unreadTabEnabled == true ) ? 1 : 0;
+		
+		$data['enable_mchats_list'] = ( $form->hasValidData( 'mychatsTabEnabled' ) && $form->mychatsTabEnabled == true ) ? 1 : 0;
 		
 		return $data;
 	}

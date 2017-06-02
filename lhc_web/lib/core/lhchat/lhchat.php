@@ -93,7 +93,42 @@ class erLhcoreClassChat {
     	return self::getList($filter);
     }
 
-
+    /**
+     * @desc returns chats list for my active chats
+     * 
+     * @param number $limit
+     * @param number $offset
+     * @param unknown $filterAdditional
+     * @param unknown $filterAdditionalMainAttr
+     * @param unknown $limitationDepartment
+     * @return multitype:|array(object($class))
+     */
+    public static function getMyChats($limit = 50, $offset = 0, $filterAdditional = array(), $filterAdditionalMainAttr = array(), $limitationDepartment = array())
+    {
+        $limitation = self::getDepartmentLimitation('lh_chat',$limitationDepartment);
+        
+        // Does not have any assigned department
+        if ($limitation === false) { return array(); }
+        
+        $filter = array();
+        $filter['filterin'] = array('status' => array(0,1));
+        
+        if ($limitation !== true) {
+            $filter['customfilter'][] = $limitation;
+        }
+        
+        $filter['limit'] = $limit;
+        $filter['offset'] = $offset;
+        $filter['smart_select'] = true;
+        $filter['sort'] = 'status ASC, id DESC';
+        
+        if (!empty($filterAdditional)) {
+            $filter = array_merge_recursive($filter,$filterAdditional);
+        }
+                
+        return self::getList($filter);
+    }
+    
     public static function getPendingChatsCount($filterAdditional = array())
     {
     	$limitation = self::getDepartmentLimitation();
