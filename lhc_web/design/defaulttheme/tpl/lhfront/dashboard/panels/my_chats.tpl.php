@@ -15,7 +15,7 @@
 					<thead>
 						<tr>
 							<th width="60%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Visitor');?>" class="material-icons">face</i></th>
-							<th width="20%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Status');?>" class="material-icons">chat</i></th>
+							<th width="20%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Status');?>" class="material-icons">&#xE80E;</i></th>
 							<th width="20%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Department');?>" class="material-icons">home</i></th>
 						</tr>
 					</thead>
@@ -36,10 +36,12 @@
 							</div>
 
 						</td>
-						<td>
+						<td>						  
+						
 							<div class="abbr-list" title="{{chat.status == 1 ? 'Active' : 'Pending'}}">
-                                <i class="material-icons" ng-class="{'chat-pending' : chat.status != 1,'chat-active' : chat.status == 1}">chat</i>{{chat.wait_time_pending}}
-							</div>
+							    <i ng-if="chat.status != 1" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Pending chat');?>" class="material-icons chat-unread">&#xE80E;</i>
+                                {{chat.wait_time_pending}}
+							</div>							
 						</td>
 						<td>
 							<div class="abbr-list" title="{{chat.department_name}}{{chat.product_name ? ' | '+chat.product_name : ''}}">{{chat.department_name}}{{chat.product_name ? ' | '+chat.product_name : ''}}</div>
