@@ -6,7 +6,7 @@ class erLhcoreClassChatStatistic {
     /**
      * Gets pending chats
      */
-    public static function getTopTodaysOperators($limit = 100, $offset = 0, $filter = array())
+    public static function getTopTodaysOperators($limit = 1000, $offset = 0, $filter = array())
     {
         $db = ezcDbInstance::get();
         
@@ -56,7 +56,17 @@ class erLhcoreClassChatStatistic {
 
     	$usersReturn = array();
     	foreach ($rows as $row) {
-    		$usersReturn[$row['user_id']] = $users[$row['user_id']];
+    	    
+    	    $user = null;
+    	    if (isset($users[$row['user_id']])) {
+    	        $user = $users[$row['user_id']];
+    	    } else {
+    	        $user = new erLhcoreClassModelUser();
+    	        $user->id = $row['user_id'];
+    	        $user->username = 'Not found user - ' . $row['user_id'];
+    	    }
+    	    
+    		$usersReturn[$row['user_id']] = $user;
     		$usersReturn[$row['user_id']]->statistic_total_chats = $row['assigned_chats'];
     		$usersReturn[$row['user_id']]->statistic_total_messages = erLhcoreClassChat::getCount(array_merge_recursive($filter,array('filter' => array('user_id' => $row['user_id']))),'lh_msg');
     		$usersReturn[$row['user_id']]->statistic_upvotes = erLhcoreClassChat::getCount(array_merge_recursive($filter,array('filter' => array('fbst' => 1,'user_id' => $row['user_id']))));
