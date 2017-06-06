@@ -11,4 +11,7 @@
             </ul>
 		</div>
 	</div>
+	
+	<?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/sidemenu/after_sidemnu_multiinclude.tpl.php'));?>
 </div>
+
