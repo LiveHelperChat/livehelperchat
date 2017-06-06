@@ -316,7 +316,7 @@ class erLhcoreClassChatWorkflow {
         	    	    'department' => & $department,
         	    	    'chat' => & $chat,
         	    	    'is_online' => & $isOnlineUser,
-        	    	    'params' => & $params,
+        	    	    'params' => $params,
         	    	));
         	    		    	
         	    	// There was no callbacks or file not found etc, we try to download from standard location
