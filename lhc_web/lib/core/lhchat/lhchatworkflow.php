@@ -293,7 +293,7 @@ class erLhcoreClassChatWorkflow {
     	return $purgedChatsNumber;
     }
     
-    public static function autoAssign(& $chat, $department) {    	
+    public static function autoAssign(& $chat, $department, $params = array()) {    	
         
     	if ( $department->active_balancing == 1 && ($chat->user_id == 0 || ($department->max_timeout_seconds > 0 && $chat->tslasign < time()-$department->max_timeout_seconds)) ){
 	    	$isOnlineUser = (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'];
@@ -316,6 +316,7 @@ class erLhcoreClassChatWorkflow {
         	    	    'department' => & $department,
         	    	    'chat' => & $chat,
         	    	    'is_online' => & $isOnlineUser,
+        	    	    'params' => & $params,
         	    	));
         	    		    	
         	    	// There was no callbacks or file not found etc, we try to download from standard location

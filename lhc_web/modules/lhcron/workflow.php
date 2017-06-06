@@ -51,7 +51,7 @@ try {
     $stmt->execute();
     
     foreach (erLhcoreClassChat::getList(array('sort' => 'id ASC', 'limit' => 500, 'filter' => array('status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT))) as $chat){
-    	erLhcoreClassChatWorkflow::autoAssign($chat, $chat->department);
+    	erLhcoreClassChatWorkflow::autoAssign($chat, $chat->department, array('cron_init' => true));
     	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.pending_process_workflow',array('chat' => & $chat));
     }
 
