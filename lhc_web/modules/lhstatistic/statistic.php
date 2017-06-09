@@ -27,8 +27,10 @@ if ($tab == 'active') {
     	$filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'activestatistic_tab','format_filter' => true, 'uparams' => $Params['user_parameters_unordered']));
     }
     
-    $tpl->set('input',$filterParams['input_form']);
+    erLhcoreClassChatStatistic::formatUserFilter($filterParams);
     
+    $tpl->set('input',$filterParams['input_form']);
+            
     if (isset($_GET['xmlavguser'])) {
         erLhcoreClassChatStatistic::exportAverageOfChatsDialogsByUser(30,$filterParams['filter']);
         exit;
@@ -58,6 +60,8 @@ if ($tab == 'active') {
     	$filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'chatsstatistic_tab','format_filter' => true, 'uparams' => $Params['user_parameters_unordered']));
     }
     
+    erLhcoreClassChatStatistic::formatUserFilter($filterParams);
+    
     $tpl->set('input',$filterParams['input_form']);
     
     $tpl->set('groupby',$filterParams['input_form']->groupby == 1 ? 'Y.m.d' : 'Y.m');
@@ -86,12 +90,14 @@ if ($tab == 'active') {
         $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'last24statistic','format_filter' => true, 'uparams' => array()));
     }
 
+    erLhcoreClassChatStatistic::formatUserFilter($filterParams);
+    
     if (empty($filterParams['filter'])) {
         $filter24 = array('filtergte' => array('time' => (time()-(24*3600))));
     } else {
         $filter24 = $filterParams['filter'];
     }
-        
+    
     $tpl->set('input',$filterParams['input_form']);
     $tpl->set('filter24',$filter24);
     

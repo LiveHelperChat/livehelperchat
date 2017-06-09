@@ -43,7 +43,7 @@
 	<tr>
 		<td><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/total_messages_only_system_messages.tpl.php'));?></td>
 		<td><?php
-		$systemMessagesCount = erLhcoreClassChat::getCount(array('filter' => array('user_id' => -1)),'lh_msg');
+		$systemMessagesCount = erLhcoreClassChat::getCount(array('filterin' => array('user_id' => array(-1,-2))),'lh_msg');
 		echo $systemMessagesCount; ?></td>
 	</tr>
 	<tr>

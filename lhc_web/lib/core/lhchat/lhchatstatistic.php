@@ -30,8 +30,18 @@ class erLhcoreClassChatStatistic {
                 $paramsFilter['time <= :timelte'] = $filter['filterlte']['time'];
                 $bindFields[] = ':timelte';
             }
+
+            $appendUsers = '';
+            if (isset($filter['filterin']['lh_chat.user_id'])){
+                $appendUsers .= 'AND user_id IN (' . implode(',', $filter['filterin']['lh_chat.user_id']) . ')';
+            }
             
-            $SQL = 'SELECT lh_chat.user_id,count(lh_chat.id) as assigned_chats FROM lh_chat WHERE '.implode(' AND ', array_keys($paramsFilter)).' AND user_id > 0 GROUP BY user_id';
+            if (isset($filter['filterin']['lh_chat.dep_id'])){
+                $appendUsers .= 'AND dep_id IN (' . implode(',', $filter['filterin']['lh_chat.dep_id']) . ')';
+            }
+            
+            $SQL = 'SELECT lh_chat.user_id,count(lh_chat.id) as assigned_chats FROM lh_chat WHERE '.implode(' AND ', array_keys($paramsFilter)).' AND user_id > 0 ' . $appendUsers .' GROUP BY user_id';
+            
             $stmt = $db->prepare($SQL);
                      
             $i = 0;
@@ -53,10 +63,27 @@ class erLhcoreClassChatStatistic {
     	if ( !empty($usersID) ) {
     		$users = erLhcoreClassModelUser::getUserList(array('limit' => $limit,'filterin' => array('id' => $usersID)));
     	}
+    	
+    	$filterStatsMsg = $filterStats = $filter;
+    	
+    	if (isset($filterStats['filterin']['lh_chat.user_id'])){
+    	    unset($filterStats['filterin']['lh_chat.user_id']);
+    	    unset($filterStatsMsg['filterin']['lh_chat.user_id']);
+    	}
+    	
+    	if (isset($filterStatsMsg['filtergte']['time'])) {
+    	    $filterStatsMsg['filtergte']['lh_msg.time'] = $filterStatsMsg['filtergte']['time'];
+    	    unset($filterStatsMsg['filtergte']['time']);
+    	}
+    	
+    	if (isset($filterStatsMsg['filterlte']['time'])) {
+    	    $filterStatsMsg['filterlte']['lh_msg.time'] = $filterStatsMsg['filterlte']['time'];
+    	    unset($filterStatsMsg['filterlte']['time']);
+    	}
 
     	$usersReturn = array();
     	foreach ($rows as $row) {
-    	    
+
     	    $user = null;
     	    if (isset($users[$row['user_id']])) {
     	        $user = $users[$row['user_id']];
@@ -65,12 +92,12 @@ class erLhcoreClassChatStatistic {
     	        $user->id = $row['user_id'];
     	        $user->username = 'Not found user - ' . $row['user_id'];
     	    }
-    	    
+
     		$usersReturn[$row['user_id']] = $user;
     		$usersReturn[$row['user_id']]->statistic_total_chats = $row['assigned_chats'];
-    		$usersReturn[$row['user_id']]->statistic_total_messages = erLhcoreClassChat::getCount(array_merge_recursive($filter,array('filter' => array('user_id' => $row['user_id']))),'lh_msg');
-    		$usersReturn[$row['user_id']]->statistic_upvotes = erLhcoreClassChat::getCount(array_merge_recursive($filter,array('filter' => array('fbst' => 1,'user_id' => $row['user_id']))));
-    		$usersReturn[$row['user_id']]->statistic_downvotes = erLhcoreClassChat::getCount(array_merge_recursive($filter,array('filter' => array('fbst' => 2,'user_id' => $row['user_id']))));
+    		$usersReturn[$row['user_id']]->statistic_total_messages = erLhcoreClassChat::getCount(array_merge_recursive($filterStatsMsg,array('innerjoin' => array('lh_chat' => array('lh_msg.chat_id','lh_chat.id')),'filter' => array('lh_msg.user_id' => $row['user_id']))),'lh_msg','count(lh_msg.id)');
+    		$usersReturn[$row['user_id']]->statistic_upvotes = erLhcoreClassChat::getCount(array_merge_recursive($filterStats,array('filter' => array('fbst' => 1,'user_id' => $row['user_id']))));
+    		$usersReturn[$row['user_id']]->statistic_downvotes = erLhcoreClassChat::getCount(array_merge_recursive($filterStats,array('filter' => array('fbst' => 2,'user_id' => $row['user_id']))));
     	}
 
     	return $usersReturn;
@@ -110,7 +137,7 @@ class erLhcoreClassChatStatistic {
     	    unset($msgFilter['filterlte']['time']);
     	    $msgFilter['filterlte']['lh_msg.time'] = $filter['filterlte']['time'];
     	}
-    	    
+    	        	
     	for ($i = 0; $i < 12;$i++) {
     		$dateUnix = mktime(0,0,0,date('m')-$i,1,date('y'));
     		$numberOfChats[$dateUnix] = array (
@@ -122,7 +149,7 @@ class erLhcoreClassChatStatistic {
     		    
     				'msg_user' 			=> (int)erLhcoreClassChat::getCount(array_merge_recursive(array('filter' 	=> array('lh_msg.user_id' => 0),'customfilter' =>  array('FROM_UNIXTIME(lh_msg.time,\'%Y%m\') = '. date('Ym',$dateUnix))),$msgFilter,$departmentMsgFilter),'lh_msg','count(lh_msg.id)'),    		
     				'msg_operator' 		=> (int)erLhcoreClassChat::getCount(array('filtergt' => array('lh_msg.user_id' => 0),'customfilter' =>  array('FROM_UNIXTIME(lh_msg.time,\'%Y%m\') = '. date('Ym',$dateUnix)))+$msgFilter+$departmentMsgFilter,'lh_msg','count(lh_msg.id)'),    		
-    				'msg_system' 		=> (int)erLhcoreClassChat::getCount(array_merge_recursive(array('filter' => array('lh_msg.user_id' => -1),'customfilter' =>  array('FROM_UNIXTIME(lh_msg.time,\'%Y%m\') = '. date('Ym',$dateUnix))),$msgFilter,$departmentMsgFilter),'lh_msg','count(lh_msg.id)'),    		
+    				'msg_system' 		=> (int)erLhcoreClassChat::getCount(array_merge_recursive(array('filterin' => array('lh_msg.user_id' => array(-1,-2)),'customfilter' =>  array('FROM_UNIXTIME(lh_msg.time,\'%Y%m\') = '. date('Ym',$dateUnix))),$msgFilter,$departmentMsgFilter),'lh_msg','count(lh_msg.id)'),    		
     				
     				'chatinitdefault' 	=> (int)erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filter' => array('chat_initiator' => erLhcoreClassModelChat::CHAT_INITIATOR_DEFAULT),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m\') = '. date('Ym',$dateUnix))))),    		
     				'chatinitproact' 	=> (int)erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filter' => array('chat_initiator' => erLhcoreClassModelChat::CHAT_INITIATOR_PROACTIVE),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m\') = '. date('Ym',$dateUnix))))),    		
@@ -204,7 +231,7 @@ class erLhcoreClassChatStatistic {
 
     				'msg_user' 			=> (int)erLhcoreClassChat::getCount(array_merge_recursive(array('filter' 	=> array('lh_msg.user_id' => 0),'customfilter' =>  array('FROM_UNIXTIME(lh_msg.time,\'%Y%m%d\') = '. date('Ymd',$dateUnix))),$msgFilter,$departmentMsgFilter),'lh_msg','count(lh_msg.id)'),    		
     				'msg_operator' 		=> (int)erLhcoreClassChat::getCount(array('filtergt' => array('lh_msg.user_id' => 0),'customfilter' =>  array('FROM_UNIXTIME(lh_msg.time,\'%Y%m%d\') = '. date('Ym',$dateUnix)))+$msgFilter+$departmentMsgFilter,'lh_msg','count(lh_msg.id)'),    		
-    				'msg_system' 		=> (int)erLhcoreClassChat::getCount(array_merge_recursive(array('filter' => array('lh_msg.user_id' => -1),'customfilter' =>  array('FROM_UNIXTIME(lh_msg.time,\'%Y%m%d\') = '. date('Ymd',$dateUnix))),$msgFilter,$departmentMsgFilter),'lh_msg','count(lh_msg.id)'),    		
+    				'msg_system' 		=> (int)erLhcoreClassChat::getCount(array_merge_recursive(array('filterin' => array('lh_msg.user_id' => array(-1,-2)),'customfilter' =>  array('FROM_UNIXTIME(lh_msg.time,\'%Y%m%d\') = '. date('Ymd',$dateUnix))),$msgFilter,$departmentMsgFilter),'lh_msg','count(lh_msg.id)'),    		
     				
     				'chatinitdefault' 	=> (int)erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filter' => array('chat_initiator' => erLhcoreClassModelChat::CHAT_INITIATOR_DEFAULT),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m%d\') = '. date('Ymd',$dateUnix))))),    		
     				'chatinitproact' 	=> (int)erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filter' => array('chat_initiator' => erLhcoreClassModelChat::CHAT_INITIATOR_PROACTIVE),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m%d\') = '. date('Ymd',$dateUnix))))),    		
@@ -561,10 +588,39 @@ class erLhcoreClassChatStatistic {
     				$returnFilter[] = $field.' >= '.$db->quote($value);    			
     			} elseif ($type == 'filtergt') {
     				$returnFilter[] = $field.' > '.$db->quote($value);
+    			} elseif ($type == 'filterin') {
+    				$returnFilter[] = $field.' IN ( '. implode(',', $value) . ')';
     			}
     		}    		
     	}
+
     	return implode(' AND ', $returnFilter);
+    }
+    
+    public static function formatUserFilter(& $filterParams) {        
+        if ( is_numeric($filterParams['input']->group_id) && $filterParams['input']->group_id > 0 ) {
+            $db = ezcDbInstance::get();
+            $stmt = $db->prepare('SELECT user_id FROM lh_groupuser WHERE group_id = :group_id');
+            $stmt->bindValue( ':group_id', $filterParams['input']->group_id, PDO::PARAM_INT);
+            $stmt->execute();
+            $userIds = $stmt->fetchAll(PDO::FETCH_COLUMN);
+            
+            if (!empty($userIds)) {
+                $filterParams['filter']['filterin']['lh_chat.user_id'] = $userIds;
+            }
+        }
+        
+        if ( is_numeric($filterParams['input']->department_group_id) && $filterParams['input']->department_group_id > 0 ) {
+            $db = ezcDbInstance::get();
+            $stmt = $db->prepare('SELECT dep_id FROM lh_departament_group_member WHERE dep_group_id = :group_id');
+            $stmt->bindValue( ':group_id', $filterParams['input']->department_group_id, PDO::PARAM_INT);
+            $stmt->execute();
+            $depIds = $stmt->fetchAll(PDO::FETCH_COLUMN);
+            
+            if (!empty($depIds)) {
+                $filterParams['filter']['filterin']['lh_chat.dep_id'] = $depIds;
+            }
+        }
     }
     
     public static function getRatingByUser($days = 30, $filter = array()) 

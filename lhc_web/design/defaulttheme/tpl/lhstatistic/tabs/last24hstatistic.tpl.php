@@ -2,8 +2,9 @@
 
 <form action="" method="get">
 
+<div class="form-group">
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Date range from to');?></label>
-<div class="row form-group">
+<div class="row">
 	<div class="col-md-4">
 		<input class="form-control" type="text" name="timefrom" id="id_timefrom" placeholder="E.g <?php echo date('Y-m-d',time()-24*3600)?>" value="<?php echo htmlspecialchars($input->timefrom == null ? date('Y-m-d',time()-24*3600) : $input->timefrom )?>" />
 	</div>
@@ -38,9 +39,40 @@
 	          <option value="<?php echo $i?>" <?php if (isset($input->timeto_minutes) && $input->timeto_minutes == $i) : ?>selected="selected"<?php endif;?>><?php echo $i?> m.</option>
 	      <?php endfor;?>
 	  </select>
-	</div>
+	</div>	
+</div>
 </div>
 
+<div class="row">
+	<div class="col-md-4">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','User group');?></label>
+            <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
+                    'input_name'     => 'group_id',
+            		'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select group'),
+                    'selected_id'    => $input->group_id,
+                    'css_class'      => 'form-control',
+                    'display_name'   => 'name',
+                    'list_function'  => 'erLhcoreClassModelGroup::getList'
+            )); ?>
+        </div>
+    </div>
+    <div class="col-md-4">
+	   <div class="form-group">
+    	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department group');?></label>
+    	<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
+                    'input_name'     => 'department_group_id',
+    				'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose department group'),
+                    'selected_id'    => $input->department_group_id,	
+    	            'css_class'      => 'form-control',			
+                    'list_function'  => 'erLhcoreClassModelDepartamentGroup::getList'
+            )); ?> 
+        </div>   
+    </div>
+</div>   
+
+    
+    
 <input type="submit" name="doSearch" class="btn btn-default" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" />
 
 <script>
@@ -86,15 +118,29 @@ $(function() {
 	</tr>
 	<tr>
 		<td><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/total_messages_including_v_s_o_m.tpl.php'));?></td>
-		<td><?php $totalMessagesCount = erLhcoreClassChat::getCount($filter24,'lh_msg'); echo $totalMessagesCount?></td>
+		<td><?php 
+		
+		$filterMsg = array_merge_recursive($filter24,array('innerjoin' => array('lh_chat' => array('lh_msg.chat_id','lh_chat.id'))));
+		
+		if (isset($filterMsg['filtergte']['time'])) {
+		    $filterMsg['filtergte']['lh_msg.time'] = $filterMsg['filtergte']['time'];
+		    unset($filterMsg['filtergte']['time']);
+		}
+		
+		if (isset($filterMsg['filterlte']['time'])) {
+		    $filterMsg['filterlte']['lh_msg.time'] = $filterMsg['filterlte']['time'];
+		    unset($filterMsg['filterlte']['time']);
+		}
+				
+		$totalMessagesCount = erLhcoreClassChat::getCount($filterMsg,'lh_msg','count(lh_msg.id)'); echo $totalMessagesCount?></td>
 	</tr>
 	<tr>
 		<td><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/total_messages_only_visitors.tpl.php'));?></td>
-		<td><?php $totalVisitorsMessagesCount = erLhcoreClassChat::getCount(array_merge_recursive($filter24,array('filter' => array('user_id' => 0))),'lh_msg'); echo $totalVisitorsMessagesCount;?></td>
+		<td><?php $totalVisitorsMessagesCount = erLhcoreClassChat::getCount(array_merge_recursive($filterMsg,array('innerjoin' => array('lh_chat' => array('lh_msg.chat_id','lh_chat.id')),'filter' => array('lh_msg.user_id' => 0))),'lh_msg','count(lh_msg.id)'); echo $totalVisitorsMessagesCount;?></td>
 	</tr>
 	<tr>
 		<td><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/total_messages_only_system_messages.tpl.php'));?></td>
-		<td><?php $systemMessagesCount = erLhcoreClassChat::getCount(array_merge_recursive($filter24,array('filter' => array('user_id' => -1))),'lh_msg'); echo $systemMessagesCount; ?></td>
+		<td><?php $systemMessagesCount = erLhcoreClassChat::getCount(array_merge_recursive($filterMsg,array('innerjoin' => array('lh_chat' => array('lh_msg.chat_id','lh_chat.id')), 'filterin' => array('lh_msg.user_id' => array(-1,-2)))),'lh_msg','count(lh_msg.id)'); echo $systemMessagesCount; ?></td>
 	</tr>
 	<tr>
 		<td><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/total_messages_only_operators.tpl.php'));?></td>
