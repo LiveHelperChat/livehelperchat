@@ -971,7 +971,22 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   PRIMARY KEY (`id`),
         	   KEY `user_id` (`user_id`,`identifier`)
         	   ) DEFAULT CHARSET=utf8;");
-
+        	   
+        	   $db->query("CREATE TABLE `lh_departament_limit_group_member` (  
+    	       `id` int(11) NOT NULL AUTO_INCREMENT,  
+    	       `dep_id` int(11) NOT NULL,  
+    	       `dep_limit_group_id` int(11) NOT NULL,  
+    	       PRIMARY KEY (`id`),  
+    	       KEY `dep_limit_group_id` (`dep_limit_group_id`)) 
+    	       DEFAULT CHARSET=utf8");
+        	   
+        	   $db->query("CREATE TABLE `lh_departament_limit_group` (  
+    	       `id` int(11) NOT NULL AUTO_INCREMENT,  
+    	       `name` varchar(50) NOT NULL,
+    	       `pending_max` int(11) NOT NULL,  
+    	       PRIMARY KEY (`id`)) 
+    	       DEFAULT CHARSET=utf8");
+       	   
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_users_setting_option` (
 				  `identifier` varchar(50) NOT NULL,
 				  `class` varchar(50) NOT NULL,
@@ -1250,6 +1265,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `attr_int_2` int(11) NOT NULL,
 				  `attr_int_3` int(11) NOT NULL,
 				  `pending_max` int(11) NOT NULL,
+				  `pending_group_max` int(11) NOT NULL,
 				  `active_chats_counter` int(11) NOT NULL,
 				  `pending_chats_counter` int(11) NOT NULL,
 				  `closed_chats_counter` int(11) NOT NULL,

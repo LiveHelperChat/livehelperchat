@@ -1,3 +1,9 @@
+2.64v
+
+1. Option to setup department offline automaticaly if pending chat's number reaches defined number.
+
+execute doc/update_db/update_137.sql for update
+
 2.63v
 
 1. Invitations now can have events. Tutorial under way.

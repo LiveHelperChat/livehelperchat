@@ -19,7 +19,7 @@
 </div>
 
 <div class="form-group">
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Maximum pending chats, if this limit is reached department becomes offline automatically');?></label>
+    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Maximum pending chats, if this limit is reached department becomes offline automatically');?> <i>(<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Group limit')?> - <?php echo $departament->pending_group_max?>)</i></label>
     <input type="text" class="form-control" name="pending_max"  value="<?php echo htmlspecialchars($departament->pending_max);?>" />
 </div>
 
