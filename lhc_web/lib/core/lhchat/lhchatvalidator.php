@@ -467,6 +467,11 @@ class erLhcoreClassChatValidator {
         	$chat->reinform_timeout = $department->inform_unread_delay;        	
         }
         
+        // Allow offline request, but do not allow online request if department is overloaded
+        if (!(isset($additionalParams['offline']) && $additionalParams['offline'] == true) && $department !== false && $department->is_overloaded == true) {
+            $Errors['department'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','At the moment department is overloaded, please choose a different department or try again later!');
+        }
+        
         $inputForm->departament_id = $chat->dep_id;
 
         if ( $inputForm->priority !== false && is_numeric($inputForm->priority) ) {

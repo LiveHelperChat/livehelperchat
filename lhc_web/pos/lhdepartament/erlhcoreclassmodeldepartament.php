@@ -186,6 +186,17 @@ $def->properties['inform_close_all']->columnName   = 'inform_close_all';
 $def->properties['inform_close_all']->propertyName = 'inform_close_all';
 $def->properties['inform_close_all']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+// Maximum of pending chats
+$def->properties['pending_max'] = new ezcPersistentObjectProperty();
+$def->properties['pending_max']->columnName   = 'pending_max';
+$def->properties['pending_max']->propertyName = 'pending_max';
+$def->properties['pending_max']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['pending_group_max'] = new ezcPersistentObjectProperty();
+$def->properties['pending_group_max']->columnName   = 'pending_group_max';
+$def->properties['pending_group_max']->propertyName = 'pending_group_max';
+$def->properties['pending_group_max']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['inform_close_all_email'] = new ezcPersistentObjectProperty();
 $def->properties['inform_close_all_email']->columnName   = 'inform_close_all_email';
 $def->properties['inform_close_all_email']->propertyName = 'inform_close_all_email';

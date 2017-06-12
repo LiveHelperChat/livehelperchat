@@ -3908,6 +3908,32 @@
                 "extra": ""
             }
         ],
+        "lh_departament_limit_group_member": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "dep_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "dep_limit_group_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            }
+        ],
         "lh_departament_group": [
             {
                 "field": "id",
@@ -3920,6 +3946,32 @@
             {
                 "field": "name",
                 "type": "varchar(50)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            }
+        ],
+        "lh_departament_limit_group": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "name",
+                "type": "varchar(50)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "pending_max",
+                "type": "int(11)",
                 "null": "NO",
                 "key": "MUL",
                 "default": null,
@@ -3969,6 +4021,22 @@
             },
             {
                 "field": "priority",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "pending_max",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "pending_group_max",
                 "type": "int(11)",
                 "null": "NO",
                 "key": "",
@@ -6867,7 +6935,9 @@
         "lh_abstract_rest_api_key": "CREATE TABLE `lh_abstract_rest_api_key` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `api_key` varchar(50) NOT NULL,  `user_id` int(11) NOT NULL,  `active` int(11) NOT NULL DEFAULT '0',  PRIMARY KEY (`id`),  KEY `user_id` (`user_id`),  KEY `api_key_active` (`api_key`,`active`)) ENGINE=InnoDB DEFAULT CHARSET=utf8",
         "lh_departament_group_user": "CREATE TABLE `lh_departament_group_user` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `dep_group_id` int(11) NOT NULL,  `user_id` int(11) NOT NULL,  PRIMARY KEY (`id`),  KEY `dep_group_id` (`dep_group_id`),  KEY `user_id` (`user_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8",
         "lh_departament_group_member": "CREATE TABLE `lh_departament_group_member` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `dep_id` int(11) NOT NULL,  `dep_group_id` int(11) NOT NULL,  PRIMARY KEY (`id`),  KEY `dep_group_id` (`dep_group_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8",
+        "lh_departament_limit_group_member": "CREATE TABLE `lh_departament_limit_group_member` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `dep_id` int(11) NOT NULL,  `dep_limit_group_id` int(11) NOT NULL,  PRIMARY KEY (`id`),  KEY `dep_limit_group_id` (`dep_limit_group_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8",
         "lh_departament_group": "CREATE TABLE `lh_departament_group` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `name` varchar(50) NOT NULL,  PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8",
+        "lh_departament_limit_group": "CREATE TABLE `lh_departament_limit_group` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `name` varchar(50) NOT NULL,`pending_max` int(11) NOT NULL,  PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8",
         "lh_users_session": "CREATE TABLE `lh_users_session` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `token` varchar(40) NOT NULL,  `device_type` int(11) NOT NULL,  `device_token` varchar(255) NOT NULL,  `user_id` int(11) NOT NULL,  `created_on` int(11) NOT NULL,  `updated_on` int(11) NOT NULL,  `expires_on` int(11) NOT NULL,  PRIMARY KEY (`id`),  KEY `device_token_device_type` (`device_token`,`device_type`),  KEY `token` (`token`)) DEFAULT CHARSET=utf8",
         "lh_canned_msg_tag_link": "CREATE TABLE `lh_canned_msg_tag_link` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `tag_id` int(11) NOT NULL,  `canned_id` int(11) NOT NULL,  PRIMARY KEY (`id`), KEY `canned_id` (`canned_id`), KEY `tag_id` (`tag_id`)) DEFAULT CHARSET=utf8",
         "lh_canned_msg_tag": "CREATE TABLE `lh_canned_msg_tag` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `tag` varchar(40) NOT NULL, PRIMARY KEY (`id`), KEY `tag` (`tag`)) DEFAULT CHARSET=utf8",

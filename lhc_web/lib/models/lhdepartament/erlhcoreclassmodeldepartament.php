@@ -62,7 +62,9 @@ class erLhcoreClassModelDepartament {
             'active_chats_counter' => $this->active_chats_counter,
             'pending_chats_counter' => $this->pending_chats_counter,
             'closed_chats_counter' => $this->closed_chats_counter,
-            'product_configuration' => $this->product_configuration
+            'product_configuration' => $this->product_configuration,
+            'pending_max' => $this->pending_max,
+            'pending_group_max' => $this->pending_group_max
         );
     }
 
@@ -82,6 +84,18 @@ class erLhcoreClassModelDepartament {
         // Delete departament products
         $q = ezcDbInstance::get()->createDeleteQuery();
         $q->deleteFrom('lh_abstract_product_departament')->where($q->expr->eq('departament_id', $this->id));
+        $stmt = $q->prepare();
+        $stmt->execute();
+        
+        // Delete member from department limit group
+        $q = ezcDbInstance::get()->createDeleteQuery();
+        $q->deleteFrom('lh_departament_limit_group_member')->where($q->expr->eq('dep_id', $this->id));
+        $stmt = $q->prepare();
+        $stmt->execute();
+        
+        // Delete member from department group
+        $q = ezcDbInstance::get()->createDeleteQuery();
+        $q->deleteFrom('lh_departament_group_member')->where($q->expr->eq('dep_id', $this->id));
         $stmt = $q->prepare();
         $stmt->execute();
     }
@@ -108,6 +122,11 @@ class erLhcoreClassModelDepartament {
 	   			return $this->can_delete;
 	   		break;
 
+	   		case 'is_overloaded':
+	   		    $this->is_overloaded = ($this->pending_max > 0 && $this->pending_chats_counter >= $this->pending_max) || ($this->pending_group_max > 0 && $this->pending_chats_counter >= $this->pending_group_max);
+	   		    return $this->is_overloaded;
+	   	    break;
+	   		
 	   		case 'department_transfer':
 
 	   			$this->department_transfer = false;
@@ -240,6 +259,8 @@ class erLhcoreClassModelDepartament {
     public $visible_if_online = 0;
     public $inform_close_all = 0;
     public $inform_close_all_email = '';
+    public $pending_max = 0;
+    public $pending_group_max = 0;
     
     public $active_chats_counter = 0;
     public $pending_chats_counter = 0;

@@ -11,6 +11,7 @@
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Hidden');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Disabled');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Visible only if online');?></th>
+    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Overloaded');?></th>
     <th width="1%">&nbsp;</th>
 </tr>
 </thead>
@@ -22,6 +23,7 @@
         <td><?php if ($departament->hidden == 1) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Yes');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','No');?><?php endif;?></td>
         <td><?php if ($departament->disabled == 1) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Yes');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','No');?><?php endif;?></td>
         <td><?php if ($departament->visible_if_online == 1) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Yes');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','No');?><?php endif;?></td>
+        <td><?php if ($departament->is_overloaded == true) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Yes');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','No');?><?php endif;?></td>
         <td nowrap><a class="btn btn-default btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('department/edit')?>/<?php echo $departament->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Edit department');?></a></td>
     </tr>
 <?php endforeach; ?>

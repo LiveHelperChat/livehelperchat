@@ -100,6 +100,9 @@ class erLhcoreClassDepartament{
 	   			'MaxWaitTimeoutSeconds' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'int'
 	   			),
+	   			'pending_max' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'int'
+	   			),
 	   			'inform_unread_delay' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 5)
 	   			),
@@ -225,6 +228,13 @@ class erLhcoreClassDepartament{
 	   		$department->delay_lm = $form->delay_lm;
 	   	} else {
 	   		$department->delay_lm = 0;
+	   	}
+	   	
+	   	if ( $form->hasValidData( 'pending_max' ) )
+	   	{
+	   		$department->pending_max = $form->pending_max;
+	   	} else {
+	   		$department->pending_max = 0;
 	   	}
 	   	
 	   	if ( $form->hasValidData( 'Email' ) ) {	   	
@@ -530,6 +540,42 @@ class erLhcoreClassDepartament{
     * Validates department group submit
     * 
     * @param erLhcoreClassModelDepartamentGroup $departamentGroup
+    */
+   public static function validateDepartmentLimitGroup(erLhcoreClassModelDepartamentLimitGroup $departamentGroup)
+   {
+       $availableCustomWorkHours = array();
+       
+       $definition = array(
+           'Name' => new ezcInputFormDefinitionElement(
+               ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+           ),
+           'PendingMax' => new ezcInputFormDefinitionElement(
+               ezcInputFormDefinitionElement::OPTIONAL, 'int'
+           )
+       );
+       
+       $form = new ezcInputForm( INPUT_POST, $definition );
+       $Errors = array();
+        
+       if ( !$form->hasValidData( 'Name' ) || $form->Name == '' ) {
+           $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('departament/editgroup','Please enter a department group name');
+       } else {
+           $departamentGroup->name = $form->Name;
+       }
+       
+       if ( $form->hasValidData( 'PendingMax' )) {
+           $departamentGroup->pending_max = $form->PendingMax;
+       } else {
+           $departamentGroup->pending_max = 0;
+       }
+       
+       return $Errors;
+   }
+   
+   /**
+    * Validates department group submit
+    * 
+    * @param erLhcoreClassModelDepartamentGroup $departamentGroup
     * 
     */
    public static function validateDepartmentGroupDepartments(erLhcoreClassModelDepartamentGroup $departamentGroup)
@@ -550,6 +596,60 @@ class erLhcoreClassDepartament{
            self::assignDepartmentsToGroup($departamentGroup, array());
        }
    }
+   
+   /**
+    * Validates department group submit
+    * 
+    * @param erLhcoreClassModelDepartamentLimitGroup $departamentGroup
+    * 
+    */
+   public static function validateDepartmentGroupLimitDepartments(erLhcoreClassModelDepartamentLimitGroup $departamentGroup)
+   {
+       $definition = array(
+           'departaments' => new ezcInputFormDefinitionElement(
+               ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY
+           ));
+       
+       $form = new ezcInputForm( INPUT_POST, $definition );
+       $Errors = array();
+       
+       if ( $form->hasValidData( 'departaments' ) && !empty($form->departaments)) {
+           // Remove old departaments
+           self::assignDepartmentsToLimitGroup($departamentGroup, $form->departaments);
+       } else {
+           // Remove old departaments
+           self::assignDepartmentsToLimitGroup($departamentGroup, array());
+       }
+   }
+   
+   public static function assignDepartmentsToLimitGroup(erLhcoreClassModelDepartamentLimitGroup $departamentGroup, $ids)
+   {
+       $members = erLhcoreClassModelDepartamentLimitGroupMember::getList(array('limit' => false,'filter' => array('dep_limit_group_id' => $departamentGroup->id)));
+       
+       $newMembers = array();
+       $removeMembers = array();       
+       $oldMembers = array();
+       
+       // Remove old members
+       foreach ($members as $member) {
+           if (!in_array($member->dep_id, $ids)) {
+               $member->removeThis();
+           } else {
+               $oldMembers[] = $member->dep_id;
+           }
+       }
+       
+       // Store new members
+       foreach ($ids as $id) {
+           if (!in_array($id, $oldMembers)) {
+               $member = new erLhcoreClassModelDepartamentLimitGroupMember();
+               $member->dep_id = $id;
+               $member->dep_limit_group_id = $departamentGroup->id;
+               $member->saveThis();
+           }
+       }
+   }
+   
    
    public static function assignDepartmentsToGroup(erLhcoreClassModelDepartamentGroup $departamentGroup, $ids)
    {
