@@ -31,7 +31,7 @@
     </div>   
 
 	<div class="col-md-3">
-	   <div class="form-group">
+	    <div class="form-group">
     	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department');?></label>
     	<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
                     'input_name'     => 'department_id',
