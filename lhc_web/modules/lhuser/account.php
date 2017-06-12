@@ -54,6 +54,7 @@ if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','change_visibility_list'
 	erLhcoreClassModelUserSetting::setSetting('enable_active_list', $validateVisibilityListData['enable_active_list']);
 	erLhcoreClassModelUserSetting::setSetting('enable_close_list', $validateVisibilityListData['enable_close_list']);
 	erLhcoreClassModelUserSetting::setSetting('enable_unread_list', $validateVisibilityListData['enable_unread_list']);
+	erLhcoreClassModelUserSetting::setSetting('enable_mchats_list', $validateVisibilityListData['enable_mchats_list']);
 	
 	$tpl->set('account_updated','done');
 	$tpl->set('tab','tab_settings');

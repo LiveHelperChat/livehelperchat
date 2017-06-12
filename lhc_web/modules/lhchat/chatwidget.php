@@ -309,10 +309,10 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
 	       $chat->referrer = isset($_POST['URLRefer']) ? $_POST['URLRefer'] : '';
 	       $chat->session_referrer = isset($_POST['r']) ? $_POST['r'] : '';
 
-	       if ( empty($chat->nick) ) {
+	       if ( empty(trim($chat->nick)) ) {
 	           $chat->nick = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor');
 	       }
-
+	       
 	       try {
     	       $db = ezcDbInstance::get();
     	       $db->beginTransaction();

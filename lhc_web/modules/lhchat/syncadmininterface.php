@@ -29,6 +29,8 @@ $unreadTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_unread_lis
 $showAllPending = erLhcoreClassModelUserSetting::getSetting('show_all_pending',1);
 $showDepartmentsStats = $currentUser->hasAccessTo('lhuser','canseedepartmentstats');
 $showDepartmentsStatsAll = $currentUser->hasAccessTo('lhuser','canseealldepartmentstats');
+$myChatsEnabled = erLhcoreClassModelUserSetting::getSetting('enable_mchats_list',0);
+
 
 $chatsList = array();
 
@@ -126,6 +128,40 @@ if ($activeTabEnabled == true) {
 	erLhcoreClassChat::prefillGetAttributes($chats,array('time_created_front','department_name','plain_user_name','product_name'),array('product_id','product','department','time','status','user_id','user'));	
 	$ReturnMessages['active_chats'] = array('list' => array_values($chats));	
 	$chatsList[] = & $ReturnMessages['active_chats']['list'];
+}
+
+
+
+if ($myChatsEnabled == true) {
+    /**
+     * My chats chats
+     * */
+    $limitList = is_numeric($Params['user_parameters_unordered']['limitmc']) ? (int)$Params['user_parameters_unordered']['limitmc'] : 10;
+    
+    $filter = array('ignore_fields' => erLhcoreClassChat::$chatListIgnoreField);
+
+    if (is_array($Params['user_parameters_unordered']['mcd']) && !empty($Params['user_parameters_unordered']['mcd'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['mcd']);
+        $filter['filterin']['dep_id'] = $Params['user_parameters_unordered']['mcd'];
+    }
+    
+    if (is_array($Params['user_parameters_unordered']['mcdprod']) && !empty($Params['user_parameters_unordered']['mcdprod'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['mcdprod']);
+        $filter['filterin']['product_id'] = $Params['user_parameters_unordered']['mcdprod'];
+    }
+
+    $filter['filter']['user_id'] = (int)$currentUser->getUserID();
+    
+    $myChats = erLhcoreClassChat::getMyChats($limitList,0,$filter);
+    
+    /**
+     * Get last pending chat
+     * */
+    erLhcoreClassChat::prefillGetAttributes($myChats,array('time_created_front','product_name','department_name','wait_time_pending','wait_time_seconds','plain_user_name'), array('product_id','product','department','time','user'));
+    
+    $ReturnMessages['my_chats'] = array('list' => array_values($myChats));
+    
+    $chatsList[] = & $ReturnMessages['my_chats']['list'];
 }
 
 if ($closedTabEnabled == true) {

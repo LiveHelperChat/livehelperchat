@@ -1,0 +1,6 @@
+<ul class="list-unstyled fs12">
+      <li ng-repeat="chat in my_chats.list track by chat.id" ng-class="{'icon-user-away': chat.user_status_front == 2, 'icon-user-online': chat.user_status_front == 0}">
+      	<span ng-if="chat.country_code != undefined"><img ng-src="<?php echo erLhcoreClassDesign::design('images/flags');?>/{{chat.country_code}}.png" alt="{{chat.country_name}}" title="{{chat.country_name}}" /></span>
+      	<a class="material-icons" title="ID - {{chat.id}}" ng-click="lhc.previewChat(chat.id)">info_outline</a><i ng-if="chat.status != 1" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Pending chat');?>" class="material-icons chat-unread">&#xE80E;</i><a class="right-action-hide material-icons" ng-click="lhc.startChat(chat.id,chat.nick)" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Accept chat');?>">chat</a><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Open in a new window');?>" class="material-icons" ng-click="lhc.startChatNewWindow(chat.id,chat.nick)">open_in_new</a>{{chat.nick}}, <small><b>{{chat.wait_time_pending}}</b></small>, {{chat.department_name}}{{chat.plain_user_name !== undefined ? ' | ' + chat.plain_user_name : ''}}
+      </li>
+</ul>

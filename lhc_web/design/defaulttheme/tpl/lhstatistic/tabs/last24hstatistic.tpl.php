@@ -2,8 +2,9 @@
 
 <form action="" method="get">
 
+<div class="form-group">
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Date range from to');?></label>
-<div class="row form-group">
+<div class="row">
 	<div class="col-md-4">
 		<input class="form-control" type="text" name="timefrom" id="id_timefrom" placeholder="E.g <?php echo date('Y-m-d',time()-24*3600)?>" value="<?php echo htmlspecialchars($input->timefrom == null ? date('Y-m-d',time()-24*3600) : $input->timefrom )?>" />
 	</div>
@@ -38,9 +39,40 @@
 	          <option value="<?php echo $i?>" <?php if (isset($input->timeto_minutes) && $input->timeto_minutes == $i) : ?>selected="selected"<?php endif;?>><?php echo $i?> m.</option>
 	      <?php endfor;?>
 	  </select>
-	</div>
+	</div>	
+</div>
 </div>
 
+<div class="row">
+	<div class="col-md-4">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','User group');?></label>
+            <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
+                    'input_name'     => 'group_id',
+            		'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select group'),
+                    'selected_id'    => $input->group_id,
+                    'css_class'      => 'form-control',
+                    'display_name'   => 'name',
+                    'list_function'  => 'erLhcoreClassModelGroup::getList'
+            )); ?>
+        </div>
+    </div>
+    <div class="col-md-4">
+	   <div class="form-group">
+    	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department group');?></label>
+    	<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
+                    'input_name'     => 'department_group_id',
+    				'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose department group'),
+                    'selected_id'    => $input->department_group_id,	
+    	            'css_class'      => 'form-control',			
+                    'list_function'  => 'erLhcoreClassModelDepartamentGroup::getList'
+            )); ?> 
+        </div>   
+    </div>
+</div>   
+
+    
+    
 <input type="submit" name="doSearch" class="btn btn-default" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" />
 
 <script>
@@ -86,25 +118,39 @@ $(function() {
 	</tr>
 	<tr>
 		<td><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/total_messages_including_v_s_o_m.tpl.php'));?></td>
-		<td><?php $totalMessagesCount = erLhcoreClassChat::getCount($filter24,'lh_msg'); echo $totalMessagesCount?></td>
+		<td><?php 
+		
+		$filterMsg = array_merge_recursive($filter24,array('innerjoin' => array('lh_chat' => array('lh_msg.chat_id','lh_chat.id'))));
+		
+		if (isset($filterMsg['filtergte']['time'])) {
+		    $filterMsg['filtergte']['lh_msg.time'] = $filterMsg['filtergte']['time'];
+		    unset($filterMsg['filtergte']['time']);
+		}
+		
+		if (isset($filterMsg['filterlte']['time'])) {
+		    $filterMsg['filterlte']['lh_msg.time'] = $filterMsg['filterlte']['time'];
+		    unset($filterMsg['filterlte']['time']);
+		}
+				
+		$totalMessagesCount = erLhcoreClassChat::getCount($filterMsg,'lh_msg','count(lh_msg.id)'); echo $totalMessagesCount?></td>
 	</tr>
 	<tr>
 		<td><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/total_messages_only_visitors.tpl.php'));?></td>
-		<td><?php $totalVisitorsMessagesCount = erLhcoreClassChat::getCount(array_merge_recursive($filter24,array('filter' => array('user_id' => 0))),'lh_msg'); echo $totalVisitorsMessagesCount;?></td>
+		<td><?php $totalVisitorsMessagesCount = erLhcoreClassChat::getCount(array_merge_recursive($filterMsg,array('innerjoin' => array('lh_chat' => array('lh_msg.chat_id','lh_chat.id')),'filter' => array('lh_msg.user_id' => 0))),'lh_msg','count(lh_msg.id)'); echo $totalVisitorsMessagesCount;?></td>
 	</tr>
 	<tr>
 		<td><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/total_messages_only_system_messages.tpl.php'));?></td>
-		<td><?php $systemMessagesCount = erLhcoreClassChat::getCount(array_merge_recursive($filter24,array('filter' => array('user_id' => -1))),'lh_msg'); echo $systemMessagesCount; ?></td>
+		<td><?php $systemMessagesCount = erLhcoreClassChat::getCount(array_merge_recursive($filterMsg,array('innerjoin' => array('lh_chat' => array('lh_msg.chat_id','lh_chat.id')), 'filterin' => array('lh_msg.user_id' => array(-1,-2)))),'lh_msg','count(lh_msg.id)'); echo $systemMessagesCount; ?></td>
 	</tr>
 	<tr>
 		<td><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/total_messages_only_operators.tpl.php'));?></td>
 		<td><?php echo $totalMessagesCount-$systemMessagesCount-$totalVisitorsMessagesCount?></td>
 	</tr>
 </table>
-						
-<h2><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/operators_statistic_top_100_by_chats_number.tpl.php'));?></h2>
-<?php $operators = erLhcoreClassChatStatistic::getTopTodaysOperators(100,0,$filter24); ?>
 
+<h2><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/operators_statistic_top_100_by_chats_number.tpl.php'));?></h2>
+
+<?php $operators = erLhcoreClassChatStatistic::getTopTodaysOperators(100,0,$filter24); ?>
 <table class="table">
 	<thead>
 		<tr>
@@ -115,16 +161,5 @@ $(function() {
 			<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Last activity');?></td>
 		</tr>
 	</thead>
-	<?php foreach ($operators as $operator) : ?>
-	<tr>
-		<td><?php echo htmlspecialchars((string)$operator)?></td>
-		<td><?php echo $operator->statistic_total_chats?></td>
-		<td><?php echo $operator->statistic_total_messages?></td>
-		<td>
-		  <span class="up-voted"><i class="material-icons up-voted">thumb_up</i><?php echo $operator->statistic_upvotes?></span>
-		  <span class="down-voted"><i class="material-icons down-voted">thumb_down</i><?php echo $operator->statistic_downvotes?></span>
-		</td>
-		<td><?php echo $operator->lastactivity_ago?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','ago');?></td>
-	</tr>
-	<?php endforeach;?>
+	<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/part/top_24_operators.tpl.php'));?>
 </table>

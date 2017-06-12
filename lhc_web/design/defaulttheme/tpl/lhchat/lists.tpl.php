@@ -20,6 +20,8 @@
                             <tr>
                             	<th width="1%"><input class="mb0" type="checkbox" ng-model="check_all_items" /></th>
                                 <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Information');?></th>
+                                <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Operator');?></th>
+                                <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Department');?></th>
                                 <th width="1%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Status');?></th>
                                 <th width="1%"></th>
                             </tr>
@@ -61,6 +63,12 @@
                     	      $seconds = ($diff - ($hours * 3600) - ($minits * 60));
                     	      ?> | <b><?php echo $hours?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','h.');?> <?php echo $minits ?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','m.');?> <?php echo $seconds?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','s.');?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','ago');?>.</b>
                     	      <?php endif;?>
+                            </td>
+                            <td>
+                                <?php echo htmlspecialchars($chat->user);?>
+                            </td>
+                            <td>
+                                <?php echo htmlspecialchars($chat->department);?>
                             </td>
                             <td nowrap="nowrap">
                                 <?php if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) : ?>

@@ -151,7 +151,15 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 				var value = localStorage.getItem(variable);
 				if (value !== null){
 					if (split == true){
-						return value.split('/');
+						
+						var values = value.split('/');
+						var valuesInt = new Array();
+						
+						angular.forEach(values, function(val) {
+							valuesInt.push(parseInt(val));
+						});
+						
+						return valuesInt;
 					} else {
 						return value;
 					}
@@ -170,6 +178,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	this.limito = this.restoreLocalSetting('limito',10,false);
 	this.limitc = this.restoreLocalSetting('limitc',10,false);
 	this.limitd = this.restoreLocalSetting('limitd',10,false);
+	this.limitmc = this.restoreLocalSetting('limitmc',10,false);
 	
 	// Active chat's operators filter
 	this.activeu = this.restoreLocalSetting('activeu',0,false);
@@ -195,6 +204,10 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	this.actived = this.restoreLocalSetting('actived',[],true);
 	this.actived_products = this.restoreLocalSetting('actived_products',[],true);
 	this.activedNames = [];
+	
+	this.mcd = this.restoreLocalSetting('mcd',[],true);
+	this.mcd_products = this.restoreLocalSetting('mcd_products',[],true);
+	this.mcdNames = [];
 
 	this.unreadd = this.restoreLocalSetting('unreadd',[],true);
 	this.unreadd_products = this.restoreLocalSetting('unreadd_products',[],true);
@@ -219,6 +232,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	this.widgetsItems.push('pendingd');
 	this.widgetsItems.push('operatord');
 	this.widgetsItems.push('closedd');
+	this.widgetsItems.push('mcd');
 	
 	this.timeoutActivity = null;
 	this.timeoutActivityTime = 300;
@@ -289,6 +303,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		filter += '/(limito)/'+parseInt(_that.limito);
 		filter += '/(limitc)/'+parseInt(_that.limitc);
 		filter += '/(limitd)/'+parseInt(_that.limitd);
+		filter += '/(limitmc)/'+parseInt(_that.limitmc);
 		
 		if (parseInt(_that.activeu) > 0) {
 			filter += '/(activeu)/'+_that.activeu;
@@ -305,6 +320,17 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 				var itemsFilter = _that.manualFilterByFilter('actived');
 				if (itemsFilter.length > 0) {
 					filter += '/(actived)/'+itemsFilter.join('/');
+				}
+			}
+		}
+		
+		if (typeof _that.mcd == 'object') {	
+			if (_that.mcd.length > 0) {
+				filter += '/(mcd)/'+_that.mcd.join('/');
+			} else {
+				var itemsFilter = _that.manualFilterByFilter('mcd');
+				if (itemsFilter.length > 0) {
+					filter += '/(mcd)/'+itemsFilter.join('/');
 				}
 			}
 		}
@@ -360,9 +386,13 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 				}
 			}
 		}
-
+		
 		if (typeof _that.actived_products == 'object' && _that.actived_products.length > 0) {
 			filter += '/(activedprod)/'+_that.actived_products.join('/');
+		}
+
+		if (typeof _that.mcd_products == 'object' && _that.mcd_products.length > 0) {
+			filter += '/(mcdprod)/'+_that.mcd_products.join('/');
 		}
 
 		if (typeof _that.unreadd_products == 'object' && _that.unreadd_products.length > 0) {
@@ -564,7 +594,14 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 			$scope.loadChatList();
 		};
 	});
-	
+
+	$scope.$watch('lhc.limitmc', function(newVal,oldVal) {
+		if (newVal != oldVal) {
+			_that.storeLocalSetting('limitmc',newVal);
+			$scope.loadChatList();
+		};
+	});
+
 	$scope.$watch('lhc.activeu', function(newVal,oldVal) {       
 		if (newVal != oldVal) {	
 			_that.storeLocalSetting('activeu',newVal);
@@ -590,7 +627,8 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 				$scope.my_active_chats_expanded = localStorage.getItem('my_active_chats_expanded') != 'false';
 				$scope.closed_chats_expanded = localStorage.getItem('closed_chats_expanded') != 'false';
 				$scope.unread_chats_expanded = localStorage.getItem('unread_chats_expanded') != 'false';
-				
+				$scope.my_chats_expanded = localStorage.getItem('my_chats_expanded') != 'false';
+								
 				// Just for extension reserved keywords
 				$scope.custom_list_1_expanded = localStorage.getItem('custom_list_1_expanded') != 'false';
 				$scope.custom_list_2_expanded = localStorage.getItem('custom_list_2_expanded') != 'false';

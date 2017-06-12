@@ -2,6 +2,7 @@
 
 $fieldsSearch = array();
 
+
 $fieldsSearch['timefrom'] = array (
     'type' => 'text',
     'trans' => 'Timefrom',
@@ -29,39 +30,27 @@ $fieldsSearch['timeto'] = array (
 );
 
 $fieldsSearch['department_id'] = array (
-	'type' => 'text',
-	'trans' => 'Department',
-	'required' => false,
-	'valid_if_filled' => false,
-	'filter_type' => 'filter',
-	'filter_table_field' => 'dep_id',
-	'validation_definition' => new ezcInputFormDefinitionElement(
-		ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 1)
-	)
-);
-
-$fieldsSearch['department_group_id'] = array (
-	'type' => 'text',
-	'trans' => 'Department group',
-	'required' => false,
-	'valid_if_filled' => false,
-	'filter_type' => false,
-	'filter_table_field' => 'dep_id',
-	'validation_definition' => new ezcInputFormDefinitionElement(
-		ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 1)
-	)
+    'type' => 'text',
+    'trans' => 'Department',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filter',
+    'filter_table_field' => 'dep_id',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 1)
+    )
 );
 
 $fieldsSearch['group_id'] = array (
-	'type' => 'text',
-	'trans' => 'Group',
-	'required' => false,
-	'valid_if_filled' => false,
-	'filter_type' => false,
-	'filter_table_field' => 'dep_id',
-	'validation_definition' => new ezcInputFormDefinitionElement(
-		ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 1)
-	)
+    'type' => 'text',
+    'trans' => 'Group',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filter',
+    'filter_table_field' => 'group_id',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 1)
+    )
 );
 
 $fieldsSearch['user_id'] = array (
@@ -76,17 +65,7 @@ $fieldsSearch['user_id'] = array (
 	)
 );
 
-$fieldsSearch['comparetopast'] = array (
-	'type' => 'boolean',
-	'trans' => 'groupby',
-	'required' => false,
-	'valid_if_filled' => false,
-	'filter_type' => 'none',
-	'filter_table_field' => 'user_id',
-	'validation_definition' => new ezcInputFormDefinitionElement(
-		ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
-	)
-);
+
 
 $fieldSortAttr = array (
 'field'      => false,

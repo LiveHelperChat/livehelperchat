@@ -18,7 +18,8 @@
     $activeTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_active_list', 1);
     $closedTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_close_list', 0);
     $unreadTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_unread_list', 1);
-
+    $mchatsTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_mchats_list', 0);
+    
     $frontTabsOrder = explode(',', erLhcoreClassModelChatConfig::fetch('front_tabs')->current_value);
 
     ?>

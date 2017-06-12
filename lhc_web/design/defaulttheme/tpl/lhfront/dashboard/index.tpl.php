@@ -66,6 +66,13 @@ $columnSize = 12 / $columnsTotal;
                     <?php if ($online_chat_enabled_pre == true && $closedTabEnabled == true) : ?>                
                         <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/closed_chats.tpl.php'));?>
                     <?php endif;?>
+                    
+                <?php elseif ($wiget == 'my_chats') : ?>  
+                  
+                    <?php if ($mchatsTabEnabled == true) : ?>             
+                        <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/my_chats.tpl.php'));?>
+                    <?php endif;?>
+                    
                 <?php else : ?>
                     <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/extension_panel_multiinclude.tpl.php'));?>
                 <?php endif;?>

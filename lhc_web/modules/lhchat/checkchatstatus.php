@@ -93,7 +93,7 @@ try {
     				}
     				
     			} else {
-    				erLhcoreClassChatWorkflow::autoAssign($chat,$department);
+    				erLhcoreClassChatWorkflow::autoAssign($chat,$department, array('user_init' => true));
     			}
     		}   		
     	}    	

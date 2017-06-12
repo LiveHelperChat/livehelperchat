@@ -8,7 +8,7 @@ $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.stat
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhstatistic/statistic.tpl.php');
 
-$validTabs = array('active','total','last24','chatsstatistic');
+$validTabs = array('active','total','last24','chatsstatistic','agentstatistic');
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.valid_tabs', array(
     'valid_tabs' => & $validTabs
@@ -27,8 +27,10 @@ if ($tab == 'active') {
     	$filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'activestatistic_tab','format_filter' => true, 'uparams' => $Params['user_parameters_unordered']));
     }
     
-    $tpl->set('input',$filterParams['input_form']);
+    erLhcoreClassChatStatistic::formatUserFilter($filterParams);
     
+    $tpl->set('input',$filterParams['input_form']);
+            
     if (isset($_GET['xmlavguser'])) {
         erLhcoreClassChatStatistic::exportAverageOfChatsDialogsByUser(30,$filterParams['filter']);
         exit;
@@ -58,6 +60,8 @@ if ($tab == 'active') {
     	$filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'chatsstatistic_tab','format_filter' => true, 'uparams' => $Params['user_parameters_unordered']));
     }
     
+    erLhcoreClassChatStatistic::formatUserFilter($filterParams);
+    
     $tpl->set('input',$filterParams['input_form']);
     
     $tpl->set('groupby',$filterParams['input_form']->groupby == 1 ? 'Y.m.d' : 'Y.m');
@@ -86,15 +90,39 @@ if ($tab == 'active') {
         $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'last24statistic','format_filter' => true, 'uparams' => array()));
     }
 
+    erLhcoreClassChatStatistic::formatUserFilter($filterParams);
+    
     if (empty($filterParams['filter'])) {
         $filter24 = array('filtergte' => array('time' => (time()-(24*3600))));
     } else {
         $filter24 = $filterParams['filter'];
     }
-        
+    
     $tpl->set('input',$filterParams['input_form']);
     $tpl->set('filter24',$filter24);
     
+} else if ($tab == 'agentstatistic') {
+
+    if (isset($_GET['doSearch'])) {
+        $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'agent_statistic','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']));
+    } else {
+        $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'agent_statistic','format_filter' => true, 'uparams' => $Params['user_parameters_unordered']));
+    }
+
+    if (isset($_GET['xmlagentstatistic'])) {
+        erLhcoreClassChatStatistic::exportAgentStatistic(30,$filterParams['filter']);
+        exit;
+    }
+
+    if (isset($_GET['doSearch'])) {
+        $agentStatistic = erLhcoreClassChatStatistic::getAgentStatistic(30, $filterParams['filter']);
+    } else {
+        $agentStatistic = array();
+    }
+
+    $tpl->set('input',$filterParams['input_form']);
+    $tpl->set('agentStatistic',$agentStatistic);
+
 } else {
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.process_tab', array(
         'tpl' => & $tpl,

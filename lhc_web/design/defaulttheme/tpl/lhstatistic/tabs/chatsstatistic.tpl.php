@@ -2,7 +2,8 @@
 
 <div class="row form-group">
 
-	<div class="col-md-2">
+	<div class="col-md-3">
+	<div class="form-group">
 	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','User');?></label>
 	<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
                 'input_name'     => 'user_id',
@@ -13,16 +14,34 @@
                 'list_function'  => 'erLhcoreClassModelUser::getUserList'
         )); ?> 
     </div>   
+    </div>   
 
-    <div class="col-md-1">
+    <div class="col-md-3">
+	   <div class="form-group">
+    	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','User group');?></label>
+    	<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
+                'input_name'     => 'group_id',
+				'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select group'),
+                'selected_id'    => $input->group_id,
+	            'css_class'      => 'form-control',
+	            'display_name'   => 'name',
+                'list_function'  => 'erLhcoreClassModelGroup::getList'
+        )); ?>
+        </div>   
+    </div>
+    
+    <div class="col-md-3">
+    <div class="form-group">
 	   <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Group by');?></label>
 	   <select name="groupby" class="form-control">
 	       <option value="0" <?php $input->groupby == 0 ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Month');?></option>
 	       <option value="1" <?php $input->groupby == 1 ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Day');?></option>
 	   </select>
 	</div>
+	</div>
 
 	<div class="col-md-3">
+	<div class="form-group">
 	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department');?></label>
 
 	<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
@@ -33,18 +52,34 @@
                 'list_function'  => 'erLhcoreClassModelDepartament::getList'
         )); ?> 
     </div>   
+    </div>   
   
     <div class="col-md-6">
-		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Date range from to');?></label>
-		<div class="row">
-			<div class="col-md-6">
-				<input class="form-control" type="text" name="timefrom" id="id_timefrom" placeholder="E.g <?php echo date('Y-m-d',time()-7*24*3600)?>" value="<?php echo htmlspecialchars($input->timefrom)?>" />
-			</div>
-			<div class="col-md-6">
-				<input class="form-control" type="text" name="timeto" id="id_timeto" placeholder="E.g <?php echo date('Y-m-d')?>" value="<?php echo htmlspecialchars($input->timeto)?>" />
-			</div>
+        <div class="form-group">
+    		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Date range from to');?></label>
+    		<div class="row">
+    			<div class="col-md-6">
+    				<input class="form-control" type="text" name="timefrom" id="id_timefrom" placeholder="E.g <?php echo date('Y-m-d',time()-7*24*3600)?>" value="<?php echo htmlspecialchars($input->timefrom)?>" />
+    			</div>
+    			<div class="col-md-6">
+    				<input class="form-control" type="text" name="timeto" id="id_timeto" placeholder="E.g <?php echo date('Y-m-d')?>" value="<?php echo htmlspecialchars($input->timeto)?>" />
+    			</div>
+    		</div>
 		</div>
-	</div>
+	 </div>
+	
+     <div class="col-md-6">
+	   <div class="form-group">
+    	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department group');?></label>
+    	<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
+                    'input_name'     => 'department_group_id',
+    				'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose department group'),
+                    'selected_id'    => $input->department_group_id,	
+    	            'css_class'      => 'form-control',			
+                    'list_function'  => 'erLhcoreClassModelDepartamentGroup::getList'
+            )); ?> 
+        </div>   
+      </div>  
 	
 </div>
 	
