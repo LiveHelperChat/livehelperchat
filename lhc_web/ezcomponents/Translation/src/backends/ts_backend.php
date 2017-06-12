@@ -230,7 +230,7 @@ class ezcTranslationTsBackend implements ezcTranslationBackend, ezcTranslationCo
         {
             throw new ezcTranslationMissingTranslationFileException( $filename );
         }
-        return simplexml_load_file( $filename, $returnClass );
+        return simplexml_load_string( file_get_contents( $filename ), $returnClass );
     }
 
     /**
