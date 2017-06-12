@@ -749,7 +749,7 @@ class erLhcoreClassChat {
        } else {
        	
 	       	if ($ignoreUserStatus === false) {
-	           $stmt = $db->prepare('SELECT COUNT(lh_userdep.id) AS found FROM lh_userdep INNER JOIN lh_departament ON lh_departament.id = lh_userdep.dep_id WHERE (lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter) AND lh_departament.hidden = 0 AND last_activity > :last_activity AND hide_online = 0 AND lh_departament.disabled = 0');
+	           $stmt = $db->prepare('SELECT COUNT(lh_userdep.id) AS found FROM lh_userdep LEFT JOIN lh_departament ON lh_departament.id = lh_userdep.dep_id WHERE (lh_departament.pending_group_max IS NULL || lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max IS NULL || lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter) AND (lh_departament.hidden IS NULL || lh_departament.hidden = 0) AND last_activity > :last_activity AND hide_online = 0 AND (lh_departament.disabled IS NULL || lh_departament.disabled = 0)');
 	           $stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
 	           $stmt->execute();
 	           $rowsNumber = $stmt->fetchColumn();
