@@ -139,13 +139,29 @@ class erLhcoreClassSearchHandler
                             $dateFormated = self::formatDateToTimestamp($inputParams->$key);
                             
                             if ($dateFormated != false) {
+                                                                                                
+                                if (isset($_GET[$key.'_hours'])){
+                                    $hours = isset($_GET[$key.'_hours']) && is_numeric($_GET[$key.'_hours']) ? (int)$_GET[$key.'_hours']*3600 : 0;
+                                    $inputFrom->{$key.'_hours'} = (isset($_GET[$key.'_hours']) && is_numeric($_GET[$key.'_hours'])) ? (int)$_GET[$key.'_hours'] : null;
+                                } elseif (isset($uparams[$key.'_hours']) && is_numeric($uparams[$key.'_hours'])) {
+                                    $hours = $uparams[$key.'_hours'] * 3600;
+                                    $inputFrom->{$key.'_hours'} = (int)$uparams[$key.'_hours'];
+                                } else {
+                                    $inputFrom->{$key.'_hours'} = null;
+                                    $hours = 0;
+                                }
                                 
-                                $hours = isset($_GET[$key.'_hours']) && is_numeric($_GET[$key.'_hours']) ? (int)$_GET[$key.'_hours']*3600 : 0;
-                                $inputFrom->{$key.'_hours'} = isset($_GET[$key.'_hours']) ? $_GET[$key.'_hours'] : null;
-                                
-                                $minutes = isset($_GET[$key.'_minutes']) && is_numeric($_GET[$key.'_minutes']) ? (int)$_GET[$key.'_minutes']*60 : 0;
-                                $inputFrom->{$key.'_minutes'} = isset($_GET[$key.'_minutes']) ? $_GET[$key.'_minutes'] : null;
-                                                                
+                                if (isset($_GET[$key.'_minutes'])){
+                                    $minutes = isset($_GET[$key.'_minutes']) && is_numeric($_GET[$key.'_minutes']) ? (int)$_GET[$key.'_minutes']*60 : 0;
+                                    $inputFrom->{$key.'_minutes'} = (isset($_GET[$key.'_minutes']) && is_numeric($_GET[$key.'_minutes'])) ? (int)$_GET[$key.'_minutes'] : null;
+                                } elseif (isset($uparams[$key.'_minutes']) && is_numeric($uparams[$key.'_minutes'])) {
+                                    $minutes = $uparams[$key.'_minutes'] * 60;
+                                    $inputFrom->{$key.'_minutes'} = (int)$uparams[$key.'_minutes'];
+                                } else {
+                                    $inputFrom->{$key.'_minutes'} = null;
+                                    $minutes = 0;
+                                }
+                                 
                                 $filter['filtergte'][$field['filter_table_field']] = $dateFormated + $hours + $minutes;
                             }
                             
@@ -174,13 +190,30 @@ class erLhcoreClassSearchHandler
                             } elseif (isset($field['datatype']) && $field['datatype'] == 'datetime') {
                                 
                                 $dateFormated = self::formatDateToTimestamp($inputParams->$key);
+                                                                                                
                                 if ($dateFormated != false) {
-                                    
-                                    $hours = isset($_GET[$key.'_hours']) && is_numeric($_GET[$key.'_hours']) ? (int)$_GET[$key.'_hours']*3600 : 0;
-                                    $inputFrom->{$key.'_hours'} = isset($_GET[$key.'_hours']) ? $_GET[$key.'_hours'] : null;
-                                    
-                                    $minutes = isset($_GET[$key.'_minutes']) && is_numeric($_GET[$key.'_minutes']) ? (int)$_GET[$key.'_minutes']*60 : 0;
-                                    $inputFrom->{$key.'_minutes'} = isset($_GET[$key.'_minutes']) ? $_GET[$key.'_minutes'] : null;
+                                                                        
+                                    if (isset($_GET[$key.'_hours'])){
+                                        $hours = isset($_GET[$key.'_hours']) && is_numeric($_GET[$key.'_hours']) ? (int)$_GET[$key.'_hours']*3600 : 0;
+                                        $inputFrom->{$key.'_hours'} = (isset($_GET[$key.'_hours']) && is_numeric($_GET[$key.'_hours'])) ? (int)$_GET[$key.'_hours'] : null;
+                                    } elseif (isset($uparams[$key.'_hours']) && is_numeric($uparams[$key.'_hours'])) {
+                                        $hours = $uparams[$key.'_hours'] * 3600;
+                                        $inputFrom->{$key.'_hours'} = (int)$uparams[$key.'_hours'];
+                                    } else {
+                                        $inputFrom->{$key.'_hours'} = null;
+                                        $hours = 0;
+                                    }
+                                                                        
+                                    if (isset($_GET[$key.'_minutes'])){
+                                        $minutes = isset($_GET[$key.'_minutes']) && is_numeric($_GET[$key.'_minutes']) ? (int)$_GET[$key.'_minutes']*60 : 0;
+                                        $inputFrom->{$key.'_minutes'} = (isset($_GET[$key.'_minutes']) && is_numeric($_GET[$key.'_minutes'])) ? (int)$_GET[$key.'_minutes'] : null;
+                                    } elseif (isset($uparams[$key.'_minutes']) && is_numeric($uparams[$key.'_minutes'])) {
+                                        $minutes = $uparams[$key.'_minutes'] * 60;
+                                        $inputFrom->{$key.'_minutes'} = (int)$uparams[$key.'_minutes'];
+                                    } else {
+                                        $inputFrom->{$key.'_minutes'} = null;
+                                        $minutes = 0;
+                                    }
                                     
                                     $filter['filterlte'][$field['filter_table_field']] = $dateFormated+$hours+$minutes;
                                 }
