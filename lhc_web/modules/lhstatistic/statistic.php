@@ -26,11 +26,11 @@ if ($tab == 'active') {
     } else {
     	$filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'activestatistic_tab','format_filter' => true, 'uparams' => $Params['user_parameters_unordered']));
     }
-    
+
     erLhcoreClassChatStatistic::formatUserFilter($filterParams);
-    
+
     $tpl->set('input',$filterParams['input_form']);
-            
+
     if (isset($_GET['xmlavguser'])) {
         erLhcoreClassChatStatistic::exportAverageOfChatsDialogsByUser(30,$filterParams['filter']);
         exit;

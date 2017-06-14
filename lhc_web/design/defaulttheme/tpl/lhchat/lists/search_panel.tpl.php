@@ -62,7 +62,7 @@
 				    <select name="timefrom_hours" class="form-control">
 				        <option value="">Select hour</option>
 				        <?php for ($i = 0; $i <= 23; $i++) : ?>
-				            <option value="<?php echo $i?>" <?php if (isset($input->timefrom_hours) && $input->timefrom_hours === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?></option>
+				            <option value="<?php echo $i?>" <?php if (isset($input->timefrom_hours) && $input->timefrom_hours === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> h.</option>
 				        <?php endfor;?>
 				    </select>
 				</div>
@@ -70,7 +70,7 @@
 				    <select name="timefrom_minutes" class="form-control">
 				        <option value="">Select minute</option>
 				        <?php for ($i = 0; $i <= 59; $i++) : ?>
-				            <option value="<?php echo $i?>" <?php if (isset($input->timefrom_minutes) && $input->timefrom_minutes === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?></option>
+				            <option value="<?php echo $i?>" <?php if (isset($input->timefrom_minutes) && $input->timefrom_minutes === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> m.</option>
 				        <?php endfor;?>
 				    </select>
 				</div>
@@ -97,7 +97,7 @@
 				    <select name="timeto_hours" class="form-control">
 				        <option value="">Select hour</option>
 				        <?php for ($i = 0; $i <= 23; $i++) : ?>
-				            <option value="<?php echo $i?>" <?php if (isset($input->timeto_hours) && $input->timeto_hours === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?></option>
+				            <option value="<?php echo $i?>" <?php if (isset($input->timeto_hours) && $input->timeto_hours === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> h.</option>
 				        <?php endfor;?>
 				    </select>
 				</div>
@@ -105,7 +105,7 @@
 				    <select name="timeto_minutes" class="form-control">
 				        <option value="">Select minute</option>
 				        <?php for ($i = 0; $i <= 59; $i++) : ?>
-				            <option value="<?php echo $i?>" <?php if (isset($input->timeto_minutes) && $input->timeto_minutes === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?></option>
+				            <option value="<?php echo $i?>" <?php if (isset($input->timeto_minutes) && $input->timeto_minutes === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> m.</option>
 				        <?php endfor;?>
 				    </select>
 				</div>
