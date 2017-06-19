@@ -741,10 +741,50 @@ class erLhcoreClassChatStatistic {
             
             if (!empty($userIds)) {
                 $userIdGroup = $userIds;
-            }    
+            } else {
+                $userIdGroup = array(-1);
+            }
         }
 
-        $userIdDep = array();
+        
+        if (isset($filtergte['filter']['department_group_id'])) {
+            
+            $depGroup = $filtergte['filter']['department_group_id'];
+            unset($filtergte['filter']['department_group_id']);
+                            
+            $db = ezcDbInstance::get();
+            $stmt = $db->prepare('SELECT user_id FROM lh_userdep WHERE dep_id IN (select dep_id FROM lh_departament_group_member WHERE dep_group_id = :dep_group_id)');
+            $stmt->bindValue( ':dep_group_id', $depGroup, PDO::PARAM_INT);
+            $stmt->execute();
+            $userIds = $stmt->fetchAll(PDO::FETCH_COLUMN);
+                        
+            $stmt = $db->prepare('select dep_id FROM lh_departament_group_member WHERE dep_group_id = :dep_group_id');
+            $stmt->bindValue( ':dep_group_id', $depGroup, PDO::PARAM_INT);
+            $stmt->execute();
+            $depIds = $stmt->fetchAll(PDO::FETCH_COLUMN);
+            
+            if (!empty($depIds)) {
+                $filter['filterin']['dep_id'] = $depIds;            
+            } else {
+                $filter['filterin']['dep_id'] = array(-1);
+            }
+            
+            if (empty($userIds)) {
+                $userIds = array(-1);
+            }
+            
+            if (!empty($userIdGroup)) {                                
+                $userIdGroup = array_unique(array_intersect($userIdGroup,$userIds));
+                
+                if (empty($userIdGroup)) {
+                    $userIdGroup = array(-1);
+                }
+                
+            } else {
+                $userIdGroup = $userIds;
+            }            
+        }
+        
         if (isset($filtergte['filter']['dep_id'])) {
                        
             $filter['filter']['dep_id'] = $filtergte['filter']['dep_id'];
@@ -756,14 +796,23 @@ class erLhcoreClassChatStatistic {
             $userIds = $stmt->fetchAll(PDO::FETCH_COLUMN);
             
             if (!empty($userIds)) {
-                $userIdDep = $userIds;
+                if (!empty($userIdGroup)) {
+                    $userIdGroup = array_unique(array_intersect($userIdGroup,$userIds));
+                    
+                    if (empty($userIdGroup)) {
+                        $userIdGroup = array(-1);
+                    }
+                    
+                } else {
+                    $userIdGroup = $userIds;
+                }
             }
         }
-        
-        if (!empty($userIdGroup) || !empty($userIdDep)) {
-            $filterUsers['filterin']['id'] = array_unique(array_intersect($userIdGroup,$userIdDep));
+
+        if (!empty($userIdGroup)) {
+            $filterUsers['filterin']['id'] = $userIdGroup;
         }
-                
+        
         $userList = erLhcoreClassModelUser::getUserList($filterUsers);
         $list = array();
         

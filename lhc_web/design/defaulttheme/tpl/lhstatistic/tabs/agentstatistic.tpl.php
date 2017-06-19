@@ -100,6 +100,19 @@
         </div>
     </div>
 
+    <div class="col-md-4">
+	   <div class="form-group">
+    	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department group');?></label>
+    	<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
+                    'input_name'     => 'department_group_id',
+    				'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose department group'),
+                    'selected_id'    => $input->department_group_id,	
+    	            'css_class'      => 'form-control',			
+                    'list_function'  => 'erLhcoreClassModelDepartamentGroup::getList'
+            )); ?> 
+        </div>   
+    </div> 
+    
     <div class="col-md-12">
     	<div class="row">
     		<div class="col-md-1">
