@@ -39,6 +39,10 @@ if ($chat->user_id == $currentUser->getUserID() || $currentUser->hasAccessTo('lh
 
 	    erLhcoreClassChat::getSession()->save($msg);
 
+	    if ($chat->wait_time == 0) {
+	        $chat->wait_time = time() - $chat->time;
+	    }
+	    
 	    erLhcoreClassChat::getSession()->update($chat);
 	    
 	    erLhcoreClassChat::updateActiveChats($chat->user_id);

@@ -2,7 +2,6 @@
 
 class erLhcoreClassChatStatistic {
 
-
     /**
      * Gets pending chats
      */
@@ -858,6 +857,118 @@ class erLhcoreClassChatStatistic {
         }
         $filter['filtergt']['user_id'] = 0;
         return erLhcoreClassChat::getCount(array_merge_recursive($filter,array('filtergt' => array('chat_duration' => 0),'filter' =>  array('status' => erLhcoreClassModelChat::STATUS_CLOSED_CHAT))),'lh_chat','SUM(chat_duration)');
+    }
+    
+    public static function getPerformanceStatistic($days = 30, $filter = array())
+    {
+        // wait_time
+        $dateRange = array(
+            array(
+                'from' => 0,
+                'to' => 5,
+                'tt' => '0-5 sec.'
+            ),
+            array(
+                'from' => 6,
+                'to' => 10,
+                'tt' => '6-10 sec.'
+            ),
+            array(
+                'from' => 11,
+                'to' => 20,
+                'tt' => '11-20 sec.'
+            ),
+            array(
+                'from' => 21,
+                'to' => 30,
+                'tt' => '21-30 sec.'
+            ),
+            array(
+                'from' => 31,
+                'to' => 40,
+                'tt' => '31-40 sec.'
+            ),
+            array(
+                'from' => 41,
+                'to' => 50,
+                'tt' => '41-50 sec.'
+            ),
+            array(
+                'from' => 51,
+                'to' => 60,
+                'tt' => '51-60 sec.'
+            ),
+            array(
+                'from' => 61,
+                'to' => 90,
+                'tt' => '61-90 sec.'
+            ),
+            array(
+                'from' => 91,
+                'to' => 120,
+                'tt' => '91-120 sec.'
+            ),
+            array(
+                'from' => 121,
+                'to' => 180,
+                'tt' => '2-3 min.'
+            ),
+            array(
+                'from' => 181,
+                'to' => 240,
+                'tt' => '3-4 min.'
+            ),
+            array(
+                'from' => 241,
+                'to' => 300,
+                'tt' => '4-5 min.'
+            ),
+            array(
+                'from' => 301,
+                'to' => 600,
+                'tt' => '5-10 min.'
+            ),
+            array(
+                'from' => 601,
+                'to' => false,
+                'tt' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','more than 10 min.')
+            )
+        );
+
+        $stats = array(
+            'rows' => array(),
+            'total_chats' => 0,
+            'total_aband_chats' => 0
+        );
+        
+        foreach ($dateRange as $rangeData) {
+            
+            $filterTimeout = array();
+            
+            if ($rangeData['from'] !== false) {
+                $filterTimeout['filtergte']['wait_time'] = $rangeData['from'];
+            }
+            
+            if ($rangeData['to'] !== false) {
+                $filterTimeout['filterlte']['wait_time'] = $rangeData['to'];
+            }
+            
+            $chatStarted = erLhcoreClassChat::getCount(array_merge_recursive($filter, $filterTimeout), 'lh_chat', 'count(id)');       
+            $abandonedStarted = erLhcoreClassChat::getCount(array_merge_recursive($filter, $filterTimeout, array('filter' => array('user_id' => 0, 'status_sub' => erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT))), 'lh_chat', 'count(id)');
+            
+            $stats['rows'][] = array(
+                'from' => $rangeData['from'],
+                'to' => $rangeData['to'],
+                'tt' => $rangeData['tt'],
+                'started' => $chatStarted,
+                'abandoned' => $abandonedStarted
+            );
+            
+            $stats['total_chats'] += $chatStarted;
+            $stats['total_aband_chats'] += $abandonedStarted;
+        } 
+        
+        return $stats;
     }
 }
 
