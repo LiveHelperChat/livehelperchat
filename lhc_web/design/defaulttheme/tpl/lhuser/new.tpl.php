@@ -108,7 +108,7 @@
 		
 		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Disabled')?>&nbsp;<input type="checkbox" value="on" name="UserDisabled" <?php echo $user->disabled == 1 ? 'checked="checked"' : '' ?> /></label><br>
 		
-		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Do not show user status as online')?>&nbsp;<input type="checkbox" value="on" name="HideMyStatus" <?php echo $user->hide_online == 1 ? 'checked="checked"' : '' ?> /></label><br>
+		<?php include(erLhcoreClassDesign::designtpl('lhuser/account/hide_online.tpl.php'));?>
 		
 		<?php include(erLhcoreClassDesign::designtpl('lhuser/account/below_new_account_multiinclude.tpl.php'));?>
 		
