@@ -167,7 +167,7 @@
                     <td><?php echo $stat['started']?></td>
                     <td><?php echo $stat['abandoned']?></td>
                     <td><?php echo $performanceStatistic['total_chats'] > 0 ? round($stat['started']/$performanceStatistic['total_chats'],4)*100 : 0?> %</td>
-                    <td><?php echo $stat['started'] > 0 ? round($stat['abandoned']/$stat['started'],2) : 0?> %</td>
+                    <td><?php echo $stat['started'] > 0 ? round($stat['abandoned']/$stat['started'],4)*100 : 0?> %</td>
                 </tr>
             <?php endforeach; ?>
                 <tr>
