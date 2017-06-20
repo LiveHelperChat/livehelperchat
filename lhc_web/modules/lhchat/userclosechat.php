@@ -35,6 +35,10 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
     		    // From now chat will be closed explicitly	   
     	        $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT;
     	    
+    	        if ($chat->wait_time == 0) {
+    	            $chat->wait_time = time() - $chat->time;
+    	        }
+    	        
     	        $msg = new erLhcoreClassModelmsg();
     	        $msg->msg = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat','Visitor has closed the chat explicitly!'),ENT_QUOTES);;
     	        $msg->chat_id = $chat->id;

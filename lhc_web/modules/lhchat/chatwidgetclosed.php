@@ -70,6 +70,10 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
 				               $chat->last_msg_id = $msg->id;
 				            }
 				            
+				            if ($chat->wait_time == 0) {
+				                $chat->wait_time = time() - $chat->time;
+				            }
+				            
 				            $explicitClosed = true;
 				        }
 				        
