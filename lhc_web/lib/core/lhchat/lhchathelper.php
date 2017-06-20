@@ -123,6 +123,10 @@ class erLhcoreClassChatHelper
             
             erLhcoreClassChat::getSession()->save($msg);
             
+            if ($params['chat']->wait_time == 0) {
+                $params['chat']->wait_time = time() - $chat->time;
+            }
+            
             $params['chat']->updateThis();
             
             erLhcoreClassChat::updateActiveChats($params['chat']->user_id);

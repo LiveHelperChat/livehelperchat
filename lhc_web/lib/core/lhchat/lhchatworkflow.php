@@ -227,6 +227,10 @@ class erLhcoreClassChatWorkflow {
     			$chat->chat_duration = erLhcoreClassChat::getChatDurationToUpdateChatID($chat->id);
     			$chat->has_unread_messages = 0;
     			
+    		    if ($chat->wait_time == 0) {
+    	            $chat->wait_time = time() - $chat->time;
+    	        }
+    			
     			$chat->updateThis();
 
                 erLhcoreClassChat::closeChatCallback($chat, $chat->user);
@@ -251,6 +255,10 @@ class erLhcoreClassChatWorkflow {
 	    	     
 	    	    if ($chat->last_msg_id < $msg->id) {
 	    	        $chat->last_msg_id = $msg->id;
+	    	    }
+	    	    
+	    	    if ($chat->wait_time == 0) {
+	    	        $chat->wait_time = time() - $chat->time;
 	    	    }
 	    	    
 	    	    $chat->has_unread_messages = 0;

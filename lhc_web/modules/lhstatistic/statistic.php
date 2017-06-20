@@ -8,7 +8,7 @@ $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.stat
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhstatistic/statistic.tpl.php');
 
-$validTabs = array('active','total','last24','chatsstatistic','agentstatistic');
+$validTabs = array('active','total','last24','chatsstatistic','agentstatistic','performance');
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.valid_tabs', array(
     'valid_tabs' => & $validTabs
@@ -122,6 +122,25 @@ if ($tab == 'active') {
 
     $tpl->set('input',$filterParams['input_form']);
     $tpl->set('agentStatistic',$agentStatistic);
+    
+} else if ($tab == 'performance') {
+
+    if (isset($_GET['doSearch'])) {
+        $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat', 'module_file' => 'performance_statistic','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']));
+    } else {
+        $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat', 'module_file' => 'performance_statistic','format_filter' => true, 'uparams' => $Params['user_parameters_unordered']));
+    }
+    
+    erLhcoreClassChatStatistic::formatUserFilter($filterParams);
+    
+    if (isset($_GET['doSearch'])) {
+        $performanceStatistic = erLhcoreClassChatStatistic::getPerformanceStatistic(30, $filterParams['filter']);
+    } else {
+        $performanceStatistic = array();
+    }
+
+    $tpl->set('input',$filterParams['input_form']);
+    $tpl->set('performanceStatistic',$performanceStatistic);
 
 } else {
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.process_tab', array(
