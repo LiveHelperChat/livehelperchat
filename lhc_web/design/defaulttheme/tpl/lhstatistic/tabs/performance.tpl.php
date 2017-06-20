@@ -171,7 +171,7 @@
                 </tr>
             <?php endforeach; ?>
                 <tr>
-                    <td><b>Total</b></td>
+                    <td><b><?php erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Total');?></b></td>
                     <td><b><?php echo $performanceStatistic['total_chats']?></b></td>
                     <td><b><?php echo $performanceStatistic['total_aband_chats']?></b></td>
                     <td></td>
