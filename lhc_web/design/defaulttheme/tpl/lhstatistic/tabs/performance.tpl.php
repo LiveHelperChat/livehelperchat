@@ -153,11 +153,11 @@
     <table class="table" cellpadding="0" cellspacing="0" width="100%">
         <thead>
             <tr>
-                <th><?php erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Avg. Wait Time');?></th>
-                <th><?php erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Chats Started');?></th>
-                <th><?php erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Abandoned Chats');?></th>
-                <th><?php erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','% of chats');?></th>
-                <th><?php erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Abandoned at time %');?></th>
+                <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Avg. Wait Time');?></th>
+                <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Chats Started');?></th>
+                <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Abandoned Chats');?></th>
+                <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','% of chats');?></th>
+                <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Abandoned at time %');?></th>
              </tr>
         </thead>
         <tbody>
@@ -171,7 +171,7 @@
                 </tr>
             <?php endforeach; ?>
                 <tr>
-                    <td><b><?php erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Total');?></b></td>
+                    <td><b><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Total');?></b></td>
                     <td><b><?php echo $performanceStatistic['total_chats']?></b></td>
                     <td><b><?php echo $performanceStatistic['total_aband_chats']?></b></td>
                     <td></td>
