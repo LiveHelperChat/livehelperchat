@@ -74,21 +74,14 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
     	    }
     
     	    erLhcoreClassChat::getSession()->update($chat);
-    		 
-    	    $tpl->set('chat',$chat);
-    	    echo $tpl->fetch();	  
-    	    flush();	    	    
-    	    session_write_close();	  
-    		
-    	    if ( function_exists('fastcgi_finish_request') ) {
-    	    	fastcgi_finish_request();
-    	    };
     	    
+    	    session_write_close();
+
     	    if ($chatDataChanged == true) {
     	    	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed',array('chat' => & $chat,'user' => $currentUser));
     	    }
-    	    
-    	    if ($operatorAccepted == true) {	 	    	
+
+    	    if ($operatorAccepted == true) {
     	    	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.accept',array('chat' => & $chat,'user' => $currentUser));	    	
     	    	erLhcoreClassChat::updateActiveChats($chat->user_id);	
     
@@ -103,6 +96,10 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
     	    
     	    $db->commit();
     	    
+    	    $tpl->set('chat',$chat);
+    	    
+    	    echo $tpl->fetch();
+    	        	    
 	    } catch (Exception $e) {
 	        $db->rollback();
 	        echo $e->getMessage();
