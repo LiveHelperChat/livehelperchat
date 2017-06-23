@@ -23,7 +23,11 @@ try {
 
     $chat = erLhcoreClassModelChat::fetch((int)$_GET['chat_id']);
 
-    if (erLhcoreClassRestAPIHandler::hasAccessToRead($chat) == true) {
+    if (!($chat instanceof erLhcoreClassModelChat)) {
+        throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('lhrestapi/validation', 'Could not find chat by chat_id!'));
+    }
+    
+    if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassRestAPIHandler::hasAccessToRead($chat) == true) {
         
         $chat = erLhcoreClassModelChat::fetch((int)$_GET['chat_id']);
         
