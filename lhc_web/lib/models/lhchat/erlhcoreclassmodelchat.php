@@ -63,11 +63,14 @@ class erLhcoreClassModelChat {
        		   'reinform_timeout'     	=> $this->reinform_timeout,
 
        		   // Wait timeout attribute
-               'wait_timeout'     		=> $this->wait_timeout,
+               /* 'wait_timeout'     		=> $this->wait_timeout,
                'wait_timeout_repeat'    => $this->wait_timeout_repeat,
                'wait_timeout_send'     	=> $this->wait_timeout_send,
-               'timeout_message'     	=> $this->timeout_message,
+               'timeout_message'     	=> $this->timeout_message, */
 
+               // Auto responder
+               'auto_responder_id'      => $this->auto_responder_id,
+           
        		    // Transfer workflow attributes
                'transfer_timeout_ts'    => $this->transfer_timeout_ts,
                'transfer_if_na'    		=> $this->transfer_if_na,
@@ -280,6 +283,18 @@ class erLhcoreClassModelChat {
 
        			return $this->department;
        		break;
+       		
+       	case 'auto_responder':
+           	    $this->auto_responder = false;
+           	    if ($this->auto_responder_id > 0) {
+           	        try {
+           	            $this->auto_responder = erLhAbstractModelAutoResponderChat::fetch($this->auto_responder_id);
+           	        } catch (Exception $e) {
+           	    
+           	        }
+           	    }
+           	    return $this->auto_responder;
+       	    break;
 
        	case 'product':
        			$this->product = false;
@@ -508,9 +523,12 @@ class erLhcoreClassModelChat {
    public $transfer_timeout_ac = 0;
 
    // Wait timeout attributes
-   public $wait_timeout = 0;
-   public $wait_timeout_send = 0;
-   public $timeout_message = '';
+   //public $wait_timeout = 0;
+   //public $wait_timeout_send = 0;
+   //public $timeout_message = '';
+   //public $wait_timeout_repeat = 0;
+   
+   public $auto_responder_id = 0;
    
    // User timezone identifier
    public $user_tz_identifier = '';
@@ -538,8 +556,6 @@ class erLhcoreClassModelChat {
    public $operation_admin = '';
    
    public $screenshot_id = 0;
-   
-   public $wait_timeout_repeat = 0;
    
    public $unread_messages_informed = 0;
    

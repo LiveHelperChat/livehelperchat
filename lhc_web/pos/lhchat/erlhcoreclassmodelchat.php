@@ -369,6 +369,11 @@ $def->properties['uagent']->columnName   = 'uagent';
 $def->properties['uagent']->propertyName = 'uagent';
 $def->properties['uagent']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['auto_responder_id'] = new ezcPersistentObjectProperty();
+$def->properties['auto_responder_id']->columnName   = 'auto_responder_id';
+$def->properties['auto_responder_id']->propertyName = 'auto_responder_id';
+$def->properties['auto_responder_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

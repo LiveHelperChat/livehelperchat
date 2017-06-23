@@ -25,6 +25,26 @@ $def->properties['wait_timeout']->columnName   = 'wait_timeout';
 $def->properties['wait_timeout']->propertyName = 'wait_timeout';
 $def->properties['wait_timeout']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['wait_timeout_2'] = new ezcPersistentObjectProperty();
+$def->properties['wait_timeout_2']->columnName   = 'wait_timeout_2';
+$def->properties['wait_timeout_2']->propertyName = 'wait_timeout_2';
+$def->properties['wait_timeout_2']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['wait_timeout_3'] = new ezcPersistentObjectProperty();
+$def->properties['wait_timeout_3']->columnName   = 'wait_timeout_3';
+$def->properties['wait_timeout_3']->propertyName = 'wait_timeout_3';
+$def->properties['wait_timeout_3']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['wait_timeout_4'] = new ezcPersistentObjectProperty();
+$def->properties['wait_timeout_4']->columnName   = 'wait_timeout_4';
+$def->properties['wait_timeout_4']->propertyName = 'wait_timeout_4';
+$def->properties['wait_timeout_4']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['wait_timeout_5'] = new ezcPersistentObjectProperty();
+$def->properties['wait_timeout_5']->columnName   = 'wait_timeout_5';
+$def->properties['wait_timeout_5']->propertyName = 'wait_timeout_5';
+$def->properties['wait_timeout_5']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 // Department ID
 $def->properties['dep_id'] = new ezcPersistentObjectProperty();
 $def->properties['dep_id']->columnName   = 'dep_id';
@@ -43,6 +63,28 @@ $def->properties['timeout_message']->columnName   = 'timeout_message';
 $def->properties['timeout_message']->propertyName = 'timeout_message';
 $def->properties['timeout_message']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['timeout_message_2'] = new ezcPersistentObjectProperty();
+$def->properties['timeout_message_2']->columnName   = 'timeout_message_2';
+$def->properties['timeout_message_2']->propertyName = 'timeout_message_2';
+$def->properties['timeout_message_2']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['timeout_message_3'] = new ezcPersistentObjectProperty();
+$def->properties['timeout_message_3']->columnName   = 'timeout_message_3';
+$def->properties['timeout_message_3']->propertyName = 'timeout_message_3';
+$def->properties['timeout_message_3']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['timeout_message_4'] = new ezcPersistentObjectProperty();
+$def->properties['timeout_message_4']->columnName   = 'timeout_message_4';
+$def->properties['timeout_message_4']->propertyName = 'timeout_message_4';
+$def->properties['timeout_message_4']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['timeout_message_5'] = new ezcPersistentObjectProperty();
+$def->properties['timeout_message_5']->columnName   = 'timeout_message_5';
+$def->properties['timeout_message_5']->propertyName = 'timeout_message_5';
+$def->properties['timeout_message_5']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+
+
 // How many times repeat timeout message
 // 0 - infinity times
 // 1 - one time
@@ -50,6 +92,56 @@ $def->properties['repeat_number'] = new ezcPersistentObjectProperty();
 $def->properties['repeat_number']->columnName   = 'repeat_number';
 $def->properties['repeat_number']->propertyName = 'repeat_number';
 $def->properties['repeat_number']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['wait_timeout_reply_1'] = new ezcPersistentObjectProperty();
+$def->properties['wait_timeout_reply_1']->columnName   = 'wait_timeout_reply_1';
+$def->properties['wait_timeout_reply_1']->propertyName = 'wait_timeout_reply_1';
+$def->properties['wait_timeout_reply_1']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['timeout_reply_message_1'] = new ezcPersistentObjectProperty();
+$def->properties['timeout_reply_message_1']->columnName   = 'timeout_reply_message_1';
+$def->properties['timeout_reply_message_1']->propertyName = 'timeout_reply_message_1';
+$def->properties['timeout_reply_message_1']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['wait_timeout_reply_2'] = new ezcPersistentObjectProperty();
+$def->properties['wait_timeout_reply_2']->columnName   = 'wait_timeout_reply_2';
+$def->properties['wait_timeout_reply_2']->propertyName = 'wait_timeout_reply_2';
+$def->properties['wait_timeout_reply_2']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['timeout_reply_message_2'] = new ezcPersistentObjectProperty();
+$def->properties['timeout_reply_message_2']->columnName   = 'timeout_reply_message_2';
+$def->properties['timeout_reply_message_2']->propertyName = 'timeout_reply_message_2';
+$def->properties['timeout_reply_message_2']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['wait_timeout_reply_3'] = new ezcPersistentObjectProperty();
+$def->properties['wait_timeout_reply_3']->columnName   = 'wait_timeout_reply_3';
+$def->properties['wait_timeout_reply_3']->propertyName = 'wait_timeout_reply_3';
+$def->properties['wait_timeout_reply_3']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['timeout_reply_message_3'] = new ezcPersistentObjectProperty();
+$def->properties['timeout_reply_message_3']->columnName   = 'timeout_reply_message_3';
+$def->properties['timeout_reply_message_3']->propertyName = 'timeout_reply_message_3';
+$def->properties['timeout_reply_message_3']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['wait_timeout_reply_4'] = new ezcPersistentObjectProperty();
+$def->properties['wait_timeout_reply_4']->columnName   = 'wait_timeout_reply_4';
+$def->properties['wait_timeout_reply_4']->propertyName = 'wait_timeout_reply_4';
+$def->properties['wait_timeout_reply_4']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['timeout_reply_message_4'] = new ezcPersistentObjectProperty();
+$def->properties['timeout_reply_message_4']->columnName   = 'timeout_reply_message_4';
+$def->properties['timeout_reply_message_4']->propertyName = 'timeout_reply_message_4';
+$def->properties['timeout_reply_message_4']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['wait_timeout_reply_5'] = new ezcPersistentObjectProperty();
+$def->properties['wait_timeout_reply_5']->columnName   = 'wait_timeout_reply_5';
+$def->properties['wait_timeout_reply_5']->propertyName = 'wait_timeout_reply_5';
+$def->properties['wait_timeout_reply_5']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['timeout_reply_message_5'] = new ezcPersistentObjectProperty();
+$def->properties['timeout_reply_message_5']->columnName   = 'timeout_reply_message_5';
+$def->properties['timeout_reply_message_5']->propertyName = 'timeout_reply_message_5';
+$def->properties['timeout_reply_message_5']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 return $def;
 
