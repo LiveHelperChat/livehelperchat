@@ -109,6 +109,8 @@ return array_merge(array (
 		'erLhAbstractModelProactiveChatVariables'   => 'lib/models/lhabstract/erlhabstractmodeleproactivechatvariables.php',
 		'erLhAbstractModelProactiveChatEvent'       => 'lib/models/lhabstract/erlhabstractmodeleproactivechatevent.php',
 		'erLhAbstractModelAutoResponder'  			=> 'lib/models/lhabstract/erlhabstractmodelautoresponder.php',
+		'erLhAbstractModelAutoResponderChat'  		=> 'lib/models/lhabstract/erlhabstractmodelautoresponderchat.php',
+    
 		'erLhAbstractModelSurvey'  			        => 'lib/models/lhabstract/erlhabstractmodelsurvey.php',
 		'erLhAbstractModelSurveyItem'  			    => 'lib/models/lhabstract/erlhabstractmodelsurveyitem.php',
 		'erLhcoreClassSurveyValidator'  			=> 'lib/core/lhsurvey/lhsurveyvalidator.php',

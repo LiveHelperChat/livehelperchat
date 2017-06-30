@@ -8,7 +8,7 @@ class erLhcoreClassChatWorkflow {
     public static function timeoutWorkflow(erLhcoreClassModelChat & $chat)
     {
     	$msg = new erLhcoreClassModelmsg();
-    	$msg->msg = trim($chat->timeout_message);
+    	$msg->msg = trim($chat->auto_responder->auto_responder->timeout_message);
     	$msg->chat_id = $chat->id;
     	$msg->name_support = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
     	$msg->user_id = -2;
@@ -18,13 +18,7 @@ class erLhcoreClassChatWorkflow {
     	if ($chat->last_msg_id < $msg->id) {
     		$chat->last_msg_id = $msg->id;
     	}
-    	
-    	$chat->wait_timeout_send++;
-    	
-    	if ($chat->wait_timeout_send == 1) {
-    	   $chat->timeout_message = '';
-    	}
-    	    	
+    	   	    	
     	$chat->updateThis();
     }
 
