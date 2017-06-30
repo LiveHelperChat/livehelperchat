@@ -351,18 +351,37 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   PRIMARY KEY (`id`)
         	   ) DEFAULT CHARSET=utf8;");
 
-        	   $db->query("CREATE TABLE IF NOT EXISTS `lh_abstract_auto_responder` (
-				  `id` int(11) NOT NULL AUTO_INCREMENT,
-				  `siteaccess` varchar(3) NOT NULL,
-				  `wait_message` text NOT NULL,
-				  `wait_timeout` int(11) NOT NULL,
-				  `position` int(11) NOT NULL,
-				  `dep_id` int(11) NOT NULL,
-        	      `repeat_number` int(11) NOT NULL DEFAULT '1',
-				  `timeout_message` text NOT NULL,
-				  PRIMARY KEY (`id`),
-				  KEY `siteaccess_position` (`siteaccess`,`position`)
-				) DEFAULT CHARSET=utf8;");
+        	   $db->query("CREATE TABLE `lh_abstract_auto_responder` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `siteaccess` varchar(3) NOT NULL,
+                  `wait_message` text NOT NULL,
+                  `wait_timeout` int(11) NOT NULL,
+                  `position` int(11) NOT NULL,
+                  `timeout_message` text NOT NULL,
+                  `dep_id` int(11) NOT NULL,
+                  `repeat_number` int(11) NOT NULL DEFAULT '1',
+                  `wait_timeout_2` int(11) NOT NULL,
+                  `timeout_message_2` text NOT NULL,
+                  `wait_timeout_3` int(11) NOT NULL,
+                  `timeout_message_3` text NOT NULL,
+                  `wait_timeout_4` int(11) NOT NULL,
+                  `timeout_message_4` text NOT NULL,
+                  `wait_timeout_5` int(11) NOT NULL,
+                  `timeout_message_5` text NOT NULL,
+                  `wait_timeout_reply_1` int(11) NOT NULL,
+                  `timeout_reply_message_1` text NOT NULL,
+                  `wait_timeout_reply_2` int(11) NOT NULL,
+                  `timeout_reply_message_2` text NOT NULL,
+                  `wait_timeout_reply_3` int(11) NOT NULL,
+                  `timeout_reply_message_3` text NOT NULL,
+                  `wait_timeout_reply_4` int(11) NOT NULL,
+                  `timeout_reply_message_4` text NOT NULL,
+                  `wait_timeout_reply_5` int(11) NOT NULL,
+                  `timeout_reply_message_5` text NOT NULL,
+                  `ignore_pa_chat` int(11) NOT NULL,
+                  PRIMARY KEY (`id`),
+                  KEY `siteaccess_position` (`siteaccess`,`position`)
+                ) DEFAULT CHARSET=utf8");
 
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_abstract_widget_theme` (
 				 `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -983,7 +1002,18 @@ switch ((int)$Params['user_parameters']['step_id']) {
     	       `pending_max` int(11) NOT NULL,  
     	       PRIMARY KEY (`id`)) 
     	       DEFAULT CHARSET=utf8");
-       	   
+        	   
+        	   $db->query("CREATE TABLE `lh_abstract_auto_responder_chat` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `chat_id` int(11) NOT NULL,
+                  `auto_responder_id` int(11) NOT NULL,
+                  `wait_timeout_send` int(11) NOT NULL,
+                  `pending_send_status` int(11) NOT NULL,
+                  `active_send_status` int(11) NOT NULL,
+                  PRIMARY KEY (`id`),
+                  KEY `chat_id` (`chat_id`)
+                ) DEFAULT CHARSET=utf8");
+       	          
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_users_setting_option` (
 				  `identifier` varchar(50) NOT NULL,
 				  `class` varchar(50) NOT NULL,

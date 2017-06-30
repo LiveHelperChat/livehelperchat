@@ -41,6 +41,7 @@ class erLhAbstractModelAutoResponder {
 			'timeout_reply_message_4' => $this->timeout_reply_message_4,
 			'timeout_reply_message_5' => $this->timeout_reply_message_5,
 		    
+			'ignore_pa_chat'	=> $this->ignore_pa_chat,
 			'dep_id'			=> $this->dep_id,
 			'position'			=> $this->position,
 			'repeat_number'		=> $this->repeat_number
@@ -80,6 +81,20 @@ class erLhAbstractModelAutoResponder {
 	   	case 'left_menu':
 	   	       $this->left_menu = '';
 	   		   return $this->left_menu;
+	   		break;
+	   		
+	   	case 'dep':
+	   	       if ($this->dep_id > 0) {
+	   	           $this->dep = erLhcoreClassModelDepartament::fetch($this->dep_id);
+	   	       } else {
+	   	           $this->dep = false;
+	   	       }
+	   		   return $this->dep;
+	   		break;
+	   		
+	   	case 'dep_frontend':
+	   	       $this->dep_frontend = $this->dep === false ? '-' : (string)$this->dep;
+	   		   return $this->dep_frontend;
 	   		break;
 
 	   	default:
@@ -157,6 +172,8 @@ class erLhAbstractModelAutoResponder {
 	
 	public $dep_id = 0;
 	public $repeat_number = 1;
+	
+	public $ignore_pa_chat = 0;
 
 	public $hide_add = false;
 	public $hide_delete = false;

@@ -41,16 +41,13 @@ class erLhcoreClassChat {
 			'transfer_if_na',
 			'transfer_timeout_ts',
 			'transfer_timeout_ac',
-			'wait_timeout',
-			'wait_timeout_send',
-			'timeout_message',
+
 			'na_cb_executed',
 			'nc_cb_executed',
 			'fbst',
 			'operator_typing_id',
 			'chat_initiator',
 			'chat_variables',
-			'wait_timeout_repeat',
 			// Angular remake
 			'referrer',
 			'last_op_msg_time',

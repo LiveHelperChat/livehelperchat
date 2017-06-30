@@ -24,6 +24,16 @@ $def->properties['wait_timeout_send']->columnName   = 'wait_timeout_send';
 $def->properties['wait_timeout_send']->propertyName = 'wait_timeout_send';
 $def->properties['wait_timeout_send']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['pending_send_status'] = new ezcPersistentObjectProperty();
+$def->properties['pending_send_status']->columnName   = 'pending_send_status';
+$def->properties['pending_send_status']->propertyName = 'pending_send_status';
+$def->properties['pending_send_status']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['active_send_status'] = new ezcPersistentObjectProperty();
+$def->properties['active_send_status']->columnName   = 'active_send_status';
+$def->properties['active_send_status']->propertyName = 'active_send_status';
+$def->properties['active_send_status']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

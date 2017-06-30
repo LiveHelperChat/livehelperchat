@@ -83,8 +83,6 @@ $def->properties['timeout_message_5']->columnName   = 'timeout_message_5';
 $def->properties['timeout_message_5']->propertyName = 'timeout_message_5';
 $def->properties['timeout_message_5']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
-
-
 // How many times repeat timeout message
 // 0 - infinity times
 // 1 - one time
@@ -142,6 +140,13 @@ $def->properties['timeout_reply_message_5'] = new ezcPersistentObjectProperty();
 $def->properties['timeout_reply_message_5']->columnName   = 'timeout_reply_message_5';
 $def->properties['timeout_reply_message_5']->propertyName = 'timeout_reply_message_5';
 $def->properties['timeout_reply_message_5']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+// Ignore pending and assigned chat.
+// Pending messages won't be send if chat is assigned
+$def->properties['ignore_pa_chat'] = new ezcPersistentObjectProperty();
+$def->properties['ignore_pa_chat']->columnName   = 'ignore_pa_chat';
+$def->properties['ignore_pa_chat']->propertyName = 'ignore_pa_chat';
+$def->properties['ignore_pa_chat']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
 return $def;
 

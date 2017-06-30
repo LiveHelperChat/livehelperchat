@@ -18,14 +18,7 @@ class erLhcoreClassChatWorkflow {
     	if ($chat->last_msg_id < $msg->id) {
     		$chat->last_msg_id = $msg->id;
     	}
-    	
-    	$chat->auto_responder->wait_timeout_send++;
-    	$chat->auto_responder->saveThis();
-    	
-    	/* if ($chat->wait_timeout_send == 1) {
-    	   $chat->timeout_message = '';
-    	} */
-    	    	
+    	   	    	
     	$chat->updateThis();
     }
 

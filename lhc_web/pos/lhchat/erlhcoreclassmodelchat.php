@@ -239,30 +239,10 @@ $def->properties['chat_initiator']->columnName   = 'chat_initiator';
 $def->properties['chat_initiator']->propertyName = 'chat_initiator';
 $def->properties['chat_initiator']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
-$def->properties['wait_timeout'] = new ezcPersistentObjectProperty();
-$def->properties['wait_timeout']->columnName   = 'wait_timeout';
-$def->properties['wait_timeout']->propertyName = 'wait_timeout';
-$def->properties['wait_timeout']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
-$def->properties['wait_timeout_send'] = new ezcPersistentObjectProperty();
-$def->properties['wait_timeout_send']->columnName   = 'wait_timeout_send';
-$def->properties['wait_timeout_send']->propertyName = 'wait_timeout_send';
-$def->properties['wait_timeout_send']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
-$def->properties['wait_timeout_repeat'] = new ezcPersistentObjectProperty();
-$def->properties['wait_timeout_repeat']->columnName   = 'wait_timeout_repeat';
-$def->properties['wait_timeout_repeat']->propertyName = 'wait_timeout_repeat';
-$def->properties['wait_timeout_repeat']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
 $def->properties['online_user_id'] = new ezcPersistentObjectProperty();
 $def->properties['online_user_id']->columnName   = 'online_user_id';
 $def->properties['online_user_id']->propertyName = 'online_user_id';
 $def->properties['online_user_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
-$def->properties['timeout_message'] = new ezcPersistentObjectProperty();
-$def->properties['timeout_message']->columnName   = 'timeout_message';
-$def->properties['timeout_message']->propertyName = 'timeout_message';
-$def->properties['timeout_message']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 $def->properties['operation'] = new ezcPersistentObjectProperty();
 $def->properties['operation']->columnName   = 'operation';

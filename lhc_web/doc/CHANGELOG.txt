@@ -1,8 +1,14 @@
+2.65v
+
+1. Autoresponder enhancements. See official announcement for changes.
+
+execute doc/update_db/update_139.sql for update
+
 2.64v
 
 1. Option to setup department offline automaticaly if pending chat's number reaches defined number.
 
-execute doc/update_db/update_137.sql for update
+execute doc/update_db/update_138.sql for update
 
 2.63v
 
