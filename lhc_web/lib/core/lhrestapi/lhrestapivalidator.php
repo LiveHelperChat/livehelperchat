@@ -288,6 +288,19 @@ class erLhcoreClassRestAPIHandler
     {
         $createArrayImporter = function (SimpleXMLElement $subject) {
             $add = function (SimpleXMLElement $subject, $key, $value) use (&$add) {
+                
+                $addChildCdata = function ($name, $value = NULL, & $parent) {
+                    $new_child = $parent->addChild($name);
+                
+                    if ($new_child !== NULL) {
+                        $node = dom_import_simplexml($new_child);
+                        $no   = $node->ownerDocument;
+                        $node->appendChild($no->createCDATASection($value));
+                    }
+                
+                    return $new_child;
+                };
+                
                 $hasKey    = is_string($key);
                 $isString  = is_string($value) || is_numeric($value);
                 $isArray   = is_array($value);
@@ -296,7 +309,13 @@ class erLhcoreClassRestAPIHandler
                 $isKeyed   = $isArray && $count && !$isIndexed;
                 switch (true) {
                     case $isString && $hasKey:
-                        return $subject->addChild($key, $value);
+                                                
+                        if (is_numeric($value) || empty($value)) {
+                            return $subject->addChild($key, $value);
+                        } else {
+                            return $addChildCdata($key, $value, $subject);
+                        }
+                        
                     case $isIndexed && $hasKey:
                         foreach ($value as $oneof_value) {
                             $add($subject, $key, $oneof_value);
@@ -311,7 +330,7 @@ class erLhcoreClassRestAPIHandler
                         }
                         return true;
                     default:
-                        trigger_error('Unknown Nodetype ' . print_r($value, 1));
+                        //trigger_error('Unknown Nodetype ' . $key .print_r($value, 1));
                 }
             };
             return function (Array $array) use ($subject, $add) {
