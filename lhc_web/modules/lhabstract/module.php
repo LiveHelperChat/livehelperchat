@@ -23,6 +23,11 @@ $ViewList['downloadbinnary'] = array(
     'params' => array('identifier','object_id')
 );
 
+$ViewList['copyautoresponder'] = array(
+    'functions' => array( 'use' ),
+    'params' => array('id')
+);
+
 $ViewList['edit'] = array(
     'script' => 'edit.php',
     'functions' => array( 'use' ),

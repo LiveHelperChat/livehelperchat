@@ -38,17 +38,24 @@
 	        	<?php if (!isset($field['hidden'])) : ?>
 	        	<td>
 	        	
-	        	<?php if (isset($field['link'])) : ?><a href="<?php echo $field['link']?>/<?php echo $item->id?>"><?php endif;?>
-	        	<?php if (isset($field['frontend']))
-		            echo htmlspecialchars($item->{$field['frontend']});
-		        else
-		            echo htmlspecialchars($item->$key);
-		        ?>
+	        	<?php if (isset($field['link'])) : ?><a <?php if (isset($field['link_class'])) : ?>class="<?php echo $field['link_class']?>"<?php endif;?> <?php if (isset($field['is_modal'])) : ?>onclick="return lhc.revealModal({'iframe':true,'height':500,'url':WWW_DIR_JAVASCRIPT +'<?php echo $field['link']?>/<?php echo $item->id?>'})"<?php else : ?>href="<?php echo $field['link']?>/<?php echo $item->id?>"<?php endif;?>><?php endif;?>
+	        		        	
+	        	<?php if (isset($field['link_title'])) : ?>
+	        	  <?php echo $field['link_title']?>
+	        	<?php else : ?>
+    	        	<?php 
+    	        	if (isset($field['frontend'])) {
+    		            echo htmlspecialchars($item->{$field['frontend']});
+    	        	} else {
+    		            echo htmlspecialchars($item->$key);
+    	        	}
+    		        ?>
+		        
+		        <?php endif;?>
+		        
 		        <?php if (isset($field['link'])) : ?></a><?php endif;?>
 		        </td>
 	       		<?php endif;?>
-	       		
-	       		
 
 	        <?php endforeach;?>
 	        <td><a class="btn btn-default btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('abstract/edit')?>/<?php echo $identifier.'/'.$item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Edit');?></a></td>

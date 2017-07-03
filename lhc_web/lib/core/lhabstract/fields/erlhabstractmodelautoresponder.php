@@ -206,5 +206,16 @@ return array(
                     'hidden' => true,
                     'validation_definition' => new ezcInputFormDefinitionElement(
                         ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
-                        ))
+                        )),
+                'copy_action' => array(
+                    'type' => 'action',
+                    'link' => 'abstract/copyautoresponder',
+                    'is_modal' => true,
+                    'link_class' => 'btn btn-default btn-xs',
+                    'link_title' => 'Copy',
+                    'trans' => '',
+                    'required' => false,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+                 ))
 );
