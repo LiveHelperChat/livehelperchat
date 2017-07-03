@@ -372,11 +372,15 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
     				   erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_triggered',array('chat' => & $chat, 'errors' => & $beforeAutoResponderErrors));
     
     				   if (empty($beforeAutoResponderErrors)) {
-    					   $chat->wait_timeout = $responder->wait_timeout;
-    					   $chat->timeout_message = $responder->timeout_message;
-    					   $chat->wait_timeout_send = 1 - $responder->repeat_number;
-    					   $chat->wait_timeout_repeat = $responder->repeat_number;
-    
+    				       
+    				       $responderChat = new erLhAbstractModelAutoResponderChat();
+    				       $responderChat->auto_responder_id = $responder->id;
+    				       $responderChat->chat_id = $chat->id;
+    				       $responderChat->wait_timeout_send = 1 - $responder->repeat_number;
+    				       $responderChat->saveThis();
+    				       
+    				       $chat->auto_responder_id = $responderChat->id;
+    				       
     					   if ($responder->wait_message != '') {
     						   $msg = new erLhcoreClassModelmsg();
     						   $msg->msg = trim($responder->wait_message);
