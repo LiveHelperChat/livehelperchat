@@ -276,9 +276,26 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	
 	this.toggleWidgetData = [];
 	
-	this.toggleWidget = function(variable,forceReload) {
+	this.toggleWidget = function(variable, forceReload) {
 		_that.toggleWidgetData[variable] = typeof _that.toggleWidgetData[variable] !== 'undefined' ? !_that.toggleWidgetData[variable] : true;
 
+		if (localStorage) {
+    		try {
+    			localStorage.setItem(variable,_that.toggleWidgetData[variable]);
+    		} catch(err) {    			   		
+    		};
+    	};
+		
+		if (typeof forceReload !== 'undefined' && forceReload == true) {
+			$scope.loadChatList();
+		}
+	};
+	
+	this.toggleWidgetSort = function(variable, val, val_desc, forceReload) {
+		_that.toggleWidgetData[variable] = typeof _that.toggleWidgetData[variable] === 'undefined' ? val : (_that.toggleWidgetData[variable] == val ? val_desc : val);
+		
+		console.log(_that.toggleWidgetData[variable]);
+		
 		if (localStorage) {
     		try {
     			localStorage.setItem(variable,_that.toggleWidgetData[variable]);
