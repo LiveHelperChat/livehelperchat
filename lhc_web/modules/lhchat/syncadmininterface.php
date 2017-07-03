@@ -111,7 +111,9 @@ if ($activeTabEnabled == true) {
         'id_asc' => 'id ASC',
         'id_dsc' => 'id DESC',
         'loc_dsc' => 'country_code DESC',
-        'loc_asc' => 'country_code ASC'
+        'loc_asc' => 'country_code ASC',
+        'u_dsc' => 'nick DESC',
+        'u_asc' => 'nick ASC'
     );
 
     if (!empty($Params['user_parameters_unordered']['acs']) && key_exists($Params['user_parameters_unordered']['acs'], $sortArray)) {
