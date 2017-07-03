@@ -276,7 +276,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	
 	this.toggleWidgetData = [];
 	
-	this.toggleWidget = function(variable,forceReload) {
+	this.toggleWidget = function(variable, forceReload) {
 		_that.toggleWidgetData[variable] = typeof _that.toggleWidgetData[variable] !== 'undefined' ? !_that.toggleWidgetData[variable] : true;
 
 		if (localStorage) {
@@ -291,8 +291,27 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		}
 	};
 	
+	this.toggleWidgetSort = function(variable, val, val_desc, forceReload) {
+		_that.toggleWidgetData[variable] = typeof _that.toggleWidgetData[variable] === 'undefined' ? val : (_that.toggleWidgetData[variable] == val ? val_desc : val);
+		
+		if (localStorage) {
+    		try {
+    			localStorage.setItem(variable, _that.toggleWidgetData[variable]);
+    		} catch(err) {    			   		
+    		};
+    	};
+		
+		if (typeof forceReload !== 'undefined' && forceReload == true) {
+			$scope.loadChatList();
+		}
+	};
+	
 	this.getToggleWidget = function(variable) {
 		this.toggleWidgetData[variable] = this.restoreLocalSetting(variable,'false',false) == 'false' ? false : true;
+	};
+	
+	this.getToggleWidgetSort = function(variable) {
+		this.toggleWidgetData[variable] = this.restoreLocalSetting(variable,'',false);
 	};
 	
 	$scope.getSyncFilter = function()
@@ -409,6 +428,10 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		
 		if (typeof _that.toggleWidgetData['track_open_chats'] !== 'undefined' && _that.toggleWidgetData['track_open_chats'] == true) {
 			filter += '/(topen)/true';
+		}
+		
+		if (typeof _that.toggleWidgetData['active_chats_sort'] !== 'undefined' && _that.toggleWidgetData['active_chats_sort'] !== '') {
+			filter += '/(acs)/'+_that.toggleWidgetData['active_chats_sort'];
 		}
 		
 		return filter;

@@ -1,5 +1,5 @@
 <?php if ($currentUser->hasAccessTo('lhchat','use')) : ?>
-	<div class="panel panel-default panel-dashboard" data-panel-id="active_chats" ng-init="lhc.getToggleWidget('activec_widget_exp')">
+	<div class="panel panel-default panel-dashboard" data-panel-id="active_chats" ng-init="lhc.getToggleWidget('activec_widget_exp');lhc.getToggleWidgetSort('active_chats_sort')">
 		<div class="panel-heading">
 			<a href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(chat_status)/1"><i class="material-icons chat-active">chat</i> <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/active_chats.tpl.php'));?> ({{active_chats.list.length}}{{active_chats.list.length == lhc.limita ? '+' : ''}})</a>
 			<a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','collapse/expand')?>" ng-click="lhc.toggleWidget('activec_widget_exp')" class="fs24 pull-right material-icons exp-cntr">{{lhc.toggleWidgetData['activec_widget_exp'] == false ? 'expand_less' : 'expand_more'}}</a>
@@ -14,9 +14,31 @@
 				<table class="table table-condensed mb0 table-small table-fixed">
 					<thead>
 						<tr>
-							<th width="60%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Visitor');?>" class="material-icons">face</i></th>
-							<th width="20%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Operator');?>" class="material-icons">account_box</i></th>
-							<th width="20%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Department');?>" class="material-icons">home</i></th>
+							<th width="60%">
+							
+							<a ng-click="lhc.toggleWidgetSort('active_chats_sort','id_dsc','id_asc',true)">
+							 <i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Visitor');?>" class="material-icons">face</i>
+							 <i ng-show="(lhc.toggleWidgetData['active_chats_sort'] == 'id_asc' || lhc.toggleWidgetData['active_chats_sort'] == 'id_dsc')" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Sort')?>" class="material-icons">{{lhc.toggleWidgetData['active_chats_sort'] == 'id_dsc' ? 'trending_up' : 'trending_down'}}</i>
+							</a>
+							
+							<a ng-click="lhc.toggleWidgetSort('active_chats_sort','loc_dsc','loc_asc',true)">
+							 <i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Visitor');?>" class="material-icons">&#xE0C8;</i>
+							 <i ng-show="(lhc.toggleWidgetData['active_chats_sort'] == 'loc_asc' || lhc.toggleWidgetData['active_chats_sort'] == 'loc_dsc')" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Sort')?>" class="material-icons">{{lhc.toggleWidgetData['active_chats_sort'] == 'loc_dsc' ? 'trending_up' : 'trending_down'}}</i>
+							</a>
+							
+							</th>
+							<th width="20%">
+    							<a ng-click="lhc.toggleWidgetSort('active_chats_sort','op_dsc','op_asc',true)">
+    							 <i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Operator');?>" class="material-icons">account_box</i>
+    							 <i ng-show="(lhc.toggleWidgetData['active_chats_sort'] == 'op_asc' || lhc.toggleWidgetData['active_chats_sort'] == 'op_dsc')" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Sort')?>" class="material-icons">{{lhc.toggleWidgetData['active_chats_sort'] == 'op_dsc' ? 'trending_up' : 'trending_down'}}</i>
+    							</a>
+							</th>
+							<th width="20%">							
+    							<a ng-click="lhc.toggleWidgetSort('active_chats_sort','dep_dsc','dep_asc',true)">
+    							 <i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Department');?>" class="material-icons">home</i>
+    							 <i ng-show="(lhc.toggleWidgetData['active_chats_sort'] == 'dep_asc' || lhc.toggleWidgetData['active_chats_sort'] == 'dep_dsc')" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Sort')?>" class="material-icons">{{lhc.toggleWidgetData['active_chats_sort'] == 'dep_dsc' ? 'trending_up' : 'trending_down'}}</i>
+    							</a>							
+							</th>
 						</tr>
 					</thead>
 					<tr ng-repeat="chat in active_chats.list track by chat.id" ng-class="{'user-away-row': chat.user_status_front == 2, 'user-online-row': chat.user_status_front == 0}">
