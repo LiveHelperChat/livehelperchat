@@ -103,6 +103,17 @@ if ($activeTabEnabled == true) {
     	$filter['filter']['user_id'] = $Params['user_parameters_unordered']['activeu'];
     }    
        
+    
+    if (!empty($Params['user_parameters_unordered']['acs'])){
+        /* $array = array(
+            'op_asc'
+            'op_dsc'
+        )
+        echo ":asdasd";
+        exit; */
+    }
+    
+    
 	$chats = erLhcoreClassChat::getActiveChats($limitList,0,$filter);
 		
 	// Collect chats which were transfered

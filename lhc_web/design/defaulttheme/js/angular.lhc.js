@@ -294,11 +294,9 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	this.toggleWidgetSort = function(variable, val, val_desc, forceReload) {
 		_that.toggleWidgetData[variable] = typeof _that.toggleWidgetData[variable] === 'undefined' ? val : (_that.toggleWidgetData[variable] == val ? val_desc : val);
 		
-		console.log(_that.toggleWidgetData[variable]);
-		
 		if (localStorage) {
     		try {
-    			localStorage.setItem(variable,_that.toggleWidgetData[variable]);
+    			localStorage.setItem(variable, _that.toggleWidgetData[variable]);
     		} catch(err) {    			   		
     		};
     	};
@@ -426,6 +424,10 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		
 		if (typeof _that.toggleWidgetData['track_open_chats'] !== 'undefined' && _that.toggleWidgetData['track_open_chats'] == true) {
 			filter += '/(topen)/true';
+		}
+		
+		if (typeof _that.toggleWidgetData['active_chats_sort'] !== 'undefined') {
+			filter += '/(acs)/'+_that.toggleWidgetData['active_chats_sort'];
 		}
 		
 		return filter;
