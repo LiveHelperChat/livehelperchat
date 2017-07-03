@@ -310,6 +310,10 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		this.toggleWidgetData[variable] = this.restoreLocalSetting(variable,'false',false) == 'false' ? false : true;
 	};
 	
+	this.getToggleWidgetSort = function(variable) {
+		this.toggleWidgetData[variable] = this.restoreLocalSetting(variable,'',false);
+	};
+	
 	$scope.getSyncFilter = function()
 	{
 		var filter = '/(limita)/'+parseInt(_that.limita);
@@ -426,7 +430,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 			filter += '/(topen)/true';
 		}
 		
-		if (typeof _that.toggleWidgetData['active_chats_sort'] !== 'undefined') {
+		if (typeof _that.toggleWidgetData['active_chats_sort'] !== 'undefined' && _that.toggleWidgetData['active_chats_sort'] !== '') {
 			filter += '/(acs)/'+_that.toggleWidgetData['active_chats_sort'];
 		}
 		

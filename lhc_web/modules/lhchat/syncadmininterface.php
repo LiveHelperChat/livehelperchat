@@ -102,17 +102,21 @@ if ($activeTabEnabled == true) {
     if (is_numeric($Params['user_parameters_unordered']['activeu'])) {
     	$filter['filter']['user_id'] = $Params['user_parameters_unordered']['activeu'];
     }    
-       
-    
-    if (!empty($Params['user_parameters_unordered']['acs'])){
-        /* $array = array(
-            'op_asc'
-            'op_dsc'
-        )
-        echo ":asdasd";
-        exit; */
+
+    $sortArray = array(
+        'op_asc' => 'user_id ASC',
+        'op_dsc' => 'user_id DESC',
+        'dep_asc' => 'dep_id ASC',
+        'dep_dsc' => 'dep_id DESC',
+        'id_asc' => 'id ASC',
+        'id_dsc' => 'id DESC',
+        'loc_dsc' => 'country_code DESC',
+        'loc_asc' => 'country_code ASC'
+    );
+
+    if (!empty($Params['user_parameters_unordered']['acs']) && key_exists($Params['user_parameters_unordered']['acs'], $sortArray)) {
+        $filter['sort'] = $sortArray[$Params['user_parameters_unordered']['acs']];
     }
-    
     
 	$chats = erLhcoreClassChat::getActiveChats($limitList,0,$filter);
 		
