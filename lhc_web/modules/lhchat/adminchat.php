@@ -18,7 +18,9 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
 	if ($userData->invisible_mode == 0) {	
 		  
 	    try {
-	        	    
+
+	        $db->beginTransaction();
+	        
     		$operatorAccepted = false;
     		$chatDataChanged = false;
     		
@@ -74,6 +76,8 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
     	    }
     
     	    erLhcoreClassChat::getSession()->update($chat);
+    	    
+    	    $db->commit();
     	    
     	    session_write_close();
 

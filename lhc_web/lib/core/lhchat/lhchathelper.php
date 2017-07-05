@@ -110,24 +110,29 @@ class erLhcoreClassChatHelper
     {
         if ($params['chat']->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
             
-            $params['chat']->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
-            $params['chat']->chat_duration = erLhcoreClassChat::getChatDurationToUpdateChatID($params['chat']->id);
-            $params['chat']->has_unread_messages = 0;
+            $db = ezcDbInstance::get();
+            $db->beginTransaction();
             
-            $msg = new erLhcoreClassModelmsg();
-            $msg->msg = (string) $params['user'] . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'has closed the chat!');
-            $msg->chat_id = $params['chat']->id;
-            $msg->user_id = - 1;
+                $params['chat']->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
+                $params['chat']->chat_duration = erLhcoreClassChat::getChatDurationToUpdateChatID($params['chat']->id);
+                $params['chat']->has_unread_messages = 0;
+                
+                $msg = new erLhcoreClassModelmsg();
+                $msg->msg = (string) $params['user'] . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'has closed the chat!');
+                $msg->chat_id = $params['chat']->id;
+                $msg->user_id = - 1;
+                
+                $params['chat']->last_user_msg_time = $msg->time = time();
+                
+                erLhcoreClassChat::getSession()->save($msg);
+                
+                if ($params['chat']->wait_time == 0) {
+                    $params['chat']->wait_time = time() - $chat->time;
+                }
+                
+                $params['chat']->updateThis();
             
-            $params['chat']->last_user_msg_time = $msg->time = time();
-            
-            erLhcoreClassChat::getSession()->save($msg);
-            
-            if ($params['chat']->wait_time == 0) {
-                $params['chat']->wait_time = time() - $chat->time;
-            }
-            
-            $params['chat']->updateThis();
+            $db->commit();
             
             erLhcoreClassChat::updateActiveChats($params['chat']->user_id);
             
