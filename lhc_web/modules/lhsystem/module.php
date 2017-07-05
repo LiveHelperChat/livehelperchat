@@ -19,6 +19,11 @@ $ViewList['configuration'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['usersactions'] = array(
+    'params' => array(),
+    'functions' => array( 'use' )
+);
+
 $ViewList['expirecache'] = array(
     'params' => array(),
     'functions' => array( 'expirecache' )

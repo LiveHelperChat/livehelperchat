@@ -27,6 +27,7 @@ return array_merge(array (
         'erLhcoreClassRoleFunction'  => 'lib/core/lhpermission/lhrolefunction.php',
         'erLhcoreClassGroupRole'  => 'lib/core/lhpermission/lhgrouprole.php',
         'erLhcoreClassGroupUser'  => 'lib/core/lhuser/lhgroupuser.php',
+        'erLhcoreClassUserUtils'  => 'lib/core/lhuser/lhuserutils.php',
 
         // Translations
         'erTranslationClassLhTranslation' => 'lib/core/lhcore/lhtranslation.php',
