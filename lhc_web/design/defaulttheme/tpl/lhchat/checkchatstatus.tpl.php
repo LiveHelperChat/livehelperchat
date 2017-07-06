@@ -7,7 +7,7 @@
     	<?php if ($theme !== false  && $theme->support_joined != '') : ?>
     	   <?php echo htmlspecialchars($theme->support_joined)?>
     	<?php else : ?>
-    	   <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','A support staff member has joined this chat'); ?>
+    	   <?php include(erLhcoreClassDesign::designtpl('lhchat/checkchatstatus_text/joined_chat.tpl.php'));?>
     	<?php endif;?>
     </h4>
     <?php endif;?>
@@ -16,18 +16,17 @@
     	<?php if ($theme !== false  && $theme->support_closed != '') : ?>
     	   <?php echo htmlspecialchars($theme->support_closed)?>
     	<?php else : ?>
-    	   <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','A support staff member has closed this chat'); ?>
+    	   <?php include(erLhcoreClassDesign::designtpl('lhchat/checkchatstatus_text/closed_chat.tpl.php'));?>
     	<?php endif; ?>	
     </h4>
     <?php elseif ($is_online == true) : ?>
-     
     <h4>
-         <?php if ($chat->number_in_queue > 1) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','You are number')?> <b><?php echo $chat->number_in_queue?></b> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','in the queue. Please wait...')?>
+         <?php if ($chat->number_in_queue > 1) : ?><?php include(erLhcoreClassDesign::designtpl('lhchat/checkchatstatus_text/you_a_number_in_queue.tpl.php'));?>
          <?php else : ?>
              <?php if ($theme !== false  && $theme->pending_join != '') : ?>
         	   <?php echo htmlspecialchars($theme->pending_join)?>
         	<?php else : ?>
-               <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages'); ?>
+        	   <?php include(erLhcoreClassDesign::designtpl('lhchat/checkchatstatus_text/pending_join.tpl.php'));?>
             <?php endif;?>
         <?php endif;?>
     </h4>
@@ -37,7 +36,7 @@
     <?php if ($theme !== false  && $theme->noonline_operators != '') : ?>
     	   <?php echo htmlspecialchars($theme->noonline_operators)?>
     	<?php else : ?>
-            <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','At this moment there are no logged in support staff members, but you can leave your messages'); ?>
+    	   <?php include(erLhcoreClassDesign::designtpl('lhchat/checkchatstatus_text/no_logged_operators.tpl.php'));?>
         <?php endif;?>
     </h4>
 <?php endif; ?>

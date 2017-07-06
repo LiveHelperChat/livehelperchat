@@ -1,0 +1,1 @@
+ <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','You are number')?> <b><?php echo $chat->number_in_queue?></b> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','in the queue. Please wait...')?>
