@@ -352,30 +352,36 @@ class erLhcoreClassChatStatistic {
     {
     	$dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
     	
-    	$generalFilter = self::formatFilter($filter);
-    	 
-    	$useTimeFilter = !isset($filter['filtergte']['time']) && !isset($filter['filterlte']['time']);
-    	$appendFilterTime = '';
-    	 
-    	if ($useTimeFilter == true) {
-    		$appendFilterTime = 'time > :time ';
-    	}
+    	$statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.gettopchatsbycountry',array('days' => $days, 'filter' => $filter));
     	
-    	if ($generalFilter != '' && $useTimeFilter == true) {
-    		$generalFilter = ' AND '.$generalFilter;
-    	}
-    	
-    	$sql = "SELECT count(id) AS number_of_chats,country_name FROM lh_chat WHERE {$appendFilterTime} {$generalFilter} GROUP BY country_code,country_name ORDER BY number_of_chats DESC LIMIT 20";
-    	$db = ezcDbInstance::get();
-    	$stmt = $db->prepare($sql);
-    	
-    	if ($useTimeFilter == true) {
-    		$stmt->bindValue(':time',$dateUnixPast);
-    	}
-    	
-    	$stmt->setFetchMode(PDO::FETCH_ASSOC);
-    	$stmt->execute();
-    	return $stmt->fetchAll();
+    	if ($statusWorkflow === false) {
+        	$generalFilter = self::formatFilter($filter);
+        	 
+        	$useTimeFilter = !isset($filter['filtergte']['time']) && !isset($filter['filterlte']['time']);
+        	$appendFilterTime = '';
+        	 
+        	if ($useTimeFilter == true) {
+        		$appendFilterTime = 'time > :time ';
+        	}
+        	
+        	if ($generalFilter != '' && $useTimeFilter == true) {
+        		$generalFilter = ' AND '.$generalFilter;
+        	}
+        	
+        	$sql = "SELECT count(id) AS number_of_chats,country_name FROM lh_chat WHERE {$appendFilterTime} {$generalFilter} GROUP BY country_code,country_name ORDER BY number_of_chats DESC LIMIT 20";
+        	$db = ezcDbInstance::get();
+        	$stmt = $db->prepare($sql);
+        	
+        	if ($useTimeFilter == true) {
+        		$stmt->bindValue(':time',$dateUnixPast);
+        	}
+        	
+        	$stmt->setFetchMode(PDO::FETCH_ASSOC);
+        	$stmt->execute();
+        	return $stmt->fetchAll();
+    	} else {
+    	    return $statusWorkflow['list'];
+    	}    	
     }
 
     public static function exportAverageOfChatsDialogsByUser($days = 30, $filter = array()) {
@@ -462,64 +468,79 @@ class erLhcoreClassChatStatistic {
 
     public static function numberOfChatsDialogsByUser($days = 30, $filter = array()) 
     {    	    
-    	$dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
-    	
-    	$generalFilter = self::formatFilter($filter);
-    	
-    	$useTimeFilter = !isset($filter['filtergte']['time']) && !isset($filter['filterlte']['time']);
-    	$appendFilterTime = '';
-    	
-    	if ($useTimeFilter == true) {
-    		$appendFilterTime = 'time > :time ';
-    	}
-    	 
-    	if ($generalFilter != '' && $useTimeFilter == true) {
-    		$generalFilter = ' AND '.$generalFilter;
-    	}
-    	    	
-    	$sql = "SELECT count(id) AS number_of_chats,user_id FROM lh_chat WHERE {$appendFilterTime} {$generalFilter} GROUP BY user_id ORDER BY number_of_chats DESC LIMIT 20";
-    	$db = ezcDbInstance::get();
-    	$stmt = $db->prepare($sql);
-    	
-    	if ($useTimeFilter == true) {
-    		$stmt->bindValue(':time',$dateUnixPast);
-    	}
-    	
-    	$stmt->setFetchMode(PDO::FETCH_ASSOC);
-    	$stmt->execute();
-    	return $stmt->fetchAll();
+        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.numberofchatsdialogsbyuser',array('days' => $days, 'filter' => $filter));
+
+        if ($statusWorkflow === false) {
+        	$dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
+        	
+        	$generalFilter = self::formatFilter($filter);
+        	
+        	$useTimeFilter = !isset($filter['filtergte']['time']) && !isset($filter['filterlte']['time']);
+        	$appendFilterTime = '';
+        	
+        	if ($useTimeFilter == true) {
+        		$appendFilterTime = 'time > :time ';
+        	}
+        	 
+        	if ($generalFilter != '' && $useTimeFilter == true) {
+        		$generalFilter = ' AND '.$generalFilter;
+        	}
+        	    	
+        	$sql = "SELECT count(id) AS number_of_chats,user_id FROM lh_chat WHERE {$appendFilterTime} {$generalFilter} GROUP BY user_id ORDER BY number_of_chats DESC LIMIT 20";
+        	
+        	$db = ezcDbInstance::get();
+        	$stmt = $db->prepare($sql);
+        	
+        	if ($useTimeFilter == true) {
+        		$stmt->bindValue(':time',$dateUnixPast);
+        	}
+        	
+        	$stmt->setFetchMode(PDO::FETCH_ASSOC);
+        	$stmt->execute();
+        	return $stmt->fetchAll();
+        	
+        } else {
+            return $statusWorkflow['list'];
+        }
     }
     
     public static function avgWaitTimeyUser($days = 30, $filter = array()) 
     {    	    
-    	$dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
-    	
-    	$filter['filterlt']['wait_time'] = 600;
-    	
-    	$generalFilter = self::formatFilter($filter);
-    	
-    	$useTimeFilter = !isset($filter['filtergte']['time']) && !isset($filter['filterlte']['time']);
-    	$appendFilterTime = '';
-    	
-    	if ($useTimeFilter == true) {
-    		$appendFilterTime = 'time > :time ';
-    	}
-    	 
-    	if ($generalFilter != '' && $useTimeFilter == true) {
-    		$generalFilter = ' AND '.$generalFilter;
-    	}
-    	    	
-    	$sql = "SELECT count(wait_time) AS avg_wait_time,user_id FROM lh_chat WHERE {$appendFilterTime} {$generalFilter} GROUP BY user_id ORDER BY avg_wait_time DESC LIMIT 20";
-    	$db = ezcDbInstance::get();
-    	$stmt = $db->prepare($sql);
-    	
-    	if ($useTimeFilter == true) {
-    		$stmt->bindValue(':time',$dateUnixPast);
-    	}
-    	
-    	$stmt->setFetchMode(PDO::FETCH_ASSOC);
-    	$stmt->execute();
-    	return $stmt->fetchAll();
+        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.avgwaittimeuser',array('days' => $days, 'filter' => $filter));
+        
+        if ($statusWorkflow === false) {
+        	$dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
+        	
+        	$filter['filterlt']['wait_time'] = 600;
+        	
+        	$generalFilter = self::formatFilter($filter);
+        	
+        	$useTimeFilter = !isset($filter['filtergte']['time']) && !isset($filter['filterlte']['time']);
+        	$appendFilterTime = '';
+        	
+        	if ($useTimeFilter == true) {
+        		$appendFilterTime = 'time > :time ';
+        	}
+        	 
+        	if ($generalFilter != '' && $useTimeFilter == true) {
+        		$generalFilter = ' AND '.$generalFilter;
+        	}
+        	    	
+        	$sql = "SELECT avg(wait_time) AS avg_wait_time,user_id FROM lh_chat WHERE {$appendFilterTime} {$generalFilter} GROUP BY user_id ORDER BY avg_wait_time DESC LIMIT 20";
+        	        	
+        	$db = ezcDbInstance::get();
+        	$stmt = $db->prepare($sql);
+        	
+        	if ($useTimeFilter == true) {
+        		$stmt->bindValue(':time',$dateUnixPast);
+        	}
+        	
+        	$stmt->setFetchMode(PDO::FETCH_ASSOC);
+        	$stmt->execute();
+        	return $stmt->fetchAll();
+        } else {
+            return $statusWorkflow['list'];
+        }
     }
     
     public static function numberOfMessagesByUser($days = 30, $filter = array()) 
