@@ -1423,6 +1423,14 @@ function lh(){
 	        	                    	  $('#user-chat-status-'+item.chat_id).addClass('icon-user-closed-chat');
 	        	                      }
 
+	        	                      if (item.um == 1) {
+	  	                				  $('#chat-id-'+item.chat_id +'-mds').removeClass('chat-active');
+	  	                				  $('#chat-id-'+item.chat_id +'-mds').addClass('chat-unread');
+	  	                			  } else {
+	  	                				  $('#chat-id-'+item.chat_id +'-mds').removeClass('chat-unread');
+	  	                				  $('#chat-id-'+item.chat_id +'-mds').addClass('chat-active');
+	  	                			  }
+	        	                      
 	        	                      if (typeof item.oad != 'undefined') {	        	                    
 	        	                    	  eval(item.oad);
 	        	                      };

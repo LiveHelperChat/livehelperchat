@@ -105,16 +105,14 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
 		            }
 
 		            if ($Chat->is_user_typing == true) {
-		                $ReturnStatuses[$chat_id] = array('chat_id' => $chat_id, 'us' => $Chat->user_status_front, 'tp' => 'true','tx' => htmlspecialchars($Chat->user_typing_txt));
+		                $ReturnStatuses[$chat_id] = array('chat_id' => $chat_id, 'um' => $Chat->has_unread_op_messages, 'us' => $Chat->user_status_front, 'tp' => 'true','tx' => htmlspecialchars($Chat->user_typing_txt));
 		            } else {
-		                $ReturnStatuses[$chat_id] = array('chat_id' => $chat_id, 'us' => $Chat->user_status_front, 'tp' => 'false');
+		                $ReturnStatuses[$chat_id] = array('chat_id' => $chat_id, 'um' => $Chat->has_unread_op_messages, 'us' => $Chat->user_status_front, 'tp' => 'false');
 		            }
 
 		            if ($Chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT || $Chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
 		                $ReturnStatuses[$chat_id]['uc'] = 'true';
 		            }
-		            
-		            
 		            
 		            if ($Chat->operation_admin != '') {
 		            	$ReturnStatuses[$chat_id]['oad'] = $Chat->operation_admin;
