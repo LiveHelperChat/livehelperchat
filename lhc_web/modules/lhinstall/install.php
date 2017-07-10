@@ -296,6 +296,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `online_user_id` int(11) NOT NULL,
 				  `auto_responder_id` int(11) NOT NULL,
 				  `last_msg_id` int(11) NOT NULL,
+				  `lsync` int(11) NOT NULL,
 				  `additional_data` text NOT NULL,				  
 				  `user_tz_identifier` varchar(50) NOT NULL,
 				  `lat` varchar(10) NOT NULL,

@@ -2880,6 +2880,14 @@
                 "extra": ""
             },
             {
+                "field": "lsync",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": "0",
+                "extra": ""
+            },
+            {
                 "field": "auto_responder_id",
                 "type": "int(11)",
                 "null": "NO",
