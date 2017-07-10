@@ -88,7 +88,7 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 				        $firstNewMessage = current($Messages);
 				        $operatorId = $firstNewMessage['user_id'];
 				        
-				        if ($operatorId == -1) {$db->rollback();
+				        if ($operatorId == -1) {
 				        	$operatorId = 0;
 				        }
 				        
