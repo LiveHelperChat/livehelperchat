@@ -772,7 +772,7 @@ class erLhcoreClassModelChatOnlineUser
 
             return $item;
         } else {
-            throw new Exception('Invalid HTTP_USER_AGENT!');
+            // throw new Exception('Invalid HTTP_USER_AGENT!');
             // Stop execution on google bot
             exit;
         }
