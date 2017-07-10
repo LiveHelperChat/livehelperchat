@@ -329,6 +329,12 @@ $def->properties['has_unread_op_messages']->columnName   = 'has_unread_op_messag
 $def->properties['has_unread_op_messages']->propertyName = 'has_unread_op_messages';
 $def->properties['has_unread_op_messages']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+// Last user sync time, updated only lastsync < 30 sec
+$def->properties['lsync'] = new ezcPersistentObjectProperty();
+$def->properties['lsync']->columnName   = 'lsync';
+$def->properties['lsync']->propertyName = 'lsync';
+$def->properties['lsync']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['unread_op_messages_informed'] = new ezcPersistentObjectProperty();
 $def->properties['unread_op_messages_informed']->columnName   = 'unread_op_messages_informed';
 $def->properties['unread_op_messages_informed']->propertyName = 'unread_op_messages_informed';

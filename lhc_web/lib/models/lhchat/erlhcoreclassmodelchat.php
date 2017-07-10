@@ -56,6 +56,7 @@ class erLhcoreClassModelChat {
                'chat_initiator'     	=> $this->chat_initiator,
                'user_tz_identifier'     => $this->user_tz_identifier,
                'user_closed_ts'     	=> $this->user_closed_ts,
+               'lsync'     	            => $this->lsync,
 
        		   'online_user_id'     	=> $this->online_user_id,
        		   'unread_messages_informed' => $this->unread_messages_informed,
@@ -516,6 +517,7 @@ class erLhcoreClassModelChat {
    public $chat_duration = 0;
    public $priority = 0;
    public $online_user_id = 0;
+   public $lsync = 0;
 
    // Transfer attributes
    public $transfer_if_na = 0;

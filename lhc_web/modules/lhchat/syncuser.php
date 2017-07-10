@@ -5,8 +5,11 @@ $pollingEnabled = (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings'
 $pollingServerTimeout = (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['connection_timeout'];
 $pollingMessageTimeout = (float)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['polling_chat_message_sinterval'];
 
+$db = ezcDbInstance::get();
+$db->beginTransaction();
+
 try {
-    $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
+    $chat = erLhcoreClassModelChat::fetchAndLock($Params['user_parameters']['chat_id']);
     $chat->updateIgnoreColumns = array('last_msg_id');
     erLhcoreClassChat::setTimeZoneByChat($chat);
 } catch (Exception $e) {
@@ -28,11 +31,7 @@ $operatorId = 0;
 $responseArray = array();
 
 if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
-{
-       
-    
-	$db = ezcDbInstance::get();
-	$db->beginTransaction();
+{   
 	try {
 		while (true) {
 	    
@@ -158,7 +157,7 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 		    	$chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_DEFAULT;
 		    	$saveChat = true;
 		    }
-	
+		    		    		    
 		    if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW) {
 		    	$blocked = 'true';
 		    	$breakSync = true;		    	
@@ -192,7 +191,8 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 		    	$saveChat = true;
 		    }
 		    
-		    if ($saveChat === true) {
+		    if ($saveChat === true || $chat->lsync < time()-30) {
+		        $chat->lsync = time();
 		    	$chat->updateThis();
 		    }
 		    
@@ -207,12 +207,16 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 		    	}
 		    }
 		}
+		
 		$db->commit();
+
 	} catch (Exception $e) {
-	   $db->rollback();
+	    $db->rollback();
 	}  
 
-} else {
+} else {    
+    $db->rollback();
+    
     $content = 'false';
     $theme = false;
     

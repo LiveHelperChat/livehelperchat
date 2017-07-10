@@ -1423,14 +1423,22 @@ function lh(){
 	        	                    	  $('#user-chat-status-'+item.chat_id).addClass('icon-user-closed-chat');
 	        	                      }
 
-	        	                      if (item.um == 1) {
-	  	                				  $('#chat-id-'+item.chat_id +'-mds').removeClass('chat-active');
-	  	                				  $('#chat-id-'+item.chat_id +'-mds').addClass('chat-unread');
-	  	                			  } else {
-	  	                				  $('#chat-id-'+item.chat_id +'-mds').removeClass('chat-unread');
-	  	                				  $('#chat-id-'+item.chat_id +'-mds').addClass('chat-active');
-	  	                			  }
+	        	                      var statusel = $('#chat-id-'+item.chat_id +'-mds');
 	        	                      
+	        	                      if (item.um == 1) {
+	        	                    	  statusel.removeClass('chat-active');
+	        	                    	  statusel.addClass('chat-unread');
+	  	                			  } else {
+	  	                				  statusel.removeClass('chat-unread');
+	  	                				  statusel.addClass('chat-active');
+	  	                			  }
+	        	                      	        	                    		  
+	        	                      if (item.lp !== false) {	        	                    	 
+	        	                    	  statusel.attr('title',item.lp+' s.');
+	        	                      } else {
+	        	                    	  statusel.attr('title','');
+	        	                      }
+	        	                    		  
 	        	                      if (typeof item.oad != 'undefined') {	        	                    
 	        	                    	  eval(item.oad);
 	        	                      };
