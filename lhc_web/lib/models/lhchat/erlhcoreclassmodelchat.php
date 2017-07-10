@@ -389,7 +389,7 @@ class erLhcoreClassModelChat {
        		if ($this->online_user !== false) {
        		    $this->user_status_front = erLhcoreClassChat::setActivityByChatAndOnlineUser($this, $this->online_user);
        		} else {
-       		    $this->user_status_front = 0; //$this->user_status == self::USER_STATUS_JOINED_CHAT ? 0 : 1;
+       		    $this->user_status_front = $this->user_status == self::USER_STATUS_JOINED_CHAT ? 0 : 1;
        		}
        		
        		return $this->user_status_front;
