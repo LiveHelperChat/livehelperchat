@@ -188,13 +188,13 @@ trait erLhcoreClassDBTrait {
 			
 	}
 	
-	public static function getCount($params = array()) {
+	public static function getCount($params = array(), $operation = 'COUNT', $field = false) {
 	
 		if (isset($params['enable_sql_cache']) && $params['enable_sql_cache'] == true) {
 			$sql = erLhcoreClassModuleFunctions::multi_implode(',',$params);
 		
 			$cache = CSCacheAPC::getMem();
-			$cacheKey = isset($params['cache_key']) ? md5($sql.$params['cache_key']) : md5('objects_count_'.strtolower(__CLASS__).'_v_'.$cache->getCacheVersion('site_attributes_version_'.strtolower(__CLASS__)).$sql);
+			$cacheKey = isset($params['cache_key']) ? md5($operation.$field.$sql.$params['cache_key']) : md5('objects_count_'.strtolower(__CLASS__).'_v_'.$cache->getCacheVersion('site_attributes_version_'.strtolower(__CLASS__)).$sql.$operation.$field);
 		
 			if (($result = $cache->restore($cacheKey)) !== false)
 			{
@@ -206,8 +206,8 @@ trait erLhcoreClassDBTrait {
 	
 		$q = $session->database->createSelectQuery();
 			
-		$q->select( "COUNT(" . self::$dbTable . "." . self::$dbTableId . ")" )->from( self::$dbTable );
-	
+		$q->select( $operation . "(" . self::$dbTable . "." .  ($field === false ? self::$dbTableId : $field) . ")" )->from( self::$dbTable );
+			
 		$conditions = self::getConditions($params, $q);
 	
 		if (count($conditions) > 0) {

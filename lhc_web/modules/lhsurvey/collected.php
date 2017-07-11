@@ -65,6 +65,7 @@ if ($pages->items_total > 0) {
 $tpl->set('items',$items);
 $tpl->set('pages',$pages);
 $tpl->set('survey',$survey);
+$tpl->set('tab','');
 
 $filterParams['input_form']->form_action = erLhcoreClassDesign::baseurl('survey/collected') . '/' . $survey->id;
 
@@ -72,6 +73,7 @@ $tpl->set('input',$filterParams['input_form']);
 $tpl->set('inputAppend',$append);
 
 $Result['content'] = $tpl->fetch();
+$Result['additional_header_js'] = '<script type="text/javascript" src="'.erLhcoreClassDesign::design('js/Chart.bundle.min.js').'"></script>';
 
 $object_trans = $survey->getModuleTranslations();
 
