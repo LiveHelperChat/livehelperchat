@@ -240,22 +240,7 @@ class erLhcoreClassSearchHandler
                             $filter['filterkeyword'][$field['filter_table_field']] = $inputParams->$key;
                         }
                     } elseif ($field['filter_type'] == 'filterin') {
-                        
-                        if ($field['datatype'] == 'transaction_types') {
-                            
-                            $filterInData = array();
-                            
-                            foreach ($inputParams->$key as $typeId) {
-                                
-                                if (erLhcoreClassModelLingbidTransactionLog::isValidType($typeId)) {
-                                    $filterInData[] = $typeId;
-                                }
-                            }
-                            
-                            if (! empty($filterInData)) {
-                                $filter['filterin'][$field['filter_table_field']] = $filterInData;
-                            }
-                        } else {
+                        if (!empty($inputParams->$key)) {
                             $filter['filterin'][$field['filter_table_field']] = $inputParams->$key;
                         }
                     } elseif ($field['filter_type'] == 'filter_work_types') {

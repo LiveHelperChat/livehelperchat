@@ -39,7 +39,8 @@ $ViewList['collected'] = array(
     'question_options_4',
     'question_options_5',
     ),
-    'functions' => array( 'manage_survey' )
+    'functions' => array( 'manage_survey' ),
+    'multiple_arguments' => array('max_stars_1','max_stars_2','max_stars_3','max_stars_4','max_stars_5')
 );
 
 $ViewList['collecteditem'] = array(

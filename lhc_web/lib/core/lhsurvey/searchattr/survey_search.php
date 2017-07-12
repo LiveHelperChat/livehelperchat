@@ -83,10 +83,10 @@ for ($i = 1; $i <= 5; $i++) {
 			'trans' => 'Stars',
 			'required' => false,
 			'valid_if_filled' => false,
-			'filter_type' => 'filter',
+			'filter_type' => 'filterin',
 			'filter_table_field' => 'max_stars_' . $i,
 			'validation_definition' => new ezcInputFormDefinitionElement(
-					ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 1)
+					ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 1), FILTER_REQUIRE_ARRAY
 					)
 	);	
 	$fieldsSearch['question_options_' . $i] = array (

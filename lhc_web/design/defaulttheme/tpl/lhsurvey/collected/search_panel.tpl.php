@@ -51,10 +51,10 @@
     			<div class="col-xs-3">
     				<div class="form-group">
 				    	<label><?php echo htmlspecialchars($survey->{$sortOption['field'] . '_title'});?></label>
-				    	<select name="<?php echo $sortOption['field']?>" class="form-control">
+				    	<select name="<?php echo $sortOption['field']?>[]" class="form-control" multiple="multiple" size="5">
 				    		<option value="0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Any')?></option>
 				        <?php for ($n = 1; $n <= $survey->{$sortOption['field']}; $n++) : ?>
-				        	<option value="<?php echo $n?>" <?php if ($input->{$sortOption['field']} == $n) : ?>selected="selected"<?php endif;?>><?php echo $n?> stars</option>
+				        	<option value="<?php echo $n?>" <?php if (is_array($input->{$sortOption['field']}) && in_array($n, $input->{$sortOption['field']})) : ?>selected="selected"<?php endif;?>><?php echo $n?> stars</option>
 				        <?php endfor;?>      
 				        </select>
 				    </div>
