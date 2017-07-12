@@ -325,11 +325,18 @@ class erLhcoreClassUser{
 
    function updateLastVisit()
    {
-       $db = ezcDbInstance::get();       
-       $stmt = $db->prepare('UPDATE lh_userdep SET last_activity = :last_activity WHERE user_id = :user_id');
-       $stmt->bindValue(':last_activity',time(),PDO::PARAM_INT);
-       $stmt->bindValue(':user_id',$this->userid,PDO::PARAM_INT);
-       $stmt->execute();       
+       // Because of how user departments table is locked sometimes we have lock deadlines. We need refactor or remove locking for user departments tables.
+       try {
+             $db = ezcDbInstance::get();
+             $db->beginTransaction();
+             $stmt = $db->prepare('UPDATE lh_userdep SET last_activity = :last_activity WHERE user_id = :user_id');
+             $stmt->bindValue(':last_activity',time(),PDO::PARAM_INT);
+             $stmt->bindValue(':user_id',$this->userid,PDO::PARAM_INT);
+             $stmt->execute();
+             $db->commit();
+        } catch (Exception $e) {
+                  // @todo fix me
+        }
    }
    
    function getUserList()
