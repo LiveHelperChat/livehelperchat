@@ -758,6 +758,12 @@ class erLhcoreClassChatStatistic {
             $filter['filtergte']['time'] = 0;
         }
     
+        if (isset($filtergte['filterlte']['time'])) {
+            $filter['filterlte']['time'] = $filtergte['filterlte']['time'];
+        } else {
+            $filter['filterlte']['time'] = 0;
+        }
+            
         $filterUsers = array();
 
         $userIdGroup = array();
