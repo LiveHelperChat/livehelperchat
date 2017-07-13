@@ -706,46 +706,6 @@ class erLhcoreClassChatStatistic {
     	return $rating;
     }
 
-    public static function formatSecondsXLS($seconds) {
-        $y = floor($seconds / (86400*365.25));
-        $d = floor(($seconds - ($y*(86400*365.25))) / 86400);
-        
-        $h = gmdate('H', $seconds);
-        $m = gmdate('i', $seconds);
-        $s = gmdate('s', $seconds);
-        
-        return ($d*24+$h) . ':' . $m . ':' . $s;
-        
-       /*  $parts = array();
-        
-        if($y > 0)
-        {
-            $parts[] = $y . ' .y';
-        }
-        
-        if($d > 0)
-        {
-            $parts[] = $d . ' d.';
-        }
-        
-        if($h > 0)
-        {
-            $parts[] = $h . ' h.';
-        }
-        
-        if($m > 0)
-        {
-            $parts[] = $m . ' m.';
-        }
-        
-        if($s > 0)
-        {
-            $parts[] = $s . ' s.';
-        }
-        
-        return implode($parts,' '); */
-    }
-
     public static function exportAgentStatistic($days = 30, $filter = array()) {
         $data = self::getAgentStatistic($days,$filter);
         include 'lib/core/lhform/PHPExcel.php';
