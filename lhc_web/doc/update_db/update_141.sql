@@ -1,0 +1,3 @@
+CREATE TABLE `lh_users_online_session` ( `id` bigint(20) NOT NULL AUTO_INCREMENT, `user_id` int(11) NOT NULL, `duration` int(11) NOT NULL, `time` int(11) NOT NULL, `lactivity` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `user_id_lactivity` (`user_id`, `lactivity`)) DEFAULT CHARSET=utf8;
+ALTER TABLE `lh_chat` ADD `usaccept` int(11) NOT NULL DEFAULT '0', COMMENT='';
+ALTER TABLE `lh_userdep` ADD `hide_online_ts` int(11) NOT NULL DEFAULT '0', COMMENT='';

@@ -39,6 +39,10 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
     	    	}
     	    	
     	    	$chat->user_id = $currentUser->getUserID();
+    	    	
+    	    	// User status in event of chat acceptance
+    	    	$chat->usaccept = $userData->hide_online;
+    	    	
     	    	$operatorAccepted = true;
     	    	$chatDataChanged = true;
     	    }
@@ -69,7 +73,9 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
     	    $chat->support_informed = 1;
     	    $chat->has_unread_messages = 0;
     	    $chat->unread_messages_informed = 0;
-    
+    	    
+    	    
+    	    
     	    if ($chat->unanswered_chat == 1 && $chat->user_status == erLhcoreClassModelChat::USER_STATUS_JOINED_CHAT)
     	    {
     	        $chat->unanswered_chat = 0;

@@ -11,7 +11,8 @@ class erLhcoreClassModelUserDep {
                'last_activity'  => $this->last_activity,
                'hide_online'    => $this->hide_online,
                'last_accepted'  => $this->last_accepted,
-               'active_chats'   => $this->active_chats
+               'active_chats'   => $this->active_chats,
+               'hide_online_ts' => $this->hide_online_ts
        );
    }
 
@@ -31,8 +32,13 @@ class erLhcoreClassModelUserDep {
 				break;
 				
 			case 'lastactivity_ago':
-					$this->lastactivity_ago = $this->user->lastactivity_ago;
+					$this->lastactivity_ago = erLhcoreClassChat::getAgoFormat($this->last_activity);
 					return $this->lastactivity_ago;
+				break;
+				
+			case 'offline_since':
+					$this->offline_since = erLhcoreClassChat::getAgoFormat($this->hide_online_ts);
+					return $this->offline_since;
 				break;
 				
 			case 'name_support':
@@ -180,6 +186,7 @@ class erLhcoreClassModelUserDep {
    public $id = null;
    public $user_id = 0;
    public $dep_id = 0;
+   public $hide_online_ts = 0;
    public $hide_online = 0;
    public $last_activity = 0;
    public $last_accepted = 0;

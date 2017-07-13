@@ -95,6 +95,9 @@ class erLhcoreClassModelChat {
        		
                'tslasign'    			=> $this->tslasign,
            
+               // Operator status while he was accepting chat
+               'usaccept'    			=> $this->usaccept,
+           
                // Visitor language
                'chat_locale'    		=> $this->chat_locale,
            
@@ -474,7 +477,8 @@ class erLhcoreClassModelChat {
    const USER_STATUS_CLOSED_CHAT = 1;
    const USER_STATUS_PENDING_REOPEN = 2;
    
-   
+   const OP_STATUS_ACCEPT_ONLINE = 0;
+   const OP_STATUS_ACCEPT_OFFLINE = 1;
    
    public $id = null;
    public $nick = '';
@@ -578,6 +582,8 @@ class erLhcoreClassModelChat {
    public $unanswered_chat = 0;
    
    public $product_id = 0;
+   
+   public $usaccept = self::OP_STATUS_ACCEPT_ONLINE;
    
    public $status_sub_arg = '';
    

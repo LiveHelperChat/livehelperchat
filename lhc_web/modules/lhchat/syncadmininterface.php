@@ -15,6 +15,9 @@ if (erLhcoreClassModelChatConfig::fetchCache('list_online_operators')->current_v
 	$canListOnlineUsersAll = $currentUser->hasAccessTo('lhuser','userlistonlineall');
 }
 
+// Update last visit
+$currentUser->updateLastVisit();
+
 // We do not need a session anymore
 session_write_close();
 
@@ -291,7 +294,7 @@ if ($canListOnlineUsers == true || $canListOnlineUsersAll == true) {
     
 	$onlineOperators = erLhcoreClassModelUserDep::getOnlineOperators($currentUser,$canListOnlineUsersAll,$filter,is_numeric($Params['user_parameters_unordered']['limito']) ? (int)$Params['user_parameters_unordered']['limito'] : 10,$onlineTimeout);
 	
-	erLhcoreClassChat::prefillGetAttributes($onlineOperators,array('lastactivity_ago','user_id','id','name_official','active_chats','departments_names','hide_online'),array(),array('remove_all' => true));
+	erLhcoreClassChat::prefillGetAttributes($onlineOperators,array('lastactivity_ago','offline_since','user_id','id','name_official','active_chats','departments_names','hide_online'),array(),array('remove_all' => true));
 	
 	$ReturnMessages['online_op'] = array('list' => array_values($onlineOperators), 'op_cc' => $operatorsCount, 'op_sn' => $operatorsSend);
 }
@@ -335,8 +338,7 @@ if ($activeTabEnabled == true && isset($Params['user_parameters_unordered']['top
     $my_active_chats = array_values($activeMyChats);
 }
 
-// Update last visit
-$currentUser->updateLastVisit();
+
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.syncadmininterface',array('lists' => & $ReturnMessages));
 

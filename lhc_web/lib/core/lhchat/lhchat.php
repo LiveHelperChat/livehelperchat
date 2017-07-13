@@ -55,6 +55,7 @@ class erLhcoreClassChat {
 			'unread_op_messages_informed',
 			'uagent',
 			'device_type',
+			'usaccept',
 			//'product_id'
 	);
 	
@@ -683,17 +684,16 @@ class erLhcoreClassChat {
        
        $db = ezcDbInstance::get();
 	   $rowsNumber = 0;
-       
+	   
        if ($dep_id !== false) {
        		$exclipicFilter = ($exclipic == false) ? ' OR dep_id = 0' : '';
-       		
-       		if ($ignoreUserStatus === false) {       		
+       		       		       		
+       		if ($ignoreUserStatus === false) {  
+
 				if (is_numeric($dep_id)) {
-				    
-				    
 		           $stmt = $db->prepare("SELECT COUNT(lh_userdep.id) AS found FROM lh_userdep INNER JOIN lh_departament ON lh_departament.id = lh_userdep.dep_id WHERE (lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter) AND (last_activity > :last_activity AND hide_online = 0) AND (dep_id = :dep_id {$exclipicFilter})");
 		           $stmt->bindValue(':dep_id',$dep_id,PDO::PARAM_INT);
-		           $stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);		           
+		           $stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
 				} elseif ( is_array($dep_id) ) {
 					if (empty($dep_id)) {
 						$dep_id = array(-1);
@@ -1211,7 +1211,7 @@ class erLhcoreClassChat {
 		   		$parts = explode('_', $chatPart);
 		   		$chat = erLhcoreClassModelChat::fetch($parts[0]);
 		   		
-		   		if (($chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT) && ($chat->last_user_msg_time > time()-600 || $chat->last_user_msg_time == 0) && (!isset($params['reopen_closed']) || $params['reopen_closed'] == 1 || ($params['reopen_closed'] == 0 && $chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT))) {
+		   		if ($chat instanceof erLhcoreClassModelChat && ($chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT) && ($chat->last_user_msg_time > time()-600 || $chat->last_user_msg_time == 0) && (!isset($params['reopen_closed']) || $params['reopen_closed'] == 1 || ($params['reopen_closed'] == 0 && $chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT))) {
 		   			return array('id' => $parts[0],'hash' => $parts[1]);
 		   		} else {
 					return false;
@@ -1738,6 +1738,29 @@ class erLhcoreClassChat {
        }
    }
     
+   public static function getAgoFormat($ts) {
+       
+       $lastactivity_ago = '';
+       
+       if ( $ts > 0 ) {
+       
+           $periods         = array("s.", "m.", "h.", "d.", "w.", "m.", "y.", "dec.");
+           $lengths         = array("60","60","24","7","4.35","12","10");
+       
+           $difference     = time() - $ts;
+       
+           for ($j = 0; $difference >= $lengths[$j] && $j < count($lengths)-1; $j++) {
+               $difference /= $lengths[$j];
+           }
+       
+           $difference = round($difference);
+       
+           $lastactivity_ago = "$difference $periods[$j]";
+       };
+       
+       return $lastactivity_ago;       
+   }
+   
    /**
     * Make conversion if required
     *

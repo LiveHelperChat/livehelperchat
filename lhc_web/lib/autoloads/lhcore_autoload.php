@@ -57,6 +57,7 @@ return array_merge(array (
 
 
         'erLhcoreClassModelUser'            => 'lib/models/lhuser/erlhcoreclassmodeluser.php',
+        'erLhcoreClassModelUserOnlineSession' => 'lib/models/lhuser/erlhcoreclassmodeluseronlinesession.php',
         'erLhcoreClassModelUserSession'     => 'lib/models/lhuser/erlhcoreclassmodelusersession.php',
 		'erLhcoreClassModelUserRemember' 	=> 'lib/models/lhuser/erlhcoreclassmodeluserremember.php',
         'erLhcoreClassModelGroup'           => 'lib/models/lhuser/erlhcoreclassmodelgroup.php',

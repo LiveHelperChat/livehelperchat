@@ -273,6 +273,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `dep_id` int(11) NOT NULL,
 				  `sender_user_id` int(11) NOT NULL,
 				  `product_id` int(11) NOT NULL,
+				  `usaccept` int(11) NOT NULL DEFAULT '0',
 				  `user_status` int(11) NOT NULL DEFAULT '0',
 				  `user_closed_ts` int(11) NOT NULL DEFAULT '0',
 				  `support_informed` int(11) NOT NULL DEFAULT '0',
@@ -344,7 +345,16 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   PRIMARY KEY (`id`),
                   KEY `ip` (`ip`)
                 ) DEFAULT CHARSET=utf8;");
-
+        	   
+        	   $db->query("CREATE TABLE `lh_users_online_session` ( 
+        	       `id` bigint(20) NOT NULL AUTO_INCREMENT, 
+        	       `user_id` int(11) NOT NULL, 
+        	       `time` int(11) NOT NULL, 
+        	       `duration` int(11) NOT NULL, 
+        	       `lactivity` int(11) NOT NULL, 
+        	       PRIMARY KEY (`id`), 
+        	       KEY `user_id_lactivity` (`user_id`, `lactivity`)) DEFAULT CHARSET=utf8;");
+        	   
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_archive_range` (
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
         	   `range_from` int(11) NOT NULL,
@@ -1485,6 +1495,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `last_accepted` int(11) NOT NULL,
                   `active_chats` int(11) NOT NULL,
                   `type` int(11) NOT NULL DEFAULT '0',
+                  `hide_online_ts` int(11) NOT NULL DEFAULT '0',
                   `dep_group_id` int(11) NOT NULL DEFAULT '0',
                   PRIMARY KEY (`id`),
                   KEY `last_activity_hide_online_dep_id` (`last_activity`,`hide_online`,`dep_id`),

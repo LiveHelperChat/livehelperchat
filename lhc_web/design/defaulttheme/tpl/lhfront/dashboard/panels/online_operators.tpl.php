@@ -20,9 +20,9 @@
 				</thead>
 				<tr ng-repeat="operator in online_op.list track by operator.id">
 					<?php /*ng-class="{'chat-pending' : operator.hide_online,'chat-active' : !operator.hide_online}"*/ ?>
-					<td><a ng-show="operator.user_id != <?php echo erLhcoreClassUser::instance()->getUserID();?>" href="#" ng-click="lhc.startChatOperator(operator.user_id)" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Start chat');?>"><i class="material-icons">chat</i></a><i class="material-icons" >{{operator.hide_online == 1 ? 'flash_off' : 'flash_on'}}</i> {{operator.name_official}}</td>
+					<td><a ng-show="operator.user_id != <?php echo erLhcoreClassUser::instance()->getUserID();?>" href="#" ng-click="lhc.startChatOperator(operator.user_id)" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Start chat');?>"><i class="material-icons">chat</i></a><i class="material-icons" >{{operator.hide_online == 1 ? 'flash_off' : 'flash_on'}}</i>{{operator.hide_online == 1 ? operator.offline_since : ''}} {{operator.name_official}}</td>
 					<td>
-						<div class="abbr-list" title="{{operator.lastactivity_ago}}">{{operator.lastactivity_ago}}</div>
+						<div class="abbr-list" title="{{operator.lastactivity_ago}}">{{operator.lastactivity_ago}}</div>						
 					</td>
 					<td>{{operator.active_chats}}</td>
 					<td><div class="abbr-list" title="{{operator.departments_names.join(', ')}}">{{operator.departments_names.join(", ")}}</div></td>

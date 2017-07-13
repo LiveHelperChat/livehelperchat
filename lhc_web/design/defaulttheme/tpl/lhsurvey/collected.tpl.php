@@ -1,10 +1,5 @@
 <h1><?php echo htmlspecialchars($survey)?></h1>
 
-<?php include(erLhcoreClassDesign::designtpl('lhsurvey/collected/search_panel.tpl.php')); ?>
-<?php include(erLhcoreClassDesign::designtpl('lhsurvey/forms/fields_names_enabled.tpl.php'));?>
-
-<br/>
-
 <div role="tabpanel">
 	<!-- Nav tabs -->
 	<ul class="nav nav-tabs" role="tablist">
@@ -15,6 +10,8 @@
     <!-- Tab panes -->
 	<div class="tab-content">
 		<div role="tabpanel" class="tab-pane active" id="list">
+		  <?php include(erLhcoreClassDesign::designtpl('lhsurvey/collected/search_panel.tpl.php')); ?>
+          <?php include(erLhcoreClassDesign::designtpl('lhsurvey/forms/fields_names_enabled.tpl.php'));?>
 		  <?php include(erLhcoreClassDesign::designtpl('lhsurvey/collected/list.tpl.php')); ?>
 		</div>
 		<div role="tabpanel" class="tab-pane" id="chart">

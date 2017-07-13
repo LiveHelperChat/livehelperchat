@@ -152,6 +152,14 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 		    	$responseArray['closed'] = true;
 		    }
 		    
+		    // If there was two tabs open with same chat force chat close in another tab also
+		    if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT) {
+		        $blocked = 'true';
+		        $breakSync = true;
+		        $responseArray['closed'] = true;
+		        $status = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','You have closed this chat!');
+		    }
+		    
 		    if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED) {
 		    	$checkStatus = 't';
 		    	$chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_DEFAULT;
