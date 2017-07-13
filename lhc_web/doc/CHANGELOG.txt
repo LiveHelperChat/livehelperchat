@@ -1,3 +1,10 @@
+2.67v
+
+1. Chat's will track in what state operator was while he was accepting chat. This will be used in Agents statistic.
+2. If widget is closed in one tab it will be closed in another one also.
+
+execute doc/update_db/update_141.sql for update
+
 2.66v
 
 1. Identification was last message seen by visitor or not.

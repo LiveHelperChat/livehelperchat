@@ -719,11 +719,13 @@ class erLhcoreClassChatStatistic {
         $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(0, 1, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Agent'));
         $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, 1, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Chats'));
         $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(0, 2, '');
-        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Number of chats'));
-        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(2, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Hours on chat'));
-        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(3, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Ave number of chat per hour'));
-        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(4, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Average pick-up time'));
-        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(5, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Average chat length'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Total number of chats'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(2, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Number of chats while online'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(3, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Hours on chat (sum of chat duration)'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(4, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Time online (sum of time spend online)'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(5, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','AVG number of chat per hour'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(6, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Average pick-up time'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(7, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Average chat length'));
         $i = 3;
         foreach ($data as $item) {
             $key = 0;
@@ -731,13 +733,25 @@ class erLhcoreClassChatStatistic {
             $key++;
             $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($key, $i, $item->numberOfChats);
             $key++;
-            $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($key, $i, $item->totalHours);
+            $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($key, $i, $item->numberOfChatsOnline);
+            
+            $key++;
+            $objPHPExcel->getActiveSheet()->setCellValueExplicitByColumnAndRow($key, $i, $item->totalHours/(24*3600), PHPExcel_Cell_DataType::TYPE_NUMERIC);
+            $objPHPExcel->getActiveSheet()->getStyleByColumnAndRow($key, $i)->getNumberFormat()->setFormatCode('[HH]:MM:SS');
+            
+            $key++;            
+            $objPHPExcel->getActiveSheet()->setCellValueExplicitByColumnAndRow($key, $i, $item->totalHoursOnline/(24*3600), PHPExcel_Cell_DataType::TYPE_NUMERIC);
+            $objPHPExcel->getActiveSheet()->getStyleByColumnAndRow($key, $i)->getNumberFormat()->setFormatCode('[HH]:MM:SS');
+            
             $key++;
             $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($key, $i, $item->aveNumber);
             $key++;
             $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($key, $i, $item->avgWaitTime);
+            
             $key++;
-            $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($key, $i, $item->avgChatLength);
+            $objPHPExcel->getActiveSheet()->setCellValueExplicitByColumnAndRow($key, $i, $item->avgChatLengthSeconds/(24*3600), PHPExcel_Cell_DataType::TYPE_NUMERIC);
+            $objPHPExcel->getActiveSheet()->getStyleByColumnAndRow($key, $i)->getNumberFormat()->setFormatCode('[HH]:MM:SS');
+            
             $i++;
         }
         $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
@@ -760,10 +774,8 @@ class erLhcoreClassChatStatistic {
     
         if (isset($filtergte['filterlte']['time'])) {
             $filter['filterlte']['time'] = $filtergte['filterlte']['time'];
-        } else {
-            $filter['filterlte']['time'] = 0;
         }
-            
+        
         $filterUsers = array();
 
         $userIdGroup = array();
@@ -858,23 +870,55 @@ class erLhcoreClassChatStatistic {
             $userInfo = erLhcoreClassModelUser::fetch($user->id,true);
             $filter['filter']['user_id'] = $user->id;     
             $agentName = $userInfo->name;
+            
             $userChatsStats = erLhcoreClassChatStatistic::numberOfChatsDialogsByUser(30,$filter);
             $numberOfChats = empty($userChatsStats) ? $numberOfChats = "0" : $userChatsStats[0]['number_of_chats'];
+            
+            // Just chat's then operator accepted chat and he was online
+            $filterOnline = $filter;
+            $filterOnline['filter']['usaccept'] = 0;
+            $userChatsStatsOnline = erLhcoreClassChatStatistic::numberOfChatsDialogsByUser(30,$filterOnline);
+            $numberOfChatsOnline = empty($userChatsStatsOnline) ? 0 : $userChatsStatsOnline[0]['number_of_chats'];
+
+            $filterOnlineHours = $filter;
+            if (isset($filterOnlineHours['filter']['dep_id'])) {
+                unset($filterOnlineHours['filter']['dep_id']);
+            }
+            
+            if (isset($filterOnlineHours['filterin']['dep_id'])) {
+                unset($filterOnlineHours['filterin']['dep_id']);
+            }
+            
+            $totalHoursOnline = self::totalHoursOfOnlineDialogsByUser(30,$filterOnlineHours);
+            $totalHoursOnlineCount = self::formatHours($totalHoursOnline);
+                                    
             $totalHours = self::totalHoursOfChatsDialogsByUser(30,$filter);
-            $totalHours = self::formatHours($totalHours);
-            if ($totalHours > 1) {
-                $aveNumber = round($numberOfChats / $totalHours, 2);
+                        
+            if ($totalHoursOnlineCount > 1) {
+                $aveNumber = round($numberOfChatsOnline / $totalHoursOnlineCount, 2);
+            } else {
+                $aveNumber = $numberOfChatsOnline;
             }
-            else {
-                $aveNumber = $numberOfChats;
-            }
+            
             $userWaitTimeByOperator = self::avgWaitTimeyUser(30,$filter);
             $avgWaitTime = empty($userWaitTimeByOperator) ? "0 s." : erLhcoreClassChat::formatSeconds($userWaitTimeByOperator[0]['avg_wait_time']);
             
-            $avgDuration = self::getAverageChatduration(30,$filter);            
+            $avgDuration = self::getAverageChatduration(30,$filter);   
             $avgChatLength = $avgDuration ? erLhcoreClassChat::formatSeconds($avgDuration) : "0 s.";
-            $list[] = (object)array('agentName' => $agentName, 'numberOfChats' => $numberOfChats, 'totalHours' => $totalHours,
-                'aveNumber' => $aveNumber, 'avgWaitTime' => $avgWaitTime, 'avgChatLength' => $avgChatLength);
+            $list[] = (object)array(
+                'agentName' => $agentName, 
+                'userId' => $user->id,
+                'numberOfChats' => $numberOfChats, 
+                'numberOfChatsOnline' => $numberOfChatsOnline, 
+                'totalHours' => $totalHours,
+                'totalHours_front' => erLhcoreClassChat::formatSeconds($totalHours),
+                'totalHoursOnline' => $totalHoursOnline,
+                'totalHoursOnline_front' => erLhcoreClassChat::formatSeconds($totalHoursOnline),
+                'aveNumber' => $aveNumber, 
+                'avgWaitTime' => $avgWaitTime, 
+                'avgChatLength' => $avgChatLength,
+                'avgChatLengthSeconds' => $avgDuration
+            );
         }
         return $list;
     }
@@ -889,7 +933,16 @@ class erLhcoreClassChatStatistic {
         return $h + $m;
     }
     
-    public static function totalHoursOfChatsDialogsByUser($days = 30, $filter = array(), $limit = 20)
+    public static function totalHoursOfOnlineDialogsByUser($days = 30, $filter = array(), $limit = 20)
+    {
+        if (empty($filter)) {
+            $filter['filtergt']['time'] = $dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
+        }
+
+        return erLhcoreClassChat::getCount($filter,'lh_users_online_session','SUM(duration)');
+    }
+    
+    public static function totalHoursOfChatsDialogsByUser($days = 30, $filter = array())
     {
         if (empty($filter)) {
             $filter['filtergt']['time'] = $dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days,date('y'));

@@ -350,6 +350,11 @@ $def->properties['sender_user_id']->columnName   = 'sender_user_id';
 $def->properties['sender_user_id']->propertyName = 'sender_user_id';
 $def->properties['sender_user_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['usaccept'] = new ezcPersistentObjectProperty();
+$def->properties['usaccept']->columnName   = 'usaccept';
+$def->properties['usaccept']->propertyName = 'usaccept';
+$def->properties['usaccept']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['uagent'] = new ezcPersistentObjectProperty();
 $def->properties['uagent']->columnName   = 'uagent';
 $def->properties['uagent']->propertyName = 'uagent';

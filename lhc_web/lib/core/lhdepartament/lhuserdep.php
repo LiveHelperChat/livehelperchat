@@ -122,8 +122,9 @@ class erLhcoreClassUserDep{
 
    public static function setHideOnlineStatus($UserData) {
        $db = ezcDbInstance::get();
-       $stmt = $db->prepare('UPDATE lh_userdep SET hide_online = :hide_online WHERE user_id = :user_id');
+       $stmt = $db->prepare('UPDATE lh_userdep SET hide_online = :hide_online, hide_online_ts = :hide_online_ts WHERE user_id = :user_id');
        $stmt->bindValue( ':hide_online',$UserData->hide_online);
+       $stmt->bindValue( ':hide_online_ts',time());
        $stmt->bindValue( ':user_id',$UserData->id);
        $stmt->execute();
    }

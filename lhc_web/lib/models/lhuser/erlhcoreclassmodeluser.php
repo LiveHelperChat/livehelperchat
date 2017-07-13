@@ -170,24 +170,7 @@ class erLhcoreClassModelUser {
        		break;
 
        	case 'lastactivity_ago':
-       		   $this->lastactivity_ago = '';
-
-       		   if ( $this->lastactivity > 0 ) {
-
-                    $periods         = array("s.", "m.", "h.", "d.", "w.", "m.", "y.", "dec.");
-                    $lengths         = array("60","60","24","7","4.35","12","10");
-
-                    $difference     = time() - $this->lastactivity;
-
-                    for ($j = 0; $difference >= $lengths[$j] && $j < count($lengths)-1; $j++) {
-                        $difference /= $lengths[$j];
-                    }
-
-                    $difference = round($difference);
-
-                   $this->lastactivity_ago = "$difference $periods[$j]";
-       		   };
-
+       		   $this->lastactivity_ago = erLhcoreClassChat::getAgoFormat($this->lastactivity);       		   
        		   return $this->lastactivity_ago;
        		break;
 

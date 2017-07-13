@@ -1098,6 +1098,48 @@
                 "extra": ""
             }
         ],
+        "lh_users_online_session": [
+            {
+                "field": "id",
+                "type": "bigint(20)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "user_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "time",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": "0",
+                "extra": ""
+            },
+            {
+                "field": "duration",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": "0",
+                "extra": ""
+            },
+            {
+                "field": "lactivity",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": "0",
+                "extra": ""
+            }
+        ],
         "lh_abstract_rest_api_key": [
             {
                 "field": "id",
@@ -2876,6 +2918,14 @@
                 "type": "int(11)",
                 "null": "NO",
                 "key": "MUL",
+                "default": "0",
+                "extra": ""
+            },
+            {
+                "field": "usaccept",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
                 "default": "0",
                 "extra": ""
             },
@@ -5250,6 +5300,14 @@
                 "extra": ""
             },
             {
+                "field": "hide_online_ts",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": "0",
+                "extra": ""
+            },
+            {
                 "field": "hide_online",
                 "type": "int(11)",
                 "null": "NO",
@@ -7130,6 +7188,7 @@
         "lh_canned_msg_tag_link": "CREATE TABLE `lh_canned_msg_tag_link` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `tag_id` int(11) NOT NULL,  `canned_id` int(11) NOT NULL,  PRIMARY KEY (`id`), KEY `canned_id` (`canned_id`), KEY `tag_id` (`tag_id`)) DEFAULT CHARSET=utf8",
         "lh_canned_msg_tag": "CREATE TABLE `lh_canned_msg_tag` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `tag` varchar(40) NOT NULL, PRIMARY KEY (`id`), KEY `tag` (`tag`)) DEFAULT CHARSET=utf8",
         "lh_group_work": "CREATE TABLE `lh_group_work` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `group_id` int(11) NOT NULL, `group_work_id` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `group_id` (`group_id`)) DEFAULT CHARSET=utf8",
+        "lh_users_online_session": "CREATE TABLE `lh_users_online_session` (  `id` bigint(20) NOT NULL AUTO_INCREMENT,  `user_id` int(11) NOT NULL, `duration` int(11) NOT NULL, `time` int(11) NOT NULL, `lactivity` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `user_id_lactivity` (`user_id`, `lactivity`)) DEFAULT CHARSET=utf8",
         "lh_abstract_proactive_chat_variables": "CREATE TABLE `lh_abstract_proactive_chat_variables` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `name` varchar(50) NOT NULL, `identifier` varchar(50) NOT NULL, `store_timeout` int(11) NOT NULL, `filter_val` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `identifier` (`identifier`)) DEFAULT CHARSET=utf8",
         "lh_abstract_proactive_chat_event": "CREATE TABLE `lh_abstract_proactive_chat_event` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `vid_id` int(11) NOT NULL,  `ev_id` int(11) NOT NULL,  `ts` int(11) NOT NULL,  `val` varchar(50) NOT NULL,  PRIMARY KEY (`id`),  KEY `vid_id_ev_id_val_ts` (`vid_id`,`ev_id`,`val`,`ts`),  KEY `vid_id_ev_id_ts` (`vid_id`,`ev_id`,`ts`)) DEFAULT CHARSET=utf8",
         "lh_abstract_proactive_chat_invitation_event": "CREATE TABLE `lh_abstract_proactive_chat_invitation_event` ( `id` int(11) NOT NULL AUTO_INCREMENT, `invitation_id` int(11) NOT NULL, `event_id` int(11) NOT NULL, `min_number` int(11) NOT NULL, `during_seconds` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `invitation_id` (`invitation_id`), KEY `event_id` (`event_id`)) DEFAULT CHARSET=utf8"

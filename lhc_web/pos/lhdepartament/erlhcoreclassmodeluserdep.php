@@ -24,6 +24,11 @@ $def->properties['last_activity']->columnName   = 'last_activity';
 $def->properties['last_activity']->propertyName = 'last_activity';
 $def->properties['last_activity']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT; 
 
+$def->properties['hide_online_ts'] = new ezcPersistentObjectProperty();
+$def->properties['hide_online_ts']->columnName   = 'hide_online_ts';
+$def->properties['hide_online_ts']->propertyName = 'hide_online_ts';
+$def->properties['hide_online_ts']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT; 
+
 $def->properties['hide_online'] = new ezcPersistentObjectProperty();
 $def->properties['hide_online']->columnName   = 'hide_online';
 $def->properties['hide_online']->propertyName = 'hide_online';

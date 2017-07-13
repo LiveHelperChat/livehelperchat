@@ -137,19 +137,7 @@
 	
 	$("#xmlagentstatistic").click(function(event) {
 		event.preventDefault();
-		var url = '<?php echo erLhcoreClassDesign::baseurl('statistic/statistic')?>/(tab)/agentstatistic/<?php echo isset($urlappend) ? $urlappend : ''?>' + '?xmlagentstatistic=1';
-		
-		if ($("#id_timefrom").val() != '') {
-			url = url + '&timefrom=' + $("#id_timefrom").val();
-		}
-		
-		if ($("#id_timeto").val() != '') {
-			url = url + '&timeto=' + $("#id_timeto").val();
-		}
-		
-		if (($("#id_timefrom").val() != '') || ($("#id_timeto").val() != '')) {
-			url = url + '&doSearch=Search';
-		}
+		var url = '<?php echo erLhcoreClassDesign::baseurl('statistic/statistic')?>/(tab)/agentstatistic<?php echo isset($input) ? erLhcoreClassSearchHandler::getURLAppendFromInput($input) : ''?>' + '?xmlagentstatistic=1';
 		window.open(url,'_blank');
 	})
 </script>							
@@ -163,9 +151,11 @@
 	</tr>
 	<tr>
 		<th></th>
-		<th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Number of chats');?></th>
-		<th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Hours on chat');?></th>
-		<th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Ave number of chat per hour');?></th>
+		<th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Total number of chats');?></th>
+		<th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Number of chats while online');?></th>
+		<th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Hours on chat (sum of chat duration)');?></th>
+		<th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Time online (sum of time spend online)');?></th>
+		<th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','AVG number of chats per hour');?></th>
 		<th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Average pick-up time');?></th>
 		<th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Average chat length');?></th>
 	</tr>
@@ -173,7 +163,9 @@
 	<tr>
 		<td><?php echo $info->agentName; ?></td>
 		<td><?php echo $info->numberOfChats; ?></td>
-		<td><?php echo $info->totalHours; ?></td>
+		<td><?php echo $info->numberOfChatsOnline; ?></td>
+		<td><?php echo $info->totalHours_front; ?></td>
+		<td><a href="<?php echo erLhcoreClassDesign::baseurl('statistic/onlinehours')?><?php echo erLhcoreClassSearchHandler::getURLAppendFromInput($input);?>/(user_id)/<?php echo $info->userId?>"><?php echo $info->totalHoursOnline_front; ?></a></td>
 		<td><?php echo $info->aveNumber; ?></td>
 		<td><?php echo $info->avgWaitTime; ?></td>
 		<td><?php echo $info->avgChatLength; ?></td>

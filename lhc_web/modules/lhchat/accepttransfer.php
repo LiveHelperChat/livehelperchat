@@ -23,6 +23,7 @@ try {
 
 // Set new chat owner
 $currentUser = erLhcoreClassUser::instance();
+$userData = $currentUser->getUserData(true);
 
 if  ($chatTransfer->dep_id > 0) {
 	$chat->dep_id = $chatTransfer->dep_id;
@@ -35,6 +36,7 @@ if  ($chatTransfer->dep_id > 0) {
 		$chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
 		$chat->user_typing_txt = (string)$chat->user.' '.htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has joined the chat!'),ENT_QUOTES);
 		$chat->user_typing  = time();
+		$chat->usaccept = $userData->hide_online;
 		
 		$msg = new erLhcoreClassModelmsg();
 		$msg->msg = (string)$chat->user.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has accepted a chat!');
@@ -51,6 +53,7 @@ if ($chatTransfer->transfer_to_user_id == $currentUser->getUserID()){
         $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
         $chat->user_typing_txt = (string)$chat->user.' '.htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has joined the chat!'),ENT_QUOTES);
         $chat->user_typing  = time();
+        $chat->usaccept = $userData->hide_online;
         
         $msg = new erLhcoreClassModelmsg();
         $msg->msg = (string)$chat->user.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has accepted a chat!');
