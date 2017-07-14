@@ -19,7 +19,7 @@ $ViewList['statistic'] = array(
 
 $ViewList['onlinehours'] = array(
     'params' => array(),
-    'uparams' => array('timefrom','timeto','user_id'),
+    'uparams' => array('timefrom','timeto','user_id','timefrom_minutes','timefrom_hours','timeto_hours','timeto_minutes'),
     'functions' => array( 'viewstatistic' )
 );
 
