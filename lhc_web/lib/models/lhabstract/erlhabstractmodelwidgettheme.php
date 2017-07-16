@@ -30,6 +30,7 @@ class erLhAbstractModelWidgetTheme {
 			'custom_status_css'			=> $this->custom_status_css,
 			'custom_container_css'		=> $this->custom_container_css,
 			'custom_widget_css'			=> $this->custom_widget_css,
+			'custom_popup_css'			=> $this->custom_popup_css,
 			'need_help_header'			=> $this->need_help_header,
 			'need_help_text'			=> $this->need_help_text,
 			'online_text'				=> $this->online_text,

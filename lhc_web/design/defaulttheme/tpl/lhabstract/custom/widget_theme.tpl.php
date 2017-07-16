@@ -335,6 +335,11 @@
 						<?php echo erLhcoreClassAbstract::renderInput('custom_widget_css', $fields['custom_widget_css'], $object)?>	
 						</div>	
 						
+						<div class="form-group">										
+						<label><?php echo $fields['custom_popup_css']['trans'];?></label>
+						<?php echo erLhcoreClassAbstract::renderInput('custom_popup_css', $fields['custom_popup_css'], $object)?>	
+						</div>	
+						
         		</div>
         	</div>
         </div>

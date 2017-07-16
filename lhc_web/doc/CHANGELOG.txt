@@ -1,3 +1,9 @@
+2.68v
+
+1. Option to style popup window with custom css
+
+execute doc/update_db/update_142.sql for update
+
 2.67v
 
 1. Chat's will track in what state operator was while he was accepting chat. This will be used in Agents statistic.
