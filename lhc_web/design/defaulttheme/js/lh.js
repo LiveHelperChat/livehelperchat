@@ -139,7 +139,7 @@ function lh(){
     		return ;
     	}
     	
-    	tabs.find('> ul').append('<li role="presentation" id="chat-tab-li-'+chat_id+'" ><a href="#chat-id-'+chat_id+'" id="chat-tab-link-'+chat_id+'" aria-controls="chat-id-'+chat_id+'" role="tab" data-toggle="tab"><i id="user-chat-status-'+chat_id+'" class="'+this.tabIconClass+'">'+this.tabIconContent+'</i>' + name.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '<span onclick="return lhinst.removeDialogTab('+chat_id+',$(\'#tabs\'),true)" class="material-icons icon-close-chat">close</span></a></li>')
+    	tabs.find('> ul').append('<li role="presentation" id="chat-tab-li-'+chat_id+'" ><a href="#chat-id-'+chat_id+'" id="chat-tab-link-'+chat_id+'" aria-controls="chat-id-'+chat_id+'" role="tab" data-toggle="tab"><i id="msg-send-status-'+chat_id+'" class="material-icons send-status-icon icon-user-online">send</i><i id="user-chat-status-'+chat_id+'" class="'+this.tabIconClass+'">'+this.tabIconContent+'</i>' + name.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '<span onclick="return lhinst.removeDialogTab('+chat_id+',$(\'#tabs\'),true)" class="material-icons icon-close-chat">close</span></a></li>')
     	
     	$('#chat-tab-link-'+chat_id).click(function() {
     		var inst = $(this);
@@ -1410,6 +1410,7 @@ function lh(){
 	        	                      };
 	        	                      
 	        	                      $('#user-chat-status-'+item.chat_id).removeClass('icon-user-online icon-user-away icon-user-pageview');
+	        	                      $('#msg-send-status-'+item.chat_id).removeClass('icon-user-online icon-user-offline');
 	        	                      
 	        	                      if (item.us == 0) {
 	        	                    	  $('#user-chat-status-'+item.chat_id).addClass('icon-user-online');
@@ -1427,8 +1428,10 @@ function lh(){
 	        	                      
 	        	                      if (item.um == 1) {
 	        	                    	  statusel.removeClass('chat-active');
-	        	                    	  statusel.addClass('chat-unread');
+	        	                    	  statusel.addClass('chat-unread');	        	                    	  
+	        	                    	  $('#msg-send-status-'+item.chat_id).addClass('icon-user-offline');
 	  	                			  } else {
+	  	                				  $('#msg-send-status-'+item.chat_id).addClass('icon-user-online');
 	  	                				  statusel.removeClass('chat-unread');
 	  	                				  statusel.addClass('chat-active');
 	  	                			  }

@@ -751,6 +751,17 @@ ul.mb0 {
 	font-size: 14px !important;
 }
 
+.send-status-icon{
+	position: absolute;
+	margin-left: 2px;
+	display: inline !important;
+	width: auto !important;
+	left: 0;
+	margin-top: -6px;
+	padding: 0 !important;
+	font-size: 12px !important;
+}
+
 .icon-close-chat:hover{
 	color:red !important;
 }
