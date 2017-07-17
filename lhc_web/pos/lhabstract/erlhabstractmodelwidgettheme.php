@@ -194,20 +194,29 @@ $def->properties['show_copyright']->columnName   = 'show_copyright';
 $def->properties['show_copyright']->propertyName = 'show_copyright';
 $def->properties['show_copyright']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+// Used to style layout of status widget
 $def->properties['custom_status_css'] = new ezcPersistentObjectProperty();
 $def->properties['custom_status_css']->columnName   = 'custom_status_css';
 $def->properties['custom_status_css']->propertyName = 'custom_status_css';
 $def->properties['custom_status_css']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
- 
+
+// Used to style container of iframe
 $def->properties['custom_container_css'] = new ezcPersistentObjectProperty();
 $def->properties['custom_container_css']->columnName   = 'custom_container_css';
 $def->properties['custom_container_css']->propertyName = 'custom_container_css';
 $def->properties['custom_container_css']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
- 
+
+// Used in widget.php for styling
 $def->properties['custom_widget_css'] = new ezcPersistentObjectProperty();
 $def->properties['custom_widget_css']->columnName   = 'custom_widget_css';
 $def->properties['custom_widget_css']->propertyName = 'custom_widget_css';
 $def->properties['custom_widget_css']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+// Used on userchat.php for popup layout styling
+$def->properties['custom_popup_css'] = new ezcPersistentObjectProperty();
+$def->properties['custom_popup_css']->columnName   = 'custom_popup_css';
+$def->properties['custom_popup_css']->propertyName = 'custom_popup_css';
+$def->properties['custom_popup_css']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
  
 $def->properties['need_help_header'] = new ezcPersistentObjectProperty();
 $def->properties['need_help_header']->columnName   = 'need_help_header';

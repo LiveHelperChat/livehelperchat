@@ -367,6 +367,16 @@ $fields = array(
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),
+   				'custom_popup_css' => array(
+   						'type' => 'textarea',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Background color for popup'),
+   						'required' => true,
+   						'placeholder' => 'body(background-color:red)',
+   						'hidden' => true,
+   						'height' => '150px',
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
    				'custom_container_css' => array(
    						'type' 			=> 'textarea',
    						'trans' 		=> erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Widget container additional CSS, takes effect after save'),

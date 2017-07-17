@@ -3,6 +3,13 @@
 <html lang="<?php echo erConfigClassLhConfig::getInstance()->getOverrideValue('site', 'content_language')?>" dir="<?php echo erConfigClassLhConfig::getInstance()->getOverrideValue('site', 'dir_language')?>">
 <head>
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_user.tpl.php'));?>
+
+<?php if (isset($Result['theme']) && $Result['theme']->custom_popup_css != '') : ?>
+<style type="text/css">
+<?php echo $Result['theme']->custom_popup_css?>
+</style>
+<?php endif;?>
+
 </head>
 <body>
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/userchat/before_userchat.tpl.php'));?>

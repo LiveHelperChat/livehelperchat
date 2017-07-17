@@ -125,7 +125,7 @@ return array(
    						'required' => false,
    						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
+   								ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
    						)),
    				'timeout_reply_message_1' => array(
    						'type' => 'text',
@@ -141,7 +141,7 @@ return array(
    						'required' => false,
    						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
+   								ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
    						)),
    				'timeout_reply_message_2' => array(
    						'type' => 'text',
@@ -157,7 +157,7 @@ return array(
    						'required' => false,
    						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
+   								ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
    						)),
    				'timeout_reply_message_3' => array(
    						'type' => 'text',
@@ -173,7 +173,7 @@ return array(
    						'required' => false,
    						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
+   								ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
    						)),
    				'timeout_reply_message_4' => array(
    						'type' => 'text',
@@ -189,7 +189,7 @@ return array(
    						'required' => false,
    						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
+   								ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
    						)),
    				'timeout_reply_message_5' => array(
    						'type' => 'text',

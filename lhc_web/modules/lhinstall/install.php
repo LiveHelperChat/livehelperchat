@@ -419,6 +419,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                  `custom_status_css` text NOT NULL,
                  `custom_container_css` text NOT NULL,
                  `custom_widget_css` text NOT NULL,
+                 `custom_popup_css` text NOT NULL,
                  `need_help_header` varchar(250) NOT NULL,
                  `need_help_text` varchar(250) NOT NULL,
                  `online_text` varchar(250) NOT NULL,

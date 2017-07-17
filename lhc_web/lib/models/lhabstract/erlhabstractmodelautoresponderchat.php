@@ -41,7 +41,7 @@ class erLhAbstractModelAutoResponderChat
                 if ($this->auto_responder->ignore_pa_chat == 0 || ($this->auto_responder->ignore_pa_chat == 1 && $this->chat->user_id == 0)) { // Do not send messages to assigned pending chats
                     
                     if ($this->wait_timeout_send <= 0 && $this->auto_responder->wait_timeout > 0 && ! empty($this->auto_responder->timeout_message) && (time() - $this->chat->time) > ($this->auto_responder->wait_timeout * ($this->auto_responder->repeat_number - (abs($this->wait_timeout_send))))) {
-                                               
+
                         $errors = array();
                         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_triggered', array(
                             'chat' => & $this->chat,
