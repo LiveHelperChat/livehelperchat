@@ -94,63 +94,48 @@ $(function() {
 	</thead>
 	<tr>
 		<td><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/total_chats.tpl.php'));?></td>
-		<td><?php echo erLhcoreClassChat::getCount($filter24)?></td>
+		<td><?php echo $last24hstatistic['totalchats']?></td>
 	</tr>
 	<tr>
 		<td><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/total_pending_chats.tpl.php'));?></td>
-		<td><?php echo erLhcoreClassChat::getCount(array_merge_recursive($filter24,array('filter' => array('status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT))))?></td>
+		<td><?php echo $last24hstatistic['totalpendingchats']?></td>
 	</tr>
 	<tr>
 		<td><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/total_active_chats.tpl.php'));?></td>
-		<td><?php echo erLhcoreClassChat::getCount(array_merge_recursive($filter24,array('filter' => array('status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT))))?></td>
+		<td><?php echo $last24hstatistic['total_active_chats']?></td>
 	</tr>
 	<tr>
 		<td><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/total_closed_chats.tpl.php'));?></td>
-		<td><?php echo erLhcoreClassChat::getCount(array_merge_recursive($filter24,array('filter' => array('status' => erLhcoreClassModelChat::STATUS_CLOSED_CHAT))))?></td>
+		<td><?php echo $last24hstatistic['total_closed_chats']?></td>
 	</tr>
 	<tr>
 		<td><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/unanswered_chats.tpl.php'));?></td>
-		<td><?php echo erLhcoreClassChat::getCount(array_merge_recursive($filter24,array('filter' => array('unanswered_chat' => 1))))?></td>
+		<td><?php echo $last24hstatistic['total_unanswered_chat']?></td>
 	</tr>
 	<tr>
 		<td><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/chatbox_chats.tpl.php'));?></td>
-		<td><?php echo erLhcoreClassChat::getCount(array_merge_recursive($filter24,array('filter' => array('status' => erLhcoreClassModelChat::STATUS_CHATBOX_CHAT))))?></td>
+		<td><?php echo $last24hstatistic['chatbox_chats']?></td>
 	</tr>
 	<tr>
 		<td><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/total_messages_including_v_s_o_m.tpl.php'));?></td>
-		<td><?php 
-		
-		$filterMsg = array_merge_recursive($filter24,array('innerjoin' => array('lh_chat' => array('lh_msg.chat_id','lh_chat.id'))));
-		
-		if (isset($filterMsg['filtergte']['time'])) {
-		    $filterMsg['filtergte']['lh_msg.time'] = $filterMsg['filtergte']['time'];
-		    unset($filterMsg['filtergte']['time']);
-		}
-		
-		if (isset($filterMsg['filterlte']['time'])) {
-		    $filterMsg['filterlte']['lh_msg.time'] = $filterMsg['filterlte']['time'];
-		    unset($filterMsg['filterlte']['time']);
-		}
-				
-		$totalMessagesCount = erLhcoreClassChat::getCount($filterMsg,'lh_msg','count(lh_msg.id)'); echo $totalMessagesCount?></td>
+		<td><?php echo $last24hstatistic['ttmall']?></td>
 	</tr>
 	<tr>
 		<td><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/total_messages_only_visitors.tpl.php'));?></td>
-		<td><?php $totalVisitorsMessagesCount = erLhcoreClassChat::getCount(array_merge_recursive($filterMsg,array('innerjoin' => array('lh_chat' => array('lh_msg.chat_id','lh_chat.id')),'filter' => array('lh_msg.user_id' => 0))),'lh_msg','count(lh_msg.id)'); echo $totalVisitorsMessagesCount;?></td>
+		<td><?php echo $last24hstatistic['ttmvis']?></td>
 	</tr>
 	<tr>
 		<td><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/total_messages_only_system_messages.tpl.php'));?></td>
-		<td><?php $systemMessagesCount = erLhcoreClassChat::getCount(array_merge_recursive($filterMsg,array('innerjoin' => array('lh_chat' => array('lh_msg.chat_id','lh_chat.id')), 'filterin' => array('lh_msg.user_id' => array(-1,-2)))),'lh_msg','count(lh_msg.id)'); echo $systemMessagesCount; ?></td>
+		<td><?php echo $last24hstatistic['ttmsys']?></td>
 	</tr>
 	<tr>
 		<td><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/total_messages_only_operators.tpl.php'));?></td>
-		<td><?php echo $totalMessagesCount-$systemMessagesCount-$totalVisitorsMessagesCount?></td>
+		<td><?php echo $last24hstatistic['ttmop']?></td>
 	</tr>
 </table>
 
 <h2><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/operators_statistic_top_100_by_chats_number.tpl.php'));?></h2>
 
-<?php $operators = erLhcoreClassChatStatistic::getTopTodaysOperators(100,0,$filter24); ?>
 <table class="table">
 	<thead>
 		<tr>

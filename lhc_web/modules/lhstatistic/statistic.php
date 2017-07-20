@@ -97,9 +97,11 @@ if ($tab == 'active') {
     } else {
         $filter24 = $filterParams['filter'];
     }
-    
+        
+    $tpl->set('last24hstatistic',erLhcoreClassChatStatistic::getLast24HStatistic($filter24));    
     $tpl->set('input',$filterParams['input_form']);
     $tpl->set('filter24',$filter24);
+    $tpl->set('operators',erLhcoreClassChatStatistic::getTopTodaysOperators(100,0,$filter24));
     
 } else if ($tab == 'agentstatistic') {
 
