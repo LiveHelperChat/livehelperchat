@@ -848,8 +848,10 @@ class erLhcoreClassChatStatistic {
             
             $key++;
             $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($key, $i, $item->aveNumber);
+            
             $key++;
-            $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($key, $i, $item->avgWaitTime);
+            $objPHPExcel->getActiveSheet()->setCellValueExplicitByColumnAndRow($key, $i, $item->avgWaitTime/(24*3600), PHPExcel_Cell_DataType::TYPE_NUMERIC);
+            $objPHPExcel->getActiveSheet()->getStyleByColumnAndRow($key, $i)->getNumberFormat()->setFormatCode('[HH]:MM:SS');
             
             $key++;
             $objPHPExcel->getActiveSheet()->setCellValueExplicitByColumnAndRow($key, $i, $item->avgChatLengthSeconds/(24*3600), PHPExcel_Cell_DataType::TYPE_NUMERIC);
@@ -1012,6 +1014,8 @@ class erLhcoreClassChatStatistic {
                 }
                 
                 $userWaitTimeByOperator = self::avgWaitTimeyUser(30,$filter);
+                $userWaitTimeByOperatorNumber = empty($userWaitTimeByOperator) ? 0 : $userWaitTimeByOperator[0]['avg_wait_time'];
+                
                 $avgWaitTime = empty($userWaitTimeByOperator) ? "0 s." : erLhcoreClassChat::formatSeconds($userWaitTimeByOperator[0]['avg_wait_time']);
                 
                 $avgDuration = self::getAverageChatduration(30,$filter);   
@@ -1026,7 +1030,8 @@ class erLhcoreClassChatStatistic {
                     'totalHoursOnline' => $totalHoursOnline,
                     'totalHoursOnline_front' => erLhcoreClassChat::formatSeconds($totalHoursOnline),
                     'aveNumber' => $aveNumber, 
-                    'avgWaitTime' => $avgWaitTime, 
+                    'avgWaitTime' => $userWaitTimeByOperatorNumber, 
+                    'avgWaitTime_front' => $avgWaitTime, 
                     'avgChatLength' => $avgChatLength,
                     'avgChatLengthSeconds' => $avgDuration
                 );
