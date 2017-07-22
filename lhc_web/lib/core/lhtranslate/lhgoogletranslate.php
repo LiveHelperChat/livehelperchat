@@ -58,7 +58,7 @@ class erLhcoreClassTranslateGoogle {
         } */
         public static function translate($apiKey, $word, $from, $to)
         {            
-            $url = "https://www.googleapis.com/language/translate/v2?key={$apiKey}&q=".urlencode($word)."&source={$from}&target={$to}";
+            $url = "https://www.googleapis.com/language/translate/v2?key={$apiKey}&q=".urlencode($word)."&source={$from}&target={$to}&format=text";
             
             $rsp = self::executeRequest($url);
             
