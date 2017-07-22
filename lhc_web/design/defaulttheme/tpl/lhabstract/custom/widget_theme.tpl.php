@@ -175,10 +175,12 @@
 						<?php echo erLhcoreClassAbstract::renderInput('header_padding', $fields['header_padding'], $object)?>		
 						</div>
 						
+						<?php /*
 						<div class="form-group">							
 						<label><?php echo $fields['copyright_image']['trans'];?></label>
 						<?php echo erLhcoreClassAbstract::renderInput('copyright_image', $fields['copyright_image'], $object)?>
 						</div>
+						*/ ?>
 						
 						<div class="form-group">	
 						<label><?php echo $fields['minimize_image']['trans'];?></label>
