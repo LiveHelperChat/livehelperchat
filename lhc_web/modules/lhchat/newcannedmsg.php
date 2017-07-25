@@ -19,7 +19,7 @@ if (isset($_POST['Save_action']))
 {
     $Errors = erLhcoreClassAdminChatValidatorHelper::validateCannedMessage($CannedMessage, $userDepartments);
 
-    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_newcannedmsg', array('errors' => & $Errors));
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_newcannedmsg', array('departments' => $userDepartments, 'scope' => 'global', 'errors' => & $Errors, 'msg' => & $CannedMessage));
 
     if (count($Errors) == 0)
     {

@@ -177,6 +177,8 @@ if ( erLhcoreClassUser::instance()->hasAccessTo('lhuser','personalcannedmsg') ) 
 	{	
 		$Errors = erLhcoreClassAdminChatValidatorHelper::validateCannedMessage($cannedMessage, true);
 				
+		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.canned_msg_before_save',array('errors' => & $Errors, 'msg' => & $cannedMessage, 'scope' => 'user'));
+		
 		if (count($Errors) == 0) {		
 			$cannedMessage->user_id = $UserData->id;
 			$cannedMessage->saveThis();	
