@@ -735,7 +735,7 @@ class erLhcoreClassChatStatistic {
     }
     
     public static function formatUserFilter(& $filterParams) {        
-        if ( is_numeric($filterParams['input']->group_id) && $filterParams['input']->group_id > 0 ) {
+        if (isset($filterParams['input']->group_id) && is_numeric($filterParams['input']->group_id) && $filterParams['input']->group_id > 0 ) {
             $db = ezcDbInstance::get();
             $stmt = $db->prepare('SELECT user_id FROM lh_groupuser WHERE group_id = :group_id');
             $stmt->bindValue( ':group_id', $filterParams['input']->group_id, PDO::PARAM_INT);
@@ -747,7 +747,7 @@ class erLhcoreClassChatStatistic {
             }
         }
         
-        if ( is_numeric($filterParams['input']->department_group_id) && $filterParams['input']->department_group_id > 0 ) {
+        if (isset($filterParams['input']->department_group_id) &&  is_numeric($filterParams['input']->department_group_id) && $filterParams['input']->department_group_id > 0 ) {
             $db = ezcDbInstance::get();
             $stmt = $db->prepare('SELECT dep_id FROM lh_departament_group_member WHERE dep_group_id = :group_id');
             $stmt->bindValue( ':group_id', $filterParams['input']->department_group_id, PDO::PARAM_INT);
