@@ -1163,13 +1163,21 @@ class erLhcoreClassChatStatistic {
                     $filterTimeout['filterlte']['wait_time'] = $rangeData['to'];
                 }
 
-                if (isset($filterParams['input']->timefrom_include_hours)) {                       
-                        $filterTimeout['customfilter'][] = 'FROM_UNIXTIME(time,\'%k\') >= '. (int)$filterParams['input']->timefrom_include_hours;                    
-                } 
+                if ((isset($filterParams['input']->timefrom_include_hours) && is_numeric($filterParams['input']->timefrom_include_hours)) && (isset($filterParams['input']->timeto_include_hours) && is_numeric($filterParams['input']->timeto_include_hours))) {  
 
-                if (isset($filterParams['input']->timeto_include_hours)) {
+                    if ($filterParams['input']->timefrom_include_hours <= $filterParams['input']->timeto_include_hours){
+                        $filterTimeout['customfilter'][] = 'FROM_UNIXTIME(time,\'%k\') >= '. (int)$filterParams['input']->timefrom_include_hours;
+                        $filterTimeout['customfilter'][] = 'FROM_UNIXTIME(time,\'%k\') <= '. (int)$filterParams['input']->timeto_include_hours;
+                    } else {
+                        $filterTimeout['customfilter'][] = '(FROM_UNIXTIME(time,\'%k\') >= '. (int)$filterParams['input']->timefrom_include_hours . ' OR FROM_UNIXTIME(time,\'%k\') <= '. (int)$filterParams['input']->timeto_include_hours . ')';
+                    }
+                        
+                } elseif (isset($filterParams['input']->timeto_include_hours)) {
                     $filterTimeout['customfilter'][] = 'FROM_UNIXTIME(time,\'%k\') <= '. (int)$filterParams['input']->timeto_include_hours;
+                } elseif (isset($filterParams['input']->timefrom_include_hours) && is_numeric($filterParams['input']->timefrom_include_hours)) {
+                    $filterTimeout['customfilter'][] = 'FROM_UNIXTIME(time,\'%k\') >= '. (int)$filterParams['input']->timefrom_include_hours;
                 }
+                
                 
                 $chatStarted = erLhcoreClassChat::getCount(array_merge_recursive($filter, $filterTimeout), 'lh_chat', 'count(id)');       
                 $abandonedStarted = erLhcoreClassChat::getCount(array_merge_recursive($filter, $filterTimeout, array('filter' => array('user_id' => 0, 'status_sub' => erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT))), 'lh_chat', 'count(id)');
