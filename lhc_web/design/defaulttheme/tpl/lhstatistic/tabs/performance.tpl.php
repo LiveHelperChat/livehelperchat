@@ -1,7 +1,7 @@
 <form action="" method="get">
 
 <div class="row form-group">
-    <div class="col-md-3">
+    <div class="col-md-2">
 	  <div class="form-group">
 		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Date range from');?></label>
 			<div class="row">
@@ -36,7 +36,7 @@
 		</div>
 	</div>
 	
-	<div class="col-md-3">
+	<div class="col-md-2">
 	  <div class="form-group">
 		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Date range to');?></label>
 			<div class="row">
@@ -69,6 +69,30 @@
 			</div>
 	    </div>
 	  </div>
+	</div>
+	
+	<div class="col-md-2">
+        <div class="form-group">
+		    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Include hours (from, to)');?></label>		    
+			<div class="row">
+				<div class="col-md-6">
+					<select name="timefrom_include_hours" class="form-control">
+    			        <option value="">Select hour</option>
+    			        <?php for ($i = 0; $i <= 23; $i++) : ?>
+    			            <option value="<?php echo $i?>" <?php if (isset($input->timefrom_include_hours) && $input->timefrom_include_hours === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> h.</option>
+    			        <?php endfor;?>
+    			    </select>
+				</div>
+				<div class="col-md-6">
+					<select name="timeto_include_hours" class="form-control">
+    			        <option value="">Select hour</option>
+    			        <?php for ($i = 0; $i <= 23; $i++) : ?>
+    			            <option value="<?php echo $i?>" <?php if (isset($input->timeto_include_hours) && $input->timeto_include_hours === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> h.</option>
+    			        <?php endfor;?>
+    			    </select>
+				</div>
+			</div>			
+        </div>
 	</div>
 	
 	<div class="col-md-4">

@@ -53,6 +53,30 @@ $fieldsSearch['department_group_id'] = array (
     )
 );
 
+$fieldsSearch['timefrom_include_hours'] = array (
+    'type' => 'text',
+    'trans' => 'Include hours from',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => false,
+    'filter_table_field' => 'timefrom_include_hours',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 1)
+    )
+);
+
+$fieldsSearch['timeto_include_hours'] = array (
+    'type' => 'text',
+    'trans' => 'Department group',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => false,
+    'filter_table_field' => 'timeto_include_hours',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 1)
+    )
+);
+
 $fieldsSearch['group_id'] = array (
     'type' => 'text',
     'trans' => 'Group',

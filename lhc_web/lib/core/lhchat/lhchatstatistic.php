@@ -1066,8 +1066,8 @@ class erLhcoreClassChatStatistic {
         return erLhcoreClassChat::getCount(array_merge_recursive($filter,array('filtergt' => array('chat_duration' => 0),'filter' =>  array('status' => erLhcoreClassModelChat::STATUS_CLOSED_CHAT))),'lh_chat','SUM(chat_duration)');
     }
     
-    public static function getPerformanceStatistic($days = 30, $filter = array())
-    {
+    public static function getPerformanceStatistic($days = 30, $filter = array(), $filterParams = array())
+    {        
         // wait_time
         $dateRange = array(
             array(
@@ -1161,6 +1161,14 @@ class erLhcoreClassChatStatistic {
                 
                 if ($rangeData['to'] !== false) {
                     $filterTimeout['filterlte']['wait_time'] = $rangeData['to'];
+                }
+
+                if (isset($filterParams['input']->timefrom_include_hours)) {                       
+                        $filterTimeout['customfilter'][] = 'FROM_UNIXTIME(time,\'%k\') >= '. (int)$filterParams['input']->timefrom_include_hours;                    
+                } 
+
+                if (isset($filterParams['input']->timeto_include_hours)) {
+                    $filterTimeout['customfilter'][] = 'FROM_UNIXTIME(time,\'%k\') <= '. (int)$filterParams['input']->timeto_include_hours;
                 }
                 
                 $chatStarted = erLhcoreClassChat::getCount(array_merge_recursive($filter, $filterTimeout), 'lh_chat', 'count(id)');       

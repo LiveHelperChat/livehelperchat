@@ -136,7 +136,7 @@ if ($tab == 'active') {
     erLhcoreClassChatStatistic::formatUserFilter($filterParams);
     
     if (isset($_GET['doSearch'])) {
-        $performanceStatistic = erLhcoreClassChatStatistic::getPerformanceStatistic(30, $filterParams['filter']);
+        $performanceStatistic = erLhcoreClassChatStatistic::getPerformanceStatistic(30, $filterParams['filter'], $filterParams);
     } else {
         $performanceStatistic = array();
     }
