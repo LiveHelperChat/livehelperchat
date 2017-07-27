@@ -61,7 +61,7 @@ $fieldsSearch['timefrom_include_hours'] = array (
     'filter_type' => false,
     'filter_table_field' => 'timefrom_include_hours',
     'validation_definition' => new ezcInputFormDefinitionElement(
-        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 1)
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 0)
     )
 );
 
@@ -73,7 +73,7 @@ $fieldsSearch['timeto_include_hours'] = array (
     'filter_type' => false,
     'filter_table_field' => 'timeto_include_hours',
     'validation_definition' => new ezcInputFormDefinitionElement(
-        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 1)
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 0)
     )
 );
 

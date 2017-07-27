@@ -1142,7 +1142,7 @@ class erLhcoreClassChatStatistic {
             )
         );
 
-        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getperformancestatistic',array('ranges' => $dateRange, 'days' => $days, 'filter' => $filter));
+        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getperformancestatistic',array('ranges' => $dateRange, 'days' => $days, 'filter' => $filter, 'filter_params' => $filterParams));
 
         if ($statusWorkflow === false) {
             $stats = array(
