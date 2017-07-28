@@ -68,14 +68,14 @@ if (in_array($Params['user_parameters_unordered']['xls'], array(1,2))) {
 $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
 
 $pages = new lhPaginator();
-$pages->items_total = erLhcoreClassChat::getCount($filterParams['filter']);
+$pages->items_total = erLhcoreClassModelChat::getCount($filterParams['filter']);
 $pages->translationContext = 'chat/pendingchats';
 $pages->serverURL = erLhcoreClassDesign::baseurl('chat/list').$append;
 $pages->paginate();
 $tpl->set('pages',$pages);
 
 if ($pages->items_total > 0) {
-	$items = erLhcoreClassChat::getList(array_merge($filterParams['filter'],array('limit' => $pages->items_per_page,'offset' => $pages->low)));
+	$items = erLhcoreClassModelChat::getList(array_merge($filterParams['filter'],array('limit' => $pages->items_per_page,'offset' => $pages->low)));
 	erLhcoreClassChat::setOnlineStatusDirectly($items);
 	$tpl->set('items',$items);
 }

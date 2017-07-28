@@ -123,7 +123,11 @@ class ezcQuerySelect extends ezcQuery
      */
     protected $lastInvokedMethod = null;
 
-    
+    /**
+     * Stores lock string for select
+     *
+     * @var string
+     */
     protected $lockString = null;
     
     /**
@@ -865,10 +869,13 @@ class ezcQuerySelect extends ezcQuery
 
     /**
      * Appends lock query
+     * 
      */
     public function doLock()
     {
         $this->lockString = 'FOR UPDATE';
+        
+        return $this;
     }
     
     /**
@@ -943,7 +950,7 @@ class ezcQuerySelect extends ezcQuery
         {
             $query = "{$query} {$this->lockString}";
         }
-                
+        
         return $query;
     }
 

@@ -257,6 +257,11 @@ trait erLhcoreClassDBTrait {
 			$q->where( $conditions );
 		}
 	
+		if (isset($params['lock']) && $params['lock'] == true)
+		{
+		    $q->doLock();
+		}
+		
 		if ($params['limit'] !== false) {
 			$q->limit($params['limit'],$params['offset']);
 		}
