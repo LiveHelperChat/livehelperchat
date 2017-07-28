@@ -14,14 +14,14 @@ $error = 'f';
 if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && mb_strlen($form->msg) < (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value)
 {
 	try {
-	    $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);	
+	    $db = ezcDbInstance::get();
+	     
+	    $db->beginTransaction();
+	    
+	    $chat = erLhcoreClassModelChat::fetchAndLock($Params['user_parameters']['chat_id']);	
 	    
 	    if ($chat->hash == $Params['user_parameters']['hash'] && ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT || $chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)) // Allow add messages only if chat is active
-	    {
-	        $db = ezcDbInstance::get();
-	        
-	        $db->beginTransaction();
-	        
+	    {	        	        
 	        $messagesToStore = explode('[[msgitm]]', trim($form->msg));
 	        
 	        foreach ($messagesToStore as $messageText)
@@ -59,20 +59,8 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && mb_strlen($form->m
 	        if ($chat->has_unread_messages == 1 && $chat->last_user_msg_time < (time() - 5)) {
 	        	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.unread_chat',array('chat' => & $chat));
 	        }
-	        
-	        $db->commit();
 	    }	    
 	    
-	    echo erLhcoreClassChat::safe_json_encode(array('error' => $error, 'r' => $r));
-	   	
-	    flush();
-	    
-	    session_write_close();
-	    
-	    if ( function_exists('fastcgi_finish_request') ) {
-	        fastcgi_finish_request();
-	    };
-
 	    // Assign to last message all the texts
 	    $msg->msg = trim(implode("\n", $messagesToStore));
 	    
@@ -140,6 +128,9 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && mb_strlen($form->m
 	        }
 	    }
 	    
+	    $db->commit();
+	     
+	    echo erLhcoreClassChat::safe_json_encode(array('error' => $error, 'r' => $r));
 	    
 	    exit;
 	    

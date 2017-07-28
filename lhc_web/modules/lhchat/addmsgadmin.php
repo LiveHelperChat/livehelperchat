@@ -83,7 +83,8 @@ if (trim($form->msg) != '')
     	        	
     	        	if ($userData->invisible_mode == 0 && $messageUserId > 0) { // Change status only if it's not internal command
     		        	if ($Chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
-    		        		$Chat->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;        		
+    		        		$Chat->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;  
+    		        		$Chat->user_id = $messageUserId;
     		        	}
     	        	}
     	
