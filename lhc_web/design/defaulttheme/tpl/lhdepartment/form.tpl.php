@@ -57,6 +57,8 @@
 			<li role="presentation"><a href="#product" aria-controls="product" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Product');?></a></li>
 			
 			<li role="presentation"><a href="#miscellaneous" aria-controls="miscellaneous" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Miscellaneous');?></a></li>
+			
+			<?php include(erLhcoreClassDesign::designtpl('lhdepartment/parts/tab_multiinclude.tpl.php'));?>
 		</ul>
 		
 		<div class="tab-content">
@@ -316,6 +318,8 @@
 			   <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.');?></label>
 			   <input type="text" class="form-control" name="Identifier"  value="<?php echo htmlspecialchars($departament->identifier);?>" />
 		    </div>
+		    
+		    <?php include(erLhcoreClassDesign::designtpl('lhdepartment/parts/tab_content_multiinclude.tpl.php'));?>
 			
 		</div>
 </div>
