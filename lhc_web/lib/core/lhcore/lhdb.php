@@ -15,7 +15,7 @@ class erLhcoreClassLazyDatabaseConfiguration implements ezcBaseConfigurationInit
         		         $dbSlaves = $cfg->getSetting( 'db', 'db_slaves' );
         		         $slaveParams = $dbSlaves[rand(0,count($dbSlaves)-1)];
                          $db = ezcDbFactory::create( "mysql://{$slaveParams['user']}:{$slaveParams['password']}@{$slaveParams['host']}:{$slaveParams['port']}/{$slaveParams['database']}" );
-                         $db->query('SET NAMES utf8');
+                         $db->query("SET NAMES 'utf8mb4' COLLATE 'utf8mb4_unicode_ci'");
                      } catch (Exception $e){
                          error_log($e);
                          die('Cannot connect to database.') ;
@@ -26,7 +26,7 @@ class erLhcoreClassLazyDatabaseConfiguration implements ezcBaseConfigurationInit
                      if (isset(self::$connectionMaster)) return self::$connectionMaster;
                      try {
                         $db = ezcDbFactory::create( "mysql://{$cfg->getSetting( 'db', 'user' )}:{$cfg->getSetting( 'db', 'password' )}@{$cfg->getSetting( 'db', 'host' )}:{$cfg->getSetting( 'db', 'port' )}/{$cfg->getSetting( 'db', 'database' )}" );
-                        $db->query('SET NAMES utf8');
+                        $db->query("SET NAMES 'utf8mb4' COLLATE 'utf8mb4_unicode_ci'");
                         self::$connectionMaster = $db;
                         return $db;
                     } catch (Exception $e) {
@@ -52,7 +52,7 @@ class erLhcoreClassLazyDatabaseConfiguration implements ezcBaseConfigurationInit
                 try {
                     if (isset(self::$connectionMaster)) return self::$connectionMaster; // If we do not user slaves and slave request already got connection
                     $db = ezcDbFactory::create( "mysql://{$cfg->getSetting( 'db', 'user' )}:{$cfg->getSetting( 'db', 'password' )}@{$cfg->getSetting( 'db', 'host' )}:{$cfg->getSetting( 'db', 'port' )}/{$cfg->getSetting( 'db', 'database' )}" );
-                    $db->query('SET NAMES utf8');
+                    $db->query("SET NAMES 'utf8mb4' COLLATE 'utf8mb4_unicode_ci'");
                     self::$connectionMaster = $db;
                     return $db;
                 } catch (Exception $e) {
