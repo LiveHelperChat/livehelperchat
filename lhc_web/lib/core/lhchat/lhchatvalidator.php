@@ -534,7 +534,7 @@ class erLhcoreClassChatValidator {
         		
         		if (isset($inputForm->encattr[$key]) && $inputForm->encattr[$key] == 't' && $valueStore != '') {
         		    try {
-        		        $valueStore = self::decryptAdditionalField($valueStore);
+        		        $valueStore = self::decryptAdditionalField($valueStore, $chat);
         		    } catch (Exception $e) {
         		        $Errors[] = $e->getMessage();
         		    }
@@ -576,7 +576,7 @@ class erLhcoreClassChatValidator {
 
             		    if (isset($inputForm->via_encrypted[$key]) && $inputForm->via_encrypted[$key] == 't' && $valueStore != '') {
             		        try {
-            		            $valueStore = self::decryptAdditionalField($valueStore);
+            		            $valueStore = self::decryptAdditionalField($valueStore, $chat);
             		        } catch (Exception $e) {
             		            $valueStore = $e->getMessage();
             		        }
@@ -718,7 +718,7 @@ class erLhcoreClassChatValidator {
 
                     if (isset($inputForm->encattr[$key]) && $inputForm->encattr[$key] == 't' && $valueStore != '') {
                         try {
-                            $valueStore = self::decryptAdditionalField($valueStore);
+                            $valueStore = self::decryptAdditionalField($valueStore, $chat);
                         } catch (Exception $e) {
                             $valueStore = $e->getMessage();
                         }
@@ -732,8 +732,13 @@ class erLhcoreClassChatValidator {
         /**
          * Admin custom fields
          * */
-        $start_data_fields = (array)erLhcoreClassModelChatConfig::fetch('start_chat_data')->data;
+        $startDataDepartment = erLhcoreClassModelChatStartSettings::findOne(array('filter' => array('department_id' => $chat->dep_id)));
         
+        if ($startDataDepartment instanceof erLhcoreClassModelChatStartSettings) {
+            $start_data_fields = $startDataDepartment->data_array;
+        } else {
+            $start_data_fields = (array)erLhcoreClassModelChatConfig::fetch('start_chat_data')->data;
+        }
         
         /**
          * Admin custom fields support
@@ -803,7 +808,7 @@ class erLhcoreClassChatValidator {
             
                             if (isset($inputForm->via_encrypted[$key]) && $inputForm->via_encrypted[$key] == 't' && $valueStore != '') {
                                 try {
-                                    $valueStore = self::decryptAdditionalField($valueStore);
+                                    $valueStore = self::decryptAdditionalField($valueStore, $chat);
                                 } catch (Exception $e) {
                                     $valueStore = $e->getMessage();
                                 }
@@ -824,11 +829,18 @@ class erLhcoreClassChatValidator {
         }
     }
     
-    public static function decryptAdditionalField($valueStore)
+    public static function decryptAdditionalField($valueStore, $chat)
     {
         if ($valueStore != '') {
-            $startData = (array)erLhcoreClassModelChatConfig::fetch('start_chat_data')->data;
-        
+                   
+            $startDataDepartment = erLhcoreClassModelChatStartSettings::findOne(array('filter' => array('department_id' => $chat->dep_id)));
+            
+            if ($startDataDepartment instanceof erLhcoreClassModelChatStartSettings) {
+                $startData = $startDataDepartment->data_array;
+            } else {
+                $startData = (array)erLhcoreClassModelChatConfig::fetch('start_chat_data')->data;
+            }
+            
             $valueStore = lhSecurity::decrypt(base64_decode($valueStore),
                 (isset($startData['custom_fields_encryption']) && !empty($startData['custom_fields_encryption']) ? $startData['custom_fields_encryption'] : null),
                 (isset($startData['custom_fields_encryption_hmac']) && !empty($startData['custom_fields_encryption_hmac']) ? $startData['custom_fields_encryption_hmac'] : null)
@@ -939,7 +951,7 @@ class erLhcoreClassChatValidator {
     			if (isset($attrValue['enc']) && $attrValue['enc'] == true) {
     				$hiddenField = true;
 	    			try {
-	                     $valueStore = self::decryptAdditionalField($valueStore);
+	                     $valueStore = self::decryptAdditionalField($valueStore, $chat);
 	                } catch (Exception $e) {
 	                     $valueStore = $e->getMessage();
 	                }

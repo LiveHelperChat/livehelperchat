@@ -48,7 +48,9 @@ $inputData->ua = $Params['user_parameters_unordered']['ua'];
 $inputData->hattr = array();
 $inputData->value_items_admin = array(); // These variables get's filled from start chat form settings
 $inputData->via_hidden = array(); // These variables get's filled from start chat form settings
-
+$inputData->hattr = array();
+$inputData->encattr = array();
+$inputData->via_encrypted = array();
 
 // If chat was started based on key up, we do not need to store a message
 //  because user is still typing it. We start chat in the background just.
@@ -75,8 +77,16 @@ $tpl->set('playsound',(string)$Params['user_parameters_unordered']['playsound'] 
 
 $fullHeight = (isset($Params['user_parameters_unordered']['fullheight']) && $Params['user_parameters_unordered']['fullheight'] == 'true') ? true : false;
 
-$startData = erLhcoreClassModelChatConfig::fetch('start_chat_data');
-$startDataFields = (array)$startData->data;
+if (is_numeric($inputData->departament_id) && $inputData->departament_id > 0) {
+    $startDataDepartment = erLhcoreClassModelChatStartSettings::findOne(array('filter' => array('department_id' => $inputData->departament_id)));
+    if ($startDataDepartment instanceof erLhcoreClassModelChatStartSettings) {
+        $startDataFields = $startDataDepartment->data_array;
+    }
+} else {
+    // Start chat field options
+    $startData = erLhcoreClassModelChatConfig::fetch('start_chat_data');
+    $startDataFields = (array)$startData->data;
+}
 
 // Allow extension override start chat fields
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.readoperatormessage_data_field',array('data_fields' => & $startDataFields, 'params' => $Params));
@@ -130,6 +140,8 @@ if (isset($_POST['askQuestion']))
 	$validationFields['value_sizes'] = new ezcInputFormDefinitionElement ( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY );
 	$validationFields['value_show'] = new ezcInputFormDefinitionElement ( ezcInputFormDefinitionElement::OPTIONAL, 'string', null, FILTER_REQUIRE_ARRAY );
 	$validationFields['hattr'] = new ezcInputFormDefinitionElement ( ezcInputFormDefinitionElement::OPTIONAL, 'string', null, FILTER_REQUIRE_ARRAY );
+	$validationFields['encattr'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'string',	null,  FILTER_REQUIRE_ARRAY	);
+	
 	// Custom start chat fields
 	$validationFields['value_items_admin'] = new ezcInputFormDefinitionElement(
 	    ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
@@ -143,7 +155,12 @@ if (isset($_POST['askQuestion']))
 	    FILTER_REQUIRE_ARRAY
 	);
 	
-	
+	$validationFields['via_encrypted'] = new ezcInputFormDefinitionElement(
+	    ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
+	    null,
+	    FILTER_REQUIRE_ARRAY
+	);
+
     if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
     	// Start session if required only
     	$currentUser = erLhcoreClassUser::instance();
@@ -234,6 +251,11 @@ if (isset($_POST['askQuestion']))
 			$inputData->hattr = $form->hattr;
 		}
 		
+		if ( $form->hasValidData( 'encattr' ) && !empty($form->encattr))
+		{
+		    $inputData->encattr = $form->encattr;
+		}
+		
 		$inputData->name_items = $form->name_items;
 		
 		$stringParts = array ();
@@ -241,9 +263,21 @@ if (isset($_POST['askQuestion']))
 			if (isset ( $inputData->values_req [$key] ) && $inputData->values_req [$key] == 't' && ($inputData->value_show [$key] == 'b' || $inputData->value_show [$key] == (isset ( $additionalParams ['offline'] ) ? 'off' : 'on')) && (! isset ( $valuesArray [$key] ) || trim ( $valuesArray [$key] ) == '')) {
 				$Errors [] = trim ( $name_item ) . ' : ' . erTranslationClassLhTranslation::getInstance ()->getTranslation ( 'chat/startchat', 'is required' );
 			}
+			
+			$valueStore = isset($valuesArray[$key]) ? trim($valuesArray[$key]) : '';
+			
+			if (isset($inputData->encattr[$key]) && $inputData->encattr[$key] == 't' && $valueStore != '') {
+			    try {
+			        $valueStore = erLhcoreClassChatValidator::decryptAdditionalField($valueStore, $chat);
+			    } catch (Exception $e) {
+			        $valueStore = $e->getMessage();
+			    }
+			}
+			
 			$stringParts [] = array (
 					'key' => $name_item,
-					'value' => (isset ( $valuesArray [$key] ) ? trim ( $valuesArray [$key] ) : '') 
+					'value' => $valueStore,
+			        'h' => ($inputData->value_types[$key] && $inputData->value_types[$key] == 'hidden' ? true : false),
 			);
 		}
 	}
@@ -262,7 +296,11 @@ if (isset($_POST['askQuestion']))
 	    if ($form->hasValidData( 'via_hidden' )){
 	        $inputData->via_hidden = $form->via_hidden;
 	    }
-	
+	    
+	    if ($form->hasValidData( 'via_encrypted' )) {
+	        $inputForm->via_encrypted = $form->via_encrypted;
+	    }
+	    
 	    if (is_array($customAdminfields)){
 	        foreach ($customAdminfields as $key => $adminField) {
 	
@@ -271,7 +309,18 @@ if (isset($_POST['askQuestion']))
 	            }
 	
 	            if (isset($valuesArray[$key]) && $valuesArray[$key] != '') {
-	                $stringParts[] = array('key' => $adminField['fieldname'], 'value' => (isset($valuesArray[$key]) ? trim($valuesArray[$key]) : ''));
+	                
+	                $valueStore = (isset($valuesArray[$key]) ? trim($valuesArray[$key]) : '');
+	                 
+	                if (isset($inputForm->via_encrypted[$key]) && $inputForm->via_encrypted[$key] == 't' && $valueStore != '') {
+	                    try {
+	                        $valueStore = erLhcoreClassChatValidator::decryptAdditionalField($valueStore, $chat);
+	                    } catch (Exception $e) {
+	                        $valueStore = $e->getMessage();
+	                    }
+	                }
+	                	                
+	                $stringParts[] = array('h' => (isset($inputForm->via_hidden[$key]) || $adminField['fieldtype'] == 'hidden'), 'identifier' => (isset($adminField['fieldidentifier'])) ? $adminField['fieldidentifier'] : null, 'key' => $adminField['fieldname'], 'value' => $valueStore);
 	            }
 	        }
 	    }
@@ -524,7 +573,17 @@ if (!ezcInputForm::hasPostData()) {
                     ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
                     null,
                     FILTER_REQUIRE_ARRAY
-            )
+            ),
+            'encattr' => new ezcInputFormDefinitionElement(
+                    ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
+                    null,
+                    FILTER_REQUIRE_ARRAY
+            ),
+            'via_encrypted' => new ezcInputFormDefinitionElement(
+                    ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
+                    null,
+                    FILTER_REQUIRE_ARRAY
+        )
 	);
 	
 	$form = new ezcInputForm( INPUT_GET, $definition );
@@ -562,6 +621,16 @@ if (!ezcInputForm::hasPostData()) {
 	if ( $form->hasValidData( 'size' ) && !empty($form->size))
 	{
 		$inputData->value_sizes = $form->size;
+	}
+	
+	if ( $form->hasValidData( 'encattr' ) && !empty($form->encattr))
+	{
+	    $inputData->encattr = $form->encattr;
+	}
+	
+	if ( $form->hasValidData( 'via_encrypted' ) && !empty($form->via_encrypted))
+	{
+	    $inputData->via_encrypted = $form->via_encrypted;
 	}
 	
 	// Fill back office values ir prefilled

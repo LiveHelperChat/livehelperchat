@@ -355,6 +355,14 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	       PRIMARY KEY (`id`), 
         	       KEY `user_id_lactivity` (`user_id`, `lactivity`)) DEFAULT CHARSET=utf8;");
         	   
+        	   $db->query("CREATE TABLE `lh_chat_start_settings` ( 
+        	       `id` int(11) NOT NULL AUTO_INCREMENT, 
+        	       `name` varchar(50) NOT NULL, 
+        	       `data` longtext NOT NULL, 
+        	       `department_id` int(11) NOT NULL, 
+        	       PRIMARY KEY (`id`), 
+        	       KEY `department_id` (`department_id`)) DEFAULT CHARSET=utf8;");
+        	   
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_archive_range` (
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
         	   `range_from` int(11) NOT NULL,
