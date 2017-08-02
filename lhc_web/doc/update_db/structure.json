@@ -7128,7 +7128,10 @@
     			"active_thd" : "ALTER TABLE `lh_departament` ADD INDEX `active_thd` (`online_hours_active`,`thd_start_hour`,`thd_end_hour`);",
     			"active_frd" : "ALTER TABLE `lh_departament` ADD INDEX `active_frd` (`online_hours_active`,`frd_start_hour`,`frd_end_hour`);",
     			"active_sad" : "ALTER TABLE `lh_departament` ADD INDEX `active_sad` (`online_hours_active`,`sad_start_hour`,`sad_end_hour`);",
-    			"active_sud" : "ALTER TABLE `lh_departament` ADD INDEX `active_sud` (`online_hours_active`,`sud_start_hour`,`sud_end_hour`);"
+    			"active_sud" : "ALTER TABLE `lh_departament` ADD INDEX `active_sud` (`online_hours_active`,`sud_start_hour`,`sud_end_hour`);",
+    			"active_chats_counter" : "ALTER TABLE `lh_departament` ADD INDEX `active_chats_counter` (`active_chats_counter`);",
+    			"pending_chats_counter" : "ALTER TABLE `lh_departament` ADD INDEX `pending_chats_counter` (`pending_chats_counter`);",
+    			"closed_chats_counter" : "ALTER TABLE `lh_departament` ADD INDEX `closed_chats_counter` (`closed_chats_counter`);"   
     		},
     		"old" : ["oha_sh_eh"]
     	},
