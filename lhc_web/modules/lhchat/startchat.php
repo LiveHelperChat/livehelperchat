@@ -105,13 +105,6 @@ if (is_array($Params['user_parameters_unordered']['department']) && erLhcoreClas
 $tpl->set('disabled_department',$disabled_department);
 $tpl->set('append_mode_theme',$themeAppend);
 
-// Start chat field options
-$startData = erLhcoreClassModelChatConfig::fetch('start_chat_data');
-$startDataFields = (array)$startData->data;
-
-// Allow extension override start chat fields
-erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.startchat_data_fields',array('data_fields' => & $startDataFields, 'params' => $Params));
-
 $inputData = new stdClass();
 $inputData->chatprefill = '';
 $inputData->email = '';
@@ -126,6 +119,20 @@ if (is_array($Params['user_parameters_unordered']['department']) && count($Param
 } else {
 	$inputData->departament_id = 0;
 }
+
+if (is_numeric($inputData->departament_id) && $inputData->departament_id > 0) {
+    $startDataDepartment = erLhcoreClassModelChatStartSettings::findOne(array('filter' => array('department_id' => $inputData->departament_id)));
+    if ($startDataDepartment instanceof erLhcoreClassModelChatStartSettings) {
+        $startDataFields = $startDataDepartment->data_array;
+    }
+} else {
+    // Start chat field options
+    $startData = erLhcoreClassModelChatConfig::fetch('start_chat_data');
+    $startDataFields = (array)$startData->data;
+}
+
+// Allow extension override start chat fields
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.startchat_data_fields',array('data_fields' => & $startDataFields, 'params' => $Params));
 
 if (is_array($Params['user_parameters_unordered']['department'])) {
 	erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);

@@ -1,3 +1,10 @@
+2.69v
+
+1. Option to overide start chat settings by department. They will be used only if department id is provided in embed code generation.
+2. Encrypted fields support in proactive chat
+
+execute doc/update_db/update_143.sql for update
+
 2.68v
 
 1. Option to style popup window with custom css
