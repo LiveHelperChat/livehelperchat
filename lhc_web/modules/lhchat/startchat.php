@@ -120,15 +120,8 @@ if (is_array($Params['user_parameters_unordered']['department']) && count($Param
 	$inputData->departament_id = 0;
 }
 
-if (is_numeric($inputData->departament_id) && $inputData->departament_id > 0) {
-    $startDataDepartment = erLhcoreClassModelChatStartSettings::findOne(array('filter' => array('department_id' => $inputData->departament_id)));
-    if ($startDataDepartment instanceof erLhcoreClassModelChatStartSettings) {
-        $startDataFields = $startDataDepartment->data_array;
-    } else {
-        // Start chat field options
-        $startData = erLhcoreClassModelChatConfig::fetch('start_chat_data');
-        $startDataFields = (array)$startData->data;
-    }
+if (is_numeric($inputData->departament_id) && $inputData->departament_id > 0 && ($startDataDepartment = erLhcoreClassModelChatStartSettings::findOne(array('filter' => array('department_id' => $inputData->departament_id)))) !== false) {
+    $startDataFields = $startDataDepartment->data_array;
 } else {
     // Start chat field options
     $startData = erLhcoreClassModelChatConfig::fetch('start_chat_data');
