@@ -14,19 +14,16 @@
 			</th>
 			<th width="20%">
     			<a ng-click="lhc.toggleWidgetSort('active_chats_sort','id_dsc','id_asc',true)">
-    			  <?php /*<i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Visitor');?>" class="material-icons">access_time</i>*/ ?>
     			 <i ng-class="{'text-muted' : (lhc.toggleWidgetData['active_chats_sort'] != 'id_asc' && lhc.toggleWidgetData['active_chats_sort'] != 'id_dsc')}" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Sort by time')?>" class="material-icons">{{lhc.toggleWidgetData['active_chats_sort'] == 'id_dsc' || lhc.toggleWidgetData['active_chats_sort'] != 'id_asc' ? 'trending_up' : 'trending_down'}}</i>
     			</a>
 			</th>
 			<th width="20%">
 				<a ng-click="lhc.toggleWidgetSort('active_chats_sort','op_dsc','op_asc',true)">
-				 <?php /*<i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Operator');?>" class="material-icons">account_box</i>*/ ?>
 				 <i ng-class="{'text-muted' : (lhc.toggleWidgetData['active_chats_sort'] != 'op_asc' && lhc.toggleWidgetData['active_chats_sort'] != 'op_dsc')}" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Sort by operator')?>" class="material-icons">{{lhc.toggleWidgetData['active_chats_sort'] == 'op_dsc' || lhc.toggleWidgetData['active_chats_sort'] != 'op_asc' ? 'trending_up' : 'trending_down'}}</i>
 				</a>
 			</th>
 			<th width="20%">							
 				<a ng-click="lhc.toggleWidgetSort('active_chats_sort','dep_dsc','dep_asc',true)">
-				  <?php /*<i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Department');?>" class="material-icons">home</i>*/ ?>
 				 <i ng-class="{'text-muted' : (lhc.toggleWidgetData['active_chats_sort'] != 'dep_asc' && lhc.toggleWidgetData['active_chats_sort'] != 'dep_dsc')}" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Sort by department')?>" class="material-icons">{{lhc.toggleWidgetData['active_chats_sort'] == 'dep_dsc' || lhc.toggleWidgetData['active_chats_sort'] != 'dep_asc' ? 'trending_up' : 'trending_down'}}</i>
 				</a>							
 			</th>

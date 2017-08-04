@@ -292,6 +292,17 @@ if ($canListOnlineUsers == true || $canListOnlineUsersAll == true) {
         $filter['customfilter'][] = '(dep_id = 0 OR dep_id IN ('.implode(",", $Params['user_parameters_unordered']['operatord']).'))';
     }
     
+    $validSort = array(
+        'onl_dsc' => 'hide_online DESC, active_chats DESC',
+        'onl_asc' => 'hide_online ASC, active_chats DESC',
+        'ac_dsc' => 'active_chats DESC, hide_online ASC',
+        'ac_asc' => 'active_chats ASC, hide_online ASC',
+    );
+
+    if (key_exists($Params['user_parameters_unordered']['onop'], $validSort)) {
+        $filter['sort'] = $validSort[$Params['user_parameters_unordered']['onop']];
+    }
+    
 	$onlineOperators = erLhcoreClassModelUserDep::getOnlineOperators($currentUser,$canListOnlineUsersAll,$filter,is_numeric($Params['user_parameters_unordered']['limito']) ? (int)$Params['user_parameters_unordered']['limito'] : 10,$onlineTimeout);
 	
 	erLhcoreClassChat::prefillGetAttributes($onlineOperators,array('lastactivity_ago','offline_since','user_id','id','name_official','active_chats','departments_names','hide_online'),array(),array('remove_all' => true));

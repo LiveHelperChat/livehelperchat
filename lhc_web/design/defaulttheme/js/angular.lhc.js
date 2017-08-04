@@ -433,6 +433,10 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		if (typeof _that.toggleWidgetData['active_chats_sort'] !== 'undefined' && _that.toggleWidgetData['active_chats_sort'] !== '') {
 			filter += '/(acs)/'+_that.toggleWidgetData['active_chats_sort'];
 		}
+
+		if (typeof _that.toggleWidgetData['onop_sort'] !== 'undefined' && _that.toggleWidgetData['onop_sort'] !== '') {
+			filter += '/(onop)/'+_that.toggleWidgetData['onop_sort'];
+		}
 		
 		return filter;
 	}
