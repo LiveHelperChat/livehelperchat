@@ -1,5 +1,12 @@
 2.70v
 
+1. Option to configure what should happen on transfer to department.
+a. Leave assigned user or not
+b. Make chat status pending or not
+c. Remove assigned user or not.
+
+2. Option for operator to configure show alert or not then chat is transferred directly to them..
+
 execute doc/update_db/update_144.sql for update
 
 2.69.1v
