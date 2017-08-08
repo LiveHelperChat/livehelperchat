@@ -1623,9 +1623,16 @@ function lh(){
     	    	}
     	    	
     	    	this.notificationsArray[chat_id] = notification;	
-			};			    	  
+			};
 	    };
-	    
+
+        if (identifier == 'transfer_chat' && confLH.show_alert_transfer == 1) {
+            if (confirm(confLH.transLation.transfered + "\n\n" + message)) {
+                inst.startChatNewWindowTransferByTransfer(chat_id, nt);
+			}
+        }
+
+
 	    if (confLH.show_alert == 1) {	    	
     		if (confirm(confLH.transLation.new_chat+"\n\n"+message)) {
     			if (identifier == 'pending_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered') {

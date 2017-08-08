@@ -72,6 +72,15 @@ class erLhcoreClassTransfer
        return (isset($rows[0])) ? $rows[0] : false;
    }
 
+    public static function handleTransferredChatOpen(& $chat)
+    {
+        $transfer = erLhcoreClassModelTransfer::findOne(array('filter' => array('chat_id' => $chat->id)));
+        if ($transfer instanceof erLhcoreClassModelTransfer){
+            $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
+            $transfer->removeThis();
+        }
+    }
+
    public static function getSession()
    {
         if ( !isset( self::$persistentSession ) )

@@ -3050,6 +3050,14 @@
                 "extra": ""
             },
             {
+                "field": "transfer_uid",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "product_id",
                 "type": "int(11)",
                 "null": "NO",
@@ -5807,6 +5815,13 @@
                 "type": "0",
                 "explain": "Inform visitor if he has unread messages",
                 "hidden": "0"
+            },
+            {
+                "identifier": "transfer_configuration",
+                "value": "0",
+                "type": "0",
+                "explain": "Transfer configuration",
+                "hidden": "1"
             },
             {
                 "identifier": "accept_chat_link_timeout",

@@ -7,7 +7,11 @@
     	<?php if ($theme !== false  && $theme->support_joined != '') : ?>
     	   <?php echo htmlspecialchars($theme->support_joined)?>
     	<?php else : ?>
-    	   <?php include(erLhcoreClassDesign::designtpl('lhchat/checkchatstatus_text/joined_chat.tpl.php'));?>
+            <?php if ($chat->transfer_uid > 0 && erLhcoreClassModelTransfer::getCount(array('filter' => array('chat_id' => $chat->id))) > 0) : ?>
+                <?php include(erLhcoreClassDesign::designtpl('lhchat/checkchatstatus_text/transfered_chat.tpl.php'));?>
+            <?php else : ?>
+                <?php include(erLhcoreClassDesign::designtpl('lhchat/checkchatstatus_text/joined_chat.tpl.php'));?>
+            <?php endif ?>
     	<?php endif;?>
     </h4>
     <?php endif;?>

@@ -1,3 +1,7 @@
+2.70v
+
+execute doc/update_db/update_144.sql for update
+
 2.69.1v
 
 1. Just small extra fix for start chat forms functionality.

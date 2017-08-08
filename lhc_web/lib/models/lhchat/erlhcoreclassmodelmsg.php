@@ -67,6 +67,7 @@ class erLhcoreClassModelmsg {
     public $chat_id = null;
     public $user_id = null;
     public $name_support = '';
+    public $msg = '';
 }
 
 ?>
