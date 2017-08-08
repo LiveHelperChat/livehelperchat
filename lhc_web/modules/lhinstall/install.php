@@ -1529,6 +1529,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `dep_id` int(11) NOT NULL,
 				  `transfer_user_id` int(11) NOT NULL,
 				  `from_dep_id` int(11) NOT NULL,
+				  `ctime` int(11) NOT NULL,
 				  `transfer_to_user_id` int(11) NOT NULL,
 				  PRIMARY KEY (`id`),
 				  KEY `dep_id` (`dep_id`),

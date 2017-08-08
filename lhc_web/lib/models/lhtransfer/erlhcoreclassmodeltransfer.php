@@ -20,7 +20,8 @@ class erLhcoreClassModelTransfer
             'chat_id' => $this->chat_id,
             'transfer_user_id' => $this->transfer_user_id,
             'from_dep_id' => $this->from_dep_id,
-            'transfer_to_user_id' => $this->transfer_to_user_id
+            'transfer_to_user_id' => $this->transfer_to_user_id,
+            'ctime' => $this->ctime,
         );
     }
 
@@ -42,6 +43,8 @@ class erLhcoreClassModelTransfer
     public $from_dep_id = null;
 
     public $transfer_to_user_id = 0;
+
+    public $ctime = 0;
 }
 
 ?>

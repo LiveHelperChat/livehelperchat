@@ -25,6 +25,7 @@ if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['us
 
             $Transfer = new erLhcoreClassModelTransfer();
             $Transfer->chat_id = $Chat->id;
+            $Transfer->ctime = time();
 
             $msg = new erLhcoreClassModelmsg();
             $msg->chat_id = $Chat->id;

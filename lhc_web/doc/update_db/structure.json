@@ -5292,6 +5292,14 @@
                 "extra": ""
             },
             {
+                "field": "ctime",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "transfer_user_id",
                 "type": "int(11)",
                 "null": "NO",
