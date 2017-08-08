@@ -1,0 +1,1 @@
+<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','You have been transferred. Please wait for operator to join a chat...'); ?>

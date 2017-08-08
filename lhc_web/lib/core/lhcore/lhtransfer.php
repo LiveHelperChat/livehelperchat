@@ -72,6 +72,27 @@ class erLhcoreClassTransfer
        return (isset($rows[0])) ? $rows[0] : false;
    }
 
+    /**
+     * @param $chat
+     *
+     * @param $userId
+     */
+    public static function handleTransferredChatOpen(& $chat, $userId)
+    {
+        $transfer = erLhcoreClassModelTransfer::findOne(array('filter' => array('chat_id' => $chat->id)));
+        if ($transfer instanceof erLhcoreClassModelTransfer){
+            $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
+
+            // If it was transfer to operator change operator
+            if ($userId == $transfer->transfer_to_user_id) {
+                $chat->user_id = $transfer->transfer_to_user_id;
+                $transfer->removeThis();
+            } elseif ($transfer->transfer_to_user_id == 0) { // It was transfer to department so we can remove record
+                $transfer->removeThis();
+            }
+        }
+    }
+
    public static function getSession()
    {
         if ( !isset( self::$persistentSession ) )

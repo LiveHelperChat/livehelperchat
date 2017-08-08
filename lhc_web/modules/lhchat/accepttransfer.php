@@ -89,6 +89,7 @@ if ( !erLhcoreClassChat::hasAccessToRead($chat) )
 if (isset($msg) && $msg instanceof erLhcoreClassModelmsg) {	
 	$chat->last_user_msg_time = $msg->time = time();
 	erLhcoreClassChat::getSession()->save($msg);
+    $chat->last_msg_id = $msg->id;
 }
 
 // All ok, we can make changes

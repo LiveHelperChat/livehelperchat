@@ -55,7 +55,7 @@ if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','change_visibility_list'
 	erLhcoreClassModelUserSetting::setSetting('enable_close_list', $validateVisibilityListData['enable_close_list']);
 	erLhcoreClassModelUserSetting::setSetting('enable_unread_list', $validateVisibilityListData['enable_unread_list']);
 	erLhcoreClassModelUserSetting::setSetting('enable_mchats_list', $validateVisibilityListData['enable_mchats_list']);
-	
+
 	$tpl->set('account_updated','done');
 	$tpl->set('tab','tab_settings');
 	
@@ -100,13 +100,16 @@ if (isset($_POST['UpdateNotifications_account'])) {
     }
     
     $validateNotificationsData = erLhcoreClassUserValidator::validateNotifications();
-    
+
+
+
     erLhcoreClassModelUserSetting::setSetting('show_alert_chat', $validateNotificationsData['show_alert_chat']);
     erLhcoreClassModelUserSetting::setSetting('sn_off', $validateNotificationsData['sn_off']);
     erLhcoreClassModelUserSetting::setSetting('ownntfonly', $validateNotificationsData['ownntfonly']);
     erLhcoreClassModelUserSetting::setSetting('trackactivity', $validateNotificationsData['trackactivity']);
     erLhcoreClassModelUserSetting::setSetting('trackactivitytimeout', $validateNotificationsData['trackactivitytimeout']);
-      
+    erLhcoreClassModelUserSetting::setSetting('show_alert_transfer', $validateNotificationsData['show_alert_transfer']);
+
     $tpl->set('account_updated','done');
     $tpl->set('tab','tab_notifications');  
 }

@@ -63,12 +63,6 @@ class erLhcoreClassModelChat {
        		   'unread_op_messages_informed' => $this->unread_op_messages_informed,
        		   'reinform_timeout'     	=> $this->reinform_timeout,
 
-       		   // Wait timeout attribute
-               /* 'wait_timeout'     		=> $this->wait_timeout,
-               'wait_timeout_repeat'    => $this->wait_timeout_repeat,
-               'wait_timeout_send'     	=> $this->wait_timeout_send,
-               'timeout_message'     	=> $this->timeout_message, */
-
                // Auto responder
                'auto_responder_id'      => $this->auto_responder_id,
            
@@ -76,6 +70,7 @@ class erLhcoreClassModelChat {
                'transfer_timeout_ts'    => $this->transfer_timeout_ts,
                'transfer_if_na'    		=> $this->transfer_if_na,
                'transfer_timeout_ac'    => $this->transfer_timeout_ac,
+               'transfer_uid'           => $this->transfer_uid,
 
        			// Callback status
                'na_cb_executed'    		=> $this->na_cb_executed,
@@ -527,6 +522,7 @@ class erLhcoreClassModelChat {
    public $transfer_if_na = 0;
    public $transfer_timeout_ts = 0;
    public $transfer_timeout_ac = 0;
+   public $transfer_uid = 0;
 
    // Wait timeout attributes
    //public $wait_timeout = 0;

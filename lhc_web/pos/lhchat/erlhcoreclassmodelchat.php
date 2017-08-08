@@ -278,6 +278,12 @@ $def->properties['transfer_if_na']->columnName   = 'transfer_if_na';
 $def->properties['transfer_if_na']->propertyName = 'transfer_if_na';
 $def->properties['transfer_if_na']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+// Transfer user ID, user id who transfered chat
+$def->properties['transfer_uid'] = new ezcPersistentObjectProperty();
+$def->properties['transfer_uid']->columnName   = 'transfer_uid';
+$def->properties['transfer_uid']->propertyName = 'transfer_uid';
+$def->properties['transfer_uid']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 // Was callback for unaccepted chat executed? 0 - no, 1 - yes
 $def->properties['na_cb_executed'] = new ezcPersistentObjectProperty();
 $def->properties['na_cb_executed']->columnName   = 'na_cb_executed';

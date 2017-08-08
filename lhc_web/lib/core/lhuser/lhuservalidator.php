@@ -409,7 +409,7 @@ class erLhcoreClassUserValidator {
 		$data['enable_unread_list'] = ( $form->hasValidData( 'unreadTabEnabled' ) && $form->unreadTabEnabled == true ) ? 1 : 0;
 		
 		$data['enable_mchats_list'] = ( $form->hasValidData( 'mychatsTabEnabled' ) && $form->mychatsTabEnabled == true ) ? 1 : 0;
-		
+
 		return $data;
 	}
 	
@@ -431,6 +431,9 @@ class erLhcoreClassUserValidator {
 	        ),
 	        'trackactivitytimeout' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'int'
+	        ),
+            'show_alert_transfer' => new ezcInputFormDefinitionElement(
+	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	        )
 	    );
 	    
@@ -443,7 +446,8 @@ class erLhcoreClassUserValidator {
 	    $data['ownntfonly'] = ( $form->hasValidData( 'ownntfonly' ) && $form->ownntfonly == true ) ? 1 : 0;
 	    $data['trackactivity'] = ( $form->hasValidData( 'trackactivity' ) && $form->trackactivity == true ) ? 1 : 0;
 	    $data['trackactivitytimeout'] = ( $form->hasValidData( 'trackactivitytimeout' )) ? (int)$form->trackactivitytimeout : -1;
-	    
+	    $data['show_alert_transfer'] = ( $form->hasValidData( 'show_alert_transfer' ) && $form->show_alert_transfer == true) ? (int)$form->show_alert_transfer : 0;
+
 	    return $data;
 	}
 	

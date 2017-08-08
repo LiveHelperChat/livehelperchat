@@ -984,27 +984,42 @@ function lh(){
 		form.submit();
 		
 		return false;
-	},
+	};
 	
 	this.sendLinkToMail = function( embed_code,file_id) {
 		var val = window.parent.$('#MailMessage').val();		
 		window.parent.$('#MailMessage').val(((val != '') ? val+"\n" : val)+embed_code);
 		$('#embed-button-'+file_id).addClass('success');	
-	},
+	};
 	
 	this.sendLinkToEditor = function(chat_id, embed_code,file_id) {
 		var val = window.parent.$('#CSChatMessage-'+chat_id).val();		
 		window.parent.$('#CSChatMessage-'+chat_id).val(((val != '') ? val+"\n" : val)+embed_code);
 		$('#embed-button-'+file_id).addClass('success');	
-	},
-		
+	};
+
+	this.hideTransferModal = function(chat_id)
+	{
+		var inst = this;
+
+        setTimeout(function(){
+            $('#myModal').modal('hide');
+            if ($('#tabs').size() > 0) {
+                inst.removeDialogTab(chat_id,$('#tabs'),true)
+            }
+        },1000);
+	};
+
 	this.transferChat = function(chat_id)
 	{
+        var inst = this;
+
 		var user_id = $('[name=TransferTo'+chat_id+']:checked').val();
-		
+
 		$.postJSON(this.wwwDir + this.trasnsferuser + chat_id + '/' + user_id ,{'type':'user'}, function(data){
 			if (data.error == 'false') {
 				$('#transfer-block-'+data.chat_id).html(data.result);
+                inst.hideTransferModal(chat_id);
 			};
 		});
 	};
@@ -1048,10 +1063,12 @@ function lh(){
 	
 	this.transferChatDep = function(chat_id)
 	{
+		var inst = this;
 	    var user_id = $('[name=DepartamentID'+chat_id+']:checked').val();
 	    $.postJSON(this.wwwDir + this.trasnsferuser + chat_id + '/' + user_id ,{'type':'dep'}, function(data){
 	        if (data.error == 'false') {
 	        	$('#transfer-block-'+data.chat_id).html(data.result);
+                inst.hideTransferModal(chat_id);
 	        };
 	    });
 	};
@@ -1623,9 +1640,16 @@ function lh(){
     	    	}
     	    	
     	    	this.notificationsArray[chat_id] = notification;	
-			};			    	  
+			};
 	    };
-	    
+
+        if (identifier == 'transfer_chat' && confLH.show_alert_transfer == 1) {
+            if (confirm(confLH.transLation.transfered + "\n\n" + message)) {
+                inst.startChatNewWindowTransferByTransfer(chat_id, nt);
+			}
+        }
+
+
 	    if (confLH.show_alert == 1) {	    	
     		if (confirm(confLH.transLation.new_chat+"\n\n"+message)) {
     			if (identifier == 'pending_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered') {
