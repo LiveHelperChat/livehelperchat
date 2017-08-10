@@ -102,7 +102,7 @@ class erLhAbstractModelAutoResponderChat
                 {
                      if ($this->chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW && $this->auto_responder->survey_timeout > 0 && (time() - $this->chat->last_op_msg_time > $this->auto_responder->survey_timeout)) {
                          $msg = new erLhcoreClassModelmsg();
-                         $msg->msg = 'Autoresponder ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'has redirected visitor to survey form!');
+                         $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'Visitor was redirected to survey by auto responder!');
                          $msg->chat_id = $this->chat->id;
                          $msg->user_id = - 1;
                          $msg->time = time();
