@@ -380,6 +380,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `timeout_message` text NOT NULL,
                   `dep_id` int(11) NOT NULL,
                   `repeat_number` int(11) NOT NULL DEFAULT '1',
+                  `survey_timeout` int(11) NOT NULL DEFAULT '0',
+                  `survey_id` int(11) NOT NULL DEFAULT '0',
                   `wait_timeout_2` int(11) NOT NULL,
                   `timeout_message_2` text NOT NULL,
                   `wait_timeout_3` int(11) NOT NULL,
