@@ -111,6 +111,8 @@ class erLhAbstractModelAutoResponderChat
                          $this->chat->last_msg_id = $msg->id;
                          $this->chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW;
                          $this->chat->updateThis();
+
+                         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.redirected_to_survey_by_autoresponder',array('chat' => & $this->chat));
                      }
 
                      for ($i = 5; $i >= 1; $i--) {
