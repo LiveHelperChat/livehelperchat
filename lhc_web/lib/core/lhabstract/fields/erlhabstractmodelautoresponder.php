@@ -122,7 +122,21 @@ return array(
    						'required' => false,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
-   						)),   				
+   						)),
+                'survey_timeout' => array(
+   						'type' => 'text',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Redirect visitor to survey if visitor does not responds within N seconds'),
+   						'required' => false,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
+   						)),
+                'survey_id' => array(
+   						'type' => 'text',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Survey'),
+   						'required' => false,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
+   						)),
    				'wait_timeout_reply_1' => array(
    						'type' => 'text',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Timeout. [1]'),

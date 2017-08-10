@@ -1436,10 +1436,6 @@ function lh(){
 	        	                      } else if (item.us == 3) {
 	        	                    	  $('#user-chat-status-'+item.chat_id).addClass('icon-user-pageview');
 	        	                      }
-	        	                     
-	        	                      if (typeof item.uc != 'undefined' && item.uc == 'true') {
-	        	                    	  $('#user-chat-status-'+item.chat_id).addClass('icon-user-closed-chat');
-	        	                      }
 
 	        	                      var statusel = $('#chat-id-'+item.chat_id +'-mds');
 	        	                      

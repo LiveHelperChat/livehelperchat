@@ -100,6 +100,21 @@ class erLhAbstractModelAutoResponderChat
                 if (($this->chat->last_op_msg_time > $this->chat->last_user_msg_time && $this->chat->last_user_msg_time > 0) || 
                     ($this->chat->last_op_msg_time > $this->chat->time && $this->chat->last_user_msg_time == 0)) 
                 {
+                     if ($this->chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW && $this->auto_responder->survey_timeout > 0 && (time() - $this->chat->last_op_msg_time > $this->auto_responder->survey_timeout)) {
+                         $msg = new erLhcoreClassModelmsg();
+                         $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'Visitor was redirected to survey by auto responder!');
+                         $msg->chat_id = $this->chat->id;
+                         $msg->user_id = - 1;
+                         $msg->time = time();
+                         erLhcoreClassChat::getSession()->save($msg);
+
+                         $this->chat->last_msg_id = $msg->id;
+                         $this->chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW;
+                         $this->chat->updateThis();
+
+                         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.redirected_to_survey_by_autoresponder',array('chat' => & $this->chat));
+                     }
+
                      for ($i = 5; $i >= 1; $i--) {
                          if ($this->active_send_status < $i && !empty($this->auto_responder->{'timeout_reply_message_' . $i}) && (time() - $this->chat->last_op_msg_time > $this->auto_responder->{'wait_timeout_reply_' . $i}) ) {
                              
@@ -118,6 +133,7 @@ class erLhAbstractModelAutoResponderChat
                              $this->chat->updateThis();                             
                          }
                      }
+
                 } elseif ($this->active_send_status > 0) {
                     $this->active_send_status = 0;
                     $this->saveThis();

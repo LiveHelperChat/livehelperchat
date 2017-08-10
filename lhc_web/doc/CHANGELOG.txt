@@ -1,3 +1,9 @@
+2.71v
+
+1. Option in autoresponder to set visitor redirection to survey if visitor does not respond for n seconds.
+
+execute doc/update_db/update_145.sql for update
+
 2.70v
 
 1. Option to configure what should happen on transfer to department.

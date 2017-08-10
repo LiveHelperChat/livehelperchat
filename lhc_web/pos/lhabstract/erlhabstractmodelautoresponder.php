@@ -148,6 +148,16 @@ $def->properties['ignore_pa_chat']->columnName   = 'ignore_pa_chat';
 $def->properties['ignore_pa_chat']->propertyName = 'ignore_pa_chat';
 $def->properties['ignore_pa_chat']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['survey_timeout'] = new ezcPersistentObjectProperty();
+$def->properties['survey_timeout']->columnName   = 'survey_timeout';
+$def->properties['survey_timeout']->propertyName = 'survey_timeout';
+$def->properties['survey_timeout']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['survey_id'] = new ezcPersistentObjectProperty();
+$def->properties['survey_id']->columnName   = 'survey_id';
+$def->properties['survey_id']->propertyName = 'survey_id';
+$def->properties['survey_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

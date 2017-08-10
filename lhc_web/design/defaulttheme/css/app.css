@@ -292,7 +292,7 @@ option.offline-dep{
 }
 
 .icon-user-status {
-	color:#CCC;
+	color:#BB474A;
 }
 
 .icon-user-online,
@@ -307,11 +307,6 @@ option.offline-dep{
 .icon-user-away,
 .icon-user-away a{
 	color:#EDC21A;
-}
-
-.icon-user-closed-chat,
-.icon-user-closed-chat a{
-	color:#BB474A;
 }
 
 .user-away-row td{
