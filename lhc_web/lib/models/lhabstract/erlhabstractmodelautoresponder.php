@@ -44,7 +44,9 @@ class erLhAbstractModelAutoResponder {
 			'ignore_pa_chat'	=> $this->ignore_pa_chat,
 			'dep_id'			=> $this->dep_id,
 			'position'			=> $this->position,
-			'repeat_number'		=> $this->repeat_number
+			'repeat_number'		=> $this->repeat_number,
+			'survey_timeout'	=> $this->survey_timeout,
+			'survey_id'		    => $this->survey_id
 		);
 
 		return $stateArray;
@@ -169,7 +171,13 @@ class erLhAbstractModelAutoResponder {
 	// 5 Message
 	public $wait_timeout_reply_5 = 0;
 	public $timeout_reply_message_5 = '';
-	
+
+	// After hour many seconds in active chat redirect user to survey
+	public $survey_timeout = 0;
+
+	// @todo implement
+	public $survey_id = 0;
+
 	public $dep_id = 0;
 	public $repeat_number = 1;
 	

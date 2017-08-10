@@ -210,6 +210,22 @@
                 "extra": ""
             },
             {
+                "field": "survey_timeout",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "survey_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "timeout_message",
                 "type": "text",
                 "null": "NO",

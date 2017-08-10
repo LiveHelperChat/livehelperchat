@@ -33,6 +33,7 @@
     	<ul class="nav nav-tabs" role="tablist">
     		<li role="presentation" class="active"><a href="#pending" aria-controls="pending" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Pending chat messaging');?></a></li>
     		<li role="presentation"><a href="#active" aria-controls="active" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Active chat messaging');?></a></li>
+    		<li role="presentation"><a href="#survey" aria-controls="survey" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Survey');?></a></li>
     	</ul>
     
     	<!-- Tab panes -->
@@ -42,6 +43,9 @@
     		</div>
     		<div role="tabpanel" class="tab-pane" id="active">
     		  <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/responder/active.tpl.php'));?>
+    		</div>
+            <div role="tabpanel" class="tab-pane" id="survey">
+    		  <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/responder/survey.tpl.php'));?>
     		</div>
 		</div>
 </div>
