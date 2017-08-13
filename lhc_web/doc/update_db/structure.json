@@ -3219,7 +3219,7 @@
             },
             {
                 "field": "user_typing_txt",
-                "type": "varchar(50)",
+                "type": "varchar(200)",
                 "null": "NO",
                 "key": "",
                 "default": null,
