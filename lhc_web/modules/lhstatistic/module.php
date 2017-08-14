@@ -13,13 +13,13 @@ $ViewList['departmentstatusxls'] = array(
 
 $ViewList['statistic'] = array(
     'params' => array(),
-    'uparams' => array('tab','timefrom','timeto','department_id','user_id','group_id','department_group_id','timefrom_minutes','timefrom_hours','timeto_hours','timeto_minutes'),
+    'uparams' => array('group_by','xls','tab','timefrom','timeto','department_id','user_id','group_id','department_group_id','timefrom_minutes','timefrom_hours','timeto_hours','timeto_minutes'),
     'functions' => array( 'viewstatistic' )
 );
 
 $ViewList['onlinehours'] = array(
     'params' => array(),
-    'uparams' => array('timefrom','timeto','user_id','timefrom_minutes','timefrom_hours','timeto_hours','timeto_minutes'),
+    'uparams' => array('group_by','xls','timefrom','timeto','user_id','timefrom_minutes','timefrom_hours','timeto_hours','timeto_minutes'),
     'functions' => array( 'viewstatistic' )
 );
 
