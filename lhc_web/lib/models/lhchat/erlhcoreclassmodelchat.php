@@ -386,7 +386,7 @@ class erLhcoreClassModelChat {
        	case 'user_status_front':
 
        	    if ($this->lsync > 0) {
-                $this->user_status_front =  (time() - 40 > $this->lsync) ? 1 : 0;
+                $this->user_status_front =  (time() - 40 > $this->lsync || $this->status_sub == erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT) ? 1 : 0;
        	    } elseif ($this->online_user !== false) {
        		    $this->user_status_front = erLhcoreClassChat::setActivityByChatAndOnlineUser($this, $this->online_user);
        		} else {
