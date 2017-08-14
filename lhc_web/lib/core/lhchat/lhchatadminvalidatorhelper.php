@@ -287,12 +287,18 @@ class erLhcoreClassAdminChatValidatorHelper {
 	            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY
 	        ),
 	        'customFieldIsrequired' => new ezcInputFormDefinitionElement(
-	            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY
+	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean', null, FILTER_REQUIRE_ARRAY
 	        ),
 	        'customFieldDefaultValue' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY
 	        ),
+            'customFieldOptions' => new ezcInputFormDefinitionElement(
+	            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY
+	        ),
 	        'customFieldIdentifier' => new ezcInputFormDefinitionElement(
+	            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY
+	        ),
+            'customFieldCondition' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY
 	        ),
 	        'CustomFieldsEncryption' => new ezcInputFormDefinitionElement(
@@ -630,18 +636,20 @@ class erLhcoreClassAdminChatValidatorHelper {
 	    } else {
 	        $data['offline_message_require_option'] = 'required';
 	    }
-	    
+
 	    if ( $form->hasValidData( 'customFieldType' ) && !empty($form->customFieldType)) {
 	        $customFields = array();
 	        foreach ($form->customFieldType as $key => $customFieldType) {
 	            $customFields[] = array(
 	                'fieldname' => $form->customFieldLabel[$key],
 	                'defaultvalue' => $form->customFieldDefaultValue[$key],
+	                'options' => $form->customFieldOptions[$key],
 	                'fieldtype' => $customFieldType,
 	                'size' => $form->customFieldSize[$key],
 	                'visibility' => $form->customFieldVisibility[$key],
-	                'isrequired' => $form->customFieldIsrequired[$key],
+	                'isrequired' => ($form->hasValidData('customFieldIsrequired') && isset($form->customFieldIsrequired[$key]) && $form->customFieldIsrequired[$key] == true),
 	                'fieldidentifier' => $form->customFieldIdentifier[$key],
+	                'showcondition' => $form->customFieldCondition[$key],
 	            );
 	        }
 	        $data['custom_fields'] = json_encode($customFields,JSON_HEX_APOS);
