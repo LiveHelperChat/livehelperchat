@@ -386,7 +386,11 @@ class erLhcoreClassModelChat {
        	case 'user_status_front':
 
        	    if ($this->lsync > 0) {
-                $this->user_status_front =  (time() - 40 > $this->lsync || in_array($this->status_sub,array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW,erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT))) ? 1 : 0;
+                 
+       	        // Because mobile devices freezes background tabs we need to have bigger timeout
+       	        $timeout = $this->device_type == 0 ? 40 : 300;
+       	        $this->user_status_front =  (time() - $timeout > $this->lsync || in_array($this->status_sub,array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW,erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT))) ? 1 : 0;
+
        	    } elseif ($this->online_user !== false) {
        		    $this->user_status_front = erLhcoreClassChat::setActivityByChatAndOnlineUser($this, $this->online_user);
        		} else {
