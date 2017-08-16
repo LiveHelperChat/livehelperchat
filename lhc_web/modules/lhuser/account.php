@@ -15,10 +15,14 @@ if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','allowtochoosependingmod
 		exit;
 	}
 	
-	$showAllPending = erLhcoreClassUserValidator::validateShowAllPendingOption();
+	$pendingSettings = erLhcoreClassUserValidator::validateShowAllPendingOption();
 	
-	erLhcoreClassModelUserSetting::setSetting('show_all_pending', $showAllPending);
-	
+	erLhcoreClassModelUserSetting::setSetting('show_all_pending', $pendingSettings['show_all_pending']);
+
+    $UserData->auto_accept = $pendingSettings['auto_accept'];
+    $UserData->max_active_chats = $pendingSettings['max_chats'];
+    $UserData->saveThis();
+
 	$tpl->set('account_updated','done');
 	$tpl->set('tab','tab_pending');
 	

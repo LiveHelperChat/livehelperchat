@@ -254,19 +254,38 @@ class erLhcoreClassUserValidator {
 		$definition = array(
 			'showAllPendingEnabled' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
-			)
+			),
+            'autoAccept' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+			),
+            'maximumChats' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'int'
+			),
 		);
 	
 		$form = new ezcInputForm( INPUT_POST, $definition );
-	
+
+		$result = array();
+
 		if ( $form->hasValidData( 'showAllPendingEnabled' ) && $form->showAllPendingEnabled == true ) {
-			$showAllPending = 1;
+            $result['show_all_pending'] = 1;
 		} else {
-			$showAllPending = 0;
+            $result['show_all_pending'] = 0;
+		}
+
+		if ( $form->hasValidData( 'autoAccept' ) && $form->autoAccept == true ) {
+            $result['auto_accept'] = 1;
+		} else {
+            $result['auto_accept'] = 0;
+		}
+
+		if ( $form->hasValidData( 'maximumChats' )) {
+            $result['max_chats'] = $form->maximumChats;
+		} else {
+            $result['max_chats'] = 0;
 		}
 	
-		return $showAllPending;
-	
+		return $result;
 	}
 	
 	public static function validateUserPhoto(& $userData, $params = array()) {

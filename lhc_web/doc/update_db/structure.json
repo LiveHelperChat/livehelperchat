@@ -4312,6 +4312,14 @@
                 "extra": ""
             },
             {
+                "field": "exclude_inactive_chats",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "sort_priority",
                 "type": "int(11)",
                 "null": "NO",
@@ -5406,6 +5414,22 @@
                 "extra": ""
             },
             {
+                "field": "pending_chats",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "inactive_chats",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "type",
                 "type": "int(11)",
                 "null": "NO",
@@ -5570,6 +5594,22 @@
             {
                 "field": "hide_online",
                 "type": "tinyint(1)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "auto_accept",
+                "type": "tinyint(1)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "max_active_chats",
+                "type": "int(11)",
                 "null": "NO",
                 "key": "MUL",
                 "default": null,
