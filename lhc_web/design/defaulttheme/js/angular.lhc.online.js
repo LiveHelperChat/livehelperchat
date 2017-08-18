@@ -36,8 +36,8 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
 		this.predicate = 'last_visit';
 		this.reverse = true;
 		this.wasInitiated = false;
-		
-		
+
+    	this.forbiddenVisitors = false;
 		this.soundEnabled = false;
 		this.notificationEnabled = false;
 		
@@ -96,7 +96,7 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
         
 		this.updateList = function(){
 			
-			if (lhinst.disableSync == true) {			
+			if (lhinst.disableSync == true || that.forbiddenVisitors == true ) {
 				return;
 			}
 			
@@ -186,8 +186,12 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
 			});
 		};
 								
-		timeoutId = $interval(function() {		
-			that.updateList();			
+		timeoutId = $interval(function() {
+			if (that.forbiddenVisitors == false) {
+				that.updateList();
+			} else {
+                $interval.cancel(timeoutId);
+			}
 		},this.updateTimeout * 1000);
 		
 		$scope.$watch('online.updateTimeout', function(newVal,oldVal) {       
