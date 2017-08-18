@@ -548,17 +548,32 @@ class erLhcoreClassModelChatOnlineUser
 
         $timeoutCleanup = erLhcoreClassModelChatConfig::fetch('tracked_users_cleanup')->current_value;
 
-        $stmt = $db->prepare('DELETE T2 FROM lh_abstract_proactive_chat_event as T2 INNER JOIN lh_chat_online_user as T1 ON T1.id = T2.vid_id WHERE last_visit < :last_activity');
-        $stmt->bindValue(':last_activity', (int)(time() - $timeoutCleanup * 24 * 3600), PDO::PARAM_INT);
-        $stmt->execute();
+        $lastCleanup = erLhcoreClassModelChatConfig::fetch('tracked_users_cleanup_last');
 
-        $stmt = $db->prepare('DELETE FROM lh_chat_online_user WHERE last_visit < :last_activity');
-        $stmt->bindValue(':last_activity', (int)(time() - $timeoutCleanup * 24 * 3600), PDO::PARAM_INT);
-        $stmt->execute();
+        // Do not clean more often that once per hour
+        if ((int)$lastCleanup->current_value < time()-3600) {
 
-        $stmt = $db->prepare('DELETE FROM lh_chat_online_user_footprint WHERE chat_id = 0 AND vtime < :last_activity');
-        $stmt->bindValue(':last_activity', (int)(time() - $timeoutCleanup * 24 * 3600), PDO::PARAM_INT);
-        $stmt->execute();
+            $lastCleanup->identifier = 'tracked_users_cleanup_last';
+            $lastCleanup->type = 0;
+            $lastCleanup->explain = 'Track last cleanup';
+            $lastCleanup->hidden = 1;
+            $lastCleanup->value = time();
+            $lastCleanup->saveThis();
+
+            $stmt = $db->prepare('DELETE T2 FROM lh_abstract_proactive_chat_event as T2 INNER JOIN lh_chat_online_user as T1 ON T1.id = T2.vid_id WHERE last_visit < :last_activity');
+            $stmt->bindValue(':last_activity', (int)(time() - $timeoutCleanup * 24 * 3600), PDO::PARAM_INT);
+            $stmt->execute();
+
+            $stmt = $db->prepare('DELETE FROM lh_chat_online_user WHERE last_visit < :last_activity');
+            $stmt->bindValue(':last_activity', (int)(time() - $timeoutCleanup * 24 * 3600), PDO::PARAM_INT);
+            $stmt->execute();
+
+            $stmt = $db->prepare('DELETE FROM lh_chat_online_user_footprint WHERE chat_id = 0 AND vtime < :last_activity');
+            $stmt->bindValue(':last_activity', (int)(time() - $timeoutCleanup * 24 * 3600), PDO::PARAM_INT);
+            $stmt->execute();
+
+
+        }
     }
 
     public static function cleanAllRecords()

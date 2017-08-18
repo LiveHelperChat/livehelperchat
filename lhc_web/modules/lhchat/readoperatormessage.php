@@ -295,7 +295,7 @@ if (isset($_POST['askQuestion']))
 	    }
 	    
 	    if ($form->hasValidData( 'via_encrypted' )) {
-	        $inputForm->via_encrypted = $form->via_encrypted;
+            $inputData->via_encrypted = $form->via_encrypted;
 	    }
 	    
 	    if (is_array($customAdminfields)){
@@ -309,7 +309,7 @@ if (isset($_POST['askQuestion']))
 	                
 	                $valueStore = (isset($valuesArray[$key]) ? trim($valuesArray[$key]) : '');
 	                 
-	                if (isset($inputForm->via_encrypted[$key]) && $inputForm->via_encrypted[$key] == 't' && $valueStore != '') {
+	                if (isset($inputData->via_encrypted[$key]) && $inputData->via_encrypted[$key] == 't' && $valueStore != '') {
 	                    try {
 	                        $valueStore = erLhcoreClassChatValidator::decryptAdditionalField($valueStore, $chat);
 	                    } catch (Exception $e) {
@@ -317,7 +317,7 @@ if (isset($_POST['askQuestion']))
 	                    }
 	                }
 	                	                
-	                $stringParts[] = array('h' => (isset($inputForm->via_hidden[$key]) || $adminField['fieldtype'] == 'hidden'), 'identifier' => (isset($adminField['fieldidentifier'])) ? $adminField['fieldidentifier'] : null, 'key' => $adminField['fieldname'], 'value' => $valueStore);
+	                $stringParts[] = array('h' => (isset($inputData->via_hidden[$key]) || $adminField['fieldtype'] == 'hidden'), 'identifier' => (isset($adminField['fieldidentifier'])) ? $adminField['fieldidentifier'] : null, 'key' => $adminField['fieldname'], 'value' => $valueStore);
 	            }
 	        }
 	    }
