@@ -388,7 +388,12 @@ class erLhcoreClassModelChat {
        	    if ($this->lsync > 0) {
 
        	        // Because mobile devices freezes background tabs we need to have bigger timeout
-       	        $timeout = $this->device_type == 0 ? 60 : 240;
+       	        $timeout = 60;
+
+       	        if ($this->device_type != 0 && (strpos($this->uagent,'iPhone') !== false || strpos($this->uagent,'iPad') !== false)) {
+                    $timeout = 240;
+                }
+
        	        $this->user_status_front =  (time() - $timeout > $this->lsync || in_array($this->status_sub,array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW,erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT))) ? 1 : 0;
 
        	    } elseif ($this->online_user !== false) {
