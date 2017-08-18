@@ -315,7 +315,9 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
 	       $chat->referrer = isset($_POST['URLRefer']) ? $_POST['URLRefer'] : '';
 	       $chat->session_referrer = isset($_POST['r']) ? $_POST['r'] : '';
 
-	       if ( empty(trim($chat->nick)) ) {
+	       $nick = trim($chat->nick);
+
+	       if ( empty($nick) ) {
 	           $chat->nick = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor');
 	       }
 	       

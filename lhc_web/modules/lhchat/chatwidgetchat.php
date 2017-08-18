@@ -95,8 +95,10 @@ try {
 
 	        	$chat->user_status = erLhcoreClassModelChat::USER_STATUS_JOINED_CHAT;
 
+                $nick = isset($_GET['prefill']['username']) ? trim($_GET['prefill']['username']) : '';
+
 	        	// Update nick if required
-	        	if (isset($_GET['prefill']['username']) && $chat->nick != $_GET['prefill']['username'] && !empty(trim($_GET['prefill']['username'])) && $chat->nick == erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor')) {
+	        	if (isset($_GET['prefill']['username']) && $chat->nick != $_GET['prefill']['username'] && !empty($nick) && $chat->nick == erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor')) {
 	        	    $chat->nick = $_GET['prefill']['username'];
 	        	    $chat->operation_admin .= "lhinst.updateVoteStatus(".$chat->id.");";
 	        	}
