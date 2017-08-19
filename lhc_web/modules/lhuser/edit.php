@@ -68,10 +68,21 @@ if (isset($_POST['UpdatePending_account'])) {
 		erLhcoreClassModule::redirect('user/edit', '/'.$UserData->id);
 		exit;
 	}
+
+    $pendingSettings = erLhcoreClassUserValidator::validateShowAllPendingOption();
 	
-	$showAllPending = erLhcoreClassUserValidator::validateShowAllPendingOption();
-	
-	erLhcoreClassModelUserSetting::setSetting('show_all_pending', $showAllPending, $UserData->id);
+	erLhcoreClassModelUserSetting::setSetting('show_all_pending', $pendingSettings['show_all_pending'], $UserData->id);
+
+    $UserData->auto_accept = $pendingSettings['auto_accept'];
+    $UserData->max_active_chats = $pendingSettings['max_chats'];
+    $UserData->saveThis();
+
+    // Update max active chats directly
+    $db = ezcDbInstance::get();
+    $stmt = $db->prepare('UPDATE lh_userdep SET max_chats = :max_chats WHERE user_id = :user_id');
+    $stmt->bindValue(':max_chats', $UserData->max_active_chats, PDO::PARAM_INT);
+    $stmt->bindValue(':user_id', $UserData->id, PDO::PARAM_INT);
+    $stmt->execute();
 
 	$tpl->set('account_updated','done');
 	$tpl->set('tab','tab_pending');

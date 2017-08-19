@@ -156,6 +156,16 @@ $def->properties['max_active_chats']->columnName   = 'max_active_chats';
 $def->properties['max_active_chats']->propertyName = 'max_active_chats';
 $def->properties['max_active_chats']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['max_ac_dep_chats'] = new ezcPersistentObjectProperty();
+$def->properties['max_ac_dep_chats']->columnName   = 'max_ac_dep_chats';
+$def->properties['max_ac_dep_chats']->propertyName = 'max_ac_dep_chats';
+$def->properties['max_ac_dep_chats']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['exclude_inactive_chats'] = new ezcPersistentObjectProperty();
+$def->properties['exclude_inactive_chats']->columnName   = 'exclude_inactive_chats';
+$def->properties['exclude_inactive_chats']->propertyName = 'exclude_inactive_chats';
+$def->properties['exclude_inactive_chats']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['max_timeout_seconds'] = new ezcPersistentObjectProperty();
 $def->properties['max_timeout_seconds']->columnName   = 'max_timeout_seconds';
 $def->properties['max_timeout_seconds']->propertyName = 'max_timeout_seconds';

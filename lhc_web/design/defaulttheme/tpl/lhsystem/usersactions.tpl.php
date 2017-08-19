@@ -12,6 +12,8 @@
     <th width="1%">ID</th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Username');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Active chats');?></th>
+    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Pending chats');?></th>
+    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Inactive chats');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','RT Active chats');?></th>
     <?php include(erLhcoreClassDesign::designtpl('lhuser/userlist/column_multiinclude.tpl.php')); ?>
     <?php if ($canEdit) : ?><th width="1%">&nbsp;</th><?php endif;?>
@@ -23,6 +25,12 @@
         <td><?php echo htmlspecialchars($user->username)?></td>
         <td>
             <?php echo isset($userlist_stats[$user->id]['ac']) ? $userlist_stats[$user->id]['ac'] : '-'?>
+        </td>
+        <td>
+            <?php echo isset($userlist_stats[$user->id]['pc']) ? $userlist_stats[$user->id]['pc'] : '-'?>
+        </td>
+        <td>
+            <?php echo isset($userlist_stats[$user->id]['ic']) ? $userlist_stats[$user->id]['ic'] : '-'?>
         </td>
         <td>
             <?php if (isset($userlist_stats[$user->id]['acrt']) && isset($userlist_stats[$user->id]['ac']) && $userlist_stats[$user->id]['ac'] != $userlist_stats[$user->id]['acrt']) : ?><i class="material-icons">&#xE002;</i><?php endif;?><?php echo isset($userlist_stats[$user->id]['acrt']) ? $userlist_stats[$user->id]['acrt'] : '-'?>

@@ -685,13 +685,29 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	                
 	                var chatsToNotify = []; // Holds chat's to notify about for particular last_id_identifier item
 	                
-	                var notificationsData = []; // Holds chat's to notify for all lists
+	                var notificationsData = [], notificationDataAccept = []; // Holds chat's to notify for all lists
+
+					var tabs = $('#tabs');
 
 					angular.forEach(data.result, function(item, key) {
 
-						$scope[key] = item;					
-						
-						if ( item.last_id_identifier ) {							
+						$scope[key] = item;
+
+                        if (tabs.size() > 0) {
+							if (key == 'pending_chats' || key == 'my_chats') {
+								item.list.forEach(function (chat) {
+									if (typeof chat.user_id !== 'undefined' && chat.user_id == confLH.user_id && confLH.accept_chats == 1 && chat.status !== 1) {
+										if ($('#chat-tab-link-' + chat.id).length == 0) {
+											lhinst.removeSynchroChat(chat.id);
+											lhinst.startChatBackground(chat.id, tabs, LiveHelperChatFactory.truncate(chat.nick, 10));
+											notificationDataAccept.push(chat.id);
+										}
+									}
+								});
+							}
+                        }
+
+						if ( item.last_id_identifier ) {
 		                    chatsToNotify = [];		                     
 		                    												
 							currentStatusNotifications = [];
@@ -723,15 +739,26 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 								chatsToNotify.unshift(item.last_id_identifier);								
 								notificationsData.push(chatsToNotify.join("/"));
 							};
-							
+
 							if (_that.isListLoaded == true) {
 								_that.compareNotificationsAndHide(_that.statusNotifications[item.last_id_identifier],currentStatusNotifications);
 							}
-														
+
 							_that.statusNotifications[item.last_id_identifier] = currentStatusNotifications;
 						}
-					});	
-															
+					});
+
+                    if (notificationDataAccept.length > 0) {
+                        notificationDataAccept.unshift('active_chat');
+                        LiveHelperChatFactory.getNotificationsData(notificationDataAccept.join("/")).then(function (data) {
+                            angular.forEach(data, function (item, key) {
+                                lhinst.removeBackgroundChat(parseInt(item.last_id));
+                                lhinst.playSoundNewAction(item.last_id_identifier,parseInt(item.last_id),(item.nick ? item.nick : 'Live Help'),(item.msg ? item.msg : confLH.transLation.new_chat), item.nt);
+                                lhinst.backgroundChats.push(parseInt(item.last_id));
+                            });
+                        });
+                    }
+
 					if (notificationsData.length > 0) {
 	                    LiveHelperChatFactory.getNotificationsData(notificationsData.join("/")).then(function (data) {
 	                        angular.forEach(data, function (item, key) {

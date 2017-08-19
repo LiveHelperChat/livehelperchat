@@ -4304,6 +4304,14 @@
                 "extra": ""
             },
             {
+                "field": "max_ac_dep_chats",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "pending_group_max",
                 "type": "int(11)",
                 "null": "NO",
@@ -5423,6 +5431,14 @@
             },
             {
                 "field": "inactive_chats",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "max_chats",
                 "type": "int(11)",
                 "null": "NO",
                 "key": "",

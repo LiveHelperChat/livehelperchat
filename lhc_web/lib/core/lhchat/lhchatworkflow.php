@@ -268,9 +268,9 @@ class erLhcoreClassChatWorkflow {
 
     	return $closedChatsNumber;
     }
-    
+
     public static function automaticChatPurge() {
-    	
+
     	$purgedChatsNumber = 0;
     	
     	$timeout = (int)erLhcoreClassModelChatConfig::fetch('autopurge_timeout')->current_value;    	
@@ -297,7 +297,7 @@ class erLhcoreClassChatWorkflow {
     
     public static function autoAssign(& $chat, $department, $params = array()) {    	
         
-    	if ( $department->active_balancing == 1 && ($chat->user_id == 0 || ($department->max_timeout_seconds > 0 && $chat->tslasign < time()-$department->max_timeout_seconds)) ){
+    	if ( $department->active_balancing == 1 && ($department->max_ac_dep_chats == 0 || $department->active_chats_counter < $department->max_ac_dep_chats) && ($chat->user_id == 0 || ($department->max_timeout_seconds > 0 && $chat->tslasign < time()-$department->max_timeout_seconds)) ){
 	    	$isOnlineUser = (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'];
 	    	
 	    	$db = ezcDbInstance::get();
@@ -323,12 +323,18 @@ class erLhcoreClassChatWorkflow {
         	    		    	
         	    	// There was no callbacks or file not found etc, we try to download from standard location
         	    	if ($statusWorkflow === false) {
-        
-        	    	    $appendSQL = '';
-        	    	    if ($department->max_active_chats > 0){
-        	    	        $appendSQL = ' AND active_chats < :max_active_chats';
-        	    	    }
-        
+
+        	    	    $condition = '(active_chats + pending_chats)';
+                        if ($department->exclude_inactive_chats == 1) {
+                            $condition = '((pending_chats + active_chats) - inactive_chats)';
+                        }
+
+        	    	    if ($department->max_active_chats > 0) {
+        	    	        $appendSQL = " AND ((max_chats = 0 AND {$condition} < :max_active_chats) OR (max_chats > 0 AND {$condition} < max_chats))";
+        	    	    } else {
+                            $appendSQL = " AND ((max_chats > 0 AND {$condition} < max_chats) OR (max_chats = 0))";
+                        }
+
         	    	    $sql = "SELECT user_id FROM lh_userdep WHERE hide_online = 0 AND dep_id = :dep_id AND last_activity > :last_activity AND user_id != :user_id {$appendSQL} ORDER BY last_accepted ASC LIMIT 1";
         
         	    	    $db = ezcDbInstance::get();
@@ -351,13 +357,20 @@ class erLhcoreClassChatWorkflow {
         	    	}
         	    	
         	    	if ($user_id > 0) {
-        	    	   
-        	    		erLhcoreClassChat::updateActiveChats($chat->user_id);    		
+
+        	    	    // Update previously assigned operator statistic
+        	    	    if ($chat->user_id > 0) {
+                            erLhcoreClassChat::updateActiveChats($chat->user_id);
+                        }
+
         	    		$chat->tslasign = time();
         	    		$chat->user_id = $user_id;
         	    		$chat->updateThis();
-        	    		
-        	    		$stmt = $db->prepare('UPDATE lh_userdep SET last_accepted = :last_accepted WHERE user_id = :user_id');
+
+        	    		// Update fresh user statistic
+        	    		erLhcoreClassChat::updateActiveChats($chat->user_id);
+
+                        $stmt = $db->prepare('UPDATE lh_userdep SET last_accepted = :last_accepted WHERE user_id = :user_id');
         	    		$stmt->bindValue(':last_accepted',time(),PDO::PARAM_INT);
         	    		$stmt->bindValue(':user_id',$user_id,PDO::PARAM_INT);
         	    		$stmt->execute();

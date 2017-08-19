@@ -57,6 +57,7 @@ class erLhcoreClassModelDepartament {
             'max_active_chats' => $this->max_active_chats,
             'max_timeout_seconds' => $this->max_timeout_seconds,
             'exclude_inactive_chats' => $this->exclude_inactive_chats,
+            'max_ac_dep_chats' => $this->max_ac_dep_chats,
             'attr_int_1' => $this->attr_int_1,
             'attr_int_2' => $this->attr_int_2,
             'attr_int_3' => $this->attr_int_3,
@@ -263,6 +264,7 @@ class erLhcoreClassModelDepartament {
     public $pending_max = 0;
     public $pending_group_max = 0;
     public $exclude_inactive_chats = 0;
+    public $max_ac_dep_chats = 0;
 
     public $active_chats_counter = 0;
     public $pending_chats_counter = 0;

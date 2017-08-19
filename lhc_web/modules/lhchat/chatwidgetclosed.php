@@ -89,6 +89,11 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
 				        }
 				        
 				        if ($explicitClosed == true) {
+
+                            if ($chat->user_id > 0) {
+                                erLhcoreClassChat::updateActiveChats($chat->user_id);
+                            }
+
 				            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.explicitly_closed',array('chat' => & $chat));
 				        }
 	        

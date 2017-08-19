@@ -87,6 +87,10 @@ class erLhcoreClassChatHelper
         
         $params['chat']->status_sub = erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW;
         $params['chat']->saveThis();
+
+        if ($params['chat']->user_id > 0){
+            erLhcoreClassChat::updateActiveChats($params['chat']->user_id);
+        }
     }
     
     public static function getSubStatusArguments( $chat )

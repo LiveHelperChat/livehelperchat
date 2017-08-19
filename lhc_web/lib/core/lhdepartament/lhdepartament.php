@@ -94,10 +94,16 @@ class erLhcoreClassDepartament{
 	   			'VisibleIfOnline' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	   			),
+                'ExcludeInactiveChats' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	   			),
 	   			'MaxNumberActiveChats' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'int'
 	   			),
 	   			'MaxWaitTimeoutSeconds' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'int'
+	   			)
+                ,'MaxNumberActiveDepChats' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'int'
 	   			),
 	   			'pending_max' => new ezcInputFormDefinitionElement(
@@ -173,18 +179,28 @@ class erLhcoreClassDepartament{
 		   		$department->active_balancing = 0;
 		   	}
 		   	
-		   	if ( $form->hasValidData( 'MaxNumberActiveChats' ) )
-		   	{
+		   	if ( $form->hasValidData( 'MaxNumberActiveChats' ) )	{
 		   		$department->max_active_chats = $form->MaxNumberActiveChats;
 		   	} else {
 		   		$department->max_active_chats = 0;
 		   	}
 		   	
-		   	if ( $form->hasValidData( 'MaxWaitTimeoutSeconds' ) )
-		   	{
+		   	if ( $form->hasValidData( 'MaxWaitTimeoutSeconds' ) )	{
 		   		$department->max_timeout_seconds = $form->MaxWaitTimeoutSeconds;
 		   	} else {
 		   		$department->max_timeout_seconds = 0;
+		   	}
+
+		   	if ( $form->hasValidData( 'ExcludeInactiveChats' ) )	{
+		   		$department->exclude_inactive_chats = $form->ExcludeInactiveChats;
+		   	} else {
+		   		$department->exclude_inactive_chats = 0;
+		   	}
+
+		   	if ( $form->hasValidData( 'MaxNumberActiveDepChats' ) )	{
+		   		$department->max_ac_dep_chats = $form->MaxNumberActiveDepChats;
+		   	} else {
+		   		$department->max_ac_dep_chats = 0;
 		   	}
 	   	}
 	   	

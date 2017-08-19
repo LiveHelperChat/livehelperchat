@@ -335,27 +335,30 @@ class erLhcoreClassUserValidator {
 		
 		return $Errors;
 	}
-	
+
 	public static function validateUserNew(& $userData, & $params = array()) {
-	
+
 		$params['user_new'] = true;
-		
+
 		$Errors = self::validateUser($userData, $params);
-		
+
 		if (isset($params['global_departament'])) {
 			$params['global_departament'] = self::validateDepartments($userData);
 		}
-		
+
 		if (isset($params['show_all_pending'])) {
-			$params['show_all_pending'] = self::validateShowAllPendingOption();
+			$paramsPending = self::validateShowAllPendingOption();
+            $params = array_merge($params,$paramsPending);
 		}
-		
+
+        $userData->auto_accept = $params['auto_accept'];
+        $userData->max_active_chats = $params['max_chats'];
+
 		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.new_user', array('userData' => & $userData, 'errors' => & $Errors));
 		
 		return $Errors;
-		
 	}
-	
+
 	public static function validateUserEdit(& $userData, & $params = array()) {
 	
 		$params['user_edit'] = true;

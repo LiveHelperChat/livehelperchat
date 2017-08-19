@@ -75,11 +75,12 @@ class erLhcoreClassModelDepartamentGroupUser
         
         foreach ($this->dep_group->departments_ids as $depId) 
         {
-            $stmt = $db->prepare('INSERT INTO lh_userdep (user_id,dep_id,hide_online,last_activity,last_accepted,active_chats,type,dep_group_id) VALUES (:user_id,:dep_id,:hide_online,0,0,:active_chats,1,:dep_group_id)');
+            $stmt = $db->prepare('INSERT INTO lh_userdep (user_id,dep_id,hide_online,last_activity,last_accepted,active_chats,type,dep_group_id,max_chats) VALUES (:user_id,:dep_id,:hide_online,0,0,:active_chats,1,:dep_group_id,:max_chats)');
             $stmt->bindValue( ':user_id',$this->user_id);
             $stmt->bindValue( ':dep_id',$depId);
             $stmt->bindValue( ':hide_online',$this->user->hide_online);
             $stmt->bindValue( ':dep_group_id',$this->dep_group_id);
+            $stmt->bindValue( ':max_chats',$this->user->max_active_chats);
             $stmt->bindValue( ':active_chats',erLhcoreClassChat::getCount(array('filter' => array('user_id' => $this->user_id, 'status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT))));
             $stmt->execute();
         }

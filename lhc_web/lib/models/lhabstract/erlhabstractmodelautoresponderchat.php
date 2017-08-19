@@ -112,6 +112,10 @@ class erLhAbstractModelAutoResponderChat
                          $this->chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW;
                          $this->chat->updateThis();
 
+                         if ($this->chat->user_id > 0) {
+                             erLhcoreClassChat::updateActiveChats($this->chat->user_id);
+                         }
+
                          erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.redirected_to_survey_by_autoresponder',array('chat' => & $this->chat));
                      }
 
