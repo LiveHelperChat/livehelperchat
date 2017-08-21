@@ -42,7 +42,7 @@ return array_merge(array (
         'erLhcoreClassChatCommand'=> 'lib/core/lhchat/lhchatcommand.php',
         'erLhcoreClassChatHelper' => 'lib/core/lhchat/lhchathelper.php',
         'erLhcoreClassUserValidator' => 'lib/core/lhuser/lhuservalidator.php',
-
+        'Clamav'                     => 'lib/core/lhexternal/Clamav.php',
 
         'erLhcoreClassBBCode'       => 'lib/core/lhbbcode/lhbbcode.php',
 
@@ -202,7 +202,7 @@ return array_merge(array (
 		'MaxMind\Db\Reader\Decoder'					=> 'lib/core/lhexternal/MaxMind/Db/Reader/Decoder.php',		
 		'MaxMind\Db\Reader\Metadata'				=> 'lib/core/lhexternal/MaxMind/Db/Reader/Metadata.php',		
 		'JsonSerializable'							=> 'lib/core/lhexternal/GeoIp2/Record/JsonSerializable.php',	
-				
+
         // Speech
         'erLhcoreClassSpeech'                       => 'lib/core/lhspeech/lhspeech.php',
         'erLhcoreClassModelSpeechLanguage'          => 'lib/models/lhspeech/erlhcoreclassmodelspeechlanguage.php',

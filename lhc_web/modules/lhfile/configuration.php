@@ -14,13 +14,22 @@ if ( isset($_POST['StoreFileConfiguration']) ) {
 			'AllowedFileTypesUser' => new ezcInputFormDefinitionElement(
 					ezcInputFormDefinitionElement::OPTIONAL, 'string'
 			),
-			'MaximumFileSize' => new ezcInputFormDefinitionElement(
+            'ClamAVSocketPath' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'string'
+			),
+			'ClamAVSocketLength' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'int'
+			),
+            'MaximumFileSize' => new ezcInputFormDefinitionElement(
 					ezcInputFormDefinitionElement::OPTIONAL, 'int'
 			),
 			'ActiveFileUploadUser' => new ezcInputFormDefinitionElement(
 					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 			),
 			'ActiveFileUploadAdmin' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+			),
+            'AntivirusFileScanEnabled' => new ezcInputFormDefinitionElement(
 					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 			)
 	);
@@ -42,6 +51,12 @@ if ( isset($_POST['StoreFileConfiguration']) ) {
 		$data['active_admin_upload'] = false;
 	}
 
+	if ( $form->hasValidData( 'AntivirusFileScanEnabled' ) && $form->AntivirusFileScanEnabled == true ) {
+		$data['clamav_enabled'] = true;
+	} else {
+		$data['clamav_enabled'] = false;
+	}
+
 	if ( $form->hasValidData( 'AllowedFileTypes' ) && $form->AllowedFileTypes != '' ) {
 		$data['ft_op'] = $form->AllowedFileTypes;
 	} else {
@@ -56,6 +71,18 @@ if ( isset($_POST['StoreFileConfiguration']) ) {
 
 	if ( $form->hasValidData( 'MaximumFileSize' ) ) {
 		$data['fs_max'] = $form->MaximumFileSize;
+	} else {
+		$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Please enter valid maximum file size!');
+	}
+
+	if ( $form->hasValidData( 'ClamAVSocketPath' ) ) {
+		$data['clamd_sock'] = $form->ClamAVSocketPath;
+	} else {
+		$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Please enter valid maximum file size!');
+	}
+
+	if ( $form->hasValidData( 'ClamAVSocketLength' ) ) {
+		$data['clamd_sock_len'] = $form->ClamAVSocketLength;
 	} else {
 		$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Please enter valid maximum file size!');
 	}

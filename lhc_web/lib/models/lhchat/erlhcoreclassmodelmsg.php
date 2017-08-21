@@ -6,61 +6,47 @@
  *
  * */
 
-class erLhcoreClassModelmsg {
+class erLhcoreClassModelmsg
+{
+    use erLhcoreClassDBTrait;
 
-   public function getState()
-   {
-       return array(
-               'id'         	=> $this->id,
-               'msg'        	=> $this->msg,
-               'time'       	=> $this->time,
-               'chat_id'    	=> $this->chat_id,
-               'user_id'    	=> $this->user_id,
-               'name_support'   => $this->name_support
-              );
-   }
+    public static $dbTable = 'lh_msg';
 
-   public function saveThis() {
-   		erLhcoreClassChat::getSession()->saveOrUpdate($this);
-   }
-   
-   public static function fetch($msg_id) {
-   		$msg = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelmsg', (int)$msg_id );
-   		return $msg;
-   }
-   
-   public static function getList($paramsSearch = array()) {
-       if (!isset($paramsSearch['sort'])){
-           $paramsSearch['sort'] = 'id ASC';
-       };
-       
-       return erLhcoreClassChat::getList($paramsSearch,'erLhcoreClassModelmsg','lh_msg');
-   }
+    public static $dbTableId = 'id';
 
-   public function __get($var) {
+    public static $dbSessionHandler = 'erLhcoreClassChat::getSession';
 
-	   	switch ($var) {
-	   		case 'time_front':
-		   			if (date('Ymd') == date('Ymd',$this->time)) {
-		   			     $this->time_front = date(erLhcoreClassModule::$dateHourFormat,$this->time);
-		   			} else {
-		   			     $this->time_front = date(erLhcoreClassModule::$dateDateHourFormat,$this->time);
-		   			}
-		   			return $this->time_front;
-	   			break;
+    public static $dbSortOrder = 'ASC';
 
-	   		default:
-	   			break;
-	   	}
-   }
+    public function getState()
+    {
+        return array(
+            'id' => $this->id,
+            'msg' => $this->msg,
+            'time' => $this->time,
+            'chat_id' => $this->chat_id,
+            'user_id' => $this->user_id,
+            'name_support' => $this->name_support
+        );
+    }
 
-   public function setState( array $properties )
-   {
-       foreach ( $properties as $key => $val )
-       {
-           $this->$key = $val;
-       }
-   }
+    public function __get($var)
+    {
+
+        switch ($var) {
+            case 'time_front':
+                if (date('Ymd') == date('Ymd', $this->time)) {
+                    $this->time_front = date(erLhcoreClassModule::$dateHourFormat, $this->time);
+                } else {
+                    $this->time_front = date(erLhcoreClassModule::$dateDateHourFormat, $this->time);
+                }
+                return $this->time_front;
+                break;
+
+            default:
+                break;
+        }
+    }
 
     public $id = null;
     public $time = '';

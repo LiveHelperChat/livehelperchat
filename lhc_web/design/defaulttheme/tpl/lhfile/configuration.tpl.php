@@ -35,6 +35,23 @@
 	</div>
 </div>
 
+<h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','ClamAV antivirus configuration'); ?></h3>
+
+<div class="form-group">
+    <label><input type="checkbox" name="AntivirusFileScanEnabled" value="on" <?php isset($file_data['clamav_enabled']) && ($file_data['clamav_enabled'] == true) ? print 'checked="checked"' : '' ?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Uploaded files from visitors are scanned'); ?></label>
+</div>
+
+<div class="row form-group">
+    <div class="col-md-6">
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','ClamAV socket path'); ?></label>
+        <input type="text" class="form-control" name="ClamAVSocketPath" value="<?php isset($file_data['clamd_sock']) ? print $file_data['clamd_sock'] : print '/var/run/clamav/clamd.sock' ?>" />
+    </div>
+    <div class="col-md-6">
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','ClamAV socket length'); ?></label>
+        <input type="text" class="form-control" name="ClamAVSocketLength" value="<?php isset($file_data['clamd_sock_len']) ? print $file_data['clamd_sock_len'] : print '20000' ?>" />
+    </div>
+</div>
+
 <input type="submit" class="btn btn-default" name="StoreFileConfiguration" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
 
 </form>
