@@ -134,13 +134,21 @@ h1 {
 	color: #4A4A4A;
 }
 
+.navbar-lhc-right{
+	background: none;
+}
+.navbar-lhc-right .navbar-toggle{
+	padding: 2px 3px;
+	margin:6px 10px;
+}
+
 .breadcrumb {
 	margin-bottom:0px;
 	border-radius:0;
 	padding:10px 15px 10px;
 	border-bottom: 1px solid #e7e7e7;
-	z-index:2;
-	position:relative;
+	/*z-index:2;
+	position:relative;*/
 }
 
 .no-wrap{
@@ -1076,6 +1084,14 @@ input[type="file"]{
 
 #wrapper.toggled {
     padding-left: 220px;
+}
+
+#wrapper.toggledr > #page-content-wrapper > .row > .right-column-page-general {
+	display:none;
+}
+
+#wrapper.toggledr > #page-content-wrapper > .row > #middle-column-page {
+	width: 100%;
 }
 
 #sidebar-wrapper {

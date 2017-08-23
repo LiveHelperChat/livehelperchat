@@ -10,7 +10,7 @@
 
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/top_menu.tpl.php'));?>
 
-<div class="container-fluid" id="wrapper" ng-class="{toggled: lmtoggle}">
+<div class="container-fluid" id="wrapper" ng-class="{toggled: lmtoggle, toggledr : lmtoggler}">
 
 <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/sidemenu/sidemenu.tpl.php'));?>
 <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/path.tpl.php'));?>
@@ -20,7 +20,7 @@
     
         <div class="row">
         
-            <div class="col-sm-<?php $canUseChat == true && (!isset($Result['hide_right_column']) || $Result['hide_right_column'] == false) ? print '8' : print '12'; ?> col-md-<?php $canUseChat == true && (!isset($Result['hide_right_column']) || $Result['hide_right_column'] == false) ? print '9' : print '12'; ?> pb10">
+            <div id="middle-column-page" class="col-sm-<?php $canUseChat == true && (!isset($Result['hide_right_column']) || $Result['hide_right_column'] == false) ? print '8' : print '12'; ?> col-md-<?php $canUseChat == true && (!isset($Result['hide_right_column']) || $Result['hide_right_column'] == false) ? print '9' : print '12'; ?> pb10">
             	<?php echo $Result['content']; ?>
             </div>
             
@@ -30,7 +30,7 @@
             $closedTabEnabled = (int)erLhcoreClassModelUserSetting::getSetting('enable_close_list',0);
             $mchatsTabEnabled = (int)erLhcoreClassModelUserSetting::getSetting('enable_mchats_list',0);
             $unreadTabEnabled = (int)erLhcoreClassModelUserSetting::getSetting('enable_unread_list',1); ?>
-            <div class="columns col-sm-4 col-md-3" id="right-column-page" ng-cloak>
+            <div class="columns col-sm-4 col-md-3 right-column-page-general" id="right-column-page" ng-cloak>
             	
                 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_panels/transfer_panel_container_pre.tpl.php'));?>
                 
