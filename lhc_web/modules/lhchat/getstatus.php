@@ -29,14 +29,7 @@ if (erLhcoreClassModelChatConfig::fetch('hide_disabled_department')->current_val
 $tpl = erLhcoreClassTemplate::getInstance('lhchat/getstatus.tpl.php');
 
 if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 ) {
-
-	$allchar = "abcdefghijklmnopqrstuvwxyz1234567890";
-	$str = "" ;
-	mt_srand (( double) microtime() * 1000000 );
-	for ( $i = 0; $i < 20 ; $i++ ) {
-		$str .= substr( $allchar, mt_rand (0,36), 1 );
-	}
-
+    $str = substr(sha1(mt_rand() . microtime()),0,20);
 	$tpl->set('vid', $str);
 }
 
