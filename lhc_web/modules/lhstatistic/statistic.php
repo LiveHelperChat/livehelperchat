@@ -41,6 +41,7 @@ if ($tab == 'active') {
             'userStats' => erLhcoreClassChatStatistic::getRatingByUser(30,$filterParams['filter']),
             'countryStats' => erLhcoreClassChatStatistic::getTopChatsByCountry(30,$filterParams['filter']),
             'userChatsStats' => erLhcoreClassChatStatistic::numberOfChatsDialogsByUser(30,$filterParams['filter']),
+            'depChatsStats' => erLhcoreClassChatStatistic::numberOfChatsDialogsByDepartment(30,$filterParams['filter']),
             'userChatsAverageStats' => erLhcoreClassChatStatistic::averageOfChatsDialogsByUser(30,$filterParams['filter']),
             'userWaitTimeByOperator' => erLhcoreClassChatStatistic::avgWaitTimeyUser(30,$filterParams['filter']),
             'numberOfChatsPerMonth' => erLhcoreClassChatStatistic::getNumberOfChatsPerMonth($filterParams['filter'], array('comparetopast' => $filterParams['input']->comparetopast)),

@@ -165,6 +165,7 @@
 			drawChartUserMessages();
 			drawChartUserAVGWaitTime();
 			drawChartUserAverage();
+            drawChartDepartmnent();
 		},ts);
 	};
 	
@@ -246,6 +247,25 @@
 		  var chartUp = new google.visualization.ColumnChart(document.getElementById('chart_div_user'));
 		  chartUp.draw(data, options);	
 		  <?php endif;?>						  
+	};
+
+	function drawChartDepartmnent() {
+		<?php if (!empty($depChatsStats)) : ?>
+		  var data = google.visualization.arrayToDataTable([
+		    ['<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','User');?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Chats');?>']
+		    <?php foreach ($depChatsStats as $data) : ?>
+		    	<?php $obUser = erLhcoreClassModelDepartament::fetch($data['dep_id'],true); echo ',[\''.htmlspecialchars((is_object($obUser) ? $obUser->name : $data['dep_id']),ENT_QUOTES).'\','.$data['number_of_chats'].']'?>
+		    <?php endforeach;?>
+		  ]);
+		  var options = {
+		    hAxis: {titleTextStyle: {color: 'red'}},
+		    chartArea:{top:20},
+	        width: '100%',
+	        height: '100%'
+		  };
+		  var chartUp = new google.visualization.ColumnChart(document.getElementById('chart_div_dep'));
+		  chartUp.draw(data, options);
+		  <?php endif;?>
 	};
 	
 	function drawChartUserAverage() {	
@@ -427,6 +447,7 @@
 	$(window).on("resize", function (event) {
 		redrawAllCharts(100);
 	});
+
 	$( document ).ready(function() {
 		redrawAllCharts(100);
 	});
@@ -457,6 +478,11 @@
 <?php if (!empty($userChatsStats)) : ?>	
 <div class="pl20"><strong><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_by_user.tpl.php'));?></strong></div>
 <div id="chart_div_user" style="width: 100%; height: 300px;"></div>
+<?php endif;?>
+
+<?php if (!empty($depChatsStats)) : ?>
+<div class="pl20"><strong><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_by_dep.tpl.php'));?></strong></div>
+<div id="chart_div_dep" style="width: 100%; height: 300px;"></div>
 <?php endif;?>
 
 <?php if (!empty($numberOfMsgByUser)) : ?>	

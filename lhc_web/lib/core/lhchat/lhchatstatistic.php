@@ -574,6 +574,44 @@ class erLhcoreClassChatStatistic {
         }    	
     }
 
+    public static function numberOfChatsDialogsByDepartment($days = 30, $filter = array())
+    {
+        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.numberofchatsdialogsbydepartment',array('days' => $days, 'filter' => $filter));
+
+        if ($statusWorkflow === false) {
+            $dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
+
+            $generalFilter = self::formatFilter($filter);
+
+            $useTimeFilter = !isset($filter['filtergte']['time']) && !isset($filter['filterlte']['time']);
+            $appendFilterTime = '';
+
+            if ($useTimeFilter == true) {
+                $appendFilterTime = 'time > :time ';
+            }
+
+            if ($generalFilter != '' && $useTimeFilter == true) {
+                $generalFilter = ' AND '.$generalFilter;
+            }
+
+            $sql = "SELECT count(id) AS number_of_chats,dep_id FROM lh_chat WHERE {$appendFilterTime} {$generalFilter} GROUP BY dep_id ORDER BY number_of_chats DESC LIMIT 20";
+
+            $db = ezcDbInstance::get();
+            $stmt = $db->prepare($sql);
+
+            if ($useTimeFilter == true) {
+                $stmt->bindValue(':time',$dateUnixPast);
+            }
+
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $stmt->execute();
+            return $stmt->fetchAll();
+
+        } else {
+            return $statusWorkflow['list'];
+        }
+    }
+
     public static function numberOfChatsDialogsByUser($days = 30, $filter = array()) 
     {    	    
         $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.numberofchatsdialogsbyuser',array('days' => $days, 'filter' => $filter));
