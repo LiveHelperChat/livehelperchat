@@ -182,7 +182,7 @@
       view.setColumns([0,1]);              
 	  var options = {
 	    title: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_thumbs_up.tpl.php'));?>',
-	    hAxis: {titleTextStyle: {color: 'red'}},
+	    hAxis: {titleTextStyle: {color: 'red'},textStyle : {fontSize: 10}},
         width: '100%',
         height: '100%'		      
 	  };
@@ -202,7 +202,7 @@
       view.setColumns([0,1]);              
 	  var options = {
 	    title: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_thumbs_down.tpl.php'));?>',
-	    hAxis: {titleTextStyle: {color: 'red'}},
+	    hAxis: {titleTextStyle: {color: 'red'},textStyle : {fontSize: 10}},
         width: '100%',
         height: '100%'		      
 	  };
@@ -221,7 +221,7 @@
 		  ]);      
 		var options = {
 		    title: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_by_country.tpl.php'));?>',
-		    hAxis: {titleTextStyle: {color: 'red'}},
+		    hAxis: {titleTextStyle: {color: 'red'},textStyle : {fontSize: 10}},
 	        width: '100%',
 	        height: '100%'		      
 		  };
@@ -239,7 +239,7 @@
 		    <?php endforeach;?>
 		  ]);   
 		  var options = {		    
-		    hAxis: {titleTextStyle: {color: 'red'}},
+		    hAxis: {titleTextStyle: {color: 'red'},textStyle : {fontSize: 10}},
 		    chartArea:{top:20},
 	        width: '100%',
 	        height: '100%'
@@ -258,7 +258,7 @@
 		    <?php endforeach;?>
 		  ]);
 		  var options = {
-		    hAxis: {titleTextStyle: {color: 'red'}},
+		    hAxis: {titleTextStyle: {color: 'red'},textStyle : {fontSize: 10}},
 		    chartArea:{top:20},
 	        width: '100%',
 	        height: '100%'
@@ -277,7 +277,7 @@
 		    <?php endforeach;?>
 		  ]);   
 		  var options = {		    
-		    hAxis: {titleTextStyle: {color: 'red'}},		   
+		    hAxis: {titleTextStyle: {color: 'red'},textStyle : {fontSize: 10}},
 		    chartArea:{top:20},
 	        width: '100%',
 	        height: '100%'
@@ -296,7 +296,7 @@
 		    <?php endforeach;?>
 		  ]);   
 		  var options = {
-		    hAxis: {titleTextStyle: {color: 'red'}},
+		    hAxis: {titleTextStyle: {color: 'red'},textStyle : {fontSize: 10}},
 	        width: '100%',
 	        chartArea:{top:20},
 	        height: '100%'
@@ -331,7 +331,7 @@
 		    <?php endforeach;?>
 		  ]);	   
 		  var options = {
-		    hAxis: {titleTextStyle: {color: 'red'}},
+		    hAxis: {titleTextStyle: {color: 'red'},textStyle : {fontSize: 10}},
 	        width: '100%',
 	        chartArea:{top:20},
 	        height: '100%'
@@ -354,7 +354,8 @@
 			title: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/chats_number_by_statuses.tpl.php'));?>',
 	        width: '100%',
 	        height: '100%',
-	        isStacked: true
+	        isStacked: true,
+            hAxis : {textStyle:{fontSize: 10}}
 		  };
 		  var chartUp = new google.visualization.ColumnChart(document.getElementById('chart_div_per_month'));
 		  chartUp.draw(data, options);
@@ -371,7 +372,12 @@
 			title: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/unanswered_chats_numbers.tpl.php'));?>',
 	        width: '100%',
 	        height: '100%',
-	        isStacked: true
+	        isStacked: true,
+              hAxis : {
+                  textStyle : {
+                      fontSize: 10 // or the number you want
+                  }
+              }
 		  };
 		  var chartUp = new google.visualization.ColumnChart(document.getElementById('chart_div_per_month_unanswered'));
 		  chartUp.draw(data, options);
@@ -388,7 +394,12 @@
 			title: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/avg_wait_time_in_seconds_max_10_mininutes.tpl.php'));?>',
 	        width: '100%',
 	        height: '100%',
-	        isStacked: true
+	        isStacked: true,
+              hAxis : {
+                  textStyle : {
+                      fontSize: 10 // or the number you want
+                  }
+              }
 		  };
 		  var chartUp = new google.visualization.ColumnChart(document.getElementById('chart_div_per_month_wait_time'));
 		  chartUp.draw(data, options);
@@ -404,7 +415,12 @@
 			title: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/proactive_chats_number_vs_visitors_initiated.tpl.php'));?>',
 	        width: '100%',
 	        height: '100%',
-	        isStacked: true
+	        isStacked: true,
+            hAxis : {
+                textStyle : {
+                    fontSize: 10 // or the number you want
+                }
+            }
 		  };
 		  var chartProactive = new google.visualization.ColumnChart(document.getElementById('chart_type_div_per_month'));
 		  chartProactive.draw(data, options);						  
@@ -420,7 +436,12 @@
 			title: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/messages_types.tpl.php'));?>',
 	        width: '100%',
 	        height: '100%',
-	        isStacked: true
+	        isStacked: true,
+            hAxis : {
+                 textStyle : {
+                    fontSize: 10 // or the number you want
+                }
+            }
 		  };
 		  var chartMessages = new google.visualization.ColumnChart(document.getElementById('chart_type_div_msg_type'));
 		  chartMessages.draw(data, options);						  
@@ -438,6 +459,11 @@
 			title: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_per_hour_average_chat_duration.tpl.php'));?> <?php echo $averageChatTime != null ? erLhcoreClassChat::formatSeconds($averageChatTime) : '(-)';?>',
 	        width: '100%',
 	        height: '100%',
+            hAxis : {
+                textStyle : {
+                    fontSize: 10 // or the number you want
+                }
+            },
 	        isStacked: true
 		  };
 		  var chartUp = new google.visualization.ColumnChart(document.getElementById('chart_div_per_hour'));
@@ -453,8 +479,6 @@
 	});
 				
 </script> 
-		
-
 
 <h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/chats_statistic.tpl.php'));?></h5>
 <hr>
