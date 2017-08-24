@@ -42,7 +42,7 @@ class erLhcoreClassFileUpload extends UploadHandler {
             return false;
         }
 
-        if ($this->options['antivirus'] !== false && is_object($this->options['antivirus']) && !$this->options['antivirus']->scan(realpath($this->options['upload_dir'] . $file->name ))) {
+        if (isset($this->options['antivirus']) && $this->options['antivirus'] !== false && is_object($this->options['antivirus']) && !$this->options['antivirus']->scan(realpath($this->options['upload_dir'] . $file->name ))) {
             unlink($this->options['upload_dir'] . $file->name);
             erLhcoreClassFileUpload::removeRecursiveIfEmpty('var/', str_replace('var/', '', $this->options['upload_dir']));
             $file->error = 'Virus found in file!';
