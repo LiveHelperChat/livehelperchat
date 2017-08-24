@@ -92,6 +92,10 @@ if ( isset($_POST['StoreFileConfiguration']) ) {
 		$fileData->value = serialize($data);
 		$fileData->saveThis();
 
+        // Cleanup cache to recompile templates etc.
+        $CacheManager = erConfigClassLhCacheConfig::getInstance();
+        $CacheManager->expireCache();
+
 	  	$tpl->set('updated','done');
     }  else {
         $tpl->set('errors',$Errors);
