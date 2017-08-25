@@ -204,6 +204,16 @@ if ($inputData->departament_id > 0) {
 	$tpl->set('department',false);
 }
 
+if (isset($startDataFields['requires_dep']) && $startDataFields['requires_dep'] == true && ((!isset($inputData->departament_id_array) || empty($inputData->departament_id_array)) && $inputData->departament_id == 0)) {
+    $tpl->set('department_invalid',true);
+} elseif (isset($startDataFields['requires_dep']) && $startDataFields['requires_dep'] == true && isset($startDataFields['requires_dep_lock']) && $startDataFields['requires_dep_lock'] == true) {
+	if (!isset($_COOKIE['lhc_ldep'])) {
+    	setcookie('lhc_ldep', $inputData->departament_id > 0 ? $inputData->departament_id : implode(',',$inputData->departament_id_array),0,'/');
+	} elseif (isset($_COOKIE['lhc_ldep']) && $_COOKIE['lhc_ldep'] != ($inputData->departament_id > 0 ? $inputData->departament_id : implode(',',$inputData->departament_id_array))) {
+        $tpl->set('department_invalid',true);
+	}
+}
+
 $leaveamessage = ((string)$Params['user_parameters_unordered']['leaveamessage'] == 'true' || (isset($startDataFields['force_leave_a_message']) && $startDataFields['force_leave_a_message'] == true)) ? true : false;
 $tpl->set('forceoffline',false);
 

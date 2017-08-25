@@ -128,6 +128,12 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        'NameHidden' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	        ),
+            'RequiresPrefilledDepartment' => new ezcInputFormDefinitionElement(
+	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	        ),
+            'RequireLockForPassedDepartment' => new ezcInputFormDefinitionElement(
+	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	        ),
 	        'NameRequireOption' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'string'
 	        ),
@@ -320,14 +326,26 @@ class erLhcoreClassAdminChatValidatorHelper {
 	    } else {
 	        $data['force_leave_a_message'] = false;
 	    }
-	    
+
 	    // TOS
 	    if ( $form->hasValidData( 'TOSVisibleInPopup' ) && $form->TOSVisibleInPopup == true ) {
 	        $data['tos_visible_in_popup'] = true;
 	    } else {
 	        $data['tos_visible_in_popup'] = false;
 	    }
-	    
+
+	    if ( $form->hasValidData( 'RequiresPrefilledDepartment' ) && $form->RequiresPrefilledDepartment == true ) {
+	        $data['requires_dep'] = true;
+	    } else {
+	        $data['requires_dep'] = false;
+	    }
+
+	    if ( $form->hasValidData( 'RequireLockForPassedDepartment' ) && $form->RequireLockForPassedDepartment == true ) {
+	        $data['requires_dep_lock'] = true;
+	    } else {
+	        $data['requires_dep_lock'] = false;
+	    }
+
 	    if ( $form->hasValidData( 'ShowMessagesBox' ) && $form->ShowMessagesBox == true ) {
 	        $data['show_messages_box'] = true;
 	    } else {

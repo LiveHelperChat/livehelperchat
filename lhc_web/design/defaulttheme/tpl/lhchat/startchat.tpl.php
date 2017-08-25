@@ -5,6 +5,11 @@
 
 <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Department is disabled');?></h4>
 
+<?php elseif (isset($department_invalid) && $department_invalid === true) : ?>
+
+<?php $errors[] =erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please provide a department');?>
+<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
+
 <?php else : ?>
 
 <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/widget_geo_adjustment.tpl.php'));?>
