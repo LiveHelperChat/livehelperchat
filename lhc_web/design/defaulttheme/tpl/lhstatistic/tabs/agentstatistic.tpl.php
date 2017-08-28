@@ -150,25 +150,11 @@
 		<th colspan="6"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chats');?></th>
 	</tr>
 	<tr>
-		<th></th>
-		<th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Total number of chats');?></th>
-		<th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Number of chats while online');?></th>
-		<th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Hours on chat (sum of chat duration)');?></th>
-		<th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Time online (sum of time spend online)');?></th>
-		<th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','AVG number of chats per hour');?></th>
-		<th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Average pick-up time');?></th>
-		<th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Average chat length');?></th>
+        <?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/part/agentstatistic/table_header.tpl.php'));?>
 	</tr>
 <?php foreach ($agentStatistic as $info) : ?>
 	<tr>
-		<td><?php echo $info->agentName; ?></td>
-		<td><?php echo $info->numberOfChats; ?></td>
-		<td><?php echo $info->numberOfChatsOnline; ?></td>
-		<td><?php echo $info->totalHours_front; ?></td>
-		<td><a href="<?php echo erLhcoreClassDesign::baseurl('statistic/onlinehours')?><?php echo erLhcoreClassSearchHandler::getURLAppendFromInput($input);?>/(user_id)/<?php echo $info->userId?>"><?php echo $info->totalHoursOnline_front; ?></a></td>
-		<td><?php echo $info->aveNumber; ?></td>
-		<td><?php echo $info->avgWaitTime_front; ?></td>
-		<td><?php echo $info->avgChatLength; ?></td>
+        <?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/part/agentstatistic/table_content.tpl.php'));?>
 	</tr>
 <?php endforeach; ?>
 </table>
