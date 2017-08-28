@@ -867,6 +867,9 @@ class erLhcoreClassChatStatistic {
         $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(5, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','AVG number of chat per hour'));
         $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(6, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Average pick-up time'));
         $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(7, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Average chat length'));
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getagentstatistic_export_columns',array('xls' => & $objPHPExcel));
+
         $i = 3;
         foreach ($data as $item) {
             $key = 0;
@@ -894,7 +897,14 @@ class erLhcoreClassChatStatistic {
             $key++;
             $objPHPExcel->getActiveSheet()->setCellValueExplicitByColumnAndRow($key, $i, $item->avgChatLengthSeconds/(24*3600), PHPExcel_Cell_DataType::TYPE_NUMERIC);
             $objPHPExcel->getActiveSheet()->getStyleByColumnAndRow($key, $i)->getNumberFormat()->setFormatCode('[HH]:MM:SS');
-            
+
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getagentstatistic_export_columns_value',array(
+                'xls' => & $objPHPExcel,
+                'key' => & $key,
+                'i' => & $i,
+                'item' => & $item,
+            ));
+
             $i++;
         }
         $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
