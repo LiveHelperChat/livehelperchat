@@ -129,6 +129,8 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
 } else {
     $tpl->setFile( 'lhchat/errors/adminchatnopermission.tpl.php');
     $tpl->set('show_close_button',true);
+    $tpl->set('auto_close_dialog',true);
+    $tpl->set('chat_id',(int)$Params['user_parameters']['chat_id']);
     echo $tpl->fetch();
     exit;
 }
