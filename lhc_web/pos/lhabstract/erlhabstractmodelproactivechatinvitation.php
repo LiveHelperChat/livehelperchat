@@ -70,16 +70,10 @@ $def->properties['dep_id']->columnName   = 'dep_id';
 $def->properties['dep_id']->propertyName = 'dep_id';
 $def->properties['dep_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
-// Timeout in seconds.
-$def->properties['wait_timeout'] = new ezcPersistentObjectProperty();
-$def->properties['wait_timeout']->columnName   = 'wait_timeout';
-$def->properties['wait_timeout']->propertyName = 'wait_timeout';
-$def->properties['wait_timeout']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
-$def->properties['repeat_number'] = new ezcPersistentObjectProperty();
-$def->properties['repeat_number']->columnName   = 'repeat_number';
-$def->properties['repeat_number']->propertyName = 'repeat_number';
-$def->properties['repeat_number']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+$def->properties['autoresponder_id'] = new ezcPersistentObjectProperty();
+$def->properties['autoresponder_id']->columnName   = 'autoresponder_id';
+$def->properties['autoresponder_id']->propertyName = 'autoresponder_id';
+$def->properties['autoresponder_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
 $def->properties['requires_email'] = new ezcPersistentObjectProperty();
 $def->properties['requires_email']->columnName   = 'requires_email';
@@ -100,12 +94,6 @@ $def->properties['show_random_operator'] = new ezcPersistentObjectProperty();
 $def->properties['show_random_operator']->columnName   = 'show_random_operator';
 $def->properties['show_random_operator']->propertyName = 'show_random_operator';
 $def->properties['show_random_operator']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
-// Then timeout passes show visitor this message.
-$def->properties['timeout_message'] = new ezcPersistentObjectProperty();
-$def->properties['timeout_message']->columnName   = 'timeout_message';
-$def->properties['timeout_message']->propertyName = 'timeout_message';
-$def->properties['timeout_message']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 // How many times show invitation popup before it gets hidden automatically
 $def->properties['hide_after_ntimes'] = new ezcPersistentObjectProperty();

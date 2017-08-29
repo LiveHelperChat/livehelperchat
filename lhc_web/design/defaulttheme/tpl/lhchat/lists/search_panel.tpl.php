@@ -138,7 +138,7 @@
 				<option value="2" <?php if ($input->chat_status === erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Closed chats');?></option>
 				<option value="3" <?php if ($input->chat_status === erLhcoreClassModelChat::STATUS_CHATBOX_CHAT) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chatbox chats');?></option>
 				<option value="4" <?php if ($input->chat_status === erLhcoreClassModelChat::STATUS_OPERATORS_CHAT) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Operators chats');?></option>
-			</select>           	
+			</select>
 		  </div>
 		</div>	
 		<div class="col-md-3">
