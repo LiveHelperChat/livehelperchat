@@ -9,6 +9,11 @@
 <?php $fields = $object->getFields();?>
 
 <div class="form-group">		
+<label><?php echo $fields['name']['trans'];?></label>
+<?php echo erLhcoreClassAbstract::renderInput('name', $fields['name'], $object)?>
+</div>
+
+<div class="form-group">
 <label><?php echo $fields['siteaccess']['trans'];?></label>
 <?php echo erLhcoreClassAbstract::renderInput('siteaccess', $fields['siteaccess'], $object)?>
 </div>
@@ -26,6 +31,10 @@
 <div class="form-group">		
 <label><?php echo $fields['wait_message']['trans'];?></label>
 <?php echo erLhcoreClassAbstract::renderInput('wait_message', $fields['wait_message'], $object)?>
+</div>
+
+<div class="form-group">
+<label><?php echo erLhcoreClassAbstract::renderInput('only_proactive', $fields['only_proactive'], $object)?> <?php echo $fields['only_proactive']['trans'];?></label>
 </div>
 
 <div role="tabpanel">

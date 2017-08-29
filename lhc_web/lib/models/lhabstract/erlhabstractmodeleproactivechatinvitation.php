@@ -22,7 +22,7 @@ class erLhAbstractModelProactiveChatInvitation {
 			'referrer' 		=> $this->referrer,
 			'pageviews' 	=> $this->pageviews,
 			'message' 			=> $this->message,
-			'repeat_number' 	=> $this->repeat_number,
+			'autoresponder_id' 	=> $this->autoresponder_id,
 			'message_returning' => $this->message_returning,
 			'message_returning_nick' => $this->message_returning_nick,
 			'identifier' 	=> $this->identifier,
@@ -30,9 +30,6 @@ class erLhAbstractModelProactiveChatInvitation {
 			'executed_times'=> $this->executed_times,
 			'position'		=> $this->position,
 			'operator_name'	=> $this->operator_name,
-			'wait_message'		    => $this->wait_message,
-			'timeout_message'	    => $this->timeout_message,
-			'wait_timeout'		    => $this->wait_timeout,
 			'requires_email'		=> $this->requires_email,
 			'requires_username'		=> $this->requires_username,
 			'show_random_operator'	=> $this->show_random_operator,
@@ -132,6 +129,15 @@ class erLhAbstractModelProactiveChatInvitation {
 	   	case 'events':
 	   	       $this->events = erLhAbstractModelProactiveChatInvitationEvent::getList(array('filter' => array('invitation_id' => $this->id)));
 	   	       return $this->events;
+	   	    break;
+
+	   	case 'autoresponder':
+	   	       if ($this->autoresponder_id > 0) {
+	   	            $this->autoresponder = erLhAbstractModelAutoResponder::fetch($this->autoresponder_id);
+	   	       } else {
+                   $this->autoresponder = false;
+               }
+	   	       return $this->autoresponder;
 	   	    break;
 	   	    
 	   	default:
@@ -364,12 +370,8 @@ class erLhAbstractModelProactiveChatInvitation {
 	public $identifier = '';
 	public $executed_times = 0;
 	public $operator_name = '';
-	public $wait_message = '';
-	public $timeout_message = '';
-	public $wait_timeout = 0;
 	public $show_random_operator = 0;
 	public $hide_after_ntimes = 0;
-	public $repeat_number = 1;
 	public $dep_id = 0;
 	public $referrer = '';
 	public $operator_ids = '';
@@ -378,6 +380,7 @@ class erLhAbstractModelProactiveChatInvitation {
 	public $event_invitation = 0;
 	public $iddle_for = 0;
 	public $event_type = 0;
+	public $autoresponder_id = 0;
 
 	public $hide_add = false;
 	public $hide_delete = false;

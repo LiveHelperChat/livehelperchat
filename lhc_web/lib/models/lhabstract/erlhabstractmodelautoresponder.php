@@ -16,6 +16,7 @@ class erLhAbstractModelAutoResponder {
 	{
 		$stateArray = array (
 			'id'         		=> $this->id,
+			'name'  		    => $this->name,
 			'siteaccess'  		=> $this->siteaccess,
 			'wait_message'		=> $this->wait_message,
 			'timeout_message'	=> $this->timeout_message,
@@ -41,6 +42,7 @@ class erLhAbstractModelAutoResponder {
 			'timeout_reply_message_4' => $this->timeout_reply_message_4,
 			'timeout_reply_message_5' => $this->timeout_reply_message_5,
 		    
+			'only_proactive'	=> $this->only_proactive,
 			'ignore_pa_chat'	=> $this->ignore_pa_chat,
 			'dep_id'			=> $this->dep_id,
 			'position'			=> $this->position,
@@ -54,7 +56,7 @@ class erLhAbstractModelAutoResponder {
 
 	public function __toString()
 	{
-		return $this->siteaccess;
+		return $this->name;
 	}
 	
 	public function customForm() {
@@ -108,7 +110,7 @@ class erLhAbstractModelAutoResponder {
 
 		$session = erLhcoreClassAbstract::getSession();
 		$q = $session->createFindQuery( 'erLhAbstractModelAutoResponder' );
-		$q->where( '('.$q->expr->eq( 'siteaccess', $q->bindValue( erLhcoreClassSystem::instance()->SiteAccess ) ).' OR siteaccess = \'\') AND ('.$q->expr->eq( 'dep_id', $q->bindValue( $chat->dep_id ) ).' OR dep_id = 0)')
+		$q->where( '('.$q->expr->eq( 'siteaccess', $q->bindValue( erLhcoreClassSystem::instance()->SiteAccess ) ).' OR siteaccess = \'\') AND ('.$q->expr->eq( 'dep_id', $q->bindValue( $chat->dep_id ) ).' OR dep_id = 0) AND only_proactive = 0')
 		->orderBy('position ASC')
 		->limit( 1 );
 
@@ -172,8 +174,14 @@ class erLhAbstractModelAutoResponder {
 	public $wait_timeout_reply_5 = 0;
 	public $timeout_reply_message_5 = '';
 
+	// Auto responder name
+	public $name = '';
+
 	// After hour many seconds in active chat redirect user to survey
 	public $survey_timeout = 0;
+
+	// This auto responder applies only to proactive chats
+	public $only_proactive = 0;
 
 	// @todo implement
 	public $survey_id = 0;

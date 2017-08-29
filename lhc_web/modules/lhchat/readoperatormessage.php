@@ -449,45 +449,105 @@ if (isset($_POST['askQuestion']))
            $messageInitial = $msg;
        
            if ($userInstance->invitation !== false) {
-    
-           		if ($userInstance->invitation->wait_message != '') {
-    		       	$msg = new erLhcoreClassModelmsg();
-    		       	$msg->msg = trim($userInstance->invitation->wait_message);
-    		       	$msg->chat_id = $chat->id;
-    		       	$msg->name_support = $userInstance->operator_user !== false ? $userInstance->operator_user->name_support : (!empty($userInstance->operator_user_proactive) ? $userInstance->operator_user_proactive : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support'));
-    		       	$msg->user_id = $userInstance->operator_user_id > 0 ? $userInstance->operator_user_id : -2;
-    		       	$msg->time = time()+5;
-    		       	erLhcoreClassChat::getSession()->save($msg);
-           		}
-    
-    	       	// Store wait timeout attribute for future
-    	       	$chat->wait_timeout = $userInstance->invitation->wait_timeout;
-    	       	$chat->timeout_message = $userInstance->invitation->timeout_message;
-    	       	$chat->wait_timeout_send = 1-$userInstance->invitation->repeat_number;
-    	       	$chat->wait_timeout_repeat = $userInstance->invitation->repeat_number;
+
+               $responder = $userInstance->invitation->autoresponder;
+
+               if ($responder !== false) {
+
+                   $beforeAutoResponderErrors = array();
+                   erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_triggered', array('chat' => & $chat, 'errors' => & $beforeAutoResponderErrors));
+
+                   if (empty($beforeAutoResponderErrors)) {
+                       $responderChat = new erLhAbstractModelAutoResponderChat();
+                       $responderChat->auto_responder_id = $responder->id;
+                       $responderChat->chat_id = $chat->id;
+                       $responderChat->wait_timeout_send = 1 - $responder->repeat_number;
+                       $responderChat->saveThis();
+
+                       $chat->auto_responder_id = $responderChat->id;
+
+                       if ($responder->wait_message != '') {
+                           $msg = new erLhcoreClassModelmsg();
+                           $msg->msg = trim($responder->wait_message);
+                           $msg->chat_id = $chat->id;
+                           $msg->name_support = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
+                           $msg->user_id = -2;
+                           $msg->time = time() + 5;
+                           erLhcoreClassChat::getSession()->save($msg);
+
+                           if ($chat->last_msg_id < $msg->id) {
+                               $chat->last_msg_id = $msg->id;
+                           }
+                       }
+
+                       erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.auto_responder_triggered', array('chat' => & $chat));
+
+                       $chat->saveThis();
+                   } else {
+                       $msg = new erLhcoreClassModelmsg();
+                       $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Auto responder got error').': '.implode('; ', $beforeAutoResponderErrors);
+                       $msg->chat_id = $chat->id;
+                       $msg->user_id = -1;
+                       $msg->time = time();
+
+                       if ($chat->last_msg_id < $msg->id) {
+                           $chat->last_msg_id = $msg->id;
+                       }
+
+                       erLhcoreClassChat::getSession()->save($msg);
+                   }
+               }
+
            } else {
     
            		// Default auto responder
     	       	$responder = erLhAbstractModelAutoResponder::processAutoResponder($chat);
-    
-    	       	if ($responder instanceof erLhAbstractModelAutoResponder) {
-    	       		$chat->wait_timeout = $responder->wait_timeout;
-    	       		$chat->timeout_message = $responder->timeout_message;
-    	       		$chat->wait_timeout_send = 1-$responder->repeat_number;	       	
-    	       		$chat->wait_timeout_repeat = $responder->repeat_number;
-    	       		
-    	       		if ($responder->wait_message != '') {
-    	       			$msg = new erLhcoreClassModelmsg();
-    	       			$msg->msg = trim($responder->wait_message);
-    	       			$msg->chat_id = $chat->id;
-    	       			$msg->name_support = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
-    	       			$msg->user_id = -2;
-    	       			$msg->time = time()+5;
-    	       			erLhcoreClassChat::getSession()->save($msg);
-    	       		}
-    	       		
-    	       		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.auto_responder_triggered',array('chat' => & $chat));
-    	       	}
+
+                if ($responder instanceof erLhAbstractModelAutoResponder) {
+                   $beforeAutoResponderErrors = array();
+                   erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_triggered', array('chat' => & $chat, 'errors' => & $beforeAutoResponderErrors));
+
+                   if (empty($beforeAutoResponderErrors)) {
+
+                       $responderChat = new erLhAbstractModelAutoResponderChat();
+                       $responderChat->auto_responder_id = $responder->id;
+                       $responderChat->chat_id = $chat->id;
+                       $responderChat->wait_timeout_send = 1 - $responder->repeat_number;
+                       $responderChat->saveThis();
+
+                       $chat->auto_responder_id = $responderChat->id;
+
+                       if ($responder->wait_message != '') {
+                           $msg = new erLhcoreClassModelmsg();
+                           $msg->msg = trim($responder->wait_message);
+                           $msg->chat_id = $chat->id;
+                           $msg->name_support = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
+                           $msg->user_id = -2;
+                           $msg->time = time() + 5;
+                           erLhcoreClassChat::getSession()->save($msg);
+
+                           if ($chat->last_msg_id < $msg->id) {
+                               $chat->last_msg_id = $msg->id;
+                           }
+                       }
+
+                       erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.auto_responder_triggered', array('chat' => & $chat));
+
+                       $chat->saveThis();
+                   } else {
+                       $msg = new erLhcoreClassModelmsg();
+                       $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Auto responder got error').': '.implode('; ', $beforeAutoResponderErrors);
+                       $msg->chat_id = $chat->id;
+                       $msg->user_id = -1;
+                       $msg->time = time();
+
+                       if ($chat->last_msg_id < $msg->id) {
+                           $chat->last_msg_id = $msg->id;
+                       }
+
+                       erLhcoreClassChat::getSession()->save($msg);
+                   }
+               }
            }
        } else {
 	       $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_START_ON_KEY_UP;

@@ -101,6 +101,15 @@ return array(
         'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'string')
     ),
+    'autoresponder_id' => array(
+        'type' => 'combobox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Auto responder to apply'),
+        'required' => false,
+        'hidden' => true,
+        'source' => 'erLhAbstractModelAutoResponder::getList',
+        'params_call' => array(),
+        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
+    ),
     'dep_id' => array(
         'type' => 'combobox',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Department'),
@@ -142,36 +151,6 @@ return array(
         'required' => false,
         'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
-    ),
-    'wait_message' => array(
-        'type' => 'text',
-        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Wait message. Visible then users starts chat and is waiting for someone to accept a chat.'),
-        'required' => false,
-        'hidden' => true,
-        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
-    ),
-    'wait_timeout' => array(
-        'type' => 'text',
-        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Wait timeout. Time in seconds before timeout message is shown.'),
-        'required' => false,
-        'hidden' => true,
-        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
-    ),
-    'timeout_message' => array(
-        'type' => 'text',
-        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Show visitor this message then wait timeout passes.'),
-        'required' => false,
-        'hidden' => true,
-        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
-    ),
-    'repeat_number' => array(
-        'type' => 'text',
-        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'How many times repeat message?'),
-        'required' => true,
-        'hidden' => true,
-        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', array(
-            'min_range' => 1
-        ))
     ),
     'dynamic_invitation' => array(
         'type' => 'checkbox',

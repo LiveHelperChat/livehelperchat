@@ -9,6 +9,11 @@ $def->idProperty->columnName = 'id';
 $def->idProperty->propertyName = 'id';
 $def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentNativeGenerator' );
 
+$def->properties['name'] = new ezcPersistentObjectProperty();
+$def->properties['name']->columnName   = 'name';
+$def->properties['name']->propertyName = 'name';
+$def->properties['name']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 $def->properties['siteaccess'] = new ezcPersistentObjectProperty();
 $def->properties['siteaccess']->columnName   = 'siteaccess';
 $def->properties['siteaccess']->propertyName = 'siteaccess';
@@ -18,6 +23,12 @@ $def->properties['wait_message'] = new ezcPersistentObjectProperty();
 $def->properties['wait_message']->columnName   = 'wait_message';
 $def->properties['wait_message']->propertyName = 'wait_message';
 $def->properties['wait_message']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+// This applies only to proactive chats
+$def->properties['only_proactive'] = new ezcPersistentObjectProperty();
+$def->properties['only_proactive']->columnName   = 'only_proactive';
+$def->properties['only_proactive']->propertyName = 'only_proactive';
+$def->properties['only_proactive']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
 // Timeout in seconds.
 $def->properties['wait_timeout'] = new ezcPersistentObjectProperty();

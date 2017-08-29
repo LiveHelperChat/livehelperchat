@@ -9,6 +9,14 @@ return array(
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),
+                'name' => array(
+   						'type' => 'text',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Name'),
+   						'required' => false,
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
    				'position' => array(
    						'type' => 'text',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Position'),
@@ -220,6 +228,14 @@ return array(
                 'ignore_pa_chat' => array(
                     'type' => 'checkbox',
                     'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Do not send messages to pending chat if chat is assigned to operator.'),
+                    'required' => false,
+                    'hidden' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+                        )),
+                'only_proactive' => array(
+                    'type' => 'checkbox',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','This auto responder applies only to proactive invitations.'),
                     'required' => false,
                     'hidden' => true,
                     'validation_definition' => new ezcInputFormDefinitionElement(

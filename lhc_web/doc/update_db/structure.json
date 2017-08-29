@@ -32,7 +32,23 @@
                 "key": "",
                 "default": null,
                 "extra": ""
-            },            
+            },
+            {
+                "field": "only_proactive",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "name",
+                "type": "varchar(50)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
             {
                 "field": "ignore_pa_chat",
                 "type": "int(11)",
@@ -1978,6 +1994,14 @@
                 "extra": ""
             },
             {
+                "field": "autoresponder_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "dep_id",
                 "type": "int(11)",
                 "null": "NO",
@@ -2042,43 +2066,11 @@
                 "extra": ""
             },
             {
-                "field": "wait_message",
-                "type": "text",
-                "null": "NO",
-                "key": "",
-                "default": null,
-                "extra": ""
-            },
-            {
-                "field": "timeout_message",
-                "type": "text",
-                "null": "NO",
-                "key": "",
-                "default": null,
-                "extra": ""
-            },
-            {
                 "field": "referrer",
                 "type": "varchar(250)",
                 "null": "NO",
                 "key": "",
                 "default": null,
-                "extra": ""
-            },
-            {
-                "field": "wait_timeout",
-                "type": "int(11)",
-                "null": "NO",
-                "key": "",
-                "default": null,
-                "extra": ""
-            },
-            {
-                "field": "repeat_number",
-                "type": "int(11)",
-                "null": "NO",
-                "key": "",
-                "default": "1",
                 "extra": ""
             },
             {
@@ -7118,7 +7110,8 @@
     },
     "tables_drop_column" : {
     	"lh_departament" : ["start_hour","end_hour","mod","tud","wed","thd","frd","sad","sud"],
-    	"lh_chat" : ["wait_timeout","wait_timeout_send","timeout_message","wait_timeout_repeat"]
+    	"lh_chat" : ["wait_timeout","wait_timeout_send","timeout_message","wait_timeout_repeat"],
+    	"lh_abstract_proactive_chat_invitation" : ["wait_message","wait_timeout","timeout_message","repeat_number"]
     },
     "tables_indexes" : {
     	"lh_grouprole" : {

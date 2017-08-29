@@ -52,9 +52,12 @@
                     	      <?php elseif ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT || $chat->status == erLhcoreClassModelChat::STATUS_OPERATORS_CHAT || $chat->status == erLhcoreClassModelChat::STATUS_CHATBOX_CHAT) : ?>  
                     	           <?php if ($can_delete_global == true || ($can_delete_general == true && $chat->user_id == $current_user_id)) : ?><a class="csfr-required material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closedchats','Delete chat');?>" href="<?php echo erLhcoreClassDesign::baseurl('chat/delete')?>/<?php echo $chat->id?>">delete</a><?php endif;?>
                     	      <?php endif;?>
-                    	      
-                    	      <a ng-click="lhc.startChat('<?php echo $chat->id?>','<?php echo htmlspecialchars($chat->nick,ENT_QUOTES)?>')"><?php echo htmlspecialchars($chat->nick);?>, <small><i><?php echo date(erLhcoreClassModule::$dateDateHourFormat,$chat->time);?></i></small>, <?php echo htmlspecialchars($chat->department),($chat->product !== false ? ' | '.htmlspecialchars((string)$chat->product) : '');?></a>
-                    	      
+
+                                <?php if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST) : ?><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/activechats','Offline request')?>" class="material-icons">mail</i><?php endif?>
+
+                                <a ng-click="lhc.startChat('<?php echo $chat->id?>','<?php echo htmlspecialchars($chat->nick,ENT_QUOTES)?>')"><?php echo htmlspecialchars($chat->nick);?>, <small><i><?php echo date(erLhcoreClassModule::$dateDateHourFormat,$chat->time);?></i></small>, <?php echo htmlspecialchars($chat->department),($chat->product !== false ? ' | '.htmlspecialchars((string)$chat->product) : '');?></a>
+
+
                     	      <?php if ($chat->has_unread_messages == 1) : ?>
                     	      <?php
                     	      $diff = time()-$chat->last_user_msg_time;
