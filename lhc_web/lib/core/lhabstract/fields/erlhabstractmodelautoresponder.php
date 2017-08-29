@@ -13,7 +13,6 @@ return array(
    						'type' => 'text',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Name'),
    						'required' => false,
-   						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),
@@ -48,6 +47,7 @@ return array(
    						'type' => 'text',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Wait timeout.'),
    						'required' => false,
+   						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),
@@ -128,6 +128,7 @@ return array(
    						'type' => 'text',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','How many times repeat message? Applied only to first message.'),
    						'required' => false,
+   						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
    						)),
@@ -135,6 +136,7 @@ return array(
    						'type' => 'text',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Redirect visitor to survey if visitor does not responds within N seconds'),
    						'required' => false,
+   						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
    						)),
@@ -142,6 +144,7 @@ return array(
    						'type' => 'text',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Survey'),
    						'required' => false,
+   						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
    						)),
@@ -247,6 +250,7 @@ return array(
                     'is_modal' => true,
                     'link_class' => 'btn btn-default btn-xs',
                     'link_title' => 'Copy',
+                    'width' => '1%',
                     'trans' => '',
                     'required' => false,
                     'validation_definition' => new ezcInputFormDefinitionElement(
