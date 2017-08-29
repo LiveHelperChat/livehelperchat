@@ -97,27 +97,3 @@
 <label><?php echo $fields['autoresponder_id']['trans'];?></label>
 <?php echo erLhcoreClassAbstract::renderInput('autoresponder_id', $fields['autoresponder_id'], $object)?>
 </div>
-
-<?php /*
-<div class="form-group">		
-<label><?php echo $fields['wait_message']['trans'];?></label>
-<?php echo erLhcoreClassAbstract::renderInput('wait_message', $fields['wait_message'], $object)?>
-</div>*/ ?>
-
-<?php /*
-<div class="form-group">
-<label><?php echo $fields['wait_timeout']['trans'];?></label>
-<?php echo erLhcoreClassAbstract::renderInput('wait_timeout', $fields['wait_timeout'], $object)?>
-</div>*/?>
-
-<?php /*
-<div class="form-group">		
-<label><?php echo $fields['timeout_message']['trans'];?></label>
-<?php echo erLhcoreClassAbstract::renderInput('timeout_message', $fields['timeout_message'], $object)?>
-</div>*/ ?>
-
-<?php /*
-<div class="form-group">		
-<label><?php echo $fields['repeat_number']['trans'];?>*</label>
-<?php echo erLhcoreClassAbstract::renderInput('repeat_number', $fields['repeat_number'], $object)?>
-</div>*/ ?>
