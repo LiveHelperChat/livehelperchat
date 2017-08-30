@@ -317,6 +317,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
 
             // Save as offline request
             $chat->time = time();
+            $chat->lsync = time();
             $chat->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
             $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST;
             $chat->hash = erLhcoreClassChat::generateHash();
