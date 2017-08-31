@@ -586,10 +586,12 @@ function lh(){
                 			
                 			// Set last message ID                			
                 			inst.last_message_id = data.message_id;
-                			
-                			
 
-    	            } else {
+							if (data.uw == 'false' && inst.isWidgetMode && typeof(parent) !== 'undefined') {
+								parent.postMessage('lhc_newopmsg', '*');
+							}
+
+                        } else {
     	                if ( data.status != 'true') $('#status-chat').html(data.status);
     	            }
 

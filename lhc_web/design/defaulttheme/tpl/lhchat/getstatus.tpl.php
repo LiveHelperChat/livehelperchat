@@ -50,6 +50,7 @@ var lh_inst  = {
     hasSurvey : <?php echo $survey !== false ? 'true ': 'false'?>,
     survey_id : '<?php echo $survey !== false ? '/(survey)/' . $survey : ''?>',
     surveyShown : false,
+    isMinimized : false,
     explicitClose : false,
     isProactivePending : 0,
     dynamicAssigned : [],
@@ -147,10 +148,16 @@ var lh_inst  = {
     },
     
 	min : function(initial) {
-		var dm = document.getElementById('lhc_container');					
+		var dm = document.getElementById('lhc_container');
+
+        var msgNum = document.getElementById('lhc-msg-number');
+        msgNum.innerHTML = '';
+        msgNum.msg_number = 0;
+
 		if (!dm.attrIsMin || dm.attrIsMin == false) {
 			dm.attrHeight = dm.style.height;
 			dm.attrIsMin = true;
+            this.isMinimized = true;
 			this.addClass(dm,'lhc-min');									
 			<?php if ($currentPosition['posv'] == 'b') : ?>			
 			if(dm.style.bottom!='' && dm.attrHeight!=''){
@@ -175,8 +182,9 @@ var lh_inst  = {
 					<?php endif;?>													
 			<?php endif;?>
 			this.removeClass(document.body,'lhc-opened');			
-		} else {	
+		} else {
 			dm.attrIsMin = false;
+            this.isMinimized = false;
 			<?php if ($currentPosition['posv'] == 'b') : ?>
 			if (dm.attrBottomOrigin)	{
 				dm.style.bottom = (parseInt(dm.attrBottomOrigin)-parseInt(document.getElementById('lhc_iframe').style.height)+9)+'px';
@@ -815,8 +823,14 @@ var lh_inst  = {
     handleMessage : function(e) {
         if (typeof e.data !== 'string') { return; }
     	var action = e.data.split(':')[0];    	
-    	    	
-    	if (action == 'lhc_sizing_chat') {
+
+        if (action == 'lhc_newopmsg') {
+            if ( lh_inst.isMinimized == true) {
+                var msgNum = document.getElementById('lhc-msg-number');
+                msgNum.innerHTML = (parseInt(msgNum.msg_number)+1);
+                msgNum.msg_number++;
+            }
+        } else if (action == 'lhc_sizing_chat') {
     		var height = e.data.split(':')[1];
     		var elementObject = document.getElementById('lhc_iframe');
     		var iframeContainer = document.getElementById('lhc_container');
