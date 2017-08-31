@@ -706,7 +706,7 @@ function lh(){
 
 	this.closeActiveChatDialog = function(chat_id, tabs, hidetab)
 	{
-			
+
 	    $.ajax({
 	        type: "POST",
 	        url: this.wwwDir + this.closechatadmin + chat_id,
@@ -719,24 +719,24 @@ function lh(){
 	    };
 
 	    if (hidetab == true) {
-	    	    	
+
 	    	var location = this.smartTabFocus(tabs, chat_id);
-	    	
+
 	    	setTimeout(function() {
 	    		window.location.hash =  location;
 	    	},500);
-	    	
+
 	        if (this.closeWindowOnChatCloseDelete == true)
 	        {
 	            window.close();
 	        }
 
 	    };
-	    
+
 	    if (LHCCallbacks.chatClosedCallback) {
         	LHCCallbacks.chatClosedCallback(chat_id);
         };
-	    
+
 	    this.removeSynchroChat(chat_id);
 	    this.syncadmininterfacestatic();
 
@@ -841,44 +841,46 @@ function lh(){
 
 	this.deleteChat = function(chat_id, tabs, hidetab)
 	{
-	    if ($('#CSChatMessage-'+chat_id).length != 0){
-	    	$('#CSChatMessage-'+chat_id).unbind('keydown', function(){});
-	       $('#CSChatMessage-'+chat_id).unbind('keyup', function(){});
-	    }
-	    	    
-	    $.ajax({
-	        type: "POST",
-	        url: this.wwwDir + this.deletechatadmin + chat_id,
-	        cache: false,
-	        dataType: 'json',
-	        async: false
-	    }).done(function(data){	    
-	    	if (data.error == 'true')
-		    {
-		       alert(data.result);
-		    }
-	    });
-	    
-	     if (hidetab == true) {
-   	
-	    	var location = this.smartTabFocus(tabs, chat_id);
-	    	
-	    	setTimeout(function() {
-	    		window.location.hash = location;
-	    	},500);
-	    	
-	        if (this.closeWindowOnChatCloseDelete == true)
-	        {
-	            window.close();
-	        }
-	    };
+        if (confirm(confLH.transLation.delete_confirm)) {
+			if ($('#CSChatMessage-'+chat_id).length != 0){
+				$('#CSChatMessage-'+chat_id).unbind('keydown', function(){});
+			   $('#CSChatMessage-'+chat_id).unbind('keyup', function(){});
+			}
 
-	    if (LHCCallbacks.chatDeletedCallback) {
-        	LHCCallbacks.chatDeletedCallback(chat_id);
-        };
-	    
-	    this.syncadmininterfacestatic();
-	    this.removeSynchroChat(chat_id);
+			$.ajax({
+				type: "POST",
+				url: this.wwwDir + this.deletechatadmin + chat_id,
+				cache: false,
+				dataType: 'json',
+				async: false
+			}).done(function(data){
+				if (data.error == 'true')
+				{
+				   alert(data.result);
+				}
+			});
+
+			 if (hidetab == true) {
+
+				var location = this.smartTabFocus(tabs, chat_id);
+
+				setTimeout(function() {
+					window.location.hash = location;
+				},500);
+
+				if (this.closeWindowOnChatCloseDelete == true)
+				{
+					window.close();
+				}
+			};
+
+			if (LHCCallbacks.chatDeletedCallback) {
+				LHCCallbacks.chatDeletedCallback(chat_id);
+			};
+
+			this.syncadmininterfacestatic();
+			this.removeSynchroChat(chat_id);
+        }
 	};
 
 	this.rejectPendingChat = function(chat_id, tabs)
