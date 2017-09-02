@@ -35,6 +35,18 @@ class erLhAbstractModelAutoResponder {
 			'wait_timeout_reply_3'	  => $this->wait_timeout_reply_3,
 			'wait_timeout_reply_4'	  => $this->wait_timeout_reply_4,
 			'wait_timeout_reply_5'	  => $this->wait_timeout_reply_5,
+
+			'timeout_hold_message_1'	  => $this->timeout_hold_message_1,
+			'timeout_hold_message_2'	  => $this->timeout_hold_message_2,
+			'timeout_hold_message_3'	  => $this->timeout_hold_message_3,
+			'timeout_hold_message_4'	  => $this->timeout_hold_message_4,
+			'timeout_hold_message_5'	  => $this->timeout_hold_message_5,
+
+			'wait_timeout_hold_1'	  => $this->wait_timeout_hold_1,
+			'wait_timeout_hold_2'	  => $this->wait_timeout_hold_2,
+			'wait_timeout_hold_3'	  => $this->wait_timeout_hold_3,
+			'wait_timeout_hold_4'	  => $this->wait_timeout_hold_4,
+			'wait_timeout_hold_5'	  => $this->wait_timeout_hold_5,
 		    
 			'timeout_reply_message_1' => $this->timeout_reply_message_1,
 			'timeout_reply_message_2' => $this->timeout_reply_message_2,
@@ -148,7 +160,20 @@ class erLhAbstractModelAutoResponder {
 	// 5 Message
 	public $wait_timeout_5 = 0;
 	public $timeout_message_5 = '';
-	
+
+	// On-hold attributes
+	public $timeout_hold_message_1 = '';
+	public $timeout_hold_message_2 = '';
+	public $timeout_hold_message_3 = '';
+	public $timeout_hold_message_4 = '';
+	public $timeout_hold_message_5 = '';
+
+	public $wait_timeout_hold_1 = 0;
+	public $wait_timeout_hold_2 = 0;
+	public $wait_timeout_hold_3 = 0;
+	public $wait_timeout_hold_4 = 0;
+	public $wait_timeout_hold_5 = 0;
+
 	// Not replying attributes
 	/* const CHAT_NOT_CLOSED = 0;
 	const EXPLICITLY_NOT_CLOSED = 1;

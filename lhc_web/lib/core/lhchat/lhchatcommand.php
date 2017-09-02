@@ -25,6 +25,7 @@ class erLhcoreClassChatCommand
         '!info' => 'self::info',
         '!help' => 'self::help',
     	'!note' => 'self::notice',
+    	'!hold' => 'self::hold',
     	'!transferforce' => 'self::transferforce'
     );
 
@@ -105,7 +106,27 @@ class erLhcoreClassChatCommand
     			'raw_message' => $params['argument']
     	);
     }
-    
+
+    /**
+     * Just adds message from operator
+     *
+     * @param array $params
+     *
+     * @return boolean
+     */
+    public static function hold($params)
+    {
+        $params['chat']->status_sub = erLhcoreClassModelChat::STATUS_SUB_ON_HOLD;
+
+        // All ok, we can make changes
+        erLhcoreClassChat::getSession()->update($params['chat']);
+
+        return array(
+            'processed' => true,
+            'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'Chat status changed on-hold!')
+        );
+    }
+
     /**
      * Updates chat email.
      *
