@@ -263,11 +263,11 @@
     </message>
     <message>
       <source>Track all logged operators activity and ignore their individual settings.</source>
-      <translation type="unfinished"/>
+      <translation>Tenere traccia di tutte le attività di operatori registrati e ignorare le singole impostazioni.</translation>
     </message>
     <message>
       <source>How long operator should go offline automatically because of inactivity</source>
-      <translation type="unfinished"/>
+      <translation>Quanto tempo un operatore dovrebbe andare offline automaticamente a causa di inattività</translation>
     </message>
     <message>
       <source>Change to your site Terms of Service</source>
@@ -1517,7 +1517,7 @@
     </message>
     <message>
       <source>Tag&apos;s</source>
-      <translation type="unfinished"/>
+      <translation>Tag&apos;s</translation>
     </message>
     <message>
       <source>Canned messages</source>
@@ -3879,31 +3879,31 @@
     </message>
     <message>
       <source>Activity tracking is set at global level. Your settings will be be ignored. Timeout value still will be taken from your account settings.</source>
-      <translation type="unfinished"/>
+      <translation>Attività di rilevamento è impostata a livello globale. Le vostre impostazioni verranno ignorate. Il valore di timeout verrà comunque preso dalle tue impostazioni account.</translation>
     </message>
     <message>
       <source>Change my online/offline status based on my activity</source>
-      <translation type="unfinished"/>
+      <translation>Cambia il mio stato online/offline basato sulla mia attività</translation>
     </message>
     <message>
       <source>After certain period of time if no actions are detected you will be marked as offline automatically</source>
-      <translation type="unfinished"/>
+      <translation>Dopo certo periodo di tempo se non vengono rilevate azioni si verrà contrassegnati come non in linea automaticamente</translation>
     </message>
     <message>
       <source>Choose timeout value</source>
-      <translation type="unfinished"/>
+      <translation>Scegliere il valore di timeout</translation>
     </message>
     <message>
       <source>Select after how long of inactivity you will be marked as offline automatically</source>
-      <translation type="unfinished"/>
+      <translation>Dopo quanto tempo di inattività si verrà contrassegnati come non in linea automaticamente, selezionare</translation>
     </message>
     <message>
       <source>Use default system value</source>
-      <translation type="unfinished"/>
+      <translation>Utilizzare il valore predefinito sistema</translation>
     </message>
     <message>
       <source>minutes</source>
-      <translation type="unfinished"/>
+      <translation>minuti</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -7560,7 +7560,7 @@
     </message>
     <message>
       <source>Member of this group can work with the following groups</source>
-      <translation type="unfinished"/>
+      <translation>I Membri di questo gruppo possono lavorare con i seguenti gruppi</translation>
     </message>
     <message>
       <source>Disabled</source>
@@ -7804,19 +7804,19 @@
     <name>user/wentinactive</name>
     <message>
       <source>Because of inactivity you went offline, click continue to go online.</source>
-      <translation type="unfinished"/>
+      <translation>A causa di inattività è andato offline, fare clic su continua andare online.</translation>
     </message>
     <message>
       <source>Continue</source>
-      <translation type="unfinished"/>
+      <translation>Continuare</translation>
     </message>
     <message>
       <source>Logout</source>
-      <translation type="unfinished"/>
+      <translation>Logout</translation>
     </message>
     <message>
       <source>Offline</source>
-      <translation type="unfinished"/>
+      <translation>Non in linea</translation>
     </message>
   </context>
   <context>
@@ -8094,7 +8094,7 @@
     </message>
     <message>
       <source>You are trying to assign group which are not known!</source>
-      <translation type="unfinished"/>
+      <translation>Si sta tentando di assegnare un gruppo sconosciuto!</translation>
     </message>
     <message>
       <source>Please choose a default user group</source>

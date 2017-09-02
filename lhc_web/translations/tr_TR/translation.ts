@@ -35,7 +35,7 @@
     </message>
     <message>
       <source>Set your domain to enable user tracking across different domain subdomains.</source>
-      <translation type="unfinished"/>
+      <translation>Farklı alt alanlarında kullanıcı izlemeyi etkinleştirmek için alan adınızı ayarlayın.</translation>
     </message>
     <message>
       <source>Track users activity on site?</source>

@@ -263,11 +263,11 @@
     </message>
     <message>
       <source>Track all logged operators activity and ignore their individual settings.</source>
-      <translation type="unfinished"/>
+      <translation>Acompanhar todas as operações registradas dos operadores e ignorar as configurações individuais.</translation>
     </message>
     <message>
       <source>How long operator should go offline automatically because of inactivity</source>
-      <translation type="unfinished"/>
+      <translation>Em quanto tempo o operador deve ser marcado como offline automaticamente por inatividade</translation>
     </message>
     <message>
       <source>Change to your site Terms of Service</source>
@@ -698,7 +698,7 @@
     </message>
     <message>
       <source>Live Help</source>
-      <translation type="unfinished"/>
+      <translation>Atendimento Online</translation>
     </message>
     <message>
       <source>Live help is offline...</source>
@@ -1115,7 +1115,7 @@
     </message>
     <message>
       <source>Try to detect language automatically</source>
-      <translation type="unfinished"/>
+      <translation>Tentar detectar linguagem idioma automaticamente</translation>
     </message>
     <message>
       <source>Survey at the end of chat</source>
@@ -1284,7 +1284,7 @@
     </message>
     <message>
       <source>You are not chat owner, type with caution</source>
-      <translation type="unfinished"/>
+      <translation>Você não é o proprietário do chat, digite com cuidado</translation>
     </message>
     <message>
       <source>Change chat status</source>
@@ -1516,7 +1516,7 @@
     </message>
     <message>
       <source>Tag&apos;s</source>
-      <translation type="unfinished"/>
+      <translation>Tags</translation>
     </message>
     <message>
       <source>Canned messages</source>
@@ -1881,7 +1881,7 @@
     </message>
     <message>
       <source>Enter your email address</source>
-      <translation type="unfinished"/>
+      <translation>Informe o seu e-mail</translation>
     </message>
     <message>
       <source>Phone</source>
@@ -1889,7 +1889,7 @@
     </message>
     <message>
       <source>Enter your phone</source>
-      <translation type="unfinished"/>
+      <translation>Informe o seu telefone</translation>
     </message>
     <message>
       <source>Your question</source>
@@ -1905,7 +1905,7 @@
     </message>
     <message>
       <source>Enter your name</source>
-      <translation type="unfinished"/>
+      <translation>Informe o seu nome</translation>
     </message>
     <message>
       <source>Live support is not available in your country</source>
@@ -2097,7 +2097,7 @@
     </message>
     <message>
       <source>Pending Chat</source>
-      <translation type="unfinished"/>
+      <translation>Chat pendente</translation>
     </message>
     <message>
       <source>Unread message</source>
@@ -2105,11 +2105,11 @@
     </message>
     <message>
       <source>Transfer Chat</source>
-      <translation type="unfinished"/>
+      <translation>Transferir chat</translation>
     </message>
     <message>
       <source>Assigned Chat</source>
-      <translation type="unfinished"/>
+      <translation>Chat Atribuído</translation>
     </message>
     <message>
       <source>Fill in the form to start a chat</source>
@@ -2228,7 +2228,7 @@
     </message>
     <message>
       <source>Device</source>
-      <translation type="unfinished"/>
+      <translation>Dispositivo</translation>
     </message>
     <message>
       <source>Country</source>
@@ -2296,15 +2296,15 @@
     </message>
     <message>
       <source>Computer</source>
-      <translation type="unfinished"/>
+      <translation>Computador</translation>
     </message>
     <message>
       <source>Smartphone</source>
-      <translation type="unfinished"/>
+      <translation>Smartphone</translation>
     </message>
     <message>
       <source>Tablet</source>
-      <translation type="unfinished"/>
+      <translation>Tablet</translation>
     </message>
     <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
@@ -2340,7 +2340,7 @@
     </message>
     <message>
       <source>Type to search</source>
-      <translation type="unfinished"/>
+      <translation>Digite para buscar</translation>
     </message>
     <message>
       <source>Fill textarea with canned message</source>
@@ -3859,51 +3859,51 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Show notification only if I am an owner pending chat</source>
-      <translation type="unfinished"/>
+      <translation>Exibir notificação apenas se eu for o proprietário do chat pendente</translation>
     </message>
     <message>
       <source>You will stop receive notifications for pending chats if you are not an owner</source>
-      <translation type="unfinished"/>
+      <translation>Você não receberá as notificações para os chats pendentes se você não for o proprietário do mesmo</translation>
     </message>
     <message>
       <source>Show notifications if I am offline</source>
-      <translation type="unfinished"/>
+      <translation>Exibir notificações se eu estiver offline</translation>
     </message>
     <message>
       <source>You will not receive notifications if you are not online</source>
-      <translation type="unfinished"/>
+      <translation>Você não receberá notificações se você não estiver online</translation>
     </message>
     <message>
       <source>Show alert for new chats</source>
-      <translation type="unfinished"/>
+      <translation>Exibir alerta para novos chats</translation>
     </message>
     <message>
       <source>Activity tracking is set at global level. Your settings will be be ignored. Timeout value still will be taken from your account settings.</source>
-      <translation type="unfinished"/>
+      <translation>O acompanhamento de atividades está marcado em nível global. As suas configurações serão ignoradas. O valor de timeout continuará sendo o que você escolheu nas configurações da sua conta.</translation>
     </message>
     <message>
       <source>Change my online/offline status based on my activity</source>
-      <translation type="unfinished"/>
+      <translation>Alterar o meu status online/offline com base nas minhas atividades</translation>
     </message>
     <message>
       <source>After certain period of time if no actions are detected you will be marked as offline automatically</source>
-      <translation type="unfinished"/>
+      <translation>Após passado um determinado tempo se não forem detectadas ações da sua parte, você será marcado como offline automaticamente</translation>
     </message>
     <message>
       <source>Choose timeout value</source>
-      <translation type="unfinished"/>
+      <translation>Escolha um valor para o timeout</translation>
     </message>
     <message>
       <source>Select after how long of inactivity you will be marked as offline automatically</source>
-      <translation type="unfinished"/>
+      <translation>Selecione depois de quanto tempo de inatividade você será marcado como offline automaticamente</translation>
     </message>
     <message>
       <source>Use default system value</source>
-      <translation type="unfinished"/>
+      <translation>Utilizar os valores padrões do sistema</translation>
     </message>
     <message>
       <source>minutes</source>
-      <translation type="unfinished"/>
+      <translation>minutos</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -4186,11 +4186,11 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Select operator</source>
-      <translation type="unfinished"/>
+      <translation>Selecionar operador</translation>
     </message>
     <message>
       <source>Compare to past</source>
-      <translation type="unfinished"/>
+      <translation>Comparar com o passado</translation>
     </message>
     <message>
       <source>Choose department</source>
@@ -4761,7 +4761,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Please choose statistic parameters first!</source>
-      <translation type="unfinished"/>
+      <translation>Por favor escolha os parâmetros de estatísticas primeiro!</translation>
     </message>
     <message>
       <source>Parameter</source>
@@ -5840,7 +5840,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Notifications</source>
-      <translation type="unfinished"/>
+      <translation>Notificações</translation>
     </message>
     <message>
       <source>Personal canned messages</source>
@@ -7561,7 +7561,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Member of this group can work with the following groups</source>
-      <translation type="unfinished"/>
+      <translation>Membros deste grupo podem operar com os seguintes grupos</translation>
     </message>
     <message>
       <source>Disabled</source>
@@ -7805,19 +7805,19 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <name>user/wentinactive</name>
     <message>
       <source>Because of inactivity you went offline, click continue to go online.</source>
-      <translation type="unfinished"/>
+      <translation>Por causa de inatividade você foi marcado como offline, clique em continuar para ficar online.</translation>
     </message>
     <message>
       <source>Continue</source>
-      <translation type="unfinished"/>
+      <translation>Continuar</translation>
     </message>
     <message>
       <source>Logout</source>
-      <translation type="unfinished"/>
+      <translation>Desconectar</translation>
     </message>
     <message>
       <source>Offline</source>
-      <translation type="unfinished"/>
+      <translation>Offline</translation>
     </message>
   </context>
   <context>
@@ -8095,7 +8095,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>You are trying to assign group which are not known!</source>
-      <translation type="unfinished"/>
+      <translation>Você está tentando atribuir um grupo desconhecido!</translation>
     </message>
     <message>
       <source>Please choose a default user group</source>

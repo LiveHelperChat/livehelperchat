@@ -75,7 +75,7 @@
     </message>
     <message>
       <source>socket.io path, optional</source>
-      <translation>Socket.io път, по избор</translation>
+      <translation>Път до Socket.io, незадължително</translation>
     </message>
     <message>
       <source>NodeJS support enabled</source>
@@ -131,7 +131,7 @@
     </message>
     <message>
       <source>Show need help tooltip?</source>
-      <translation>Показване на &quot;Нужда от помощ?&quot;</translation>
+      <translation>Показване на „Нужда от помощ?“</translation>
     </message>
     <message>
       <source>Minimum phone number length</source>
@@ -147,7 +147,7 @@
     </message>
     <message>
       <source>Maximum message length in characters</source>
-      <translation>Максимална дължина на съобщението в символи</translation>
+      <translation>Максимална дължина на съобщението в брой символи</translation>
     </message>
     <message>
       <source>List online operators, 0 - no, 1 - yes.</source>
@@ -179,7 +179,7 @@
     </message>
     <message>
       <source>Home page tabs order</source>
-      <translation>Подредба на разделите в началната страница</translation>
+      <translation>Подредба на разделите на Началната страница</translation>
     </message>
     <message>
       <source>Is visitor e-mail required for FAQ</source>
@@ -223,11 +223,11 @@
     </message>
     <message>
       <source>Your site URL address</source>
-      <translation>URL адреса на сайта ви</translation>
+      <translation>Адрес на сайта Ви</translation>
     </message>
     <message>
       <source>Your company name - visible in bottom left corner</source>
-      <translation>Името на компанията ви - видимо в долния ляв ъгъл</translation>
+      <translation>Име на организацията - видимо в долния ляв ъгъл</translation>
     </message>
     <message>
       <source>Interval between chat status checks in seconds, 0 disabled.</source>
@@ -235,7 +235,7 @@
     </message>
     <message>
       <source>Show BB Code button</source>
-      <translation>Да се показва BB код бунтон</translation>
+      <translation>Показване на бутона за BB код</translation>
     </message>
     <message>
       <source>Which ip should not be allowed to chat</source>
@@ -519,7 +519,7 @@
     </message>
     <message>
       <source>Site URL</source>
-      <translation>URL адрес на сайта</translation>
+      <translation>Адрес на сайта</translation>
     </message>
     <message>
       <source>Text above start chat form fields</source>
@@ -1265,11 +1265,11 @@
     </message>
     <message>
       <source>Forms</source>
-      <translation>Бланки</translation>
+      <translation>Формуляри</translation>
     </message>
     <message>
       <source>Form</source>
-      <translation>Бланка</translation>
+      <translation>Формуляр</translation>
     </message>
   </context>
   <context>
@@ -1348,7 +1348,7 @@
     </message>
     <message>
       <source>Back to chat</source>
-      <translation type="unfinished"/>
+      <translation>Връщане към чата</translation>
     </message>
     <message>
       <source>Switch to widget</source>
@@ -1615,7 +1615,7 @@
     </message>
     <message>
       <source>Product</source>
-      <translation type="unfinished"/>
+      <translation>Продукт</translation>
     </message>
     <message>
       <source>Miscellaneous</source>
@@ -1683,7 +1683,7 @@
     </message>
     <message>
       <source>Add</source>
-      <translation type="unfinished"/>
+      <translation>Добавяне</translation>
     </message>
     <message>
       <source>Period</source>
@@ -1699,7 +1699,7 @@
     </message>
     <message>
       <source>Remove</source>
-      <translation type="unfinished"/>
+      <translation>Премахване</translation>
     </message>
     <message>
       <source>XMPP recipients</source>
@@ -1897,7 +1897,7 @@
     </message>
     <message>
       <source>Please enter a message...</source>
-      <translation>Моля въведете съобщение...</translation>
+      <translation>Въведете съобщение...</translation>
     </message>
     <message>
       <source>Name</source>
@@ -1997,7 +1997,7 @@
     </message>
     <message>
       <source>Product</source>
-      <translation type="unfinished"/>
+      <translation>Продукт</translation>
     </message>
     <message>
       <source>Choose a product</source>
@@ -2224,11 +2224,11 @@
     </message>
     <message>
       <source>Product</source>
-      <translation type="unfinished"/>
+      <translation>Продукт</translation>
     </message>
     <message>
       <source>Device</source>
-      <translation type="unfinished"/>
+      <translation>Устройство</translation>
     </message>
     <message>
       <source>Country</source>
@@ -2296,15 +2296,15 @@
     </message>
     <message>
       <source>Computer</source>
-      <translation type="unfinished"/>
+      <translation>Компютър</translation>
     </message>
     <message>
       <source>Smartphone</source>
-      <translation type="unfinished"/>
+      <translation>Смартфон</translation>
     </message>
     <message>
       <source>Tablet</source>
-      <translation type="unfinished"/>
+      <translation>Таблет</translation>
     </message>
     <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
@@ -2451,7 +2451,7 @@
     </message>
     <message>
       <source>Nothing found</source>
-      <translation>Не намирам нищо</translation>
+      <translation>Не беше открито нищо</translation>
     </message>
     <message>
       <source>Pending chats</source>
@@ -2467,7 +2467,7 @@
     </message>
     <message>
       <source>Sort</source>
-      <translation type="unfinished"/>
+      <translation>Подреждане</translation>
     </message>
     <message>
       <source>Wait time</source>
@@ -2578,7 +2578,7 @@
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Настройките са актуализирани</translation>
+      <translation>Настройките са обновени</translation>
     </message>
     <message>
       <source>Missing text to translate</source>
@@ -2815,7 +2815,7 @@
     </message>
     <message>
       <source>Active chats</source>
-      <translation type="unfinished"/>
+      <translation>Активни чатове</translation>
     </message>
     <message>
       <source>Online visitors</source>
@@ -3770,7 +3770,7 @@
     </message>
     <message>
       <source>Rest API</source>
-      <translation type="unfinished"/>
+      <translation>Rest API</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
@@ -4000,7 +4000,7 @@
     </message>
     <message>
       <source>Status</source>
-      <translation type="unfinished"/>
+      <translation>Статут</translation>
     </message>
     <message>
       <source>Open in a new window</source>
@@ -4121,15 +4121,15 @@
     </message>
     <message>
       <source>Pending chats</source>
-      <translation type="unfinished"/>
+      <translation>Изчакващи чатове</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation type="unfinished"/>
+      <translation>Активни чатове</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation type="unfinished"/>
+      <translation>Затворени чатове</translation>
     </message>
     <message>
       <source>Chatbox chats</source>
@@ -4137,7 +4137,7 @@
     </message>
     <message>
       <source>Operators chats</source>
-      <translation type="unfinished"/>
+      <translation>Операторски чатове</translation>
     </message>
     <message>
       <source>Has unread messages</source>
@@ -4145,11 +4145,11 @@
     </message>
     <message>
       <source>Product</source>
-      <translation type="unfinished"/>
+      <translation>Продукт</translation>
     </message>
     <message>
       <source>Chat ID</source>
-      <translation type="unfinished"/>
+      <translation>Номер на чат</translation>
     </message>
     <message>
       <source>Search</source>
@@ -4221,15 +4221,15 @@
     </message>
     <message>
       <source>Username</source>
-      <translation type="unfinished"/>
+      <translation>Потребителско име</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Име</translation>
     </message>
     <message>
       <source>Surname</source>
-      <translation type="unfinished"/>
+      <translation>Фамилия</translation>
     </message>
   </context>
   <context>
@@ -4332,7 +4332,7 @@
     </message>
     <message>
       <source>Modules</source>
-      <translation type="unfinished"/>
+      <translation>Модули</translation>
     </message>
     <message>
       <source>Browse offers</source>
@@ -4360,15 +4360,15 @@
     </message>
     <message>
       <source>Chat</source>
-      <translation type="unfinished"/>
+      <translation>Чат</translation>
     </message>
     <message>
       <source>Dashboard</source>
-      <translation type="unfinished"/>
+      <translation>Табло</translation>
     </message>
     <message>
       <source>Settings</source>
-      <translation type="unfinished"/>
+      <translation>Настройки</translation>
     </message>
     <message>
       <source>Menu</source>
@@ -5632,7 +5632,7 @@
     <name>department/departments</name>
     <message>
       <source>Departments</source>
-      <translation>Отдел</translation>
+      <translation>Отдели</translation>
     </message>
     <message>
       <source>Name</source>
@@ -5664,7 +5664,7 @@
     </message>
     <message>
       <source>Edit</source>
-      <translation type="unfinished"/>
+      <translation>Редактиране</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -5839,7 +5839,7 @@
     </message>
     <message>
       <source>Notifications</source>
-      <translation type="unfinished"/>
+      <translation>Известия</translation>
     </message>
     <message>
       <source>Personal canned messages</source>
@@ -6286,7 +6286,7 @@
     <name>paidchat/expiredchat</name>
     <message>
       <source>Chat</source>
-      <translation type="unfinished"/>
+      <translation>Чат</translation>
     </message>
     <message>
       <source>Chat was closed.</source>
@@ -6579,14 +6579,14 @@
     <name>lhproduct/index</name>
     <message>
       <source>Products</source>
-      <translation type="unfinished"/>
+      <translation>Продукти</translation>
     </message>
   </context>
   <context>
     <name>theme/index</name>
     <message>
       <source>Products</source>
-      <translation type="unfinished"/>
+      <translation>Продукти</translation>
     </message>
     <message>
       <source>Default theme</source>
@@ -6618,7 +6618,7 @@
     </message>
     <message>
       <source>Rest API</source>
-      <translation type="unfinished"/>
+      <translation>Rest API</translation>
     </message>
     <message>
       <source>Themes</source>
@@ -6898,7 +6898,7 @@
     <name>lhrestapi/index</name>
     <message>
       <source>Rest API</source>
-      <translation type="unfinished"/>
+      <translation>Rest API</translation>
     </message>
     <message>
       <source>Rest API Keys</source>
@@ -6966,7 +6966,7 @@
     </message>
     <message>
       <source>Operator</source>
-      <translation type="unfinished"/>
+      <translation>Оператор</translation>
     </message>
     <message>
       <source>Time</source>
@@ -7326,11 +7326,11 @@
     </message>
     <message>
       <source>Your database does not require any updates</source>
-      <translation>Базата ви данни не се нуждае от обновяване</translation>
+      <translation>Базата от данни не се нуждае от обновяване</translation>
     </message>
     <message>
       <source>Update database</source>
-      <translation>Обновяване на база данни</translation>
+      <translation>Обновяване на базата от данни</translation>
     </message>
     <message>
       <source>Queries which will be executed on update</source>
@@ -7341,7 +7341,7 @@
     <name>icclicktocallform/form</name>
     <message>
       <source>Settings</source>
-      <translation type="unfinished"/>
+      <translation>Настройки</translation>
     </message>
     <message>
       <source>Header settings</source>
@@ -7357,15 +7357,15 @@
     </message>
     <message>
       <source>JS</source>
-      <translation type="unfinished"/>
+      <translation>JS</translation>
     </message>
     <message>
       <source>CSS</source>
-      <translation type="unfinished"/>
+      <translation>CSS</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Име</translation>
     </message>
     <message>
       <source>Header content</source>
@@ -7404,7 +7404,7 @@
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Име</translation>
     </message>
     <message>
       <source>Default admin theme</source>
@@ -7453,7 +7453,7 @@
     </message>
     <message>
       <source>Import</source>
-      <translation>Качване</translation>
+      <translation>Внасяне</translation>
     </message>
     <message>
       <source>Theme imported</source>
@@ -7807,11 +7807,11 @@
     </message>
     <message>
       <source>Continue</source>
-      <translation type="unfinished"/>
+      <translation>Продължаване</translation>
     </message>
     <message>
       <source>Logout</source>
-      <translation type="unfinished"/>
+      <translation>Излизане</translation>
     </message>
     <message>
       <source>Offline</source>
@@ -7857,15 +7857,15 @@
     <name>abstract/product</name>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Име</translation>
     </message>
     <message>
       <source>Priority</source>
-      <translation type="unfinished"/>
+      <translation>Приоритет</translation>
     </message>
     <message>
       <source>Product</source>
-      <translation type="unfinished"/>
+      <translation>Продукт</translation>
     </message>
     <message>
       <source>API Key</source>
@@ -7876,7 +7876,7 @@
     <name>abstract/survey</name>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Име</translation>
     </message>
     <message>
       <source>Feedback text</source>
@@ -7896,7 +7896,7 @@
     </message>
     <message>
       <source>Required</source>
-      <translation type="unfinished"/>
+      <translation>Задължително</translation>
     </message>
     <message>
       <source>Title for plain question</source>
@@ -8021,7 +8021,7 @@
     </message>
     <message>
       <source>User ID</source>
-      <translation>ИД на потребител</translation>
+      <translation>Номер на потребител</translation>
     </message>
     <message>
       <source>Chat average in seconds</source>
@@ -8069,15 +8069,15 @@
     <name>user/validator</name>
     <message>
       <source>Please enter a username</source>
-      <translation type="unfinished"/>
+      <translation>Въведете потребителско име</translation>
     </message>
     <message>
       <source>User exists</source>
-      <translation type="unfinished"/>
+      <translation>Потребителят съществува</translation>
     </message>
     <message>
       <source>Passwords mismatch</source>
-      <translation type="unfinished"/>
+      <translation>Паролите не съвпадат</translation>
     </message>
     <message>
       <source>User action type not set</source>
@@ -8259,7 +8259,7 @@
     </message>
     <message>
       <source>E-mail templates</source>
-      <translation>Шаблони за е-писма</translation>
+      <translation>Шаблони за имейли</translation>
     </message>
   </context>
   <context>
@@ -8321,32 +8321,32 @@
     <name>chat/transferuser</name>
     <message>
       <source>Chat was assigned to selected department</source>
-      <translation>Чата бе пренасочен към избрания отдел</translation>
+      <translation>Чатът беше пренасочен към избрания отдел</translation>
     </message>
     <message>
       <source>Chat was assigned to selected user</source>
-      <translation>Чата бе пренасочен към избрания оператор</translation>
+      <translation>Чатът беше пренасочен към избрания потребител</translation>
     </message>
   </context>
   <context>
     <name>chat/updatemsguser</name>
     <message>
       <source>User has edited his last message</source>
-      <translation>Потребителят изтри последното си съобщение</translation>
+      <translation>Потребителят редактира последното си съобщение</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/viewarchivedchat</name>
     <message>
       <source>View archived chat</source>
-      <translation>Виж архивираните чатове</translation>
+      <translation>Преглед на архивиран чат</translation>
     </message>
   </context>
   <context>
     <name>file/configurations</name>
     <message>
       <source>Please enter valid file type!</source>
-      <translation>Въведете валиден формат!</translation>
+      <translation>Въведете валиден тип файл!</translation>
     </message>
   </context>
 </TS>

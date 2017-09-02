@@ -19,7 +19,7 @@
     </message>
     <message>
       <source>Should mouse movement be tracked as activity measure, if not checked only basic events would be tracked</source>
-      <translation type="unfinished"/>
+      <translation>Käytä hiiren liikkeitä aktiivisuuden mittaukseen, jos ei ole valittuna seurataan vain tavallisia tapahtumia</translation>
     </message>
     <message>
       <source>Track is user still on site, chat status checks also has to be enabled</source>
@@ -39,7 +39,7 @@
     </message>
     <message>
       <source>Track users activity on site?</source>
-      <translation type="unfinished"/>
+      <translation>Seuraa käyttäjien aktiivisuutta sivustolla?</translation>
     </message>
     <message>
       <source>How many days keep records of online users.</source>
@@ -107,7 +107,7 @@
     </message>
     <message>
       <source>Should invitation logic be executed if there is no online operators</source>
-      <translation type="unfinished"/>
+      <translation>Käytä kutsulogiikkaa mikäli yhtään operaattoria ei ole saatavilla</translation>
     </message>
     <message>
       <source>Pro active chats invitations limitation based on pending chats, (-1) do not limit, (0,1,n+1) number of pending chats can be for invitation to be shown.</source>
@@ -391,7 +391,7 @@
     </message>
     <message>
       <source>Messages style</source>
-      <translation type="unfinished"/>
+      <translation>Viestien tyyli</translation>
     </message>
     <message>
       <source>Need help widget</source>
@@ -399,7 +399,7 @@
     </message>
     <message>
       <source>Chat widget</source>
-      <translation type="unfinished"/>
+      <translation>Keskustelu widgetti</translation>
     </message>
     <message>
       <source>Custom CSS</source>
@@ -419,15 +419,15 @@
     </message>
     <message>
       <source>General settings</source>
-      <translation type="unfinished"/>
+      <translation>Yleiset asetukset</translation>
     </message>
     <message>
       <source>Text changes</source>
-      <translation type="unfinished"/>
+      <translation>Tekstimuutokset</translation>
     </message>
     <message>
       <source>Disabled</source>
-      <translation type="unfinished"/>
+      <translation>Estetty</translation>
     </message>
     <message>
       <source>Name</source>
@@ -447,7 +447,7 @@
     </message>
     <message>
       <source>Show need help tooltip?</source>
-      <translation type="unfinished"/>
+      <translation>Näytä Tarvitsetko apua vihjelaatikko?</translation>
     </message>
     <message>
       <source>Need help standard text</source>
