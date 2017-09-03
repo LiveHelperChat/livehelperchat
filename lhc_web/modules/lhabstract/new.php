@@ -77,6 +77,9 @@ if (method_exists($objectData,'dependJs')) {
 	$Result['additional_header_js'] = $objectData->dependJs();
 }
 
+if (method_exists($objectData,'dependFooterJs')) {
+    $Result['additional_footer_js'] = $objectData->dependFooterJs();
+}
 
 if (isset($object_trans['path'])){
 	$Result['path'][] = $object_trans['path'];
