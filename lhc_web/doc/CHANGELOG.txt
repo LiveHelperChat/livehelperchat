@@ -1,3 +1,13 @@
+2.73v
+
+1. Auto responder now have On-Hold functionality.
+1.1 If chat is on hold, no survey redirection will be executed. Usefull if you just want visitor to wait until you find some info.
+
+2.72v
+
+1. Offline requests are stored as chats
+2. To proactive invitation now can be assigned auto responder.
+
 2.71v
 
 1. Option in autoresponder to set visitor redirection to survey if visitor does not respond for n seconds.
