@@ -33,7 +33,8 @@ if (trim($form->msg) != '')
 	        $msgText = trim($form->msg);
 	        $ignoreMessage = false;
 	        $returnBody = '';
-	        
+	        $customArgs = array();
+
 	        if (strpos($msgText, '!') === 0) {
 	            $statusCommand = erLhcoreClassChatCommand::processCommand(array('user' => $userData, 'msg' => $msgText, 'chat' => & $Chat));
 	            if ($statusCommand['processed'] === true) {
@@ -52,6 +53,10 @@ if (trim($form->msg) != '')
 	                    $tpl->set('msg',array('msg' =>  $statusCommand['info'], 'time' => time()));
 	                    $returnBody = $tpl->fetch();
 	                }
+
+                    if (isset($statusCommand['custom_args'])) {
+                        $customArgs = $statusCommand['custom_args'];
+                    }
 	            };
 	        }
 	        
@@ -73,8 +78,22 @@ if (trim($form->msg) != '')
     	
     	        // Set last message ID
     	        if ($Chat->last_msg_id < $msg->id) {
-    	        	
-    	        	$stmt = $db->prepare('UPDATE lh_chat SET status = :status, user_status = :user_status, last_msg_id = :last_msg_id, last_op_msg_time = :last_op_msg_time, has_unread_op_messages = :has_unread_op_messages, unread_op_messages_informed = :unread_op_messages_informed WHERE id = :id');
+
+    	            $statusSub = '';
+    	            if ($Chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_ON_HOLD && $messageUserId !== -1) {
+                        $statusSub = ',status_sub = 0, last_user_msg_time = ' . (time() - 1);
+                        $tpl = erLhcoreClassTemplate::getInstance('lhchat/lists/assistance_message.tpl.php');
+                        $tpl->set('msg', array('msg' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat', 'Hold removed!'), 'time' => time()));
+                        $returnBody .= $tpl->fetch();
+                        $customArgs['hold_removed'] = true;
+
+                        if ($Chat->auto_responder !== false) {
+                            $Chat->auto_responder->active_send_status = 0;
+                            $Chat->auto_responder->saveThis();
+                        }
+                    }
+
+    	        	$stmt = $db->prepare('UPDATE lh_chat SET status = :status, user_status = :user_status, last_msg_id = :last_msg_id, last_op_msg_time = :last_op_msg_time, has_unread_op_messages = :has_unread_op_messages, unread_op_messages_informed = :unread_op_messages_informed' . $statusSub . ' WHERE id = :id');
     	        	$stmt->bindValue(':id',$Chat->id,PDO::PARAM_INT);
     	        	$stmt->bindValue(':last_msg_id',$msg->id,PDO::PARAM_INT);
     	        	$stmt->bindValue(':last_op_msg_time',time(),PDO::PARAM_INT);
@@ -123,7 +142,7 @@ if (trim($form->msg) != '')
 	            }
 	        }
 	        
-	        echo erLhcoreClassChat::safe_json_encode(array('error' => 'false','r' => $returnBody));
+	        echo erLhcoreClassChat::safe_json_encode(array('error' => 'false','r' => $returnBody)+ $customArgs);
 	        
 	        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin',array('msg' => & $msg,'chat' => & $Chat));
 	    }   

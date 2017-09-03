@@ -58,6 +58,94 @@
                 "extra": ""
             },            
             {
+                "field": "wait_timeout_hold_1",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "wait_timeout_hold_2",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "wait_timeout_hold_3",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "wait_timeout_hold_4",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "wait_timeout_hold_5",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "timeout_hold_message_1",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "wait_timeout_hold",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "timeout_hold_message_2",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "timeout_hold_message_3",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "timeout_hold_message_4",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "timeout_hold_message_5",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "wait_timeout_2",
                 "type": "int(11)",
                 "null": "NO",

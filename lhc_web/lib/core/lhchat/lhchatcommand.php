@@ -25,6 +25,7 @@ class erLhcoreClassChatCommand
         '!info' => 'self::info',
         '!help' => 'self::help',
     	'!note' => 'self::notice',
+    	'!hold' => 'self::hold',
     	'!transferforce' => 'self::transferforce'
     );
 
@@ -105,7 +106,51 @@ class erLhcoreClassChatCommand
     			'raw_message' => $params['argument']
     	);
     }
-    
+
+    /**
+     * Just adds message from operator
+     *
+     * @param array $params
+     *
+     * @return boolean
+     */
+    public static function hold($params)
+    {
+        $params['chat']->status_sub = erLhcoreClassModelChat::STATUS_SUB_ON_HOLD;
+
+        if ($params['argument'] != '') {
+            // Store as message to visitor
+            $msg = new erLhcoreClassModelmsg();
+            $msg->msg = $params['argument'];
+            $msg->chat_id = $params['chat']->id;
+            $msg->user_id = $params['user']->id;
+            $msg->time = time();
+            $msg->name_support = $params['user']->name_support;
+            $msg->saveThis();
+        }
+
+        // Reset auto responder on hold command
+        if ($params['chat']->auto_responder !== false) {
+            $params['chat']->auto_responder->active_send_status = 0;
+            $params['chat']->auto_responder->saveThis();
+        }
+
+        // Update last user msg time so auto responder work's correctly
+        $params['chat']->last_op_msg_time = $params['chat']->last_user_msg_time = time();
+
+        // All ok, we can make changes
+        erLhcoreClassChat::getSession()->update($params['chat']);
+
+        return array(
+            'custom_args' => array(
+              'hold_added' => true
+            ),
+            'processed' => true,
+            'raw_message' => '!hold',
+            'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'Chat status changed on-hold!')
+        );
+    }
+
     /**
      * Updates chat email.
      *

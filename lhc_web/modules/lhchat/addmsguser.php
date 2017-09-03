@@ -84,10 +84,11 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && mb_strlen($form->m
 	            }
 	            
 	            // Store wait timeout attribute for future
-	            $chat->wait_timeout = $chat->online_user->invitation->wait_timeout;
+                // @todo fix me
+	            /*$chat->wait_timeout = $chat->online_user->invitation->wait_timeout;
 	            $chat->timeout_message = $chat->online_user->invitation->timeout_message;
 	            $chat->wait_timeout_send = 1-$chat->online_user->invitation->repeat_number;
-	            $chat->wait_timeout_repeat = $chat->online_user->invitation->repeat_number;
+	            $chat->wait_timeout_repeat = $chat->online_user->invitation->repeat_number;*/
 	            
 	            $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_DEFAULT;
 	            $chat->time = time(); // Update initial chat start time for auto responder
@@ -95,7 +96,9 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && mb_strlen($form->m
 	            
 	            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.auto_responder_triggered',array('chat' => & $chat));
 	            
-	        } else {
+	        }
+	        // @todo fix me
+	        /* else {
         	    // Auto responder
         	    $responder = erLhAbstractModelAutoResponder::processAutoResponder($chat);
         	    
@@ -125,7 +128,7 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && mb_strlen($form->m
         	    
         	        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.auto_responder_triggered',array('chat' => & $chat));
         	    }
-	        }
+	        }*/
 	    }
 	    
 	    $db->commit();

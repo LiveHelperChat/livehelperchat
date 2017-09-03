@@ -34,14 +34,15 @@
 </div>
 
 <div class="form-group">
-<label><?php echo erLhcoreClassAbstract::renderInput('only_proactive', $fields['only_proactive'], $object)?> <?php echo $fields['only_proactive']['trans'];?></label>
+    <label><?php echo erLhcoreClassAbstract::renderInput('only_proactive', $fields['only_proactive'], $object)?> <?php echo $fields['only_proactive']['trans'];?></label>
 </div>
 
 <div role="tabpanel">
     	<!-- Nav tabs -->
     	<ul class="nav nav-tabs" role="tablist">
     		<li role="presentation" class="active"><a href="#pending" aria-controls="pending" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Pending chat messaging');?></a></li>
-    		<li role="presentation"><a href="#active" aria-controls="active" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Active chat messaging');?></a></li>
+    		<li role="presentation"><a href="#active" aria-controls="active" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Not replying messaging');?></a></li>
+    		<li role="presentation"><a href="#onhold" aria-controls="onhold" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','On-hold chat messaging');?></a></li>
     		<li role="presentation"><a href="#survey" aria-controls="survey" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Survey');?></a></li>
     	</ul>
     
@@ -53,12 +54,14 @@
     		<div role="tabpanel" class="tab-pane" id="active">
     		  <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/responder/active.tpl.php'));?>
     		</div>
+            <div role="tabpanel" class="tab-pane" id="onhold">
+    		  <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/responder/onhold.tpl.php'));?>
+    		</div>
             <div role="tabpanel" class="tab-pane" id="survey">
     		  <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/responder/survey.tpl.php'));?>
     		</div>
 		</div>
 </div>
-
 
 <div class="btn-group" role="group" aria-label="...">
 	<input type="submit" class="btn btn-default" name="SaveClient" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>"/>
