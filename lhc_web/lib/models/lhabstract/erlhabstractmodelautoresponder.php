@@ -41,6 +41,7 @@ class erLhAbstractModelAutoResponder {
 			'timeout_hold_message_3'	  => $this->timeout_hold_message_3,
 			'timeout_hold_message_4'	  => $this->timeout_hold_message_4,
 			'timeout_hold_message_5'	  => $this->timeout_hold_message_5,
+			'wait_timeout_hold'	          => $this->wait_timeout_hold,
 
 			'wait_timeout_hold_1'	  => $this->wait_timeout_hold_1,
 			'wait_timeout_hold_2'	  => $this->wait_timeout_hold_2,
@@ -198,6 +199,9 @@ class erLhAbstractModelAutoResponder {
 	// 5 Message
 	public $wait_timeout_reply_5 = 0;
 	public $timeout_reply_message_5 = '';
+
+	// Default hold message
+	public $wait_timeout_hold = '';
 
 	// Auto responder name
 	public $name = '';

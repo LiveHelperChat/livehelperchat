@@ -106,6 +106,14 @@
                 "extra": ""
             },
             {
+                "field": "wait_timeout_hold",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "timeout_hold_message_2",
                 "type": "text",
                 "null": "NO",

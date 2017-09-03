@@ -1,3 +1,8 @@
+<div class="form-group">
+    <label><?php echo $fields['wait_timeout_hold']['trans'];?></label>
+    <?php echo erLhcoreClassAbstract::renderInput('wait_timeout_hold', $fields['wait_timeout_hold'], $object)?>
+</div>
+
 <?php for ($i = 1; $i <= 5; $i++) : ?>
     <div class="row">
         <div class="col-xs-3">

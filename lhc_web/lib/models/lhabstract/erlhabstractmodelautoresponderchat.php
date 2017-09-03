@@ -29,7 +29,7 @@ class erLhAbstractModelAutoResponderChat
 
     public function __toString()
     {
-        return $this->chat_id;
+        return (string)$this->chat_id;
     }
 
     public function process()
@@ -96,73 +96,72 @@ class erLhAbstractModelAutoResponderChat
                 }
                 
             } elseif ($this->chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT) {  
-                
-                if (($this->chat->last_op_msg_time > $this->chat->last_user_msg_time && $this->chat->last_user_msg_time > 0) || 
-                    ($this->chat->last_op_msg_time > $this->chat->time && $this->chat->last_user_msg_time == 0)) 
-                {
-                     if ($this->chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW && $this->auto_responder->survey_timeout > 0 && (time() - $this->chat->last_op_msg_time > $this->auto_responder->survey_timeout)) {
-                         $msg = new erLhcoreClassModelmsg();
-                         $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'Visitor was redirected to survey by auto responder!');
-                         $msg->chat_id = $this->chat->id;
-                         $msg->user_id = - 1;
-                         $msg->time = time();
-                         erLhcoreClassChat::getSession()->save($msg);
 
-                         $this->chat->last_msg_id = $msg->id;
-                         $this->chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW;
-                         $this->chat->updateThis();
-
-                         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.redirected_to_survey_by_autoresponder',array('chat' => & $this->chat));
-                     }
-
-                     for ($i = 5; $i >= 1; $i--) {
-                         if ($this->active_send_status < $i && !empty($this->auto_responder->{'timeout_reply_message_' . $i}) && (time() - $this->chat->last_op_msg_time > $this->auto_responder->{'wait_timeout_reply_' . $i}) ) {
-                             
-                             $this->active_send_status = $i;
-                             $this->saveThis();
-                                                          
+                if ($this->chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_ON_HOLD) {
+                    if (($this->chat->last_op_msg_time > $this->chat->last_user_msg_time && $this->chat->last_user_msg_time > 0) ||
+                        ($this->chat->last_op_msg_time > $this->chat->time && $this->chat->last_user_msg_time == 0))
+                    {
+                         if ($this->chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW && $this->auto_responder->survey_timeout > 0 && (time() - $this->chat->last_op_msg_time > $this->auto_responder->survey_timeout)) {
                              $msg = new erLhcoreClassModelmsg();
-                             $msg->msg = trim($this->auto_responder->{'timeout_reply_message_' . $i});
+                             $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'Visitor was redirected to survey by auto responder!');
                              $msg->chat_id = $this->chat->id;
-                             $msg->name_support = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Live Support');
-                             $msg->user_id = - 2;
+                             $msg->user_id = - 1;
                              $msg->time = time();
                              erLhcoreClassChat::getSession()->save($msg);
-                             
-                             $this->chat->last_msg_id = $msg->id;
-                             $this->chat->updateThis();                             
-                         }
-                     }
 
-                } elseif ($this->active_send_status > 0) {
-                    $this->active_send_status = 0;
-                    $this->saveThis();
+                             $this->chat->last_msg_id = $msg->id;
+                             $this->chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW;
+                             $this->chat->updateThis();
+
+                             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.redirected_to_survey_by_autoresponder',array('chat' => & $this->chat));
+                         }
+
+                         for ($i = 5; $i >= 1; $i--) {
+                             if ($this->active_send_status < $i && !empty($this->auto_responder->{'timeout_reply_message_' . $i}) && (time() - $this->chat->last_op_msg_time > $this->auto_responder->{'wait_timeout_reply_' . $i}) ) {
+
+                                 $this->active_send_status = $i;
+                                 $this->saveThis();
+
+                                 $msg = new erLhcoreClassModelmsg();
+                                 $msg->msg = trim($this->auto_responder->{'timeout_reply_message_' . $i});
+                                 $msg->chat_id = $this->chat->id;
+                                 $msg->name_support = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Live Support');
+                                 $msg->user_id = - 2;
+                                 $msg->time = time();
+                                 erLhcoreClassChat::getSession()->save($msg);
+
+                                 $this->chat->last_msg_id = $msg->id;
+                                 $this->chat->updateThis();
+                             }
+                         }
+
+                    } elseif ($this->active_send_status > 0) {
+                        $this->active_send_status = 0;
+                        $this->saveThis();
+                    }
+
+                } elseif ($this->chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_ON_HOLD) {
+                    for ($i = 5; $i >= 1; $i--) {
+                        if ($this->active_send_status < $i && !empty($this->auto_responder->{'timeout_hold_message_' . $i}) && (time() - $this->chat->last_op_msg_time > $this->auto_responder->{'wait_timeout_hold_' . $i}) ) {
+
+                            $this->active_send_status = $i;
+                            $this->saveThis();
+
+                            $msg = new erLhcoreClassModelmsg();
+                            $msg->msg = trim($this->auto_responder->{'timeout_hold_message_' . $i});
+                            $msg->chat_id = $this->chat->id;
+                            $msg->name_support = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Live Support');
+                            $msg->user_id = - 2;
+                            $msg->time = time();
+                            erLhcoreClassChat::getSession()->save($msg);
+
+                            $this->chat->last_msg_id = $msg->id;
+                            $this->chat->updateThis();
+                        }
+                    }
                 }
             }
         }
-        
-        /*
-         * if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && $chat->wait_timeout_send <= 0 && $chat->wait_timeout > 0 && !empty($chat->timeout_message) && (time() - $chat->time) > ($chat->wait_timeout*($chat->wait_timeout_repeat-(abs($chat->wait_timeout_send))))) {
-         * $errors = array();
-         * erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_triggered',array('chat' => & $chat, 'errors' => & $errors));
-         *
-         * if (empty($errors)) {
-         * erLhcoreClassChatWorkflow::timeoutWorkflow($chat);
-         * } else {
-         * $msg = new erLhcoreClassModelmsg();
-         * $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Auto responder got error').': '.implode('; ', $errors);
-         * $msg->chat_id = $chat->id;
-         * $msg->user_id = -1;
-         * $msg->time = time();
-         *
-         * if ($chat->last_msg_id < $msg->id) {
-         * $chat->last_msg_id = $msg->id;
-         * }
-         *
-         * erLhcoreClassChat::getSession()->save($msg);
-         * }
-         * }
-         */
     }
 
     public function __get($var)

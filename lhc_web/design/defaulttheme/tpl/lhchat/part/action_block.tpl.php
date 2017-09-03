@@ -11,7 +11,9 @@
 			<?php include(erLhcoreClassDesign::designtpl('lhchat/part/translation_action.tpl.php')); ?>
               
             <?php include(erLhcoreClassDesign::designtpl('lhchat/part/send_delayed_canned_action.tpl.php')); ?>
-			
+
+            <?php include(erLhcoreClassDesign::designtpl('lhchat/part/hold_action.tpl.php')); ?>
+
 		</div>
 		
 		</div>

@@ -3,6 +3,7 @@ ALTER TABLE `lh_abstract_auto_responder` ADD `wait_timeout_hold_2` int(11) NOT N
 ALTER TABLE `lh_abstract_auto_responder` ADD `wait_timeout_hold_3` int(11) NOT NULL, COMMENT='';
 ALTER TABLE `lh_abstract_auto_responder` ADD `wait_timeout_hold_4` int(11) NOT NULL, COMMENT='';
 ALTER TABLE `lh_abstract_auto_responder` ADD `wait_timeout_hold_5` int(11) NOT NULL, COMMENT='';
+ALTER TABLE `lh_abstract_auto_responder` ADD `wait_timeout_hold` text NOT NULL, COMMENT='';
 ALTER TABLE `lh_abstract_auto_responder` ADD `timeout_hold_message_1` text NOT NULL, COMMENT='';
 ALTER TABLE `lh_abstract_auto_responder` ADD `timeout_hold_message_2` text NOT NULL, COMMENT='';
 ALTER TABLE `lh_abstract_auto_responder` ADD `timeout_hold_message_3` text NOT NULL, COMMENT='';

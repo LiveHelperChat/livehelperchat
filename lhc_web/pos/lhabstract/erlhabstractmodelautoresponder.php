@@ -94,6 +94,11 @@ $def->properties['timeout_message_5']->columnName   = 'timeout_message_5';
 $def->properties['timeout_message_5']->propertyName = 'timeout_message_5';
 $def->properties['timeout_message_5']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['wait_timeout_hold'] = new ezcPersistentObjectProperty();
+$def->properties['wait_timeout_hold']->columnName   = 'wait_timeout_hold';
+$def->properties['wait_timeout_hold']->propertyName = 'wait_timeout_hold';
+$def->properties['wait_timeout_hold']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 for ($i = 1; $i <= 5; $i++) {
     $def->properties['wait_timeout_hold_' . $i] = new ezcPersistentObjectProperty();
     $def->properties['wait_timeout_hold_' . $i]->columnName   = 'wait_timeout_hold_' . $i;
