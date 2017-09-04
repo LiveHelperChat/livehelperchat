@@ -8,6 +8,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -384,11 +388,19 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
+      <source>Active chat messaging</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Pending chat messaging</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Active chat messaging</source>
+      <source>Not replying messaging</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>On-hold chat messaging</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -405,6 +417,10 @@
     </message>
     <message>
       <source>Events</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Render</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -902,11 +918,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Message for timeout [1]</source>
+      <source>Default on hold message</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Timeout. [2]</source>
+      <source>Message for timeout [1]</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -914,15 +930,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Timeout. [3]</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Message for timeout [3]</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Timeout. [4]</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -930,11 +938,23 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Timeout. [5]</source>
+      <source>Message for timeout [5]</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Message for timeout [5]</source>
+      <source>Timeout. [2]</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Timeout. [3]</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Timeout. [4]</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Timeout. [5]</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2517,6 +2537,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Hold/Un-Hold chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Send delayed canned message instantly</source>
       <translation type="unfinished"/>
     </message>
@@ -2537,11 +2561,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>has accepted the chat!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Auto responder got error</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>has accepted the chat!</source>
+      <source>Hold removed!</source>
       <translation type="unfinished"/>
     </message>
     <message>
