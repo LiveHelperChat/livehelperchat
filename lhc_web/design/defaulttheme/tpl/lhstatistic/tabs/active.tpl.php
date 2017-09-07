@@ -168,47 +168,111 @@
             drawChartDepartmnent();
 		},ts);
 	};
-	
+
+    // Define a plugin to provide data labels
+    Chart.plugins.register({
+        afterDatasetsDraw: function(chart, easing) {
+            // To only draw at the end of animation, check for easing === 1
+            var ctx = chart.ctx;
+            chart.data.datasets.forEach(function (dataset, i) {
+                var meta = chart.getDatasetMeta(i);
+                if (!meta.hidden) {
+                    meta.data.forEach(function(element, index) {
+                        // Draw the text in black, with the specified font
+                        ctx.fillStyle = 'rgb(0, 0, 0)';
+                        var fontSize = 12;
+                        var fontStyle = 'normal';
+                        var fontFamily = 'Arial';
+                        ctx.font = Chart.helpers.fontString(fontSize, fontStyle, fontFamily);
+                        // Just naively convert to string for now
+                        var dataString = dataset.data[index].toString();
+                        // Make sure alignment settings are correct
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'middle';
+                        var padding = 5;
+                        var position = element.tooltipPosition();
+                        ctx.fillText(dataString, position.x, position.y - (fontSize / 2) - padding);
+                    });
+                }
+            });
+        }
+    });
+
+
 	function drawChart() {
-		
-	  <?php if (!empty($userStats['thumbsup'])) : ?>			
-	  var data = google.visualization.arrayToDataTable([
-	    ['<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','User');?>', '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Thumbs up');?>']
-	    <?php foreach ($userStats['thumbsup'] as $data) : ?>
-	    	<?php echo ',[\''.htmlspecialchars(erLhcoreClassModelUser::fetch($data['user_id'],true)->name_official,ENT_QUOTES).'\','.$data['number_of_chats'].']'?>
-	    <?php endforeach;?>
-	  ]);			  
-	  var view = new google.visualization.DataView(data);
-      view.setColumns([0,1]);              
-	  var options = {
-	    title: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_thumbs_up.tpl.php'));?>',
-	    hAxis: {titleTextStyle: {color: 'red'},textStyle : {fontSize: 10}},
-        width: '100%',
-        height: '100%'		      
-	  };
-	  var chartUp = new google.visualization.ColumnChart(document.getElementById('chart_div_upvotes'));
-	  chartUp.draw(view, options);
+	  <?php if (!empty($userStats['thumbsup'])) : ?>
+        var barChartData = {
+            labels: [<?php foreach ($userStats['thumbsup'] as $key => $data) : echo ($key > 0 ? ',' : ''),'\''.htmlspecialchars(erLhcoreClassModelUser::fetch($data['user_id'],true)->name_official,ENT_QUOTES).'\''; endforeach;?>],
+            datasets: [{
+                label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Thumbs up')?>',
+                backgroundColor: '#109618',
+                borderColor: '#109618',
+                borderWidth: 1,
+                data: [<?php foreach ($userStats['thumbsup'] as $key => $data) : echo ($key > 0 ? ',' : ''),$data['number_of_chats']; endforeach;?>]
+            }]
+        };
+
+        var ctx = document.getElementById("chart_div_upvotes_canvas").getContext("2d");
+        var myBar = new Chart(ctx, {
+            type: 'bar',
+            data: barChartData,
+            options: {
+                responsive: true,
+                legend: {
+                    display : false,
+                    position: 'top',
+                },
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            fontSize: 11
+                        }
+                    }]
+                },
+                title: {
+                    display: true,
+                    text: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_thumbs_up.tpl.php'));?>'
+                }
+            }
+        });
 	  <?php endif;?>
 
-	  
-	  <?php if (!empty($userStats['thumbdown'])) : ?>			  
-	  var data = google.visualization.arrayToDataTable([
-	    ['<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','User');?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Thumbs down');?>']
-	    <?php foreach ($userStats['thumbdown'] as $data) : ?>
-	    	<?php echo ',[\''.htmlspecialchars(erLhcoreClassModelUser::fetch($data['user_id'],true)->name_official,ENT_QUOTES).'\','.$data['number_of_chats'].']'?>
-	    <?php endforeach;?>
-	  ]);			  
-	  var view = new google.visualization.DataView(data);
-      view.setColumns([0,1]);              
-	  var options = {
-	    title: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_thumbs_down.tpl.php'));?>',
-	    hAxis: {titleTextStyle: {color: 'red'},textStyle : {fontSize: 10}},
-        width: '100%',
-        height: '100%'		      
-	  };
-	  var chartDown = new google.visualization.ColumnChart(document.getElementById('chart_div_downvotes'));
-	  chartDown.draw(view, options);
-	  <?php endif;?>			  			  
+	  <?php if (!empty($userStats['thumbdown'])) : ?>
+        var barChartData = {
+            labels: [<?php foreach ($userStats['thumbdown'] as $key => $data) : echo ($key > 0 ? ',' : ''),'\''.htmlspecialchars(erLhcoreClassModelUser::fetch($data['user_id'],true)->name_official,ENT_QUOTES).'\''; endforeach;?>],
+            datasets: [{
+                label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Thumbs down')?>',
+                backgroundColor: '#f497a9',
+                borderColor: '#f497a9',
+                borderWidth: 1,
+                data: [<?php foreach ($userStats['thumbdown'] as $key => $data) : echo ($key > 0 ? ',' : ''),$data['number_of_chats']; endforeach;?>]
+            }]
+        };
+
+        var ctx = document.getElementById("chart_div_downvotes_canvas").getContext("2d");
+        var myBar = new Chart(ctx, {
+            type: 'bar',
+            data: barChartData,
+            options: {
+                responsive: true,
+                legend: {
+                    display : false,
+                    position: 'top',
+                },
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            fontSize: 11
+                        }
+                    }]
+                },
+                title: {
+                    display: true,
+                    text: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_thumbs_down.tpl.php'));?>'
+                }
+            }
+        });
+	  <?php endif;?>
 	};
 	
 	function drawChartCountry() {	
@@ -527,8 +591,12 @@
 <?php endif;?>
 
 <div class="row">
-	<div class="col-xs-6"><div id="chart_div_upvotes" style="width: 100%; height: 300px;"></div></div>
-	<div class="col-xs-6"><div id="chart_div_downvotes" style="width: 100%; height: 300px;"></div></div>
+	<div class="col-xs-6">
+          <canvas id="chart_div_upvotes_canvas"></canvas>
+    </div>
+	<div class="col-xs-6">
+         <canvas id="chart_div_downvotes_canvas"></canvas>
+    </div>
 </div>
 <?php else : ?>
 <br/>
