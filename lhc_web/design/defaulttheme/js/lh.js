@@ -203,46 +203,31 @@ function lh(){
         });
 	},
 
-	this.copyMessages = function(chat_id, inst) {
+	this.copyMessages = function(inst) {
 
-        var $temp = $("<textarea>");
+        $('#chat-copy-messages').select();
+        document.execCommand("copy");
 
-        $.getJSON(this.wwwDir + 'chat/copymessages/' + chat_id, function(data) {
-            if (data.error == false) {
-                $temp.val(data.result);
-            } else {
-                alert(data.result);
-            }
+        inst.tooltip({
+            trigger: 'click',
+            placement: 'top'
         });
 
-        setTimeout(function(){
+        function setTooltip(message) {
+            inst.tooltip('hide')
+                .attr('data-original-title', message)
+                .tooltip('show');
+        }
 
-            $("body").append($temp);
-            $temp.select();
-            document.execCommand("copy");
-            $temp.remove();
+        function hideTooltip() {
+            setTimeout(function() {
+                inst.tooltip('hide');
+            }, 3000);
+        }
 
-            inst.tooltip({
-                trigger: 'click',
-                placement: 'top'
-            });
+        setTooltip(inst.attr('data-success'));
+        hideTooltip();
 
-            function setTooltip(message) {
-                inst.tooltip('hide')
-                    .attr('data-original-title', message)
-                    .tooltip('show');
-            }
-
-            function hideTooltip() {
-                setTimeout(function() {
-                    inst.tooltip('hide');
-                }, 3000);
-            }
-
-            setTooltip(inst.attr('data-success'));
-            hideTooltip();
-
-		}, 1000);
 
         return false;
 	},

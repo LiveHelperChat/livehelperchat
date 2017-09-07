@@ -13,7 +13,11 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
         $formatted[] = '[' . date('H:i:s',$msg->time).'] '. ($msg->user_id == 0 ? htmlspecialchars($chat->nick) : htmlspecialchars($msg->name_support)).': '.htmlspecialchars($msg->msg);
     }
 
-    echo json_encode(array('error' => false,'result' =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Conversation started at').': '. date('Y-m-d H:i:s',$chat->time) . "\n" . implode("\n", $formatted)));
+    $tpl = erLhcoreClassTemplate::getInstance('lhchat/copymessages.tpl.php');
+    $tpl->set('chat', $chat);
+    $tpl->set('messages', implode("\n",$formatted));
+
+    echo $tpl->fetch();
 }
 
 exit;
