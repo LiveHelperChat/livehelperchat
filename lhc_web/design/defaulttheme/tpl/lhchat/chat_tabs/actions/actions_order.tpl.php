@@ -5,6 +5,10 @@
             'enabled' => true
         ),
         array(
+            'item' => 'copy_messages',
+            'enabled' => true
+        ),
+        array(
             'item' => 'open_new_window',
             'enabled' => !isset($hideActionBlock)
         ),

@@ -54,6 +54,8 @@
                 <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/actions/print_archive.tpl.php'));?>
             <?php elseif ($buttonData['item'] == 'mail_archive') : ?>
                 <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/actions/mail_archive.tpl.php'));?>
+            <?php elseif ($buttonData['item'] == 'copy_messages') : ?>
+                <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/actions/copy_messages.tpl.php'));?>
             <?php endif; ?>
         <?php endif; ?>
     <?php endforeach; ?>

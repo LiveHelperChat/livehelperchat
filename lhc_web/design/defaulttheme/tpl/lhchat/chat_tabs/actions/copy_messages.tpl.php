@@ -1,0 +1,1 @@
+<a class="material-icons" onclick="lhinst.copyMessages(<?php echo $chat->id?>,$(this))" data-success="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Copied!')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Copy messages to clipboard')?>">&#xE14D;</a>
