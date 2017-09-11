@@ -225,7 +225,10 @@
                 scales: {
                     xAxes: [{
                         ticks: {
-                            fontSize: 11
+                            fontSize: 11,
+                            stepSize: 1,
+                            min: 0,
+                            autoSkip: false
                         }
                     }]
                 },
@@ -262,7 +265,10 @@
                 scales: {
                     xAxes: [{
                         ticks: {
-                            fontSize: 11
+                            fontSize: 11,
+                            stepSize: 1,
+                            min: 0,
+                            autoSkip: false
                         }
                     }]
                 },
@@ -590,14 +596,10 @@
 <div id="chart_div_user_wait_time" style="width: 100%; height: 300px;"></div> 	
 <?php endif;?>
 
-<div class="row">
-	<div class="col-xs-6">
-          <canvas id="chart_div_upvotes_canvas"></canvas>
-    </div>
-	<div class="col-xs-6">
-         <canvas id="chart_div_downvotes_canvas"></canvas>
-    </div>
-</div>
+<canvas id="chart_div_upvotes_canvas"></canvas>
+
+<canvas id="chart_div_downvotes_canvas"></canvas>
+
 <?php else : ?>
 <br/>
 <div class="alert alert-info">
