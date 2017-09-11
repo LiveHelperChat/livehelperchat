@@ -11,4 +11,6 @@
 <li role="presentation"><a href="#online-user-info-chats-tab-<?php echo $chat->id?>" aria-controls="online-user-info-chats-tab-<?php echo $chat->id?>" role="tab" data-toggle="tab" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Chats')?>"><i class="material-icons mr-0">chat</i></a></li>
 <?php endif;?>
 
+<?php else : ?>
+    <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/custom_online_user_multiinclude.tpl.php'));?>
 <?php endif;?>
