@@ -2063,7 +2063,11 @@ function lh(){
 				}
 			}
 		} catch(e) {};
-		
+
+        $('#chat-tab-items-' + chat_id+' > li > a').click(function(){
+            ee.emitEvent('adminChatTabSubtabClicked', [chat_id,$(this)]);
+        });
+
 		ee.emitEvent('adminChatLoaded', [chat_id,last_message_id,arg]);
 	};
 	
