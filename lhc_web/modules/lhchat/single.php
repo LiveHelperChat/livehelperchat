@@ -18,8 +18,6 @@ $tpl->set('chat_id',$Params['user_parameters']['chat_id']);
 
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'chattabs';
-$Result['disable_angular'] = true;
-
 
 $title = isset($chat) ? $chat->nick : '.';
 
