@@ -93,6 +93,14 @@ if (trim($form->msg) != '')
                         }
                     }
 
+                    // Reset active counter if operator send new message and it's sync request and there was new message from operator
+                    if ($Chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_ON_HOLD && $Chat->auto_responder !== false) {
+    	                if ($Chat->auto_responder->active_send_status != 0) {
+                            $Chat->auto_responder->active_send_status = 0;
+                            $Chat->auto_responder->saveThis();
+    	                }
+                    }
+
     	        	$stmt = $db->prepare('UPDATE lh_chat SET status = :status, user_status = :user_status, last_msg_id = :last_msg_id, last_op_msg_time = :last_op_msg_time, has_unread_op_messages = :has_unread_op_messages, unread_op_messages_informed = :unread_op_messages_informed' . $statusSub . ' WHERE id = :id');
     	        	$stmt->bindValue(':id',$Chat->id,PDO::PARAM_INT);
     	        	$stmt->bindValue(':last_msg_id',$msg->id,PDO::PARAM_INT);
