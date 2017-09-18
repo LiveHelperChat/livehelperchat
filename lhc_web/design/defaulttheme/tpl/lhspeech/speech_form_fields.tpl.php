@@ -2,7 +2,7 @@
     <div class="col-md-6">
         <div class="form-group">
     	   <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('speech/language','Language')?></label>
-            <?php   
+            <?php
             
             $params = array(
                 'input_name' => 'select_language',
@@ -15,7 +15,7 @@
             if (isset($dataSpeech['optional'])){
                 $params['optional_field'] = erTranslationClassLhTranslation::getInstance()->getTranslation('speech/speech','Use application default recognition language');
             };
-                   
+
             echo erLhcoreClassRenderHelper::renderCombobox($params);
             ?> 
          </div>
