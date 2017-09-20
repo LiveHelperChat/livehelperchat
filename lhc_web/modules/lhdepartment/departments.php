@@ -22,8 +22,10 @@ if (isset($_GET['doSearch'])) {
     $filterParams['is_search'] = false;
 }
 
+$append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
+
 $pages = new lhPaginator();
-$pages->serverURL = erLhcoreClassDesign::baseurl('department/departments');
+$pages->serverURL = erLhcoreClassDesign::baseurl('department/departments') . $append;
 $pages->items_total = erLhcoreClassModelDepartament::getCount(array_merge($filterParams['filter'],$departmentParams));
 $pages->setItemsPerPage(20);
 $pages->paginate();
