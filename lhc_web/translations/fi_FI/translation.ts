@@ -2,14 +2,6 @@
   <context>
     <name>listchatconfig</name>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Kuinka monta päivää edellisen äänestyksen jälkeen äänestys-widgetti pidetään piilossa</translation>
     </message>
@@ -361,34 +353,22 @@
     </message>
   </context>
   <context>
-    <name>survey/form</name>
+    <name>chat/copyautoresponder</name>
     <message>
-      <source>Add option</source>
+      <source>Copy</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Enter a possible answer to your question here...</source>
+      <source>Copied!</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Enable stars</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Enable question</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Enable question with an answers</source>
+      <source>Please choose atleast one department!</source>
       <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>abstract/widgettheme</name>
-    <message>
-      <source>Active chat messaging</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>Pending chat messaging</source>
       <translation type="unfinished"/>
@@ -415,10 +395,6 @@
     </message>
     <message>
       <source>Events</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Render</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -723,6 +699,555 @@
     </message>
   </context>
   <context>
+    <name>chat/startchatformsettings</name>
+    <message>
+      <source>Add event</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Remove</source>
+      <translation>Poista</translation>
+    </message>
+    <message>
+      <source>Start a chat form settings</source>
+      <translation>Aloita keskustelu asetuksista</translation>
+    </message>
+    <message>
+      <source>At least one field has to be visible and required in the popup and page widget</source>
+      <translation>Vähintään yhden kentän pitää olla näkyvissä popupissa ja sivu-widgetissä.</translation>
+    </message>
+    <message>
+      <source>Custom fields generator, these fields will be visible in start chat forms</source>
+      <translation>Omien kenttien generointi, nämä kentät ovat näkybillä viesti-lomakkeella</translation>
+    </message>
+    <message>
+      <source>Field label</source>
+      <translation>Kentän otsikko</translation>
+    </message>
+    <message>
+      <source>Default value</source>
+      <translation>Oletusarvo</translation>
+    </message>
+    <message>
+      <source>Type</source>
+      <translation>Tyyppi</translation>
+    </message>
+    <message>
+      <source>Text</source>
+      <translation>Teksti</translation>
+    </message>
+    <message>
+      <source>Hidden</source>
+      <translation>Piilotettu</translation>
+    </message>
+    <message>
+      <source>Dropdown</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visible on</source>
+      <translation>Näkyy täällä</translation>
+    </message>
+    <message>
+      <source>Offline and online form</source>
+      <translation>Poissa- ja paikalla oleva lomake</translation>
+    </message>
+    <message>
+      <source>Only offline</source>
+      <translation>Vain poissaoleva</translation>
+    </message>
+    <message>
+      <source>Only online</source>
+      <translation>Vain paikalla oleva</translation>
+    </message>
+    <message>
+      <source>Show if</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Always</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Username is empty</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Size (between 1 and 12)</source>
+      <translation>Koko (1-12)</translation>
+    </message>
+    <message>
+      <source>Field identifier</source>
+      <translation>Kentän tunniste</translation>
+    </message>
+    <message>
+      <source>Is required</source>
+      <translation>Vaaditaan</translation>
+    </message>
+    <message>
+      <source>Options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Each option in new line</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add a field</source>
+      <translation>Lisää kenttä</translation>
+    </message>
+    <message>
+      <source>left</source>
+      <translation>vasen</translation>
+    </message>
+    <message>
+      <source>right</source>
+      <translation>oikea</translation>
+    </message>
+    <message>
+      <source>Enable leave a message functionality automatically if there are no online operators</source>
+      <translation>Salli viestin lähetys automaattisesti, jos käsittelijöitä ei ole paikalla.</translation>
+    </message>
+    <message>
+      <source>Online form settings</source>
+      <translation>Online-lomakkeen asetukset</translation>
+    </message>
+    <message>
+      <source>Offline form settings</source>
+      <translation>Offline-lomakkeen asetukset</translation>
+    </message>
+    <message>
+      <source>Additional form settings</source>
+      <translation>Lomakkeen lisäasetukset</translation>
+    </message>
+    <message>
+      <source>Custom fields</source>
+      <translation>Omat kentät</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Nimi</translation>
+    </message>
+    <message>
+      <source>This field is visible in the popup</source>
+      <translation>Tämä kenttä on näkyvissä popupissa</translation>
+    </message>
+    <message>
+      <source>This field is visible in the page widget</source>
+      <translation>Tämä kenttä on näkyvissä sivu-widgetissä</translation>
+    </message>
+    <message>
+      <source>This field is invisible but prefilled data is collected</source>
+      <translation>Tämä kenttä on näkymätön, mutta esitäytetyt tiedot kerätään</translation>
+    </message>
+    <message>
+      <source>This field is</source>
+      <translation>Tämä kenttä on</translation>
+    </message>
+    <message>
+      <source>Required</source>
+      <translation>Pakollinen</translation>
+    </message>
+    <message>
+      <source>Optional</source>
+      <translation>Vapaaehtoinen</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>Sähköposti</translation>
+    </message>
+    <message>
+      <source>Message</source>
+      <translation>Viesti</translation>
+    </message>
+    <message>
+      <source>Automatically start chat then user starts typing. Only message field has to be required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start chat process in the background as soon user submits form. Only message field has to be required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Puhelin</translation>
+    </message>
+    <message>
+      <source>Terms of service acceptance checkbox</source>
+      <translation>Käyttöehtojen hyväksynnän checkbox</translation>
+    </message>
+    <message>
+      <source>Checked by default</source>
+      <translation>Valittuna oletuksena</translation>
+    </message>
+    <message>
+      <source>E-mail is always required</source>
+      <translation>Sähköposti vaaditaan aina</translation>
+    </message>
+    <message>
+      <source>Allow to attatch a file</source>
+      <translation>Salli liitetiedostot</translation>
+    </message>
+    <message>
+      <source>Show operator profile above input fields</source>
+      <translation>Näytä operaattoriprofiili syöttökenttien yläpuolella</translation>
+    </message>
+    <message>
+      <source>Remove space after operator profile</source>
+      <translation>Poista tyhjä tila operaattoriprofiilin jälkeen</translation>
+    </message>
+    <message>
+      <source>Hide message label</source>
+      <translation>Piilota viestin otsikko</translation>
+    </message>
+    <message>
+      <source>Show messages box above input fields, usefull for UX combinations.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Initial user message height in pixels</source>
+      <translation>Käyttäjän viestialueen alkuperäinen koko pikseleinä</translation>
+    </message>
+    <message>
+      <source>Department settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Requires pre-filled department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User can not change passed department.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Encryption</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Encryption key, min length 40</source>
+      <translation>Salausavain, vähimmäispituus 40 merkkiä</translation>
+    </message>
+    <message>
+      <source>Additional encryption key, min length 40</source>
+      <translation>Lisäsalausavain, vähimmäispituus 40 merkkiä</translation>
+    </message>
+    <message>
+      <source>List of start chat settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Yksikkö</translation>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter resource identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add resource</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimum 40 characters for encryption key!</source>
+      <translation>Salausavaimen vähimmäispituus on 40 merkkiä!</translation>
+    </message>
+    <message>
+      <source>Minimum 40 characters for additional encryption key!</source>
+      <translation>Lisäsalausavaimen vähimmäispituus on 40 merkkiä!</translation>
+    </message>
+    <message>
+      <source>Please choose at least one field for a popup</source>
+      <translation>Valitse vähintään yksi kenttä popuppiin</translation>
+    </message>
+    <message>
+      <source>Please choose at least one field for a page widget</source>
+      <translation>Valitse vähintään yksi kenttä sivu-widgettiin</translation>
+    </message>
+    <message>
+      <source>Start chat form settings</source>
+      <translation>Aloita keskustelu asetuksista</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/lists/search_panel</name>
+    <message>
+      <source>Select event</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete selected</source>
+      <translation>Poista valittu</translation>
+    </message>
+    <message>
+      <source>Nick</source>
+      <translation>Nimimerkki</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>Sähköposti</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Yksikkö</translation>
+    </message>
+    <message>
+      <source>User</source>
+      <translation>Käyttäjä</translation>
+    </message>
+    <message>
+      <source>Date range from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hour and minute from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date range to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hour and minute to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Vote status</source>
+      <translation>Äänestyksen tila</translation>
+    </message>
+    <message>
+      <source>Any</source>
+      <translation>Kuka tahansa</translation>
+    </message>
+    <message>
+      <source>Not Voted</source>
+      <translation>Ei äänestetty</translation>
+    </message>
+    <message>
+      <source>Up Voted</source>
+      <translation>Äänestetty ylös</translation>
+    </message>
+    <message>
+      <source>Down vote</source>
+      <translation>Äänestetty alas</translation>
+    </message>
+    <message>
+      <source>Chat status</source>
+      <translation>Keskustelun tila</translation>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation>Odottavat keskustelut</translation>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Aktiiviset keskustelut</translation>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation>Suljetut keskustelut</translation>
+    </message>
+    <message>
+      <source>Chatbox chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation>Tuote</translation>
+    </message>
+    <message>
+      <source>Chat ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Has unread messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Search</source>
+      <translation>Hae</translation>
+    </message>
+    <message>
+      <source>Print</source>
+      <translation>Tulosta</translation>
+    </message>
+    <message>
+      <source>XLS</source>
+      <translation>XLS</translation>
+    </message>
+    <message>
+      <source>XLS (with content)</source>
+      <translation>XLS (sisällön kanssa)</translation>
+    </message>
+    <message>
+      <source>Select department</source>
+      <translation>Valitse yksikkö</translation>
+    </message>
+    <message>
+      <source>Select user</source>
+      <translation>Valitse käyttäjä</translation>
+    </message>
+    <message>
+      <source>Select product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Type to search</source>
+      <translation>Haettava merkkijono</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Nimi</translation>
+    </message>
+    <message>
+      <source>Hidden</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visible only if online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Select operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Compare to past</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Select group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose department</source>
+      <translation>Valitse yksikkö</translation>
+    </message>
+    <message>
+      <source>Choose department group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Agent</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Group by</source>
+      <translation>Ryhmittely</translation>
+    </message>
+    <message>
+      <source>Month</source>
+      <translation>Kuukausi</translation>
+    </message>
+    <message>
+      <source>Day</source>
+      <translation>Päivä</translation>
+    </message>
+    <message>
+      <source>Date range from to</source>
+      <translation>pvm väli</translation>
+    </message>
+    <message>
+      <source>Total number of chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of chats while online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hours on chat (sum of chat duration)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time online (sum of time spend online)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>AVG number of chats per hour</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Average pick-up time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Average chat length</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Include hours (from, to)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Group results by operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimum chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Optional</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Username</source>
+      <translation>Käyttäjätunnus</translation>
+    </message>
+    <message>
+      <source>Surname</source>
+      <translation>Sukunimi</translation>
+    </message>
+  </context>
+  <context>
+    <name>survey/form</name>
+    <message>
+      <source>Add option</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter a possible answer to your question here...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable stars</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable question</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable question with an answers</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>chat/getstatus</name>
     <message>
       <source>Close</source>
@@ -742,7 +1267,7 @@
     </message>
     <message>
       <source>Need help?</source>
-      <translation>Tarvitsetko apua?</translation>
+      <translation>Voimmeko auttaa?</translation>
     </message>
     <message>
       <source>Our staff are always ready to help</source>
@@ -762,7 +1287,7 @@
     </message>
     <message>
       <source>Live help is offline...</source>
-      <translation>Ei avustajaa paikalla...</translation>
+      <translation>Emme ole paikalla tällä hetkellä...</translation>
     </message>
     <message>
       <source>Screen shared, click to finish</source>
@@ -771,90 +1296,6 @@
   </context>
   <context>
     <name>abstract/proactivechatinvitation</name>
-    <message>
-      <source>Wait timeout. Time in seconds before timeout message is shown.</source>
-      <translation>Odotus timeout. Aika sekuntteina ennen kui ntimeout viesti näytetään</translation>
-    </message>
-    <message>
-      <source>How many times repeat message?</source>
-      <translation>Kuinka monta kertaa viesti toistetaan ?</translation>
-    </message>
-    <message>
-      <source>Name for personal purposes</source>
-      <translation>Nimi omaan käyttöön</translation>
-    </message>
-    <message>
-      <source>Operator name</source>
-      <translation>Operaattorin nimi</translation>
-    </message>
-    <message>
-      <source>Time on site in seconds</source>
-      <translation>Aika sivustolla sekunteina</translation>
-    </message>
-    <message>
-      <source>Pageviews</source>
-      <translation>Sivunkatseluita</translation>
-    </message>
-    <message>
-      <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
-      <translation>Viittaava domaini ilman www, esim google keyword kohdistuu kaikkiin googlen domaineihin</translation>
-    </message>
-    <message>
-      <source>How many times user show invitation, 0 - untill users closes it, &gt; 0 limits.</source>
-      <translation>Kuinka monta kertaa kutsu näytetään. 0-kunnes käyttäjä sulkee sen, &gt;0-maksimi.</translation>
-    </message>
-    <message>
-      <source>Requires e-mail</source>
-      <translation>Email vaaditaan</translation>
-    </message>
-    <message>
-      <source>Requires name</source>
-      <translation>Vaatii nimen</translation>
-    </message>
-    <message>
-      <source>Requires phone</source>
-      <translation>Vaatii puhelinnumeron</translation>
-    </message>
-    <message>
-      <source>Show random operator profile</source>
-      <translation>Näytä satunnainen operaattori profiili</translation>
-    </message>
-    <message>
-      <source>Enter operators IDs from whom random operator should be shown, separated by comma</source>
-      <translation>Anna operaattorien ID:t pilkulla eroteltuna, joista satunnainen operaattori näytetään.</translation>
-    </message>
-    <message>
-      <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
-      <translation>Tunnus, mihin tunnukseen viesti liitetään. Jätä tyhjäksi jos kaikille</translation>
-    </message>
-    <message>
-      <source>Tag</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Matched times</source>
-      <translation>Löytyneitä kertoja</translation>
-    </message>
-    <message>
-      <source>Message to user</source>
-      <translation>Viesti käyttäjälle</translation>
-    </message>
-    <message>
-      <source>Message to returning user</source>
-      <translation>Viesti palaavalle käyttäjälle</translation>
-    </message>
-    <message>
-      <source>Nick which will be used if we cannot determine returning user name</source>
-      <translation>Oletusnimi, jota käytetään, jos palaavan käyttäjän nimeä ei tiedetä</translation>
-    </message>
-    <message>
-      <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
-      <translation>Odota-viesti. Näkyvissä käyttäjälle kun hän odottaa että joku vastaa.</translation>
-    </message>
-    <message>
-      <source>Show visitor this message then wait timeout passes.</source>
-      <translation>Näytä käyttäjälle tämä viesti kun timeout on saavutettu.</translation>
-    </message>
     <message>
       <source>If you want pro active chat invitation to work it has to be enabled in</source>
       <translation>Jos haluat käyttää proaktiivista keskustelua aktivoi se täältä:</translation>
@@ -877,7 +1318,7 @@
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Nimi</translation>
     </message>
     <message>
       <source>Position</source>
@@ -1672,7 +2113,7 @@
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Nimi</translation>
     </message>
     <message>
       <source>Personal canned message</source>
@@ -1843,7 +2284,7 @@
     </message>
     <message>
       <source>Add</source>
-      <translation type="unfinished"/>
+      <translation>Lisää</translation>
     </message>
     <message>
       <source>Period</source>
@@ -1859,7 +2300,7 @@
     </message>
     <message>
       <source>Remove</source>
-      <translation type="unfinished"/>
+      <translation>Poista</translation>
     </message>
     <message>
       <source>XMPP recipients</source>
@@ -2049,7 +2490,7 @@
     </message>
     <message>
       <source>Enter your email address</source>
-      <translation type="unfinished"/>
+      <translation>Kirjoita sähköpostiosoitteesi</translation>
     </message>
     <message>
       <source>Phone</source>
@@ -2057,7 +2498,7 @@
     </message>
     <message>
       <source>Enter your phone</source>
-      <translation type="unfinished"/>
+      <translation>Kirjoita puhelinnumerosi</translation>
     </message>
     <message>
       <source>Your question</source>
@@ -2069,7 +2510,7 @@
     </message>
     <message>
       <source>Please provide a department</source>
-      <translation type="unfinished"/>
+      <translation>Valitse yksikkö</translation>
     </message>
     <message>
       <source>Name</source>
@@ -2077,7 +2518,7 @@
     </message>
     <message>
       <source>Enter your name</source>
-      <translation type="unfinished"/>
+      <translation>Kirjoita nimesi</translation>
     </message>
     <message>
       <source>Live support is not available in your country</source>
@@ -2105,7 +2546,7 @@
     </message>
     <message>
       <source>Send message</source>
-      <translation type="unfinished"/>
+      <translation>Lähetä viesti</translation>
     </message>
     <message>
       <source>I accept my personal data will be handled according to</source>
@@ -2253,7 +2694,7 @@
     </message>
     <message>
       <source>At the moment department is overloaded, please choose a different department or try again later!</source>
-      <translation type="unfinished"/>
+      <translation>Tällä hetkellä valitsemasi yksikkö on ruuhkautunut, ole hyvä ja valitse toinen yksikkö ja yritä uudelleen!</translation>
     </message>
     <message>
       <source>is required</source>
@@ -2285,7 +2726,7 @@
     </message>
     <message>
       <source>New message from operator</source>
-      <translation type="unfinished"/>
+      <translation>Uusi viesti asiantuntijalta</translation>
     </message>
     <message>
       <source>Transfer Chat</source>
@@ -2321,6 +2762,10 @@
     <message>
       <source>Screen sharing</source>
       <translation>Näytön jakaminen</translation>
+    </message>
+    <message>
+      <source>Copy messages to clipboard</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Delete chat</source>
@@ -2515,6 +2960,22 @@
       <translation>Huomiot</translation>
     </message>
     <message>
+      <source>Messages</source>
+      <translation>Viestit</translation>
+    </message>
+    <message>
+      <source>Copied!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copy to clipboard</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copy messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Close dialog</source>
       <translation>Sulje valinta</translation>
     </message>
@@ -2545,10 +3006,6 @@
     <message>
       <source>Send</source>
       <translation>Lähetä</translation>
-    </message>
-    <message>
-      <source>Messages</source>
-      <translation>Viestit</translation>
     </message>
     <message>
       <source>Select a canned message</source>
@@ -2615,7 +3072,7 @@
     </message>
     <message>
       <source>Pending chat</source>
-      <translation type="unfinished"/>
+      <translation>Odottava chat viesti</translation>
     </message>
     <message>
       <source>Accept chat</source>
@@ -2647,7 +3104,7 @@
     </message>
     <message>
       <source>Location</source>
-      <translation type="unfinished"/>
+      <translation>Sijainti</translation>
     </message>
     <message>
       <source>Sort by location</source>
@@ -4190,7 +4647,7 @@
     </message>
     <message>
       <source>minutes</source>
-      <translation type="unfinished"/>
+      <translation>minuuttia</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -4288,11 +4745,11 @@
     </message>
     <message>
       <source>Operator</source>
-      <translation type="unfinished"/>
+      <translation>Asiantuntija</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Yksikkö</translation>
     </message>
     <message>
       <source>Status</source>
@@ -4370,262 +4827,7 @@
     </message>
   </context>
   <context>
-    <name>chat/lists/search_panel</name>
-    <message>
-      <source>Select event</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Delete selected</source>
-      <translation>Poista valittu</translation>
-    </message>
-    <message>
-      <source>Nick</source>
-      <translation>Nimimerkki</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>Sähköposti</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Yksikkö</translation>
-    </message>
-    <message>
-      <source>User</source>
-      <translation>Käyttäjä</translation>
-    </message>
-    <message>
-      <source>Date range from</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Hour and minute from</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Date range to</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Hour and minute to</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Vote status</source>
-      <translation>Äänestyksen tila</translation>
-    </message>
-    <message>
-      <source>Any</source>
-      <translation>Kuka tahansa</translation>
-    </message>
-    <message>
-      <source>Not Voted</source>
-      <translation>Ei äänestetty</translation>
-    </message>
-    <message>
-      <source>Up Voted</source>
-      <translation>Äänestetty ylös</translation>
-    </message>
-    <message>
-      <source>Down vote</source>
-      <translation>Äänestetty alas</translation>
-    </message>
-    <message>
-      <source>Chat status</source>
-      <translation>Keskustelun tila</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>Odottavat keskustelut</translation>
-    </message>
-    <message>
-      <source>Active chats</source>
-      <translation>Aktiiviset keskustelut</translation>
-    </message>
-    <message>
-      <source>Closed chats</source>
-      <translation>Suljetut keskustelut</translation>
-    </message>
-    <message>
-      <source>Chatbox chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Operators chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Product</source>
-      <translation>Tuote</translation>
-    </message>
-    <message>
-      <source>Chat ID</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Has unread messages</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Search</source>
-      <translation>Hae</translation>
-    </message>
-    <message>
-      <source>Print</source>
-      <translation>Tulosta</translation>
-    </message>
-    <message>
-      <source>XLS</source>
-      <translation>XLS</translation>
-    </message>
-    <message>
-      <source>XLS (with content)</source>
-      <translation>XLS (sisällön kanssa)</translation>
-    </message>
-    <message>
-      <source>Select department</source>
-      <translation>Valitse yksikkö</translation>
-    </message>
-    <message>
-      <source>Select user</source>
-      <translation>Valitse käyttäjä</translation>
-    </message>
-    <message>
-      <source>Select product</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Type to search</source>
-      <translation>Haettava merkkijono</translation>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation>Nimi</translation>
-    </message>
-    <message>
-      <source>Hidden</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Visible only if online</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Disabled</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Select operator</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User group</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Department group</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Compare to past</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Select group</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose department</source>
-      <translation>Valitse yksikkö</translation>
-    </message>
-    <message>
-      <source>Choose department group</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Agent</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Group by</source>
-      <translation>Ryhmittely</translation>
-    </message>
-    <message>
-      <source>Month</source>
-      <translation>Kuukausi</translation>
-    </message>
-    <message>
-      <source>Day</source>
-      <translation>Päivä</translation>
-    </message>
-    <message>
-      <source>Date range from to</source>
-      <translation>pvm väli</translation>
-    </message>
-    <message>
-      <source>Total number of chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Number of chats while online</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Hours on chat (sum of chat duration)</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Time online (sum of time spend online)</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>AVG number of chats per hour</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Average pick-up time</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Average chat length</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Include hours (from, to)</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Group results by operator</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Minimum chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Optional</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Username</source>
-      <translation>Käyttäjätunnus</translation>
-    </message>
-    <message>
-      <source>Surname</source>
-      <translation>Sukunimi</translation>
-    </message>
-  </context>
-  <context>
     <name>pagelayout/pagelayout</name>
-    <message>
-      <source>New chat has been transfered to you directly!</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>Empty...</source>
       <translation>Tyhjä...</translation>
@@ -4834,305 +5036,10 @@
     </message>
   </context>
   <context>
-    <name>chat/startchatformsettings</name>
-    <message>
-      <source>Visible only in offline form</source>
-      <translation>Näkyy vain poissaolevana lomakkeella</translation>
-    </message>
-    <message>
-      <source>Visible only in online form</source>
-      <translation>Näkyy vain paikalla olevanan lomakkeella</translation>
-    </message>
-    <message>
-      <source>Size</source>
-      <translation>Koko</translation>
-    </message>
-    <message>
-      <source>Identifier</source>
-      <translation>Tunnus</translation>
-    </message>
-    <message>
-      <source>Add event</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Remove</source>
-      <translation>Poista</translation>
-    </message>
-    <message>
-      <source>Start a chat form settings</source>
-      <translation>Aloita keskustelu asetuksista</translation>
-    </message>
-    <message>
-      <source>At least one field has to be visible and required in the popup and page widget</source>
-      <translation>Vähintään yhden kentän pitää olla näkyvissä popupissa ja sivu-widgetissä.</translation>
-    </message>
-    <message>
-      <source>Custom fields generator, these fields will be visible in start chat forms</source>
-      <translation>Omien kenttien generointi, nämä kentät ovat näkybillä viesti-lomakkeella</translation>
-    </message>
-    <message>
-      <source>Field label</source>
-      <translation>Kentän otsikko</translation>
-    </message>
-    <message>
-      <source>Default value</source>
-      <translation>Oletusarvo</translation>
-    </message>
-    <message>
-      <source>Type</source>
-      <translation>Tyyppi</translation>
-    </message>
-    <message>
-      <source>Text</source>
-      <translation>Teksti</translation>
-    </message>
-    <message>
-      <source>Hidden</source>
-      <translation>Piilotettu</translation>
-    </message>
-    <message>
-      <source>Dropdown</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Visible on</source>
-      <translation>Näkyy täällä</translation>
-    </message>
-    <message>
-      <source>Offline and online form</source>
-      <translation>Poissa- ja paikalla oleva lomake</translation>
-    </message>
-    <message>
-      <source>Only offline</source>
-      <translation>Vain poissaoleva</translation>
-    </message>
-    <message>
-      <source>Only online</source>
-      <translation>Vain paikalla oleva</translation>
-    </message>
-    <message>
-      <source>Show if</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Always</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Username is empty</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Size (between 1 and 12)</source>
-      <translation>Koko (1-12)</translation>
-    </message>
-    <message>
-      <source>Field identifier</source>
-      <translation>Kentän tunniste</translation>
-    </message>
-    <message>
-      <source>Is required</source>
-      <translation>Vaaditaan</translation>
-    </message>
-    <message>
-      <source>Options</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Each option in new line</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Add a field</source>
-      <translation>Lisää kenttä</translation>
-    </message>
-    <message>
-      <source>left</source>
-      <translation>vasen</translation>
-    </message>
-    <message>
-      <source>right</source>
-      <translation>oikea</translation>
-    </message>
-    <message>
-      <source>Enable leave a message functionality automatically if there are no online operators</source>
-      <translation>Salli viestin lähetys automaattisesti, jos käsittelijöitä ei ole paikalla.</translation>
-    </message>
-    <message>
-      <source>Online form settings</source>
-      <translation>Online-lomakkeen asetukset</translation>
-    </message>
-    <message>
-      <source>Offline form settings</source>
-      <translation>Offline-lomakkeen asetukset</translation>
-    </message>
-    <message>
-      <source>Additional form settings</source>
-      <translation>Lomakkeen lisäasetukset</translation>
-    </message>
-    <message>
-      <source>Custom fields</source>
-      <translation>Omat kentät</translation>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation>Nimi</translation>
-    </message>
-    <message>
-      <source>This field is visible in the popup</source>
-      <translation>Tämä kenttä on näkyvissä popupissa</translation>
-    </message>
-    <message>
-      <source>This field is visible in the page widget</source>
-      <translation>Tämä kenttä on näkyvissä sivu-widgetissä</translation>
-    </message>
-    <message>
-      <source>This field is invisible but prefilled data is collected</source>
-      <translation>Tämä kenttä on näkymätön, mutta esitäytetyt tiedot kerätään</translation>
-    </message>
-    <message>
-      <source>This field is</source>
-      <translation>Tämä kenttä on</translation>
-    </message>
-    <message>
-      <source>Required</source>
-      <translation>Pakollinen</translation>
-    </message>
-    <message>
-      <source>Optional</source>
-      <translation>Vapaaehtoinen</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>Sähköposti</translation>
-    </message>
-    <message>
-      <source>Message</source>
-      <translation>Viesti</translation>
-    </message>
-    <message>
-      <source>Automatically start chat then user starts typing. Only message field has to be required</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Start chat process in the background as soon user submits form. Only message field has to be required</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>Puhelin</translation>
-    </message>
-    <message>
-      <source>Terms of service acceptance checkbox</source>
-      <translation>Käyttöehtojen hyväksynnän checkbox</translation>
-    </message>
-    <message>
-      <source>Checked by default</source>
-      <translation>Valittuna oletuksena</translation>
-    </message>
-    <message>
-      <source>E-mail is always required</source>
-      <translation>Sähköposti vaaditaan aina</translation>
-    </message>
-    <message>
-      <source>Allow to attatch a file</source>
-      <translation>Salli liitetiedostot</translation>
-    </message>
-    <message>
-      <source>Show operator profile above input fields</source>
-      <translation>Näytä operaattoriprofiili syöttökenttien yläpuolella</translation>
-    </message>
-    <message>
-      <source>Remove space after operator profile</source>
-      <translation>Poista tyhjä tila operaattoriprofiilin jälkeen</translation>
-    </message>
-    <message>
-      <source>Hide message label</source>
-      <translation>Piilota viestin otsikko</translation>
-    </message>
-    <message>
-      <source>Show messages box above input fields, usefull for UX combinations.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Initial user message height in pixels</source>
-      <translation>Käyttäjän viestialueen alkuperäinen koko pikseleinä</translation>
-    </message>
-    <message>
-      <source>Department settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Requires pre-filled department</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User can not change passed department.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Encryption</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Encryption key, min length 40</source>
-      <translation>Salausavain, vähimmäispituus 40 merkkiä</translation>
-    </message>
-    <message>
-      <source>Additional encryption key, min length 40</source>
-      <translation>Lisäsalausavain, vähimmäispituus 40 merkkiä</translation>
-    </message>
-    <message>
-      <source>List of start chat settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>New</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter resource identifier</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Add resource</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Minimum 40 characters for encryption key!</source>
-      <translation>Salausavaimen vähimmäispituus on 40 merkkiä!</translation>
-    </message>
-    <message>
-      <source>Minimum 40 characters for additional encryption key!</source>
-      <translation>Lisäsalausavaimen vähimmäispituus on 40 merkkiä!</translation>
-    </message>
-    <message>
-      <source>Please choose at least one field for a popup</source>
-      <translation>Valitse vähintään yksi kenttä popuppiin</translation>
-    </message>
-    <message>
-      <source>Please choose at least one field for a page widget</source>
-      <translation>Valitse vähintään yksi kenttä sivu-widgettiin</translation>
-    </message>
-    <message>
-      <source>Start chat form settings</source>
-      <translation>Aloita keskustelu asetuksista</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/statistic</name>
     <message>
       <source>Statistic</source>
       <translation>Tilasto</translation>
-    </message>
-    <message>
-      <source>User</source>
-      <translation>Käyttäjä</translation>
     </message>
     <message>
       <source>Thumbs up</source>
@@ -5149,6 +5056,10 @@
     <message>
       <source>Chats</source>
       <translation>Keskustelut</translation>
+    </message>
+    <message>
+      <source>User</source>
+      <translation>Käyttäjä</translation>
     </message>
     <message>
       <source>Average in seconds</source>
@@ -5689,6 +5600,185 @@
     </message>
   </context>
   <context>
+    <name>user/account</name>
+    <message>
+      <source>Name</source>
+      <translation>Etunimi</translation>
+    </message>
+    <message>
+      <source>Updated</source>
+      <translation>Päivitetty</translation>
+    </message>
+    <message>
+      <source>Update</source>
+      <translation>Päivitä</translation>
+    </message>
+    <message>
+      <source>Updating...</source>
+      <translation>Päivitän...</translation>
+    </message>
+    <message>
+      <source>Logged user</source>
+      <translation>Kirjautunut käyttäjä</translation>
+    </message>
+    <message>
+      <source>Account data</source>
+      <translation>Käyttäjän tiedot</translation>
+    </message>
+    <message>
+      <source>Assigned departments</source>
+      <translation>Liitetyt yksiköt</translation>
+    </message>
+    <message>
+      <source>Visible lists</source>
+      <translation>Näkyvät listat</translation>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation>Odottavat keskustelut</translation>
+    </message>
+    <message>
+      <source>Speech</source>
+      <translation>Puhe</translation>
+    </message>
+    <message>
+      <source>Permissions</source>
+      <translation>Oikeudet</translation>
+    </message>
+    <message>
+      <source>Do not enter a password unless you want to change it</source>
+      <translation>Älä anna salasanaa jos et halua muuttaa sitä</translation>
+    </message>
+    <message>
+      <source>Username</source>
+      <translation>Käyttäjätunnus</translation>
+    </message>
+    <message>
+      <source>Your username</source>
+      <translation>Käyttäjätunnus</translation>
+    </message>
+    <message>
+      <source>Password</source>
+      <translation>Salasana</translation>
+    </message>
+    <message>
+      <source>Enter a new password</source>
+      <translation>Anna uusi salasana</translation>
+    </message>
+    <message>
+      <source>Repeat password</source>
+      <translation>Toista salasana</translation>
+    </message>
+    <message>
+      <source>Repeat the new password</source>
+      <translation>Toista uusi salasana</translation>
+    </message>
+    <message>
+      <source>Email</source>
+      <translation>Sähköposti</translation>
+    </message>
+    <message>
+      <source>Chat nickname</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Surname</source>
+      <translation>Sukunimi</translation>
+    </message>
+    <message>
+      <source>Job title</source>
+      <translation>Titteli</translation>
+    </message>
+    <message>
+      <source>I receive other operators permissions request</source>
+      <translation>Vastaanotin toisen käyttäjän oikeuden pyynnön</translation>
+    </message>
+    <message>
+      <source>Skype</source>
+      <translation>Skype</translation>
+    </message>
+    <message>
+      <source>XMPP username</source>
+      <translation>XMPP-käyttäjätunnus</translation>
+    </message>
+    <message>
+      <source>Photo</source>
+      <translation>Kuva</translation>
+    </message>
+    <message>
+      <source>Delete</source>
+      <translation>Poista</translation>
+    </message>
+    <message>
+      <source>Return</source>
+      <translation>Palaa</translation>
+    </message>
+    <message>
+      <source>Pending chats list enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats list enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unread chats list enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chats list enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>My pending and active chats list enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>I can see all pending chats, not only assigned to me</source>
+      <translation>Näen kaikki odottavat keskustelut, ei vain minulle ohjattuja</translation>
+    </message>
+    <message>
+      <source>Show permissions</source>
+      <translation>Näytä oikeudet</translation>
+    </message>
+    <message>
+      <source>Account updated</source>
+      <translation>Tunnus päivitetty</translation>
+    </message>
+    <message>
+      <source>All departments</source>
+      <translation>Kaikki yksiköt</translation>
+    </message>
+    <message>
+      <source>Individual departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Departments groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat status will not change upon pending chat opening</source>
+      <translation>Viestin tila ei muutu kun odottava viesti avataan</translation>
+    </message>
+    <message>
+      <source>User receives other operators permissions request</source>
+      <translation>Käyttäjä vastaaotti toisen operaattorin oikeuspyynnön</translation>
+    </message>
+    <message>
+      <source>User can see all pending chats, not only assigned to him</source>
+      <translation>Käyttäjä näkee kaikki odottavat keskustelut, ei vain hänelle ohjattuja</translation>
+    </message>
+    <message>
+      <source>Notifications</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Personal canned messages</source>
+      <translation>Henkilökohtainen viestipohja</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/transferchat</name>
     <message>
       <source>Transfer to a user</source>
@@ -5728,18 +5818,18 @@
     </message>
     <message>
       <source>Online</source>
-      <translation type="unfinished"/>
+      <translation>Paikalla</translation>
     </message>
     <message>
       <source>Offline</source>
-      <translation type="unfinished"/>
+      <translation>Poissa</translation>
     </message>
   </context>
   <context>
     <name>chat/userjoined</name>
     <message>
       <source>Visitor has joined the chat!</source>
-      <translation type="unfinished"/>
+      <translation>Vierailija on liittynyt chattiin</translation>
     </message>
     <message>
       <source>Visitor has joined the chat from popup chat window!</source>
@@ -5750,7 +5840,7 @@
     <name>chat/userleftchat</name>
     <message>
       <source>Visitor has left the chat!</source>
-      <translation type="unfinished"/>
+      <translation>Vierailija on lähtenyt chatistä!</translation>
     </message>
     <message>
       <source>Visitor has closed the chat explicitly!</source>
@@ -6114,41 +6204,6 @@
     </message>
   </context>
   <context>
-    <name>cobrowse/browse</name>
-    <message>
-      <source>Click blue eye at the top to request screen share</source>
-      <translation>Klikkaa ylälaidan sinistä silmää pyytääksesi ruudun jakoa</translation>
-    </message>
-    <message>
-      <source>Request screen share</source>
-      <translation>Pyydä kuvaruudun jakoa</translation>
-    </message>
-    <message>
-      <source>Show my mouse position to visitor</source>
-      <translation>Näytä hiiren paikka vieraalle</translation>
-    </message>
-    <message>
-      <source>On highlight scroll user window location to match my</source>
-      <translation>Valittaessa siirrä käyttäjän ikkuna samaksi kuin minulla</translation>
-    </message>
-    <message>
-      <source>Follow user scroll position</source>
-      <translation>Seuraa käyttäjän ruutua</translation>
-    </message>
-    <message>
-      <source>On click navigate user browser</source>
-      <translation>Klikatessa navigoi käyttäjän selainta</translation>
-    </message>
-    <message>
-      <source>Screen sharing session has finished</source>
-      <translation>Ruudun jako on päättynyt</translation>
-    </message>
-    <message>
-      <source>Screen is shared</source>
-      <translation>Ruutu on jaettu</translation>
-    </message>
-  </context>
-  <context>
     <name>department/departments</name>
     <message>
       <source>Edit</source>
@@ -6220,198 +6275,38 @@
     </message>
   </context>
   <context>
-    <name>user/account</name>
+    <name>cobrowse/browse</name>
     <message>
-      <source>Pending chats tab enabled</source>
-      <translation>Näytä odottavat keskustelut</translation>
+      <source>Click blue eye at the top to request screen share</source>
+      <translation>Klikkaa ylälaidan sinistä silmää pyytääksesi ruudun jakoa</translation>
     </message>
     <message>
-      <source>Active chats tab enabled</source>
-      <translation>Näytä aktiiviset keskustelut</translation>
+      <source>Request screen share</source>
+      <translation>Pyydä kuvaruudun jakoa</translation>
     </message>
     <message>
-      <source>Unread chats tab enabled</source>
-      <translation>Näytä lukemattomat keskustelut</translation>
+      <source>Show my mouse position to visitor</source>
+      <translation>Näytä hiiren paikka vieraalle</translation>
     </message>
     <message>
-      <source>Closed chats tab enabled</source>
-      <translation>Näytä suljetut keskustelut</translation>
+      <source>On highlight scroll user window location to match my</source>
+      <translation>Valittaessa siirrä käyttäjän ikkuna samaksi kuin minulla</translation>
     </message>
     <message>
-      <source>Name</source>
-      <translation>Etunimi</translation>
+      <source>Follow user scroll position</source>
+      <translation>Seuraa käyttäjän ruutua</translation>
     </message>
     <message>
-      <source>Updated</source>
-      <translation>Päivitetty</translation>
+      <source>On click navigate user browser</source>
+      <translation>Klikatessa navigoi käyttäjän selainta</translation>
     </message>
     <message>
-      <source>Update</source>
-      <translation>Päivitä</translation>
+      <source>Screen sharing session has finished</source>
+      <translation>Ruudun jako on päättynyt</translation>
     </message>
     <message>
-      <source>Updating...</source>
-      <translation>Päivitän...</translation>
-    </message>
-    <message>
-      <source>Logged user</source>
-      <translation>Kirjautunut käyttäjä</translation>
-    </message>
-    <message>
-      <source>Account data</source>
-      <translation>Käyttäjän tiedot</translation>
-    </message>
-    <message>
-      <source>Assigned departments</source>
-      <translation>Liitetyt yksiköt</translation>
-    </message>
-    <message>
-      <source>Visible lists</source>
-      <translation>Näkyvät listat</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>Odottavat keskustelut</translation>
-    </message>
-    <message>
-      <source>Speech</source>
-      <translation>Puhe</translation>
-    </message>
-    <message>
-      <source>Permissions</source>
-      <translation>Oikeudet</translation>
-    </message>
-    <message>
-      <source>Do not enter a password unless you want to change it</source>
-      <translation>Älä anna salasanaa jos et halua muuttaa sitä</translation>
-    </message>
-    <message>
-      <source>Username</source>
-      <translation>Käyttäjätunnus</translation>
-    </message>
-    <message>
-      <source>Your username</source>
-      <translation>Käyttäjätunnus</translation>
-    </message>
-    <message>
-      <source>Password</source>
-      <translation>Salasana</translation>
-    </message>
-    <message>
-      <source>Enter a new password</source>
-      <translation>Anna uusi salasana</translation>
-    </message>
-    <message>
-      <source>Repeat password</source>
-      <translation>Toista salasana</translation>
-    </message>
-    <message>
-      <source>Repeat the new password</source>
-      <translation>Toista uusi salasana</translation>
-    </message>
-    <message>
-      <source>Email</source>
-      <translation>Sähköposti</translation>
-    </message>
-    <message>
-      <source>Chat nickname</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Surname</source>
-      <translation>Sukunimi</translation>
-    </message>
-    <message>
-      <source>Job title</source>
-      <translation>Titteli</translation>
-    </message>
-    <message>
-      <source>I receive other operators permissions request</source>
-      <translation>Vastaanotin toisen käyttäjän oikeuden pyynnön</translation>
-    </message>
-    <message>
-      <source>Skype</source>
-      <translation>Skype</translation>
-    </message>
-    <message>
-      <source>XMPP username</source>
-      <translation>XMPP-käyttäjätunnus</translation>
-    </message>
-    <message>
-      <source>Photo</source>
-      <translation>Kuva</translation>
-    </message>
-    <message>
-      <source>Delete</source>
-      <translation>Poista</translation>
-    </message>
-    <message>
-      <source>Return</source>
-      <translation>Palaa</translation>
-    </message>
-    <message>
-      <source>Pending chats list enabled</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Active chats list enabled</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Unread chats list enabled</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Closed chats list enabled</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>My pending and active chats list enabled</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>I can see all pending chats, not only assigned to me</source>
-      <translation>Näen kaikki odottavat keskustelut, ei vain minulle ohjattuja</translation>
-    </message>
-    <message>
-      <source>Show permissions</source>
-      <translation>Näytä oikeudet</translation>
-    </message>
-    <message>
-      <source>Account updated</source>
-      <translation>Tunnus päivitetty</translation>
-    </message>
-    <message>
-      <source>All departments</source>
-      <translation>Kaikki yksiköt</translation>
-    </message>
-    <message>
-      <source>Individual departments</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Departments groups</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat status will not change upon pending chat opening</source>
-      <translation>Viestin tila ei muutu kun odottava viesti avataan</translation>
-    </message>
-    <message>
-      <source>User receives other operators permissions request</source>
-      <translation>Käyttäjä vastaaotti toisen operaattorin oikeuspyynnön</translation>
-    </message>
-    <message>
-      <source>User can see all pending chats, not only assigned to him</source>
-      <translation>Käyttäjä näkee kaikki odottavat keskustelut, ei vain hänelle ohjattuja</translation>
-    </message>
-    <message>
-      <source>Notifications</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Personal canned messages</source>
-      <translation>Henkilökohtainen viestipohja</translation>
+      <source>Screen is shared</source>
+      <translation>Ruutu on jaettu</translation>
     </message>
   </context>
   <context>
@@ -7904,176 +7799,18 @@
     </message>
   </context>
   <context>
-    <name>system/update</name>
+    <name>system/transferconfiguration</name>
     <message>
-      <source>Your version</source>
-      <translation>Versiosi</translation>
-    </message>
-    <message>
-      <source>Current version</source>
-      <translation>Nykyinen versio</translation>
-    </message>
-    <message>
-      <source>News</source>
-      <translation>Uutiset</translation>
-    </message>
-    <message>
-      <source>Update instructions</source>
-      <translation>Päivitysohjeet (eng)</translation>
-    </message>
-    <message>
-      <source>Live Helper Chat update information</source>
-      <translation>Live Helper Chatin päivitystiedot</translation>
-    </message>
-  </context>
-  <context>
-    <name>update/statusdb</name>
-    <message>
-      <source>Database structure check</source>
-      <translation>Tietokanna rakenteen tarkistus</translation>
-    </message>
-    <message>
-      <source>Your database does not require any updates</source>
-      <translation>Tietokantasi ei tarvitse mitään päivityksiä</translation>
-    </message>
-    <message>
-      <source>Update database</source>
-      <translation>Päivitä tietokanta</translation>
-    </message>
-    <message>
-      <source>Queries which will be executed on update</source>
-      <translation>Kyselyt, jotka ajetaan päivityksessä</translation>
-    </message>
-  </context>
-  <context>
-    <name>icclicktocallform/form</name>
-    <message>
-      <source>Settings</source>
+      <source>Transfer configuration</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Header settings</source>
+      <source>Options for chat transfer to department</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Header css</source>
+      <source>Settings updated</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Static content</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>JS</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>CSS</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Header content</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Resource name for replacement</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invalid CSRF token!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter a name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>File not chosen for</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>lhtheme/admin</name>
-    <message>
-      <source>New admin theme</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Admin themes</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Default admin theme</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Edit admin theme</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>admintheme/form</name>
-    <message>
-      <source>Edit theme</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Updated</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>theme/default</name>
-    <message>
-      <source>Set as default theme</source>
-      <translation>Aseta oletusteemaksi</translation>
-    </message>
-  </context>
-  <context>
-    <name>theme/import</name>
-    <message>
-      <source>Default theme was set</source>
-      <translation>Oletusteema asetettu</translation>
-    </message>
-    <message>
-      <source>Default admin theme was set</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Import theme</source>
-      <translation>Lue sisään teema</translation>
-    </message>
-    <message>
-      <source>File</source>
-      <translation>Tiedosto</translation>
-    </message>
-    <message>
-      <source>Import</source>
-      <translation>Lue sisään</translation>
-    </message>
-    <message>
-      <source>Theme imported</source>
-      <translation>Teema luettu sisään</translation>
-    </message>
-    <message>
-      <source>Could not import a new theme!</source>
-      <translation>Teeman tuonti epäonnistui!</translation>
-    </message>
-    <message>
-      <source>Invalid file!</source>
-      <translation>Virheellinen tiedosto!</translation>
     </message>
   </context>
   <context>
@@ -8165,6 +7902,179 @@
     <message>
       <source>Please enter a group name</source>
       <translation>Anna ryhmän nimi</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/update</name>
+    <message>
+      <source>Your version</source>
+      <translation>Versiosi</translation>
+    </message>
+    <message>
+      <source>Current version</source>
+      <translation>Nykyinen versio</translation>
+    </message>
+    <message>
+      <source>News</source>
+      <translation>Uutiset</translation>
+    </message>
+    <message>
+      <source>Update instructions</source>
+      <translation>Päivitysohjeet (eng)</translation>
+    </message>
+    <message>
+      <source>Live Helper Chat update information</source>
+      <translation>Live Helper Chatin päivitystiedot</translation>
+    </message>
+  </context>
+  <context>
+    <name>update/statusdb</name>
+    <message>
+      <source>Database structure check</source>
+      <translation>Tietokanna rakenteen tarkistus</translation>
+    </message>
+    <message>
+      <source>Your database does not require any updates</source>
+      <translation>Tietokantasi ei tarvitse mitään päivityksiä</translation>
+    </message>
+    <message>
+      <source>Update database</source>
+      <translation>Päivitä tietokanta</translation>
+    </message>
+    <message>
+      <source>Queries which will be executed on update</source>
+      <translation>Kyselyt, jotka ajetaan päivityksessä</translation>
+    </message>
+  </context>
+  <context>
+    <name>icclicktocallform/form</name>
+    <message>
+      <source>Settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Header settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Header css</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Static content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>JS</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>CSS</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Nimi</translation>
+    </message>
+    <message>
+      <source>Header content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Resource name for replacement</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid CSRF token!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File not chosen for</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>lhtheme/admin</name>
+    <message>
+      <source>New admin theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Admin themes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Nimi</translation>
+    </message>
+    <message>
+      <source>Default admin theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit admin theme</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>admintheme/form</name>
+    <message>
+      <source>Edit theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Updated</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>theme/default</name>
+    <message>
+      <source>Set as default theme</source>
+      <translation>Aseta oletusteemaksi</translation>
+    </message>
+  </context>
+  <context>
+    <name>theme/import</name>
+    <message>
+      <source>Default theme was set</source>
+      <translation>Oletusteema asetettu</translation>
+    </message>
+    <message>
+      <source>Default admin theme was set</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Import theme</source>
+      <translation>Lue sisään teema</translation>
+    </message>
+    <message>
+      <source>File</source>
+      <translation>Tiedosto</translation>
+    </message>
+    <message>
+      <source>Import</source>
+      <translation>Lue sisään</translation>
+    </message>
+    <message>
+      <source>Theme imported</source>
+      <translation>Teema luettu sisään</translation>
+    </message>
+    <message>
+      <source>Could not import a new theme!</source>
+      <translation>Teeman tuonti epäonnistui!</translation>
+    </message>
+    <message>
+      <source>Invalid file!</source>
+      <translation>Virheellinen tiedosto!</translation>
     </message>
   </context>
   <context>
@@ -8741,11 +8651,11 @@
     </message>
     <message>
       <source>Wrong email address</source>
-      <translation type="unfinished"/>
+      <translation>Väärä sähköpostiosoite</translation>
     </message>
     <message>
       <source>Please enter a name</source>
-      <translation type="unfinished"/>
+      <translation>Kirjoita nimesi</translation>
     </message>
     <message>
       <source>You are trying to assign group which are not known!</source>
@@ -9003,36 +8913,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Anna kelvollinen tiedoston tyyppi!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/copyautoresponder</name>
-    <message>
-      <source>Copy</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Copied!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please choose atleast one department!</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>system/transferconfiguration</name>
-    <message>
-      <source>Transfer configuration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Options for chat transfer to department</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation type="unfinished"/>
     </message>
   </context>
   <context>

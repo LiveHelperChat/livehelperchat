@@ -2,14 +2,6 @@
   <context>
     <name>listchatconfig</name>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Сколько дней виджет голосования не будет открыт с последнего показа</translation>
     </message>
@@ -361,34 +353,22 @@
     </message>
   </context>
   <context>
-    <name>survey/form</name>
+    <name>chat/copyautoresponder</name>
     <message>
-      <source>Add option</source>
+      <source>Copy</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Enter a possible answer to your question here...</source>
+      <source>Copied!</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Enable stars</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Enable question</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Enable question with an answers</source>
+      <source>Please choose atleast one department!</source>
       <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>abstract/widgettheme</name>
-    <message>
-      <source>Active chat messaging</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>Pending chat messaging</source>
       <translation type="unfinished"/>
@@ -415,10 +395,6 @@
     </message>
     <message>
       <source>Events</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Render</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -723,6 +699,555 @@
     </message>
   </context>
   <context>
+    <name>chat/startchatformsettings</name>
+    <message>
+      <source>Add event</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Remove</source>
+      <translation>Удалить</translation>
+    </message>
+    <message>
+      <source>Start a chat form settings</source>
+      <translation>Настройки формы начала чата</translation>
+    </message>
+    <message>
+      <source>At least one field has to be visible and required in the popup and page widget</source>
+      <translation>По крайней мере, одно поле должно быть видимым и требоваться во всплывающем окне и виджете страницы</translation>
+    </message>
+    <message>
+      <source>Custom fields generator, these fields will be visible in start chat forms</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Field label</source>
+      <translation>Название поля</translation>
+    </message>
+    <message>
+      <source>Default value</source>
+      <translation>Значение по умолчанию</translation>
+    </message>
+    <message>
+      <source>Type</source>
+      <translation>Тип</translation>
+    </message>
+    <message>
+      <source>Text</source>
+      <translation>Текст</translation>
+    </message>
+    <message>
+      <source>Hidden</source>
+      <translation>Скрыто</translation>
+    </message>
+    <message>
+      <source>Dropdown</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visible on</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline and online form</source>
+      <translation>Оффлайн и онлайн форма</translation>
+    </message>
+    <message>
+      <source>Only offline</source>
+      <translation>Только оффлайн</translation>
+    </message>
+    <message>
+      <source>Only online</source>
+      <translation>Только онлайн</translation>
+    </message>
+    <message>
+      <source>Show if</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Always</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Username is empty</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Size (between 1 and 12)</source>
+      <translation>Размер (от 1 до 12)</translation>
+    </message>
+    <message>
+      <source>Field identifier</source>
+      <translation>Идентификатор поля</translation>
+    </message>
+    <message>
+      <source>Is required</source>
+      <translation>Обязательно</translation>
+    </message>
+    <message>
+      <source>Options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Each option in new line</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add a field</source>
+      <translation>Добавить поле</translation>
+    </message>
+    <message>
+      <source>left</source>
+      <translation>слева</translation>
+    </message>
+    <message>
+      <source>right</source>
+      <translation>справа</translation>
+    </message>
+    <message>
+      <source>Enable leave a message functionality automatically if there are no online operators</source>
+      <translation>Включить функцию &quot;оставить сообщение&quot; автоматически, если все операторы оффлайн</translation>
+    </message>
+    <message>
+      <source>Online form settings</source>
+      <translation>Настройки онлайн формы</translation>
+    </message>
+    <message>
+      <source>Offline form settings</source>
+      <translation>Настройки оффлайн формы</translation>
+    </message>
+    <message>
+      <source>Additional form settings</source>
+      <translation>Дополнительные настройки формы</translation>
+    </message>
+    <message>
+      <source>Custom fields</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Название</translation>
+    </message>
+    <message>
+      <source>This field is visible in the popup</source>
+      <translation>Это поле будет видимым в popup</translation>
+    </message>
+    <message>
+      <source>This field is visible in the page widget</source>
+      <translation>Это поле будет видимым в виджете на странице</translation>
+    </message>
+    <message>
+      <source>This field is invisible but prefilled data is collected</source>
+      <translation>Это поле невидимо, но  данные сохраняются</translation>
+    </message>
+    <message>
+      <source>This field is</source>
+      <translation>Это поле</translation>
+    </message>
+    <message>
+      <source>Required</source>
+      <translation>Требуется</translation>
+    </message>
+    <message>
+      <source>Optional</source>
+      <translation>Опционально</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Message</source>
+      <translation>Сообщение</translation>
+    </message>
+    <message>
+      <source>Automatically start chat then user starts typing. Only message field has to be required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start chat process in the background as soon user submits form. Only message field has to be required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Телефон</translation>
+    </message>
+    <message>
+      <source>Terms of service acceptance checkbox</source>
+      <translation>Флажок принятия условия предоставления услуг</translation>
+    </message>
+    <message>
+      <source>Checked by default</source>
+      <translation>Выбранный по умолчанию</translation>
+    </message>
+    <message>
+      <source>E-mail is always required</source>
+      <translation>Всегда требовать E-mail</translation>
+    </message>
+    <message>
+      <source>Allow to attatch a file</source>
+      <translation>Разрешить прикреплять файл</translation>
+    </message>
+    <message>
+      <source>Show operator profile above input fields</source>
+      <translation>Показывать профиль оператора над полем ввода</translation>
+    </message>
+    <message>
+      <source>Remove space after operator profile</source>
+      <translation>Удалить область после профиля оператора</translation>
+    </message>
+    <message>
+      <source>Hide message label</source>
+      <translation>Скрыть заголовок сообщения</translation>
+    </message>
+    <message>
+      <source>Show messages box above input fields, usefull for UX combinations.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Initial user message height in pixels</source>
+      <translation>Высота начального сообщения пользователя в пикселях</translation>
+    </message>
+    <message>
+      <source>Department settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Requires pre-filled department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User can not change passed department.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Encryption</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Encryption key, min length 40</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Additional encryption key, min length 40</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>List of start chat settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter resource identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add resource</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimum 40 characters for encryption key!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimum 40 characters for additional encryption key!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose at least one field for a popup</source>
+      <translation>Выберите хотя бы одно поле для popup</translation>
+    </message>
+    <message>
+      <source>Please choose at least one field for a page widget</source>
+      <translation>Выберите хотябы одно поле для виджета</translation>
+    </message>
+    <message>
+      <source>Start chat form settings</source>
+      <translation>Настройки формы начала чата</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/lists/search_panel</name>
+    <message>
+      <source>Select event</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete selected</source>
+      <translation>Удалить выбранное</translation>
+    </message>
+    <message>
+      <source>Nick</source>
+      <translation>Ник</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Отдел</translation>
+    </message>
+    <message>
+      <source>User</source>
+      <translation>Пользователь</translation>
+    </message>
+    <message>
+      <source>Date range from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hour and minute from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date range to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hour and minute to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Vote status</source>
+      <translation>Статус голоса</translation>
+    </message>
+    <message>
+      <source>Any</source>
+      <translation>Любой</translation>
+    </message>
+    <message>
+      <source>Not Voted</source>
+      <translation>Не отмечено</translation>
+    </message>
+    <message>
+      <source>Up Voted</source>
+      <translation>Понравилось</translation>
+    </message>
+    <message>
+      <source>Down vote</source>
+      <translation>Не понравилось</translation>
+    </message>
+    <message>
+      <source>Chat status</source>
+      <translation>Статус чата</translation>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation>Чаты в очереди</translation>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Активные чаты</translation>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation>Завершённые чаты</translation>
+    </message>
+    <message>
+      <source>Chatbox chats</source>
+      <translation>Чаты &quot;чатбокса&quot;</translation>
+    </message>
+    <message>
+      <source>Operators chats</source>
+      <translation>Чаты операторов</translation>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Has unread messages</source>
+      <translation>Непрочитанные сообщения</translation>
+    </message>
+    <message>
+      <source>Search</source>
+      <translation>Поиск</translation>
+    </message>
+    <message>
+      <source>Print</source>
+      <translation>Печать</translation>
+    </message>
+    <message>
+      <source>XLS</source>
+      <translation>XLS</translation>
+    </message>
+    <message>
+      <source>XLS (with content)</source>
+      <translation>XLS (с контентом)</translation>
+    </message>
+    <message>
+      <source>Select department</source>
+      <translation>Выбрать отдел</translation>
+    </message>
+    <message>
+      <source>Select user</source>
+      <translation>Выбрать пользователя</translation>
+    </message>
+    <message>
+      <source>Select product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Type to search</source>
+      <translation>Введите для поиска</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hidden</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visible only if online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Select operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Compare to past</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Select group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose department</source>
+      <translation>Выберите департамент</translation>
+    </message>
+    <message>
+      <source>Choose department group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Agent</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Group by</source>
+      <translation>Группировать по</translation>
+    </message>
+    <message>
+      <source>Month</source>
+      <translation>Месяц</translation>
+    </message>
+    <message>
+      <source>Day</source>
+      <translation>День</translation>
+    </message>
+    <message>
+      <source>Date range from to</source>
+      <translation>Диапазон дат (от и до)</translation>
+    </message>
+    <message>
+      <source>Total number of chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of chats while online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hours on chat (sum of chat duration)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time online (sum of time spend online)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>AVG number of chats per hour</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Average pick-up time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Average chat length</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Include hours (from, to)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Group results by operator</source>
+      <translation>Группировать результаты по операторам</translation>
+    </message>
+    <message>
+      <source>Minimum chats</source>
+      <translation>Минимум чатов</translation>
+    </message>
+    <message>
+      <source>Optional</source>
+      <translation>Опционально</translation>
+    </message>
+    <message>
+      <source>Username</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Surname</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>survey/form</name>
+    <message>
+      <source>Add option</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter a possible answer to your question here...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable stars</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable question</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable question with an answers</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>chat/getstatus</name>
     <message>
       <source>Close</source>
@@ -771,90 +1296,6 @@
   </context>
   <context>
     <name>abstract/proactivechatinvitation</name>
-    <message>
-      <source>Wait timeout. Time in seconds before timeout message is shown.</source>
-      <translation>Время в секундах, после которого будет показано сообщение об окончании времени ожидания</translation>
-    </message>
-    <message>
-      <source>How many times repeat message?</source>
-      <translation>Как долго повторять сообщение?</translation>
-    </message>
-    <message>
-      <source>Name for personal purposes</source>
-      <translation>Название, для собственных нужд</translation>
-    </message>
-    <message>
-      <source>Operator name</source>
-      <translation>Имя оператора</translation>
-    </message>
-    <message>
-      <source>Time on site in seconds</source>
-      <translation>Время на сайте в секундах</translation>
-    </message>
-    <message>
-      <source>Pageviews</source>
-      <translation>Просмотры страниц</translation>
-    </message>
-    <message>
-      <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
-      <translation>Реферер домена без www, например ключевое слово &quot;google&quot; будет соответствовать любому домену google</translation>
-    </message>
-    <message>
-      <source>How many times user show invitation, 0 - untill users closes it, &gt; 0 limits.</source>
-      <translation>Сколько раз показывать автоприглашение? 0 - пока пользователь не закроет его.</translation>
-    </message>
-    <message>
-      <source>Requires e-mail</source>
-      <translation>Требует e-mail</translation>
-    </message>
-    <message>
-      <source>Requires name</source>
-      <translation>Требуется имя (название)</translation>
-    </message>
-    <message>
-      <source>Requires phone</source>
-      <translation>Запросить телефонный номер</translation>
-    </message>
-    <message>
-      <source>Show random operator profile</source>
-      <translation>Показать профиль случайного оператора</translation>
-    </message>
-    <message>
-      <source>Enter operators IDs from whom random operator should be shown, separated by comma</source>
-      <translation>Укажите ID операторов через запятую, из которых один случайный будет показан.</translation>
-    </message>
-    <message>
-      <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
-      <translation>Идентификатор, что должно отображаться это сообщение, идентификатор оставьте пустым для всех</translation>
-    </message>
-    <message>
-      <source>Tag</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Matched times</source>
-      <translation>Ориентировочное время</translation>
-    </message>
-    <message>
-      <source>Message to user</source>
-      <translation>Сообщение пользователю</translation>
-    </message>
-    <message>
-      <source>Message to returning user</source>
-      <translation>Сообщение о возвращении пользователя</translation>
-    </message>
-    <message>
-      <source>Nick which will be used if we cannot determine returning user name</source>
-      <translation>Ник, которые будет использован, если мы не можем определить имя вернувшегося пользователя</translation>
-    </message>
-    <message>
-      <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
-      <translation>Сообщение для ожидающих посетителей. Отображается, когда посетитель начал чат и ждет, пока оператор примет его</translation>
-    </message>
-    <message>
-      <source>Show visitor this message then wait timeout passes.</source>
-      <translation>Показывает посетителю это сообщение после того, как время, после которого оно должно быть показано, прошло.</translation>
-    </message>
     <message>
       <source>If you want pro active chat invitation to work it has to be enabled in</source>
       <translation>Если вы хотите использовать автоприглашения в чат, включите их в</translation>
@@ -2324,6 +2765,10 @@
       <translation>Просмотр экрана</translation>
     </message>
     <message>
+      <source>Copy messages to clipboard</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Delete chat</source>
       <translation>Удалить чат</translation>
     </message>
@@ -2516,6 +2961,22 @@
       <translation>Заметки</translation>
     </message>
     <message>
+      <source>Messages</source>
+      <translation>Сообщения</translation>
+    </message>
+    <message>
+      <source>Copied!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copy to clipboard</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copy messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Close dialog</source>
       <translation>Закрыть окно</translation>
     </message>
@@ -2546,10 +3007,6 @@
     <message>
       <source>Send</source>
       <translation>Отправить</translation>
-    </message>
-    <message>
-      <source>Messages</source>
-      <translation>Сообщения</translation>
     </message>
     <message>
       <source>Select a canned message</source>
@@ -4371,262 +4828,7 @@
     </message>
   </context>
   <context>
-    <name>chat/lists/search_panel</name>
-    <message>
-      <source>Select event</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Delete selected</source>
-      <translation>Удалить выбранное</translation>
-    </message>
-    <message>
-      <source>Nick</source>
-      <translation>Ник</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-mail</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Отдел</translation>
-    </message>
-    <message>
-      <source>User</source>
-      <translation>Пользователь</translation>
-    </message>
-    <message>
-      <source>Date range from</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Hour and minute from</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Date range to</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Hour and minute to</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Vote status</source>
-      <translation>Статус голоса</translation>
-    </message>
-    <message>
-      <source>Any</source>
-      <translation>Любой</translation>
-    </message>
-    <message>
-      <source>Not Voted</source>
-      <translation>Не отмечено</translation>
-    </message>
-    <message>
-      <source>Up Voted</source>
-      <translation>Понравилось</translation>
-    </message>
-    <message>
-      <source>Down vote</source>
-      <translation>Не понравилось</translation>
-    </message>
-    <message>
-      <source>Chat status</source>
-      <translation>Статус чата</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>Чаты в очереди</translation>
-    </message>
-    <message>
-      <source>Active chats</source>
-      <translation>Активные чаты</translation>
-    </message>
-    <message>
-      <source>Closed chats</source>
-      <translation>Завершённые чаты</translation>
-    </message>
-    <message>
-      <source>Chatbox chats</source>
-      <translation>Чаты &quot;чатбокса&quot;</translation>
-    </message>
-    <message>
-      <source>Operators chats</source>
-      <translation>Чаты операторов</translation>
-    </message>
-    <message>
-      <source>Product</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat ID</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Has unread messages</source>
-      <translation>Непрочитанные сообщения</translation>
-    </message>
-    <message>
-      <source>Search</source>
-      <translation>Поиск</translation>
-    </message>
-    <message>
-      <source>Print</source>
-      <translation>Печать</translation>
-    </message>
-    <message>
-      <source>XLS</source>
-      <translation>XLS</translation>
-    </message>
-    <message>
-      <source>XLS (with content)</source>
-      <translation>XLS (с контентом)</translation>
-    </message>
-    <message>
-      <source>Select department</source>
-      <translation>Выбрать отдел</translation>
-    </message>
-    <message>
-      <source>Select user</source>
-      <translation>Выбрать пользователя</translation>
-    </message>
-    <message>
-      <source>Select product</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Type to search</source>
-      <translation>Введите для поиска</translation>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Hidden</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Visible only if online</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Disabled</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Select operator</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User group</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Department group</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Compare to past</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Select group</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose department</source>
-      <translation>Выберите департамент</translation>
-    </message>
-    <message>
-      <source>Choose department group</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Agent</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Group by</source>
-      <translation>Группировать по</translation>
-    </message>
-    <message>
-      <source>Month</source>
-      <translation>Месяц</translation>
-    </message>
-    <message>
-      <source>Day</source>
-      <translation>День</translation>
-    </message>
-    <message>
-      <source>Date range from to</source>
-      <translation>Диапазон дат (от и до)</translation>
-    </message>
-    <message>
-      <source>Total number of chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Number of chats while online</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Hours on chat (sum of chat duration)</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Time online (sum of time spend online)</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>AVG number of chats per hour</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Average pick-up time</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Average chat length</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Include hours (from, to)</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Group results by operator</source>
-      <translation>Группировать результаты по операторам</translation>
-    </message>
-    <message>
-      <source>Minimum chats</source>
-      <translation>Минимум чатов</translation>
-    </message>
-    <message>
-      <source>Optional</source>
-      <translation>Опционально</translation>
-    </message>
-    <message>
-      <source>Username</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Surname</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
     <name>pagelayout/pagelayout</name>
-    <message>
-      <source>New chat has been transfered to you directly!</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>Empty...</source>
       <translation>Пусто...</translation>
@@ -4835,305 +5037,10 @@
     </message>
   </context>
   <context>
-    <name>chat/startchatformsettings</name>
-    <message>
-      <source>Visible only in offline form</source>
-      <translation>Показывать только в оффлайн форме</translation>
-    </message>
-    <message>
-      <source>Visible only in online form</source>
-      <translation>Показывать только в онлайн форме</translation>
-    </message>
-    <message>
-      <source>Size</source>
-      <translation>Размер</translation>
-    </message>
-    <message>
-      <source>Identifier</source>
-      <translation>Идентификатор</translation>
-    </message>
-    <message>
-      <source>Add event</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Remove</source>
-      <translation>Удалить</translation>
-    </message>
-    <message>
-      <source>Start a chat form settings</source>
-      <translation>Настройки формы начала чата</translation>
-    </message>
-    <message>
-      <source>At least one field has to be visible and required in the popup and page widget</source>
-      <translation>По крайней мере, одно поле должно быть видимым и требоваться во всплывающем окне и виджете страницы</translation>
-    </message>
-    <message>
-      <source>Custom fields generator, these fields will be visible in start chat forms</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Field label</source>
-      <translation>Название поля</translation>
-    </message>
-    <message>
-      <source>Default value</source>
-      <translation>Значение по умолчанию</translation>
-    </message>
-    <message>
-      <source>Type</source>
-      <translation>Тип</translation>
-    </message>
-    <message>
-      <source>Text</source>
-      <translation>Текст</translation>
-    </message>
-    <message>
-      <source>Hidden</source>
-      <translation>Скрыто</translation>
-    </message>
-    <message>
-      <source>Dropdown</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Visible on</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Offline and online form</source>
-      <translation>Оффлайн и онлайн форма</translation>
-    </message>
-    <message>
-      <source>Only offline</source>
-      <translation>Только оффлайн</translation>
-    </message>
-    <message>
-      <source>Only online</source>
-      <translation>Только онлайн</translation>
-    </message>
-    <message>
-      <source>Show if</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Always</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Username is empty</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Size (between 1 and 12)</source>
-      <translation>Размер (от 1 до 12)</translation>
-    </message>
-    <message>
-      <source>Field identifier</source>
-      <translation>Идентификатор поля</translation>
-    </message>
-    <message>
-      <source>Is required</source>
-      <translation>Обязательно</translation>
-    </message>
-    <message>
-      <source>Options</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Each option in new line</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Add a field</source>
-      <translation>Добавить поле</translation>
-    </message>
-    <message>
-      <source>left</source>
-      <translation>слева</translation>
-    </message>
-    <message>
-      <source>right</source>
-      <translation>справа</translation>
-    </message>
-    <message>
-      <source>Enable leave a message functionality automatically if there are no online operators</source>
-      <translation>Включить функцию &quot;оставить сообщение&quot; автоматически, если все операторы оффлайн</translation>
-    </message>
-    <message>
-      <source>Online form settings</source>
-      <translation>Настройки онлайн формы</translation>
-    </message>
-    <message>
-      <source>Offline form settings</source>
-      <translation>Настройки оффлайн формы</translation>
-    </message>
-    <message>
-      <source>Additional form settings</source>
-      <translation>Дополнительные настройки формы</translation>
-    </message>
-    <message>
-      <source>Custom fields</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation>Название</translation>
-    </message>
-    <message>
-      <source>This field is visible in the popup</source>
-      <translation>Это поле будет видимым в popup</translation>
-    </message>
-    <message>
-      <source>This field is visible in the page widget</source>
-      <translation>Это поле будет видимым в виджете на странице</translation>
-    </message>
-    <message>
-      <source>This field is invisible but prefilled data is collected</source>
-      <translation>Это поле невидимо, но  данные сохраняются</translation>
-    </message>
-    <message>
-      <source>This field is</source>
-      <translation>Это поле</translation>
-    </message>
-    <message>
-      <source>Required</source>
-      <translation>Требуется</translation>
-    </message>
-    <message>
-      <source>Optional</source>
-      <translation>Опционально</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-mail</translation>
-    </message>
-    <message>
-      <source>Message</source>
-      <translation>Сообщение</translation>
-    </message>
-    <message>
-      <source>Automatically start chat then user starts typing. Only message field has to be required</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Start chat process in the background as soon user submits form. Only message field has to be required</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>Телефон</translation>
-    </message>
-    <message>
-      <source>Terms of service acceptance checkbox</source>
-      <translation>Флажок принятия условия предоставления услуг</translation>
-    </message>
-    <message>
-      <source>Checked by default</source>
-      <translation>Выбранный по умолчанию</translation>
-    </message>
-    <message>
-      <source>E-mail is always required</source>
-      <translation>Всегда требовать E-mail</translation>
-    </message>
-    <message>
-      <source>Allow to attatch a file</source>
-      <translation>Разрешить прикреплять файл</translation>
-    </message>
-    <message>
-      <source>Show operator profile above input fields</source>
-      <translation>Показывать профиль оператора над полем ввода</translation>
-    </message>
-    <message>
-      <source>Remove space after operator profile</source>
-      <translation>Удалить область после профиля оператора</translation>
-    </message>
-    <message>
-      <source>Hide message label</source>
-      <translation>Скрыть заголовок сообщения</translation>
-    </message>
-    <message>
-      <source>Show messages box above input fields, usefull for UX combinations.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Initial user message height in pixels</source>
-      <translation>Высота начального сообщения пользователя в пикселях</translation>
-    </message>
-    <message>
-      <source>Department settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Requires pre-filled department</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User can not change passed department.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Encryption</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Encryption key, min length 40</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Additional encryption key, min length 40</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>List of start chat settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>New</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter resource identifier</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Add resource</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Minimum 40 characters for encryption key!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Minimum 40 characters for additional encryption key!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please choose at least one field for a popup</source>
-      <translation>Выберите хотя бы одно поле для popup</translation>
-    </message>
-    <message>
-      <source>Please choose at least one field for a page widget</source>
-      <translation>Выберите хотябы одно поле для виджета</translation>
-    </message>
-    <message>
-      <source>Start chat form settings</source>
-      <translation>Настройки формы начала чата</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/statistic</name>
     <message>
       <source>Statistic</source>
       <translation>Статистика</translation>
-    </message>
-    <message>
-      <source>User</source>
-      <translation>Пользователь</translation>
     </message>
     <message>
       <source>Thumbs up</source>
@@ -5150,6 +5057,10 @@
     <message>
       <source>Chats</source>
       <translation>Чаты</translation>
+    </message>
+    <message>
+      <source>User</source>
+      <translation>Пользователь</translation>
     </message>
     <message>
       <source>Average in seconds</source>
@@ -5690,6 +5601,185 @@
     </message>
   </context>
   <context>
+    <name>user/account</name>
+    <message>
+      <source>Name</source>
+      <translation>Имя</translation>
+    </message>
+    <message>
+      <source>Updated</source>
+      <translation>Обновлен</translation>
+    </message>
+    <message>
+      <source>Update</source>
+      <translation>Обновить</translation>
+    </message>
+    <message>
+      <source>Updating...</source>
+      <translation>Обновление...</translation>
+    </message>
+    <message>
+      <source>Logged user</source>
+      <translation>Залогиненые пользователи</translation>
+    </message>
+    <message>
+      <source>Account data</source>
+      <translation>Данные аккаунта</translation>
+    </message>
+    <message>
+      <source>Assigned departments</source>
+      <translation>Назначенные департаменты</translation>
+    </message>
+    <message>
+      <source>Visible lists</source>
+      <translation>Отображаемые списки</translation>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation>Диалоги в ожидании</translation>
+    </message>
+    <message>
+      <source>Speech</source>
+      <translation>Речь</translation>
+    </message>
+    <message>
+      <source>Permissions</source>
+      <translation>Разрешения</translation>
+    </message>
+    <message>
+      <source>Do not enter a password unless you want to change it</source>
+      <translation>Не вводите пароль если не хотите его изменять</translation>
+    </message>
+    <message>
+      <source>Username</source>
+      <translation>Имя пользователя</translation>
+    </message>
+    <message>
+      <source>Your username</source>
+      <translation>Ваше имя пользователя</translation>
+    </message>
+    <message>
+      <source>Password</source>
+      <translation>Пароль</translation>
+    </message>
+    <message>
+      <source>Enter a new password</source>
+      <translation>Введите новый пароль</translation>
+    </message>
+    <message>
+      <source>Repeat password</source>
+      <translation>Повторите паароль</translation>
+    </message>
+    <message>
+      <source>Repeat the new password</source>
+      <translation>Повторите новый пароль</translation>
+    </message>
+    <message>
+      <source>Email</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Chat nickname</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Surname</source>
+      <translation>Фамилия</translation>
+    </message>
+    <message>
+      <source>Job title</source>
+      <translation>Должность</translation>
+    </message>
+    <message>
+      <source>I receive other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Skype</source>
+      <translation>Skype</translation>
+    </message>
+    <message>
+      <source>XMPP username</source>
+      <translation>Имя пользователя XMPP</translation>
+    </message>
+    <message>
+      <source>Photo</source>
+      <translation>Фото</translation>
+    </message>
+    <message>
+      <source>Delete</source>
+      <translation>Удалить</translation>
+    </message>
+    <message>
+      <source>Return</source>
+      <translation>Возврат</translation>
+    </message>
+    <message>
+      <source>Pending chats list enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats list enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unread chats list enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chats list enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>My pending and active chats list enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>I can see all pending chats, not only assigned to me</source>
+      <translation>Я вижу все ожидающие диалоги, а не только назначенные мне</translation>
+    </message>
+    <message>
+      <source>Show permissions</source>
+      <translation>Показать права</translation>
+    </message>
+    <message>
+      <source>Account updated</source>
+      <translation>Аккаунт обновлен</translation>
+    </message>
+    <message>
+      <source>All departments</source>
+      <translation>Все департаменты</translation>
+    </message>
+    <message>
+      <source>Individual departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Departments groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat status will not change upon pending chat opening</source>
+      <translation>Статус чата не может быть изменён пока ожидается открытие окна чата</translation>
+    </message>
+    <message>
+      <source>User receives other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User can see all pending chats, not only assigned to him</source>
+      <translation>Пользователь может видеть все ожидающие диалоги, а не только назначенные ему</translation>
+    </message>
+    <message>
+      <source>Notifications</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Personal canned messages</source>
+      <translation>Персональные шаблоны сообщений</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/transferchat</name>
     <message>
       <source>Transfer to a user</source>
@@ -6115,41 +6205,6 @@
     </message>
   </context>
   <context>
-    <name>cobrowse/browse</name>
-    <message>
-      <source>Click blue eye at the top to request screen share</source>
-      <translation>Нажмите синий глаз вверху для запроса просмотра экрана</translation>
-    </message>
-    <message>
-      <source>Request screen share</source>
-      <translation>Запрос просмотра экрана</translation>
-    </message>
-    <message>
-      <source>Show my mouse position to visitor</source>
-      <translation>Показать положение моего курсора посетителю</translation>
-    </message>
-    <message>
-      <source>On highlight scroll user window location to match my</source>
-      <translation>На выделенной полосе прокрутки положение окна пользователя соответствует моему</translation>
-    </message>
-    <message>
-      <source>Follow user scroll position</source>
-      <translation>Следить за положением прокрутки пользователя</translation>
-    </message>
-    <message>
-      <source>On click navigate user browser</source>
-      <translation>По клику навигация браузера пользователя</translation>
-    </message>
-    <message>
-      <source>Screen sharing session has finished</source>
-      <translation>Сессия просмотра экрана была завершена</translation>
-    </message>
-    <message>
-      <source>Screen is shared</source>
-      <translation>Экран просматривается</translation>
-    </message>
-  </context>
-  <context>
     <name>department/departments</name>
     <message>
       <source>Edit</source>
@@ -6221,198 +6276,38 @@
     </message>
   </context>
   <context>
-    <name>user/account</name>
+    <name>cobrowse/browse</name>
     <message>
-      <source>Pending chats tab enabled</source>
-      <translation>Включить вкладку чатов в очереди</translation>
+      <source>Click blue eye at the top to request screen share</source>
+      <translation>Нажмите синий глаз вверху для запроса просмотра экрана</translation>
     </message>
     <message>
-      <source>Active chats tab enabled</source>
-      <translation>Включить вкладку активных чатов</translation>
+      <source>Request screen share</source>
+      <translation>Запрос просмотра экрана</translation>
     </message>
     <message>
-      <source>Unread chats tab enabled</source>
-      <translation>Включить вкладку непрочитанных чатов</translation>
+      <source>Show my mouse position to visitor</source>
+      <translation>Показать положение моего курсора посетителю</translation>
     </message>
     <message>
-      <source>Closed chats tab enabled</source>
-      <translation>Включить вкладку завершённых чатов</translation>
+      <source>On highlight scroll user window location to match my</source>
+      <translation>На выделенной полосе прокрутки положение окна пользователя соответствует моему</translation>
     </message>
     <message>
-      <source>Name</source>
-      <translation>Имя</translation>
+      <source>Follow user scroll position</source>
+      <translation>Следить за положением прокрутки пользователя</translation>
     </message>
     <message>
-      <source>Updated</source>
-      <translation>Обновлен</translation>
+      <source>On click navigate user browser</source>
+      <translation>По клику навигация браузера пользователя</translation>
     </message>
     <message>
-      <source>Update</source>
-      <translation>Обновить</translation>
+      <source>Screen sharing session has finished</source>
+      <translation>Сессия просмотра экрана была завершена</translation>
     </message>
     <message>
-      <source>Updating...</source>
-      <translation>Обновление...</translation>
-    </message>
-    <message>
-      <source>Logged user</source>
-      <translation>Залогиненые пользователи</translation>
-    </message>
-    <message>
-      <source>Account data</source>
-      <translation>Данные аккаунта</translation>
-    </message>
-    <message>
-      <source>Assigned departments</source>
-      <translation>Назначенные департаменты</translation>
-    </message>
-    <message>
-      <source>Visible lists</source>
-      <translation>Отображаемые списки</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>Диалоги в ожидании</translation>
-    </message>
-    <message>
-      <source>Speech</source>
-      <translation>Речь</translation>
-    </message>
-    <message>
-      <source>Permissions</source>
-      <translation>Разрешения</translation>
-    </message>
-    <message>
-      <source>Do not enter a password unless you want to change it</source>
-      <translation>Не вводите пароль если не хотите его изменять</translation>
-    </message>
-    <message>
-      <source>Username</source>
-      <translation>Имя пользователя</translation>
-    </message>
-    <message>
-      <source>Your username</source>
-      <translation>Ваше имя пользователя</translation>
-    </message>
-    <message>
-      <source>Password</source>
-      <translation>Пароль</translation>
-    </message>
-    <message>
-      <source>Enter a new password</source>
-      <translation>Введите новый пароль</translation>
-    </message>
-    <message>
-      <source>Repeat password</source>
-      <translation>Повторите паароль</translation>
-    </message>
-    <message>
-      <source>Repeat the new password</source>
-      <translation>Повторите новый пароль</translation>
-    </message>
-    <message>
-      <source>Email</source>
-      <translation>E-mail</translation>
-    </message>
-    <message>
-      <source>Chat nickname</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Surname</source>
-      <translation>Фамилия</translation>
-    </message>
-    <message>
-      <source>Job title</source>
-      <translation>Должность</translation>
-    </message>
-    <message>
-      <source>I receive other operators permissions request</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Skype</source>
-      <translation>Skype</translation>
-    </message>
-    <message>
-      <source>XMPP username</source>
-      <translation>Имя пользователя XMPP</translation>
-    </message>
-    <message>
-      <source>Photo</source>
-      <translation>Фото</translation>
-    </message>
-    <message>
-      <source>Delete</source>
-      <translation>Удалить</translation>
-    </message>
-    <message>
-      <source>Return</source>
-      <translation>Возврат</translation>
-    </message>
-    <message>
-      <source>Pending chats list enabled</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Active chats list enabled</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Unread chats list enabled</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Closed chats list enabled</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>My pending and active chats list enabled</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>I can see all pending chats, not only assigned to me</source>
-      <translation>Я вижу все ожидающие диалоги, а не только назначенные мне</translation>
-    </message>
-    <message>
-      <source>Show permissions</source>
-      <translation>Показать права</translation>
-    </message>
-    <message>
-      <source>Account updated</source>
-      <translation>Аккаунт обновлен</translation>
-    </message>
-    <message>
-      <source>All departments</source>
-      <translation>Все департаменты</translation>
-    </message>
-    <message>
-      <source>Individual departments</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Departments groups</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat status will not change upon pending chat opening</source>
-      <translation>Статус чата не может быть изменён пока ожидается открытие окна чата</translation>
-    </message>
-    <message>
-      <source>User receives other operators permissions request</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User can see all pending chats, not only assigned to him</source>
-      <translation>Пользователь может видеть все ожидающие диалоги, а не только назначенные ему</translation>
-    </message>
-    <message>
-      <source>Notifications</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Personal canned messages</source>
-      <translation>Персональные шаблоны сообщений</translation>
+      <source>Screen is shared</source>
+      <translation>Экран просматривается</translation>
     </message>
   </context>
   <context>
@@ -7905,6 +7800,112 @@
     </message>
   </context>
   <context>
+    <name>system/transferconfiguration</name>
+    <message>
+      <source>Transfer configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Options for chat transfer to department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>user/new</name>
+    <message>
+      <source>Change chat department to transferred department on chat transfer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Make chat status pending on transfer to department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Make chat unassigned. Assigned operator will be unassigned</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>I receive other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Do not show user status as online</source>
+      <translation>Скрывать онлайн статус пользователя</translation>
+    </message>
+    <message>
+      <source>Invisible mode</source>
+      <translation>Режим невидимки</translation>
+    </message>
+    <message>
+      <source>User receives other operators permissions request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User group</source>
+      <translation>Группа пользователей</translation>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation>Недоступно</translation>
+    </message>
+    <message>
+      <source>New user</source>
+      <translation>Новый пользователь</translation>
+    </message>
+    <message>
+      <source>Username</source>
+      <translation>Имя пользователя</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Password</source>
+      <translation>Пароль</translation>
+    </message>
+    <message>
+      <source>Repeat the new password</source>
+      <translation>Повторите новый пароль</translation>
+    </message>
+    <message>
+      <source>Chat nickname</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Имя</translation>
+    </message>
+    <message>
+      <source>Surname</source>
+      <translation>Фамилия</translation>
+    </message>
+    <message>
+      <source>Photo</source>
+      <translation>Фото</translation>
+    </message>
+    <message>
+      <source>Save</source>
+      <translation>Сохранить</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>Настройки Системы</translation>
+    </message>
+    <message>
+      <source>Users</source>
+      <translation>Пользователи</translation>
+    </message>
+    <message>
+      <source>Please enter a group name</source>
+      <translation>Пожалуйста, введите имя группы</translation>
+    </message>
+  </context>
+  <context>
     <name>system/update</name>
     <message>
       <source>Your version</source>
@@ -8075,97 +8076,6 @@
     <message>
       <source>Invalid file!</source>
       <translation>Неверный файл!</translation>
-    </message>
-  </context>
-  <context>
-    <name>user/new</name>
-    <message>
-      <source>Change chat department to transferred department on chat transfer</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Make chat status pending on transfer to department</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Make chat unassigned. Assigned operator will be unassigned</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>I receive other operators permissions request</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Do not show user status as online</source>
-      <translation>Скрывать онлайн статус пользователя</translation>
-    </message>
-    <message>
-      <source>Invisible mode</source>
-      <translation>Режим невидимки</translation>
-    </message>
-    <message>
-      <source>User receives other operators permissions request</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User group</source>
-      <translation>Группа пользователей</translation>
-    </message>
-    <message>
-      <source>Disabled</source>
-      <translation>Недоступно</translation>
-    </message>
-    <message>
-      <source>New user</source>
-      <translation>Новый пользователь</translation>
-    </message>
-    <message>
-      <source>Username</source>
-      <translation>Имя пользователя</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-mail</translation>
-    </message>
-    <message>
-      <source>Password</source>
-      <translation>Пароль</translation>
-    </message>
-    <message>
-      <source>Repeat the new password</source>
-      <translation>Повторите новый пароль</translation>
-    </message>
-    <message>
-      <source>Chat nickname</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation>Имя</translation>
-    </message>
-    <message>
-      <source>Surname</source>
-      <translation>Фамилия</translation>
-    </message>
-    <message>
-      <source>Photo</source>
-      <translation>Фото</translation>
-    </message>
-    <message>
-      <source>Save</source>
-      <translation>Сохранить</translation>
-    </message>
-    <message>
-      <source>System configuration</source>
-      <translation>Настройки Системы</translation>
-    </message>
-    <message>
-      <source>Users</source>
-      <translation>Пользователи</translation>
-    </message>
-    <message>
-      <source>Please enter a group name</source>
-      <translation>Пожалуйста, введите имя группы</translation>
     </message>
   </context>
   <context>
@@ -9004,36 +8914,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Пожалуйста, введите правильный тип файла</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/copyautoresponder</name>
-    <message>
-      <source>Copy</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Copied!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please choose atleast one department!</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>system/transferconfiguration</name>
-    <message>
-      <source>Transfer configuration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Options for chat transfer to department</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation type="unfinished"/>
     </message>
   </context>
   <context>
