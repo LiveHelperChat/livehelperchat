@@ -26,7 +26,16 @@ showStatusWidget : function() {
 
     var fragment = this.appendHTML(htmlStatus);
     
-    document.body.insertBefore(fragment, document.body.childNodes[0]);        
+    document.body.insertBefore(fragment, document.body.childNodes[0]);
+
+    var that = this;
+    if (subStatus != '') {
+        document.getElementById('lhc_need_help_image').onclick = function() { that.lhc_need_help_click(); return false; };
+        document.getElementById('lhc_need_help_main_title').onclick = function() { that.lhc_need_help_click(); return false; };
+        document.getElementById('lhc_need_help_sub_title').onclick = function() { that.lhc_need_help_click(); return false; };
+        document.getElementById('lhc_need_help_close').onclick = function() { that.lhc_need_help_hide(); return false; };
+    }
+
 <?php endif; ?>
 	if (typeof <?php echo $chatOptionsVariable?> != 'undefined' && typeof <?php echo $chatOptionsVariable?>.callback != 'undefined' && typeof <?php echo $chatOptionsVariable?>.callback.show_widget_cb != 'undefined') {
 		<?php echo $chatOptionsVariable?>.callback.show_widget_cb(this);    		
