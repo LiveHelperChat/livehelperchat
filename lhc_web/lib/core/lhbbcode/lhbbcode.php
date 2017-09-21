@@ -817,6 +817,33 @@ class erLhcoreClassBBCode
    		return '';
    }
 
+   public static function _split_str_by_whitespace( $string, $goal ) {
+        $chunks = array();
+
+        $string_nullspace = strtr( $string, "\r\n\t\v\f ", "\000\000\000\000\000\000" );
+
+        while ( $goal < strlen( $string_nullspace ) ) {
+            $pos = strrpos( substr( $string_nullspace, 0, $goal + 1 ), "\000" );
+
+            if ( false === $pos ) {
+                $pos = strpos( $string_nullspace, "\000", $goal + 1 );
+                if ( false === $pos ) {
+                    break;
+                }
+            }
+
+            $chunks[] = substr( $string, 0, $pos + 1 );
+            $string = substr( $string, $pos + 1 );
+            $string_nullspace = substr( $string_nullspace, $pos + 1 );
+        }
+
+        if ( $string ) {
+            $chunks[] = $string;
+        }
+
+        return $chunks;
+    }
+
    // https://github.com/WordPress/WordPress/blob/6e5e29c5bf49ad2be6a2c3a3d4fb3f5af6853b5b/wp-includes/formatting.php
    public static function make_clickable_text( $text ) {
        $r = '';
@@ -834,7 +861,7 @@ class erLhcoreClassBBCode
            // Long strings might contain expensive edge cases ...
            if ( 10000 < strlen( $piece ) ) {
                // ... break it up
-               foreach ( _split_str_by_whitespace( $piece, 2100 ) as $chunk ) { // 2100: Extra room for scheme and leading and trailing paretheses
+               foreach ( self::_split_str_by_whitespace( $piece, 2100 ) as $chunk ) { // 2100: Extra room for scheme and leading and trailing paretheses
                    if ( 2101 < strlen( $chunk ) ) {
                        $r .= $chunk; // Too big, no whitespace: bail.
                    } else {
