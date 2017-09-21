@@ -104,6 +104,7 @@ $tpl->set('referer','');
 $tpl->set('referer_site','');
 $tpl->set('theme',$theme);
 $tpl->set('fullheight',$fullHeight);
+$tpl->set('is_embed_mode',$embedMode);
 
 $disabled_department = false;
 
