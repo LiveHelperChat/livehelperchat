@@ -44,6 +44,7 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'] && ($c
             $tpl = erLhcoreClassTemplate::getInstance('lhchat/sendmail.tpl.php');
             $mailTemplate = erLhAbstractModelEmailTemplate::fetch(3);
             erLhcoreClassChatMail::prepareSendMail($mailTemplate);
+            if ($chat->department->email) { $mailTemplate->from_email = $chat->department->email; }
             $mailTemplate->recipient = $form->email;
 
             $messages = array_reverse(erLhcoreClassModelmsg::getList(array('customfilter' => array('user_id != -1'),'limit' => 500, 'sort' => 'id DESC','filter' => array('chat_id' => $chat->id))));
