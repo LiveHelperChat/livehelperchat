@@ -682,7 +682,10 @@ function lh(){
 	       			   inst.executeRemoteCommands(data.op);	   	    			 	    			
 	       		   };
 	       		   	       		   
-	               if (data.closed && data.closed == true) {	            	  
+	               if (data.closed && data.closed == true) {
+
+                       ee.emitEvent('chatClosedSyncUser', [inst.chat_id]);
+
 		   			 	if (inst.isWidgetMode && typeof(parent) !== 'undefined' && window.location !== window.parent.location) {	
 		   			 		 parent.postMessage('lhc_chat_closed' + (typeof data.closed_arg !== 'undefined' ? ':'+data.closed_arg : ''), '*');
 		   				} else {		   				
@@ -1327,7 +1330,8 @@ function lh(){
 	            } else {
 	            	$('#status-chat').html(data.result);
 	            	
-	            	 if (data.closed && data.closed == true) {	            	  
+	            	 if (data.closed && data.closed == true) {
+	            	    ee.emitEvent('chatClosedCheckStatus', [inst.chat_id]);
 		   			 	if (inst.isWidgetMode && typeof(parent) !== 'undefined' && window.location !== window.parent.location) {		   			 
 		   			 		 parent.postMessage('lhc_chat_closed', '*');
 		   				} else {		   				
