@@ -9,6 +9,12 @@
 			<input type="text" class="form-control" name="username" value="<?php echo htmlspecialchars($input->username)?>" />
 		   </div>
 		</div>
+        <div class="col-md-3">
+		   <div class="form-group">
+			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Nickname');?></label>
+			<input type="text" class="form-control" name="chat_nickname" value="<?php echo htmlspecialchars($input->chat_nickname)?>" />
+		   </div>
+		</div>
 		<div class="col-md-3">
 		  <div class="form-group">
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','E-mail');?></label>

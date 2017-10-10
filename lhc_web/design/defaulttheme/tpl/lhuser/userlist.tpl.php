@@ -10,7 +10,7 @@
 <thead>
 <tr>
     <th width="1%">ID</th>
-    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Username');?></th>
+    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Username (Nickname)');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','E-mail');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Last activity');?></th>
     <?php include(erLhcoreClassDesign::designtpl('lhuser/userlist/column_multiinclude.tpl.php')); ?>
@@ -21,7 +21,7 @@
 <?php foreach ($userlist as $user) : ?>
     <tr>
         <td><?php echo $user->id?></td>
-        <td><?php echo htmlspecialchars($user->username)?></td>
+        <td><?php echo htmlspecialchars($user->username)?> <?php echo htmlspecialchars($user->chat_nickname !== '' ? '('. $user->chat_nickname .')' : '')?></td>
         <td><?php echo htmlspecialchars($user->email)?></td>
         <td><?php echo $user->lastactivity_ago?> ago</td>
         <?php include(erLhcoreClassDesign::designtpl('lhuser/userlist/column_data_multiinclude.tpl.php')); ?>
