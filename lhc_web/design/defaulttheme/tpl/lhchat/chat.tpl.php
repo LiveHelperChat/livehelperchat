@@ -137,4 +137,6 @@
         lhinst.userclosedchat();
     });
 </script>
+<?php else : ?>
+    <?php include(erLhcoreClassDesign::designtpl('lhchat/chat/chat_closed_multiinclude.tpl.php'));?>
 <?php endif;?>
