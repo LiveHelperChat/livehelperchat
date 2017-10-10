@@ -21,7 +21,7 @@
 <?php foreach ($userlist as $user) : ?>
     <tr>
         <td><?php echo $user->id?></td>
-        <td><?php echo htmlspecialchars($user->username)?> <?php echo htmlspecialchars($user->chat_nickname !== '' ? '('. $user->chat_nickname .')' : '')?></td>
+        <td><?php echo htmlspecialchars($user->username)?><?php echo htmlspecialchars($user->chat_nickname !== '' ? ' ('. $user->chat_nickname .')' : '')?></td>
         <td><?php echo htmlspecialchars($user->email)?></td>
         <td><?php echo $user->lastactivity_ago?> ago</td>
         <?php include(erLhcoreClassDesign::designtpl('lhuser/userlist/column_data_multiinclude.tpl.php')); ?>
