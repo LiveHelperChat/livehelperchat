@@ -43,20 +43,18 @@ echo "Purged chats - ",erLhcoreClassChatWorkflow::automaticChatPurge(),"\n";
 $db = ezcDbInstance::get();
 
 try {
-    $db->beginTransaction();
 
-    // Lock chat record for update untill we finish this procedure
-    $stmt = $db->prepare('SELECT 1 FROM lh_chat WHERE status = :status FOR UPDATE;');
-    $stmt->bindValue(':status',erLhcoreClassModelChat::STATUS_PENDING_CHAT);
-    $stmt->execute();
-    
-    foreach (erLhcoreClassChat::getList(array('sort' => 'id ASC', 'limit' => 500, 'filter' => array('status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT))) as $chat){
-    	erLhcoreClassChatWorkflow::autoAssign($chat, $chat->department, array('cron_init' => true));
-    	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.pending_process_workflow',array('chat' => & $chat));
+    foreach (erLhcoreClassChat::getList(array('sort' => 'id ASC', 'limit' => 500, 'filter' => array('status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT))) as $chat) {
+        $db->beginTransaction();
+            $chat = erLhcoreClassModelChat::fetchAndLock($chat->id);
+
+            if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
+                erLhcoreClassChatWorkflow::autoAssign($chat, $chat->department, array('cron_init' => true));
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.pending_process_workflow',array('chat' => & $chat));
+            }
+        $db->commit();
     }
 
-    $db->commit();
-    
 } catch (Exception $e) {
     $db->rollback();
     throw $e;
