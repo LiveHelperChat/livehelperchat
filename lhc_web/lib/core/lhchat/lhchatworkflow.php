@@ -306,7 +306,7 @@ class erLhcoreClassChatWorkflow {
 	    	    $db->beginTransaction();
 	    	    
 	    	    // Lock chat record for update untill we finish this procedure  	   
-	    	    $stmt = $db->prepare('SELECT 1 FROM lh_userdep WHERE dep_id = :dep_id FOR UPDATE;');
+	    	    $stmt = $db->prepare('SELECT 1 FROM lh_userdep WHERE dep_id = :dep_id ORDER BY id ASC FOR UPDATE;');
 	    	    $stmt->bindValue(':dep_id',$department->id);
 	    	    $stmt->execute();
 	    	    
