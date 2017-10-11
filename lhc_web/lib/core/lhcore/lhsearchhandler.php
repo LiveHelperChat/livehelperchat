@@ -168,8 +168,10 @@ class erLhcoreClassSearchHandler
                         } else {
                             $filter['filtergte'][$field['filter_table_field']] = $inputParams->$key;
                         }
-                    } elseif ($field['filter_type'] == 'filterlte') {
-                        
+                    } elseif ($field['filter_type'] == 'filterlte' || $field['filter_type'] == 'filterlt') {
+
+                        $filterType = $field['filter_type'];
+
                         if (isset($field['range_from']) && isset($filter['filtergte'][$fields[$field['range_from']]['filter_table_field']]) && $filter['filtergte'][$fields[$field['range_from']]['filter_table_field']] == $inputParams->$key) {
                             unset($filter['filtergte'][$fields[$field['range_from']]['filter_table_field']]);
                             $filter['filter'][$field['filter_table_field']] = $inputParams->$key;
@@ -179,13 +181,13 @@ class erLhcoreClassSearchHandler
                                 
                                 $dateFormated = self::formatDateToTimestamp($inputParams->$key);
                                 if ($dateFormated != false) {
-                                    $filter['filterlte'][$field['filter_table_field']] = $dateFormated;
+                                    $filter[$filterType][$field['filter_table_field']] = $dateFormated;
                                 }
                             } elseif (isset($field['datatype']) && $field['datatype'] == 'date_ymd') {
                                 
                                 $dateFormated = self::formatDateToDateYmd($inputParams->$key);
                                 if ($dateFormated != false) {
-                                    $filter['filterlte'][$field['filter_table_field']] = $dateFormated;
+                                    $filter[$filterType][$field['filter_table_field']] = $dateFormated;
                                 }
                             } elseif (isset($field['datatype']) && $field['datatype'] == 'datetime') {
                                 
@@ -215,12 +217,13 @@ class erLhcoreClassSearchHandler
                                         $minutes = 0;
                                     }
                                     
-                                    $filter['filterlte'][$field['filter_table_field']] = $dateFormated+$hours+$minutes;
+                                    $filter[$filterType][$field['filter_table_field']] = $dateFormated+$hours+$minutes;
                                 }
                             } else {
-                                $filter['filterlte'][$field['filter_table_field']] = $inputParams->$key;
+                                $filter[$filterType][$field['filter_table_field']] = $inputParams->$key;
                             }
                         }
+
                     } elseif ($field['filter_type'] == 'filter_join') {
                         $filter['filterin'][$field['filter_table_field']] = $inputParams->$key;
                         $filter['filter_join'][$field['join_table_name']] = $field['join_attributes'];
