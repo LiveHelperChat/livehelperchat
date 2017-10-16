@@ -6,8 +6,7 @@
 	    /**
 	     * We cannot use some key => tpl here because we want template compilator to compile everything to single tpl file
 	     * */	    
-	    foreach ($chatTabsOrder as $tabItem) :
-        ?>
+	    foreach ($chatTabsOrder as $tabItem) : ?>
 	       <?php if ($tabItem == 'information_tab_tab') : ?>
 	       <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information_tab_tab.tpl.php')); ?>
 	       <?php elseif ($tabItem == 'chat_translation_tab') : ?>
