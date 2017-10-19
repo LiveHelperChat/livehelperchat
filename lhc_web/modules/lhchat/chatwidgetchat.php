@@ -101,6 +101,8 @@ try {
 	        	if (isset($_GET['prefill']['username']) && $chat->nick != $_GET['prefill']['username'] && !empty($nick) && $chat->nick == erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor')) {
 	        	    $chat->nick = $_GET['prefill']['username'];
 	        	    $chat->operation_admin .= "lhinst.updateVoteStatus(".$chat->id.");";
+	        	    
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.nickchanged', array('chat' => & $chat));
 	        	}
 
 	        	erLhcoreClassChat::getSession()->update($chat);
