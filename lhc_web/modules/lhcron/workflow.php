@@ -44,7 +44,7 @@ $db = ezcDbInstance::get();
 
 try {
 
-    foreach (erLhcoreClassChat::getList(array('sort' => 'id ASC', 'limit' => 500, 'filter' => array('status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT))) as $chat){
+    foreach (erLhcoreClassChat::getList(array('sort' => 'id ASC, priority DESC', 'limit' => 500, 'filter' => array('status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT))) as $chat){
         $db->beginTransaction();
             $chat = erLhcoreClassModelChat::fetchAndLock($chat->id);
             if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
