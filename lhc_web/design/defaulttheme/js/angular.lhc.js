@@ -925,7 +925,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
         	try {
 				var achat_id = localStorage.getItem('achat_id');
 
-				if (achat_id !== null) {
+				if (achat_id !== null && achat_id !== '') {
 					return achat_id_array = achat_id.split(',');
 				}
         	} catch(e) {
