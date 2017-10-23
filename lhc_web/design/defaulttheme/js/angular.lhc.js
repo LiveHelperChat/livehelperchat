@@ -36,9 +36,9 @@ services.factory('LiveHelperChatFactory', ['$http','$q',function ($http, $q) {
 		return deferred.promise;
 	};
 
-	this.loadInitialData = function() {
+	this.loadInitialData = function(appendURL) {
 		var deferred = $q.defer();		
-		$http.get(WWW_DIR_JAVASCRIPT + 'chat/loadinitialdata').success(function(data) {
+		$http.get(WWW_DIR_JAVASCRIPT + 'chat/loadinitialdata' + appendURL).success(function(data) {
 			 if (typeof data.error_url !== 'undefined') {
 				 document.location = data.error_url;
 			 } else {
@@ -919,10 +919,33 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	        }, _that.timeoutActivityTime*1000);  
         }      
     };
-	
+
+	this.getOpenedChatIds = function () {
+        if (localStorage) {
+        	try {
+				var achat_id = localStorage.getItem('achat_id');
+
+				if (achat_id !== null) {
+					return achat_id_array = achat_id.split(',');
+				}
+        	} catch(e) {
+
+			}
+        }
+        return [];
+    };
+
 	// Bootstraps initial attributes
 	this.initLHCData = function() {
-		LiveHelperChatFactory.loadInitialData().then(function(data) {	
+
+		var appendURL = '';
+		var openedChats = this.getOpenedChatIds();
+
+		if ($('#tabs').size() > 0 && lhinst.disableremember == false && openedChats.length > 0) {
+            appendURL = '/(chatopen)/' + openedChats.join('/');
+		}
+
+		LiveHelperChatFactory.loadInitialData(appendURL).then(function(data) {
 			_that.userDepartmentsNames=data.dp_names;
 			_that.userDepartments=data.dep_list;
 			_that.userProductNames=data.pr_names;
@@ -936,7 +959,15 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 				_that.timeoutActivityTime = data.timeout_activity;
 				_that.setupActivityMonitoring();
 			}
-			
+
+            angular.forEach(data.copen, function(chatOpen) {
+                lhinst.startChat(chatOpen.id,$('#tabs'),LiveHelperChatFactory.truncate(chatOpen.nick,10), false);
+            });
+
+            angular.forEach(data.cdel, function(chatOpen) {
+                lhinst.forgetChat(chatOpen);
+            });
+
 			$scope.loadChatList();
 		});
 	}	

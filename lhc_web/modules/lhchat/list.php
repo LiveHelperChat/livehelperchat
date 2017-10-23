@@ -19,8 +19,7 @@ if ( isset($_POST['doDelete']) ) {
 
 	if ( $form->hasValidData( 'ChatID' ) ) {
 		$chats = erLhcoreClassChat::getList(array('filterin' => array('id' => $form->ChatID)));
-		foreach ($chats as $chatToDelete){
-			CSCacheAPC::getMem()->removeFromArray('lhc_open_chats', $chatToDelete->id);
+		foreach ($chats as $chatToDelete) {
 			if ($currentUser->hasAccessTo('lhchat','deleteglobalchat') || ($currentUser->hasAccessTo('lhchat','deletechat') && $chatToDelete->user_id == $currentUser->getUserID()))
 			{
 				$chatToDelete->removeThis();

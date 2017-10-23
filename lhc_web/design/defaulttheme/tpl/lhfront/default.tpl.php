@@ -145,7 +145,6 @@
             $('#right-column-page').removeAttr('id');
             $('#tabs a:first').tab('show')
         });
-        <?php include(erLhcoreClassDesign::designtpl('lhchat/part/opened_chats_js.tpl.php')); ?>
     </script>
 <?php else : ?>
 

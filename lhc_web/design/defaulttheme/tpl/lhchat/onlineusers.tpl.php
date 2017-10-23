@@ -65,5 +65,4 @@ $( document ).ready(function() {
 	lhinst.attachTabNavigator();
 	$('#right-column-page').removeAttr('id');	
 });
-<?php include(erLhcoreClassDesign::designtpl('lhchat/part/opened_chats_js.tpl.php')); ?>
 </script>

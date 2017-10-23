@@ -67,6 +67,4 @@ function addChat(chat_id,name)
 };
 
 lhinst.attachTabNavigator();
-
-<?php include(erLhcoreClassDesign::designtpl('lhchat/part/opened_chats_js.tpl.php')); ?>
 </script>

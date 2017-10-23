@@ -191,8 +191,6 @@ class erLhcoreClassChatHelper
         
                 $chat->updateThis();
         
-                CSCacheAPC::getMem()->removeFromArray('lhc_open_chats', $chat->id);
-        
                 // Execute callback for close chat
                 erLhcoreClassChat::closeChatCallback($chat,$userData);
             }

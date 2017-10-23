@@ -153,7 +153,9 @@ function lh(){
     	});
     	
     	var hash = window.location.hash.replace('#/','#');	
-    	
+
+    	var inst = this;
+
     	$.get(url, function(data) {
     		if (typeof focusTab === 'undefined' || focusTab === true || hash == '#chat-id-'+chat_id){
 	    		tabs.find('> ul > li.active').removeClass("active");
@@ -167,11 +169,62 @@ function lh(){
     		 		
     		$('#chat-id-'+chat_id).html(data);  
     		$('#CSChatMessage-'+chat_id).focus();
-    		
-    		ee.emitEvent('chatTabLoaded', [chat_id]);	 
+
+            if (inst.disableremember == false) {
+                inst.rememberTab(chat_id);
+            }
+
+            ee.emitEvent('chatTabLoaded', [chat_id]);
     	});
     };
 
+    this.rememberTab = function(chat_id) {
+        if (localStorage) {
+            try{
+                chat_id = parseInt(chat_id);
+
+                var achat_id = localStorage.getItem('achat_id');
+                var achat_id_array = new Array();
+
+                if (achat_id !== null) {
+                    var achat_id_array = achat_id.split(',').map(Number);
+                }
+
+                if (achat_id_array.indexOf(chat_id) === -1) {
+                    achat_id_array.push(chat_id);
+                }
+
+                localStorage.setItem('achat_id',achat_id_array.join(','));
+            } catch (e) {
+                console.log(e);
+            }
+        }
+    };
+    
+    this.forgetChat = function (chat_id) {
+        if (localStorage) {
+            try {
+                chat_id = parseInt(chat_id);
+
+                var achat_id = localStorage.getItem('achat_id');
+                var achat_id_array = new Array();
+
+                if (achat_id !== null) {
+                    achat_id_array = achat_id.split(',').map(Number);
+                }
+
+                if (achat_id_array.indexOf(chat_id) !== -1){
+                    achat_id_array.splice(achat_id_array.indexOf(chat_id), 1);
+                }
+
+                localStorage.setItem('achat_id',achat_id_array.join(','));
+            } catch (e) {
+                console.log(e);
+            }
+
+        }
+    };
+    
     this.attachTabNavigator = function() {
     	$('#tabs > ul.nav > li > a').click(function(){
     		$(this).find('.msg-nm').remove();
@@ -309,6 +362,8 @@ function lh(){
 
             } else { j++; }
         };
+
+        this.forgetChat(chat_id);
         
         if (LHCCallbacks.removeSynchroChat) {
         	LHCCallbacks.removeSynchroChat(chat_id);
@@ -684,8 +739,7 @@ function lh(){
 	       		   	       		   
 	               if (data.closed && data.closed == true) {
 
-                       ee.emitEvent('chatClosedSyncUser', [inst.chat_id]);
-
+	                    ee.emitEvent('chatClosedSyncUser', [inst.chat_id]);
 		   			 	if (inst.isWidgetMode && typeof(parent) !== 'undefined' && window.location !== window.parent.location) {	
 		   			 		 parent.postMessage('lhc_chat_closed' + (typeof data.closed_arg !== 'undefined' ? ':'+data.closed_arg : ''), '*');
 		   				} else {		   				
@@ -835,12 +889,6 @@ function lh(){
 	{
 		window.open(this.wwwDir + 'chat/single/'+chat_id,'chatwindow-chat-id-'+chat_id,"menubar=1,resizable=1,width=800,height=650");
 
-	    $.ajax({
-	        type: "GET",
-	        url: this.wwwDir + 'chat/adminleftchat/' + chat_id,
-	        async: true
-	    });
-   	
     	this.smartTabFocus(tabs, chat_id);
     	
         if (this.closeWindowOnChatCloseDelete == true)
@@ -865,12 +913,6 @@ function lh(){
 	    
 	    if (hidetab == true) {
 
-	    	$.ajax({
-		        type: "GET",
-		        url: this.wwwDir + 'chat/adminleftchat/' + chat_id,
-		        async: true
-		    });
-	    	
 	    	var location = this.smartTabFocus(tabs, chat_id);
 	    	
 	    	setTimeout(function() {
@@ -1331,7 +1373,7 @@ function lh(){
 	            	$('#status-chat').html(data.result);
 	            	
 	            	 if (data.closed && data.closed == true) {
-	            	    ee.emitEvent('chatClosedCheckStatus', [inst.chat_id]);
+                        ee.emitEvent('chatClosedCheckStatus', [inst.chat_id]);
 		   			 	if (inst.isWidgetMode && typeof(parent) !== 'undefined' && window.location !== window.parent.location) {		   			 
 		   			 		 parent.postMessage('lhc_chat_closed', '*');
 		   				} else {		   				

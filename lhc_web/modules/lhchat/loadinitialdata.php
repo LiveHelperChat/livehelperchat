@@ -86,7 +86,35 @@ if ($trackActivity == 0) {
     $trackActivity = erLhcoreClassModelUserSetting::getSetting('trackactivity',0);
 }
 
-echo json_encode(array('track_activity' => $trackActivity, 'timeout_activity' => $activityTimeout, 'pr_names' => $productsNames, 'dp_names' => $departmentNames, 'dep_list' => $departmentList));
+$chatDel = array();
+$chatOpen = array();
+
+if (is_array($Params['user_parameters_unordered']['chatopen']) && !empty($Params['user_parameters_unordered']['chatopen'])) {
+
+    $originalIds = $Params['user_parameters_unordered']['chatopen'];
+
+    erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['chatopen']);
+    $chats = erLhcoreClassChat::getList(array('filterin' => array('id' => $Params['user_parameters_unordered']['chatopen'])));
+
+    // Delete any old chat if it exists
+    $deleteKeys = array_diff($originalIds, array_keys($chats));
+    foreach ($deleteKeys as $chat_id) {
+        $chatDel[] = (int)$chat_id;
+    }
+
+    foreach ($chats as $chat) {
+        if (erLhcoreClassChat::hasAccessToRead($chat)){
+            $chatOpen[] = array(
+                'id' => $chat->id,
+                'nick' => erLhcoreClassDesign::shrt($chat->nick,10,'...',30,ENT_QUOTES),
+            );
+        } else {
+            $chatDel[] = (int)$chat->id;
+        }
+    }
+}
+
+echo json_encode(array('track_activity' => $trackActivity, 'cdel' => $chatDel, 'copen' => $chatOpen, 'timeout_activity' => $activityTimeout, 'pr_names' => $productsNames, 'dp_names' => $departmentNames, 'dep_list' => $departmentList));
 exit;
 
 ?>

@@ -109,11 +109,6 @@ $ViewList['reopenchat'] = array(
     'functions' => array( 'use' )
 );
 
-$ViewList['adminleftchat'] = array(
-    'params' => array('chat_id'),
-    'functions' => array( 'use' )
-);
-
 $ViewList['notificationsettings'] = array(
     'params' => array(),
     'functions' => array( 'use' )
@@ -173,9 +168,10 @@ $ViewList['syncadmininterface'] = array(
 
 $ViewList['loadinitialdata'] = array(
     'params' => array(),
-    'uparams' => array(),
+    'uparams' => array('chatopen'),
     'ajax' => true,
-    'functions' => array( 'use' )
+    'functions' => array( 'use' ),
+    'multiple_arguments' => array('chatopen')
 );
 
 $ViewList['list'] = array(

@@ -10,11 +10,7 @@ $chat = erLhcoreClassModelChat::fetchAndLock($Params['user_parameters']['chat_id
 if ( erLhcoreClassChat::hasAccessToRead($chat) )
 {
 	$userData = $currentUser->getUserData();
-	
-	if ($Params['user_parameters_unordered']['remember'] == 'true') {
-		CSCacheAPC::getMem()->appendToArray('lhc_open_chats',$chat->id);
-	}
-	
+
 	if ($userData->invisible_mode == 0) {	
 		  
 	    try {

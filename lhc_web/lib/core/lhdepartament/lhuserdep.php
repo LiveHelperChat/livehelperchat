@@ -122,11 +122,19 @@ class erLhcoreClassUserDep{
 
    public static function setHideOnlineStatus($UserData) {
        $db = ezcDbInstance::get();
-       $stmt = $db->prepare('UPDATE lh_userdep SET hide_online = :hide_online, hide_online_ts = :hide_online_ts WHERE user_id = :user_id');
-       $stmt->bindValue( ':hide_online',$UserData->hide_online);
-       $stmt->bindValue( ':hide_online_ts',time());
+
+       // Update in a such way to avoid deadlocks
+       $stmt = $db->prepare('SELECT lh_userdep.id FROM lh_userdep WHERE user_id = :user_id');
        $stmt->bindValue( ':user_id',$UserData->id);
        $stmt->execute();
+       $rowsIds = $stmt->fetchAll(PDO::FETCH_COLUMN);
+
+       if (!empty($rowsIds)) {
+           $stmt = $db->prepare('UPDATE lh_userdep SET hide_online = :hide_online, hide_online_ts = :hide_online_ts WHERE id IN ('.implode(',',$rowsIds).')');
+           $stmt->bindValue( ':hide_online',$UserData->hide_online);
+           $stmt->bindValue( ':hide_online_ts',time());
+           $stmt->execute();
+       }
    }
 
    public static function getSession()

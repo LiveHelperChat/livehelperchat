@@ -32,8 +32,6 @@ if ($chat->user_id == $currentUser->getUserID() || $currentUser->hasAccessTo('lh
 
 $db->commit();
 
-CSCacheAPC::getMem()->removeFromArray('lhc_open_chats', (int)$Params['user_parameters']['chat_id']);
-
 header('Location: ' . $_SERVER['HTTP_REFERER']);
 exit;
 
