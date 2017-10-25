@@ -4,6 +4,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -253,6 +257,10 @@
     </message>
     <message>
       <source>Automatic chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats waiting in pending queue more than n seconds should be auto-assigned first. Time in seconds</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1219,6 +1227,10 @@
     </message>
     <message>
       <source>Username</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nickname</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2818,6 +2830,98 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Refresh</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Additional data</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hidden field</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat duration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat owner</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat between operators, chat initializer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>City</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This is offline message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Page</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Came from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Device</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Computer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Smartphone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tablet</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User left</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Waited</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitor</source>
       <translation type="unfinished"/>
     </message>
@@ -2847,98 +2951,6 @@
     </message>
     <message>
       <source>Operators chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>This is offline message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Product</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Device</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Country</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Time zone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>City</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Page</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Came from</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Refresh</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Additional data</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Hidden field</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Created</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User left</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Waited</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat duration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat between operators, chat initializer</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat owner</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Computer</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Smartphone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Tablet</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3089,14 +3101,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Redirect user to contact form.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Are you sure?</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Empty...</source>
       <translation type="unfinished"/>
     </message>
@@ -3133,11 +3137,31 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Operator</source>
+      <source>Sort</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wait time</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Redirect user to contact form.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3162,18 +3186,6 @@
     </message>
     <message>
       <source>Sort by active chats number</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Sort</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Wait time</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Delete chat</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4831,11 +4843,11 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
-      <source>Empty...</source>
+      <source>Assigned operator</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Assigned operator</source>
+      <source>Empty...</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6164,6 +6176,10 @@
     </message>
     <message>
       <source>Users</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Username (Nickname)</source>
       <translation type="unfinished"/>
     </message>
     <message>
