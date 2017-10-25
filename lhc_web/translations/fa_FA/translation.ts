@@ -4978,7 +4978,7 @@
     </message>
     <message>
       <source>Chat tabs</source>
-      <translation type="unfinished"/>
+      <translation>تب های چت</translation>
     </message>
     <message>
       <source>Configuration</source>
