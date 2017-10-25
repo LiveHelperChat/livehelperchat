@@ -43,6 +43,19 @@ echo "Purged chats - ",erLhcoreClassChatWorkflow::automaticChatPurge(),"\n";
 $db = ezcDbInstance::get();
 
 try {
+    $assignWorkflowTimeout = erLhcoreClassModelChatConfig::fetch('assign_workflow_timeout')->current_value;
+
+    if ($assignWorkflowTimeout > 0) {
+        foreach (erLhcoreClassChat::getList(array('sort' => 'id ASC', 'limit' => 500, 'filterlt' => array('time' => (time() - $assignWorkflowTimeout)),'filter' => array('status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT))) as $chat){
+            $db->beginTransaction();
+            $chat = erLhcoreClassModelChat::fetchAndLock($chat->id);
+            if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
+                erLhcoreClassChatWorkflow::autoAssign($chat, $chat->department, array('cron_init' => true));
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.pending_process_workflow',array('chat' => & $chat));
+            }
+            $db->commit();
+        }
+    }
 
     foreach (erLhcoreClassChat::getList(array('sort' => 'priority DESC, id ASC', 'limit' => 500, 'filter' => array('status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT))) as $chat){
         $db->beginTransaction();

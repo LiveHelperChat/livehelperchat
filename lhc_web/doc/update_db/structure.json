@@ -6089,6 +6089,13 @@
                 "hidden": "0"
             },
             {
+                "identifier": "assign_workflow_timeout",
+                "value": "0",
+                "type": "0",
+                "explain": "Chats waiting in pending queue more than n seconds should be auto-assigned first. Time in seconds",
+                "hidden": "0"
+            },
+            {
                 "identifier": "hide_button_dropdown",
                 "value": "0",
                 "type": "0",

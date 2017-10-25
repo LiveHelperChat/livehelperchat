@@ -1,3 +1,9 @@
+2.74v
+
+1. Option to set auto assign workflow priority by time.
+2. Various small changes.
+3. Translations updated.
+
 2.73v
 
 1. Auto responder now have On-Hold functionality.

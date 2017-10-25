@@ -1,0 +1,1 @@
+INSERT INTO `lh_chat_config` (`identifier`,`value`,`type`,`explain`,`hidden`) VALUES ('assign_workflow_timeout','0','0','Chats waiting in pending queue more than n seconds should be auto-assigned first. Time in seconds','0');
