@@ -1615,6 +1615,7 @@ function lh(){
 	this.updateVoteStatus = function(chat_id) {
 		$.getJSON(this.wwwDir + 'chat/updatechatstatus/'+chat_id ,{ }, function(data){
 			$('#main-user-info-tab-'+chat_id).html(data.result);
+            ee.emitEvent('chatTabInfoReload', [chat_id]);
 		});
 	};
 	
