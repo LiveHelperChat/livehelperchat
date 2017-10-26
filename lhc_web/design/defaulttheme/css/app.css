@@ -1249,11 +1249,6 @@ input[type="file"]{
 
 .sortable-column-dashboard:after{content:"-";height:1px;font-size:0;visibility:hidden;display:block;}
 
-
-#page-content-wrapper{
-	overflow:hidden;
-}
-
 .sortable-column-dashboard .panel-heading {
 	cursor:move;
 }
