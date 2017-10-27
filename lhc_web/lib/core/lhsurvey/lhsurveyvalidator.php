@@ -69,11 +69,27 @@ class erLhcoreClassSurveyValidator {
 				}
 			}
 		}
-		
+
 		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('survey.validate', array('survey' => & $survey, 'survey_item' => & $surveyItem, 'errors' => & $Errors));
-		
+
 		return $Errors;
-	}	
+	}
+
+	public static function parseAnswer($answer, $options = array())
+    {
+        $answer = trim($answer);
+        $answer = preg_replace('/\[value=(.*?)\]/','',$answer);
+
+        return erLhcoreClassBBCode::make_clickable(htmlspecialchars($answer));
+    }
+
+    public static function parseAnswerPlain($answer)
+    {
+        $answer = trim($answer);
+        $answer = preg_replace('/\[value=(.*?)\]/','',$answer);
+
+        return htmlspecialchars(erLhcoreClassBBCode::make_plain($answer));
+    }
 }
 
 ?>

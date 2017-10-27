@@ -22,11 +22,20 @@
     				</div>
     				<?php elseif ($sortOption['type'] == 'question_options') : ?>    				
     				<div class="form-group">
-    					<label><?php echo htmlspecialchars($survey->{$sortOption['field']});?><?php if ($survey->{$sortOption['field'] . '_req'} == 1) : ?> *<?php endif;?></label>
+                        <p><label><b><?php echo htmlspecialchars($survey->{$sortOption['field']});?><?php if ($survey->{$sortOption['field'] . '_req'} == 1) : ?> *<?php endif;?></b></label></p>
     					<?php foreach ($survey->{$sortOption['field'] . '_items_front'} as $key => $item) : ?>
-    					<div class="radio radio-widget">
-    						<label><input type="radio" name="<?php echo $sortOption['field']?>EvaluateOption" value="<?php echo $key+1?>" <?php if ((int)$survey_item->{$sortOption['field']} === $key+1) : ?>checked="checked"<?php endif;?>/><?php echo htmlspecialchars($item['option'])?></label>
-    					</div>
+                            <?php if (mb_strpos($item['option'],"\n") !== false && mb_strpos($item['option'],"\n") === 1 || mb_strpos($item['option'],"\n") == mb_strlen($item['option'])-1) : ?>
+                                <div class="radio radio-widget">
+                                    <label><input type="radio" name="<?php echo $sortOption['field']?>EvaluateOption" value="<?php echo $key+1?>" <?php if ((int)$survey_item->{$sortOption['field']} === $key+1) : ?>checked="checked"<?php endif;?>/> <?php echo erLhcoreClassSurveyValidator::parseAnswer($item['option']) ?></label>
+                                </div>
+                            <?php else : ?>
+                                <label>
+                                    <?php echo erLhcoreClassSurveyValidator::parseAnswer($item['option']) ?>
+                                    <div align="center">
+                                        <input type="radio" name="<?php echo $sortOption['field']?>EvaluateOption" value="<?php echo $key+1?>" <?php if ((int)$survey_item->{$sortOption['field']} === $key+1) : ?>checked="checked"<?php endif;?>/>
+                                    </div>
+                                </label>
+                            <?php endif?>
     					<?php endforeach;?>
     				</div>
     				<?php endif;?>

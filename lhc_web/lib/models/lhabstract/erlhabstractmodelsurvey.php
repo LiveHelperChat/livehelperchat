@@ -153,8 +153,16 @@ class erLhAbstractModelSurvey {
 	   			   $field = str_replace('_front', '', $var);
 	   			   $items = explode('||==========||', $this->{$field});
 
-	   			   foreach ($items as $item) {
-	   			   		$this->{$var}[] = array('option' => $item);
+	   			   foreach ($items as $index => $item) {
+
+                        $matches = array();
+                        preg_match('/\[value=(.*?)\]/', $item, $matches);
+
+                        if (isset($matches[1]) && is_numeric($matches[1])){
+                            $index = (int)$matches[1];
+                        }
+
+	   			   		$this->{$var}[$index] = array('option' => $item);
 	   			   }
 	   			   
 	   		   return $this->{$var};
@@ -185,6 +193,16 @@ class erLhAbstractModelSurvey {
 	{
 	    return erLhAbstractModelSurveyItem::getCount(array('filtergt' => array('max_stars_' . $id => 0),'filter' => array( 'survey_id' => $this->id)));
 	}
+
+	public function getQuestionsOptionsVotesTotal($id)
+    {
+        return erLhAbstractModelSurveyItem::getCount(array('filtergt' => array('question_options_' . $id => 0),'filter' => array( 'survey_id' => $this->id)));
+    }
+
+    public function getQuestionsNumberVotes($id, $value)
+    {
+        return erLhAbstractModelSurveyItem::getCount(array('filterin' => array('question_options_' . $id => $value),'filter' => array( 'survey_id' => $this->id)));
+    }
 
 	public function getStarsNumberAverage($id)
 	{

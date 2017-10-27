@@ -603,8 +603,10 @@ class erLhcoreClassBBCode
     					 '/\[s\](.*?)\[\/s\]/ms',
     					 '/\[list\=(.*?)\](.*?)\[\/list\]/ms',
     					 '/\[list\](.*?)\[\/list\]/ms',
-    					 '/\[\*\]\s?(.*?)\n/ms'
+    					 '/\[\*\]\s?(.*?)\n/ms',
+    					 '/\[fs(.*?)\](.*?)\[\/fs(.*?)\]/ms'
     	);
+
     	// And replace them by...
     	$out = array(	 '<strong>\1</strong>',
     					 '<em>\1</em>',
@@ -612,8 +614,10 @@ class erLhcoreClassBBCode
     					 '<strike>\1</strike>',
     					 '<ol start="\1">\2</ol>',
     					 '<ul>\1</ul>',
-    					 '<li>\1</li>'
+    					 '<li>\1</li>',
+    					 '<span style="font-size:\1px">\2</span>'
     	);
+
     	$text = preg_replace($in, $out, $text);
 
     	// Prepare quote's
@@ -945,32 +949,35 @@ class erLhcoreClassBBCode
    public static function make_plain($ret){
         $ret = ' ' . $ret;
 
-        // BBCode to find...
-    	$in = array( 	 '/\[b\](.*?)\[\/b\]/ms',
-    					 '/\[i\](.*?)\[\/i\]/ms',
-    					 '/\[u\](.*?)\[\/u\]/ms',
-    					 '/\[list\=(.*?)\](.*?)\[\/list\]/ms',
-    					 '/\[list\](.*?)\[\/list\]/ms',
-    					 '/\[\*\]\s?(.*?)\n/ms',
-    					 '/\[img\](.*?)\[\/img\]/ms',
-    					 '/\[url\="?(.*?)"?\](.*?)\[\/url\]/ms',
-    					 '/\[quote\]/ms',
-    					 '/\[\/quote\]/ms',
-    					 '/\n/ms',
-    	);
+       // BBCode to find...
+       $in = array( 	 '/\[b\](.*?)\[\/b\]/ms',
+           '/\[i\](.*?)\[\/i\]/ms',
+           '/\[u\](.*?)\[\/u\]/ms',
+           '/\[list\=(.*?)\](.*?)\[\/list\]/ms',
+           '/\[list\](.*?)\[\/list\]/ms',
+           '/\[\*\]\s?(.*?)\n/ms',
+           '/\[img\](.*?)\[\/img\]/ms',
+           '/\[url\="?(.*?)"?\](.*?)\[\/url\]/ms',
+           '/\[quote\]/ms',
+           '/\[\/quote\]/ms',
+           '/\[fs(.*?)\](.*?)\[\/fs(.*?)\]/ms',
+           '/\n/ms',
+       );
 
-    	// And replace them by...
-    	$out = array(	 '\1',
-    					 '\1',
-    					 '\1',
-    					 '\2',
-    					 '\1',
-    					 '\1',
-    					 '',
-    					 '\2 \1',
-    					 '',
-    					 ' ',
-    	);
+       // And replace them by...
+       $out = array(	 '\1',
+           '\1',
+           '\1',
+           '\2',
+           '\1',
+           '\1',
+           '',
+           '\2 \1',
+           '',
+           '',
+           '\2',
+           ' ',
+       );
 
     	$ret = preg_replace($in, $out, $ret);
 

@@ -16,11 +16,11 @@
 				<label><?php echo $survey->{$sortOption['field']};?></label>
 				<p>
 				<?php 
-				$options = $survey->{$sortOption['field'] . '_items_front'};  					
+				$options = $survey->{$sortOption['field'] . '_items_front'};
 				if (isset($options[$survey_item->{$sortOption['field']}-1])) {
-					echo htmlspecialchars($options[$survey_item->{$sortOption['field']}-1]['option']);
+					echo erLhcoreClassSurveyValidator::parseAnswer($options[$survey_item->{$sortOption['field']}-1]['option']);
 				} else {
-					echo htmlspecialchars($survey_item->{$sortOption['field']});
+					echo erLhcoreClassSurveyValidator::parseAnswer($survey_item->{$sortOption['field']});
 				}
 				?>
 				</p>

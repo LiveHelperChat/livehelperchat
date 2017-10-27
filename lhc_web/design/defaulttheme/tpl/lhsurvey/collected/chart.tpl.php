@@ -1,5 +1,5 @@
 <script>
-function drawChart(dataSet,id) {
+function drawChart(dataSet, id) {
 	var ctx = document.getElementById("myChart-"+id).getContext("2d");
 	var dataOptions = {
 		    datasets: [{
@@ -31,6 +31,30 @@ function drawChart(dataSet,id) {
 		    }
 	    }
 	});
+}
+
+function drawChartOptions(dataSet, id) {
+    var ctx = document.getElementById("myChart-option-"+id).getContext("2d");
+    var dataOptions = {
+        datasets: [{
+            data: dataSet.data,
+            backgroundColor: dataSet.backgroundColours
+        }],
+        labels: dataSet.labels
+    };
+    var myPieChart = new Chart(ctx,{
+        type: 'pie',
+        data: dataOptions,
+        options: {
+            legend: {
+                display: false
+            },
+            onClick : function(evt) {
+                var activeElement = myPieChart.getElementAtEvent(evt);
+                document.location = "<?php echo erLhcoreClassDesign::baseurl('survey/collected')?>/<?php echo $survey->id?>/(question_options_"+id+")/"+dataSet.rangefilter[activeElement[0]._index];
+            }
+        }
+    });
 }
 </script>
 
@@ -94,3 +118,68 @@ drawChart({rangefilter:{<?php echo $positiveChatsCount?> : <?php echo json_encod
 <hr>
 <?php endforeach; ?>
 
+<?php
+
+function stringToColorCode($str) {
+    $code = dechex(crc32($str));
+    $code = substr($code, 0, 6);
+    return $code;
+}
+
+foreach ($enabledFields as $optionKey => $optionEnabled) :
+    $optionsValues = array();
+    $labels = array();
+    $backgroundColours = array();
+    $optionsValuesFilter = array();
+
+    foreach ($survey->{'question_options_' . $optionEnabled . '_items_front'} as $optionKeyValue => $optionValue) {
+        $optionsValues[$optionKeyValue] = (int)$survey->getQuestionsNumberVotes($optionEnabled, $optionKeyValue + 1);
+        $optionsValuesFilter[] = $optionKeyValue + 1;
+        $label = erLhcoreClassSurveyValidator::parseAnswerPlain($optionValue['option']);
+        $labels[] = $label;
+        $backgroundColours[$optionKeyValue] = '#'.stringToColorCode($label);
+    }
+    $totalCount = array_sum($optionsValues);
+?>
+    <h1 class="text-center"><?php echo $enabledOptions[$optionKey]?></h1>
+
+    <div class="row">
+        <div class="col-xs-3">
+            <?php foreach ($survey->{'question_options_' . $optionEnabled . '_items_front'} as $optionKeyValue => $optionValue) : ?>
+                <h2 class="text-center" style="color: <?php echo $backgroundColours[$optionKeyValue]?>"><?php echo $optionsValues[$optionKeyValue]?></h2>
+                <p class="text-center"><?php echo erLhcoreClassSurveyValidator::parseAnswer($optionValue['option']) ?></p>
+            <?php endforeach; ?>
+        </div>
+        <div class="col-xs-5">
+            <canvas id="myChart-option-<?php echo $optionEnabled?>" width="400" height="300" style="cursor:pointer"></canvas>
+        </div>
+        <div class="col-xs-4">
+            <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/collected','Percentages')?></h4>
+            <table class="table table-condensed">
+                <?php foreach ($survey->{'question_options_' . $optionEnabled . '_items_front'} as $optionKeyValue => $optionValue) : ?>
+                    <tr>
+                        <td width="1%" nowrap>
+                            <a href="<?php echo erLhcoreClassDesign::baseurl('survey/collected')?>/<?php echo $survey->id?>/(question_options_<?php echo $optionEnabled?>)/<?php echo $optionKeyValue + 1?>"><?php echo $optionsValues[$optionKeyValue]?> <?php echo erLhcoreClassSurveyValidator::parseAnswer($optionValue['option']) ?></a>
+                        </td>
+                        <td>
+                            <?php
+                            if ($totalCount > 0) : $percentange = round(($optionsValues[$optionKeyValue]/$totalCount*100));?>
+                                <div class="progress" style="margin-bottom:0">
+                                    <div class="progress-bar" role="progressbar" title="<?php echo $percentange?> %" aria-valuenow="<?php echo $percentange?>" aria-valuemin="0" aria-valuemax="100" style="width:<?php echo $percentange?>%">
+                                        <span class="sr-only"></span>
+                                    </div>
+                                </div>
+                            <?php else :
+                                echo '-';
+                            endif;
+                            ?>
+                        </td>
+                    </tr>
+                <?php endforeach;?>
+            </table>
+        </div>
+    </div>
+    <script>
+        drawChartOptions({rangefilter:<?php echo json_encode($optionsValuesFilter)?>,backgroundColours:<?php echo json_encode(array_values($backgroundColours))?>,labels:<?php echo json_encode($labels)?>,data:<?php echo json_encode(array_values($optionsValues)) ?>,range:{}},<?php echo $optionEnabled?>);
+    </script>
+<?php endforeach;

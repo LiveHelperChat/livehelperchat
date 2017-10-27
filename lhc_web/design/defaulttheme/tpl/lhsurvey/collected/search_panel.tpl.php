@@ -68,7 +68,7 @@
 				    	<select name="<?php echo $sortOption['field']?>" class="form-control">
 				    		<option value="0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Any')?></option>
 				        	<?php foreach ($survey->{$sortOption['field'] . '_items_front'} as $key => $item) : ?>
-				        		<option value="<?php echo $key+1?>" <?php if ($input->{$sortOption['field']} == ($key+1)) : ?>selected="selected"<?php endif;?>><?php echo htmlspecialchars($item['option'])?></option>
+				        		<option value="<?php echo $key+1?>" <?php if ($input->{$sortOption['field']} == ($key+1)) : ?>selected="selected"<?php endif;?>><?php echo erLhcoreClassSurveyValidator::parseAnswerPlain($item['option'])?></option>
 				        	<?php endforeach;?>      
 				        </select>				        
 				    </div>
