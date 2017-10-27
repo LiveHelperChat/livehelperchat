@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Πόσες ημέρες ψηφοφορίας widget δεν θα πρέπει να επεκταθεί μετά από την τελευταία εμφάνιση</translation>
     </message>
@@ -252,6 +256,10 @@
     <message>
       <source>Automatic chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
       <translation>Αυτόματη συνομιλίες κλείσιμο. 0 - άτομα με ειδικές ανάγκες, n &gt; 0 διάρκεια σε λεπτά πριν το chat έχει κλείσει αυτόματα</translation>
+    </message>
+    <message>
+      <source>Chats waiting in pending queue more than n seconds should be auto-assigned first. Time in seconds</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Support application name, visible in browser title.</source>
@@ -1218,6 +1226,10 @@
     <message>
       <source>Username</source>
       <translation>Όνομα χρήστη</translation>
+    </message>
+    <message>
+      <source>Nickname</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Surname</source>
@@ -2816,6 +2828,98 @@
       <translation>Αποτύπωμα</translation>
     </message>
     <message>
+      <source>Refresh</source>
+      <translation>Ανανέωση</translation>
+    </message>
+    <message>
+      <source>Additional data</source>
+      <translation>Πρόσθετα δεδομένα</translation>
+    </message>
+    <message>
+      <source>Hidden field</source>
+      <translation>Κρυφό πεδίο</translation>
+    </message>
+    <message>
+      <source>Chat duration</source>
+      <translation>Διάρκεια συνομιλίας</translation>
+    </message>
+    <message>
+      <source>Chat owner</source>
+      <translation>Κάτοχος συνομιλίας</translation>
+    </message>
+    <message>
+      <source>Chat between operators, chat initializer</source>
+      <translation>Συνομιλία μεταξύ των φορέων, να συνομιλήσετε σύνολο αρχικών τιμών</translation>
+    </message>
+    <message>
+      <source>City</source>
+      <translation>Πόλη</translation>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation>Χώρα</translation>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation>Δημιουργήθηκε</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Τμήμα</translation>
+    </message>
+    <message>
+      <source>This is offline message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Τηλέφωνο</translation>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation>Προϊόντος</translation>
+    </message>
+    <message>
+      <source>Page</source>
+      <translation>Σελίδα</translation>
+    </message>
+    <message>
+      <source>Came from</source>
+      <translation>Προήλθε από</translation>
+    </message>
+    <message>
+      <source>Device</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Computer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Smartphone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tablet</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User left</source>
+      <translation>Χρήστη αριστερά</translation>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation>Ζώνη ώρας</translation>
+    </message>
+    <message>
+      <source>Waited</source>
+      <translation>Περιμένετε</translation>
+    </message>
+    <message>
       <source>Visitor</source>
       <translation>Επισκέπτης</translation>
     </message>
@@ -2846,98 +2950,6 @@
     <message>
       <source>Operators chat</source>
       <translation>Φορείς συνομιλίας</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Τμήμα</translation>
-    </message>
-    <message>
-      <source>This is offline message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Product</source>
-      <translation>Προϊόντος</translation>
-    </message>
-    <message>
-      <source>Device</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Country</source>
-      <translation>Χώρα</translation>
-    </message>
-    <message>
-      <source>Time zone</source>
-      <translation>Ζώνη ώρας</translation>
-    </message>
-    <message>
-      <source>City</source>
-      <translation>Πόλη</translation>
-    </message>
-    <message>
-      <source>Page</source>
-      <translation>Σελίδα</translation>
-    </message>
-    <message>
-      <source>Came from</source>
-      <translation>Προήλθε από</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-mail</translation>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>Τηλέφωνο</translation>
-    </message>
-    <message>
-      <source>Refresh</source>
-      <translation>Ανανέωση</translation>
-    </message>
-    <message>
-      <source>Additional data</source>
-      <translation>Πρόσθετα δεδομένα</translation>
-    </message>
-    <message>
-      <source>Hidden field</source>
-      <translation>Κρυφό πεδίο</translation>
-    </message>
-    <message>
-      <source>Created</source>
-      <translation>Δημιουργήθηκε</translation>
-    </message>
-    <message>
-      <source>User left</source>
-      <translation>Χρήστη αριστερά</translation>
-    </message>
-    <message>
-      <source>Waited</source>
-      <translation>Περιμένετε</translation>
-    </message>
-    <message>
-      <source>Chat duration</source>
-      <translation>Διάρκεια συνομιλίας</translation>
-    </message>
-    <message>
-      <source>Chat between operators, chat initializer</source>
-      <translation>Συνομιλία μεταξύ των φορέων, να συνομιλήσετε σύνολο αρχικών τιμών</translation>
-    </message>
-    <message>
-      <source>Chat owner</source>
-      <translation>Κάτοχος συνομιλίας</translation>
-    </message>
-    <message>
-      <source>Computer</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Smartphone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Tablet</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
@@ -3087,14 +3099,6 @@
       <translation>Τελευταία δραστηριότητα</translation>
     </message>
     <message>
-      <source>Redirect user to contact form.</source>
-      <translation>Ανακατεύθυνση χρήστη για την φόρμα επικοινωνίας.</translation>
-    </message>
-    <message>
-      <source>Are you sure?</source>
-      <translation>Είσαι σίγουρος?</translation>
-    </message>
-    <message>
       <source>Empty...</source>
       <translation>Άδειο...</translation>
     </message>
@@ -3131,12 +3135,32 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Operator</source>
-      <translation>Τελεστής</translation>
+      <source>Sort</source>
+      <translation>Είδος</translation>
+    </message>
+    <message>
+      <source>Wait time</source>
+      <translation>Χρόνος αναμονής</translation>
     </message>
     <message>
       <source>Department</source>
       <translation>Τμήμα</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Διαγραφή συνομιλίας</translation>
+    </message>
+    <message>
+      <source>Redirect user to contact form.</source>
+      <translation>Ανακατεύθυνση χρήστη για την φόρμα επικοινωνίας.</translation>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation>Είσαι σίγουρος?</translation>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation>Τελεστής</translation>
     </message>
     <message>
       <source>Pending chats</source>
@@ -3161,18 +3185,6 @@
     <message>
       <source>Sort by active chats number</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Sort</source>
-      <translation>Είδος</translation>
-    </message>
-    <message>
-      <source>Wait time</source>
-      <translation>Χρόνος αναμονής</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>Διαγραφή συνομιλίας</translation>
     </message>
     <message>
       <source>Created</source>
@@ -4829,12 +4841,12 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
-      <source>Empty...</source>
-      <translation>Άδειο...</translation>
-    </message>
-    <message>
       <source>Assigned operator</source>
       <translation>Ειδικό φορέα</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Άδειο...</translation>
     </message>
     <message>
       <source>collapse/expand</source>
@@ -6163,6 +6175,10 @@
     <message>
       <source>Users</source>
       <translation>Χρήστες</translation>
+    </message>
+    <message>
+      <source>Username (Nickname)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>E-mail</source>

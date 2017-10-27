@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>多少天投票窗口小部件不应扩大后最后的展示</translation>
     </message>
@@ -252,6 +256,10 @@
     <message>
       <source>Automatic chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
       <translation>关闭自动聊天。0 - 关闭，n &gt; 0 分钟后聊天自动关闭</translation>
+    </message>
+    <message>
+      <source>Chats waiting in pending queue more than n seconds should be auto-assigned first. Time in seconds</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Support application name, visible in browser title.</source>
@@ -1217,6 +1225,10 @@
     </message>
     <message>
       <source>Username</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nickname</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2816,6 +2828,98 @@
       <translation>脚印</translation>
     </message>
     <message>
+      <source>Refresh</source>
+      <translation>刷新</translation>
+    </message>
+    <message>
+      <source>Additional data</source>
+      <translation>其他數據</translation>
+    </message>
+    <message>
+      <source>Hidden field</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat duration</source>
+      <translation>聊天持續時間</translation>
+    </message>
+    <message>
+      <source>Chat owner</source>
+      <translation>聊天所有者</translation>
+    </message>
+    <message>
+      <source>Chat between operators, chat initializer</source>
+      <translation>运营商之间的聊天，聊天初始化程序</translation>
+    </message>
+    <message>
+      <source>City</source>
+      <translation>城市</translation>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation>國家</translation>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation>創建</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>新闻部</translation>
+    </message>
+    <message>
+      <source>This is offline message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>电子邮件</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>电话</translation>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Page</source>
+      <translation>页</translation>
+    </message>
+    <message>
+      <source>Came from</source>
+      <translation>来自</translation>
+    </message>
+    <message>
+      <source>Device</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Computer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Smartphone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tablet</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User left</source>
+      <translation>用户已离开</translation>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation>时区</translation>
+    </message>
+    <message>
+      <source>Waited</source>
+      <translation>等待</translation>
+    </message>
+    <message>
       <source>Visitor</source>
       <translation>游客</translation>
     </message>
@@ -2846,98 +2950,6 @@
     <message>
       <source>Operators chat</source>
       <translation>運營聊天</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>新闻部</translation>
-    </message>
-    <message>
-      <source>This is offline message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Product</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Device</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Country</source>
-      <translation>國家</translation>
-    </message>
-    <message>
-      <source>Time zone</source>
-      <translation>时区</translation>
-    </message>
-    <message>
-      <source>City</source>
-      <translation>城市</translation>
-    </message>
-    <message>
-      <source>Page</source>
-      <translation>页</translation>
-    </message>
-    <message>
-      <source>Came from</source>
-      <translation>来自</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>电子邮件</translation>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>电话</translation>
-    </message>
-    <message>
-      <source>Refresh</source>
-      <translation>刷新</translation>
-    </message>
-    <message>
-      <source>Additional data</source>
-      <translation>其他數據</translation>
-    </message>
-    <message>
-      <source>Hidden field</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Created</source>
-      <translation>創建</translation>
-    </message>
-    <message>
-      <source>User left</source>
-      <translation>用户已离开</translation>
-    </message>
-    <message>
-      <source>Waited</source>
-      <translation>等待</translation>
-    </message>
-    <message>
-      <source>Chat duration</source>
-      <translation>聊天持續時間</translation>
-    </message>
-    <message>
-      <source>Chat between operators, chat initializer</source>
-      <translation>运营商之间的聊天，聊天初始化程序</translation>
-    </message>
-    <message>
-      <source>Chat owner</source>
-      <translation>聊天所有者</translation>
-    </message>
-    <message>
-      <source>Computer</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Smartphone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Tablet</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
@@ -3087,14 +3099,6 @@
       <translation>上次活动</translation>
     </message>
     <message>
-      <source>Redirect user to contact form.</source>
-      <translation>重定向用户联系人窗体。</translation>
-    </message>
-    <message>
-      <source>Are you sure?</source>
-      <translation>是否确定？</translation>
-    </message>
-    <message>
       <source>Empty...</source>
       <translation>空...</translation>
     </message>
@@ -3131,11 +3135,31 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Operator</source>
+      <source>Sort</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wait time</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Redirect user to contact form.</source>
+      <translation>重定向用户联系人窗体。</translation>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation>是否确定？</translation>
+    </message>
+    <message>
+      <source>Operator</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3160,18 +3184,6 @@
     </message>
     <message>
       <source>Sort by active chats number</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Sort</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Wait time</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Delete chat</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4829,12 +4841,12 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
-      <source>Empty...</source>
-      <translation>空...</translation>
-    </message>
-    <message>
       <source>Assigned operator</source>
       <translation>指定的操作员</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>空...</translation>
     </message>
     <message>
       <source>collapse/expand</source>
@@ -6163,6 +6175,10 @@
     <message>
       <source>Users</source>
       <translation>用户</translation>
+    </message>
+    <message>
+      <source>Username (Nickname)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>E-mail</source>

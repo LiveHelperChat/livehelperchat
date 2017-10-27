@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>რამდენი დღე  არ უნდა გაფართივდეს ხმის მიცემის ვიდჯეტი ბოლო ჩვენებიდან</translation>
     </message>
@@ -252,6 +256,10 @@
     <message>
       <source>Automatic chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
       <translation>ჩეთების ავტომატურად დახურვა. 0 - გამორთულია,  n &gt; 0 დრო წუთებში სანამ ჩეთი ავტომატურად დაიხურება</translation>
+    </message>
+    <message>
+      <source>Chats waiting in pending queue more than n seconds should be auto-assigned first. Time in seconds</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Support application name, visible in browser title.</source>
@@ -1217,6 +1225,10 @@
     </message>
     <message>
       <source>Username</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nickname</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2816,6 +2828,98 @@
       <translation>კვალი</translation>
     </message>
     <message>
+      <source>Refresh</source>
+      <translation>განახლება</translation>
+    </message>
+    <message>
+      <source>Additional data</source>
+      <translation>დამატებითი მონაცემები</translation>
+    </message>
+    <message>
+      <source>Hidden field</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat duration</source>
+      <translation>ჩეთის ხანგრძლივობა</translation>
+    </message>
+    <message>
+      <source>Chat owner</source>
+      <translation>ჩეთის მფლობელი</translation>
+    </message>
+    <message>
+      <source>Chat between operators, chat initializer</source>
+      <translation>ჩეთი ოპერატორებს შორის, ჩეთის ინიციალიზატორი</translation>
+    </message>
+    <message>
+      <source>City</source>
+      <translation>ქალაქი</translation>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation>ქვეყანა</translation>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation>შექმნილი</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>დეპარტამენტი</translation>
+    </message>
+    <message>
+      <source>This is offline message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>ელ. ფოსტა</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>ტელეფონი</translation>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Page</source>
+      <translation>გვერდი</translation>
+    </message>
+    <message>
+      <source>Came from</source>
+      <translation>მოსული-დან</translation>
+    </message>
+    <message>
+      <source>Device</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Computer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Smartphone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tablet</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User left</source>
+      <translation>მომხმარებელი გავიდა</translation>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation>დროის სარტყელი</translation>
+    </message>
+    <message>
+      <source>Waited</source>
+      <translation>მომლოდინე</translation>
+    </message>
+    <message>
       <source>Visitor</source>
       <translation>ვიზიტორი</translation>
     </message>
@@ -2846,98 +2950,6 @@
     <message>
       <source>Operators chat</source>
       <translation>ოპერატორის ჩეთი</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>დეპარტამენტი</translation>
-    </message>
-    <message>
-      <source>This is offline message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Product</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Device</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Country</source>
-      <translation>ქვეყანა</translation>
-    </message>
-    <message>
-      <source>Time zone</source>
-      <translation>დროის სარტყელი</translation>
-    </message>
-    <message>
-      <source>City</source>
-      <translation>ქალაქი</translation>
-    </message>
-    <message>
-      <source>Page</source>
-      <translation>გვერდი</translation>
-    </message>
-    <message>
-      <source>Came from</source>
-      <translation>მოსული-დან</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>ელ. ფოსტა</translation>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>ტელეფონი</translation>
-    </message>
-    <message>
-      <source>Refresh</source>
-      <translation>განახლება</translation>
-    </message>
-    <message>
-      <source>Additional data</source>
-      <translation>დამატებითი მონაცემები</translation>
-    </message>
-    <message>
-      <source>Hidden field</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Created</source>
-      <translation>შექმნილი</translation>
-    </message>
-    <message>
-      <source>User left</source>
-      <translation>მომხმარებელი გავიდა</translation>
-    </message>
-    <message>
-      <source>Waited</source>
-      <translation>მომლოდინე</translation>
-    </message>
-    <message>
-      <source>Chat duration</source>
-      <translation>ჩეთის ხანგრძლივობა</translation>
-    </message>
-    <message>
-      <source>Chat between operators, chat initializer</source>
-      <translation>ჩეთი ოპერატორებს შორის, ჩეთის ინიციალიზატორი</translation>
-    </message>
-    <message>
-      <source>Chat owner</source>
-      <translation>ჩეთის მფლობელი</translation>
-    </message>
-    <message>
-      <source>Computer</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Smartphone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Tablet</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
@@ -3087,14 +3099,6 @@
       <translation>ბოლო აქტოვობა</translation>
     </message>
     <message>
-      <source>Redirect user to contact form.</source>
-      <translation>მომხმარებლის გადამისამართება საკონტაქტო ფორმაზე</translation>
-    </message>
-    <message>
-      <source>Are you sure?</source>
-      <translation>დარწმუნებული ხართ?</translation>
-    </message>
-    <message>
       <source>Empty...</source>
       <translation>ცარიელი</translation>
     </message>
@@ -3131,11 +3135,31 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Operator</source>
+      <source>Sort</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wait time</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Redirect user to contact form.</source>
+      <translation>მომხმარებლის გადამისამართება საკონტაქტო ფორმაზე</translation>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation>დარწმუნებული ხართ?</translation>
+    </message>
+    <message>
+      <source>Operator</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3160,18 +3184,6 @@
     </message>
     <message>
       <source>Sort by active chats number</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Sort</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Wait time</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Delete chat</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4829,12 +4841,12 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
-      <source>Empty...</source>
-      <translation>ცარიელი</translation>
-    </message>
-    <message>
       <source>Assigned operator</source>
       <translation>მიკუთვნებული ოპერატორები</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>ცარიელი</translation>
     </message>
     <message>
       <source>collapse/expand</source>
@@ -6163,6 +6175,10 @@
     <message>
       <source>Users</source>
       <translation>მომხმარებლები</translation>
+    </message>
+    <message>
+      <source>Username (Nickname)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>E-mail</source>

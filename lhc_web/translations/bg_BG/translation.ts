@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Колко дни след последното показване да не се показва приставката за гласуване?</translation>
     </message>
@@ -252,6 +256,10 @@
     <message>
       <source>Automatic chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
       <translation>Автоматично затваряне на чата, 0 - изключено, всяко число по-голямо от 0, минутите, след които чата автоматично се затваря</translation>
+    </message>
+    <message>
+      <source>Chats waiting in pending queue more than n seconds should be auto-assigned first. Time in seconds</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Support application name, visible in browser title.</source>
@@ -1218,6 +1226,10 @@
     <message>
       <source>Username</source>
       <translation>Потребителско име</translation>
+    </message>
+    <message>
+      <source>Nickname</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Surname</source>
@@ -2816,6 +2828,98 @@
       <translation>Стъпки</translation>
     </message>
     <message>
+      <source>Refresh</source>
+      <translation>Опресняване</translation>
+    </message>
+    <message>
+      <source>Additional data</source>
+      <translation>Допълнителни данни</translation>
+    </message>
+    <message>
+      <source>Hidden field</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat duration</source>
+      <translation>Продължителност на чата</translation>
+    </message>
+    <message>
+      <source>Chat owner</source>
+      <translation>Модератор на чата</translation>
+    </message>
+    <message>
+      <source>Chat between operators, chat initializer</source>
+      <translation>Чат между оператори, започнат</translation>
+    </message>
+    <message>
+      <source>City</source>
+      <translation>Град</translation>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation>Страна</translation>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation>Създаден</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Отдел</translation>
+    </message>
+    <message>
+      <source>This is offline message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>Е-поща</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Телефон</translation>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation>Продукт</translation>
+    </message>
+    <message>
+      <source>Page</source>
+      <translation>Страница</translation>
+    </message>
+    <message>
+      <source>Came from</source>
+      <translation>Идва от</translation>
+    </message>
+    <message>
+      <source>Device</source>
+      <translation>Устройство</translation>
+    </message>
+    <message>
+      <source>Computer</source>
+      <translation>Компютър</translation>
+    </message>
+    <message>
+      <source>Smartphone</source>
+      <translation>Смартфон</translation>
+    </message>
+    <message>
+      <source>Tablet</source>
+      <translation>Таблет</translation>
+    </message>
+    <message>
+      <source>User left</source>
+      <translation>Потребителят напусна</translation>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation>Часова зона</translation>
+    </message>
+    <message>
+      <source>Waited</source>
+      <translation>Изчакал</translation>
+    </message>
+    <message>
       <source>Visitor</source>
       <translation>Посетител</translation>
     </message>
@@ -2846,98 +2950,6 @@
     <message>
       <source>Operators chat</source>
       <translation>Чат оператори</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Отдел</translation>
-    </message>
-    <message>
-      <source>This is offline message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Product</source>
-      <translation>Продукт</translation>
-    </message>
-    <message>
-      <source>Device</source>
-      <translation>Устройство</translation>
-    </message>
-    <message>
-      <source>Country</source>
-      <translation>Страна</translation>
-    </message>
-    <message>
-      <source>Time zone</source>
-      <translation>Часова зона</translation>
-    </message>
-    <message>
-      <source>City</source>
-      <translation>Град</translation>
-    </message>
-    <message>
-      <source>Page</source>
-      <translation>Страница</translation>
-    </message>
-    <message>
-      <source>Came from</source>
-      <translation>Идва от</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>Е-поща</translation>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>Телефон</translation>
-    </message>
-    <message>
-      <source>Refresh</source>
-      <translation>Опресняване</translation>
-    </message>
-    <message>
-      <source>Additional data</source>
-      <translation>Допълнителни данни</translation>
-    </message>
-    <message>
-      <source>Hidden field</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Created</source>
-      <translation>Създаден</translation>
-    </message>
-    <message>
-      <source>User left</source>
-      <translation>Потребителят напусна</translation>
-    </message>
-    <message>
-      <source>Waited</source>
-      <translation>Изчакал</translation>
-    </message>
-    <message>
-      <source>Chat duration</source>
-      <translation>Продължителност на чата</translation>
-    </message>
-    <message>
-      <source>Chat between operators, chat initializer</source>
-      <translation>Чат между оператори, започнат</translation>
-    </message>
-    <message>
-      <source>Chat owner</source>
-      <translation>Модератор на чата</translation>
-    </message>
-    <message>
-      <source>Computer</source>
-      <translation>Компютър</translation>
-    </message>
-    <message>
-      <source>Smartphone</source>
-      <translation>Смартфон</translation>
-    </message>
-    <message>
-      <source>Tablet</source>
-      <translation>Таблет</translation>
     </message>
     <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
@@ -3087,14 +3099,6 @@
       <translation>Последни действия</translation>
     </message>
     <message>
-      <source>Redirect user to contact form.</source>
-      <translation>Прехвърли потребителя към формата за контакт.</translation>
-    </message>
-    <message>
-      <source>Are you sure?</source>
-      <translation>Сигурни ли сте?</translation>
-    </message>
-    <message>
       <source>Empty...</source>
       <translation>Празно...</translation>
     </message>
@@ -3131,12 +3135,32 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Operator</source>
-      <translation>Оператор</translation>
+      <source>Sort</source>
+      <translation>Подреждане</translation>
+    </message>
+    <message>
+      <source>Wait time</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Department</source>
       <translation>Отдел</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Redirect user to contact form.</source>
+      <translation>Прехвърли потребителя към формата за контакт.</translation>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation>Сигурни ли сте?</translation>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation>Оператор</translation>
     </message>
     <message>
       <source>Pending chats</source>
@@ -3160,18 +3184,6 @@
     </message>
     <message>
       <source>Sort by active chats number</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Sort</source>
-      <translation>Подреждане</translation>
-    </message>
-    <message>
-      <source>Wait time</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Delete chat</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4829,12 +4841,12 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
-      <source>Empty...</source>
-      <translation>Празно...</translation>
-    </message>
-    <message>
       <source>Assigned operator</source>
       <translation>Прикачен оператор</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Празно...</translation>
     </message>
     <message>
       <source>collapse/expand</source>
@@ -6163,6 +6175,10 @@
     <message>
       <source>Users</source>
       <translation>Потребители</translation>
+    </message>
+    <message>
+      <source>Username (Nickname)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>E-mail</source>

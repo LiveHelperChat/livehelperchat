@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -251,6 +255,10 @@
     </message>
     <message>
       <source>Automatic chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats waiting in pending queue more than n seconds should be auto-assigned first. Time in seconds</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1217,6 +1225,10 @@
     </message>
     <message>
       <source>Username</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nickname</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2816,6 +2828,98 @@
       <translation>Footprint</translation>
     </message>
     <message>
+      <source>Refresh</source>
+      <translation>Osvježi</translation>
+    </message>
+    <message>
+      <source>Additional data</source>
+      <translation>Dodatni podaci</translation>
+    </message>
+    <message>
+      <source>Hidden field</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat duration</source>
+      <translation>Trajanje razgovora</translation>
+    </message>
+    <message>
+      <source>Chat owner</source>
+      <translation>Vlasnik razgovora</translation>
+    </message>
+    <message>
+      <source>Chat between operators, chat initializer</source>
+      <translation>Razgovor među operaterima, inicijator razgovora</translation>
+    </message>
+    <message>
+      <source>City</source>
+      <translation>Grad</translation>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation>Država</translation>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation>Kreiran</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Odjel</translation>
+    </message>
+    <message>
+      <source>This is offline message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Telefon</translation>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Page</source>
+      <translation>Stranica</translation>
+    </message>
+    <message>
+      <source>Came from</source>
+      <translation>Stigao od</translation>
+    </message>
+    <message>
+      <source>Device</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Computer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Smartphone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tablet</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User left</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Waited</source>
+      <translation>Čekao</translation>
+    </message>
+    <message>
       <source>Visitor</source>
       <translation>Posjetitelj</translation>
     </message>
@@ -2846,98 +2950,6 @@
     <message>
       <source>Operators chat</source>
       <translation>Razgovor za operatere</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Odjel</translation>
-    </message>
-    <message>
-      <source>This is offline message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Product</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Device</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Country</source>
-      <translation>Država</translation>
-    </message>
-    <message>
-      <source>Time zone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>City</source>
-      <translation>Grad</translation>
-    </message>
-    <message>
-      <source>Page</source>
-      <translation>Stranica</translation>
-    </message>
-    <message>
-      <source>Came from</source>
-      <translation>Stigao od</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-mail</translation>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>Telefon</translation>
-    </message>
-    <message>
-      <source>Refresh</source>
-      <translation>Osvježi</translation>
-    </message>
-    <message>
-      <source>Additional data</source>
-      <translation>Dodatni podaci</translation>
-    </message>
-    <message>
-      <source>Hidden field</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Created</source>
-      <translation>Kreiran</translation>
-    </message>
-    <message>
-      <source>User left</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Waited</source>
-      <translation>Čekao</translation>
-    </message>
-    <message>
-      <source>Chat duration</source>
-      <translation>Trajanje razgovora</translation>
-    </message>
-    <message>
-      <source>Chat between operators, chat initializer</source>
-      <translation>Razgovor među operaterima, inicijator razgovora</translation>
-    </message>
-    <message>
-      <source>Chat owner</source>
-      <translation>Vlasnik razgovora</translation>
-    </message>
-    <message>
-      <source>Computer</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Smartphone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Tablet</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
@@ -3087,14 +3099,6 @@
       <translation>Zadnja aktivnost</translation>
     </message>
     <message>
-      <source>Redirect user to contact form.</source>
-      <translation>Preusmjeri korisnika na obrazac za kontakt.</translation>
-    </message>
-    <message>
-      <source>Are you sure?</source>
-      <translation>Jeste li sigurni?</translation>
-    </message>
-    <message>
       <source>Empty...</source>
       <translation>Prazno...</translation>
     </message>
@@ -3131,12 +3135,32 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Operator</source>
-      <translation>Ime operatera</translation>
+      <source>Sort</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wait time</source>
+      <translation>Čekao</translation>
     </message>
     <message>
       <source>Department</source>
       <translation>Odjel</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Obriši razgovor</translation>
+    </message>
+    <message>
+      <source>Redirect user to contact form.</source>
+      <translation>Preusmjeri korisnika na obrazac za kontakt.</translation>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation>Jeste li sigurni?</translation>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation>Ime operatera</translation>
     </message>
     <message>
       <source>Pending chats</source>
@@ -3161,18 +3185,6 @@
     <message>
       <source>Sort by active chats number</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Sort</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Wait time</source>
-      <translation>Čekao</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>Obriši razgovor</translation>
     </message>
     <message>
       <source>Created</source>
@@ -4829,12 +4841,12 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
-      <source>Empty...</source>
-      <translation>Prazno...</translation>
-    </message>
-    <message>
       <source>Assigned operator</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Prazno...</translation>
     </message>
     <message>
       <source>collapse/expand</source>
@@ -6163,6 +6175,10 @@
     <message>
       <source>Users</source>
       <translation>Korisnici</translation>
+    </message>
+    <message>
+      <source>Username (Nickname)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>E-mail</source>

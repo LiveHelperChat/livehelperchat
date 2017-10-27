@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Nombre de jours avant que le widget de vote ne soit ré-affiché</translation>
     </message>
@@ -252,6 +256,10 @@
     <message>
       <source>Automatic chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
       <translation>Fermeture automatique des chats. 0 - Désactivée, n &gt; 0 temps en minutes avant que le chat soit fermé automatiquement</translation>
+    </message>
+    <message>
+      <source>Chats waiting in pending queue more than n seconds should be auto-assigned first. Time in seconds</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Support application name, visible in browser title.</source>
@@ -1218,6 +1226,10 @@
     <message>
       <source>Username</source>
       <translation>Nom d&apos;utilisateur</translation>
+    </message>
+    <message>
+      <source>Nickname</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Surname</source>
@@ -2816,6 +2828,98 @@
       <translation>Empreinte</translation>
     </message>
     <message>
+      <source>Refresh</source>
+      <translation>Rafraîchir</translation>
+    </message>
+    <message>
+      <source>Additional data</source>
+      <translation>Données supplémentaires</translation>
+    </message>
+    <message>
+      <source>Hidden field</source>
+      <translation>Champs caché</translation>
+    </message>
+    <message>
+      <source>Chat duration</source>
+      <translation>Durée du chat</translation>
+    </message>
+    <message>
+      <source>Chat owner</source>
+      <translation>Propriétaire du chat</translation>
+    </message>
+    <message>
+      <source>Chat between operators, chat initializer</source>
+      <translation>Chats entre opérateurs (initiateur)</translation>
+    </message>
+    <message>
+      <source>City</source>
+      <translation>Ville</translation>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation>Pays</translation>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation>Créé</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Département</translation>
+    </message>
+    <message>
+      <source>This is offline message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>Courriel</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Téléphone</translation>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation>Produit</translation>
+    </message>
+    <message>
+      <source>Page</source>
+      <translation>Page</translation>
+    </message>
+    <message>
+      <source>Came from</source>
+      <translation>Envoyé par</translation>
+    </message>
+    <message>
+      <source>Device</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Computer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Smartphone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tablet</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User left</source>
+      <translation>L&apos;utilisateur a quitté</translation>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation>Fuseau horaire</translation>
+    </message>
+    <message>
+      <source>Waited</source>
+      <translation>En attente</translation>
+    </message>
+    <message>
       <source>Visitor</source>
       <translation>Visiteur</translation>
     </message>
@@ -2846,98 +2950,6 @@
     <message>
       <source>Operators chat</source>
       <translation>Chat des opérateurs</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Département</translation>
-    </message>
-    <message>
-      <source>This is offline message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Product</source>
-      <translation>Produit</translation>
-    </message>
-    <message>
-      <source>Device</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Country</source>
-      <translation>Pays</translation>
-    </message>
-    <message>
-      <source>Time zone</source>
-      <translation>Fuseau horaire</translation>
-    </message>
-    <message>
-      <source>City</source>
-      <translation>Ville</translation>
-    </message>
-    <message>
-      <source>Page</source>
-      <translation>Page</translation>
-    </message>
-    <message>
-      <source>Came from</source>
-      <translation>Envoyé par</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>Courriel</translation>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>Téléphone</translation>
-    </message>
-    <message>
-      <source>Refresh</source>
-      <translation>Rafraîchir</translation>
-    </message>
-    <message>
-      <source>Additional data</source>
-      <translation>Données supplémentaires</translation>
-    </message>
-    <message>
-      <source>Hidden field</source>
-      <translation>Champs caché</translation>
-    </message>
-    <message>
-      <source>Created</source>
-      <translation>Créé</translation>
-    </message>
-    <message>
-      <source>User left</source>
-      <translation>L&apos;utilisateur a quitté</translation>
-    </message>
-    <message>
-      <source>Waited</source>
-      <translation>En attente</translation>
-    </message>
-    <message>
-      <source>Chat duration</source>
-      <translation>Durée du chat</translation>
-    </message>
-    <message>
-      <source>Chat between operators, chat initializer</source>
-      <translation>Chats entre opérateurs (initiateur)</translation>
-    </message>
-    <message>
-      <source>Chat owner</source>
-      <translation>Propriétaire du chat</translation>
-    </message>
-    <message>
-      <source>Computer</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Smartphone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Tablet</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
@@ -3087,14 +3099,6 @@
       <translation>Dernière activité</translation>
     </message>
     <message>
-      <source>Redirect user to contact form.</source>
-      <translation>Redirigez l&apos;utilisateur vers le formulaire de contact.</translation>
-    </message>
-    <message>
-      <source>Are you sure?</source>
-      <translation>Etes vous sûr ?</translation>
-    </message>
-    <message>
       <source>Empty...</source>
       <translation>Vide...</translation>
     </message>
@@ -3131,12 +3135,32 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Operator</source>
-      <translation>Opérateur</translation>
+      <source>Sort</source>
+      <translation>Trier</translation>
+    </message>
+    <message>
+      <source>Wait time</source>
+      <translation>Temps d&apos;attente</translation>
     </message>
     <message>
       <source>Department</source>
       <translation>Département</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Supprimer le Chat</translation>
+    </message>
+    <message>
+      <source>Redirect user to contact form.</source>
+      <translation>Redirigez l&apos;utilisateur vers le formulaire de contact.</translation>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation>Etes vous sûr ?</translation>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation>Opérateur</translation>
     </message>
     <message>
       <source>Pending chats</source>
@@ -3161,18 +3185,6 @@
     <message>
       <source>Sort by active chats number</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Sort</source>
-      <translation>Trier</translation>
-    </message>
-    <message>
-      <source>Wait time</source>
-      <translation>Temps d&apos;attente</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>Supprimer le Chat</translation>
     </message>
     <message>
       <source>Created</source>
@@ -4829,12 +4841,12 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
-      <source>Empty...</source>
-      <translation>Vide...</translation>
-    </message>
-    <message>
       <source>Assigned operator</source>
       <translation>Opérateur assigné</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Vide...</translation>
     </message>
     <message>
       <source>collapse/expand</source>
@@ -6163,6 +6175,10 @@
     <message>
       <source>Users</source>
       <translation>Utilisateurs</translation>
+    </message>
+    <message>
+      <source>Username (Nickname)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>E-mail</source>

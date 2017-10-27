@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -251,6 +255,10 @@
     </message>
     <message>
       <source>Automatic chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats waiting in pending queue more than n seconds should be auto-assigned first. Time in seconds</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1217,6 +1225,10 @@
     </message>
     <message>
       <source>Username</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nickname</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2817,6 +2829,98 @@
       <translation>Gjurme</translation>
     </message>
     <message>
+      <source>Refresh</source>
+      <translation>Rifresko</translation>
+    </message>
+    <message>
+      <source>Additional data</source>
+      <translation>Te dhena te tjera</translation>
+    </message>
+    <message>
+      <source>Hidden field</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat duration</source>
+      <translation>Kohezgjatja e bisedes</translation>
+    </message>
+    <message>
+      <source>Chat owner</source>
+      <translation>Pronari i chatit</translation>
+    </message>
+    <message>
+      <source>Chat between operators, chat initializer</source>
+      <translation>Chat midis operatoreve</translation>
+    </message>
+    <message>
+      <source>City</source>
+      <translation>Qytet</translation>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation>Shtet</translation>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation>Krijuar</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Departament</translation>
+    </message>
+    <message>
+      <source>This is offline message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Telefon</translation>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Page</source>
+      <translation>Faqe</translation>
+    </message>
+    <message>
+      <source>Came from</source>
+      <translation>Erdhi nga</translation>
+    </message>
+    <message>
+      <source>Device</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Computer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Smartphone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tablet</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User left</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation>Zona kohore</translation>
+    </message>
+    <message>
+      <source>Waited</source>
+      <translation>Ne pritje</translation>
+    </message>
+    <message>
       <source>Visitor</source>
       <translation>Vizitor</translation>
     </message>
@@ -2847,98 +2951,6 @@
     <message>
       <source>Operators chat</source>
       <translation>Chati i operatoreve</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Departament</translation>
-    </message>
-    <message>
-      <source>This is offline message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Product</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Device</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Country</source>
-      <translation>Shtet</translation>
-    </message>
-    <message>
-      <source>Time zone</source>
-      <translation>Zona kohore</translation>
-    </message>
-    <message>
-      <source>City</source>
-      <translation>Qytet</translation>
-    </message>
-    <message>
-      <source>Page</source>
-      <translation>Faqe</translation>
-    </message>
-    <message>
-      <source>Came from</source>
-      <translation>Erdhi nga</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-mail</translation>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>Telefon</translation>
-    </message>
-    <message>
-      <source>Refresh</source>
-      <translation>Rifresko</translation>
-    </message>
-    <message>
-      <source>Additional data</source>
-      <translation>Te dhena te tjera</translation>
-    </message>
-    <message>
-      <source>Hidden field</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Created</source>
-      <translation>Krijuar</translation>
-    </message>
-    <message>
-      <source>User left</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Waited</source>
-      <translation>Ne pritje</translation>
-    </message>
-    <message>
-      <source>Chat duration</source>
-      <translation>Kohezgjatja e bisedes</translation>
-    </message>
-    <message>
-      <source>Chat between operators, chat initializer</source>
-      <translation>Chat midis operatoreve</translation>
-    </message>
-    <message>
-      <source>Chat owner</source>
-      <translation>Pronari i chatit</translation>
-    </message>
-    <message>
-      <source>Computer</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Smartphone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Tablet</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
@@ -3088,14 +3100,6 @@
       <translation>Aktiviteti i fundit</translation>
     </message>
     <message>
-      <source>Redirect user to contact form.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Are you sure?</source>
-      <translation>A je i sigurt?</translation>
-    </message>
-    <message>
       <source>Empty...</source>
       <translation>Bosh...</translation>
     </message>
@@ -3132,11 +3136,31 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Operator</source>
+      <source>Sort</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wait time</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Redirect user to contact form.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation>A je i sigurt?</translation>
+    </message>
+    <message>
+      <source>Operator</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3161,18 +3185,6 @@
     </message>
     <message>
       <source>Sort by active chats number</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Sort</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Wait time</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Delete chat</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4830,12 +4842,12 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
-      <source>Empty...</source>
-      <translation>Bosh...</translation>
-    </message>
-    <message>
       <source>Assigned operator</source>
       <translation>Operator i caktuar</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Bosh...</translation>
     </message>
     <message>
       <source>collapse/expand</source>
@@ -6164,6 +6176,10 @@
     <message>
       <source>Users</source>
       <translation>Perdoruesit</translation>
+    </message>
+    <message>
+      <source>Username (Nickname)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>E-mail</source>

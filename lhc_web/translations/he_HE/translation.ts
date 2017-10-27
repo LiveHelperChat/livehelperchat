@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>כמה ימים אשף ההצבעה לא יוצג אחרי מופע אחרון?</translation>
     </message>
@@ -252,6 +256,10 @@
     <message>
       <source>Automatic chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
       <translation>סגירת צ&apos;אט אוטומטית. 0 - מנוטרל. מספר גדול מאפס בדקות לפני שהצ&apos;אט יסגר אוטומטית</translation>
+    </message>
+    <message>
+      <source>Chats waiting in pending queue more than n seconds should be auto-assigned first. Time in seconds</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Support application name, visible in browser title.</source>
@@ -1217,6 +1225,10 @@
     </message>
     <message>
       <source>Username</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nickname</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2816,6 +2828,98 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Refresh</source>
+      <translation>רענון</translation>
+    </message>
+    <message>
+      <source>Additional data</source>
+      <translation>מידע נוסף</translation>
+    </message>
+    <message>
+      <source>Hidden field</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat duration</source>
+      <translation>משך השיחה</translation>
+    </message>
+    <message>
+      <source>Chat owner</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat between operators, chat initializer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>City</source>
+      <translation>עיר</translation>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation>מדינה</translation>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation>נוצר</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>מחלקה</translation>
+    </message>
+    <message>
+      <source>This is offline message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>דוא&quot;ל</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>טלפון</translation>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation>מוצר</translation>
+    </message>
+    <message>
+      <source>Page</source>
+      <translation>דף</translation>
+    </message>
+    <message>
+      <source>Came from</source>
+      <translation>הגיע מ</translation>
+    </message>
+    <message>
+      <source>Device</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Computer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Smartphone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tablet</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User left</source>
+      <translation>משתמש עזב</translation>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation>אזור זמן</translation>
+    </message>
+    <message>
+      <source>Waited</source>
+      <translation>המתין</translation>
+    </message>
+    <message>
       <source>Visitor</source>
       <translation>מבקר</translation>
     </message>
@@ -2846,98 +2950,6 @@
     <message>
       <source>Operators chat</source>
       <translation>צ&apos;אא עם מפעיל</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>מחלקה</translation>
-    </message>
-    <message>
-      <source>This is offline message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Product</source>
-      <translation>מוצר</translation>
-    </message>
-    <message>
-      <source>Device</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Country</source>
-      <translation>מדינה</translation>
-    </message>
-    <message>
-      <source>Time zone</source>
-      <translation>אזור זמן</translation>
-    </message>
-    <message>
-      <source>City</source>
-      <translation>עיר</translation>
-    </message>
-    <message>
-      <source>Page</source>
-      <translation>דף</translation>
-    </message>
-    <message>
-      <source>Came from</source>
-      <translation>הגיע מ</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>דוא&quot;ל</translation>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>טלפון</translation>
-    </message>
-    <message>
-      <source>Refresh</source>
-      <translation>רענון</translation>
-    </message>
-    <message>
-      <source>Additional data</source>
-      <translation>מידע נוסף</translation>
-    </message>
-    <message>
-      <source>Hidden field</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Created</source>
-      <translation>נוצר</translation>
-    </message>
-    <message>
-      <source>User left</source>
-      <translation>משתמש עזב</translation>
-    </message>
-    <message>
-      <source>Waited</source>
-      <translation>המתין</translation>
-    </message>
-    <message>
-      <source>Chat duration</source>
-      <translation>משך השיחה</translation>
-    </message>
-    <message>
-      <source>Chat between operators, chat initializer</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat owner</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Computer</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Smartphone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Tablet</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
@@ -3087,14 +3099,6 @@
       <translation>פעילות אחרונה</translation>
     </message>
     <message>
-      <source>Redirect user to contact form.</source>
-      <translation>מפנה את המשתמש לטופס יצירת קשר</translation>
-    </message>
-    <message>
-      <source>Are you sure?</source>
-      <translation>האם אתה בטוח?</translation>
-    </message>
-    <message>
       <source>Empty...</source>
       <translation>ריק...</translation>
     </message>
@@ -3131,12 +3135,32 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Operator</source>
-      <translation>מפעיל</translation>
+      <source>Sort</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wait time</source>
+      <translation>זמן המתנה</translation>
     </message>
     <message>
       <source>Department</source>
       <translation>מחלקה</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Redirect user to contact form.</source>
+      <translation>מפנה את המשתמש לטופס יצירת קשר</translation>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation>האם אתה בטוח?</translation>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation>מפעיל</translation>
     </message>
     <message>
       <source>Pending chats</source>
@@ -3160,18 +3184,6 @@
     </message>
     <message>
       <source>Sort by active chats number</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Sort</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Wait time</source>
-      <translation>זמן המתנה</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4829,12 +4841,12 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
-      <source>Empty...</source>
-      <translation>ריק...</translation>
-    </message>
-    <message>
       <source>Assigned operator</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>ריק...</translation>
     </message>
     <message>
       <source>collapse/expand</source>
@@ -6163,6 +6175,10 @@
     <message>
       <source>Users</source>
       <translation>משתמשים</translation>
+    </message>
+    <message>
+      <source>Username (Nickname)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>E-mail</source>

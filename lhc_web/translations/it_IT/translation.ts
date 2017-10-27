@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Per quanti giorni il widget di voto non deve essere mostrato dopo l&apos;ultima visualizzazione</translation>
     </message>
@@ -254,6 +258,10 @@
       <translation>Chiusura automatica chat. 0 - disabilitato, n &gt; 0 tempo in minuti prima che la chat sia chiusa automaticamente</translation>
     </message>
     <message>
+      <source>Chats waiting in pending queue more than n seconds should be auto-assigned first. Time in seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Support application name, visible in browser title.</source>
       <translation>Nome dell&apos;applicazione di supporto, visibile nel titolo del browser.</translation>
     </message>
@@ -371,7 +379,7 @@
     <name>abstract/widgettheme</name>
     <message>
       <source>Pending chat messaging</source>
-      <translation>MEssaggi chat in attesa</translation>
+      <translation>Messaggi chat in attesa</translation>
     </message>
     <message>
       <source>Not replying messaging</source>
@@ -1221,6 +1229,10 @@
       <translation>Username</translation>
     </message>
     <message>
+      <source>Nickname</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Surname</source>
       <translation>Cognome</translation>
     </message>
@@ -1950,7 +1962,7 @@
     </message>
     <message>
       <source>You have closed this chat!</source>
-      <translation>Hai chiuso questa chat !</translation>
+      <translation>Hai chiuso questa chat!</translation>
     </message>
     <message>
       <source>You have been redirected to survey!</source>
@@ -2468,7 +2480,7 @@
     </message>
     <message>
       <source>Chat was deleted</source>
-      <translation>La chat è stata cancellata.</translation>
+      <translation>La chat è stata cancellata</translation>
     </message>
     <message>
       <source>Survey not exist please check embed code options</source>
@@ -2703,7 +2715,7 @@
     </message>
     <message>
       <source>Could not decrypt data!</source>
-      <translation>Impossibile decrittare i dati</translation>
+      <translation>Impossibile decrittare i dati!</translation>
     </message>
     <message>
       <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
@@ -2817,6 +2829,98 @@
       <translation>Info aggiuntive</translation>
     </message>
     <message>
+      <source>Refresh</source>
+      <translation>Aggiorna</translation>
+    </message>
+    <message>
+      <source>Additional data</source>
+      <translation>Dati aggiuntivi</translation>
+    </message>
+    <message>
+      <source>Hidden field</source>
+      <translation>Campo nascosto</translation>
+    </message>
+    <message>
+      <source>Chat duration</source>
+      <translation>Durata chat</translation>
+    </message>
+    <message>
+      <source>Chat owner</source>
+      <translation>Chat proprietario</translation>
+    </message>
+    <message>
+      <source>Chat between operators, chat initializer</source>
+      <translation>Chat fra operatori, avvio chat</translation>
+    </message>
+    <message>
+      <source>City</source>
+      <translation>Città</translation>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation>Nazione</translation>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation>Creata</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Dipartimenti</translation>
+    </message>
+    <message>
+      <source>This is offline message</source>
+      <translation>Questo è un messaggio inviato offline</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-Mail</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Telefono</translation>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation>Prodotto</translation>
+    </message>
+    <message>
+      <source>Page</source>
+      <translation>Pagina</translation>
+    </message>
+    <message>
+      <source>Came from</source>
+      <translation>Proviene da</translation>
+    </message>
+    <message>
+      <source>Device</source>
+      <translation>Dispositivo</translation>
+    </message>
+    <message>
+      <source>Computer</source>
+      <translation>Computer</translation>
+    </message>
+    <message>
+      <source>Smartphone</source>
+      <translation>Smartphone</translation>
+    </message>
+    <message>
+      <source>Tablet</source>
+      <translation>Tablet</translation>
+    </message>
+    <message>
+      <source>User left</source>
+      <translation>Utente uscito</translation>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation>Fuso orario</translation>
+    </message>
+    <message>
+      <source>Waited</source>
+      <translation>In attesa</translation>
+    </message>
+    <message>
       <source>Visitor</source>
       <translation>Visitatore</translation>
     </message>
@@ -2847,98 +2951,6 @@
     <message>
       <source>Operators chat</source>
       <translation>Chat operatore</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Dipartimenti</translation>
-    </message>
-    <message>
-      <source>This is offline message</source>
-      <translation>Questo è un messaggio inviato offline</translation>
-    </message>
-    <message>
-      <source>Product</source>
-      <translation>Prodotto</translation>
-    </message>
-    <message>
-      <source>Device</source>
-      <translation>Dispositivo</translation>
-    </message>
-    <message>
-      <source>Country</source>
-      <translation>Nazione</translation>
-    </message>
-    <message>
-      <source>Time zone</source>
-      <translation>Fuso orario</translation>
-    </message>
-    <message>
-      <source>City</source>
-      <translation>Città</translation>
-    </message>
-    <message>
-      <source>Page</source>
-      <translation>Pagina</translation>
-    </message>
-    <message>
-      <source>Came from</source>
-      <translation>Proviene da</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-Mail</translation>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>Telefono</translation>
-    </message>
-    <message>
-      <source>Refresh</source>
-      <translation>Aggiorna</translation>
-    </message>
-    <message>
-      <source>Additional data</source>
-      <translation>Dati aggiuntivi</translation>
-    </message>
-    <message>
-      <source>Hidden field</source>
-      <translation>Campo nascosto</translation>
-    </message>
-    <message>
-      <source>Created</source>
-      <translation>Creata</translation>
-    </message>
-    <message>
-      <source>User left</source>
-      <translation>Utente uscito</translation>
-    </message>
-    <message>
-      <source>Waited</source>
-      <translation>In attesa</translation>
-    </message>
-    <message>
-      <source>Chat duration</source>
-      <translation>Durata chat</translation>
-    </message>
-    <message>
-      <source>Chat between operators, chat initializer</source>
-      <translation>Chat fra operatori, avvio chat</translation>
-    </message>
-    <message>
-      <source>Chat owner</source>
-      <translation>Chat proprietario</translation>
-    </message>
-    <message>
-      <source>Computer</source>
-      <translation>Computer</translation>
-    </message>
-    <message>
-      <source>Smartphone</source>
-      <translation>Smartphone</translation>
-    </message>
-    <message>
-      <source>Tablet</source>
-      <translation>Tablet</translation>
     </message>
     <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
@@ -3088,14 +3100,6 @@
       <translation>Ultima attività</translation>
     </message>
     <message>
-      <source>Redirect user to contact form.</source>
-      <translation>Reindirizzare l&apos;utente al modulo di contatto.</translation>
-    </message>
-    <message>
-      <source>Are you sure?</source>
-      <translation>Siete sicuri?</translation>
-    </message>
-    <message>
       <source>Empty...</source>
       <translation>Vuoto...</translation>
     </message>
@@ -3132,12 +3136,32 @@
       <translation>Ordina per reparto</translation>
     </message>
     <message>
-      <source>Operator</source>
-      <translation>Operatore</translation>
+      <source>Sort</source>
+      <translation>Ordinare</translation>
+    </message>
+    <message>
+      <source>Wait time</source>
+      <translation>Tempo di attesa</translation>
     </message>
     <message>
       <source>Department</source>
       <translation>Dipartimento</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Eliminare chat</translation>
+    </message>
+    <message>
+      <source>Redirect user to contact form.</source>
+      <translation>Reindirizzare l&apos;utente al modulo di contatto.</translation>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation>Siete sicuri?</translation>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation>Operatore</translation>
     </message>
     <message>
       <source>Pending chats</source>
@@ -3162,18 +3186,6 @@
     <message>
       <source>Sort by active chats number</source>
       <translation>Ordina per numero di chat attive</translation>
-    </message>
-    <message>
-      <source>Sort</source>
-      <translation>Ordinare</translation>
-    </message>
-    <message>
-      <source>Wait time</source>
-      <translation>Tempo di attesa</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>Eliminare chat</translation>
     </message>
     <message>
       <source>Created</source>
@@ -3319,7 +3331,7 @@
     </message>
     <message>
       <source>Drop your files here.</source>
-      <translation>Trascina i tuoi files qui</translation>
+      <translation>Trascina i tuoi files qui.</translation>
     </message>
     <message>
       <source>Not an accepted file type</source>
@@ -4830,12 +4842,12 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
-      <source>Empty...</source>
-      <translation>Vuoto...</translation>
-    </message>
-    <message>
       <source>Assigned operator</source>
       <translation>Operatore assegnato</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Vuoto...</translation>
     </message>
     <message>
       <source>collapse/expand</source>
@@ -6164,6 +6176,10 @@
     <message>
       <source>Users</source>
       <translation>Utenti</translation>
+    </message>
+    <message>
+      <source>Username (Nickname)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>E-mail</source>

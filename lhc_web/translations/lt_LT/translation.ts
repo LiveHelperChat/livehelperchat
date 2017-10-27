@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Kiek dienų balsavimo widgetas neturėtų būti išskleistas po paskutinio parodymo</translation>
     </message>
@@ -252,6 +256,10 @@
     <message>
       <source>Automatic chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
       <translation>Automatinis pokalbių uždarymas. 0 - išjungtas, n &gt; 0 laikas minutėmis prieštai, kol pokalbis būna automatiškai uždarytas.</translation>
+    </message>
+    <message>
+      <source>Chats waiting in pending queue more than n seconds should be auto-assigned first. Time in seconds</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Support application name, visible in browser title.</source>
@@ -1218,6 +1226,10 @@
     <message>
       <source>Username</source>
       <translation>Vartotojo vardas</translation>
+    </message>
+    <message>
+      <source>Nickname</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Surname</source>
@@ -2816,6 +2828,98 @@
       <translation>Naršymo istorija</translation>
     </message>
     <message>
+      <source>Refresh</source>
+      <translation>Atnaujinti</translation>
+    </message>
+    <message>
+      <source>Additional data</source>
+      <translation>Papildomi duomenys</translation>
+    </message>
+    <message>
+      <source>Hidden field</source>
+      <translation>Paslėptas laukas</translation>
+    </message>
+    <message>
+      <source>Chat duration</source>
+      <translation>Pokalbio trukmė</translation>
+    </message>
+    <message>
+      <source>Chat owner</source>
+      <translation>Pokalbio sąvininkas</translation>
+    </message>
+    <message>
+      <source>Chat between operators, chat initializer</source>
+      <translation>Pokalbis tarp operatorių, pokalbio iniciatorius</translation>
+    </message>
+    <message>
+      <source>City</source>
+      <translation>Miestas</translation>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation>Šalis</translation>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation>Sukurtas</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Departamentas</translation>
+    </message>
+    <message>
+      <source>This is offline message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>El. paštas</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Telefonas</translation>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Page</source>
+      <translation>Puslapis</translation>
+    </message>
+    <message>
+      <source>Came from</source>
+      <translation>Atėjo iš</translation>
+    </message>
+    <message>
+      <source>Device</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Computer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Smartphone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tablet</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User left</source>
+      <translation>Vartotojas paliko</translation>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation>Laiko zona</translation>
+    </message>
+    <message>
+      <source>Waited</source>
+      <translation>Laukta</translation>
+    </message>
+    <message>
       <source>Visitor</source>
       <translation>Lankytojas</translation>
     </message>
@@ -2846,98 +2950,6 @@
     <message>
       <source>Operators chat</source>
       <translation>Operatorių pokalbis</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Departamentas</translation>
-    </message>
-    <message>
-      <source>This is offline message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Product</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Device</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Country</source>
-      <translation>Šalis</translation>
-    </message>
-    <message>
-      <source>Time zone</source>
-      <translation>Laiko zona</translation>
-    </message>
-    <message>
-      <source>City</source>
-      <translation>Miestas</translation>
-    </message>
-    <message>
-      <source>Page</source>
-      <translation>Puslapis</translation>
-    </message>
-    <message>
-      <source>Came from</source>
-      <translation>Atėjo iš</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>El. paštas</translation>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>Telefonas</translation>
-    </message>
-    <message>
-      <source>Refresh</source>
-      <translation>Atnaujinti</translation>
-    </message>
-    <message>
-      <source>Additional data</source>
-      <translation>Papildomi duomenys</translation>
-    </message>
-    <message>
-      <source>Hidden field</source>
-      <translation>Paslėptas laukas</translation>
-    </message>
-    <message>
-      <source>Created</source>
-      <translation>Sukurtas</translation>
-    </message>
-    <message>
-      <source>User left</source>
-      <translation>Vartotojas paliko</translation>
-    </message>
-    <message>
-      <source>Waited</source>
-      <translation>Laukta</translation>
-    </message>
-    <message>
-      <source>Chat duration</source>
-      <translation>Pokalbio trukmė</translation>
-    </message>
-    <message>
-      <source>Chat between operators, chat initializer</source>
-      <translation>Pokalbis tarp operatorių, pokalbio iniciatorius</translation>
-    </message>
-    <message>
-      <source>Chat owner</source>
-      <translation>Pokalbio sąvininkas</translation>
-    </message>
-    <message>
-      <source>Computer</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Smartphone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Tablet</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
@@ -3087,14 +3099,6 @@
       <translation>Paskutinis aktyvumas</translation>
     </message>
     <message>
-      <source>Redirect user to contact form.</source>
-      <translation>Nukreipti vartotoją į kontaktų formą</translation>
-    </message>
-    <message>
-      <source>Are you sure?</source>
-      <translation>Ar esate tuo tikri?</translation>
-    </message>
-    <message>
       <source>Empty...</source>
       <translation>Tuščia...</translation>
     </message>
@@ -3131,12 +3135,32 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Operator</source>
-      <translation>Operatorius</translation>
+      <source>Sort</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wait time</source>
+      <translation>Laukimo laikas</translation>
     </message>
     <message>
       <source>Department</source>
       <translation>Departamentas</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Trinti pokalbį</translation>
+    </message>
+    <message>
+      <source>Redirect user to contact form.</source>
+      <translation>Nukreipti vartotoją į kontaktų formą</translation>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation>Ar esate tuo tikri?</translation>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation>Operatorius</translation>
     </message>
     <message>
       <source>Pending chats</source>
@@ -3161,18 +3185,6 @@
     <message>
       <source>Sort by active chats number</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Sort</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Wait time</source>
-      <translation>Laukimo laikas</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>Trinti pokalbį</translation>
     </message>
     <message>
       <source>Created</source>
@@ -4829,12 +4841,12 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
-      <source>Empty...</source>
-      <translation>Tuščia...</translation>
-    </message>
-    <message>
       <source>Assigned operator</source>
       <translation>Priskirtas operatorius</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Tuščia...</translation>
     </message>
     <message>
       <source>collapse/expand</source>
@@ -6163,6 +6175,10 @@
     <message>
       <source>Users</source>
       <translation>Vartotojai</translation>
+    </message>
+    <message>
+      <source>Username (Nickname)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>E-mail</source>

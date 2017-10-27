@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Kuinka monta päivää edellisen äänestyksen jälkeen äänestys-widgetti pidetään piilossa</translation>
     </message>
@@ -252,6 +256,10 @@
     <message>
       <source>Automatic chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
       <translation>Automaattinen keskustelujen sulkeminen. 0 - ei sulkemista, n &gt; 0 aika minuuteissa kunnes keskustelu suljetaan</translation>
+    </message>
+    <message>
+      <source>Chats waiting in pending queue more than n seconds should be auto-assigned first. Time in seconds</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Support application name, visible in browser title.</source>
@@ -1218,6 +1226,10 @@
     <message>
       <source>Username</source>
       <translation>Käyttäjätunnus</translation>
+    </message>
+    <message>
+      <source>Nickname</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Surname</source>
@@ -2816,6 +2828,98 @@
       <translation>Jalanjälki</translation>
     </message>
     <message>
+      <source>Refresh</source>
+      <translation>Päivitä</translation>
+    </message>
+    <message>
+      <source>Additional data</source>
+      <translation>Lisätiedot</translation>
+    </message>
+    <message>
+      <source>Hidden field</source>
+      <translation>Piilotettu kenttä</translation>
+    </message>
+    <message>
+      <source>Chat duration</source>
+      <translation>Keskustelun kesto</translation>
+    </message>
+    <message>
+      <source>Chat owner</source>
+      <translation>Keskustelun omistaja</translation>
+    </message>
+    <message>
+      <source>Chat between operators, chat initializer</source>
+      <translation>Keskustele operaattoreiden kesken</translation>
+    </message>
+    <message>
+      <source>City</source>
+      <translation>Kaupunko</translation>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation>Maa</translation>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation>Luotu</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Yksikkö</translation>
+    </message>
+    <message>
+      <source>This is offline message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Puhelin</translation>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation>Tuote</translation>
+    </message>
+    <message>
+      <source>Page</source>
+      <translation>Sivu</translation>
+    </message>
+    <message>
+      <source>Came from</source>
+      <translation>Lähettäjä </translation>
+    </message>
+    <message>
+      <source>Device</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Computer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Smartphone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tablet</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User left</source>
+      <translation>Käyttäjä poistui</translation>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation>Aikavyöhyke</translation>
+    </message>
+    <message>
+      <source>Waited</source>
+      <translation>Odotettu</translation>
+    </message>
+    <message>
       <source>Visitor</source>
       <translation>Vierailija</translation>
     </message>
@@ -2846,98 +2950,6 @@
     <message>
       <source>Operators chat</source>
       <translation>operaattori keskustelu</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Yksikkö</translation>
-    </message>
-    <message>
-      <source>This is offline message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Product</source>
-      <translation>Tuote</translation>
-    </message>
-    <message>
-      <source>Device</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Country</source>
-      <translation>Maa</translation>
-    </message>
-    <message>
-      <source>Time zone</source>
-      <translation>Aikavyöhyke</translation>
-    </message>
-    <message>
-      <source>City</source>
-      <translation>Kaupunko</translation>
-    </message>
-    <message>
-      <source>Page</source>
-      <translation>Sivu</translation>
-    </message>
-    <message>
-      <source>Came from</source>
-      <translation>Lähettäjä </translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-mail</translation>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>Puhelin</translation>
-    </message>
-    <message>
-      <source>Refresh</source>
-      <translation>Päivitä</translation>
-    </message>
-    <message>
-      <source>Additional data</source>
-      <translation>Lisätiedot</translation>
-    </message>
-    <message>
-      <source>Hidden field</source>
-      <translation>Piilotettu kenttä</translation>
-    </message>
-    <message>
-      <source>Created</source>
-      <translation>Luotu</translation>
-    </message>
-    <message>
-      <source>User left</source>
-      <translation>Käyttäjä poistui</translation>
-    </message>
-    <message>
-      <source>Waited</source>
-      <translation>Odotettu</translation>
-    </message>
-    <message>
-      <source>Chat duration</source>
-      <translation>Keskustelun kesto</translation>
-    </message>
-    <message>
-      <source>Chat between operators, chat initializer</source>
-      <translation>Keskustele operaattoreiden kesken</translation>
-    </message>
-    <message>
-      <source>Chat owner</source>
-      <translation>Keskustelun omistaja</translation>
-    </message>
-    <message>
-      <source>Computer</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Smartphone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Tablet</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
@@ -3087,14 +3099,6 @@
       <translation>Viimeismmät toimet</translation>
     </message>
     <message>
-      <source>Redirect user to contact form.</source>
-      <translation>Uudelleenohjaa käyttäjä kontaktilomakkeelle.</translation>
-    </message>
-    <message>
-      <source>Are you sure?</source>
-      <translation>Oletko varma?</translation>
-    </message>
-    <message>
       <source>Empty...</source>
       <translation>Tyhjä...</translation>
     </message>
@@ -3131,12 +3135,32 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Operator</source>
-      <translation>Operaattori</translation>
+      <source>Sort</source>
+      <translation>Järjestä</translation>
+    </message>
+    <message>
+      <source>Wait time</source>
+      <translation>Odotusaika</translation>
     </message>
     <message>
       <source>Department</source>
       <translation>Osasto</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Poista keskustelu</translation>
+    </message>
+    <message>
+      <source>Redirect user to contact form.</source>
+      <translation>Uudelleenohjaa käyttäjä kontaktilomakkeelle.</translation>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation>Oletko varma?</translation>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation>Operaattori</translation>
     </message>
     <message>
       <source>Pending chats</source>
@@ -3161,18 +3185,6 @@
     <message>
       <source>Sort by active chats number</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Sort</source>
-      <translation>Järjestä</translation>
-    </message>
-    <message>
-      <source>Wait time</source>
-      <translation>Odotusaika</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>Poista keskustelu</translation>
     </message>
     <message>
       <source>Created</source>
@@ -4829,12 +4841,12 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
-      <source>Empty...</source>
-      <translation>Tyhjä...</translation>
-    </message>
-    <message>
       <source>Assigned operator</source>
       <translation>Määritetty operaattori</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Tyhjä...</translation>
     </message>
     <message>
       <source>collapse/expand</source>
@@ -6163,6 +6175,10 @@
     <message>
       <source>Users</source>
       <translation>Käyttäjät</translation>
+    </message>
+    <message>
+      <source>Username (Nickname)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>E-mail</source>
