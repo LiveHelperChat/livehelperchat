@@ -53,6 +53,12 @@ $ViewList['new'] = array(
     'functions' => array( 'createuser' )
 );
 
+$ViewList['import'] = array(
+    'params' => array(),
+    'uparams' => array(),
+    'functions' => array( 'import' )
+);
+
 $ViewList['newgroup'] = array(
     'params' => array(),
     'functions' => array( 'creategroup', 'editgroup' )
@@ -146,5 +152,6 @@ $FunctionList['receivepermissionrequest'] = array('explain' => 'Allow user to ch
 $FunctionList['userautologin'] = array('explain' => 'Allow user to configure autologin');
 $FunctionList['canseedepartmentstats'] = array('explain' => 'Allow user to see departments statistic');
 $FunctionList['canseealldepartmentstats'] = array('explain' => 'Allow user to see all departments statistic, not only from his departments');
+$FunctionList['import'] = array('explain' => 'Allow user to import users');
 
 ?>

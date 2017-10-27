@@ -19,6 +19,11 @@
 		    <?php if ($currentUser->hasAccessTo('lhpermission','list')) : ?>
 		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('permission/roles')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','List of roles');?></a></li>
 		    <?php endif; ?>
+
+		    <?php if ($currentUser->hasAccessTo('lhuser','import')) : ?>
+		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('user/import')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Import users');?></a></li>
+		    <?php endif; ?>
+
 		</ul>		     
 	 <?php endif; ?>
 	 	 

@@ -612,8 +612,156 @@ class erLhcoreClassUserValidator {
 		return $Errors;
 		
 	}
-	
-	
+
+	public static function validateUsersImport(& $settings)
+    {
+        $Errors = array();
+
+        $definition = array(
+            'CSVSeparator' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'oneRecordImport' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            ),
+            'skipFirstRow' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            ),
+            'DefaultGroup' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int',
+                null,
+                FILTER_REQUIRE_ARRAY
+            ),
+            'DepartmentGroup' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int',
+                null,
+                FILTER_REQUIRE_ARRAY
+            ),
+            'field' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int',
+                null,
+                FILTER_REQUIRE_ARRAY
+            )
+        );
+
+        $form = new ezcInputForm( INPUT_POST, $definition );
+
+        if ( $form->hasValidData( 'CSVSeparator' )) {
+            $settings['csv_separator'] = $form->CSVSeparator;
+        } else {
+            $settings['csv_separator'] = ',';
+        }
+
+        if ( $form->hasValidData( 'DefaultGroup' )) {
+            $settings['user_groups_id'] = $form->DefaultGroup;
+        } else {
+            $settings['user_groups_id'] = array();
+        }
+
+        if ( $form->hasValidData( 'DepartmentGroup' )) {
+            $settings['dep_id'] = $form->DepartmentGroup;
+        } else {
+            $settings['dep_id'] = array();
+        }
+
+        if ( $form->hasValidData( 'oneRecordImport' )) {
+            $settings['import_one'] = 1;
+        } else {
+            $settings['import_one'] = 0;
+        }
+
+        if ( $form->hasValidData( 'skipFirstRow' )) {
+            $settings['skip_first_row'] = 1;
+        } else {
+            $settings['skip_first_row'] = 0;
+        }
+
+        if ( $form->hasValidData( 'field' )) {
+            $settings['field'] = $form->field;
+        } else {
+            $settings['field'] = array();
+        }
+
+        return $Errors;
+    }
+
+    public static function importUsers($configuration, $users) {
+
+	    $status = array('created' => 0, 'updated' => 0);
+
+        $Data = str_getcsv($users, "\n"); //parse the rows
+
+        foreach($Data as $key => $Row) {
+
+            if ($key == 0 && $configuration['skip_first_row'] == true) {
+                continue;
+            }
+
+            $allDepartments = false;
+
+            $RowData = str_getcsv($Row, $configuration['csv_separator']);
+
+            if (isset($RowData[$configuration['field']['username']-1])) {
+                $username = $RowData[$configuration['field']['username'] - 1];
+            } else {
+                throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('user/import','Username field not found!'));
+            }
+
+            $user = erLhcoreClassModelUser::findOne(array('filter' => array('username' => $username)));
+
+            if (!($user instanceof erLhcoreClassModelUser)){
+                $user = new erLhcoreClassModelUser();
+                $status['created']++;
+            } else {
+                $status['updated']++;
+            }
+
+            foreach ($configuration['field'] as $attr => $index) {
+                if (is_numeric($index) && $index > 0 && isset($RowData[$configuration['field'][$attr]-1])) {
+                    if ($attr == 'password') {
+                        $user->setPassword($RowData[$index - 1]);
+                    } elseif ($attr == 'all_departments') {
+                        $allDepartments = $RowData[$index-1] == 1;
+                    } else {
+                        $user->{$attr} = $RowData[$index-1];
+                    }
+                }
+            }
+
+            $user->saveThis();
+
+            if (count($configuration['dep_id']) > 0) {
+
+                if ($allDepartments == 1) {
+                    $configuration['dep_id'][] = 0;
+                    $user->all_departments = 1;
+                } else {
+                    $user->all_departments = 0;
+                }
+
+                $user->departments_ids = implode(',',$configuration['dep_id']);
+                $user->saveThis();
+
+                erLhcoreClassUserDep::addUserDepartaments($configuration['dep_id'], $user->id, $user);
+            } else {
+                erLhcoreClassUserDep::addUserDepartaments(array(), $user->id, $user);
+            }
+
+            if (count($configuration['user_groups_id']) > 0) {
+                $user->user_groups_id = $configuration['user_groups_id'];
+                $user->setUserGroups();
+            }
+
+            erLhcoreClassUserDep::setHideOnlineStatus($user);
+
+            if ($configuration['import_one'] == true) {
+                break;
+            }
+
+        }
+
+        return $status;
+    }
 }
 
 ?>
