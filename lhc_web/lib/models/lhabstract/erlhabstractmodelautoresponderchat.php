@@ -97,7 +97,7 @@ class erLhAbstractModelAutoResponderChat
                 
             } elseif ($this->chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT) {
 
-                if ($this->chat->lsync < time() - 30 &&
+                if ($this->chat->lsync < time() - 90 &&
                     in_array($this->chat->device_type,array(1,2)) &&
                     $this->active_send_status < $this->auto_responder->wait_timeout_reply_total
                 ) {
