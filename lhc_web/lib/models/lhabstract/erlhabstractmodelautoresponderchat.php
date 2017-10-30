@@ -95,7 +95,22 @@ class erLhAbstractModelAutoResponderChat
                     }
                 }
                 
-            } elseif ($this->chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT) {  
+            } elseif ($this->chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT) {
+
+                if ($this->chat->lsync < time() - 70 &&
+                    in_array($this->chat->device_type,array(1,2)) &&
+                    $this->active_send_status < $this->auto_responder->wait_timeout_reply_total
+                ) {
+                    $this->chat->lsync = time();
+                    $this->chat->last_op_msg_time = time() - $this->auto_responder->{'wait_timeout_reply_' . $this->active_send_status}-20;
+                    $this->chat->last_user_msg_time = $this->chat->last_op_msg_time - 1;
+
+                    if ($this->chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW) {
+                        $this->chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_DEFAULT;
+                    }
+
+                    $this->chat->updateThis();
+                }
 
                 if ($this->chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_ON_HOLD) {
                     if (($this->chat->last_op_msg_time > $this->chat->last_user_msg_time && $this->chat->last_user_msg_time > 0) ||
@@ -114,6 +129,9 @@ class erLhAbstractModelAutoResponderChat
                              $this->chat->updateThis();
 
                              erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.redirected_to_survey_by_autoresponder',array('chat' => & $this->chat));
+
+                             // Survey redirected, end workflow
+                             return ;
                          }
 
                          for ($i = 5; $i >= 1; $i--) {

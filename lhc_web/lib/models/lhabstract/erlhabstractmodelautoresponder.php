@@ -114,6 +114,19 @@ class erLhAbstractModelAutoResponder {
 	   		   return $this->dep_frontend;
 	   		break;
 
+	   	case 'wait_timeout_reply_total':
+	   	       $this->wait_timeout_reply_total = 0;
+
+               for ($i = 5; $i >= 1; $i--) {
+                    if ($this->{'wait_timeout_reply_' . $i} > 0) {
+                        $this->wait_timeout_reply_total = $i;
+                        break;
+                    }
+               }
+
+	   		   return $this->wait_timeout_reply_total;
+	   		break;
+
 	   	default:
 	   		break;
 	   }
