@@ -867,7 +867,7 @@ class erLhcoreClassChat {
     public static function getOnlineUsers($UserID = array(), $params = array())
     {     
        $isOnlineUser = isset($params['online_timeout']) ? $params['online_timeout'] : (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'];
-       
+       $onlyOnline = isset($params['hide_online']) ? ' AND lh_userdep.hide_online = :hide_online' : false;
        
        $db = ezcDbInstance::get();
        $NotUser = '';
@@ -891,10 +891,13 @@ class erLhcoreClassChat {
 	       }
        }
 
-       $SQL = 'SELECT lh_users.* FROM lh_users INNER JOIN lh_userdep ON lh_userdep.user_id = lh_users.id WHERE lh_userdep.last_activity > :last_activity '.$NotUser.$limitationSQL.' GROUP BY lh_users.id';
+       $SQL = 'SELECT lh_users.* FROM lh_users INNER JOIN lh_userdep ON lh_userdep.user_id = lh_users.id WHERE lh_userdep.last_activity > :last_activity '.$NotUser.$limitationSQL.$onlyOnline.' GROUP BY lh_users.id';
        $stmt = $db->prepare($SQL);
-
        $stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
+
+       if ($onlyOnline !== false) {
+           $stmt->bindValue(':hide_online',(int)$onlyOnline,PDO::PARAM_INT);
+       }
 
        $stmt->execute();
        $rows = $stmt->fetchAll();

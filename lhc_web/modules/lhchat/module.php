@@ -520,6 +520,7 @@ $ViewList['sendchat'] = array(
 
 $ViewList['transferchatrefilter'] = array(
     'params' => array('chat_id'),
+    'uparams' => array('mode'),
     'functions' => array( 'use' )
 );
 

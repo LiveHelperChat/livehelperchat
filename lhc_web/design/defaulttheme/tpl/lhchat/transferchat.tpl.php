@@ -14,10 +14,13 @@
     
       		<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer a chat to one of your departments users');?></p>
 
-            <div class="mx550">
-                <?php foreach (erLhcoreClassChat::getOnlineUsers(array($user_id)) as $key => $user) : ?>
-                <label><input type="radio" name="TransferTo<?php echo $chat->id?>" value="<?php echo $user['id']?>" <?php echo $key == 0 ? 'checked="checked"' : ''?>> <?php echo htmlspecialchars($user['name'])?> <?php echo htmlspecialchars($user['surname'])?></label><br/>
-                <?php endforeach; ?>
+            <div class="checkbox">
+                <label><input type="checkbox" onchange="updateTransferUser()" checked="checked" id="logged_and_online"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Only logged and only operators');?></label>
+            </div>
+
+            <div class="mx550" id="transfer-chat-listuserrefilter">
+                <?php $user_filter = array('hide_online' => 0); ?>
+                <?php include(erLhcoreClassDesign::designtpl('lhchat/transfer/transferchatrefilteruser.tpl.php'));?>
             </div>
 
     		<input type="button" onclick="lhinst.transferChat('<?php echo $chat->id;?>')" class="btn btn-default" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer');?>" />
@@ -38,7 +41,7 @@
                     ?>
                     
                     <div id="transfer-chat-list-refilter">
-                        <?php include(erLhcoreClassDesign::designtpl('lhchat/transferchatrefilter.tpl.php'));?>
+                        <?php include(erLhcoreClassDesign::designtpl('lhchat/transfer/transferchatrefilter.tpl.php'));?>
                     </div>
 
             		<input type="button" onclick="lhinst.transferChatDep('<?php echo $chat->id;?>')" class="btn btn-default" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer');?>" />
@@ -61,12 +64,21 @@
             <script type="text/javascript">
             function updateTransferDepartments() {
             	$('#transfer-chat-list-refilter').html('...');
-                $.post(WWW_DIR_JAVASCRIPT + 'chat/transferchatrefilter/<?php echo $chat->id?>',{
+                $.post(WWW_DIR_JAVASCRIPT + 'chat/transferchatrefilter/<?php echo $chat->id?>/(mode)/dep',{
                     'dep_transfer_only_explicit':$('#dep_transfer_only_explicit').is(':checked'),
                     'dep_transfer_exclude_hidden':$('#dep_transfer_exclude_hidden').is(':checked'),
                     'dep_transfer_exclude_disabled':$('#dep_transfer_exclude_disabled').is(':checked')
                     }, function(data) {
                         $('#transfer-chat-list-refilter').html(data);
+                });
+            }
+
+            function updateTransferUser() {
+                $('#transfer-chat-listuserrefilter').html('...');
+                $.post(WWW_DIR_JAVASCRIPT + 'chat/transferchatrefilter/<?php echo $chat->id?>/(mode)/user',{
+                    'logged_and_online':$('#logged_and_online').is(':checked')
+                }, function(data) {
+                    $('#transfer-chat-listuserrefilter').html(data);
                 });
             }
             </script>
