@@ -23,6 +23,11 @@
 	     	<label class="fs12"><input type="checkbox" name="ModuleFunction[]" value="*"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/modulefunctions','All functions');?></label>
 	     </div>
 
+         <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newpolicy','Limitation');?></label>
+            <textarea class="form-control" placeholder="Enter any content which you will be able to get within users permissions" name="Limitation"></textarea>
+         </div>
+
 	<div class="btn-group" role="group" aria-label="...">
 	 <input type="submit" class="btn btn-default" name="Store_policy" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newpolicy','Save');?>"/>
 	 <input type="submit" class="btn btn-default" name="Cancel_policy" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newpolicy','Cancel');?>"/>

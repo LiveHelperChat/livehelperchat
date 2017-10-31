@@ -383,14 +383,22 @@ class erLhcoreClassUser{
      return $rows;
    }
 
-   function hasAccessTo($module, $functions)
+   function hasAccessTo($module, $functions, $returnLimitation = false)
    {
        $AccessArray = $this->accessArray();
 
        // Global rights
        if (isset($AccessArray['*']['*']) || isset($AccessArray[$module]['*']))
        {
-           return true;
+           if ($returnLimitation === false) {
+               return true;
+           } elseif ($AccessArray[$module]['*'] && !is_bool($AccessArray[$module]['*'])) {
+               return $AccessArray[$module]['*'];
+           } elseif ($AccessArray['*']['*'] && !is_bool($AccessArray['*']['*'])) {
+               return $AccessArray['*']['*'];
+           } else {
+               return true;
+           }
        }
 
        // Provided rights have to be set
@@ -401,8 +409,13 @@ class erLhcoreClassUser{
                // Missing one of provided right
                if (!isset($AccessArray[$module][$function])) return false;
            }
+
        } else {
-           if (!isset($AccessArray[$module][$functions])) return false;
+           if (!isset($AccessArray[$module][$functions])) {
+               return false;
+           } elseif (isset($AccessArray[$module][$functions]) && $returnLimitation === true && !is_bool($AccessArray[$module][$functions])) {
+               return $AccessArray[$module][$functions];
+           }
        }
 
        return true;

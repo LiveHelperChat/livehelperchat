@@ -9,6 +9,7 @@ class erLhcoreClassModelRoleFunction {
                'role_id'  => $this->role_id,
                'module'   => $this->module,
                'function' => $this->function,
+               'limitation' => $this->limitation,
        );
    }
    
@@ -24,7 +25,8 @@ class erLhcoreClassModelRoleFunction {
    public $role_id = null;
    public $module = null;
    public $function = null;
-   
+   public $limitation = '';
+
 }
 
 ?>
