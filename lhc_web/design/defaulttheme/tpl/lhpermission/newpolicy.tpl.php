@@ -25,7 +25,7 @@
 
          <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newpolicy','Limitation');?></label>
-            <textarea class="form-control" placeholder="Enter any content which you will be able to get within users permissions" name="Limitation"></textarea>
+            <textarea class="form-control" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newpolicy','Enter any content which you will be able to get within users permissions')?>" name="Limitation"></textarea>
          </div>
 
 	<div class="btn-group" role="group" aria-label="...">

@@ -2,7 +2,7 @@
 
 class erLhcoreClassUpdate
 {
-	const DB_VERSION = 180;
+	const DB_VERSION = 150;
 	const LHC_RELEASE = 275;
 
 	public static function doTablesUpdate($definition){
