@@ -5360,6 +5360,14 @@
                 "key": "",
                 "default": null,
                 "extra": ""
+            },
+            {
+                "field": "limitation",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
             }
         ],
         "lh_transfer": [

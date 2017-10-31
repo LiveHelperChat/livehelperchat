@@ -61,6 +61,9 @@ if (isset($_POST['Store_policy']))
         'Module' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::REQUIRED, 'string'
         ),
+        'Limitation' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::REQUIRED, 'unsafe_raw'
+        ),
        'ModuleFunction' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'string',
 				null,
@@ -92,7 +95,13 @@ if (isset($_POST['Store_policy']))
     		$RoleFunction = new erLhcoreClassModelRoleFunction();
     		$RoleFunction->role_id = $Role->id;
     		$RoleFunction->module = $form->Module;
-    		$RoleFunction->function = $moduleFunction;    		
+    		$RoleFunction->function = $moduleFunction;
+
+            if ( $form->hasValidData('Limitation'))
+            {
+                $RoleFunction->limitation = $form->Limitation;
+            }
+
     		erLhcoreClassRole::getSession()->save($RoleFunction);
     	}
             

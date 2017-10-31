@@ -22,7 +22,12 @@ $def->properties['module']->propertyType = ezcPersistentObjectProperty::PHP_TYPE
 $def->properties['function'] = new ezcPersistentObjectProperty();
 $def->properties['function']->columnName   = 'function';
 $def->properties['function']->propertyName = 'function';
-$def->properties['function']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING; 
+$def->properties['function']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['limitation'] = new ezcPersistentObjectProperty();
+$def->properties['limitation']->columnName   = 'limitation';
+$def->properties['limitation']->propertyName = 'limitation';
+$def->properties['limitation']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 return $def; 
 

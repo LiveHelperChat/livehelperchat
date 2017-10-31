@@ -83,7 +83,7 @@ class erLhcoreClassRole{
    {
        $db = ezcDbInstance::get();
        
-       $stmt = $db->prepare('SELECT lh_rolefunction.module,lh_rolefunction.function       
+       $stmt = $db->prepare('SELECT lh_rolefunction.module,lh_rolefunction.function,lh_rolefunction.limitation     
 
        FROM lh_rolefunction
        
@@ -102,7 +102,7 @@ class erLhcoreClassRole{
         $AccessArray = array();
         
         foreach ($rows as $Policy) {
-            $AccessArray[$Policy['module']][$Policy['function']] = true;
+            $AccessArray[$Policy['module']][$Policy['function']] = $Policy['limitation'] != '' ? $Policy['limitation'] : true;
         }
         
         return $AccessArray;

@@ -1628,6 +1628,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `role_id` int(11) NOT NULL,
                   `module` varchar(100) NOT NULL,
                   `function` varchar(100) NOT NULL,
+                  `limitation` text NOT NULL,
                   PRIMARY KEY (`id`),
                   KEY `role_id` (`role_id`)
                 ) DEFAULT CHARSET=utf8;");
