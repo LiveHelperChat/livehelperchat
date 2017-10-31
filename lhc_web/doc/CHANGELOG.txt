@@ -1,3 +1,13 @@
+2.75v
+
+1. Auto responder improvements and handling phone/tablet users if sync timeouts.
+2. Auto login section to generate static auto login links.
+3. Allow to filter in transfer window by online and logged in statuses.
+4. Survey now supports charts for Questions and Answers. Support for [fs<number>][/fs<number>] and [value=5] support for questions and answers to have fixed answers.
+5. Possibility to import users from CSV files.
+
+execute doc/update_db/update_150.sql for update
+
 2.74v
 
 1. Option to set auto assign workflow priority by time.
