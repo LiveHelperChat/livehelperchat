@@ -742,7 +742,10 @@ function lh(){
 	                    ee.emitEvent('chatClosedSyncUser', [inst.chat_id]);
 		   			 	if (inst.isWidgetMode && typeof(parent) !== 'undefined' && window.location !== window.parent.location) {	
 		   			 		 parent.postMessage('lhc_chat_closed' + (typeof data.closed_arg !== 'undefined' ? ':'+data.closed_arg : ''), '*');
-		   				} else {		   				
+		   				} else {
+                            if (typeof data.closed_arg !== 'undefined'){
+                                inst.parseCloseArgs(data.closed_arg.split(':'));
+                            };
 		   					inst.chatClosed();
 		   				}
 	               }
@@ -754,7 +757,18 @@ function lh(){
 
         inst.syncroRequestSend = false;
     };
-        
+
+    this.parseCloseArgs = function (args) {
+        var tt = args.length/2;
+        for (i = 0; i < tt; i++) {
+            var argument = args[i*2];
+            var value = args[(i*2)+1];
+            if (argument == 'survey_id') {
+                this.survey = value;
+            }
+        }
+    };
+
     this.chatClosed = function() {
     	if (this.survey !== null) {
     		var modeWindow = this.isWidgetMode == true ? '/(mode)/widget' : '';
