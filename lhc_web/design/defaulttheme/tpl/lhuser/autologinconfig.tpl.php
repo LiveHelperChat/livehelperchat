@@ -40,7 +40,7 @@
             <div role="tabpanel" class="tab-pane" id="autologincustom">
                 <script>
                     function updateURL(index) {
-                        $('#copy-url-'+index).val($('#copy-url-'+index).attr('data-original-url') + '/'+$('#secret-hash-'+index).val());
+                       $('#copy-url-'+index).val( $('#copy-url-'+index).attr('data-original-url') + $('#site-access-'+index).val() + '<?php echo erLhcoreClassDesign::baseurldirect('user/autologinuser')?>' + '/'+$('#secret-hash-'+index).val());
                     }
                     function copyURL(inst) {
                         $('#copy-url-'+inst.attr('data-index')).select();
@@ -74,6 +74,16 @@
                             <input type="text" name="UserID[<?php echo $i?>]" class="form-control" value="<?php echo isset($autologin_data['autologin_options'][$i]) ? htmlspecialchars($autologin_data['autologin_options'][$i]['user_id']) : null?>" />
                         </div>
                     </div>
+                    <div class="col-xs-1">
+                        <div class="form-group">
+                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','SiteAccess')?></label>
+                            <select id="site-access-<?php echo $i?>" name="siteAccess[<?php echo $i?>]" class="form-control" onchange="updateURL(<?php echo $i?>)">
+                                <?php foreach (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'available_site_access' ) as $locale ) : ?>
+                                    <option value="<?php echo $locale?>"><?php echo $locale?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
                     <div class="col-xs-3">
                         <div class="form-group">
                             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Default URL')?></label>
@@ -86,23 +96,23 @@
                             <input type="text" onkeyup="updateURL(<?php echo $i?>)" name="SecretHash[<?php echo $i?>]" id="secret-hash-<?php echo $i?>" class="form-control" value="<?php echo isset($autologin_data['autologin_options'][$i]) ? htmlspecialchars($autologin_data['autologin_options'][$i]['secret_hash']) : null?>" />
                         </div>
                     </div>
-                    <div class="col-xs-3">
+                    <div class="col-xs-4">
                         <div class="form-group">
                             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','IP Allowed')?></label>
                             <input type="text" class="form-control" placeholder="1.2.3.*,128.8.8.8" name="IP[<?php echo $i?>]" value="<?php echo isset($autologin_data['autologin_options'][$i]) ? htmlspecialchars($autologin_data['autologin_options'][$i]['ip']) : null?>" />
                         </div>
                     </div>
-                    <div class="col-xs-2">
-                        <div class="form-group">
-                            <label>&nbsp;</label>
-                            <a onclick="copyURL($(this))" data-index="<?php echo $i?>" class="btn btn-default btn-block" data-original-title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Copied!')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Copy URL to clipboard')?>"><i class="material-icons mr-0">&#xE14D;</i></a>
-                        </div>
-                    </div>
+
                     <div class="col-xs-12">
                         <div class="form-group">
-                            <input type="text" class="form-control" readonly="readonly" id="copy-url-<?php echo $i?>" data-original-url="<?php echo erLhcoreClassSystem::$httpsMode == 'true' ? 'https://' : 'http://'?><?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('user/autologinuser')?>" value="">
+                            <div class="input-group">
+                                <input type="text" class="form-control" readonly="readonly" id="copy-url-<?php echo $i?>" data-original-url="<?php echo erLhcoreClassSystem::$httpsMode == 'true' ? 'https://' : 'http://'?><?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect('/')?>" value="">
+                                <div class="input-group-addon"><a onclick="copyURL($(this))" data-index="<?php echo $i?>" data-original-title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Copied!')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Copy URL to clipboard')?>"><i class="material-icons mr-0">&#xE14D;</i></a></div>
+                            </div>
                         </div>
                     </div>
+
+
                 </div>
                 <script>updateURL(<?php echo $i?>)</script>
                 <?php endfor; ?>
