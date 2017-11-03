@@ -32,13 +32,18 @@ if (is_array($autologinConfiguration)) {
         header('Location: /' . $autologinConfiguration['site_access'] . '/' . $autologinConfiguration['url']);
         exit;
     } else {
-        die(erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Could not find a user'));
+        $tpl = erLhcoreClassTemplate::getInstance( 'lhkernel/validation_error_autologin_user.tpl.php');
+        $tpl->set('errors',array(erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Could not find a user')));
+        $Result['content'] = $tpl->fetch();
+        $Result['pagelayout'] = 'login';
+        return $Result;
     }
 } else {
-    die(erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Invalid autologin hash'));
-    exit;
+    $tpl = erLhcoreClassTemplate::getInstance( 'lhkernel/validation_error_autologin_user.tpl.php');
+    $tpl->set('errors',array(erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Invalid autologin hash')));
+    $Result['content'] = $tpl->fetch();
+    $Result['pagelayout'] = 'login';
+    return $Result;
 }
 
-
-exit;
 ?>
