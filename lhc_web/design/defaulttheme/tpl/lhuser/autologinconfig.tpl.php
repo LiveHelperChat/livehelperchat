@@ -79,7 +79,7 @@
                             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','SiteAccess')?></label>
                             <select id="site-access-<?php echo $i?>" name="siteAccess[<?php echo $i?>]" class="form-control" onchange="updateURL(<?php echo $i?>)">
                                 <?php foreach (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'available_site_access' ) as $locale ) : ?>
-                                    <option value="<?php echo $locale?>"><?php echo $locale?></option>
+                                    <option value="<?php echo $locale?>" <?php (isset($autologin_data['autologin_options'][$i]['site_access']) && $autologin_data['autologin_options'][$i]['site_access'] == $locale) ? print 'selected="selected"' : ''?> ><?php echo $locale?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>

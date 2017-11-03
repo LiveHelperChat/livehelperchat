@@ -29,7 +29,7 @@ if (is_array($autologinConfiguration)) {
 
     if ($userToLogin instanceof erLhcoreClassModelUser) {
         erLhcoreClassUser::instance()->setLoggedUser($userToLogin->id);
-        header('Location: ' .erLhcoreClassDesign::baseurldirect('site_admin') . '/' . $autologinConfiguration['url']);
+        header('Location: /' . $autologinConfiguration['site_access'] . '/' . $autologinConfiguration['url']);
         exit;
     } else {
         die(erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Could not find a user'));

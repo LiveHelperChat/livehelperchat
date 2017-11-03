@@ -32,6 +32,11 @@ if ( isset($_POST['StoreAutologinSettings']) ) {
             ezcInputFormDefinitionElement::OPTIONAL, 'string',
             null,
             FILTER_REQUIRE_ARRAY
+        ),
+        'siteAccess' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'string',
+            null,
+            FILTER_REQUIRE_ARRAY
         )
     );
     
@@ -66,6 +71,7 @@ if ( isset($_POST['StoreAutologinSettings']) ) {
                     'url' => $form->URL[$key],
                     'ip' => $form->IP[$key],
                     'secret_hash' => $form->SecretHash[$key],
+                    'site_access' => $form->siteAccess[$key]
                 );
             }
         } else {
