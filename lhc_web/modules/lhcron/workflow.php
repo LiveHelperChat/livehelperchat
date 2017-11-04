@@ -8,6 +8,8 @@
  * */
 echo "Starting chat/workflow\n";
 
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow_started',array());
+
 if ( erLhcoreClassModelChatConfig::fetch('run_departments_workflow')->current_value == 1 ) {
 	echo "Starting departments workflow\n";
 
