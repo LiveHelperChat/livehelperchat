@@ -305,11 +305,9 @@ class erLhcoreClassChatWorkflow {
 	    	try {
 	    	    $db->beginTransaction();
 	    	    
-	    	    // Lock chat record for update untill we finish this procedure  	   
-	    	    $stmt = $db->prepare('SELECT 1 FROM lh_userdep WHERE dep_id = :dep_id ORDER BY id ASC FOR UPDATE;');
-	    	    $stmt->bindValue(':dep_id',$department->id);
-	    	    $stmt->execute();
-	    	    
+	    	    // Lock chat record for update untill we finish this procedure
+	    	    erLhcoreClassChat::lockDepartment($department->id, $db);
+
 	    	    $chat->syncAndLock();
 	    	    
 	    	    if ($chat->user_id == 0 && $chat->tslasign < time()-$department->max_timeout_seconds) {

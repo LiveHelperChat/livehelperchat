@@ -40,10 +40,8 @@ try {
 
         if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
             // Lock chat record for update untill we finish this procedure
-            $stmt = $db->prepare('SELECT 1 FROM lh_userdep WHERE dep_id = :dep_id ORDER BY id ASC FOR UPDATE;');
-            $stmt->bindValue(':dep_id',$chat->dep_id);
-            $stmt->execute();
-        }
+            erLhcoreClassChat::lockDepartment($chat->dep_id, $db);
+         }
         
     	// Main unasnwered chats callback
     	if ( $chat->na_cb_executed == 0 && $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && erLhcoreClassModelChatConfig::fetch('run_unaswered_chat_workflow')->current_value > 0) {    		

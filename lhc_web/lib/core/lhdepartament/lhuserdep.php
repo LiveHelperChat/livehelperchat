@@ -113,11 +113,9 @@ class erLhcoreClassUserDep{
            $stmt->bindValue( ':active_chats',erLhcoreClassChat::getCount(array('filter' => array('user_id' => $UserData->id, 'status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT))));
            $stmt->execute();
        }
-   
        if (isset($_SESSION['lhCacheUserDepartaments_'.$userID])){
            unset($_SESSION['lhCacheUserDepartaments_'.$userID]);
        }
-   
    }
 
    public static function setHideOnlineStatus($UserData) {

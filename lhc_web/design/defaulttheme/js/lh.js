@@ -2425,17 +2425,29 @@ function lh(){
     this.changeUserSettingsIndifferent = function(attr,value){
     	$.get(this.wwwDir+  'user/setsettingajax/'+attr+'/'+value+'/(indifferent)/true');
     };
-    
+
     this.disableUserAsOnline = function(inst)
     {
-    	if (inst.text() == 'flash_off'){
-    		$.get(this.wwwDir+  'user/setoffline/false');
-    		inst.text('flash_on');
-    	} else {
-    		$.get(this.wwwDir+  'user/setoffline/true');
-    		inst.text('flash_off');
-    	}
-    	return false;
+        if (inst.text() == 'flash_off'){
+            $.getJSON(this.wwwDir+  'user/setoffline/false',function (data) {
+                if (data.error == false) {
+                    inst.text('flash_on');
+                } else {
+                    alert(data.msg);
+                }
+            }).fail(function(jqXHR, textStatus, errorThrown) {
+                console.dir(jqXHR);
+                alert('getJSON request failed! ' + textStatus + ':' + errorThrown + ':' + jqXHR.responseText);
+            });
+        } else {
+            $.getJSON(this.wwwDir+  'user/setoffline/true',function () {
+                inst.text('flash_off');
+            }).fail(function(jqXHR, textStatus, errorThrown) {
+                console.dir(jqXHR);
+                alert('getJSON request failed! ' + textStatus + ':' + errorThrown + ':' + jqXHR.responseText);
+            });
+        }
+        return false;
     };
    	
 	this.switchToOfflineForm = function(){

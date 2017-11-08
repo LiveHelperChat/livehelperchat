@@ -1732,7 +1732,21 @@ class erLhcoreClassChat {
 
 	   	return $responseStatus;
    }
-   
+
+   public static function lockDepartment($depId, $db)
+   {
+       $stmt = $db->prepare('SELECT id FROM lh_userdep WHERE dep_id = :dep_id');
+       $stmt->bindValue(':dep_id',$depId);
+       $stmt->execute();
+
+       $recordIds = $stmt->fetchAll(PDO::FETCH_COLUMN);
+
+       if (!empty($recordIds)) {
+           $stmt = $db->prepare('SELECT 1 FROM lh_userdep WHERE id IN (' . implode(',', $recordIds) . ') ORDER BY id ASC FOR UPDATE;');
+           $stmt->execute();
+       }
+   }
+
    public static function getChatDurationToUpdateChatID($chatID){
 	   	$sql = 'SELECT ((SELECT MAX(lh_msg.time) FROM lh_msg WHERE lh_msg.chat_id = lh_chat.id AND lh_msg.user_id = 0)-(lh_chat.time+lh_chat.wait_time)) AS chat_duration_counted FROM lh_chat WHERE lh_chat.id = :chat_id';
 	   	$db = ezcDbInstance::get();

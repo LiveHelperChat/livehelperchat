@@ -26,12 +26,9 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 		    $explicitClosed = false;
 		    
 		    if ($Params['user_parameters_unordered']['eclose'] == 't') {
-		        
-		        // Lock chat record for update untill we finish this procedure
-		        $stmt = $db->prepare('SELECT 1 FROM lh_userdep WHERE dep_id = :dep_id ORDER BY id ASC FOR UPDATE;');
-		        $stmt->bindValue(':dep_id',$chat->dep_id);
-		        $stmt->execute();
-		        
+
+		        erLhcoreClassChat::lockDepartment($chat->dep_id, $db);
+
     		    // From now chat will be closed explicitly	   
     	        $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT;
     	    
