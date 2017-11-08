@@ -13,7 +13,7 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
 {
   $tpl = erLhcoreClassTemplate::getInstance('lhchat/sendmail.tpl.php');
   $mailTemplate = erLhAbstractModelEmailTemplate::fetch(1);
-  erLhcoreClassChatMail::prepareSendMail($mailTemplate);
+  erLhcoreClassChatMail::prepareSendMail($mailTemplate, $chat);
   $mailTemplate->recipient = $chat->email;
 
   if (isset($_POST['SendMail'])) {

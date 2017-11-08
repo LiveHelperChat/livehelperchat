@@ -65,15 +65,15 @@ class erLhcoreClassChatMail {
 	}
 
 	// Prepare template variables
-    public static function prepareSendMail(erLhAbstractModelEmailTemplate & $sendMail)
+    public static function prepareSendMail(erLhAbstractModelEmailTemplate & $sendMail, $chat)
     {
     	$currentUser = erLhcoreClassUser::instance();
     	
     	if ($currentUser->isLogged() == true){    	
 	    	$userData = $currentUser->getUserData();  	
 	    		    	    	
-	    	$sendMail->subject = str_replace(array('{name_surname}'),array($userData->name.' '.$userData->surname),$sendMail->subject);
-	    	$sendMail->from_name = str_replace(array('{name_surname}'),array($userData->name.' '.$userData->surname),$sendMail->from_name);
+	    	$sendMail->subject = str_replace(array('{name_surname}','{department}'),array($userData->name.' '.$userData->surname, (string)$chat->department), $sendMail->subject);
+	    	$sendMail->from_name = str_replace(array('{name_surname}','{department}'),array($userData->name.' '.$userData->surname, (string)$chat->department), $sendMail->from_name);
 	
 	    	if (empty($sendMail->from_email)) {
 	    		$sendMail->from_email = $userData->email;
