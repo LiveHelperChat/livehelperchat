@@ -118,22 +118,54 @@ class erLhcoreClassUserDep{
        }
    }
 
-   public static function setHideOnlineStatus($UserData) {
+   public static function getUserDepIds($user_id) {
        $db = ezcDbInstance::get();
 
        // Update in a such way to avoid deadlocks
        $stmt = $db->prepare('SELECT lh_userdep.id FROM lh_userdep WHERE user_id = :user_id');
-       $stmt->bindValue( ':user_id',$UserData->id);
+       $stmt->bindValue( ':user_id', $user_id, PDO::PARAM_INT);
        $stmt->execute();
-       $rowsIds = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
-       if (!empty($rowsIds)) {
-           $stmt = $db->prepare('UPDATE lh_userdep SET hide_online = :hide_online, hide_online_ts = :hide_online_ts WHERE id IN ('.implode(',',$rowsIds).')');
+       return $stmt->fetchAll(PDO::FETCH_COLUMN);
+   }
+
+   public static function setHideOnlineStatus($UserData) {
+
+       // Update in a such way to avoid deadlocks
+       $ids = self::getUserDepIds($UserData->id);
+
+       if (!empty($ids)) {
+           $db = ezcDbInstance::get();
+           $stmt = $db->prepare('UPDATE lh_userdep SET hide_online = :hide_online, hide_online_ts = :hide_online_ts WHERE id IN ('.implode(',',$ids).')');
            $stmt->bindValue( ':hide_online',$UserData->hide_online);
            $stmt->bindValue( ':hide_online_ts',time());
            $stmt->execute();
        }
    }
+
+    public static function updateLastActivityByUser($user_id, $lastActivity)
+    {
+        $ids = self::getUserDepIds($user_id);
+
+        if (!empty($ids)) {
+            $db = ezcDbInstance::get();
+            $stmt = $db->prepare('UPDATE lh_userdep SET last_activity = :last_activity WHERE id IN (' . implode(',', $ids) . ');');
+            $stmt->bindValue(':last_activity', $lastActivity, PDO::PARAM_INT);
+            $stmt->execute();
+        }
+    }
+
+    public static function updateLastAcceptedByUser($user_id, $lastAccepted)
+    {
+        $ids = self::getUserDepIds($user_id);
+
+        if (!empty($ids)) {
+            $db = ezcDbInstance::get();
+            $stmt = $db->prepare('UPDATE lh_userdep SET last_accepted = :last_accepted WHERE id IN (' . implode(',', $ids) . ');');
+            $stmt->bindValue(':last_accepted', $lastAccepted, PDO::PARAM_INT);
+            $stmt->execute();
+        }
+    }
 
    public static function getSession()
    {

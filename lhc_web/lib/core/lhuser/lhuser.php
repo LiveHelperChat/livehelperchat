@@ -271,9 +271,8 @@ class erLhcoreClassUser{
 	       $q->deleteFrom( 'lh_users_remember' )->where( $q->expr->eq( 'user_id', $q->bindValue($this->userid) ) );
 	       $stmt = $q->prepare();
 	       $stmt->execute();
-	       
-	       $db = ezcDbInstance::get();
-	       $db->query('UPDATE lh_userdep SET last_activity = 0 WHERE user_id = '.$this->userid);
+
+           erLhcoreClassUserDep::updateLastActivityByUser($this->userid, 0);
        }
        
        $this->session->destroy();
@@ -330,10 +329,7 @@ class erLhcoreClassUser{
              $db = ezcDbInstance::get();
              $db->beginTransaction();
 
-             $stmt = $db->prepare('UPDATE lh_userdep SET last_activity = :last_activity WHERE user_id = :user_id');
-             $stmt->bindValue(':last_activity',time(),PDO::PARAM_INT);
-             $stmt->bindValue(':user_id',$this->userid,PDO::PARAM_INT);
-             $stmt->execute();
+             erLhcoreClassUserDep::updateLastActivityByUser($this->userid, time());
 
              if ((!isset($_SESSION['lhc_online_session'])) || (isset($_SESSION['lhc_online_session']) && (time() - $_SESSION['lhc_online_session'] > 20))) {
 

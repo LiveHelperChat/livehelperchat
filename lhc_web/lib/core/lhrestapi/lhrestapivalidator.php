@@ -63,12 +63,9 @@ class erLhcoreClassRestAPIHandler
             self::$apiKey = $apiKey;
             
             if (isset($_GET['update_activity'])) {
-                $db = ezcDbInstance::get();
-                $stmt = $db->prepare('UPDATE lh_userdep SET last_activity = :last_activity WHERE user_id = :user_id');
-                $stmt->bindValue(':last_activity', time(), PDO::PARAM_INT);
-                $stmt->bindValue(':user_id', self::$apiKey->user->id, PDO::PARAM_INT);
-                $stmt->execute();
+                erLhcoreClassUserDep::updateLastActivityByUser(self::$apiKey->user->id, time());
             }
+
         } else {
             throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('lhrestapi/validation', 'Authorization header is missing!'));
         }

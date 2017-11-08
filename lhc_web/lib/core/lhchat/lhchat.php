@@ -1657,11 +1657,18 @@ class erLhcoreClassChat {
    
    public static function updateActiveChats($user_id)
    {
-	   	$db = ezcDbInstance::get();
-	   	$stmt = $db->prepare('UPDATE lh_userdep SET active_chats = :active_chats WHERE user_id = :user_id');
-	   	$stmt->bindValue(':active_chats',erLhcoreClassChat::getCount(array('filter' => array('user_id' => $user_id, 'status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT))),PDO::PARAM_INT);
-	   	$stmt->bindValue(':user_id',$user_id,PDO::PARAM_INT);
-	   	$stmt->execute();
+       $db = ezcDbInstance::get();
+       $stmt = $db->prepare('SELECT id FROM lh_userdep WHERE user_id = :user_id');
+       $stmt->bindValue(':user_id', $user_id,PDO::PARAM_STR);
+       $stmt->execute();
+
+       $ids = $stmt->fetchAll(PDO::FETCH_COLUMN);
+
+       if (!empty($ids)) {
+           $stmt = $db->prepare('UPDATE lh_userdep SET active_chats = :active_chats WHERE id IN (' . implode(',', $ids) . ');');
+           $stmt->bindValue(':active_chats',erLhcoreClassChat::getCount(array('filter' => array('user_id' => $user_id, 'status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT))),PDO::PARAM_INT);
+           $stmt->execute();
+       }
    }
    
    public static function getAdjustment($geo_adjustment, $onlineUserVid = '', $widgetMode = false, $onlineUserDefined = false){
