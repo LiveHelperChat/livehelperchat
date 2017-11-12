@@ -88,6 +88,8 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
     	    
     	    session_write_close();
 
+            $db->beginTransaction();
+
     	    if ($chatDataChanged == true) {
     	    	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed',array('chat' => & $chat,'user' => $currentUser));
     	    }
@@ -104,11 +106,11 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
     	    	$options = $chat->department->inform_options_array;
     	    	erLhcoreClassChatWorkflow::chatAcceptedWorkflow(array('department' => $chat->department,'options' => $options),$chat);
     	    };
-    	    
+
     	    $db->commit();
     	    
     	    $tpl->set('chat',$chat);
-    	    
+
     	    echo $tpl->fetch();
     	        	    
 	    } catch (Exception $e) {
