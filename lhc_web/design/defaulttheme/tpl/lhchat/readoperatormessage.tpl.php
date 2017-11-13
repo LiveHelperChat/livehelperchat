@@ -4,7 +4,7 @@
 
 <div id="messages" class="read-operator-message<?php if($fullheight) : ?> fullheight<?php endif ?>">
     <div id="messagesBlockWrap">
-		<div class="msgBlock" id="messagesBlock">
+		<div class="msgBlock<?php if (isset($theme) && $theme !== false && $theme->hide_ts == 1) : ?> msg-hide-ts<?php endif?>" id="messagesBlock">
 			<?php include(erLhcoreClassDesign::designtpl('lhchat/lists/operator_message_row.tpl.php'));?>
 			<?php if (isset($start_data_fields['show_messages_box']) && $start_data_fields['show_messages_box'] == true) : ?>
 			<?php $formIdentifier = '#ReadOperatorMessage';?>

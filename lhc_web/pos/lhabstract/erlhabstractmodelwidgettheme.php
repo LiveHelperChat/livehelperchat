@@ -357,6 +357,19 @@ $def->properties['buble_operator_text_color']->columnName   = 'buble_operator_te
 $def->properties['buble_operator_text_color']->propertyName = 'buble_operator_text_color';
 $def->properties['buble_operator_text_color']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+// Show Timestamp For visitors
+$def->properties['hide_ts'] = new ezcPersistentObjectProperty();
+$def->properties['hide_ts']->columnName   = 'hide_ts';
+$def->properties['hide_ts']->propertyName = 'hide_ts';
+$def->properties['hide_ts']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+// From what width response widget layout should trigger
+// Overrides default 640px
+$def->properties['widget_response_width'] = new ezcPersistentObjectProperty();
+$def->properties['widget_response_width']->columnName   = 'widget_response_width';
+$def->properties['widget_response_width']->propertyName = 'widget_response_width';
+$def->properties['widget_response_width']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('lhabstract.erlhabstractmodelwidgettheme.posdefinition',array('def' => & $def));
 
 return $def;
