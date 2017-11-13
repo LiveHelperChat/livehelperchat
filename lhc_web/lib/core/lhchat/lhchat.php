@@ -176,6 +176,11 @@ class erLhcoreClassChat {
 	       $conditions = array();
 
 	       if (!isset($paramsSearch['smart_select'])) {
+
+                  if (isset($params['use_index'])) {
+                       $q->useIndex( $params['use_index'] );
+                  }
+
 			      if (isset($params['filter']) && count($params['filter']) > 0)
 			      {
 			           foreach ($params['filter'] as $field => $fieldValue)
@@ -242,7 +247,7 @@ class erLhcoreClassChat {
 
                   if (isset($params['innerjoin']) && count($params['innerjoin']) > 0) {
                        foreach ($params['innerjoin'] as $table => $joinOn) {
-                           $conditions[] = $q->innerJoin($table, $q->expr->eq($joinOn[0], $joinOn[1]));
+                          $q->innerJoin($table, $q->expr->eq($joinOn[0], $joinOn[1]));
                        }
                   }
 
@@ -252,18 +257,17 @@ class erLhcoreClassChat {
 			                     $conditions
 			          );
 			      }
-
-				 if (isset($params['use_index'])) {
-		      		$q->useIndex( $params['use_index'] );
-		      	 }
-
-			      $q->limit($params['limit'],$params['offset']);
+               $q->limit($params['limit'],$params['offset']);
 
 			      $q->orderBy(isset($params['sort']) ? $params['sort'] : 'id DESC' );
 	      } else {
 
 		      	$q2 = $q->subSelect();
-		      	$q2->select( 'id' )->from( $tableName );
+		      	$q2->select( $tableName . '.id' )->from( $tableName );
+
+                if (isset($params['use_index'])) {
+                   $q2->useIndex( $params['use_index'] );
+                }
 
 		      	if (isset($params['filter']) && count($params['filter']) > 0)
 		      	{
@@ -331,7 +335,7 @@ class erLhcoreClassChat {
 
                 if (isset($params['innerjoin']) && count($params['innerjoin']) > 0) {
                    foreach ($params['innerjoin'] as $table => $joinOn) {
-                       $conditions[] = $q2->innerJoin($table, $q2->expr->eq($joinOn[0], $joinOn[1]));
+                       $q2->innerJoin($table, $q->expr->eq($joinOn[0], $joinOn[1]));
                    }
                 }
 
@@ -340,10 +344,6 @@ class erLhcoreClassChat {
 		      		$q2->where(
 		      				$conditions
 		      		);
-		      	}
-
-		      	if (isset($params['use_index'])) {
-		      		$q2->useIndex( $params['use_index'] );
 		      	}
 
 		      	$q2->limit($params['limit'],$params['offset']);

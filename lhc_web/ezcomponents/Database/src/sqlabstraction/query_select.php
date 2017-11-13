@@ -682,7 +682,7 @@ class ezcQuerySelect extends ezcQuery
     {
     	if ( $this->useIndexString == null )
     	{
-    		$this->useIndexString = 'USE INDEX ';
+    		$this->useIndexString = ' USE INDEX ';
     	}
 
     	$args = func_get_args();
@@ -695,6 +695,8 @@ class ezcQuerySelect extends ezcQuery
     	$this->lastInvokedMethod = 'useindex';
 
     	$this->useIndexString .= ' ( ' . join( ' , ', $expressions ) . ' ) ';
+
+        $this->fromString .= $this->useIndexString;
 
     	return $this;
     }
@@ -920,11 +922,6 @@ class ezcQuerySelect extends ezcQuery
             $query = "{$query} {$this->fromString}";
         }
 
-        if ( $this->useIndexString != null )
-        {
-        	$query = "{$query} {$this->useIndexString}";
-        }
-
         if ( $this->whereString != null )
         {
             $query = "{$query} {$this->whereString}";
@@ -950,7 +947,7 @@ class ezcQuerySelect extends ezcQuery
         {
             $query = "{$query} {$this->lockString}";
         }
-        
+
         return $query;
     }
 

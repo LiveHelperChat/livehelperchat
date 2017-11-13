@@ -81,14 +81,12 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
     	    {
     	        $chat->unanswered_chat = 0;
     	    }
-    
+
     	    erLhcoreClassChat::getSession()->update($chat);
     	    
     	    $db->commit();
     	    
     	    session_write_close();
-
-            $db->beginTransaction();
 
     	    if ($chatDataChanged == true) {
     	    	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed',array('chat' => & $chat,'user' => $currentUser));
