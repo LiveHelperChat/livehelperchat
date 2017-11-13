@@ -342,6 +342,10 @@ option.offline-dep{
 	background-color:#FFF;
 }
 
+.msg-hide-ts .msg-date{
+	display: none!important;
+}
+
 .msgBlock-admin{
 	height:200px;
 	min-height:200px;

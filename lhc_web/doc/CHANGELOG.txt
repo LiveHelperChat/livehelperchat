@@ -1,3 +1,12 @@
+2.76v
+
+1. Option to hide message time from visitor in theme.
+2. Option to set custom mobile width trigger point.
+3. Changed how lh_userdep is table records are updates, avoids deadlocks in high load situations.
+4. Support {department} in send mail to visitor subject and body
+
+execute doc/update_db/update_151.sql for update
+
 2.75v
 
 1. Auto responder improvements and handling phone/tablet users if sync timeouts.

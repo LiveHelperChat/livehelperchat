@@ -2476,6 +2476,14 @@
                 "extra": ""
             },
             {
+                "field": "hide_ts",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": 0,
+                "extra": ""
+            },
+            {
                 "field": "hide_popup",
                 "type": "int(11)",
                 "null": "NO",
@@ -2497,6 +2505,14 @@
                 "null": "NO",
                 "key": "",
                 "default": "1",
+                "extra": ""
+            },
+            {
+                "field": "widget_response_width",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": 0,
                 "extra": ""
             },
             {

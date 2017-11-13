@@ -37,7 +37,7 @@
     (isset($paid_chat_params['allow_read']) && $paid_chat_params['allow_read'] == true)) : ?>
     <div id="messages"<?php if (isset($fullheight) && $fullheight == true) : ?> class="fullheight"<?php endif ?>>
         <div id="messagesBlockWrap">
-            <div class="msgBlock" <?php if (erLhcoreClassModelChatConfig::fetch('mheight')->current_value > 0) : ?>style="height:<?php echo (int)erLhcoreClassModelChatConfig::fetch('mheight')->current_value?>px"<?php endif?> id="messagesBlock"><?php
+            <div class="msgBlock<?php if (isset($theme) && $theme !== false && $theme->hide_ts == 1) : ?> msg-hide-ts<?php endif?>" <?php if (erLhcoreClassModelChatConfig::fetch('mheight')->current_value > 0) : ?>style="height:<?php echo (int)erLhcoreClassModelChatConfig::fetch('mheight')->current_value?>px"<?php endif?> id="messagesBlock"><?php
             $lastMessageID = 0;
             $lastOperatorChanged = false;
             $lastOperatorId = false;
@@ -137,6 +137,4 @@
         lhinst.userclosedchat();
     });
 </script>
-<?php else : ?>
-    <?php include(erLhcoreClassDesign::designtpl('lhchat/chat/chat_closed_multiinclude.tpl.php'));?>
 <?php endif;?>

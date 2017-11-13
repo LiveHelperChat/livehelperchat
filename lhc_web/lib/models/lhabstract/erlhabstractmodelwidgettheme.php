@@ -73,6 +73,9 @@ class erLhAbstractModelWidgetTheme {
 			'buble_operator_background' => $this->buble_operator_background,
 			'buble_operator_title_color'=> $this->buble_operator_title_color,
 			'buble_operator_text_color' => $this->buble_operator_text_color,
+
+			'hide_ts'                   => $this->hide_ts,
+			'widget_response_width'     => $this->widget_response_width,
 		);
 
 		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('lhabstract.erlhabstractmodelwidgettheme.getstate',array('state' => & $stateArray, 'object' => & $this));
@@ -456,6 +459,9 @@ class erLhAbstractModelWidgetTheme {
 	public $buble_operator_background = ''; //DCF2FA
 	public $buble_operator_title_color = '';//8EC1D9
 	public $buble_operator_text_color = ''; //333333
+
+    public $hide_ts = 0;
+    public $widget_response_width = 0;
 
 	public $hide_add = false;
 	public $hide_delete = false;

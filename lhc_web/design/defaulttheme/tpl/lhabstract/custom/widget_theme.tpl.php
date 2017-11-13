@@ -145,9 +145,12 @@
         		        <label><?php echo $fields['buble_operator_text_color']['trans'];?></label>
     					<?php echo erLhcoreClassAbstract::renderInput('buble_operator_text_color', $fields['buble_operator_text_color'], $object)?>		
     				    </div>
-    				   
-					    
-        		</div>        		
+
+        		        <div class="form-group">
+        		            <label><?php echo erLhcoreClassAbstract::renderInput('hide_ts', $fields['hide_ts'], $object)?> <?php echo $fields['hide_ts']['trans'];?></label>
+    				    </div>
+
+        		</div>
         		<div role="tabpanel" class="tab-pane" id="widgetcontainer">
         		
         		        <div class="form-group">
@@ -200,6 +203,11 @@
 						<div class="form-group">	
 						<label><?php echo $fields['popup_image']['trans'];?></label>
 						<?php echo erLhcoreClassAbstract::renderInput('popup_image', $fields['popup_image'], $object)?>
+						</div>
+
+						<div class="form-group">
+						<label><?php echo $fields['widget_response_width']['trans'];?></label>
+						<?php echo erLhcoreClassAbstract::renderInput('widget_response_width', $fields['widget_response_width'], $object)?>
 						</div>
 						
 						<div class="form-group">	
