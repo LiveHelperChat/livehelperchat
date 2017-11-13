@@ -114,7 +114,11 @@ if (is_array($Params['user_parameters_unordered']['chatopen']) && !empty($Params
     }
 }
 
-echo json_encode(array('track_activity' => $trackActivity, 'cdel' => $chatDel, 'copen' => $chatOpen, 'timeout_activity' => $activityTimeout, 'pr_names' => $productsNames, 'dp_names' => $departmentNames, 'dep_list' => $departmentList));
+$response = array('track_activity' => $trackActivity, 'cdel' => $chatDel, 'copen' => $chatOpen, 'timeout_activity' => $activityTimeout, 'pr_names' => $productsNames, 'dp_names' => $departmentNames, 'dep_list' => $departmentList);
+
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.loadinitialdata',array('lists' => & $response));
+
+echo json_encode($response);
 exit;
 
 ?>
