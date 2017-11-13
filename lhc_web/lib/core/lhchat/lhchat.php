@@ -240,6 +240,12 @@ class erLhcoreClassChat {
 				      	}
 			      }
 
+                  if (isset($params['innerjoin']) && count($params['innerjoin']) > 0) {
+                       foreach ($params['innerjoin'] as $table => $joinOn) {
+                           $conditions[] = $q->innerJoin($table, $q->expr->eq($joinOn[0], $joinOn[1]));
+                       }
+                  }
+
 			      if (count($conditions) > 0)
 			      {
 			          $q->where(
@@ -323,6 +329,11 @@ class erLhcoreClassChat {
 		      		}
 		      	}
 
+                if (isset($params['innerjoin']) && count($params['innerjoin']) > 0) {
+                   foreach ($params['innerjoin'] as $table => $joinOn) {
+                       $conditions[] = $q2->innerJoin($table, $q2->expr->eq($joinOn[0], $joinOn[1]));
+                   }
+                }
 
 		      	if (count($conditions) > 0)
 		      	{
