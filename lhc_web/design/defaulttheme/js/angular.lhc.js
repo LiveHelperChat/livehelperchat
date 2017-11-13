@@ -171,7 +171,9 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		} catch(e) {}
 		return defaultValue;
 	};
-			
+
+	this.custom_extension_filter = null;
+
 	// Active chat limit
 	this.limita = this.restoreLocalSetting('limita',10,false);
 	this.limitu = this.restoreLocalSetting('limitu',10,false);
@@ -318,6 +320,8 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	
 	$scope.getSyncFilter = function()
 	{
+		_that.custom_extension_filter = null;
+
 		var filter = '/(limita)/'+parseInt(_that.limita);
 		filter += '/(limitu)/'+parseInt(_that.limitu);
 		filter += '/(limitp)/'+parseInt(_that.limitp);
@@ -440,7 +444,9 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 			filter += '/(onop)/'+_that.toggleWidgetData['onop_sort'];
 		}
 
-        ee.emitEvent('eventGetSyncFilter', [filter, $scope, _that]);
+        filter += _that.custom_extension_filter;
+
+        ee.emitEvent('eventGetSyncFilter', [_that, $scope]);
 
 		return filter;
 	}
