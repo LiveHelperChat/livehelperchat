@@ -968,6 +968,8 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
                 lhinst.forgetChat(chatOpen);
             });
 
+            ee.emitEvent('eventLoadInitialData', [data, $scope, _that]);
+
 			$scope.loadChatList();
 		});
 	}	
