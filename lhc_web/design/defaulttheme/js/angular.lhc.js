@@ -439,7 +439,9 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		if (typeof _that.toggleWidgetData['onop_sort'] !== 'undefined' && _that.toggleWidgetData['onop_sort'] !== '') {
 			filter += '/(onop)/'+_that.toggleWidgetData['onop_sort'];
 		}
-		
+
+        ee.emitEvent('eventGetSyncFilter', [filter, $scope, _that]);
+
 		return filter;
 	}
 	
