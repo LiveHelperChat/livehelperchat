@@ -425,7 +425,7 @@ class ezcQuerySelect extends ezcQuery
         }
 
         // using from()->*Join() syntax assumed, so check if last call was to from()
-        if ( $this->lastInvokedMethod != 'from' )
+        if ( $this->lastInvokedMethod != 'from' && $this->lastInvokedMethod != 'useindex')
         {
             throw new ezcQueryInvalidException( 'SELECT', "Invoking {$type}Join() not immediately after from()." );
         }
