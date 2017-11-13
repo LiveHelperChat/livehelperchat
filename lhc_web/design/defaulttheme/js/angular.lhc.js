@@ -444,9 +444,9 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 			filter += '/(onop)/'+_that.toggleWidgetData['onop_sort'];
 		}
 
-        filter += _that.custom_extension_filter;
+		ee.emitEvent('eventGetSyncFilter', [_that, $scope]);
 
-        ee.emitEvent('eventGetSyncFilter', [_that, $scope]);
+        filter += _that.custom_extension_filter;
 
 		return filter;
 	}
