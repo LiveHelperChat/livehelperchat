@@ -172,7 +172,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		return defaultValue;
 	};
 
-	this.custom_extension_filter = null;
+	this.custom_extension_filter = '';
 
 	// Active chat limit
 	this.limita = this.restoreLocalSetting('limita',10,false);
@@ -320,7 +320,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	
 	$scope.getSyncFilter = function()
 	{
-		_that.custom_extension_filter = null;
+		_that.custom_extension_filter = '';
 
 		var filter = '/(limita)/'+parseInt(_that.limita);
 		filter += '/(limitu)/'+parseInt(_that.limitu);
