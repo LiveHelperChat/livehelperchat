@@ -245,6 +245,8 @@ if ($pendingTabEnabled == true) {
 	    $filterAdditionalMainAttr['sort'] = 'priority DESC, id ASC';
 	}
 
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.syncadmininterface.pendingchats',array('additional_filter' => & $additionalFilter));
+
 	/**
 	 * Pending chats
 	 * */
