@@ -11,7 +11,7 @@ $form = new ezcInputForm( INPUT_POST, $definition );
 $r = '';
 $error = 'f';
 
-if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && mb_strlen($form->msg) < (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value)
+if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && trim(str_replace('[[msgitm]]', '',$form->msg)) != '' && mb_strlen($form->msg) < (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value)
 {
 	try {
 	    $db = ezcDbInstance::get();
@@ -19,26 +19,29 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && mb_strlen($form->m
 	    $db->beginTransaction();
 	    
 	    $chat = erLhcoreClassModelChat::fetchAndLock($Params['user_parameters']['chat_id']);	
-	    
+
 	    if ($chat->hash == $Params['user_parameters']['hash'] && ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT || $chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)) // Allow add messages only if chat is active
 	    {	        	        
 	        $messagesToStore = explode('[[msgitm]]', trim($form->msg));
 	        
 	        foreach ($messagesToStore as $messageText)
 	        {
-    	        $msg = new erLhcoreClassModelmsg();
-    	        $msg->msg = trim($messageText);
-    	        $msg->chat_id = $Params['user_parameters']['chat_id'];
-    	        $msg->user_id = 0;
-    	        $msg->time = time();
-    	
-    	        if ($chat->chat_locale != '' && $chat->chat_locale_to != '') {
-    	            erLhcoreClassTranslate::translateChatMsgVisitor($chat, $msg);
-    	        }
+	            if (trim($messageText) != '')
+                {
+                    $msg = new erLhcoreClassModelmsg();
+                    $msg->msg = trim($messageText);
+                    $msg->chat_id = $Params['user_parameters']['chat_id'];
+                    $msg->user_id = 0;
+                    $msg->time = time();
 
-                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_user_saved',array('msg' => & $msg,'chat' => & $chat));
+                    if ($chat->chat_locale != '' && $chat->chat_locale_to != '') {
+                        erLhcoreClassTranslate::translateChatMsgVisitor($chat, $msg);
+                    }
 
-    	        erLhcoreClassChat::getSession()->save($msg);
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_user_saved',array('msg' => & $msg,'chat' => & $chat));
+
+                    erLhcoreClassChat::getSession()->save($msg);
+                }
 	        }
 
 	        $stmt = $db->prepare('UPDATE lh_chat SET last_user_msg_time = :last_user_msg_time, lsync = :lsync, last_msg_id = :last_msg_id, has_unread_messages = 1, unanswered_chat = :unanswered_chat WHERE id = :id');
