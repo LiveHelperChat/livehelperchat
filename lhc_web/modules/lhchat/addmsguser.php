@@ -44,6 +44,13 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && trim(str_replace('
                 }
 	        }
 
+	        if (!isset($msg)){
+                $error = 't';
+                $r = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a message, max characters').' - '.(int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value;
+                echo erLhcoreClassChat::safe_json_encode(array('error' => $error, 'r' => $r));
+                exit;
+            }
+
 	        $stmt = $db->prepare('UPDATE lh_chat SET last_user_msg_time = :last_user_msg_time, lsync = :lsync, last_msg_id = :last_msg_id, has_unread_messages = 1, unanswered_chat = :unanswered_chat WHERE id = :id');
 	        $stmt->bindValue(':id', $chat->id, PDO::PARAM_INT);
 	        $stmt->bindValue(':lsync', time(), PDO::PARAM_INT);
