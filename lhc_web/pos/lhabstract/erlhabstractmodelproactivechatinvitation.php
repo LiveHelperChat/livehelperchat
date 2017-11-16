@@ -90,6 +90,11 @@ $def->properties['show_random_operator']->columnName   = 'show_random_operator';
 $def->properties['show_random_operator']->propertyName = 'show_random_operator';
 $def->properties['show_random_operator']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['show_on_mobile'] = new ezcPersistentObjectProperty();
+$def->properties['show_on_mobile']->columnName   = 'show_on_mobile';
+$def->properties['show_on_mobile']->propertyName = 'show_on_mobile';
+$def->properties['show_on_mobile']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 // How many times show invitation popup before it gets hidden automatically
 $def->properties['hide_after_ntimes'] = new ezcPersistentObjectProperty();
 $def->properties['hide_after_ntimes']->columnName   = 'hide_after_ntimes';
@@ -107,6 +112,12 @@ $def->properties['message_returning'] = new ezcPersistentObjectProperty();
 $def->properties['message_returning']->columnName   = 'message_returning';
 $def->properties['message_returning']->propertyName = 'message_returning';
 $def->properties['message_returning']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+// Callback JS
+$def->properties['proactive_js'] = new ezcPersistentObjectProperty();
+$def->properties['proactive_js']->columnName   = 'proactive_js';
+$def->properties['proactive_js']->propertyName = 'proactive_js';
+$def->properties['proactive_js']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 // If we won't find returning visitor chat or hist previous chat nick, this variable will be replaced for nick
 $def->properties['message_returning_nick'] = new ezcPersistentObjectProperty();

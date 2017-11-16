@@ -39,6 +39,11 @@ $def->properties['last_check_time']->columnName   = 'last_check_time';
 $def->properties['last_check_time']->propertyName = 'last_check_time';
 $def->properties['last_check_time']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['show_on_mobile'] = new ezcPersistentObjectProperty();
+$def->properties['show_on_mobile']->columnName   = 'show_on_mobile';
+$def->properties['show_on_mobile']->propertyName = 'show_on_mobile';
+$def->properties['show_on_mobile']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['last_visit'] = new ezcPersistentObjectProperty();
 $def->properties['last_visit']->columnName   = 'last_visit';
 $def->properties['last_visit']->propertyName = 'last_visit';
