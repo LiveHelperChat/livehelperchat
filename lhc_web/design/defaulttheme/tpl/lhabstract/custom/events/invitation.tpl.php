@@ -53,6 +53,11 @@
 <?php echo erLhcoreClassAbstract::renderInput('requires_phone', $fields['requires_phone'], $object)?>
 </div>
 
+<div class="form-group">
+<label><?php echo $fields['show_on_mobile']['trans'];?></label>
+<?php echo erLhcoreClassAbstract::renderInput('show_on_mobile', $fields['show_on_mobile'], $object)?>
+</div>
+
 <div class="form-group">		
 <label><?php echo $fields['show_random_operator']['trans'];?></label>
 <?php echo erLhcoreClassAbstract::renderInput('show_random_operator', $fields['show_random_operator'], $object)?>

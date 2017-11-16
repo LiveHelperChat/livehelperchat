@@ -1,3 +1,13 @@
+2.77v
+
+1. Option in auto responder to choose show proactive invitation on mobile or not.
+2. Chat list filter by Chat wait time and Chat duration interval.
+3. Harden protection against empty visitors messages.
+4. Locking user department table by id to avoid deadlocks in high load situations.
+5. Autologin workflow improvements.
+
+execute doc/update_db/update_152.sql for update
+
 2.76v
 
 1. Option to hide message time from visitor in theme.

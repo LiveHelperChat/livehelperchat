@@ -2082,6 +2082,14 @@
                 "extra": ""
             },
             {
+                "field": "show_on_mobile",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "autoresponder_id",
                 "type": "int(11)",
                 "null": "NO",
@@ -3857,6 +3865,14 @@
             },
             {
                 "field": "chat_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "show_on_mobile",
                 "type": "int(11)",
                 "null": "NO",
                 "key": "",

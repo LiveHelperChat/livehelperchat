@@ -40,7 +40,8 @@ class erLhAbstractModelProactiveChatInvitation {
 			'dynamic_invitation' => $this->dynamic_invitation,
 			'event_invitation' => $this->event_invitation,
 			'iddle_for' => $this->iddle_for,
-			'event_type' => $this->event_type
+			'event_type' => $this->event_type,
+			'show_on_mobile' => $this->show_on_mobile
 		);
 			
 		return $stateArray;
@@ -296,7 +297,8 @@ class erLhAbstractModelProactiveChatInvitation {
 			$item->store_chat = true;
 			$item->invitation_assigned = true;
 			$item->last_visit = time();
-			
+			$item->show_on_mobile = $message->show_on_mobile;
+
 			if ($message->show_random_operator == 1) {
 				$item->operator_user_id = erLhcoreClassChat::getRandomOnlineUserID(array('operators' => explode(',',trim($message->operator_ids))));				
 			}
@@ -381,6 +383,7 @@ class erLhAbstractModelProactiveChatInvitation {
 	public $iddle_for = 0;
 	public $event_type = 0;
 	public $autoresponder_id = 0;
+	public $show_on_mobile = 0;
 
 	public $hide_add = false;
 	public $hide_delete = false;
