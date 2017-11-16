@@ -113,12 +113,6 @@ $def->properties['message_returning']->columnName   = 'message_returning';
 $def->properties['message_returning']->propertyName = 'message_returning';
 $def->properties['message_returning']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
-// Callback JS
-$def->properties['proactive_js'] = new ezcPersistentObjectProperty();
-$def->properties['proactive_js']->columnName   = 'proactive_js';
-$def->properties['proactive_js']->propertyName = 'proactive_js';
-$def->properties['proactive_js']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
-
 // If we won't find returning visitor chat or hist previous chat nick, this variable will be replaced for nick
 $def->properties['message_returning_nick'] = new ezcPersistentObjectProperty();
 $def->properties['message_returning_nick']->columnName   = 'message_returning_nick';

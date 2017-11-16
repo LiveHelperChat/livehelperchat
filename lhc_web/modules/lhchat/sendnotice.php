@@ -52,7 +52,8 @@ if ( isset($_POST['SendMessage']) ) {
         $currentUser = erLhcoreClassUser::instance();   
         $visitor->message_seen = 0;
         $visitor->invitation_id = -1;
-        $visitor->show_on_mobile = 1;$visitor->operator_user_id = $currentUser->getUserID();
+        $visitor->show_on_mobile = 1;
+        $visitor->operator_user_id = $currentUser->getUserID();
         $visitor->saveThis();
         
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('onlineuser.proactive_send_invitation', array('ou' => & $visitor));
