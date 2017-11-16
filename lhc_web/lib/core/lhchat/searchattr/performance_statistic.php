@@ -95,13 +95,11 @@ $fieldsSearch['user_id'] = array (
 	'required' => false,
 	'valid_if_filled' => false,
 	'filter_type' => 'filter',
-	'filter_table_field' => 'user_id',
+	'filter_table_field' => 'lh_chat.user_id',
 	'validation_definition' => new ezcInputFormDefinitionElement(
 		ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 1)
 	)
 );
-
-
 
 $fieldSortAttr = array (
 'field'      => false,

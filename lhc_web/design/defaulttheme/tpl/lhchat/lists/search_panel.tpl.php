@@ -43,7 +43,7 @@
 		  </div>
 		</div>
 		
-		<div class="col-md-3">
+		<div class="col-md-2">
 		  <div class="form-group">
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Date range from');?></label>
     			<div class="row">
@@ -78,7 +78,7 @@
 			</div>
 		</div>
 		
-		<div class="col-md-3">
+		<div class="col-md-2">
 		  <div class="form-group">
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Date range to');?></label>
     			<div class="row">
@@ -111,13 +111,65 @@
 				</div>
 		    </div>
 		  </div>
-		</div>
-		
+        </div>
+
+          <div class="col-md-2">
+              <div class="form-group">
+                  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Wait time');?></label>
+                  <div class="row">
+                      <div class="col-xs-6">
+                          <select class="form-control" name="wait_time_from">
+                              <option>More than</option>
+                              <option value="0" <?php $input->wait_time_from === 0 ? print 'selected="selected"' : ''?>>0 seconds</option>
+                              <option value="5" <?php $input->wait_time_from === 5 ? print 'selected="selected"' : ''?>>5 seconds</option>
+                              <option value="10" <?php $input->wait_time_from === 10 ? print 'selected="selected"' : ''?>>10 seconds</option>
+                              <option value="20" <?php $input->wait_time_from === 20 ? print 'selected="selected"' : ''?>>20 seconds</option>
+                              <option value="30" <?php $input->wait_time_from === 30 ? print 'selected="selected"' : ''?>>30 seconds</option>
+                              <option value="40" <?php $input->wait_time_from === 40 ? print 'selected="selected"' : ''?>>40 seconds</option>
+                              <option value="50" <?php $input->wait_time_from === 50 ? print 'selected="selected"' : ''?>>50 seconds</option>
+                              <option value="60" <?php $input->wait_time_from === 60 ? print 'selected="selected"' : ''?>>60 seconds</option>
+                              <option value="90" <?php $input->wait_time_from === 90 ? print 'selected="selected"' : ''?>>90 seconds</option>
+
+                              <?php for ($i = 2; $i < 5; $i++) : ?>
+                                  <option value="<?php echo $i*60?>" <?php $input->wait_time_from === $i*60 ? print 'selected="selected"' : ''?>><?php echo  $i?> m.</option>
+                              <?php endfor ?>
+
+                              <?php for ($i = 2; $i < 13; $i++) : ?>
+                                <option value="<?php echo $i*5*60?>" <?php $i*60*5 === $input->wait_time_from ? print 'selected="selected"' : ''?>><?php echo $i*5?> m.</option>
+                              <?php endfor ?>
+                          </select>
+                      </div>
+                      <div class="col-xs-6">
+                          <select class="form-control" name="wait_time_till">
+                              <option>Less than</option>
+                              <option value="0" <?php $input->wait_time_till === 0 ? print 'selected="selected"' : ''?>>0 seconds</option>
+                              <option value="5" <?php $input->wait_time_till === 5 ? print 'selected="selected"' : ''?>>5 seconds</option>
+                              <option value="10" <?php $input->wait_time_till === 10 ? print 'selected="selected"' : ''?>>10 seconds</option>
+                              <option value="20" <?php $input->wait_time_till === 20 ? print 'selected="selected"' : ''?>>20 seconds</option>
+                              <option value="30" <?php $input->wait_time_till === 30 ? print 'selected="selected"' : ''?>>30 seconds</option>
+                              <option value="40" <?php $input->wait_time_till === 40 ? print 'selected="selected"' : ''?>>40 seconds</option>
+                              <option value="50" <?php $input->wait_time_till === 50 ? print 'selected="selected"' : ''?>>50 seconds</option>
+                              <option value="60" <?php $input->wait_time_till === 60 ? print 'selected="selected"' : ''?>>60 seconds</option>
+                              <option value="90" <?php $input->wait_time_till === 90 ? print 'selected="selected"' : ''?>>90 seconds</option>
+
+                              <?php for ($i = 2; $i < 5; $i++) : ?>
+                                  <option value="<?php echo $i*60?>" <?php $input->wait_time_till === $i*60 ? print 'selected="selected"' : ''?>><?php echo  $i?> m.</option>
+                              <?php endfor ?>
+
+                              <?php for ($i = 2; $i < 13; $i++) : ?>
+                                  <option value="<?php echo $i*60*5?>" <?php $i*60*5 === $input->wait_time_till ? print 'selected="selected"' : ''?> ><?php echo $i*5?> m.</option>
+                              <?php endfor ?>
+                          </select>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
 		
 	</div>
 			
 	<div class="row">
-		<div class="col-md-3">
+		<div class="col-md-2">
 		   <div class="form-group">
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Vote status');?></label>
 			<select name="fbst" class="form-control">
@@ -128,7 +180,7 @@
 			</select>           	
 		  </div>
 		</div>		
-		<div class="col-md-3">
+		<div class="col-md-2">
 		   <div class="form-group">
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chat status');?></label>
 			<select name="chat_status" class="form-control">
@@ -151,12 +203,45 @@
 	                    'list_function'  => 'erLhAbstractModelProduct::getList'
 	         )); ?>
 		</div>
-		<div class="col-md-3">
+		<div class="col-md-2">
 			<div class="form-group">
 		    	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chat ID');?></label>
 				<input type="text" class="form-control" name="chat_id" value="<?php echo htmlspecialchars($input->chat_id)?>" />
 			</div>
 		</div>
+        <div class="col-md-3">
+			<div class="form-group">
+		    	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chat duration');?></label>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <select class="form-control" name="chat_duration_from" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chat duration from');?>">
+                            <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','From');?></option>
+                            <?php for ($i = 1; $i < 10; $i++) : ?>
+                                <option value="<?php echo $i*60?>" <?php $i*60 === $input->chat_duration_from ? print 'selected="selected"' : ''?> ><?php echo $i?> m.</option>
+                            <?php endfor; ?>
+
+                            <?php for ($i = 2; $i < 19; $i++) : ?>
+                                <option value="<?php echo $i*60*5?>" <?php $i*60*5 === $input->chat_duration_from ? print 'selected="selected"' : ''?> ><?php echo $i*5?> m.</option>
+                            <?php endfor; ?>
+                        </select>
+                    </div>
+                    <div class="col-xs-6">
+                        <select class="form-control" name="chat_duration_till" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chat duration till');?>">
+                            <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Till');?></option>
+                            <?php for ($i = 1; $i < 10; $i++) : ?>
+                                <option value="<?php echo $i*60?>" <?php $i*60 === $input->chat_duration_till ? print 'selected="selected"' : ''?> ><?php echo $i?> m.</option>
+                            <?php endfor; ?>
+
+                            <?php for ($i = 2; $i < 19; $i++) : ?>
+                                <option value="<?php echo $i*60*5?>" <?php $i*60*5 === $input->chat_duration_till ? print 'selected="selected"' : ''?> ><?php echo $i*5?> m.</option>
+                            <?php endfor; ?>
+                        </select>
+                    </div>
+                 </div>
+			</div>
+		</div>
+
+
 	</div>
     
     <div class="row">

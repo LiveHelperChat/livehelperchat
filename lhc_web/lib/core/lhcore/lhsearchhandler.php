@@ -119,20 +119,22 @@ class erLhcoreClassSearchHandler
                                 }
                             }
                         }
-                    } elseif ($field['filter_type'] == 'filtergte') {
-                        
+                    } elseif ($field['filter_type'] == 'filtergte' || $field['filter_type'] == 'filtergt') {
+
+                        $filterType = $field['filter_type'];
+
                         if (isset($field['datatype']) && $field['datatype'] == 'date') {
                             
                             $dateFormated = self::formatDateToTimestamp($inputParams->$key);
                             if ($dateFormated != false) {
-                                $filter['filtergte'][$field['filter_table_field']] = $dateFormated;
+                                $filter[$filterType][$field['filter_table_field']] = $dateFormated;
                             }
                         } elseif (isset($field['datatype']) && $field['datatype'] == 'date_ymd') {
                             
                             $dateFormated = self::formatDateToDateYmd($inputParams->$key);
                             
                             if ($dateFormated != false) {
-                                $filter['filtergte'][$field['filter_table_field']] = $dateFormated;
+                                $filter[$filterType][$field['filter_table_field']] = $dateFormated;
                             }
                         } elseif (isset($field['datatype']) && $field['datatype'] == 'datetime') {
                             
@@ -162,12 +164,13 @@ class erLhcoreClassSearchHandler
                                     $minutes = 0;
                                 }
                                  
-                                $filter['filtergte'][$field['filter_table_field']] = $dateFormated + $hours + $minutes;
+                                $filter[$filterType][$field['filter_table_field']] = $dateFormated + $hours + $minutes;
                             }
                             
                         } else {
-                            $filter['filtergte'][$field['filter_table_field']] = $inputParams->$key;
+                            $filter[$filterType][$field['filter_table_field']] = $inputParams->$key;
                         }
+
                     } elseif ($field['filter_type'] == 'filterlte' || $field['filter_type'] == 'filterlt') {
 
                         $filterType = $field['filter_type'];

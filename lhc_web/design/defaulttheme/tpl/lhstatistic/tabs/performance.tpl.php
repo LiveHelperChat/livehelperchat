@@ -95,7 +95,21 @@
         </div>
 	</div>
 	
-	<div class="col-md-4">
+	<div class="col-md-3">
+	   <div class="form-group">
+    	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','User');?></label>
+        <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
+               'input_name'     => 'user_id',
+               'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select user'),
+               'selected_id'    => $input->user_id,
+               'css_class'      => 'form-control',
+               'display_name' => 'name_official',
+               'list_function'  => 'erLhcoreClassModelUser::getUserList'
+       )); ?>
+       </div>
+    </div>
+
+    <div class="col-md-3">
 	   <div class="form-group">
     	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','User group');?></label>
     	<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
@@ -106,10 +120,10 @@
 	            'display_name'   => 'name',
                 'list_function'  => 'erLhcoreClassModelGroup::getList'
         )); ?>
-        </div>   
+        </div>
     </div>
 
-	<div class="col-md-4">
+	<div class="col-md-3">
 	   <div class="form-group">
     	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department');?></label>
     	<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
@@ -122,7 +136,7 @@
         </div>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-3">
 	   <div class="form-group">
     	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department group');?></label>
     	<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
@@ -177,7 +191,7 @@
     <table class="table" cellpadding="0" cellspacing="0" width="100%">
         <thead>
             <tr>
-                <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Avg. Wait Time');?></th>
+                <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Avg. Wait Time');?></a></th>
                 <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Chats Started');?></th>
                 <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Abandoned Chats');?></th>
                 <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','% of chats');?></th>
@@ -187,7 +201,7 @@
         <tbody>
             <?php foreach ($performanceStatistic['rows'] as $stat) : ?>
                 <tr>
-                    <td><?php echo htmlspecialchars($stat['tt'])?></td>
+                    <td><a href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(wait_time_from)/<?php echo $stat['from']-1?><?php $stat['to'] !== false ? print '/(wait_time_till)/' . $stat['to'] : ''?>/<?php echo erLhcoreClassSearchHandler::getURLAppendFromInput($input)?>"><?php echo htmlspecialchars($stat['tt'])?></a></td>
                     <td><?php echo $stat['started']?></td>
                     <td><?php echo $stat['abandoned']?></td>
                     <td><?php echo $performanceStatistic['total_chats'] > 0 ? round($stat['started']/$performanceStatistic['total_chats'],4)*100 : 0?> %</td>

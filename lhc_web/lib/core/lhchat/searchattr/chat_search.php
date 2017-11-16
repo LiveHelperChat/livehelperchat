@@ -38,6 +38,54 @@ $fieldsSearch['chat_id'] = array (
     )
 );
 
+$fieldsSearch['wait_time_from'] = array (
+    'type' => 'text',
+    'trans' => 'id',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filtergt',
+    'filter_table_field' => 'wait_time',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'int'
+    )
+);
+
+$fieldsSearch['wait_time_till'] = array (
+    'type' => 'text',
+    'trans' => 'id',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filterlte',
+    'filter_table_field' => 'wait_time',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'int'
+    )
+);
+
+$fieldsSearch['chat_duration_from'] = array (
+    'type' => 'text',
+    'trans' => 'id',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filtergt',
+    'filter_table_field' => 'chat_duration',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'int'
+    )
+);
+
+$fieldsSearch['chat_duration_till'] = array (
+    'type' => 'text',
+    'trans' => 'id',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filterlte',
+    'filter_table_field' => 'chat_duration',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'int'
+    )
+);
+
 $fieldsSearch['timefrom'] = array (
     'type' => 'text',
     'trans' => 'Timefrom',

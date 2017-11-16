@@ -1113,11 +1113,10 @@ class erLhcoreClassChatStatistic {
         $filter['filtergt']['user_id'] = 0;
         return erLhcoreClassChat::getCount(array_merge_recursive($filter,array('filtergt' => array('chat_duration' => 0),'filter' =>  array('status' => erLhcoreClassModelChat::STATUS_CLOSED_CHAT))),'lh_chat','SUM(chat_duration)');
     }
-    
-    public static function getPerformanceStatistic($days = 30, $filter = array(), $filterParams = array())
-    {        
-        // wait_time
-        $dateRange = array(
+
+    public static function getRangeWaitTime()
+    {
+        return array(
             array(
                 'from' => 0,
                 'to' => 5,
@@ -1189,6 +1188,11 @@ class erLhcoreClassChatStatistic {
                 'tt' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','more than 10 min.')
             )
         );
+    }
+
+    public static function getPerformanceStatistic($days = 30, $filter = array(), $filterParams = array())
+    {
+        $dateRange = self::getRangeWaitTime();
 
         $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getperformancestatistic',array('ranges' => $dateRange, 'days' => $days, 'filter' => $filter, 'filter_params' => $filterParams));
 
@@ -1225,9 +1229,8 @@ class erLhcoreClassChatStatistic {
                 } elseif (isset($filterParams['input']->timefrom_include_hours) && is_numeric($filterParams['input']->timefrom_include_hours)) {
                     $filterTimeout['customfilter'][] = 'FROM_UNIXTIME(time,\'%k\') >= '. (int)$filterParams['input']->timefrom_include_hours;
                 }
-                
-                
-                $chatStarted = erLhcoreClassChat::getCount(array_merge_recursive($filter, $filterTimeout), 'lh_chat', 'count(id)');       
+
+                $chatStarted = erLhcoreClassChat::getCount(array_merge_recursive($filter, $filterTimeout), 'lh_chat', 'count(id)');
                 $abandonedStarted = erLhcoreClassChat::getCount(array_merge_recursive($filter, $filterTimeout, array('filter' => array('user_id' => 0, 'status_sub' => erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT))), 'lh_chat', 'count(id)');
                 
                 $stats['rows'][] = array(
