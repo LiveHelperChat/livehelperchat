@@ -182,4 +182,4 @@ foreach ($enabledFields as $optionKey => $optionEnabled) :
     <script>
         drawChartOptions({rangefilter:<?php echo json_encode($optionsValuesFilter)?>,backgroundColours:<?php echo json_encode(array_values($backgroundColours))?>,labels:<?php echo json_encode($labels)?>,data:<?php echo json_encode(array_values($optionsValues)) ?>,range:{}},<?php echo $optionEnabled?>);
     </script>
-<?php endforeach;
+<?php endforeach; ?>
