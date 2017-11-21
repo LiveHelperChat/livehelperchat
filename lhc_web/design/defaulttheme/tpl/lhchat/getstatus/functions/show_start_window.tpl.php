@@ -9,7 +9,7 @@ showStartWindow : function(url_to_open,delayShow) {
       // Do not check for new messages
       this.stopCheckNewMessage();
 
-      this.removeById('<?php echo $chatCSSPrefix?>_container');
+      this.removeById('<?php echo $chatCSSLayoutOptions['container_id']?>');
       	  
 	  var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));
 	  
@@ -64,9 +64,9 @@ showStartWindow : function(url_to_open,delayShow) {
 
       var lhc_obj = this;
       
- 		this.addClass(document.getElementById('<?php echo $chatCSSPrefix?>_container'),'<?php echo $chatCSSPrefix?>-delayed');
+ 		this.addClass(document.getElementById('<?php echo $chatCSSLayoutOptions['container_id']?>'),'<?php echo $chatCSSPrefix?>-delayed');
  		setTimeout(function(){
- 			lhc_obj.removeClass(document.getElementById('<?php echo $chatCSSPrefix?>_container'),'<?php echo $chatCSSPrefix?>-delayed');
+ 			lhc_obj.removeClass(document.getElementById('<?php echo $chatCSSLayoutOptions['container_id']?>'),'<?php echo $chatCSSPrefix?>-delayed');
  			lhc_obj.toggleStatusWidget(true);
  		},(typeof delayShow !== 'undefined') ? 1300 : 290);
       
@@ -77,9 +77,9 @@ showStartWindow : function(url_to_open,delayShow) {
       document.getElementById('<?php echo $chatCSSPrefix?>_remote_window').onclick = function() { lhc_obj.openRemoteWindow(); return false; };
 	  <?php endif; ?>
 	  
-	  var domContainer = document.getElementById('<?php echo $chatCSSPrefix?>_container');
+	  var domContainer = document.getElementById('<?php echo $chatCSSLayoutOptions['container_id']?>');
 	  var domIframe = '<?php echo $chatCSSPrefix?>_iframe';
-	  var domContainerId = '<?php echo $chatCSSPrefix?>_container';
+	  var domContainerId = '<?php echo $chatCSSLayoutOptions['container_id']?>';
 	  <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/drag_drop_logic.tpl.php')); ?>		  
 	      
 	  if (this.cookieData.m) {this.min(true);};
