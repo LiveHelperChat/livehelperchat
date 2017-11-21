@@ -61,7 +61,7 @@ class erLhcoreClassSiteaccessGenerator {
     	$cfgSite->save();
     }
 
-    public function trimArrayElements($array){
+    public static function trimArrayElements($array){
     	foreach ($array as $key => & $value) {
     		$value = trim($value);
     	}
