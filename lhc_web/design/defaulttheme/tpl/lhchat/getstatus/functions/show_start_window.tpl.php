@@ -42,7 +42,7 @@ showStartWindow : function(url_to_open,delayShow) {
                    ' style="width: '+widgetWidth+'px;height: '+widgetHeight+widgetHeightUnit+';" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Live Help')?>"></iframe></div>';
 
       <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/container.tpl.php')); ?>
-     
+
       if (!this.cssWasAdded) {
       	this.cssWasAdded = true;
       	this.addCss(raw_css<?php ($theme !== false && $theme->custom_container_css !== '') ? print '+\''.str_replace(array("\n","\r"), '', $theme->custom_container_css).'\'' : '' ?>);

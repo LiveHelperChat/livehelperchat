@@ -14,6 +14,10 @@ if (this.cookieData.pos) {
         <?php else : ?>
         domContainer.style.bottom = posContainer[1];
         <?php endif;?>
+
+        if (typeof posContainer[2] !== 'undefined' && posContainer[2] > 0){
+            this.pendingHeight = posContainer[2];
+        }
 };
 
 this.addEvent(domContainer, 'dragstart', function (event) {	

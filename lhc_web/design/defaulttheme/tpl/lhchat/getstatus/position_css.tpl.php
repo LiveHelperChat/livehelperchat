@@ -16,7 +16,8 @@ $positionArgument = array (
 				'background_position' => '0',
 				'widget_radius' => '-webkit-border-top-right-radius: 20px;-moz-border-radius-topright: 20px;border-top-right-radius: 20px;',
 				'nh_hor_pos' => 'margin-left:10px;',
-				'nh_tr_pos' => 'left:15px;'
+				'nh_tr_pos' => 'left:15px;',
+                'mobile_position' => 'height:25px !important;right:auto !important;left:0;top:auto !important;bottom:0 !important;'
 		),
 		'bottom_right' => array (
 				'pos' => 'r',
@@ -33,7 +34,8 @@ $positionArgument = array (
 				'border_widget' => 'border:1px solid #'.($theme !== false ? $theme->bor_bcolor : 'e3e3e3').';border-right:0;border-bottom:0;',
 				'widget_radius' => '-webkit-border-top-left-radius: 20px;-moz-border-radius-topleft: 20px;border-top-left-radius: 20px;',
 				'nh_hor_pos' => 'margin-left:-80px;',
-				'nh_tr_pos' => 'right:15px;'
+				'nh_tr_pos' => 'right:15px;',
+                'mobile_position' => 'height:25px !important;left:auto !important;right:0;top:auto !important;bottom:0 !important;'
 		),
 		'middle_right' => array (
 				'pos' => 'r',
@@ -50,7 +52,8 @@ $positionArgument = array (
 				'chrome_radius' => 'top-left',
 				'widget_radius' => '-webkit-border-top-left-radius: 20px;-moz-border-radius-topleft: 20px;border-top-left-radius: 20px;      -webkit-border-bottom-left-radius: 20px;-moz-border-radius-bottomleft: 20px;border-bottom-left-radius: 20px;',
 				'nh_hor_pos' => 'margin-left:-230px;',
-				'nh_tr_pos' => 'right:15px;'
+				'nh_tr_pos' => 'right:15px;',
+                'mobile_position' => 'height:25px !important;left:auto !important;right:0;top:auto !important;bottom:0 !important;'
 		),
 		'middle_left' => array (
 				'radius' => 'left',
@@ -67,7 +70,8 @@ $positionArgument = array (
 				'chrome_radius' => 'top-right',
 				'widget_radius' => '-webkit-border-top-right-radius: 20px;-moz-border-radius-topright: 20px;border-top-right-radius: 20px;      -webkit-border-bottom-right-radius: 20px;-moz-border-radius-bottomright: 20px;border-bottom-right-radius: 20px;',
 				'nh_hor_pos' => 'margin-left:160px;',
-				'nh_tr_pos' => ''
+				'nh_tr_pos' => '',
+                'mobile_position' => 'height:25px !important;right:auto !important;left:0;top:auto !important;bottom:0 !important;'
 		),
 		'full_height_right' => array (
 			'full_height' => true,
@@ -85,7 +89,8 @@ $positionArgument = array (
 			'border_widget' => 'border:1px solid #'.($theme !== false ? $theme->bor_bcolor : 'e3e3e3').';border-right:0;border-bottom:0;',
 			'widget_radius' => '-webkit-border-top-left-radius: 20px;-moz-border-radius-topleft: 20px;border-top-left-radius: 20px;',
 			'nh_hor_pos' => 'margin-left:-80px;',
-			'nh_tr_pos' => 'right:15px;'
+			'nh_tr_pos' => 'right:15px;',
+            'mobile_position' => 'height:25px !important;left:auto !important;right:0;top:auto !important;bottom:0 !important;'
 		),
 		'full_height_left' => array (
 			'full_height' => true,
@@ -103,7 +108,8 @@ $positionArgument = array (
 			'background_position' => '0',
 			'widget_radius' => '-webkit-border-top-right-radius: 20px;-moz-border-radius-topright: 20px;border-top-right-radius: 20px;',
 			'nh_hor_pos' => 'margin-left:10px;',
-			'nh_tr_pos' => 'left:15px;'
+			'nh_tr_pos' => 'left:15px;',
+            'mobile_position' => 'height:25px !important;right:auto !important;left:0;top:auto !important;bottom:0 !important;'
 		),
 );
 

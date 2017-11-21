@@ -132,7 +132,7 @@ var lh_inst  = {
 	   }
     },
     
-    storePos : function(dm) {
+    storePos : function(dm, height) {
 		    var cookiePos = '';
 			<?php if ($currentPosition['pos'] == 'r') : ?>
 		    	cookiePos += dm.style.right;			    	   	
@@ -143,8 +143,13 @@ var lh_inst  = {
 		    cookiePos += ","+dm.style.top;
 		    <?php else : ?>
 		    cookiePos += ","+dm.style.bottom;		
-		    <?php endif;?>		    
-		    this.addCookieAttribute('pos',cookiePos);	
+		    <?php endif;?>
+
+            if (height > 0) {
+                cookiePos += ","+height;
+            }
+
+		    this.addCookieAttribute('pos',cookiePos);
     },
     
 	min : function(initial) {
@@ -158,7 +163,6 @@ var lh_inst  = {
 			dm.attrHeight = dm.style.height;
 			dm.attrIsMin = true;
             this.isMinimized = true;
-			this.addClass(dm,'lhc-min');									
 			<?php if ($currentPosition['posv'] == 'b') : ?>			
 			if(dm.style.bottom!='' && dm.attrHeight!=''){
 				dm.style.bottom = (parseInt(dm.style.bottom)+parseInt(dm.attrHeight)-35)+'px';							
@@ -167,9 +171,17 @@ var lh_inst  = {
 					dm.style.bottom = (parseInt(dm.style.bottom) + parseInt(document.getElementById('lhc_iframe_container').offsetHeight)-10)+'px';
 				}			
 			}
-			<?php endif; ?>			
+			<?php endif; ?>
+
+            var heightIframe = 0;
+            if (initial == undefined) {
+                heightIframe = parseInt(document.getElementById('lhc_iframe_container').offsetHeight)-1;
+            } else if (typeof lh_inst.pendingHeight !== 'undefined') {
+                heightIframe = lh_inst.pendingHeight;
+            }
+
 			this.addCookieAttribute('m',1);
-			this.storePos(dm);
+			this.storePos(dm, heightIframe);
 			<?php if ($currentPosition['posv'] == 'b' && $minimize_action == 'br') : ?>
 					dm.attrBottomOrigin = dm.style.bottom;
 					dm.style.bottom = '';										
@@ -181,36 +193,29 @@ var lh_inst  = {
 					dm.style.left = '0px';	
 					<?php endif;?>													
 			<?php endif;?>
+            this.addClass(dm,'lhc-min');
 			this.removeClass(document.body,'lhc-opened');			
 		} else {
+            this.removeClass(dm,'lhc-min');
 			dm.attrIsMin = false;
             this.isMinimized = false;
 			<?php if ($currentPosition['posv'] == 'b') : ?>
-			if (dm.attrBottomOrigin)	{
+			if (dm.attrBottomOrigin) {
 				dm.style.bottom = (parseInt(dm.attrBottomOrigin)-parseInt(document.getElementById('lhc_iframe').style.height)+9)+'px';
 				<?php if ($currentPosition['pos'] == 'r') : ?>
 				dm.style.right = dm.attrRightOrigin;	
 				<?php else : ?>
 				dm.style.left = dm.attrLeftOrigin;	
 				<?php endif;?>
-			} else if (dm.style.bottom!=''){		
+			} else if (dm.style.bottom!='') {
 				dm.style.bottom = (parseInt(dm.style.bottom)-parseInt(document.getElementById('lhc_iframe').style.height)+9)+'px';
 			}
 			<?php endif;?>		
 			this.removeCookieAttr('m');
-			this.removeClass(dm,'lhc-min');
 			var inst = this;		
-			this.storePos(dm);			
+			this.storePos(dm);
 			this.addClass(document.body,'lhc-opened');
 		};
-		
-		if (typeof initial !== 'undefined' && initial === true) {
-            this.addClass(dm,'lhc-min-append');
-            var that = this;
-            setTimeout(function(){
-                that.removeClass(dm,'lhc-min-append');
-            },700);           
-		}
 	},
 	
     hide : function() {
@@ -834,12 +839,17 @@ var lh_inst  = {
     		var height = e.data.split(':')[1];
     		var elementObject = document.getElementById('lhc_iframe');
     		var iframeContainer = document.getElementById('lhc_container');
-    		
+
+            if (typeof lh_inst.pendingHeight !== 'undefined' && typeof lh_inst.heightSet == 'undefined' && lh_inst.pendingHeight > 0) {
+                height = lh_inst.pendingHeight;
+                lh_inst.heightSet = true;
+            }
+
     		if (elementObject){
     			elementObject.height = height;
     			elementObject.style.height = height+'px';
     		}
-    		
+
     		iframeContainer.className = iframeContainer.className;    		
     	} else if (action == 'lhc_ch') {
     		var parts = e.data.split(':');
