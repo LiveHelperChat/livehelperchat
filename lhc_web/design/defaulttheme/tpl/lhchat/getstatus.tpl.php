@@ -153,9 +153,9 @@ var lh_inst  = {
     },
     
 	min : function(initial) {
-		var dm = document.getElementById('lhc_container');
+		var dm = document.getElementById('<?php echo $chatCSSPrefix?>_container');
 
-        var msgNum = document.getElementById('lhc-msg-number');
+        var msgNum = document.getElementById('<?php echo $chatCSSPrefix?>-msg-number');
         msgNum.innerHTML = '';
         msgNum.msg_number = 0;
 
@@ -168,14 +168,14 @@ var lh_inst  = {
 				dm.style.bottom = (parseInt(dm.style.bottom)+parseInt(dm.attrHeight)-35)+'px';							
 			} else {
 				if (initial == undefined) {
-					dm.style.bottom = (parseInt(dm.style.bottom) + parseInt(document.getElementById('lhc_iframe_container').offsetHeight)-10)+'px';
+					dm.style.bottom = (parseInt(dm.style.bottom) + parseInt(document.getElementById('<?php echo $chatCSSPrefix?>_iframe_container').offsetHeight)-10)+'px';
 				}			
 			}
 			<?php endif; ?>
 
             var heightIframe = 0;
             if (initial == undefined) {
-                heightIframe = parseInt(document.getElementById('lhc_iframe_container').offsetHeight)-1;
+                heightIframe = parseInt(document.getElementById('<?php echo $chatCSSPrefix?>_iframe_container').offsetHeight)-1;
             } else if (typeof lh_inst.pendingHeight !== 'undefined') {
                 heightIframe = lh_inst.pendingHeight;
             }
@@ -193,28 +193,28 @@ var lh_inst  = {
 					dm.style.left = '0px';	
 					<?php endif;?>													
 			<?php endif;?>
-            this.addClass(dm,'lhc-min');
-			this.removeClass(document.body,'lhc-opened');			
+            this.addClass(dm,'<?php echo $chatCSSPrefix?>-min');
+			this.removeClass(document.body,'<?php echo $chatCSSPrefix?>-opened');
 		} else {
-            this.removeClass(dm,'lhc-min');
+            this.removeClass(dm,'<?php echo $chatCSSPrefix?>-min');
 			dm.attrIsMin = false;
             this.isMinimized = false;
 			<?php if ($currentPosition['posv'] == 'b') : ?>
 			if (dm.attrBottomOrigin) {
-				dm.style.bottom = (parseInt(dm.attrBottomOrigin)-parseInt(document.getElementById('lhc_iframe').style.height)+9)+'px';
+				dm.style.bottom = (parseInt(dm.attrBottomOrigin)-parseInt(document.getElementById('<?php echo $chatCSSPrefix?>_iframe').style.height)+9)+'px';
 				<?php if ($currentPosition['pos'] == 'r') : ?>
 				dm.style.right = dm.attrRightOrigin;	
 				<?php else : ?>
 				dm.style.left = dm.attrLeftOrigin;	
 				<?php endif;?>
 			} else if (dm.style.bottom!='') {
-				dm.style.bottom = (parseInt(dm.style.bottom)-parseInt(document.getElementById('lhc_iframe').style.height)+9)+'px';
+				dm.style.bottom = (parseInt(dm.style.bottom)-parseInt(document.getElementById('<?php echo $chatCSSPrefix?>_iframe').style.height)+9)+'px';
 			}
 			<?php endif;?>		
 			this.removeCookieAttr('m');
 			var inst = this;		
 			this.storePos(dm);
-			this.addClass(document.body,'lhc-opened');
+			this.addClass(document.body,'<?php echo $chatCSSPrefix?>-opened');
 		};
 	},
 	
@@ -232,12 +232,12 @@ var lh_inst  = {
             s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/chatwidgetclosed'+this.getAppendCookieArguments()+'?ts='+Date.now());
             th.appendChild(s);
             this.toggleStatusWidget(false);
-            this.removeById('lhc_container');
+            this.removeById('<?php echo $chatCSSPrefix?>_container');
             this.removeCookieAttr('hash');
             this.removeCookieAttr('pos');
             this.removeCookieAttr('m');
                     
-            this.removeClass(document.body,'lhc-opened');
+            this.removeClass(document.body,'<?php echo $chatCSSPrefix?>-opened');
                     
             <?php if ($check_operator_messages == 'true' && $disable_pro_active == false) : ?>
             this.startNewMessageCheck();
@@ -267,7 +267,7 @@ var lh_inst  = {
     },
 
     openRemoteWindow : function() {
-        this.removeById('lhc_container');
+        this.removeById('<?php echo $chatCSSPrefix?>_container');
         var popupHeight = (typeof <?php echo $chatOptionsVariable?> != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt.popup_height != 'undefined') ? parseInt(<?php echo $chatOptionsVariable?>.opt.popup_height) : 520;
         var popupWidth = (typeof <?php echo $chatOptionsVariable?> != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt.popup_width != 'undefined') ? parseInt(<?php echo $chatOptionsVariable?>.opt.popup_width) : 500;
         var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));        
@@ -406,11 +406,11 @@ var lh_inst  = {
 	<?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/functions/show_start_window.tpl.php')); ?>
 
     toggleStatusWidget : function(hide){
-      if(document.getElementById('lhc_status_container') != null) {
+      if(document.getElementById('<?php echo $chatCSSPrefix?>_status_container') != null) {
         if (hide == true){
-          this.addClass(document.getElementById('lhc_status_container'),'hide-status');
+          this.addClass(document.getElementById('<?php echo $chatCSSPrefix?>_status_container'),'hide-status');
         } else {
-          this.removeClass(document.getElementById('lhc_status_container'),'hide-status');
+          this.removeClass(document.getElementById('<?php echo $chatCSSPrefix?>_status_container'),'hide-status');
         }
       }
     },
@@ -693,7 +693,7 @@ var lh_inst  = {
     },
     
     lhc_need_help_hide :function() {
-    	this.removeById('lhc_need_help_container');
+    	this.removeById('<?php echo $chatCSSPrefix?>_need_help_container');
     	<?php $needHelpTimeout = $theme !== false ? $theme->show_need_help_timeout : erLhcoreClassModelChatConfig::fetch('need_help_tip_timeout')->current_value; ?>
     	<?php if ($needHelpTimeout > 0) : ?>    	
     	this.addCookieAttributePersistent('lhc_hnh','<?php echo (($needHelpTimeout * 3600) + time())?>');
@@ -831,14 +831,14 @@ var lh_inst  = {
 
         if (action == 'lhc_newopmsg') {
             if ( lh_inst.isMinimized == true) {
-                var msgNum = document.getElementById('lhc-msg-number');
+                var msgNum = document.getElementById('<?php echo $chatCSSPrefix?>-msg-number');
                 msgNum.innerHTML = (parseInt(msgNum.msg_number)+1);
                 msgNum.msg_number++;
             }
         } else if (action == 'lhc_sizing_chat') {
     		var height = e.data.split(':')[1];
-    		var elementObject = document.getElementById('lhc_iframe');
-    		var iframeContainer = document.getElementById('lhc_container');
+    		var elementObject = document.getElementById('<?php echo $chatCSSPrefix?>_iframe');
+    		var iframeContainer = document.getElementById('<?php echo $chatCSSPrefix?>_container');
 
             if (typeof lh_inst.pendingHeight !== 'undefined' && typeof lh_inst.heightSet == 'undefined' && lh_inst.pendingHeight > 0) {
                 height = lh_inst.pendingHeight;
