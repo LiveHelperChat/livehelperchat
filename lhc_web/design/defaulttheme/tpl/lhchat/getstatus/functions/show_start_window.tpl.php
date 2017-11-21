@@ -9,7 +9,7 @@ showStartWindow : function(url_to_open,delayShow) {
       // Do not check for new messages
       this.stopCheckNewMessage();
 
-      this.removeById('lhc_container');	
+      this.removeById('<?php echo $chatCSSPrefix?>_container');
       	  
 	  var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));
 	  
@@ -21,7 +21,7 @@ showStartWindow : function(url_to_open,delayShow) {
             this.initial_iframe_url = "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>"+this.lang+"/chat/chatwidget<?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?= isset($currentPosition['full_height']) && $currentPosition['full_height'] ?  '/(fullheight)/true' : '/(fullheight)/false' ?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : '' ?>"+this.getAppendCookieArguments()+'?URLReferer='+locationCurrent+this.parseOptions()+this.parseStorageArguments()+'&dt='+encodeURIComponent(document.title);
       };
        
-      this.addClass(document.body,'lhc-opened');
+      this.addClass(document.body,'<?php echo $chatCSSPrefix?>-opened');
       
       lh_inst.surveyShown = false;                             
       lh_inst.timeoutStatusWidgetOpen = 1;
@@ -35,7 +35,7 @@ showStartWindow : function(url_to_open,delayShow) {
 		widgetHeightUnit = '%';
 	  }
 
-      this.iframe_html = '<?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/before_iframe_container.tpl.php')); ?>'+'<div id="lhc_iframe_container" <?= isset($currentPosition['full_height']) && $currentPosition['full_height'] ? 'style="height: calc(100% - 25px);"' : '' ?>><iframe id="lhc_iframe" allowTransparency="true" scrolling="no" class="lhc-loading" frameborder="0" ' +
+      this.iframe_html = '<?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/before_iframe_container.tpl.php')); ?>'+'<div id="<?php echo $chatCSSPrefix?>_iframe_container" <?= isset($currentPosition['full_height']) && $currentPosition['full_height'] ? 'style="height: calc(100% - 25px);"' : '' ?>><iframe id="<?php echo $chatCSSPrefix?>_iframe" allowTransparency="true" scrolling="no" class="<?php echo $chatCSSPrefix?>-loading" frameborder="0" ' +
                    ( this.initial_iframe_url != '' ? ' src="'    + this.initial_iframe_url + '"' : '' ) +
                    ' width="'+widgetWidth+'"' +
                    ' height="'+widgetHeight+'"' +
@@ -64,22 +64,22 @@ showStartWindow : function(url_to_open,delayShow) {
 
       var lhc_obj = this;
       
- 		this.addClass(document.getElementById('lhc_container'),'lhc-delayed');
+ 		this.addClass(document.getElementById('<?php echo $chatCSSPrefix?>_container'),'<?php echo $chatCSSPrefix?>-delayed');
  		setTimeout(function(){
- 			lhc_obj.removeClass(document.getElementById('lhc_container'),'lhc-delayed');
+ 			lhc_obj.removeClass(document.getElementById('<?php echo $chatCSSPrefix?>_container'),'<?php echo $chatCSSPrefix?>-delayed');
  			lhc_obj.toggleStatusWidget(true);
  		},(typeof delayShow !== 'undefined') ? 1300 : 290);
       
       <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/functions/part/close_handler.tpl.php')); ?>		
       
-      document.getElementById('lhc_min').onclick = function() { lhc_obj.min(); return false; };
+      document.getElementById('<?php echo $chatCSSPrefix?>_min').onclick = function() { lhc_obj.min(); return false; };
       <?php if (erLhcoreClassModelChatConfig::fetch('disable_popup_restore')->current_value == 0 && ($theme === false || $theme->hide_popup == 0)) : ?>
-      document.getElementById('lhc_remote_window').onclick = function() { lhc_obj.openRemoteWindow(); return false; };
+      document.getElementById('<?php echo $chatCSSPrefix?>_remote_window').onclick = function() { lhc_obj.openRemoteWindow(); return false; };
 	  <?php endif; ?>
 	  
-	  var domContainer = document.getElementById('lhc_container');
-	  var domIframe = 'lhc_iframe';
-	  var domContainerId = 'lhc_container';
+	  var domContainer = document.getElementById('<?php echo $chatCSSPrefix?>_container');
+	  var domIframe = '<?php echo $chatCSSPrefix?>_iframe';
+	  var domContainerId = '<?php echo $chatCSSPrefix?>_container';
 	  <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/drag_drop_logic.tpl.php')); ?>		  
 	      
 	  if (this.cookieData.m) {this.min(true);};

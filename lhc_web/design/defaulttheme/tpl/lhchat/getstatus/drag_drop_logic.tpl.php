@@ -21,7 +21,7 @@ if (this.cookieData.pos) {
 };
 
 this.addEvent(domContainer, 'dragstart', function (event) {	
-		lhc_obj.removeById('lhc_overlapse');  	  
+		lhc_obj.removeById('<?php echo $chatCSSPrefix?>_overlapse');
 		var style = window.getComputedStyle(event.target, null);
 		lhc_obj.offset_data = (parseInt(style.getPropertyValue("<?php echo $currentPosition['pos'] == 'r' ? 'right' : 'left'?>"),10) + (<?php echo $currentPosition['pos'] == 'r' ? '' : '-'?>event.clientX)) + ',' + (parseInt(style.getPropertyValue("<?php echo $currentPosition['posv'] == 't' ? 'top' : 'bottom' ?>"),10)<?php echo $currentPosition['posv'] == 't' ? '-' : '+' ?>event.clientY);
 	    try {
@@ -31,7 +31,7 @@ this.addEvent(domContainer, 'dragstart', function (event) {
 	    domContainer.style.zIndex=9995;	
 	    theKid = document.createElement("div");
 		theKid.innerHTML = '';
-		theKid.setAttribute('id','lhc_overlapse');
+		theKid.setAttribute('id','<?php echo $chatCSSPrefix?>_overlapse');
 		theKid.style.cssText = "position:absolute;height:" + domContainer.style.height + ";width:100%;";			
 	    domContainer.insertBefore(theKid, domContainer.firstChild);
 });
@@ -49,7 +49,7 @@ if (!this.dragAttatched) {
 				domContainer = document.getElementById(domContainerId);				
 				domContainer.style.zIndex=9990;				
 				lhc_obj.is_dragging = false;
-				lhc_obj.removeById('lhc_overlapse');
+				lhc_obj.removeById('<?php echo $chatCSSPrefix?>_overlapse');
 			    var offset = lhc_obj.offset_data.split(',');
 			   
 			    dm = domContainer;
