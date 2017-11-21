@@ -153,7 +153,7 @@ var lh_inst  = {
     },
     
 	min : function(initial) {
-		var dm = document.getElementById('<?php echo $chatCSSPrefix?>_container');
+		var dm = document.getElementById('<?php echo $chatCSSLayoutOptions['container_id']?>');
 
         var msgNum = document.getElementById('<?php echo $chatCSSPrefix?>-msg-number');
         msgNum.innerHTML = '';
@@ -232,7 +232,7 @@ var lh_inst  = {
             s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/chatwidgetclosed'+this.getAppendCookieArguments()+'?ts='+Date.now());
             th.appendChild(s);
             this.toggleStatusWidget(false);
-            this.removeById('<?php echo $chatCSSPrefix?>_container');
+            this.removeById('<?php echo $chatCSSLayoutOptions['container_id']?>');
             this.removeCookieAttr('hash');
             this.removeCookieAttr('pos');
             this.removeCookieAttr('m');
@@ -267,7 +267,7 @@ var lh_inst  = {
     },
 
     openRemoteWindow : function() {
-        this.removeById('<?php echo $chatCSSPrefix?>_container');
+        this.removeById('<?php echo $chatCSSLayoutOptions['container_id']?>');
         var popupHeight = (typeof <?php echo $chatOptionsVariable?> != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt.popup_height != 'undefined') ? parseInt(<?php echo $chatOptionsVariable?>.opt.popup_height) : 520;
         var popupWidth = (typeof <?php echo $chatOptionsVariable?> != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt.popup_width != 'undefined') ? parseInt(<?php echo $chatOptionsVariable?>.opt.popup_width) : 500;
         var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));        
@@ -838,7 +838,7 @@ var lh_inst  = {
         } else if (action == 'lhc_sizing_chat') {
     		var height = e.data.split(':')[1];
     		var elementObject = document.getElementById('<?php echo $chatCSSPrefix?>_iframe');
-    		var iframeContainer = document.getElementById('<?php echo $chatCSSPrefix?>_container');
+    		var iframeContainer = document.getElementById('<?php echo $chatCSSLayoutOptions['container_id']?>');
 
             if (typeof lh_inst.pendingHeight !== 'undefined' && typeof lh_inst.heightSet == 'undefined' && lh_inst.pendingHeight > 0) {
                 height = lh_inst.pendingHeight;
