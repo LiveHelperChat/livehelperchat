@@ -98,7 +98,9 @@ class erLhcoreClassFileUpload extends UploadHandler {
     	        }
     
     	        $chat->has_unread_messages = 1;
-    	        $chat->updateThis();	        	            
+    	        $chat->updateThis();
+
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin',array('msg' => & $msg,'chat' => & $chat));
 	        }
 	        
 	        $this->uploadedFile = $fileUpload;
