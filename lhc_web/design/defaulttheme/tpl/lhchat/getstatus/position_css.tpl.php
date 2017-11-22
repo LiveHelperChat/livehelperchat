@@ -17,7 +17,8 @@ $positionArgument = array (
 				'widget_radius' => '-webkit-border-top-right-radius: 20px;-moz-border-radius-topright: 20px;border-top-right-radius: 20px;',
 				'nh_hor_pos' => 'margin-left:10px;',
 				'nh_tr_pos' => 'left:15px;',
-                'mobile_position' => 'height:25px !important;right:auto !important;left:0;top:auto !important;bottom:0 !important;'
+                'mobile_position' => 'height:25px !important;right:auto !important;left:0;top:auto !important;bottom:0 !important;',
+                'mobile_position_status' => 'width:auto;padding:0;border-radius:0px;bottom:50px;left:5px;right:auto;top:auto;'
 		),
 		'bottom_right' => array (
 				'pos' => 'r',
@@ -35,7 +36,8 @@ $positionArgument = array (
 				'widget_radius' => '-webkit-border-top-left-radius: 20px;-moz-border-radius-topleft: 20px;border-top-left-radius: 20px;',
 				'nh_hor_pos' => 'margin-left:-80px;',
 				'nh_tr_pos' => 'right:15px;',
-                'mobile_position' => 'height:25px !important;left:auto !important;right:0;top:auto !important;bottom:0 !important;'
+                'mobile_position' => 'height:25px !important;left:auto !important;right:0;top:auto !important;bottom:0 !important;',
+                'mobile_position_status' => 'width:auto;padding:0;border-radius:0px;bottom:50px;right:5px;left:auto;top:auto;'
 		),
 		'middle_right' => array (
 				'pos' => 'r',
@@ -53,7 +55,8 @@ $positionArgument = array (
 				'widget_radius' => '-webkit-border-top-left-radius: 20px;-moz-border-radius-topleft: 20px;border-top-left-radius: 20px;      -webkit-border-bottom-left-radius: 20px;-moz-border-radius-bottomleft: 20px;border-bottom-left-radius: 20px;',
 				'nh_hor_pos' => 'margin-left:-230px;',
 				'nh_tr_pos' => 'right:15px;',
-                'mobile_position' => 'height:25px !important;left:auto !important;right:0;top:auto !important;bottom:0 !important;'
+                'mobile_position' => 'height:25px !important;left:auto !important;right:0;top:auto !important;bottom:0 !important;',
+                'mobile_position_status' => 'width:auto;padding:0;border-radius:0px;bottom:50px;right:5px;left:auto;top:auto;'
 		),
 		'middle_left' => array (
 				'radius' => 'left',
@@ -71,7 +74,8 @@ $positionArgument = array (
 				'widget_radius' => '-webkit-border-top-right-radius: 20px;-moz-border-radius-topright: 20px;border-top-right-radius: 20px;      -webkit-border-bottom-right-radius: 20px;-moz-border-radius-bottomright: 20px;border-bottom-right-radius: 20px;',
 				'nh_hor_pos' => 'margin-left:160px;',
 				'nh_tr_pos' => '',
-                'mobile_position' => 'height:25px !important;right:auto !important;left:0;top:auto !important;bottom:0 !important;'
+                'mobile_position' => 'height:25px !important;right:auto !important;left:0;top:auto !important;bottom:0 !important;',
+                'mobile_position_status' => 'width:auto;padding:0;border-radius:0px;bottom:50px;left:5px;right:auto;top:auto;'
 		),
 		'full_height_right' => array (
 			'full_height' => true,
@@ -90,7 +94,8 @@ $positionArgument = array (
 			'widget_radius' => '-webkit-border-top-left-radius: 20px;-moz-border-radius-topleft: 20px;border-top-left-radius: 20px;',
 			'nh_hor_pos' => 'margin-left:-80px;',
 			'nh_tr_pos' => 'right:15px;',
-            'mobile_position' => 'height:25px !important;left:auto !important;right:0;top:auto !important;bottom:0 !important;'
+            'mobile_position' => 'height:25px !important;left:auto !important;right:0;top:auto !important;bottom:0 !important;',
+            'mobile_position_status' => 'width:auto;padding:0;border-radius:0px;bottom:50px;right:5px;left:auto;top:auto;'
 		),
 		'full_height_left' => array (
 			'full_height' => true,
@@ -109,7 +114,8 @@ $positionArgument = array (
 			'widget_radius' => '-webkit-border-top-right-radius: 20px;-moz-border-radius-topright: 20px;border-top-right-radius: 20px;',
 			'nh_hor_pos' => 'margin-left:10px;',
 			'nh_tr_pos' => 'left:15px;',
-            'mobile_position' => 'height:25px !important;right:auto !important;left:0;top:auto !important;bottom:0 !important;'
+            'mobile_position' => 'height:25px !important;right:auto !important;left:0;top:auto !important;bottom:0 !important;',
+            'mobile_position_status' => 'width:auto;padding:0;border-radius:0px;bottom:50px;left:5px;right:auto;top:auto;'
 		),
 );
 
