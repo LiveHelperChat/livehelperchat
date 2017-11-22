@@ -761,7 +761,17 @@ class erLhcoreClassBBCode
    				// Check that user has permission to see the chat. Let say if user purposely types file bbcode
    				if ($hash == md5($name.'_'.$file->chat_id)) {
    				    $hash = md5($file->name.'_'.$file->chat_id);
-   					return "<a href=\"" . erLhcoreClassDesign::baseurl('file/downloadfile')."/{$file->id}/{$hash}\" target=\"_blank\" rel=\"noopener\" class=\"link\" >" . erTranslationClassLhTranslation::getInstance()->getTranslation('file/file','Download file').' - '.htmlspecialchars($file->upload_name).' ['.$file->extension.']' . "</a>";
+
+   				    $audio = '';
+   				    if ($file->extension == 'mp3' || $file->extension == 'wav' || $file->extension == 'ogg'){
+                        $audio = '<br/><audio controls>
+                          <source src="'.erLhcoreClassDesign::baseurl('file/downloadfile')."/{$file->id}/{$hash}".'" type="'.$file->type.'">                                                                        
+                        </audio>';
+                    }else if ($file->extension == 'jpg' || $file->extension == 'jpeg' || $file->extension == 'png') {
+                        $audio = ' <a onclick="$(\'#img-file-'.$file->id.'\').toggleClass(\'hide\')"><i class="material-icons mr-0">&#xE251;</i></a><br/><img id="img-file-'.$file->id.'" class="img-responsive hide" src="' . erLhcoreClassDesign::baseurl('file/downloadfile')."/{$file->id}/{$hash}" . '" alt="" />';
+                    }
+
+   					return "<a href=\"" . erLhcoreClassDesign::baseurl('file/downloadfile')."/{$file->id}/{$hash}\" target=\"_blank\" rel=\"noopener\" class=\"link\" >" . erTranslationClassLhTranslation::getInstance()->getTranslation('file/file','Download file').' - '.htmlspecialchars($file->upload_name).' ['.$file->extension.']' . "</a>" . $audio;
    				}
    				
    			} catch (Exception $e) {
