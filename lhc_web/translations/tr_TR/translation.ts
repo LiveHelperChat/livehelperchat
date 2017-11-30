@@ -6,8 +6,12 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
-      <translation>Son gösterimden sonra kaç gün pusulalar oylanabilsin </translation>
+      <translation>Son gösterimden kaç gün sonra oy pusula kutusu açılmamalı?</translation>
     </message>
     <message>
       <source>Use secure cookie, check this if you want to force SSL all the time</source>
@@ -15,7 +19,7 @@
     </message>
     <message>
       <source>Which ip should be allowed to update DB by executing http request, separate by comma?</source>
-      <translation type="unfinished"/>
+      <translation>Hangi ip&apos;nin, virgülle ayrılmış http isteğini yürüterek DB&apos;yi güncellemesine izin verilsin?</translation>
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
@@ -23,11 +27,11 @@
     </message>
     <message>
       <source>Should mouse movement be tracked as activity measure, if not checked only basic events would be tracked</source>
-      <translation type="unfinished"/>
+      <translation>Fare hareketi etkinlik ölçüsü olarak izlenirse, işaretlenmezse yalnızca temel olaylar izlenir.</translation>
     </message>
     <message>
       <source>Track is user still on site, chat status checks also has to be enabled</source>
-      <translation type="unfinished"/>
+      <translation>Ziyaretçi halen sitede, sohbet durumu kontrollerinin etkinleştirilmesi gerekiyor.</translation>
     </message>
     <message>
       <source>Track online visitors even if there is no online operators</source>
@@ -4576,6 +4580,10 @@
       <translation>Roller listesi</translation>
     </message>
     <message>
+      <source>Import users</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Advanced</source>
       <translation>Gelişmiş</translation>
     </message>
@@ -5781,6 +5789,10 @@
     </message>
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Created</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7870,6 +7882,10 @@
       <translation>Devre dışı bırakıldı</translation>
     </message>
     <message>
+      <source>User department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>New user</source>
       <translation>Yeni kullanıcı</translation>
     </message>
@@ -8937,6 +8953,101 @@
     <name>statistic/onlinehours</name>
     <message>
       <source>Online Hours</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>user/import</name>
+    <message>
+      <source>Import users</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>CSV Separator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Skip first row</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Import only one record to test</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter column number starting from 1</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Import</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Updated!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Username</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Password</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>First name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nickname</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide Online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Can access all departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Skype</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Job title</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time Zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invisible</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Username field not found!</source>
       <translation type="unfinished"/>
     </message>
   </context>

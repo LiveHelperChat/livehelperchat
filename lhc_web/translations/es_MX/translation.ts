@@ -6,6 +6,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Por cuantos días el widget de votación no será expandido después de mostrarlo la última vez</translation>
     </message>
@@ -4574,6 +4578,10 @@
       <translation>Lista de roles</translation>
     </message>
     <message>
+      <source>Import users</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Advanced</source>
       <translation type="unfinished"/>
     </message>
@@ -5780,6 +5788,10 @@
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
       <translation>El usuario puede ver todos los chats pendientes, no solo los asignados a el</translation>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Notifications</source>
@@ -7868,6 +7880,10 @@
       <translation>Deshabilitado</translation>
     </message>
     <message>
+      <source>User department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>New user</source>
       <translation>Nuevo usuario</translation>
     </message>
@@ -8936,6 +8952,101 @@
     <message>
       <source>Online Hours</source>
       <translation>Horas en linea</translation>
+    </message>
+  </context>
+  <context>
+    <name>user/import</name>
+    <message>
+      <source>Import users</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>CSV Separator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Skip first row</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Import only one record to test</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter column number starting from 1</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Import</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Updated!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Username</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Password</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>First name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nickname</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide Online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Can access all departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Skype</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Job title</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time Zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invisible</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Username field not found!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

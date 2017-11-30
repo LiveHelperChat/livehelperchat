@@ -6,6 +6,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>多少天投票窗口小部件不应扩大后最后的展示</translation>
     </message>
@@ -4574,6 +4578,10 @@
       <translation>角色一览</translation>
     </message>
     <message>
+      <source>Import users</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Advanced</source>
       <translation type="unfinished"/>
     </message>
@@ -5780,6 +5788,10 @@
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
       <translation>用户可以看到所有待定的聊天，不只分配给他的</translation>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Notifications</source>
@@ -7868,6 +7880,10 @@
       <translation>残疾人</translation>
     </message>
     <message>
+      <source>User department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>New user</source>
       <translation>新用户</translation>
     </message>
@@ -8935,6 +8951,101 @@
     <name>statistic/onlinehours</name>
     <message>
       <source>Online Hours</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>user/import</name>
+    <message>
+      <source>Import users</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>CSV Separator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Skip first row</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Import only one record to test</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter column number starting from 1</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Import</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Updated!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Username</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Password</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>First name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nickname</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide Online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Can access all departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Skype</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Job title</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time Zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invisible</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Username field not found!</source>
       <translation type="unfinished"/>
     </message>
   </context>

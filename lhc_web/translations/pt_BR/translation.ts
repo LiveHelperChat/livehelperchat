@@ -6,6 +6,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Por quantos dias o widget de votação não deve ser exibido após última exibição</translation>
     </message>
@@ -259,7 +263,7 @@
     </message>
     <message>
       <source>Chats waiting in pending queue more than n seconds should be auto-assigned first. Time in seconds</source>
-      <translation type="unfinished"/>
+      <translation>Chats esperando na fila pendente mais de n segundos devem primeiro ser auto-atribuídos. Tempo em segundos</translation>
     </message>
     <message>
       <source>Support application name, visible in browser title.</source>
@@ -710,7 +714,7 @@
     <name>chat/startchatformsettings</name>
     <message>
       <source>Add event</source>
-      <translation type="unfinished"/>
+      <translation>Adicionar evento</translation>
     </message>
     <message>
       <source>Remove</source>
@@ -750,7 +754,7 @@
     </message>
     <message>
       <source>Dropdown</source>
-      <translation type="unfinished"/>
+      <translation>Dropdown</translation>
     </message>
     <message>
       <source>Visible on</source>
@@ -770,15 +774,15 @@
     </message>
     <message>
       <source>Show if</source>
-      <translation type="unfinished"/>
+      <translation>Mostrar se</translation>
     </message>
     <message>
       <source>Always</source>
-      <translation type="unfinished"/>
+      <translation>Sempre</translation>
     </message>
     <message>
       <source>Username is empty</source>
-      <translation type="unfinished"/>
+      <translation>Nome de usuário vazio</translation>
     </message>
     <message>
       <source>Size (between 1 and 12)</source>
@@ -794,11 +798,11 @@
     </message>
     <message>
       <source>Options</source>
-      <translation type="unfinished"/>
+      <translation>Opções</translation>
     </message>
     <message>
       <source>Each option in new line</source>
-      <translation type="unfinished"/>
+      <translation>Cada opção em uma nova linha</translation>
     </message>
     <message>
       <source>Add a field</source>
@@ -918,15 +922,15 @@
     </message>
     <message>
       <source>Department settings</source>
-      <translation type="unfinished"/>
+      <translation>Configurações de departamento</translation>
     </message>
     <message>
       <source>Requires pre-filled department</source>
-      <translation type="unfinished"/>
+      <translation>Requer um departamento pre-preenchido</translation>
     </message>
     <message>
       <source>User can not change passed department.</source>
-      <translation type="unfinished"/>
+      <translation>O usuário não pode alterar o departamento passado.</translation>
     </message>
     <message>
       <source>Encryption</source>
@@ -4575,6 +4579,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Lista de regras</translation>
     </message>
     <message>
+      <source>Import users</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Advanced</source>
       <translation type="unfinished"/>
     </message>
@@ -5781,6 +5789,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
       <translation>O usuário pode ver todos os chates pendentes, não apenas os encaminhados para ele</translation>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Notifications</source>
@@ -7869,6 +7881,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Desabilitado</translation>
     </message>
     <message>
+      <source>User department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>New user</source>
       <translation>Novo usuário</translation>
     </message>
@@ -8938,6 +8954,101 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Online Hours</source>
       <translation>Horas online</translation>
+    </message>
+  </context>
+  <context>
+    <name>user/import</name>
+    <message>
+      <source>Import users</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>CSV Separator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Skip first row</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Import only one record to test</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter column number starting from 1</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Import</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Updated!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Username</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Password</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>First name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nickname</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide Online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Can access all departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Skype</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Job title</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time Zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invisible</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Username field not found!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>
