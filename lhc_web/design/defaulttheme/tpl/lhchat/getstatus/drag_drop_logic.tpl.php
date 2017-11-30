@@ -28,7 +28,7 @@ this.addEvent(domContainer, 'dragstart', function (event) {
 	    	event.dataTransfer.setData("text/plain",lhc_obj.offset_data); 
 	    } catch (e){};
 	    lhc_obj.is_dragging = true;
-	    domContainer.style.zIndex=9995;	
+	    domContainer.style.zIndex=2147483647;
 	    theKid = document.createElement("div");
 		theKid.innerHTML = '';
 		theKid.setAttribute('id','<?php echo $chatCSSPrefix?>_overlapse');
@@ -47,7 +47,7 @@ if (!this.dragAttatched) {
 			if (lhc_obj.is_dragging == true) {
 				
 				domContainer = document.getElementById(domContainerId);				
-				domContainer.style.zIndex=9990;				
+				domContainer.style.zIndex=2147483646;
 				lhc_obj.is_dragging = false;
 				lhc_obj.removeById('<?php echo $chatCSSPrefix?>_overlapse');
 			    var offset = lhc_obj.offset_data.split(',');
