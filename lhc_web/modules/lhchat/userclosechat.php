@@ -31,7 +31,7 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 
     		    // From now chat will be closed explicitly	   
     	        $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT;
-    	    
+ 
     	        if ($chat->wait_time == 0) {
     	            $chat->wait_time = time() - $chat->time;
     	        }
@@ -61,6 +61,11 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 		    }
 		    
 		    if ($explicitClosed == true) {
+
+                if ($chat->user_id > 0) {
+                    erLhcoreClassChat::updateActiveChats($chat->user_id);
+                }
+
 		        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.explicitly_closed',array('chat' => & $chat));
 		    }
 

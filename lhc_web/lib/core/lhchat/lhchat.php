@@ -1668,7 +1668,6 @@ class erLhcoreClassChat {
    
    public static function updateActiveChats($user_id)
    {
-
        $db = ezcDbInstance::get();
        $stmt = $db->prepare('SELECT id FROM lh_userdep WHERE user_id = :user_id');
        $stmt->bindValue(':user_id', $user_id,PDO::PARAM_STR);

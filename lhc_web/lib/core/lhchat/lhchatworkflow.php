@@ -295,10 +295,11 @@ class erLhcoreClassChatWorkflow {
     	return $purgedChatsNumber;
     }
     
-    public static function autoAssign(& $chat, $department, $params = array()) {    	
-        
+    public static function autoAssign(& $chat, $department, $params = array()) {
+
     	if ( $department->active_balancing == 1 && ($department->max_ac_dep_chats == 0 || $department->active_chats_counter < $department->max_ac_dep_chats) && ($chat->user_id == 0 || ($department->max_timeout_seconds > 0 && $chat->tslasign < time()-$department->max_timeout_seconds)) ){
-	    	$isOnlineUser = (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'];
+
+    	    $isOnlineUser = (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'];
 	    	
 	    	$db = ezcDbInstance::get();
 	    	
@@ -309,7 +310,7 @@ class erLhcoreClassChatWorkflow {
 	    	    erLhcoreClassChat::lockDepartment($department->id, $db);
 
 	    	    $chat->syncAndLock();
-	    	    
+
 	    	    if ($chat->user_id == 0 && $chat->tslasign < time()-$department->max_timeout_seconds) {
 	    	    
         	    	$statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow.autoassign', array(
@@ -336,7 +337,7 @@ class erLhcoreClassChatWorkflow {
                         if (!isset($params['include_ignored_users']) || $params['include_ignored_users'] == false) {
                             $appendSQL .= " AND exclude_autoasign = 0";
                         }
-
+                        
         	    	    $sql = "SELECT user_id FROM lh_userdep WHERE last_accepted < :last_accepted AND hide_online = 0 AND dep_id = :dep_id AND last_activity > :last_activity AND user_id != :user_id {$appendSQL} ORDER BY last_accepted ASC LIMIT 1";
         
         	    	    $db = ezcDbInstance::get();
