@@ -305,11 +305,34 @@
 			    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Active');?> <input type="checkbox" ng-init="AutoAssignActive=<?php if ($departament->active_balancing == 1) : ?>true<?php else : ?>false<?php endif;?>" ng-model="AutoAssignActive" name="AutoAssignActive" value="on" <?php if ($departament->active_balancing == 1) : ?>checked="checked"<?php endif;?> /></label>
 
 		    	<div ng-show="AutoAssignActive">
-					<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Maximum number of active chats user can have at a time, 0 - unlimited');?></label>
-					<input type="text" class="form-control" name="MaxNumberActiveChats" value="<?php echo htmlspecialchars($departament->max_active_chats);?>" />
-					
-					<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Automatically assign chat to another operator if operator did not accepted chat in seconds, 0 - disabled');?></label>
-					<input type="text" class="form-control" name="MaxWaitTimeoutSeconds" value="<?php echo htmlspecialchars($departament->max_timeout_seconds);?>" />
+
+                    <div class="form-group">
+					    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Maximum number of active chats user can have at a time, 0 - unlimited');?></label>
+					    <input type="text" class="form-control" name="MaxNumberActiveChats" value="<?php echo htmlspecialchars($departament->max_active_chats);?>" />
+                    </div>
+
+                    <div class="form-group">
+					    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Maximum number of department active chats, 0 - unlimited');?></label>
+					    <input type="text" class="form-control" name="MaxNumberActiveDepChats" value="<?php echo htmlspecialchars($departament->max_ac_dep_chats);?>" />
+                        <p><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','If this limit is reached, new chats will not be assigned to any operator.')?></i></small></p>
+                    </div>
+
+                    <div class="form-group">
+					    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Automatically assign chat to another operator if operator did not accepted chat in seconds, 0 - disabled');?></label>
+					    <input type="text" class="form-control" name="MaxWaitTimeoutSeconds" value="<?php echo htmlspecialchars($departament->max_timeout_seconds);?>" />
+                    </div>
+
+                    <div class="form-group">
+                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Minimum delay between chat assignment to operator');?></label>
+                        <input type="text" class="form-control" name="delay_before_assign" value="<?php echo htmlspecialchars($departament->delay_before_assign);?>" />
+                        <p><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Delay in seconds before next chat can be assigned to operator.')?></i></small></p>
+                    </div>
+
+                    <div class="form-group">
+                        <label><input type="checkbox" name="ExcludeInactiveChats" value="on" <?php if ($departament->exclude_inactive_chats == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Exclude inactive chats');?></label>
+                        <p><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Pending and active chats which visitors has closed chats explicitly or visitors being redirected to survey will be excluded')?></i></small></p>
+                    </div>
+
 				</div> 
 		    </div>
 			<?php endif;?>

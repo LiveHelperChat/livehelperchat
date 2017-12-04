@@ -29,10 +29,13 @@ class erLhcoreClassModelUser {
             'pending_chats_counter' => $this->pending_chats_counter,
             'departments_ids' => $this->departments_ids,
             'chat_nickname' => $this->chat_nickname,
+            'max_active_chats' => $this->max_active_chats,
+            'auto_accept' => $this->auto_accept,
             'attr_int_1' => $this->attr_int_1,
             'attr_int_2' => $this->attr_int_2,
             'attr_int_3' => $this->attr_int_3,
-            'operation_admin' => $this->operation_admin
+            'operation_admin' => $this->operation_admin,
+            'exclude_autoasign' => $this->exclude_autoasign
         );
    }
       
@@ -394,7 +397,10 @@ class erLhcoreClassModelUser {
     public $pending_chats_counter = 0;
     public $operation_admin = '';
     public $inactive_mode = 0;
-    
+    public $max_active_chats = 0;
+    public $auto_accept = 0;
+    public $exclude_autoasign = 0;
+
     public $attr_int_1 = 0;
     public $attr_int_2 = 0;
     public $attr_int_3 = 0;

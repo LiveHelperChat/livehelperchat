@@ -86,6 +86,11 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
 				        }
 				        
 				        if ($explicitClosed == true) {
+
+                            if ($chat->user_id > 0) {
+                                erLhcoreClassChat::updateActiveChats($chat->user_id);
+                            }
+
 				            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.explicitly_closed',array('chat' => & $chat));
 				        }
 	        
@@ -115,6 +120,10 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
 
                     if ($chat->has_unread_messages == 1 && $chat->last_user_msg_time < (time() - 5)) {
                         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.unread_chat',array('chat' => & $chat));
+                    }
+                    
+                    if ($chat->user_id > 0) {
+                        erLhcoreClassChat::updateActiveChats($chat->user_id);
                     }
 
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.explicitly_closed',array('chat' => & $chat));
