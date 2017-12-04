@@ -1498,7 +1498,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `active_chats_counter` int(11) NOT NULL,
                   `closed_chats_counter` int(11) NOT NULL,
                   `pending_chats_counter` int(11) NOT NULL,
-                  `auto_accept` int(11) NOT NULL,
+                  `auto_accept` tinyint(1) NOT NULL,
                   `max_active_chats` int(11) NOT NULL,
                   `attr_int_1` int(11) NOT NULL,
                   `attr_int_2` int(11) NOT NULL,

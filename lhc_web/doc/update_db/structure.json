@@ -5511,7 +5511,7 @@
             },
             {
                 "field": "exclude_autoasign",
-                "type": "tinyint(11)",
+                "type": "tinyint(1)",
                 "null": "NO",
                 "key": "MUL",
                 "default": null,
