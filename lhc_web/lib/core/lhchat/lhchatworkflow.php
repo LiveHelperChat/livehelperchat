@@ -370,16 +370,10 @@ class erLhcoreClassChatWorkflow {
         	    		$chat->user_id = $user_id;
         	    		$chat->updateThis();
 
-
                         erLhcoreClassUserDep::updateLastAcceptedByUser($user_id, time());
 
         	    		// Update fresh user statistic
         	    		erLhcoreClassChat::updateActiveChats($chat->user_id);
-
-                        $stmt = $db->prepare('UPDATE lh_userdep SET last_accepted = :last_accepted WHERE user_id = :user_id');
-        	    		$stmt->bindValue(':last_accepted',time(),PDO::PARAM_INT);
-        	    		$stmt->bindValue(':user_id',$user_id,PDO::PARAM_INT);
-        	    		$stmt->execute();
         	    	}
 	    	    }
 	    	    
