@@ -1,3 +1,12 @@
+2.78v
+
+1. Option to set delay, between new chat can be assigned to operator since last assignment.
+2. Option to have auto chat acceptance. If chat is automatically assigned it's possible now that new chat will be opened automatically to operator.
+3. Option to exclude operator from participating in auto assign workflow, even if he is online.
+4. Option to ignore inactive chat's in auto assign workflow.
+
+execute doc/update_db/update_153.sql for update
+
 2.77v
 
 1. Option in auto responder to choose show proactive invitation on mobile or not.
