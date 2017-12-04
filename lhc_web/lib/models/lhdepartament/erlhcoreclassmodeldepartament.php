@@ -56,6 +56,8 @@ class erLhcoreClassModelDepartament {
             'active_balancing' => $this->active_balancing,
             'max_active_chats' => $this->max_active_chats,
             'max_timeout_seconds' => $this->max_timeout_seconds,
+            'exclude_inactive_chats' => $this->exclude_inactive_chats,
+            'max_ac_dep_chats' => $this->max_ac_dep_chats,
             'attr_int_1' => $this->attr_int_1,
             'attr_int_2' => $this->attr_int_2,
             'attr_int_3' => $this->attr_int_3,
@@ -64,7 +66,8 @@ class erLhcoreClassModelDepartament {
             'closed_chats_counter' => $this->closed_chats_counter,
             'product_configuration' => $this->product_configuration,
             'pending_max' => $this->pending_max,
-            'pending_group_max' => $this->pending_group_max
+            'pending_group_max' => $this->pending_group_max,
+            'delay_before_assign' => $this->delay_before_assign,
         );
     }
 
@@ -261,12 +264,16 @@ class erLhcoreClassModelDepartament {
     public $inform_close_all_email = '';
     public $pending_max = 0;
     public $pending_group_max = 0;
-    
+    public $exclude_inactive_chats = 0;
+    public $max_ac_dep_chats = 0;
+
     public $active_chats_counter = 0;
+    public $delay_before_assign = 0;
     public $pending_chats_counter = 0;
     public $closed_chats_counter = 0;
     public $product_configuration = '';
-    
+
+
     // 0 - disabled
     // > 0 - delay in seconds
     public $delay_lm = 0;
