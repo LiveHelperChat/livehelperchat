@@ -19,6 +19,8 @@ try {
 
     erLhcoreClassUserDep::setHideOnlineStatus($userData);
 
+    erLhcoreClassChat::updateActiveChats($userData->id);
+
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.operator_status_changed',array('user' => & $userData, 'reason' => 'user_action'));
 
     echo json_encode(array('error' => false));
