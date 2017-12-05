@@ -338,6 +338,16 @@ class erLhcoreClassChatWorkflow {
                             $appendSQL .= " AND exclude_autoasign = 0";
                         }
                         
+                        // Allow limit by provided user_ids
+                        // Usefull for extension which has custom auto assign workflow
+                        if (isset($params['user_ids'])) {
+                            if (empty($params['user_ids'])) {
+                                return array('status' => erLhcoreClassChatEventDispatcher::STOP_WORKFLOW, 'user_id' => 0);;
+                            }
+
+                            $appendSQL .= ' AND lh_userdep.user_id IN (' . implode(', ',$params['user_ids']) . ')';
+                        }
+
         	    	    $sql = "SELECT user_id FROM lh_userdep WHERE last_accepted < :last_accepted AND hide_online = 0 AND dep_id = :dep_id AND last_activity > :last_activity AND user_id != :user_id {$appendSQL} ORDER BY last_accepted ASC LIMIT 1";
         
         	    	    $db = ezcDbInstance::get();
