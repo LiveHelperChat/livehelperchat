@@ -20,7 +20,7 @@ class erLhcoreClassModelChatArchive extends erLhcoreClassModelChat {
    /**
     * Method override to delete proper archive messages
     * */
-   public static function fetch($chat_id) {
+   public static function fetch($chat_id, $useCache = false) {
        	 $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChatArchive', (int)$chat_id );
        	 return $chat;
    }

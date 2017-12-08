@@ -14,6 +14,11 @@ $ViewList['newarchive'] = array(
     'functions' => array( 'archive' )
 );
 
+$ViewList['configuration'] = array(
+    'params' => array(),
+    'functions' => array( 'archive' )
+);
+
 $ViewList['startarchive'] = array(
     'params' => array(),
     'functions' => array( 'archive' )

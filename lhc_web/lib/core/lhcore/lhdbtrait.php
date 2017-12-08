@@ -35,7 +35,7 @@ trait erLhcoreClassDBTrait {
 		$this->afterRemove();
 		$this->clearCache();
 	}
-	
+
 	public function syncAndLock() {
 	    
 	    $db = ezcDbInstance::get();
