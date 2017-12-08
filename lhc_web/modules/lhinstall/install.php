@@ -1528,13 +1528,13 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `user_id` int(11) NOT NULL,
                   `dep_id` int(11) NOT NULL,
                   `last_activity` int(11) NOT NULL,
-                  `exclude_autoasign` tinyint(1) NOT NULL,
+                  `exclude_autoasign` tinyint(1) NOT NULL DEFAULT '0',
                   `hide_online` int(11) NOT NULL,
                   `last_accepted` int(11) NOT NULL,
                   `active_chats` int(11) NOT NULL,
-                  `pending_chats` int(11) NOT NULL,
-                  `inactive_chats` int(11) NOT NULL,
-                  `max_chats` int(11) NOT NULL,
+                  `pending_chats` int(11) NOT NULL DEFAULT '0',
+                  `inactive_chats` int(11) NOT NULL DEFAULT '0',
+                  `max_chats` int(11) NOT NULL DEFAULT '0',
                   `type` int(11) NOT NULL DEFAULT '0',
                   `hide_online_ts` int(11) NOT NULL DEFAULT '0',
                   `dep_group_id` int(11) NOT NULL DEFAULT '0',
@@ -1545,7 +1545,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ) DEFAULT CHARSET=utf8");
 
                 // Insert record to departament instantly
-                $db->query("INSERT INTO `lh_userdep` (`user_id`,`dep_id`,`last_activity`,`hide_online`,`last_accepted`,`active_chats`,`type`,`dep_group_id`) VALUES ({$UserData->id},0,0,0,0,0,0,0)");
+                $db->query("INSERT INTO `lh_userdep` (`user_id`,`dep_id`,`last_activity`,`hide_online`,`last_accepted`,`active_chats`,`type`,`dep_group_id`,`exclude_autoasign`) VALUES ({$UserData->id},0,0,0,0,0,0,0,0)");
 
                 $db->query("CREATE TABLE `lh_group_work` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `group_id` int(11) NOT NULL, `group_work_id` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `group_id` (`group_id`)) DEFAULT CHARSET=utf8;");
 
