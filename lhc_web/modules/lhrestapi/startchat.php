@@ -216,7 +216,9 @@ try {
         erLhcoreClassChat::updateDepartmentStats($chat->department);
 
         erLhcoreClassChat::prefillGetAttributesObject($chat, array('user','plain_user_name'), array('user'), array('do_not_clean' => true));
-            
+        
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started',array('chat' => & $chat, 'msg' => $messageInitial));
+
         echo erLhcoreClassRestAPIHandler::outputResponse(array('error' => false, 'result' => array('chat' => $chat->getState())));
     } else {
         echo erLhcoreClassRestAPIHandler::outputResponse(array('error' => true, 'result' => array('errors' => $Errors)));
