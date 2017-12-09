@@ -42,11 +42,11 @@ if (isset($data['automatic_archiving']) && $data['automatic_archiving'] == 1) {
 
         for ($i = 1; $i < 100; $i++) {
             // Process
-            $status = $lastArchive->process();
+            $status = $lastArchive->process(array($data));
+            echo "First archived chat id - [" . $status['fcid']. ']' . ' Last - [' . $status['lcid'] . '] Messages - ' . $status['messages_archived'] . ' Chats - ' . $status['chats_archived'] . "\n";
         }
 
-
-    } else {
+    } elseif ($data['archive_strategy'] == 2) {
 
     }
 
