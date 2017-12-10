@@ -3,8 +3,7 @@
 /**
  * php cron.php -s site_admin -c cron/archive
  *
- * Run every 10 minits or so. On this cron depends automatic chat transfer and unaswered chats callback.
- *
+ * Run every day, or few hours
  * */
 echo "Starting archive workflow\n";
 
