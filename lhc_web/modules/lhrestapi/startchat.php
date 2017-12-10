@@ -227,7 +227,7 @@ try {
 } catch (Exception $e) {
     echo erLhcoreClassRestAPIHandler::outputResponse(array(
         'error' => true,
-        'result' => array('errors' => $e->getMessage())
+        'result' => array('errors' => $e->getMessage(), 'trace' => $e->getTraceAsString())
     ));
 }
 
