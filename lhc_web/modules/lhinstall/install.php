@@ -363,11 +363,15 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	       `department_id` int(11) NOT NULL, 
         	       PRIMARY KEY (`id`), 
         	       KEY `department_id` (`department_id`)) DEFAULT CHARSET=utf8;");
-        	   
+
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_archive_range` (
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
         	   `range_from` int(11) NOT NULL,
         	   `range_to` int(11) NOT NULL,
+        	   `year_month` int(11) NOT NULL,
+        	   `older_than` int(11) NOT NULL,
+        	   `last_id` int(11) NOT NULL,
+        	   `first_id` int(11) NOT NULL,
         	   PRIMARY KEY (`id`)
         	   ) DEFAULT CHARSET=utf8;");
 

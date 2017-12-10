@@ -2,7 +2,7 @@
     $orderChatButtons = array(
         array(
             'item' => 'edit_chat',
-            'enabled' => true
+            'enabled' => !isset($hideActionBlock)
         ),
         array(
             'item' => 'copy_messages',

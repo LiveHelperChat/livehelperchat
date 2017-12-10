@@ -1,199 +1,248 @@
 <?php
 
-class erLhcoreClassModelChatArchiveRange {
+class erLhcoreClassModelChatArchiveRange
+{
+    use erLhcoreClassDBTrait;
 
-   public function getState()
-   {
-       return array(
-               'id'            => $this->id,
-               'range_from'    => $this->range_from,
-               'range_to'      => $this->range_to
-       );
-   }
+    public static $dbTable = 'lh_chat_archive_range';
 
-   public function setState( array $properties )
-   {
-       foreach ( $properties as $key => $val )
-       {
-           $this->$key = $val;
-       }
-   }
+    public static $dbTableId = 'id';
 
-   public static function fetch($chat_id) {
-       	 $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChatArchiveRange', (int)$chat_id );
-       	 return $chat;
-   }
+    public static $dbSessionHandler = 'erLhcoreClassChat::getSession';
 
-   public function removeThis() {
+    public static $dbSortOrder = 'DESC';
 
-   	   // Set proper archive tables
-   	   $this->setTables();
+    public function getState()
+    {
+        return array(
+            'id' => $this->id,
+            'range_from' => $this->range_from,
+            'range_to' => $this->range_to,
+            'year_month' => $this->year_month,
+            'older_than' => $this->older_than,
+            'last_id' => $this->last_id,
+            'first_id' => $this->first_id
+        );
+    }
 
-   	   // Drop archive tables
-   	   $db = ezcDbInstance::get();
-   	   $db->query("DROP TABLE IF EXISTS `". self::$archiveTable . "`");
-   	   $db->query("DROP TABLE IF EXISTS `". self::$archiveMsgTable . "`");
+    public function removeThis()
+    {
 
-       erLhcoreClassChat::getSession()->delete($this);
-   }
+        // Set proper archive tables
+        $this->setTables();
 
-   public function setTables(){
-   		self::$archiveTable = "lh_chat_archive_{$this->id}";
-   		self::$archiveMsgTable = "lh_chat_archive_msg_{$this->id}";
-   }
+        // Drop archive tables
+        $db = ezcDbInstance::get();
+        $db->query("DROP TABLE IF EXISTS `" . self::$archiveTable . "`");
+        $db->query("DROP TABLE IF EXISTS `" . self::$archiveMsgTable . "`");
 
-   public function process() {
-
-   		$list = erLhcoreClassChat::getList(array('limit' => 100, 'filterlt' => array('time' => $this->range_to),'filtergt' => array('time' => $this->range_from)));
-
-   		self::$archiveTable = "lh_chat_archive_{$this->id}";
-   		self::$archiveMsgTable = "lh_chat_archive_msg_{$this->id}";
-
-   		$pending_archive = count($list);
-		$messagesArchived = 0;
-		$firstChatID = 0;
-		$lastChatID = 0;
-   		foreach ($list as $item) {
-
-   			if ($firstChatID == 0) {
-   				$firstChatID = $item->id;
-   			}
-
-   			$archive = new erLhcoreClassModelChatArchive();
-   			$archive->setState(get_object_vars($item));
-   			$archive->id = null;
-   			$archive->saveThis();
-
-   			$messages = erLhcoreClassModelmsg::getList(array('limit' => 1000, 'filter' => array('chat_id' => $item->id)));
-   			$messagesArchived += count($messages);
-
-   			foreach ($messages as $msg) {
-   				$msgArchive = new erLhcoreClassModelChatArchiveMsg();
-   				$msgArchive->setState(get_object_vars($msg));
-   				$msgArchive->id = null;
-   				$msgArchive->chat_id = $archive->id;
-   				erLhcoreClassChat::getSession()->save($msgArchive);
-   			}
-
-   			$lastChatID = $item->id;
-
-   			$item->removeThis();
-   		}
-
-   		return array('error' => 'false','fcid' => $firstChatID, 'lcid' => $lastChatID, 'messages_archived' => $messagesArchived, 'chats_archived' => count($list), 'pending_archive' => ($pending_archive == 100 ? 'true' : 'false'));
-   }
-
-   public function setArchiveTables() {
-   		self::$archiveTable = "lh_chat_archive_{$this->id}";
-   		self::$archiveMsgTable = "lh_chat_archive_msg_{$this->id}";
-   }
-
-   public function __get($var) {
-       switch ($var) {
-
-       	case 'range_from_front':
-       		  if ($this->range_from != 0){
-       		  		return date(erLhcoreClassModule::$dateFormat,$this->range_from);
-       		  }
-       		  return '';
-       		break;
-
-       	case 'range_to_front':
-       		  if ($this->range_to != 0){
-       		  		return date(erLhcoreClassModule::$dateFormat,$this->range_to);
-       		  }
-       		  return '';
-       		break;
-
-       	case 'potential_chats_count':
-       			$this->potential_chats_count = erLhcoreClassChat::getCount(array('filterlt' =>  array('time' => $this->range_to),'filtergt' => array('time' => $this->range_from)));
-       			return $this->potential_chats_count;
-       		break;
-
-       	case 'chats_in_archive':
-
-       			$this->chats_in_archive = 0;
-
-       			if ($this->id > 0){
-	       			self::$archiveTable = "lh_chat_archive_{$this->id}";
-	       			self::$archiveMsgTable = "lh_chat_archive_msg_{$this->id}";
-	       			$this->chats_in_archive = erLhcoreClassChat::getCount(array(),self::$archiveTable);
-       			}
-
-       			return $this->chats_in_archive;
-       		break;
-
-       	case 'messages_in_archive':
-
-       			$this->messages_in_archive = 0;
-
-       			if ($this->id > 0){
-	       			self::$archiveTable = "lh_chat_archive_{$this->id}";
-	       			self::$archiveMsgTable = "lh_chat_archive_msg_{$this->id}";
-	       			$this->messages_in_archive = erLhcoreClassChat::getCount(array(),self::$archiveMsgTable);
-       			}
-
-       			return $this->messages_in_archive;
-       		break;
+        erLhcoreClassChat::getSession()->delete($this);
+    }
 
 
-       	default:
-       		break;
-       }
-   }
 
-   public function saveThis() {
-       erLhcoreClassChat::getSession()->saveOrUpdate( $this );
-   }
+    public function process()
+    {
+        if ($this->range_to > 0 && $this->range_from > 0 && $this->older_than == 0) {
+            $list = erLhcoreClassChat::getList(array('sort' => 'id ASC', 'limit' => 100, 'filterlt' => array('time' => $this->range_to), 'filtergt' => array('time' => $this->range_from)));
+        } elseif ($this->older_than > 0) {
+            $list = erLhcoreClassChat::getList(array('sort' => 'id ASC', 'limit' => 100, 'filterlt' => array('time' => time() - ($this->older_than * 24 *3600))));
+        } else {
+            throw new Exception('Could not determine archive logic!');
+        }
 
-   public function createArchive(){
+        self::$archiveTable = "lh_chat_archive_{$this->id}";
+        self::$archiveMsgTable = "lh_chat_archive_msg_{$this->id}";
 
-   		$items = erLhcoreClassChat::getList(array('filter' => array('range_from' => $this->range_from,'range_to' => $this->range_to)),'erLhcoreClassModelChatArchiveRange','lh_chat_archive_range');
+        $pending_archive = count($list);
+        $messagesArchived = 0;
+        $firstChatID = 0;
+        $lastChatID = 0;
 
-   		if (empty($items)){
-   			$this->saveThis();
-   		} else {
-   			$item = array_shift($items);
-   			$this->id = $item->id;
-   		}
+        foreach ($list as $item) {
 
-   		$db = ezcDbInstance::get();
+            if ($firstChatID == 0) {
+                $firstChatID = $item->id;
+            }
 
-   		$stmt = $db->prepare("SHOW TABLES LIKE 'lh_chat_archive_{$this->id}'");
-   		$stmt->execute();
-   		$exists = $stmt->fetch();
+            $archive = new erLhcoreClassModelChatArchive();
+            $archive->setState(get_object_vars($item));
+            $archive->saveThis();
 
-   		if ($exists === false) {
+            $messages = erLhcoreClassModelmsg::getList(array('limit' => 1000, 'filter' => array('chat_id' => $item->id)));
+            $messagesArchived += count($messages);
 
-   			// Create archive chat table
-   			$stmt = $db->prepare('SHOW CREATE TABLE `lh_chat`;');
-   			$stmt->execute();
-   			$rows = $stmt->fetch();
-   			$command = $rows[1];
-   			$command = preg_replace('/AUTO_INCREMENT\=[0-9]+/i', 'AUTO_INCREMENT=1', $command);
-   			$command = str_replace("`lh_chat`", "`lh_chat_archive_{$this->id}`", $command);
-   			$db->query($command);
+            foreach ($messages as $msg) {
+                $msgArchive = new erLhcoreClassModelChatArchiveMsg();
+                $msgArchive->setState(get_object_vars($msg));
+                $msgArchive->saveThis();
+            }
 
-   			// Create archive msg table
-   			$stmt = $db->prepare('SHOW CREATE TABLE `lh_msg`;');
-   			$stmt->execute();
-   			$rows = $stmt->fetch();
-   			$command = $rows[1];
-   			$command = preg_replace('/AUTO_INCREMENT\=[0-9]+/i', 'AUTO_INCREMENT=1', $command);
-   			$command = str_replace("`lh_msg`", "`lh_chat_archive_msg_{$this->id}`", $command);
-   			$db->query($command);
-   		}
+            $lastChatID = $item->id;
 
-	   	return $this->id;
-   }
+            if ($lastChatID > $this->last_id) {
+                $this->last_id = $lastChatID;
+            }
 
-   public $id = null;
-   public $ip = '';
-   public $range_from = 0;
-   public $range_to = 0;
+            $q = ezcDbInstance::get()->createDeleteQuery();
 
-   public static $archiveTable;
-   public static $archiveMsgTable;
+            // Messages
+            $q->deleteFrom( 'lh_msg' )->where( $q->expr->eq( 'chat_id', $item->id ) );
+            $stmt = $q->prepare();
+            $stmt->execute();
+
+            // Transfered chats
+            $q->deleteFrom( 'lh_transfer' )->where( $q->expr->eq( 'chat_id', $item->id ) );
+            $stmt = $q->prepare();
+            $stmt->execute();
+
+            // Delete screen sharing
+            $q->deleteFrom( 'lh_cobrowse' )->where( $q->expr->eq( 'chat_id', $item->id ) );
+            $stmt = $q->prepare();
+            $stmt->execute();
+
+            // Dispatch event if chat is archived
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.archived',array('chat' => & $item));
+
+            erLhcoreClassChat::getSession()->delete($item);
+
+            $item->afterRemove();
+        }
+
+        $this->updateFirstId();
+
+        return array('error' => 'false', 'fcid' => $firstChatID, 'lcid' => $lastChatID, 'messages_archived' => $messagesArchived, 'chats_archived' => count($list), 'pending_archive' => ($pending_archive == 100 ? 'true' : 'false'));
+    }
+
+    public function updateFirstId()
+    {
+        $db = ezcDbInstance::get();
+        $stmt = $db->prepare("SELECT min(id) FROM " . self::$archiveTable);
+        $stmt->execute();
+
+        $this->first_id = (int)$stmt->fetchColumn();
+        $this->saveThis();
+    }
+
+    public function setTables()
+    {
+        erLhcoreClassModelChatArchive::$dbTable = self::$archiveTable = "lh_chat_archive_{$this->id}";
+        erLhcoreClassModelChatArchiveMsg::$dbTable = self::$archiveMsgTable = "lh_chat_archive_msg_{$this->id}";
+    }
+
+    public function __get($var)
+    {
+        switch ($var) {
+
+            case 'range_from_front':
+                if ($this->range_from != 0) {
+                    return date(erLhcoreClassModule::$dateFormat, $this->range_from);
+                }
+                return '';
+                break;
+
+            case 'range_to_front':
+                if ($this->range_to != 0) {
+                    return date(erLhcoreClassModule::$dateFormat, $this->range_to);
+                }
+                return '';
+                break;
+
+            case 'potential_chats_count':
+
+                if ($this->range_to > 0 && $this->range_from > 0){
+                    $this->potential_chats_count = erLhcoreClassChat::getCount(array('filterlt' => array('time' => $this->range_to), 'filtergt' => array('time' => $this->range_from)));
+                } else {
+                    $this->potential_chats_count = 0;
+                }
+
+                return $this->potential_chats_count;
+                break;
+
+            case 'chats_in_archive':
+
+                $this->chats_in_archive = 0;
+
+                if ($this->id > 0) {
+                    self::$archiveTable = "lh_chat_archive_{$this->id}";
+                    self::$archiveMsgTable = "lh_chat_archive_msg_{$this->id}";
+                    $this->chats_in_archive = erLhcoreClassChat::getCount(array(), self::$archiveTable);
+                }
+
+                return $this->chats_in_archive;
+                break;
+
+            case 'messages_in_archive':
+
+                $this->messages_in_archive = 0;
+
+                if ($this->id > 0) {
+                    self::$archiveTable = "lh_chat_archive_{$this->id}";
+                    self::$archiveMsgTable = "lh_chat_archive_msg_{$this->id}";
+                    $this->messages_in_archive = erLhcoreClassChat::getCount(array(), self::$archiveMsgTable);
+                }
+
+                return $this->messages_in_archive;
+                break;
+
+
+            default:
+                break;
+        }
+    }
+
+    public function createArchive()
+    {
+
+        $items = erLhcoreClassChat::getList(array('filter' => array('range_from' => $this->range_from, 'range_to' => $this->range_to)), 'erLhcoreClassModelChatArchiveRange', 'lh_chat_archive_range');
+
+        if (empty($items)) {
+            $this->saveThis();
+        } else {
+            $item = array_shift($items);
+            $this->id = $item->id;
+        }
+
+        $db = ezcDbInstance::get();
+
+        $stmt = $db->prepare("SHOW TABLES LIKE 'lh_chat_archive_{$this->id}'");
+        $stmt->execute();
+        $exists = $stmt->fetch();
+
+        if ($exists === false) {
+
+            // Create archive chat table
+            $stmt = $db->prepare('SHOW CREATE TABLE `lh_chat`;');
+            $stmt->execute();
+            $rows = $stmt->fetch();
+            $command = $rows[1];
+            $command = preg_replace('/AUTO_INCREMENT\=[0-9]+/i', 'AUTO_INCREMENT=1', $command);
+            $command = str_replace("`lh_chat`", "`lh_chat_archive_{$this->id}`", $command);
+            $db->query($command);
+
+            // Create archive msg table
+            $stmt = $db->prepare('SHOW CREATE TABLE `lh_msg`;');
+            $stmt->execute();
+            $rows = $stmt->fetch();
+            $command = $rows[1];
+            $command = preg_replace('/AUTO_INCREMENT\=[0-9]+/i', 'AUTO_INCREMENT=1', $command);
+            $command = str_replace("`lh_msg`", "`lh_chat_archive_msg_{$this->id}`", $command);
+            $db->query($command);
+        }
+
+        return $this->id;
+    }
+
+    public $id = null;
+    public $range_from = 0;
+    public $range_to = 0;
+    public $year_month = 0;
+    public $older_than = 0;
+    public $last_id = 0;
+    public $first_id = 0;
+
+    public static $archiveTable;
+    public static $archiveMsgTable;
 }
 
 ?>

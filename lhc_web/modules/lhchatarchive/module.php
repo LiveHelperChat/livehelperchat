@@ -14,6 +14,11 @@ $ViewList['newarchive'] = array(
     'functions' => array( 'archive' )
 );
 
+$ViewList['configuration'] = array(
+    'params' => array(),
+    'functions' => array( 'archive' )
+);
+
 $ViewList['startarchive'] = array(
     'params' => array(),
     'functions' => array( 'archive' )
@@ -31,7 +36,7 @@ $ViewList['list'] = array(
 
 $ViewList['listarchivechats'] = array(
     'params' => array('id'),
-    'uparams' => array('nick','email','timefrom','timeto'),
+    'uparams' => array('chat_duration_from','chat_duration_till','wait_time_from','wait_time_till','chat_id','nick','email','timefrom','timeto','department_id','user_id','print','xls','fbst','chat_status','hum','product_id','timefrom','timefrom_minutes','timefrom_hours','timeto','timeto_minutes','timeto_hours'),
     'functions' => array( 'archive' )
 );
 

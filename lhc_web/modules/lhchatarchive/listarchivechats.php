@@ -15,18 +15,18 @@ if (isset($_GET['doSearch'])) {
 $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
 
 // Set correct archive tables
-$archive->setArchiveTables();
+$archive->setTables();
 
 $pages = new lhPaginator();
 $pages->serverURL = erLhcoreClassDesign::baseurl('chatarchive/listarchivechats').'/'.$archive->id.$append;
-$pages->items_total = erLhcoreClassChat::getCount($filterParams['filter'],erLhcoreClassModelChatArchiveRange::$archiveTable);
-$pages->setItemsPerPage(2);
+$pages->items_total = erLhcoreClassModelChatArchive::getCount($filterParams['filter']);
+$pages->setItemsPerPage(20);
 $pages->paginate();
 
 $items = array();
 if ($pages->items_total > 0) {
 	try {
-    	$items = erLhcoreClassChat::getList(array_merge(array('offset' => $pages->low, 'limit' => $pages->items_per_page,'sort' => 'id ASC'),$filterParams['filter']),'erLhcoreClassModelChatArchive', erLhcoreClassModelChatArchiveRange::$archiveTable);
+    	$items = erLhcoreClassModelChatArchive::getList(array_merge(array('offset' => $pages->low, 'limit' => $pages->items_per_page,'sort' => 'id ASC'),$filterParams['filter']));
 	} catch (Exception $e) {
 		print_r($e->getMessage());
 	}
