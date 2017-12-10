@@ -1,3 +1,8 @@
+2.79v
+
+1. Automatic chat archive options.
+execute doc/update_db/update_154.sql for update
+
 2.78v
 
 1. Option to set delay, between new chat can be assigned to operator since last assignment.

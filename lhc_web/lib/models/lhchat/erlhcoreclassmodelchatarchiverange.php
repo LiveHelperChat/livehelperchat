@@ -39,15 +39,10 @@ class erLhcoreClassModelChatArchiveRange
         erLhcoreClassChat::getSession()->delete($this);
     }
 
-    public function setTables()
-    {
-        self::$archiveTable = "lh_chat_archive_{$this->id}";
-        self::$archiveMsgTable = "lh_chat_archive_msg_{$this->id}";
-    }
+
 
     public function process()
     {
-
         if ($this->range_to > 0 && $this->range_from > 0 && $this->older_than == 0) {
             $list = erLhcoreClassChat::getList(array('sort' => 'id ASC', 'limit' => 100, 'filterlt' => array('time' => $this->range_to), 'filtergt' => array('time' => $this->range_from)));
         } elseif ($this->older_than > 0) {
@@ -63,6 +58,7 @@ class erLhcoreClassModelChatArchiveRange
         $messagesArchived = 0;
         $firstChatID = 0;
         $lastChatID = 0;
+
         foreach ($list as $item) {
 
             if ($firstChatID == 0) {
@@ -88,7 +84,29 @@ class erLhcoreClassModelChatArchiveRange
                 $this->last_id = $lastChatID;
             }
 
-            /*$item->removeThis();*/
+            $q = ezcDbInstance::get()->createDeleteQuery();
+
+            // Messages
+            $q->deleteFrom( 'lh_msg' )->where( $q->expr->eq( 'chat_id', $item->id ) );
+            $stmt = $q->prepare();
+            $stmt->execute();
+
+            // Transfered chats
+            $q->deleteFrom( 'lh_transfer' )->where( $q->expr->eq( 'chat_id', $item->id ) );
+            $stmt = $q->prepare();
+            $stmt->execute();
+
+            // Delete screen sharing
+            $q->deleteFrom( 'lh_cobrowse' )->where( $q->expr->eq( 'chat_id', $item->id ) );
+            $stmt = $q->prepare();
+            $stmt->execute();
+
+            // Dispatch event if chat is archived
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.archived',array('chat' => & $item));
+
+            erLhcoreClassChat::getSession()->delete($item);
+
+            $item->afterRemove();
         }
 
         $this->updateFirstId();
@@ -106,10 +124,10 @@ class erLhcoreClassModelChatArchiveRange
         $this->saveThis();
     }
 
-    public function setArchiveTables()
+    public function setTables()
     {
-        self::$archiveTable = "lh_chat_archive_{$this->id}";
-        self::$archiveMsgTable = "lh_chat_archive_msg_{$this->id}";
+        erLhcoreClassModelChatArchive::$dbTable = self::$archiveTable = "lh_chat_archive_{$this->id}";
+        erLhcoreClassModelChatArchiveMsg::$dbTable = self::$archiveMsgTable = "lh_chat_archive_msg_{$this->id}";
     }
 
     public function __get($var)
@@ -131,7 +149,13 @@ class erLhcoreClassModelChatArchiveRange
                 break;
 
             case 'potential_chats_count':
-                $this->potential_chats_count = erLhcoreClassChat::getCount(array('filterlt' => array('time' => $this->range_to), 'filtergt' => array('time' => $this->range_from)));
+
+                if ($this->range_to > 0 && $this->range_from > 0){
+                    $this->potential_chats_count = erLhcoreClassChat::getCount(array('filterlt' => array('time' => $this->range_to), 'filtergt' => array('time' => $this->range_from)));
+                } else {
+                    $this->potential_chats_count = 0;
+                }
+
                 return $this->potential_chats_count;
                 break;
 

@@ -14,11 +14,15 @@
 				<ul>
 					<li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/process_content','Potential chats to archive')?> - <?php echo htmlspecialchars($archive->potential_chats_count);?></li>
 					<li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/process_content','Archived chats')?> - <?php echo htmlspecialchars($archive->chats_in_archive);?></li>
+                    <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/process_content','First archived chat ID')?> - <?php echo $archive->first_id?></li>
+                    <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/process_content','Last archived chat ID')?>  - <?php echo $archive->last_id?></li>
 				</ul>
 			</div>
 		</div>
 
-		<input type="submit" onclick="chatArchive.startArchive();" class="btn btn-default radius success right" name="Start_archive_progress" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Start archiving');?>"/>
+        <?php if ($archive->potential_chats_count > 0) : ?>
+		    <input type="submit" onclick="chatArchive.startArchive();" class="btn btn-default radius success right" name="Start_archive_progress" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Start archiving');?>"/>
+        <?php endif; ?>
 
 		<div class="btn-group" role="group" aria-label="...">
 		  <?php if ($archive->id > 0) : ?>

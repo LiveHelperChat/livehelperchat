@@ -40,7 +40,7 @@ if (isset($data['automatic_archiving']) && $data['automatic_archiving'] == 1) {
         // Creates tables
         $lastArchive->createArchive();
 
-        for ($i = 1; $i < 100; $i++) {
+        for ($i = 1; $i < 50; $i++) {
             // Process
             $status = $lastArchive->process(array($data));
             echo "First archived chat id - [" . $status['fcid']. ']' . ' Last - [' . $status['lcid'] . '] Messages - ' . $status['messages_archived'] . ' Chats - ' . $status['chats_archived'] . "\n";
@@ -48,6 +48,38 @@ if (isset($data['automatic_archiving']) && $data['automatic_archiving'] == 1) {
 
     } elseif ($data['archive_strategy'] == 2) {
 
+        $lastArchive = erLhcoreClassModelChatArchiveRange::findOne(array('sort' => 'id DESC'));
+        if (!($lastArchive instanceof erLhcoreClassModelChatArchiveRange)) {
+            $lastArchive = new erLhcoreClassModelChatArchiveRange();
+            $lastArchive->year_month = date('Ym');
+            $lastArchive->range_from = time();
+            $lastArchive->range_to = 0;
+        } elseif ($lastArchive->chats_in_archive > $data['max_chats']) {
+
+            echo "Creating new archive because chat's number bigger than {$lastArchive->chats_in_archive} > {$data['max_chats']}\n";
+
+            $lastArchive->range_to = time();
+            $lastArchive->saveThis();
+
+            $lastArchive = new erLhcoreClassModelChatArchiveRange();
+            $lastArchive->year_month = date('Ym');
+            $lastArchive->range_from = time();
+            $lastArchive->range_to = 0;
+        }
+
+        $lastArchive->older_than = $data['older_than'];
+        $lastArchive->saveThis();
+
+        echo "Moving older chats than " . $data['older_than'] . " days\n";
+
+        // Creates tables
+        $lastArchive->createArchive();
+
+        for ($i = 1; $i < 50; $i++) {
+            // Process
+            $status = $lastArchive->process(array($data));
+            echo "First archived chat id - [" . $status['fcid']. ']' . ' Last - [' . $status['lcid'] . '] Messages - ' . $status['messages_archived'] . ' Chats - ' . $status['chats_archived'] . "\n";
+        }
     }
 
 } else {

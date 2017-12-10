@@ -8,12 +8,10 @@ $archive->setTables();
 $chat = erLhcoreClassModelChatArchive::fetch($Params['user_parameters']['chat_id']);
 
 $tpl->set('chat',$chat);
-$tpl->set('messages', erLhcoreClassChat::getList(array('limit' => 1000,'filter' => array('chat_id' => $chat->id)),'erLhcoreClassModelChatArchiveMsg',erLhcoreClassModelChatArchiveRange::$archiveMsgTable));
+$tpl->set('messages', erLhcoreClassModelChatArchiveMsg::getList(array('limit' => 1000,'filter' => array('chat_id' => $chat->id))));
 $tpl->set('archive',$archive);
 
 $Result['content'] = $tpl->fetch();
-
-
 
 $Result['path'] = array(
 		array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','System configuration')),
