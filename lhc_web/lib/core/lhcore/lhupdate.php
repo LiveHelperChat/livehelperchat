@@ -32,7 +32,7 @@ class erLhcoreClassUpdate
 		$tablesStatus = array();
 		
 		// Get archive tables		
-		$archives = erLhcoreClassChat::getList(array('offset' => 0, 'limit' => 1000000,'sort' => 'id ASC'), 'erLhcoreClassModelChatArchiveRange', 'lh_chat_archive_range');
+		$archives = erLhcoreClassModelChatArchiveRange::getList(array('ignore_fields' => array('year_month','range_from','range_to','older_than','last_id','first_id'),'offset' => 0, 'limit' => 1000000,'sort' => 'id ASC'));
 			
 		if (isset($definition['tables']['lh_chat']) && isset($definition['tables']['lh_msg']))
 		{

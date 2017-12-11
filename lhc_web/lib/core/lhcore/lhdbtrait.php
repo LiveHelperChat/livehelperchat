@@ -120,7 +120,7 @@ trait erLhcoreClassDBTrait {
 	
 		if (isset($GLOBALS[__CLASS__.$id]) && $useCache == true) return $GLOBALS[__CLASS__.$id];
 
-		try {			
+		try {
 			$GLOBALS[__CLASS__.$id] = self::getSession()->load( __CLASS__, $id );
 		} catch (Exception $e) {
 			$GLOBALS[__CLASS__.$id] = false;
@@ -249,8 +249,8 @@ trait erLhcoreClassDBTrait {
 				
 		$session = self::getSession();
 				
-		$q = $session->createFindQuery( __CLASS__ );
-			
+		$q = $session->createFindQuery( __CLASS__, isset($params['ignore_fields']) ? $params['ignore_fields'] : array() );
+
 		$conditions = self::getConditions($params, $q);
 	
 		if (count($conditions) > 0) {
