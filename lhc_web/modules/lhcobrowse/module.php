@@ -1,6 +1,6 @@
 <?php
 
-$Module = array( "name" => "CO Borwse module");
+$Module = array( "name" => "CO Browse module");
 
 $ViewList = array();
 
