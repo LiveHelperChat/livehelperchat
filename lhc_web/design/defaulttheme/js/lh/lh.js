@@ -7,7 +7,11 @@ __webpack_public_path__ = window.WWW_DIR_LHC_WEBPACK;
 			previewChat : function(chat_id){
 				this.revealModal({'url':WWW_DIR_JAVASCRIPT+'chat/previewchat/'+chat_id});						
 			},
-			
+
+          	previewChatArchive : function(archive_id, chat_id){
+				this.revealModal({'url':WWW_DIR_JAVASCRIPT+'chatarchive/previewchat/'+archive_id+'/'+chat_id});
+			},
+
 			revealModal : function(params) {				
 				require.ensure([], function () {
 					var revealModalName = require('./lh-modules/reveal-modal');				

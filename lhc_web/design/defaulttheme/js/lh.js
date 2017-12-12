@@ -1012,18 +1012,21 @@ function lh(){
 	    setTimeout(function(){
 	    	inst.syncadmininterfacestatic();
 	    },1000);	   
-        return false;
-        
+
         ee.emitEvent('chatStartOpenWindow', [chat_id]);	
 	};
-	
+
+    this.startChatNewWindowArchive = function(archive_id, chat_id,name)
+    {
+        window.open(this.wwwDir + 'chatarchive/viewarchivedchat/' + archive_id + '/' + chat_id + '/(mode)/popup','chatwindow-chat-id-'+chat_id,"menubar=1,resizable=1,width=800,height=650").focus();
+        ee.emitEvent('chatStartOpenWindowArchive', [archive_id, chat_id]);
+    };
+
 	this.startCoBrowse = function(chat_id)
 	{
 		window.open(this.wwwDir + 'cobrowse/browse/'+chat_id,'chatwindow-cobrowse-chat-id-'+chat_id,"menubar=1,resizable=1,width=800,height=650").focus();
 		return false;
 	};
-	
-	
 	
 	this.speechToText = function(chat_id)
 	{

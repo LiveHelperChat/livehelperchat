@@ -39,8 +39,6 @@ class erLhcoreClassModelChatArchiveRange
         erLhcoreClassChat::getSession()->delete($this);
     }
 
-
-
     public function process()
     {
         if ($this->range_to > 0 && $this->range_from > 0 && $this->older_than == 0) {

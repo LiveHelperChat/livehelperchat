@@ -153,6 +153,7 @@ return array_merge(array (
 		'erLhcoreClassModelChatArchiveRange' 	=> 'lib/models/lhchat/erlhcoreclassmodelchatarchiverange.php',
 		'erLhcoreClassModelChatArchive' 		=> 'lib/models/lhchat/erlhcoreclassmodelchatarchive.php',
 		'erLhcoreClassModelChatArchiveMsg' 		=> 'lib/models/lhchat/erlhcoreclassmodelchatarchivemsg.php',
+		'erLhcoreClassChatArcive' 		        => 'lib/core/lhchat/lhchatarchive.php',
 
 		// Files upload
 		'UploadHandler' 						=> 'lib/core/lhcore/UploadHandler.php',

@@ -839,7 +839,10 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 
 	this.previewChat = function(chat_id){		
 		lhc.previewChat(chat_id);
-	};		
+	};
+	this.previewChatArchive = function(archive_id, chat_id){
+		lhc.previewChatArchive(archive_id, chat_id);
+	};
 	
 	this.redirectContact = function(chat_id,message) {	
 		return lhinst.redirectContact(chat_id,message);				

@@ -11,6 +11,11 @@ $tpl->set('chat',$chat);
 $tpl->set('messages', erLhcoreClassModelChatArchiveMsg::getList(array('limit' => 1000,'filter' => array('chat_id' => $chat->id))));
 $tpl->set('archive',$archive);
 
+if (isset($Params['user_parameters_unordered']['mode']) && $Params['user_parameters_unordered']['mode'] == 'popup') {
+    $Result['pagelayout'] = 'chattabs';
+    $tpl->set('modeArchiveView','popup');
+}
+
 $Result['content'] = $tpl->fetch();
 
 $Result['path'] = array(

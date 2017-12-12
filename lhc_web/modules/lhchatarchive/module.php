@@ -47,6 +47,12 @@ $ViewList['edit'] = array(
 
 $ViewList['viewarchivedchat'] = array(
     'params' => array('archive_id','chat_id'),
+    'uparams' => array('mode'),
+    'functions' => array( 'archive' )
+);
+
+$ViewList['previewchat'] = array(
+    'params' => array('archive_id','chat_id'),
     'functions' => array( 'archive' )
 );
 
