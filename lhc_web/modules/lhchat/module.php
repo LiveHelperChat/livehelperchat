@@ -133,6 +133,7 @@ $ViewList['sendmail'] = array(
 
 $ViewList['modifychat'] = array(
     'params' => array('chat_id'),
+    'uparams' => array('pos'),
     'functions' => array( 'modifychat' )
 );
 

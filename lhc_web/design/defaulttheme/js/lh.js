@@ -133,13 +133,19 @@ function lh(){
     this.audio = new Audio();
     this.audio.autoplay = 'autoplay';
     
-    this.addTab = function(tabs, url, name, chat_id, focusTab) {    
+    this.addTab = function(tabs, url, name, chat_id, focusTab, position) {    
     	// If tab already exits return
     	if (tabs.find('#chat-tab-link-'+chat_id).size() > 0) {
     		return ;
     	}
     	
-    	tabs.find('> ul').append('<li role="presentation" id="chat-tab-li-'+chat_id+'" ><a href="#chat-id-'+chat_id+'" id="chat-tab-link-'+chat_id+'" aria-controls="chat-id-'+chat_id+'" role="tab" data-toggle="tab"><i id="msg-send-status-'+chat_id+'" class="material-icons send-status-icon icon-user-online">send</i><i id="user-chat-status-'+chat_id+'" class="'+this.tabIconClass+'">'+this.tabIconContent+'</i><span class="ntab" id="ntab-chat-'+chat_id+'">' + name.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</span><span onclick="return lhinst.removeDialogTab('+chat_id+',$(\'#tabs\'),true)" class="material-icons icon-close-chat">close</span></a></li>')
+    	var contentLi = '<li role="presentation" id="chat-tab-li-'+chat_id+'" ><a href="#chat-id-'+chat_id+'" id="chat-tab-link-'+chat_id+'" aria-controls="chat-id-'+chat_id+'" role="tab" data-toggle="tab"><i id="msg-send-status-'+chat_id+'" class="material-icons send-status-icon icon-user-online">send</i><i id="user-chat-status-'+chat_id+'" class="'+this.tabIconClass+'">'+this.tabIconContent+'</i><span class="ntab" id="ntab-chat-'+chat_id+'">' + name.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</span><span onclick="return lhinst.removeDialogTab('+chat_id+',$(\'#tabs\'),true)" class="material-icons icon-close-chat">close</span></a></li>';
+    	
+    	if (typeof position === 'undefined' || parseInt(position) == 0) {
+    		tabs.find('> ul').append(contentLi);
+    	} else {
+    		tabs.find('> ul > li:eq('+ (position - 1)+')').after(contentLi);
+    	};
     	
     	$('#chat-tab-link-'+chat_id).click(function() {
     		var inst = $(this);
@@ -285,7 +291,7 @@ function lh(){
         return false;
 	},
 
-    this.startChat = function (chat_id,tabs,name,focusTab) {
+    this.startChat = function (chat_id,tabs,name,focusTab,position) {
     	    	
     	this.removeBackgroundChat(chat_id);
     	this.hideNotification(chat_id);
@@ -293,7 +299,7 @@ function lh(){
         if ( this.chatUnderSynchronization(chat_id) == false ) {        	
         	var focusTabAction = typeof focusTab !== 'undefined' ? focusTab : true;
         	var rememberAppend = this.disableremember == false ? '/(remember)/true' : '';
-        	this.addTab(tabs, this.wwwDir +'chat/adminchat/'+chat_id+rememberAppend, name, chat_id, focusTabAction);
+        	this.addTab(tabs, this.wwwDir +'chat/adminchat/'+chat_id+rememberAppend, name, chat_id, focusTabAction, position);
         	var inst = this;
         	 setTimeout(function(){
      	    	inst.syncadmininterfacestatic();

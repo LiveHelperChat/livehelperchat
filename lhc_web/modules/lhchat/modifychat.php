@@ -45,6 +45,7 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) && $currentUser->hasAccessTo('lhc
 	  	$db->commit();
   }
 
+  $tpl->set('pos',$Params['user_parameters_unordered']['pos']);
   $tpl->set('chat',$chat);
   $Result['content'] = $tpl->fetch();
   $Result['pagelayout'] = 'popup';
