@@ -132,7 +132,28 @@ function lh(){
     
     this.audio = new Audio();
     this.audio.autoplay = 'autoplay';
-    
+
+    this.reloadTab = function(chat_id, tabs, nick)
+    {
+        $('#ntab-chat-'+chat_id).text(nick);
+
+        if ($('#CSChatMessage-'+chat_id).length != 0){
+            $('#CSChatMessage-'+chat_id).unbind('keydown', function(){});
+            $('#CSChatMessage-'+chat_id).unbind('keyup', function(){});
+        }
+
+        this.removeSynchroChat(chat_id);
+        this.removeBackgroundChat(chat_id);
+        this.hideNotification(chat_id);
+        var inst = this;
+        $.get(this.wwwDir +'chat/adminchat/'+chat_id+'/(remember)/true', function(data) {
+            $('#chat-id-'+chat_id).html(data);
+            $('#CSChatMessage-'+chat_id).focus();
+            inst.rememberTab(chat_id);
+            ee.emitEvent('chatTabLoaded', [chat_id]);
+        });
+    }
+
     this.addTab = function(tabs, url, name, chat_id, focusTab, position) {    
     	// If tab already exits return
     	if (tabs.find('#chat-tab-link-'+chat_id).size() > 0) {

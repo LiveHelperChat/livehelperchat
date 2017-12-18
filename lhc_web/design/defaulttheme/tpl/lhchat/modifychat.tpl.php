@@ -6,13 +6,10 @@
 
 <?php if (isset($chat_updated) && $chat_updated == 'true') : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Chat information was updated'); ?>
 <script>
-setTimeout(function(){
-	var originValue = parent.lhinst.closeWindowOnChatCloseDelete;
-	parent.lhinst.closeWindowOnChatCloseDelete = false;
-	parent.lhinst.removeDialogTab('<?php echo $chat->id?>',parent.$('#tabs'),true);
-	parent.lhinst.closeWindowOnChatCloseDelete = originValue;
-	parent.lhinst.startChat('<?php echo $chat->id?>',parent.$('#tabs'),'<?php echo erLhcoreClassDesign::shrt($chat->nick,10,'...',30,ENT_QUOTES);?>',true,<?php echo (int)$pos?>);
+parent.lhinst.reloadTab('<?php echo $chat->id?>',parent.$('#tabs'),'<?php echo erLhcoreClassDesign::shrt($chat->nick,10,'...',30,ENT_QUOTES);?>');
+setTimeout(function() {
 	parent.$('#myModal').modal('hide');
+    parent.$('#CSChatMessage-<?php echo $chat->id?>').focus();
 },3000);
 </script>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
