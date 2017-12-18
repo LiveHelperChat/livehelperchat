@@ -587,7 +587,16 @@ class erLhcoreClassChatValidator {
                 }
             }
         }
-        
+
+        // Detect user locale
+        if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+            $parts = explode(';',$_SERVER['HTTP_ACCEPT_LANGUAGE']);
+            $languages = explode(',',$parts[0]);
+            if (isset($languages[0])) {
+                $chat->chat_locale = $languages[0];
+            }
+        }
+
         if (!empty($stringParts)) {
             $chat->additional_data = json_encode($stringParts);
         }
