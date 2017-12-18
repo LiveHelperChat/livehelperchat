@@ -4,6 +4,8 @@ class erLhcoreClassModelChatArchive extends erLhcoreClassModelChat
 {
     use erLhcoreClassDBTrait;
 
+    public static $dbTable = null;
+
     public function beforeRemove()
     {
         parent::beforeRemove();
