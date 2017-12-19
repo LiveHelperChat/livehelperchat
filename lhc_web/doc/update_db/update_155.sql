@@ -1,0 +1,1 @@
+ALTER TABLE `lh_canned_msg` ADD `languages` text NOT NULL, COMMENT='';

@@ -27,7 +27,8 @@ class erLhcoreClassModelCannedMsg
             'attr_int_3' => $this->attr_int_3,
             'title' => $this->title,
             'explain' => $this->explain,
-            'fallback_msg' => $this->fallback_msg
+            'fallback_msg' => $this->fallback_msg,
+            'languages' => $this->languages,
         );
     }
 
@@ -280,6 +281,8 @@ class erLhcoreClassModelCannedMsg
     public $title = '';
 
     public $explain = '';
+
+    public $languages = '';
 
     public $fallback_msg = '';
 

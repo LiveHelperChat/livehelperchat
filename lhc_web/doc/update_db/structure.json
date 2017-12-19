@@ -2830,6 +2830,14 @@
                 "extra": ""
             },
             {
+                "field": "languages",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "title",
                 "type": "varchar(250)",
                 "null": "NO",

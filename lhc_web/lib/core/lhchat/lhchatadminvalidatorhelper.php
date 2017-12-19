@@ -34,7 +34,10 @@ class erLhcoreClassAdminChatValidatorHelper {
             ),
             'Tags' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-            )
+            ),
+            'languages' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
+            'message_lang' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
+            'fallback_message_lang' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
         );
         
         $form = new ezcInputForm( INPUT_POST, $definition );
@@ -51,7 +54,22 @@ class erLhcoreClassAdminChatValidatorHelper {
         {
             $cannedMessage->fallback_msg = $form->FallbackMessage;
         }
-        
+
+        $languagesData = array();
+        if ( $form->hasValidData( 'languages' ) && !empty($form->languages) )
+        {
+            foreach ($form->languages as $index => $languages) {
+                $languagesData[] = array(
+                    'message' => $form->message_lang[$index],
+                    'fallback_message' => $form->fallback_message_lang[$index],
+                    'languages' => $form->languages[$index],
+                );
+            }
+        }
+
+        $cannedMessage->languages = json_encode($languagesData);
+        $cannedMessage->languages_array = $languagesData;
+
         if ( $form->hasValidData( 'Title' ) )
         {
             $cannedMessage->title = $form->Title;

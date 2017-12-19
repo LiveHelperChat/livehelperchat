@@ -961,6 +961,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `fallback_msg` text NOT NULL,
                   `title` varchar(250) NOT NULL,
                   `explain` varchar(250) NOT NULL,
+                  `languages` text NOT NULL,
         	   	  `position` int(11) NOT NULL,
         	   	  `department_id` int(11) NOT NULL,
         	   	  `user_id` int(11) NOT NULL,

@@ -2,6 +2,16 @@
 
 class erLhcoreClassModelSpeechLanguageDialect {
 
+    use erLhcoreClassDBTrait;
+
+    public static $dbTable = 'lh_speech_language_dialect';
+
+    public static $dbTableId = 'id';
+
+    public static $dbSessionHandler = 'erLhcoreClassSpeech::getSession';
+
+    public static $dbSortOrder = 'DESC';
+
 	public function getState()
 	{
 		return array(
@@ -12,14 +22,6 @@ class erLhcoreClassModelSpeechLanguageDialect {
 		);
 	}
 
-	public function setState( array $properties )
-	{
-		foreach ( $properties as $key => $val )
-		{
-			$this->$key = $val;
-		}
-	}
-	
 	public function __get($var) {
 		switch ($var) {							
 			case 'dialect_name':
@@ -30,25 +32,6 @@ class erLhcoreClassModelSpeechLanguageDialect {
 				;
 			break;
 		}
-	}
-	
-	public static function getList($params)
-	{
-	    return erLhcoreClassSpeech::getList($params,'erLhcoreClassModelSpeechLanguageDialect','lh_speech_language_dialect');
-	}
-		
-	public static function fetch($id) {
-		$item = erLhcoreClassSpeech::getSession()->load( 'erLhcoreClassModelSpeechLanguageDialect', (int)$id );
-		return $item;
-	}
-
-	public function saveThis()
-	{
-		erLhcoreClassSpeech::getSession()->saveOrUpdate($this);
-	}
-
-	public function removeThis() {
-		erLhcoreClassSpeech::getSession()->delete( $this );
 	}
 
 	public $id = NULL;
