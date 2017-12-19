@@ -48,7 +48,7 @@ $pages->serverURL = erLhcoreClassDesign::baseurl('survey/collected') . '/' . $su
 if ($filterParams['input_form']->group_results == true) {
    $filtercount = $filterSearch;
    unset($filtercount['group']);
-   $pages->items_total = erLhAbstractModelSurveyItem::getCount($filterSearch,'count(distinct user_id)');
+   $pages->items_total = erLhAbstractModelSurveyItem::getCount($filterSearch,false, false, 'count(distinct user_id)');
 } else {
    $pages->items_total = erLhAbstractModelSurveyItem::getCount($filterSearch);
 }

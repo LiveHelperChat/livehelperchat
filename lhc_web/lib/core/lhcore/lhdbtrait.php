@@ -188,7 +188,7 @@ trait erLhcoreClassDBTrait {
 			
 	}
 	
-	public static function getCount($params = array(), $operation = 'COUNT', $field = false) {
+	public static function getCount($params = array(), $operation = 'COUNT', $field = false, $rawSelect = false) {
 	
 		if (isset($params['enable_sql_cache']) && $params['enable_sql_cache'] == true) {
 			$sql = erLhcoreClassModuleFunctions::multi_implode(',',$params);
@@ -205,15 +205,19 @@ trait erLhcoreClassDBTrait {
 		$session = self::getSession();
 	
 		$q = $session->database->createSelectQuery();
-			
-		$q->select( $operation . "(" . self::$dbTable . "." .  ($field === false ? self::$dbTableId : $field) . ")" )->from( self::$dbTable );
-			
+
+        if ($rawSelect === false) {
+            $q->select($operation . "(" . self::$dbTable . "." . ($field === false ? self::$dbTableId : $field) . ")")->from(self::$dbTable);
+        } else {
+            $q->select($rawSelect)->from(self::$dbTable);
+        }
+
 		$conditions = self::getConditions($params, $q);
 	
 		if (count($conditions) > 0) {
 			$q->where( $conditions );
 		}
-	
+
 		$stmt = $q->prepare();
 	
 		$stmt->execute();
