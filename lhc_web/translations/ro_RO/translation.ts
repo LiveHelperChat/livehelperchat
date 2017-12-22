@@ -10,6 +10,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Nr de zile ce trebuie sa treaca de la ultima votare pentru ca fereastra de votare sa se poata activa din nou</translation>
     </message>
@@ -490,6 +494,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Hide message time from visitor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Need help standard text</source>
       <translation>Text standard suport</translation>
     </message>
@@ -552,6 +560,10 @@
     <message>
       <source>Header height (px)</source>
       <translation>Antet înălţime (px)</translation>
+    </message>
+    <message>
+      <source>Widget response layout width trigger (px)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Header padding (px)</source>
@@ -1028,6 +1040,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Wait time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Vote status</source>
       <translation type="unfinished"/>
     </message>
@@ -1077,6 +1093,26 @@
     </message>
     <message>
       <source>Chat ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat duration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat duration from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>From</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat duration till</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Till</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5805,6 +5841,14 @@
   <context>
     <name>chat/transferchat</name>
     <message>
+      <source>Online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Transfer to a user</source>
       <translation>Transfera catre un utilizator</translation>
     </message>
@@ -5819,6 +5863,10 @@
     <message>
       <source>Transfer a chat to one of your departments users</source>
       <translation>Transfera conversatia catre un utilizator din departamentul tau</translation>
+    </message>
+    <message>
+      <source>Only logged and online operators</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Transfer</source>
@@ -5838,14 +5886,6 @@
     </message>
     <message>
       <source>Transfer chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Offline</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -6858,6 +6898,10 @@
       <translation>Functie</translation>
     </message>
     <message>
+      <source>Limitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Remove selected policy</source>
       <translation>Sterge politica selectata</translation>
     </message>
@@ -6956,6 +7000,14 @@
     <message>
       <source>Choose a module function</source>
       <translation>Alegeti o functie a modulului</translation>
+    </message>
+    <message>
+      <source>Limitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter any content which you will be able to get within users permissions</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Save</source>
@@ -7484,6 +7536,10 @@
       <translation>Stele</translation>
     </message>
     <message>
+      <source>Percentages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chats</source>
       <translation>Chaturi</translation>
     </message>
@@ -7554,6 +7610,10 @@
       <translation>Setari logare automata</translation>
     </message>
     <message>
+      <source>Custom auto logins</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>This module can be used if you are generating autologin link. See site for code examples</source>
       <translation>Acest modul nu poate fi folosit daca este generat un link de auto-login. Vezi site-ul pt. exemple de cod.</translation>
     </message>
@@ -7564,6 +7624,34 @@
     <message>
       <source>Secret hash used for authentification token generation, min 10 characters</source>
       <translation>Hash secret pt. generarea token-ului de autentificare, min 10 caractere.</translation>
+    </message>
+    <message>
+      <source>User ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>SiteAccess</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default URL</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Secret hash</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>IP Allowed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copied!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copy URL to clipboard</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Settings updated</source>
