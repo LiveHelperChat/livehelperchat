@@ -23,26 +23,26 @@
         <input type="text" class="form-control" ng-model="lang.wait_message" value="" name="wait_message[{{$index}}]">
     </div>
 
-    <h4>Pending chat messaging</h4>
+    <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Pending chat messaging');?></h4>
 
     <div class="row">
         <div class="col-xs-6">
             <div class="form-group">
-                <label>Show visitor this message when wait timeout passes [1]</label>
+                <label><?php echo $fields['timeout_message']['trans'];?> [1]</label>
                 <input type="text" class="form-control" ng-model="lang.timeout_message" value="" name="timeout_message[{{$index}}]">
             </div>
         </div>
         <?php for ($i = 2; $i <= 5; $i++) : ?>
         <div class="col-xs-6">
             <div class="form-group">
-                <label>Show visitor this message when wait timeout passes [<?php echo $i?>]</label>
+                <label><?php echo $fields['timeout_message_' . $i]['trans'];?> [<?php echo $i?>]</label>
                 <input type="text" class="form-control" ng-model="lang.timeout_message_<?php echo $i?>" value="" name="timeout_message_<?php echo $i?>[{{$index}}]">
             </div>
         </div>
         <?php endfor;?>
     </div>
 
-    <h4>Not replying messaging</h4>
+    <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Not replying messaging');?></h4>
 
     <div class="row">
     <?php for ($i = 1; $i <= 5; $i++) : ?>
@@ -55,7 +55,7 @@
     <?php endfor;?>
     </div>
 
-    <h4>On-hold chat messaging</h4>
+    <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','On-hold chat messaging');?></h4>
 
     <div class="form-group">
         <label><?php echo $fields['wait_timeout_hold']['trans'];?></label>
