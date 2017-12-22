@@ -18,7 +18,8 @@ class erLhcoreClassModelSpeechLanguageDialect {
 				'id'         		=> $this->id,
 				'language_id'   	=> $this->language_id,				
 				'lang_name'   	 	=> $this->lang_name,				
-				'lang_code'   	 	=> $this->lang_code				
+				'lang_code'   	 	=> $this->lang_code,
+				'short_code'   	 	=> $this->short_code
 		);
 	}
 
@@ -26,6 +27,10 @@ class erLhcoreClassModelSpeechLanguageDialect {
 		switch ($var) {							
 			case 'dialect_name':
 					return $this->lang_name.' ('.$this->lang_code.')'; 
+				break;
+
+            case 'language':
+					return $this->language = erLhcoreClassModelSpeechLanguage::fetch($this->language_id);
 				break;
 				
 			default:
@@ -35,7 +40,10 @@ class erLhcoreClassModelSpeechLanguageDialect {
 	}
 
 	public $id = NULL;
-	public $name = NULL;
+	public $language_id = NULL;
+	public $lang_name = NULL;
+	public $lang_code = NULL;
+	public $short_code = NULL;
 }
 
 ?>

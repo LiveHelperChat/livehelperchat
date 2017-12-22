@@ -75,7 +75,7 @@ class erLhAbstractModelAutoResponderChat
                         }
                     } elseif ($this->pending_send_status >= 1 && $this->pending_send_status < 5) {
                         for ($i = 5; $i >= 2; $i --) {
-                            if ($this->pending_send_status < $i && $this->auto_responder->{'wait_timeout_' . $i} < (time() - $this->chat->time) && ! empty($this->auto_responder->{'timeout_message_' . $i})) {
+                            if ($this->pending_send_status < $i && $this->auto_responder->{'wait_timeout_' . $i} > 0 && $this->auto_responder->{'wait_timeout_' . $i} < (time() - $this->chat->time) && ! empty($this->auto_responder->{'timeout_message_' . $i})) {
 
                                 $this->pending_send_status = $i;
                                 $this->saveThis();
@@ -149,7 +149,7 @@ class erLhAbstractModelAutoResponderChat
                         }
 
                         for ($i = 5; $i >= 1; $i--) {
-                            if ($this->active_send_status < $i && !empty($this->auto_responder->{'timeout_reply_message_' . $i}) && (time() - $this->chat->last_op_msg_time > $this->auto_responder->{'wait_timeout_reply_' . $i}) ) {
+                            if ($this->active_send_status < $i && !empty($this->auto_responder->{'timeout_reply_message_' . $i}) && $this->auto_responder->{'wait_timeout_reply_' . $i} > 0 && (time() - $this->chat->last_op_msg_time > $this->auto_responder->{'wait_timeout_reply_' . $i}) ) {
 
                                 $this->active_send_status = $i;
                                 $this->saveThis();
@@ -174,7 +174,7 @@ class erLhAbstractModelAutoResponderChat
 
                 } elseif ($this->chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_ON_HOLD) {
                     for ($i = 5; $i >= 1; $i--) {
-                        if ($this->active_send_status < $i && !empty($this->auto_responder->{'timeout_hold_message_' . $i}) && (time() - $this->chat->last_op_msg_time > $this->auto_responder->{'wait_timeout_hold_' . $i}) ) {
+                        if ($this->active_send_status < $i && !empty($this->auto_responder->{'timeout_hold_message_' . $i}) && $this->auto_responder->{'wait_timeout_hold_' . $i} > 0 && (time() - $this->chat->last_op_msg_time > $this->auto_responder->{'wait_timeout_hold_' . $i}) ) {
 
                             $this->active_send_status = $i;
                             $this->saveThis();
@@ -201,6 +201,7 @@ class erLhAbstractModelAutoResponderChat
         switch ($var) {
             case 'auto_responder':
                 $this->auto_responder = erLhAbstractModelAutoResponder::fetch($this->auto_responder_id);
+                $this->auto_responder->translateByChat($this->chat->chat_locale);
                 return $this->auto_responder;
                 break;
 

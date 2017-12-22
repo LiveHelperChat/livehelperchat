@@ -417,6 +417,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `timeout_reply_message_4` text NOT NULL,
                   `wait_timeout_reply_5` int(11) NOT NULL,
                   `timeout_reply_message_5` text NOT NULL,
+                  `languages` text NOT NULL,
                   `ignore_pa_chat` int(11) NOT NULL,
                   PRIMARY KEY (`id`),
                   KEY `siteaccess_position` (`siteaccess`,`position`)
@@ -675,14 +676,17 @@ switch ((int)$Params['user_parameters']['step_id']) {
                ) DEFAULT CHARSET=utf8");
         	           	   
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_speech_language_dialect` (
-                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                `id` int(11) NOT NULL AUTO_INCREMENT,
                   `language_id` int(11) NOT NULL,
                   `lang_name` varchar(100) NOT NULL,
                   `lang_code` varchar(100) NOT NULL,
+                  `short_code` varchar(4) NOT NULL DEFAULT '',
                   PRIMARY KEY (`id`),
-                  KEY `language_id` (`language_id`)
-               ) DEFAULT CHARSET=utf8");
-        	   
+                  KEY `language_id` (`language_id`),
+                  KEY `short_code` (`short_code`),
+                  KEY `lang_code` (`lang_code`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8");
+
         	   $db->query("INSERT INTO `lh_speech_language` (`id`, `name`) VALUES
         	   (1,	'Afrikaans'),
         	   (2,	'Bahasa Indonesia'),

@@ -37,7 +37,72 @@ class erLhcoreClassSpeech {
 	
 	    return $chatLanguageSession;
 	}
-	
+
+    public static function validateLanguage(& $item)
+    {
+        $definition = array(
+            'name' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            )
+        );
+
+        $form = new ezcInputForm( INPUT_POST, $definition );
+        $Errors = array();
+
+        if ( $form->hasValidData( 'name' ) )
+        {
+            $item->name = $form->name;
+        } else {
+            $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please enter language name!');
+        }
+
+        return $Errors;
+    }
+
+    public static function validateDialect(& $item) {
+        $definition = array(
+            'language_id' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
+            ),
+            'lang_name' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'lang_code' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'short_code' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            )
+        );
+
+        $form = new ezcInputForm( INPUT_POST, $definition );
+        $Errors = array();
+
+        if ( $form->hasValidData( 'language_id' ) )
+        {
+            $item->language_id = $form->language_id;
+        } else {
+            $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please choose a language!');
+        }
+
+        if ( $form->hasValidData( 'lang_name' ) )
+        {
+            $item->lang_name = $form->lang_name;
+        }
+
+        if ( $form->hasValidData( 'lang_code' ) )
+        {
+            $item->lang_code = $form->lang_code;
+        }
+
+        if ( $form->hasValidData( 'short_code' ) )
+        {
+            $item->short_code = $form->short_code;
+        }
+
+        return $Errors;
+    }
+
 	public static function getList($paramsSearch = array(), $class = 'erLhcoreClassModelSpeechLanguage', $tableName = 'lh_speech_language')
 	{
 	    $paramsDefault = array('limit' => 500, 'offset' => 0);

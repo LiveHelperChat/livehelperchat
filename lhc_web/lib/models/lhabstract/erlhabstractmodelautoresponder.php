@@ -54,14 +54,16 @@ class erLhAbstractModelAutoResponder {
 			'timeout_reply_message_3' => $this->timeout_reply_message_3,
 			'timeout_reply_message_4' => $this->timeout_reply_message_4,
 			'timeout_reply_message_5' => $this->timeout_reply_message_5,
-		    
+
 			'only_proactive'	=> $this->only_proactive,
 			'ignore_pa_chat'	=> $this->ignore_pa_chat,
 			'dep_id'			=> $this->dep_id,
 			'position'			=> $this->position,
 			'repeat_number'		=> $this->repeat_number,
 			'survey_timeout'	=> $this->survey_timeout,
-			'survey_id'		    => $this->survey_id
+			'survey_id'		    => $this->survey_id,
+
+            'languages' => $this->languages,
 		);
 
 		return $stateArray;
@@ -144,11 +146,120 @@ class erLhAbstractModelAutoResponder {
 
 		if ( !empty($messagesToUser) ) {
 			$message = array_shift($messagesToUser);
+            $message->translateByChat($chat->chat_locale);
 			return $message;
 		}
 
 		return false;
 	}
+
+	public function dependFooterJs()
+    {
+        return '<script type="text/javascript" src="'.erLhcoreClassDesign::designJS('js/angular.lhc.autoresponder.js').'"></script>';
+    }
+
+    /**
+     * @desc translate auto responder if translation by chat exists
+     *
+     * @param $locale
+     */
+    public function translateByChat($locale) {
+        if ($locale != '' && $this->languages != '') {
+            $languages = json_decode($this->languages, true);
+
+            if (is_array($languages)) {
+                foreach ($languages as $data) {
+                    if (in_array($locale, $data['languages'])) {
+
+                        if (isset($data['timeout_message']) && $data['timeout_message'] != '') {
+                            $this->timeout_message = $data['timeout_message'];
+                        }
+
+                        if (isset($data['wait_timeout_hold']) && $data['wait_timeout_hold'] != '') {
+                            $this->wait_timeout_hold = $data['wait_timeout_hold'];
+                        }
+
+                        if (isset($data['wait_message']) && $data['wait_message'] != '') {
+                            $this->wait_message = $data['wait_message'];
+                        }
+
+                        for ($i = 1; $i <= 5; $i++) {
+                            if (isset($data['timeout_message_' . $i]) && $data['timeout_message_' . $i] != '') {
+                                $this->{'timeout_message_' . $i} = $data['timeout_message_' . $i];
+                            }
+
+                            if (isset($data['timeout_reply_message_' . $i]) && $data['timeout_reply_message_' . $i] != '') {
+                                $this->{'timeout_reply_message_' . $i} = $data['timeout_reply_message_' . $i];
+                            }
+
+                            if (isset($data['timeout_hold_message_' . $i]) && $data['timeout_hold_message_' . $i] != '') {
+                                $this->{'timeout_hold_message_' . $i} = $data['timeout_hold_message_' . $i];
+                            }
+                        }
+
+                        return ;
+                    }
+                }
+            }
+        }
+    }
+
+    public function validateInput()
+    {
+        $definition = array(
+            'languages' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
+            'timeout_message' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
+            'timeout_message_2' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
+            'timeout_message_3' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
+            'timeout_message_4' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
+            'timeout_message_5' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
+
+            'timeout_reply_message_1' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
+            'timeout_reply_message_2' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
+            'timeout_reply_message_3' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
+            'timeout_reply_message_4' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
+            'timeout_reply_message_5' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
+
+            'wait_timeout_hold' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
+            'timeout_hold_message_1' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
+            'timeout_hold_message_2' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
+            'timeout_hold_message_3' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
+            'timeout_hold_message_4' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
+            'timeout_hold_message_5' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
+            'wait_message' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
+        );
+
+        $form = new ezcInputForm( INPUT_POST, $definition );
+
+        $languagesData = array();
+        if ( $form->hasValidData( 'languages' ) && !empty($form->languages) )
+        {
+            foreach ($form->languages as $index => $languages) {
+                $languagesData[] = array(
+                    'languages' => $form->languages[$index],
+                    'timeout_message' => $form->timeout_message[$index],
+                    'timeout_message_2' => $form->timeout_message_2[$index],
+                    'timeout_message_3' => $form->timeout_message_3[$index],
+                    'timeout_message_4' => $form->timeout_message_4[$index],
+                    'timeout_message_5' => $form->timeout_message_5[$index],
+                    'timeout_reply_message_1' => $form->timeout_reply_message_1[$index],
+                    'timeout_reply_message_2' => $form->timeout_reply_message_2[$index],
+                    'timeout_reply_message_3' => $form->timeout_reply_message_3[$index],
+                    'timeout_reply_message_4' => $form->timeout_reply_message_4[$index],
+                    'timeout_reply_message_5' => $form->timeout_reply_message_5[$index],
+                    'wait_timeout_hold' => $form->wait_timeout_hold[$index],
+                    'timeout_hold_message_1' => $form->timeout_hold_message_1[$index],
+                    'timeout_hold_message_2' => $form->timeout_hold_message_2[$index],
+                    'timeout_hold_message_3' => $form->timeout_hold_message_3[$index],
+                    'timeout_hold_message_4' => $form->timeout_hold_message_4[$index],
+                    'timeout_hold_message_5' => $form->timeout_hold_message_5[$index],
+                    'wait_message' => $form->wait_message[$index],
+                );
+            }
+        }
+
+        $this->languages = json_encode($languagesData);
+    }
 
    	public $id = null;
 	public $siteaccess = '';
@@ -215,6 +326,8 @@ class erLhAbstractModelAutoResponder {
 
 	// Default hold message
 	public $wait_timeout_hold = '';
+
+	public $languages = '';
 
 	// Auto responder name
 	public $name = '';

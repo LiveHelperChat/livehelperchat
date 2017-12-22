@@ -1,4 +1,4 @@
-lhcAppControllers.controller('CannedMsgCtrl',['$scope','$http','$location','$rootScope', '$log', function($scope, $http, $location, $rootScope, $log) {
+lhcAppControllers.controller('AutoResponderCtrl',['$scope','$http','$location','$rootScope', '$log', function($scope, $http, $location, $rootScope, $log) {
 
     this.languages = [];
 
@@ -17,10 +17,9 @@ lhcAppControllers.controller('CannedMsgCtrl',['$scope','$http','$location','$roo
         that.languages.push({
             'message' : '',
             'fallback_message' : '',
-            'languages' : []
-        });
+            'languages' : []});
         setTimeout(function () {
-            $('#canned-main-tabs li:eq(' + (that.languages.length) + ') a').tab('show');
+            $('#autoresponder-tabs li:eq(' + (that.languages.length+3) + ') a').tab('show');
         },250);
     };
 
@@ -36,7 +35,7 @@ lhcAppControllers.controller('CannedMsgCtrl',['$scope','$http','$location','$roo
 
     this.deleteLanguage = function(field) {
         that.languages.splice(that.languages.indexOf(field),1);
-        $('#canned-main-tabs a:first').tab('show');
+        $('#autoresponder-tabs a:first').tab('show');
     };
 
     this.moveLeftField = function(field) {
