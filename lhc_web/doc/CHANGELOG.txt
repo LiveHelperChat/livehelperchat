@@ -1,3 +1,14 @@
+2.80v
+
+1. Multilanguage support for canned messages and auto responders.
+2. Survey grouping fix
+3. Save user browser language within chat.
+4. Reopen chat in same place then chat information was edited.
+5. Archive enhancements
+6. Video embed support
+
+execute doc/update_db/update_155.sql for update
+
 2.79v
 
 1. Automatic chat archive options.
