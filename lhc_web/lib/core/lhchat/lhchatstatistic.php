@@ -1030,7 +1030,7 @@ class erLhcoreClassChatStatistic {
             foreach ($userList as $user) {
                 $userInfo = erLhcoreClassModelUser::fetch($user->id,true);
                 $filter['filter']['user_id'] = $user->id;     
-                $agentName = $userInfo->name;
+                $agentName = trim($userInfo->name .' '. $userInfo->surname);
                 
                 $userChatsStats = erLhcoreClassChatStatistic::numberOfChatsDialogsByUser(30,$filter);
                 $numberOfChats = empty($userChatsStats) ? $numberOfChats = "0" : $userChatsStats[0]['number_of_chats'];

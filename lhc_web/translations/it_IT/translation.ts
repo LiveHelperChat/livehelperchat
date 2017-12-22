@@ -10,6 +10,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Per quanti giorni il widget di voto non deve essere mostrato dopo l&apos;ultima visualizzazione</translation>
     </message>
@@ -490,6 +494,10 @@
       <translation>Visualizzare il fumetto serve aiuto?</translation>
     </message>
     <message>
+      <source>Hide message time from visitor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Need help standard text</source>
       <translation>&quot;Serve Aiuto?&quot; testo standard</translation>
     </message>
@@ -552,6 +560,10 @@
     <message>
       <source>Header height (px)</source>
       <translation>Altezza intestazione (px)</translation>
+    </message>
+    <message>
+      <source>Widget response layout width trigger (px)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Header padding (px)</source>
@@ -1029,6 +1041,10 @@
       <translation>Ore e minuti fine</translation>
     </message>
     <message>
+      <source>Wait time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Vote status</source>
       <translation>Stato di voto</translation>
     </message>
@@ -1079,6 +1095,26 @@
     <message>
       <source>Chat ID</source>
       <translation>ID chat</translation>
+    </message>
+    <message>
+      <source>Chat duration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat duration from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>From</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat duration till</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Till</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Has unread messages</source>
@@ -5806,6 +5842,14 @@
   <context>
     <name>chat/transferchat</name>
     <message>
+      <source>Online</source>
+      <translation>Online</translation>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation>Offline</translation>
+    </message>
+    <message>
       <source>Transfer to a user</source>
       <translation>Trasferisci ad un utente</translation>
     </message>
@@ -5820,6 +5864,10 @@
     <message>
       <source>Transfer a chat to one of your departments users</source>
       <translation>Trasferisci una chat ad un utente del tuo reparto</translation>
+    </message>
+    <message>
+      <source>Only logged and online operators</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Transfer</source>
@@ -5840,14 +5888,6 @@
     <message>
       <source>Transfer chat</source>
       <translation>Trasferisci chat</translation>
-    </message>
-    <message>
-      <source>Online</source>
-      <translation>Online</translation>
-    </message>
-    <message>
-      <source>Offline</source>
-      <translation>Offline</translation>
     </message>
   </context>
   <context>
@@ -6859,6 +6899,10 @@
       <translation>Funzione</translation>
     </message>
     <message>
+      <source>Limitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Remove selected policy</source>
       <translation>Rimuovi la politica selezionata</translation>
     </message>
@@ -6957,6 +7001,14 @@
     <message>
       <source>Choose a module function</source>
       <translation>Scegli una funzione del modulo</translation>
+    </message>
+    <message>
+      <source>Limitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter any content which you will be able to get within users permissions</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Save</source>
@@ -7485,6 +7537,10 @@
       <translation>Stelle</translation>
     </message>
     <message>
+      <source>Percentages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chats</source>
       <translation>Chats</translation>
     </message>
@@ -7555,6 +7611,10 @@
       <translation>Impostazioni di login automatico</translation>
     </message>
     <message>
+      <source>Custom auto logins</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>This module can be used if you are generating autologin link. See site for code examples</source>
       <translation>Questo modulo può essere utilizzato se si desidera creare il collegamento autologin. Vedere sito per esempi di codice</translation>
     </message>
@@ -7565,6 +7625,34 @@
     <message>
       <source>Secret hash used for authentification token generation, min 10 characters</source>
       <translation>Hash segreto utilizzato per la generazione token di autenticazione, min 10 caratteri</translation>
+    </message>
+    <message>
+      <source>User ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>SiteAccess</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default URL</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Secret hash</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>IP Allowed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copied!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copy URL to clipboard</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Settings updated</source>

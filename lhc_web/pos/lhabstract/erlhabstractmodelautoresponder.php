@@ -19,6 +19,11 @@ $def->properties['siteaccess']->columnName   = 'siteaccess';
 $def->properties['siteaccess']->propertyName = 'siteaccess';
 $def->properties['siteaccess']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['languages'] = new ezcPersistentObjectProperty();
+$def->properties['languages']->columnName   = 'languages';
+$def->properties['languages']->propertyName = 'languages';
+$def->properties['languages']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 $def->properties['wait_message'] = new ezcPersistentObjectProperty();
 $def->properties['wait_message']->columnName   = 'wait_message';
 $def->properties['wait_message']->propertyName = 'wait_message';

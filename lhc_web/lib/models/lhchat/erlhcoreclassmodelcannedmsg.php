@@ -27,7 +27,8 @@ class erLhcoreClassModelCannedMsg
             'attr_int_3' => $this->attr_int_3,
             'title' => $this->title,
             'explain' => $this->explain,
-            'fallback_msg' => $this->fallback_msg
+            'fallback_msg' => $this->fallback_msg,
+            'languages' => $this->languages,
         );
     }
 
@@ -249,7 +250,7 @@ class erLhcoreClassModelCannedMsg
                 }
             }
         }
-        
+
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow.canned_message_replace', array(
             'chat' => $chat,
             'replace_array' => & $replaceArray,
@@ -259,7 +260,11 @@ class erLhcoreClassModelCannedMsg
         $grouped = array();
         
         foreach ($items as $item) {
-            
+
+            // Set proper message by language
+            $item->setMessageByChatLocale($chat->chat_locale);
+
+            // Set replace data
             $item->setReplaceData($replaceArray);
             
             $type = $item->department_id > 0 ? 0 : ($item->user_id > 0 ? 1 : 2);
@@ -270,7 +275,34 @@ class erLhcoreClassModelCannedMsg
         
         return $grouped;
     }
-    
+
+    /**
+     * @desc Finds message in proper locale if it exists
+     *
+     * @param $locale
+     */
+    public function setMessageByChatLocale($locale) {
+        if ($locale != '' && $this->languages != '') {
+            $languages = json_decode($this->languages, true);
+
+            if (is_array($languages)) {
+                foreach ($languages as $data) {
+                    if (in_array($locale, $data['languages'])) {
+
+                        if ($data['message'] != '') {
+                            $this->msg = $data['message'];
+                        }
+
+                        if ($data['fallback_message'] != '') {
+                            $this->fallback_msg = $data['fallback_message'];
+                        }
+                        return ;
+                    }
+                }
+            }
+        }
+    }
+
     private $replaceData = array();
 
     public $id = null;
@@ -280,6 +312,8 @@ class erLhcoreClassModelCannedMsg
     public $title = '';
 
     public $explain = '';
+
+    public $languages = '';
 
     public $fallback_msg = '';
 

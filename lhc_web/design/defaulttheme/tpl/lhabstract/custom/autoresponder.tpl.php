@@ -7,8 +7,9 @@
 <?php endif; ?>
 
 <?php $fields = $object->getFields();?>
+<div ng-controller="AutoResponderCtrl as cmsg"  ng-init='<?php if ($object->languages != '') : ?>cmsg.languages = <?php echo $object->languages?>;<?php endif;?>cmsg.dialects = <?php echo json_encode(array_values(erLhcoreClassModelSpeechLanguageDialect::getList()))?>'>
 
-<div class="form-group">		
+<div class="form-group">
 <label><?php echo $fields['name']['trans'];?></label>
 <?php echo erLhcoreClassAbstract::renderInput('name', $fields['name'], $object)?>
 </div>
@@ -39,11 +40,13 @@
 
 <div role="tabpanel">
     	<!-- Nav tabs -->
-    	<ul class="nav nav-tabs" role="tablist">
+    	<ul class="nav nav-tabs" role="tablist" id="autoresponder-tabs">
     		<li role="presentation" class="active"><a href="#pending" aria-controls="pending" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Pending chat messaging');?></a></li>
     		<li role="presentation"><a href="#active" aria-controls="active" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Not replying messaging');?></a></li>
     		<li role="presentation"><a href="#onhold" aria-controls="onhold" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','On-hold chat messaging');?></a></li>
     		<li role="presentation"><a href="#survey" aria-controls="survey" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Survey');?></a></li>
+            <li ng-repeat="lang in cmsg.languages" role="presentation"><a href="#lang-{{$index}}" aria-controls="lang-{{$index}}" role="tab" data-toggle="tab" ><i class="material-icons mr-0">&#xE894;</i></a></li>
+            <li><a href="#addlanguage" ng-click="cmsg.addLanguage()"><i class="material-icons">&#xE145;</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Add translation');?></a></li>
     	</ul>
     
     	<!-- Tab panes -->
@@ -60,6 +63,9 @@
             <div role="tabpanel" class="tab-pane" id="survey">
     		  <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/responder/survey.tpl.php'));?>
     		</div>
+
+            <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/responder/languages.tpl.php'));?>
+
 		</div>
 </div>
 
@@ -67,4 +73,6 @@
 	<input type="submit" class="btn btn-default" name="SaveClient" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>"/>
 	<input type="submit" class="btn btn-default" name="UpdateClient" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update');?>"/>
 	<input type="submit" class="btn btn-default" name="CancelAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel');?>"/>
+</div>
+
 </div>

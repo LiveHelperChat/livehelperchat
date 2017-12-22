@@ -10,6 +10,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Hur många dagar som röstwidgeten inte ska expanderas efter senaste visningen</translation>
     </message>
@@ -490,6 +494,10 @@
       <translation>Visa &quot;behöver du hjälp&quot; verktygstips?</translation>
     </message>
     <message>
+      <source>Hide message time from visitor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Need help standard text</source>
       <translation>Hjälpwidget standard text</translation>
     </message>
@@ -552,6 +560,10 @@
     <message>
       <source>Header height (px)</source>
       <translation>Höjd på headern (px)</translation>
+    </message>
+    <message>
+      <source>Widget response layout width trigger (px)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Header padding (px)</source>
@@ -1028,6 +1040,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Wait time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Vote status</source>
       <translation>Röstningsstatus</translation>
     </message>
@@ -1077,6 +1093,26 @@
     </message>
     <message>
       <source>Chat ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat duration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat duration from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>From</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat duration till</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Till</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5805,6 +5841,14 @@
   <context>
     <name>chat/transferchat</name>
     <message>
+      <source>Online</source>
+      <translation>Online</translation>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation>Offline</translation>
+    </message>
+    <message>
       <source>Transfer to a user</source>
       <translation>Vidarebefodra till en användare</translation>
     </message>
@@ -5819,6 +5863,10 @@
     <message>
       <source>Transfer a chat to one of your departments users</source>
       <translation>Vidarebefordra chatten till en användare i avdelningen</translation>
+    </message>
+    <message>
+      <source>Only logged and online operators</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Transfer</source>
@@ -5839,14 +5887,6 @@
     <message>
       <source>Transfer chat</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online</source>
-      <translation>Online</translation>
-    </message>
-    <message>
-      <source>Offline</source>
-      <translation>Offline</translation>
     </message>
   </context>
   <context>
@@ -6858,6 +6898,10 @@
       <translation>Funktion</translation>
     </message>
     <message>
+      <source>Limitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Remove selected policy</source>
       <translation>Ta bort vald policy</translation>
     </message>
@@ -6956,6 +7000,14 @@
     <message>
       <source>Choose a module function</source>
       <translation>Välj modulens funktion</translation>
+    </message>
+    <message>
+      <source>Limitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter any content which you will be able to get within users permissions</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Save</source>
@@ -7484,6 +7536,10 @@
       <translation>Stjärnor</translation>
     </message>
     <message>
+      <source>Percentages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chats</source>
       <translation>Chattar</translation>
     </message>
@@ -7554,6 +7610,10 @@
       <translation>Inställningar för automatisk inloggning</translation>
     </message>
     <message>
+      <source>Custom auto logins</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>This module can be used if you are generating autologin link. See site for code examples</source>
       <translation>Denna modul kan användas om du genererar en länk för automatisk inloggning. Se hemsidan för kodexempel</translation>
     </message>
@@ -7564,6 +7624,34 @@
     <message>
       <source>Secret hash used for authentification token generation, min 10 characters</source>
       <translation>Hemlig hashfunktion som ska användas för autentisering av skapandet av nyckeln, 10 tecken är minimum</translation>
+    </message>
+    <message>
+      <source>User ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>SiteAccess</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default URL</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Secret hash</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>IP Allowed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copied!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copy URL to clipboard</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Settings updated</source>

@@ -17,12 +17,17 @@ $def->properties['language_id']->propertyType = ezcPersistentObjectProperty::PHP
 $def->properties['lang_name'] = new ezcPersistentObjectProperty();
 $def->properties['lang_name']->columnName   = 'lang_name';
 $def->properties['lang_name']->propertyName = 'lang_name';
-$def->properties['lang_name']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+$def->properties['lang_name']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 $def->properties['lang_code'] = new ezcPersistentObjectProperty();
 $def->properties['lang_code']->columnName   = 'lang_code';
 $def->properties['lang_code']->propertyName = 'lang_code';
-$def->properties['lang_code']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+$def->properties['lang_code']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['short_code'] = new ezcPersistentObjectProperty();
+$def->properties['short_code']->columnName   = 'short_code';
+$def->properties['short_code']->propertyName = 'short_code';
+$def->properties['short_code']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 return $def;
 

@@ -28,6 +28,48 @@ $ViewList['defaultlanguage'] = array(
 		'uparams' => array()
 );
 
+$ViewList['languages'] = array (
+		'params' => array(),
+		'functions' => array('manage'),
+		'uparams' => array()
+);
+
+$ViewList['dialects'] = array (
+		'params' => array(),
+		'functions' => array('manage'),
+		'uparams' => array()
+);
+
+$ViewList['deletedialect'] = array (
+		'params' => array('id'),
+		'functions' => array('manage'),
+		'uparams' => array('csfr')
+);
+
+$ViewList['editdialect'] = array (
+		'params' => array('id'),
+		'functions' => array('manage'),
+		'uparams' => array()
+);
+
+$ViewList['editlanguage'] = array (
+		'params' => array('id'),
+		'functions' => array('manage'),
+		'uparams' => array()
+);
+
+$ViewList['newdialect'] = array (
+		'params' => array(),
+		'functions' => array('manage'),
+		'uparams' => array()
+);
+
+$ViewList['newlanguage'] = array (
+		'params' => array(),
+		'functions' => array('manage'),
+		'uparams' => array()
+);
+
 $FunctionList = array();
 $FunctionList['use'] = array('explain' => 'Allow operator to use speech recognition module');
 $FunctionList['manage'] = array('explain' => 'Allow user to set application default speech recognition language');

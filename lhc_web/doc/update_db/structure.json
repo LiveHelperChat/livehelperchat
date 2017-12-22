@@ -336,6 +336,14 @@
                 "key": "",
                 "default": null,
                 "extra": ""
+            },
+            {
+                "field": "languages",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
             }
         ],
         "lh_abstract_auto_responder_chat": [
@@ -2823,6 +2831,14 @@
             },
             {
                 "field": "fallback_msg",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "languages",
                 "type": "text",
                 "null": "NO",
                 "key": "",
@@ -5414,6 +5430,14 @@
                 "key": "",
                 "default": null,
                 "extra": ""
+            },
+            {
+                "field": "short_code",
+                "type": "varchar(4)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
             }
         ],
         "lh_rolefunction": [
@@ -7393,6 +7417,13 @@
     	},
     	"lh_chat_file" : {
     		"new" : {"online_user_id" : "ALTER TABLE `lh_chat_file` ADD INDEX `online_user_id` (`online_user_id`)"},
+    		"old" : []
+    	},
+        "lh_speech_language_dialect" : {
+    		"new" : {
+                "short_code" : "ALTER TABLE `lh_speech_language_dialect` ADD INDEX `short_code` (`short_code`);",
+                "lang_code" : "ALTER TABLE `lh_speech_language_dialect` ADD INDEX `lang_code` (`lang_code`);"
+            },
     		"old" : []
     	},
     	"lh_departament" : {

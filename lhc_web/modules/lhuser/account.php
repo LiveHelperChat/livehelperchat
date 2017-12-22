@@ -1,5 +1,11 @@
 <?php
 
+/*$chatResponder = erLhAbstractModelAutoResponderChat::fetch(186);
+print_r($chatResponder->auto_responder);
+exit;*/
+
+
+
 $tpl = erLhcoreClassTemplate::getInstance( 'lhuser/account.tpl.php' );
 
 $currentUser = erLhcoreClassUser::instance();
@@ -238,6 +244,7 @@ if ( erLhcoreClassUser::instance()->hasAccessTo('lhuser','personalcannedmsg') ) 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.account', array('userData' => & $UserData, 'tpl' => & $tpl, 'params' => $Params));
 
 $Result['content'] = $tpl->fetch();
+$Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.lhc.cannedmsg.js').'"></script>';
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.account_result', array('result' => & $Result));
 
