@@ -2,8 +2,6 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="lt">
   <context>
-  </context>
-  <context>
     <name>listchatconfig</name>
     <message>
       <source>How many days voting widget should not be expanded after last show</source>
