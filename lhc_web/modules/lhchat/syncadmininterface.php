@@ -52,6 +52,14 @@ if ($showDepartmentsStats == true) {
         $filter['filterin']['id'] = $Params['user_parameters_unordered']['departmentd'];
     }
     
+    if (is_array($Params['user_parameters_unordered']['ddgroups']) && !empty($Params['user_parameters_unordered']['ddgroups'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['ddgroups']);
+        $depIds = erLhcoreClassChat::getDepartmentsByDepGroup($Params['user_parameters_unordered']['ddgroups']);
+        if (!empty($depIds)) {
+            $filter['filterin']['id'] = isset($filter['filterin']['id']) ? array_merge($filter['filterin']['id'],$depIds) : $depIds;
+        }
+    }
+    
     // Add permission check if operator does not have permission to see all departments stats
     if ($showDepartmentsStatsAll === false) {
         
@@ -103,10 +111,28 @@ if ($activeTabEnabled == true) {
         $filter['filterin']['product_id'] = $Params['user_parameters_unordered']['activedprod'];
     }
     
-    if (is_numeric($Params['user_parameters_unordered']['activeu'])) {
-    	$filter['filter']['user_id'] = $Params['user_parameters_unordered']['activeu'];
-    }    
+    if (is_array($Params['user_parameters_unordered']['activeu']) && !empty($Params['user_parameters_unordered']['activeu'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['activeu']);
+        $filter['filterin']['user_id'] = $Params['user_parameters_unordered']['activeu'];
+    }   
 
+    if (is_array($Params['user_parameters_unordered']['adgroups']) && !empty($Params['user_parameters_unordered']['adgroups'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['adgroups']);
+        $depIds = erLhcoreClassChat::getDepartmentsByDepGroup($Params['user_parameters_unordered']['adgroups']);
+        if (!empty($depIds)) {
+            $filter['filterin']['dep_id'] = isset($filter['filterin']['dep_id']) ? array_merge($filter['filterin']['dep_id'],$depIds) : $depIds;
+        }
+    }
+
+    // User groups filter
+    if (is_array($Params['user_parameters_unordered']['augroups']) && !empty($Params['user_parameters_unordered']['augroups'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['augroups']);
+        $userIds = erLhcoreClassChat::getUserIDByGroup($Params['user_parameters_unordered']['augroups']);
+        if (!empty($userIds)) {
+            $filter['filterin']['user_id'] = isset($filter['filterin']['user_id']) ? array_merge($filter['filterin']['user_id'],$userIds) : $userIds;
+        }
+    }
+    
     $sortArray = array(
         'op_asc' => 'user_id ASC',
         'op_dsc' => 'user_id DESC',
@@ -173,6 +199,14 @@ if ($myChatsEnabled == true) {
         $filter['filterin']['product_id'] = $Params['user_parameters_unordered']['mcdprod'];
     }
 
+    if (is_array($Params['user_parameters_unordered']['mdgroups']) && !empty($Params['user_parameters_unordered']['mdgroups'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['mdgroups']);
+        $depIds = erLhcoreClassChat::getDepartmentsByDepGroup($Params['user_parameters_unordered']['mdgroups']);
+        if (!empty($depIds)) {
+            $filter['filterin']['dep_id'] = isset($filter['filterin']['dep_id']) ? array_merge($filter['filterin']['dep_id'],$depIds) : $depIds;
+        }
+    }
+    
     $filter['filter']['user_id'] = (int)$currentUser->getUserID();
     
     $myChats = erLhcoreClassChat::getMyChats($limitList,0,$filter);
@@ -205,6 +239,14 @@ if ($closedTabEnabled == true) {
         $filter['filterin']['product_id'] = $Params['user_parameters_unordered']['closeddprod'];
     }
 
+    if (is_array($Params['user_parameters_unordered']['cdgroups']) && !empty($Params['user_parameters_unordered']['cdgroups'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['cdgroups']);
+        $depIds = erLhcoreClassChat::getDepartmentsByDepGroup($Params['user_parameters_unordered']['cdgroups']);
+        if (!empty($depIds)) {
+            $filter['filterin']['dep_id'] = isset($filter['filterin']['dep_id']) ? array_merge($filter['filterin']['dep_id'],$depIds) : $depIds;
+        }
+    }
+    
 	/**
 	 * Closed chats
 	 * */
@@ -222,8 +264,9 @@ if ($pendingTabEnabled == true) {
 	
 	$additionalFilter = array('ignore_fields' => erLhcoreClassChat::$chatListIgnoreField);
 	
-	if (is_numeric($Params['user_parameters_unordered']['pendingu'])) {
-		$additionalFilter['filter']['user_id'] = $Params['user_parameters_unordered']['pendingu'];
+	if (is_array($Params['user_parameters_unordered']['pendingu']) && !empty($Params['user_parameters_unordered']['pendingu'])) {
+	    erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['pendingu']);
+	    $additionalFilter['filterin']['user_id'] = $Params['user_parameters_unordered']['pendingu'];
 	} elseif ($showAllPending == 0) {
 		$additionalFilter['filter']['user_id'] = $currentUser->getUserID();
 	}
@@ -231,6 +274,23 @@ if ($pendingTabEnabled == true) {
 	if (is_array($Params['user_parameters_unordered']['pendingd']) && !empty($Params['user_parameters_unordered']['pendingd'])) {
 	    erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['pendingd']);
 	    $additionalFilter['filterin']['dep_id'] = $Params['user_parameters_unordered']['pendingd'];
+	}
+	
+	// User groups filter
+	if (is_array($Params['user_parameters_unordered']['pugroups']) && !empty($Params['user_parameters_unordered']['pugroups'])) {
+	    erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['pugroups']);
+        $userIds = erLhcoreClassChat::getUserIDByGroup($Params['user_parameters_unordered']['pugroups']);
+	    if (!empty($userIds)) {
+	        $additionalFilter['filterin']['user_id'] = isset($additionalFilter['filterin']['user_id']) ? array_merge($additionalFilter['filterin']['user_id'],$userIds) : $userIds;
+	    }
+	}
+
+	if (is_array($Params['user_parameters_unordered']['pdgroups']) && !empty($Params['user_parameters_unordered']['pdgroups'])) {
+	    erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['pdgroups']);
+        $depIds = erLhcoreClassChat::getDepartmentsByDepGroup($Params['user_parameters_unordered']['pdgroups']);
+	    if (!empty($depIds)) {
+	        $additionalFilter['filterin']['dep_id'] = isset($additionalFilter['filterin']['dep_id']) ? array_merge($additionalFilter['filterin']['dep_id'],$depIds) : $depIds;
+	    }
 	}
 	
 	if (is_array($Params['user_parameters_unordered']['pendingdprod']) && !empty($Params['user_parameters_unordered']['pendingdprod'])) {
@@ -299,11 +359,22 @@ if ($canListOnlineUsers == true || $canListOnlineUsersAll == true) {
     
     $filter = array();
     
-    if (is_array($Params['user_parameters_unordered']['operatord']) && !empty($Params['user_parameters_unordered']['operatord'])) {
-        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['operatord']);
-        $filter['customfilter'][] = '(dep_id = 0 OR dep_id IN ('.implode(",", $Params['user_parameters_unordered']['operatord']).'))';
+    $depIds = array();
+    
+    if (is_array($Params['user_parameters_unordered']['odpgroups']) && !empty($Params['user_parameters_unordered']['odpgroups'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['odpgroups']);
+        $depIds = erLhcoreClassChat::getDepartmentsByDepGroup($Params['user_parameters_unordered']['odpgroups']);
     }
     
+    if (is_array($Params['user_parameters_unordered']['operatord']) && !empty($Params['user_parameters_unordered']['operatord'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['operatord']);
+        $depIds = array_merge($depIds, $Params['user_parameters_unordered']['operatord']);
+    }
+    
+    if (!empty($depIds)) {
+        $filter['customfilter'][] = '(dep_id = 0 OR dep_id IN ('.implode(",", $depIds).'))';
+    }
+   
     $validSort = array(
         'onl_dsc' => 'hide_online DESC, active_chats DESC',
         'onl_asc' => 'hide_online ASC, active_chats DESC',
@@ -338,6 +409,14 @@ if ($unreadTabEnabled == true) {
         $filter['filterin']['product_id'] = $Params['user_parameters_unordered']['unreaddprod'];
     }
 
+    if (is_array($Params['user_parameters_unordered']['udgroups']) && !empty($Params['user_parameters_unordered']['udgroups'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['udgroups']);
+        $depIds = erLhcoreClassChat::getDepartmentsByDepGroup($Params['user_parameters_unordered']['udgroups']);
+        if (!empty($depIds)) {
+            $filter['filterin']['dep_id'] = isset($filter['filterin']['dep_id']) ? array_merge($filter['filterin']['dep_id'],$depIds) : $depIds;
+        }
+    }
+    
 	// Unread chats
 	$unreadChats = erLhcoreClassChat::getUnreadMessagesChats($limitList,0,$filter);
 

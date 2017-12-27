@@ -1209,7 +1209,55 @@ class erLhcoreClassChat {
        $stmt->execute();
        
    }
-   
+
+    /**
+     * @desc returns departments by department groups
+     *
+     * @param array $group_ids
+     *
+     * @return mixed
+     */
+   public static function getDepartmentsByDepGroup($group_ids) {
+       static $group_id_by_group = array();
+       $key = implode('_',$group_ids);
+
+       if (!key_exists($key, $group_id_by_group))
+       {
+           $db = ezcDbInstance::get();
+           $stmt = $db->prepare('SELECT dep_id FROM lh_departament_group_member WHERE dep_group_id IN (' . implode(',', $group_ids) . ')');
+           $stmt->execute();
+           $depIds = $stmt->fetchAll(PDO::FETCH_COLUMN);
+
+           $group_id_by_group[$key] = $depIds;
+       }
+
+       return $group_id_by_group[$key];
+   }
+
+    /**
+     * @desc returns users id by users groups
+     *
+     * @param array $group_ids
+     *
+     * @return mixed
+     */
+   public static function getUserIDByGroup($group_ids) {
+        static $user_id_by_group = array();
+        $key = implode('_',$group_ids);
+
+        if (!key_exists($key, $user_id_by_group))
+        {
+            $db = ezcDbInstance::get();
+            $stmt = $db->prepare('SELECT user_id FROM lh_groupuser WHERE group_id IN ('. implode(',', $group_ids) . ')');
+            $stmt->execute();
+            $userIds = $stmt->fetchAll(PDO::FETCH_COLUMN);
+
+            $user_id_by_group[$key] = $userIds;
+        }
+
+        return $user_id_by_group[$key];
+   }
+
    public static function canReopen(erLhcoreClassModelChat $chat, $skipStatusCheck = false) {
    		if ( ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT || $skipStatusCheck == true)) {
 			if (($chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT || $skipStatusCheck == true) && ($chat->last_user_msg_time > time()-600 || $chat->last_user_msg_time == 0)) {

@@ -16,24 +16,26 @@
 				    <li ng-repeat="product in lhc.userProductNames" data-stopPropagation="true"><label><input type="checkbox" checklist-model="lhc.<?php echo $optinsPanel['panelid']?>_products" checklist-change="lhc.productChanged('<?php echo $optinsPanel['panelid']?>_products')" checklist-value="product.id"><i class="material-icons">&#xE8CC;</i>{{product.name}}</label></li>
 				    <li ng-show="lhc.userProductNames.length > 0" class="border-bottom-grey"></li>
                     <?php endif;?>
-                                        
+                       
+                    <li ng-repeat="department in lhc.userDepartmentsGroups" data-stopPropagation="true"><label><input type="checkbox" checklist-model="lhc.<?php echo $optinsPanel['panelid']?>_dpgroups" checklist-change="lhc.productChanged('<?php echo $optinsPanel['panelid']?>_dpgroups')" checklist-value="department.id"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Department group')?>" class="material-icons">&#xE84F;</i>{{department.name}}</label></li>
+                    <li ng-show="lhc.userDepartmentsGroups.length > 0" class="border-bottom-grey"></li>
+
 					<li ng-repeat="department in lhc.userDepartments" data-stopPropagation="true" ng-hide="( (lhc.<?php echo $optinsPanel['panelid']?>_only_explicit_online == true && department.oexp == false) || (lhc.<?php echo $optinsPanel['panelid']?>_hide_hidden == true && department.hidden == true) || (lhc.<?php echo $optinsPanel['panelid']?>_hide_disabled == true && department.disabled == true) || (lhc.<?php echo $optinsPanel['panelid']?>_only_online == true && department.ogen == false))"><label><input type="checkbox" checklist-model="lhc.<?php echo $optinsPanel['panelid']?>" checklist-change="lhc.departmentChanged('<?php echo $optinsPanel['panelid']?>')" checklist-value="department.id"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Department')?>" class="material-icons">home</i>{{department.name}}</label></li>
 				</ul>
 			</div>
 		</div>
 		<?php if (isset($optinsPanel['userid'])) : ?>
 		<div class="col-xs-4">
-				
-			<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
-	                    'input_name'     => 'user_id_' . $optinsPanel['userid'],
-						'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select operator'),
-	                    'selected_id'    => 0,
-						'ng-model' => "lhc." . $optinsPanel['userid'],
-			            'css_class'      => 'form-control input-sm',
-						'display_name' => 'name_official',
-	                    'list_function'  => 'erLhcoreClassModelUser::getUserList'
-	            )); ?>
-	            
+            <div class="btn-group btn-block btn-block-department">
+                <button type="button" class="btn btn-default btn-block btn-sm dropdown-toggle btn-department-dropdown" data-toggle="dropdown" aria-expanded="false">
+                    <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Users')?> <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-lhc" role="menu">
+                    <li ng-repeat="userGroup in lhc.userGroups" data-stopPropagation="true"><label><input type="checkbox" checklist-model="lhc.<?php echo $optinsPanel['panelid']?>_ugroups" checklist-change="lhc.productChanged('<?php echo $optinsPanel['panelid']?>_ugroups')" checklist-value="userGroup.id"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','User group')?>" class="material-icons">people</i>{{userGroup.name}}</label></li>
+                    <li ng-show="lhc.userGroups.length > 0" class="border-bottom-grey"></li>
+                    <li ng-repeat="userItem in lhc.userList" data-stopPropagation="true"><label><input type="checkbox" checklist-model="lhc.<?php echo $optinsPanel['userid']?>" checklist-change="lhc.productChanged('<?php echo $optinsPanel['userid']?>')" checklist-value="userItem.id"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','User')?>" class="material-icons">account_box</i>{{userItem.name_official}}</label></li>
+                </ul>
+            </div>
 		</div>
 		<?php endif; ?>
 		<div class="col-xs-2">

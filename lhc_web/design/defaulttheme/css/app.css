@@ -1329,14 +1329,20 @@ input[type="file"]{
 	cursor:pointer;
 }
 
+.dropdown-lhc label{
+	white-space:nowrap;
+	text-overflow: ellipsis;
+    overflow:hidden;
+
+    font-size:11px;
+}
+
 .canned-list li.current-item a,
 .current-hash-content li.current-item,
 .current-hash-content ul li:hover,
 .canned-list a:hover{background-color:#cecece;}
 .canned-list > li{position:relative;}
 .canned-list > li > ul {display: none;}
-
-
 
 .message-container-admin{
 	position:relative;
