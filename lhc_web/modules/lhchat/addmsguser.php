@@ -25,7 +25,7 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && trim(str_replace('
             erLhcoreClassModelChat::STATUS_ACTIVE_CHAT,
         );
 
-        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.validstatus_add_msg',array('chat' => & $chat, 'msg' => & $validStatuses));
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.validstatus_add_msg',array('chat' => & $chat, 'valid_statuses' => & $validStatuses));
 
 	    if ($chat->hash == $Params['user_parameters']['hash'] && (in_array($chat->status,$validStatuses))) // Allow add messages only if chat is active
 	    {	        	        
