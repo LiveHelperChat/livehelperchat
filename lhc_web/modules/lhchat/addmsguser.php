@@ -20,7 +20,14 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && trim(str_replace('
 	    
 	    $chat = erLhcoreClassModelChat::fetchAndLock($Params['user_parameters']['chat_id']);	
 
-	    if ($chat->hash == $Params['user_parameters']['hash'] && ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT || $chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)) // Allow add messages only if chat is active
+	    $validStatuses = array(
+            erLhcoreClassModelChat::STATUS_PENDING_CHAT,
+            erLhcoreClassModelChat::STATUS_ACTIVE_CHAT,
+        );
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.validstatus_add_msg',array('chat' => & $chat, 'msg' => & $validStatuses));
+
+	    if ($chat->hash == $Params['user_parameters']['hash'] && (in_array($chat->status,$validStatuses))) // Allow add messages only if chat is active
 	    {	        	        
 	        $messagesToStore = explode('[[msgitm]]', trim($form->msg));
 	        
