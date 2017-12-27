@@ -62,9 +62,16 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 					erLhcoreClassChatWorkflow::unreadInformWorkflow(array('department' => $department,'options' => $options),$chat);				
 				}			
 			}
-			
+
+            $validStatuses = array(
+                erLhcoreClassModelChat::STATUS_PENDING_CHAT,
+                erLhcoreClassModelChat::STATUS_ACTIVE_CHAT,
+            );
+
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.validstatus_chat',array('chat' => & $chat, 'valid_statuses' => & $validStatuses));
+
 			// Sync only if chat is pending or active
-			if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT || $chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT) {
+			if (in_array($chat->status,$validStatuses)) {
 				// Check for new messages only if chat last message id is greater than user last message id
 				if ((int)$Params['user_parameters']['message_id'] < $chat->last_msg_id) {
 				    $Messages = erLhcoreClassChat::getPendingMessages((int)$Params['user_parameters']['chat_id'],(int)$Params['user_parameters']['message_id']);
