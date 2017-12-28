@@ -18,7 +18,7 @@ $pages->items_total = erLhcoreClassModelUser::getUserCount($filterParams['filter
 $pages->setItemsPerPage(20);
 $pages->paginate();
 
-$userlist = erLhcoreClassModelUser::getUserList(array_merge($filterParams['filter'],array('offset' => $pages->low, 'limit' => $pages->items_per_page,'sort' => 'email ASC')));
+$userlist = erLhcoreClassModelUser::getUserList(array_merge($filterParams['filter'],array('offset' => $pages->low, 'limit' => $pages->items_per_page,'sort' => 'id DESC')));
 
 $tpl->set('userlist',$userlist);
 $tpl->set('pages',$pages);

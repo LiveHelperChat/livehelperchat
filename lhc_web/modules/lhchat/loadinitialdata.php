@@ -123,10 +123,10 @@ if (is_array($Params['user_parameters_unordered']['chatopen']) && !empty($Params
     }
 }
 
-$userList = erLhcoreClassModelUser::getUserList();
+$userList = erLhcoreClassModelUser::getUserList(array('sort' => 'name ASC'));
 erLhcoreClassChat::prefillGetAttributes($userList,array('id','name_official'),array(),array('remove_all' => true));
 
-$response = array('user_list' => array_values($userList), 'user_groups' => array_values(erLhcoreClassModelGroup::getList(array('filter' => array('disabled' => 0)))), 'track_activity' => $trackActivity, 'cdel' => $chatDel, 'copen' => $chatOpen, 'timeout_activity' => $activityTimeout, 'pr_names' => $productsNames, 'dp_groups' => $depGroupsList, 'dp_names' => $departmentNames, 'dep_list' => $departmentList);
+$response = array('user_list' => array_values($userList), 'user_groups' => array_values(erLhcoreClassModelGroup::getList(array('sort' => 'name ASC', 'filter' => array('disabled' => 0)))), 'track_activity' => $trackActivity, 'cdel' => $chatDel, 'copen' => $chatOpen, 'timeout_activity' => $activityTimeout, 'pr_names' => $productsNames, 'dp_groups' => $depGroupsList, 'dp_names' => $departmentNames, 'dep_list' => $departmentList);
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.loadinitialdata',array('lists' => & $response));
 
