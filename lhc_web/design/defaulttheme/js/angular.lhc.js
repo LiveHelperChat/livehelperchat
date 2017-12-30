@@ -689,6 +689,13 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		};
 	});
 
+	$scope.$watch('lhc.limitd', function(newVal,oldVal) {
+		if (newVal != oldVal) {
+			_that.storeLocalSetting('limitd',newVal);
+			$scope.loadChatList();
+		};
+	});
+
 	$scope.$watch('lhc.activeu', function(newVal,oldVal) {       
 		if (newVal != oldVal) {	
 			_that.storeLocalSetting('activeu',newVal);
