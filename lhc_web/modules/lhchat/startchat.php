@@ -272,32 +272,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
    			'chat' => $chat,
    			'prefill' => array('chatprefill' => isset($chatPrefill) ? $chatPrefill : false)));
 
-   		    // Save as offline request
-            $chat->time = time();
-            $chat->lsync = time();
-            $chat->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
-            $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST;
-            $chat->hash = erLhcoreClassChat::generateHash();
-            $chat->referrer = isset($_POST['URLRefer']) ? $_POST['URLRefer'] : '';
-            $chat->session_referrer = isset($_POST['r']) ? $_POST['r'] : '';
-            if ( empty($chat->nick) ) {
-                $chat->nick = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor');
-            }
-            $chat->saveThis();
-
-			if ( $inputData->question != '' ) {
-				// Store question as message
-				$msg = new erLhcoreClassModelmsg();
-				$msg->msg = trim($inputData->question);
-				$msg->chat_id = $chat->id;
-				$msg->user_id = 0;
-				$msg->time = time();
-				erLhcoreClassChat::getSession()->save($msg);
-
-				$chat->unanswered_chat = 1;
-				$chat->last_msg_id = $msg->id;
-				$chat->saveThis();
-			}
+            erLhcoreClassChatValidator::saveOfflineRequest(array('chat' => & $chat, 'question' => $inputData->question));
 
 	   		$tpl->set('request_send',true);
 	   	} else {

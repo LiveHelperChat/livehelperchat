@@ -19,6 +19,11 @@ $ViewList['configuration'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['offlinesettings'] = array(
+    'params' => array(),
+    'functions' => array( 'offlinesettings' )
+);
+
 $ViewList['usersactions'] = array(
     'params' => array(),
     'functions' => array( 'use' )
@@ -73,5 +78,6 @@ $FunctionList['performupdate'] = array('explain' => 'Allow user to update Live H
 $FunctionList['changetemplates'] = array('explain' => 'Allow user to change e-mail templates');
 $FunctionList['generate_js_tab'] = array('explain' => 'User can see embed code tab');
 $FunctionList['transferconfiguration'] = array('explain' => 'User can configure transfer options');
+$FunctionList['offlinesettings'] = array('explain' => 'Allow user to change offline settings');
 
 ?>

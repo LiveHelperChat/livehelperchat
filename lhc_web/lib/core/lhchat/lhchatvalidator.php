@@ -977,6 +977,58 @@ class erLhcoreClassChatValidator {
     		}
     	}
     }
+
+    /**
+     *
+     * @desc
+     *
+     * @param $params
+     *
+     */
+    public static function saveOfflineRequest($params) {
+
+        $offlineData = erLhcoreClassModelChatConfig::fetch('offline_settings');
+        $data = (array)$offlineData->data;
+
+        if (!isset($data['do_not_save_offline']) || $data['do_not_save_offline'] == 0)
+        {
+            // Save as offline request
+            $params['chat']->time = time();
+            $params['chat']->lsync = time();
+            $params['chat']->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
+            $params['chat']->status_sub = erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST;
+            $params['chat']->hash = erLhcoreClassChat::generateHash();
+            $params['chat']->referrer = isset($_POST['URLRefer']) ? $_POST['URLRefer'] : '';
+            $params['chat']->session_referrer = isset($_POST['r']) ? $_POST['r'] : '';
+
+            if ( empty($params['chat']->nick) ) {
+                $params['chat']->nick = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor');
+            }
+
+            $params['chat']->saveThis();
+
+            if ( $params['question'] != '' ) {
+                // Store question as message
+                $msg = new erLhcoreClassModelmsg();
+                $msg->msg = trim($params['question']);
+                $msg->chat_id = $params['chat']->id;
+                $msg->user_id = 0;
+                $msg->time = time();
+                erLhcoreClassChat::getSession()->save($msg);
+
+                $params['chat']->unanswered_chat = 1;
+                $params['chat']->last_msg_id = $msg->id;
+                $params['chat']->saveThis();
+            }
+
+            if (isset($data['close_offline']) && $data['close_offline'] == 1) {
+                erLhcoreClassChatHelper::closeChat(array(
+                    'chat' => & $params['chat'],
+                    'user' => false
+                ));
+            }
+        }
+    }
 }
 
 ?>

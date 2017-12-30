@@ -31,7 +31,9 @@
                     <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/cannedmsg.tpl.php'));?>
                     
                     <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/survey.tpl.php'));?>
-                   
+
+                    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/offline_settings.tpl.php'));?>
+
         		    <?php if ($currentUser->hasAccessTo('lhabstract','use')) : ?>
         
         		   		<?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/proactive.tpl.php'));?>	
