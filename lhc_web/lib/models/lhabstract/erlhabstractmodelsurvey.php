@@ -184,9 +184,13 @@ class erLhAbstractModelSurvey {
 	    $stmt->execute();
 	}
 
-	public function getStarsNumberVotes($id, $stars)
+	public function getStarsNumberVotes($id, $stars, $filter = array())
 	{
-	    return erLhAbstractModelSurveyItem::getCount(array('filterin' => array('max_stars_' . $id => $stars),'filter' => array( 'survey_id' => $this->id)));
+	    $filterDefault = array('filterin' => array('max_stars_' . $id => $stars), 'filter' => array( 'survey_id' => $this->id));
+
+        $filterDefault = array_replace_recursive($filter, $filterDefault);
+
+	    return erLhAbstractModelSurveyItem::getCount($filterDefault);
 	}
 
 	public function getStarsNumberVotesTotal($id)
@@ -199,14 +203,22 @@ class erLhAbstractModelSurvey {
         return erLhAbstractModelSurveyItem::getCount(array('filtergt' => array('question_options_' . $id => 0),'filter' => array( 'survey_id' => $this->id)));
     }
 
-    public function getQuestionsNumberVotes($id, $value)
+    public function getQuestionsNumberVotes($id, $value, $filter = array())
     {
-        return erLhAbstractModelSurveyItem::getCount(array('filterin' => array('question_options_' . $id => $value),'filter' => array( 'survey_id' => $this->id)));
+        $filterDefault = array('filterin' => array('question_options_' . $id => $value),'filter' => array( 'survey_id' => $this->id));
+
+        $filterDefault = array_replace_recursive($filter, $filterDefault);
+
+        return erLhAbstractModelSurveyItem::getCount($filterDefault);
     }
 
-	public function getStarsNumberAverage($id)
+	public function getStarsNumberAverage($id, $filter = array())
 	{
-	    return erLhAbstractModelSurveyItem::getCount(array('filtergt' => array('max_stars_' . $id => 0),'filter' => array( 'survey_id' => $this->id)), 'AVG', 'max_stars_' . $id);
+        $filterDefault = array('filtergt' => array('max_stars_' . $id => 0),'filter' => array( 'survey_id' => $this->id));
+
+        $filterDefault = array_replace_recursive($filter, $filterDefault);
+
+	    return erLhAbstractModelSurveyItem::getCount($filterDefault, 'AVG', 'max_stars_' . $id);
 	}
 
 	public function customForm() {

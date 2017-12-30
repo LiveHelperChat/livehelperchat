@@ -58,12 +58,14 @@ function drawChartOptions(dataSet, id) {
 }
 </script>
 
-<?php foreach ($enabledStars as $starKey => $starEnabled) : 
+<?php
+
+foreach ($enabledStars as $starKey => $starEnabled) :
 $positiveRange = array($survey->{'max_stars_' . $starEnabled},ceil($survey->{'max_stars_' . $starEnabled}/2)+1);
 $negativeRange = array(1,ceil($survey->{'max_stars_' . $starEnabled}/2));
 
-$positiveChatsCount = $survey->getStarsNumberVotes($starEnabled,range($positiveRange[0], $positiveRange[1]));
-$negativeChatsCount = $survey->getStarsNumberVotes($starEnabled,range($negativeRange[0], $negativeRange[1]));
+$positiveChatsCount = $survey->getStarsNumberVotes($starEnabled,range($positiveRange[0], $positiveRange[1]), $survey_filter);
+$negativeChatsCount = $survey->getStarsNumberVotes($starEnabled,range($negativeRange[0], $negativeRange[1]), $survey_filter);
 
 $totalCount = $positiveChatsCount + $negativeChatsCount;
 ?>
@@ -84,7 +86,7 @@ $totalCount = $positiveChatsCount + $negativeChatsCount;
             <canvas id="myChart-<?php echo $starEnabled?>" width="400" height="300" style="cursor:pointer"></canvas>
         </div>
     <div class="col-xs-4">        
-        <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/collected','Average')?> - <?php echo number_format(round($survey->getStarsNumberAverage($starEnabled)*100)/100,2)?></h4>        
+        <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/collected','Average')?> - <?php echo number_format(round($survey->getStarsNumberAverage($starEnabled, $survey_filter)*100)/100,2)?></h4>
         <table class="table table-condensed">
             <?php for ($i = $survey->{'max_stars_' . $starEnabled}; $i >= 1; $i--) : ?>
             <tr>
@@ -95,7 +97,7 @@ $totalCount = $positiveChatsCount + $negativeChatsCount;
                 </td>
                 <td>
                 <?php
-                if ($totalCount > 0) : $percentange = round(($survey->getStarsNumberVotes($starEnabled,array($i))/$totalCount*100));?>
+                if ($totalCount > 0) : $percentange = round(($survey->getStarsNumberVotes($starEnabled,array($i), $survey_filter)/$totalCount*100));?>
                     <div class="progress" style="margin-bottom:0">
                         <div class="progress-bar" role="progressbar" aria-valuenow="<?php echo $percentange?>" aria-valuemin="0" aria-valuemax="100" style="width:<?php echo $percentange?>%">
                             <span class="sr-only"></span>
@@ -133,7 +135,7 @@ foreach ($enabledFields as $optionKey => $optionEnabled) :
     $optionsValuesFilter = array();
 
     foreach ($survey->{'question_options_' . $optionEnabled . '_items_front'} as $optionKeyValue => $optionValue) {
-        $optionsValues[$optionKeyValue] = (int)$survey->getQuestionsNumberVotes($optionEnabled, $optionKeyValue + 1);
+        $optionsValues[$optionKeyValue] = (int)$survey->getQuestionsNumberVotes($optionEnabled, $optionKeyValue + 1, $survey_filter);
         $optionsValuesFilter[] = $optionKeyValue + 1;
         $label = erLhcoreClassSurveyValidator::parseAnswerPlain($optionValue['option']);
         $labels[] = $label;
@@ -159,7 +161,7 @@ foreach ($enabledFields as $optionKey => $optionEnabled) :
                 <?php foreach ($survey->{'question_options_' . $optionEnabled . '_items_front'} as $optionKeyValue => $optionValue) : ?>
                     <tr>
                         <td width="1%" nowrap>
-                            <a href="<?php echo erLhcoreClassDesign::baseurl('survey/collected')?>/<?php echo $survey->id?>/(question_options_<?php echo $optionEnabled?>)/<?php echo $optionKeyValue + 1?>"><?php echo $optionsValues[$optionKeyValue]?> <?php echo erLhcoreClassSurveyValidator::parseAnswer($optionValue['option']) ?></a>
+                            <a href="<?php echo erLhcoreClassDesign::baseurl('survey/collected')?>/<?php echo $survey->id?>/(question_options_<?php echo $optionEnabled?>)/<?php echo $optionKeyValue + 1?>"><?php if ($totalCount > 0) : $percentange = round(($optionsValues[$optionKeyValue]/$totalCount*100));?><?php echo $percentange?>%<?php else : ?>0%<?php endif?> <?php echo erLhcoreClassSurveyValidator::parseAnswer($optionValue['option']) ?></a>
                         </td>
                         <td>
                             <?php

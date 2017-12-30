@@ -66,6 +66,7 @@ $tpl->set('items',$items);
 $tpl->set('pages',$pages);
 $tpl->set('survey',$survey);
 $tpl->set('tab','');
+$tpl->set('survey_filter',$filterSearch);
 
 $filterParams['input_form']->form_action = erLhcoreClassDesign::baseurl('survey/collected') . '/' . $survey->id;
 
