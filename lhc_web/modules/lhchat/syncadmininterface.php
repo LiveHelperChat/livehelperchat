@@ -380,6 +380,8 @@ if ($canListOnlineUsers == true || $canListOnlineUsersAll == true) {
         'onl_asc' => 'hide_online ASC, active_chats DESC',
         'ac_dsc' => 'active_chats DESC, hide_online ASC',
         'ac_asc' => 'active_chats ASC, hide_online ASC',
+        'rac_asc' => '((active_chats + pending_chats) - inactive_chats) ASC, hide_online ASC',
+        'rac_dsc' => '((active_chats + pending_chats) - inactive_chats) DESC, hide_online ASC',
     );
 
     if (key_exists($Params['user_parameters_unordered']['onop'], $validSort)) {
@@ -388,7 +390,7 @@ if ($canListOnlineUsers == true || $canListOnlineUsersAll == true) {
     
 	$onlineOperators = erLhcoreClassModelUserDep::getOnlineOperators($currentUser,$canListOnlineUsersAll,$filter,is_numeric($Params['user_parameters_unordered']['limito']) ? (int)$Params['user_parameters_unordered']['limito'] : 10,$onlineTimeout);
 	
-	erLhcoreClassChat::prefillGetAttributes($onlineOperators,array('lastactivity_ago','offline_since','user_id','id','name_official','active_chats','departments_names','hide_online'),array(),array('remove_all' => true));
+	erLhcoreClassChat::prefillGetAttributes($onlineOperators,array('lastactivity_ago','offline_since','user_id','id','name_official','pending_chats','inactive_chats','active_chats','departments_names','hide_online'),array(),array('filter_function' => true, 'remove_all' => true));
 	
 	$ReturnMessages['online_op'] = array('list' => array_values($onlineOperators), 'op_cc' => $operatorsCount, 'op_sn' => $operatorsSend);
 }

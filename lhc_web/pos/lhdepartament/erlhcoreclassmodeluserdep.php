@@ -42,7 +42,17 @@ $def->properties['last_accepted']->propertyType = ezcPersistentObjectProperty::P
 $def->properties['active_chats'] = new ezcPersistentObjectProperty();
 $def->properties['active_chats']->columnName   = 'active_chats';
 $def->properties['active_chats']->propertyName = 'active_chats';
-$def->properties['active_chats']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT; 
+$def->properties['active_chats']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['pending_chats'] = new ezcPersistentObjectProperty();
+$def->properties['pending_chats']->columnName   = 'pending_chats';
+$def->properties['pending_chats']->propertyName = 'pending_chats';
+$def->properties['pending_chats']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['inactive_chats'] = new ezcPersistentObjectProperty();
+$def->properties['inactive_chats']->columnName   = 'inactive_chats';
+$def->properties['inactive_chats']->propertyName = 'inactive_chats';
+$def->properties['inactive_chats']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
 return $def; 
 
