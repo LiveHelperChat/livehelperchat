@@ -1711,6 +1711,12 @@ function lh(){
 				});
 			}
 		}
+
+		// If it's customer chat make sure sync is running.
+		if (parseInt(this.chat_id) > 0) {
+            this.syncroRequestSend = false;
+            this.syncusercall();
+        }
 	};
 	
 	this.notificationsArrayMessages = [];

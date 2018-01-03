@@ -27,7 +27,7 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && trim(str_replace('
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.validstatus_chat',array('chat' => & $chat, 'valid_statuses' => & $validStatuses));
 
-	    if ($chat->hash == $Params['user_parameters']['hash'] && (in_array($chat->status,$validStatuses))) // Allow add messages only if chat is active
+	    if ($chat->hash == $Params['user_parameters']['hash'] && (in_array($chat->status,$validStatuses)) && !in_array($chat->status_sub, array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW,erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM))) // Allow add messages only if chat is active
 	    {	        	        
 	        $messagesToStore = explode('[[msgitm]]', trim($form->msg));
 	        
@@ -76,13 +76,15 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && trim(str_replace('
 	        if ($chat->has_unread_messages == 1 && $chat->last_user_msg_time < (time() - 5)) {
 	        	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.unread_chat',array('chat' => & $chat));
 	        }
-	    }	    
-	    
-	    // Assign to last message all the texts
-	    $msg->msg = trim(implode("\n", $messagesToStore));
-	    
-	    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.addmsguser',array('chat' => & $chat, 'msg' => & $msg));
-	    
+
+            // Assign to last message all the texts
+            $msg->msg = trim(implode("\n", $messagesToStore));
+
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.addmsguser',array('chat' => & $chat, 'msg' => & $msg));
+	    } else {
+	        throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','You cannot send messages to this chat. Please refresh your browser.'));
+        }
+
 	    // Initialize auto responder if required
 	    if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_START_ON_KEY_UP)
 	    {
@@ -149,13 +151,13 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && trim(str_replace('
 	    }
 	    
 	    $db->commit();
-	     
 	    echo erLhcoreClassChat::safe_json_encode(array('error' => $error, 'r' => $r));
-	    
 	    exit;
 	    
 	} catch (Exception $e) {
-   		$db->rollback();
+        $db->rollback();
+        echo erLhcoreClassChat::safe_json_encode(array('error' => 't', 'r' => $e->getMessage()));
+        exit;
     }
     
 } else {
