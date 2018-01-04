@@ -150,9 +150,90 @@ function lh(){
             $('#chat-id-'+chat_id).html(data);
             $('#CSChatMessage-'+chat_id).focus();
             inst.rememberTab(chat_id);
+            inst.addQuateHandler(chat_id);
             ee.emitEvent('chatTabLoaded', [chat_id]);
         });
     }
+
+    this.getSelectedText = function () {
+        var text = '';
+        var selection;
+
+        if (window.getSelection) {
+            selection = window.getSelection();
+            text = selection.toString();
+        } else if (document.selection && document.selection.type !== 'Control') {
+            selection = document.selection.createRange();
+            text = selection.text;
+        }
+
+        return {
+            selection: selection,
+            text: text
+        };
+    }
+
+    this.popoverShown = false;
+    this.selection = null;
+
+    this.addQuateHandler = function(chat_id)
+    {
+        var that = this;
+
+        $('#messagesBlock-'+chat_id+' .message-row').mouseup(function(e){
+
+            selected = that.getSelectedText();
+
+            $('.popover-copy').popover('destroy');
+
+            if (selected.text.length) {
+
+                that.selection = selected;
+
+                $(this).popover({
+                    placement:'left',
+                    trigger:'manual',
+                    animation:false,
+                    html:true,
+                    container:'#messagesBlock-'+chat_id,
+                    template : '<div class="popover" role="tooltip"><div class="arrow"></div><div class="popover-content popover-quote"></div></div>',
+                    content:'<a href="#" onclick="lhinst.quateSelection('+chat_id+')"><i class="material-icons">&#xE244;</i>quote</a>'
+                }).popover('show');
+
+                $(this).addClass('popover-copy');
+
+                that.popoverShown = true;
+            }
+
+        });
+    }
+
+    this.quateSelection = function (chat_id) {
+        $('.popover-copy').popover('destroy');
+
+        var textToPaste = this.selection.text.replace(/[\uD7AF\uD7C7-\uD7CA\uD7FC-\uF8FF\uFA6E\uFA6F\uFADA]/g,'');
+
+        textToPaste = textToPaste.replace(/^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}(.*)/gm,'');
+        textToPaste = textToPaste.replace(/^[0-9]{2}:[0-9]{2}:[0-9]{2}(.*)/gm,'');
+        textToPaste = textToPaste.replace(/^\s*\n/gm, "");
+        textToPaste = textToPaste.replace(/^ /gm, "");
+        window.textreplace = textToPaste;
+
+        var textArea = $('#CSChatMessage-'+chat_id);
+        var textAreaVal = textArea.val().replace(/^\s*\n/g, "");
+
+        textArea.val((textAreaVal != '' ? textAreaVal + '[quote]' + textToPaste + '[/quote]' : '[quote]'+textToPaste+'[/quote]')+"\n").focus();
+
+        var ta = textArea[0];
+        var maxrows = 30;
+        var lh = ta.clientHeight / ta.rows;
+        while (ta.scrollHeight > ta.clientHeight && !window.opera && ta.rows < maxrows) {
+            ta.style.overflow = 'hidden';
+            ta.rows += 1;
+        }
+        if (ta.scrollHeight > ta.clientHeight) ta.style.overflow = 'auto';
+
+    };
 
     this.addTab = function(tabs, url, name, chat_id, focusTab, position) {    
     	// If tab already exits return
@@ -200,7 +281,7 @@ function lh(){
             if (inst.disableremember == false) {
                 inst.rememberTab(chat_id);
             }
-
+            inst.addQuateHandler(chat_id);
             ee.emitEvent('chatTabLoaded', [chat_id]);
     	});
     };
@@ -1526,7 +1607,11 @@ function lh(){
 	        	                	  var isAtTheBottom = Math.abs((scrollHeight - messageBlock.prop("scrollTop")) - messageBlock.prop("clientHeight"));
 
 	        	                	  messageBlock.find('.pending-storage').remove();
-	        	                	  messageBlock.append(item.content);	
+	        	                	  messageBlock.append(item.content);
+
+	        	                	  lhinst.addQuateHandler(item.chat_id);
+
+
 
 	        	                	  if (isAtTheBottom < 20) {
 	        	                		  messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
@@ -1577,6 +1662,8 @@ function lh(){
 	        	                          $('#user-is-typing-'+item.chat_id).css('visibility','hidden');
 	        	                      };
 
+                                      $('#last-msg-chat-'+item.chat_id).text(item.lmsg);
+
 	        	                      var userChatStatus = $('#user-chat-status-'+item.chat_id);
 
 	        	                      var wasOnline = userChatStatus.hasClass('icon-user-online');
@@ -1603,7 +1690,7 @@ function lh(){
 									}
 
 	        	                      var statusel = $('#chat-id-'+item.chat_id +'-mds');
-	        	                      
+
 	        	                      if (item.um == 1) {
 	        	                    	  statusel.removeClass('chat-active');
 	        	                    	  statusel.addClass('chat-unread');	        	                    	  

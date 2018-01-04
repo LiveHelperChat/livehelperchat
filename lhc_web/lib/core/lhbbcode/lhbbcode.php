@@ -909,7 +909,16 @@ class erLhcoreClassBBCode
        // Cleanup of accidental links within links
        return preg_replace( '#(<a([ \r\n\t]+[^>]+?>|>))<a [^>]+?>([^>]+?)</a></a>#i', "$1$3</a>", $r );
    }
-   
+
+   public static function makeQuote($matches)
+   {
+       if ($matches[1]) {
+           return '<blockquote class="blockquote"> ' . $matches[1] . ' </blockquote>';
+       } else {
+           return $matches[0];
+       }
+   }
+
    // Converts bbcode and general links to hmtl code
    public static function make_clickable($ret) {
         $ret = ' ' . $ret;
@@ -930,6 +939,9 @@ class erLhcoreClassBBCode
 
     	// Paypal button
     	$ret = preg_replace_callback('#\[paypal\](.*?)\[/paypal\]#is', 'erLhcoreClassBBCode::_make_paypal_button', $ret);
+
+    	// Quote
+    	$ret = preg_replace_callback('#\[quote\](.*?)\[/quote\]#is', 'erLhcoreClassBBCode::makeQuote', $ret);
 
     	// Youtube block
     	$ret = preg_replace_callback('#\[youtube\](.*?)\[/youtube\]#is', 'erLhcoreClassBBCode::_make_youtube_block', $ret);

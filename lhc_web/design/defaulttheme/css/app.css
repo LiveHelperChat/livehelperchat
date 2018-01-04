@@ -342,6 +342,8 @@ option.offline-dep{
 	background-color:#FFF;
 }
 
+
+
 .msg-hide-ts .msg-date{
 	display: none!important;
 }
@@ -362,6 +364,11 @@ textarea[name=ChatMessage]{
 	color:#525252;
 	font-size:11px;
 	line-height:11px;
+	margin-top:-20px;
+}
+
+.system-response .msg-date{
+	margin-top:0;
 }
 
 div.system-response {
@@ -371,7 +378,6 @@ div.system-response {
 .usr-tit {
 	font-weight:bold;
 	font-style: italic;
-	/*background-color:rgb(66, 65, 65);*/
 	color:#007693;
 	margin-right:5px;
 	padding:2px 0px;
@@ -379,9 +385,6 @@ div.system-response {
 	display:block;
 	margin-top:-25px;
 	font-size:12px;
-	/*-webkit-box-shadow: inset 10px 10px 7px -9px rgba(0,0,0,0.34);
-	-moz-box-shadow: inset 10px 10px 7px -9px rgba(0,0,0,0.34);
-	box-shadow: inset 10px 10px 7px -9px rgba(0,0,0,0.34);*/
 }
 
 .sys-tit{
@@ -464,14 +467,14 @@ div.message-row.response+div.message-admin{
 div.message-admin{
 	margin-left:30px;
 	margin-right:0px;
-	background-color:#DCF2FA;
+	background-color: #f7f7f7;
 	padding:3px 7px;	
 	margin-top:0px;
 	margin-bottom:0px;
 }
 
 div.message-row.response{
-	background-color:#BFE9F9;
+	background-color: #e9f2f5;
 	padding:3px 5px;	
 	margin-top:0px;
 	margin-bottom:0px;
@@ -561,11 +564,51 @@ div.message-admin+div.message-admin .msg-date,div.message-row.response+div.messa
 	display:none;
 }
 
+.last-user-msg{
+	position:absolute;
+	margin-top:-14px;
+	font-size:11px;
+}
+
+.last-user-msg .material-icons{
+	font-size:11px;
+	margin-top:-2px;
+}
+
+.blockquote {
+	font-size:12px;
+	background: #f7f7f7;
+	border-radius: 15px;
+	font-style: italic;
+	margin:4px;
+	box-shadow: 1px 1px 5px -1px rgba(0,0,0,0.75);
+}
+
+.blockquote:before {
+	content: '"';
+	font-size: 30px;
+	margin-left: -15px;
+	color: grey;
+}
+
+.popover-quote{
+	padding:2px;
+}
+
+.popover-quote a{
+	display:inline-block;
+	padding:4px;
+	color: rgba(147, 145, 143, 1);
+	font-size: 13px;
+}
 
 div.message-row.response+div.message-row.response:hover .msg-date,
-.message-block .message-row:hover .msg-date,
+.message-block .message-row:hover .msg-date{
+	/*display:inherit;*/
+}
+
 #messagesBlock .message-row:hover .msg-date{
-	display:inherit;
+	display:inherit!important;
 }
 
 #messages {
