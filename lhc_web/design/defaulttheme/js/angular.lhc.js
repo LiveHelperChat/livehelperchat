@@ -533,20 +533,16 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		
 		return [];
 	};
-	
-	this.setUpListNames = function(lists) {				
-		angular.forEach(lists, function(listId) {
-			_that[listId + 'Names'] = [];
-			angular.forEach(_that[listId], function(value) {
-				 _that[listId + 'Names'].push(_that.userDepartmentsNames[value]);
-			});
-		});		
-	};
-	
+
 	this.setDepartmentNames = function(listId) {
 		_that[listId + 'Names'] = [];			
 		angular.forEach(_that[listId], function(value) {
-			 _that[listId + 'Names'].push(_that.userDepartmentsNames[value]);
+            if (typeof _that.userDepartmentsNames !== 'undefined' && typeof _that.userDepartmentsNames[value] !== 'undefined') {
+				_that[listId + 'Names'].push(_that.userDepartmentsNames[value]);
+            } else if (typeof _that.userDepartmentsNames !== 'undefined') {
+                _that[listId].splice(_that[listId].indexOf(value),1);
+                _that.departmentChanged(listId);
+            }
 		});	
 	};
 			
@@ -1030,6 +1026,59 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
         return [];
     };
 
+	this.verifyFilters = function () {
+
+		var userList = [], userGroups = [], userDepartmentsGroups = [], userProductNames = [];
+
+        angular.forEach(_that.userList, function(value) {
+            userList.push(value.id);
+        });
+
+        angular.forEach(_that.userGroups, function(value) {
+            userGroups.push(value.id);
+        });
+
+        angular.forEach(_that.userDepartmentsGroups, function(value) {
+            userDepartmentsGroups.push(value.id);
+        });
+
+        angular.forEach(_that.userProductNames, function(value) {
+            userProductNames.push(value.id);
+        });
+
+		var verifyCombinations = {
+			'activeu' : userList,
+			'actived_products' : userProductNames,
+			'actived_ugroups' : userGroups,
+			'actived_dpgroups' : userDepartmentsGroups,
+
+            'pendingu' : userList,
+            'pendingd_ugroups' : userGroups,
+			'pendingd_dpgroups' : userDepartmentsGroups,
+			'pendingd_products' : userProductNames,
+
+			'departmentd_dpgroups' : userDepartmentsGroups,
+
+			'closedd_products' : userProductNames,
+			'closedd_dpgroups' : userDepartmentsGroups,
+
+			'unreadd_dpgroups' : userDepartmentsGroups,
+			'unreadd_products' : userProductNames,
+
+			'mcd_products' : userProductNames,
+			'mcd_dpgroups' : userDepartmentsGroups
+		};
+
+        angular.forEach(verifyCombinations, function(list, index) {
+            angular.forEach(_that[index], function(value) {
+                if (list.indexOf(value) === -1) {
+                    _that[index].splice(_that[index].indexOf(value),1);
+                    _that.productChanged(index);
+                };
+			});
+        });
+    };
+
 	// Bootstraps initial attributes
 	this.initLHCData = function() {
 
@@ -1067,6 +1116,12 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
             });
 
             ee.emitEvent('eventLoadInitialData', [data, $scope, _that]);
+
+            // Verify that filter attribute are existing
+			// Let say some user was removed, but visitor still had it as filter.
+			// This would couse situtation then filter is applied but operator cannot remove it
+			// We have to take care of this situtations.
+            _that.verifyFilters();
 
 			$scope.loadChatList();
 		});

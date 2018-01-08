@@ -191,7 +191,7 @@ function lh(){
                 that.selection = selected;
 
                 $(this).popover({
-                    placement:'left',
+                    placement:'top',
                     trigger:'manual',
                     animation:false,
                     html:true,
