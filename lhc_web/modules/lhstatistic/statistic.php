@@ -37,7 +37,8 @@ if ($tab == 'active') {
     }
 
     if (isset($_GET['doSearch'])) {
-        $tpl->setArray(array(
+
+        $activeStats = array(
             'userStats' => erLhcoreClassChatStatistic::getRatingByUser(30,$filterParams['filter']),
             'countryStats' => erLhcoreClassChatStatistic::getTopChatsByCountry(30,$filterParams['filter']),
             'userChatsStats' => erLhcoreClassChatStatistic::numberOfChatsDialogsByUser(30,$filterParams['filter']),
@@ -50,7 +51,14 @@ if ($tab == 'active') {
             'averageChatTime' => erLhcoreClassChatStatistic::getAverageChatduration(30,$filterParams['filter']),
             'numberOfMsgByUser' => erLhcoreClassChatStatistic::numberOfMessagesByUser(30,$filterParams['filter']),
             'urlappend' => erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form'])
+        );
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.process_active_tab', array(
+            'active_stats' => $activeStats,
+            'filter_params' => $filterParams
         ));
+
+        $tpl->setArray($activeStats);
     }
     
 } elseif ($tab == 'chatsstatistic') {

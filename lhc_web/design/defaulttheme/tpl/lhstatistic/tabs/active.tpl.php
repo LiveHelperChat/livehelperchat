@@ -552,6 +552,9 @@
 
 <h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/chats_statistic.tpl.php'));?></h5>
 <hr>
+
+<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/statistic_active_content_multiinclude.tpl.php'));?>
+
 <div id="chart_div_per_month" style="width: 100%; height: 300px;"></div> 		 		
 <div id="chart_type_div_per_month" style="width: 100%; height: 300px;"></div> 		
 <div id="chart_type_div_msg_type" style="width: 100%; height: 300px;"></div>
