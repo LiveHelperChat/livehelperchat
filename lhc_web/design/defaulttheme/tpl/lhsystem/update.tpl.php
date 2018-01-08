@@ -6,7 +6,7 @@
 
 <div class="row">
 	<div class="col-md-4">
-		<h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Your version')?> - <?php echo erLhcoreClassUpdate::LHC_RELEASE/100;?></h3>
+		<h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Your version')?> - <?php echo sprintf("%0.2f", erLhcoreClassUpdate::LHC_RELEASE/100);?></h3>
 		<h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Current version')?> - <span class="success-color" id="recent-version">...</span></h3>
 		<a class="btn btn-default btn-xs" href="http://livehelperchat.com/news-5c.html" target="_blank"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','News')?></a>
 		<a class="btn btn-default btn-xs" href="http://livehelperchat.com/article/view/63" target="_blank"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Update instructions')?></a>
@@ -35,7 +35,7 @@ function updateDatabase() {
       jsonp: 'callback',
       jsonpCallback: 'jsonpCallbackLHC',
       success: function(data){        
-              $('#recent-version').text(data.version/100); 
+              $('#recent-version').text((data.version/100).toFixed(2));
       }
   });
 	 
