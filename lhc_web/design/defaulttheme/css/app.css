@@ -467,14 +467,14 @@ div.message-row.response+div.message-admin{
 div.message-admin{
 	margin-left:30px;
 	margin-right:0px;
-	background-color: #f7f7f7;
+	background-color: #f0f4f8;
 	padding:3px 7px;	
 	margin-top:0px;
 	margin-bottom:0px;
 }
 
 div.message-row.response{
-	background-color: #e9f2f5;
+	background-color: #c7edfc;
 	padding:3px 5px;	
 	margin-top:0px;
 	margin-bottom:0px;
