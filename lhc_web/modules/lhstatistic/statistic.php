@@ -54,7 +54,7 @@ if ($tab == 'active') {
         );
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.process_active_tab', array(
-            'active_stats' => $activeStats,
+            'active_stats' => & $activeStats,
             'filter_params' => $filterParams
         ));
 
