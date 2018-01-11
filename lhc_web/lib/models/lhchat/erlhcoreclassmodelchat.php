@@ -216,7 +216,11 @@ class erLhcoreClassModelChat {
        		break;
 
        	case 'chat_duration_front':
-       		   $this->chat_duration_front = erLhcoreClassChat::formatSeconds($this->chat_duration);
+       	       if ($this->chat_duration > 0) {
+                   $this->chat_duration_front = erLhcoreClassChat::formatSeconds($this->chat_duration);
+               } else {
+                   $this->chat_duration_front = erLhcoreClassChat::formatSeconds(time() - $this->time);
+               }
        		   return $this->chat_duration_front;
        		break;
 

@@ -1629,8 +1629,6 @@ function lh(){
 
 	        	                	  lhinst.addQuateHandler(item.chat_id);
 
-
-
 	        	                	  if (isAtTheBottom < 20) {
 	        	                		  messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
 	        	                	  }
@@ -1685,6 +1683,8 @@ function lh(){
 	        	                      var userChatStatus = $('#user-chat-status-'+item.chat_id);
 
 	        	                      var wasOnline = userChatStatus.hasClass('icon-user-online');
+                                    
+	        	                      $('#chat-duration-'+item.chat_id).text(item.cdur);
 
 									  userChatStatus.removeClass('icon-user-online icon-user-away icon-user-pageview');
 	        	                      $('#msg-send-status-'+item.chat_id).removeClass('icon-user-online icon-user-offline');
