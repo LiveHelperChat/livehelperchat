@@ -177,39 +177,39 @@ function lh(){
     this.popoverShownNow = false
     this.selection = null;
 
+    this.mouseClicked = function (e) {
+
+         selected = e.data.that.getSelectedText();
+
+         $('.popover-copy').popover('destroy');
+
+         if (selected.text.length && (e.data.that.selection === null || e.data.that.selection.text !== selected.text)) {
+
+             e.data.that.selection = selected;
+
+             $(this).popover({
+                 placement:'top',
+                 trigger:'manual',
+                 animation:false,
+                 html:true,
+                 container:'#messagesBlock-'+e.data.chat_id,
+                 template : '<div class="popover" role="tooltip"><div class="arrow"></div><div class="popover-content popover-quote"></div></div>',
+                 content:'<a href="#" onclick="lhinst.quateSelection('+e.data.chat_id+')"><i class="material-icons">&#xE244;</i>quote</a>'
+             }).popover('show');
+
+             $(this).addClass('popover-copy');
+             e.data.that.popoverShown = true;
+             e.data.that.popoverShownNow = true;
+         } else {
+             e.data.that.selection = null;
+         }
+    }
+
     this.addQuateHandler = function(chat_id)
     {
-        var that = this;
         this.popoverShown = false;
-
-        $('#messagesBlock-'+chat_id+' .message-row').mouseup(function(e){
-
-            selected = that.getSelectedText();
-
-            $('.popover-copy').popover('destroy');
-
-            if (selected.text.length && (that.selection === null || that.selection.text !== selected.text)) {
-
-                that.selection = selected;
-
-                $(this).popover({
-                    placement:'top',
-                    trigger:'manual',
-                    animation:false,
-                    html:true,
-                    container:'#messagesBlock-'+chat_id,
-                    template : '<div class="popover" role="tooltip"><div class="arrow"></div><div class="popover-content popover-quote"></div></div>',
-                    content:'<a href="#" onclick="lhinst.quateSelection('+chat_id+')"><i class="material-icons">&#xE244;</i>quote</a>'
-                }).popover('show');
-
-                $(this).addClass('popover-copy');
-                 that.popoverShown = true;
-                 that.popoverShownNow = true;
-            } else {
-                that.selection = null;
-            }
-
-        });
+        $('#messagesBlock-'+chat_id+' .message-row').off('mouseup',lhinst.mouseClicked);
+        $('#messagesBlock-'+chat_id+' .message-row').on('mouseup',{chat_id:chat_id, that : this}, lhinst.mouseClicked);
     }
 
     this.quateSelection = function (chat_id) {
