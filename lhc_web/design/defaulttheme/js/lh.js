@@ -188,7 +188,7 @@ function lh(){
 
             $('.popover-copy').popover('destroy');
 
-            if (selected.text.length && (that.selection === null || that.selection.text.length !== selected.text.length)) {
+            if (selected.text.length && (that.selection === null || that.selection.text !== selected.text)) {
 
                 that.selection = selected;
 
@@ -205,6 +205,8 @@ function lh(){
                 $(this).addClass('popover-copy');
                  that.popoverShown = true;
                  that.popoverShownNow = true;
+            } else {
+                that.selection = null;
             }
 
         });
