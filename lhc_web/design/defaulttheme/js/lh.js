@@ -174,11 +174,13 @@ function lh(){
     }
 
     this.popoverShown = false;
+    this.popoverShownNow = false
     this.selection = null;
 
     this.addQuateHandler = function(chat_id)
     {
         var that = this;
+        this.popoverShown = false;
 
         $('#messagesBlock-'+chat_id+' .message-row').mouseup(function(e){
 
@@ -186,7 +188,7 @@ function lh(){
 
             $('.popover-copy').popover('destroy');
 
-            if (selected.text.length) {
+            if (selected.text.length && (that.selection === null || that.selection.text.length !== selected.text.length)) {
 
                 that.selection = selected;
 
@@ -201,8 +203,8 @@ function lh(){
                 }).popover('show');
 
                 $(this).addClass('popover-copy');
-
-                that.popoverShown = true;
+                 that.popoverShown = true;
+                 that.popoverShownNow = true;
             }
 
         });
@@ -233,6 +235,20 @@ function lh(){
         }
         if (ta.scrollHeight > ta.clientHeight) ta.style.overflow = 'auto';
 
+        this.popoverShown = false;
+
+    };
+
+    this.hidePopover = function () {
+
+        if (this.popoverShownNow === true) {
+            this.popoverShownNow = false;
+        } else {
+            if (this.popoverShown === true) {
+                this.popoverShown = false;
+                $('.popover-copy').popover('destroy');
+            }
+        }
     };
 
     this.addTab = function(tabs, url, name, chat_id, focusTab, position) {    
@@ -3009,6 +3025,9 @@ function preloadSound() {
 }
 
 jQuery(document).on("click", preloadSound);
+jQuery(document).on("click", function(){
+    lhinst.hidePopover();
+});
 jQuery(document).on("touchstart", preloadSound);
 
 function gMapsCallback(){
