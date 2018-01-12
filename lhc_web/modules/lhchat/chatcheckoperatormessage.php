@@ -78,9 +78,12 @@ if ( $ignorable_ip == '' || !erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDet
 		}
 		
 		// If there is no assigned default proactive invitations find dynamic one triggers
-		if ($dynamic == true && $userInstance->operator_message == '' && $userInstance->message_seen == 0 && (int)$Params['user_parameters_unordered']['wopen'] == 0) {
+        $dynamicEverytime = $userInstance->invitation instanceof erLhAbstractModelProactiveChatInvitation && $userInstance->invitation->dynamic_invitation == 1 && $userInstance->invitation->show_instant == 0;
+
+		if ($dynamic == true && $userInstance->message_seen == 0 && ($userInstance->operator_message == '' || $dynamicEverytime == true) && (int)$Params['user_parameters_unordered']['wopen'] == 0) {
 		     $tpl->set('dynamic_processed',is_array($Params['user_parameters_unordered']['dyn']) ? $Params['user_parameters_unordered']['dyn'] : array());
 		     $tpl->set('dynamic',$dynamic);
+		     $tpl->set('dynamic_everytime',$dynamicEverytime);
 		     $tpl->set('dynamic_invitation', erLhcoreClassModelChatOnlineUser::getDynamicInvitation(array('online_user' => $userInstance, 'tag' => isset($_GET['tag']) ? $_GET['tag'] : false)));
 		}
 		

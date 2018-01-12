@@ -35,6 +35,27 @@ return array(
         'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
     ),
+    'delay' => array(
+        'type' => 'text',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Delay invitation widget show for N seconds if invitation was already matched.'),
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
+    ),
+    'delay_init' => array(
+        'type' => 'text',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Delay invitation widget show for N seconds if trigger is matched for first time.'),
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
+    ),
+    'show_instant' => array(
+        'type' => 'checkbox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'If dynamic invitation was matched on page refresh show instantly. Otherwise dynamic conditions will have to be matched again.'),
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
+    ),
     'pageviews' => array(
         'type' => 'text',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Pageviews'),

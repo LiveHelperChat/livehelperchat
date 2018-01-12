@@ -19,6 +19,21 @@ $def->properties['time_on_site']->columnName   = 'time_on_site';
 $def->properties['time_on_site']->propertyName = 'time_on_site';
 $def->properties['time_on_site']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['delay'] = new ezcPersistentObjectProperty();
+$def->properties['delay']->columnName   = 'delay';
+$def->properties['delay']->propertyName = 'delay';
+$def->properties['delay']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['delay_init'] = new ezcPersistentObjectProperty();
+$def->properties['delay_init']->columnName   = 'delay_init';
+$def->properties['delay_init']->propertyName = 'delay_init';
+$def->properties['delay_init']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['show_instant'] = new ezcPersistentObjectProperty();
+$def->properties['show_instant']->columnName   = 'show_instant';
+$def->properties['show_instant']->propertyName = 'show_instant';
+$def->properties['show_instant']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['pageviews'] = new ezcPersistentObjectProperty();
 $def->properties['pageviews']->columnName   = 'pageviews';
 $def->properties['pageviews']->propertyName = 'pageviews';

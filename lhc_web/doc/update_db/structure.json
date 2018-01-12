@@ -2098,6 +2098,30 @@
                 "extra": ""
             },
             {
+                "field": "delay",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "delay_init",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "show_instant",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "autoresponder_id",
                 "type": "int(11)",
                 "null": "NO",
@@ -3913,14 +3937,6 @@
             },
             {
                 "field": "chat_id",
-                "type": "int(11)",
-                "null": "NO",
-                "key": "",
-                "default": null,
-                "extra": ""
-            },
-            {
-                "field": "show_on_mobile",
                 "type": "int(11)",
                 "null": "NO",
                 "key": "",
@@ -7382,7 +7398,8 @@
     "tables_drop_column" : {
     	"lh_departament" : ["start_hour","end_hour","mod","tud","wed","thd","frd","sad","sud"],
     	"lh_chat" : ["wait_timeout","wait_timeout_send","timeout_message","wait_timeout_repeat"],
-    	"lh_abstract_proactive_chat_invitation" : ["wait_message","wait_timeout","timeout_message","repeat_number"]
+    	"lh_abstract_proactive_chat_invitation" : ["wait_message","wait_timeout","timeout_message","repeat_number"],
+    	"lh_chat_online_user" : ["show_on_mobile"]
     },
     "tables_indexes" : {
     	"lh_grouprole" : {

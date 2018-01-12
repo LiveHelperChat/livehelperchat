@@ -23,6 +23,16 @@
 <?php echo erLhcoreClassAbstract::renderInput('time_on_site', $fields['time_on_site'], $object)?>
 </div>
 
+<div class="form-group">
+<label><?php echo $fields['delay']['trans'];?></label>
+<?php echo erLhcoreClassAbstract::renderInput('delay', $fields['delay'], $object)?>
+</div>
+
+<div class="form-group">
+<label><?php echo $fields['delay_init']['trans'];?></label>
+<?php echo erLhcoreClassAbstract::renderInput('delay_init', $fields['delay_init'], $object)?>
+</div>
+
 <div class="form-group">		
 <label><?php echo $fields['pageviews']['trans'];?></label>
 <?php echo erLhcoreClassAbstract::renderInput('pageviews', $fields['pageviews'], $object)?>
