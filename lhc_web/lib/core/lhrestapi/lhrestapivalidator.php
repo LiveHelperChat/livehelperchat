@@ -353,10 +353,10 @@ class erLhcoreClassRestAPIHandler
      *
      * @param array $data            
      */
-    public static function outputResponse($data)
+    public static function outputResponse($data, $format = null)
     {
-        if (isset($_GET['format']) && $_GET['format'] == 'xml') {
-           echo self::formatXML(json_decode(json_encode($data),true));            
+        if ((isset($_GET['format']) && $_GET['format'] == 'xml') || $format === 'xml') {
+           echo self::formatXML(json_decode(json_encode($data),true));
         } else {
         
             $json = json_encode($data, JSON_PRETTY_PRINT);

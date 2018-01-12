@@ -27,7 +27,7 @@ $ViewList['choosesurvey'] = array(
 
 $ViewList['collected'] = array(
     'params' => array('survey_id'),
-    'uparams' => array('timefrom','timeto','department_id','user_id','print','xls','group_results','minimum_chats',
+    'uparams' => array('timefrom','timeto','department_id','user_id','print','xls','xlslist','xml','json','group_results','minimum_chats',
     'max_stars_1',
     'max_stars_2',
     'max_stars_3',

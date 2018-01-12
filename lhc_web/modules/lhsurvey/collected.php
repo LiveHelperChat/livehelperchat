@@ -32,6 +32,21 @@ if ($Params['user_parameters_unordered']['xls'] == 1) {
 	exit;
 }
 
+if ($Params['user_parameters_unordered']['xlslist'] == 1) {
+    erLhcoreClassSurveyExporter::exportXLSList(erLhAbstractModelSurveyItem::getList(array_merge($filterSearch,array('offset' => 0, 'limit' => 100000))),$survey);
+	exit;
+}
+
+if ($Params['user_parameters_unordered']['json'] == 1) {
+    erLhcoreClassSurveyExporter::exportJSON(erLhAbstractModelSurveyItem::getList(array_merge($filterSearch,array('offset' => 0, 'limit' => 100000))),$survey);
+	exit;
+}
+
+if ($Params['user_parameters_unordered']['xml'] == 1) {
+    erLhcoreClassSurveyExporter::exportJSON(erLhAbstractModelSurveyItem::getList(array_merge($filterSearch,array('offset' => 0, 'limit' => 100000))),$survey,'xml');
+	exit;
+}
+
 if ($Params['user_parameters_unordered']['print'] == 1) {
     $tpl = erLhcoreClassTemplate::getInstance('lhsurvey/printsurvey.tpl.php');
     $items = erLhAbstractModelSurveyItem::getList(array_merge($filterSearch,array('offset' => 0, 'limit' => 100000)));        
@@ -60,7 +75,6 @@ $items = array();
 if ($pages->items_total > 0) {
 	$items = erLhAbstractModelSurveyItem::getList(array_merge($filterSearch,array('offset' => $pages->low, 'limit' => $pages->items_per_page)));
 }
-
 
 $tpl->set('items',$items);
 $tpl->set('pages',$pages);

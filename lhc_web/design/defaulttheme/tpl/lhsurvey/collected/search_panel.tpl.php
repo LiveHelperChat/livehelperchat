@@ -33,6 +33,7 @@
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','User');?></label>
 			<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
 	                    'input_name'     => 'user_id',
+                        'display_name' => 'name_official',
 						'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select user'),
 	                    'selected_id'    => $input->user_id,
 			            'css_class'      => 'form-control',
@@ -99,8 +100,14 @@
 		<a target="_blank" class="btn btn-default" href="<?php echo $pages->serverURL?>/(print)/1"><i class="material-icons">print</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Print');?></a>
 		
 		<?php if ($input->group_results == true) : ?>
-		  <a target="_blank" class="btn btn-default" href="<?php echo $pages->serverURL?>/(xls)/1"><i class="material-icons">&#xE2C4;</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','XLS');?></a>
-		<?php endif;?>
+            <a target="_blank" class="btn btn-default" href="<?php echo $pages->serverURL?>/(xls)/1"><i class="material-icons">&#xE2C4;</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','XLS');?></a>
+        <?php else : ?>
+            <a target="_blank" class="btn btn-default" href="<?php echo $pages->serverURL?>/(xlslist)/1"><i class="material-icons">&#xE2C4;</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','XLS');?></a>
+
+            <a target="_blank" class="btn btn-default" href="<?php echo $pages->serverURL?>/(xml)/1"><i class="material-icons">&#xE2C4;</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','XML');?></a>
+
+            <a target="_blank" class="btn btn-default" href="<?php echo $pages->serverURL?>/(json)/1"><i class="material-icons">&#xE2C4;</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','JSON');?></a>
+        <?php endif;?>
 		
 		<?php endif; ?>
 	</div>	

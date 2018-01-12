@@ -79,7 +79,7 @@ class erLhAbstractModelSurveyItem {
 	   	       try {
 	   	           $this->user = erLhcoreClassModelUser::fetch($this->user_id,true);
 	   	       } catch (Exception $e) {
-	   	           $this->user = false;
+	   	           $this->user = new erLhcoreClassModelUser();
 	   	       }
 	   		   return $this->user;
 	   		break;
@@ -92,7 +92,7 @@ class erLhAbstractModelSurveyItem {
    	        $this->department = false;
    	        if ($this->dep_id > 0) {
    	            try {
-   	           					$this->department = erLhcoreClassModelDepartament::fetch($this->dep_id,true);
+                    $this->department = erLhcoreClassModelDepartament::fetch($this->dep_id,true);
    	            } catch (Exception $e) {
    	    
    	            }
