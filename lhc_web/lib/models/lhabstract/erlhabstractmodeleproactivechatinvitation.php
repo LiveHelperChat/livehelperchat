@@ -300,7 +300,6 @@ class erLhAbstractModelProactiveChatInvitation {
 			$item->store_chat = true;
 			$item->invitation_assigned = true;
 			$item->last_visit = time();
-			$item->show_on_mobile = $message->show_on_mobile;
 
 			if ($message->show_random_operator == 1) {
 				$item->operator_user_id = erLhcoreClassChat::getRandomOnlineUserID(array('operators' => explode(',',trim($message->operator_ids))));				

@@ -48,8 +48,7 @@ class erLhcoreClassModelChatOnlineUser
             'visitor_tz' => $this->visitor_tz,
             'last_check_time' => $this->last_check_time,
             'user_active' => $this->user_active,
-            'notes' => $this->notes,
-            'show_on_mobile' => $this->show_on_mobile
+            'notes' => $this->notes
         );
     }
 
@@ -851,7 +850,6 @@ class erLhcoreClassModelChatOnlineUser
     public $requires_phone = 0;
     public $last_check_time = 0;
     public $user_active = 0;
-    public $show_on_mobile = 0;
 
     // 0 - do not reopen
     // 1 - reopen chat
