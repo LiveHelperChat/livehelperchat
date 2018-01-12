@@ -76,11 +76,12 @@ class erLhAbstractModelSurveyItem {
 	   		break;
 	   		
 	   	case 'user':
-	   	       try {
 	   	           $this->user = erLhcoreClassModelUser::fetch($this->user_id,true);
-	   	       } catch (Exception $e) {
-	   	           $this->user = new erLhcoreClassModelUser();
-	   	       }
+
+                   if (!($this->user instanceof erLhcoreClassModelUser)){
+                       $this->user = new erLhcoreClassModelUser();
+                   }
+
 	   		   return $this->user;
 	   		break;
 

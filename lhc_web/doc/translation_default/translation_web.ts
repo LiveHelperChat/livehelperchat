@@ -4,6 +4,18 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -121,6 +133,10 @@
     </message>
     <message>
       <source>On chat close exit chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -994,6 +1010,10 @@
   <context>
     <name>chat/lists/search_panel</name>
     <message>
+      <source>Select operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Select event</source>
       <translation type="unfinished"/>
     </message>
@@ -1162,10 +1182,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Select operator</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>User group</source>
       <translation type="unfinished"/>
     </message>
@@ -1255,6 +1271,14 @@
     </message>
     <message>
       <source>Optional</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XML</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>JSON</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2041,6 +2065,10 @@
   <context>
     <name>chat/chat</name>
     <message>
+      <source>Last visitor message time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show/Hide right column</source>
       <translation type="unfinished"/>
     </message>
@@ -2795,6 +2823,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Visitor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Your request was not processed as expected - but don't worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
       <translation type="unfinished"/>
     </message>
@@ -2803,7 +2835,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Visitor</source>
+      <source>You cannot send messages to this chat. Please refresh your browser.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3213,15 +3245,35 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sort by online status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last activity ago</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sort by active chats number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Sort</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Wait time</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Department</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3237,31 +3289,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Operator</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Pending chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Active chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Status</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Sort by online status</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Last activity ago</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Sort by active chats number</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4556,6 +4588,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Offline settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Paid chat configuration</source>
       <translation type="unfinished"/>
     </message>
@@ -4987,7 +5023,23 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Department group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Users</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7718,7 +7770,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Survey</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Survey ID</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -7894,6 +7954,10 @@
   <context>
     <name>system/smtp</name>
     <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Mail settings</source>
       <translation type="unfinished"/>
     </message>
@@ -7930,16 +7994,20 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Settings updated</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Transfer configuration</source>
       <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>system/timezone</name>
+    <message>
+      <source>Do not save offline chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatically change offline chat status to closed</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Time zone settings</source>
       <translation type="unfinished"/>
@@ -9284,6 +9352,21 @@
     <name>statistic/onlinehours</name>
     <message>
       <source>Online Hours</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>system/offlinesettings</name>
+    <message>
+      <source>Offline settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline chat request won't be saved.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Then offline chat is registered it's status will be changed to closed chat.</source>
       <translation type="unfinished"/>
     </message>
   </context>
