@@ -1,3 +1,16 @@
+2.81v
+
+1. Delays for proactive invitations.
+2. Quoting functionality. Just select a text in message.
+3. Survey results export in XLS, JSON, XML
+4. Dashboard widgets filtering by users, users groups, departments groups.
+5. Forbid sending messages to chat once visitor was redirected to survey.
+6. New colours for chat messages.
+7. Above messages block will be shown time since last user message.
+8. Chat duration will be dynamically updated. It's either chat duration from first and last message or time since chat start if chat is not closed.
+
+execute doc/update_db/update_156.sql for update
+
 2.80v
 
 1. Multilanguage support for canned messages and auto responders.

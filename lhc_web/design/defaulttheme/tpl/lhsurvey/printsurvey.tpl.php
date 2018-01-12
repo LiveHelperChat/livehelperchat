@@ -4,7 +4,7 @@
 <table class="table" cellpadding="0" cellspacing="0">
 <thead>
 	<tr>
-	    <th width="1%" nowrap="nowrap"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/collected','Survey ID');?></th>
+	    <th width="1%" nowrap="nowrap"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/collected','Survey');?></th>
 	    <th width="1%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/collected','Chat');?></th>
 	    <th width="1%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/collected','Department');?></th>
 	    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/collected','Operator');?></th>

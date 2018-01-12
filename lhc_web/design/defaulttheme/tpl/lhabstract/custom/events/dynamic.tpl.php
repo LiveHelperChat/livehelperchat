@@ -1,6 +1,9 @@
 <div class="form-group">		
-<label><?php echo $fields['dynamic_invitation']['trans'];?></label>
-<?php echo erLhcoreClassAbstract::renderInput('dynamic_invitation', $fields['dynamic_invitation'], $object)?>
+<label><?php echo erLhcoreClassAbstract::renderInput('dynamic_invitation', $fields['dynamic_invitation'], $object)?><?php echo $fields['dynamic_invitation']['trans'];?></label>
+</div>
+
+<div class="form-group">
+<label><?php echo erLhcoreClassAbstract::renderInput('show_instant', $fields['show_instant'], $object)?><?php echo $fields['show_instant']['trans'];?></label>
 </div>
 
 <div class="form-group">		
