@@ -49,6 +49,9 @@ if ($Params['user_parameters_unordered']['mode'] == '' || $Params['user_paramete
     $definition = array(
         'logged_and_online' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
+        'logged_and_same_dep' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         )
     );
 
@@ -61,6 +64,10 @@ if ($Params['user_parameters_unordered']['mode'] == '' || $Params['user_paramete
 
     if ($form->hasValidData('logged_and_online') && $form->logged_and_online == true) {
         $userFilter['hide_online'] = 0;
+    }
+
+    if ($form->hasValidData('logged_and_same_dep') && $form->logged_and_same_dep == true) {
+        $userFilter['same_dep'] = $chat->dep_id;
     }
 
     erLhcoreClassUser::instance();
