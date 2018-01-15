@@ -18,6 +18,10 @@
                 <label><input type="checkbox" onchange="updateTransferUser()" checked="checked" id="logged_and_online"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Only logged and online operators');?></label>
             </div>
 
+            <div class="checkbox">
+                <label><input type="checkbox" onchange="updateTransferUser()" id="logged_and_same"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Only operators from same departments');?></label>
+            </div>
+
             <div class="mx550" id="transfer-chat-listuserrefilter">
                 <?php $user_filter = array('hide_online' => 0); ?>
                 <?php include(erLhcoreClassDesign::designtpl('lhchat/transfer/transferchatrefilteruser.tpl.php'));?>
@@ -76,7 +80,8 @@
             function updateTransferUser() {
                 $('#transfer-chat-listuserrefilter').html('...');
                 $.post(WWW_DIR_JAVASCRIPT + 'chat/transferchatrefilter/<?php echo $chat->id?>/(mode)/user',{
-                    'logged_and_online':$('#logged_and_online').is(':checked')
+                    'logged_and_online':$('#logged_and_online').is(':checked'),
+                    'logged_and_same_dep':$('#logged_and_same').is(':checked')
                 }, function(data) {
                     $('#transfer-chat-listuserrefilter').html(data);
                 });
