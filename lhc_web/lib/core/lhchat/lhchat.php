@@ -879,8 +879,9 @@ class erLhcoreClassChat {
     {     
        $isOnlineUser = isset($params['online_timeout']) ? $params['online_timeout'] : (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'];
        $onlyOnline = isset($params['hide_online']) ? ' AND lh_userdep.hide_online = :hide_online' : false;
-       
-       $db = ezcDbInstance::get();
+       $sameDepartment = isset($params['same_dep']) ? ' AND (lh_userdep.dep_id = 0 OR lh_userdep.dep_id = :dep_id)' : false;
+
+        $db = ezcDbInstance::get();
        $NotUser = '';
 
        if (count($UserID) > 0)
@@ -902,12 +903,16 @@ class erLhcoreClassChat {
 	       }
        }
 
-       $SQL = 'SELECT lh_users.* FROM lh_users INNER JOIN lh_userdep ON lh_userdep.user_id = lh_users.id WHERE lh_userdep.last_activity > :last_activity '.$NotUser.$limitationSQL.$onlyOnline.' GROUP BY lh_users.id';
+       $SQL = 'SELECT lh_users.* FROM lh_users INNER JOIN lh_userdep ON lh_userdep.user_id = lh_users.id WHERE lh_userdep.last_activity > :last_activity '.$NotUser.$limitationSQL.$onlyOnline.$sameDepartment.' GROUP BY lh_users.id';
        $stmt = $db->prepare($SQL);
        $stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
 
        if ($onlyOnline !== false) {
-           $stmt->bindValue(':hide_online',(int)$onlyOnline,PDO::PARAM_INT);
+           $stmt->bindValue(':hide_online',0,PDO::PARAM_INT);
+       }
+
+       if ($sameDepartment !== false) {
+           $stmt->bindValue(':dep_id',$params['same_dep'],PDO::PARAM_INT);
        }
 
        $stmt->execute();
