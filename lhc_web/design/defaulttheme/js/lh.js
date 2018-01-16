@@ -192,7 +192,7 @@ function lh(){
                  trigger:'manual',
                  animation:false,
                  html:true,
-                 container:'#messagesBlock-'+e.data.chat_id,
+                 container:'#chat-id-'+e.data.chat_id,
                  template : '<div class="popover" role="tooltip"><div class="arrow"></div><div class="popover-content popover-quote"></div></div>',
                  content:'<a href="#" onclick="lhinst.quateSelection('+e.data.chat_id+')"><i class="material-icons">&#xE244;</i>quote</a>'
              }).popover('show');
