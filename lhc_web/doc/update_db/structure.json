@@ -6620,7 +6620,7 @@
                 "identifier": "cleanup_cronjob",
                 "value": "0",
                 "type": "0",
-                "explain": "Cleanup should should be done only using cronjob.",
+                "explain": "Cleanup should be done only using cronjob.",
                 "hidden": "0"
             },
             {

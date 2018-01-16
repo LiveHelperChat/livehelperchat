@@ -1,0 +1,2 @@
+INSERT INTO `lh_chat_config` (`identifier`,`value`,`type`,`explain`,`hidden`) VALUES ('tracked_footprint_cleanup','90','0','How many days keep records of users footprint.','0');
+INSERT INTO `lh_chat_config` (`identifier`,`value`,`type`,`explain`,`hidden`) VALUES ('cleanup_cronjob','0','0','Cleanup should should be done only using cronjob.','0');

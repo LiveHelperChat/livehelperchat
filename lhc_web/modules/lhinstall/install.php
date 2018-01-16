@@ -1116,7 +1116,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('customer_site_url',	'http://livehelperchat.com',	0,	'Your site URL address',	0),
                 ('transfer_configuration','0','0','Transfer configuration','1'),
                 ('tracked_footprint_cleanup','90','0','How many days keep records of users footprint.','0'),
-                ('cleanup_cronjob','0','0','Cleanup should should be done only using cronjob.','0'),                
+                ('cleanup_cronjob','0','0','Cleanup should be done only using cronjob.','0'),                
                 ('assign_workflow_timeout','0','0','Chats waiting in pending line more than n seconds should be auto assigned first. Time in seconds','0'),
         	   	('smtp_data',	'a:5:{s:4:\"host\";s:0:\"\";s:4:\"port\";s:2:\"25\";s:8:\"use_smtp\";i:0;s:8:\"username\";s:0:\"\";s:8:\"password\";s:0:\"\";}',	0,	'SMTP configuration',	1),
         	    ('chatbox_data',	'a:6:{i:0;b:0;s:20:\"chatbox_auto_enabled\";i:0;s:19:\"chatbox_secret_hash\";s:{$randomHashLength}:\"{$randomHash}\";s:20:\"chatbox_default_name\";s:7:\"Chatbox\";s:17:\"chatbox_msg_limit\";i:50;s:22:\"chatbox_default_opname\";s:7:\"Manager\";}',	0,	'Chatbox configuration',	1),
