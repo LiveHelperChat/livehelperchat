@@ -75,22 +75,30 @@
     		    		
     		    <?php $attribute = 'pro_active_invite';$boolValue = true;?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>		
-    		    		
-    		    <?php $attribute = 'track_footprint';$boolValue = true;?>
-    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>		
-    		    
+
     		    <?php $attribute = 'pro_active_show_if_offline';$boolValue = true;?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
     		    
     		    <?php $attribute = 'message_seen_timeout'?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
-    		    
-    		    <?php $attribute = 'tracked_users_cleanup'?>
-    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>		
-    		    			    		
+
     		    <?php $attribute = 'pro_active_limitation'?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
-			</div>
+
+                <hr>
+                <?php $attribute = 'track_footprint';$boolValue = true;?>
+                <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+
+                <?php $attribute = 'cleanup_cronjob';$boolValue = true;?>
+                <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+
+                <?php $attribute = 'tracked_users_cleanup'?>
+                <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+
+                <?php $attribute = 'tracked_footprint_cleanup'?>
+                <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+
+            </div>
 
 			<div role="tabpanel" class="tab-pane" id="misc">
 			    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/listchatconfig/text_cookie_related.tpl.php'));?>		    		    
@@ -148,7 +156,7 @@
     		    
     		    <?php $attribute = 'activity_track_all';$boolValue = true;?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>	
-    		    
+
     		    <?php $attribute = 'disable_print';$boolValue = true;?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
     		    		    

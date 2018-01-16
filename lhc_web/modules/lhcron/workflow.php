@@ -1,5 +1,4 @@
 <?php
-
 /**
  * php cron.php -s site_admin -c cron/workflow
  *
@@ -7,7 +6,6 @@
  *
  * */
 echo "Starting chat/workflow\n";
-
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow.started',array());
 
 if ( erLhcoreClassModelChatConfig::fetch('run_departments_workflow')->current_value == 1 ) {
@@ -76,6 +74,9 @@ try {
     
 // Inform visitors about unread messages
 erLhcoreClassChatWorkflow::autoInformVisitor(erLhcoreClassModelChatConfig::fetch('inform_unread_message')->current_value);
+
+// Cleanup online visitors
+erLhcoreClassModelChatOnlineUser::cleanupOnlineUsers(array('cronjob' => true));
 
 echo "Ended chat/workflow\n";
 

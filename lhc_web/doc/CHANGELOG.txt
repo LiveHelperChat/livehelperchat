@@ -1,3 +1,10 @@
+2.82v
+
+1. Quote selection sometimes forced chat messages to collapse.
+2. Option to have online visitors and their footprint cleanup from cronjob.
+
+execute doc/update_db/update_157.sql for update
+
 2.81v
 
 1. Delays for proactive invitations.
