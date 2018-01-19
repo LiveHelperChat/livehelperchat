@@ -47,9 +47,8 @@ class erLhcoreClassModule{
 	                   	return $Result;
                    	} else {
                    	    if (isset($Params['module']['ajax']) && $Params['module']['ajax'] == true){
-                   	        // echo json_encode(array('error_url' => erLhcoreClassDesign::baseurl('user/login')));
-                   	        // exit;                   	        
-                   	        self::redirect('user/login');
+                            header('X-Robots-Tag: noindex');
+                   	        echo json_encode(array('error' => true, 'error_url' => erLhcoreClassDesign::baseurl('user/login') . '/(noaccess)/true'));
                    	        exit;
                    	    } else {
                        		self::redirect('user/login');

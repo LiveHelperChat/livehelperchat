@@ -1617,6 +1617,10 @@ function lh(){
                 clearTimeout(this.userTimeout);
         	    $.postJSON(this.wwwDir + this.syncadmin ,{ 'chats[]': this.chatsSynchronisingMsg }, function(data){
 
+                    if (typeof data.error_url !== 'undefined') {
+                        document.location = data.error_url;
+                    }
+
         	    	try {
 	        	        // If no error
 	        	        if (data.error == 'false')

@@ -105,6 +105,10 @@ if (isset($_SESSION['logout_reason'])) {
     }
 }
 
+if (isset($Params['user_parameters_unordered']['noaccess']) && $Params['user_parameters_unordered']['noaccess'] == true) {
+    $tpl->set('session_ended',true);
+}
+
 $pagelayout = erConfigClassLhConfig::getInstance()->getOverrideValue('site','login_pagelayout');
 if ($pagelayout != null)
     $Result['pagelayout'] = 'login';
