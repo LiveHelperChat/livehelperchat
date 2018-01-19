@@ -1088,53 +1088,56 @@ function lh(){
 	this.deleteChat = function(chat_id, tabs, hidetab)
 	{
         if (confirm(confLH.transLation.delete_confirm)) {
-			if ($('#CSChatMessage-'+chat_id).length != 0){
-				$('#CSChatMessage-'+chat_id).unbind('keydown', function(){});
-			   $('#CSChatMessage-'+chat_id).unbind('keyup', function(){});
-			}
 
-			$.ajax({
-				type: "POST",
-				url: this.wwwDir + this.deletechatadmin + chat_id,
-				cache: false,
-				dataType: 'json',
-				async: false
-			}).done(function(data){
-				if (data.error == 'true')
-				{
-				   alert(data.result);
-				}
-			});
+            var that = this;
 
-			 if (hidetab == true) {
+            $.postJSON(this.wwwDir + this.deletechatadmin + chat_id, function(data){
+                if (data.error == true) {
+                    alert(data.result);
+                } else {
 
-				var location = this.smartTabFocus(tabs, chat_id);
+                    if ($('#CSChatMessage-'+chat_id).length != 0){
+                        $('#CSChatMessage-'+chat_id).unbind('keydown', function(){});
+                        $('#CSChatMessage-'+chat_id).unbind('keyup', function(){});
+                    }
 
-				setTimeout(function() {
-					window.location.hash = location;
-				},500);
+                    if (hidetab == true) {
 
-				if (this.closeWindowOnChatCloseDelete == true)
-				{
-					window.close();
-				}
-			};
+                        var location = that.smartTabFocus(tabs, chat_id);
 
-			if (LHCCallbacks.chatDeletedCallback) {
-				LHCCallbacks.chatDeletedCallback(chat_id);
-			};
+                        setTimeout(function() {
+                            window.location.hash = location;
+                        },500);
 
-			this.syncadmininterfacestatic();
-			this.removeSynchroChat(chat_id);
+                        if (that.closeWindowOnChatCloseDelete == true)
+                        {
+                            window.close();
+                        }
+                    };
+
+                    if (LHCCallbacks.chatDeletedCallback) {
+                        LHCCallbacks.chatDeletedCallback(chat_id);
+                    };
+
+                    that.syncadmininterfacestatic();
+                    that.removeSynchroChat(chat_id);
+                }
+            }).fail(function(jqXHR, textStatus, errorThrown) {
+                console.dir(jqXHR);
+                alert('getJSON request failed! ' + textStatus + ':' + errorThrown + ':' + jqXHR.responseText);
+            });
         }
 	};
 
 	this.rejectPendingChat = function(chat_id, tabs)
 	{
+	    var that = this;
 	    $.postJSON(this.wwwDir + this.deletechatadmin + chat_id ,{}, function(data){
-
-	    });
-	    this.syncadmininterfacestatic();
+            that.syncadmininterfacestatic();
+	    }).fail(function(jqXHR, textStatus, errorThrown) {
+            console.dir(jqXHR);
+            alert('getJSON request failed! ' + textStatus + ':' + errorThrown + ':' + jqXHR.responseText);
+        });
 	};
 
 	this.startChatNewWindow = function(chat_id,name)
@@ -1339,11 +1342,8 @@ function lh(){
 	    $.ajax({
 	        type: "GET",
 	        url: this.wwwDir + this.userclosechaturl + this.chat_id + '/' + this.hash,
-	        cache: false,
-	        async: false
+	        cache: false
 	    });
-	    
-	   
 	};
 
 	this.userclosedchatembed = function()

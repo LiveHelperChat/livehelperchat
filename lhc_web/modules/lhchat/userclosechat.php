@@ -2,6 +2,9 @@
 
 header('content-type: application/json; charset=utf-8');
 
+// Happens then user closes browser.
+ignore_user_abort(true);
+
 $db = ezcDbInstance::get();
 $db->beginTransaction();
 
