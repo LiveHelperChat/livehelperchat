@@ -1,9 +1,8 @@
 <?php
-
-header('content-type: application/json; charset=utf-8');
-
 // Happens then user closes browser.
 ignore_user_abort(true);
+
+header('content-type: application/json; charset=utf-8');
 
 $db = ezcDbInstance::get();
 $db->beginTransaction();
