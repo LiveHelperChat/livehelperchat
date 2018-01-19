@@ -958,40 +958,46 @@ function lh(){
 
 	this.closeActiveChatDialog = function(chat_id, tabs, hidetab)
 	{
+	    var that = this;
 
-	    $.ajax({
-	        type: "POST",
-	        url: this.wwwDir + this.closechatadmin + chat_id,
-	        async: false
-	    });
+	    $.postJSON(this.wwwDir + this.closechatadmin + chat_id, function (data) {
 
-	    if ($('#CSChatMessage-'+chat_id).length != 0){
-	    	$('#CSChatMessage-'+chat_id).unbind('keydown', function(){});
-	       $('#CSChatMessage-'+chat_id).unbind('keyup', function(){});
-	    };
+	        if (data.error == false) {
 
-	    if (hidetab == true) {
+                if ($('#CSChatMessage-'+chat_id).length != 0) {
+                    $('#CSChatMessage-'+chat_id).unbind('keydown', function(){});
+                    $('#CSChatMessage-'+chat_id).unbind('keyup', function(){});
+                };
 
-	    	var location = this.smartTabFocus(tabs, chat_id);
+                if (hidetab == true) {
 
-	    	setTimeout(function() {
-	    		window.location.hash =  location;
-	    	},500);
+                    var location = that.smartTabFocus(tabs, chat_id);
 
-	        if (this.closeWindowOnChatCloseDelete == true)
-	        {
-	            window.close();
-	        }
+                    setTimeout(function() {
+                        window.location.hash =  location;
+                    },500);
 
-	    };
+                    if (that.closeWindowOnChatCloseDelete == true)
+                    {
+                        window.close();
+                    }
+                };
 
-	    if (LHCCallbacks.chatClosedCallback) {
-        	LHCCallbacks.chatClosedCallback(chat_id);
-        };
+                if (LHCCallbacks.chatClosedCallback) {
+                    LHCCallbacks.chatClosedCallback(chat_id);
+                };
 
-	    this.removeSynchroChat(chat_id);
-	    this.syncadmininterfacestatic();
+                that.removeSynchroChat(chat_id);
+                that.syncadmininterfacestatic();
 
+            } else {
+	            alert(data.result);
+            }
+
+        }).fail(function(jqXHR, textStatus, errorThrown) {
+            console.dir(jqXHR);
+            alert('postJSON request failed! ' + textStatus + ':' + errorThrown + ':' + jqXHR.responseText);
+        });
 	};
 	
 	this.smartTabFocus = function(tabs, chat_id) {			
