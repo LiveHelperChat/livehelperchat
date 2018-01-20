@@ -172,7 +172,11 @@ if (isset($_POST['askQuestion']))
         
     $form = new ezcInputForm( INPUT_POST, $validationFields );
     $Errors = array();
-    
+
+    if (erLhcoreClassModelChatBlockedUser::getCount(array('filter' => array('ip' => erLhcoreClassIPDetect::getIP()))) > 0) {
+        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','You do not have permission to chat! Please contact site owner.');
+    }
+
     if ( $form->hasValidData( 'hattr' ) && !empty($form->hattr))
     {
     	$inputData->hattr = $form->hattr;
