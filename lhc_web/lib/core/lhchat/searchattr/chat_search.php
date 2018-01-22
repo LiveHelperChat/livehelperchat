@@ -168,7 +168,7 @@ $fieldsSearch['chat_status'] = array (
 	'filter_type' => 'filter',
 	'filter_table_field' => 'status',
 	'validation_definition' => new ezcInputFormDefinitionElement(
-		ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 0,'max_range' => 4)
+		ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 0,'max_range' => 1000)
 	)
 );
 
