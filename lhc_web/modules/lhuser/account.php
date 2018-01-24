@@ -102,7 +102,13 @@ if (isset($_POST['Update'])) {
     if (count($Errors) == 0) {
     	
         erLhcoreClassUser::getSession()->update($UserData);
-        
+
+        erLhcoreClassUserDep::setHideOnlineStatus($UserData);
+
+        erLhcoreClassChat::updateActiveChats($UserData->id);
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.operator_status_changed',array('user' => & $UserData, 'reason' => 'user_action'));
+
         $tpl->set('account_updated','done');
 
     }  else {

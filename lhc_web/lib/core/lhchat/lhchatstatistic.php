@@ -154,7 +154,7 @@ class erLhcoreClassChatStatistic {
                 $yearStart = date('y',$filter['filterlte']['time']);
                 $monthStart = date('m',$filter['filterlte']['time']);
         	}
-        	        	
+
         	for ($i = 0; $i < 12;$i++) {
         		$dateUnix = mktime(0,0,0,$monthStart - $i,1, $yearStart);
 

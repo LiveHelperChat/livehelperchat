@@ -526,6 +526,7 @@ $ViewList['transferchatrefilter'] = array(
 );
 
 $FunctionList['use'] = array('explain' => 'General permission to use chat module');
+$FunctionList['changeowner'] = array('explain' => 'Allow operator to change chat owner');
 $FunctionList['singlechatwindow'] = array('explain' =>'Allow operator to use single chat window functionality');
 $FunctionList['allowchattabs'] = array('explain' =>'Allow operator to user chat rooms functionality');
 $FunctionList['deletechat'] = array('explain' =>'Allow operator to delete his own chats');

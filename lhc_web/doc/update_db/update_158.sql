@@ -1,0 +1,1 @@
+ALTER TABLE `lh_abstract_auto_responder` ADD `operator` varchar(50) NOT NULL, COMMENT='';

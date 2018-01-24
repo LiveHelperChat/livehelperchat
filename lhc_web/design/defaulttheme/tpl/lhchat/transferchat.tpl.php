@@ -6,6 +6,11 @@
 	<ul class="nav nav-tabs" role="tablist">
 		<li role="presentation" class="active"><a href="#transferusermodal" aria-controls="transferusermodal" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer to a user');?></a></li>
 		<li role="presentation"><a href="#transferdepmodal" aria-controls="transferdepmodal" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer to a department');?></a></li>
+
+        <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','changeowner')) : ?>
+            <li role="presentation"><a href="#changeowner" aria-controls="changeowner" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Change owner');?></a></li>
+        <?php endif; ?>
+
 	</ul>
 	<div class="tab-content">
 		<div role="tabpanel" class="tab-pane active" id="transferusermodal">
@@ -87,8 +92,25 @@
                 });
             }
             </script>
-
 		</div>
+        
+        <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','changeowner')) : ?>
+        <div role="tabpanel" class="tab-pane" id="changeowner">
+            <div class="form-group">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','User');?></label>
+                <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
+                    'input_name'     => 'new_user_id',
+                    'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select user'),
+                    'selected_id'    => $chat->user_id,
+                    'css_class'      => 'form-control',
+                    'display_name' => 'name_official',
+                    'list_function'  => 'erLhcoreClassModelUser::getUserList'
+                )); ?>
+            </div>
+            <input type="button" onclick="lhinst.changeOwner('<?php echo $chat->id?>')" class="btn btn-default" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Change owner');?>">
+        </div>
+        <?php endif; ?>
+
 	</div>
 </div>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_footer.tpl.php'));?>

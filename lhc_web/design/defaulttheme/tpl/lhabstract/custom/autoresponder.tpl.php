@@ -35,6 +35,11 @@
 </div>
 
 <div class="form-group">
+<label><?php echo $fields['operator']['trans'];?></label>
+<?php echo erLhcoreClassAbstract::renderInput('operator', $fields['operator'], $object)?>
+</div>
+
+<div class="form-group">
     <label><?php echo erLhcoreClassAbstract::renderInput('only_proactive', $fields['only_proactive'], $object)?> <?php echo $fields['only_proactive']['trans'];?></label>
 </div>
 

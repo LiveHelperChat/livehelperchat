@@ -232,7 +232,7 @@ $tpl->set('leaveamessage',$leaveamessage);
 
 if (isset($_POST['StartChat']) && $disabled_department === false) {
    // Validate post data
-   $Errors = erLhcoreClassChatValidator::validateStartChat($inputData,$startDataFields,$chat,$additionalParams);
+   $Errors = erLhcoreClassChatValidator::validateStartChat($inputData,$startDataFields,$chat, $additionalParams);
 
 	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_chat_started',array('chat' => & $chat, 'errors' => & $Errors, 'offline' => (isset($additionalParams['offline']) && $additionalParams['offline'] == true)));
 
@@ -351,12 +351,12 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
     				    $responderChat->saveThis();
     				    
     				    $chat->auto_responder_id = $responderChat->id;
-    				        					
+
     					if ($responder->wait_message != '') {
     						$msg = new erLhcoreClassModelmsg();
     						$msg->msg = trim($responder->wait_message);
     						$msg->chat_id = $chat->id;
-    						$msg->name_support = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
+    						$msg->name_support = $responder->operator != '' ? $responder->operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
     						$msg->user_id = -2;
     						$msg->time = time() + 5;
     						erLhcoreClassChat::getSession()->save($msg);

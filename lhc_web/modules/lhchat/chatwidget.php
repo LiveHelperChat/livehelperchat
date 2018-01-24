@@ -406,7 +406,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
     						   $msg = new erLhcoreClassModelmsg();
     						   $msg->msg = trim($responder->wait_message);
     						   $msg->chat_id = $chat->id;
-    						   $msg->name_support = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
+    						   $msg->name_support = $responder->operator != '' ? $responder->operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
     						   $msg->user_id = -2;
     						   $msg->time = time() + 5;
     						   erLhcoreClassChat::getSession()->save($msg);

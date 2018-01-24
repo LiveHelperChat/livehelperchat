@@ -84,9 +84,11 @@
 	    
 	    <div class="row">	   
     	   	<?php include(erLhcoreClassDesign::designtpl('lhuser/account/part/visibility.tpl.php'));?>
-    		
+
+    	   	<?php include(erLhcoreClassDesign::designtpl('lhuser/account/part/hidability.tpl.php'));?>
+
     	   	<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','receivepermissionrequest')) : ?>
-    	   	<div class="col-xs-6">
+    	   	<div class="col-xs-4">
         	   	<div class="form-group">
         		  <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','I receive other operators permissions request');?>"><input type="checkbox" value="on" name="ReceivePermissionRequest" <?php echo $user->rec_per_req == 1 ? 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','I receive other operators permissions request')?></label>
         		</div>

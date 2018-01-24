@@ -23,6 +23,11 @@
         <input type="text" class="form-control" ng-model="lang.wait_message" value="" name="wait_message[{{$index}}]">
     </div>
 
+    <div class="form-group">
+        <label><?php echo $fields['operator']['trans'];?></label>
+        <input type="text" class="form-control" ng-model="lang.operator" value="" name="operator[{{$index}}]">
+    </div>
+
     <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Pending chat messaging');?></h4>
 
     <div class="row">

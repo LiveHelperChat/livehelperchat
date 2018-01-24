@@ -326,6 +326,15 @@ if (isset($_POST['askQuestion']))
 	        }
 	    }
 	}
+
+    // Detect user locale
+    if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+        $parts = explode(';',$_SERVER['HTTP_ACCEPT_LANGUAGE']);
+        $languages = explode(',',$parts[0]);
+        if (isset($languages[0])) {
+            $chat->chat_locale = $languages[0];
+        }
+    }
 		
 	if (!empty($stringParts)) {
 	   $chat->additional_data = json_encode ( $stringParts );
@@ -455,6 +464,7 @@ if (isset($_POST['askQuestion']))
            if ($userInstance->invitation !== false) {
 
                $responder = $userInstance->invitation->autoresponder;
+               $responder->translateByChat($chat->chat_locale);
 
                if ($responder !== false) {
 
@@ -474,7 +484,7 @@ if (isset($_POST['askQuestion']))
                            $msg = new erLhcoreClassModelmsg();
                            $msg->msg = trim($responder->wait_message);
                            $msg->chat_id = $chat->id;
-                           $msg->name_support = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
+                           $msg->name_support = $responder->operator != '' ? $responder->operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
                            $msg->user_id = -2;
                            $msg->time = time() + 5;
                            erLhcoreClassChat::getSession()->save($msg);

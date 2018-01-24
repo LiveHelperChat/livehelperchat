@@ -249,6 +249,10 @@ class erLhcoreClassSearchHandler
                         if (!empty($inputParams->$key)) {
                             $filter['filterin'][$field['filter_table_field']] = $inputParams->$key;
                         }
+                    } elseif ($field['filter_type'] == 'filternot') {
+                        if (!empty($inputParams->$key)) {
+                            $filter['filternot'][$field['filter_table_field']] = $inputParams->$key;
+                        }
                     } elseif ($field['filter_type'] == 'filter_work_types') {
                         
                         $filter['filter_keywords'][] = 'work_type_' . $inputParams->$key;

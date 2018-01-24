@@ -10,7 +10,8 @@ class erLhcoreClassChatWorkflow {
     	$msg = new erLhcoreClassModelmsg();
     	$msg->msg = trim($chat->auto_responder->auto_responder->timeout_message);
     	$msg->chat_id = $chat->id;
-    	$msg->name_support = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
+    	$operator = $chat->auto_responder->auto_responder->operator;
+    	$msg->name_support = $operator != '' ? $operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
     	$msg->user_id = -2;
     	$msg->time = time();
     	erLhcoreClassChat::getSession()->save($msg);

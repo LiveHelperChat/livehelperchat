@@ -1277,7 +1277,18 @@ function lh(){
 			};
 		});
 	};
-		
+
+	this.changeOwner = function(chat_id) {
+        var inst = this;
+        var user_id = $('#id_new_user_id').val();
+        $.postJSON(this.wwwDir + this.trasnsferuser + chat_id + '/' + user_id, {'type':'change_owner'}, function(data){
+            if (data.error == 'false') {
+                $('#transfer-block-'+data.chat_id).html(data.result);
+                inst.hideTransferModal(chat_id);
+            };
+        });
+    };
+
 	this.chooseSurvey = function(chat_id)
 	{
 		var survey_id = $('[name=SurveyItem'+chat_id+']:checked').val();

@@ -88,6 +88,30 @@ $fieldsSearch['comparetopast'] = array (
 	)
 );
 
+$fieldsSearch['exclude_offline'] = array (
+	'type' => 'text',
+	'trans' => 'Exclude offline',
+	'required' => false,
+	'valid_if_filled' => false,
+	'filter_type' => 'filternot',
+	'filter_table_field' => 'status_sub',
+	'validation_definition' => new ezcInputFormDefinitionElement(
+		ezcInputFormDefinitionElement::OPTIONAL, 'int'
+	)
+);
+
+$fieldsSearch['online_offline'] = array (
+	'type' => 'text',
+	'trans' => 'Only offline',
+	'required' => false,
+	'valid_if_filled' => false,
+	'filter_type' => 'filter',
+	'filter_table_field' => 'status_sub',
+	'validation_definition' => new ezcInputFormDefinitionElement(
+		ezcInputFormDefinitionElement::OPTIONAL, 'int'
+	)
+);
+
 $fieldSortAttr = array (
 'field'      => false,
 'default'    => false,

@@ -17,6 +17,7 @@ class erLhAbstractModelAutoResponder {
 		$stateArray = array (
 			'id'         		=> $this->id,
 			'name'  		    => $this->name,
+			'operator'  		=> $this->operator,
 			'siteaccess'  		=> $this->siteaccess,
 			'wait_message'		=> $this->wait_message,
 			'timeout_message'	=> $this->timeout_message,
@@ -183,6 +184,10 @@ class erLhAbstractModelAutoResponder {
                             $this->wait_message = $data['wait_message'];
                         }
 
+                        if (isset($data['operator']) && $data['operator'] != '') {
+                            $this->operator = $data['operator'];
+                        }
+
                         for ($i = 1; $i <= 5; $i++) {
                             if (isset($data['timeout_message_' . $i]) && $data['timeout_message_' . $i] != '') {
                                 $this->{'timeout_message_' . $i} = $data['timeout_message_' . $i];
@@ -227,6 +232,7 @@ class erLhAbstractModelAutoResponder {
             'timeout_hold_message_4' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
             'timeout_hold_message_5' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
             'wait_message' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
+            'operator' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
         );
 
         $form = new ezcInputForm( INPUT_POST, $definition );
@@ -254,6 +260,7 @@ class erLhAbstractModelAutoResponder {
                     'timeout_hold_message_4' => $form->timeout_hold_message_4[$index],
                     'timeout_hold_message_5' => $form->timeout_hold_message_5[$index],
                     'wait_message' => $form->wait_message[$index],
+                    'operator' => $form->operator[$index],
                 );
             }
         }
@@ -331,6 +338,8 @@ class erLhAbstractModelAutoResponder {
 
 	// Auto responder name
 	public $name = '';
+
+	public $operator = '';
 
 	// After hour many seconds in active chat redirect user to survey
 	public $survey_timeout = 0;

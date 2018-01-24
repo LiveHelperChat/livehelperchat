@@ -14,6 +14,11 @@ $def->properties['name']->columnName   = 'name';
 $def->properties['name']->propertyName = 'name';
 $def->properties['name']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['operator'] = new ezcPersistentObjectProperty();
+$def->properties['operator']->columnName   = 'operator';
+$def->properties['operator']->propertyName = 'operator';
+$def->properties['operator']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 $def->properties['siteaccess'] = new ezcPersistentObjectProperty();
 $def->properties['siteaccess']->columnName   = 'siteaccess';
 $def->properties['siteaccess']->propertyName = 'siteaccess';

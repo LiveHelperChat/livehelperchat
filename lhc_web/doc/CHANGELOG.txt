@@ -1,3 +1,12 @@
+2.83v
+
+1. Autoresponder now supports custom nick. Multi language also supported.
+2. Chart charts can exclude or include only offline requests.
+3. Transfer to chat modal window now allows to change chat owner directly. "lhchat","changeowner" (Allow operator to change chat owner) is required.
+4. User account window allows to change operator online/offline status directly.
+
+execute doc/update_db/update_158.sql for update
+
 2.82v
 
 1. Quote selection sometimes forced chat messages to collapse.

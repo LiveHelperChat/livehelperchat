@@ -383,6 +383,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `position` int(11) NOT NULL,
                   `timeout_message` text NOT NULL,
                   `name` varchar(50) NOT NULL,
+                  `operator` varchar(50) NOT NULL,
                   `dep_id` int(11) NOT NULL,
                   `only_proactive` int(11) NOT NULL,
                   `repeat_number` int(11) NOT NULL DEFAULT '1',

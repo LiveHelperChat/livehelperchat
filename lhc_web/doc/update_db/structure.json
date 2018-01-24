@@ -50,6 +50,14 @@
                 "extra": ""
             },
             {
+                "field": "operator",
+                "type": "varchar(50)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "ignore_pa_chat",
                 "type": "int(11)",
                 "null": "NO",
