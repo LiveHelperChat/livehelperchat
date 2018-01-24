@@ -91,13 +91,12 @@ $totalCount = $positiveChatsCount + $negativeChatsCount;
             <?php for ($i = $survey->{'max_stars_' . $starEnabled}; $i >= 1; $i--) : ?>
             <tr>
                 <td width="1%" nowrap>
-                
-                <a href="<?php echo erLhcoreClassDesign::baseurl('survey/collected')?>/<?php echo $survey->id?>/(max_stars_<?php echo $starEnabled?>)/<?php echo $i?>"><?php echo $i?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/collected','Stars')?></a>
+                <?php if ($totalCount > 0) : $percentange = round(($survey->getStarsNumberVotes($starEnabled,array($i), $survey_filter)/$totalCount*100));?><?php endif ?>
+                <a href="<?php echo erLhcoreClassDesign::baseurl('survey/collected')?>/<?php echo $survey->id?>/(max_stars_<?php echo $starEnabled?>)/<?php echo $i?>"><?php if ($totalCount > 0) : ?><?php echo htmlspecialchars($percentange)?>%<?php else : ?>0%<?php endif;?>&nbsp;<?php echo $i?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/collected','Stars')?></a>
                 
                 </td>
                 <td>
-                <?php
-                if ($totalCount > 0) : $percentange = round(($survey->getStarsNumberVotes($starEnabled,array($i), $survey_filter)/$totalCount*100));?>
+                <?php if ($totalCount > 0) : ?>
                     <div class="progress" style="margin-bottom:0">
                         <div class="progress-bar" role="progressbar" aria-valuenow="<?php echo $percentange?>" aria-valuemin="0" aria-valuemax="100" style="width:<?php echo $percentange?>%">
                             <span class="sr-only"></span>
@@ -161,7 +160,7 @@ foreach ($enabledFields as $optionKey => $optionEnabled) :
                 <?php foreach ($survey->{'question_options_' . $optionEnabled . '_items_front'} as $optionKeyValue => $optionValue) : ?>
                     <tr>
                         <td width="1%" nowrap>
-                            <a href="<?php echo erLhcoreClassDesign::baseurl('survey/collected')?>/<?php echo $survey->id?>/(question_options_<?php echo $optionEnabled?>)/<?php echo $optionKeyValue + 1?>"><?php if ($totalCount > 0) : $percentange = round(($optionsValues[$optionKeyValue]/$totalCount*100));?><?php echo $percentange?>%<?php else : ?>0%<?php endif?> <?php echo erLhcoreClassSurveyValidator::parseAnswer($optionValue['option']) ?></a>
+                            <a href="<?php echo erLhcoreClassDesign::baseurl('survey/collected')?>/<?php echo $survey->id?>/(question_options_<?php echo $optionEnabled?>)/<?php echo $optionKeyValue + 1?>"><?php if ($totalCount > 0) : $percentange = round(($optionsValues[$optionKeyValue]/$totalCount*100));?><?php echo $percentange?>%<?php else : ?>0%<?php endif?>&nbsp;<?php echo erLhcoreClassSurveyValidator::parseAnswer($optionValue['option']) ?></a>
                         </td>
                         <td>
                             <?php
