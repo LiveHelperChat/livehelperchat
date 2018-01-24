@@ -401,7 +401,9 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
     				       $responderChat->saveThis();
     				       
     				       $chat->auto_responder_id = $responderChat->id;
-    				       
+
+                           erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_message',array('chat' => & $chat, 'responder' => & $responder));
+
     					   if ($responder->wait_message != '') {
     						   $msg = new erLhcoreClassModelmsg();
     						   $msg->msg = trim($responder->wait_message);
