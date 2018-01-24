@@ -155,6 +155,7 @@ $responseArray['ru'] = $ru;
 $responseArray['ott'] = $ott;
 $responseArray['result'] = $tpl->fetch();
 $responseArray['activated'] = $activated;
+$responseArray['uid'] = (int)$chat->user_id;
 
 echo json_encode($responseArray);
 exit;

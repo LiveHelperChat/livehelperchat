@@ -1512,7 +1512,10 @@ function lh(){
 		var themeWindow = this.theme !== null ? '/(theme)/'+this.theme : '';	
 		
 		var inst = this;
-	    $.getJSON(this.wwwDir + this.checkchatstatus + this.chat_id + '/' + this.hash + modeWindow + themeWindow,{}, function(data){
+	    $.getJSON(this.wwwDir + this.checkchatstatus + this.chat_id + '/' + this.hash + modeWindow + themeWindow,{}, function(data) {
+
+            ee.emitEvent('checkChatStatus', [inst.chat_id, data]);
+
 	        // If no error
 	        if (data.error == 'false')
 	        {
