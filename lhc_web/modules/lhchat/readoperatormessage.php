@@ -464,9 +464,10 @@ if (isset($_POST['askQuestion']))
            if ($userInstance->invitation !== false) {
 
                $responder = $userInstance->invitation->autoresponder;
-               $responder->translateByChat($chat->chat_locale);
-
+               
                if ($responder !== false) {
+
+                   $responder->translateByChat($chat->chat_locale);
 
                    $beforeAutoResponderErrors = array();
                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_triggered', array('chat' => & $chat, 'errors' => & $beforeAutoResponderErrors));
