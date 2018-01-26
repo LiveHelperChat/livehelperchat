@@ -1,3 +1,10 @@
+2.84v
+
+1. Option to delay status widget show.
+2. Option to delay tooltip show.
+
+execute doc/update_db/update_159.sql for update
+
 2.83v
 
 1. Autoresponder now supports custom nick. Multi language also supported.

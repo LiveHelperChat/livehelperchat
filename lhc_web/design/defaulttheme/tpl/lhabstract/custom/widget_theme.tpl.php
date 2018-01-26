@@ -97,7 +97,12 @@
 						<label><?php echo $fields['explain_text']['trans'];?></label>
 						<?php echo erLhcoreClassAbstract::renderInput('explain_text', $fields['explain_text'], $object)?>
 						</div>
-						
+
+						<div class="form-group">
+						<label><?php echo $fields['show_status_delay']['trans'];?></label>
+						<?php echo erLhcoreClassAbstract::renderInput('show_status_delay', $fields['show_status_delay'], $object)?>
+						</div>
+
 						<?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/widget_theme_status.tpl.php'));?>
 						
         		</div>        		
@@ -232,6 +237,11 @@
         		        <div class="form-group">
         		        <label><?php echo $fields['show_need_help_timeout']['trans'];?></label>
 						<?php echo erLhcoreClassAbstract::renderInput('show_need_help_timeout', $fields['show_need_help_timeout'], $object)?>
+						</div>
+
+        		        <div class="form-group">
+        		        <label><?php echo $fields['show_need_help_delay']['trans'];?></label>
+						<?php echo erLhcoreClassAbstract::renderInput('show_need_help_delay', $fields['show_need_help_delay'], $object)?>
 						</div>
 
         		        <div class="form-group">

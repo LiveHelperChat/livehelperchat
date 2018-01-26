@@ -302,6 +302,18 @@ $def->properties['show_need_help_timeout']->columnName   = 'show_need_help_timeo
 $def->properties['show_need_help_timeout']->propertyName = 'show_need_help_timeout';
 $def->properties['show_need_help_timeout']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+// After how many seconds after page load show need help tooltip
+$def->properties['show_need_help_delay'] = new ezcPersistentObjectProperty();
+$def->properties['show_need_help_delay']->columnName   = 'show_need_help_delay';
+$def->properties['show_need_help_delay']->propertyName = 'show_need_help_delay';
+$def->properties['show_need_help_delay']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+// After how many seconds show status widget
+$def->properties['show_status_delay'] = new ezcPersistentObjectProperty();
+$def->properties['show_status_delay']->columnName   = 'show_status_delay';
+$def->properties['show_status_delay']->propertyName = 'show_status_delay';
+$def->properties['show_status_delay']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 // New version
 // Show voting thumbs
 $def->properties['show_voting'] = new ezcPersistentObjectProperty();

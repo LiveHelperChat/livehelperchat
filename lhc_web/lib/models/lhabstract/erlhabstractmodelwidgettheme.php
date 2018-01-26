@@ -27,6 +27,8 @@ class erLhAbstractModelWidgetTheme {
 			'need_help_close_bg'		=> $this->need_help_close_bg,
 			'need_help_close_hover_bg'	=> $this->need_help_close_hover_bg,
 			'need_help_image_path'		=> $this->need_help_image_path,
+			'show_need_help_delay'		=> $this->show_need_help_delay,
+			'show_status_delay'		    => $this->show_status_delay,
 			'custom_status_css'			=> $this->custom_status_css,
 			'custom_container_css'		=> $this->custom_container_css,
 			'custom_widget_css'			=> $this->custom_widget_css,
@@ -441,7 +443,9 @@ class erLhAbstractModelWidgetTheme {
 	public $widget_border_width = 0;
 	public $show_need_help = 1;
 	public $show_need_help_timeout = 24;
-	
+	public $show_need_help_delay = 0;
+	public $show_status_delay = 0;
+
 	public $support_joined = '';
 	public $support_closed = '';
 	public $pending_join = '';

@@ -477,6 +477,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
                  `noonline_operators` varchar(250) NOT NULL,
                  `noonline_operators_offline` varchar(250) NOT NULL,
                  `hide_close` int(11) NOT NULL,
+                 `show_need_help_delay` int(11) NOT NULL DEFAULT '0',
+                 `show_status_delay` int(11) NOT NULL DEFAULT '0',
                  `hide_popup` int(11) NOT NULL,
                  `show_need_help` int(11) NOT NULL DEFAULT '1',
                  `show_need_help_timeout` int(11) NOT NULL DEFAULT '24',
