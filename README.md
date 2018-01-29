@@ -10,7 +10,7 @@ http://livehelperchat.com/demo-12c.html
 http://livehelperchat.com/documentation-6c.html
 
 ## Extensions
-https://github.com/remdex/livehelperchat-extensions
+https://github.com/LiveHelperChat
 
 ## Translations contribution
 https://www.transifex.com/projects/p/live-helper-chat/
@@ -21,7 +21,6 @@ https://www.transifex.com/projects/p/live-helper-chat/
   * lhc_web - WEB application folder.
   
 ## Rest API support
-
 https://api.livehelperchat.com/
 
 ## Third party support
