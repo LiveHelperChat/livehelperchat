@@ -19,7 +19,17 @@ https://www.transifex.com/projects/p/live-helper-chat/
 
  * Directories content:
   * lhc_web - WEB application folder.
+  
+## Rest API support
 
+https://api.livehelperchat.com/
+
+## Third party support
+
+ * [Telegram](https://livehelperchat.com/telegram-integration-481a.html)
+ * [Twilio](https://livehelperchat.com/twilio-support-for-sms-chat-477a.html)
+ * [Facebook messenger](https://livehelperchat.com/integration-with-facebook-messenger-464a.html)
+ 
 ## Features
 
 Few main features
