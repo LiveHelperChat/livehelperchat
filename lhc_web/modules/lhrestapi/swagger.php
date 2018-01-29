@@ -36,12 +36,12 @@ header('Content-Type: application/json');
    "basePath":"/",
    "tags":[
       {
-         "name":"callback",
-         "description":"Schedule Callback API description"         
+         "name":"api",
+         "description":"Live Helper Chat API"
       }
    ],
    "schemes":[
-      "http"
+      "https"
    ],
    "paths":{
       "/restapi/login":{
@@ -109,6 +109,55 @@ header('Content-Type: application/json');
             }
          }         
       },
+      "/restapi/addmsguser":{
+         "post":{
+            "tags":[
+               "api"
+            ],
+            "summary":"Add message to chat as a user",
+            "description":"",
+            "produces":[
+               "application/json"
+            ],
+            "parameters":[
+               {
+                    "name":"msg",
+					"in":"formData",
+					"description":"Message",
+					"required":true,
+					"type":"string"
+               },
+               {
+                    "name": "chat_id",
+                    "in": "formData",
+                    "description": "Chat ID",
+                    "required": true,
+                    "type": "string"
+               },
+               {
+                    "name": "hash",
+                    "in": "formData",
+                    "description": "Hash",
+                    "required": true,
+                    "type": "string"
+               }
+            ],
+            "responses": {
+                "200": {
+                    "description": "Message added",
+                    "schema": {
+
+                    }
+                },
+                "400": {
+                    "description": "Error",
+                    "schema": {
+
+                    }
+                }
+            }
+         }
+      },
       "/restapi/logout":{
          "post":{
             "tags":[
@@ -159,7 +208,7 @@ header('Content-Type: application/json');
                {
                     "name":"chat_id",
 					"in":"query",
-					"description":"Redirect url",
+					"description":"Chat ID",
 					"required":false,
 					"type":"string",
 					"format":"int32"
@@ -193,6 +242,411 @@ header('Content-Type: application/json');
                 }
             ]
          }         
+      },
+      "/restapi/fetchchatmessages":{
+         "get":{
+            "tags":[
+               "api"
+            ],
+            "summary":"Fetch chat messages",
+            "description":"",
+            "produces":[
+               "application/json"
+            ],
+            "parameters":[
+               {
+                    "name":"chat_id",
+					"in":"query",
+					"description":"Chat ID",
+					"required":false,
+					"type":"string",
+					"format":"int32"
+               },
+               {
+                    "name":"workflow",
+					"in":"query",
+					"description":"Should workflow be executed. Like auto responder. Usefull if you are building visitors custom interface.",
+					"required":false,
+					"type":"string",
+					"format":"int32"
+               },
+               {
+                    "name":"last_message_id",
+					"in":"query",
+					"description":"Last message ID from which should be returned next messages.",
+					"required":false,
+					"type":"string",
+					"format":"int32"
+               },
+               {
+                    "name":"ignore_system_messages",
+					"in":"query",
+					"description":"Should system messages be ignored or not.",
+					"required":false,
+					"type":"string",
+					"format":"int32"
+               }
+            ],
+            "responses": {
+                "200": {
+                    "description": "Fetch chat messages",
+                    "schema": {
+
+                    }
+                },
+                "400": {
+                    "description": "Error",
+                    "schema": {
+
+                    }
+                }
+            },
+            "security": [
+                {
+                    "login": []
+                }
+            ]
+         }
+      },
+      "/restapi/getuser":{
+         "post":{
+            "tags":[
+               "api"
+            ],
+            "summary":"Fetches user and verifies provided password",
+            "description":"If user_id is provided. Systems tries to find provided user. If not system tries to find user by email or username. If password is provided it verifies provided password.",
+            "produces":[
+               "application/json"
+            ],
+            "parameters":[
+               {
+                    "name":"user_id",
+					"in":"query",
+					"description":"User ID",
+					"required":false,
+					"type":"string",
+					"format":"int32"
+               },
+               {
+                    "name":"username",
+					"in":"query",
+					"description":"Username",
+					"required":false,
+					"type":"string",
+					"format":"int32"
+               },
+               {
+                    "name":"email",
+					"in":"query",
+					"description":"E-mail",
+					"required":false,
+					"type":"string",
+					"format":"int32"
+               },
+               {
+                    "name":"password",
+					"in":"query",
+					"description":"Password",
+					"required":false,
+					"type":"string",
+					"format":"int32"
+               }
+            ],
+            "responses": {
+                "200": {
+                    "description": "Fetch chat messages",
+                    "schema": {
+
+                    }
+                },
+                "400": {
+                    "description": "Error",
+                    "schema": {
+
+                    }
+                }
+            },
+            "security": [
+                {
+                    "login": []
+                }
+            ]
+         }
+      },
+      "/restapi/getusers":{
+         "get":{
+            "tags":[
+               "api"
+            ],
+            "summary":"Fetches users",
+            "description":"Returns list of all system users.",
+            "produces":[
+               "application/json"
+            ],
+            "parameters":[
+            ],
+            "responses": {
+                "200": {
+                    "description": "",
+                    "schema": {
+
+                    }
+                },
+                "400": {
+                    "description": "Error",
+                    "schema": {
+
+                    }
+                }
+            },
+            "security": [
+                {
+                    "login": []
+                }
+            ]
+         }
+      },
+      "/restapi/isonline":{
+         "get":{
+            "tags":[
+               "api"
+            ],
+            "summary":"Check is someone online",
+            "description":"Returns global status is anyone online",
+            "produces":[
+               "application/json"
+            ],
+            "parameters":[
+            ],
+            "responses": {
+                "200": {
+                    "description": "",
+                    "schema": {
+
+                    }
+                },
+                "400": {
+                    "description": "Error",
+                    "schema": {
+
+                    }
+                }
+            },
+            "security": [
+                {
+                    "login": []
+                }
+            ]
+         }
+      },
+      "/restapi/isonlinedepartment/{department_id}":{
+         "get":{
+            "tags":[
+               "api"
+            ],
+            "summary":"Check is department online",
+            "description":"Returns status for particular department",
+            "produces":[
+               "application/json"
+            ],
+            "parameters":[
+                {
+                    "name":"department_id",
+                    "in":"path",
+                    "description":"Department ID",
+                    "required":false,
+                    "type":"string",
+                    "format":"int32"
+                }
+            ],
+            "responses": {
+                "200": {
+                    "description": "",
+                    "schema": {
+
+                    }
+                },
+                "400": {
+                    "description": "Error",
+                    "schema": {
+
+                    }
+                }
+            },
+            "security": [
+                {
+                    "login": []
+                }
+            ]
+         }
+      },
+      "/restapi/isonlineuser/{user_id}":{
+         "get":{
+            "tags":[
+               "api"
+            ],
+            "summary":"Check is user online",
+            "description":"Returns status for particular user",
+            "produces":[
+               "application/json"
+            ],
+            "parameters":[
+                {
+                    "name":"user_id",
+                    "in":"path",
+                    "description":"User ID",
+                    "required":false,
+                    "type":"string",
+                    "format":"int32"
+                }
+            ],
+            "responses": {
+                "200": {
+                    "description": "",
+                    "schema": {
+
+                    }
+                },
+                "400": {
+                    "description": "Error",
+                    "schema": {
+
+                    }
+                }
+            },
+            "security": [
+                {
+                    "login": []
+                }
+            ]
+         }
+      },
+      "/restapi/updatechatattributes":{
+         "post":{
+            "tags":[
+               "api"
+            ],
+            "summary":"Updates chat attributes",
+            "description":"Updates chat attributes.",
+            "produces":[
+               "application/json"
+            ],
+            "parameters":[
+                {
+                    "name":"chat_id",
+                    "in":"formData",
+                    "description":"Chat ID",
+                    "required":true,
+                    "type":"string"
+                },
+                {
+                    "name": "hash",
+                    "in": "formData",
+                    "description": "Hash",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "data",
+                    "in": "formData",
+                    "description": "Data as encoded JSON format.",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "responses": {
+                "200": {
+                    "description": "",
+                    "schema": {
+
+                    }
+                },
+                "400": {
+                    "description": "Error",
+                    "schema": {
+
+                    }
+                }
+            },
+            "security": [
+                {
+                    "login": []
+                }
+            ]
+         }
+      },
+      "/restapi/chats":{
+         "get":{
+            "tags":[
+               "api"
+            ],
+            "summary":"Fetch chats list",
+            "description":"",
+            "produces":[
+               "application/json"
+            ],
+            "parameters":[
+               {
+                    "name":"departament_id",
+					"in":"query",
+					"description":"Department ID",
+					"required":false,
+					"type":"string",
+					"format":"int32"
+               },
+               {
+                    "name":"user_id",
+					"in":"query",
+					"description":"User ID",
+					"required":false,
+					"type":"string",
+					"format":"int32"
+               },
+               {
+                    "name":"status",
+					"in":"query",
+					"description":"Status",
+					"required":false,
+					"type":"string",
+					"format":"int32"
+               },
+                {
+                    "name":"limit",
+					"in":"query",
+					"description":"Limit",
+					"required":false,
+					"type":"string",
+					"format":"int32"
+               },
+               {
+                    "name":"offset",
+					"in":"query",
+					"description":"Offset",
+					"required":false,
+					"type":"string",
+					"format":"int32"
+               }
+            ],
+            "responses": {
+                "200": {
+                    "description": "Fetch chat list",
+                    "schema": {
+
+                    }
+                },
+                "400": {
+                    "description": "Error",
+                    "schema": {
+
+                    }
+                }
+            },
+            "security": [
+                {
+                    "login": []
+                }
+            ]
+         }
       },
       "/restapi/loginbytoken":{
          "get":{

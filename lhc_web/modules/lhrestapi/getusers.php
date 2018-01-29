@@ -1,10 +1,6 @@
 <?php
 
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept');
-header('Content-Type: application/json');
-
-try 
+try
 {
     erLhcoreClassRestAPIHandler::validateRequest();
     
@@ -16,7 +12,7 @@ try
         unset($user->password);
         
         $userlist[$index] = $user;
-    } // end of foreach($userlist as $index => $user)
+    }
     
     erLhcoreClassRestAPIHandler::outputResponse(array
             (

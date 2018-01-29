@@ -1,7 +1,6 @@
 <?php
-header('content-type: application/json; charset=utf-8');
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept');
+
+erLhcoreClassRestAPIHandler::setHeaders();
 
 erLhcoreClassRestAPIHandler::outputResponse(array(
     'isonline' => erLhcoreClassChat::isOnlineUser((int) $Params['user_parameters']['user_id'], array(

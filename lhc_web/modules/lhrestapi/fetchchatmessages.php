@@ -1,15 +1,18 @@
 <?php
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept');
-header('Content-Type: application/json');
 
 try {
     erLhcoreClassRestAPIHandler::validateRequest();
     
     $chat = erLhcoreClassModelChat::fetch((int)$_GET['chat_id']);
-    
+
+    if (!($chat instanceof erLhcoreClassModelChat)) {
+        throw new Exception('Chat could not be found!');
+    }
+
     if (erLhcoreClassRestAPIHandler::hasAccessToRead($chat) == true) {
-        
+
+        $saveChat = false;
+
         if (isset($_GET['workflow']) && $_GET['workflow'] == true) {
             // Auto responder
             if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && $chat->wait_timeout_send <= 0 && $chat->wait_timeout > 0 && !empty($chat->timeout_message) && (time() - $chat->time) > ($chat->wait_timeout*($chat->wait_timeout_repeat-(abs($chat->wait_timeout_send))))) {

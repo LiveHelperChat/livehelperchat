@@ -1,18 +1,14 @@
 <?php
 
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept');
-header('Content-Type: application/json');
-
-try 
+try
 {
     erLhcoreClassRestAPIHandler::validateRequest();
     
     // init data
-    $user_id        = isset($_GET['user_id'])? intval($_GET['user_id']) : 0;
-    $username    = isset($_GET['username'])? trim($_GET['username']) : '';
-    $email          = isset($_GET['email'])? trim($_GET['email']) : '';
-    $password    = isset($_GET['password'])? trim($_GET['password']): '';
+    $user_id        = isset($_GET['user_id'])? intval($_GET['user_id']) : (isset($_POST['user_id']) ? intval($_POST['user_id']) : 0);
+    $username    = isset($_GET['username'])? trim($_GET['username']) : (isset($_POST['username']) ? trim($_POST['username']) : '');
+    $email          = isset($_GET['email'])? trim($_GET['email']) : (isset($_POST['email']) ? trim($_POST['email']) : '');
+    $password    = isset($_GET['password'])? trim($_GET['password']): (isset($_POST['password']) ? trim($_POST['password']) : '');
     
     // init param, check what is supplied
     $param          = ($username != '')? array('username' => $username) : array('email' => '00'); // dummy email value to ensure 0 res

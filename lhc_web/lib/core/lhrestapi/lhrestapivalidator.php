@@ -30,10 +30,44 @@ class erLhcoreClassRestAPIHandler
         }
     }
 
+    public static function getRequestMethod()
+    {
+        if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] != '') {
+            return $_SERVER['REQUEST_METHOD'];
+        }
+
+        return false;
+    }
+
+    public static function setHeaders()
+    {
+        header('Access-Control-Allow-Origin: *');
+        header('Access-Control-Allow-Credentials', "true");
+        header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, API-Key, Authorization');
+        header('Content-Type: application/json');
+        self::setOptionHeaders();
+    }
+
+    public static function setOptionHeaders(){
+        if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+
+            if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD']))
+                // may also be using PUT, PATCH, HEAD etc
+                header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+
+            if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']))
+                header("Access-Control-Allow-Headers: {$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}");
+
+            exit(0);
+        }
+    }
+
     public static function validateRequest()
     {
+        self::setHeaders();
+
         $headers = self::getHeaders();
-        
+
         if (isset($headers['Authorization'])) {
             
             $dataAuthorisation = explode(' ', $headers['Authorization']);
