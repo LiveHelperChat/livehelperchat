@@ -82,3 +82,44 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
 {
 	font-size: 12px;
 }
+
+
+@media screen and (min-width: 320px) and (max-width: 640px) {
+	#widget-layout textarea {
+		height: 30px;
+	}
+
+	textarea[name=ChatMessage]{
+		min-height:30px;
+	}
+
+	html,body,#widget-layout,#widget-layout > .col-xs-12{
+		height:100%;
+	}
+
+	#messages{
+		height:calc(100% - 130px);
+	}
+
+	#messagesBlockWrap,#messagesBlock{
+		height:100%!important;
+	}
+
+	.msgBlock{
+		border:0;
+	}
+
+	#messagesBlockWrap{
+		border: 1px solid #CCCCCC;
+		position:relative;
+	}
+
+	#messagesBlock{
+		height:auto!important;
+		position:absolute;
+		bottom:0px;
+		right:0px;
+		left:0px;
+		max-height:100%;
+	}
+}

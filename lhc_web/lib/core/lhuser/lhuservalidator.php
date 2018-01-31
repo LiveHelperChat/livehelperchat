@@ -302,7 +302,7 @@ class erLhcoreClassUserValidator {
 		$Errors = false;
 		
 		if ( isset($_FILES["UserPhoto"]) && is_uploaded_file($_FILES["UserPhoto"]["tmp_name"]) && $_FILES["UserPhoto"]["error"] == 0 && erLhcoreClassImageConverter::isPhoto('UserPhoto') ) {
-			
+
 			$Errors = array();
 			
 			$dir = 'var/userphoto/' . date('Y') . 'y/' . date('m') . '/' . date('d') .'/' . $userData->id . '/';
@@ -529,9 +529,6 @@ class erLhcoreClassUserValidator {
 			'UserTimeZone' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
 			),
-            'HideMyStatus' => new ezcInputFormDefinitionElement(
-                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
-            ),
 			'UserInvisible' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 			),
@@ -609,13 +606,7 @@ class erLhcoreClassUserValidator {
 			CSCacheAPC::getMem()->setSession('lhc_user_timezone', '', true);
 			$userData->time_zone = '';
 		}
-
-        if ( $form->hasValidData( 'HideMyStatus' ) && $form->HideMyStatus == true )	{
-            $userData->hide_online = 1;
-        } else {
-            $userData->hide_online = 0;
-        }
-
+		
 		if ( erLhcoreClassUser::instance()->hasAccessTo('lhuser','changevisibility') ) {
 			if ( $form->hasValidData( 'UserInvisible' ) && $form->UserInvisible == true ) {
 				$userData->invisible_mode = 1;
