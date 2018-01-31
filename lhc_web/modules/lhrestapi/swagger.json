@@ -482,7 +482,7 @@
     "/restapi/isonlineuser/{user_id}": {
       "get": {
         "tags": [
-          "api"
+          "online"
         ],
         "summary": "Check is user online",
         "description": "Returns status for particular user",
@@ -495,6 +495,92 @@
             "in": "path",
             "description": "User ID",
             "required": false,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/updatelastactivity/{user_id}": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Updates last operator activity. So chat considers operator as online",
+        "description": "Updates last operator activity. So chat considers operator as online",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "description": "User ID",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/setonlinestatus/{user_id}/{online}": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Changes operator status to offline or online",
+        "description": "Updates operator status to online or offline",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "description": "User ID",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "online",
+            "in": "path",
+            "description": "1 - online, 0 - offline",
+            "required": true,
             "type": "string",
             "format": "int32"
           }

@@ -13,6 +13,10 @@ $ViewList['chats'] = array(
     'params' => array()
 );
 
+$ViewList['updatelastactivity'] = array(
+    'params' => array('user_id')
+);
+
 $ViewList['fetchchat'] = array(
     'params' => array()
 );
@@ -39,6 +43,10 @@ $ViewList['setoperatorstatus'] = array(
 
 $ViewList['setinvisibilitystatus'] = array(
     'params' => array()
+);
+
+$ViewList['setonlinestatus'] = array(
+    'params' => array('user_id','online')
 );
 
 $ViewList['isonline'] = array(
