@@ -3083,7 +3083,7 @@
             },
             {
                 "field": "nick",
-                "type": "varchar(50)",
+                "type": "varchar(100)",
                 "null": "NO",
                 "key": "",
                 "default": null,

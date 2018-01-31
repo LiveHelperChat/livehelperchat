@@ -35,7 +35,7 @@ class erLhcoreClassChatValidator {
 			$chat->email = $form->Email;
 		}
 		
-		if ($form->hasValidData( 'UserNick' ) && $form->UserNick != '' && strlen($form->UserNick) > 50)
+		if ($form->hasValidData( 'UserNick' ) && $form->UserNick != '' && mb_strlen($form->UserNick) > 100)
 		{
 			$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum 50 characters');
 		}
@@ -235,9 +235,9 @@ class erLhcoreClassChatValidator {
                 $chat->nick = $inputForm->username = $form->Username;
             }
 
-            if ($form->hasValidData( 'Username' ) && $form->Username != '' && strlen($form->Username) > 50)
+            if ($form->hasValidData( 'Username' ) && $form->Username != '' && mb_strlen($form->Username) > 100)
             {
-                $Errors['nick'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum 50 characters');
+                $Errors['nick'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum 100 characters');
             }
         }
 
@@ -260,7 +260,7 @@ class erLhcoreClassChatValidator {
                 $inputForm->question = trim($form->Question);
             }
 
-            if ($form->hasValidData( 'Question' ) && trim($form->Question) != '' && strlen($form->Question) > (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value)
+            if ($form->hasValidData( 'Question' ) && trim($form->Question) != '' && mb_strlen($form->Question) > (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value)
             {
                 $Errors['question'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum').' '.(int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','characters for a message');
             }
@@ -284,7 +284,7 @@ class erLhcoreClassChatValidator {
                 $chat->phone = $inputForm->phone = $form->Phone;
             }
 
-            if ($form->hasValidData( 'Phone' ) && $form->Phone != '' && strlen($form->Phone) > 100)
+            if ($form->hasValidData( 'Phone' ) && $form->Phone != '' && mb_strlen($form->Phone) > 100)
             {
                 $Errors['phone'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum 100 characters for phone');
             }
@@ -909,7 +909,7 @@ class erLhcoreClassChatValidator {
             $chat->email = $form->Email;
         }
     
-        if ($form->hasValidData( 'UserNick' ) && $form->UserNick != '' && strlen($form->UserNick) > 50)
+        if ($form->hasValidData( 'UserNick' ) && $form->UserNick != '' && mb_strlen($form->UserNick) > 100)
         {
             $Errors['nick'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum 50 characters');
         }

@@ -258,7 +258,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chat` (
 				  `id` int(11) NOT NULL AUTO_INCREMENT,
-				  `nick` varchar(50) NOT NULL,
+				  `nick` varchar(100) NOT NULL,
 				  `status` int(11) NOT NULL DEFAULT '0',
 				  `status_sub` int(11) NOT NULL DEFAULT '0',
 				  `status_sub_sub` int(11) NOT NULL DEFAULT '0',
