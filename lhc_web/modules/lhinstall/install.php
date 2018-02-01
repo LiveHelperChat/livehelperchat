@@ -515,7 +515,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  KEY `has_url` (`has_url`),
 				  KEY `identifier` (`identifier`),
 				  KEY `is_wildcard` (`is_wildcard`)
-				) DEFAULT CHARSET=utf8;");
+				) DEFAULT CHARSET=utf8mb4;");
 
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_cobrowse` (
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -629,7 +629,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	       `chat_id` int(11) NOT NULL, 
         	        PRIMARY KEY (`id`),  
         	       KEY `hash` (`hash`),  
-        	       KEY `chat_id` (`chat_id`)) DEFAULT CHARSET=utf8");
+        	       KEY `chat_id` (`chat_id`)) DEFAULT CHARSET=utf8mb4");
 
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_abstract_survey_item` (
         	      `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -898,7 +898,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	       `priority` int(11) NOT NULL, 
         	       `departament_id` int(11) NOT NULL, 
         	       KEY `departament_id` (`departament_id`), 
-        	       PRIMARY KEY (`id`)) DEFAULT CHARSET=utf8;");
+        	       PRIMARY KEY (`id`)) DEFAULT CHARSET=utf8mb4;");
 
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_abstract_browse_offer_invitation` (
 				  `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -950,7 +950,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `content` longtext NOT NULL,
 				  PRIMARY KEY (`id`),
 				  KEY `form_id` (`form_id`)
-				) DEFAULT CHARSET=utf8;");
+				) DEFAULT CHARSET=utf8mb4;");
         	   
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chatbox` (
 				  `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1407,8 +1407,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   PRIMARY KEY (`id`)
                 ) DEFAULT CHARSET=utf8mb4;");
 
-        	   $db->query("CREATE TABLE `lh_canned_msg_tag_link` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `tag_id` int(11) NOT NULL,  `canned_id` int(11) NOT NULL,  PRIMARY KEY (`id`), KEY `canned_id` (`canned_id`), KEY `tag_id` (`tag_id`)) DEFAULT CHARSET=utf8;");
-        	   $db->query("CREATE TABLE `lh_canned_msg_tag` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `tag` varchar(40) NOT NULL, PRIMARY KEY (`id`), KEY `tag` (`tag`)) DEFAULT CHARSET=utf8;");
+        	   $db->query("CREATE TABLE `lh_canned_msg_tag_link` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `tag_id` int(11) NOT NULL,  `canned_id` int(11) NOT NULL,  PRIMARY KEY (`id`), KEY `canned_id` (`canned_id`), KEY `tag_id` (`tag_id`)) DEFAULT CHARSET=utf8mb4;");
+        	   $db->query("CREATE TABLE `lh_canned_msg_tag` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `tag` varchar(40) NOT NULL, PRIMARY KEY (`id`), KEY `tag` (`tag`)) DEFAULT CHARSET=utf8mb4;");
 
         	   $Departament = new erLhcoreClassModelDepartament();
                $Departament->name = $form->DefaultDepartament;
@@ -1563,7 +1563,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 // Insert record to departament instantly
                 $db->query("INSERT INTO `lh_userdep` (`user_id`,`dep_id`,`last_activity`,`hide_online`,`last_accepted`,`active_chats`,`type`,`dep_group_id`,`exclude_autoasign`) VALUES ({$UserData->id},0,0,0,0,0,0,0,0)");
 
-                $db->query("CREATE TABLE `lh_group_work` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `group_id` int(11) NOT NULL, `group_work_id` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `group_id` (`group_id`)) DEFAULT CHARSET=utf8;");
+                $db->query("CREATE TABLE `lh_group_work` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `group_id` int(11) NOT NULL, `group_work_id` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `group_id` (`group_id`)) DEFAULT CHARSET=utf8mb4;");
 
                 // Transfer chat
                 $db->query("CREATE TABLE IF NOT EXISTS `lh_transfer` (
