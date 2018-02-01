@@ -11,24 +11,24 @@ CREATE TABLE `lh_abstract_auto_responder_chat` (
                   KEY `chat_id` (`chat_id`)
                 ) DEFAULT CHARSET=utf8;
 
-ALTER TABLE `lh_abstract_auto_responder` ADD `wait_timeout_2` text NOT NULL, COMMENT='';
-ALTER TABLE `lh_abstract_auto_responder` ADD `timeout_message_2` int(11) NOT NULL, COMMENT='';
-ALTER TABLE `lh_abstract_auto_responder` ADD `wait_timeout_3` text NOT NULL, COMMENT='';
-ALTER TABLE `lh_abstract_auto_responder` ADD `timeout_message_3` int(11) NOT NULL, COMMENT='';
-ALTER TABLE `lh_abstract_auto_responder` ADD `wait_timeout_4` text NOT NULL, COMMENT='';
-ALTER TABLE `lh_abstract_auto_responder` ADD `timeout_message_4` int(11) NOT NULL, COMMENT='';
-ALTER TABLE `lh_abstract_auto_responder` ADD `wait_timeout_5` text NOT NULL, COMMENT='';
-ALTER TABLE `lh_abstract_auto_responder` ADD `timeout_message_5` int(11) NOT NULL, COMMENT='';
-ALTER TABLE `lh_abstract_auto_responder` ADD `wait_timeout_reply_1` text NOT NULL, COMMENT='';
-ALTER TABLE `lh_abstract_auto_responder` ADD `timeout_reply_message_1` int(11) NOT NULL, COMMENT='';
-ALTER TABLE `lh_abstract_auto_responder` ADD `wait_timeout_reply_2` text NOT NULL, COMMENT='';
-ALTER TABLE `lh_abstract_auto_responder` ADD `timeout_reply_message_2` int(11) NOT NULL, COMMENT='';
-ALTER TABLE `lh_abstract_auto_responder` ADD `wait_timeout_reply_3` text NOT NULL, COMMENT='';
-ALTER TABLE `lh_abstract_auto_responder` ADD `timeout_reply_message_3` int(11) NOT NULL, COMMENT='';
-ALTER TABLE `lh_abstract_auto_responder` ADD `wait_timeout_reply_4` text NOT NULL, COMMENT='';
-ALTER TABLE `lh_abstract_auto_responder` ADD `timeout_reply_message_4` int(11) NOT NULL, COMMENT='';
-ALTER TABLE `lh_abstract_auto_responder` ADD `wait_timeout_reply_5` text NOT NULL, COMMENT='';
-ALTER TABLE `lh_abstract_auto_responder` ADD `timeout_reply_message_5` int(11) NOT NULL, COMMENT='';
+ALTER TABLE `lh_abstract_auto_responder` ADD `wait_timeout_2` int(11) NOT NULL, COMMENT='';
+ALTER TABLE `lh_abstract_auto_responder` ADD `timeout_message_2` text NOT NULL, COMMENT='';
+ALTER TABLE `lh_abstract_auto_responder` ADD `wait_timeout_3` int(11) NOT NULL, COMMENT='';
+ALTER TABLE `lh_abstract_auto_responder` ADD `timeout_message_3` text NOT NULL, COMMENT='';
+ALTER TABLE `lh_abstract_auto_responder` ADD `wait_timeout_4` int(11) NOT NULL, COMMENT='';
+ALTER TABLE `lh_abstract_auto_responder` ADD `timeout_message_4` text NOT NULL, COMMENT='';
+ALTER TABLE `lh_abstract_auto_responder` ADD `wait_timeout_5` int(11) NOT NULL, COMMENT='';
+ALTER TABLE `lh_abstract_auto_responder` ADD `timeout_message_5` text NOT NULL, COMMENT='';
+ALTER TABLE `lh_abstract_auto_responder` ADD `wait_timeout_reply_1` int(11) NOT NULL, COMMENT='';
+ALTER TABLE `lh_abstract_auto_responder` ADD `timeout_reply_message_1` text NOT NULL, COMMENT='';
+ALTER TABLE `lh_abstract_auto_responder` ADD `wait_timeout_reply_2` int(11) NOT NULL, COMMENT='';
+ALTER TABLE `lh_abstract_auto_responder` ADD `timeout_reply_message_2` text NOT NULL, COMMENT='';
+ALTER TABLE `lh_abstract_auto_responder` ADD `wait_timeout_reply_3` int(11) NOT NULL, COMMENT='';
+ALTER TABLE `lh_abstract_auto_responder` ADD `timeout_reply_message_3` text NOT NULL, COMMENT='';
+ALTER TABLE `lh_abstract_auto_responder` ADD `wait_timeout_reply_4` int(11) NOT NULL, COMMENT='';
+ALTER TABLE `lh_abstract_auto_responder` ADD `timeout_reply_message_4` text NOT NULL, COMMENT='';
+ALTER TABLE `lh_abstract_auto_responder` ADD `wait_timeout_reply_5` int(11) NOT NULL, COMMENT='';
+ALTER TABLE `lh_abstract_auto_responder` ADD `timeout_reply_message_5` text NOT NULL, COMMENT='';
 ALTER TABLE `lh_abstract_auto_responder` ADD `ignore_pa_chat` int(11) NOT NULL, COMMENT='';
 
 ALTER TABLE `lh_chat` DROP `wait_timeout`,COMMENT='';
