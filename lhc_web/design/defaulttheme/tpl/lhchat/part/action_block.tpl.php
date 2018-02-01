@@ -1,4 +1,4 @@
-
+<?php if ($canEditChat == true) :  ?>
 	<div class="form-group" id="action-block-row-<?php echo $chat->id?>">
 		<div class="send-row<?php if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?> hide<?php endif;?>">
 		
@@ -21,3 +21,4 @@
 	</div>
 	
 	<?php include(erLhcoreClassDesign::designtpl('lhchat/part/canned_messages_action.tpl.php')); ?>
+<?php endif; ?>

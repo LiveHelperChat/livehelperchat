@@ -196,6 +196,11 @@ class erLhcoreClassModelChat {
        		   return $this->is_operator_typing;
        		break;
 
+       	case 'can_edit_chat':
+       		   $this->can_edit_chat = erLhcoreClassChat::hasAccessToWrite($this); // typing is considered if status did not changed for 30 seconds
+       		   return $this->can_edit_chat;
+       		break;
+
        	case 'is_user_typing':
        		   $this->is_user_typing = $this->user_typing > (time()-10); // typing is considered if status did not changed for 30 seconds
        		   return $this->is_user_typing;

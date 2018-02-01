@@ -1051,7 +1051,13 @@ class erLhcoreClassChat {
 	   	$stmt->execute();  
 	   	return $stmt->fetchColumn();
    }
-   
+
+   public static function hasAccessToWrite($chat)
+   {
+        $dep = erLhcoreClassUserDep::getUserReadDepartments();
+        return !in_array($chat->dep_id, $dep);
+   }
+
    public static function hasAccessToRead($chat)
    {
        $currentUser = erLhcoreClassUser::instance();

@@ -349,8 +349,8 @@ class erLhcoreClassChatWorkflow {
                             $appendSQL .= ' AND lh_userdep.user_id IN (' . implode(', ',$params['user_ids']) . ')';
                         }
 
-        	    	    $sql = "SELECT user_id FROM lh_userdep WHERE last_accepted < :last_accepted AND hide_online = 0 AND dep_id = :dep_id AND last_activity > :last_activity AND user_id != :user_id {$appendSQL} ORDER BY last_accepted ASC LIMIT 1";
-        
+        	    	    $sql = "SELECT user_id FROM lh_userdep WHERE last_accepted < :last_accepted AND ro = 0 AND hide_online = 0 AND dep_id = :dep_id AND last_activity > :last_activity AND user_id != :user_id {$appendSQL} ORDER BY last_accepted ASC LIMIT 1";
+
         	    	    $db = ezcDbInstance::get();
         	    	    $stmt = $db->prepare($sql);
         	    	    $stmt->bindValue(':dep_id',$department->id,PDO::PARAM_INT);

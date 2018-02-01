@@ -10,7 +10,7 @@ if (!$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'
 	exit;
 }
 
-if ($currentUser->hasAccessTo('lhchat','deleteglobalchat') || ($currentUser->hasAccessTo('lhchat','deletechat') && $chat->user_id == $currentUser->getUserID()))
+if ( ($chat->can_edit_chat && ($currentUser->hasAccessTo('lhchat','deleteglobalchat') || ($currentUser->hasAccessTo('lhchat','deletechat') && $chat->user_id == $currentUser->getUserID()))))
 {
 	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.delete',array('chat' => & $chat,'user' => $currentUser));
 	$chat->removeThis();	

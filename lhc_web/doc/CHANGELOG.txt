@@ -1,3 +1,9 @@
+2.86v
+
+1. Option to allow read only chats. In user account editing window you can choose what type of assignment it should be. Read only or write also.
+
+execute doc/update_db/update_161.sql for update
+
 2.85v
 
 1. Database charset changed to utf8mb4 to support emoji

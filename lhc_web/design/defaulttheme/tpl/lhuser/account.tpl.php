@@ -131,6 +131,7 @@
 	<div role="tabpanel" class="tab-pane <?php if ($tab == 'tab_departments') : ?>active<?php endif;?>" id="departments" >
     	<?php 
     	   $userDepartaments = erLhcoreClassUserDep::getUserDepartamentsIndividual();
+    	   $userDepartamentsRead = erLhcoreClassUserDep::getUserDepartamentsIndividual(false, true);
     	   $userDepartamentsGroup = erLhcoreClassModelDepartamentGroupUser::getUserGroupsIds($user->id);
     	?>
     	<?php if ($editdepartaments === true) { ?>

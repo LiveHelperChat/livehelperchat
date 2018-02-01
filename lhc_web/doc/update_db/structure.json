@@ -5871,6 +5871,14 @@
                 "extra": ""
             },
             {
+                "field": "ro",
+                "type": "tinyint(1)",
+                "null": "NO",
+                "key": "MUL",
+                "default": "0",
+                "extra": ""
+            },
+            {
                 "field": "last_activity",
                 "type": "int(11)",
                 "null": "NO",

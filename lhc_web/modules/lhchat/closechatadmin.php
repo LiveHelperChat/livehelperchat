@@ -20,7 +20,7 @@ try {
     erLhcoreClassChat::lockDepartment($chat->dep_id, $db);
 
     // Chat can be closed only by owner
-    if ($chat->user_id == $currentUser->getUserID() || $currentUser->hasAccessTo('lhchat','allowcloseremote'))
+    if ($chat->user_id == $currentUser->getUserID() || ($currentUser->hasAccessTo('lhchat','allowcloseremote') && erLhcoreClassChat::hasAccessToWrite($chat)))
     {
         if ($chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
 

@@ -11,8 +11,7 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
 {
 	$userData = $currentUser->getUserData();
 
-	if ($userData->invisible_mode == 0) {	
-		  
+	if ($userData->invisible_mode == 0 && erLhcoreClassChat::hasAccessToWrite($chat)) {
 	    try {
 
 	        $db->beginTransaction();
@@ -108,6 +107,7 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
     	    $db->commit();
     	    
     	    $tpl->set('chat',$chat);
+            $tpl->set('canEditChat',true);
 
     	    echo $tpl->fetch();
     	        	    
@@ -116,6 +116,7 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
 	        echo $e->getMessage();
 	    }
 	} else {
+	    $tpl->set('canEditChat',erLhcoreClassChat::hasAccessToWrite($chat));
 	    $tpl->set('chat',$chat);
 	    echo $tpl->fetch();
 	}

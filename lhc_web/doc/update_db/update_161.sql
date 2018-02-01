@@ -1,0 +1,1 @@
+ALTER TABLE `lh_userdep` ADD `ro` tinyint(1) NOT NULL DEFAULT '0', COMMENT='';

@@ -151,7 +151,8 @@
 		<?php endif; ?>
 		
 		<?php 
-		  $userDepartaments = erLhcoreClassUserDep::getUserDepartamentsIndividual($user->id); 
+		  $userDepartaments = erLhcoreClassUserDep::getUserDepartamentsIndividual($user->id);
+		  $userDepartamentsRead = erLhcoreClassUserDep::getUserDepartamentsIndividual($user->id, true);
 		  $userDepartamentsGroup = erLhcoreClassModelDepartamentGroupUser::getUserGroupsIds($user->id);
 		?>
 		

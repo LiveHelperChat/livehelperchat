@@ -1552,6 +1552,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `inactive_chats` int(11) NOT NULL DEFAULT '0',
                   `max_chats` int(11) NOT NULL DEFAULT '0',
                   `type` int(11) NOT NULL DEFAULT '0',
+                  `ro` tinyint(1) NOT NULL DEFAULT '0',
                   `hide_online_ts` int(11) NOT NULL DEFAULT '0',
                   `dep_group_id` int(11) NOT NULL DEFAULT '0',
                   PRIMARY KEY (`id`),

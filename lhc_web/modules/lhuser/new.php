@@ -6,7 +6,7 @@ $UserData = new erLhcoreClassModelUser();
 
 $UserDepartaments = isset($_POST['UserDepartament']) ? $_POST['UserDepartament'] : array();
 $userDepartamentsGroup = isset($_POST['UserDepartamentGroup']) ? $_POST['UserDepartamentGroup'] : array();
-
+$userDepartamentsRead = isset($_POST['UserDepartamentRead']) ? $_POST['UserDepartamentRead'] : array();
 
 $tpl->set('tab',$Params['user_parameters_unordered']['tab'] == 'canned' ? 'tab_canned' : '');
 
@@ -35,7 +35,7 @@ if (isset($_POST['Update_account']))
             erLhcoreClassUser::getSession()->save($UserData);
     
             if (count($userParams['global_departament']) > 0) {
-               erLhcoreClassUserDep::addUserDepartaments($userParams['global_departament'], $UserData->id, $UserData);
+               erLhcoreClassUserDep::addUserDepartaments($userParams['global_departament'], $UserData->id, $UserData, $userDepartamentsRead);
             }
             
             $UserData->setUserGroups();
@@ -76,6 +76,7 @@ if (isset($_POST['Update_account']))
 $tpl->set('user',$UserData);
 $tpl->set('userDepartaments',$UserDepartaments);
 $tpl->set('userDepartamentsGroup',$userDepartamentsGroup);
+$tpl->set('userDepartamentsRead',$userDepartamentsRead);
 $tpl->set('show_all_pending',$userParams['show_all_pending']);
 
 $userGroupFilter = $groups_can_edit === true ? array() : array('filterin' => array('id' => $groups_can_edit));

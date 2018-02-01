@@ -10,7 +10,7 @@
         
         <div class="mx170">
         	<?php foreach (erLhcoreClassDepartament::getDepartaments() as $departament) : ?>
-        	    <label><input type="checkbox" name="UserDepartament[]" value="<?php echo $departament['id']?>" <?php echo in_array($departament['id'],$userDepartaments) ? 'checked="checked"' : '';?> /><?php echo htmlspecialchars($departament['name'])?></label><br>
+                <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Read only')?>"><input type="checkbox" name="UserDepartamentRead[]" value="<?php echo $departament['id']?>" <?php echo in_array($departament['id'],$userDepartamentsRead) ? 'checked="checked"' : '';?> /><i class="material-icons">&#xE8F4;</i></label><label><input type="checkbox" name="UserDepartament[]" value="<?php echo $departament['id']?>" <?php echo in_array($departament['id'],$userDepartaments) ? 'checked="checked"' : '';?> /><?php echo htmlspecialchars($departament['name'])?></label><br>
         	<?php endforeach; ?>
     	</div>
     </div>
@@ -26,5 +26,5 @@
         <?php endforeach; ?>
     </div>
     <?php endif;?>
-    
+
 </div>

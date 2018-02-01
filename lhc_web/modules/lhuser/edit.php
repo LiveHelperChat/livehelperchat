@@ -99,13 +99,18 @@ if (isset($_POST['UpdateDepartaments_account'])) {
 	}
 	
 	$globalDepartament = erLhcoreClassUserValidator::validateDepartments($UserData, array('all_departments_0_global_value' => -1));
-			
+
+    $readOnlyDepartments = array();
+    if (isset($_POST['UserDepartamentRead']) && count($_POST['UserDepartamentRead']) > 0) {
+        $readOnlyDepartments = $_POST['UserDepartamentRead'];
+    }
+
 	erLhcoreClassUser::getSession()->update($UserData);
    
 	if (count($globalDepartament) > 0) {
-		erLhcoreClassUserDep::addUserDepartaments($globalDepartament, $UserData->id, $UserData);
+		erLhcoreClassUserDep::addUserDepartaments($globalDepartament, $UserData->id, $UserData, $readOnlyDepartments);
 	} else {
-    	erLhcoreClassUserDep::addUserDepartaments(array(), $UserData->id, $UserData);
+    	erLhcoreClassUserDep::addUserDepartaments(array(), $UserData->id, $UserData, $readOnlyDepartments);
 	}
 	
 	erLhcoreClassModelDepartamentGroupUser::addUserDepartmentGroups($UserData, erLhcoreClassUserValidator::validateDepartmentsGroup($UserData));

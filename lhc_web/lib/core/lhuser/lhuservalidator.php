@@ -242,7 +242,13 @@ class erLhcoreClassUserValidator {
 		if (isset($_POST['UserDepartament']) && count($_POST['UserDepartament']) > 0) {
 			$globalDepartament = array_merge($_POST['UserDepartament'], $globalDepartament);
 		}
-	
+
+		if (isset($_POST['UserDepartamentRead']) && count($_POST['UserDepartamentRead']) > 0) {
+			$globalDepartament = array_merge($_POST['UserDepartamentRead'], $globalDepartament);
+		}
+
+        $globalDepartament = array_unique($globalDepartament);
+
 		$userData->departments_ids = implode(',', $globalDepartament);
 	
 		return $globalDepartament;
