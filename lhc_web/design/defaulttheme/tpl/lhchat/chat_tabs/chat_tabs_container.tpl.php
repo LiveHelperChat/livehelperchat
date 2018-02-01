@@ -3,9 +3,6 @@
 	    <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/tabs_order.tpl.php')); ?>
 		    
 	    <?php
-
-         $canEditChat = erLhcoreClassChat::hasAccessToWrite($chat);
-
 	    /**
 	     * We cannot use some key => tpl here because we want template compilator to compile everything to single tpl file
 	     * */	    
