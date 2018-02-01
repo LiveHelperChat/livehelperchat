@@ -2,8 +2,8 @@
 
 class erLhcoreClassUpdate
 {
-	const DB_VERSION = 159;
-	const LHC_RELEASE = 284;
+	const DB_VERSION = 160;
+	const LHC_RELEASE = 285;
 
 	public static function doTablesUpdate($definition){
 		$updateInformation = self::getTablesStatus($definition);
@@ -43,16 +43,16 @@ class erLhcoreClassUpdate
     		    $definition['tables'][erLhcoreClassModelChatArchiveRange::$archiveMsgTable] = $definition['tables']['lh_msg'];
     		}
 		}
-		
+
 		foreach ($definition['tables'] as $table => $tableDefinition) {
 			$tablesStatus[$table] = array('error' => false,'status' => '','queries' => array());
 			try {
-				$sql = 'SHOW COLUMNS FROM '.$table;
+				$sql = 'SHOW FULL COLUMNS FROM '.$table;
 				$stmt = $db->prepare($sql);
 				$stmt->execute();
 				$columnsData = $stmt->fetchAll(PDO::FETCH_ASSOC);				
 				$columnsDesired = (array)$tableDefinition;
-				
+
 				$status = array();
 				$fieldsHandled = array();
 				$existingColumns = array();
@@ -85,6 +85,7 @@ class erLhcoreClassUpdate
 				foreach ($columnsDesired as $columnDesired) {
 					$columnFound = false;
 					$typeMatch = true;
+					$collationMatch = true;
 					foreach ($columnsData as $column) {
 						if ($columnDesired['field'] == $column['field']) {
 							$columnFound = true;
@@ -92,20 +93,29 @@ class erLhcoreClassUpdate
 							if ($columnDesired['type'] != $column['type']) {
 								$typeMatch = false;
 							}
+
+							if ($column['collation'] != '' && isset($columnDesired['collation']) && $columnDesired['collation'] != $column['collation']) {
+                                $typeMatch = $collationMatch = false;
+							}
 						}	
 					}
 
 					if ($typeMatch == false) {
 						$tablesStatus[$table]['error'] = true;
-						$status[] = "[{$columnDesired['field']}] column type is not correct";
+						$status[] = "[{$columnDesired['field']}] column type/collation is not correct";
 
 						$extra = '';
 						if ($columnDesired['extra'] == 'auto_increment') {
 						    $extra = ' AUTO_INCREMENT';
 						}
-						
+
+						$collation = '';
+                        if ($collationMatch == false) {
+                            $collation = " COLLATE '".$columnDesired['collation']."' ";
+                        }
+
 						$tablesStatus[$table]['queries'][] = "ALTER TABLE `{$table}`
-						CHANGE `{$columnDesired['field']}` `{$columnDesired['field']}` {$columnDesired['type']} NOT NULL{$extra};";
+						CHANGE `{$columnDesired['field']}` `{$columnDesired['field']}` {$columnDesired['type']}{$collation} NOT NULL{$extra};";
 					}
 					
 					if ($columnFound == false && !in_array($columnDesired['field'], $fieldsHandled)) {
@@ -175,7 +185,25 @@ class erLhcoreClassUpdate
 		        // Just not existing table perhaps
 		    }	    
 		}
-				
+
+		foreach ($definition['tables_collation'] as $table => $dataTableCollation) {
+		    try {
+                $stmt = $db->prepare("show table status like '{$table}'");
+                $stmt->execute();
+                $tableData = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                if (!empty($tableData) && $tableData['collation'] != $dataTableCollation) {
+                    $tablesStatus[$table]['queries'][] = "ALTER TABLE `{$table}` COMMENT='' COLLATE '{$dataTableCollation}';";
+                    $tablesStatus[$table]['error'] = true;
+                    $tablesStatus[$table]['status'] = "{$table} collation {$tableData['collation']} mismatch expected {$dataTableCollation}";
+                }
+
+            } catch (Exception $e) {
+                // Just not existing table perhaps
+            }
+
+        }
+
 		foreach ($definition['tables_data'] as $table => $dataTable) {
 			$tableIdentifier = $definition['tables_data_identifier'][$table];
 			

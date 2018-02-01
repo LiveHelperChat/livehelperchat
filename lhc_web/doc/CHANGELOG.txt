@@ -1,3 +1,9 @@
+2.85v
+
+1. Database charset changed to utf8mb4 to support emoji
+
+execute doc/update_db/update_160.sql for update
+
 2.84v
 
 1. Option to delay status widget show.
