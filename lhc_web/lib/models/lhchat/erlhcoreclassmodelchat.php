@@ -491,7 +491,8 @@ class erLhcoreClassModelChat {
 
    const STATUS_SUB_SUB_DEFAULT = 0;
    const STATUS_SUB_SUB_TRANSFERED = 1;
-      
+   const STATUS_SUB_SUB_CLOSED = 2; // Chat was previously closed, but became pending again.
+
    const USER_STATUS_JOINED_CHAT = 0;
    const USER_STATUS_CLOSED_CHAT = 1;
    const USER_STATUS_PENDING_REOPEN = 2;

@@ -776,7 +776,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 							currentStatusNotifications = [];
 							
 							var chatsSkipped = 0; // Do not show notification for chats if they appear at the bottom, only applies to unassigned chats
-																					
+
 							angular.forEach(item.list, function(itemList, keyItem) {
 	
 		                        var userId = (typeof itemList.user_id !== 'undefined' ? itemList.user_id : 0);
@@ -788,14 +788,14 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		                        if (typeof _that.statusNotifications[item.last_id_identifier] == 'undefined') {
 		                        	_that.statusNotifications[item.last_id_identifier] = new Array();
 		                        };
-		                        
-		                        if (_that.isListLoaded == true && chatsSkipped == 0 && ((_that.statusNotifications[item.last_id_identifier].indexOf(identifierElement) == -1 && userId == 0 && confLH.ownntfonly == 0) || (_that.statusNotifications[item.last_id_identifier].indexOf(identifierElement) == -1 && userId == confLH.user_id)) ) {
+
+		                        if (_that.isListLoaded == true && (chatsSkipped == 0 || itemList.status_sub_sub === 2) && ((_that.statusNotifications[item.last_id_identifier].indexOf(identifierElement) == -1 && userId == 0 && confLH.ownntfonly == 0) || (_that.statusNotifications[item.last_id_identifier].indexOf(identifierElement) == -1 && userId == confLH.user_id)) ) {
 		                        	if (lhinst.chatsSynchronising.indexOf(parseInt(itemList.id)) === -1) { // Don't show notification if chat is under sync already
 		                        		chatsToNotify.push(itemList.id);
 		                        	}
 		                        } else {
 		                        	chatsSkipped++;
-		                        };		                        
+		                        };
 	                        });
 							
 							if (chatsToNotify.length > 0) {

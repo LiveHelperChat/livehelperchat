@@ -317,7 +317,7 @@ if ($pendingTabEnabled == true) {
 	/**
 	 * Get last pending chat
 	 * */
-	erLhcoreClassChat::prefillGetAttributes($pendingChats,array('can_edit_chat','time_created_front','product_name','department_name','wait_time_pending','wait_time_seconds','plain_user_name'), array('product_id','product','department','time','status','user'));
+	erLhcoreClassChat::prefillGetAttributes($pendingChats,array('status_sub_sub','can_edit_chat','time_created_front','product_name','department_name','wait_time_pending','wait_time_seconds','plain_user_name'), array('product_id','product','department','time','status','user'));
 	$ReturnMessages['pending_chats'] = array('list' => array_values($pendingChats), 'last_id_identifier' => 'pending_chat');
 
 	$chatsList[] = & $ReturnMessages['pending_chats']['list'];
