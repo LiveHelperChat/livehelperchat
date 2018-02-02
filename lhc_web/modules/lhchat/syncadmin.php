@@ -54,7 +54,7 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
 		            if ( ($Chat->last_msg_id > (int)$MessageID) && count($Messages = erLhcoreClassChat::getPendingMessages($chat_id,$MessageID)) > 0)
 		            {
 		            	// If chat had flag that it contains unread messages set to 0
-		            	if ( $Chat->has_unread_messages == 1 || $Chat->unread_messages_informed == 1) {
+		            	if ( ($Chat->user_id == $currentUser->getUserID()) && ($Chat->has_unread_messages == 1 || $Chat->unread_messages_informed == 1)) {
 		            		 $Chat->has_unread_messages = 0;
 		            		 $Chat->unread_messages_informed = 0;
 		            		 $Chat->saveThis();

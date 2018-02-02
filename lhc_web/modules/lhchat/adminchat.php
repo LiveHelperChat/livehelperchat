@@ -70,12 +70,12 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
     	    }
     	    
     	    // Update general chat attributes
-    	    $chat->support_informed = 1;
-    	    $chat->has_unread_messages = 0;
-    	    $chat->unread_messages_informed = 0;
-    	    
-    	    
-    	    
+            if ($chat->user_id == $currentUser->getUserID()) {
+                $chat->support_informed = 1;
+                $chat->has_unread_messages = 0;
+                $chat->unread_messages_informed = 0;
+            }
+
     	    if ($chat->unanswered_chat == 1 && $chat->user_status == erLhcoreClassModelChat::USER_STATUS_JOINED_CHAT)
     	    {
     	        $chat->unanswered_chat = 0;
