@@ -4,26 +4,57 @@ $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/lists.tpl.php');
 
 if ( isset($_POST['doDelete']) ) {
 	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
-		erLhcoreClassModule::redirect('chat/pendingchats');
+		erLhcoreClassModule::redirect('chat/list');
 		exit;
 	}
 
 	$definition = array(
-			'ChatID' => new ezcInputFormDefinitionElement(
-					ezcInputFormDefinitionElement::OPTIONAL, 'int', null, FILTER_REQUIRE_ARRAY
-			),
+		'ChatID' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'int', null, FILTER_REQUIRE_ARRAY
+		),
 	);
 
 	$form = new ezcInputForm( INPUT_POST, $definition );
 	$Errors = array();
 
-	if ( $form->hasValidData( 'ChatID' ) ) {
+	if ( $form->hasValidData( 'ChatID' ) && !empty($form->ChatID) ) {
 		$chats = erLhcoreClassChat::getList(array('filterin' => array('id' => $form->ChatID)));
 		foreach ($chats as $chatToDelete) {
-			if ($currentUser->hasAccessTo('lhchat','deleteglobalchat') || ($currentUser->hasAccessTo('lhchat','deletechat') && $chatToDelete->user_id == $currentUser->getUserID()))
+			if (erLhcoreClassChat::hasAccessToWrite($chatToDelete) && ($currentUser->hasAccessTo('lhchat','deleteglobalchat') || ($currentUser->hasAccessTo('lhchat','deletechat') && $chatToDelete->user_id == $currentUser->getUserID())))
 			{
 				$chatToDelete->removeThis();
 			}
+		}
+	}
+}
+
+if ( isset($_POST['doClose']) ) {
+	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+		erLhcoreClassModule::redirect('chat/list');
+		exit;
+	}
+
+	$definition = array(
+		'ChatID' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'int', null, FILTER_REQUIRE_ARRAY
+		),
+	);
+
+	$form = new ezcInputForm( INPUT_POST, $definition );
+	$Errors = array();
+
+	if ( $form->hasValidData( 'ChatID' ) && !empty($form->ChatID) ) {
+		$chats = erLhcoreClassChat::getList(array('filterin' => array('id' => $form->ChatID)));
+        $userData = $currentUser->getUserData(true);
+
+		foreach ($chats as $chatToClose) {
+            if (($chatToClose->user_id == $currentUser->getUserID() || $currentUser->hasAccessTo('lhchat','allowcloseremote')) && erLhcoreClassChat::hasAccessToWrite($chatToClose))
+            {
+                erLhcoreClassChatHelper::closeChat(array(
+                    'user' => $userData,
+                    'chat' => $chatToClose,
+                ));
+            }
 		}
 	}
 }

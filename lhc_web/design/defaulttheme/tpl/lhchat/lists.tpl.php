@@ -97,9 +97,12 @@
                     <?php if (isset($pages)) : ?>
                         <?php include(erLhcoreClassDesign::designtpl('lhkernel/paginator.tpl.php')); ?>
                     <?php endif;?>
-                    
-                    <input type="submit" name="doDelete" class="btn btn-danger" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Delete selected');?>" />
-                    
+
+                    <div class="btn-group" role="group" aria-label="...">
+                        <input type="submit" name="doClose" class="btn btn-warning" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Close selected');?>" />
+                        <input type="submit" name="doDelete" class="btn btn-danger" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Delete selected');?>" />
+                    </div>
+
                     </form>
                     
                     <?php } else { ?>
