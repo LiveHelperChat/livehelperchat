@@ -82,6 +82,9 @@ class erLhcoreClassUpdate
 					}
 				}
 
+				$tableDataChanged = false;
+				$queriesChangeType = array();
+
 				foreach ($columnsDesired as $columnDesired) {
 					$columnFound = false;
 					$typeMatch = true;
@@ -101,6 +104,8 @@ class erLhcoreClassUpdate
 					}
 
 					if ($typeMatch == false) {
+                        $tableDataChanged = true;
+
 						$tablesStatus[$table]['error'] = true;
 						$status[] = "[{$columnDesired['field']}] column type/collation is not correct";
 
@@ -114,8 +119,7 @@ class erLhcoreClassUpdate
                             $collation = " COLLATE '".$columnDesired['collation']."' ";
                         }
 
-						$tablesStatus[$table]['queries'][] = "ALTER TABLE `{$table}`
-						CHANGE `{$columnDesired['field']}` `{$columnDesired['field']}` {$columnDesired['type']}{$collation} NOT NULL{$extra};";
+                        $queriesChangeType[] = "CHANGE `{$columnDesired['field']}` `{$columnDesired['field']}` {$columnDesired['type']}{$collation} NOT NULL{$extra}";
 					}
 					
 					if ($columnFound == false && !in_array($columnDesired['field'], $fieldsHandled)) {
@@ -133,6 +137,10 @@ class erLhcoreClassUpdate
 						COMMENT='';";
 					}					
 				}
+
+				if ($tableDataChanged == true) {
+                    $tablesStatus[$table]['queries'][] = "ALTER TABLE `{$table}` " . implode(', ', $queriesChangeType) . ';';
+                }
 				
 				if (!empty($status)) {
 					$tablesStatus[$table]['status'] = implode(", ", $status);
