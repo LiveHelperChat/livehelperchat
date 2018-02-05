@@ -3,14 +3,20 @@
 	<input type="hidden" name="doSearch" value="1">
 							
 	<div class="row">		
-		<div class="col-xs-6">
+		<div class="col-xs-3">
+
+            <div class="form-group">
 			<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
 	                    'input_name'     => 'user_id',
 						'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select user'),
 	                    'selected_id'    => $input->user_id,
-			             'css_class' => 'form-control',				
+			            'css_class' => 'form-control',
 	                    'list_function'  => 'erLhcoreClassModelUser::getUserList'
-	            )); ?>            	
+	            )); ?>
+            </div>
+
+            <label><input type="checkbox" name="visitor" <?php if ($input->visitor === 0) : ?>checked="checked"<?php endif; ?> value="0">Only visitor files</label>
+
 		</div>
 		<div class="col-xs-6">
 			<input type="submit" name="doSearch" class="btn btn-default" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" /> 

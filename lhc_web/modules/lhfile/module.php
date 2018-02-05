@@ -74,7 +74,7 @@ $ViewList['attatchfilemail'] = array(
 
 $ViewList['list'] = array(
 		'params' => array(),
-		'uparams' => array('user_id'),
+		'uparams' => array('user_id','visitor'),
 		'functions' => array( 'file_list' )
 );
 
