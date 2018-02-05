@@ -3,7 +3,7 @@
 <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Files');?></h5>
 <ul>
 	    <?php if ($currentUser->hasAccessTo('lhfile','use')) : ?>
-	    <li><a href="<?php echo erLhcoreClassDesign::baseurl('file/configuration')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Files upload configuration');?></a></li>
+	    <li><a href="<?php echo erLhcoreClassDesign::baseurl('file/configuration')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Files configuration');?></a></li>
 	    <?php endif; ?>
 	
 	    <?php if ($currentUser->hasAccessTo('lhfile','file_list')) : ?>

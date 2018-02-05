@@ -16,7 +16,7 @@
                 "key": "MUL",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "wait_message",
@@ -25,7 +25,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "wait_timeout",
@@ -50,7 +50,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "operator",
@@ -59,7 +59,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "ignore_pa_chat",
@@ -116,7 +116,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "wait_timeout_hold",
@@ -125,7 +125,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "timeout_hold_message_2",
@@ -134,7 +134,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "timeout_hold_message_3",
@@ -143,7 +143,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "timeout_hold_message_4",
@@ -152,7 +152,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "timeout_hold_message_5",
@@ -161,7 +161,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "wait_timeout_2",
@@ -178,7 +178,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "wait_timeout_3",
@@ -195,7 +195,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "wait_timeout_4",
@@ -212,7 +212,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "wait_timeout_5",
@@ -229,7 +229,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "wait_timeout_reply_1",
@@ -246,7 +246,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "wait_timeout_reply_2",
@@ -263,7 +263,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "wait_timeout_reply_3",
@@ -280,7 +280,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "wait_timeout_reply_4",
@@ -297,7 +297,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "wait_timeout_reply_5",
@@ -314,7 +314,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "repeat_number",
@@ -363,7 +363,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "languages",
@@ -372,7 +372,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             }
         ],
         "lh_abstract_auto_responder_chat": [
@@ -441,7 +441,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "feedback_text",
@@ -450,7 +450,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },            
             {
                 "field": "max_stars_1_title",
@@ -459,7 +459,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "max_stars_1_pos",
@@ -500,7 +500,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "max_stars_2_pos",
@@ -541,7 +541,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "max_stars_3_pos",
@@ -582,7 +582,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "max_stars_4_pos",
@@ -623,7 +623,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "max_stars_5_pos",
@@ -664,7 +664,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "question_options_1_items",
@@ -673,7 +673,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "question_options_1_pos",
@@ -706,7 +706,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "question_options_2_items",
@@ -715,7 +715,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "question_options_2_pos",
@@ -748,7 +748,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "question_options_3_items",
@@ -789,7 +789,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "question_options_4_enabled",
@@ -814,7 +814,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "question_options_4_pos",
@@ -831,7 +831,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "question_options_5_items",
@@ -840,7 +840,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "question_options_5_pos",
@@ -873,7 +873,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "question_plain_1_pos",
@@ -906,7 +906,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "question_plain_2_pos",
@@ -939,7 +939,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "question_plain_3_pos",
@@ -972,7 +972,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "question_plain_4_pos",
@@ -1005,7 +1005,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "question_plain_5_pos",
@@ -1074,7 +1074,7 @@
                 "key": "",
                 "default": "0",
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "identifier",
@@ -1141,7 +1141,7 @@
                 "key": "",
                 "default": "",
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             }
         ],
         "lh_abstract_proactive_chat_invitation_event": [
@@ -1202,7 +1202,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "chat_id",
@@ -1229,7 +1229,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "device_type",
@@ -1254,7 +1254,7 @@
                 "key": "",
                 "default": "0",
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "created_on",
@@ -1339,7 +1339,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "user_id",
@@ -1374,7 +1374,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "static_content",
@@ -1383,7 +1383,7 @@
                 "key": "",
                 "default": "0",
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "static_js_content",
@@ -1392,7 +1392,7 @@
                 "key": "",
                 "default": "0",
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "static_css_content",
@@ -1401,7 +1401,7 @@
                 "key": "",
                 "default": "0",
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "header_content",
@@ -1410,7 +1410,7 @@
                 "key": "",
                 "default": "0",
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "header_css",
@@ -1419,7 +1419,7 @@
                 "key": "",
                 "default": "0",
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             }
         ],
         "lh_abstract_product": [
@@ -1438,7 +1438,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "priority",
@@ -1507,7 +1507,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             }
         ],
         "lh_abstract_survey_item": [
@@ -1630,7 +1630,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "question_plain_2",
@@ -1639,7 +1639,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "question_plain_3",
@@ -1648,7 +1648,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "question_plain_4",
@@ -1657,7 +1657,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "question_plain_5",
@@ -1666,7 +1666,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "user_id",
@@ -1709,7 +1709,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "time_on_site",
@@ -1726,7 +1726,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "callback_content",
@@ -1735,7 +1735,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "lhc_iframe_content",
@@ -1752,7 +1752,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "name",
@@ -1761,7 +1761,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "identifier",
@@ -1770,7 +1770,7 @@
                 "key": "MUL",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "executed_times",
@@ -1787,7 +1787,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "active",
@@ -1820,7 +1820,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "priority",
@@ -1829,7 +1829,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "hash",
@@ -1838,7 +1838,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "width",
@@ -1863,7 +1863,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             }
         ],
         "lh_abstract_email_template": [
@@ -1882,7 +1882,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "from_name",
@@ -1891,7 +1891,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "from_name_ac",
@@ -1908,7 +1908,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "from_email_ac",
@@ -1933,7 +1933,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "subject",
@@ -1942,7 +1942,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "bcc_recipients",
@@ -1951,7 +1951,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "subject_ac",
@@ -1968,7 +1968,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "reply_to_ac",
@@ -1985,7 +1985,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             }
         ],
         "lh_abstract_form": [
@@ -2004,7 +2004,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "content",
@@ -2013,7 +2013,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "recipient",
@@ -2022,7 +2022,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "active",
@@ -2039,7 +2039,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "intro_attr",
@@ -2048,7 +2048,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "xls_columns",
@@ -2057,7 +2057,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "pagelayout",
@@ -2066,7 +2066,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "post_content",
@@ -2075,7 +2075,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             }
         ],
         "lh_abstract_form_collected": [
@@ -2110,7 +2110,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "identifier",
@@ -2119,7 +2119,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "content",
@@ -2128,7 +2128,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             }
         ],
         "lh_abstract_proactive_chat_invitation": [
@@ -2147,7 +2147,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "time_on_site",
@@ -2172,7 +2172,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "message_returning",
@@ -2181,7 +2181,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "executed_times",
@@ -2278,7 +2278,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "operator_ids",
@@ -2287,7 +2287,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "message_returning_nick",
@@ -2296,7 +2296,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "referrer",
@@ -2305,7 +2305,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "show_random_operator",
@@ -2322,7 +2322,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "position",
@@ -2347,7 +2347,7 @@
                 "key": "MUL",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "tag",
@@ -2356,7 +2356,7 @@
                 "key": "MUL",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "requires_email",
@@ -2399,7 +2399,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "support_joined",
@@ -2408,7 +2408,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "support_closed",
@@ -2417,7 +2417,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "pending_join",
@@ -2426,7 +2426,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "noonline_operators",
@@ -2435,7 +2435,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "noonline_operators_offline",
@@ -2444,7 +2444,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "name_company",
@@ -2453,7 +2453,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "onl_bcolor",
@@ -2462,7 +2462,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "bor_bcolor",
@@ -2471,7 +2471,7 @@
                 "key": "",
                 "default": "e3e3e3",
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "text_color",
@@ -2480,7 +2480,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "popup_image",
@@ -2489,7 +2489,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "popup_image_path",
@@ -2498,7 +2498,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "close_image",
@@ -2507,7 +2507,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "close_image_path",
@@ -2516,7 +2516,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "restore_image",
@@ -2525,7 +2525,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "restore_image_path",
@@ -2534,7 +2534,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "minimize_image",
@@ -2543,7 +2543,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "minimize_image_path",
@@ -2552,7 +2552,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "online_image",
@@ -2561,7 +2561,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "online_image_path",
@@ -2570,7 +2570,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "offline_image",
@@ -2579,7 +2579,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "offline_image_path",
@@ -2588,7 +2588,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "logo_image",
@@ -2597,7 +2597,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "logo_image_path",
@@ -2606,7 +2606,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "copyright_image",
@@ -2615,7 +2615,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "copyright_image_path",
@@ -2624,7 +2624,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "widget_copyright_url",
@@ -2633,7 +2633,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "show_copyright",
@@ -2738,7 +2738,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "header_background",
@@ -2747,7 +2747,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "widget_border_color",
@@ -2756,7 +2756,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "need_help_tcolor",
@@ -2765,7 +2765,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "need_help_bcolor",
@@ -2774,7 +2774,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "need_help_border",
@@ -2783,7 +2783,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "need_help_close_bg",
@@ -2792,7 +2792,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "need_help_hover_bg",
@@ -2801,7 +2801,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "need_help_close_hover_bg",
@@ -2810,7 +2810,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "need_help_image_path",
@@ -2819,7 +2819,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "custom_status_css",
@@ -2828,7 +2828,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "custom_container_css",
@@ -2837,7 +2837,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "custom_widget_css",
@@ -2846,7 +2846,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "custom_popup_css",
@@ -2855,7 +2855,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "need_help_header",
@@ -2864,7 +2864,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "need_help_text",
@@ -2873,7 +2873,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "online_text",
@@ -2882,7 +2882,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "offline_text",
@@ -2891,7 +2891,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "intro_operator_text",
@@ -2900,7 +2900,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "operator_image",
@@ -2909,7 +2909,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "operator_image_path",
@@ -2918,7 +2918,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "explain_text",
@@ -2927,16 +2927,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
-            },
-            {
-                "field": "operator_image_path",
-                "type": "varchar(250)",
-                "null": "NO",
-                "key": "",
-                "default": null,
-                "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "show_voting",
@@ -2953,7 +2944,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "department_select",
@@ -2962,7 +2953,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "buble_visitor_background",
@@ -2971,7 +2962,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "buble_visitor_title_color",
@@ -2980,7 +2971,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "buble_visitor_text_color",
@@ -2989,7 +2980,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "buble_operator_background",
@@ -2998,7 +2989,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "buble_operator_title_color",
@@ -3007,7 +2998,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "buble_operator_text_color",
@@ -3016,7 +3007,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             }
         ],
         "lh_canned_msg": [
@@ -3035,7 +3026,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "fallback_msg",
@@ -3044,7 +3035,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "languages",
@@ -3053,7 +3044,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "title",
@@ -3062,7 +3053,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "explain",
@@ -3071,7 +3062,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "position",
@@ -3218,7 +3209,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "initialize",
@@ -3227,7 +3218,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "modifications",
@@ -3236,7 +3227,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             }
         ],
         "lh_chat": [
@@ -3255,7 +3246,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "chat_locale",
@@ -3264,7 +3255,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "chat_locale_to",
@@ -3273,7 +3264,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "status",
@@ -3322,7 +3313,7 @@
                 "key": "",
                 "default": "",
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "uagent",
@@ -3331,7 +3322,7 @@
                 "key": "",
                 "default": "",
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "status_sub_sub",
@@ -3428,7 +3419,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "referrer",
@@ -3437,7 +3428,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "session_referrer",
@@ -3446,7 +3437,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "chat_variables",
@@ -3455,7 +3446,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "remarks",
@@ -3464,7 +3455,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "ip",
@@ -3473,7 +3464,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "user_tz_identifier",
@@ -3482,7 +3473,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "dep_id",
@@ -3539,7 +3530,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "country_code",
@@ -3548,7 +3539,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "country_name",
@@ -3557,7 +3548,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "user_typing",
@@ -3574,7 +3565,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "operator_typing",
@@ -3599,7 +3590,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "has_unread_messages",
@@ -3648,7 +3639,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },          
             {
                 "field": "lat",
@@ -3657,7 +3648,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "lon",
@@ -3666,7 +3657,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "city",
@@ -3675,7 +3666,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "operation",
@@ -3684,7 +3675,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "operation_admin",
@@ -3693,7 +3684,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "mail_send",
@@ -3816,7 +3807,7 @@
                 "key": "MUL",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "ctime",
@@ -3909,7 +3900,7 @@
                 "key": "MUL",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "user_id",
@@ -3970,7 +3961,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "type",
@@ -3987,7 +3978,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "hidden",
@@ -4014,7 +4005,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "upload_name",
@@ -4023,7 +4014,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "size",
@@ -4040,7 +4031,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "file_path",
@@ -4049,7 +4040,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "extension",
@@ -4058,7 +4049,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "chat_id",
@@ -4109,7 +4100,7 @@
                 "key": "MUL",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "ip",
@@ -4118,7 +4109,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "visitor_tz",
@@ -4127,7 +4118,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "current_page",
@@ -4136,7 +4127,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "page_title",
@@ -4145,7 +4136,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "notes",
@@ -4154,7 +4145,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "referrer",
@@ -4163,7 +4154,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "chat_id",
@@ -4268,7 +4259,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "user_country_code",
@@ -4277,7 +4268,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "user_country_name",
@@ -4286,7 +4277,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "operator_message",
@@ -4295,7 +4286,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "operator_user_proactive",
@@ -4304,7 +4295,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "operator_user_id",
@@ -4337,7 +4328,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "lon",
@@ -4346,7 +4337,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "city",
@@ -4355,7 +4346,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "reopen_chat",
@@ -4420,7 +4411,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "operation",
@@ -4429,7 +4420,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "online_attr_system",
@@ -4438,7 +4429,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "operation_chat",
@@ -4447,7 +4438,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "online_attr",
@@ -4456,7 +4447,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             }
         ],
         "lh_chat_online_user_footprint": [
@@ -4491,7 +4482,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "vtime",
@@ -4500,7 +4491,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             }
         ],
         "lh_chatbox": [
@@ -4519,7 +4510,7 @@
                 "key": "MUL",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "name",
@@ -4528,7 +4519,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "chat_id",
@@ -4641,7 +4632,7 @@
                 "key": "MUL",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             }
         ],
         "lh_departament_limit_group": [
@@ -4660,7 +4651,7 @@
                 "key": "MUL",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "pending_max",
@@ -4687,7 +4678,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "email",
@@ -4696,7 +4687,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "xmpp_recipients",
@@ -4705,7 +4696,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "xmpp_group_recipients",
@@ -4714,7 +4705,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "priority",
@@ -5011,7 +5002,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "online_hours_active",
@@ -5092,7 +5083,7 @@
                 "key": "",
                 "default": 0,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "product_configuration",
@@ -5101,7 +5092,7 @@
                 "key": "",
                 "default": 0,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             }
         ],
         "lh_departament_custom_work_hours": [
@@ -5162,7 +5153,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "answer",
@@ -5171,7 +5162,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "url",
@@ -5180,7 +5171,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "email",
@@ -5189,7 +5180,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "identifier",
@@ -5198,7 +5189,7 @@
                 "key": "MUL",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "active",
@@ -5249,7 +5240,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "created",
@@ -5284,7 +5275,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             }
         ],
         "lh_grouprole": [
@@ -5355,7 +5346,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "time",
@@ -5388,7 +5379,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             }
         ],
         "lh_question": [
@@ -5407,7 +5398,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "location",
@@ -5416,7 +5407,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "active",
@@ -5449,7 +5440,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "revote",
@@ -5492,7 +5483,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "ctime",
@@ -5527,7 +5518,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "priority",
@@ -5596,7 +5587,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             }
         ],
         "lh_speech_chat_language": [
@@ -5631,7 +5622,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             }
         ],
         "lh_speech_language": [
@@ -5650,7 +5641,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             }
         ],
         "lh_chat_start_settings": [
@@ -5669,7 +5660,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "data",
@@ -5678,7 +5669,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "department_id",
@@ -5713,7 +5704,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "lang_code",
@@ -5722,7 +5713,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "short_code",
@@ -5731,7 +5722,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             }
         ],
         "lh_rolefunction": [
@@ -5758,7 +5749,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "function",
@@ -5767,7 +5758,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "limitation",
@@ -5776,7 +5767,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             }
         ],
         "lh_transfer": [
@@ -5975,7 +5966,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "password",
@@ -5984,7 +5975,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "session_id",
@@ -5993,7 +5984,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "operation_admin",
@@ -6002,7 +5993,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "email",
@@ -6011,7 +6002,7 @@
                 "key": "MUL",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "time_zone",
@@ -6020,7 +6011,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "name",
@@ -6029,7 +6020,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "surname",
@@ -6038,7 +6029,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "chat_nickname",
@@ -6047,7 +6038,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "filepath",
@@ -6056,7 +6047,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "filename",
@@ -6065,7 +6056,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "job_title",
@@ -6074,7 +6065,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "xmpp_username",
@@ -6083,7 +6074,7 @@
                 "key": "MUL",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "skype",
@@ -6092,7 +6083,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "departments_ids",
@@ -6101,7 +6092,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "disabled",
@@ -6274,7 +6265,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "value",
@@ -6283,7 +6274,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             }
         ],
         "lh_users_setting_option": [
@@ -6302,7 +6293,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             },
             {
                 "field": "attribute",
@@ -6311,7 +6302,7 @@
                 "key": "",
                 "default": null,
                 "extra": "",
-                "collation": "utf8mb4_general_ci"
+                "collation": "utf8mb4_unicode_ci"
             }
         ]
     },
@@ -7724,69 +7715,69 @@
     	"lh_chat_online_user" : ["show_on_mobile"]
     },
     "tables_collation" : {
-    	"lh_abstract_auto_responder" : "utf8mb4_general_ci",
-    	"lh_abstract_auto_responder_chat" : "utf8mb4_general_ci",
-    	"lh_abstract_browse_offer_invitation" : "utf8mb4_general_ci",
-    	"lh_abstract_email_template" : "utf8mb4_general_ci",
-    	"lh_abstract_form" : "utf8mb4_general_ci",
-    	"lh_abstract_form_collected" : "utf8mb4_general_ci",
-    	"lh_abstract_proactive_chat_event" : "utf8mb4_general_ci",
-    	"lh_abstract_proactive_chat_invitation" : "utf8mb4_general_ci",
-    	"lh_abstract_proactive_chat_invitation_event" : "utf8mb4_general_ci",
-    	"lh_abstract_proactive_chat_variables" : "utf8mb4_general_ci",
-    	"lh_abstract_product" : "utf8mb4_general_ci",
-    	"lh_abstract_product_departament" : "utf8mb4_general_ci",
-    	"lh_abstract_rest_api_key" : "utf8mb4_general_ci",
-    	"lh_abstract_survey" : "utf8mb4_general_ci",
-    	"lh_abstract_survey_item" : "utf8mb4_general_ci",
-    	"lh_admin_theme" : "utf8mb4_general_ci",
-    	"lh_canned_msg" : "utf8mb4_general_ci",
-    	"lh_canned_msg_tag" : "utf8mb4_general_ci",
-    	"lh_canned_msg_tag_link" : "utf8mb4_general_ci",
-    	"lh_chat" : "utf8mb4_general_ci",
-    	"lh_chatbox" : "utf8mb4_general_ci",
-    	"lh_chat_accept" : "utf8mb4_general_ci",
-    	"lh_chat_archive_range" : "utf8mb4_general_ci",
-    	"lh_chat_blocked_user" : "utf8mb4_general_ci",
-    	"lh_chat_config" : "utf8mb4_general_ci",
-    	"lh_chat_file" : "utf8mb4_general_ci",
-    	"lh_chat_online_user" : "utf8mb4_general_ci",
-    	"lh_chat_online_user_footprint" : "utf8mb4_general_ci",
-    	"lh_chat_paid" : "utf8mb4_general_ci",
-    	"lh_chat_start_settings" : "utf8mb4_general_ci",
-    	"lh_cobrowse" : "utf8mb4_general_ci",
-    	"lh_departament" : "utf8mb4_general_ci",
-    	"lh_departament_custom_work_hours" : "utf8mb4_general_ci",
-    	"lh_departament_group" : "utf8mb4_general_ci",
-    	"lh_departament_group_member" : "utf8mb4_general_ci",
-    	"lh_departament_group_user" : "utf8mb4_general_ci",
-    	"lh_departament_limit_group" : "utf8mb4_general_ci",
-    	"lh_departament_limit_group_member" : "utf8mb4_general_ci",
-    	"lh_faq" : "utf8mb4_general_ci",
-    	"lh_forgotpasswordhash" : "utf8mb4_general_ci",
-    	"lh_group" : "utf8mb4_general_ci",
-    	"lh_grouprole" : "utf8mb4_general_ci",
-    	"lh_groupuser" : "utf8mb4_general_ci",
-    	"lh_group_work" : "utf8mb4_general_ci",
-    	"lh_msg" : "utf8mb4_general_ci",
-    	"lh_question" : "utf8mb4_general_ci",
-    	"lh_question_answer" : "utf8mb4_general_ci",
-    	"lh_question_option" : "utf8mb4_general_ci",
-    	"lh_question_option_answer" : "utf8mb4_general_ci",
-    	"lh_role" : "utf8mb4_general_ci",
-    	"lh_rolefunction" : "utf8mb4_general_ci",
-    	"lh_speech_chat_language" : "utf8mb4_general_ci",
-    	"lh_speech_language" : "utf8mb4_general_ci",
-    	"lh_speech_language_dialect" : "utf8mb4_general_ci",
-    	"lh_transfer" : "utf8mb4_general_ci",
-    	"lh_userdep" : "utf8mb4_general_ci",
-    	"lh_users" : "utf8mb4_general_ci",
-    	"lh_users_online_session" : "utf8mb4_general_ci",
-    	"lh_users_remember" : "utf8mb4_general_ci",
-    	"lh_users_session" : "utf8mb4_general_ci",
-    	"lh_users_setting" : "utf8mb4_general_ci",
-    	"lh_users_setting_option" : "utf8mb4_general_ci",
-    	"lh_abstract_widget_theme" : "utf8mb4_general_ci"
+    	"lh_abstract_auto_responder" : "utf8mb4_unicode_ci",
+    	"lh_abstract_auto_responder_chat" : "utf8mb4_unicode_ci",
+    	"lh_abstract_browse_offer_invitation" : "utf8mb4_unicode_ci",
+    	"lh_abstract_email_template" : "utf8mb4_unicode_ci",
+    	"lh_abstract_form" : "utf8mb4_unicode_ci",
+    	"lh_abstract_form_collected" : "utf8mb4_unicode_ci",
+    	"lh_abstract_proactive_chat_event" : "utf8mb4_unicode_ci",
+    	"lh_abstract_proactive_chat_invitation" : "utf8mb4_unicode_ci",
+    	"lh_abstract_proactive_chat_invitation_event" : "utf8mb4_unicode_ci",
+    	"lh_abstract_proactive_chat_variables" : "utf8mb4_unicode_ci",
+    	"lh_abstract_product" : "utf8mb4_unicode_ci",
+    	"lh_abstract_product_departament" : "utf8mb4_unicode_ci",
+    	"lh_abstract_rest_api_key" : "utf8mb4_unicode_ci",
+    	"lh_abstract_survey" : "utf8mb4_unicode_ci",
+    	"lh_abstract_survey_item" : "utf8mb4_unicode_ci",
+    	"lh_admin_theme" : "utf8mb4_unicode_ci",
+    	"lh_canned_msg" : "utf8mb4_unicode_ci",
+    	"lh_canned_msg_tag" : "utf8mb4_unicode_ci",
+    	"lh_canned_msg_tag_link" : "utf8mb4_unicode_ci",
+    	"lh_chat" : "utf8mb4_unicode_ci",
+    	"lh_chatbox" : "utf8mb4_unicode_ci",
+    	"lh_chat_accept" : "utf8mb4_unicode_ci",
+    	"lh_chat_archive_range" : "utf8mb4_unicode_ci",
+    	"lh_chat_blocked_user" : "utf8mb4_unicode_ci",
+    	"lh_chat_config" : "utf8mb4_unicode_ci",
+    	"lh_chat_file" : "utf8mb4_unicode_ci",
+    	"lh_chat_online_user" : "utf8mb4_unicode_ci",
+    	"lh_chat_online_user_footprint" : "utf8mb4_unicode_ci",
+    	"lh_chat_paid" : "utf8mb4_unicode_ci",
+    	"lh_chat_start_settings" : "utf8mb4_unicode_ci",
+    	"lh_cobrowse" : "utf8mb4_unicode_ci",
+    	"lh_departament" : "utf8mb4_unicode_ci",
+    	"lh_departament_custom_work_hours" : "utf8mb4_unicode_ci",
+    	"lh_departament_group" : "utf8mb4_unicode_ci",
+    	"lh_departament_group_member" : "utf8mb4_unicode_ci",
+    	"lh_departament_group_user" : "utf8mb4_unicode_ci",
+    	"lh_departament_limit_group" : "utf8mb4_unicode_ci",
+    	"lh_departament_limit_group_member" : "utf8mb4_unicode_ci",
+    	"lh_faq" : "utf8mb4_unicode_ci",
+    	"lh_forgotpasswordhash" : "utf8mb4_unicode_ci",
+    	"lh_group" : "utf8mb4_unicode_ci",
+    	"lh_grouprole" : "utf8mb4_unicode_ci",
+    	"lh_groupuser" : "utf8mb4_unicode_ci",
+    	"lh_group_work" : "utf8mb4_unicode_ci",
+    	"lh_msg" : "utf8mb4_unicode_ci",
+    	"lh_question" : "utf8mb4_unicode_ci",
+    	"lh_question_answer" : "utf8mb4_unicode_ci",
+    	"lh_question_option" : "utf8mb4_unicode_ci",
+    	"lh_question_option_answer" : "utf8mb4_unicode_ci",
+    	"lh_role" : "utf8mb4_unicode_ci",
+    	"lh_rolefunction" : "utf8mb4_unicode_ci",
+    	"lh_speech_chat_language" : "utf8mb4_unicode_ci",
+    	"lh_speech_language" : "utf8mb4_unicode_ci",
+    	"lh_speech_language_dialect" : "utf8mb4_unicode_ci",
+    	"lh_transfer" : "utf8mb4_unicode_ci",
+    	"lh_userdep" : "utf8mb4_unicode_ci",
+    	"lh_users" : "utf8mb4_unicode_ci",
+    	"lh_users_online_session" : "utf8mb4_unicode_ci",
+    	"lh_users_remember" : "utf8mb4_unicode_ci",
+    	"lh_users_session" : "utf8mb4_unicode_ci",
+    	"lh_users_setting" : "utf8mb4_unicode_ci",
+    	"lh_users_setting_option" : "utf8mb4_unicode_ci",
+    	"lh_abstract_widget_theme" : "utf8mb4_unicode_ci"
     },
     "tables_indexes" : {
     	"lh_grouprole" : {
@@ -7889,68 +7880,68 @@
     	}
     },
     "tables_create": {
-    	"lh_abstract_product_departament" : "CREATE TABLE `lh_abstract_product_departament` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `product_id` int(11) NOT NULL,  `departament_id` int(11) NOT NULL,  PRIMARY KEY (`id`),  KEY `departament_id` (`departament_id`)) DEFAULT CHARSET=utf8mb4;",
-    	"lh_admin_theme" : "CREATE TABLE `lh_admin_theme` ( `id` int(11) NOT NULL AUTO_INCREMENT, `name` varchar(100) NOT NULL, `static_content` longtext NOT NULL, `static_js_content` longtext NOT NULL, `static_css_content` longtext NOT NULL, `header_content` text NOT NULL, `header_css` text NOT NULL, PRIMARY KEY (`id`)) DEFAULT CHARSET=utf8mb4;",
-    	"lh_abstract_product" : "CREATE TABLE `lh_abstract_product` (`id` int(11) NOT NULL AUTO_INCREMENT, `name` varchar(250) NOT NULL, `priority` int(11) NOT NULL, `departament_id` int(11) NOT NULL, `disabled` int(11) NOT NULL, KEY `departament_id` (`departament_id`), PRIMARY KEY (`id`)) DEFAULT CHARSET=utf8mb4;",
-    	"lh_abstract_survey" : "CREATE TABLE `lh_abstract_survey` (`id` int(11) NOT NULL AUTO_INCREMENT,`name` varchar(250) NOT NULL,`max_stars_1_title` varchar(250) NOT NULL,`max_stars_1_pos` int(11) NOT NULL,`max_stars_2_title` varchar(250) NOT NULL,`max_stars_2_pos` int(11) NOT NULL,`max_stars_2` int(11) NOT NULL,`max_stars_3_title` varchar(250) NOT NULL,`max_stars_3_pos` int(11) NOT NULL,`max_stars_3` int(11) NOT NULL,`max_stars_4_title` varchar(250) NOT NULL,`max_stars_4_pos` int(11) NOT NULL,`max_stars_4` int(11) NOT NULL,`max_stars_5_title` varchar(250) NOT NULL,`max_stars_5_pos` int(11) NOT NULL,`max_stars_5` int(11) NOT NULL,`question_options_1` varchar(250) NOT NULL,`question_options_1_items` text NOT NULL,`question_options_1_pos` int(11) NOT NULL,`question_options_2` varchar(250) NOT NULL,`question_options_2_items` text NOT NULL,`question_options_2_pos` int(11) NOT NULL,`question_options_3` varchar(250) NOT NULL,`question_options_3_items` text NOT NULL,`question_options_3_pos` int(11) NOT NULL,`question_options_4` varchar(250) NOT NULL,`question_options_4_items` text NOT NULL,`question_options_4_pos` int(11) NOT NULL,`question_options_5` varchar(250) NOT NULL,`question_options_5_items` text NOT NULL,`question_options_5_pos` int(11) NOT NULL,`question_plain_1` text NOT NULL,`question_plain_1_pos` int(11) NOT NULL,`question_plain_2` text NOT NULL,`question_plain_2_pos` int(11) NOT NULL,`question_plain_3` text NOT NULL,`question_plain_3_pos` int(11) NOT NULL,`question_plain_4` text NOT NULL,`question_plain_4_pos` int(11) NOT NULL,`question_plain_5` text NOT NULL,`question_plain_5_pos` int(11) NOT NULL,`max_stars_1_enabled` int(11) NOT NULL, `max_stars_2_enabled` int(11) NOT NULL,  `max_stars_3_enabled` int(11) NOT NULL,  `max_stars_4_enabled` int(11) NOT NULL,  `max_stars_5_enabled` int(11) NOT NULL,  `question_options_1_enabled` int(11) NOT NULL,  `question_options_2_enabled` int(11) NOT NULL,  `question_options_3_enabled` int(11) NOT NULL,  `question_options_4_enabled` int(11) NOT NULL,  `question_options_5_enabled` int(11) NOT NULL,  `question_plain_1_enabled` int(11) NOT NULL,  `question_plain_2_enabled` int(11) NOT NULL,  `question_plain_3_enabled` int(11) NOT NULL,  `question_plain_4_enabled` int(11) NOT NULL,  `question_plain_5_enabled` int(11) NOT NULL,  `max_stars_1` int(11) NOT NULL,  `max_stars_1_req` int(11) NOT NULL,  `max_stars_2_req` int(11) NOT NULL,  `max_stars_3_req` int(11) NOT NULL,  `max_stars_4_req` int(11) NOT NULL,  `max_stars_5_req` int(11) NOT NULL,  `question_options_1_req` int(11) NOT NULL,  `question_options_2_req` int(11) NOT NULL,  `question_options_3_req` int(11) NOT NULL,  `question_options_4_req` int(11) NOT NULL,  `question_options_5_req` int(11) NOT NULL,  `question_plain_1_req` int(11) NOT NULL,  `question_plain_2_req` int(11) NOT NULL,  `question_plain_3_req` int(11) NOT NULL,`question_plain_4_req` int(11) NOT NULL,`question_plain_5_req` int(11) NOT NULL, PRIMARY KEY (`id`)) DEFAULT CHARSET=utf8mb4",
-    	"lh_abstract_survey_item" : "CREATE TABLE `lh_abstract_survey_item` (  `id` bigint(20) NOT NULL AUTO_INCREMENT,  `survey_id` int(11) NOT NULL,  `chat_id` int(11) NOT NULL,  `user_id` int(11) NOT NULL,  `ftime` int(11) NOT NULL,  `dep_id` int(11) NOT NULL,  `max_stars_1` int(11) NOT NULL,  `max_stars_2` int(11) NOT NULL,  `max_stars_3` int(11) NOT NULL,  `max_stars_4` int(11) NOT NULL,  `max_stars_5` int(11) NOT NULL,  `question_options_1` int(11) NOT NULL,  `question_options_2` int(11) NOT NULL,  `question_options_3` int(11) NOT NULL,  `question_options_4` int(11) NOT NULL,  `question_options_5` int(11) NOT NULL,  `question_plain_1` text NOT NULL,  `question_plain_2` text NOT NULL,  `question_plain_3` text NOT NULL,  `question_plain_4` text NOT NULL,  `question_plain_5` text NOT NULL,  PRIMARY KEY (`id`),  KEY `survey_id` (`survey_id`),  KEY `chat_id` (`chat_id`),  KEY `user_id` (`user_id`),  KEY `dep_id` (`dep_id`),  KEY `ftime` (`ftime`),  KEY `max_stars_1` (`max_stars_1`),  KEY `max_stars_2` (`max_stars_2`),  KEY `max_stars_3` (`max_stars_3`),  KEY `max_stars_4` (`max_stars_4`),  KEY `max_stars_5` (`max_stars_5`),  KEY `question_options_1` (`question_options_1`),  KEY `question_options_2` (`question_options_2`),  KEY `question_options_3` (`question_options_3`),  KEY `question_options_4` (`question_options_4`),  KEY `question_options_5` (`question_options_5`)) DEFAULT CHARSET=utf8mb4",
-    	"lh_speech_language" : "CREATE TABLE IF NOT EXISTS `lh_speech_language` ( `id` int(11) NOT NULL AUTO_INCREMENT,`name` varchar(100) NOT NULL,PRIMARY KEY (`id`)) DEFAULT CHARSET=utf8mb4",
-    	"lh_speech_language_dialect" : "CREATE TABLE IF NOT EXISTS `lh_speech_language_dialect` (`id` int(11) NOT NULL AUTO_INCREMENT,`language_id` int(11) NOT NULL, `lang_name` varchar(100) NOT NULL,`lang_code` varchar(100) NOT NULL, PRIMARY KEY (`id`),KEY `language_id` (`language_id`)) DEFAULT CHARSET=utf8mb4",
-    	"lh_speech_chat_language" : "CREATE TABLE IF NOT EXISTS `lh_speech_chat_language` (`id` int(11) NOT NULL AUTO_INCREMENT, `chat_id` int(11) NOT NULL, `language_id` int(11) NOT NULL, `dialect` varchar(50) NOT NULL, PRIMARY KEY (`id`), KEY `chat_id` (`chat_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
-        "lh_abstract_auto_responder": "CREATE TABLE `lh_abstract_auto_responder` (  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `siteaccess` varchar(3) NOT NULL,\n  `wait_message` text NOT NULL,\n  `wait_timeout` int(11) NOT NULL,\n  `position` int(11) NOT NULL,\n  `timeout_message` text NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `siteaccess_position` (`siteaccess`,`position`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
-        "lh_abstract_auto_responder_chat": "CREATE TABLE `lh_abstract_auto_responder_chat` ( `id` int(11) NOT NULL AUTO_INCREMENT,\n  `chat_id` int(11) NOT NULL,\n  `auto_responder_id` int(11) NOT NULL,\n  `wait_timeout_send` int(11) NOT NULL,`pending_send_status` int(11) NOT NULL, `active_send_status` int(11) NOT NULL, \n  PRIMARY KEY (`id`),\n  KEY `chat_id` (`chat_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
-        "lh_abstract_browse_offer_invitation": "CREATE TABLE `lh_abstract_browse_offer_invitation` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `siteaccess` varchar(10) NOT NULL,\n  `time_on_site` int(11) NOT NULL,\n  `content` longtext NOT NULL,\n  `callback_content` longtext NOT NULL,\n  `lhc_iframe_content` tinyint(4) NOT NULL,\n  `custom_iframe_url` varchar(250) NOT NULL,\n  `name` varchar(250) NOT NULL,\n  `identifier` varchar(50) NOT NULL,\n  `executed_times` int(11) NOT NULL,\n  `url` varchar(250) NOT NULL,\n  `active` int(11) NOT NULL,\n  `has_url` int(11) NOT NULL,\n  `is_wildcard` int(11) NOT NULL,\n  `referrer` varchar(250) NOT NULL,\n  `priority` varchar(250) NOT NULL,\n  `hash` varchar(40) NOT NULL,\n  `width` int(11) NOT NULL,\n  `height` int(11) NOT NULL,\n  `unit` varchar(10) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `active` (`active`),\n  KEY `identifier` (`identifier`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
-        "lh_abstract_email_template": "CREATE TABLE `lh_abstract_email_template` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `name` varchar(250) NOT NULL,\n  `from_name` varchar(150) NOT NULL,\n  `from_name_ac` tinyint(4) NOT NULL,\n  `from_email` varchar(150) NOT NULL,\n  `from_email_ac` tinyint(4) NOT NULL,\n  `content` text NOT NULL,\n  `subject` varchar(250) NOT NULL,\n  `bcc_recipients` varchar(200) NOT NULL,\n  `subject_ac` tinyint(4) NOT NULL,\n  `reply_to` varchar(150) NOT NULL,\n  `reply_to_ac` tinyint(4) NOT NULL,\n  `recipient` varchar(150) NOT NULL,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4",
-        "lh_abstract_form": "CREATE TABLE `lh_abstract_form` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `name` varchar(100) NOT NULL,\n  `content` longtext NOT NULL,\n  `recipient` varchar(250) NOT NULL,\n  `active` int(11) NOT NULL,\n  `name_attr` varchar(250) NOT NULL,\n  `intro_attr` varchar(250) NOT NULL,\n  `xls_columns` text NOT NULL,\n  `pagelayout` varchar(200) NOT NULL,\n  `post_content` text NOT NULL,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
-        "lh_abstract_form_collected": "CREATE TABLE `lh_abstract_form_collected` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `form_id` int(11) NOT NULL,\n  `ctime` int(11) NOT NULL,\n  `ip` varchar(250) NOT NULL,\n  `content` longtext NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `form_id` (`form_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
-        "lh_abstract_proactive_chat_invitation": "CREATE TABLE `lh_abstract_proactive_chat_invitation` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `siteaccess` varchar(10) NOT NULL,\n  `time_on_site` int(11) NOT NULL,\n  `pageviews` int(11) NOT NULL,\n  `message` text NOT NULL,\n  `executed_times` int(11) NOT NULL,\n  `dep_id` int(11) NOT NULL,\n  `hide_after_ntimes` int(11) NOT NULL,\n  `name` varchar(50) NOT NULL,\n  `operator_ids` varchar(100) NOT NULL,\n  `wait_message` varchar(250) NOT NULL,\n  `timeout_message` varchar(250) NOT NULL,\n  `referrer` varchar(250) NOT NULL,\n  `wait_timeout` int(11) NOT NULL,\n  `show_random_operator` int(11) NOT NULL,\n  `operator_name` varchar(100) NOT NULL,\n  `position` int(11) NOT NULL,\n  `identifier` varchar(50) NOT NULL,\n  `requires_email` int(11) NOT NULL,\n  `requires_username` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `time_on_site_pageviews_siteaccess_position` (`time_on_site`,`pageviews`,`siteaccess`,`identifier`,`position`),\n  KEY `identifier` (`identifier`),\n  KEY `dep_id` (`dep_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
-        "lh_abstract_widget_theme": "CREATE TABLE `lh_abstract_widget_theme` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `name` varchar(250) NOT NULL,\n  `onl_bcolor` varchar(10) NOT NULL,\n  `text_color` varchar(10) NOT NULL,\n  `online_image` varchar(250) NOT NULL,\n  `online_image_path` varchar(250) NOT NULL,\n  `offline_image` varchar(250) NOT NULL,\n  `offline_image_path` varchar(250) NOT NULL,\n  `logo_image` varchar(250) NOT NULL,\n  `logo_image_path` varchar(250) NOT NULL,\n  `need_help_image` varchar(250) NOT NULL,\n  `header_background` varchar(10) NOT NULL,\n  `widget_border_color` varchar(10) NOT NULL,\n  `need_help_tcolor` varchar(10) NOT NULL,\n  `need_help_bcolor` varchar(10) NOT NULL,\n  `need_help_border` varchar(10) NOT NULL,\n  `need_help_close_bg` varchar(10) NOT NULL,\n  `need_help_hover_bg` varchar(10) NOT NULL,\n  `need_help_close_hover_bg` varchar(10) NOT NULL,\n  `need_help_image_path` varchar(250) NOT NULL,\n  `custom_status_css` text NOT NULL,\n  `custom_container_css` text NOT NULL,\n  `custom_widget_css` text NOT NULL, `custom_popup_css` text NOT NULL, \n  `need_help_header` varchar(250) NOT NULL,\n  `need_help_text` varchar(250) NOT NULL,\n  `online_text` varchar(250) NOT NULL,\n  `offline_text` varchar(250) NOT NULL,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
-        "lh_canned_msg": "CREATE TABLE `lh_canned_msg` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `msg` longtext NOT NULL,\n  `position` int(11) NOT NULL,\n  `department_id` int(11) NOT NULL,\n  `user_id` int(11) NOT NULL,\n  `delay` int(11) NOT NULL,\n  `auto_send` tinyint(1) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `department_id` (`department_id`),\n  KEY `user_id` (`user_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
-        "lh_chat": "CREATE TABLE `lh_chat` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `nick` varchar(50) NOT NULL,\n  `status` int(11) NOT NULL DEFAULT '0',\n  `status_sub` int(11) NOT NULL DEFAULT '0',\n  `time` int(11) NOT NULL,\n  `user_id` int(11) NOT NULL,\n  `hash` varchar(40) NOT NULL,\n  `referrer` text NOT NULL,\n  `session_referrer` text NOT NULL,\n  `chat_variables` text NOT NULL,\n  `remarks` text NOT NULL,\n  `ip` varchar(100) NOT NULL,\n  `dep_id` int(11) NOT NULL,\n  `user_status` int(11) NOT NULL DEFAULT '0',\n  `support_informed` int(11) NOT NULL DEFAULT '0',\n  `unread_messages_informed` int(11) NOT NULL DEFAULT '0',\n  `reinform_timeout` int(11) NOT NULL DEFAULT '0',\n  `email` varchar(100) NOT NULL,\n  `country_code` varchar(100) NOT NULL,\n  `country_name` varchar(100) NOT NULL,\n  `user_typing` int(11) NOT NULL,\n  `user_typing_txt` varchar(50) NOT NULL,\n  `operator_typing` int(11) NOT NULL,\n  `operator_typing_id` int(11) NOT NULL,\n  `phone` varchar(100) NOT NULL,\n  `has_unread_messages` int(11) NOT NULL,\n  `last_user_msg_time` int(11) NOT NULL,\n  `fbst` tinyint(1) NOT NULL,\n  `online_user_id` int(11) NOT NULL,\n  `last_msg_id` int(11) NOT NULL,\n  `additional_data` text NOT NULL,\n  `timeout_message` varchar(250) NOT NULL,\n  `lat` varchar(10) NOT NULL,\n  `lon` varchar(10) NOT NULL,\n  `city` varchar(100) NOT NULL,\n  `operation` varchar(200) NOT NULL,\n  `operation_admin` varchar(200) NOT NULL,\n  `mail_send` int(11) NOT NULL,\n  `screenshot_id` int(11) NOT NULL,\n  `wait_time` int(11) NOT NULL,\n  `wait_timeout` int(11) NOT NULL,\n  `wait_timeout_send` int(11) NOT NULL,\n  `chat_duration` int(11) NOT NULL,\n  `tslasign` int(11) NOT NULL,\n  `priority` int(11) NOT NULL,\n  `chat_initiator` int(11) NOT NULL,\n  `transfer_timeout_ts` int(11) NOT NULL,\n  `transfer_timeout_ac` int(11) NOT NULL,\n  `transfer_if_na` int(11) NOT NULL,\n  `na_cb_executed` int(11) NOT NULL,\n  `nc_cb_executed` tinyint(1) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `status_user_id` (`status`,`user_id`),\n  KEY `user_id` (`user_id`),\n  KEY `online_user_id` (`online_user_id`),\n  KEY `dep_id` (`dep_id`),\n  KEY `has_unread_messages_dep_id_id` (`has_unread_messages`,`dep_id`,`id`),\n  KEY `status_dep_id_id` (`status`,`dep_id`,`id`),\n  KEY `status_dep_id_priority_id` (`status`,`dep_id`,`priority`,`id`),\n  KEY `status_priority_id` (`status`,`priority`,`id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
-        "lh_chat_accept": "CREATE TABLE `lh_chat_accept` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `chat_id` int(11) NOT NULL,\n  `hash` varchar(50) NOT NULL,\n  `ctime` int(11) NOT NULL,\n  `wused` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `hash` (`hash`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
-        "lh_chat_archive_range": "CREATE TABLE `lh_chat_archive_range` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `range_from` int(11) NOT NULL,\n  `range_to` int(11) NOT NULL,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
-        "lh_chat_blocked_user": "CREATE TABLE `lh_chat_blocked_user` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `ip` varchar(100) NOT NULL,\n  `user_id` int(11) NOT NULL,\n  `datets` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `ip` (`ip`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
-        "lh_chat_config": "CREATE TABLE `lh_chat_config` (\n  `identifier` varchar(50) NOT NULL,\n  `value` text NOT NULL,\n  `type` tinyint(1) NOT NULL DEFAULT '0',\n  `explain` varchar(250) NOT NULL,\n  `hidden` int(11) NOT NULL DEFAULT '0',\n  PRIMARY KEY (`identifier`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
-        "lh_chat_file": "CREATE TABLE `lh_chat_file` (\n  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,\n  `name` varchar(255) NOT NULL,\n  `upload_name` varchar(255) NOT NULL,\n  `size` int(11) NOT NULL,\n  `type` varchar(255) NOT NULL,\n  `file_path` varchar(255) NOT NULL,\n  `extension` varchar(255) NOT NULL,\n  `chat_id` int(11) NOT NULL,\n  `user_id` int(11) NOT NULL,\n  `date` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `chat_id` (`chat_id`),\n  KEY `user_id` (`user_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
-        "lh_chat_online_user": "CREATE TABLE `lh_chat_online_user` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `vid` varchar(50) NOT NULL,\n  `ip` varchar(50) NOT NULL,\n  `current_page` text NOT NULL,\n  `page_title` varchar(250) NOT NULL,\n  `referrer` text NOT NULL,\n  `chat_id` int(11) NOT NULL,\n  `invitation_seen_count` int(11) NOT NULL,\n  `invitation_id` int(11) NOT NULL,\n  `last_visit` int(11) NOT NULL,\n  `first_visit` int(11) NOT NULL,\n  `total_visits` int(11) NOT NULL,\n  `pages_count` int(11) NOT NULL,\n  `tt_pages_count` int(11) NOT NULL,\n  `invitation_count` int(11) NOT NULL,\n  `dep_id` int(11) NOT NULL,\n  `user_agent` varchar(250) NOT NULL,\n  `user_country_code` varchar(50) NOT NULL,\n  `user_country_name` varchar(50) NOT NULL,\n  `operator_message` varchar(250) NOT NULL,\n  `operator_user_proactive` varchar(100) NOT NULL,\n  `operator_user_id` int(11) NOT NULL,\n  `message_seen` int(11) NOT NULL,\n  `message_seen_ts` int(11) NOT NULL,\n  `lat` varchar(10) NOT NULL,\n  `lon` varchar(10) NOT NULL,\n  `city` varchar(100) NOT NULL,\n  `reopen_chat` int(11) NOT NULL,\n  `time_on_site` int(11) NOT NULL,\n  `tt_time_on_site` int(11) NOT NULL,\n  `requires_email` int(11) NOT NULL,\n  `requires_username` int(11) NOT NULL,\n  `screenshot_id` int(11) NOT NULL,\n  `identifier` varchar(50) NOT NULL,\n  `operation` varchar(200) NOT NULL,\n  `online_attr` varchar(250) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `vid` (`vid`),\n  KEY `dep_id` (`dep_id`),\n  KEY `last_visit_dep_id` (`last_visit`,`dep_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
-        "lh_chat_online_user_footprint": "CREATE TABLE `lh_chat_online_user_footprint` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `chat_id` int(11) NOT NULL,\n  `online_user_id` int(11) NOT NULL,\n  `page` varchar(250) NOT NULL,\n  `vtime` varchar(250) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `chat_id_vtime` (`chat_id`,`vtime`),\n  KEY `online_user_id` (`online_user_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
-        "lh_chatbox": "CREATE TABLE `lh_chatbox` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `identifier` varchar(50) NOT NULL,\n  `name` varchar(100) NOT NULL,\n  `chat_id` int(11) NOT NULL,\n  `active` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `identifier` (`identifier`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
-        "lh_departament": "CREATE TABLE IF NOT EXISTS `lh_departament` (`id` int(11) NOT NULL AUTO_INCREMENT,`name` varchar(100) NOT NULL,`email` varchar(100) NOT NULL,`xmpp_recipients` text NOT NULL,`xmpp_group_recipients` text NOT NULL,`priority` int(11) NOT NULL,`sort_priority` int(11) NOT NULL,`department_transfer_id` int(11) NOT NULL,`transfer_timeout` int(11) NOT NULL,`disabled` int(11) NOT NULL,`hidden` int(11) NOT NULL,`delay_lm` int(11) NOT NULL,`max_active_chats` int(11) NOT NULL,`max_timeout_seconds` int(11) NOT NULL,`identifier` varchar(50) NOT NULL,`mod_start_hour` int(4) NOT NULL,`mod_end_hour` int(4) NOT NULL,`tud_start_hour` int(4) NOT NULL,`tud_end_hour` int(4) NOT NULL,`wed_start_hour` int(4) NOT NULL,`wed_end_hour` int(4) NOT NULL,`thd_start_hour` int(4) NOT NULL,`thd_end_hour` int(4) NOT NULL,`frd_start_hour` int(4) NOT NULL,`frd_end_hour` int(4) NOT NULL,`sad_start_hour` int(4) NOT NULL,`sad_end_hour` int(4) NOT NULL,`sud_start_hour` int(4) NOT NULL,`sud_end_hour` int(4) NOT NULL,`nc_cb_execute` tinyint(1) NOT NULL,`na_cb_execute` tinyint(1) NOT NULL,`inform_unread` tinyint(1) NOT NULL,`active_balancing` tinyint(1) NOT NULL,`visible_if_online` tinyint(1) NOT NULL,`inform_close` int(11) NOT NULL,`inform_unread_delay` int(11) NOT NULL,`inform_options` varchar(250) NOT NULL,`online_hours_active` tinyint(1) NOT NULL,`inform_delay` int(11) NOT NULL,`attr_int_1` int(11) NOT NULL,`attr_int_2` int(11) NOT NULL,`attr_int_3` int(11) NOT NULL,`active_chats_counter` int(11) NOT NULL,`pending_chats_counter` int(11) NOT NULL,`closed_chats_counter` int(11) NOT NULL,PRIMARY KEY (`id`),KEY `identifier` (`identifier`),KEY `attr_int_1` (`attr_int_1`),KEY `attr_int_2` (`attr_int_2`),KEY `attr_int_3` (`attr_int_3`),KEY `disabled_hidden` (`disabled`, `hidden`),KEY `sort_priority_name` (`sort_priority`, `name`),KEY `active_mod` (`online_hours_active`,`mod_start_hour`,`mod_end_hour`),KEY `active_tud` (`online_hours_active`,`tud_start_hour`,`tud_end_hour`),KEY `active_wed` (`online_hours_active`,`wed_start_hour`,`wed_end_hour`),KEY `active_thd` (`online_hours_active`,`thd_start_hour`,`thd_end_hour`),KEY `active_frd` (`online_hours_active`,`frd_start_hour`,`frd_end_hour`),KEY `active_sad` (`online_hours_active`,`sad_start_hour`,`sad_end_hour`),KEY `active_sud` (`online_hours_active`,`sud_start_hour`,`sud_end_hour`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
-        "lh_departament_custom_work_hours": "CREATE TABLE IF NOT EXISTS `lh_departament_custom_work_hours` (`id` int(11) NOT NULL AUTO_INCREMENT,`dep_id` int(11) NOT NULL,`date_from` int(11) NOT NULL,`date_to` int(11) NOT NULL,`start_hour` int(11) NOT NULL,`end_hour` int(11) NOT NULL,PRIMARY KEY (`id`),KEY `dep_id` (`dep_id`),KEY `date_from` (`date_from`),KEY `search_active` (`date_from`, `date_to`, `dep_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
-        "lh_faq": "CREATE TABLE `lh_faq` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `question` varchar(250) NOT NULL,\n  `answer` text NOT NULL,\n  `url` varchar(250) NOT NULL,\n  `email` varchar(50) NOT NULL,\n  `identifier` varchar(10) NOT NULL,\n  `active` int(11) NOT NULL,\n  `has_url` tinyint(1) NOT NULL,\n  `is_wildcard` tinyint(1) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `active` (`active`),\n  KEY `active_url` (`active`,`url`),\n  KEY `has_url` (`has_url`),\n  KEY `identifier` (`identifier`),\n  KEY `is_wildcard` (`is_wildcard`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
-        "lh_forgotpasswordhash": "CREATE TABLE `lh_forgotpasswordhash` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `user_id` int(11) NOT NULL,\n  `hash` varchar(40) NOT NULL,\n  `created` int(11) NOT NULL,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
-        "lh_group": "CREATE TABLE `lh_group` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `name` varchar(50) NOT NULL,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4",
-        "lh_grouprole": "CREATE TABLE `lh_grouprole` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `group_id` int(11) NOT NULL,\n  `role_id` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `group_id` (`role_id`,`group_id`)\n) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4",
-        "lh_groupuser": "CREATE TABLE `lh_groupuser` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `group_id` int(11) NOT NULL,\n  `user_id` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `group_id` (`group_id`),\n  KEY `user_id` (`user_id`),\n  KEY `group_id_2` (`group_id`,`user_id`)\n) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4",
-        "lh_msg": "CREATE TABLE `lh_msg` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `msg` longtext NOT NULL,\n  `time` int(11) NOT NULL,\n  `chat_id` int(11) NOT NULL DEFAULT '0',\n  `user_id` int(11) NOT NULL DEFAULT '0',\n  `name_support` varchar(100) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `chat_id_id` (`chat_id`,`id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
-        "lh_question": "CREATE TABLE `lh_question` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `question` varchar(250) NOT NULL,\n  `location` varchar(250) NOT NULL,\n  `active` int(11) NOT NULL,\n  `priority` int(11) NOT NULL,\n  `is_voting` int(11) NOT NULL,\n  `question_intro` text NOT NULL,\n  `revote` int(11) NOT NULL DEFAULT '0',\n  PRIMARY KEY (`id`),\n  KEY `priority` (`priority`),\n  KEY `active_priority` (`active`,`priority`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
-        "lh_question_answer": "CREATE TABLE `lh_question_answer` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `ip` bigint(20) NOT NULL,\n  `question_id` int(11) NOT NULL,\n  `answer` text NOT NULL,\n  `ctime` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `ip` (`ip`),\n  KEY `question_id` (`question_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
-        "lh_question_option": "CREATE TABLE `lh_question_option` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `question_id` int(11) NOT NULL,\n  `option_name` varchar(250) NOT NULL,\n  `priority` tinyint(4) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `question_id` (`question_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
-        "lh_question_option_answer": "CREATE TABLE `lh_question_option_answer` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `question_id` int(11) NOT NULL,\n  `option_id` int(11) NOT NULL,\n  `ctime` int(11) NOT NULL,\n  `ip` bigint(20) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `question_id` (`question_id`),\n  KEY `ip` (`ip`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
-        "lh_role": "CREATE TABLE `lh_role` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `name` varchar(50) NOT NULL,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4",
-        "lh_rolefunction": "CREATE TABLE `lh_rolefunction` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `role_id` int(11) NOT NULL,\n  `module` varchar(100) NOT NULL,\n  `function` varchar(100) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `role_id` (`role_id`)\n) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4",
-        "lh_transfer": "CREATE TABLE `lh_transfer` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `chat_id` int(11) NOT NULL,\n  `dep_id` int(11) NOT NULL,\n  `transfer_user_id` int(11) NOT NULL,\n  `from_dep_id` int(11) NOT NULL,\n  `transfer_to_user_id` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `dep_id` (`dep_id`),\n  KEY `transfer_user_id_dep_id` (`transfer_user_id`,`dep_id`),\n  KEY `transfer_to_user_id` (`transfer_to_user_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
-        "lh_userdep": "CREATE TABLE `lh_userdep` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `user_id` int(11) NOT NULL,\n  `dep_id` int(11) NOT NULL,\n  `last_activity` int(11) NOT NULL,\n  `hide_online` int(11) NOT NULL,\n  `last_accepted` int(11) NOT NULL,\n  `active_chats` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `user_id` (`user_id`),\n  KEY `last_activity_hide_online_dep_id` (`last_activity`,`hide_online`,`dep_id`),\n  KEY `dep_id` (`dep_id`)\n) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4",
-        "lh_users": "CREATE TABLE `lh_users` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `username` varchar(40) NOT NULL,\n  `password` varchar(40) NOT NULL,\n  `email` varchar(100) NOT NULL,\n  `time_zone` varchar(100) NOT NULL,\n  `name` varchar(100) NOT NULL,\n  `surname` varchar(100) NOT NULL,\n  `filepath` varchar(200) NOT NULL,\n  `filename` varchar(200) NOT NULL,\n  `job_title` varchar(100) NOT NULL,\n  `xmpp_username` varchar(200) NOT NULL,\n  `skype` varchar(50) NOT NULL,\n  `disabled` tinyint(4) NOT NULL,\n  `hide_online` tinyint(1) NOT NULL,\n  `all_departments` tinyint(1) NOT NULL,\n  `invisible_mode` tinyint(1) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `hide_online` (`hide_online`),\n  KEY `email` (`email`),\n  KEY `xmpp_username` (`xmpp_username`)\n) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4",
-        "lh_users_remember": "CREATE TABLE `lh_users_remember` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `user_id` int(11) NOT NULL,\n  `mtime` int(11) NOT NULL,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
-        "lh_users_setting": "CREATE TABLE `lh_users_setting` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `user_id` int(11) NOT NULL,\n  `identifier` varchar(50) NOT NULL,\n  `value` text NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `user_id` (`user_id`,`identifier`)\n) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4",
-        "lh_users_setting_option": "CREATE TABLE `lh_users_setting_option` (\n  `identifier` varchar(50) NOT NULL,\n  `class` varchar(50) NOT NULL,\n  `attribute` varchar(40) NOT NULL,\n  PRIMARY KEY (`identifier`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
-        "lh_cobrowse": "CREATE TABLE `lh_cobrowse` ( `id` int(11) NOT NULL AUTO_INCREMENT, `chat_id` int(11) NOT NULL, `mtime` int(11) NOT NULL, `url` varchar(250) NOT NULL, `initialize` longtext NOT NULL, `modifications` longtext NOT NULL, `finished` tinyint(1) NOT NULL, `w` int(11) NOT NULL, `wh` int(11) NOT NULL, `x` int(11) NOT NULL, `y` int(11) NOT NULL,  PRIMARY KEY (`id`),  KEY `chat_id` (`chat_id`)) DEFAULT CHARSET=utf8mb4",
-        "lh_chat_paid": "CREATE TABLE `lh_chat_paid` ( `id` int(11) NOT NULL AUTO_INCREMENT,  `hash` varchar(250) NOT NULL,  `chat_id` int(11) NOT NULL,  PRIMARY KEY (`id`),  KEY `hash` (`hash`),  KEY `chat_id` (`chat_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
-        "lh_abstract_rest_api_key": "CREATE TABLE `lh_abstract_rest_api_key` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `api_key` varchar(50) NOT NULL,  `user_id` int(11) NOT NULL,  `active` int(11) NOT NULL DEFAULT '0',  PRIMARY KEY (`id`),  KEY `user_id` (`user_id`),  KEY `api_key_active` (`api_key`,`active`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
-        "lh_departament_group_user": "CREATE TABLE `lh_departament_group_user` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `dep_group_id` int(11) NOT NULL,  `user_id` int(11) NOT NULL,  PRIMARY KEY (`id`),  KEY `dep_group_id` (`dep_group_id`),  KEY `user_id` (`user_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
-        "lh_departament_group_member": "CREATE TABLE `lh_departament_group_member` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `dep_id` int(11) NOT NULL,  `dep_group_id` int(11) NOT NULL,  PRIMARY KEY (`id`),  KEY `dep_group_id` (`dep_group_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
-        "lh_departament_limit_group_member": "CREATE TABLE `lh_departament_limit_group_member` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `dep_id` int(11) NOT NULL,  `dep_limit_group_id` int(11) NOT NULL,  PRIMARY KEY (`id`),  KEY `dep_limit_group_id` (`dep_limit_group_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
-        "lh_departament_group": "CREATE TABLE `lh_departament_group` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `name` varchar(50) NOT NULL,  PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
-        "lh_departament_limit_group": "CREATE TABLE `lh_departament_limit_group` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `name` varchar(50) NOT NULL,`pending_max` int(11) NOT NULL,  PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
-        "lh_users_session": "CREATE TABLE `lh_users_session` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `token` varchar(40) NOT NULL,  `device_type` int(11) NOT NULL,  `device_token` varchar(255) NOT NULL,  `user_id` int(11) NOT NULL,  `created_on` int(11) NOT NULL,  `updated_on` int(11) NOT NULL,  `expires_on` int(11) NOT NULL,  PRIMARY KEY (`id`),  KEY `device_token_device_type` (`device_token`,`device_type`),  KEY `token` (`token`)) DEFAULT CHARSET=utf8mb4",
-        "lh_canned_msg_tag_link": "CREATE TABLE `lh_canned_msg_tag_link` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `tag_id` int(11) NOT NULL,  `canned_id` int(11) NOT NULL,  PRIMARY KEY (`id`), KEY `canned_id` (`canned_id`), KEY `tag_id` (`tag_id`)) DEFAULT CHARSET=utf8mb4",
-        "lh_canned_msg_tag": "CREATE TABLE `lh_canned_msg_tag` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `tag` varchar(40) NOT NULL, PRIMARY KEY (`id`), KEY `tag` (`tag`)) DEFAULT CHARSET=utf8mb4",
-        "lh_group_work": "CREATE TABLE `lh_group_work` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `group_id` int(11) NOT NULL, `group_work_id` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `group_id` (`group_id`)) DEFAULT CHARSET=utf8mb4",
-        "lh_users_online_session": "CREATE TABLE `lh_users_online_session` (  `id` bigint(20) NOT NULL AUTO_INCREMENT,  `user_id` int(11) NOT NULL, `duration` int(11) NOT NULL, `time` int(11) NOT NULL, `lactivity` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `user_id_lactivity` (`user_id`, `lactivity`)) DEFAULT CHARSET=utf8mb4",
-        "lh_abstract_proactive_chat_variables": "CREATE TABLE `lh_abstract_proactive_chat_variables` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `name` varchar(50) NOT NULL, `identifier` varchar(50) NOT NULL, `store_timeout` int(11) NOT NULL, `filter_val` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `identifier` (`identifier`)) DEFAULT CHARSET=utf8mb4",
-        "lh_abstract_proactive_chat_event": "CREATE TABLE `lh_abstract_proactive_chat_event` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `vid_id` int(11) NOT NULL,  `ev_id` int(11) NOT NULL,  `ts` int(11) NOT NULL,  `val` varchar(50) NOT NULL,  PRIMARY KEY (`id`),  KEY `vid_id_ev_id_val_ts` (`vid_id`,`ev_id`,`val`,`ts`),  KEY `vid_id_ev_id_ts` (`vid_id`,`ev_id`,`ts`)) DEFAULT CHARSET=utf8mb4",
-        "lh_abstract_proactive_chat_invitation_event": "CREATE TABLE `lh_abstract_proactive_chat_invitation_event` ( `id` int(11) NOT NULL AUTO_INCREMENT, `invitation_id` int(11) NOT NULL, `event_id` int(11) NOT NULL, `min_number` int(11) NOT NULL, `during_seconds` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `invitation_id` (`invitation_id`), KEY `event_id` (`event_id`)) DEFAULT CHARSET=utf8mb4",
-        "lh_chat_start_settings": "CREATE TABLE `lh_chat_start_settings` ( `id` int(11) NOT NULL AUTO_INCREMENT, `name` varchar(50) NOT NULL, `data` longtext NOT NULL, `department_id` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `department_id` (`department_id`)) DEFAULT CHARSET=utf8"
+    	"lh_abstract_product_departament" : "CREATE TABLE `lh_abstract_product_departament` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `product_id` int(11) NOT NULL,  `departament_id` int(11) NOT NULL,  PRIMARY KEY (`id`),  KEY `departament_id` (`departament_id`)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
+    	"lh_admin_theme" : "CREATE TABLE `lh_admin_theme` ( `id` int(11) NOT NULL AUTO_INCREMENT, `name` varchar(100) NOT NULL, `static_content` longtext NOT NULL, `static_js_content` longtext NOT NULL, `static_css_content` longtext NOT NULL, `header_content` text NOT NULL, `header_css` text NOT NULL, PRIMARY KEY (`id`)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
+    	"lh_abstract_product" : "CREATE TABLE `lh_abstract_product` (`id` int(11) NOT NULL AUTO_INCREMENT, `name` varchar(250) NOT NULL, `priority` int(11) NOT NULL, `departament_id` int(11) NOT NULL, `disabled` int(11) NOT NULL, KEY `departament_id` (`departament_id`), PRIMARY KEY (`id`)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
+    	"lh_abstract_survey" : "CREATE TABLE `lh_abstract_survey` (`id` int(11) NOT NULL AUTO_INCREMENT,`name` varchar(250) NOT NULL,`max_stars_1_title` varchar(250) NOT NULL,`max_stars_1_pos` int(11) NOT NULL,`max_stars_2_title` varchar(250) NOT NULL,`max_stars_2_pos` int(11) NOT NULL,`max_stars_2` int(11) NOT NULL,`max_stars_3_title` varchar(250) NOT NULL,`max_stars_3_pos` int(11) NOT NULL,`max_stars_3` int(11) NOT NULL,`max_stars_4_title` varchar(250) NOT NULL,`max_stars_4_pos` int(11) NOT NULL,`max_stars_4` int(11) NOT NULL,`max_stars_5_title` varchar(250) NOT NULL,`max_stars_5_pos` int(11) NOT NULL,`max_stars_5` int(11) NOT NULL,`question_options_1` varchar(250) NOT NULL,`question_options_1_items` text NOT NULL,`question_options_1_pos` int(11) NOT NULL,`question_options_2` varchar(250) NOT NULL,`question_options_2_items` text NOT NULL,`question_options_2_pos` int(11) NOT NULL,`question_options_3` varchar(250) NOT NULL,`question_options_3_items` text NOT NULL,`question_options_3_pos` int(11) NOT NULL,`question_options_4` varchar(250) NOT NULL,`question_options_4_items` text NOT NULL,`question_options_4_pos` int(11) NOT NULL,`question_options_5` varchar(250) NOT NULL,`question_options_5_items` text NOT NULL,`question_options_5_pos` int(11) NOT NULL,`question_plain_1` text NOT NULL,`question_plain_1_pos` int(11) NOT NULL,`question_plain_2` text NOT NULL,`question_plain_2_pos` int(11) NOT NULL,`question_plain_3` text NOT NULL,`question_plain_3_pos` int(11) NOT NULL,`question_plain_4` text NOT NULL,`question_plain_4_pos` int(11) NOT NULL,`question_plain_5` text NOT NULL,`question_plain_5_pos` int(11) NOT NULL,`max_stars_1_enabled` int(11) NOT NULL, `max_stars_2_enabled` int(11) NOT NULL,  `max_stars_3_enabled` int(11) NOT NULL,  `max_stars_4_enabled` int(11) NOT NULL,  `max_stars_5_enabled` int(11) NOT NULL,  `question_options_1_enabled` int(11) NOT NULL,  `question_options_2_enabled` int(11) NOT NULL,  `question_options_3_enabled` int(11) NOT NULL,  `question_options_4_enabled` int(11) NOT NULL,  `question_options_5_enabled` int(11) NOT NULL,  `question_plain_1_enabled` int(11) NOT NULL,  `question_plain_2_enabled` int(11) NOT NULL,  `question_plain_3_enabled` int(11) NOT NULL,  `question_plain_4_enabled` int(11) NOT NULL,  `question_plain_5_enabled` int(11) NOT NULL,  `max_stars_1` int(11) NOT NULL,  `max_stars_1_req` int(11) NOT NULL,  `max_stars_2_req` int(11) NOT NULL,  `max_stars_3_req` int(11) NOT NULL,  `max_stars_4_req` int(11) NOT NULL,  `max_stars_5_req` int(11) NOT NULL,  `question_options_1_req` int(11) NOT NULL,  `question_options_2_req` int(11) NOT NULL,  `question_options_3_req` int(11) NOT NULL,  `question_options_4_req` int(11) NOT NULL,  `question_options_5_req` int(11) NOT NULL,  `question_plain_1_req` int(11) NOT NULL,  `question_plain_2_req` int(11) NOT NULL,  `question_plain_3_req` int(11) NOT NULL,`question_plain_4_req` int(11) NOT NULL,`question_plain_5_req` int(11) NOT NULL, PRIMARY KEY (`id`)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+    	"lh_abstract_survey_item" : "CREATE TABLE `lh_abstract_survey_item` (  `id` bigint(20) NOT NULL AUTO_INCREMENT,  `survey_id` int(11) NOT NULL,  `chat_id` int(11) NOT NULL,  `user_id` int(11) NOT NULL,  `ftime` int(11) NOT NULL,  `dep_id` int(11) NOT NULL,  `max_stars_1` int(11) NOT NULL,  `max_stars_2` int(11) NOT NULL,  `max_stars_3` int(11) NOT NULL,  `max_stars_4` int(11) NOT NULL,  `max_stars_5` int(11) NOT NULL,  `question_options_1` int(11) NOT NULL,  `question_options_2` int(11) NOT NULL,  `question_options_3` int(11) NOT NULL,  `question_options_4` int(11) NOT NULL,  `question_options_5` int(11) NOT NULL,  `question_plain_1` text NOT NULL,  `question_plain_2` text NOT NULL,  `question_plain_3` text NOT NULL,  `question_plain_4` text NOT NULL,  `question_plain_5` text NOT NULL,  PRIMARY KEY (`id`),  KEY `survey_id` (`survey_id`),  KEY `chat_id` (`chat_id`),  KEY `user_id` (`user_id`),  KEY `dep_id` (`dep_id`),  KEY `ftime` (`ftime`),  KEY `max_stars_1` (`max_stars_1`),  KEY `max_stars_2` (`max_stars_2`),  KEY `max_stars_3` (`max_stars_3`),  KEY `max_stars_4` (`max_stars_4`),  KEY `max_stars_5` (`max_stars_5`),  KEY `question_options_1` (`question_options_1`),  KEY `question_options_2` (`question_options_2`),  KEY `question_options_3` (`question_options_3`),  KEY `question_options_4` (`question_options_4`),  KEY `question_options_5` (`question_options_5`)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+    	"lh_speech_language" : "CREATE TABLE IF NOT EXISTS `lh_speech_language` ( `id` int(11) NOT NULL AUTO_INCREMENT,`name` varchar(100) NOT NULL,PRIMARY KEY (`id`)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+    	"lh_speech_language_dialect" : "CREATE TABLE IF NOT EXISTS `lh_speech_language_dialect` (`id` int(11) NOT NULL AUTO_INCREMENT,`language_id` int(11) NOT NULL, `lang_name` varchar(100) NOT NULL,`lang_code` varchar(100) NOT NULL, PRIMARY KEY (`id`),KEY `language_id` (`language_id`)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+    	"lh_speech_chat_language" : "CREATE TABLE IF NOT EXISTS `lh_speech_chat_language` (`id` int(11) NOT NULL AUTO_INCREMENT, `chat_id` int(11) NOT NULL, `language_id` int(11) NOT NULL, `dialect` varchar(50) NOT NULL, PRIMARY KEY (`id`), KEY `chat_id` (`chat_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_abstract_auto_responder": "CREATE TABLE `lh_abstract_auto_responder` (  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `siteaccess` varchar(3) NOT NULL,\n  `wait_message` text NOT NULL,\n  `wait_timeout` int(11) NOT NULL,\n  `position` int(11) NOT NULL,\n  `timeout_message` text NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `siteaccess_position` (`siteaccess`,`position`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_abstract_auto_responder_chat": "CREATE TABLE `lh_abstract_auto_responder_chat` ( `id` int(11) NOT NULL AUTO_INCREMENT,\n  `chat_id` int(11) NOT NULL,\n  `auto_responder_id` int(11) NOT NULL,\n  `wait_timeout_send` int(11) NOT NULL,`pending_send_status` int(11) NOT NULL, `active_send_status` int(11) NOT NULL, \n  PRIMARY KEY (`id`),\n  KEY `chat_id` (`chat_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_abstract_browse_offer_invitation": "CREATE TABLE `lh_abstract_browse_offer_invitation` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `siteaccess` varchar(10) NOT NULL,\n  `time_on_site` int(11) NOT NULL,\n  `content` longtext NOT NULL,\n  `callback_content` longtext NOT NULL,\n  `lhc_iframe_content` tinyint(4) NOT NULL,\n  `custom_iframe_url` varchar(250) NOT NULL,\n  `name` varchar(250) NOT NULL,\n  `identifier` varchar(50) NOT NULL,\n  `executed_times` int(11) NOT NULL,\n  `url` varchar(250) NOT NULL,\n  `active` int(11) NOT NULL,\n  `has_url` int(11) NOT NULL,\n  `is_wildcard` int(11) NOT NULL,\n  `referrer` varchar(250) NOT NULL,\n  `priority` varchar(250) NOT NULL,\n  `hash` varchar(40) NOT NULL,\n  `width` int(11) NOT NULL,\n  `height` int(11) NOT NULL,\n  `unit` varchar(10) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `active` (`active`),\n  KEY `identifier` (`identifier`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_abstract_email_template": "CREATE TABLE `lh_abstract_email_template` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `name` varchar(250) NOT NULL,\n  `from_name` varchar(150) NOT NULL,\n  `from_name_ac` tinyint(4) NOT NULL,\n  `from_email` varchar(150) NOT NULL,\n  `from_email_ac` tinyint(4) NOT NULL,\n  `content` text NOT NULL,\n  `subject` varchar(250) NOT NULL,\n  `bcc_recipients` varchar(200) NOT NULL,\n  `subject_ac` tinyint(4) NOT NULL,\n  `reply_to` varchar(150) NOT NULL,\n  `reply_to_ac` tinyint(4) NOT NULL,\n  `recipient` varchar(150) NOT NULL,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_abstract_form": "CREATE TABLE `lh_abstract_form` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `name` varchar(100) NOT NULL,\n  `content` longtext NOT NULL,\n  `recipient` varchar(250) NOT NULL,\n  `active` int(11) NOT NULL,\n  `name_attr` varchar(250) NOT NULL,\n  `intro_attr` varchar(250) NOT NULL,\n  `xls_columns` text NOT NULL,\n  `pagelayout` varchar(200) NOT NULL,\n  `post_content` text NOT NULL,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_abstract_form_collected": "CREATE TABLE `lh_abstract_form_collected` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `form_id` int(11) NOT NULL,\n  `ctime` int(11) NOT NULL,\n  `ip` varchar(250) NOT NULL,\n  `content` longtext NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `form_id` (`form_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_abstract_proactive_chat_invitation": "CREATE TABLE `lh_abstract_proactive_chat_invitation` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `siteaccess` varchar(10) NOT NULL,\n  `time_on_site` int(11) NOT NULL,\n  `pageviews` int(11) NOT NULL,\n  `message` text NOT NULL,\n  `executed_times` int(11) NOT NULL,\n  `dep_id` int(11) NOT NULL,\n  `hide_after_ntimes` int(11) NOT NULL,\n  `name` varchar(50) NOT NULL,\n  `operator_ids` varchar(100) NOT NULL,\n  `wait_message` varchar(250) NOT NULL,\n  `timeout_message` varchar(250) NOT NULL,\n  `referrer` varchar(250) NOT NULL,\n  `wait_timeout` int(11) NOT NULL,\n  `show_random_operator` int(11) NOT NULL,\n  `operator_name` varchar(100) NOT NULL,\n  `position` int(11) NOT NULL,\n  `identifier` varchar(50) NOT NULL,\n  `requires_email` int(11) NOT NULL,\n  `requires_username` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `time_on_site_pageviews_siteaccess_position` (`time_on_site`,`pageviews`,`siteaccess`,`identifier`,`position`),\n  KEY `identifier` (`identifier`),\n  KEY `dep_id` (`dep_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_abstract_widget_theme": "CREATE TABLE `lh_abstract_widget_theme` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `name` varchar(250) NOT NULL,\n  `onl_bcolor` varchar(10) NOT NULL,\n  `text_color` varchar(10) NOT NULL,\n  `online_image` varchar(250) NOT NULL,\n  `online_image_path` varchar(250) NOT NULL,\n  `offline_image` varchar(250) NOT NULL,\n  `offline_image_path` varchar(250) NOT NULL,\n  `logo_image` varchar(250) NOT NULL,\n  `logo_image_path` varchar(250) NOT NULL,\n  `need_help_image` varchar(250) NOT NULL,\n  `header_background` varchar(10) NOT NULL,\n  `widget_border_color` varchar(10) NOT NULL,\n  `need_help_tcolor` varchar(10) NOT NULL,\n  `need_help_bcolor` varchar(10) NOT NULL,\n  `need_help_border` varchar(10) NOT NULL,\n  `need_help_close_bg` varchar(10) NOT NULL,\n  `need_help_hover_bg` varchar(10) NOT NULL,\n  `need_help_close_hover_bg` varchar(10) NOT NULL,\n  `need_help_image_path` varchar(250) NOT NULL,\n  `custom_status_css` text NOT NULL,\n  `custom_container_css` text NOT NULL,\n  `custom_widget_css` text NOT NULL, `custom_popup_css` text NOT NULL, \n  `need_help_header` varchar(250) NOT NULL,\n  `need_help_text` varchar(250) NOT NULL,\n  `online_text` varchar(250) NOT NULL,\n  `offline_text` varchar(250) NOT NULL,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_canned_msg": "CREATE TABLE `lh_canned_msg` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `msg` longtext NOT NULL,\n  `position` int(11) NOT NULL,\n  `department_id` int(11) NOT NULL,\n  `user_id` int(11) NOT NULL,\n  `delay` int(11) NOT NULL,\n  `auto_send` tinyint(1) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `department_id` (`department_id`),\n  KEY `user_id` (`user_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_chat": "CREATE TABLE `lh_chat` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `nick` varchar(50) NOT NULL,\n  `status` int(11) NOT NULL DEFAULT '0',\n  `status_sub` int(11) NOT NULL DEFAULT '0',\n  `time` int(11) NOT NULL,\n  `user_id` int(11) NOT NULL,\n  `hash` varchar(40) NOT NULL,\n  `referrer` text NOT NULL,\n  `session_referrer` text NOT NULL,\n  `chat_variables` text NOT NULL,\n  `remarks` text NOT NULL,\n  `ip` varchar(100) NOT NULL,\n  `dep_id` int(11) NOT NULL,\n  `user_status` int(11) NOT NULL DEFAULT '0',\n  `support_informed` int(11) NOT NULL DEFAULT '0',\n  `unread_messages_informed` int(11) NOT NULL DEFAULT '0',\n  `reinform_timeout` int(11) NOT NULL DEFAULT '0',\n  `email` varchar(100) NOT NULL,\n  `country_code` varchar(100) NOT NULL,\n  `country_name` varchar(100) NOT NULL,\n  `user_typing` int(11) NOT NULL,\n  `user_typing_txt` varchar(50) NOT NULL,\n  `operator_typing` int(11) NOT NULL,\n  `operator_typing_id` int(11) NOT NULL,\n  `phone` varchar(100) NOT NULL,\n  `has_unread_messages` int(11) NOT NULL,\n  `last_user_msg_time` int(11) NOT NULL,\n  `fbst` tinyint(1) NOT NULL,\n  `online_user_id` int(11) NOT NULL,\n  `last_msg_id` int(11) NOT NULL,\n  `additional_data` text NOT NULL,\n  `timeout_message` varchar(250) NOT NULL,\n  `lat` varchar(10) NOT NULL,\n  `lon` varchar(10) NOT NULL,\n  `city` varchar(100) NOT NULL,\n  `operation` varchar(200) NOT NULL,\n  `operation_admin` varchar(200) NOT NULL,\n  `mail_send` int(11) NOT NULL,\n  `screenshot_id` int(11) NOT NULL,\n  `wait_time` int(11) NOT NULL,\n  `wait_timeout` int(11) NOT NULL,\n  `wait_timeout_send` int(11) NOT NULL,\n  `chat_duration` int(11) NOT NULL,\n  `tslasign` int(11) NOT NULL,\n  `priority` int(11) NOT NULL,\n  `chat_initiator` int(11) NOT NULL,\n  `transfer_timeout_ts` int(11) NOT NULL,\n  `transfer_timeout_ac` int(11) NOT NULL,\n  `transfer_if_na` int(11) NOT NULL,\n  `na_cb_executed` int(11) NOT NULL,\n  `nc_cb_executed` tinyint(1) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `status_user_id` (`status`,`user_id`),\n  KEY `user_id` (`user_id`),\n  KEY `online_user_id` (`online_user_id`),\n  KEY `dep_id` (`dep_id`),\n  KEY `has_unread_messages_dep_id_id` (`has_unread_messages`,`dep_id`,`id`),\n  KEY `status_dep_id_id` (`status`,`dep_id`,`id`),\n  KEY `status_dep_id_priority_id` (`status`,`dep_id`,`priority`,`id`),\n  KEY `status_priority_id` (`status`,`priority`,`id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_chat_accept": "CREATE TABLE `lh_chat_accept` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `chat_id` int(11) NOT NULL,\n  `hash` varchar(50) NOT NULL,\n  `ctime` int(11) NOT NULL,\n  `wused` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `hash` (`hash`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_chat_archive_range": "CREATE TABLE `lh_chat_archive_range` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `range_from` int(11) NOT NULL,\n  `range_to` int(11) NOT NULL,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_chat_blocked_user": "CREATE TABLE `lh_chat_blocked_user` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `ip` varchar(100) NOT NULL,\n  `user_id` int(11) NOT NULL,\n  `datets` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `ip` (`ip`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_chat_config": "CREATE TABLE `lh_chat_config` (\n  `identifier` varchar(50) NOT NULL,\n  `value` text NOT NULL,\n  `type` tinyint(1) NOT NULL DEFAULT '0',\n  `explain` varchar(250) NOT NULL,\n  `hidden` int(11) NOT NULL DEFAULT '0',\n  PRIMARY KEY (`identifier`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_chat_file": "CREATE TABLE `lh_chat_file` (\n  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,\n  `name` varchar(255) NOT NULL,\n  `upload_name` varchar(255) NOT NULL,\n  `size` int(11) NOT NULL,\n  `type` varchar(255) NOT NULL,\n  `file_path` varchar(255) NOT NULL,\n  `extension` varchar(255) NOT NULL,\n  `chat_id` int(11) NOT NULL,\n  `user_id` int(11) NOT NULL,\n  `date` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `chat_id` (`chat_id`),\n  KEY `user_id` (`user_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_chat_online_user": "CREATE TABLE `lh_chat_online_user` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `vid` varchar(50) NOT NULL,\n  `ip` varchar(50) NOT NULL,\n  `current_page` text NOT NULL,\n  `page_title` varchar(250) NOT NULL,\n  `referrer` text NOT NULL,\n  `chat_id` int(11) NOT NULL,\n  `invitation_seen_count` int(11) NOT NULL,\n  `invitation_id` int(11) NOT NULL,\n  `last_visit` int(11) NOT NULL,\n  `first_visit` int(11) NOT NULL,\n  `total_visits` int(11) NOT NULL,\n  `pages_count` int(11) NOT NULL,\n  `tt_pages_count` int(11) NOT NULL,\n  `invitation_count` int(11) NOT NULL,\n  `dep_id` int(11) NOT NULL,\n  `user_agent` varchar(250) NOT NULL,\n  `user_country_code` varchar(50) NOT NULL,\n  `user_country_name` varchar(50) NOT NULL,\n  `operator_message` varchar(250) NOT NULL,\n  `operator_user_proactive` varchar(100) NOT NULL,\n  `operator_user_id` int(11) NOT NULL,\n  `message_seen` int(11) NOT NULL,\n  `message_seen_ts` int(11) NOT NULL,\n  `lat` varchar(10) NOT NULL,\n  `lon` varchar(10) NOT NULL,\n  `city` varchar(100) NOT NULL,\n  `reopen_chat` int(11) NOT NULL,\n  `time_on_site` int(11) NOT NULL,\n  `tt_time_on_site` int(11) NOT NULL,\n  `requires_email` int(11) NOT NULL,\n  `requires_username` int(11) NOT NULL,\n  `screenshot_id` int(11) NOT NULL,\n  `identifier` varchar(50) NOT NULL,\n  `operation` varchar(200) NOT NULL,\n  `online_attr` varchar(250) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `vid` (`vid`),\n  KEY `dep_id` (`dep_id`),\n  KEY `last_visit_dep_id` (`last_visit`,`dep_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_chat_online_user_footprint": "CREATE TABLE `lh_chat_online_user_footprint` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `chat_id` int(11) NOT NULL,\n  `online_user_id` int(11) NOT NULL,\n  `page` varchar(250) NOT NULL,\n  `vtime` varchar(250) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `chat_id_vtime` (`chat_id`,`vtime`),\n  KEY `online_user_id` (`online_user_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_chatbox": "CREATE TABLE `lh_chatbox` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `identifier` varchar(50) NOT NULL,\n  `name` varchar(100) NOT NULL,\n  `chat_id` int(11) NOT NULL,\n  `active` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `identifier` (`identifier`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_departament": "CREATE TABLE IF NOT EXISTS `lh_departament` (`id` int(11) NOT NULL AUTO_INCREMENT,`name` varchar(100) NOT NULL,`email` varchar(100) NOT NULL,`xmpp_recipients` text NOT NULL,`xmpp_group_recipients` text NOT NULL,`priority` int(11) NOT NULL,`sort_priority` int(11) NOT NULL,`department_transfer_id` int(11) NOT NULL,`transfer_timeout` int(11) NOT NULL,`disabled` int(11) NOT NULL,`hidden` int(11) NOT NULL,`delay_lm` int(11) NOT NULL,`max_active_chats` int(11) NOT NULL,`max_timeout_seconds` int(11) NOT NULL,`identifier` varchar(50) NOT NULL,`mod_start_hour` int(4) NOT NULL,`mod_end_hour` int(4) NOT NULL,`tud_start_hour` int(4) NOT NULL,`tud_end_hour` int(4) NOT NULL,`wed_start_hour` int(4) NOT NULL,`wed_end_hour` int(4) NOT NULL,`thd_start_hour` int(4) NOT NULL,`thd_end_hour` int(4) NOT NULL,`frd_start_hour` int(4) NOT NULL,`frd_end_hour` int(4) NOT NULL,`sad_start_hour` int(4) NOT NULL,`sad_end_hour` int(4) NOT NULL,`sud_start_hour` int(4) NOT NULL,`sud_end_hour` int(4) NOT NULL,`nc_cb_execute` tinyint(1) NOT NULL,`na_cb_execute` tinyint(1) NOT NULL,`inform_unread` tinyint(1) NOT NULL,`active_balancing` tinyint(1) NOT NULL,`visible_if_online` tinyint(1) NOT NULL,`inform_close` int(11) NOT NULL,`inform_unread_delay` int(11) NOT NULL,`inform_options` varchar(250) NOT NULL,`online_hours_active` tinyint(1) NOT NULL,`inform_delay` int(11) NOT NULL,`attr_int_1` int(11) NOT NULL,`attr_int_2` int(11) NOT NULL,`attr_int_3` int(11) NOT NULL,`active_chats_counter` int(11) NOT NULL,`pending_chats_counter` int(11) NOT NULL,`closed_chats_counter` int(11) NOT NULL,PRIMARY KEY (`id`),KEY `identifier` (`identifier`),KEY `attr_int_1` (`attr_int_1`),KEY `attr_int_2` (`attr_int_2`),KEY `attr_int_3` (`attr_int_3`),KEY `disabled_hidden` (`disabled`, `hidden`),KEY `sort_priority_name` (`sort_priority`, `name`),KEY `active_mod` (`online_hours_active`,`mod_start_hour`,`mod_end_hour`),KEY `active_tud` (`online_hours_active`,`tud_start_hour`,`tud_end_hour`),KEY `active_wed` (`online_hours_active`,`wed_start_hour`,`wed_end_hour`),KEY `active_thd` (`online_hours_active`,`thd_start_hour`,`thd_end_hour`),KEY `active_frd` (`online_hours_active`,`frd_start_hour`,`frd_end_hour`),KEY `active_sad` (`online_hours_active`,`sad_start_hour`,`sad_end_hour`),KEY `active_sud` (`online_hours_active`,`sud_start_hour`,`sud_end_hour`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_departament_custom_work_hours": "CREATE TABLE IF NOT EXISTS `lh_departament_custom_work_hours` (`id` int(11) NOT NULL AUTO_INCREMENT,`dep_id` int(11) NOT NULL,`date_from` int(11) NOT NULL,`date_to` int(11) NOT NULL,`start_hour` int(11) NOT NULL,`end_hour` int(11) NOT NULL,PRIMARY KEY (`id`),KEY `dep_id` (`dep_id`),KEY `date_from` (`date_from`),KEY `search_active` (`date_from`, `date_to`, `dep_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_faq": "CREATE TABLE `lh_faq` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `question` varchar(250) NOT NULL,\n  `answer` text NOT NULL,\n  `url` varchar(250) NOT NULL,\n  `email` varchar(50) NOT NULL,\n  `identifier` varchar(10) NOT NULL,\n  `active` int(11) NOT NULL,\n  `has_url` tinyint(1) NOT NULL,\n  `is_wildcard` tinyint(1) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `active` (`active`),\n  KEY `active_url` (`active`,`url`),\n  KEY `has_url` (`has_url`),\n  KEY `identifier` (`identifier`),\n  KEY `is_wildcard` (`is_wildcard`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_forgotpasswordhash": "CREATE TABLE `lh_forgotpasswordhash` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `user_id` int(11) NOT NULL,\n  `hash` varchar(40) NOT NULL,\n  `created` int(11) NOT NULL,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_group": "CREATE TABLE `lh_group` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `name` varchar(50) NOT NULL,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_grouprole": "CREATE TABLE `lh_grouprole` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `group_id` int(11) NOT NULL,\n  `role_id` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `group_id` (`role_id`,`group_id`)\n) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_groupuser": "CREATE TABLE `lh_groupuser` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `group_id` int(11) NOT NULL,\n  `user_id` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `group_id` (`group_id`),\n  KEY `user_id` (`user_id`),\n  KEY `group_id_2` (`group_id`,`user_id`)\n) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_msg": "CREATE TABLE `lh_msg` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `msg` longtext NOT NULL,\n  `time` int(11) NOT NULL,\n  `chat_id` int(11) NOT NULL DEFAULT '0',\n  `user_id` int(11) NOT NULL DEFAULT '0',\n  `name_support` varchar(100) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `chat_id_id` (`chat_id`,`id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_question": "CREATE TABLE `lh_question` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `question` varchar(250) NOT NULL,\n  `location` varchar(250) NOT NULL,\n  `active` int(11) NOT NULL,\n  `priority` int(11) NOT NULL,\n  `is_voting` int(11) NOT NULL,\n  `question_intro` text NOT NULL,\n  `revote` int(11) NOT NULL DEFAULT '0',\n  PRIMARY KEY (`id`),\n  KEY `priority` (`priority`),\n  KEY `active_priority` (`active`,`priority`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_question_answer": "CREATE TABLE `lh_question_answer` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `ip` bigint(20) NOT NULL,\n  `question_id` int(11) NOT NULL,\n  `answer` text NOT NULL,\n  `ctime` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `ip` (`ip`),\n  KEY `question_id` (`question_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_question_option": "CREATE TABLE `lh_question_option` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `question_id` int(11) NOT NULL,\n  `option_name` varchar(250) NOT NULL,\n  `priority` tinyint(4) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `question_id` (`question_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_question_option_answer": "CREATE TABLE `lh_question_option_answer` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `question_id` int(11) NOT NULL,\n  `option_id` int(11) NOT NULL,\n  `ctime` int(11) NOT NULL,\n  `ip` bigint(20) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `question_id` (`question_id`),\n  KEY `ip` (`ip`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_role": "CREATE TABLE `lh_role` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `name` varchar(50) NOT NULL,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_rolefunction": "CREATE TABLE `lh_rolefunction` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `role_id` int(11) NOT NULL,\n  `module` varchar(100) NOT NULL,\n  `function` varchar(100) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `role_id` (`role_id`)\n) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_transfer": "CREATE TABLE `lh_transfer` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `chat_id` int(11) NOT NULL,\n  `dep_id` int(11) NOT NULL,\n  `transfer_user_id` int(11) NOT NULL,\n  `from_dep_id` int(11) NOT NULL,\n  `transfer_to_user_id` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `dep_id` (`dep_id`),\n  KEY `transfer_user_id_dep_id` (`transfer_user_id`,`dep_id`),\n  KEY `transfer_to_user_id` (`transfer_to_user_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_userdep": "CREATE TABLE `lh_userdep` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `user_id` int(11) NOT NULL,\n  `dep_id` int(11) NOT NULL,\n  `last_activity` int(11) NOT NULL,\n  `hide_online` int(11) NOT NULL,\n  `last_accepted` int(11) NOT NULL,\n  `active_chats` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `user_id` (`user_id`),\n  KEY `last_activity_hide_online_dep_id` (`last_activity`,`hide_online`,`dep_id`),\n  KEY `dep_id` (`dep_id`)\n) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_users": "CREATE TABLE `lh_users` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `username` varchar(40) NOT NULL,\n  `password` varchar(40) NOT NULL,\n  `email` varchar(100) NOT NULL,\n  `time_zone` varchar(100) NOT NULL,\n  `name` varchar(100) NOT NULL,\n  `surname` varchar(100) NOT NULL,\n  `filepath` varchar(200) NOT NULL,\n  `filename` varchar(200) NOT NULL,\n  `job_title` varchar(100) NOT NULL,\n  `xmpp_username` varchar(200) NOT NULL,\n  `skype` varchar(50) NOT NULL,\n  `disabled` tinyint(4) NOT NULL,\n  `hide_online` tinyint(1) NOT NULL,\n  `all_departments` tinyint(1) NOT NULL,\n  `invisible_mode` tinyint(1) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `hide_online` (`hide_online`),\n  KEY `email` (`email`),\n  KEY `xmpp_username` (`xmpp_username`)\n) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_users_remember": "CREATE TABLE `lh_users_remember` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `user_id` int(11) NOT NULL,\n  `mtime` int(11) NOT NULL,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_users_setting": "CREATE TABLE `lh_users_setting` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `user_id` int(11) NOT NULL,\n  `identifier` varchar(50) NOT NULL,\n  `value` text NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `user_id` (`user_id`,`identifier`)\n) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_users_setting_option": "CREATE TABLE `lh_users_setting_option` (\n  `identifier` varchar(50) NOT NULL,\n  `class` varchar(50) NOT NULL,\n  `attribute` varchar(40) NOT NULL,\n  PRIMARY KEY (`identifier`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_cobrowse": "CREATE TABLE `lh_cobrowse` ( `id` int(11) NOT NULL AUTO_INCREMENT, `chat_id` int(11) NOT NULL, `mtime` int(11) NOT NULL, `url` varchar(250) NOT NULL, `initialize` longtext NOT NULL, `modifications` longtext NOT NULL, `finished` tinyint(1) NOT NULL, `w` int(11) NOT NULL, `wh` int(11) NOT NULL, `x` int(11) NOT NULL, `y` int(11) NOT NULL,  PRIMARY KEY (`id`),  KEY `chat_id` (`chat_id`)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_chat_paid": "CREATE TABLE `lh_chat_paid` ( `id` int(11) NOT NULL AUTO_INCREMENT,  `hash` varchar(250) NOT NULL,  `chat_id` int(11) NOT NULL,  PRIMARY KEY (`id`),  KEY `hash` (`hash`),  KEY `chat_id` (`chat_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_abstract_rest_api_key": "CREATE TABLE `lh_abstract_rest_api_key` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `api_key` varchar(50) NOT NULL,  `user_id` int(11) NOT NULL,  `active` int(11) NOT NULL DEFAULT '0',  PRIMARY KEY (`id`),  KEY `user_id` (`user_id`),  KEY `api_key_active` (`api_key`,`active`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_departament_group_user": "CREATE TABLE `lh_departament_group_user` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `dep_group_id` int(11) NOT NULL,  `user_id` int(11) NOT NULL,  PRIMARY KEY (`id`),  KEY `dep_group_id` (`dep_group_id`),  KEY `user_id` (`user_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_departament_group_member": "CREATE TABLE `lh_departament_group_member` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `dep_id` int(11) NOT NULL,  `dep_group_id` int(11) NOT NULL,  PRIMARY KEY (`id`),  KEY `dep_group_id` (`dep_group_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_departament_limit_group_member": "CREATE TABLE `lh_departament_limit_group_member` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `dep_id` int(11) NOT NULL,  `dep_limit_group_id` int(11) NOT NULL,  PRIMARY KEY (`id`),  KEY `dep_limit_group_id` (`dep_limit_group_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_departament_group": "CREATE TABLE `lh_departament_group` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `name` varchar(50) NOT NULL,  PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_departament_limit_group": "CREATE TABLE `lh_departament_limit_group` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `name` varchar(50) NOT NULL,`pending_max` int(11) NOT NULL,  PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_users_session": "CREATE TABLE `lh_users_session` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `token` varchar(40) NOT NULL,  `device_type` int(11) NOT NULL,  `device_token` varchar(255) NOT NULL,  `user_id` int(11) NOT NULL,  `created_on` int(11) NOT NULL,  `updated_on` int(11) NOT NULL,  `expires_on` int(11) NOT NULL,  PRIMARY KEY (`id`),  KEY `device_token_device_type` (`device_token`,`device_type`),  KEY `token` (`token`)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_canned_msg_tag_link": "CREATE TABLE `lh_canned_msg_tag_link` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `tag_id` int(11) NOT NULL,  `canned_id` int(11) NOT NULL,  PRIMARY KEY (`id`), KEY `canned_id` (`canned_id`), KEY `tag_id` (`tag_id`)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_canned_msg_tag": "CREATE TABLE `lh_canned_msg_tag` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `tag` varchar(40) NOT NULL, PRIMARY KEY (`id`), KEY `tag` (`tag`)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_group_work": "CREATE TABLE `lh_group_work` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `group_id` int(11) NOT NULL, `group_work_id` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `group_id` (`group_id`)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_users_online_session": "CREATE TABLE `lh_users_online_session` (  `id` bigint(20) NOT NULL AUTO_INCREMENT,  `user_id` int(11) NOT NULL, `duration` int(11) NOT NULL, `time` int(11) NOT NULL, `lactivity` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `user_id_lactivity` (`user_id`, `lactivity`)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_abstract_proactive_chat_variables": "CREATE TABLE `lh_abstract_proactive_chat_variables` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `name` varchar(50) NOT NULL, `identifier` varchar(50) NOT NULL, `store_timeout` int(11) NOT NULL, `filter_val` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `identifier` (`identifier`)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_abstract_proactive_chat_event": "CREATE TABLE `lh_abstract_proactive_chat_event` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `vid_id` int(11) NOT NULL,  `ev_id` int(11) NOT NULL,  `ts` int(11) NOT NULL,  `val` varchar(50) NOT NULL,  PRIMARY KEY (`id`),  KEY `vid_id_ev_id_val_ts` (`vid_id`,`ev_id`,`val`,`ts`),  KEY `vid_id_ev_id_ts` (`vid_id`,`ev_id`,`ts`)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_abstract_proactive_chat_invitation_event": "CREATE TABLE `lh_abstract_proactive_chat_invitation_event` ( `id` int(11) NOT NULL AUTO_INCREMENT, `invitation_id` int(11) NOT NULL, `event_id` int(11) NOT NULL, `min_number` int(11) NOT NULL, `during_seconds` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `invitation_id` (`invitation_id`), KEY `event_id` (`event_id`)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_chat_start_settings": "CREATE TABLE `lh_chat_start_settings` ( `id` int(11) NOT NULL AUTO_INCREMENT, `name` varchar(50) NOT NULL, `data` longtext NOT NULL, `department_id` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `department_id` (`department_id`)) DEFAULT CHARSET=utf8 COLLATE=utf8mb4_unicode_ci"
     }
 }

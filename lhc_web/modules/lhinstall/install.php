@@ -336,7 +336,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  KEY `status_dep_id_id` (`status`,`dep_id`,`id`),
         	   	  KEY `status_dep_id_priority_id` (`status`,`dep_id`,`priority`,`id`),
         	   	  KEY `status_priority_id` (`status`,`priority`,`id`)
-				) DEFAULT CHARSET=utf8mb4;");
+				) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_blocked_user` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -345,7 +345,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `datets` int(11) NOT NULL,
                   PRIMARY KEY (`id`),
                   KEY `ip` (`ip`)
-                ) DEFAULT CHARSET=utf8mb4;");
+                ) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
         	   
         	   $db->query("CREATE TABLE `lh_users_online_session` ( 
         	       `id` bigint(20) NOT NULL AUTO_INCREMENT, 
@@ -354,7 +354,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	       `duration` int(11) NOT NULL, 
         	       `lactivity` int(11) NOT NULL, 
         	       PRIMARY KEY (`id`), 
-        	       KEY `user_id_lactivity` (`user_id`, `lactivity`)) DEFAULT CHARSET=utf8mb4;");
+        	       KEY `user_id_lactivity` (`user_id`, `lactivity`)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
         	   
         	   $db->query("CREATE TABLE `lh_chat_start_settings` ( 
         	       `id` int(11) NOT NULL AUTO_INCREMENT, 
@@ -362,7 +362,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	       `data` longtext NOT NULL, 
         	       `department_id` int(11) NOT NULL, 
         	       PRIMARY KEY (`id`), 
-        	       KEY `department_id` (`department_id`)) DEFAULT CHARSET=utf8mb4;");
+        	       KEY `department_id` (`department_id`)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_archive_range` (
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -373,7 +373,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   `last_id` int(11) NOT NULL,
         	   `first_id` int(11) NOT NULL,
         	   PRIMARY KEY (`id`)
-        	   ) DEFAULT CHARSET=utf8mb4;");
+        	   ) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
         	   $db->query("CREATE TABLE `lh_abstract_auto_responder` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -422,7 +422,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `ignore_pa_chat` int(11) NOT NULL,
                   PRIMARY KEY (`id`),
                   KEY `siteaccess_position` (`siteaccess`,`position`)
-                ) DEFAULT CHARSET=utf8mb4");
+                ) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
 
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_abstract_widget_theme` (
 				 `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -497,7 +497,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                  `buble_operator_title_color` varchar(250) NOT NULL,
                  `buble_operator_text_color` varchar(250) NOT NULL,
                   PRIMARY KEY (`id`)				
-				) DEFAULT CHARSET=utf8mb4;");
+				) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_faq` (
 				  `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -515,7 +515,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  KEY `has_url` (`has_url`),
 				  KEY `identifier` (`identifier`),
 				  KEY `is_wildcard` (`is_wildcard`)
-				) DEFAULT CHARSET=utf8mb4;");
+				) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_cobrowse` (
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -533,7 +533,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   PRIMARY KEY (`id`),
         	   KEY `chat_id` (`chat_id`),
         	   KEY `online_user_id` (`online_user_id`)
-        	   ) DEFAULT CHARSET=utf8mb4");
+        	   ) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
         	           	   
         	   $db->query("CREATE TABLE `lh_abstract_survey` (
         	      `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -610,7 +610,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `question_plain_4_req` int(11) NOT NULL,
                   `question_plain_5_req` int(11) NOT NULL,
                   PRIMARY KEY (`id`)
-        	   ) DEFAULT CHARSET=utf8mb4");
+        	   ) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
 
         	   $db->query("CREATE TABLE `lh_admin_theme` (
         	       `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -621,7 +621,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	       `header_content` text NOT NULL,
         	       `header_css` text NOT NULL,
         	       PRIMARY KEY (`id`)
-        	   ) DEFAULT CHARSET=utf8mb4");
+        	   ) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
 
         	   $db->query("CREATE TABLE `lh_chat_paid` ( 
         	       `id` int(11) NOT NULL AUTO_INCREMENT,  
@@ -629,7 +629,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	       `chat_id` int(11) NOT NULL, 
         	        PRIMARY KEY (`id`),  
         	       KEY `hash` (`hash`),  
-        	       KEY `chat_id` (`chat_id`)) DEFAULT CHARSET=utf8mb4");
+        	       KEY `chat_id` (`chat_id`)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
 
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_abstract_survey_item` (
         	      `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -670,13 +670,13 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  KEY `question_options_3` (`question_options_3`),
 				  KEY `question_options_4` (`question_options_4`),
 				  KEY `question_options_5` (`question_options_5`)
-        	   ) DEFAULT CHARSET=utf8mb4");
+        	   ) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
         	   
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_speech_language` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
                   `name` varchar(100) NOT NULL,
                   PRIMARY KEY (`id`)
-               ) DEFAULT CHARSET=utf8mb4");
+               ) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
         	           	   
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_speech_language_dialect` (
                 `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -688,7 +688,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   KEY `language_id` (`language_id`),
                   KEY `short_code` (`short_code`),
                   KEY `lang_code` (`lang_code`)
-                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
 
         	   $db->query("INSERT INTO `lh_speech_language` (`id`, `name`) VALUES
         	   (1,	'Afrikaans'),
@@ -795,7 +795,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `dialect` varchar(50) NOT NULL,
                   PRIMARY KEY (`id`),
                   KEY `chat_id` (`chat_id`)
-               ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;");
+               ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_file` (
         	   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -813,7 +813,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   KEY `chat_id` (`chat_id`),
         	   KEY `online_user_id` (`online_user_id`),
         	   KEY `user_id` (`user_id`)
-        	   ) DEFAULT CHARSET=utf8mb4;");
+        	   ) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_abstract_email_template` (
 				  `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -831,7 +831,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `reply_to_ac` tinyint(4) NOT NULL,
 				  `recipient` varchar(150) NOT NULL,
 				  PRIMARY KEY (`id`)
-				) DEFAULT CHARSET=utf8mb4;");
+				) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
         	   $db->query("INSERT INTO `lh_abstract_email_template` (`id`, `name`, `from_name`, `from_name_ac`, `from_email`, `from_email_ac`, `content`, `subject`, `subject_ac`, `reply_to`, `reply_to_ac`, `recipient`, `bcc_recipients`, `user_mail_as_sender`) VALUES
             	   (1,	'Send mail to user',	'Live Helper Chat',	0,	'',	0,	'Dear {user_chat_nick},\r\n\r\n{additional_message}\r\n\r\nLive Support response:\r\n{messages_content}\r\n\r\nSincerely,\r\nLive Support Team\r\n',	'{name_surname} has responded to your request',	1,	'',	1,	'',	'',	0),
@@ -858,7 +858,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   PRIMARY KEY (`id`),
         	   KEY `priority` (`priority`),
         	   KEY `active_priority` (`active`,`priority`)
-        	   ) DEFAULT CHARSET=utf8mb4;");
+        	   ) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_question_answer` (
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -869,7 +869,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   PRIMARY KEY (`id`),
         	   KEY `ip` (`ip`),
         	   KEY `question_id` (`question_id`)
-        	   ) DEFAULT CHARSET=utf8mb4");
+        	   ) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
 
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_question_option` (
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -878,7 +878,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   `priority` tinyint(4) NOT NULL,
         	   PRIMARY KEY (`id`),
         	   KEY `question_id` (`question_id`)
-        	   ) DEFAULT CHARSET=utf8mb4;");
+        	   ) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_question_option_answer` (
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -889,7 +889,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   PRIMARY KEY (`id`),
         	   KEY `question_id` (`question_id`),
         	   KEY `ip` (`ip`)
-        	   ) DEFAULT CHARSET=utf8mb4;");
+        	   ) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_abstract_product` (
         	       `id` int(11) NOT NULL AUTO_INCREMENT, 
@@ -898,7 +898,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	       `priority` int(11) NOT NULL, 
         	       `departament_id` int(11) NOT NULL, 
         	       KEY `departament_id` (`departament_id`), 
-        	       PRIMARY KEY (`id`)) DEFAULT CHARSET=utf8mb4;");
+        	       PRIMARY KEY (`id`)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_abstract_browse_offer_invitation` (
 				  `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -924,7 +924,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  PRIMARY KEY (`id`),
 				  KEY `active` (`active`),
 				  KEY `identifier` (`identifier`)
-				) DEFAULT CHARSET=utf8mb4;");
+				) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
         	   
         	   
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_abstract_form` (
@@ -939,7 +939,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   `pagelayout` varchar(200) NOT NULL,
         	   `post_content` text NOT NULL,
         	   PRIMARY KEY (`id`)
-        	   ) DEFAULT CHARSET=utf8mb4;");
+        	   ) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
         	           	   
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_abstract_form_collected` (
 				  `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -950,7 +950,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `content` longtext NOT NULL,
 				  PRIMARY KEY (`id`),
 				  KEY `form_id` (`form_id`)
-				) DEFAULT CHARSET=utf8mb4;");
+				) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
         	   
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chatbox` (
 				  `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -960,7 +960,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `active` int(11) NOT NULL,
 				  PRIMARY KEY (`id`),
 				  KEY `identifier` (`identifier`)
-				) DEFAULT CHARSET=utf8mb4;");
+				) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
         	   
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_canned_msg` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -984,7 +984,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   	  KEY `attr_int_3` (`attr_int_3`),
         	   	  KEY `position_title` (`position`, `title`),
         	   	  KEY `user_id` (`user_id`)
-                ) DEFAULT CHARSET=utf8mb4;");
+                ) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_online_user_footprint` (
 				  `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -995,7 +995,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  PRIMARY KEY (`id`),
 				  KEY `chat_id_vtime` (`chat_id`,`vtime`),
 				  KEY `online_user_id` (`online_user_id`)
-				) DEFAULT CHARSET=utf8mb4;");
+				) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
         	   
         	   $db->query("CREATE TABLE `lh_abstract_proactive_chat_event` (
         	       `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1006,7 +1006,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	       PRIMARY KEY (`id`),
         	       KEY `vid_id_ev_id_val_ts` (`vid_id`,`ev_id`,`val`,`ts`),
         	       KEY `vid_id_ev_id_ts` (`vid_id`,`ev_id`,`ts`)
-        	   ) DEFAULT CHARSET=utf8mb4;");
+        	   ) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
         	   $db->query("CREATE TABLE `lh_abstract_proactive_chat_invitation_event` (
         	       `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1017,7 +1017,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	       PRIMARY KEY (`id`),
         	       KEY `invitation_id` (`invitation_id`),
         	       KEY `event_id` (`event_id`)
-        	   ) DEFAULT CHARSET=utf8mb4;");
+        	   ) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
         	   $db->query("CREATE TABLE `lh_abstract_proactive_chat_variables` (
         	       `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1027,7 +1027,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	       `filter_val` int(11) NOT NULL DEFAULT '0',
         	       PRIMARY KEY (`id`),
         	       KEY `identifier` (`identifier`)
-        	   ) DEFAULT CHARSET=utf8mb4");
+        	   ) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
         	   
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_users_setting` (
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1036,7 +1036,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   `value` text NOT NULL,
         	   PRIMARY KEY (`id`),
         	   KEY `user_id` (`user_id`,`identifier`)
-        	   ) DEFAULT CHARSET=utf8mb4;");
+        	   ) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
         	   
         	   $db->query("CREATE TABLE `lh_departament_limit_group_member` (  
     	       `id` int(11) NOT NULL AUTO_INCREMENT,  
@@ -1044,14 +1044,14 @@ switch ((int)$Params['user_parameters']['step_id']) {
     	       `dep_limit_group_id` int(11) NOT NULL,  
     	       PRIMARY KEY (`id`),  
     	       KEY `dep_limit_group_id` (`dep_limit_group_id`)) 
-    	       DEFAULT CHARSET=utf8mb4");
+    	       DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
         	   
         	   $db->query("CREATE TABLE `lh_departament_limit_group` (  
     	       `id` int(11) NOT NULL AUTO_INCREMENT,  
     	       `name` varchar(50) NOT NULL,
     	       `pending_max` int(11) NOT NULL,  
     	       PRIMARY KEY (`id`)) 
-    	       DEFAULT CHARSET=utf8mb4");
+    	       DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
         	   
         	   $db->query("CREATE TABLE `lh_abstract_auto_responder_chat` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1062,14 +1062,14 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `active_send_status` int(11) NOT NULL,
                   PRIMARY KEY (`id`),
                   KEY `chat_id` (`chat_id`)
-                ) DEFAULT CHARSET=utf8mb4");
+                ) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
        	          
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_users_setting_option` (
 				  `identifier` varchar(50) NOT NULL,
 				  `class` varchar(50) NOT NULL,
 				  `attribute` varchar(40) NOT NULL,
 				  PRIMARY KEY (`identifier`)
-				) DEFAULT CHARSET=utf8mb4;");
+				) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
         	   
         	   $db->query("INSERT INTO `lh_users_setting_option` (`identifier`, `class`, `attribute`) VALUES
         	   ('chat_message',	'',	''),
@@ -1097,7 +1097,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `explain` varchar(250) NOT NULL,
                   `hidden` int(11) NOT NULL DEFAULT '0',
                   PRIMARY KEY (`identifier`)
-                ) DEFAULT CHARSET=utf8mb4;");
+                ) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
         	   $randomHash = erLhcoreClassModelForgotPassword::randomPassword(9);
         	   $randomHashLength = strlen($randomHash);
@@ -1251,7 +1251,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   KEY `vid` (`vid`),
 				  KEY `dep_id` (`dep_id`),
 				  KEY `last_visit_dep_id` (`last_visit`,`dep_id`)
-                ) DEFAULT CHARSET=utf8mb4;");
+                ) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_abstract_proactive_chat_invitation` (
 				  `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1290,7 +1290,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	      KEY `dynamic_invitation` (`dynamic_invitation`),
         	      KEY `tag` (`tag`),
         	      KEY `dep_id` (`dep_id`)
-				) DEFAULT CHARSET=utf8mb4;");
+				) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
         	   
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_accept` (
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1300,7 +1300,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   `wused` int(11) NOT NULL,
         	   PRIMARY KEY (`id`),
         	   KEY `hash` (`hash`)
-        	   ) DEFAULT CHARSET=utf8mb4;");
+        	   ) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
         	   
         	   //Default departament
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_departament` (
@@ -1374,7 +1374,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  KEY `active_frd` (`online_hours_active`,`frd_start_hour`,`frd_end_hour`),
 				  KEY `active_sad` (`online_hours_active`,`sad_start_hour`,`sad_end_hour`),
 				  KEY `active_sud` (`online_hours_active`,`sud_start_hour`,`sud_end_hour`)
-				) DEFAULT CHARSET=utf8mb4;");
+				) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
         	   $db->query("CREATE TABLE `lh_departament_group_user` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1383,7 +1383,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   PRIMARY KEY (`id`),
                   KEY `dep_group_id` (`dep_group_id`),
                   KEY `user_id` (`user_id`)
-                ) DEFAULT CHARSET=utf8mb4;");
+                ) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
         	           	   
         	   $db->query("CREATE TABLE `lh_abstract_product_departament` (
         	       `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1391,7 +1391,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	       `departament_id` int(11) NOT NULL,
         	       PRIMARY KEY (`id`),
         	       KEY `departament_id` (`departament_id`)
-        	   ) DEFAULT CHARSET=utf8mb4;");
+        	   ) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
         	   
         	   $db->query("CREATE TABLE `lh_departament_group_member` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1399,16 +1399,16 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `dep_group_id` int(11) NOT NULL,
                   PRIMARY KEY (`id`),
                   KEY `dep_group_id` (`dep_group_id`)
-                ) DEFAULT CHARSET=utf8mb4;");
+                ) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
         	   $db->query("CREATE TABLE `lh_departament_group` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
                   `name` varchar(50) NOT NULL,
                   PRIMARY KEY (`id`)
-                ) DEFAULT CHARSET=utf8mb4;");
+                ) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
-        	   $db->query("CREATE TABLE `lh_canned_msg_tag_link` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `tag_id` int(11) NOT NULL,  `canned_id` int(11) NOT NULL,  PRIMARY KEY (`id`), KEY `canned_id` (`canned_id`), KEY `tag_id` (`tag_id`)) DEFAULT CHARSET=utf8mb4;");
-        	   $db->query("CREATE TABLE `lh_canned_msg_tag` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `tag` varchar(40) NOT NULL, PRIMARY KEY (`id`), KEY `tag` (`tag`)) DEFAULT CHARSET=utf8mb4;");
+        	   $db->query("CREATE TABLE `lh_canned_msg_tag_link` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `tag_id` int(11) NOT NULL,  `canned_id` int(11) NOT NULL,  PRIMARY KEY (`id`), KEY `canned_id` (`canned_id`), KEY `tag_id` (`tag_id`)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+        	   $db->query("CREATE TABLE `lh_canned_msg_tag` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `tag` varchar(40) NOT NULL, PRIMARY KEY (`id`), KEY `tag` (`tag`)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
         	   $Departament = new erLhcoreClassModelDepartament();
                $Departament->name = $form->DefaultDepartament;
@@ -1426,7 +1426,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  KEY `dep_id` (`dep_id`),
 				  KEY `date_from` (`date_from`),
 				  KEY `search_active` (`date_from`, `date_to`, `dep_id`)
-				) DEFAULT CHARSET=utf8mb4;");
+				) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                //Administrators group
                $db->query("CREATE TABLE IF NOT EXISTS `lh_group` (
@@ -1435,7 +1435,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                `disabled` int(11) NOT NULL,
                PRIMARY KEY (`id`),
                KEY `disabled` (`disabled`)
-               ) DEFAULT CHARSET=utf8mb4;");
+               ) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
                
                // Admin group
                $GroupData = new erLhcoreClassModelGroup();
@@ -1452,7 +1452,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `id` int(11) NOT NULL AUTO_INCREMENT,
                   `name` varchar(50) NOT NULL,
                   PRIMARY KEY (`id`)
-                ) DEFAULT CHARSET=utf8mb4;");
+                ) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                // Administrators role
                $Role = new erLhcoreClassModelRole();
@@ -1472,7 +1472,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   PRIMARY KEY (`id`),
                   KEY `group_id` (`role_id`,`group_id`),
                   KEY `group_id_primary` (`group_id`)
-                ) DEFAULT CHARSET=utf8mb4;");
+                ) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                // Assign admin role to admin group
                $GroupRole = new erLhcoreClassModelGroupRole();
@@ -1524,7 +1524,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   KEY `rec_per_req` (`rec_per_req`),
                   KEY `email` (`email`),
                   KEY `xmpp_username` (`xmpp_username`)
-                ) DEFAULT CHARSET=utf8mb4;");
+                ) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                 $UserData = new erLhcoreClassModelUser();
 
@@ -1559,12 +1559,12 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   KEY `last_activity_hide_online_dep_id` (`last_activity`,`hide_online`,`dep_id`),
                   KEY `dep_id` (`dep_id`),
                   KEY `user_id_type` (`user_id`,`type`)
-                ) DEFAULT CHARSET=utf8mb4");
+                ) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
 
                 // Insert record to departament instantly
                 $db->query("INSERT INTO `lh_userdep` (`user_id`,`dep_id`,`last_activity`,`hide_online`,`last_accepted`,`active_chats`,`type`,`dep_group_id`,`exclude_autoasign`) VALUES ({$UserData->id},0,0,0,0,0,0,0,0)");
 
-                $db->query("CREATE TABLE `lh_group_work` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `group_id` int(11) NOT NULL, `group_work_id` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `group_id` (`group_id`)) DEFAULT CHARSET=utf8mb4;");
+                $db->query("CREATE TABLE `lh_group_work` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `group_id` int(11) NOT NULL, `group_work_id` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `group_id` (`group_id`)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                 // Transfer chat
                 $db->query("CREATE TABLE IF NOT EXISTS `lh_transfer` (
@@ -1579,7 +1579,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  KEY `dep_id` (`dep_id`),
 				  KEY `transfer_user_id_dep_id` (`transfer_user_id`,`dep_id`),
 				  KEY `transfer_to_user_id` (`transfer_to_user_id`)
-				) DEFAULT CHARSET=utf8mb4;");
+				) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                 // Remember user table
                 $db->query("CREATE TABLE IF NOT EXISTS `lh_users_remember` (
@@ -1587,7 +1587,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				 `user_id` int(11) NOT NULL,
 				 `mtime` int(11) NOT NULL,
 				 PRIMARY KEY (`id`)
-				) DEFAULT CHARSET=utf8mb4;");
+				) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
                 
                 // API table
                 $db->query("CREATE TABLE IF NOT EXISTS `lh_abstract_rest_api_key` (
@@ -1598,7 +1598,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                     PRIMARY KEY (`id`),
                     KEY `api_key` (`api_key`),
                     KEY `user_id` (`user_id`)
-                ) DEFAULT CHARSET=utf8mb4;");
+                ) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
                 
                 // Session
                 $db->query("CREATE TABLE `lh_users_session` (
@@ -1613,7 +1613,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   PRIMARY KEY (`id`),
                   KEY `device_token_device_type` (`device_token`,`device_type`),
                   KEY `token` (`token`)
-                ) DEFAULT CHARSET=utf8mb4;");
+                ) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                 // Chat messages
                 $db->query("CREATE TABLE IF NOT EXISTS `lh_msg` (
@@ -1626,7 +1626,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  PRIMARY KEY (`id`),
 				  KEY `chat_id_id` (`chat_id`, `id`),
 				  KEY `user_id` (`user_id`)
-				) DEFAULT CHARSET=utf8mb4;");
+				) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                 // Forgot password table
                 $db->query("CREATE TABLE IF NOT EXISTS `lh_forgotpasswordhash` (
@@ -1634,7 +1634,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 `user_id` INT NOT NULL ,
                 `hash` VARCHAR( 40 ) NOT NULL ,
                 `created` INT NOT NULL
-                ) DEFAULT CHARSET=utf8mb4;");
+                ) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                 // User groups table
                 $db->query("CREATE TABLE IF NOT EXISTS `lh_groupuser` (
@@ -1645,7 +1645,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   KEY `group_id` (`group_id`),
                   KEY `user_id` (`user_id`),
                   KEY `group_id_2` (`group_id`,`user_id`)
-                ) DEFAULT CHARSET=utf8mb4;");
+                ) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                 // Assign admin user to admin group
                 $GroupUser = new erLhcoreClassModelGroupUser();
@@ -1662,7 +1662,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `limitation` text NOT NULL,
                   PRIMARY KEY (`id`),
                   KEY `role_id` (`role_id`)
-                ) DEFAULT CHARSET=utf8mb4;");
+                ) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                 // Admin role and function
                 $RoleFunction = new erLhcoreClassModelRoleFunction();
