@@ -3,7 +3,7 @@
 /**
  * php cron.php -s site_admin -c cron/archive
  *
- * Run every 10 minits or so. On this cron depends automatic chat transfer and unaswered chats callback.
+ * Run every 30 minits or so. On this cron depends chats archive module and files maintenance. It should be run less frequency than workflow script.
  *
  * */
 echo "Starting archive workflow\n";
@@ -83,7 +83,55 @@ if (isset($data['automatic_archiving']) && $data['automatic_archiving'] == 1) {
     }
 
 } else {
-    echo "Automatic archiving is not setup\n";
+    echo "Automatic chats archiving is not setup\n";
+}
+
+echo "Starting Automatic files removing workflow\n";
+
+$fileData = erLhcoreClassModelChatConfig::fetch('file_configuration');
+$data = (array)$fileData->data;
+
+if (isset($data['mdays_older']) && $data['mdays_older'] > 0) {
+
+    $filter = array('limit' => 100, 'filterlt' => array('date' => (time() - $data['mdays_older']*24*3600)));
+    if (isset($data['mtype_delete']) && !empty($data['mtype_delete'])) {
+        $userType = array();
+        if (in_array('visitors', $data['mtype_delete'])) {
+            $userType[] ='(user_id = 0)';
+        }
+
+        if (in_array('operators', $data['mtype_delete'])) {
+            $userType[] ='(user_id > 0)';
+        }
+
+        $filter['customfilter'][] = '( ' . implode(' OR ', $userType) . ' )';
+    }
+
+    if (isset($data['mtype_cdelete']) && !empty($data['mtype_cdelete'])) {
+        $cType = array();
+        if (in_array('unassigned', $data['mtype_cdelete'])) {
+            $cType[] ='(chat_id = 0)';
+        }
+
+        if (in_array('assigned', $data['mtype_cdelete'])) {
+            $cType[] ='(chat_id != 0)';
+        }
+
+        $filter['customfilter'][] = '( ' . implode(' OR ', $cType) . ' )';
+    }
+
+    $files = erLhcoreClassModelChatFile::getList($filter);
+
+    $filesRemoved = 0;
+    foreach ($files as $file) {
+        $file->removeThis();
+        $filesRemoved++;
+    }
+
+    echo "Files removed - ",$filesRemoved,"\n";
+
+} else {
+    echo "Automatic files maintenance is not setup\n";
 }
 
 ?>

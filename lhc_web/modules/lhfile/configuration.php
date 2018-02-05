@@ -31,13 +31,42 @@ if ( isset($_POST['StoreFileConfiguration']) ) {
 			),
             'AntivirusFileScanEnabled' => new ezcInputFormDefinitionElement(
 					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+			),
+            'typeDelete' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'string', null, FILTER_REQUIRE_ARRAY
+			),
+            'typeChatDelete' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'string', null, FILTER_REQUIRE_ARRAY
+			),
+            'mdays_older' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
 			)
 	);
+
 
 	$Errors = array();
 
 	$form = new ezcInputForm( INPUT_POST, $definition );
 	$Errors = array();
+
+
+    if ( $form->hasValidData( 'typeDelete' ) && is_array($form->typeDelete)) {
+        $data['mtype_delete'] = $form->typeDelete;
+    } else {
+        $data['mtype_delete'] = array();
+    }
+
+    if ( $form->hasValidData( 'typeChatDelete' ) && is_array($form->typeChatDelete)) {
+        $data['mtype_cdelete'] = $form->typeChatDelete;
+    } else {
+        $data['mtype_cdelete'] = array();
+    }
+
+    if ( $form->hasValidData( 'mdays_older' )) {
+        $data['mdays_older'] = $form->mdays_older;
+    } else {
+        $data['mdays_older'] = null;
+    }
 
 	if ( $form->hasValidData( 'ActiveFileUploadUser' ) && $form->ActiveFileUploadUser == true ) {
 		$data['active_user_upload'] = true;

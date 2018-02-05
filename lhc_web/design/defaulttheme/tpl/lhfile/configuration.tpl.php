@@ -35,24 +35,47 @@
 	</div>
 </div>
 
-<h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','ClamAV antivirus configuration'); ?></h3>
+    <h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','ClamAV antivirus configuration'); ?></h3>
 
-<div class="form-group">
-    <label><input type="checkbox" name="AntivirusFileScanEnabled" value="on" <?php isset($file_data['clamav_enabled']) && ($file_data['clamav_enabled'] == true) ? print 'checked="checked"' : '' ?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Uploaded files from visitors are scanned'); ?></label>
-</div>
-
-<div class="row form-group">
-    <div class="col-md-6">
-        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','ClamAV socket path'); ?></label>
-        <input type="text" class="form-control" name="ClamAVSocketPath" value="<?php isset($file_data['clamd_sock']) ? print $file_data['clamd_sock'] : print '/var/run/clamav/clamd.sock' ?>" />
+    <div class="form-group">
+        <label><input type="checkbox" name="AntivirusFileScanEnabled" value="on" <?php isset($file_data['clamav_enabled']) && ($file_data['clamav_enabled'] == true) ? print 'checked="checked"' : '' ?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Uploaded files from visitors are scanned'); ?></label>
     </div>
-    <div class="col-md-6">
-        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','ClamAV socket length'); ?></label>
-        <input type="text" class="form-control" name="ClamAVSocketLength" value="<?php isset($file_data['clamd_sock_len']) ? print $file_data['clamd_sock_len'] : print '20000' ?>" />
-    </div>
-</div>
 
-<input type="submit" class="btn btn-default" name="StoreFileConfiguration" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
+    <div class="row form-group">
+        <div class="col-md-6">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','ClamAV socket path'); ?></label>
+            <input type="text" class="form-control" name="ClamAVSocketPath" value="<?php isset($file_data['clamd_sock']) ? print $file_data['clamd_sock'] : print '/var/run/clamav/clamd.sock' ?>" />
+        </div>
+        <div class="col-md-6">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','ClamAV socket length'); ?></label>
+            <input type="text" class="form-control" name="ClamAVSocketLength" value="<?php isset($file_data['clamd_sock_len']) ? print $file_data['clamd_sock_len'] : print '20000' ?>" />
+        </div>
+    </div>
+
+    <h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Maintenance'); ?></h3>
+
+    <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Files will be deleted only if days is > 0')?></p>
+
+    <div class="row">
+        <div class="col-xs-4">
+            <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Delete files'); ?></p>
+            <label><input type="checkbox" name="typeDelete[]" <?php if (isset($file_data['mtype_delete']) && in_array('visitors',$file_data['mtype_delete'])) : ?>checked="checked"<?php endif;?> value="visitors">Visitors</label><br/>
+            <label><input type="checkbox" name="typeDelete[]" <?php if (isset($file_data['mtype_delete']) && in_array('operators',$file_data['mtype_delete'])) : ?>checked="checked"<?php endif;?> value="operators">Operators</label>
+        </div>
+        <div class="col-xs-4">
+            <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','if file is (OR)'); ?></p>
+            <label><input type="checkbox" name="typeChatDelete[]" <?php if (isset($file_data['mtype_cdelete']) && in_array('unassigned',$file_data['mtype_cdelete'])) : ?>checked="checked"<?php endif;?> value="unassigned">Unassigned to chat</label><br/>
+            <label><input type="checkbox" name="typeChatDelete[]" <?php if (isset($file_data['mtype_cdelete']) && in_array('assigned',$file_data['mtype_cdelete'])) : ?>checked="checked"<?php endif;?> value="assigned">Assigned to chat</label><br/>
+        </div>
+        <div class="col-xs-4">
+            <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','And file is older than n days'); ?></p>
+            <div class="form-group">
+                <input type="text" class="form-control" name="mdays_older" value="<?php if (isset($file_data['mdays_older'])) : ?><?php echo htmlspecialchars($file_data['mdays_older'])?><?php endif?>" />
+            </div>
+        </div>
+    </div>
+
+    <input type="submit" class="btn btn-default" name="StoreFileConfiguration" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
 
 </form>
 

@@ -2,6 +2,16 @@
 
 class erLhcoreClassModelChatFile {
 
+   use erLhcoreClassDBTrait;
+
+   public static $dbTable = 'lh_chat_file';
+
+   public static $dbTableId = 'id';
+
+   public static $dbSessionHandler = 'erLhcoreClassChat::getSession';
+
+   public static $dbSortOrder = 'DESC';
+
    public function getState()
    {
        return array(
@@ -19,26 +29,13 @@ class erLhcoreClassModelChatFile {
               );
    }
 
-   public static function fetch($file_id) {
-   		$chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChatFile', (int)$file_id );
-   		return $chat;
-   }
-
-   public function setState( array $properties )
-   {
-   		foreach ( $properties as $key => $val )
-	   	{
-	   		$this->$key = $val;
-	   	}
-   }
-
    public static function deleteByChatId($chat_id) {
-   		foreach (erLhcoreClassChat::getList(array('filter' => array('chat_id' => $chat_id)),'erLhcoreClassModelChatFile','lh_chat_file') as $file) {
+   		foreach (self::getList(array('filter' => array('chat_id' => $chat_id))) as $file) {
    			$file->removeThis();
    		}
    }
 
-   public function removeThis()
+   public function beforeRemove()
    {
 	   	if (file_exists($this->file_path_server)){
 	   		unlink($this->file_path_server);
@@ -49,8 +46,6 @@ class erLhcoreClassModelChatFile {
 	   	}
 	   	
 	   	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.remove_file', array('chat_file' => & $this));
-	   	
-	   	erLhcoreClassChat::getSession()->delete($this);
    }
 
 
@@ -104,10 +99,6 @@ class erLhcoreClassModelChatFile {
    				;
    			break;
    		}
-   }
-
-   public function saveThis() {
-   		erLhcoreClassChat::getSession()->saveOrUpdate($this);
    }
 
    public $id = null;

@@ -14,13 +14,13 @@ $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input
 
 $pages = new lhPaginator();
 $pages->serverURL = erLhcoreClassDesign::baseurl('file/list').$append;
-$pages->items_total = erLhcoreClassChat::getCount($filterParams['filter'],'lh_chat_file');
+$pages->items_total = erLhcoreClassModelChatFile::getCount($filterParams['filter']);
 $pages->setItemsPerPage(20);
 $pages->paginate();
 
 $items = array();
 if ($pages->items_total > 0) {
-    $items = erLhcoreClassChat::getList(array_merge(array('offset' => $pages->low, 'limit' => $pages->items_per_page,'sort' => 'id DESC'),$filterParams['filter']),'erLhcoreClassModelChatFile','lh_chat_file');
+    $items = erLhcoreClassModelChatFile::getList(array_merge(array('offset' => $pages->low, 'limit' => $pages->items_per_page,'sort' => 'id DESC'),$filterParams['filter']));
 }
 
 $tpl->set('items',$items);
