@@ -93,7 +93,7 @@ $data = (array)$fileData->data;
 
 if (isset($data['mdays_older']) && $data['mdays_older'] > 0) {
 
-    $filter = array('limit' => 100, 'filterlt' => array('date' => (time() - $data['mdays_older']*24*3600)));
+    $filter = array('limit' => 500, 'filterlt' => array('date' => (time() - $data['mdays_older']*24*3600)));
     if (isset($data['mtype_delete']) && !empty($data['mtype_delete'])) {
         $userType = array();
         if (in_array('visitors', $data['mtype_delete'])) {
