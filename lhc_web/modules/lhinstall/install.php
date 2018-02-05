@@ -1017,7 +1017,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	       PRIMARY KEY (`id`),
         	       KEY `invitation_id` (`invitation_id`),
         	       KEY `event_id` (`event_id`)
-        	   ) DEFAULT CHARSET=utf8;");
+        	   ) DEFAULT CHARSET=utf8mb4;");
 
         	   $db->query("CREATE TABLE `lh_abstract_proactive_chat_variables` (
         	       `id` int(11) NOT NULL AUTO_INCREMENT,
