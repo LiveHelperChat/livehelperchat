@@ -84,7 +84,7 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
 }
 
 
-@media screen and (min-width: 320px) and (max-width: 640px) {
+@media screen and (min-width: 370px) and (max-width: 640px) {
 	#widget-layout textarea {
 		height: 30px;
 	}
