@@ -92,6 +92,21 @@ var lh_inst_page  = {
 		    return hashAppend+hashResume+soundOption+paid_hash;
     },
 
+    addCss : function(css_content) {
+        var head = document.getElementsByTagName('head')[0];
+        var style = document.createElement('style');
+        style.type = 'text/css';
+
+        if(style.styleSheet) {
+        style.styleSheet.cssText = css_content;
+        } else {
+        rules = document.createTextNode(css_content);
+        style.appendChild(rules);
+        };
+
+        head.appendChild(style);
+    },
+
 	addCookieAttribute : function(attr, value){
     	if (!this.cookieData[attr] || this.cookieData[attr] != value){
 	    	this.cookieData[attr] = value;
@@ -102,6 +117,9 @@ var lh_inst_page  = {
     showStartWindow : function() {
 		 var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));
          this.initial_iframe_url = "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?><?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $theme !== false ? print '/(theme)/'.$theme : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : ''?>/(mode)/embed"+this.getAppendCookieArguments()+'?URLReferer='+locationCurrent+this.parseOptions();
+
+         var raw_css = "@media only screen and (max-width : 654px) { #lhc_status_container_page{position: fixed; overflow: hidden; right: 0px; left: 0px; top: 0px; bottom: 0px;} #lhc_status_container_page iframe{width:100% !important;height: 100%!important}}";
+         this.addCss(raw_css);
 
          this.iframe_html = '<iframe id="fdbk_iframe_page" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Live Help')?>" allowTransparency="true" scrolling="no" class="loading" frameborder="0" ' +
                        ( this.initial_iframe_url != '' ? ' src="'    + this.initial_iframe_url + '"' : '' ) +
@@ -154,7 +172,8 @@ var lh_inst_page  = {
     	}
     },
     
-    handleMessage : function(e) {   	
+    handleMessage : function(e) {
+        if (typeof e.data !== 'string') { return; }
     	var action = e.data.split(':')[0];
     	if (action == 'lhc_sizing_chat_page') {
     		var height = e.data.split(':')[1];
