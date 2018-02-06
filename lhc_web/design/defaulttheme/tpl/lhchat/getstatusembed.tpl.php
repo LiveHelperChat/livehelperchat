@@ -194,7 +194,7 @@ var lh_inst_page  = {
     		lh_inst_page.hide();
     	} else if (action == 'lhc_chat_closed_explicit') {
     		lh_inst_page.hide();
-    	}
+    	} <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/handlemessageembed_multiinclude.tpl.php')); ?>
     }
 };
 
