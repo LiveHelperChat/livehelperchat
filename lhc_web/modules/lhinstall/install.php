@@ -989,7 +989,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   	  KEY `attr_int_1` (`attr_int_1`),
         	   	  KEY `attr_int_2` (`attr_int_2`),
         	   	  KEY `attr_int_3` (`attr_int_3`),
-        	   	  KEY `position_title` (`position`, `title`(191)),
+        	   	  KEY `position_title_v2` (`position`, `title`(191)),
         	   	  KEY `user_id` (`user_id`)
                 ) ENGINE=InnoDB ROW_FORMAT=DYNAMIC CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
