@@ -85,8 +85,17 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
 
 
 @media screen and (min-width: 370px) and (max-width: 640px) {
+
+	input[type='text'],
+	select,
+	input,
+	a.btn,
 	#widget-layout textarea {
-		height: 30px;
+		font-size: 16px!important;
+	}
+
+	#widget-layout textarea {
+		height: 35px;
 	}
 
 	textarea[name=ChatMessage]{
@@ -99,10 +108,15 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
 
 	#messages{
 		height:calc(100% - 130px);
+		font-size:14px;
 	}
 
 	#messagesBlockWrap,#messagesBlock{
 		height:100%!important;
+	}
+
+	#widget-layout #status-chat h4{
+		font-size:14px;
 	}
 
 	.msgBlock{
