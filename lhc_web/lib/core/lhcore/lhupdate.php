@@ -51,25 +51,32 @@ class erLhcoreClassUpdate
     		}
 		}
 
-        foreach ($definition['tables_collation'] as $table => $dataTableCollation) {
-            $tablesStatus[$table] = array('error' => false, 'status' => '', 'queries' => array());
-            try {
-                $stmt = $db->prepare("show table status like '{$table}'");
-                $stmt->execute();
-                $tableData = $stmt->fetch(PDO::FETCH_ASSOC);
+		if (isset($definition['tables_collation'])){
+            foreach ($definition['tables_collation'] as $table => $dataTableCollation) {
+                $tablesStatus[$table] = array('error' => false, 'status' => '', 'queries' => array());
+                try {
+                    $stmt = $db->prepare("show table status like '{$table}'");
+                    $stmt->execute();
+                    $tableData = $stmt->fetch(PDO::FETCH_ASSOC);
 
-                if (!empty($tableData) && $tableData['collation'] != $dataTableCollation) {
-                    $tablesStatus[$table]['queries'][] = "ALTER TABLE `{$table}` COMMENT='' COLLATE '{$dataTableCollation}';";
-                    $tablesStatus[$table]['error'] = true;
-                    $tablesStatus[$table]['status'] = "{$table} collation {$tableData['collation']} mismatch expected {$dataTableCollation}";
+                    if (!empty($tableData) && $tableData['collation'] != $dataTableCollation) {
+                        $tablesStatus[$table]['queries'][] = "ALTER TABLE `{$table}` COMMENT='' COLLATE '{$dataTableCollation}';";
+                        $tablesStatus[$table]['error'] = true;
+                        $tablesStatus[$table]['status'] = "{$table} collation {$tableData['collation']} mismatch expected {$dataTableCollation}";
+                    }
+
+                } catch (Exception $e) {
+                    // Just not existing table perhaps
                 }
-
-            } catch (Exception $e) {
-                // Just not existing table perhaps
             }
         }
 
 		foreach ($definition['tables'] as $table => $tableDefinition) {
+
+		    if (!isset( $tablesStatus[$table])) {
+                $tablesStatus[$table] = array('error' => false, 'status' => '', 'queries' => array());
+            }
+
 			try {
 				$sql = 'SHOW FULL COLUMNS FROM '.$table;
 				$stmt = $db->prepare($sql);
