@@ -15,7 +15,7 @@ class erLhcoreClassUpdate
             $db->query('SET GLOBAL innodb_file_per_table=1;');
             $db->query('SET GLOBAL innodb_large_prefix=1;');
         } catch (Exception $e) {
-            $errorMessages[] = $e->getMessage();
+            //$errorMessages[] = $e->getMessage();
         }
 
 		foreach ($updateInformation as $table => $tableData) {
@@ -59,7 +59,7 @@ class erLhcoreClassUpdate
                 $tableData = $stmt->fetch(PDO::FETCH_ASSOC);
 
                 if (!empty($tableData) && $tableData['collation'] != $dataTableCollation) {
-                    $tablesStatus[$table]['queries'][] = "ALTER TABLE `{$table}` COMMENT='' COLLATE '{$dataTableCollation}' ROW_FORMAT=DYNAMIC;";
+                    $tablesStatus[$table]['queries'][] = "ALTER TABLE `{$table}` COMMENT='' COLLATE '{$dataTableCollation}';";
                     $tablesStatus[$table]['error'] = true;
                     $tablesStatus[$table]['status'] = "{$table} collation {$tableData['collation']} mismatch expected {$dataTableCollation}";
                 }
