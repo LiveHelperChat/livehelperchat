@@ -249,7 +249,8 @@ class ezcDbFactory
             $parsed['dbsyntax'] = $str;
         }
 
-        if ( !count( $dsn ) )
+
+        if ( is_string($parsed) )
         {
             return $parsed;
         }
