@@ -9,7 +9,14 @@ class erLhcoreClassUpdate
 		$updateInformation = self::getTablesStatus($definition);
 		$db = ezcDbInstance::get();
 
-		$errorMessages = array();
+        $errorMessages = array();
+
+		try{
+            $db->query('SET GLOBAL innodb_file_per_table=1;');
+            $db->query('SET GLOBAL innodb_large_prefix=1;');
+        } catch (Exception $e) {
+            $errorMessages[] = $e->getMessage();
+        }
 
 		foreach ($updateInformation as $table => $tableData) {
 			if ($tableData['error'] == true) {
@@ -44,8 +51,25 @@ class erLhcoreClassUpdate
     		}
 		}
 
+        foreach ($definition['tables_collation'] as $table => $dataTableCollation) {
+            $tablesStatus[$table] = array('error' => false, 'status' => '', 'queries' => array());
+            try {
+                $stmt = $db->prepare("show table status like '{$table}'");
+                $stmt->execute();
+                $tableData = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                if (!empty($tableData) && $tableData['collation'] != $dataTableCollation) {
+                    $tablesStatus[$table]['queries'][] = "ALTER TABLE `{$table}` COMMENT='' COLLATE '{$dataTableCollation}' ROW_FORMAT=DYNAMIC;";
+                    $tablesStatus[$table]['error'] = true;
+                    $tablesStatus[$table]['status'] = "{$table} collation {$tableData['collation']} mismatch expected {$dataTableCollation}";
+                }
+
+            } catch (Exception $e) {
+                // Just not existing table perhaps
+            }
+        }
+
 		foreach ($definition['tables'] as $table => $tableDefinition) {
-			$tablesStatus[$table] = array('error' => false,'status' => '','queries' => array());
 			try {
 				$sql = 'SHOW FULL COLUMNS FROM '.$table;
 				$stmt = $db->prepare($sql);
@@ -194,23 +218,7 @@ class erLhcoreClassUpdate
 		    }	    
 		}
 
-		foreach ($definition['tables_collation'] as $table => $dataTableCollation) {
-		    try {
-                $stmt = $db->prepare("show table status like '{$table}'");
-                $stmt->execute();
-                $tableData = $stmt->fetch(PDO::FETCH_ASSOC);
 
-                if (!empty($tableData) && $tableData['collation'] != $dataTableCollation) {
-                    $tablesStatus[$table]['queries'][] = "ALTER TABLE `{$table}` COMMENT='' COLLATE '{$dataTableCollation}';";
-                    $tablesStatus[$table]['error'] = true;
-                    $tablesStatus[$table]['status'] = "{$table} collation {$tableData['collation']} mismatch expected {$dataTableCollation}";
-                }
-
-            } catch (Exception $e) {
-                // Just not existing table perhaps
-            }
-
-        }
 
 		foreach ($definition['tables_data'] as $table => $dataTable) {
 			$tableIdentifier = $definition['tables_data_identifier'][$table];
