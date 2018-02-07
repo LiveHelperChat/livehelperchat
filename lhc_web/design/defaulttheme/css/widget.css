@@ -107,7 +107,7 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
 	}
 
 	#messages{
-		height:calc(100% - 130px);
+		height:calc(100% - 150px);
 		font-size:14px;
 	}
 
