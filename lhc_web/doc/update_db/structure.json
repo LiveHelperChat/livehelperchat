@@ -4486,12 +4486,11 @@
             },
             {
                 "field": "vtime",
-                "type": "varchar(250)",
+                "type": "int(11)",
                 "null": "NO",
                 "key": "",
                 "default": null,
-                "extra": "",
-                "collation": "utf8mb4_unicode_ci"
+                "extra": ""
             }
         ],
         "lh_chatbox": [
@@ -7784,6 +7783,14 @@
     		"new" : {"group_id_primary" : "ALTER TABLE `lh_grouprole` ADD INDEX `group_id_primary` (`group_id`);"},
     		"old" : []
     	},
+        "lh_users_session" : {
+    		"new" : {"device_token_device_type_v2" : "ALTER TABLE `lh_users_session` ADD INDEX `device_token_device_type_v2` (`device_token`(191),`device_type`);"},
+    		"old" : ["device_token_device_type"]
+    	},
+        "lh_faq" : {
+    		"new" : {"active_url_2" : "ALTER TABLE `lh_faq` ADD INDEX `active_url_2` (`active`,`url`(191));"},
+    		"old" : ["active_url"]
+    	},
     	"lh_userdep" : {
     		"new" : {"user_id_type" : "ALTER TABLE `lh_userdep` ADD INDEX `user_id_type` (`user_id`, `type`);"},
     		"old" : ["user_id"]
@@ -7845,9 +7852,9 @@
     			"attr_int_1" : "ALTER TABLE `lh_canned_msg` ADD INDEX `attr_int_1` (`attr_int_1`);",
     			"attr_int_2" : "ALTER TABLE `lh_canned_msg` ADD INDEX `attr_int_2` (`attr_int_2`);",
     			"attr_int_3" : "ALTER TABLE `lh_canned_msg` ADD INDEX `attr_int_3` (`attr_int_3`);",
-    			"position_title" : "ALTER TABLE `lh_canned_msg` ADD INDEX `position_title` (`position`, `title`);"
+    			"position_title_v2" : "ALTER TABLE `lh_canned_msg` ADD INDEX `position_title_v2` (`position`, `title`(191));"
     		},
-    		"old" : []
+    		"old" : ["position_title"]
     	},
     	"lh_msg" : {
     		"new" : {

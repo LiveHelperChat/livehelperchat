@@ -256,7 +256,12 @@ switch ((int)$Params['user_parameters']['step_id']) {
     	       /*DATABASE TABLES SETUP*/
     	       $db = ezcDbInstance::get();
 
-               $db->query("set global innodb_large_prefix = 1");
+    	       try {
+                   $db->query("set global innodb_large_prefix = 1");
+			   } catch (Exception $e) {
+    	       		// Just ignore if not succeed
+			   }
+
 
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chat` (
 				  `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -513,7 +518,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `is_wildcard` tinyint(1) NOT NULL,
 				  PRIMARY KEY (`id`),
 				  KEY `active` (`active`),
-				  KEY `active_url` (`active`,`url`),
+				  KEY `active_url_2` (`active`,`url`(191)),
 				  KEY `has_url` (`has_url`),
 				  KEY `identifier` (`identifier`),
 				  KEY `is_wildcard` (`is_wildcard`)
@@ -984,7 +989,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   	  KEY `attr_int_1` (`attr_int_1`),
         	   	  KEY `attr_int_2` (`attr_int_2`),
         	   	  KEY `attr_int_3` (`attr_int_3`),
-        	   	  KEY `position_title` (`position`, `title`),
+        	   	  KEY `position_title` (`position`, `title`(191)),
         	   	  KEY `user_id` (`user_id`)
                 ) ENGINE=InnoDB ROW_FORMAT=DYNAMIC CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
@@ -993,7 +998,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `chat_id` int(11) NOT NULL,
 				  `online_user_id` int(11) NOT NULL,
 				  `page` varchar(250) NOT NULL,
-				  `vtime` varchar(250) NOT NULL,
+				  `vtime` int(11) NOT NULL,
 				  PRIMARY KEY (`id`),
 				  KEY `chat_id_vtime` (`chat_id`,`vtime`),
 				  KEY `online_user_id` (`online_user_id`)
@@ -1611,7 +1616,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `updated_on` int(11) NOT NULL,
                   `expires_on` int(11) NOT NULL,
                   PRIMARY KEY (`id`),
-                  KEY `device_token_device_type` (`device_token`,`device_type`),
+                  KEY `device_token_device_type_v2` (`device_token`(191),`device_type`),
                   KEY `token` (`token`)
                 ) ENGINE=InnoDB ROW_FORMAT=DYNAMIC CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
