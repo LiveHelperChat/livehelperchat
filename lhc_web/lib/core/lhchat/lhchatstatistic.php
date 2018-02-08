@@ -938,6 +938,13 @@ class erLhcoreClassChatStatistic {
         $filterUsers = array();
 
         $userIdGroup = array();
+
+        // Explicit user filter
+        $userIdFilter = array();
+
+        // Department appended users filters
+        $userIdGroupDep = array();
+
         if (isset($filtergte['filter']['group_id'])) {
             $groupId = $filtergte['filter']['group_id'];
             unset($filtergte['filter']['group_id']);
@@ -949,7 +956,7 @@ class erLhcoreClassChatStatistic {
             $userIds = $stmt->fetchAll(PDO::FETCH_COLUMN);
             
             if (!empty($userIds)) {
-                $userIdGroup = $userIds;
+                $userIdFilter = $userIdGroup = $userIds;
             } else {
                 $userIdGroup = array(-1);
             }
@@ -981,10 +988,16 @@ class erLhcoreClassChatStatistic {
             if (empty($userIds)) {
                 $userIds = array(-1);
             }
-            
-            if (!empty($userIdGroup)) {                                
+
+            if (!empty($userIdGroupDep)) {
+                $userIdGroupDep = array_unique(array_intersect($userIdGroupDep, $userIds));
+            } else {
+                $userIdGroupDep = $userIds;
+            }
+
+            if (!empty($userIdGroup)) {
                 $userIdGroup = array_unique(array_intersect($userIdGroup,$userIds));
-                
+
                 if (empty($userIdGroup)) {
                     $userIdGroup = array(-1);
                 }
@@ -1003,7 +1016,13 @@ class erLhcoreClassChatStatistic {
             $stmt->bindValue( ':dep_id', $filtergte['filter']['dep_id'], PDO::PARAM_INT);
             $stmt->execute();
             $userIds = $stmt->fetchAll(PDO::FETCH_COLUMN);
-            
+
+            if (!empty($userIdGroupDep)) {
+                $userIdGroupDep = array_unique(array_intersect($userIdGroupDep, $userIds));
+            } else {
+                $userIdGroupDep = $userIds;
+            }
+
             if (!empty($userIds)) {
                 if (!empty($userIdGroup)) {
                     $userIdGroup = array_unique(array_intersect($userIdGroup,$userIds));
@@ -1030,7 +1049,7 @@ class erLhcoreClassChatStatistic {
         
         $list = array();
         
-        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getagentstatistic',array('user_list' => $userList, 'days' => $days, 'filter' => $filter));
+        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getagentstatistic',array('user_filter' => $userIdFilter, 'department_user_id' => $userIdGroupDep, 'user_list' => $userList, 'days' => $days, 'filter' => $filter));
         
         if ($statusWorkflow === false) {        
             foreach ($userList as $user) {
