@@ -7538,7 +7538,8 @@
                 "subject_ac": "1",
                 "reply_to": "",
                 "reply_to_ac": "1",
-                "recipient": ""
+                "recipient": "",
+                "user_mail_as_sender": "0"
             },
             {
                 "id": "2",
@@ -7553,7 +7554,8 @@
                 "subject_ac": "0",
                 "reply_to": "",
                 "reply_to_ac": "0",
-                "recipient": ""
+                "recipient": "",
+                "user_mail_as_sender": "0"
             },
             {
                 "id": "3",
@@ -7568,7 +7570,8 @@
                 "subject_ac": "0",
                 "reply_to": "",
                 "reply_to_ac": "0",
-                "recipient": ""
+                "recipient": "",
+                "user_mail_as_sender": "0"
             },
             {
                 "id": "4",
@@ -7583,7 +7586,8 @@
                 "subject_ac": "0",
                 "reply_to": "",
                 "reply_to_ac": "0",
-                "recipient": ""
+                "recipient": "",
+                "user_mail_as_sender": "0"
             },
             {
                 "id": "5",
@@ -7598,7 +7602,8 @@
                 "subject_ac": "0",
                 "reply_to": "",
                 "reply_to_ac": "0",
-                "recipient": ""
+                "recipient": "",
+                "user_mail_as_sender": "0"
             },
             {
                 "id": "6",
@@ -7613,7 +7618,8 @@
                 "subject_ac": "0",
                 "reply_to": "",
                 "reply_to_ac": "0",
-                "recipient": ""
+                "recipient": "",
+                "user_mail_as_sender": "0"
             },
             {
                 "id": "7",
@@ -7628,7 +7634,8 @@
                 "subject_ac": "0",
                 "reply_to": "",
                 "reply_to_ac": "0",
-                "recipient": ""
+                "recipient": "",
+                "user_mail_as_sender": "0"
             },
             {
                 "id": "8",
@@ -7643,7 +7650,8 @@
                 "subject_ac": "0",
                 "reply_to": "",
                 "reply_to_ac": "0",
-                "recipient": ""
+                "recipient": "",
+                "user_mail_as_sender": "0"
             },
             {
                 "id": "9",
@@ -7658,7 +7666,8 @@
                 "subject_ac": "0",
                 "reply_to": "",
                 "reply_to_ac": "0",
-                "recipient": ""
+                "recipient": "",
+                "user_mail_as_sender": "0"
             },
             {
                 "id": "10",
@@ -7673,7 +7682,8 @@
                 "subject_ac": "0",
                 "reply_to": "",
                 "reply_to_ac": "0",
-                "recipient": ""
+                "recipient": "",
+                "user_mail_as_sender": "0"
             },
             {
                 "id": "11",
@@ -7688,7 +7698,8 @@
                 "subject_ac": "0",
                 "reply_to": "",
                 "reply_to_ac": "0",
-                "recipient": ""
+                "recipient": "",
+                "user_mail_as_sender": "0"
             }
         ]
     },
