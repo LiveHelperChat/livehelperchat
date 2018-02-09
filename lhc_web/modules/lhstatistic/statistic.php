@@ -72,14 +72,19 @@ if ($tab == 'active') {
     erLhcoreClassChatStatistic::formatUserFilter($filterParams);
     
     $tpl->set('input',$filterParams['input_form']);
-    
-    $tpl->set('groupby',$filterParams['input_form']->groupby == 1 ? 'Y.m.d' : 'Y.m');
-    
+    $tpl->set('groupby',$filterParams['input_form']->groupby == 1 ? 'Y.m.d' : ($filterParams['input_form']->groupby == 2 ? 'Y-m-d' : 'Y.m'));
+
     if (isset($_GET['doSearch'])) {                    
         if ($filterParams['input_form']->groupby == 1) {
             $tpl->setArray(array(
                 'numberOfChatsPerMonth' => erLhcoreClassChatStatistic::getNumberOfChatsPerDay($filterParams['filter']),
                 'numberOfChatsPerWaitTimeMonth' => erLhcoreClassChatStatistic::getNumberOfChatsWaitTimePerDay($filterParams['filter']),
+                'urlappend' => erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form'])
+            ));
+        } elseif ($filterParams['input_form']->groupby == 2) {
+            $tpl->setArray(array(
+                'numberOfChatsPerMonth' => erLhcoreClassChatStatistic::getNumberOfChatsPerWeek($filterParams['filter']),
+                'numberOfChatsPerWaitTimeMonth' => erLhcoreClassChatStatistic::getNumberOfChatsWaitTimePerWeek($filterParams['filter']),
                 'urlappend' => erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form'])
             ));
         } else {

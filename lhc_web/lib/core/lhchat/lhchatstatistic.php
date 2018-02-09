@@ -184,7 +184,168 @@ class erLhcoreClassChatStatistic {
             return $statusWorkflow['list'];
         }
     }
-    
+
+    public static function getNumberOfChatsPerWeek($filter = array(), $paramsExecution = array())
+    {
+        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getnumberofchatsperweek',array('params_execution' => $paramsExecution, 'filter' => $filter));
+
+        if ($statusWorkflow === false) {
+            $numberOfChats = array();
+            $departmentFilter = array();
+            $departmentMsgFilter = array();
+
+            // Message filter
+            $msgFilter = $filter;
+
+            /**
+             * If department filter provided we have to use strict filter with table names
+             * */
+            $departmentMsgFilter['innerjoin']['lh_chat'] = array('lh_msg.chat_id','lh_chat.id');
+
+            /**
+             * If user ID provided only provided user chat's has to take effect
+             * */
+            if (isset($msgFilter['filter']['user_id'])){
+                unset($msgFilter['filter']['user_id']);
+                $msgFilter['filter']['lh_chat.user_id'] = $filter['filter']['user_id'];
+            }
+
+            if (isset($msgFilter['filtergte']['time'])){
+                unset($msgFilter['filtergte']['time']);
+                $msgFilter['filtergte']['lh_msg.time'] = $filter['filtergte']['time'];
+            }
+
+            if (isset($msgFilter['filterlte']['time'])){
+                unset($msgFilter['filterlte']['time']);
+                $msgFilter['filterlte']['lh_msg.time'] = $filter['filterlte']['time'];
+            }
+
+            $startTimestamp = time()-(42*7*24*3600);
+
+            $limitDays = 42;
+
+            if (isset($filter['filterlte']['time']) && isset($filter['filtergte']['time'])) {
+                $daysDifference = ceil(($filter['filterlte']['time'] - $filter['filtergte']['time'])/(24*3600*7));
+                if ($daysDifference <= 42 && $daysDifference > 0) {
+                    $limitDays = $daysDifference;
+                    $startTimestamp = $filter['filtergte']['time'];
+                }
+            } elseif (isset($filter['filtergte']['time'])) {
+                $daysDifference = ceil((time() - $filter['filtergte']['time'])/(24*3600*7));
+                if ($daysDifference <= 42 && $daysDifference > 0) {
+                    $limitDays = $daysDifference;
+                    $startTimestamp = $filter['filtergte']['time'];
+                }
+            } elseif (isset($filter['filterlte']['time'])) {
+                $limitDays = 42;
+                $startTimestamp = $filter['filterlte']['time']-(42*7*24*3600);
+            }
+
+            $weekStarted = false;
+            for ($i = 0; $i < $limitDays;$i++) {
+                $dateUnix = mktime(0,0,0,date('m',$startTimestamp),date('d',$startTimestamp)+($i*7),date('y',$startTimestamp));
+
+                if ($weekStarted == false) {
+                    $weekStarted = true;
+
+                    if (date('N', $dateUnix) != 1) {
+                        // Adjust start time to be it monday
+                        $startTimestamp = $startTimestamp - ((date('N', $startTimestamp)-1)*24*3600);
+
+                        continue; // First day is not a monday, skip to next week
+                    }
+                }
+
+                // This week has not ended, so exclude it
+                if (date('YW') == date('YW',$dateUnix) || time() < $dateUnix) {
+                    continue;
+                }
+
+                if (!isset($filter['filtergte']['time']) || $filter['filtergte']['time'] <= $dateUnix)
+                {
+                    $numberOfChats[$dateUnix] = array (
+                        'closed' 			=> (int)erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filter' => array('status' => erLhcoreClassModelChat::STATUS_CLOSED_CHAT),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%v\') = '. date('YW',$dateUnix))))),
+                        'active' 			=> (int)erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filter' => array('status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%v\') = '. date('YW',$dateUnix))))),
+                        'operators' 		=> (int)erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filter' => array('status' => erLhcoreClassModelChat::STATUS_OPERATORS_CHAT),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%v\') = '. date('YW',$dateUnix))))),
+                        'pending' 			=> (int)erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filter' => array('status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%v\') = '. date('YW',$dateUnix))))),
+                        'unanswered' 		=> (int)erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filter' => array('unanswered_chat' => 1),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%v\') = '. date('YW',$dateUnix))))),
+
+                        'msg_user' 			=> (int)erLhcoreClassChat::getCount(array_merge_recursive(array('filter' 	=> array('lh_msg.user_id' => 0),'customfilter' =>  array('FROM_UNIXTIME(lh_msg.time,\'%Y%v\') = '. date('YW',$dateUnix))),$msgFilter,$departmentMsgFilter),'lh_msg','count(lh_msg.id)'),
+                        'msg_operator' 		=> (int)erLhcoreClassChat::getCount(array('filtergt' => array('lh_msg.user_id' => 0),'customfilter' =>  array('FROM_UNIXTIME(lh_msg.time,\'%Y%v\') = '. date('YW',$dateUnix)))+$msgFilter+$departmentMsgFilter,'lh_msg','count(lh_msg.id)'),
+                        'msg_system' 		=> (int)erLhcoreClassChat::getCount(array_merge_recursive(array('filterin' => array('lh_msg.user_id' => array(-1,-2)),'customfilter' =>  array('FROM_UNIXTIME(lh_msg.time,\'%Y%v\') = '. date('YW',$dateUnix))),$msgFilter,$departmentMsgFilter),'lh_msg','count(lh_msg.id)'),
+
+                        'chatinitdefault' 	=> (int)erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filter' => array('chat_initiator' => erLhcoreClassModelChat::CHAT_INITIATOR_DEFAULT),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%v\') = '. date('YW',$dateUnix))))),
+                        'chatinitproact' 	=> (int)erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filter' => array('chat_initiator' => erLhcoreClassModelChat::CHAT_INITIATOR_PROACTIVE),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%v\') = '. date('YW',$dateUnix))))),
+                    );
+                }
+            }
+
+            return $numberOfChats;
+        } else {
+            return $statusWorkflow['list'];
+        }
+    }
+
+    public static function getNumberOfChatsWaitTimePerWeek($filter = array())
+    {
+        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getnumberofchatswaittimeperweek', array('filter' => $filter));
+
+        if ($statusWorkflow === false) {
+
+            $startTimestamp = time()-(42*7*24*3600);
+
+            $limitDays = 42;
+
+            if (isset($filter['filterlte']['time']) && isset($filter['filtergte']['time'])) {
+                $daysDifference = ceil(($filter['filterlte']['time'] - $filter['filtergte']['time'])/(24*3600*7));
+                if ($daysDifference <= 42 && $daysDifference > 0) {
+                    $limitDays = $daysDifference;
+                    $startTimestamp = $filter['filtergte']['time'];
+                }
+
+            } elseif (isset($filter['filtergte']['time'])) {
+                $daysDifference = ceil((time() - $filter['filtergte']['time'])/(24*3600*7));
+                if ($daysDifference <= 42 && $daysDifference > 0) {
+                    $limitDays = $daysDifference;
+                    $startTimestamp = $filter['filtergte']['time'];
+                }
+            } elseif (isset($filter['filterlte']['time'])) {
+                $limitDays = 42;
+                $startTimestamp = $filter['filterlte']['time']-(42*7*24*3600);
+            }
+
+            $numberOfChats = array();
+
+            $weekStarted = false;
+
+            for ($i = 0; $i < $limitDays;$i++) {
+                $dateUnix = mktime(0,0,0,date('m',$startTimestamp),date('d',$startTimestamp)+($i*7),date('y',$startTimestamp));
+
+                if ($weekStarted == false) {
+                    $weekStarted = true;
+
+                    if (date('N', $dateUnix) != 1) {
+                        // Adjust start time to be it monday
+                        $startTimestamp = $startTimestamp - ((date('N', $startTimestamp)-1)*24*3600);
+                        continue; // First day is not a monday, skip to next week
+                    }
+                }
+
+                // This week has not ended, so exclude it
+                if (date('YW') == date('YW',$dateUnix) || time() < $dateUnix) {
+                    continue;
+                }
+
+                $numberOfChats[$dateUnix] = (int)erLhcoreClassChat::getCount(array_merge_recursive($filter,array('customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%v\') = '. date('YW',$dateUnix)),'filterlt' =>  array('wait_time' => 600),'filtergt' =>  array('wait_time' => 0))),'lh_chat','AVG(wait_time)');
+            }
+
+            return $numberOfChats;
+
+        } else {
+            return $statusWorkflow['list'];
+        }
+    }
+
     public static function getLast24HStatistic($filter = array())
     {
         $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getlast24hstatistic',array('filter' => $filter));
