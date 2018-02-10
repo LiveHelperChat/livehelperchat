@@ -211,6 +211,8 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 		    	$chat->updateThis();
 		    }
 		    
+		    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.syncuser',array('chat' => & $chat, 'response' => & $responseArray));
+		    
 		    if ($pollingEnabled == false || $breakSync == true || ($pollingServerTimeout + $timeCurrent) < time() ) {	    	
 		    	break;
 		    } else {
