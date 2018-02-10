@@ -386,10 +386,15 @@ class erLhcoreClassModelChat {
            			if ($jsonData !== null) {
            				$this->chat_variables_array = $jsonData;
            			} else {
-           				$this->chat_variables_array = $this->chat_variables;
+           			    $chat_variables_array = @unserialize($this->chat_variables);
+           			    if ($chat_variables_array !== false) {
+           			        $this->chat_variables_array = $chat_variables_array;
+           			    } else {
+           			        $this->chat_variables_array = $this->chat_variables;
+           			    }
            			}
        	        } else {
-       	            $this->chat_variables_array = $this->chat_variables;
+       	            $this->chat_variables_array = array();
        	        }
        			return $this->chat_variables_array;
        		break;
