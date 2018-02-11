@@ -944,6 +944,8 @@ function lh(){
 	        		LHCCallbacks.syncusercall(inst,data);
 	        	};
 		        
+	        	ee.emitEvent('syncUserCall', [inst,data]);
+	        	
 	    	}).fail(function(){
 	    		inst.syncroRequestSend = false;
 	    		inst.userTimeout = setTimeout(chatsyncuser,confLH.chat_message_sinterval);
