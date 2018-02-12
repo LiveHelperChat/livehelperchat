@@ -42,7 +42,7 @@ class erLhcoreClassRestAPIHandler
     public static function setHeaders()
     {
         header('Access-Control-Allow-Origin: *');
-        header('Access-Control-Allow-Credentials', "true");
+        header('Access-Control-Allow-Credentials: true');
         header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, API-Key, Authorization');
         header('Content-Type: application/json');
         self::setOptionHeaders();
