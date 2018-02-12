@@ -7806,6 +7806,10 @@
     		"new" : {"user_id_type" : "ALTER TABLE `lh_userdep` ADD INDEX `user_id_type` (`user_id`, `type`);"},
     		"old" : ["user_id"]
     	},
+        "lh_chat_online_user_footprint" : {
+    		"new" : {"chat_id" : "ALTER TABLE `lh_chat_online_user_footprint` ADD INDEX `chat_id` (`chat_id`);"},
+    		"old" : ["chat_id_vtime"]
+    	},
     	"lh_group" : {
     		"new" : {"disabled" : "ALTER TABLE `lh_group` ADD INDEX `disabled` (`disabled`);"},
     		"old" : []

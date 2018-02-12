@@ -579,14 +579,38 @@ class erLhcoreClassModelChatOnlineUser
                 }
 
                 if ($timeoutCleanupFootprint > 0) {
-                    // Footprint
-                    $stmt = $db->prepare('DELETE FROM lh_chat_online_user_footprint WHERE vtime < :vtime LIMIT 50000');
-                    $stmt->bindValue(':vtime', (int)(time() - ($timeoutCleanupFootprint * 24 * 3600)), PDO::PARAM_INT);
-                    $stmt->execute();
+                    self::cleanupFootprint($timeoutCleanupFootprint);
                 }
             }
         }
     }
+
+    /**
+     * @desc refactor footprint cleanup so it will use indexes all the time
+     *
+     * @param $timeout
+     * @throws ezcDbHandlerNotFoundException
+     */
+    public static function cleanupFootprint($timeout) {
+        $db = ezcDbInstance::get();
+
+        for ($i = 0; $i < 100; $i++)
+        {
+            $stmt = $db->prepare("SELECT id, vtime FROM lh_chat_online_user_footprint ORDER BY id ASC LIMIT 1 OFFSET 1000");
+            $stmt->execute();
+            $data = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if (isset($data['vtime']) && $data['vtime'] < (int)(time() - ($timeout * 24 * 3600))) {
+                $stmt = $db->prepare('DELETE FROM lh_chat_online_user_footprint WHERE id < :id');
+                $stmt->bindValue(':id', $data['id'], PDO::PARAM_INT);
+                $stmt->execute();
+            } else {
+                // No more records found to remove
+                break;
+            }
+        }
+    }
+
 
     public static function cleanAllRecords()
     {

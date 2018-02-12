@@ -1000,7 +1000,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `page` varchar(250) NOT NULL,
 				  `vtime` int(11) NOT NULL,
 				  PRIMARY KEY (`id`),
-				  KEY `chat_id_vtime` (`chat_id`,`vtime`),
+				  KEY `chat_id` (`chat_id`),
 				  KEY `online_user_id` (`online_user_id`)
 				) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
         	   
