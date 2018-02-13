@@ -884,7 +884,7 @@ var lh_inst  = {
     	} else if (action == 'lhc_cobrowse_online') {    		    		
     		lh_inst.startCoBrowse(e.data.split(':')[1],'onlineuser');    			
     	} else if (action == 'lhc_chat_redirect') {
-    		document.location.replace(e.data.split(':')[1].replace(new RegExp('__SPLIT__','g'),':'));
+    		document.location = e.data.split(':')[1].replace(new RegExp('__SPLIT__','g'),':');
     	} else if (action == 'lhc_cobrowse_cmd') {
     		if (lh_inst.cobrowser !== null){
     		lh_inst.cobrowser.handleMessage(e.data.split(':'));
