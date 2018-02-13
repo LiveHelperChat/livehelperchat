@@ -903,7 +903,7 @@ function lh(){
 		    var modeEmbed = this.isEmbedMode == true ? '/(modeembed)/embed' : '';
 		    var fillType = this.isWidgetMode == true ? 'fillwidget' : 'fill';
 		    var explicitClose =  this.explicitClose == true ? '/(eclose)/t' : '';
-		    document.location = this.wwwDir + 'survey/'+fillType+'/(survey)/' + this.survey + '/(chatid)/' +this.chat_id + '/(hash)/'+ this.hash + modeWindow + operatorTyping + themeWindow + modeEmbed + explicitClose;
+		    document.location.replace(this.wwwDir + 'survey/'+fillType+'/(survey)/' + this.survey + '/(chatid)/' +this.chat_id + '/(hash)/'+ this.hash + modeWindow + operatorTyping + themeWindow + modeEmbed + explicitClose);
 		    return true;
     	}
     	
@@ -1529,7 +1529,7 @@ function lh(){
 	               }
 
 	               if (data.ru != '') {	            	   
-	            	   document.location = data.ru;
+	            	   document.location.replace(data.ru);
 	               }
 	               
 	               setTimeout(chatsyncuserpending,confLH.chat_message_sinterval);
@@ -1634,7 +1634,7 @@ function lh(){
         	    $.postJSON(this.wwwDir + this.syncadmin ,{ 'chats[]': this.chatsSynchronisingMsg }, function(data){
 
                     if (typeof data.error_url !== 'undefined') {
-                        document.location = data.error_url;
+                        document.location.replace(data.error_url);
                     }
 
         	    	try {
@@ -2807,6 +2807,50 @@ function lh(){
 	   	return true;
     };
 
+    this.addCaptchaSubmit = function(timestamp,inst) {
+        if (inst.find('.form-protected').size() == 0){
+            inst.find('input[type="submit"]').attr('disabled','disabled');
+            $.getJSON(this.wwwDir + 'captcha/captchastring/form/'+timestamp, function(data) {
+                inst.append('<input type="hidden" value="'+timestamp+'" name="captcha_'+data.result+'" /><input type="hidden" value="'+timestamp+'" name="tscaptcha" /><input type="hidden" class="form-protected" value="1" />');
+
+                if ( !! window.FormData){
+                    var formData = new FormData(inst[0]);
+
+                    var xhr = new XMLHttpRequest();
+                    /*xhr.upload.addEventListener('loadstart', onloadstartHandler, false);
+                    xhr.upload.addEventListener('progress', onprogressHandler, false);
+                    xhr.upload.addEventListener('load', onloadHandler, false);*/
+                    xhr.addEventListener('readystatechange', function (evt) {
+                        var status, text, readyState;
+                        try {
+                            readyState = evt.target.readyState;
+                            text = evt.target.responseText;
+                            status = evt.target.status;
+                        }
+                        catch(e) {
+                            return;
+                        }
+                        if (readyState == 4 && status == '200' && evt.target.responseText) {
+                            var headers = xhr.getResponseHeader("Content-Type");
+                            if (headers.indexOf('application/json') == -1) {
+                                $('#start-chat-wrapper').replaceWith(evt.target.responseText);
+                            } else {
+                                location.replace(jQuery.parseJSON(evt.target.responseText)['location']);
+                            }
+                        }
+                    }, false);
+                    xhr.open('POST', inst.attr('action')+'/(ajaxmode)/true', true);
+                    xhr.send(formData);
+                } else {
+                    inst.submit();
+                }
+            });
+            return false;
+        };
+
+        return false;
+    };
+    
     this.deleteChatfile = function(file_id){
     	$.postJSON(this.wwwDir + 'file/deletechatfile/' + file_id, function(data){
     		if (data.error == 'false') {
