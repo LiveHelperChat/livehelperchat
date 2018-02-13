@@ -1698,6 +1698,7 @@ function lh(){
 	        	            	var groupTabs = $('#group-chats-status').hasClass('chat-active');
 
 	        	                $.each(data.result_status,function(i,item) {
+
 	        	                      if (item.tp == 'true') {
 	                                      $('#user-is-typing-'+item.chat_id).html(item.tx).css('visibility','visible');
 	        	                      } else {
@@ -1734,6 +1735,11 @@ function lh(){
 									}
 
 	        	                      var statusel = $('#chat-id-'+item.chat_id +'-mds');
+
+	        	                      if (statusel.attr('data-chat-status') != item.cs || statusel.attr('data-chat-user') != item.co)
+                                      {
+                                          lhinst.updateVoteStatus(item.chat_id);
+                                      }
 
 	        	                      if (item.um == 1) {
 	        	                    	  statusel.removeClass('chat-active');
