@@ -133,6 +133,10 @@ return array_merge(array (
 		'erLhcoreClassAbstract' 			=> 'lib/core/lhabstract/lhabstract.php',
 		'erLhcoreClassChatMail' 		 	=> 'lib/core/lhchat/lhchatmail.php',
 
+		// Subhect
+	    'erLhAbstractModelSubject'	        => 'lib/models/lhabstract/erlhabstractmodelsubject.php',
+	    'erLhAbstractModelSubjectDepartment'=> 'lib/models/lhabstract/erlhabstractmodelsubjectdepartment.php',
+
 		// Chatbox
 		'erLhcoreClassChatbox'				=> 'lib/core/lhchatbox/lhchatbox.php',
 		'erLhcoreClassModelChatbox'			=> 'lib/models/lhchatbox/erlhcoreclassmodelchatbox.php',

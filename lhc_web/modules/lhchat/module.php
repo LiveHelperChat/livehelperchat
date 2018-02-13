@@ -554,6 +554,7 @@ $FunctionList['modifychat'] = array('explain' => 'Allow operator modify main cha
 $FunctionList['allowredirect'] = array('explain' => 'Allow operator to redirect user to another page');
 $FunctionList['administrategeoconfig'] = array('explain' => 'Allow operator to edit geo detection configuration');
 $FunctionList['manage_product'] = array('explain' => 'Allow operator to manage products');
+$FunctionList['administratesubject'] = array('explain' => 'Allow operator to manage subjects');
 
 
 ?>
