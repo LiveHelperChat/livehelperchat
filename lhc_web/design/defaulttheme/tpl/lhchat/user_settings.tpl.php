@@ -44,8 +44,3 @@ if ( $currentUser->hasAccessTo('lhuser','changevisibility') ) {
 <?php endif;?>
 
 <?php endif;?>
-
-<?php /*
-onclick="return lhinst.disableUserAsOnline($(this))"
-onclick="return lhinst.changeVisibility($(this))"
-<?php $UserData->hide_online == 1 ? print 'flash_off' : print 'flash_on'?>*/ ?>
