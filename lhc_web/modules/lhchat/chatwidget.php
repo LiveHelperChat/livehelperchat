@@ -457,14 +457,20 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
 	          $db->rollback();
 	          throw $e;
 	       }
-	       
-	       // Redirect user
-	       $Result = erLhcoreClassModule::reRun(erLhcoreClassDesign::baseurlRerun('chat/chatwidgetchat') . '/' . $chat->id . '/' . $chat->hash . $modeAppend . $modeAppendTheme . '/(cstarted)/online_chat_started_cb');
-	       return true;	              
+
+           if ($Params['user_parameters_unordered']['ajaxmode'] == 'true') {
+               header ( 'content-type: application/json; charset=utf-8' );
+               echo json_encode(array('location' => erLhcoreClassDesign::baseurl('chat/chatwidgetchat') . '/' . $chat->id . '/' . $chat->hash . $modeAppend . $modeAppendTheme . '/(cstarted)/online_chat_started_cb'));
+               exit;
+           } else {
+               // Redirect user
+               $Result = erLhcoreClassModule::reRun(erLhcoreClassDesign::baseurlRerun('chat/chatwidgetchat') . '/' . $chat->id . '/' . $chat->hash . $modeAppend . $modeAppendTheme . '/(cstarted)/online_chat_started_cb');
+               return true;
+           }
    	   }
 
     } else {
-    	// Show errors only if user is not switching form mode and not swithing language
+    	// Show errors only if user is not switching form mode and not switching language
     	if ($Params['user_parameters_unordered']['switchform'] != 'true' && !isset($_POST['switchLang'])){
         	$tpl->set('errors',$Errors);
     	} elseif (isset($_POST['switchLang'])) {
@@ -623,6 +629,12 @@ if (isset($Params['user_parameters_unordered']['sdemo']) && (int)$Params['user_p
 
 $Result['fullheight'] = $fullHeight;
 $Result['content'] = $tpl->fetch();
+
+if ($Params['user_parameters_unordered']['ajaxmode'] == 'true') {
+	echo $Result['content'];
+	exit;
+}
+
 $Result['pagelayout'] = 'widget';
 $Result['dynamic_height'] = true;
 $Result['dynamic_height_message'] = 'lhc_sizing_chat';

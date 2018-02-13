@@ -360,13 +360,13 @@ $ViewList['getstatusembed'] = array (
 
 $ViewList['startchat'] = array (
     'params' => array(),
-    'uparams' => array('ua','switchform','operator','theme','er','vid','hash_resume','sound','hash','offline','leaveamessage','department','priority','chatprefill','survey','prod','phash','pvhash'),
+    'uparams' => array('ua','switchform','operator','theme','er','vid','hash_resume','sound','hash','offline','leaveamessage','department','priority','chatprefill','survey','prod','phash','pvhash','ajaxmode'),
 	'multiple_arguments' => array ( 'department', 'ua', 'prod' )
 );
 
 $ViewList['chatwidget'] = array (
     'params' => array(),
-    'uparams' => array('ua','switchform','operator','theme','vid','sound','hash','hash_resume','mode','offline','leaveamessage','department','priority','chatprefill','survey','sdemo','prod','phash','pvhash','fullheight'),
+    'uparams' => array('ua','switchform','operator','theme','vid','sound','hash','hash_resume','mode','offline','leaveamessage','department','priority','chatprefill','survey','sdemo','prod','phash','pvhash','fullheight','ajaxmode'),
 	'multiple_arguments' => array ( 'department', 'ua', 'prod' )
 );
 

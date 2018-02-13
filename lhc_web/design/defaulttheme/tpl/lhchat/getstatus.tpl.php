@@ -908,92 +908,96 @@ var lh_inst  = {
     }
 };
 
-<?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/lhc_chat_multiinclude.tpl.php')); ?>	
+function preloadDataLHC() {
 
-if ( window.attachEvent ) {
-	// IE
-	window.attachEvent("onmessage", lh_inst.handleMessage);
-};
+    <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/lhc_chat_multiinclude.tpl.php')); ?>
 
-if ( document.attachEvent ) {
-	// IE
-	document.attachEvent("onmessage", lh_inst.handleMessage);
-};
+    var cookieData = lhc_Cookies('lhc_per');
+    if ( typeof cookieData === "string" && cookieData ) {
+    lh_inst.cookieDataPers = lh_inst.JSON.parse(cookieData);
+    if (!lh_inst.cookieDataPers.vid) {
+    lh_inst.cookieDataPers = {<?php isset($vid) ? print 'vid:\''.$vid.'\'' : ''?>};
+    lh_inst.storePersistenCookie();
+    };
+    } else {
+    lh_inst.cookieDataPers = {<?php isset($vid) ? print 'vid:\''.$vid.'\'' : ''?>};
+    lh_inst.storePersistenCookie();
+    };
+
+    <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/lhc_chat_after_cookie_multiinclude.tpl.php')); ?>
+
+    lh_inst.initSessionStorage();
+    lh_inst.initLanguage();
+
+    <?php if ($referrer != '') : ?>
+        lh_inst.storeReferrer(<?php echo json_encode($referrer)?>);
+    <?php endif; ?>
+
+
+    <?php if (!($isOnlineHelp == false && $hide_offline == 'true')) : ?>
+
+        lh_inst.showStatusWidget();
+
+        if (lh_inst.cookieData.hash) {
+        lh_inst.stopCheckNewMessage();
+        lh_inst.substatus = '_reopen';
+        lh_inst.toggleStatusWidget(true);
+        lh_inst.showStartWindow(undefined,true);
+        <?php if (($track_online_users == true || $trackOnline == true) && $disable_online_tracking == false) : ?>
+            lh_inst.logPageView();
+            lh_inst.online_tracked = true;
+        <?php endif;?>
+        }
+
+        <?php if ($check_operator_messages == 'true' && $disable_pro_active == false && $disable_online_tracking == false) : ?>
+            if (!lh_inst.cookieData.hash) {
+            lh_inst.startNewMessageCheck();
+            lh_inst.online_tracked = true;
+            }
+        <?php endif; ?>
+
+        <?php if ($disable_pro_active == false && $track_online_users == true && $disable_online_tracking == false) : ?>
+            if (!lh_inst.cookieData.hash) {
+            lh_inst.startNewMessageCheckSingle();
+            lh_inst.online_tracked = true;
+            }
+        <?php endif;?>
+
+        <?php if ($trackOnline == true && $disable_online_tracking == false) : ?>
+            if (lh_inst.online_tracked == false) {
+            lh_inst.logPageView();
+            };
+        <?php endif;?>
+
+        if (lh_inst.cookieData.shr) {
+        lh_inst.startCoBrowse(lh_inst.cookieData.shr);
+        };
+
+    <?php elseif ($track_online_users == true) : ?>
+        lh_inst.logPageView();
+    <?php endif;?>
+
+    lh_inst.checkStatusChat();
+    lh_inst.attatchActivityListeners();
+    lh_inst.storeEvents();
+    lh_inst.genericCallback('loaded');
+}
 
 if ( window.addEventListener ){
-	// FF
-	window.addEventListener("message", lh_inst.handleMessage, false);
+    // FF
+    window.addEventListener("message", lh_inst.handleMessage, false);
+    window.addEventListener("pageshow", preloadDataLHC, false);
+} else if ( window.attachEvent ) {
+    // IE
+    window.attachEvent("onmessage", lh_inst.handleMessage);
+    window.attachEvent("onpageshow", preloadDataLHC, false);
+} else if ( document.attachEvent ) {
+    // IE
+    document.attachEvent("onmessage", lh_inst.handleMessage);
+    document.attachEvent("onpageshow", preloadDataLHC);
 };
 
-var cookieData = lhc_Cookies('lhc_per');
-if ( typeof cookieData === "string" && cookieData ) {
-	lh_inst.cookieDataPers = lh_inst.JSON.parse(cookieData);	
-	if (!lh_inst.cookieDataPers.vid) {
-		lh_inst.cookieDataPers = {<?php isset($vid) ? print 'vid:\''.$vid.'\'' : ''?>};
-		lh_inst.storePersistenCookie();
-	};
-} else {
-	lh_inst.cookieDataPers = {<?php isset($vid) ? print 'vid:\''.$vid.'\'' : ''?>};
-	lh_inst.storePersistenCookie();
-};
-
-<?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/lhc_chat_after_cookie_multiinclude.tpl.php')); ?>
-
-lh_inst.initSessionStorage();
-lh_inst.initLanguage();
-
-<?php if ($referrer != '') : ?>
-lh_inst.storeReferrer(<?php echo json_encode($referrer)?>);
-<?php endif; ?>
+<?php endif;exit; // Hide if offline ?>
 
 
-<?php if (!($isOnlineHelp == false && $hide_offline == 'true')) : ?>
-	
-	lh_inst.showStatusWidget();
-		
-	if (lh_inst.cookieData.hash) {
-		lh_inst.stopCheckNewMessage();
-		lh_inst.substatus = '_reopen';	
-		lh_inst.toggleStatusWidget(true);
-	    lh_inst.showStartWindow(undefined,true);
-	    <?php if (($track_online_users == true || $trackOnline == true) && $disable_online_tracking == false) : ?>
-	    lh_inst.logPageView();
-	    lh_inst.online_tracked = true;
-	    <?php endif;?>
-	}
-	
-	<?php if ($check_operator_messages == 'true' && $disable_pro_active == false && $disable_online_tracking == false) : ?>
-	if (!lh_inst.cookieData.hash) {
-		lh_inst.startNewMessageCheck();
-		lh_inst.online_tracked = true;
-	}
-	<?php endif; ?>
-	
-	<?php if ($disable_pro_active == false && $track_online_users == true && $disable_online_tracking == false) : ?>
-	if (!lh_inst.cookieData.hash) {
-		lh_inst.startNewMessageCheckSingle();
-		lh_inst.online_tracked = true;
-	}
-	<?php endif;?>
-	
-	<?php if ($trackOnline == true && $disable_online_tracking == false) : ?>
-	if (lh_inst.online_tracked == false) {
-		lh_inst.logPageView();
-	};
-	<?php endif;?>
-		
-	if (lh_inst.cookieData.shr) {
-		lh_inst.startCoBrowse(lh_inst.cookieData.shr);
-	};
-	
-<?php elseif ($track_online_users == true) : ?>
-	lh_inst.logPageView();
-<?php endif;?>
 
-lh_inst.checkStatusChat();
-lh_inst.attatchActivityListeners();
-lh_inst.storeEvents();
-lh_inst.genericCallback('loaded');
-<?php
-endif; // hide if offline
-exit; ?>
