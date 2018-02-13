@@ -978,16 +978,6 @@ ul.mb0 {
 	min-height:150px;
 }
 
-.bb-list{
-	margin-left:0;
-	margin-bottom:0;
-}
-
-.bb-list li{
-		margin-left:2px;
-		margin-bottom:2px;
-}
-
 .online_user {
 	background-color:#E4FFE0 !important;
 	transition: background-color 1000ms linear;	
@@ -1003,28 +993,38 @@ ul.mb0 {
 	background-color:#E0F3FF !important;
 }
 
-.bb-list a {
-	padding:2px;
-	display:inline-block;	
-	border:1px solid #ccc;	 
-	width:32px;
-	height:32px;
-}
-
-.bb-list a:hover {
-	background-color:#CECECE;
-}
-
 .max-width-180{
 	max-width: 180px;
 }
 
-
-.f-dropdown-lang li{
+.f-dropdown-lang li {
 	float:left;
 	width:50%;		
 }
 
+.bb-list a{
+	padding:5px;
+	display:inline-block;
+	font-size:17px;
+}
+
+.bb-list a:hover{
+	background-color: #eaeaea;
+}
+
+.nav-pills-bbcode >li>a{
+	padding:4px 8px;
+	font-size:13px;
+}
+
+.nav-pills-bbcode {
+	border-bottom: 0;
+	padding-bottom: 0;
+}
+
+.nav-pills-bbcode-content{
+	margin-top:0;
+}
 
 input[type="file"]{
 	font-size:12px;

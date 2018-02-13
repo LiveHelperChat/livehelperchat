@@ -14,6 +14,8 @@
 
             <?php include(erLhcoreClassDesign::designtpl('lhchat/part/hold_action.tpl.php')); ?>
 
+            <?php include(erLhcoreClassDesign::designtpl('lhchat/part/bbcode_action.tpl.php')); ?>
+
 		</div>
 		
 		</div>

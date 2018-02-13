@@ -416,7 +416,7 @@ $ViewList['chatpreview'] = array(
 );
 
 $ViewList['bbcodeinsert'] = array(
-		'params' => array()
+	'params' => array('chat_id')
 );
 
 $ViewList['chatwidgetchat'] = array(

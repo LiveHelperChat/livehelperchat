@@ -1,0 +1,2 @@
+
+<a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','BB Code')?>" href="#" class="btn btn-default material-icons" onclick="return lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('chat/bbcodeinsert')?>/<?php echo $chat->id?>'})">&#xE24E;</a>
