@@ -67,6 +67,8 @@ if (isset($_GET['doSearch'])) {
 	$filterParams['is_search'] = false;
 }
 
+erLhcoreClassChatStatistic::formatUserFilter($filterParams);
+
 /**
  * Departments filter
  * */
@@ -81,7 +83,7 @@ if ($limitation !== false) {
     $filterParams['filter']['smart_select'] = true;         
 }
 
-if ($Params['user_parameters_unordered']['print'] == 1){
+if ($Params['user_parameters_unordered']['print'] == 1) {
 	$tpl = erLhcoreClassTemplate::getInstance('lhchat/printchats.tpl.php');
 	$items = erLhcoreClassChat::getList(array_merge($filterParams['filter'],array('limit' => 100000,'offset' => 0)));
 	$tpl->set('items',$items);
