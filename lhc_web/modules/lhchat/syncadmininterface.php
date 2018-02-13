@@ -391,7 +391,16 @@ if ($canListOnlineUsers == true || $canListOnlineUsersAll == true) {
 	$onlineOperators = erLhcoreClassModelUserDep::getOnlineOperators($currentUser,$canListOnlineUsersAll,$filter,is_numeric($Params['user_parameters_unordered']['limito']) ? (int)$Params['user_parameters_unordered']['limito'] : 10,$onlineTimeout);
 	
 	erLhcoreClassChat::prefillGetAttributes($onlineOperators,array('lastactivity_ago','offline_since','user_id','id','name_official','pending_chats','inactive_chats','active_chats','departments_names','hide_online'),array(),array('filter_function' => true, 'remove_all' => true));
-	
+
+	$currentOp = isset($onlineOperators[$userData->id]) ? $onlineOperators[$userData->id] : null;
+
+	foreach ($onlineOperators as $onlineOp) {
+	    if ($userData->id == $onlineOp->user_id) {
+            $currentOp = $onlineOp;
+            break;
+        }
+    }
+
 	$ReturnMessages['online_op'] = array('list' => array_values($onlineOperators), 'op_cc' => $operatorsCount, 'op_sn' => $operatorsSend);
 }
 
@@ -455,7 +464,11 @@ if ($userData->operation_admin != '') {
     erLhcoreClassUser::getSession()->update($userData);
 }
 
-$responseSync = array('error' => 'false', 'mac' => $my_active_chats, 'ou' => $ou, 'result' => $ReturnMessages );
+$responseSync = array('error' => 'false', 'mac' => $my_active_chats, 'ou' => $ou, 'result' => $ReturnMessages, 'ho' => $userData->hide_online, 'im' => $userData->invisible_mode);
+
+if (isset($currentOp) && $currentOp !== null) {
+    $responseSync['ho'] = $currentOp->hide_online;
+}
 
 if (!empty($chatsForced)) {
      $responseSync['fs'] = $chatsForced;

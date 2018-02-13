@@ -1,5 +1,7 @@
 <?php
 
+header('Content-Type: application/json');
+
 $currentUser = erLhcoreClassUser::instance();
 $userData = $currentUser->getUserData(true);
 
@@ -12,6 +14,8 @@ if ($Params['user_parameters']['status'] == 'false') {
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.operator_visibility_changed',array('user' => & $userData, 'reason' => 'user_action'));
 
 erLhcoreClassUser::getSession()->update($userData);
+
+echo json_encode(array('error' => false));
 exit;
 
 ?>

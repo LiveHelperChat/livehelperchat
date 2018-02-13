@@ -33,14 +33,19 @@ if ( $currentUser->hasAccessTo('lhuser','changevisibility') ) {
 	<?php include_once(erLhcoreClassDesign::designtpl('lhchat/user_settings_sound.tpl.php'));?>
 		
 	<?php if ($canChangeVisibilityMode == true) : ?>
-	<li><a href="#"><i id="vi-in-user" class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Change my visibility to visible/invisible');?>" onclick="return lhinst.changeVisibility($(this))"><?php $UserData->invisible_mode == 1 ? print 'visibility_off' : print 'visibility'?></i></a></li>
+	    <li><a href="#"><i id="vi-in-user" class="material-icons ng-cloak" ng-click="lhc.changeVisibility()" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Change my visibility to visible/invisible');?>" >{{lhc.hideInvisible == true ? 'visibility_off' : 'visibility'}}</i></a></li>
 	<?php endif;?>
 		
 	<?php if ($canChangeOnlineStatus == true) : ?>
-		<li><a href="#"><i id="online-offline-user" class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Change my status to online/offline');?>" onclick="return lhinst.disableUserAsOnline($(this))"><?php $UserData->hide_online == 1 ? print 'flash_off' : print 'flash_on'?></i></a></li>
+		<li><a href="#"><i id="online-offline-user" class="material-icons ng-cloak" ng-click="lhc.changeOnline()" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Change my status to online/offline');?>" >{{lhc.hideOnline == true ? 'flash_off' : 'flash_on'}}</i></a></li>
 	<?php endif;?>
 <?php if (!isset($hideULSetting)) : ?>
 </ul>
 <?php endif;?>
 
 <?php endif;?>
+
+<?php /*
+onclick="return lhinst.disableUserAsOnline($(this))"
+onclick="return lhinst.changeVisibility($(this))"
+<?php $UserData->hide_online == 1 ? print 'flash_off' : print 'flash_on'?>*/ ?>

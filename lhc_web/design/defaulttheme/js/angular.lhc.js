@@ -82,12 +82,33 @@ services.factory('LiveHelperChatFactory', ['$http','$q',function ($http, $q) {
 		var deferred = $q.defer();
 		$http.get(WWW_DIR_JAVASCRIPT + 'user/setinactive/'+status).success(function(data) {
 			deferred.resolve(data);
-		}).error(function(){
+		}).error(function() {
 			deferred.reject('error');
 		});
 		return deferred.promise;
 	};
-	
+
+	this.setOnlineMode = function(status) {
+        var deferred = $q.defer();
+        $http.get(WWW_DIR_JAVASCRIPT + 'user/setoffline/'+status).success(function(data) {
+            deferred.resolve(data);
+        }).error(function(data) {
+            deferred.reject(data);
+        });
+        return deferred.promise;
+	};
+
+	this.changeVisibility = function(status)
+    {
+        var deferred = $q.defer();
+        $http.get(WWW_DIR_JAVASCRIPT + 'user/setinvisible/'+status).success(function(data) {
+            deferred.resolve(data);
+        }).error(function(data) {
+            deferred.reject(data);
+        });
+        return deferred.promise;
+    };
+
 	this.getActiveOperatorChat = function(user_id) {
         var deferred = $q.defer();
         $http.get(WWW_DIR_JAVASCRIPT + 'chat/startchatwithoperator/'+user_id+'/(mode)/check').success(function(data) {
@@ -254,8 +275,39 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	this.timeoutActivity = null;
 	this.timeoutActivityTime = 300;
 	this.blockSync = false;
-	
-	
+
+	// Sync icons statuses
+    this.hideOnline = false;
+    this.hideInvisible = false;
+
+    this.changeVisibility = function() {
+        LiveHelperChatFactory.changeVisibility(!_that.hideInvisible == true ? 'true' : 'false').then( function(data) {
+            if (data.error === false) {
+            	_that.hideInvisible = !_that.hideInvisible;
+            } else if (typeof data.msg !== 'undefined') {
+                alert(data.msg);
+            } else {
+                alert(data);
+            }
+        },function(error) {
+            alert('We could not change your status!');
+        });
+	};
+
+    this.changeOnline = function() {
+        LiveHelperChatFactory.setOnlineMode(!_that.hideOnline == true ? 'true' : 'false').then(function(data){
+        	if (data.error === false) {
+                _that.hideOnline = !_that.hideOnline;
+			} else if (typeof data.msg !== 'undefined') {
+        		alert(data.msg);
+			} else {
+                alert(data);
+			}
+		},function(error) {
+            alert('We could not change your status!');
+        });
+	};
+
 	angular.forEach(this.widgetsItems, function(listId) {
 		_that[listId + '_all_departments'] = _that.restoreLocalSetting(listId + '_all_departments','false',false) != 'false';
 		_that[listId + '_hide_hidden'] = _that.restoreLocalSetting(listId + '_hide_hidden','false',false) != 'false';
@@ -752,6 +804,8 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 
 					var tabs = $('#tabs');
 
+					
+					
 					angular.forEach(data.result, function(item, key) {
 
 						$scope[key] = item;
@@ -848,7 +902,10 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 						lhinst.startChatBackground(item.id,tabs,LiveHelperChatFactory.truncate(item.nick,10),false);
 					});
 				}
-				
+
+				_that.hideOnline = data.ho == 1;
+				_that.hideInvisible = data.im == 1;
+
 				if ($scope.setTimeoutEnabled == true) {
 					$scope.timeoutControl = setTimeout(function(){
 						$scope.loadChatList();
@@ -981,34 +1038,48 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
         
         this.resetTimeoutActivity();
 	};
-	
+
+    $scope.resetActivityFromChild = function() {
+    	_that.resetTimeoutActivity();
+	}
+
 	this.resetTimeoutActivity = function() {
-		
-		if (this.blockSync == false)
-		{
-	        clearTimeout(this.timeoutActivity);
-	        var _that = this;
-	                
-	        this.timeoutActivity = setTimeout(function(){ 
-	        	
-	        	_that.blockSync = true;
-	        	lhinst.disableSync = true;
-	        	
-	        	LiveHelperChatFactory.setInactive('true').then(function (data) {        		
-	        		lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'user/wentinactive/false',hidecallback: function() {
-	        			LiveHelperChatFactory.setInactive('false');	        				        			
-	        			
-	        			_that.isListLoaded = false; // Because inactive visitor can be for some quite time, make sure new chat's does not trigger flood of sound notifications
-	        			_that.blockSync = false;	// Unblock sync
-	        			_that.resetTimeoutActivity(); // Start monitoring activity again
-	        			lhinst.disableSync = false;
-	        			
-	        			$scope.loadChatList();
-	        		}});        		
-	            }); 
-	        	
-	        }, _that.timeoutActivityTime*1000);  
-        }      
+        var opener = window.opener;
+        if (opener) {
+            try {
+				// Forward action to parent window and do not set offline mode from child window
+				var lhcController = opener.angular.element('body').scope();
+				lhcController.resetActivityFromChild();
+            } catch(e) {
+				console.log(e);
+        	}
+		} else {
+            if (this.blockSync == false)
+            {
+                clearTimeout(this.timeoutActivity);
+                var _that = this;
+
+                this.timeoutActivity = setTimeout(function(){
+
+                    _that.blockSync = true;
+                    lhinst.disableSync = true;
+
+                    LiveHelperChatFactory.setInactive('true').then(function (data) {
+                        lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'user/wentinactive/false',hidecallback: function() {
+                                LiveHelperChatFactory.setInactive('false');
+
+                                _that.isListLoaded = false; // Because inactive visitor can be for some quite time, make sure new chat's does not trigger flood of sound notifications
+                                _that.blockSync = false;	// Unblock sync
+                                _that.resetTimeoutActivity(); // Start monitoring activity again
+                                lhinst.disableSync = false;
+
+                                $scope.loadChatList();
+                            }});
+                    });
+
+                }, _that.timeoutActivityTime*1000);
+            }
+        }
     };
 
 	this.getOpenedChatIds = function () {
@@ -1096,6 +1167,8 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 			_that.userDepartmentsGroups=data.dp_groups;
 			_that.userGroups = data.user_groups;
 			_that.userList = data.user_list;
+            _that.hideInvisible = data.im;
+            _that.hideOnline = data.ho;
 			
 			angular.forEach(_that.widgetsItems, function(listId) {
 				_that.setDepartmentNames(listId);

@@ -2599,30 +2599,6 @@ function lh(){
     	$.get(this.wwwDir+  'user/setsettingajax/'+attr+'/'+value+'/(indifferent)/true');
     };
 
-    this.disableUserAsOnline = function(inst)
-    {
-        if (inst.text() == 'flash_off'){
-            $.getJSON(this.wwwDir+  'user/setoffline/false',function (data) {
-                if (data.error == false) {
-                    inst.text('flash_on');
-                } else {
-                    alert(data.msg);
-                }
-            }).fail(function(jqXHR, textStatus, errorThrown) {
-                console.dir(jqXHR);
-                alert('getJSON request failed! ' + textStatus + ':' + errorThrown + ':' + jqXHR.responseText);
-            });
-        } else {
-            $.getJSON(this.wwwDir+  'user/setoffline/true',function () {
-                inst.text('flash_off');
-            }).fail(function(jqXHR, textStatus, errorThrown) {
-                console.dir(jqXHR);
-                alert('getJSON request failed! ' + textStatus + ':' + errorThrown + ':' + jqXHR.responseText);
-            });
-        }
-        return false;
-    };
-   	
 	this.switchToOfflineForm = function(){
 		var form = $('#form-start-chat');
 		form.attr('action',$('#form-start-chat').attr('action')+'/(switchform)/true/(offline)/true/(leaveamessage)/true/(department)/'+$('#id_DepartamentID').val());
@@ -2650,20 +2626,7 @@ function lh(){
 	   	 });
     	return false;
     };
-    
-    this.changeVisibility = function(inst)
-    {
-    	if (inst.text() == 'visibility_off'){
-    		$.get(this.wwwDir+  'user/setinvisible/false');
-    		inst.text('visibility');
-    	} else {
-    		$.get(this.wwwDir+  'user/setinvisible/true');
-    		inst.text('visibility_off');
-    	}
-    	return false;
-    };
 
-    
     this.disableChatSoundUser = function(inst)
     {
     	if (inst.find('> i').text() == 'volume_off') {
