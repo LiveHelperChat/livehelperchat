@@ -536,7 +536,7 @@ if (isset($_POST['askQuestion']))
                            $msg = new erLhcoreClassModelmsg();
                            $msg->msg = trim($responder->wait_message);
                            $msg->chat_id = $chat->id;
-                           $msg->name_support = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
+                           $msg->name_support = $responder->operator != '' ? $responder->operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
                            $msg->user_id = -2;
                            $msg->time = time() + 5;
                            erLhcoreClassChat::getSession()->save($msg);
@@ -587,9 +587,15 @@ if (isset($_POST['askQuestion']))
        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started',array('chat' => & $chat, 'msg' => $messageInitial));
        
        erLhcoreClassChat::updateDepartmentStats($chat->department);
-               
-       $Result = erLhcoreClassModule::reRun(erLhcoreClassDesign::baseurlRerun('chat/chatwidgetchat') . '/' . $chat->id . '/' . $chat->hash . $modeAppendTheme .  '/(cstarted)/chat_started_by_invitation_cb');
-       return true;
+
+        if ((isset($_GET['ajaxmode']) && $_GET['ajaxmode'] == true) || (isset($_POST['ajaxmode']) && $_POST['ajaxmode'] == true)) {
+            header ( 'content-type: application/json; charset=utf-8' );
+            echo json_encode(array('location' => erLhcoreClassDesign::baseurl('chat/chatwidgetchat') . '/' . $chat->id . '/' . $chat->hash . $modeAppendTheme .  '/(cstarted)/chat_started_by_invitation_cb'));
+            exit;
+        } else {
+           $Result = erLhcoreClassModule::reRun(erLhcoreClassDesign::baseurlRerun('chat/chatwidgetchat') . '/' . $chat->id . '/' . $chat->hash . $modeAppendTheme .  '/(cstarted)/chat_started_by_invitation_cb');
+           return true;
+        }
 
     } else {
         $tpl->set('errors',$Errors);

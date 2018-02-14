@@ -2776,6 +2776,14 @@ function lh(){
 	   	return true;
     };
 
+    this.setSubject = function(inst, chat_id) {
+        $('#subject-message-'+chat_id).text('...');
+        $.postJSON(this.wwwDir + 'chat/subject/'+chat_id + '/(subject)/' + inst.val() + '/(status)/' + inst.is(':checked'),{'update': true}, function(data) {
+            lhinst.updateVoteStatus(chat_id);
+            $('#subject-message-'+chat_id).text(data.message);
+        });
+    }
+    
     this.addCaptchaSubmit = function(timestamp,inst) {
         if (inst.find('.form-protected').size() == 0){
             inst.find('input[type="submit"]').attr('disabled','disabled');
@@ -2802,13 +2810,18 @@ function lh(){
                         if (readyState == 4 && status == '200' && evt.target.responseText) {
                             var headers = xhr.getResponseHeader("Content-Type");
                             if (headers.indexOf('application/json') == -1) {
-                                $('#start-chat-wrapper').replaceWith(evt.target.responseText);
+                                $('#widget-content-body').replaceWith(evt.target.responseText);
                             } else {
                                 location.replace(jQuery.parseJSON(evt.target.responseText)['location']);
                             }
                         }
                     }, false);
-                    xhr.open('POST', inst.attr('action')+'/(ajaxmode)/true', true);
+                    var action = inst.attr('action');
+                    if (action != '') {
+                        xhr.open('POST', action + '/(ajaxmode)/true', true);
+                    } else {
+                        xhr.open('POST', document.location + '&ajaxmode=true', true);
+                    }
                     xhr.send(formData);
                 } else {
                     inst.submit();

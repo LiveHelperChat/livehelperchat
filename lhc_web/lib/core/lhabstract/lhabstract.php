@@ -105,8 +105,26 @@ class erLhcoreClassAbstract {
             	    $items = call_user_func($attr['source'],$attr['params_call']);
             	    foreach ($items as $item)
             	    {
-            	        $selected = in_array($item->id,$object->{$attr['backend']}) ? 'selected="selected"' : '';
-            	        $return .= '<option value="'.$item->id.'" '.$selected.'>'.((string)$item).'</option>';
+                        $selected = in_array($item->id, $object->$name) ? 'selected="selected"' : '';
+                        $nameAttr = isset($attr['name_attr']) ? $item->{$attr['name_attr']} : ((string)$item);
+                        $return .= '<option value="'.$item->id.'" '.$selected.'>'.((string)$nameAttr).'</option>';
+            	    }
+            	    $return .= "</select>";
+            	    return $return;
+        	    break;
+
+        	    case 'checkbox_multi':
+
+                    $return = '';
+            	    $items = call_user_func($attr['source'],$attr['params_call']);
+            	    foreach ($items as $item)
+            	    {
+                        $selected = in_array($item->id, $object->$name) ? 'checked="checked"' : '';
+                        $nameAttr = isset($attr['name_attr']) ? $item->{$attr['name_attr']} : ((string)$item);
+                        $return .= '<div class="col-xs-' . $attr['col_size'] . '"><label><input type="checkbox" name="AbstractInput_' . $name . '[]" ' . $selected . ' value="' . $item->id . '">'. htmlspecialchars($nameAttr) . '</label></div>';
+
+                        /*$nameAttr = isset($attr['name_attr']) ? $item->{$attr['name_attr']} : ((string)$item);
+                        $return .= '<option value="'.$item->id.'" '.$selected.'>'.((string)$nameAttr).'</option>';*/
             	    }
             	    $return .= "</select>";
             	    return $return;
@@ -159,12 +177,12 @@ class erLhcoreClassAbstract {
                     $object->lon = $_POST['AbstractInput_'.$key.'_lon'];
                 }
 
-            } elseif ($field['type'] == 'combobox_multi') {
+            } elseif ($field['type'] == 'combobox_multi' || $field['type'] == 'checkbox_multi') {
 
                 if ($form->hasValidData( 'AbstractInput_'.$key )){
-                    $object->{$field['backend_call']}($form->{'AbstractInput_'.$key});
+                    $object->$key = $form->{'AbstractInput_'.$key};
                 } else {
-                    $object->{$field['backend_call']}(array());
+                    $object->$key = array();
                 }
 
             } elseif ($field['type'] == 'file' || $field['type'] == 'filebinary'){

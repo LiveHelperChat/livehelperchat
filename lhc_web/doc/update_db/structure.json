@@ -1213,6 +1213,76 @@
                 "extra": ""
             }
         ],
+        "lh_abstract_subject": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "name",
+                "type": "varchar(100)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            }
+        ],
+        "lh_abstract_subject_dep": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "dep_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "subject_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            }
+        ],
+        "lh_abstract_subject_chat": [
+            {
+                "field": "id",
+                "type": "bigint(20)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "subject_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "chat_id",
+                "type": "bigint(20)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            }
+        ],
         "lh_users_session": [
             {
                 "field": "id",
@@ -7964,6 +8034,9 @@
         "lh_abstract_proactive_chat_variables": "CREATE TABLE `lh_abstract_proactive_chat_variables` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `name` varchar(50) NOT NULL, `identifier` varchar(50) NOT NULL, `store_timeout` int(11) NOT NULL, `filter_val` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `identifier` (`identifier`)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
         "lh_abstract_proactive_chat_event": "CREATE TABLE `lh_abstract_proactive_chat_event` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `vid_id` int(11) NOT NULL,  `ev_id` int(11) NOT NULL,  `ts` int(11) NOT NULL,  `val` varchar(50) NOT NULL,  PRIMARY KEY (`id`),  KEY `vid_id_ev_id_val_ts` (`vid_id`,`ev_id`,`val`,`ts`),  KEY `vid_id_ev_id_ts` (`vid_id`,`ev_id`,`ts`)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
         "lh_abstract_proactive_chat_invitation_event": "CREATE TABLE `lh_abstract_proactive_chat_invitation_event` ( `id` int(11) NOT NULL AUTO_INCREMENT, `invitation_id` int(11) NOT NULL, `event_id` int(11) NOT NULL, `min_number` int(11) NOT NULL, `during_seconds` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `invitation_id` (`invitation_id`), KEY `event_id` (`event_id`)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
-        "lh_chat_start_settings": "CREATE TABLE `lh_chat_start_settings` ( `id` int(11) NOT NULL AUTO_INCREMENT, `name` varchar(50) NOT NULL, `data` longtext NOT NULL, `department_id` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `department_id` (`department_id`)) DEFAULT CHARSET=utf8 COLLATE=utf8mb4_unicode_ci"
+        "lh_chat_start_settings": "CREATE TABLE `lh_chat_start_settings` ( `id` int(11) NOT NULL AUTO_INCREMENT, `name` varchar(50) NOT NULL, `data` longtext NOT NULL, `department_id` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `department_id` (`department_id`)) DEFAULT CHARSET=utf8 COLLATE=utf8mb4_unicode_ci",
+        "lh_abstract_subject": "CREATE TABLE `lh_abstract_subject` ( `id` int(11) NOT NULL AUTO_INCREMENT, `name` varchar(100) NOT NULL, PRIMARY KEY (`id`)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
+        "lh_abstract_subject_dep": "CREATE TABLE `lh_abstract_subject_dep` ( `id` int(11) NOT NULL AUTO_INCREMENT, `dep_id` int(11) NOT NULL, `subject_id` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `subject_id` (`subject_id`)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
+        "lh_abstract_subject_chat": "CREATE TABLE `lh_abstract_subject_chat` ( `id` bigint(20) NOT NULL AUTO_INCREMENT, `subject_id` int(11) NOT NULL, `chat_id` bigint(20) NOT NULL, PRIMARY KEY (`id`), KEY `chat_id` (`chat_id`)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;"
     }
 }

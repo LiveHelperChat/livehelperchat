@@ -1002,6 +1002,11 @@ ul.mb0 {
 	width:50%;		
 }
 
+.bb-list ul li{
+	padding:0;
+	margin:0;
+}
+
 .bb-list a{
 	padding:5px;
 	display:inline-block;

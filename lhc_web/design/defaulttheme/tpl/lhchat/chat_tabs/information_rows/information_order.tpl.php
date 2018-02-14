@@ -5,6 +5,10 @@ $orderInformation = array(
         'enabled' => true
     ),
     array(
+        'item' => 'subject',
+        'enabled' => true
+    ),
+    array(
         'item' => 'product',
         'enabled' => true
     ),
