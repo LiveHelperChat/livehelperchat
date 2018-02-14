@@ -1416,7 +1416,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   $db->query("CREATE TABLE `lh_canned_msg_tag` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `tag` varchar(40) NOT NULL, PRIMARY KEY (`id`), KEY `tag` (`tag`)) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
         	   $db->query("CREATE TABLE `lh_abstract_subject` ( `id` int(11) NOT NULL AUTO_INCREMENT, `name` varchar(100) NOT NULL, PRIMARY KEY (`id`)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
         	   $db->query("CREATE TABLE `lh_abstract_subject_dep` ( `id` int(11) NOT NULL AUTO_INCREMENT, `dep_id` int(11) NOT NULL, `subject_id` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `subject_id` (`subject_id`)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
-
+        	   $db->query("CREATE TABLE `lh_abstract_subject_chat` ( `id` bigint(20) NOT NULL AUTO_INCREMENT, `subject_id` int(11) NOT NULL, `chat_id` bigint(20) NOT NULL, PRIMARY KEY (`id`), KEY `chat_id` (`chat_id`)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+                        	  
         	   $Departament = new erLhcoreClassModelDepartament();
                $Departament->name = $form->DefaultDepartament;
                erLhcoreClassDepartament::getSession()->save($Departament);

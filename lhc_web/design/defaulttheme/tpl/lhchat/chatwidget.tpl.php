@@ -1,4 +1,3 @@
-<div id="start-chat-wrapper">
 <?php include(erLhcoreClassDesign::designtpl('lhchat/chatwidget/chatwidget_pre_multiinclude.tpl.php'));?>
 
 <?php if ($disabled_department === true) : ?>
@@ -219,4 +218,3 @@ jQuery('#id_Question').bind('keydown', 'return', function (evt){
 <?php endif;?>
 
 <?php endif;?>
-</div>

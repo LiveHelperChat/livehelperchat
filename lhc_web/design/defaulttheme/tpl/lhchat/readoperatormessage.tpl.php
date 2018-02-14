@@ -1,6 +1,6 @@
 <?php include(erLhcoreClassDesign::designtpl('lhchat/readoperatormessage/read_message_profile.tpl.php'));?>
 
-<form action="" id="ReadOperatorMessage" method="post" onsubmit="return <?php if (isset($start_data_fields['message_auto_start']) && $start_data_fields['message_auto_start'] == true) : ?>lhinst.prestartChat('<?php echo time()?>',$(this))<?php else : ?>lhinst.addCaptcha('<?php echo time()?>',$(this))<?php endif?>">
+<form action="" id="ReadOperatorMessage" method="post" onsubmit="return <?php if (isset($start_data_fields['message_auto_start']) && $start_data_fields['message_auto_start'] == true) : ?>lhinst.prestartChat('<?php echo time()?>',$(this))<?php else : ?>lhinst.addCaptchaSubmit('<?php echo time()?>',$(this))<?php endif?>">
 
 <div id="messages" class="read-operator-message<?php if($fullheight) : ?> fullheight<?php endif ?>">
     <div id="messagesBlockWrap">

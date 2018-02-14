@@ -1,3 +1,18 @@
+2.87v
+
+1. Subjects for chats.
+2. Standard widget/Proactive invitation will be submitted using XHR request. This will avoid record in browser history.
+3. FAQ, Questionry, Chatbox widget improvement toa void error in "messages"
+4. Emoji icons for chats.
+5. Search in chat list by user group or department group.
+6. Statistic by week.
+7. Sync offline/online icon in cross window environment. Child window will detect activity and report to parent window to avoid false positive for inactivity.
+8. Footprint cleanup algorithm change for high load environment.
+9. Bigger font size on mobile devices so scaling of widget won't be triggered.
+10. Search by subject is not yet supported will be added in the upcoming releases.
+
+execute doc/update_db/update_162.sql for update
+
 2.86v
 
 1. Option to allow read only chats. In user account editing window you can choose what type of assignment it should be. Read only or write also.

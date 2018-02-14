@@ -77,6 +77,8 @@
             <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information_rows/product.tpl.php'));?>
         <?php elseif ($buttonData['item'] == 'uagent') : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information_rows/uagent.tpl.php'));?>
+        <?php elseif ($buttonData['item'] == 'subject') : ?>
+            <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information_rows/subject.tpl.php'));?>
         <?php elseif ($buttonData['item'] == 'country_code') : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information_rows/country_code.tpl.php'));?>
         <?php elseif ($buttonData['item'] == 'user_tz_identifier') : ?>

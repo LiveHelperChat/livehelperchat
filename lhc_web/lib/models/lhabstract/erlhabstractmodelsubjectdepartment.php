@@ -25,12 +25,15 @@ class erLhAbstractModelSubjectDepartment {
 
     public function __toString()
     {
-        return $this->name;
+        return (string)$this->subject;
     }
 
     public function __get($var)
     {
         switch ($var) {
+            case 'subject':
+                $this->subject = erLhAbstractModelSubject::fetch($this->subject_id);
+                return $this->subject;
             default:
                 ;
                 break;

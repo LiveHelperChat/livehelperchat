@@ -12,6 +12,12 @@ $ViewList['adminchat'] = array(
     'multiple_arguments' => array('arg')
 );
 
+$ViewList['subject'] = array(
+    'params' => array('chat_id'),
+    'uparams' => array('subject','status'),
+    'functions' => array( 'use' )
+);
+
 $ViewList['getnotificationsdata'] = array(
     'params' => array(),
     'uparams' => array('id'),

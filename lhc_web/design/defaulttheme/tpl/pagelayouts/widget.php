@@ -23,7 +23,7 @@
 <div id="widget-layout" class="row">
 	<div class="col-xs-12">
         <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/widget/before_widget_content.tpl.php'));?>
-            <?php echo $Result['content']; ?>
+            <div id="widget-content-body"><?php echo $Result['content']; ?></div>
         <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/widget/after_widget_content.tpl.php'));?>
      </div>
 </div>
