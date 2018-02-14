@@ -3345,6 +3345,22 @@
                 "extra": ""
             },
             {
+                "field": "pnd_time",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": "0",
+                "extra": ""
+            },
+            {
+                "field": "cls_time",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": "0",
+                "extra": ""
+            },
+            {
                 "field": "usaccept",
                 "type": "int(11)",
                 "null": "NO",

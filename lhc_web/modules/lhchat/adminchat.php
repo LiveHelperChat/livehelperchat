@@ -30,7 +30,7 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
     	    	$chat->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;
     	    	
     	    	if ($chat->wait_time == 0) {
-    	    		$chat->wait_time = time() - $chat->time;
+    	    		$chat->wait_time = time() - ($chat->pnd_time > 0 ? $chat->pnd_time : $chat->time);
     	    	}
     	    	
     	    	$chat->user_id = $currentUser->getUserID();

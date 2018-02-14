@@ -371,6 +371,16 @@ $def->properties['auto_responder_id']->columnName   = 'auto_responder_id';
 $def->properties['auto_responder_id']->propertyName = 'auto_responder_id';
 $def->properties['auto_responder_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['pnd_time'] = new ezcPersistentObjectProperty();
+$def->properties['pnd_time']->columnName   = 'pnd_time';
+$def->properties['pnd_time']->propertyName = 'pnd_time';
+$def->properties['pnd_time']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['cls_time'] = new ezcPersistentObjectProperty();
+$def->properties['cls_time']->columnName   = 'cls_time';
+$def->properties['cls_time']->propertyName = 'cls_time';
+$def->properties['cls_time']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

@@ -108,6 +108,12 @@ class erLhcoreClassModelChat {
        		
                'uagent'    	        	=> $this->uagent,
                'device_type'    	    => $this->device_type,
+
+               // Time then chat became pending
+               'pnd_time'    	        => $this->pnd_time,
+
+               // Time then chat was closed
+               'cls_time'    	        => $this->cls_time,
        );
    }
 
@@ -559,12 +565,12 @@ class erLhcoreClassModelChat {
    public $transfer_timeout_ac = 0;
    public $transfer_uid = 0;
 
-   // Wait timeout attributes
-   //public $wait_timeout = 0;
-   //public $wait_timeout_send = 0;
-   //public $timeout_message = '';
-   //public $wait_timeout_repeat = 0;
-   
+   // Time then chac became pending
+   public $pnd_time = 0;
+
+   // Time then chat was closed
+   public $cls_time = 0;
+
    public $auto_responder_id = 0;
    
    // User timezone identifier

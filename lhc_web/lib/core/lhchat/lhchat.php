@@ -57,6 +57,7 @@ class erLhcoreClassChat {
 			'user_closed_ts',
 			'usaccept',
 			'auto_responder_id',
+			'chat_locale',
 			//'product_id'
 	);
 	

@@ -127,11 +127,12 @@ class erLhcoreClassChatHelper
                 $msg->user_id = - 1;
                 
                 $params['chat']->last_user_msg_time = $msg->time = time();
-                
+                $params['chat']->cls_time = time();
+
                 erLhcoreClassChat::getSession()->save($msg);
                 
                 if ($params['chat']->wait_time == 0) {
-                    $params['chat']->wait_time = time() - $params['chat']->time;
+                    $params['chat']->wait_time = time() - ($params['chat']->pnd_time > 0 ? $params['chat']->pnd_time : $params['chat']->time);
                 }
                 
                 $params['chat']->updateThis();
@@ -159,7 +160,7 @@ class erLhcoreClassChatHelper
         if ($changeStatus == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT) {
             if ($chat->status != erLhcoreClassModelChat::STATUS_ACTIVE_CHAT) {
                 $chat->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;
-                $chat->wait_time = time() - $chat->time;
+                $chat->wait_time = time() - ($chat->pnd_time > 0 ? $chat->pnd_time : $chat->time);
             }
         
             if ($chat->user_id == 0)
@@ -174,7 +175,7 @@ class erLhcoreClassChatHelper
             $chat->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
             $chat->support_informed = 0;
             $chat->has_unread_messages = 1;
-        
+            $chat->pnd_time = time();
             $chat->updateThis();
         
             

@@ -280,6 +280,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `dep_id` int(11) NOT NULL,
 				  `sender_user_id` int(11) NOT NULL,
 				  `product_id` int(11) NOT NULL,
+				  `pnd_time` int(11) NOT NULL DEFAULT '0',
+				  `cls_time` int(11) NOT NULL DEFAULT '0',
 				  `usaccept` int(11) NOT NULL DEFAULT '0',
 				  `user_status` int(11) NOT NULL DEFAULT '0',
 				  `user_closed_ts` int(11) NOT NULL DEFAULT '0',

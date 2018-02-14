@@ -223,7 +223,7 @@ class erLhcoreClassChatWorkflow {
     			$chat->has_unread_messages = 0;
     			
     		    if ($chat->wait_time == 0) {
-    	            $chat->wait_time = time() - $chat->time;
+    	            $chat->wait_time = time() - ($chat->pnd_time > 0 ? $chat->pnd_time : $chat->time);
     	        }
     			
     			$chat->updateThis();
@@ -253,7 +253,7 @@ class erLhcoreClassChatWorkflow {
 	    	    }
 	    	    
 	    	    if ($chat->wait_time == 0) {
-	    	        $chat->wait_time = time() - $chat->time;
+	    	        $chat->wait_time = time() - ($chat->pnd_time > 0 ? $chat->pnd_time : $chat->time);
 	    	    }
 	    	    
 	    	    $chat->has_unread_messages = 0;
