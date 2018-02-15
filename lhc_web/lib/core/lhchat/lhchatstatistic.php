@@ -578,7 +578,7 @@ class erLhcoreClassChatStatistic {
     
     public static function getWorkLoadStatistic($days = 30, $filter = array())
     {
-        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getworkloadstatistic',array('filter' => $filter));
+        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getworkloadstatistic',array('filter' => $filter, 'days' => $days));
          
         if ($statusWorkflow === false) {
         
@@ -588,7 +588,7 @@ class erLhcoreClassChatStatistic {
                 $filter['filtergte']['time'] = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
             }
 
-            $diffDays = (time()-$filter['filtergte']['time'])/(24*3600);
+            $diffDays = ((isset($filter['filterlte']['time']) ? $filter['filterlte']['time'] : time())-$filter['filtergte']['time'])/(24*3600);
 
         	for ($i = 0; $i < 24; $i++) {
         		$dateHour = str_pad($i , 2, '0' , STR_PAD_LEFT);
