@@ -166,6 +166,7 @@
 			drawChartUser();
 			drawChartPerMonth();
 			drawChartWorkload();
+			drawChartWorkloadHourly();
 			drawChartUserMessages();
 			drawChartUserAVGWaitTime();
 			drawChartUserAverage();
@@ -524,7 +525,7 @@
 	function drawChartWorkload() {			
 		  var data = google.visualization.arrayToDataTable([
 		    ['Hour', 'Chats']
-		    <?php foreach ($numberOfChatsPerHour as $hour => $chatsNumber) : ?>
+		    <?php foreach ($numberOfChatsPerHour['total'] as $hour => $chatsNumber) : ?>
 		    	<?php echo ',[\''.$hour.'\','.$chatsNumber.']'?>
 		    <?php endforeach;?>
 		  ]);					                  		  
@@ -542,6 +543,30 @@
 		  };
 		  var chartUp = new google.visualization.ColumnChart(document.getElementById('chart_div_per_hour'));
 		  chartUp.draw(view, options);				  						  
+	}
+
+	function drawChartWorkloadHourly() {
+
+		  var data = google.visualization.arrayToDataTable([
+		    ['Hour', 'Chats']
+		    <?php foreach ($numberOfChatsPerHour['byday'] as $hour => $chatsNumber) : ?>
+		    	<?php echo ',[\''.$hour.'\','.$chatsNumber.']'?>
+		    <?php endforeach;?>
+		  ]);
+		  var view = new google.visualization.DataView(data);
+		  var options = {
+			title: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_per_hour_average_chat_duration_houp.tpl.php'));?>',
+	        width: '100%',
+	        height: '100%',
+            hAxis : {
+                textStyle : {
+                    fontSize: 10 // or the number you want
+                }
+            },
+	        isStacked: true
+		  };
+		  var chartUp = new google.visualization.ColumnChart(document.getElementById('chart_div_per_hour_by_hour'));
+		  chartUp.draw(view, options);
 	}
 	
 	$(window).on("resize", function (event) {
@@ -568,7 +593,8 @@
 <h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/hourly_statistic.tpl.php'));?></h5>
 <hr>
 <div id="chart_div_per_hour" style="width: 100%; height: 300px;"></div> 		 		
- 		 		
+<div id="chart_div_per_hour_by_hour" style="width: 100%; height: 300px;"></div>
+
 <h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/country_statistic.tpl.php'));?></h5>
 <hr>
 <div id="chart_div_country" style="width: 100%; height: 300px;"></div>

@@ -576,17 +576,24 @@ class erLhcoreClassChatStatistic {
         }
     }
     
-    public static function getWorkLoadStatistic($filter = array()) 
+    public static function getWorkLoadStatistic($days = 30, $filter = array())
     {
         $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getworkloadstatistic',array('filter' => $filter));
          
         if ($statusWorkflow === false) {
         
-        	$numberOfChats = array();
-        	        	
+        	$numberOfChats = array('total' => array(), 'byday' => array());
+
+            if (!isset($filter['filtergte']['time'])) {
+                $filter['filtergte']['time'] = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
+            }
+
+            $diffDays = (time()-$filter['filtergte']['time'])/(24*3600);
+
         	for ($i = 0; $i < 24; $i++) {
         		$dateHour = str_pad($i , 2, '0' , STR_PAD_LEFT);
-        		$numberOfChats[$i] = erLhcoreClassChat::getCount(array_merge(array('customfilter' =>  array('FROM_UNIXTIME(time,\'%k\') = '. $dateHour)),$filter));
+        		$numberOfChats['total'][$i] = erLhcoreClassChat::getCount(array_merge(array('customfilter' =>  array('FROM_UNIXTIME(time,\'%k\') = '. $dateHour)),$filter));
+                $numberOfChats['byday'][$i] = $numberOfChats['total'][$i]/$diffDays;
         	}
         	
         	return $numberOfChats;
@@ -601,9 +608,9 @@ class erLhcoreClassChatStatistic {
         $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getaveragechatduration',array('days' => $days, 'filter' => $filter));
          
         if ($statusWorkflow === false) {
-        
-            if (empty($filter)) {
-                $filter['filtergt']['time'] = $dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
+
+            if (!isset($filter['filtergte']['time'])) {
+                $filter['filtergte']['time'] = $dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days, date('y'));
             }
             
             $filter['filtergt']['user_id'] = 0;
