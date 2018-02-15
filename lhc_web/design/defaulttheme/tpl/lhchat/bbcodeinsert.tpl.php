@@ -36,7 +36,7 @@
                     </ul>
                     <div class="tab-content nav-pills-bbcode-content">
                         <?php foreach ($icons as $index => $iconGroup) : ?>
-                            <div role="tabpanel" class="tab-pane bb-list<?php if ($index == 0) : ?> active<?php endif;?>" id="bbcode-smiley-<?php echo $index?>">
+                            <div role="tabpanel" class="tab-pane bb-list<?php if ($index == 0) : ?> active<?php endif;?><?php if ($chat_id !== null) : ?> admin-emoji<?php endif;?>" id="bbcode-smiley-<?php echo $index?>">
 
                                 <ul class="list-inline">
                                     <?php if ($index == 0) : ?>

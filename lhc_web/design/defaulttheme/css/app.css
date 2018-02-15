@@ -383,8 +383,8 @@ div.system-response {
 	padding:2px 0px;
 	border-bottom-right-radius: 7px;
 	display:block;
-	margin-top:-25px;
-	font-size:12px;
+	margin-top:-27px;
+	font-size:14px;
 }
 
 .sys-tit{
@@ -514,7 +514,7 @@ div.message-row.operator-changes .usr-tit{
 	overflow:inherit!important;
 	height:auto!important;
 	margin-right:5px!important;
-	padding:2px 0px!important;
+	padding:0px 0px!important;
 	margin-top:-25px!important;
 	display:block!important;
 }
@@ -555,7 +555,7 @@ div.pending-storage {
 .message-block,
 #messages{position:relative;}
 .message-block{
-	font-size: 12px;
+	font-size: 13px;
 
 }
 
@@ -612,7 +612,7 @@ div.message-row.response+div.message-row.response:hover .msg-date,
 }
 
 #messages {
-	font-size: 12px;
+	font-size: 13px;
 }
 
 #messages.fullheight {
@@ -1013,9 +1013,15 @@ ul.mb0 {
 	font-size:17px;
 }
 
+.admin-emoji a {
+	font-size:24px;
+}
+
 .bb-list a:hover{
 	background-color: #eaeaea;
 }
+
+
 
 .nav-pills-bbcode >li>a{
 	padding:4px 8px;

@@ -562,32 +562,37 @@ class erLhcoreClassBBCode
    }
       
    private static $outArray = null;
-   
-   public static function getOutArray() {
-   	
-   		if (self::$outArray == null) {   			
-   			$tpl = new erLhcoreClassTemplate();
-   			$smileys = explode('||', str_replace("\n", '', $tpl->fetch('lhbbcode/smiley.tpl.php')));   			
-   			self::$outArray = $smileys;
-   		}
-   	
-	   	return self::$outArray;
-   }
-   
+
    public static function BBCode2Html($text) {
     	$text = trim($text);
 
-    	// Smileys to find...
-    	$in = array( 	 ':)',
-    					 ':D:',
-    					 ':(',
-    					 ':o:',
-    					 ':p:',
-    					 ';)'
-    	);
+       // Smileys to find...
+       $in = array(
+           ':)',
+           ':D:',
+           ':D',
+           ':(',
+           ':o:',
+           ':o',
+           ':p:',
+           ':p',
+           ';)',
+           ';('
+       );
 
-    	// And replace them by...
-    	$out = self::getOutArray();
+       // And replace them by...
+       $out = array(
+           '&#x1F642;',
+           '&#x1F600;',
+           '&#x1F600;',
+           '&#x1F641;',
+           '&#x1F62E;',
+           '&#x1F62E;',
+           '&#x1F61B;',
+           '&#x1F61B;',
+           '&#x1F609;',
+           '&#x1F622;',
+       );
     	
     	$in[] = '[/*]';
     	$in[] = '[*]';

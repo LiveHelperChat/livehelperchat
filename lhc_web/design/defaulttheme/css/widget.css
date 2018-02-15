@@ -110,7 +110,11 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
 
 	#messages{
 		height:calc(100% - 145px);
-		font-size:14px;
+		font-size:16px;
+	}
+
+	.usr-tit{
+		font-size:16px;
 	}
 
 	#messagesBlockWrap,#messagesBlock{
