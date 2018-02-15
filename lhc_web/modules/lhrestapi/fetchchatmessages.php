@@ -5,15 +5,24 @@ try {
     
     $chat = erLhcoreClassModelChat::fetch((int)$_GET['chat_id']);
 
+    // Try to find chat in archive
     if (!($chat instanceof erLhcoreClassModelChat)) {
-        throw new Exception('Chat could not be found!');
+        $chatData = erLhcoreClassChatArcive::fetchChatById((int)$_GET['chat_id']);
+        if (!($chatData['chat'] instanceof erLhcoreClassModelChatArchive)) {
+            throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('lhrestapi/validation', 'Could not find chat by chat_id!'));
+        } else {
+            $chat = $chatData['chat'];
+            $chat->archive = $chatData['archive'];
+        }
+    } else {
+        $chat->archive = null;
     }
 
     if (erLhcoreClassRestAPIHandler::hasAccessToRead($chat) == true) {
 
         $saveChat = false;
 
-        if (isset($_GET['workflow']) && $_GET['workflow'] == true) {
+        if (isset($_GET['workflow']) && $_GET['workflow'] == true && $chat->archive === null) {
             // Auto responder
             if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && $chat->wait_timeout_send <= 0 && $chat->wait_timeout > 0 && !empty($chat->timeout_message) && (time() - $chat->time) > ($chat->wait_timeout*($chat->wait_timeout_repeat-(abs($chat->wait_timeout_send))))) {
                 $errors = array();
@@ -71,7 +80,12 @@ try {
         }
 
         $lastMessageId = isset($_GET['last_message_id']) ? (int)$_GET['last_message_id'] : 0;
-        $messages = erLhcoreClassChat::getPendingMessages($chat->id, $lastMessageId);
+        
+        if ($chat->archive === null) {
+            $messages = erLhcoreClassChat::getPendingMessages($chat->id, $lastMessageId);
+        } else {
+            $messages = erLhcoreClassChatArcive::getPendingMessages($chat->id, $lastMessageId);
+        }
 
         if (isset($_GET['ignore_system_messages']) &&  $_GET['ignore_system_messages'] == true)
         {

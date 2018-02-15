@@ -121,7 +121,7 @@
             "name": "chat_id",
             "in": "query",
             "description": "Chat ID",
-            "required": false,
+            "required": true,
             "type": "string",
             "format": "int32"
           },
@@ -168,7 +168,7 @@
             "name": "chat_id",
             "in": "query",
             "description": "Chat ID",
-            "required": false,
+            "required": true,
             "type": "string",
             "format": "int32"
           },

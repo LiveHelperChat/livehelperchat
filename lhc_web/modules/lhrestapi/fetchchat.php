@@ -5,14 +5,21 @@ try {
 
     $chat = erLhcoreClassModelChat::fetch((int)$_GET['chat_id']);
 
+    // Try to find chat in archive
     if (!($chat instanceof erLhcoreClassModelChat)) {
-        throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('lhrestapi/validation', 'Could not find chat by chat_id!'));
+        $chatData = erLhcoreClassChatArcive::fetchChatById((int)$_GET['chat_id']);
+        if (!($chatData['chat'] instanceof erLhcoreClassModelChatArchive)) {
+            throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('lhrestapi/validation', 'Could not find chat by chat_id!'));
+        } else {
+            $chat = $chatData['chat'];
+            $chat->archive = $chatData['archive'];
+        }
+    } else {
+        $chat->archive = null;
     }
-    
-    if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassRestAPIHandler::hasAccessToRead($chat) == true) {
-        
-        $chat = erLhcoreClassModelChat::fetch((int)$_GET['chat_id']);
-        
+
+    if (($chat instanceof erLhcoreClassModelChat || $chat instanceof erLhcoreClassModelChatArchive) && erLhcoreClassRestAPIHandler::hasAccessToRead($chat) == true) {
+
         if (isset($_GET['hash']) && $chat->hash != $_GET['hash']) {
             throw new Exception('Invalid hash');
         }

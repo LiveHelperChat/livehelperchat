@@ -2,6 +2,50 @@
 
 class erLhcoreClassChatArcive
 {
+
+    /**
+     * @desc returns archive chat object if id is found
+     * @param $chatId
+     * @return array|null
+     * @throws ezcDbHandlerNotFoundException
+     */
+    public static function fetchChatById($chatId) {
+        $chatsId[$chatId] = array();
+        self::setArchiveAttribute($chatsId);
+
+        if ($chatsId[$chatId]['archive'] == 1 && is_numeric($chatsId[$chatId]['archive_id'])) {
+            $archive = erLhcoreClassModelChatArchiveRange::fetch($chatsId[$chatId]['archive_id']);
+
+            if ($archive instanceof erLhcoreClassModelChatArchiveRange) {
+                $archive->setTables();
+                $chat = erLhcoreClassModelChatArchive::fetch($chatId);
+                return array('archive' => $archive, 'chat' => $chat);
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * @desc Returns pending messages for archive chat
+     * @param $chat_id
+     * @param $message_id
+     * @return array
+     * @throws ezcDbHandlerNotFoundException
+     */
+    public static function getPendingMessages($chat_id, $message_id)
+    {
+        $db = ezcDbInstance::get();
+        $stmt = $db->prepare("SELECT " . erLhcoreClassModelChatArchiveRange::$archiveMsgTable .".* FROM " . erLhcoreClassModelChatArchiveRange::$archiveMsgTable ." INNER JOIN ( SELECT id FROM " . erLhcoreClassModelChatArchiveRange::$archiveMsgTable ." WHERE chat_id = :chat_id AND id > :message_id ORDER BY id ASC) AS items ON " . erLhcoreClassModelChatArchiveRange::$archiveMsgTable .".id = items.id");
+        $stmt->bindValue( ':chat_id',$chat_id,PDO::PARAM_INT);
+        $stmt->bindValue( ':message_id',$message_id,PDO::PARAM_INT);
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $stmt->execute();
+        $rows = $stmt->fetchAll();
+
+        return $rows;
+    }
+
     /**
      * @param array $chatsId
      * @return array
