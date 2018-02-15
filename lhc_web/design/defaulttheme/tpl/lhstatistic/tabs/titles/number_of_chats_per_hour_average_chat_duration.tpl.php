@@ -1,1 +1,1 @@
-<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of chats started per hour, average chat duration');?>
+<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of chats per hour, average chat duration');?>
