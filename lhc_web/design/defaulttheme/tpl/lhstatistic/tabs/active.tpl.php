@@ -592,8 +592,8 @@
  		 		 		
 <h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/hourly_statistic.tpl.php'));?></h5>
 <hr>
-<div id="chart_div_per_hour" style="width: 100%; height: 300px;"></div> 		 		
 <div id="chart_div_per_hour_by_hour" style="width: 100%; height: 300px;"></div>
+<div id="chart_div_per_hour" style="width: 100%; height: 300px;"></div>
 
 <h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/country_statistic.tpl.php'));?></h5>
 <hr>
