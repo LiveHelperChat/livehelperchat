@@ -635,7 +635,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	       `hash` varchar(250) NOT NULL,  
         	       `chat_id` int(11) NOT NULL, 
         	        PRIMARY KEY (`id`),  
-        	       KEY `hash` (`hash`),  
+        	       KEY `hash` (`hash`(191)),  
         	       KEY `chat_id` (`chat_id`)) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
 
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_abstract_survey_item` (
