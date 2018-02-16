@@ -1838,7 +1838,7 @@ class erLhcoreClassChat {
 
    public static function getChatDurationToUpdateChatID($chat) {
 
-       $sql = 'SELECT lh_msg.time, lh_msg.user_id, lh_msg.msg FROM lh_msg WHERE lh_msg.chat_id = :chat_id AND lh_msg.user_id != -1 ORDER BY id ASC';
+       $sql = 'SELECT lh_msg.time, lh_msg.user_id FROM lh_msg WHERE lh_msg.chat_id = :chat_id AND lh_msg.user_id != -1 ORDER BY id ASC';
        $db = ezcDbInstance::get();
        $stmt = $db->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_SCROLL));
        $stmt->bindValue(':chat_id',$chat->id);
@@ -1869,10 +1869,10 @@ class erLhcoreClassChat {
 
            $diff = $row['time'] - $previousMessage['time'];
 
-           $ignored = true;
+           //$ignored = true;
            if ($diff < $timeout && $diff > 0) {
                $timeToAdd += $diff;
-               $ignored = false;
+               //$ignored = false;
            }
            //echo date('Y-m-d H:i:s',$row['time']),'||',$diff,'||',(int)$ignored,'||',$row['msg'],"\n";
            $previousMessage = $row;
