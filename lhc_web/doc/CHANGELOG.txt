@@ -6,6 +6,8 @@ This situation can happen also with telegram chats and facebook chats. This chan
 there will be option to set two timeouts.
 Timeout how long visitor can wait for a operator message before time between messages are exclude.
 Timeout how long operator can wait for a visitor message  before time between messages are exclude.
+3. More emoji conversion from text. Supported are
+:), :D:, :D, :(, :o:, :o, :p:, :p, ;), ;(, :x, :*, ;*, :/
 
 execute doc/update_db/update_163.sql for update
 
