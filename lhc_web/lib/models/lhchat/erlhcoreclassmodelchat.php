@@ -108,6 +108,12 @@ class erLhcoreClassModelChat {
        		
                'uagent'    	        	=> $this->uagent,
                'device_type'    	    => $this->device_type,
+
+               // Time then chat became pending
+               'pnd_time'    	        => $this->pnd_time,
+
+               // Time then chat was closed
+               'cls_time'    	        => $this->cls_time,
        );
    }
 
@@ -189,6 +195,19 @@ class erLhcoreClassModelChat {
        	case 'time_created_front':
        			$this->time_created_front = date('Ymd') == date('Ymd',$this->time) ? date(erLhcoreClassModule::$dateHourFormat,$this->time) : date(erLhcoreClassModule::$dateDateHourFormat,$this->time);
        			return $this->time_created_front;
+       		break;
+
+       	case 'pnd_time_front':
+       	        if ($this->pnd_time == 0) {
+                    $this->pnd_time = $this->time;
+                }
+       			$this->pnd_time_front = date('Ymd') == date('Ymd',$this->pnd_time) ? date(erLhcoreClassModule::$dateHourFormat,$this->pnd_time) : date(erLhcoreClassModule::$dateDateHourFormat,$this->pnd_time);
+       			return $this->pnd_time_front;
+       		break;
+
+       	case 'cls_time_front':
+       			$this->cls_time_front = date('Ymd') == date('Ymd',$this->cls_time) ? date(erLhcoreClassModule::$dateHourFormat,$this->cls_time) : date(erLhcoreClassModule::$dateDateHourFormat,$this->cls_time);
+       			return $this->cls_time_front;
        		break;
 
        	case 'user_closed_ts_front':
@@ -559,12 +578,12 @@ class erLhcoreClassModelChat {
    public $transfer_timeout_ac = 0;
    public $transfer_uid = 0;
 
-   // Wait timeout attributes
-   //public $wait_timeout = 0;
-   //public $wait_timeout_send = 0;
-   //public $timeout_message = '';
-   //public $wait_timeout_repeat = 0;
-   
+   // Time then chac became pending
+   public $pnd_time = 0;
+
+   // Time then chat was closed
+   public $cls_time = 0;
+
    public $auto_responder_id = 0;
    
    // User timezone identifier

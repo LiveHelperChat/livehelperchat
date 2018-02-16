@@ -57,6 +57,7 @@ class erLhcoreClassChat {
 			'user_closed_ts',
 			'usaccept',
 			'auto_responder_id',
+			'chat_locale',
 			//'product_id'
 	);
 	
@@ -1835,14 +1836,57 @@ class erLhcoreClassChat {
        }
    }
 
-   public static function getChatDurationToUpdateChatID($chatID){
-	   	$sql = 'SELECT ((SELECT MAX(lh_msg.time) FROM lh_msg WHERE lh_msg.chat_id = lh_chat.id AND lh_msg.user_id = 0)-(lh_chat.time+lh_chat.wait_time)) AS chat_duration_counted FROM lh_chat WHERE lh_chat.id = :chat_id';
+   public static function getChatDurationToUpdateChatID($chat) {
+
+       $sql = 'SELECT lh_msg.time, lh_msg.user_id FROM lh_msg WHERE lh_msg.chat_id = :chat_id AND lh_msg.user_id != -1 ORDER BY id ASC';
+       $db = ezcDbInstance::get();
+       $stmt = $db->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_SCROLL));
+       $stmt->bindValue(':chat_id',$chat->id);
+       $stmt->execute();
+
+       $timeout_user = erLhcoreClassModelChatConfig::fetch('cduration_timeout_user')->current_value;
+       $timeout_operator = erLhcoreClassModelChatConfig::fetch('cduration_timeout_operator')->current_value;
+
+       $params = array(
+           'timeout_user' => ($timeout_user > 0 ? $timeout_user : 4)*60,// How long operator can wait for message from visitor before delay between messages are ignored
+           'timeout_operator' => ($timeout_operator > 0 ? $timeout_operator : 10)*60
+       );
+
+       $previousMessage = null;
+       $timeToAdd = 0;
+       while ($row = $stmt->fetch(PDO::FETCH_ASSOC, PDO::FETCH_ORI_NEXT)) {
+           if ($previousMessage === null) {
+               //$row['time'] = $row['time']; // Consider that first user message was time plus wait time. Wait time is time then operator accepted a chat.
+               $previousMessage = $row;
+               continue;
+           }
+
+           if ($row['user_id'] == 0) {
+               $timeout = $params['timeout_user'];
+           } else {
+               $timeout = $params['timeout_operator'];
+           }
+
+           $diff = $row['time'] - $previousMessage['time'];
+
+           //$ignored = true;
+           if ($diff < $timeout && $diff > 0) {
+               $timeToAdd += $diff;
+               //$ignored = false;
+           }
+           //echo date('Y-m-d H:i:s',$row['time']),'||',$diff,'||',(int)$ignored,'||',$row['msg'],"\n";
+           $previousMessage = $row;
+       }
+
+	   	/*$sql = 'SELECT ((SELECT MAX(lh_msg.time) FROM lh_msg WHERE lh_msg.chat_id = lh_chat.id AND lh_msg.user_id = 0)-(lh_chat.time+lh_chat.wait_time)) AS chat_duration_counted FROM lh_chat WHERE lh_chat.id = :chat_id';
 	   	$db = ezcDbInstance::get();
 	   	$stmt = $db->prepare($sql);
-	   	$stmt->bindValue(':chat_id',$chatID);
+	   	$stmt->bindValue(':chat_id',$chat->id);
+	   	$stmt->bindValue(':cls_time',$chat->cls_time);
 	   	$stmt->execute();
-	   	$time = $stmt->fetchColumn();
-   	   	return $time > 0 ? $time : 0;   		
+	   	$time = $stmt->fetchColumn();*/
+
+   	   	return $timeToAdd;
    }
    
    /**

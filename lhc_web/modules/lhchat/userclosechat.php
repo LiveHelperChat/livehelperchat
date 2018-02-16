@@ -35,7 +35,7 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
     	        $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT;
  
     	        if ($chat->wait_time == 0) {
-    	            $chat->wait_time = time() - $chat->time;
+    	            $chat->wait_time = time() - ($chat->pnd_time > 0 ? $chat->pnd_time : $chat->time);
     	        }
     	        
     	        $msg = new erLhcoreClassModelmsg();

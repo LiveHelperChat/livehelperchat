@@ -118,7 +118,12 @@ class erLhcoreClassChatHelper
             $db->beginTransaction();
             
                 $params['chat']->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
-                $params['chat']->chat_duration = erLhcoreClassChat::getChatDurationToUpdateChatID($params['chat']->id);
+
+                if ($params['chat']->wait_time == 0) {
+                    $params['chat']->wait_time = time() - ($params['chat']->pnd_time > 0 ? $params['chat']->pnd_time : $params['chat']->time);
+                }
+
+                $params['chat']->chat_duration = erLhcoreClassChat::getChatDurationToUpdateChatID($params['chat']);
                 $params['chat']->has_unread_messages = 0;
                 
                 $msg = new erLhcoreClassModelmsg();
@@ -127,13 +132,10 @@ class erLhcoreClassChatHelper
                 $msg->user_id = - 1;
                 
                 $params['chat']->last_user_msg_time = $msg->time = time();
-                
+                $params['chat']->cls_time = time();
+
                 erLhcoreClassChat::getSession()->save($msg);
-                
-                if ($params['chat']->wait_time == 0) {
-                    $params['chat']->wait_time = time() - $params['chat']->time;
-                }
-                
+
                 $params['chat']->updateThis();
             
             $db->commit();
@@ -159,7 +161,9 @@ class erLhcoreClassChatHelper
         if ($changeStatus == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT) {
             if ($chat->status != erLhcoreClassModelChat::STATUS_ACTIVE_CHAT) {
                 $chat->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;
-                $chat->wait_time = time() - $chat->time;
+                if ($chat->wait_time == 0) {
+                    $chat->wait_time = time() - ($chat->pnd_time > 0 ? $chat->pnd_time : $chat->time);
+                }
             }
         
             if ($chat->user_id == 0)
@@ -174,7 +178,7 @@ class erLhcoreClassChatHelper
             $chat->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
             $chat->support_informed = 0;
             $chat->has_unread_messages = 1;
-        
+            $chat->pnd_time = time();
             $chat->updateThis();
         
             
@@ -182,8 +186,8 @@ class erLhcoreClassChatHelper
         
             if ($chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT){
                 $chat->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
-                $chat->chat_duration = erLhcoreClassChat::getChatDurationToUpdateChatID($chat->id);
-                	
+                $chat->chat_duration = erLhcoreClassChat::getChatDurationToUpdateChatID($chat);
+                $chat->cls_time = time();
                 $msg = new erLhcoreClassModelmsg();
                 $msg->msg = (string)$userData.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin','has closed the chat!');
                 $msg->chat_id = $chat->id;

@@ -212,6 +212,13 @@
     		    <?php $attribute = 'on_close_exit_chat'; $boolValue = true; ?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
 
+                <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Chat duration')?></h4>
+                <?php $attribute = 'cduration_timeout_user'; ?>
+                <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+
+                <?php $attribute = 'cduration_timeout_operator'; ?>
+                <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+
 			</div>
 						
 			<div role="tabpanel" class="tab-pane" id="visitoractivity">

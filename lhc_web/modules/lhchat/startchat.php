@@ -276,9 +276,9 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
 
 	   		$tpl->set('request_send',true);
 	   	} else {
-	       $chat->time = time();
+	       $chat->time = $chat->pnd_time = time();
 	       $chat->status = 0;
-	       
+
 	       $chat->hash = erLhcoreClassChat::generateHash();
 	       $chat->referrer = isset($_POST['URLRefer']) ? $_POST['URLRefer'] : '';
 	       $chat->session_referrer = isset($_POST['r']) ? $_POST['r'] : '';

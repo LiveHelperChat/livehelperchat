@@ -1,3 +1,17 @@
+2.88v
+
+1. Chat now have chat start time, it different time than chat creation time. It maybe different if chat is closed and later reopened by visitor.
+This situation can happen also with telegram chats and facebook chats. This change will allow us to have correct chat wait time based on time then chat became pending.
+2. Change chat duration algorithm. Now chat duration will be based not on first and last message times. But on intervals between messages. You can also set timeouts.
+there will be option to set two timeouts.
+Timeout how long visitor can wait for a operator message before time between messages are exclude.
+Timeout how long operator can wait for a visitor message  before time between messages are exclude.
+3. More emoji conversion from text. Supported are
+:), :D:, :D, :(, :o:, :o, :p:, :p, ;), ;(, :x, :*, ;*, :/
+4. Fixed duplicate messages on window focus. Seems in rare cases then window was focused customer could receive same message twice if there was any pending message from operator.
+
+execute doc/update_db/update_163.sql for update
+
 2.87v
 
 1. Subjects for chats.

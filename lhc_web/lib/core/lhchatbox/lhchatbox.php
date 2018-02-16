@@ -20,7 +20,7 @@ class erLhcoreClassChatbox {
 
 				$chat = new erLhcoreClassModelChat();
 				$chat->status = erLhcoreClassModelChat::STATUS_CHATBOX_CHAT;
-				$chat->time = time();
+				$chat->time = $chat->pnd_time = time();
 				$chat->setIP();
 				$chat->hash = erLhcoreClassChat::generateHash();
 				$chat->nick = $data['chatbox_default_opname'];
@@ -63,7 +63,7 @@ class erLhcoreClassChatbox {
 
     				$chat = new erLhcoreClassModelChat();
     				$chat->status = erLhcoreClassModelChat::STATUS_CHATBOX_CHAT;
-    				$chat->time = time();
+    				$chat->time = $chat->pnd_time = time();
     				$chat->setIP();
     				$chat->hash = erLhcoreClassChat::generateHash();
     				$chat->nick = $data['chatbox_default_opname'];

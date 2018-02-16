@@ -262,7 +262,6 @@ switch ((int)$Params['user_parameters']['step_id']) {
     	       		// Just ignore if not succeed
 			   }
 
-
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chat` (
 				  `id` int(11) NOT NULL AUTO_INCREMENT,
 				  `nick` varchar(100) NOT NULL,
@@ -277,9 +276,11 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   	  `chat_variables` text NOT NULL,
         	   	  `remarks` text NOT NULL,
 				  `ip` varchar(100) NOT NULL,
-				  `dep_id` int(11) NOT NULL,
+				  `dep_id` int(11) NOT NULL,				 
 				  `sender_user_id` int(11) NOT NULL,
 				  `product_id` int(11) NOT NULL,
+				  `pnd_time` int(11) NOT NULL DEFAULT '0',
+				  `cls_time` int(11) NOT NULL DEFAULT '0',
 				  `usaccept` int(11) NOT NULL DEFAULT '0',
 				  `user_status` int(11) NOT NULL DEFAULT '0',
 				  `user_closed_ts` int(11) NOT NULL DEFAULT '0',
@@ -1113,7 +1114,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 			   } else {
 			   		$geoRow = "('geo_data', '', '0', '', '1')";
 			   }
-			   
+
         	   $db->query("INSERT INTO `lh_chat_config` (`identifier`, `value`, `type`, `explain`, `hidden`) VALUES
                 ('tracked_users_cleanup',	'160',	0,	'How many days keep records of online users.',	0),
         	   	('list_online_operators', '0', '0', 'List online operators.', '0'),
@@ -1124,7 +1125,9 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('customer_site_url',	'http://livehelperchat.com',	0,	'Your site URL address',	0),
                 ('transfer_configuration','0','0','Transfer configuration','1'),
                 ('tracked_footprint_cleanup','90','0','How many days keep records of users footprint.','0'),
-                ('cleanup_cronjob','0','0','Cleanup should be done only using cronjob.','0'),                
+                ('cleanup_cronjob','0','0','Cleanup should be done only using cronjob.','0'),         
+                ('cduration_timeout_user','4','0','How long operator can wait for message from visitor before time between messages are ignored. Values in minutes.','0'),
+                ('cduration_timeout_operator','10','0','How long visitor can wait for message from operator before time between messages are ignored. Values in minutes.','0'),       
                 ('assign_workflow_timeout','0','0','Chats waiting in pending line more than n seconds should be auto assigned first. Time in seconds','0'),
         	   	('smtp_data',	'a:5:{s:4:\"host\";s:0:\"\";s:4:\"port\";s:2:\"25\";s:8:\"use_smtp\";i:0;s:8:\"username\";s:0:\"\";s:8:\"password\";s:0:\"\";}',	0,	'SMTP configuration',	1),
         	    ('chatbox_data',	'a:6:{i:0;b:0;s:20:\"chatbox_auto_enabled\";i:0;s:19:\"chatbox_secret_hash\";s:{$randomHashLength}:\"{$randomHash}\";s:20:\"chatbox_default_name\";s:7:\"Chatbox\";s:17:\"chatbox_msg_limit\";i:50;s:22:\"chatbox_default_opname\";s:7:\"Manager\";}',	0,	'Chatbox configuration',	1),

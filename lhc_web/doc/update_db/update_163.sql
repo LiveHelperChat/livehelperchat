@@ -1,0 +1,4 @@
+ALTER TABLE `lh_chat` ADD `pnd_time` int(11) NOT NULL DEFAULT '0', COMMENT='';
+ALTER TABLE `lh_chat` ADD `cls_time` int(11) NOT NULL DEFAULT '0', COMMENT='';
+INSERT INTO `lh_chat_config` (`identifier`,`value`,`type`,`explain`,`hidden`) VALUES ('cduration_timeout_user','4','0','How long operator can wait for message from visitor before time between messages are ignored. Values in minutes.','0');
+INSERT INTO `lh_chat_config` (`identifier`,`value`,`type`,`explain`,`hidden`) VALUES ('cduration_timeout_operator','10','0','How long visitor can wait for message from operator before time between messages are ignored. Values in minutes.','0');

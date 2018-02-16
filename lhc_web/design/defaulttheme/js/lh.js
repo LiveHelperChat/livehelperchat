@@ -929,7 +929,7 @@ function lh(){
 	    var inst = this;
 	    if (this.syncroRequestSend == false)
         {
-		    clearTimeout(inst.userTimeout);
+		    clearTimeout(this.userTimeout);
 		    this.syncroRequestSend = true;
 		    var modeWindow = this.isWidgetMode == true ? '/(mode)/widget' : '';
 		    var operatorTyping = this.operatorTyping == true ? '/(ot)/t' : '';
@@ -955,6 +955,7 @@ function lh(){
 	
 	this.scheduleSync = function() {
 		this.syncroRequestSend = false;
+        clearTimeout(this.userTimeout);
 		this.userTimeout = setTimeout(chatsyncuser,confLH.chat_message_sinterval);
 	};
 
@@ -1851,8 +1852,7 @@ function lh(){
 
 		// If it's customer chat make sure sync is running.
 		if (parseInt(this.chat_id) > 0) {
-            this.syncroRequestSend = false;
-            this.syncusercall();
+            this.scheduleSync();
         }
 	};
 	

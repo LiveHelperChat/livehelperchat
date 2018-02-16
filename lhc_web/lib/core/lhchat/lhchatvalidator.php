@@ -993,7 +993,7 @@ class erLhcoreClassChatValidator {
         if (!isset($data['do_not_save_offline']) || $data['do_not_save_offline'] == 0)
         {
             // Save as offline request
-            $params['chat']->time = time();
+            $params['chat']->time = $params['chat']->pnd_time = time();
             $params['chat']->lsync = time();
             $params['chat']->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
             $params['chat']->status_sub = erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST;

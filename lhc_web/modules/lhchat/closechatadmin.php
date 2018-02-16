@@ -22,37 +22,12 @@ try {
     // Chat can be closed only by owner
     if ($chat->user_id == $currentUser->getUserID() || ($currentUser->hasAccessTo('lhchat','allowcloseremote') && erLhcoreClassChat::hasAccessToWrite($chat)))
     {
-        if ($chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
+        $userData = $currentUser->getUserData(true);
 
-            $chat->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
-            $chat->chat_duration = erLhcoreClassChat::getChatDurationToUpdateChatID($chat->id);
-            $chat->has_unread_messages = 0;
-
-            $userData = $currentUser->getUserData(true);
-
-            $msg = new erLhcoreClassModelmsg();
-            $msg->msg = (string)$userData.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin','has closed the chat!');
-            $msg->chat_id = $chat->id;
-            $msg->user_id = -1;
-            $chat->last_user_msg_time = $msg->time = time();
-
-            erLhcoreClassChat::getSession()->save($msg);
-
-            if ($chat->wait_time == 0) {
-                $chat->wait_time = time() - $chat->time;
-            }
-
-            erLhcoreClassChat::getSession()->update($chat);
-
-            erLhcoreClassChat::updateActiveChats($chat->user_id);
-
-            if ($chat->department !== false) {
-                erLhcoreClassChat::updateDepartmentStats($chat->department);
-            }
-
-            // Execute callback for close chat
-            erLhcoreClassChat::closeChatCallback($chat,$userData);
-        }
+        erLhcoreClassChatHelper::closeChat(array(
+            'user' => $userData,
+            'chat' => $chat,
+        ));
     }
 
     $db->commit();
