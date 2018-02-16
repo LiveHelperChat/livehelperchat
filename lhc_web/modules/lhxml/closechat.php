@@ -14,8 +14,8 @@ if ($chat->user_id == $currentUser->getUserID() || $currentUser->hasAccessTo('lh
 	if ($chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
 
 	    $chat->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
-	    $chat->chat_duration = erLhcoreClassChat::getChatDurationToUpdateChatID($chat->id);
-
+	    $chat->chat_duration = erLhcoreClassChat::getChatDurationToUpdateChatID($chat);
+        $chat->cls_time = time();
 	    $userData = $currentUser->getUserData(true);
 
 	    $msg = new erLhcoreClassModelmsg();

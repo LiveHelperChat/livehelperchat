@@ -87,8 +87,8 @@ try {
             $chat->ip = strip_tags($_POST['ip']);
             erLhcoreClassModelChat::detectLocation($chat);
         }
-                
-        $chat->time = time();
+
+        $chat->time = $chat->pnd_time = time();
         $chat->status = 0;
         
         $chat->hash = erLhcoreClassChat::generateHash();

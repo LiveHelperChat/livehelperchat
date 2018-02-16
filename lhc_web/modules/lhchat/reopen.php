@@ -64,7 +64,7 @@ try {
 				$chat->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
 				$chat->nc_cb_executed = 0;
 				$chat->na_cb_executed = 0;
-				$chat->time = time(); // Set time to new		
+				$chat->pnd_time = time(); // Set time to new
 			} else {
 				$chat->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;
 			}

@@ -6665,6 +6665,20 @@
                 "hidden": "0"
             },
             {
+                "identifier": "cduration_timeout_user",
+                "value": "4",
+                "type": "0",
+                "explain": "How long operator can wait for message from visitor before time between messages are ignored. Values in minutes.",
+                "hidden": "0"
+            },
+            {
+                "identifier": "cduration_timeout_operator",
+                "value": "10",
+                "type": "0",
+                "explain": "How long visitor can wait for message from operator before time between messages are ignored. Values in minutes.",
+                "hidden": "0"
+            },
+            {
                 "identifier": "assign_workflow_timeout",
                 "value": "0",
                 "type": "0",

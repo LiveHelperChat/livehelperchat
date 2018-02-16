@@ -197,6 +197,19 @@ class erLhcoreClassModelChat {
        			return $this->time_created_front;
        		break;
 
+       	case 'pnd_time_front':
+       	        if ($this->pnd_time == 0) {
+                    $this->pnd_time = $this->time;
+                }
+       			$this->pnd_time_front = date('Ymd') == date('Ymd',$this->pnd_time) ? date(erLhcoreClassModule::$dateHourFormat,$this->pnd_time) : date(erLhcoreClassModule::$dateDateHourFormat,$this->pnd_time);
+       			return $this->pnd_time_front;
+       		break;
+
+       	case 'cls_time_front':
+       			$this->cls_time_front = date('Ymd') == date('Ymd',$this->cls_time) ? date(erLhcoreClassModule::$dateHourFormat,$this->cls_time) : date(erLhcoreClassModule::$dateDateHourFormat,$this->cls_time);
+       			return $this->cls_time_front;
+       		break;
+
        	case 'user_closed_ts_front':
        			$this->user_closed_ts_front = date('Ymd') == date('Ymd',$this->user_closed_ts) ? date(erLhcoreClassModule::$dateHourFormat,$this->user_closed_ts) : date(erLhcoreClassModule::$dateDateHourFormat,$this->user_closed_ts);
        			return $this->user_closed_ts_front;

@@ -104,7 +104,7 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && trim(str_replace('
                 }
 
                 $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_DEFAULT;
-                $chat->time = time(); // Update initial chat start time for auto responder
+                $chat->time = $chat->pnd_time = time(); // Update initial chat start time for auto responder
                 $chat->saveThis();
 
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.auto_responder_triggered',array('chat' => & $chat));

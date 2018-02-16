@@ -403,7 +403,7 @@ if (isset($_POST['askQuestion']))
     if (count($Errors) == 0)
     {
 
-       $chat->time = time();
+       $chat->time = $chat->pnd_time = time();
        $chat->status = 0;
        $chat->setIP();
        $chat->hash = erLhcoreClassChat::generateHash();

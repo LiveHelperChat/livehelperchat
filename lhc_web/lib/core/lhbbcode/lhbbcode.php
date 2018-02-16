@@ -563,9 +563,8 @@ class erLhcoreClassBBCode
       
    private static $outArray = null;
 
-   public static function BBCode2Html($text) {
-    	$text = trim($text);
 
+   public static function parseEmoji($text) {
        // Smileys to find...
        $in = array(
            ':)',
@@ -577,7 +576,11 @@ class erLhcoreClassBBCode
            ':p:',
            ':p',
            ';)',
-           ';('
+           ';(',
+           ':x',
+           ':*',
+           ';*',
+           ':/'
        );
 
        // And replace them by...
@@ -592,6 +595,26 @@ class erLhcoreClassBBCode
            '&#x1F61B;',
            '&#x1F609;',
            '&#x1F622;',
+           '&#x1F910;',
+           '&#x1F617;',
+           '&#x1F618;',
+           '&#x1F615;',
+       );
+
+       return str_replace($in, $out, $text);
+   }
+
+   public static function BBCode2Html($text) {
+    	$text = trim($text);
+
+       $text = self::parseEmoji($text);
+
+       // Smileys to find...
+       $in = array(
+       );
+
+       // And replace them by...
+       $out = array(
        );
     	
     	$in[] = '[/*]';
@@ -758,27 +781,29 @@ class erLhcoreClassBBCode
    			try {
    				$file = erLhcoreClassModelChatFile::fetch($fileID);
 
-   				// AWS plugin changes file name, but we always use original name
-   				$parts = explode('/', $file->name);
-   				end($parts);
-   				$name = end($parts);
-   				
-   				// Check that user has permission to see the chat. Let say if user purposely types file bbcode
-   				if ($hash == md5($name.'_'.$file->chat_id)) {
-   				    $hash = md5($file->name.'_'.$file->chat_id);
+   				if (is_object($file)) {
+                    // AWS plugin changes file name, but we always use original name
+                    $parts = explode('/', $file->name);
+                    end($parts);
+                    $name = end($parts);
 
-   				    $audio = '';
-   				    if ($file->extension == 'mp3' || $file->extension == 'wav' || $file->extension == 'ogg') {
-                        $audio = '<br/><audio controls><source src="' . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" type="' . $file->type . '"></audio>';
-                    } elseif ($file->extension == 'mp4' || $file->extension == 'avi' || $file->extension == 'mov' || $file->extension == 'ogg') {
-                        $audio = '<br><div class="embed-responsive embed-responsive-16by9"><video class="class="embed-responsive-item" controls><source src="' . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '"></vidio></div>';
-                    } else if ($file->extension == 'jpg' || $file->extension == 'jpeg' || $file->extension == 'png') {
-                        $audio = ' <a onclick="$(\'#img-file-'.$file->id.'\').toggleClass(\'hide\')"><i class="material-icons mr-0">&#xE251;</i></a><br/><img id="img-file-'.$file->id.'" class="img-responsive hide" src="' . erLhcoreClassDesign::baseurl('file/downloadfile')."/{$file->id}/{$hash}" . '" alt="" />';
+                    // Check that user has permission to see the chat. Let say if user purposely types file bbcode
+                    if ($hash == md5($name . '_' . $file->chat_id)) {
+                        $hash = md5($file->name . '_' . $file->chat_id);
+
+                        $audio = '';
+                        if ($file->extension == 'mp3' || $file->extension == 'wav' || $file->extension == 'ogg') {
+                            $audio = '<br/><audio controls><source src="' . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" type="' . $file->type . '"></audio>';
+                        } elseif ($file->extension == 'mp4' || $file->extension == 'avi' || $file->extension == 'mov' || $file->extension == 'ogg') {
+                            $audio = '<br><div class="embed-responsive embed-responsive-16by9"><video class="class="embed-responsive-item" controls><source src="' . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '"></vidio></div>';
+                        } else if ($file->extension == 'jpg' || $file->extension == 'jpeg' || $file->extension == 'png') {
+                            $audio = ' <a onclick="$(\'#img-file-' . $file->id . '\').toggleClass(\'hide\')"><i class="material-icons mr-0">&#xE251;</i></a><br/><img id="img-file-' . $file->id . '" class="img-responsive hide" src="' . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" alt="" />';
+                        }
+
+                        return "<a href=\"" . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}\" target=\"_blank\" rel=\"noopener\" class=\"link\" >" . erTranslationClassLhTranslation::getInstance()->getTranslation('file/file', 'Download file') . ' - ' . htmlspecialchars($file->upload_name) . ' [' . $file->extension . ']' . "</a>" . $audio;
                     }
+                }
 
-   					return "<a href=\"" . erLhcoreClassDesign::baseurl('file/downloadfile')."/{$file->id}/{$hash}\" target=\"_blank\" rel=\"noopener\" class=\"link\" >" . erTranslationClassLhTranslation::getInstance()->getTranslation('file/file','Download file').' - '.htmlspecialchars($file->upload_name).' ['.$file->extension.']' . "</a>" . $audio;
-   				}
-   				
    			} catch (Exception $e) {
 
    			}
