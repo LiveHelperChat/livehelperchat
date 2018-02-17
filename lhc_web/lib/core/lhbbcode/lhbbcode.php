@@ -560,48 +560,35 @@ class erLhcoreClassBBCode
        }
        return $subject;
    }
-      
-   private static $outArray = null;
 
+   public static $replaceEmoji = array(
+       ':\)' => '&#x1F642;',
+       ':D:' => '&#x1F600;',
+       ':D' => '&#x1F600;',
+       ':\(' => '&#x1F641;',
+       ':o:' => '&#x1F62E;',
+       ':o' => '&#x1F62E;',
+       ':p:' => '&#x1F61B;',
+       ':p' => '&#x1F61B;',
+       ';\)' => '&#x1F609;',
+       ';\(' => '&#x1F622;',
+       ':x' => '&#x1F910;',
+       ':\*' => '&#x1F617;',
+       ';\*' => '&#x1F618;',
+       ':\/' => '&#x1F615;'
+   );
 
    public static function parseEmoji($text) {
+
        // Smileys to find...
-       $in = array(
-           ':)',
-           ':D:',
-           ':D',
-           ':(',
-           ':o:',
-           ':o',
-           ':p:',
-           ':p',
-           ';)',
-           ';(',
-           ':x',
-           ':*',
-           ';*',
-           //':/'
-       );
+       for ($i = 0; $i < 2; $i++) {
+           $text = preg_replace_callback('/(^|\s)(' .implode("|",array_keys(self::$replaceEmoji)) . ')(\s|$)/', function($match) {
+               $char = str_replace(array('/','(',')','*'),array('\/','\(','\)','\*'),$match[2]);
+               return $match[1] . erLhcoreClassBBCode::$replaceEmoji[$char] . $match[3];
+           },  $text);
+       }
 
-       // And replace them by...
-       $out = array(
-           '&#x1F642;',
-           '&#x1F600;',
-           '&#x1F600;',
-           '&#x1F641;',
-           '&#x1F62E;',
-           '&#x1F62E;',
-           '&#x1F61B;',
-           '&#x1F61B;',
-           '&#x1F609;',
-           '&#x1F622;',
-           '&#x1F910;',
-           '&#x1F617;',
-           '&#x1F618;',
-           //'&#x1F615;',
-       );
-
-       return str_replace($in, $out, $text);
+       return $text;
    }
 
    public static function BBCode2Html($text) {
