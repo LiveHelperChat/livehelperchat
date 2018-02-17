@@ -580,7 +580,7 @@ class erLhcoreClassBBCode
            ':x',
            ':*',
            ';*',
-           ':/'
+           //':/'
        );
 
        // And replace them by...
@@ -598,7 +598,7 @@ class erLhcoreClassBBCode
            '&#x1F910;',
            '&#x1F617;',
            '&#x1F618;',
-           '&#x1F615;',
+           //'&#x1F615;',
        );
 
        return str_replace($in, $out, $text);
