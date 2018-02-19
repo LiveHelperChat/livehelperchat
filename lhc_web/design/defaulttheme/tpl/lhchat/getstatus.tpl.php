@@ -34,6 +34,7 @@ var lh_inst  = {
             parse: window.JSON && (window.JSON.parse || window.JSON.decode) || String.prototype.evalJSON && function(str){return String(str).evalJSON();} || $.parseJSON || $.evalJSON,
             stringify:  Object.toJSON || window.JSON && (window.JSON.stringify || window.JSON.encode) || $.toJSON
     },
+    rendered : false,
     isOnline : <?php echo $isOnlineHelp == true ? 'true' : 'false'?>,
     disabledGeo : <?php echo (isset($disableByGeoAdjustment) && $disableByGeoAdjustment == true) ? 'true' : 'false' ?>,
     checkOperatorMessage : <?php echo $check_operator_messages == true ? 'true' : 'false'?>,
@@ -909,6 +910,11 @@ var lh_inst  = {
 };
 
 function preloadDataLHC() {
+    if (lh_inst.rendered == true) {
+        return;
+    }
+
+    lh_inst.rendered = true;
 
     <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/lhc_chat_multiinclude.tpl.php')); ?>
 
@@ -981,7 +987,14 @@ function preloadDataLHC() {
     lh_inst.attatchActivityListeners();
     lh_inst.storeEvents();
     lh_inst.genericCallback('loaded');
+
+    // Allow to render on callbacks
+    setTimeout( function() {
+        lh_inst.rendered = false;
+    },500);
 }
+
+preloadDataLHC();
 
 if ( window.addEventListener ){
     // FF
