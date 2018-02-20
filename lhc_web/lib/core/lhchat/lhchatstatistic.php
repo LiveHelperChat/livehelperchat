@@ -158,7 +158,7 @@ class erLhcoreClassChatStatistic {
         	for ($i = 0; $i < 12;$i++) {
         		$dateUnix = mktime(0,0,0,$monthStart - $i,1, $yearStart);
 
-        		if (!isset($filter['filtergte']['time']) || $filter['filtergte']['time'] <= $dateUnix)
+        		if (!isset($filter['filtergte']['time']) || $filter['filtergte']['time'] <= $dateUnix || date('Ym',$filter['filtergte']['time']) == date('Ym',$dateUnix))
                 {
                     $numberOfChats[$dateUnix] = array (
                             'closed' 			=> (int)erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filter' => array('status' => erLhcoreClassModelChat::STATUS_CLOSED_CHAT),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m\') = '. date('Ym',$dateUnix))))),
@@ -261,7 +261,7 @@ class erLhcoreClassChatStatistic {
                     continue;
                 }
 
-                if (!isset($filter['filtergte']['time']) || $filter['filtergte']['time'] <= $dateUnix)
+                if (!isset($filter['filtergte']['time']) || $filter['filtergte']['time'] <= $dateUnix || date('Ym',$filter['filtergte']['time']) == date('Ym',$dateUnix))
                 {
                     $numberOfChats[$dateUnix] = array (
                         'closed' 			=> (int)erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filter' => array('status' => erLhcoreClassModelChat::STATUS_CLOSED_CHAT),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%v\') = '. date('YW',$dateUnix))))),
