@@ -40,6 +40,9 @@ if ( isset($_POST['StoreFileConfiguration']) ) {
 			),
             'mdays_older' => new ezcInputFormDefinitionElement(
 					ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
+			),
+            'mdays_older_visitor' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
 			)
 	);
 
@@ -66,6 +69,12 @@ if ( isset($_POST['StoreFileConfiguration']) ) {
         $data['mdays_older'] = $form->mdays_older;
     } else {
         $data['mdays_older'] = null;
+    }
+
+    if ( $form->hasValidData( 'mdays_older_visitor' )) {
+        $data['mdays_older_visitor'] = $form->mdays_older_visitor;
+    } else {
+        $data['mdays_older_visitor'] = null;
     }
 
 	if ( $form->hasValidData( 'ActiveFileUploadUser' ) && $form->ActiveFileUploadUser == true ) {

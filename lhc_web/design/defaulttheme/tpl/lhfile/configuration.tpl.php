@@ -68,9 +68,14 @@
             <label><input type="checkbox" name="typeChatDelete[]" <?php if (isset($file_data['mtype_cdelete']) && in_array('assigned',$file_data['mtype_cdelete'])) : ?>checked="checked"<?php endif;?> value="assigned">Assigned to chat</label><br/>
         </div>
         <div class="col-xs-4">
-            <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','And file is older than n days'); ?></p>
+            <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','And operator file is older than n days'); ?></p>
             <div class="form-group">
                 <input type="text" class="form-control" name="mdays_older" value="<?php if (isset($file_data['mdays_older'])) : ?><?php echo htmlspecialchars($file_data['mdays_older'])?><?php endif?>" />
+            </div>
+
+            <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','And visitor file is older than n days'); ?></p>
+            <div class="form-group">
+                <input type="text" class="form-control" name="mdays_older_visitor" value="<?php if (isset($file_data['mdays_older_visitor'])) : ?><?php echo htmlspecialchars($file_data['mdays_older_visitor'])?><?php endif?>" />
             </div>
         </div>
     </div>
