@@ -188,7 +188,7 @@ trait erLhcoreClassDBTrait {
 			
 	}
 	
-	public static function getCount($params = array(), $operation = 'COUNT', $field = false, $rawSelect = false) {
+	public static function getCount($params = array(), $operation = 'COUNT', $field = false, $rawSelect = false, $fetchColumn = true) {
 	
 		if (isset($params['enable_sql_cache']) && $params['enable_sql_cache'] == true) {
 			$sql = erLhcoreClassModuleFunctions::multi_implode(',',$params);
@@ -218,12 +218,25 @@ trait erLhcoreClassDBTrait {
 			$q->where( $conditions );
 		}
 
+        if (isset($params['limit']) && $params['limit'] !== false) {
+            $q->limit($params['limit'],(isset($params['offset']) ? $params['offset'] : 0));
+        }
+
+        if (isset($params['sort']) && $params['sort'] !== false)
+        {
+            $q->orderBy($params['sort'] );
+        }
+
 		$stmt = $q->prepare();
 	
 		$stmt->execute();
-	
-		$result = $stmt->fetchColumn();
-		 
+
+		if ($fetchColumn == true){
+            $result = $stmt->fetchColumn();
+        } else {
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        }
+
 		if (isset($params['enable_sql_cache']) && $params['enable_sql_cache'] == true) {
 			$cache->store($cacheKey,$result);
 		}

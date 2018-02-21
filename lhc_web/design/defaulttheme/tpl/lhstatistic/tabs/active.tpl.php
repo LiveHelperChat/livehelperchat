@@ -542,51 +542,102 @@
 		  chartMessages.draw(data, options);						  
 	}
 	
-	function drawChartWorkload() {			
-		  var data = google.visualization.arrayToDataTable([
-		    ['Hour', 'Chats']
-		    <?php foreach ($numberOfChatsPerHour['total'] as $hour => $chatsNumber) : ?>
-		    	<?php echo ',[\''.$hour.'\','.$chatsNumber.']'?>
-		    <?php endforeach;?>
-		  ]);					                  		  
-		  var view = new google.visualization.DataView(data);			                    
-		  var options = {
-			title: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_per_hour_average_chat_duration.tpl.php'));?> <?php echo $averageChatTime != null ? erLhcoreClassChat::formatSeconds($averageChatTime) : '(-)';?>',
-	        width: '100%',
-	        height: '100%',
-            hAxis : {
-                textStyle : {
-                    fontSize: 10 // or the number you want
+	function drawChartWorkload() {
+        var barChartData = {
+            labels: [<?php $key = 0; foreach ($numberOfChatsPerHour['total'] as $hour => $chatsNumber) : echo ($key > 0 ? ',' : ''),'\''.$hour.'\'';$key++; endforeach;?>],
+            datasets: [{
+                backgroundColor: '#36c',
+                borderColor: '#36c',
+                borderWidth: 1,
+                data: [<?php $key = 0; foreach ($numberOfChatsPerHour['total'] as $hour => $chatsNumber) : echo ($key > 0 ? ',' : ''),$chatsNumber; $key++; endforeach;?>]
+            }]
+        };
+
+        var ctx = document.getElementById("chart_div_per_hour").getContext("2d");
+        var myBar = new Chart(ctx, {
+            type: 'bar',
+            data: barChartData,
+            options: {
+                responsive: true,
+                legend: {
+                    display : false,
+                    position: 'top',
+                },
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            fontSize: 11,
+                            stepSize: 1,
+                            min: 0,
+                            autoSkip: false
+                        }
+                    }]
+                },
+                title: {
+                    display: false
                 }
-            },
-	        isStacked: true
-		  };
-		  var chartUp = new google.visualization.ColumnChart(document.getElementById('chart_div_per_hour'));
-		  chartUp.draw(view, options);				  						  
+            }
+        });
 	}
 
 	function drawChartWorkloadHourly() {
 
-		  var data = google.visualization.arrayToDataTable([
-		    ['Hour', 'Chats']
-		    <?php foreach ($numberOfChatsPerHour['byday'] as $hour => $chatsNumber) : ?>
-		    	<?php echo ',[\''.$hour.'\','.$chatsNumber.']'?>
-		    <?php endforeach;?>
-		  ]);
-		  var view = new google.visualization.DataView(data);
-		  var options = {
-			title: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_per_hour_average_chat_duration_houp.tpl.php'));?>',
-	        width: '100%',
-	        height: '100%',
-            hAxis : {
-                textStyle : {
-                    fontSize: 10 // or the number you want
-                }
+        var barChartData = {
+            labels: [<?php $key = 0; foreach ($numberOfChatsPerHour['byday'] as $hour => $chatsNumber) : echo ($key > 0 ? ',' : ''),'\''.$hour.'\'';$key++; endforeach;?>],
+            datasets: [{
+                type: 'line',
+                backgroundColor: '#36c',
+                borderColor: '#36c',
+                borderWidth: 2,
+                fill: false,
+                data: [<?php $key = 0; foreach ($numberOfChatsPerHour['byday'] as $hour => $chatsNumber) : echo ($key > 0 ? ',' : ''),'\'' . round($chatsNumber,2) . '\'';$key++; endforeach;?>]
             },
-	        isStacked: true
-		  };
-		  var chartUp = new google.visualization.ColumnChart(document.getElementById('chart_div_per_hour_by_hour'));
-		  chartUp.draw(view, options);
+            {
+                type: 'bar',
+                backgroundColor: '#89e089',
+                data: [<?php $key = 0; $timesEvent = array(); foreach ($numberOfChatsPerHour['bydaymax'] as $hour => $chatsData) : $timesEvent[] = date('Y-m-d',$chatsData['time']);echo ($key > 0 ? ',' : ''),'\'' . $chatsData['total_records'] . '\'';$key++; endforeach;?>],
+                borderColor: 'white',
+                borderWidth: 2
+            }]
+        };
+
+        var ctx = document.getElementById("chart_div_per_hour_by_hour").getContext("2d");
+        var myBar = new Chart(ctx, {
+            type: 'bar',
+            data: barChartData,
+            options: {
+                responsive: true,
+                legend: {
+                    display : false,
+                    position: 'top',
+                },
+                tooltips: {
+                    callbacks: {
+                        label : function(param) {
+                            var times = <?php echo json_encode($timesEvent)?>;
+                            if (param.datasetIndex == 0) {
+                                return '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Average chats');?>: ' + param.yLabel;
+                            } else {
+                                return '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Max chats');?>: '+param.yLabel+', ' + times[param.index];
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            fontSize: 11,
+                            stepSize: 1,
+                            min: 0,
+                            autoSkip: false
+                        }
+                    }]
+                },
+                title: {
+                    display: false
+                }
+            }
+        });
 	}
 	
 	$(window).on("resize", function (event) {
@@ -613,11 +664,15 @@
 <hr>
 <canvas id="chart_div_per_month_unanswered"></canvas>
 
- 		 		 		
-<h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/hourly_statistic.tpl.php'));?></h5>
+<?php /*<div id="chart_div_per_hour_by_hour" style="width: 100%; height: 300px;"></div>*/ ?>
+<h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_per_hour_average_chat_duration_houp.tpl.php'));?><h5>
 <hr>
-<div id="chart_div_per_hour_by_hour" style="width: 100%; height: 300px;"></div>
-<div id="chart_div_per_hour" style="width: 100%; height: 300px;"></div>
+<canvas id="chart_div_per_hour_by_hour"></canvas>
+
+<h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_per_hour_average_chat_duration.tpl.php'));?>&nbsp;<?php echo $averageChatTime != null ? erLhcoreClassChat::formatSeconds($averageChatTime) : '(-)';?></h5>
+<hr>
+<canvas id="chart_div_per_hour" style="width: 100%; height: 300px;"></canvas>
+
 
 <h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/country_statistic.tpl.php'));?></h5>
 <hr>

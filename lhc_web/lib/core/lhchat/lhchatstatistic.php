@@ -582,7 +582,7 @@ class erLhcoreClassChatStatistic {
          
         if ($statusWorkflow === false) {
         
-        	$numberOfChats = array('total' => array(), 'byday' => array());
+        	$numberOfChats = array('total' => array(), 'byday' => array(), 'bydaymax' => array());
 
             if (!isset($filter['filtergte']['time'])) {
                 $filter['filtergte']['time'] = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
@@ -592,10 +592,19 @@ class erLhcoreClassChatStatistic {
 
         	for ($i = 0; $i < 24; $i++) {
         		$dateHour = str_pad($i , 2, '0' , STR_PAD_LEFT);
-        		$numberOfChats['total'][$i] = erLhcoreClassChat::getCount(array_merge(array('customfilter' =>  array('FROM_UNIXTIME(time,\'%k\') = '. $dateHour)),$filter));
+        		$numberOfChats['total'][$i] = erLhcoreClassModelChat::getCount(array_merge(array('customfilter' =>  array('FROM_UNIXTIME(time,\'%k\') = '. $dateHour)),$filter));
                 $numberOfChats['byday'][$i] = $numberOfChats['total'][$i]/$diffDays;
+                $numberOfChats['bydaymax'][$i] = erLhcoreClassModelChat::getCount(array_merge(array('sort' => 'total_records DESC', 'limit' => 1, 'group' => 'FROM_UNIXTIME(time,\'%Y%m%d\')', 'customfilter' =>  array('FROM_UNIXTIME(time,\'%k\') = '. $dateHour)),$filter),'',false,'time,count(id) as total_records', false);
+
+                if (!isset($numberOfChats['bydaymax'][$i]['time'])){
+                    $numberOfChats['bydaymax'][$i]['time'] = 0;
+                }
+
+                if (!isset($numberOfChats['bydaymax'][$i]['total_records'])) {
+                    $numberOfChats['bydaymax'][$i]['total_records'] = 0;
+                }
         	}
-        	
+
         	return $numberOfChats;
         	
         } else {
