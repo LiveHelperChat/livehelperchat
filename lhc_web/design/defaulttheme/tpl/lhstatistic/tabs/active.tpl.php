@@ -664,8 +664,7 @@
 <hr>
 <canvas id="chart_div_per_month_unanswered"></canvas>
 
-<?php /*<div id="chart_div_per_hour_by_hour" style="width: 100%; height: 300px;"></div>*/ ?>
-<h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_per_hour_average_chat_duration_houp.tpl.php'));?><h5>
+<h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_per_hour_average_chat_duration_hour.tpl.php'));?><h5>
 <hr>
 <canvas id="chart_div_per_hour_by_hour"></canvas>
 
