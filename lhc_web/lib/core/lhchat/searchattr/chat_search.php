@@ -208,6 +208,18 @@ $fieldsSearch['hum'] = array (
     )
 );
 
+$fieldsSearch['una'] = array (
+    'type' => 'checkbox',
+    'trans' => 'Group results',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filter',
+    'filter_table_field' => 'unanswered_chat',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+    )
+);
+
 $fieldSortAttr = array (
 'field'      => false,
 'default'    => false,

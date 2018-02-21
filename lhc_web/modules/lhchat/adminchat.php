@@ -73,7 +73,7 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
                 $chat->unread_messages_informed = 0;
             }
 
-    	    if ($chat->unanswered_chat == 1 && $chat->user_status == erLhcoreClassModelChat::USER_STATUS_JOINED_CHAT)
+    	    if ($chat->unanswered_chat == 1 && ($chat->user_status_front == 0 || $chat->user_status_front == 2))
     	    {
     	        $chat->unanswered_chat = 0;
     	    }

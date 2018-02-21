@@ -65,49 +65,51 @@ try {
         }
 
         // User online
-        if ( $chat->user_status != 0) {
+        if ($chat->user_status != 0) {
+            $chat->support_informed = 1;
+            $chat->user_typing = time();// Show for shorter period these status messages
+            $chat->is_user_typing = 1;
+            if (isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER'] != ''){
+                
+                $refererSite = $_SERVER['HTTP_REFERER'];
+                
+                if ($refererSite != '' && strlen($refererSite) > 50) {
+                    if ( function_exists('mb_substr') ) {
+                        $refererSite = mb_substr($refererSite, 0, 50);
+                    } else {
+                        $refererSite = substr($refererSite, 0, 50);
+                    }
+                }
+                
+                $chat->user_typing_txt = $refererSite;
+            } else {
+                $chat->user_typing_txt = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userjoined','Visitor has joined the chat!'),ENT_QUOTES);
+            }
+            
+            if ($chat->user_status == erLhcoreClassModelChat::USER_STATUS_PENDING_REOPEN && ($onlineuser = $chat->online_user) !== false) {
+                $onlineuser->reopen_chat = 0;
+                $onlineuser->saveThis();
+            }
 
-    	    if ($chat->user_status != 0) {
-	        	$chat->support_informed = 1;
-	        	$chat->user_typing = time();// Show for shorter period these status messages
-	        	$chat->is_user_typing = 1;
-	        	if (isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER'] != ''){
-	        	    
-	        	    $refererSite = $_SERVER['HTTP_REFERER'];
-	        	    
-	        	    if ($refererSite != '' && strlen($refererSite) > 50) {
-	        	        if ( function_exists('mb_substr') ) {
-	        	            $refererSite = mb_substr($refererSite, 0, 50);
-	        	        } else {
-	        	            $refererSite = substr($refererSite, 0, 50);
-	        	        }
-	        	    }
-	        	    
-	        		$chat->user_typing_txt = $refererSite;
-	        	} else {
-	        		$chat->user_typing_txt = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userjoined','Visitor has joined the chat!'),ENT_QUOTES);
-	        	}
-	        	
-	        	if ($chat->user_status == erLhcoreClassModelChat::USER_STATUS_PENDING_REOPEN && ($onlineuser = $chat->online_user) !== false) {
-	        		$onlineuser->reopen_chat = 0;
-	        		$onlineuser->saveThis();
-	        	}
+            $chat->user_status = erLhcoreClassModelChat::USER_STATUS_JOINED_CHAT;
 
-	        	$chat->user_status = erLhcoreClassModelChat::USER_STATUS_JOINED_CHAT;
+            $nick = isset($_GET['prefill']['username']) ? trim($_GET['prefill']['username']) : '';
 
-                $nick = isset($_GET['prefill']['username']) ? trim($_GET['prefill']['username']) : '';
-
-	        	// Update nick if required
-	        	if (isset($_GET['prefill']['username']) && $chat->nick != $_GET['prefill']['username'] && !empty($nick) && $chat->nick == erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor')) {
-	        	    $chat->nick = $_GET['prefill']['username'];
-	        	    $chat->operation_admin .= "lhinst.updateVoteStatus(".$chat->id.");";
-	        	    
-                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.nickchanged', array('chat' => & $chat));
-	        	}
-
-	        	erLhcoreClassChat::getSession()->update($chat);
-    	    }
-        };
+            // Update nick if required
+            if (isset($_GET['prefill']['username']) && $chat->nick != $_GET['prefill']['username'] && !empty($nick) && $chat->nick == erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor')) {
+                $chat->nick = $_GET['prefill']['username'];
+                $chat->operation_admin .= "lhinst.updateVoteStatus(".$chat->id.");";
+                
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.nickchanged', array('chat' => & $chat));
+            }
+                        
+            if ($chat->unanswered_chat == 1 && $chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)
+            {
+                $chat->unanswered_chat = 0;
+            }
+            
+            erLhcoreClassChat::getSession()->update($chat);
+        }        
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chatwidgetchat',array('result' => & $Result , 'tpl' => & $tpl, 'params' => & $Params, 'chat' => & $chat));
         

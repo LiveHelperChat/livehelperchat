@@ -49,7 +49,6 @@ try {
         	$db = ezcDbInstance::get();
         	$db->beginTransaction();
 
-	        	
 	        	$chat->support_informed = 1;
 	        	$chat->user_typing = time()-5;// Show for shorter period these status messages
 	        	$chat->is_user_typing = 1;
@@ -59,8 +58,14 @@ try {
 	        		$onlineuser->reopen_chat = 0;
 	        		$onlineuser->saveThis();
 	        	}
-	        		        	
+
 	        	$chat->user_status = erLhcoreClassModelChat::USER_STATUS_JOINED_CHAT;
+
+                if ($chat->unanswered_chat == 1 && $chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)
+                {
+                    $chat->unanswered_chat = 0;
+                }
+
 	        	erLhcoreClassChat::getSession()->update($chat);
 
         	$db->commit();

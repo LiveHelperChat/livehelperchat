@@ -435,29 +435,50 @@
 		  var chartUp = new google.visualization.ColumnChart(document.getElementById('chart_div_per_month'));
 		  chartUp.draw(data, options);
 
-		  
-		  // Chats number by unanswered chats
-          var data = google.visualization.arrayToDataTable([
-		    ['<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Month');?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number');?>']
-		    <?php foreach ($numberOfChatsPerMonth as $monthUnix => $data) : ?>
-		    	<?php echo ',[\''.date('Y.m',$monthUnix).'\','.$data['unanswered'].']'?>
-		    <?php endforeach;?>
-		  ]);   		  
-		  var options = {
-			title: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/unanswered_chats_numbers.tpl.php'));?>',
-	        width: '100%',
-	        height: '100%',
-	        isStacked: true,
-              hAxis : {
-                  textStyle : {
-                      fontSize: 10 // or the number you want
-                  }
-              }
-		  };
-		  var chartUp = new google.visualization.ColumnChart(document.getElementById('chart_div_per_month_unanswered'));
-		  chartUp.draw(data, options);
 
-		  
+		  // Chats number by unanswered chats
+            var barChartData = {
+                labels: [<?php $dataRange = array(); $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : $dataRange[] = '/(timefrom)/' . date('Y-m-d',$monthUnix) . '/(timeto)/' . date('Y-m-d',mktime(0,0,0,date('m',$monthUnix)+1,1,date('Y',$monthUnix))); echo ($key > 0 ? ',' : ''),'\''.date('Y.m',$monthUnix).'\'';$key++; endforeach;?>],
+                datasets: [{
+                    backgroundColor: '#36c',
+                    borderColor: '#36c',
+                    borderWidth: 1,
+                    data: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data['unanswered']; $key++; endforeach;?>]
+                }]
+            };
+
+            var ctx = document.getElementById("chart_div_per_month_unanswered").getContext("2d");
+            var myBar = new Chart(ctx, {
+                type: 'bar',
+                data: barChartData,
+                options: {
+                    responsive: true,
+                    legend: {
+                        display : false,
+                        position: 'top',
+                    },
+                    onClick : function(evt) {
+                        var activeElement = myBar.getElementAtEvent(evt);
+                        var filter = <?php echo json_encode($dataRange)?>;
+                        document.location = "<?php echo erLhcoreClassDesign::baseurl('chat/list')?><?php echo erLhcoreClassSearchHandler::getURLAppendFromInput($input,false,array('timefrom','timeto','timefrom_hours','timefrom_minutes','timeto_hours','timeto_minutes'))?>/(una)/1/" + filter[activeElement[0]._index];
+                    },
+                    scales: {
+                        xAxes: [{
+                            ticks: {
+                                fontSize: 11,
+                                stepSize: 1,
+                                min: 0,
+                                autoSkip: false
+                            }
+                        }]
+                    },
+                    title: {
+                        display: true,
+                        text: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/unanswered_chats_numbers.tpl.php'));?>'
+                    }
+                }
+            });
+
 		  // AVG Wait time
 		  var data = google.visualization.arrayToDataTable([
 		    ['<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Month');?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Time');?>']
@@ -588,7 +609,9 @@
 <div id="chart_type_div_per_month" style="width: 100%; height: 300px;"></div> 		
 <div id="chart_type_div_msg_type" style="width: 100%; height: 300px;"></div>
 <div id="chart_div_per_month_wait_time" style="width: 100%; height: 300px;"></div>
-<div id="chart_div_per_month_unanswered" style="width: 100%; height: 300px;"></div>
+
+<canvas id="chart_div_per_month_unanswered"></canvas>
+<?php /*<div id="chart_div_per_month_unanswered" style="width: 100%; height: 300px;"></div>*/ ?>
  		 		 		
 <h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/hourly_statistic.tpl.php'));?></h5>
 <hr>
