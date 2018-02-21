@@ -20,7 +20,9 @@
         <td><?php echo htmlspecialchars($file->user)?></td>
         <td>
         <?php if ($file->chat !== false) : ?>
-        <?php echo $file->chat->id;?>. <?php echo htmlspecialchars($file->chat->nick);?> (<?php echo date(erLhcoreClassModule::$dateDateHourFormat,$file->chat->time);?>) (<?php echo htmlspecialchars($file->chat->department);?>)
+            <?php echo $file->chat->id;?>. <?php echo htmlspecialchars($file->chat->nick);?> (<?php echo date(erLhcoreClassModule::$dateDateHourFormat,$file->chat->time);?>) (<?php echo htmlspecialchars($file->chat->department);?>)
+        <?php elseif ($file->chat_id > 0) : ?>
+            <?php echo $file->chat_id;?>
         <?php else : ?>
         -
         <?php endif;?>
