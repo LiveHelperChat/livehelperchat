@@ -79,7 +79,7 @@
     				</div>							
     			</div>
 			</div>
-		</div>	
+		</div>
 
 		<div class="col-md-3">
 		  <div class="form-group">
@@ -244,6 +244,7 @@
                     <div class="col-xs-6">
                         <select class="form-control" name="chat_duration_from" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chat duration from');?>">
                             <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','From');?></option>
+                            <option value="1" <?php 1 === $input->chat_duration_from ? print 'selected="selected"' : ''?> >1 s.</option>
                             <?php for ($i = 1; $i < 10; $i++) : ?>
                                 <option value="<?php echo $i*60?>" <?php $i*60 === $input->chat_duration_from ? print 'selected="selected"' : ''?> ><?php echo $i?> m.</option>
                             <?php endfor; ?>
