@@ -591,14 +591,14 @@
                 borderWidth: 2,
                 fill: false,
                 data: [<?php $key = 0; foreach ($numberOfChatsPerHour['byday'] as $hour => $chatsNumber) : echo ($key > 0 ? ',' : ''),'\'' . round($chatsNumber,2) . '\'';$key++; endforeach;?>]
-            },
+            }<?php if (isset($numberOfChatsPerHour['bydaymax'])) : ?>,
             {
                 type: 'bar',
                 backgroundColor: '#89e089',
                 data: [<?php $key = 0; $timesEvent = array(); foreach ($numberOfChatsPerHour['bydaymax'] as $hour => $chatsData) : $timesEvent[] = date('Y-m-d',$chatsData['time']);echo ($key > 0 ? ',' : ''),'\'' . $chatsData['total_records'] . '\'';$key++; endforeach;?>],
                 borderColor: 'white',
                 borderWidth: 2
-            }]
+            }<?php endif; ?>]
         };
 
         var ctx = document.getElementById("chart_div_per_hour_by_hour").getContext("2d");
@@ -614,7 +614,7 @@
                 tooltips: {
                     callbacks: {
                         label : function(param) {
-                            var times = <?php echo json_encode($timesEvent)?>;
+                            var times = <?php echo isset($timesEvent) ? json_encode($timesEvent) : '[]';?>;
                             if (param.datasetIndex == 0) {
                                 return '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Average chats');?>: ' + param.yLabel;
                             } else {
