@@ -201,7 +201,10 @@ a:hover{
 .pb10 {
 	padding-bottom:10px;
 }
-
+.modal-header-sub{
+	border-bottom: 1px solid #e5e5e5;
+	padding:5px 15px;
+}
 .pb0{
 	padding-bottom:0px;
 }
