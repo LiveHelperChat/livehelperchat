@@ -2790,39 +2790,42 @@ function lh(){
             $.getJSON(this.wwwDir + 'captcha/captchastring/form/'+timestamp, function(data) {
                 inst.append('<input type="hidden" value="'+timestamp+'" name="captcha_'+data.result+'" /><input type="hidden" value="'+timestamp+'" name="tscaptcha" /><input type="hidden" class="form-protected" value="1" />');
 
-                if ( !! window.FormData){
-                    var formData = new FormData(inst[0]);
+                if ( !! window.FormData) {
 
-                    var xhr = new XMLHttpRequest();
-                    /*xhr.upload.addEventListener('loadstart', onloadstartHandler, false);
-                    xhr.upload.addEventListener('progress', onprogressHandler, false);
-                    xhr.upload.addEventListener('load', onloadHandler, false);*/
-                    xhr.addEventListener('readystatechange', function (evt) {
-                        var status, text, readyState;
-                        try {
-                            readyState = evt.target.readyState;
-                            text = evt.target.responseText;
-                            status = evt.target.status;
-                        }
-                        catch(e) {
-                            return;
-                        }
-                        if (readyState == 4 && status == '200' && evt.target.responseText) {
-                            var headers = xhr.getResponseHeader("Content-Type");
-                            if (headers.indexOf('application/json') == -1) {
-                                $('#widget-content-body').replaceWith(evt.target.responseText);
-                            } else {
-                                location.replace(jQuery.parseJSON(evt.target.responseText)['location']);
+                    try {
+                        var formData = new FormData(inst[0]);
+                        var xhr = new XMLHttpRequest();
+                        xhr.addEventListener('readystatechange', function (evt) {
+                            var status, text, readyState;
+                            try {
+                                readyState = evt.target.readyState;
+                                text = evt.target.responseText;
+                                status = evt.target.status;
                             }
+                            catch(e) {
+                                 inst.submit();
+                            }
+                            if (readyState == 4 && status == '200' && evt.target.responseText) {
+                                var headers = xhr.getResponseHeader("Content-Type");
+                                if (headers.indexOf('application/json') == -1) {
+                                    $('#widget-content-body').replaceWith(evt.target.responseText);
+                                } else {
+                                    location.replace(jQuery.parseJSON(evt.target.responseText)['location']);
+                                }
+                            }
+                        }, false);
+                        var action = inst.attr('action');
+                        if (action != '') {
+                            xhr.open('POST', action + '/(ajaxmode)/true', true);
+                        } else {
+                            xhr.open('POST', document.location + '&ajaxmode=true', true);
                         }
-                    }, false);
-                    var action = inst.attr('action');
-                    if (action != '') {
-                        xhr.open('POST', action + '/(ajaxmode)/true', true);
-                    } else {
-                        xhr.open('POST', document.location + '&ajaxmode=true', true);
+                        xhr.send(formData);
                     }
-                    xhr.send(formData);
+                    catch(e) {
+                        inst.submit();
+                    }
+
                 } else {
                     inst.submit();
                 }
