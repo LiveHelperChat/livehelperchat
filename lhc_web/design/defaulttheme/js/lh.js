@@ -2785,13 +2785,12 @@ function lh(){
     }
     
     this.addCaptchaSubmit = function(timestamp,inst) {
-        if (inst.find('.form-protected').size() == 0){
+        if (inst.find('.form-protected').size() == 0) {
             inst.find('input[type="submit"]').attr('disabled','disabled');
             $.getJSON(this.wwwDir + 'captcha/captchastring/form/'+timestamp, function(data) {
                 inst.append('<input type="hidden" value="'+timestamp+'" name="captcha_'+data.result+'" /><input type="hidden" value="'+timestamp+'" name="tscaptcha" /><input type="hidden" class="form-protected" value="1" />');
 
                 if ( !! window.FormData) {
-
                     try {
                         var formData = new FormData(inst[0]);
                         var xhr = new XMLHttpRequest();
@@ -2803,7 +2802,7 @@ function lh(){
                                 status = evt.target.status;
                             }
                             catch(e) {
-                                 inst.submit();
+                                 return;
                             }
                             if (readyState == 4 && status == '200' && evt.target.responseText) {
                                 var headers = xhr.getResponseHeader("Content-Type");
@@ -2821,9 +2820,8 @@ function lh(){
                             xhr.open('POST', document.location + '&ajaxmode=true', true);
                         }
                         xhr.send(formData);
-                    }
-                    catch(e) {
-                        inst.submit();
+                    } catch(e) {
+                        return false;
                     }
 
                 } else {

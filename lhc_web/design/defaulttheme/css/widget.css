@@ -144,4 +144,8 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
 	#widget-layout > .col-xs-12 > #widget-content-body > .operator-info{
 		height:auto;
 	}
+
+	.usr-tit{
+		padding: 0px;
+	}
 }
