@@ -96,6 +96,10 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
 		font-size: 16px!important;
 	}
 
+	.operator-info{
+		height:auto;
+	}
+
 	#widget-layout textarea {
 		height: 35px;
 	}
