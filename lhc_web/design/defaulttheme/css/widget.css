@@ -84,31 +84,42 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
 }
 
 
-@media only screen and (min-device-width: 360px) and (max-device-width: 640px) {
+@media only screen and (min-device-width: 360px) and (max-device-width: 640px) and (orientation: portrait) {
 
 	input[type='text'],
 	select,
 	input,
 	a.btn,
+	.control-label,
 	#widget-layout textarea {
 		font-size: 16px!important;
-	}
-
-	#widget-layout textarea {
-		height: 35px;
-	}
-
-	textarea[name=ChatMessage]{
-		min-height:30px;
 	}
 
 	html,body,#widget-layout,#widget-layout > .col-xs-12,#widget-content-body{
 		height:100%;
 	}
 
+	body{
+		padding-top:7px;
+	}
+
+	#widget-content-body {
+		overflow-y: auto;
+		overflow-x:hidden;
+	}
+
+	.fill-survey-container{
+		padding-bottom: 14px;
+		padding-right:5px;
+	}
+
 	#messages{
-		height:calc(100% - 145px);
-		font-size:16px;
+		font-size: 16px;
+		position: absolute;
+		width: 100%;
+		bottom: 60px;
+		top:61px;
+		left: 0;
 	}
 
 	.usr-tit{
@@ -129,6 +140,9 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
 
 	#messagesBlockWrap{
 		border: 1px solid #CCCCCC;
+		border-left:0;
+		border-right:0;
+		border-bottom: 0;
 		position:relative;
 	}
 
@@ -141,11 +155,52 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
 		max-height:100%;
 	}
 
-	#widget-layout > .col-xs-12 > #widget-content-body > .operator-info{
+	.widget-modal-body #messages,.widget-modal-body #messagesBlock{
+		position:relative;
+		height:auto!important;
+		max-height:auto!important;
+		top:auto;
+		bottom: auto;
+	}
+
+	#widget-layout > .col-xs-12 .operator-info{
 		height:auto;
+		min-height: 61px;
 	}
 
 	.usr-tit{
 		padding: 0px;
+		font-weight:normal;
+	}
+
+	.has-chat #ChatMessageContainer {
+		position: absolute;
+		bottom: 15px;
+		left: 0;
+		width: 100%;
+		height:45px;
+	}
+
+	#id-operator-typing{
+		position: absolute;
+		bottom: 60px;
+		right:0;
+		background-color: #FFF;
+		border:1px solid #CCC;
+		border-bottom:0;
+		border-right:0;
+		z-index:999;
+		padding-left:3px;
+	}
+
+	#ChatMessageContainer textarea.live-chat-message{
+		border:0;
+		border-top:1px solid #CECECE;
+		height: 45px;
+		border-radius:0;
+		min-height:45px;
+		line-height: 40px;
+		-webkit-appearance: none;
+		box-shadow: none !important;
 	}
 }
