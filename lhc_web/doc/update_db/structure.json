@@ -4170,7 +4170,7 @@
                 "extra": ""
             },
             {
-                "field": "persistent",
+                "field": "persistent", 
                 "type": "int(11)",
                 "null": "NO",
                 "key": "",
