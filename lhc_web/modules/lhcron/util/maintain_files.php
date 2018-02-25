@@ -11,7 +11,7 @@ $data = (array)$fileData->data;
 
 if (isset($data['mdays_older']) && $data['mdays_older'] > 0 && isset($data['mtype_delete']) && !empty($data['mtype_delete']) && in_array('operators', $data['mtype_delete'])) {
 
-    $filter = array('limit' => 500,'filtergt' => array('user_id' => 0), 'filterlt' => array('date' => (time() - $data['mdays_older']*24*3600)));
+    $filter = array('limit' => 500, 'filter' => array('persistent' => 0), 'filtergt' => array('user_id' => 0), 'filterlt' => array('date' => (time() - $data['mdays_older']*24*3600)));
 
     if (isset($data['mtype_cdelete']) && !empty($data['mtype_cdelete'])) {
         $cType = array();
@@ -44,7 +44,7 @@ echo "Starting Automatic files removing workflow for visitors files\n";
 
 if (isset($data['mdays_older_visitor']) && $data['mdays_older_visitor'] > 0 && isset($data['mtype_delete']) && !empty($data['mtype_delete']) && in_array('visitors', $data['mtype_delete'])) {
 
-    $filter = array('limit' => 500,'filter' => array('user_id' => 0), 'filterlt' => array('date' => (time() - $data['mdays_older_visitor']*24*3600)));
+    $filter = array('limit' => 500,'filter' => array('user_id' => 0, 'persistent' => 0), 'filterlt' => array('date' => (time() - $data['mdays_older_visitor']*24*3600)));
 
     if (isset($data['mtype_cdelete']) && !empty($data['mtype_cdelete'])) {
         $cType = array();

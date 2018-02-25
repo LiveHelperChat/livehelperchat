@@ -1,0 +1,1 @@
+ALTER TABLE `lh_chat_file` ADD `persistent` int(11) NOT NULL DEFAULT '0', COMMENT='';

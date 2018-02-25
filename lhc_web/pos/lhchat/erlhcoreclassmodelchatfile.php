@@ -62,6 +62,11 @@ $def->properties['extension']->columnName   = 'extension';
 $def->properties['extension']->propertyName = 'extension';
 $def->properties['extension']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['persistent'] = new ezcPersistentObjectProperty();
+$def->properties['persistent']->columnName   = 'persistent';
+$def->properties['persistent']->propertyName = 'persistent';
+$def->properties['persistent']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

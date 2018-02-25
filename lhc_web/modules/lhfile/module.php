@@ -74,7 +74,7 @@ $ViewList['attatchfilemail'] = array(
 
 $ViewList['list'] = array(
 		'params' => array(),
-		'uparams' => array('user_id','visitor'),
+		'uparams' => array('user_id', 'visitor', 'persistent'),
 		'functions' => array( 'file_list' )
 );
 
@@ -82,6 +82,12 @@ $ViewList['delete'] = array(
 		'params' => array('file_id'),
 		'uparams' => array('csfr'),
 		'functions' => array( 'file_delete' )
+);
+
+$ViewList['edit'] = array(
+		'params' => array('file_id'),
+		'uparams' => array(),
+		'functions' => array( 'use_operator' )
 );
 
 $ViewList['deletechatfile'] = array(

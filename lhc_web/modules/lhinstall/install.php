@@ -814,6 +814,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   `file_path` varchar(255) NOT NULL,
         	   `extension` varchar(255) NOT NULL,
         	   `chat_id` int(11) NOT NULL,
+        	   `persistent` int(11) NOT NULL,
         	   `online_user_id` int(11) NOT NULL,
         	   `user_id` int(11) NOT NULL,
         	   `date` int(11) NOT NULL,

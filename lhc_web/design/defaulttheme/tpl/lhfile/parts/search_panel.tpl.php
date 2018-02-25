@@ -17,6 +17,8 @@
 
             <label><input type="checkbox" name="visitor" <?php if ($input->visitor === 0) : ?>checked="checked"<?php endif; ?> value="0">Only visitor files</label>
 
+            <label><input type="checkbox" name="persistent" <?php if ($input->persistent == 1) : ?>checked="checked"<?php endif; ?> value="1">Only persistent</label>
+
 		</div>
 		<div class="col-xs-6">
 			<input type="submit" name="doSearch" class="btn btn-default" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" /> 

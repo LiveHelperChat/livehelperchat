@@ -26,6 +26,7 @@ class erLhcoreClassModelChatFile {
                'user_id'   		=> $this->user_id,
                'online_user_id' => $this->online_user_id,
                'date'   		=> $this->date,
+               'persistent'   	=> $this->persistent,
               );
    }
 
@@ -112,6 +113,7 @@ class erLhcoreClassModelChatFile {
    public $user_id = 0;
    public $chat_id = 0;
    public $online_user_id = 0;
+   public $persistent = 0;
 }
 
 ?>
