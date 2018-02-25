@@ -2807,7 +2807,7 @@ function lh(){
                             if (readyState == 4 && status == '200' && evt.target.responseText) {
                                 var headers = xhr.getResponseHeader("Content-Type");
                                 if (headers.indexOf('application/json') == -1) {
-                                    $('#widget-content-body').replaceWith(evt.target.responseText);
+                                    $('#widget-content-body').html(evt.target.responseText);
                                 } else {
                                     location.replace(jQuery.parseJSON(evt.target.responseText)['location']);
                                 }
