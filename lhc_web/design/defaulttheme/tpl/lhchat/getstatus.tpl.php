@@ -909,7 +909,8 @@ var lh_inst  = {
     }
 };
 
-function preloadDataLHC() {
+function preloadDataLHC(initCall) {
+
     if (lh_inst.rendered == true) {
         return;
     }
@@ -989,12 +990,14 @@ function preloadDataLHC() {
     lh_inst.genericCallback('loaded');
 
     // Allow to render on callbacks
-    setTimeout( function() {
-        lh_inst.rendered = false;
-    },500);
+    if (typeof initCall !== 'undefined') {
+        setTimeout( function() {
+            lh_inst.rendered = false;
+        },6000);
+    }
 }
 
-preloadDataLHC();
+preloadDataLHC(true);
 
 if ( window.addEventListener ){
     // FF
