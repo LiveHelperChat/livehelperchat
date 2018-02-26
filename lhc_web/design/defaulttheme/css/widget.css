@@ -84,7 +84,7 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
 }
 
 
-@media only screen and (min-device-width: 360px) and (max-device-width: 640px) and (orientation: portrait) {
+@media only screen and (max-device-width: 640px) {
 
 	input[type='text'],
 	select,
