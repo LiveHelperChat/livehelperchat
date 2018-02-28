@@ -63,6 +63,7 @@ return array_merge(array (
         'erLhcoreClassModelGroup'           => 'lib/models/lhuser/erlhcoreclassmodelgroup.php',
         'erLhcoreClassModelGroupWork'       => 'lib/models/lhuser/erlhcoreclassmodelgroupwork.php',
         'erLhcoreClassModelGroupUser'       => 'lib/models/lhuser/erlhcoreclassmodelgroupuser.php',
+        'erLhcoreClassModelGroupObject'     => 'lib/models/lhuser/erlhcoreclassmodelgroupobject.php',
         'erLhcoreClassModelForgotPassword'  => 'lib/models/lhuser/erlhcoreclassmodelforgotpassword.php',
 
         'erLhcoreClassModelUserSetting'  	   => 'lib/models/lhuser/erlhcoreclassmodelusersetting.php',

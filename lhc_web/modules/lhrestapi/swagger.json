@@ -518,6 +518,147 @@
         ]
       }
     },
+    "/restapi/groupsbyobject/{object_id}/{type}": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Returns objects by object id and type",
+        "description": "Is used to get objects by object id and type. This can be used in third party software to have custom permissions.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "object_id",
+            "in": "path",
+            "description": "Object ID",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "type",
+            "in": "path",
+            "description": "Type ID",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/groupsidbyobject/{object_id}/{type}": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Returns list of groups id by object id and type",
+        "description": "Is used to get list of groups by object id and type. This can be used in third party software to have custom permissions.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "object_id",
+            "in": "path",
+            "description": "Object ID",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "type",
+            "in": "path",
+            "description": "Type ID",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/listofobjectid/{user_id}/{type}": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Returns list of objects user can access by user id and type of object",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "description": "User ID",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "type",
+            "in": "path",
+            "description": "Type ID",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
     "/restapi/updatelastactivity/{user_id}": {
       "get": {
         "tags": [

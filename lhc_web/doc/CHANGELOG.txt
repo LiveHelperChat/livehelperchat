@@ -1,8 +1,17 @@
+2.90v
+
+1. Objects group model. Can be used in extensions to have custom permissions.
+2. Further mobile improvements.
+
+execute doc/update_db/update_165.sql for update
+
 2.89v
 
 1. Option to have persistent files. So they won't be deleted during files maintenance procedure.
 2. More slick mobile layout
 3. Various other fixes on mobile layout and consistency improvements.
+
+execute doc/update_db/update_164.sql for update
 
 2.88v
 

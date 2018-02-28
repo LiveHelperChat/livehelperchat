@@ -46,11 +46,11 @@ try {
     $assignWorkflowTimeout = erLhcoreClassModelChatConfig::fetch('assign_workflow_timeout')->current_value;
 
     if ($assignWorkflowTimeout > 0) {
-        foreach (erLhcoreClassChat::getList(array('sort' => 'id ASC', 'limit' => 500, 'filterlt' => array('time' => (time() - $assignWorkflowTimeout)),'filter' => array('status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT))) as $chat){
+        foreach (erLhcoreClassChat::getList(array('sort' => 'priority DESC, id ASC', 'limit' => 500, 'filterlt' => array('time' => (time() - $assignWorkflowTimeout)),'filter' => array('status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT))) as $chat){
             $db->beginTransaction();
             $chat = erLhcoreClassModelChat::fetchAndLock($chat->id);
             if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
-                erLhcoreClassChatWorkflow::autoAssign($chat, $chat->department, array('cron_init' => true));
+                erLhcoreClassChatWorkflow::autoAssign($chat, $chat->department, array('cron_init' => true, 'auto_assign_timeout' => true));
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.pending_process_workflow',array('chat' => & $chat));
             }
             $db->commit();
@@ -61,7 +61,7 @@ try {
         $db->beginTransaction();
             $chat = erLhcoreClassModelChat::fetchAndLock($chat->id);
             if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
-                erLhcoreClassChatWorkflow::autoAssign($chat, $chat->department, array('cron_init' => true));
+                erLhcoreClassChatWorkflow::autoAssign($chat, $chat->department, array('cron_init' => true, 'auto_assign_timeout' => false));
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.pending_process_workflow',array('chat' => & $chat));
             }
         $db->commit();
@@ -71,7 +71,7 @@ try {
     $db->rollback();
     throw $e;
 }
-    
+
 // Inform visitors about unread messages
 erLhcoreClassChatWorkflow::autoInformVisitor(erLhcoreClassModelChatConfig::fetch('inform_unread_message')->current_value);
 
