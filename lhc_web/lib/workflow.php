@@ -71,7 +71,7 @@ try {
     $db->rollback();
     throw $e;
 }
-
+    
 // Inform visitors about unread messages
 erLhcoreClassChatWorkflow::autoInformVisitor(erLhcoreClassModelChatConfig::fetch('inform_unread_message')->current_value);
 

@@ -61,6 +61,18 @@ $ViewList['getusers'] = array(
     'params' => array()
 );
 
+$ViewList['groupsbyobject'] = array(
+    'params' => array('object_id','type')
+);
+
+$ViewList['groupsidbyobject'] = array(
+    'params' => array('object_id','type')
+);
+
+$ViewList['listofobjectid'] = array(
+    'params' => array('user_id','type')
+);
+
 $ViewList['getuser'] = array(
     'params' => array()
 );
