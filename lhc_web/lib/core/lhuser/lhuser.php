@@ -388,7 +388,7 @@ class erLhcoreClassUser{
        {
            if ($returnLimitation === false) {
                return true;
-           } elseif ($AccessArray[$module]['*'] && !is_bool($AccessArray[$module]['*'])) {
+           } elseif (isset($AccessArray[$module]['*']) && !is_bool($AccessArray[$module]['*'])) {
                return $AccessArray[$module]['*'];
            } elseif ($AccessArray['*']['*'] && !is_bool($AccessArray['*']['*'])) {
                return $AccessArray['*']['*'];
