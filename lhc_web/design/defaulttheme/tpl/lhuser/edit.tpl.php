@@ -115,19 +115,41 @@
     		<?php endif;?>
     		
     		<?php if ($can_edit_groups === true) : ?>
-    		<div class="form-group">
-        		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','User group')?></label>
-        		<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
-                        'input_name'     => 'DefaultGroup[]',
-                        'selected_id'    => $user->user_groups_id,
-    					'multiple' 		 => true,
-        		        'css_class'       => 'form-control',
-                        'list_function'  => 'erLhcoreClassModelGroup::getList',
-                        'list_function_params'  => $user_groups_filter
+
+            <?php $user_groups_filter['filter']['required'] = 0; if (erLhcoreClassModelGroup::getcount($user_groups_filter) > 0) : ?>
+            <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','User group')?></h4>
+            <div class="row">
+                <?php echo erLhcoreClassRenderHelper::renderCheckbox( array (
+                    'input_name'     => 'DefaultGroup[]',
+                    'selected_id'    => $user->user_groups_id,
+                    'multiple' 		 => true,
+                    'css_class'      => 'form-control',
+                    'wrap_prepend'   => '<div class="col-xs-3">',
+                    'wrap_append'    => '</div>',
+                    'list_function'  => 'erLhcoreClassModelGroup::getList',
+                    'list_function_params'  => $user_groups_filter
                 )); ?>
-    		</div>
-    		
-    		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Disabled')?>&nbsp;<input type="checkbox" value="on" name="UserDisabled" <?php echo $user->disabled == 1 ? 'checked="checked"' : '' ?> /></label><br>
+            </div>
+            <?php endif; ?>
+
+            <?php $user_groups_filter['filter']['required'] = 1; if (erLhcoreClassModelGroup::getcount($user_groups_filter) > 0) : ?>
+                    <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Required groups, choose one ore more')?></h4>
+                    <div class="row">
+                        <?php echo erLhcoreClassRenderHelper::renderCheckbox( array (
+                            'input_name'     => 'DefaultGroup[]',
+                            'selected_id'    => $user->user_groups_id,
+                            'multiple' 		 => true,
+                            'css_class'      => 'form-control',
+                            'wrap_prepend'   => '<div class="col-xs-3">',
+                            'wrap_append'    => '</div>',
+                            'list_function'  => 'erLhcoreClassModelGroup::getList',
+                            'list_function_params'  => $user_groups_filter
+                        )); ?>
+                    </div>
+            <?php endif; ?>
+
+            <hr>
+    		<label><input type="checkbox" value="on" name="UserDisabled" <?php echo $user->disabled == 1 ? 'checked="checked"' : '' ?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Disabled')?></label><br>
     		<?php endif; ?>
     		    		    		
     		<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>

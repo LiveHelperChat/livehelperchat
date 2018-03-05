@@ -1445,7 +1445,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
                $db->query("CREATE TABLE IF NOT EXISTS `lh_group` (
                `id` int(11) NOT NULL AUTO_INCREMENT,
                `name` varchar(50) NOT NULL,
-               `disabled` int(11) NOT NULL,
+               `disabled` tinyint(1) NOT NULL,
+               `required` tinyint(1) NOT NULL DEFAULT '0',
                PRIMARY KEY (`id`),
                KEY `disabled` (`disabled`)
                ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");

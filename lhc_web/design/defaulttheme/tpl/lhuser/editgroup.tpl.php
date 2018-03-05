@@ -33,6 +33,11 @@
         <div class="form-group">
 		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Disabled');?> <input type="checkbox" name="Disabled"  value="on" <?php echo $group->disabled == 1 ? 'checked="checked"' : ''?> /></label>
         </div>
+
+        <div class="form-group">
+		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Required');?> <input type="checkbox" name="Required"  value="on" <?php echo $group->required == 1 ? 'checked="checked"' : ''?> /></label>
+          <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','If group is required, at least one group of required groups has to be selected.')?></p>
+        </div>
         
 		<input type="submit" class="btn btn-default" name="Update_group" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Update');?>"/>
 
