@@ -117,12 +117,12 @@ $ViewList['setinvisible'] = array (
 );
 
 $ViewList['setinactive'] = array (
-		'functions' => array( 'selfedit' ),
+		'functions' => array( 'changevisibility' ),
 		'params' => array('status')
 );
 
 $ViewList['wentinactive'] = array (
-		'functions' => array( 'selfedit' ),
+		'functions' => array( 'changevisibility' ),
 		'params' => array()
 );
 
