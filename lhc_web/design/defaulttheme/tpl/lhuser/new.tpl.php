@@ -15,7 +15,7 @@
 	<?php include(erLhcoreClassDesign::designtpl('lhuser/menu_tabs/custom_multiinclude_tab.tpl.php'));?>
 </ul>
 
-<div class="tab-content">
+<div class="tab-content" ng-controller="LHCAccountValidator as accval">
 	<div role="tabpanel" class="tab-pane <?php if ($tab == '') : ?>active<?php endif;?>" id="account">
 	    <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 		
@@ -97,7 +97,7 @@
 		</div>
 
         <?php $user_groups_filter['filter']['required'] = 0; if (erLhcoreClassModelGroup::getcount($user_groups_filter) > 0) : ?>
-            <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','User group')?></h4>
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','User group')?></label>
             <div class="row">
                 <?php echo erLhcoreClassRenderHelper::renderCheckbox( array (
                     'input_name'     => 'DefaultGroup[]',
@@ -112,9 +112,9 @@
             </div>
         <?php endif; ?>
 
-        <?php $user_groups_filter['filter']['required'] = 1; if (erLhcoreClassModelGroup::getcount($user_groups_filter) > 0) : ?>
-            <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Required groups, choose one ore more')?></h4>
-            <div class="row">
+        <?php $user_groups_filter['filter']['required'] = 1; $groupsRequired = erLhcoreClassModelGroup::getList($user_groups_filter); if (!empty($groupsRequired)) : ?>
+            <label ng-class="{'chat-closed' : !accval.validRequiredGroups}"><i ng-if="!accval.validRequiredGroups" class="material-icons chat-closed">error</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Required groups, choose one ore more')?>*</label>
+            <div class="row" ng-init='accval.requiredGroups = <?php $obj = new stdClass(); foreach ($user->user_groups_id as $userGroupId) {if (isset($groupsRequired[$userGroupId])) { $obj->{$userGroupId} = true; }}; echo json_encode($obj)?>;accval.validateGroups()'>
                 <?php echo erLhcoreClassRenderHelper::renderCheckbox( array (
                     'input_name'     => 'DefaultGroup[]',
                     'selected_id'    => $user->user_groups_id,
@@ -122,6 +122,8 @@
                     'css_class'      => 'form-control',
                     'wrap_prepend'   => '<div class="col-xs-3">',
                     'wrap_append'    => '</div>',
+                    'ng_change'      => 'accval.validateGroups()',
+                    'ng_model'      => 'accval.requiredGroups[$id]',
                     'list_function'  => 'erLhcoreClassModelGroup::getList',
                     'list_function_params'  => $user_groups_filter
                 )); ?>
@@ -132,7 +134,7 @@
 						
 		<?php include(erLhcoreClassDesign::designtpl('lhuser/account/below_new_account_multiinclude.tpl.php'));?>
 		
-		<input type="submit" class="btn btn-default" name="Update_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Save');?>" />
+		<input type="submit" class="btn btn-default" ng-disabled="!accval.validForm" name="Update_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Save');?>" />
 	</div>
 	
 	<div role="tabpanel" class="tab-pane <?php if ($tab == 'tab_departments') : ?>active<?php endif;?>" id="departments">

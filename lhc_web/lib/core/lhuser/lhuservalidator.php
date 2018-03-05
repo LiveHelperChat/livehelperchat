@@ -212,7 +212,7 @@ class erLhcoreClassUserValidator {
     		        $diff = array_diff(array_keys($groupsRequired), $userData->user_groups_id);
 
     		        if (count($diff) == count($groupsRequired)) {
-                        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','You have to choose one of required groups!');
+                        $Errors['group_required'] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','You have to choose one of required groups!');
                     }
 
     		    } else {
@@ -227,7 +227,7 @@ class erLhcoreClassUserValidator {
                             $diff = array_diff(array_keys($groupsRequired), $userData->user_groups_id);
 
                             if (count($diff) == count($groupsRequired)) {
-                                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','You have to choose one of required groups!');
+                                $Errors['group_required'] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','You have to choose one of required groups!');
                             }
     		            }
 

@@ -121,7 +121,6 @@ if (isset($_POST['UpdateDepartaments_account'])) {
    
 }
 
-
 $userGroupFilter = $groups_can_edit === true ? array() : array('filterin' => array('id' => $groups_can_edit));
 
 $tpl->set('user_groups_filter',$userGroupFilter);
@@ -129,7 +128,7 @@ $tpl->set('can_edit_groups',$can_edit_groups);
 $tpl->set('user',$UserData);
 
 $Result['content'] = $tpl->fetch();
-
+$Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.lhc.account.validator.js').'"></script>';
 $Result['path'] = array(
 	array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','System configuration')),
 	array('url' => erLhcoreClassDesign::baseurl('user/userlist'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Users')),
