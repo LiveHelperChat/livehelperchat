@@ -1674,7 +1674,7 @@ function lh(){
 	        		                	  }
 	        		                  }
 	        		                  
-	        		                  if ( confLH.new_message_browser_notification == 1 && data.uw == 'false') {	        		                	 
+	        		                  if ( confLH.new_message_browser_notification == 1 && data.uw == 'false' && (typeof data.ignore === 'undefined' || typeof data.ignore === false)) {
 	        		                	  lhinst.showNewMessageNotification(item.chat_id,item.msg,item.nck);
 	  	                			  }; 
 	  	                			  
