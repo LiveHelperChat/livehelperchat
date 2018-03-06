@@ -22,6 +22,19 @@ class erLhcoreClassModelGroupObject
         );
     }
 
+    public function __get($param)
+    {
+        switch ($param) {
+
+            case 'group':
+                return $this->group = erLhcoreClassModelGroup::fetch($this->group_id);
+                break;
+
+            default:
+                break;
+        }
+    }
+
     public static function getGroups($objectId, $type)
     {
         $db = ezcDbInstance::get();
