@@ -159,8 +159,9 @@ var lh_inst  = {
         var msgNum = document.getElementById('<?php echo $chatCSSPrefix?>-msg-number');
         msgNum.innerHTML = '';
         msgNum.msg_number = 0;
+        this.removeClass(dm, '<?php echo $chatCSSPrefix?>-has-unread-message');
 
-		if (!dm.attrIsMin || dm.attrIsMin == false) {
+    if (!dm.attrIsMin || dm.attrIsMin == false) {
 			dm.attrHeight = dm.style.height;
 			dm.attrIsMin = true;
             this.isMinimized = true;
@@ -835,6 +836,8 @@ var lh_inst  = {
                 var msgNum = document.getElementById('<?php echo $chatCSSPrefix?>-msg-number');
                 msgNum.innerHTML = (parseInt(msgNum.msg_number)+1);
                 msgNum.msg_number++;
+                var dm = document.getElementById('<?php echo $chatCSSLayoutOptions['container_id']?>');
+                lh_inst.addClass(dm, '<?php echo $chatCSSPrefix?>-has-unread-message');
             }
         } else if (action == 'lhc_sizing_chat') {
     		var height = e.data.split(':')[1];
