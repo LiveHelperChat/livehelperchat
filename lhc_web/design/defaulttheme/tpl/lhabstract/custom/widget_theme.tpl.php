@@ -32,7 +32,11 @@
 						<label><?php echo $fields['name']['trans'];?>*</label>
 						<?php echo erLhcoreClassAbstract::renderInput('name', $fields['name'], $object)?>
 						</div>
-												
+
+                        <div class="form-group">
+						<label><?php echo erLhcoreClassAbstract::renderInput('modern_look', $fields['modern_look'], $object)?><?php echo $fields['modern_look']['trans'];?>*</label>
+						</div>
+
 						<div class="form-group">		
 						<label><?php echo $fields['online_text']['trans'];?></label>
 						<?php echo erLhcoreClassAbstract::renderInput('online_text', $fields['online_text'], $object)?>
@@ -387,9 +391,27 @@
 			<div id="lhc_need_help_container"><a id="lhc_need_help_close" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>" onclick="return lh_inst.lhc_need_help_hide();" href="#">&#xd7;</a><div id="lhc_need_help_image"><img width="60" height="60" src="<?php if ($object->need_help_image_url != '') : ?><?php echo $object->need_help_image_url?><?php else : ?><?php echo erLhcoreClassDesign::design('images/general/operator.png');?><?php endif;?>"></div><div onclick="return lh_inst.lhc_need_help_click();" id="lhc_need_help_main_title">{{ngModelAbstractInput_need_help_header || '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Need help?')?>'}}</div><span id="lhc_need_help_sub_title">{{ngModelAbstractInput_need_help_text || '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Our staff are always ready to help')?>'}}</span></div>
 			<hr>
 		</div>
+        <div class="col-md-12">
+            <a id="lhc_status-icon" href="#" ></a>
+		</div>
 	</div>
 	
 		<style type="text/css">
+        #lhc_status-icon{border: 2px solid #{{bactract_bg_color_bor_bcolor}};
+            -webkit-border-radius: 47px;
+            border-radius: 47px;
+            -webkit-box-shadow: 0px 0px 17px rgba(50, 50, 50, 0.5);
+            -moz-box-shadow: 0px 0px 17px rgba(50, 50, 50, 0.5);
+            box-shadow: 0px 0px 17px rgba(50, 50, 50, 0.5);
+            text-decoration: none;
+            height: 81px;
+            width: 81px;
+            font-weight: bold;
+            color: #000000;
+            display: block;
+            padding: 10px;
+            background: #{{bactract_bg_color_onl_bcolor}} url('<?php if ($object->online_image_url != '') : ?><?php echo $object->online_image_url;?><?php else : ?><?php echo erLhcoreClassDesign::design('images/getstatus/online.svg');?><?php endif?>') no-repeat center center;
+        }
 		#lhc_status_container * {direction:ltr;text-align:left;;font-family:arial;font-size:12px;box-sizing: content-box;zoom:1;margin:0;padding:0}
 		#lhc_status_container .status-icon{text-decoration:none;font-size:12px;font-weight:bold;color:#{{bactract_bg_color_text_color}};display:block;padding:10px 10px 10px 35px;background:url('<?php if ($object->online_image_url != '') : ?><?php echo $object->online_image_url;?><?php else : ?><?php echo erLhcoreClassDesign::design('images/icons/user_green_chat.png');?><?php endif?>') no-repeat left center}
 		#lhc_status_container:hover{}

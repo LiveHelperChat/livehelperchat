@@ -3,7 +3,7 @@ var subTitleText = (typeof <?php echo $chatOptionsVariable;?>.opt.nh_sub_title_t
 <?php $iconsStatuses['need_help_image_url'] = ($theme !== false && $theme->need_help_image_url !== false && strpos($theme->need_help_image_url, 'http') !== false); ?>
 var imageTooltip = (typeof <?php echo $chatOptionsVariable;?>.opt.nh_image != 'undefined') ? <?php echo $chatOptionsVariable;?>.opt.nh_image : '<?php if ($iconsStatuses['need_help_image_url'] == false) : ?><?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php endif;?><?php if ($theme !== false && $theme->need_help_image_url !== false) : print $theme->need_help_image_url; else : ?><?php echo erLhcoreClassDesign::design('images/general/operator.png');?><?php endif;?>';
 
-subStatus = '<div id="<?php echo $chatCSSPrefix?>_need_help_container" style="<?php echo $currentPosition['nh_hor_pos']?>">'+
+subStatus = '<div id="<?php echo $chatCSSPrefix?>_need_help_container" style="<?php echo $currentPosition[$nh_hor_pos]?>">'+
 '<span id="<?php echo $chatCSSPrefix?>_need_help_triangle" style="<?php echo $currentPosition['nh_tr_pos']?>"></span>'+
 '<i id="<?php echo $chatCSSPrefix?>_need_help_close" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>" href="#">&#xd7;</i>';
 if (imageTooltip !== false) {

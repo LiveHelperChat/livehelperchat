@@ -434,7 +434,7 @@ class erLhAbstractModelWidgetTheme {
 	
    	public $id = null;
 	public $name = '';
-	public $onl_bcolor = 'f6f6f6';
+	public $onl_bcolor = '0c8fc4';
 	public $text_color = '000000';
 	public $bor_bcolor = 'e3e3e3';
 	public $online_image = '';
