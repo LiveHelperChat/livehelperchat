@@ -1644,7 +1644,8 @@ function lh(){
 	        	        {
 	        	            if (data.result != 'false')
 	        	            {
-	        	            	
+	        	            	var playSound = false
+
 	        	                $.each(data.result,function(i,item) {
 
 	        	                	  var messageBlock = $('#messagesBlock-'+item.chat_id);   
@@ -1673,8 +1674,13 @@ function lh(){
 	        		                		  mainElement.addClass('has-pm');	        		                		
 	        		                	  }
 	        		                  }
-	        		                  
-	        		                  if ( confLH.new_message_browser_notification == 1 && data.uw == 'false') {	        		                	 
+
+	        		                  if (playSound == false && data.uw == 'false' && (typeof item.ignore === 'undefined' || typeof item.ignore === false))
+                                      {
+                                          playSound = true;
+                                      }
+
+	        		                  if ( confLH.new_message_browser_notification == 1 && data.uw == 'false' && (typeof item.ignore === 'undefined' || typeof item.ignore === false)) {
 	        		                	  lhinst.showNewMessageNotification(item.chat_id,item.msg,item.nck);
 	  	                			  }; 
 	  	                			  
@@ -1687,10 +1693,9 @@ function lh(){
 	  	                			  ee.emitEvent('eventSyncAdmin', [item,i]);	  	                			  
 	                            });
 
-	                            if ( confLH.new_message_sound_admin_enabled == 1  && data.uw == 'false') {
+	                            if ( confLH.new_message_sound_admin_enabled == 1  && data.uw == 'false' && playSound == true) {
 	                            	lhinst.playNewMessageSound();
 	                            };
-
 
 	        	            };
 	

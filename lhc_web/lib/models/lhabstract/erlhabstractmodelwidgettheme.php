@@ -65,7 +65,8 @@ class erLhAbstractModelWidgetTheme {
 			'noonline_operators_offline'=> $this->noonline_operators_offline,
 			'show_need_help'            => $this->show_need_help,
 			'show_need_help_timeout'    => $this->show_need_help_timeout,
-		    
+			'modern_look'               => $this->modern_look,
+
 			'show_voting'               => $this->show_voting,
 			'department_title'          => $this->department_title,
 			'department_select'         => $this->department_select,
@@ -238,6 +239,47 @@ class erLhAbstractModelWidgetTheme {
 	   	       $this->left_menu = '';
 	   		   return $this->left_menu;
 	   		break;
+
+           case 'custom_status_css_front':
+               $attr = str_replace('_front', '', $var);
+               $this->$var = false;
+               if ($this->$attr != '') {
+                   $this->$var =  str_replace($this->replace_array['search'], $this->replace_array['replace'], $this->$attr);
+               }
+               return $this->$var;
+               break;
+
+           case 'replace_array':
+
+               $host = '//'.$_SERVER['HTTP_HOST'];
+
+               $this->replace_array = array(
+                   'search' => array(
+                       '{{logo_image_url}}',
+                       '{{minimize_image_url}}',
+                       '{{restore_image_url}}',
+                       '{{close_image_url}}',
+                       '{{popup_image_url}}',
+                       '{{operator_image_url}}',
+                       '{{copyright_image_url}}',
+                       '{{need_help_image_url}}',
+                       '{{online_image_url}}',
+                       '{{offline_image_url}}',
+                   ),
+                   'replace' => array(
+                       $host . $this->logo_image_url,
+                       $host . $this->minimize_image_url,
+                       $host . $this->restore_image_url,
+                       $host . $this->close_image_url,
+                       $host . $this->popup_image_url,
+                       $host . $this->operator_image_url,
+                       $host . $this->copyright_image_url,
+                       $host . $this->need_help_image_url,
+                       $host . $this->online_image_url,
+                       $host . $this->offline_image_url,
+                   ));
+               return $this->replace_array;
+               break;
 
 	   	case 'logo_image_url':
 	   	case 'minimize_image_url':
@@ -453,6 +495,7 @@ class erLhAbstractModelWidgetTheme {
 	public $noonline_operators_offline = '';
 	
 	public $show_voting = 1;
+	public $modern_look = 1;
 	public $department_title = '';
 	public $department_select = '';
 
