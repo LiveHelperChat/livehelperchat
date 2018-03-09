@@ -102,7 +102,8 @@ class erLhAbstractModelAutoResponderChat
                     $this->active_send_status < $this->auto_responder->wait_timeout_reply_total
                 ) {
 
-                    $diff = time() - $this->chat->lsync;
+                    $lsync = $this->chat->lsync;
+                    $diff = time() - $lsync;
                     $this->chat->lsync = time();
                     $this->chat->last_op_msg_time = time() - $this->auto_responder->{'wait_timeout_reply_' . ($this->active_send_status - 1)}-20;
                     $this->chat->last_user_msg_time = $this->chat->last_op_msg_time - 1;
@@ -112,7 +113,13 @@ class erLhAbstractModelAutoResponderChat
                     }
 
                     $msg = new erLhcoreClassModelmsg();
-                    $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'Visitor auto responder was reset because of sync timeout, returned after') .' ' . $diff . ' seconds!';
+
+                    if ($lsync > 0) {
+                        $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'Visitor auto responder was reset because of sync timeout, returned after') . ' ' . $diff . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'seconds!');
+                    } else {
+                        $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'Visitor auto responder was reset because the visitor returned!');
+                    }
+
                     $msg->chat_id = $this->chat->id;
                     $msg->user_id = - 1;
                     $msg->time = time();
