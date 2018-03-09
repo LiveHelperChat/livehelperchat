@@ -21,23 +21,30 @@ $positionArgument = array (
                 'mobile_position_status' => 'width:auto;padding:0;border-radius:0px;bottom:50px;left:5px;right:auto;top:auto;'
 		),
 		'bottom_right' => array (
-				'pos' => 'r',
-				'posv' => 'b',
-				'radius' => 'left',
-				'position' => 'bottom:0;right:0;',
-				'position_body' => 'bottom:0;right:0;',
-				'shadow' => '-1px -1px 5px',
-				'moz_radius' => 'topleft',
-				'widget_hover' => '',
-				'padding_text' => '10px 10px 10px 35px',
-				'background_position' => 'left',
-				'chrome_radius' => 'top-left',
-				'border_widget' => 'border:1px solid #'.($theme !== false ? $theme->bor_bcolor : 'e3e3e3').';border-right:0;border-bottom:0;',
-				'widget_radius' => '-webkit-border-top-left-radius: 20px;-moz-border-radius-topleft: 20px;border-top-left-radius: 20px;',
-				'nh_hor_pos' => 'margin-left:-80px;',
-				'nh_tr_pos' => 'right:15px;',
-                'mobile_position' => 'height:25px !important;left:auto !important;right:0;top:auto !important;bottom:0 !important;',
-                'mobile_position_status' => 'width:auto;padding:0;border-radius:0px;bottom:50px;right:5px;left:auto;top:auto;'
+                'pos' => 'r',
+                'posv' => 'b',
+                'radius' => 'left',
+                'position' => 'bottom:0;right:0;',
+                'position_body' => 'bottom:0;right:0;',
+                'shadow' => '-1px -1px 5px',
+                'moz_radius' => 'topleft',
+                'widget_hover' => '',
+                'padding_text' => '10px 10px 10px 35px',
+                'background_position' => 'left',
+                'chrome_radius' => 'top-left',
+                'border_widget' => 'border:1px solid #'.($theme !== false ? $theme->bor_bcolor : 'e3e3e3').';border-right:0;border-bottom:0;',
+                'widget_radius' => '-webkit-border-top-left-radius: 20px;-moz-border-radius-topleft: 20px;border-top-left-radius: 20px;',
+                'nh_hor_pos' => 'margin-left:-80px;',
+                'nh_tr_pos' => 'right:15px;',
+                'mobile_position' => 'height:25px !important;left:auto !important;right:0;top:auto !important;bottom:0 !important;', // Classic style
+                'mobile_position_status' => 'width:auto;padding:0;border-radius:0px;bottom:50px;right:5px;left:auto;top:auto;', // Classic style
+
+                'mobile_position_modern' => 'bottom:15px!important;right:15px!important;left:auto !important;top:auto !important;background:none;box-shadow:none;overflow:visible',
+                'position_modern' => 'bottom:15px;right:15px;',
+                'border_status_modern' => 'border:2px solid #'.($theme !== false ? $theme->bor_bcolor : 'FFF').';',
+                'shadow_modern' => '0px 0px 17px',
+                'widget_radius_modern' => '-webkit-border-radius:47px;-moz-border-radius47px;border-radius:47px',
+                'mobile_position_status_modern' => ''
 		),
 		'middle_right' => array (
 				'pos' => 'r',

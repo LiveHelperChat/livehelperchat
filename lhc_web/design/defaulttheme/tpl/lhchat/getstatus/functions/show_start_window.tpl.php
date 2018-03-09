@@ -73,6 +73,8 @@ showStartWindow : function(url_to_open,delayShow) {
       <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/functions/part/close_handler.tpl.php')); ?>		
       
       document.getElementById('<?php echo $chatCSSPrefix?>_min').onclick = function() { lhc_obj.min(); return false; };
+      document.getElementById('<?php echo $chatCSSPrefix?>_status-icon-restore').onclick = function() { lhc_obj.min(); return false; };
+
       <?php if (erLhcoreClassModelChatConfig::fetch('disable_popup_restore')->current_value == 0 && ($theme === false || $theme->hide_popup == 0)) : ?>
       document.getElementById('<?php echo $chatCSSPrefix?>_remote_window').onclick = function() { lhc_obj.openRemoteWindow(); return false; };
 	  <?php endif; ?>
