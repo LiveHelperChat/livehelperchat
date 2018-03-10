@@ -16,35 +16,53 @@ $positionArgument = array (
 				'background_position' => '0',
 				'widget_radius' => '-webkit-border-top-right-radius: 20px;-moz-border-radius-topright: 20px;border-top-right-radius: 20px;',
 				'nh_hor_pos' => 'margin-left:10px;',
-				'nh_tr_pos' => 'left:15px;',
+				'nh_tr_pos' => 'left:18px;',
                 'mobile_position' => 'height:25px !important;right:auto !important;left:0;top:auto !important;bottom:0 !important;',
-                'mobile_position_status' => 'width:auto;padding:0;border-radius:0px;bottom:50px;left:5px;right:auto;top:auto;'
+                'mobile_position_status' => 'width:auto;padding:0;border-radius:0px;bottom:50px;left:5px;right:auto;top:auto;',
+
+                'widget_hover_modern' => '',
+                'nh_hor_pos_modern' => 'margin-left:-5px;',
+                'mobile_position_modern' => 'bottom:15px!important;left:15px!important;right:auto !important;top:auto !important;background:none;box-shadow:none;overflow:visible',
+                'position_modern' => 'left:15px;bottom:15px;',
+                'border_status_modern' => 'border:2px solid #'.($theme !== false ? $theme->bor_bcolor : 'FFF').';',
+                'shadow_modern' => '0px 0px 17px',
+                'widget_radius_modern' => '-webkit-border-radius:47px;-moz-border-radius47px;border-radius:47px',
+                'mobile_position_status_modern' => ''
 		),
 		'bottom_right' => array (
-				'pos' => 'r',
-				'posv' => 'b',
-				'radius' => 'left',
-				'position' => 'bottom:0;right:0;',
-				'position_body' => 'bottom:0;right:0;',
-				'shadow' => '-1px -1px 5px',
-				'moz_radius' => 'topleft',
-				'widget_hover' => '',
-				'padding_text' => '10px 10px 10px 35px',
-				'background_position' => 'left',
-				'chrome_radius' => 'top-left',
-				'border_widget' => 'border:1px solid #'.($theme !== false ? $theme->bor_bcolor : 'e3e3e3').';border-right:0;border-bottom:0;',
-				'widget_radius' => '-webkit-border-top-left-radius: 20px;-moz-border-radius-topleft: 20px;border-top-left-radius: 20px;',
-				'nh_hor_pos' => 'margin-left:-80px;',
-				'nh_tr_pos' => 'right:15px;',
-                'mobile_position' => 'height:25px !important;left:auto !important;right:0;top:auto !important;bottom:0 !important;',
-                'mobile_position_status' => 'width:auto;padding:0;border-radius:0px;bottom:50px;right:5px;left:auto;top:auto;'
+                'pos' => 'r',
+                'posv' => 'b',
+                'radius' => 'left',
+                'position' => 'bottom:0;right:0;',
+                'position_body' => 'bottom:0;right:0;',
+                'shadow' => '-1px -1px 5px',
+                'moz_radius' => 'topleft',
+                'widget_hover' => '',
+                'padding_text' => '10px 10px 10px 35px',
+                'background_position' => 'left',
+                'chrome_radius' => 'top-left',
+                'border_widget' => 'border:1px solid #'.($theme !== false ? $theme->bor_bcolor : 'e3e3e3').';border-right:0;border-bottom:0;',
+                'widget_radius' => '-webkit-border-top-left-radius: 20px;-moz-border-radius-topleft: 20px;border-top-left-radius: 20px;',
+                'nh_hor_pos' => 'margin-left:-80px;',
+                'nh_tr_pos' => 'right:20px;',
+                'mobile_position' => 'height:25px !important;left:auto !important;right:0;top:auto !important;bottom:0 !important;', // Classic style
+                'mobile_position_status' => 'width:auto;padding:0;border-radius:0px;bottom:50px;right:5px;left:auto;top:auto;', // Classic style
+
+                'widget_hover_modern' => '',
+                'nh_hor_pos_modern' => 'margin-left:-200px;',
+                'mobile_position_modern' => 'bottom:12px!important;right:15px!important;left:auto !important;top:auto !important;background:none;box-shadow:none;overflow:visible',
+                'position_modern' => 'bottom:15px;right:15px;',
+                'border_status_modern' => 'border:2px solid #'.($theme !== false ? $theme->bor_bcolor : 'FFF').';',
+                'shadow_modern' => '0px 0px 17px',
+                'widget_radius_modern' => '-webkit-border-radius:47px;-moz-border-radius47px;border-radius:47px',
+                'mobile_position_status_modern' => ''
 		),
 		'middle_right' => array (
 				'pos' => 'r',
 				'posv' => 't',
 				'radius' => 'left',
-				'position' => "top:{$top_pos}{$units};right:-155px;",
-				'position_body' => "top:{$top_pos}{$units};right:0px;",
+				'position' => "top:" . $top_pos . $units . ";right:-155px;",
+				'position_body' => "top::" . $top_pos . $units . ";right:0px;",
 				'shadow' => '1px -1px 5px',
 				'border_widget' => 'border:1px solid #'.($theme !== false ? $theme->bor_bcolor : 'e3e3e3').';border-right:0;',
 				'widget_hover' => 'right:0;transition: 1s;',
@@ -54,9 +72,18 @@ $positionArgument = array (
 				'chrome_radius' => 'top-left',
 				'widget_radius' => '-webkit-border-top-left-radius: 20px;-moz-border-radius-topleft: 20px;border-top-left-radius: 20px;      -webkit-border-bottom-left-radius: 20px;-moz-border-radius-bottomleft: 20px;border-bottom-left-radius: 20px;',
 				'nh_hor_pos' => 'margin-left:-230px;',
-				'nh_tr_pos' => 'right:15px;',
+				'nh_tr_pos' => 'right:18px;',
                 'mobile_position' => 'height:25px !important;left:auto !important;right:0;top:auto !important;bottom:0 !important;',
-                'mobile_position_status' => 'width:auto;padding:0;border-radius:0px;bottom:50px;right:5px;left:auto;top:auto;'
+                'mobile_position_status' => 'width:auto;padding:0;border-radius:0px;bottom:50px;right:5px;left:auto;top:auto;',
+
+                'widget_hover_modern' => '',
+                'nh_hor_pos_modern' => 'margin-left:-200px;',
+                'mobile_position_modern' => "top:{$top_pos}{$units}!important;right:15px!important;left:auto !important;bottom:auto !important;background:none;box-shadow:none;overflow:visible",
+                'position_modern' => "top:{$top_pos}{$units};right:15px;",
+                'border_status_modern' => 'border:2px solid #'.($theme !== false ? $theme->bor_bcolor : 'FFF').';',
+                'shadow_modern' => '0px 0px 17px',
+                'widget_radius_modern' => '-webkit-border-radius:47px;-moz-border-radius47px;border-radius:47px',
+                'mobile_position_status_modern' => ''
 		),
 		'middle_left' => array (
 				'radius' => 'left',
@@ -73,9 +100,19 @@ $positionArgument = array (
 				'chrome_radius' => 'top-right',
 				'widget_radius' => '-webkit-border-top-right-radius: 20px;-moz-border-radius-topright: 20px;border-top-right-radius: 20px;      -webkit-border-bottom-right-radius: 20px;-moz-border-radius-bottomright: 20px;border-bottom-right-radius: 20px;',
 				'nh_hor_pos' => 'margin-left:160px;',
-				'nh_tr_pos' => '',
+				'nh_tr_pos' => 'left:18px;',
                 'mobile_position' => 'height:25px !important;right:auto !important;left:0;top:auto !important;bottom:0 !important;',
-                'mobile_position_status' => 'width:auto;padding:0;border-radius:0px;bottom:50px;left:5px;right:auto;top:auto;'
+                'mobile_position_status' => 'width:auto;padding:0;border-radius:0px;bottom:50px;left:5px;right:auto;top:auto;',
+
+
+                'widget_hover_modern' => '',
+                'nh_hor_pos_modern' => 'margin-left:20px;',
+                'mobile_position_modern' => "top:{$top_pos}{$units}!important;left:15px!important;right:auto !important;bottom:auto !important;background:none;box-shadow:none;overflow:visible",
+                'position_modern' => "top:{$top_pos}{$units};left:15px;",
+                'border_status_modern' => 'border:2px solid #'.($theme !== false ? $theme->bor_bcolor : 'FFF').';',
+                'shadow_modern' => '0px 0px 17px',
+                'widget_radius_modern' => '-webkit-border-radius:47px;-moz-border-radius47px;border-radius:47px',
+                'mobile_position_status_modern' => ''
 		),
 		'full_height_right' => array (
 			'full_height' => true,
@@ -95,7 +132,17 @@ $positionArgument = array (
 			'nh_hor_pos' => 'margin-left:-80px;',
 			'nh_tr_pos' => 'right:15px;',
             'mobile_position' => 'height:25px !important;left:auto !important;right:0;top:auto !important;bottom:0 !important;',
-            'mobile_position_status' => 'width:auto;padding:0;border-radius:0px;bottom:50px;right:5px;left:auto;top:auto;'
+            'mobile_position_status' => 'width:auto;padding:0;border-radius:0px;bottom:50px;right:5px;left:auto;top:auto;',
+
+
+            'widget_hover_modern' => '',
+            'nh_hor_pos_modern' => 'margin-left:-200px;',
+            'mobile_position_modern' => 'bottom:15px!important;right:15px!important;left:auto !important;top:auto !important;background:none;box-shadow:none;overflow:visible',
+            'position_modern' => 'bottom:15px;right:15px;',
+            'border_status_modern' => 'border:2px solid #'.($theme !== false ? $theme->bor_bcolor : 'FFF').';',
+            'shadow_modern' => '0px 0px 17px',
+            'widget_radius_modern' => '-webkit-border-radius:47px;-moz-border-radius47px;border-radius:47px',
+            'mobile_position_status_modern' => ''
 		),
 		'full_height_left' => array (
 			'full_height' => true,
@@ -115,7 +162,16 @@ $positionArgument = array (
 			'nh_hor_pos' => 'margin-left:10px;',
 			'nh_tr_pos' => 'left:15px;',
             'mobile_position' => 'height:25px !important;right:auto !important;left:0;top:auto !important;bottom:0 !important;',
-            'mobile_position_status' => 'width:auto;padding:0;border-radius:0px;bottom:50px;left:5px;right:auto;top:auto;'
+            'mobile_position_status' => 'width:auto;padding:0;border-radius:0px;bottom:50px;left:5px;right:auto;top:auto;',
+
+            'widget_hover_modern' => '',
+            'nh_hor_pos_modern' => 'margin-left:-200px;',
+            'mobile_position_modern' => 'bottom:15px!important;right:15px!important;left:auto !important;top:auto !important;background:none;box-shadow:none;overflow:visible',
+            'position_modern' => 'bottom:15px;right:15px;',
+            'border_status_modern' => 'border:2px solid #'.($theme !== false ? $theme->bor_bcolor : 'FFF').';',
+            'shadow_modern' => '0px 0px 17px',
+            'widget_radius_modern' => '-webkit-border-radius:47px;-moz-border-radius47px;border-radius:47px',
+            'mobile_position_status_modern' => ''
 		),
 );
 

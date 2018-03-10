@@ -2,6 +2,26 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Hur många dagar som röstwidgeten inte ska expanderas efter senaste visningen</translation>
     </message>
@@ -44,6 +64,10 @@
     <message>
       <source>How many days keep records of online users.</source>
       <translation>Hur många dagar att spara statistik över onlinebesökare.</translation>
+    </message>
+    <message>
+      <source>How many days keep records of users footprint.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Suggest user to leave a message then user chooses offline department</source>
@@ -120,6 +144,10 @@
     <message>
       <source>On chat close exit chat</source>
       <translation>Om chatten stängs, lämna chatten</translation>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source/>
@@ -228,6 +256,10 @@
     <message>
       <source>Your company name - visible in bottom left corner</source>
       <translation>Ditt företagsnamn - synligt i nedre vänstra hörnet</translation>
+    </message>
+    <message>
+      <source>Cleanup should should be done only using cronjob.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Interval between chat status checks in seconds, 0 disabled.</source>
@@ -480,6 +512,14 @@
     <message>
       <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
       <translation>Timeout för &quot;behöver du hjälp?&quot; verktygstips, efter hur många timmar ska meddelandet visas igen?</translation>
+    </message>
+    <message>
+      <source>After how many seconds after page load show need help tooltip?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>After how many seconds after page load show status widget</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Show need help tooltip?</source>
@@ -992,6 +1032,10 @@
   <context>
     <name>chat/lists/search_panel</name>
     <message>
+      <source>Select operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Select event</source>
       <translation type="unfinished"/>
     </message>
@@ -1160,15 +1204,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Select operator</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>User group</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Department group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Exclude offline request from charts.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show only offline request</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1254,6 +1302,14 @@
     <message>
       <source>Optional</source>
       <translation>Valfri</translation>
+    </message>
+    <message>
+      <source>XML</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>JSON</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Username</source>
@@ -1497,6 +1553,10 @@
     </message>
     <message>
       <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator. Visitor will see this operator nick.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2038,6 +2098,10 @@
   </context>
   <context>
     <name>chat/chat</name>
+    <message>
+      <source>Last visitor message time</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Show/Hide right column</source>
       <translation>Visa/Dölj höger kolumn</translation>
@@ -2793,6 +2857,10 @@
       <translation>Kunde inte dekryptera datan!</translation>
     </message>
     <message>
+      <source>Visitor</source>
+      <translation>Besökare</translation>
+    </message>
+    <message>
       <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
       <translation>Din förfrågan behandlades inte som förväntat - men oroa dig inte, det var inte ditt fel. Var vänlig skicka din förfrågan igen. Om du upplever samma fel så är du välkommen att kontakta oss.</translation>
     </message>
@@ -2801,8 +2869,8 @@
       <translation>Var vänlig skriv ett meddelande, max tecken</translation>
     </message>
     <message>
-      <source>Visitor</source>
-      <translation>Besökare</translation>
+      <source>You cannot send messages to this chat. Please refresh your browser.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Pending Chat</source>
@@ -3211,16 +3279,36 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Operator</source>
+      <translation>Operatör</translation>
+    </message>
+    <message>
+      <source>Sort by online status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last activity ago</source>
+      <translation>Senaste aktivitet</translation>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Aktiva chattar</translation>
+    </message>
+    <message>
+      <source>Sort by active chats number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Avdelning</translation>
+    </message>
+    <message>
       <source>Sort</source>
       <translation>Sortera</translation>
     </message>
     <message>
       <source>Wait time</source>
       <translation>Väntetid</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Avdelning</translation>
     </message>
     <message>
       <source>Delete chat</source>
@@ -3235,31 +3323,11 @@
       <translation>Är du säker?</translation>
     </message>
     <message>
-      <source>Operator</source>
-      <translation>Operatör</translation>
-    </message>
-    <message>
       <source>Pending chats</source>
       <translation>Väntande chattar</translation>
     </message>
     <message>
-      <source>Active chats</source>
-      <translation>Aktiva chattar</translation>
-    </message>
-    <message>
       <source>Status</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Sort by online status</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Last activity ago</source>
-      <translation>Senaste aktivitet</translation>
-    </message>
-    <message>
-      <source>Sort by active chats number</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4554,6 +4622,10 @@
       <translation>Underhåll</translation>
     </message>
     <message>
+      <source>Offline settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Paid chat configuration</source>
       <translation>Konfiguration för betald chatt</translation>
     </message>
@@ -4985,8 +5057,24 @@
       <translation>Göm inaktiverade</translation>
     </message>
     <message>
+      <source>Department group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department</source>
       <translation>Avdelning</translation>
+    </message>
+    <message>
+      <source>Users</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Number of elements in list</source>
@@ -5858,6 +5946,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat status will not change upon pending chat opening</source>
       <translation>Chattens status kommer inte ändras vid öppning av chatt i vänteläge</translation>
     </message>
@@ -5917,6 +6009,10 @@
       <translation>Vidarebefodra till en avdelning</translation>
     </message>
     <message>
+      <source>Change owner</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Logged in users</source>
       <translation>Inloggade användare</translation>
     </message>
@@ -5926,6 +6022,10 @@
     </message>
     <message>
       <source>Only logged and online operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only operators from same departments</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7716,8 +7816,16 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Survey</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department name</source>
       <translation>Namn på avdelningen</translation>
+    </message>
+    <message>
+      <source>Survey ID</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -7892,6 +8000,10 @@
   <context>
     <name>system/smtp</name>
     <message>
+      <source>Settings updated</source>
+      <translation>Inställningar uppdaterade</translation>
+    </message>
+    <message>
       <source>Mail settings</source>
       <translation>E-postinställningar</translation>
     </message>
@@ -7928,16 +8040,20 @@
       <translation>Port</translation>
     </message>
     <message>
-      <source>Settings updated</source>
-      <translation>Inställningar uppdaterade</translation>
-    </message>
-    <message>
       <source>Transfer configuration</source>
       <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>system/timezone</name>
+    <message>
+      <source>Do not save offline chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatically change offline chat status to closed</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Time zone settings</source>
       <translation>Inställningar för tidszon</translation>
@@ -8080,6 +8196,10 @@
   <context>
     <name>user/new</name>
     <message>
+      <source>Do not show user status as online</source>
+      <translation>Visa inte användarstatus som tillgänglig</translation>
+    </message>
+    <message>
       <source>Change chat department to transferred department on chat transfer</source>
       <translation type="unfinished"/>
     </message>
@@ -8096,8 +8216,8 @@
       <translation>Jag mottager andra operatörers behörighetsförfrågan</translation>
     </message>
     <message>
-      <source>Do not show user status as online</source>
-      <translation>Visa inte användarstatus som tillgänglig</translation>
+      <source>Offline</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Invisible mode</source>
@@ -8624,6 +8744,10 @@
     <message>
       <source>Password reminder</source>
       <translation>Glömt lösenord</translation>
+    </message>
+    <message>
+      <source>You session has ended. Please login!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You were logged out because another user logged under same account</source>
@@ -9282,6 +9406,21 @@
     <name>statistic/onlinehours</name>
     <message>
       <source>Online Hours</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>system/offlinesettings</name>
+    <message>
+      <source>Offline settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline chat request won&apos;t be saved.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Then offline chat is registered it&apos;s status will be changed to closed chat.</source>
       <translation type="unfinished"/>
     </message>
   </context>

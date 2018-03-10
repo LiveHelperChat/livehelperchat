@@ -2,6 +2,26 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Hoeveel dagen moet de stemwidget verborgen blijven na de laatste weergave?</translation>
     </message>
@@ -44,6 +64,10 @@
     <message>
       <source>How many days keep records of online users.</source>
       <translation>Hoeveel dagen wilt u de gegevens van online bezoekers bewaren?</translation>
+    </message>
+    <message>
+      <source>How many days keep records of users footprint.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Suggest user to leave a message then user chooses offline department</source>
@@ -120,6 +144,10 @@
     <message>
       <source>On chat close exit chat</source>
       <translation>Bij het sluiten van het chatscherm, chat beëindigen.</translation>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source/>
@@ -228,6 +256,10 @@
     <message>
       <source>Your company name - visible in bottom left corner</source>
       <translation>Naam van uw bedrijf - zichtbaar in de linker onder hoek</translation>
+    </message>
+    <message>
+      <source>Cleanup should should be done only using cronjob.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Interval between chat status checks in seconds, 0 disabled.</source>
@@ -479,6 +511,14 @@
     </message>
     <message>
       <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>After how many seconds after page load show need help tooltip?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>After how many seconds after page load show status widget</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -992,6 +1032,10 @@
   <context>
     <name>chat/lists/search_panel</name>
     <message>
+      <source>Select operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Select event</source>
       <translation type="unfinished"/>
     </message>
@@ -1160,15 +1204,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Select operator</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>User group</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Department group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Exclude offline request from charts.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show only offline request</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1254,6 +1302,14 @@
     <message>
       <source>Optional</source>
       <translation>Optioneel</translation>
+    </message>
+    <message>
+      <source>XML</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>JSON</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Username</source>
@@ -1497,6 +1553,10 @@
     </message>
     <message>
       <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator. Visitor will see this operator nick.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2038,6 +2098,10 @@
   </context>
   <context>
     <name>chat/chat</name>
+    <message>
+      <source>Last visitor message time</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Show/Hide right column</source>
       <translation>Toon/verberg rechterkolom</translation>
@@ -2793,6 +2857,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Visitor</source>
+      <translation>Bezoeker</translation>
+    </message>
+    <message>
       <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
       <translation>Uw aanvraag is niet succesvol behandeld, geen zorgen dit was een probleem vanuit ons. Probeer het alstublieft opnieuw. Mocht het nog niet lukken kunt u contact opnemen via een andere manier.</translation>
     </message>
@@ -2801,8 +2869,8 @@
       <translation>Voer s.v.p. een bericht in, maximaal aantal tekens</translation>
     </message>
     <message>
-      <source>Visitor</source>
-      <translation>Bezoeker</translation>
+      <source>You cannot send messages to this chat. Please refresh your browser.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Pending Chat</source>
@@ -3211,16 +3279,36 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Operator</source>
+      <translation>Operator</translation>
+    </message>
+    <message>
+      <source>Sort by online status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last activity ago</source>
+      <translation>Laatste activiteit</translation>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Actieve chats</translation>
+    </message>
+    <message>
+      <source>Sort by active chats number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Afdeling</translation>
+    </message>
+    <message>
       <source>Sort</source>
       <translation>Sorteer</translation>
     </message>
     <message>
       <source>Wait time</source>
       <translation>Wachttijd</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Afdeling</translation>
     </message>
     <message>
       <source>Delete chat</source>
@@ -3235,31 +3323,11 @@
       <translation>Weet u het zeker?</translation>
     </message>
     <message>
-      <source>Operator</source>
-      <translation>Operator</translation>
-    </message>
-    <message>
       <source>Pending chats</source>
       <translation>Wachtende chats</translation>
     </message>
     <message>
-      <source>Active chats</source>
-      <translation>Actieve chats</translation>
-    </message>
-    <message>
       <source>Status</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Sort by online status</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Last activity ago</source>
-      <translation>Laatste activiteit</translation>
-    </message>
-    <message>
-      <source>Sort by active chats number</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4555,6 +4623,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Onderhoud</translation>
     </message>
     <message>
+      <source>Offline settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Paid chat configuration</source>
       <translation type="unfinished"/>
     </message>
@@ -4986,8 +5058,24 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Verberg uitgeschakelde</translation>
     </message>
     <message>
+      <source>Department group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department</source>
       <translation>Afdeling</translation>
+    </message>
+    <message>
+      <source>Users</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Number of elements in list</source>
@@ -5859,6 +5947,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat status will not change upon pending chat opening</source>
       <translation>Chat status zal niet veranderen wanneer een chat opent</translation>
     </message>
@@ -5918,6 +6010,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Schakel door naar een afdeling</translation>
     </message>
     <message>
+      <source>Change owner</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Logged in users</source>
       <translation>Opgeslagen in gebruikers</translation>
     </message>
@@ -5927,6 +6023,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Only logged and online operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only operators from same departments</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7717,8 +7817,16 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Survey</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department name</source>
       <translation>Afdelingsnaam</translation>
+    </message>
+    <message>
+      <source>Survey ID</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -7893,6 +8001,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
   <context>
     <name>system/smtp</name>
     <message>
+      <source>Settings updated</source>
+      <translation>Instellingen opgeslagen</translation>
+    </message>
+    <message>
       <source>Mail settings</source>
       <translation>Mail instellingen</translation>
     </message>
@@ -7929,16 +8041,20 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Poort</translation>
     </message>
     <message>
-      <source>Settings updated</source>
-      <translation>Instellingen opgeslagen</translation>
-    </message>
-    <message>
       <source>Transfer configuration</source>
       <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>system/timezone</name>
+    <message>
+      <source>Do not save offline chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatically change offline chat status to closed</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Time zone settings</source>
       <translation>Tijdszone instellingen</translation>
@@ -8081,6 +8197,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
   <context>
     <name>user/new</name>
     <message>
+      <source>Do not show user status as online</source>
+      <translation>Laat niet zien als gebruiker online is</translation>
+    </message>
+    <message>
       <source>Change chat department to transferred department on chat transfer</source>
       <translation type="unfinished"/>
     </message>
@@ -8097,8 +8217,8 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Ik ontvang permissie aanvragen van andere operators</translation>
     </message>
     <message>
-      <source>Do not show user status as online</source>
-      <translation>Laat niet zien als gebruiker online is</translation>
+      <source>Offline</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Invisible mode</source>
@@ -8625,6 +8745,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Password reminder</source>
       <translation>Wachtwoord herinnering</translation>
+    </message>
+    <message>
+      <source>You session has ended. Please login!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You were logged out because another user logged under same account</source>
@@ -9283,6 +9407,21 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <name>statistic/onlinehours</name>
     <message>
       <source>Online Hours</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>system/offlinesettings</name>
+    <message>
+      <source>Offline settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline chat request won&apos;t be saved.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Then offline chat is registered it&apos;s status will be changed to closed chat.</source>
       <translation type="unfinished"/>
     </message>
   </context>

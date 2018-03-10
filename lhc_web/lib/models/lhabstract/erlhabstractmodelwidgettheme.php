@@ -65,7 +65,8 @@ class erLhAbstractModelWidgetTheme {
 			'noonline_operators_offline'=> $this->noonline_operators_offline,
 			'show_need_help'            => $this->show_need_help,
 			'show_need_help_timeout'    => $this->show_need_help_timeout,
-		    
+			'modern_look'               => $this->modern_look,
+
 			'show_voting'               => $this->show_voting,
 			'department_title'          => $this->department_title,
 			'department_select'         => $this->department_select,
@@ -433,7 +434,7 @@ class erLhAbstractModelWidgetTheme {
 	
    	public $id = null;
 	public $name = '';
-	public $onl_bcolor = 'f6f6f6';
+	public $onl_bcolor = '0c8fc4';
 	public $text_color = '000000';
 	public $bor_bcolor = 'e3e3e3';
 	public $online_image = '';
@@ -494,6 +495,7 @@ class erLhAbstractModelWidgetTheme {
 	public $noonline_operators_offline = '';
 	
 	public $show_voting = 1;
+	public $modern_look = 1;
 	public $department_title = '';
 	public $department_select = '';
 

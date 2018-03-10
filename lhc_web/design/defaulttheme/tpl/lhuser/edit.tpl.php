@@ -20,7 +20,7 @@
 
 </ul>
 
-<div class="tab-content">
+<div class="tab-content" ng-controller="LHCAccountValidator as accval">
 	<div role="tabpanel" class="tab-pane <?php if ($tab == '') : ?>active<?php endif;?>" id="account">
 
 	   <?php include(erLhcoreClassDesign::designtpl('lhuser/account/above_account_edit_multiinclude.tpl.php'));?>
@@ -33,7 +33,7 @@
 	        <?php include(erLhcoreClassDesign::designtpl('lhuser/account/above_new_account_form_multiinclude.tpl.php'));?>
 	        
 	        <div class="form-group">
-    		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Username');?></label>
+    		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Username');?>*</label>
     		  <input <?php if ($can_edit_groups === false) : ?>disabled="disabled"<?php endif;?> class="form-control" type="text" name="Username" value="<?php echo htmlspecialchars($user->username);?>" />
     		</div>
     		
@@ -115,28 +115,53 @@
     		<?php endif;?>
     		
     		<?php if ($can_edit_groups === true) : ?>
-    		<div class="form-group">
-        		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','User group')?></label>
-        		<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
-                        'input_name'     => 'DefaultGroup[]',
-                        'selected_id'    => $user->user_groups_id,
-    					'multiple' 		 => true,
-        		        'css_class'       => 'form-control',
-                        'list_function'  => 'erLhcoreClassModelGroup::getList',
-                        'list_function_params'  => $user_groups_filter
+
+            <?php $user_groups_filter['filter']['required'] = 0; if (erLhcoreClassModelGroup::getcount($user_groups_filter) > 0) : ?>
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','User group')?></label>
+            <div class="row">
+                <?php echo erLhcoreClassRenderHelper::renderCheckbox( array (
+                    'input_name'     => 'DefaultGroup[]',
+                    'selected_id'    => $user->user_groups_id,
+                    'multiple' 		 => true,
+                    'css_class'      => 'form-control',
+                    'wrap_prepend'   => '<div class="col-xs-3">',
+                    'wrap_append'    => '</div>',
+                    'list_function'  => 'erLhcoreClassModelGroup::getList',
+                    'list_function_params'  => $user_groups_filter
                 )); ?>
-    		</div>
-    		
-    		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Disabled')?>&nbsp;<input type="checkbox" value="on" name="UserDisabled" <?php echo $user->disabled == 1 ? 'checked="checked"' : '' ?> /></label><br>
+            </div>
+            <?php endif; ?>
+
+            <?php $user_groups_filter['filter']['required'] = 1; $groupsRequired = erLhcoreClassModelGroup::getList($user_groups_filter); if (!empty($groupsRequired)) : ?>
+                     <br/>
+                    <label ng-class="{'chat-closed' : !accval.validRequiredGroups}"><i ng-if="!accval.validRequiredGroups" class="material-icons chat-closed">error</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Required groups, choose one or more')?>*</label>
+                    <div class="row" ng-init='accval.requiredGroups = <?php $obj = new stdClass(); foreach ($user->user_groups_id as $userGroupId) {if (isset($groupsRequired[$userGroupId])) { $obj->{$userGroupId} = true; }}; echo json_encode($obj)?>;accval.validateGroups()'>
+                        <?php echo erLhcoreClassRenderHelper::renderCheckbox( array (
+                            'input_name'     => 'DefaultGroup[]',
+                            'selected_id'    => $user->user_groups_id,
+                            'multiple' 		 => true,
+                            'css_class'      => 'form-control',
+                            'wrap_prepend'   => '<div class="col-xs-3">',
+                            'wrap_append'    => '</div>',
+                            'ng_change'      => 'accval.validateGroups()',
+                            'ng_model'      => 'accval.requiredGroups[$id]',
+                            'list_function'  => 'erLhcoreClassModelGroup::getList',
+                            'list_function_params'  => $user_groups_filter
+                        )); ?>
+                    </div>
+            <?php endif; ?>
+
+            <hr>
+    		<label><input type="checkbox" value="on" name="UserDisabled" <?php echo $user->disabled == 1 ? 'checked="checked"' : '' ?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Disabled')?></label><br>
     		<?php endif; ?>
     		    		    		
     		<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
     		
     		<?php include(erLhcoreClassDesign::designtpl('lhuser/account/below_account_edit_multiinclude.tpl.php'));?>
-    		
+
     		<div class="btn-group" role="group" aria-label="...">
-        		<input type="submit" class="btn btn-default" name="Save_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Save');?>"/>
-    		    <input type="submit" class="btn btn-default" name="Update_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Update');?>"/>
+        		<input type="submit" class="btn btn-default" ng-disabled="!accval.validForm" name="Save_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Save');?>"/>
+    		    <input type="submit" class="btn btn-default" ng-disabled="!accval.validForm" name="Update_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Update');?>"/>
     		    <input type="submit" class="btn btn-default" name="Cancel_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Cancel');?>"/>
         	</div>	
 	

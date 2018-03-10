@@ -2748,6 +2748,14 @@
                 "extra": ""
             },
             {
+                "field": "modern_look",
+                "type": "tinyint(1)",
+                "null": "NO",
+                "key": "",
+                "default": "0",
+                "extra": ""
+            },
+            {
                 "field": "hide_close",
                 "type": "int(11)",
                 "null": "NO",
@@ -5389,10 +5397,18 @@
             },
             {
                 "field": "disabled",
-                "type": "int(11)",
+                "type": "tinyint(1)",
                 "null": "NO",
                 "key": "",
                 "default": null,
+                "extra": ""
+            },
+            {
+                "field": "required",
+                "type": "tinyint(1)",
+                "null": "NO",
+                "key": "",
+                "default": "0",
                 "extra": ""
             },
             {

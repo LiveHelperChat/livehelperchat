@@ -78,10 +78,16 @@ class erLhcoreClassRenderHelper {
     {
         $output  = '';
 
+        $prepend = isset($params['wrap_prepend']) ? $params['wrap_prepend'] : null;
+        $append = isset($params['wrap_append']) ? $params['wrap_append'] : null;
+        $ngChange = isset($params['ng_change']) ? 'ng-change="'.$params['ng_change'].'"' : null;
+        $ngModel = isset($params['ng_model']) ? 'ng-model="'.$params['ng_model'].'"' : null;
+
         foreach (call_user_func($params['list_function'],isset($params['list_function_params']) ? $params['list_function_params'] : array()) as $item)
         {
+            $ngModelReplace = str_replace('$id', $item->id, $ngModel);
             $checked = in_array($item->id,$params['selected_id']) ? 'checked="checked"' : '';
-            $output .= "<label><input type=\"checkbox\" name=\"{$params['input_name']}\" value=\"{$item->id}\" {$checked} />".htmlspecialchars($item->name)."</label>";
+            $output .= "{$prepend}<label class=\"control-label\"><input type=\"checkbox\" {$ngModelReplace} {$ngChange} name=\"{$params['input_name']}\" value=\"{$item->id}\" {$checked} />".htmlspecialchars($item->name)."</label>{$append}";
         }
 
         return $output;

@@ -2,6 +2,26 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>多少天投票窗口小部件不应扩大后最后的展示</translation>
     </message>
@@ -44,6 +64,10 @@
     <message>
       <source>How many days keep records of online users.</source>
       <translation>保持在线用户记录的天数</translation>
+    </message>
+    <message>
+      <source>How many days keep records of users footprint.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Suggest user to leave a message then user chooses offline department</source>
@@ -119,6 +143,10 @@
     </message>
     <message>
       <source>On chat close exit chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -228,6 +256,10 @@
     <message>
       <source>Your company name - visible in bottom left corner</source>
       <translation>您的公司名称-在左下角可见</translation>
+    </message>
+    <message>
+      <source>Cleanup should should be done only using cronjob.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Interval between chat status checks in seconds, 0 disabled.</source>
@@ -479,6 +511,14 @@
     </message>
     <message>
       <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>After how many seconds after page load show need help tooltip?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>After how many seconds after page load show status widget</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -992,6 +1032,10 @@
   <context>
     <name>chat/lists/search_panel</name>
     <message>
+      <source>Select operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Select event</source>
       <translation type="unfinished"/>
     </message>
@@ -1160,15 +1204,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Select operator</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>User group</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Department group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Exclude offline request from charts.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show only offline request</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1253,6 +1301,14 @@
     </message>
     <message>
       <source>Optional</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XML</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>JSON</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1497,6 +1553,10 @@
     </message>
     <message>
       <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator. Visitor will see this operator nick.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2038,6 +2098,10 @@
   </context>
   <context>
     <name>chat/chat</name>
+    <message>
+      <source>Last visitor message time</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Show/Hide right column</source>
       <translation>顯示/​​隱藏右列</translation>
@@ -2793,6 +2857,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Visitor</source>
+      <translation>游客</translation>
+    </message>
+    <message>
       <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
       <translation type="unfinished"/>
     </message>
@@ -2801,8 +2869,8 @@
       <translation>请输入一条消息，最大字符</translation>
     </message>
     <message>
-      <source>Visitor</source>
-      <translation>游客</translation>
+      <source>You cannot send messages to this chat. Please refresh your browser.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Pending Chat</source>
@@ -3211,15 +3279,35 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sort by online status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last activity ago</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sort by active chats number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Sort</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Wait time</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Department</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3235,31 +3323,11 @@
       <translation>是否确定？</translation>
     </message>
     <message>
-      <source>Operator</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Pending chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Active chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Status</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Sort by online status</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Last activity ago</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Sort by active chats number</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4554,6 +4622,10 @@
       <translation>维护</translation>
     </message>
     <message>
+      <source>Offline settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Paid chat configuration</source>
       <translation type="unfinished"/>
     </message>
@@ -4985,7 +5057,23 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Department group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Users</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5858,6 +5946,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat status will not change upon pending chat opening</source>
       <translation>聊天状态不会更改时挂起的打开聊天</translation>
     </message>
@@ -5917,6 +6009,10 @@
       <translation>转移到一个部门</translation>
     </message>
     <message>
+      <source>Change owner</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Logged in users</source>
       <translation>在线访客</translation>
     </message>
@@ -5926,6 +6022,10 @@
     </message>
     <message>
       <source>Only logged and online operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only operators from same departments</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7716,7 +7816,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Survey</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Survey ID</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -7892,6 +8000,10 @@
   <context>
     <name>system/smtp</name>
     <message>
+      <source>Settings updated</source>
+      <translation>更新设置</translation>
+    </message>
+    <message>
       <source>Mail settings</source>
       <translation>电邮设置</translation>
     </message>
@@ -7928,16 +8040,20 @@
       <translation>端口</translation>
     </message>
     <message>
-      <source>Settings updated</source>
-      <translation>更新设置</translation>
-    </message>
-    <message>
       <source>Transfer configuration</source>
       <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>system/timezone</name>
+    <message>
+      <source>Do not save offline chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatically change offline chat status to closed</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Time zone settings</source>
       <translation>时区设置</translation>
@@ -8080,6 +8196,10 @@
   <context>
     <name>user/new</name>
     <message>
+      <source>Do not show user status as online</source>
+      <translation>不显示用户在线状态</translation>
+    </message>
+    <message>
       <source>Change chat department to transferred department on chat transfer</source>
       <translation type="unfinished"/>
     </message>
@@ -8096,8 +8216,8 @@
       <translation>我接收其他操作员的权限请求</translation>
     </message>
     <message>
-      <source>Do not show user status as online</source>
-      <translation>不显示用户在线状态</translation>
+      <source>Offline</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Invisible mode</source>
@@ -8624,6 +8744,10 @@
     <message>
       <source>Password reminder</source>
       <translation>密码提醒</translation>
+    </message>
+    <message>
+      <source>You session has ended. Please login!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You were logged out because another user logged under same account</source>
@@ -9282,6 +9406,21 @@
     <name>statistic/onlinehours</name>
     <message>
       <source>Online Hours</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>system/offlinesettings</name>
+    <message>
+      <source>Offline settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline chat request won&apos;t be saved.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Then offline chat is registered it&apos;s status will be changed to closed chat.</source>
       <translation type="unfinished"/>
     </message>
   </context>

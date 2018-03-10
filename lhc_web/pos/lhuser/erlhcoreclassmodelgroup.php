@@ -17,8 +17,12 @@ $def->properties['name']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_S
 $def->properties['disabled'] = new ezcPersistentObjectProperty();
 $def->properties['disabled']->columnName   = 'disabled';
 $def->properties['disabled']->propertyName = 'disabled';
-$def->properties['disabled']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT; 
+$def->properties['disabled']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['required'] = new ezcPersistentObjectProperty();
+$def->properties['required']->columnName   = 'required';
+$def->properties['required']->propertyName = 'required';
+$def->properties['required']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
 return $def; 
 

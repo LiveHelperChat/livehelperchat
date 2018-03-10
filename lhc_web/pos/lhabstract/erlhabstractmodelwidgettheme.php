@@ -257,6 +257,11 @@ $def->properties['header_padding'] = new ezcPersistentObjectProperty();
 $def->properties['header_padding']->columnName   = 'header_padding';
 $def->properties['header_padding']->propertyName = 'header_padding';
 $def->properties['header_padding']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['modern_look'] = new ezcPersistentObjectProperty();
+$def->properties['modern_look']->columnName   = 'modern_look';
+$def->properties['modern_look']->propertyName = 'modern_look';
+$def->properties['modern_look']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
  
 $def->properties['widget_border_width'] = new ezcPersistentObjectProperty();
 $def->properties['widget_border_width']->columnName   = 'widget_border_width';

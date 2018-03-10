@@ -206,11 +206,31 @@ class erLhcoreClassUserValidator {
     		    
     		    if ($params['groups_can_edit'] == true) {
     		        $userData->user_groups_id = $form->DefaultGroup;
+
+    		        $groupsRequired = erLhcoreClassModelGroup::getList(array('filter' => array('required' => 1)));
+
+    		        $diff = array_diff(array_keys($groupsRequired), $userData->user_groups_id);
+
+    		        if (count($diff) == count($groupsRequired)) {
+                        $Errors['group_required'] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','You have to choose one of required groups!');
+                    }
+
     		    } else {
     		        $unknownGroups = array_diff($form->DefaultGroup, $params['groups_can_edit']);
     		        
     		        if (empty($unknownGroups)) {
     		            $userData->user_groups_id = $form->DefaultGroup;
+
+    		            if (!empty($params['groups_can_edit'])) {
+                            $groupsRequired = erLhcoreClassModelGroup::getList(array('filterin' => array('id' => $params['groups_can_edit']), 'filter' => array('required' => 1)));
+
+                            $diff = array_diff(array_keys($groupsRequired), $userData->user_groups_id);
+
+                            if (count($diff) == count($groupsRequired)) {
+                                $Errors['group_required'] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','You have to choose one of required groups!');
+                            }
+    		            }
+
     		        } else {
     		            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','You are trying to assign group which are not known!');
     		        }

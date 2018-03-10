@@ -2,6 +2,26 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Per quanti giorni il widget di voto non deve essere mostrato dopo l&apos;ultima visualizzazione</translation>
     </message>
@@ -44,6 +64,10 @@
     <message>
       <source>How many days keep records of online users.</source>
       <translation>Per quanti giorni mantenere i record degli utenti online</translation>
+    </message>
+    <message>
+      <source>How many days keep records of users footprint.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Suggest user to leave a message then user chooses offline department</source>
@@ -120,6 +144,10 @@
     <message>
       <source>On chat close exit chat</source>
       <translation>Alla chiusura della chat uscire dalla chat</translation>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source/>
@@ -228,6 +256,10 @@
     <message>
       <source>Your company name - visible in bottom left corner</source>
       <translation>Il nome della tua azienda, visibile nell&apos;angolo in basso a sinistra.</translation>
+    </message>
+    <message>
+      <source>Cleanup should should be done only using cronjob.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Interval between chat status checks in seconds, 0 disabled.</source>
@@ -480,6 +512,14 @@
     <message>
       <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
       <translation>Serve aiuto fumetto, dopo quanto mostrarlo ancora, una volta chiuso?</translation>
+    </message>
+    <message>
+      <source>After how many seconds after page load show need help tooltip?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>After how many seconds after page load show status widget</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Show need help tooltip?</source>
@@ -993,6 +1033,10 @@
   <context>
     <name>chat/lists/search_panel</name>
     <message>
+      <source>Select operator</source>
+      <translation>Selezionare operatore</translation>
+    </message>
+    <message>
       <source>Select event</source>
       <translation>Seleziona evento</translation>
     </message>
@@ -1161,16 +1205,20 @@
       <translation>Disabilitato</translation>
     </message>
     <message>
-      <source>Select operator</source>
-      <translation>Selezionare operatore</translation>
-    </message>
-    <message>
       <source>User group</source>
       <translation>Gruppo utente</translation>
     </message>
     <message>
       <source>Department group</source>
       <translation>Gruppo dipartimenti</translation>
+    </message>
+    <message>
+      <source>Exclude offline request from charts.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show only offline request</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Compare to past</source>
@@ -1255,6 +1303,14 @@
     <message>
       <source>Optional</source>
       <translation>Opzionale</translation>
+    </message>
+    <message>
+      <source>XML</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>JSON</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Username</source>
@@ -1499,6 +1555,10 @@
     <message>
       <source>Name</source>
       <translation>Nome</translation>
+    </message>
+    <message>
+      <source>Operator. Visitor will see this operator nick.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Position</source>
@@ -2039,6 +2099,10 @@
   </context>
   <context>
     <name>chat/chat</name>
+    <message>
+      <source>Last visitor message time</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Show/Hide right column</source>
       <translation>Mostra/nascondi colonna destra</translation>
@@ -2794,6 +2858,10 @@
       <translation>Impossibile decrittare i dati!</translation>
     </message>
     <message>
+      <source>Visitor</source>
+      <translation>Visitatore</translation>
+    </message>
+    <message>
       <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
       <translation>La richiesta non è stata elaborata come previsto - ma non ti preoccupare non era colpa tua. Si prega di inviare nuovamente la richiesta. Se si verifica lo stesso problema devi contattarci tramite altri mezzi.</translation>
     </message>
@@ -2802,8 +2870,8 @@
       <translation>Si prega di inserire un messaggio - caratteri massimi</translation>
     </message>
     <message>
-      <source>Visitor</source>
-      <translation>Visitatore</translation>
+      <source>You cannot send messages to this chat. Please refresh your browser.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Pending Chat</source>
@@ -3212,16 +3280,36 @@
       <translation>Ordina per reparto</translation>
     </message>
     <message>
+      <source>Operator</source>
+      <translation>Operatore</translation>
+    </message>
+    <message>
+      <source>Sort by online status</source>
+      <translation>Ordina per stato online</translation>
+    </message>
+    <message>
+      <source>Last activity ago</source>
+      <translation>Ultima attività fa</translation>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Chat attive</translation>
+    </message>
+    <message>
+      <source>Sort by active chats number</source>
+      <translation>Ordina per numero di chat attive</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Dipartimento</translation>
+    </message>
+    <message>
       <source>Sort</source>
       <translation>Ordinare</translation>
     </message>
     <message>
       <source>Wait time</source>
       <translation>Tempo di attesa</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Dipartimento</translation>
     </message>
     <message>
       <source>Delete chat</source>
@@ -3236,32 +3324,12 @@
       <translation>Siete sicuri?</translation>
     </message>
     <message>
-      <source>Operator</source>
-      <translation>Operatore</translation>
-    </message>
-    <message>
       <source>Pending chats</source>
       <translation>Chat in sospeso</translation>
     </message>
     <message>
-      <source>Active chats</source>
-      <translation>Chat attive</translation>
-    </message>
-    <message>
       <source>Status</source>
       <translation>Stato</translation>
-    </message>
-    <message>
-      <source>Sort by online status</source>
-      <translation>Ordina per stato online</translation>
-    </message>
-    <message>
-      <source>Last activity ago</source>
-      <translation>Ultima attività fa</translation>
-    </message>
-    <message>
-      <source>Sort by active chats number</source>
-      <translation>Ordina per numero di chat attive</translation>
     </message>
     <message>
       <source>Created</source>
@@ -4555,6 +4623,10 @@
       <translation>Manutenzione</translation>
     </message>
     <message>
+      <source>Offline settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Paid chat configuration</source>
       <translation>Configurazione chat a pagamento</translation>
     </message>
@@ -4986,8 +5058,24 @@
       <translation>Nascondere disabilitati</translation>
     </message>
     <message>
+      <source>Department group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department</source>
       <translation>Dipartimento</translation>
+    </message>
+    <message>
+      <source>Users</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Number of elements in list</source>
@@ -5859,6 +5947,10 @@
       <translation>Gruppi di reparti / dipartimenti</translation>
     </message>
     <message>
+      <source>Offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat status will not change upon pending chat opening</source>
       <translation>Lo stato della chat non cambierà fino a quando la chat in attesa sarà aperta</translation>
     </message>
@@ -5918,6 +6010,10 @@
       <translation>Trasferisci ad un reparto</translation>
     </message>
     <message>
+      <source>Change owner</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Logged in users</source>
       <translation>Utenti loggati</translation>
     </message>
@@ -5927,6 +6023,10 @@
     </message>
     <message>
       <source>Only logged and online operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only operators from same departments</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7717,8 +7817,16 @@
       <translation>Informazioni collezionate</translation>
     </message>
     <message>
+      <source>Survey</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department name</source>
       <translation>Nome del reparto</translation>
+    </message>
+    <message>
+      <source>Survey ID</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -7893,6 +8001,10 @@
   <context>
     <name>system/smtp</name>
     <message>
+      <source>Settings updated</source>
+      <translation>Impostazioni aggiornate</translation>
+    </message>
+    <message>
       <source>Mail settings</source>
       <translation>Impostazioni di posta</translation>
     </message>
@@ -7929,16 +8041,20 @@
       <translation>Porta</translation>
     </message>
     <message>
-      <source>Settings updated</source>
-      <translation>Impostazioni aggiornate</translation>
-    </message>
-    <message>
       <source>Transfer configuration</source>
       <translation>Configurazione trasferimento</translation>
     </message>
   </context>
   <context>
     <name>system/timezone</name>
+    <message>
+      <source>Do not save offline chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatically change offline chat status to closed</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Time zone settings</source>
       <translation>Impostazioni di fuso orario</translation>
@@ -8081,6 +8197,10 @@
   <context>
     <name>user/new</name>
     <message>
+      <source>Do not show user status as online</source>
+      <translation>Non mostrare lo stato dell&apos;utente come in linea</translation>
+    </message>
+    <message>
       <source>Change chat department to transferred department on chat transfer</source>
       <translation>Cambia il dipartimento della chat con il dipartimento della chat trasferita</translation>
     </message>
@@ -8097,8 +8217,8 @@
       <translation>Ricevo le richieste di permessi di altri operatori</translation>
     </message>
     <message>
-      <source>Do not show user status as online</source>
-      <translation>Non mostrare lo stato dell&apos;utente come in linea</translation>
+      <source>Offline</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Invisible mode</source>
@@ -8625,6 +8745,10 @@
     <message>
       <source>Password reminder</source>
       <translation>Ricorda password</translation>
+    </message>
+    <message>
+      <source>You session has ended. Please login!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You were logged out because another user logged under same account</source>
@@ -9284,6 +9408,21 @@
     <message>
       <source>Online Hours</source>
       <translation>Orario della chat online</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/offlinesettings</name>
+    <message>
+      <source>Offline settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline chat request won&apos;t be saved.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Then offline chat is registered it&apos;s status will be changed to closed chat.</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

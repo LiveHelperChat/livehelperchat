@@ -487,6 +487,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                  `hide_close` int(11) NOT NULL,
                  `show_need_help_delay` int(11) NOT NULL DEFAULT '0',
                  `show_status_delay` int(11) NOT NULL DEFAULT '0',
+                 `modern_look` tinyint(1) NOT NULL DEFAULT '0',
                  `hide_popup` int(11) NOT NULL,
                  `show_need_help` int(11) NOT NULL DEFAULT '1',
                  `show_need_help_timeout` int(11) NOT NULL DEFAULT '24',
@@ -1445,7 +1446,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
                $db->query("CREATE TABLE IF NOT EXISTS `lh_group` (
                `id` int(11) NOT NULL AUTO_INCREMENT,
                `name` varchar(50) NOT NULL,
-               `disabled` int(11) NOT NULL,
+               `disabled` tinyint(1) NOT NULL,
+               `required` tinyint(1) NOT NULL DEFAULT '0',
                PRIMARY KEY (`id`),
                KEY `disabled` (`disabled`)
                ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");

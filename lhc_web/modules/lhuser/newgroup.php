@@ -13,6 +13,9 @@ if (isset($_POST['Save_group']) || isset($_POST['Save_group_and_assign_user']))
             'Disabled' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
             ),
+            'Required' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            ),
             'MemberGroup' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'string', null, FILTER_REQUIRE_ARRAY
             )
@@ -30,6 +33,12 @@ if (isset($_POST['Save_group']) || isset($_POST['Save_group_and_assign_user']))
         $GroupData->disabled = 1;
     } else {
         $GroupData->disabled = 0;
+    }
+
+    if ( $form->hasValidData( 'Required' ) && $form->Required == true ) {
+        $GroupData->required = 1;
+    } else {
+        $GroupData->required = 0;
     }
 
     if (count($Errors) == 0)

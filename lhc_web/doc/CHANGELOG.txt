@@ -1,3 +1,11 @@
+2.91v
+
+1. Modern look for widget.
+2. If you had a theme for old style status widget it will still work. In theme there is option to choose what style widget to have. Old style or modern style.
+3. Option to set required groups. So then operator is setuping new user he will have to choose one of required groups.
+
+execute doc/update_db/update_166.sql for update
+
 2.90v
 
 1. Objects group model. Can be used in extensions to have custom permissions.

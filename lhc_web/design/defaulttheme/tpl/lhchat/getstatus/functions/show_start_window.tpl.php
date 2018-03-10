@@ -73,6 +73,11 @@ showStartWindow : function(url_to_open,delayShow) {
       <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/functions/part/close_handler.tpl.php')); ?>		
       
       document.getElementById('<?php echo $chatCSSPrefix?>_min').onclick = function() { lhc_obj.min(); return false; };
+
+      <?php if ($theme === false || $theme->modern_look == 1) : ?>
+      document.getElementById('<?php echo $chatCSSPrefix?>_status-icon-restore').onclick = function() { lhc_obj.min(); return false; };
+      <?php endif ?>
+
       <?php if (erLhcoreClassModelChatConfig::fetch('disable_popup_restore')->current_value == 0 && ($theme === false || $theme->hide_popup == 0)) : ?>
       document.getElementById('<?php echo $chatCSSPrefix?>_remote_window').onclick = function() { lhc_obj.openRemoteWindow(); return false; };
 	  <?php endif; ?>
@@ -81,8 +86,12 @@ showStartWindow : function(url_to_open,delayShow) {
 	  var domIframe = '<?php echo $chatCSSPrefix?>_iframe';
 	  var domContainerId = '<?php echo $chatCSSLayoutOptions['container_id']?>';
 	  <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/drag_drop_logic.tpl.php')); ?>		  
-	      
-	  if (this.cookieData.m) {this.min(true);};
+
+	  if (this.cookieData.m) {
+        if (this.cookieData.hash) {
+            this.min(true);
+        }
+      };
 	  
 	  if (typeof delayShow === 'undefined') {
 	  		this.toggleStatusWidget(true);
