@@ -57,7 +57,8 @@ return array (
       	26 => 'fin',
       	27 => 'alb',
       	28 => 'heb',
-      	29 => 'site_admin'
+        29 => 'cat',
+      	30 => 'site_admin'
       ),
     ),
     'default_url' =>
@@ -562,7 +563,25 @@ return array (
     		'module' => 'chat',
     		'view' => 'startchat'
     	),
-      ),	
+      ),
+	 'cat' =>
+		array (
+			'locale' => 'ca_ES',
+			'content_language' => 'es',
+			'dir_language' => 'ltr',
+			'title' => '',
+			'description' => '',
+			'theme' =>
+				array (
+					0 => 'customtheme',
+					1 => 'defaulttheme',
+				),
+			'default_url' =>
+				array (
+					'module' => 'chat',
+					'view' => 'startchat',
+				),
+		),
       'geo' =>
       array (
     	'locale' => 'ka_KA',
