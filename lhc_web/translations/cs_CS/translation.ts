@@ -2,6 +2,26 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Po kolik dní by se neměl hlasovací widget zvětšovat od posledního zobrazení</translation>
     </message>
@@ -44,6 +64,10 @@
     <message>
       <source>How many days keep records of online users.</source>
       <translation>Po kolik dní uchovávat záznamy o online uživatelích.</translation>
+    </message>
+    <message>
+      <source>How many days keep records of users footprint.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Suggest user to leave a message then user chooses offline department</source>
@@ -120,6 +144,10 @@
     <message>
       <source>On chat close exit chat</source>
       <translation>Ukončit rozhovor při zavření</translation>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source/>
@@ -228,6 +256,10 @@
     <message>
       <source>Your company name - visible in bottom left corner</source>
       <translation>Název Vaší společnosti - viditelné v levém dolním rohu</translation>
+    </message>
+    <message>
+      <source>Cleanup should should be done only using cronjob.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Interval between chat status checks in seconds, 0 disabled.</source>
@@ -480,6 +512,14 @@
     <message>
       <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
       <translation>Časový limit tooltipu Potřebujete radu?, po kolika hodinách opět zobrazit tooltip?</translation>
+    </message>
+    <message>
+      <source>After how many seconds after page load show need help tooltip?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>After how many seconds after page load show status widget</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Show need help tooltip?</source>
@@ -992,6 +1032,10 @@
   <context>
     <name>chat/lists/search_panel</name>
     <message>
+      <source>Select operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Select event</source>
       <translation type="unfinished"/>
     </message>
@@ -1160,15 +1204,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Select operator</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>User group</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Department group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Exclude offline request from charts.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show only offline request</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1254,6 +1302,14 @@
     <message>
       <source>Optional</source>
       <translation>Volitelné</translation>
+    </message>
+    <message>
+      <source>XML</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>JSON</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Username</source>
@@ -1497,6 +1553,10 @@
     </message>
     <message>
       <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator. Visitor will see this operator nick.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2038,6 +2098,10 @@
   </context>
   <context>
     <name>chat/chat</name>
+    <message>
+      <source>Last visitor message time</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Show/Hide right column</source>
       <translation>Zobrazit/skrýt pravý sloupec</translation>
@@ -2793,6 +2857,10 @@
       <translation>Nepodařilo se dešifrovat data!</translation>
     </message>
     <message>
+      <source>Visitor</source>
+      <translation>Návštěvník</translation>
+    </message>
+    <message>
       <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
       <translation>Vaše žádost nebyl zpracována podle očekávání - ale neboj, nebyla to Vaše chyba. Odešlete, prosím, svou žádost znovu. Pokud narazíte stejný problém, budete nás muset kontaktovat jiným způsobem.</translation>
     </message>
@@ -2801,8 +2869,8 @@
       <translation>Prosím, zadejte zprávu, maxmálně znaků</translation>
     </message>
     <message>
-      <source>Visitor</source>
-      <translation>Návštěvník</translation>
+      <source>You cannot send messages to this chat. Please refresh your browser.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Pending Chat</source>
@@ -3211,16 +3279,36 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Operator</source>
+      <translation>Operator</translation>
+    </message>
+    <message>
+      <source>Sort by online status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last activity ago</source>
+      <translation>Poslední aktivita před</translation>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Aktivní rozhovor</translation>
+    </message>
+    <message>
+      <source>Sort by active chats number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Oddělení</translation>
+    </message>
+    <message>
       <source>Sort</source>
       <translation>Seřadit</translation>
     </message>
     <message>
       <source>Wait time</source>
       <translation>Délka čekání</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Oddělení</translation>
     </message>
     <message>
       <source>Delete chat</source>
@@ -3235,31 +3323,11 @@
       <translation>Jste si jistí?</translation>
     </message>
     <message>
-      <source>Operator</source>
-      <translation>Operator</translation>
-    </message>
-    <message>
       <source>Pending chats</source>
       <translation>Čekající rozhovory</translation>
     </message>
     <message>
-      <source>Active chats</source>
-      <translation>Aktivní rozhovor</translation>
-    </message>
-    <message>
       <source>Status</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Sort by online status</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Last activity ago</source>
-      <translation>Poslední aktivita před</translation>
-    </message>
-    <message>
-      <source>Sort by active chats number</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4554,6 +4622,10 @@
       <translation>Údržba</translation>
     </message>
     <message>
+      <source>Offline settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Paid chat configuration</source>
       <translation>Nastavení zpoplatněného rozhovoru</translation>
     </message>
@@ -4985,8 +5057,24 @@
       <translation>Skrýt vypnuté</translation>
     </message>
     <message>
+      <source>Department group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department</source>
       <translation>Oddělení</translation>
+    </message>
+    <message>
+      <source>Users</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Number of elements in list</source>
@@ -5858,6 +5946,10 @@
       <translation>Skupiny oddělení</translation>
     </message>
     <message>
+      <source>Offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat status will not change upon pending chat opening</source>
       <translation>Status rozhovoru nebude změněn do otevření čekající konverzace</translation>
     </message>
@@ -5917,6 +6009,10 @@
       <translation>Přesměrovat do oddělení</translation>
     </message>
     <message>
+      <source>Change owner</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Logged in users</source>
       <translation>Přihlášení uživatelé</translation>
     </message>
@@ -5926,6 +6022,10 @@
     </message>
     <message>
       <source>Only logged and online operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only operators from same departments</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7716,8 +7816,16 @@
       <translation>Sdružené informace</translation>
     </message>
     <message>
+      <source>Survey</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department name</source>
       <translation>Název oddělení</translation>
+    </message>
+    <message>
+      <source>Survey ID</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -7892,6 +8000,10 @@
   <context>
     <name>system/smtp</name>
     <message>
+      <source>Settings updated</source>
+      <translation>Nastavený bylo aktualizováno</translation>
+    </message>
+    <message>
       <source>Mail settings</source>
       <translation>Nastavení e-mailu</translation>
     </message>
@@ -7928,16 +8040,20 @@
       <translation>Port</translation>
     </message>
     <message>
-      <source>Settings updated</source>
-      <translation>Nastavený bylo aktualizováno</translation>
-    </message>
-    <message>
       <source>Transfer configuration</source>
       <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>system/timezone</name>
+    <message>
+      <source>Do not save offline chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatically change offline chat status to closed</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Time zone settings</source>
       <translation>Nastavení časové zone</translation>
@@ -8080,6 +8196,10 @@
   <context>
     <name>user/new</name>
     <message>
+      <source>Do not show user status as online</source>
+      <translation>Nezobrazovat stav uživatele jako online</translation>
+    </message>
+    <message>
       <source>Change chat department to transferred department on chat transfer</source>
       <translation type="unfinished"/>
     </message>
@@ -8096,8 +8216,8 @@
       <translation>Dostávám požadavky na oprávnění jiných operátorů</translation>
     </message>
     <message>
-      <source>Do not show user status as online</source>
-      <translation>Nezobrazovat stav uživatele jako online</translation>
+      <source>Offline</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Invisible mode</source>
@@ -8624,6 +8744,10 @@
     <message>
       <source>Password reminder</source>
       <translation>Zapomenuté heslo</translation>
+    </message>
+    <message>
+      <source>You session has ended. Please login!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You were logged out because another user logged under same account</source>
@@ -9282,6 +9406,21 @@
     <name>statistic/onlinehours</name>
     <message>
       <source>Online Hours</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>system/offlinesettings</name>
+    <message>
+      <source>Offline settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline chat request won&apos;t be saved.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Then offline chat is registered it&apos;s status will be changed to closed chat.</source>
       <translation type="unfinished"/>
     </message>
   </context>

@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="el" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ca_ES" version="2.0">
   <context>
     <name>listchatconfig</name>
     <message>
@@ -23,127 +23,127 @@
     </message>
     <message>
       <source>How many days voting widget should not be expanded after last show</source>
-      <translation>Πόσες ημέρες ψηφοφορίας widget δεν θα πρέπει να επεκταθεί μετά από την τελευταία εμφάνιση</translation>
+      <translation>Quants dies després de l&apos;última visualització ha de romandre ocult el widget de votació</translation>
     </message>
     <message>
       <source>Use secure cookie, check this if you want to force SSL all the time</source>
-      <translation>Χρησιμοποιούμε cookie ασφαλή, ελέγχω this εάν θέλετε να εξαναγκάσετε SSL όλη την ώρα</translation>
+      <translation>Utilitza cookie segura. Marqueu això si voleu forçar SSL permanentment</translation>
     </message>
     <message>
       <source>Which ip should be allowed to update DB by executing http request, separate by comma?</source>
-      <translation>Ποια ip θα πρέπει να ενημερώσει το DB με την εκτέλεση της αίτησης http, διαχωρίστε με κόμμα;</translation>
+      <translation>A quines IPs se&apos;ls ha de permetre accedir a la base de dades a través de peticions HTTP, separades per comes?</translation>
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
-      <translation>Επιτρέψετε στους επισκέπτες της σε απευθείας σύνδεση περιοχή εντοπισμού</translation>
+      <translation>Activa el seguiment dels visitants en línia</translation>
     </message>
     <message>
       <source>Should mouse movement be tracked as activity measure, if not checked only basic events would be tracked</source>
-      <translation>Πρέπει να κίνηση του ποντικιού να παρακολουθούνται ως δραστηριότητα μέτρο, αν δεν ελεγχθεί μόνο βασικές εκδηλώσεις θα παρακολουθούνται</translation>
+      <translation>Seguiment del moviment del ratolí com a mesura d&apos;activitat. Si no, només es monitoritzaran els esdeveniments bàsics.</translation>
     </message>
     <message>
       <source>Track is user still on site, chat status checks also has to be enabled</source>
-      <translation>Κομμάτι είναι χρήστης ακόμα στο site, chat καθεστώς ελέγχων πρέπει επίσης να επιτραπεί</translation>
+      <translation>Segueix si l&apos;usuari encara es troba connectat. També ha d&apos;estar activat el control d&apos;estat del xat.</translation>
     </message>
     <message>
       <source>Track online visitors even if there is no online operators</source>
-      <translation>Παρακολουθήσετε σε απευθείας σύνδεση επισκέπτες, ακόμη και αν δεν υπάρχει καμία σε απευθείας σύνδεση φορείς</translation>
+      <translation>Segeix els visitants en línia encara que no hi hagi cap agent en línia</translation>
     </message>
     <message>
       <source>Track users footprint. For this also online visitors tracking should be enabled</source>
-      <translation>Κομμάτι χρήστες αποτύπωμα. Για αυτό επίσης σε απευθείας σύνδεση επισκέπτες παρακολούθησης θα πρέπει να ενεργοποιηθούν</translation>
+      <translation>Fes seguiment de la empremta dels usuaris. Cal habilitar el seguiment de visitants en línia.</translation>
     </message>
     <message>
       <source>Set your domain to enable user tracking across different domain subdomains.</source>
-      <translation>Ορίστε το domain σας να ενεργοποιήσετε την παρακολούθηση του χρήστη υποτομείς διαφορετικό τομέα.</translation>
+      <translation>Establiu el domini per habilitar el seguiment de usuaris a través de diferents subdominis.</translation>
     </message>
     <message>
       <source>Track users activity on site?</source>
-      <translation>Παρακολουθήστε τη δραστηριότητα των χρηστών στην ιστοσελίδα;</translation>
+      <translation>Seguiment de l&apos;activitat dels usuaris al lloc?</translation>
     </message>
     <message>
       <source>How many days keep records of online users.</source>
-      <translation>Πόσες μέρες αρχειοθετούν σε απευθείας σύνδεση χρήστες.</translation>
+      <translation>Dies a emmagatzemar les dades dels visitants .</translation>
     </message>
     <message>
       <source>How many days keep records of users footprint.</source>
-      <translation type="unfinished"/>
+      <translation>Dies a conservar registres de les empremtes d&apos;usuari.</translation>
     </message>
     <message>
       <source>Suggest user to leave a message then user chooses offline department</source>
-      <translation>Προτείνουμε το χρήστη να αφήσετε ένα μήνυμα τότε ο χρήστης επιλέγει σε μη απευθείας σύνδεση τμήμα</translation>
+      <translation>Suggereix que l&apos;usuari deixi un missatge, quan hagi seleccionat un departament fora de línia</translation>
     </message>
     <message>
       <source>Play sound on invitation to chat.</source>
-      <translation>Αναπαραγωγή ήχου στην πρόσκληση να συνομιλήσετε.</translation>
+      <translation>Reprodueix so al invitar a xatejar.</translation>
     </message>
     <message>
       <source>Show users option to switch language at widget</source>
-      <translation>Δείξει στους χρήστες την επιλογή για να αλλάξετε την γλώσσα στο widget</translation>
+      <translation>Mostra l&apos;opció als usuaris per canviar d&apos;idioma al widget</translation>
     </message>
     <message>
       <source>Between what languages user should be able to switch</source>
-      <translation>Μεταξύ ποιες γλώσσες χρήστη πρέπει να είναι σε θέση να αλλάξει</translation>
+      <translation>Entre quines llengües pot escollir l&apos;usuari</translation>
     </message>
     <message>
       <source>Host where NodeJs is running</source>
-      <translation>Υποδοχής όπου εκτελείται NodeJs</translation>
+      <translation>Servidor on NodeJs s&apos;està executant</translation>
     </message>
     <message>
       <source>Location of SocketIO JS library</source>
-      <translation>Θέση του SocketIO JS βιβλιοθήκη</translation>
+      <translation>Ubicació de la biblioteca JS SocketIO</translation>
     </message>
     <message>
       <source>Connect to NodeJs in https mode</source>
-      <translation>Συνδεθεί στην NodeJs σε λειτουργία https</translation>
+      <translation>Connecta a NodeJs via HTTP</translation>
     </message>
     <message>
       <source>socket.io path, optional</source>
-      <translation>διαδρομή socket.io, προαιρετικά</translation>
+      <translation>Ruta a socket.io (opcional)</translation>
     </message>
     <message>
       <source>NodeJS support enabled</source>
-      <translation>Ενεργοποιημένη την υποστήριξη NodeJS</translation>
+      <translation>S&apos;ha activat el suport de NodeJS</translation>
     </message>
     <message>
       <source>Do not ask permission for users to see their screen</source>
-      <translation>Δεν ζητούν άδεια για τους χρήστες να δουν τους οθόνη</translation>
+      <translation>No demanis permís als usuaris per veure la seva pantalla.</translation>
     </message>
     <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
-      <translation>Χρήση συνεδρία captcha. LHC πρέπει να εγκατασταθούν στον ίδιο τομέα ή υποτομέα.</translation>
+      <translation>Habilita el captcha de sessió. LHC ha d&apos;estar instal·lat al mateix domini o subdomini.</translation>
     </message>
     <message>
       <source>Should cronjob run unanswered chats workflow and execute unaswered chats callback, 0 - no, any other number bigger than 0 is a minits how long chat have to be not accepted before executing callback.</source>
-      <translation>Πρέπει να cronjob τρέχω αναπάντητα συνομιλίες ροή εργασίας και εκτελώ επανάκλησης unaswered συνομιλίες, 0 - δεν, κάθε άλλο αριθμό μεγαλύτερο από το 0 είναι ένα minits πόσο καιρό συνομιλίας πρέπει να υιοθετηθούν δεν πριν από την εκτέλεση της επιστροφής κλήσης.</translation>
+      <translation>Minuts d&apos;espera abans que s&apos;activin les accions automàtiques als xats sense resposta (tasca programada mitjançant cronjob). Deixeu en 0 per desactivar les accions automàtiques.</translation>
     </message>
     <message>
       <source>Should cronjob run departments transfer workflow, even if user leaves a chat</source>
-      <translation>Πρέπει να cronjob τρέξει τμήματα μεταφορά ροής εργασίας, ακόμη και αν ο χρήστης αφήνει μια συνομιλία</translation>
+      <translation>Permetre que el cronjob executi les tasques de transferència de departament, inclús si l&apos;usuari abandona el xat.</translation>
     </message>
     <message>
       <source>Reopen chat functionality enabled</source>
-      <translation>Ανοίξτε πάλι κουβέντα functionality ενεργοποιημένη</translation>
+      <translation>Activar funció de reobrir xat</translation>
     </message>
     <message>
       <source>Reopen closed chat as new? Otherwise it will be reopened as active.</source>
-      <translation>Εκ νέου άνοιγμα κλεισμένων συνομιλίας ως νέα; Διαφορετικά θα ανοίξει ως ενεργό.</translation>
+      <translation>Reobre el xat com a xat nou? En cas contrari, es reactivarà l&apos;existent.</translation>
     </message>
     <message>
       <source>Should invitation logic be executed if there is no online operators</source>
-      <translation>Πρόσκληση λογική, πρέπει να εκτελεστεί αν δεν υπάρχει καμία σε απευθείας σύνδεση φορείς</translation>
+      <translation>Executa l&apos;algorisme d&apos;invitació encara que no hi hagi cap agent en línia</translation>
     </message>
     <message>
       <source>Pro active chats invitations limitation based on pending chats, (-1) do not limit, (0,1,n+1) number of pending chats can be for invitation to be shown.</source>
-      <translation>Προορατικού συνομιλίες προσκλήσεις περιορισμός με βάση την εν αναμονή συνομιλίες, (-1) δεν περιορίζουν, (0,1, n + 1) αριθµός των εκκρεµών συνομιλίες μπορεί να είναι για την πρόσκληση να εμφανιστεί.</translation>
+      <translation>Màxim de xats pendents per limitar la invitació pro-activa. (-1: sense límit; 0 o més: nombre de xats pendents oberts a invitació)</translation>
     </message>
     <message>
       <source>Is pro active chat invitation active. Online users tracking also has to be enabled</source>
-      <translation>Είναι η πρόσκληση προορατικού chat ενεργό. Οι σε απευθείας σύνδεση χρήστες που παρακολουθούν επίσης πρέπει να επιτραπεί</translation>
+      <translation>Habilitar invitació de xat pro-activa . Cal haver habilitat el seguiment dels usuaris en línia.</translation>
     </message>
     <message>
       <source>On chat close exit chat</source>
-      <translation>Στο chat κοντά έξοδο συνομιλίας</translation>
+      <translation>Sortir del xat en tancar-lo.</translation>
     </message>
     <message>
       <source/>
@@ -155,897 +155,897 @@
     </message>
     <message>
       <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
-      <translation>Χρειάζεστε βοήθεια tooltip χρονικό όριο, μετά από πόσες ώρες και πάλι εμφάνιση συμβουλής εργαλείου;</translation>
+      <translation>Intèrval en hores per tornar a mostrar el missatge emergent de &quot;necessites ajuda?&quot;</translation>
     </message>
     <message>
       <source>Show need help tooltip?</source>
-      <translation>Εμφάνιση χρειάζονται βοήθεια tooltip;</translation>
+      <translation>Mostra el missatge emergent &quot;necessites ajuda?&quot;</translation>
     </message>
     <message>
       <source>Minimum phone number length</source>
-      <translation>Ελάχιστη τηλέφωνο αριθμός μήκος</translation>
+      <translation>Longitud mínima del número de telèfon</translation>
     </message>
     <message>
       <source>Messages box height</source>
-      <translation>Μηνύματα πλαίσιο ύψος</translation>
+      <translation>Alçada del quadre de missatges</translation>
     </message>
     <message>
       <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
-      <translation>Προληπτική μήνυμα timeout σε ώρες. Μετά από πόσες ώρες chat ενεργό mesasge θα πρέπει να εμφανιστεί και πάλι.</translation>
+      <translation>Intèrval en hores per tornar a mostrar el missatge de xat pro-actiu.</translation>
     </message>
     <message>
       <source>Maximum message length in characters</source>
-      <translation>Μέγιστη μήνυμα μήκος σε χαρακτήρες</translation>
+      <translation>Longitud màxima del missatge, en caràcters</translation>
     </message>
     <message>
       <source>List online operators, 0 - no, 1 - yes.</source>
-      <translation>Κατάλογος σε απευθείας σύνδεση φορείς, 0 - ΟΧΙ, 1 - ναι.</translation>
+      <translation>Mostra la llista d&apos;agents en línia, 0: no, 1: sí.</translation>
     </message>
     <message>
       <source>Inform visitor about unread messages from operator, value in minutes. 0 - disabled</source>
-      <translation>Ενημέρωση επισκεπτών σχετικά με μη αναγνωσμένα μηνύματα από το χειριστή, τιμή σε λεπτά. 0 - άτομα με ειδικές ανάγκες</translation>
+      <translation>Minuts transcorreguts abans d&apos;avisar els visitants que tenen respostes de l&apos;agent no llegits. 0: desactivat.</translation>
     </message>
     <message>
       <source>Ignore users online statuses and use departments online hours</source>
-      <translation>Αγνοήστε χρήστες online καταστάσεις και να χρησιμοποιούν υπηρεσίες online ώρες</translation>
+      <translation>Mostra la disponibilitat segons l&apos;horari del departament, ignorant si hi ha o no agents en línia.</translation>
     </message>
     <message>
       <source>Which ip should be ignored in online users list, separate by comma</source>
-      <translation>Ποια ip πρέπει να αγνοηθεί στη λίστα σε απευθείας σύνδεση χρήστες, ξεχωριστό από το κόμμα</translation>
+      <translation>IPs a ignorar en la llista d&apos;agents en línia. Separades per comes.</translation>
     </message>
     <message>
       <source>Hide right column in frontpage</source>
-      <translation>Απόκρυψη δεξιά στήλη στο frontpage</translation>
+      <translation>Amaga la columna dreta a la pàgina d&apos;inici</translation>
     </message>
     <message>
       <source>Hide disabled department widget</source>
-      <translation>Απόκρυψη απενεργοποιημένη τμήμα widget</translation>
+      <translation>Amaga el widget de departaments inactius</translation>
     </message>
     <message>
       <source>Hide close button in dropdown</source>
-      <translation>Απόκρυψη κουμπί κλείσιμο στο αναπτυσσόμενο μενού</translation>
+      <translation>Oculta el botó &quot;Tanca&quot; en el menú desplegable</translation>
     </message>
     <message>
       <source>Home page tabs order</source>
-      <translation>Αρχική σελίδα σειρά καρτελών</translation>
+      <translation>Ordre de les pestanyes de la pàgina d&apos;inici</translation>
     </message>
     <message>
       <source>Is visitor e-mail required for FAQ</source>
-      <translation>Aπαιτείται e-mail επισκέπτη  για το FAQ</translation>
+      <translation>Exigir l&apos;e-mail dels visitants per accedir les FAQ</translation>
     </message>
     <message>
       <source>Chats export secret hash</source>
-      <translation>Συνομιλίες εξαγωγή μυστικό hash</translation>
+      <translation>Exportar el hash secret dels xats</translation>
     </message>
     <message>
       <source>Please enter explicit http mode. Either http: or https:, do not forget : at the end.</source>
-      <translation>Παρακαλούμε εισάγετε λειτουργία ρητή http. Είτε http: ή https:, μην ξεχάσετε: στο τέλος.</translation>
+      <translation>Protocol HTTP a utilitzar: http: o https: (no oblideu els dos punts al final)</translation>
     </message>
     <message>
       <source>Disable chat transcript send</source>
-      <translation>Απενεργοποίηση συνομιλίας απομαγνητοφώνηση αποστολή</translation>
+      <translation>Inhabilita l&apos;enviament de la transcripció de xat</translation>
     </message>
     <message>
       <source>Disable chat print</source>
-      <translation>Απενεργοποιήσετε την εκτύπωση της συνομιλίας</translation>
+      <translation>Inhabilita la impressió del xat.</translation>
     </message>
     <message>
       <source>Hide &apos;New Window&apos; option in Connector Widget</source>
-      <translation>Απόκρυψη &apos;Νέο παράθυρο&apos; επιλογή σύνδεσης Widget</translation>
+      <translation>Oculta l&apos;opció de &quot;Nova finestra&quot; en el widget Connector.</translation>
     </message>
     <message>
       <source>Disable JS execution in Co-Browsing operator window</source>
-      <translation>Απενεργοποιήσετε την εκτέλεση JS σε ομο-κοιτάζοντας βιαστικά το παράθυρο του χειριστή</translation>
+      <translation>Inhabilita l&apos;execució de JS a la finestra de navegació conjunta de l&apos;agent.</translation>
     </message>
     <message>
       <source>Disable iframes in sharing mode</source>
-      <translation>Απενεργοποίηση iframes σε λειτουργία ανταλλαγής</translation>
+      <translation>Inhabilita els iframes en el mode de navegació conjunta.</translation>
     </message>
     <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
-      <translation>Απενεργοποιήσετε HMTL5 αποθήκευσης, να ελέγξουμε αν η τοποθεσία σας εναλλαγή μεταξύ http και https</translation>
+      <translation>Inhabilita l&apos;emmagatzemament HTML5. Si teniu problemes, comproveu que el servidor web no estigui alternant entre HTTP i HTTPS</translation>
     </message>
     <message>
       <source>Home page dashboard widgets order</source>
-      <translation>Αρχική σελίδα σειρά widgets ταμπλό</translation>
+      <translation>Ordre del panell de widgets de la pàgina d&apos;inici.</translation>
     </message>
     <message>
       <source>Your site URL address</source>
-      <translation>Διεύθυνση URL της τοποθεσίας σας</translation>
+      <translation>Adreça URL del lloc web.</translation>
     </message>
     <message>
       <source>Your company name - visible in bottom left corner</source>
-      <translation>Όνομα της εταιρείας σας - ορατή στην κάτω αριστερή γωνία</translation>
+      <translation>Nom de la companyia - visible a la cantonada inferior esquerra</translation>
     </message>
     <message>
       <source>Cleanup should should be done only using cronjob.</source>
-      <translation type="unfinished"/>
+      <translation>Restringeix la tasca de neteja exclusivament mitjançant cronjob.</translation>
     </message>
     <message>
       <source>Interval between chat status checks in seconds, 0 disabled.</source>
-      <translation>Διάστημα μεταξύ κατάστασής της συζήτησής τους ελέγχους σε δευτερόλεπτα, 0 άτομα με ειδικές ανάγκες.</translation>
+      <translation>Interval en segons entre verificacions de canvi d&apos;estat del xat. 0 per inhabilitar.</translation>
     </message>
     <message>
       <source>Show BB Code button</source>
-      <translation>Εμφάνιση του κουμπιού BB κώδικα</translation>
+      <translation>Mostra el botó de codi BB.</translation>
     </message>
     <message>
       <source>Which ip should not be allowed to chat</source>
-      <translation>Ποια ip δεν θα πρέπει να κουβεντιάσει</translation>
+      <translation>IPs sense permís per xatejar.</translation>
     </message>
     <message>
       <source>Automatic chats purging. 0 - disabled, n &gt; 0 time in minutes before chat is automatically deleted</source>
-      <translation>Αυτόματη συνομιλίες εκκαθάριση. 0 - άτομα με ειδικές ανάγκες, n &gt; 0 διάρκεια σε λεπτά πριν chat διαγράφεται αυτόματα</translation>
+      <translation>Intèrval en minuts per eliminar xats automàticment. 0: inhabilitat.</translation>
     </message>
     <message>
       <source>Automatically reopen chat on widget open</source>
-      <translation>Αυτόματα εκ νέου chat στο widget ανοικτή</translation>
+      <translation>Reobre automàticament el xat al obrir el widget.</translation>
     </message>
     <message>
       <source>Automatic chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
-      <translation>Αυτόματη συνομιλίες κλείσιμο. 0 - άτομα με ειδικές ανάγκες, n &gt; 0 διάρκεια σε λεπτά πριν το chat έχει κλείσει αυτόματα</translation>
+      <translation>Intèrval en minuts per tancar xats automàticment. 0: inhabilitat.</translation>
     </message>
     <message>
       <source>Chats waiting in pending queue more than n seconds should be auto-assigned first. Time in seconds</source>
-      <translation type="unfinished"/>
+      <translation>Temps d&apos;espera en segons abans que els xats no siguin assignats automàticament.</translation>
     </message>
     <message>
       <source>Support application name, visible in browser title.</source>
-      <translation>Υποστήριξη όνομα εφαρμογής, ορατό στον τίτλο προγράμματος περιήγησης.</translation>
+      <translation>Nom de l&apos;aplicació de suport, visible en el títol del navegador.</translation>
     </message>
     <message>
       <source>Allow user to reopen closed chats?</source>
-      <translation>Επιτρέπει στο χρήστη να ανοίξετε ξανά κλειστές συζητήσεις;</translation>
+      <translation>Permet a l&apos;usuari reobrir xats tancats</translation>
     </message>
     <message>
       <source>Track all logged operators activity and ignore their individual settings.</source>
-      <translation type="unfinished"/>
+      <translation>Desa l&apos;historial d&apos;activitats de tots els agents, independentment de la seva configuració individual.</translation>
     </message>
     <message>
       <source>How long operator should go offline automatically because of inactivity</source>
-      <translation type="unfinished"/>
+      <translation>Intèrval d&apos;espera abans de desconnectar un agent per inactivitat.</translation>
     </message>
     <message>
       <source>Change to your site Terms of Service</source>
-      <translation>Αλλαγή στο site σας όροι της υπηρεσίας</translation>
+      <translation>Canvis a les vostres condicions de servei</translation>
     </message>
     <message>
       <source>How many seconds chat accept link is valid. Set 0 to force login all the time manually.</source>
-      <translation>Πόσα δευτερόλεπτα chat δέχεται σύνδεση είναι έγκυρη. Σετ 0 για να αναγκάσει τη σύνδεση όλη την ώρα με μη αυτόματο τρόπο.</translation>
+      <translation>Validesa màxima en segons dels l&apos;enllaços d&apos;acceptació de xat. 0: obliga l&apos;inici de sessió manual.</translation>
     </message>
   </context>
   <context>
     <name>system/buttons</name>
     <message>
       <source>Save</source>
-      <translation>Αποθήκευση</translation>
+      <translation>Desa</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Ενημέρωση</translation>
+      <translation>Modifica</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Ακύρωση</translation>
+      <translation>Cancel·la</translation>
     </message>
     <message>
       <source>Edit</source>
-      <translation>Επεξεργασία</translation>
+      <translation>Edita</translation>
     </message>
     <message>
       <source>Delete</source>
-      <translation>Διαγραφή</translation>
+      <translation>Elimina</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Άδειο...</translation>
+      <translation>Cap element...</translation>
     </message>
     <message>
       <source>New</source>
-      <translation>Νέο</translation>
+      <translation>Nou</translation>
     </message>
     <message>
       <source>Updated</source>
-      <translation>Ενημερωμένο</translation>
+      <translation>Modificat</translation>
     </message>
     <message>
       <source>Send</source>
-      <translation>Αποστολή</translation>
+      <translation>Envia</translation>
     </message>
     <message>
       <source>Save and continue</source>
-      <translation>Αποθήκευση και συνέχεια</translation>
+      <translation>Desa i continua</translation>
     </message>
     <message>
       <source>Continue</source>
-      <translation>Συνέχεια</translation>
+      <translation>Continua</translation>
     </message>
     <message>
       <source>Start archiving</source>
-      <translation>Έναρξη αρχειοθέτησης</translation>
+      <translation>Comença a arxivar</translation>
     </message>
     <message>
       <source>Return</source>
-      <translation>Επιστροφή</translation>
+      <translation>Torna</translation>
     </message>
     <message>
       <source>Delete department</source>
-      <translation>Διαγραφή τμήματος</translation>
+      <translation>Elimina departament</translation>
     </message>
     <message>
       <source>Test</source>
-      <translation>Δοκιμή</translation>
+      <translation>Prova</translation>
     </message>
     <message>
       <source>Send test message</source>
-      <translation>Στείλτε μήνυμα δοκιμή</translation>
+      <translation>Envia missatge de prova</translation>
     </message>
   </context>
   <context>
     <name>abstract/abstract_form</name>
     <message>
       <source>Updated!</source>
-      <translation>Ενημέρωση!</translation>
+      <translation>Actualitzat!</translation>
     </message>
   </context>
   <context>
     <name>chat/copyautoresponder</name>
     <message>
       <source>Copy</source>
-      <translation type="unfinished"/>
+      <translation>Copia</translation>
     </message>
     <message>
       <source>Copied!</source>
-      <translation type="unfinished"/>
+      <translation>Copiat!</translation>
     </message>
     <message>
       <source>Please choose atleast one department!</source>
-      <translation type="unfinished"/>
+      <translation>Seleccioneu almenys un departament</translation>
     </message>
   </context>
   <context>
     <name>abstract/widgettheme</name>
     <message>
       <source>Pending chat messaging</source>
-      <translation type="unfinished"/>
+      <translation>Missatges de xat pendent</translation>
     </message>
     <message>
       <source>Not replying messaging</source>
-      <translation type="unfinished"/>
+      <translation>Missatges de xats sense resposta</translation>
     </message>
     <message>
       <source>On-hold chat messaging</source>
-      <translation type="unfinished"/>
+      <translation>Missatges de xats en espera</translation>
     </message>
     <message>
       <source>Survey</source>
-      <translation type="unfinished"/>
+      <translation>Enquesta</translation>
     </message>
     <message>
       <source>Add translation</source>
-      <translation type="unfinished"/>
+      <translation>Afegeix una traducció</translation>
     </message>
     <message>
       <source>Invitation</source>
-      <translation type="unfinished"/>
+      <translation>Invitació</translation>
     </message>
     <message>
       <source>Dynamic</source>
-      <translation type="unfinished"/>
+      <translation>Dinàmic</translation>
     </message>
     <message>
       <source>Events</source>
-      <translation type="unfinished"/>
+      <translation>Esdeveniments</translation>
     </message>
     <message>
       <source>Download theme</source>
-      <translation>Κατεβάστε θέμα</translation>
+      <translation>Descarrega el tema</translation>
     </message>
     <message>
       <source>Status widget style</source>
-      <translation>Κατάσταση στυλ widget</translation>
+      <translation>Estil del widget d&apos;estat</translation>
     </message>
     <message>
       <source>Widget container</source>
-      <translation>Δοχείο widget</translation>
+      <translation>Contenidor de widgets</translation>
     </message>
     <message>
       <source>Messages style</source>
-      <translation>Μηνύματα του στυλ</translation>
+      <translation>Estil dels missatges</translation>
     </message>
     <message>
       <source>Need help widget</source>
-      <translation>Χρειάζεστε βοήθεια widget</translation>
+      <translation>Widget de &quot;necessito ajuda&quot;</translation>
     </message>
     <message>
       <source>Chat widget</source>
-      <translation>Chat widget</translation>
+      <translation>Widget de xat</translation>
     </message>
     <message>
       <source>Custom CSS</source>
-      <translation>Προσαρμοσμένη CSS</translation>
+      <translation>CSS personalitzat</translation>
     </message>
     <message>
       <source>Live preview</source>
-      <translation>Ζωντανή προεπισκόπηση</translation>
+      <translation>Vista preliminar en viu</translation>
     </message>
     <message>
       <source>Visitor messages style</source>
-      <translation>Επισκέπτης μηνύματα στυλ</translation>
+      <translation>Estil dels missatges dels visitants</translation>
     </message>
     <message>
       <source>Operator messages style</source>
-      <translation>Χειριστής μηνύματα στυλ</translation>
+      <translation>Estil els missatges dels agents</translation>
     </message>
     <message>
       <source>General settings</source>
-      <translation>Γενικές ρυθμίσεις</translation>
+      <translation>Ajustos generals</translation>
     </message>
     <message>
       <source>Text changes</source>
-      <translation>Αλλαγές στο κείμενο</translation>
+      <translation>Canvis en el text</translation>
     </message>
     <message>
       <source>Do not send messages to pending chat if chat is assigned to operator.</source>
-      <translation type="unfinished"/>
+      <translation>No enviïs missatges a un xat en estat &quot;pendent&quot; si el xat està assignat a un agent.</translation>
     </message>
     <message>
       <source>This auto responder applies only to proactive invitations.</source>
-      <translation type="unfinished"/>
+      <translation>Aquest auto responedor contempla exclusivament invitacions pro-actives.</translation>
     </message>
     <message>
       <source>Disabled</source>
-      <translation>Άτομα με ειδικές ανάγκες</translation>
+      <translation>Inhabilitat</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Όνομα</translation>
+      <translation>Nom</translation>
     </message>
     <message>
       <source>Name of the company</source>
-      <translation>Όνομα της εταιρείας</translation>
+      <translation>Nom de l&apos;empresa</translation>
     </message>
     <message>
       <source>Need help header text</source>
-      <translation>Χρειάζεστε βοήθεια κειμένου κεφαλίδας</translation>
+      <translation>Text d&apos;encapçalament de &quot;necessito ajuda&quot;</translation>
     </message>
     <message>
       <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
-      <translation>Χρειάζεστε βοήθεια tooltip χρονικό όριο, μετά από πόσες ώρες και πάλι εμφάνιση συμβουλής εργαλείου;</translation>
+      <translation>Intèrval en hores del missatge emergent de &quot;necessiteu ajuda&quot; abans de tornar-lo a mostrar.</translation>
     </message>
     <message>
       <source>After how many seconds after page load show need help tooltip?</source>
-      <translation type="unfinished"/>
+      <translation>Temps d&apos;espera en segons abans de mostrar el missatge emergent de &quot;necessiteu ajuda&quot;</translation>
     </message>
     <message>
       <source>After how many seconds after page load show status widget</source>
-      <translation type="unfinished"/>
+      <translation>Temps d&apos;espera en segons des que es carrega la pàgina abans de mostrar el widget d&apos;estat.</translation>
     </message>
     <message>
       <source>Show need help tooltip?</source>
-      <translation>Εμφάνιση χρειάζονται βοήθεια tooltip;</translation>
+      <translation>Mostra el missatge emergent &quot;necessiteu ajuda&quot;</translation>
     </message>
     <message>
       <source>Hide message time from visitor</source>
-      <translation type="unfinished"/>
+      <translation>Oculta la hora dels missatges al visitant</translation>
     </message>
     <message>
       <source>Need help standard text</source>
-      <translation>Χρειάζεστε βοήθεια τυποποιημένο κείμενο</translation>
+      <translation>Text per defecte de &quot;necessiteu ajuda&quot;</translation>
     </message>
     <message>
       <source>Widget border width (px)</source>
-      <translation>Πλάτος περιγράμματος widget (px)</translation>
+      <translation>Gruix de la vora dels widgets en px</translation>
     </message>
     <message>
       <source>Online status text</source>
-      <translation>Online κατάσταση κειμένου</translation>
+      <translation>Text de l&apos;estat &quot;en línia&quot;</translation>
     </message>
     <message>
       <source>Offline status text</source>
-      <translation>Offline κατάσταση κειμένου</translation>
+      <translation>Text de l&apos;estat &quot;fora de línia&quot;</translation>
     </message>
     <message>
       <source>Operator intro text</source>
-      <translation>Χειριστής εισαγωγή κειμένου</translation>
+      <translation>Text d&apos;introducció de l&apos;agent</translation>
     </message>
     <message>
       <source>Have a question? Ask us!</source>
-      <translation>Έχετε μια ερώτηση; Ρωτήστε μας!</translation>
+      <translation>Teniu una pregunta? Pregunteu-nos!</translation>
     </message>
     <message>
       <source>Background color</source>
-      <translation>Χρώμα φόντου</translation>
+      <translation>Color de fons</translation>
     </message>
     <message>
       <source>Status widget border color</source>
-      <translation>Κατάσταση widget χρώμα περιγράμματος</translation>
+      <translation>Color de la vora del widget d&apos;Estat</translation>
     </message>
     <message>
       <source>Text color</source>
-      <translation>Χρώμα κειμένου</translation>
+      <translation>Color del text</translation>
     </message>
     <message>
       <source>Operator image in chat widget</source>
-      <translation>Φορέα εικόνας σε chat widget</translation>
+      <translation>Imatge de l&apos;agent al widget de xat</translation>
     </message>
     <message>
       <source>Logo image, visible in popup</source>
-      <translation>Εικόνα λογότυπο, ορατή και στο popup</translation>
+      <translation>Imatge del logo, visible en els pop-up</translation>
     </message>
     <message>
       <source>Logo image, visible in widget left corner, 16x16</source>
-      <translation>Εικόνα λογότυπο, ορατό στην αριστερή γωνία του widget, 16 x 16</translation>
+      <translation>Imatge del logo, visible a la cantonada esquerra del widget, 16x16</translation>
     </message>
     <message>
       <source>Show copyright widget logo in left corner</source>
-      <translation>Εμφάνιση λογότυπο πνευματικών δικαιωμάτων widget στην αριστερή γωνία</translation>
+      <translation>Mostra el logo del copyright del widget a la cantonada esquerra</translation>
     </message>
     <message>
       <source>Hide widget close button</source>
-      <translation>Απόκρυψη κουμπί Κλείσιμο widget</translation>
+      <translation>Oculta el botó de tancament del widget</translation>
     </message>
     <message>
       <source>Hide popup option</source>
-      <translation>Απόκρυψη popup επιλογής</translation>
+      <translation>Permet ocultar el pop-up</translation>
     </message>
     <message>
       <source>Header height (px)</source>
-      <translation>Ύψος υπέρθυρου (px)</translation>
+      <translation>Alçada de la capçalera (px)</translation>
     </message>
     <message>
       <source>Widget response layout width trigger (px)</source>
-      <translation type="unfinished"/>
+      <translation>Amplada del disseny responsive dels widgets (px)</translation>
     </message>
     <message>
       <source>Header padding (px)</source>
-      <translation>Κεφαλίδα αναπλήρωση (px)</translation>
+      <translation>Padding de la capçalera (px)</translation>
     </message>
     <message>
       <source>Site URL</source>
-      <translation>Διεύθυνση URL τοποθεσίας</translation>
+      <translation>URL del lloc</translation>
     </message>
     <message>
       <source>Text above start chat form fields</source>
-      <translation>Το κείμενο πάνω από την έναρξη συνομιλίας πεδία φόρμας</translation>
+      <translation>Text sobre els camps del formulari d&apos;inici del xat </translation>
     </message>
     <message>
       <source>Online image</source>
-      <translation>Εικόνας σε απευθείας σύνδεση</translation>
+      <translation>Imatge en línia</translation>
     </message>
     <message>
       <source>Offline image</source>
-      <translation>Είδωλο</translation>
+      <translation>Imatge fora de línia</translation>
     </message>
     <message>
       <source>Widget header background color</source>
-      <translation>Χρώμα του φόντου widget κεφαλίδα</translation>
+      <translation>Color de fons de la capçalera del widget</translation>
     </message>
     <message>
       <source>Widget border color</source>
-      <translation>Το χρώμα περιγράμματος widget</translation>
+      <translation>Color de la vora del widget</translation>
     </message>
     <message>
       <source>Need help background color</source>
-      <translation>Χρειάζεστε βοήθεια χρώμα φόντου</translation>
+      <translation>Color de fons de &quot;Necessiteu ajuda&quot;</translation>
     </message>
     <message>
       <source>Need help hover background color</source>
-      <translation>Χρειάζεστε βοήθεια κατάδειξης χρώμα φόντου</translation>
+      <translation>Color de fons amb cursor damunt &quot;Necessiteu ajuda&quot;</translation>
     </message>
     <message>
       <source>Need help text color</source>
-      <translation>Χρειάζεστε βοήθεια χρώμα κειμένου</translation>
+      <translation>Color de text de &quot;Necessiteu ajuda&quot;</translation>
     </message>
     <message>
       <source>Text when user starts chat based on proactive invitation</source>
-      <translation>Κείμενο όταν ο χρήστης αρχίζει συνομιλία με βάση την προληπτική πρόσκληση</translation>
+      <translation>Text a mostrar quan l&apos;usuari inicia el xat mitjançant una invitació pro-activa</translation>
     </message>
     <message>
       <source>Text when operator closes a chat</source>
-      <translation>Κείμενο όταν κλείνει μια συνομιλία με χειριστή</translation>
+      <translation>Text quan l&apos;agent tanca un xat</translation>
     </message>
     <message>
       <source>Text when user starts a chat and is waiting for operator to join a chat</source>
-      <translation>Κείμενο όταν ο χρήστης ξεκινά ένα chat και είναι σε αναμονή για το φορέα εκμετάλλευσης να ενταχθούν σε μια συνομιλία</translation>
+      <translation>Text quan l&apos;usuari inicia un xat i espera que l&apos;agent s&apos;uneixi a un xat</translation>
     </message>
     <message>
       <source>Text when user starts a chat but department is offline</source>
-      <translation>Κείμενο όταν ο χρήστης ξεκινά ένα chat, αλλά τμήμα είναι συνδεδεμένος</translation>
+      <translation>Text quan l&apos;usuari inicia una conversa però el departament està fora de línia</translation>
     </message>
     <message>
       <source>Leave a message form text</source>
-      <translation>Αφήστε ένα μήνυμα κειμένου μορφή</translation>
+      <translation>Text de &quot;deixeu un missatge&quot;</translation>
     </message>
     <message>
       <source>Need help border color</source>
-      <translation>Χρειάζεστε βοήθεια χρώμα περιγράμματος</translation>
+      <translation>Color de la vora de &quot;Necessiteu ajuda&quot;</translation>
     </message>
     <message>
       <source>Need help close background color</source>
-      <translation>Χρειάζεστε βοήθεια να κλείσει το χρώμα φόντου</translation>
+      <translation>Color de fons del botó tanca de &quot;Necessiteu ajuda&quot;</translation>
     </message>
     <message>
       <source>Need help close hover background color</source>
-      <translation>Χρειάζεστε βοήθεια κλείσει αιωρείται χρώμα φόντου</translation>
+      <translation>Color de fons amb cursor damunt de &quot;Necessiteu ajuda&quot;</translation>
     </message>
     <message>
       <source>Need help operator image</source>
-      <translation>Χρειάζεστε βοήθεια φορέα εικόνας</translation>
+      <translation>Imatge de l&apos;agent de &quot;Necessiteu ajuda&quot;</translation>
     </message>
     <message>
       <source>Status widget additional CSS, takes effect after save</source>
-      <translation>Το γραφικό στοιχείο κατάσταση σώσει επιπλέον CSS, αρχίζει να ισχύει μετά από</translation>
+      <translation>CSS addicional per al widget d&apos;estat</translation>
     </message>
     <message>
       <source>Background color for popup</source>
-      <translation type="unfinished"/>
+      <translation>Color de fons del pop-up</translation>
     </message>
     <message>
       <source>Widget container additional CSS, takes effect after save</source>
-      <translation>Δοχείο widget επιπλέον CSS, αρχίζει να ισχύει μετά την αποθήκευση</translation>
+      <translation>CSS addicional per al contenidor dels widgets.</translation>
     </message>
     <message>
       <source>Widget body additional CSS, takes effect after save</source>
-      <translation>Widget σώμα επιπλέον CSS, αρχίζει να ισχύει μετά από την αποθήκευση</translation>
+      <translation>CSS adicionals per al cos dels widgets</translation>
     </message>
     <message>
       <source>Minimize image</source>
-      <translation>Ελαχιστοποίηση της εικόνας</translation>
+      <translation>Minimitza imatge</translation>
     </message>
     <message>
       <source>Restore image</source>
-      <translation>Επαναφορά εικόνας</translation>
+      <translation>Restaura la imatge</translation>
     </message>
     <message>
       <source>Close image</source>
-      <translation>Στενή εικόνας</translation>
+      <translation>Tanca imatge</translation>
     </message>
     <message>
       <source>Popup image</source>
-      <translation>Αναδυόμενο παράθυρο εικόνας</translation>
+      <translation>Imatge emergent</translation>
     </message>
     <message>
       <source>Visitor buble background color</source>
-      <translation>Επισκέπτης buble χρώμα φόντου</translation>
+      <translation>Color de fons de la bombolla del visitant</translation>
     </message>
     <message>
       <source>Visitor title color</source>
-      <translation>Χρώμα τίτλος του επισκέπτη</translation>
+      <translation>Color del títol del visitant</translation>
     </message>
     <message>
       <source>Visitor text color</source>
-      <translation>Χρώμα κειμένου επισκέπτη</translation>
+      <translation>Color del text del visitant</translation>
     </message>
     <message>
       <source>Operator buble background color</source>
-      <translation>Χειριστής buble χρώμα φόντου</translation>
+      <translation>Color de fons de la bombolla de l&apos;agent</translation>
     </message>
     <message>
       <source>Operator title color</source>
-      <translation>Χρώμα τίτλος φορέα</translation>
+      <translation>Color del títol de l&apos;agent</translation>
     </message>
     <message>
       <source>Operator text color</source>
-      <translation>Χρώμα κειμένου χειριστή</translation>
+      <translation>Color del text de l&apos;agent</translation>
     </message>
     <message>
       <source>Show voting thumbs?</source>
-      <translation>Εμφάνιση ψήφου αντίχειρες;</translation>
+      <translation>Mostra valoració per polzes amunt i avall?</translation>
     </message>
     <message>
       <source>Use different title for department? E.g Location</source>
-      <translation>Χρήση διαφορετικός τίτλος για το τμήμα; Τοποθεσία π.χ.</translation>
+      <translation>Denominació diferent per als departaments? Ex. Ubicació</translation>
     </message>
     <message>
       <source>Location</source>
-      <translation>Τοποθεσία</translation>
+      <translation>Ubicació</translation>
     </message>
     <message>
       <source>Additional option before department selection</source>
-      <translation>Πρόσθετη επιλογή πριν από το τμήμα επιλογής</translation>
+      <translation>Opció addicional abans de la selecció de departament</translation>
     </message>
     <message>
       <source>Choose department</source>
-      <translation>Διάλεξε Τμήμα</translation>
+      <translation>Tria departament</translation>
     </message>
     <message>
       <source>Widget themes</source>
-      <translation>Θέματα widget</translation>
+      <translation>Temes dels widgets</translation>
     </message>
   </context>
   <context>
     <name>chat/startchatformsettings</name>
     <message>
       <source>Add event</source>
-      <translation type="unfinished"/>
+      <translation>Afegeix un esdeveniment</translation>
     </message>
     <message>
       <source>Remove</source>
-      <translation>Κατάργηση</translation>
+      <translation>Suprimeix</translation>
     </message>
     <message>
       <source>Start a chat form settings</source>
-      <translation>Ξεκινήσει μια συνομιλία ρυθμίσεις φορμών</translation>
+      <translation>Configuració del formulari d´inici de xat</translation>
     </message>
     <message>
       <source>At least one field has to be visible and required in the popup and page widget</source>
-      <translation>Τουλάχιστον ένα πεδίο πρέπει να είναι ορατές και απαιτείται και στο popup και σελίδα widget</translation>
+      <translation>Almenys un camp ha de ser visible i obligatori en el widget de pàgina i el pop-up</translation>
     </message>
     <message>
       <source>Custom fields generator, these fields will be visible in start chat forms</source>
-      <translation>Γεννήτρια προσαρμοσμένα πεδία, αυτά τα πεδία θα είναι ορατό σε έναρξη συνομιλίας μορφές</translation>
+      <translation>Generador de camps personalitzats, aquests camps es mostraran als formularis d&apos;inici de xat</translation>
     </message>
     <message>
       <source>Field label</source>
-      <translation>Πεδίο ετικέτα</translation>
+      <translation>Títol de camp</translation>
     </message>
     <message>
       <source>Default value</source>
-      <translation>Προεπιλεγμένη τιμή</translation>
+      <translation>Valor per defecte</translation>
     </message>
     <message>
       <source>Type</source>
-      <translation>Τύπος</translation>
+      <translation>Tipus</translation>
     </message>
     <message>
       <source>Text</source>
-      <translation>Κείμενο</translation>
+      <translation>Text</translation>
     </message>
     <message>
       <source>Hidden</source>
-      <translation>Κρυφό</translation>
+      <translation>Ocult</translation>
     </message>
     <message>
       <source>Dropdown</source>
-      <translation type="unfinished"/>
+      <translation>Menú desplegable</translation>
     </message>
     <message>
       <source>Visible on</source>
-      <translation>Ορατά στην</translation>
+      <translation>Visible a</translation>
     </message>
     <message>
       <source>Offline and online form</source>
-      <translation>Offline και online φόρμα</translation>
+      <translation>Formulari &quot;en línia&quot; i &quot;fora de línia&quot;</translation>
     </message>
     <message>
       <source>Only offline</source>
-      <translation>Μόνο χωρίς σύνδεση</translation>
+      <translation>Només fora de línia</translation>
     </message>
     <message>
       <source>Only online</source>
-      <translation>Μόνο σε απευθείας σύνδεση</translation>
+      <translation>Només en línia</translation>
     </message>
     <message>
       <source>Show if</source>
-      <translation type="unfinished"/>
+      <translation>Mostra si</translation>
     </message>
     <message>
       <source>Always</source>
-      <translation type="unfinished"/>
+      <translation>Sempre</translation>
     </message>
     <message>
       <source>Username is empty</source>
-      <translation type="unfinished"/>
+      <translation>El nom d&apos;usuari està buit</translation>
     </message>
     <message>
       <source>Size (between 1 and 12)</source>
-      <translation>Μέγεθος (μεταξύ 1 και 12)</translation>
+      <translation>Mida (entre 1 i 12)</translation>
     </message>
     <message>
       <source>Field identifier</source>
-      <translation>Αναγνωριστικό πεδίου</translation>
+      <translation>Identificador de camp</translation>
     </message>
     <message>
       <source>Is required</source>
-      <translation>Απαιτείται</translation>
+      <translation>Obligatori</translation>
     </message>
     <message>
       <source>Options</source>
-      <translation type="unfinished"/>
+      <translation>Opcions</translation>
     </message>
     <message>
       <source>Each option in new line</source>
-      <translation type="unfinished"/>
+      <translation>Cada opció en una nova línia</translation>
     </message>
     <message>
       <source>Add a field</source>
-      <translation>Προσθέστε ένα πεδίο</translation>
+      <translation>Afegeix camp</translation>
     </message>
     <message>
       <source>left</source>
-      <translation>αριστερά</translation>
+      <translation>esquerra</translation>
     </message>
     <message>
       <source>right</source>
-      <translation>δικαίωμα</translation>
+      <translation>dreta</translation>
     </message>
     <message>
       <source>Enable leave a message functionality automatically if there are no online operators</source>
-      <translation>Ενεργοποίηση Αφήστε ένα μήνυμα λειτουργικότητα αυτόματα αν υπάρχουν δεν σε απευθείας σύνδεση φορείς</translation>
+      <translation>Habilita &quot;Deixeu un missatge&quot; automàticament si no hi han agents en línia</translation>
     </message>
     <message>
       <source>Online form settings</source>
-      <translation>Σε απευθείας σύνδεση μορφή ρυθμίσεις</translation>
+      <translation>Configuració de formulari &quot;en línia&quot;</translation>
     </message>
     <message>
       <source>Offline form settings</source>
-      <translation>Ρυθμίσεις μορφή χωρίς σύνδεση</translation>
+      <translation>Configuració de formulari &quot;fora de línia&quot;</translation>
     </message>
     <message>
       <source>Additional form settings</source>
-      <translation>Μορφή πρόσθετες ρυθμίσεις</translation>
+      <translation>Configuració addicional del formulari</translation>
     </message>
     <message>
       <source>Custom fields</source>
-      <translation>Προσαρμοσμένα πεδία</translation>
+      <translation>Camps personalitzats</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Όνομα</translation>
+      <translation>Nom</translation>
     </message>
     <message>
       <source>This field is visible in the popup</source>
-      <translation>Αυτό το πεδίο είναι ορατό από το αναδυόμενο παράθυρο</translation>
+      <translation>Aquest camp és visible al pop-up</translation>
     </message>
     <message>
       <source>This field is visible in the page widget</source>
-      <translation>Αυτό το πεδίο είναι ορατή στο σελίδα widget</translation>
+      <translation>Aquest camp és visible al widget de la pàgina</translation>
     </message>
     <message>
       <source>This field is invisible but prefilled data is collected</source>
-      <translation>Αυτό το πεδίο είναι αόρατο αλλά προγεμισμένες δεδομένα συλλέγονται</translation>
+      <translation>Aquest camp és invisible però es recullen les dades pre-omplerts</translation>
     </message>
     <message>
       <source>This field is</source>
-      <translation>Αυτό το πεδίο είναι</translation>
+      <translation>Aquest camp és</translation>
     </message>
     <message>
       <source>Required</source>
-      <translation>Απαιτείται</translation>
+      <translation>obligatori</translation>
     </message>
     <message>
       <source>Optional</source>
-      <translation>Προαιρετικό</translation>
+      <translation>opcional</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-mail</translation>
+      <translation>e-mail</translation>
     </message>
     <message>
       <source>Message</source>
-      <translation>Μήνυμα</translation>
+      <translation>missatge</translation>
     </message>
     <message>
       <source>Automatically start chat then user starts typing. Only message field has to be required</source>
-      <translation>Αυτόματα να ξεκινήσετε συνομιλία, τότε ο χρήστης αρχίζει να πληκτρολογεί. Μόνο πεδίο του μηνύματος πρέπει να απαιτηθεί</translation>
+      <translation>Inicia el xat automàticament quan l&apos;usuari comença a escriure. Només pot de ser obligatori el camp missatge.</translation>
     </message>
     <message>
       <source>Start chat process in the background as soon user submits form. Only message field has to be required</source>
-      <translation>Ξεκινήσει διαδικασία συνομιλίας στο παρασκήνιο, όπως σύντομα χρήστης υποβάλλει μορφή. Μόνο πεδίο του μηνύματος πρέπει να απαιτηθεί</translation>
+      <translation>Inicia el procés de xat en segon pla tan aviat com l&apos;usuari enviï el formulari. Només pot de ser obligatori el camp missatge.</translation>
     </message>
     <message>
       <source>Phone</source>
-      <translation>Τηλέφωνο</translation>
+      <translation>Telèfon</translation>
     </message>
     <message>
       <source>Terms of service acceptance checkbox</source>
-      <translation>Όροι της Υπηρεσίας κουτάκι αποδοχή</translation>
+      <translation>Casella d&apos;acceptació de condicions d&apos;ús</translation>
     </message>
     <message>
       <source>Checked by default</source>
-      <translation>Ελέγχονται από προεπιλογή</translation>
+      <translation>Marcada per defecte</translation>
     </message>
     <message>
       <source>E-mail is always required</source>
-      <translation>Το email απαιτείται πάντα</translation>
+      <translation>L&apos;e-mail sempre és obligatori</translation>
     </message>
     <message>
       <source>Allow to attatch a file</source>
-      <translation>Επιτρέπουν να attatch ένα αρχείο</translation>
+      <translation>Permet adjuntar un fitxer</translation>
     </message>
     <message>
       <source>Show operator profile above input fields</source>
-      <translation>Εμφάνιση προφίλ του χειριστή πάνω από τα πεδία εισόδου</translation>
+      <translation>Mostra el perfil de l&apos;agent a sobre dels camps d&apos;entrada</translation>
     </message>
     <message>
       <source>Remove space after operator profile</source>
-      <translation>Κατάργηση διαστήματος μετά από το χειριστή προφίλ</translation>
+      <translation>Suprimeix l&apos;espai després del perfil de l&apos;agent</translation>
     </message>
     <message>
       <source>Hide message label</source>
-      <translation>Απόκρυψη ετικέτα μηνύματος</translation>
+      <translation>Amaga l&apos;etiqueta del missatge</translation>
     </message>
     <message>
       <source>Show messages box above input fields, usefull for UX combinations.</source>
-      <translation>Εμφάνιση του πλαισίου μηνυμάτων πάνω από τα πεδία εισόδου, χρήσιμο για UX συνδυασμούς.</translation>
+      <translation>Mostra el quadre de missatges per sobre dels camps d&apos;entrada, útil per a combinacions UX.</translation>
     </message>
     <message>
       <source>Initial user message height in pixels</source>
-      <translation>Αρχικό χρήστη μήνυμα ύψος, σε pixel</translation>
+      <translation>Alçada inicial del missatge d&apos;usuari en píxels</translation>
     </message>
     <message>
       <source>Department settings</source>
-      <translation type="unfinished"/>
+      <translation>Configuració de departaments</translation>
     </message>
     <message>
       <source>Requires pre-filled department</source>
-      <translation type="unfinished"/>
+      <translation>Requereix un departament per defecte</translation>
     </message>
     <message>
       <source>User can not change passed department.</source>
-      <translation type="unfinished"/>
+      <translation>L&apos;usuari no pot tornar a un departament anterior.</translation>
     </message>
     <message>
       <source>Encryption</source>
-      <translation type="unfinished"/>
+      <translation>Xifratge</translation>
     </message>
     <message>
       <source>Encryption key, min length 40</source>
-      <translation>Μήκος min κρυπτογράφηση κλειδιού, 40</translation>
+      <translation>Clau de xifratge, longitud mín. 40</translation>
     </message>
     <message>
       <source>Additional encryption key, min length 40</source>
-      <translation>Μήκος κλειδιού, λεπτά επιπλέον κρυπτογράφησης 40</translation>
+      <translation>Tecla de xifratge addicional, min de 40</translation>
     </message>
     <message>
       <source>List of start chat settings</source>
-      <translation type="unfinished"/>
+      <translation>Llista de configuracions del inici del xat</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Departament</translation>
     </message>
     <message>
       <source>New</source>
-      <translation type="unfinished"/>
+      <translation>Nou</translation>
     </message>
     <message>
       <source>Please enter resource identifier</source>
-      <translation>Παρακαλώ εισάγετε το αναγνωριστικό πόρου</translation>
+      <translation>Introduïu l&apos;identificador del recurs.</translation>
     </message>
     <message>
       <source>Add resource</source>
-      <translation>Προσθήκη πόρου</translation>
+      <translation>Afegeix recurs</translation>
     </message>
     <message>
       <source>Minimum 40 characters for encryption key!</source>
-      <translation>Τουλάχιστον 40 χαρακτήρες για το κλειδί κρυπτογράφησης!</translation>
+      <translation>Mínim 40 caràcters per a la clau de xifratge!</translation>
     </message>
     <message>
       <source>Minimum 40 characters for additional encryption key!</source>
-      <translation>Τουλάχιστον 40 χαρακτήρες για το κλειδί κρυπτογράφησης επιπλέον!</translation>
+      <translation>Mínim 40 caràcters per a la clau de xifratge addicional!</translation>
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>
-      <translation>Παρακαλώ επιλέξτε τουλάχιστον ένα πεδίο για ένα αναδυόμενο παράθυρο</translation>
+      <translation>Seleccioneu almenys un camp per al pop-up</translation>
     </message>
     <message>
       <source>Please choose at least one field for a page widget</source>
-      <translation>Παρακαλώ επιλέξτε τουλάχιστον ένα πεδίο για μια σελίδα widget</translation>
+      <translation>Seleccioneu almenys un camp per al widget de pàgina</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
-      <translation>Έναρξη συνομιλίας μορφή ρυθμίσεις</translation>
+      <translation>Configuració del formulari d&apos;inici de xat</translation>
     </message>
   </context>
   <context>
     <name>chat/lists/search_panel</name>
     <message>
       <source>Select operator</source>
-      <translation type="unfinished"/>
+      <translation>Seleccioneu l&apos;agent</translation>
     </message>
     <message>
       <source>Select event</source>
-      <translation type="unfinished"/>
+      <translation>Seleccioneu l&apos;esdeveniment</translation>
     </message>
     <message>
       <source>Delete selected</source>
-      <translation>Διαγραφή επιλεγεί</translation>
+      <translation>Suprimeix selecció</translation>
     </message>
     <message>
       <source>Nick</source>
-      <translation>Nick</translation>
+      <translation>Àlies</translation>
     </message>
     <message>
       <source>E-mail</source>
@@ -1053,115 +1053,115 @@
     </message>
     <message>
       <source>Department</source>
-      <translation>Τμήμα</translation>
+      <translation>Departament</translation>
     </message>
     <message>
       <source>User</source>
-      <translation>Χρήστης</translation>
+      <translation>Usuari</translation>
     </message>
     <message>
       <source>Date range from</source>
-      <translation type="unfinished"/>
+      <translation>Data inici</translation>
     </message>
     <message>
       <source>Hour and minute from</source>
-      <translation type="unfinished"/>
+      <translation>Hora inici</translation>
     </message>
     <message>
       <source>Date range to</source>
-      <translation type="unfinished"/>
+      <translation>Data fi</translation>
     </message>
     <message>
       <source>Hour and minute to</source>
-      <translation type="unfinished"/>
+      <translation>Hora fi</translation>
     </message>
     <message>
       <source>Wait time</source>
-      <translation type="unfinished"/>
+      <translation>Temps d´espera</translation>
     </message>
     <message>
       <source>Vote status</source>
-      <translation>Ψηφοφορίας κατάσταση</translation>
+      <translation>Estat de la valoració</translation>
     </message>
     <message>
       <source>Any</source>
-      <translation>Οποιαδήποτε</translation>
+      <translation>Qualsevol</translation>
     </message>
     <message>
       <source>Not Voted</source>
-      <translation>Δεν ψήφισαν</translation>
+      <translation>Sense valoració</translation>
     </message>
     <message>
       <source>Up Voted</source>
-      <translation>Ψήφισαν μέχρι</translation>
+      <translation>Valoració positiva</translation>
     </message>
     <message>
       <source>Down vote</source>
-      <translation>Κάτω ψηφοφορία</translation>
+      <translation>Valoració negativa</translation>
     </message>
     <message>
       <source>Chat status</source>
-      <translation>Κατάστασής της συζήτησής</translation>
+      <translation>Estat del xat</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation>Συνομιλίες σε εκκρεμότητα</translation>
+      <translation>Xats pendents</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation>Ενεργό συνομιλίες</translation>
+      <translation>Xats actius</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation>Κλειστό συνομιλίες</translation>
+      <translation>Xats Tancats</translation>
     </message>
     <message>
       <source>Chatbox chats</source>
-      <translation>Συνομιλίες chatbox</translation>
+      <translation>Xats al quadre de conversa</translation>
     </message>
     <message>
       <source>Operators chats</source>
-      <translation>Φορείς συνομιλίες</translation>
+      <translation>Xats d&apos;agents</translation>
     </message>
     <message>
       <source>Product</source>
-      <translation>Προϊόντος</translation>
+      <translation>Producte</translation>
     </message>
     <message>
       <source>Chat ID</source>
-      <translation type="unfinished"/>
+      <translation>ID del xat</translation>
     </message>
     <message>
       <source>Chat duration</source>
-      <translation type="unfinished"/>
+      <translation>Durada del xat</translation>
     </message>
     <message>
       <source>Chat duration from</source>
-      <translation type="unfinished"/>
+      <translation>Inici del xat</translation>
     </message>
     <message>
       <source>From</source>
-      <translation type="unfinished"/>
+      <translation>De</translation>
     </message>
     <message>
       <source>Chat duration till</source>
-      <translation type="unfinished"/>
+      <translation>Fi del xat</translation>
     </message>
     <message>
       <source>Till</source>
-      <translation type="unfinished"/>
+      <translation>Fins</translation>
     </message>
     <message>
       <source>Has unread messages</source>
-      <translation>Έχει μη αναγνωσθέντα μηνύματα</translation>
+      <translation>Té missatges no llegits</translation>
     </message>
     <message>
       <source>Search</source>
-      <translation>Αναζήτηση</translation>
+      <translation>Cerca</translation>
     </message>
     <message>
       <source>Print</source>
-      <translation>Εκτύπωση</translation>
+      <translation>Imprimeix</translation>
     </message>
     <message>
       <source>XLS</source>
@@ -1169,529 +1169,529 @@
     </message>
     <message>
       <source>XLS (with content)</source>
-      <translation>Μετατρέψτε το έγγραφο ΛΈΞΗΣ (με περιεχόμενο)</translation>
+      <translation>XLS (amb contingut)</translation>
     </message>
     <message>
       <source>Select department</source>
-      <translation>Επέλεξε τμήμα</translation>
+      <translation>Seleccioneu la el departament</translation>
     </message>
     <message>
       <source>Select user</source>
-      <translation>Επέλεξε χρήστη</translation>
+      <translation>Seleccioneu l&apos;usuari</translation>
     </message>
     <message>
       <source>Select product</source>
-      <translation>Επιλέξτε προϊόν</translation>
+      <translation>Seleccioneu el producte o servei</translation>
     </message>
     <message>
       <source>Type to search</source>
-      <translation>Πληκτρολόγηση για αναζήτηση</translation>
+      <translation>Escriviu per cercar</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Όνομα</translation>
+      <translation>Nom</translation>
     </message>
     <message>
       <source>Hidden</source>
-      <translation type="unfinished"/>
+      <translation>Ocult</translation>
     </message>
     <message>
       <source>Visible only if online</source>
-      <translation type="unfinished"/>
+      <translation>Visible només si està en línia</translation>
     </message>
     <message>
       <source>Disabled</source>
-      <translation type="unfinished"/>
+      <translation>Inhabilitat</translation>
     </message>
     <message>
       <source>User group</source>
-      <translation type="unfinished"/>
+      <translation>Grup d&apos;usuaris</translation>
     </message>
     <message>
       <source>Department group</source>
-      <translation type="unfinished"/>
+      <translation>Grup de departaments</translation>
     </message>
     <message>
       <source>Exclude offline request from charts.</source>
-      <translation type="unfinished"/>
+      <translation>Exclou les sol·licituds &quot;fora de línia&quot; dels gràfics.</translation>
     </message>
     <message>
       <source>Show only offline request</source>
-      <translation type="unfinished"/>
+      <translation>Mostra només les sol·licituds &quot;fora de línia&quot;</translation>
     </message>
     <message>
       <source>Compare to past</source>
-      <translation type="unfinished"/>
+      <translation>Compara amb el anterior</translation>
     </message>
     <message>
       <source>Select group</source>
-      <translation type="unfinished"/>
+      <translation>Seleccionar grup</translation>
     </message>
     <message>
       <source>Choose department</source>
-      <translation>Επιλέξτε τμήμα</translation>
+      <translation>Seleccioneu el departament</translation>
     </message>
     <message>
       <source>Choose department group</source>
-      <translation type="unfinished"/>
+      <translation>Seleccioneu el grup de departaments</translation>
     </message>
     <message>
       <source>Agent</source>
-      <translation type="unfinished"/>
+      <translation>Agent</translation>
     </message>
     <message>
       <source>Chats</source>
-      <translation type="unfinished"/>
+      <translation>Xats</translation>
     </message>
     <message>
       <source>Group by</source>
-      <translation>Ομαδοποίηση κατά</translation>
+      <translation>Agrupa per</translation>
     </message>
     <message>
       <source>Month</source>
-      <translation>Μήνα</translation>
+      <translation>Mes</translation>
     </message>
     <message>
       <source>Day</source>
-      <translation>Ημέρα</translation>
+      <translation>Dia</translation>
     </message>
     <message>
       <source>Date range from to</source>
-      <translation>Εύρος ημερομηνιών από να</translation>
+      <translation>Data des de i fins a</translation>
     </message>
     <message>
       <source>Total number of chats</source>
-      <translation type="unfinished"/>
+      <translation>Nombre total de xats</translation>
     </message>
     <message>
       <source>Number of chats while online</source>
-      <translation type="unfinished"/>
+      <translation>Nombre de xats mentre està en línia</translation>
     </message>
     <message>
       <source>Hours on chat (sum of chat duration)</source>
-      <translation type="unfinished"/>
+      <translation>Hores de xat (suma de la durada del xat)</translation>
     </message>
     <message>
       <source>Time online (sum of time spend online)</source>
-      <translation type="unfinished"/>
+      <translation>Temps en línia (suma de temps en línia)</translation>
     </message>
     <message>
       <source>AVG number of chats per hour</source>
-      <translation type="unfinished"/>
+      <translation>Nombre mitjà de xats per hora</translation>
     </message>
     <message>
       <source>Average pick-up time</source>
-      <translation type="unfinished"/>
+      <translation>Temps mitjà de recollida</translation>
     </message>
     <message>
       <source>Average chat length</source>
-      <translation type="unfinished"/>
+      <translation>Longitud mitjana del xat</translation>
     </message>
     <message>
       <source>Include hours (from, to)</source>
-      <translation type="unfinished"/>
+      <translation>Inclou hores (de, fins)</translation>
     </message>
     <message>
       <source>Group results by operator</source>
-      <translation>Αποτελέσματα Ομίλου από χειριστή</translation>
+      <translation>Agrupa resultats per agent</translation>
     </message>
     <message>
       <source>Minimum chats</source>
-      <translation>Ελάχιστη συνομιλίες</translation>
+      <translation>Xats mínims</translation>
     </message>
     <message>
       <source>Optional</source>
-      <translation>Προαιρετικό</translation>
+      <translation>Opcional</translation>
     </message>
     <message>
       <source>XML</source>
-      <translation type="unfinished"/>
+      <translation>XML</translation>
     </message>
     <message>
       <source>JSON</source>
-      <translation type="unfinished"/>
+      <translation>JSON</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation>Όνομα χρήστη</translation>
+      <translation>Nom d&apos;usuari</translation>
     </message>
     <message>
       <source>Nickname</source>
-      <translation type="unfinished"/>
+      <translation>Àlies</translation>
     </message>
     <message>
       <source>Surname</source>
-      <translation>Επώνυμο</translation>
+      <translation>Cognoms</translation>
     </message>
   </context>
   <context>
     <name>chat/cannedmsg</name>
     <message>
       <source>Language</source>
-      <translation type="unfinished"/>
+      <translation>Idioma</translation>
     </message>
     <message>
       <source>Title/Message</source>
-      <translation>Τίτλος/μήνυμα</translation>
+      <translation>Títol/Missatge</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation>Τμήμα</translation>
+      <translation>Departament</translation>
     </message>
     <message>
       <source>User</source>
-      <translation>Χρήστη</translation>
+      <translation>Usuari</translation>
     </message>
     <message>
       <source>Delay</source>
-      <translation>Καθυστέρηση</translation>
+      <translation>Retard</translation>
     </message>
     <message>
       <source>Position</source>
-      <translation>θέση</translation>
+      <translation>Posició</translation>
     </message>
     <message>
       <source>Auto send</source>
-      <translation>Αυτόματη αποστολή</translation>
+      <translation>Enviament automàtic</translation>
     </message>
     <message>
       <source>Edit message</source>
-      <translation>Επεξεργασία μηνύματος</translation>
+      <translation>Edita el missatge</translation>
     </message>
     <message>
       <source>Delete message</source>
-      <translation>Διαγραφή μηνύματος</translation>
+      <translation>Suprimeix el missatge</translation>
     </message>
     <message>
       <source>New canned message</source>
-      <translation>Νέο προκαθορισμένο μήνυμα</translation>
+      <translation>Nou missatge predefinit</translation>
     </message>
     <message>
       <source>Main</source>
-      <translation type="unfinished"/>
+      <translation>Principal</translation>
     </message>
     <message>
       <source>Add translation</source>
-      <translation type="unfinished"/>
+      <translation>Afegeix una traducció</translation>
     </message>
     <message>
       <source>Title</source>
-      <translation>Τίτλος</translation>
+      <translation>Títol</translation>
     </message>
     <message>
       <source>Explain</source>
-      <translation>Εξηγήσει</translation>
+      <translation>Explica</translation>
     </message>
     <message>
       <source>Message</source>
-      <translation>Μήνυμα</translation>
+      <translation>Missatge</translation>
     </message>
     <message>
       <source>Fallback message</source>
-      <translation>Εφεδρική μήνυμα</translation>
+      <translation>Missatge alternatiu</translation>
     </message>
     <message>
       <source>Automatically send this message to user then chat is accepted</source>
-      <translation>Αυτόματα να στείλει αυτό το μήνυμα προς το χρήστη και, στη συνέχεια, να συνομιλίας είναι αποδεκτή</translation>
+      <translation>Envia aquest missatge automàticament a l&apos;usuari quan accepti el xat</translation>
     </message>
     <message>
       <source>Delay in seconds</source>
-      <translation>Καθυστέρηση σε δευτερόλεπτα</translation>
+      <translation>Retard en segons</translation>
     </message>
     <message>
       <source>Tag&apos;s</source>
-      <translation type="unfinished"/>
+      <translation>Etiquetes</translation>
     </message>
     <message>
       <source>Canned messages</source>
-      <translation>Προκαθορισμένα μηνύματα</translation>
+      <translation>Missatges predefinits</translation>
     </message>
     <message>
       <source>Edit canned message</source>
-      <translation>Επεξεργασία προκαθορισμένου μηνύματος</translation>
+      <translation>Edita missatge predefinit</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Nom</translation>
     </message>
     <message>
       <source>Langauge</source>
-      <translation type="unfinished"/>
+      <translation>Llengua</translation>
     </message>
     <message>
       <source>Personal canned message</source>
-      <translation>Προσωπικά το κονσερβοποιημένο μήνυμα</translation>
+      <translation>Missatge predefinit personal</translation>
     </message>
     <message>
       <source>Canned message was saved</source>
-      <translation>Το κονσερβοποιημένο μήνυμα αποθηκεύτηκε</translation>
+      <translation>S&apos;ha desat el missatge predefinit</translation>
     </message>
     <message>
       <source>Please enter a canned message</source>
-      <translation>Παρακαλώ εισάγετε ένα προκαθορισμένο μήνυμα</translation>
+      <translation>Introduïu un missatge predefinit</translation>
     </message>
     <message>
       <source>Please choose a department</source>
-      <translation>Παρακαλώ επιλέξτε ένα τμήμα</translation>
+      <translation>Seleccioneu un departament</translation>
     </message>
     <message>
       <source>Please enter language name!</source>
-      <translation type="unfinished"/>
+      <translation>Introduïu el nom de l&apos;idioma</translation>
     </message>
     <message>
       <source>Please choose a language!</source>
-      <translation type="unfinished"/>
+      <translation>Seleccioneu un idioma!</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Παραμετροποίηση συστήματος</translation>
+      <translation>Configuració del sistema</translation>
     </message>
     <message>
       <source>Dialects</source>
-      <translation type="unfinished"/>
+      <translation>Dialectes</translation>
     </message>
     <message>
       <source>Edit dialect</source>
-      <translation type="unfinished"/>
+      <translation>Edita dialectes</translation>
     </message>
     <message>
       <source>Languages</source>
-      <translation type="unfinished"/>
+      <translation>Llengües</translation>
     </message>
   </context>
   <context>
     <name>survey/form</name>
     <message>
       <source>Add option</source>
-      <translation>Προσθήκη επιλογής</translation>
+      <translation>Afegieix opció</translation>
     </message>
     <message>
       <source>Enter a possible answer to your question here...</source>
-      <translation>Εισάγετε μια πιθανή απάντηση στην ερώτησή σας εδώ...</translation>
+      <translation>Introduïu aquí una possible resposta a la vostra pregunta ...</translation>
     </message>
     <message>
       <source>Enable stars</source>
-      <translation>Ενεργοποίηση αστέρια</translation>
+      <translation>Activa valoració per estrelles</translation>
     </message>
     <message>
       <source>Enable question</source>
-      <translation>Ενεργοποιήσετε την ερώτηση</translation>
+      <translation>Habilita la pregunta</translation>
     </message>
     <message>
       <source>Enable question with an answers</source>
-      <translation>Ενεργοποίηση του ερώτηση με απαντήσεις</translation>
+      <translation>Habilita preguntes amb respostes</translation>
     </message>
   </context>
   <context>
     <name>chat/getstatus</name>
     <message>
       <source>Close</source>
-      <translation>Κλείσιμο</translation>
+      <translation>Tanca</translation>
     </message>
     <message>
       <source>Open in a new window</source>
-      <translation>Άνοιγμα σε νέο παράθυρο</translation>
+      <translation>Obre en una finestra nova</translation>
     </message>
     <message>
       <source>Minimize/Restore</source>
-      <translation>Ελαχιστοποίηση/επαναφορά</translation>
+      <translation>Minimitza / restaura</translation>
     </message>
     <message>
       <source>Live help is online...</source>
-      <translation>Η ζωντανή βοήθεια είναι σε απευθείας σύνδεση...</translation>
+      <translation>Xat en viu disponible...</translation>
     </message>
     <message>
       <source>Need help?</source>
-      <translation>Χρειάζεστε βοήθεια;</translation>
+      <translation>Necessiteu ajuda?</translation>
     </message>
     <message>
       <source>Our staff are always ready to help</source>
-      <translation>Το προσωπικό μας είναι πάντα έτοιμο να βοηθήσει</translation>
+      <translation>El nostres agents es troben a disposició per ajudar-vos</translation>
     </message>
     <message>
       <source>Allow operator to see your page content?</source>
-      <translation>Να επιτρέπεται σε χειριστή να δει το περιεχόμενο της σελίδας σας;</translation>
+      <translation>Voleu permetre que l&apos;agent vegi el contingut de la pàgina actual?</translation>
     </message>
     <message>
       <source>New messages</source>
-      <translation type="unfinished"/>
+      <translation>Nous missatges</translation>
     </message>
     <message>
       <source>Live Help</source>
-      <translation type="unfinished"/>
+      <translation>Ajuda en viu</translation>
     </message>
     <message>
       <source>Live help is offline...</source>
-      <translation>Η ζωντανή βοήθεια είναι σε μη απευθείας σύνδεση...</translation>
+      <translation>L&apos;ajuda en viu no està disponible...</translation>
     </message>
     <message>
       <source>Screen shared, click to finish</source>
-      <translation>Οθόνη από κοινού, κάντε κλικ για να τελειώσει</translation>
+      <translation>Pantalla compartida, feu clic per finalitzar</translation>
     </message>
   </context>
   <context>
     <name>abstract/proactivechatinvitation</name>
     <message>
       <source>If you want pro active chat invitation to work it has to be enabled in</source>
-      <translation>Αν θέλετε η pro active chat να δουλευει πρέπει να είναι ενεργοποιημένη στο</translation>
+      <translation>Si voleu emprar les invitacions pro-actives al xat, heu de activar aquesta opció</translation>
     </message>
     <message>
       <source>chat configuration</source>
-      <translation>διαμόρφωση συνομιλίας</translation>
+      <translation>Configuració del xat</translation>
     </message>
     <message>
       <source>also online users tracking has to be</source>
-      <translation>επίσης σε απευθείας σύνδεση χρήστες παρακολούθησης πρέπει να είναι</translation>
+      <translation>el seguiment d&apos;usuari també ha d&apos;estar</translation>
     </message>
     <message>
       <source>enabled</source>
-      <translation>ενεργοποιημένη</translation>
+      <translation>habilitat</translation>
     </message>
     <message>
       <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
-      <translation>Γλώσσα, αφήστε κενό για όλους. Π.χ. φωτισμό, rus, ger κλπ...</translation>
+      <translation>Llengua. En blanc per a totes. Ex. lit, rus, ger etc...</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Nom</translation>
     </message>
     <message>
       <source>Operator. Visitor will see this operator nick.</source>
-      <translation type="unfinished"/>
+      <translation>Agent. El visitant veurà aquest àlies d&apos;agent.</translation>
     </message>
     <message>
       <source>Position</source>
-      <translation>Θέση</translation>
+      <translation>Posició</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation>Τμήμα</translation>
+      <translation>Departament</translation>
     </message>
     <message>
       <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
-      <translation>Περιμένει μήνυμα. Ορατά, όταν οι χρήστες αρχίζει συνομιλία και περιμένει κάποιος να δεχθεί μια συνομιλία.</translation>
+      <translation>Missatge d&apos;espera. Visible quan un usuari obre un xat i està esperant algú que l&apos;accepti.</translation>
     </message>
     <message>
       <source>Wait timeout.</source>
-      <translation type="unfinished"/>
+      <translation>Temps màxim d&apos;espera.</translation>
     </message>
     <message>
       <source>Show visitor this message when wait timeout passes</source>
-      <translation>Επισκέπτης εμφάνιση αυτό το μήνυμα όταν περιμένετε χρονικού ορίου περάσματα</translation>
+      <translation>Mostra aquest missatge al visitant quan el temps d&apos;espera s&apos;exhaureix</translation>
     </message>
     <message>
       <source>How many times repeat message? Applied only to first message.</source>
-      <translation type="unfinished"/>
+      <translation>Quantes vegades s&apos;ha de repetir el missatge? S&apos;aplica només al primer missatge.</translation>
     </message>
     <message>
       <source>Redirect visitor to survey if visitor does not responds within N seconds</source>
-      <translation type="unfinished"/>
+      <translation>Redirigeix el visitant cap a l&apos;enquesta si el visitant no respon en N segons</translation>
     </message>
     <message>
       <source>Survey</source>
-      <translation type="unfinished"/>
+      <translation>Enquesta</translation>
     </message>
     <message>
       <source>Timeout. [1]</source>
-      <translation type="unfinished"/>
+      <translation>Temps màxim. [1]</translation>
     </message>
     <message>
       <source>Default on hold message</source>
-      <translation type="unfinished"/>
+      <translation>Missatge predeterminat &quot;en espera&quot;</translation>
     </message>
     <message>
       <source>Message for timeout [1]</source>
-      <translation type="unfinished"/>
+      <translation>Missatge de temps exhaurit [1]</translation>
     </message>
     <message>
       <source>Message for timeout [2]</source>
-      <translation type="unfinished"/>
+      <translation>Missatge de temps exhaurit [2]</translation>
     </message>
     <message>
       <source>Message for timeout [3]</source>
-      <translation type="unfinished"/>
+      <translation>Missatge de temps exhaurit [3]</translation>
     </message>
     <message>
       <source>Message for timeout [4]</source>
-      <translation type="unfinished"/>
+      <translation>Missatge de temps exhaurit [4]</translation>
     </message>
     <message>
       <source>Message for timeout [5]</source>
-      <translation type="unfinished"/>
+      <translation>Missatge de temps exhaurit [5]</translation>
     </message>
     <message>
       <source>Timeout. [2]</source>
-      <translation type="unfinished"/>
+      <translation>Temps máxim. [2]</translation>
     </message>
     <message>
       <source>Timeout. [3]</source>
-      <translation type="unfinished"/>
+      <translation>Temps màxim. [3]</translation>
     </message>
     <message>
       <source>Timeout. [4]</source>
-      <translation type="unfinished"/>
+      <translation>Temps màxim. [4]</translation>
     </message>
     <message>
       <source>Timeout. [5]</source>
-      <translation type="unfinished"/>
+      <translation>Temps màxim. [5]</translation>
     </message>
     <message>
       <source>Auto responder</source>
-      <translation>Αυτόματη απάντηση</translation>
+      <translation>Auto responedor</translation>
     </message>
     <message>
       <source>Mouse leaves a browser window</source>
-      <translation type="unfinished"/>
+      <translation>El ratolí surt de la finestra del navegador</translation>
     </message>
     <message>
       <source>Visitor idle N seconds on site</source>
-      <translation type="unfinished"/>
+      <translation>Visitant inactiu N segons al web</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
-      <translation>Προσκλήσεις Pro active chat</translation>
+      <translation>Invitacions pro-actives al xat</translation>
     </message>
     <message>
       <source>Pro active chat variables</source>
-      <translation type="unfinished"/>
+      <translation>Variables de xats pro-actius</translation>
     </message>
   </context>
   <context>
     <name>abstract/list</name>
     <message>
       <source>Are you sure?</source>
-      <translation>Είστε σίγουρος;</translation>
+      <translation>N&apos;esteu segur?</translation>
     </message>
   </context>
   <context>
     <name>system/htmlcode</name>
     <message>
       <source>HTML code</source>
-      <translation>Κώδικα HTML</translation>
+      <translation>Codi HTML</translation>
     </message>
     <message>
       <source>Popup width</source>
-      <translation>Υπερεμφανιζόμενο πλάτος</translation>
+      <translation>Amplada del pop-up</translation>
     </message>
     <message>
       <source>Popup height, used only if iframe is used</source>
-      <translation>Υπερεμφανιζόμενο ύψος, χρησιμοποιείται μόνο αν χρησιμοποιείται iframe</translation>
+      <translation>Alçada del pop-up, només si s&apos;utilitza iframe</translation>
     </message>
     <message>
       <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
-      <translation>Αναγνωριστικό, αυτό μπορεί να χρησιμοποιηθεί ως φίλτρο για προσκλήσεις προορατικού συνομιλίας και είναι χρήση έχοντας πλήρη διαφορετικά μηνύματα για διαφορετικούς τομείς. Μόνο συμβολοσειρά χωρίς διαστήματα ή ειδικούς χαρακτήρες.</translation>
+      <translation>Identificador. És útil com a filtre per a les invitacions pro-actives de xat o per tenir missatges diferents segons el domini. Text sense espais ni caràcters especials.</translation>
     </message>
     <message>
       <source>Leave empty if it is not important to you</source>
-      <translation>Αφήστε κενό εάν δεν είναι σημαντικό για εσάς</translation>
+      <translation>Deixeu-ho en blanc si no us cal</translation>
     </message>
     <message>
       <source>Offer timeout in days, after how many days show offers for the same visitor again, leave empty for session</source>
-      <translation>Προσφορά χρονικού ορίου σε ημέρες, μετά δείχνουν πόσες μέρες προσφέρει για τον ίδιο επισκέπτη και πάλι, αφήστε κενό για συνεδρία</translation>
+      <translation>Intèrval de dies per mostrar ofertes. Després de quants dies es mostren de nou les ofertes al mateix visitant. Deixeu-ho en blanc per mostrar a cada sessió.</translation>
     </message>
     <message>
       <source>For what domain you are generating embed code?</source>
-      <translation>Για τι τομέα, δημιουργείτε ενσωματώνει τον κώδικα;</translation>
+      <translation>Per a quin domini esteu generant el codi a incrustar?</translation>
     </message>
     <message>
       <source>example.com</source>
@@ -1699,616 +1699,616 @@
     </message>
     <message>
       <source>Choose prefered http mode</source>
-      <translation>Επιλέξτε την προτιμώμενη λειτουργία http</translation>
+      <translation>Escolliu el mode de HTTP preferit</translation>
     </message>
     <message>
       <source>Based on site (default)</source>
-      <translation>Με βάση την τοποθεσία (προεπιλογή)</translation>
+      <translation>Basat en el lloc web (per defecte)</translation>
     </message>
     <message>
       <source>Choose a language</source>
-      <translation>Επιλέξτε μια γλώσσα</translation>
+      <translation>Seleccioneu una llengua</translation>
     </message>
     <message>
       <source>Chatbox messages content height</source>
-      <translation>Μηνύματα chatbox περιεχομένου ύψος</translation>
+      <translation>Alçada del xat integrat</translation>
     </message>
     <message>
       <source>Theme</source>
-      <translation>Θέμα</translation>
+      <translation>Tema</translation>
     </message>
     <message>
       <source>Default</source>
-      <translation>Προεπιλογή</translation>
+      <translation>Per defecte</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want it to be rendered</source>
-      <translation>Αντιγράψτε τον κώδικα από την περιοχή κειμένου στη σελίδα όπου θέλετε να καθίστανται</translation>
+      <translation>Copieu el codi des-de l&apos;àrea de text a la pàgina on voleu que sigui mostrat</translation>
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Chatbox module to render.</source>
-      <translation>Θέση αυτής της ετικέτας όπου θέλετε η ενότητα ζουν Chatbox βοηθός για την απόδοση.</translation>
+      <translation>Col·loqueu aquesta etiqueta allà on vulgueu mostrar el xat integrat de Live Helper Chat.</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper Chatbox module tag.</source>
-      <translation>Θέση αυτής της ετικέτας μετά την ετικέτα ενότητα ζουν Chatbox Helper.</translation>
+      <translation>Col·loqueu aquesta etiqueta a sota l&apos;etiqueta del xat integrat de LHC.</translation>
     </message>
     <message>
       <source>Chatbox</source>
-      <translation>Chatbox</translation>
+      <translation>Xat integrat</translation>
     </message>
     <message>
       <source>Position from the top, is only used if the Middle left or the Middle right side is chosen</source>
-      <translation>Θέση από την κορυφή, να χρησιμοποιείται μόνο αν η μέση αριστερά ή δεξιά πλευρά μέση επιλέγεται</translation>
+      <translation>La posició des de la part superior. Només s&apos;aplica si s&apos;ha seleccionat centrar verticalment.</translation>
     </message>
     <message>
       <source>Pixels</source>
-      <translation>Εικονοκύτταρα</translation>
+      <translation>Píxels</translation>
     </message>
     <message>
       <source>Percents</source>
-      <translation>Percents</translation>
+      <translation>Percentatges</translation>
     </message>
     <message>
       <source>Size</source>
-      <translation>Μέγεθος</translation>
+      <translation>Mida</translation>
     </message>
     <message>
       <source>Width</source>
-      <translation>Πλάτος</translation>
+      <translation>Amplada</translation>
     </message>
     <message>
       <source>Height</source>
-      <translation>Ύψος</translation>
+      <translation>Alçada</translation>
     </message>
     <message>
       <source>Position</source>
-      <translation>Θέση</translation>
+      <translation>Posició</translation>
     </message>
     <message>
       <source>Bottom right corner of the screen</source>
-      <translation>Κάτω δεξιά γωνία της οθόνης</translation>
+      <translation>A la part inferior dreta de la pantalla</translation>
     </message>
     <message>
       <source>Bottom left corner of the screen</source>
-      <translation>Κάτω αριστερή γωνία της οθόνης</translation>
+      <translation>A la part inferior esquerra de la pantalla</translation>
     </message>
     <message>
       <source>Middle right side of the screen</source>
-      <translation>Μεσαία δεξιά πλευρά της οθόνης</translation>
+      <translation>Centrat verticalment a la dreta de la pantalla</translation>
     </message>
     <message>
       <source>Middle left side of the screen</source>
-      <translation>Μεσαία αριστερή πλευρά της οθόνης</translation>
+      <translation>Centrat verticalment a l&apos;esquerra de la pantalla</translation>
     </message>
     <message>
       <source>Disable responsive layout for status widget.</source>
-      <translation>Απενεργοποιήσετε ανταποκρίνεται διάταξη για το γραφικό στοιχείο κατάσταση.</translation>
+      <translation>Inhabilita la disposició responsive per al widget d&apos;estat.</translation>
     </message>
     <message>
       <source>Disable minimize icon</source>
-      <translation>Απενεργοποίηση Ελαχιστοποίηση εικονίδιο</translation>
+      <translation>Inhabilita l&apos;icona per minimitzar</translation>
     </message>
     <message>
       <source>Show chatbox content instead of widget, users will be able only minimize, not close it.</source>
-      <translation>Εμφάνιση chatbox περιεχομένου αντί του widget, οι χρήστες θα είναι σε θέση μόνο να ελαχιστοποιήσει, όχι το κλείσιμό του.</translation>
+      <translation>Mostra el contingut xat integrat en comptes del widget. Els usuaris només podran minimitzar-lo en comptes de tancar-lo.</translation>
     </message>
     <message>
       <source>Show chatbox content minimized first time if content is shown.</source>
-      <translation>Εμφάνιση περιεχομένου chatbox ελαχιστοποιείται πρώτη φορά αν εμφανίζεται περιεχόμενο.</translation>
+      <translation>Minimitza inicialment el contingut del xat integrat si es mostra el contingut.</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
-      <translation>Αντιγράψτε τον κώδικα από την περιοχή κειμένου στο υποσέλιδο, πριν από το κλείσιμο &amp;lt; / σώματος &amp;gt; ετικέτα</translation>
+      <translation>Copieu el codi de l&apos;àrea de text al peu de pàgina, abans de l&apos;etiqueta de tancament &amp;lt;/body&amp;gt;</translation>
     </message>
     <message>
       <source>Copy the code from the textarea to page where you want it to be rendered</source>
-      <translation>Αντιγράψτε τον κώδικα από την περιοχή κειμένου στη σελίδα όπου θέλετε να καθίστανται</translation>
+      <translation>Copieu el codi de l&apos;àrea de text a la pàgina on vulgueu que es mostri</translation>
     </message>
     <message>
       <source>Place this tag where you want the Live Helper FAQ module to render.</source>
-      <translation>Θέση αυτής της ετικέτας όπου θέλετε η ενότητα Live Helper FAQ να καταστήσει.</translation>
+      <translation>Col·loqueu aquesta etiqueta allà on vulgueu que es mostri el mòdul FAQ del Live Helper.</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper FAQ module tag.</source>
-      <translation>Θέση αυτής της ετικέτας μετά την ετικέτα ενότητα Live Helper FAQ.</translation>
+      <translation>Col·loqueu aquesta etiqueta a continuació de l&apos;etiqueta del mòdul FAQ de Live Helper</translation>
     </message>
     <message>
       <source>Status text</source>
-      <translation>Κείμενο κατάστασης</translation>
+      <translation>Text d&apos;estat</translation>
     </message>
     <message>
       <source>FAQ</source>
-      <translation>Συχνές ερωτήσεις</translation>
+      <translation>FAQ</translation>
     </message>
     <message>
       <source>Position from the top, only used if the Middle left or the Middle right side is chosen</source>
-      <translation>Επιλέγεται η θέση από την κορυφή, να χρησιμοποιηθεί μόνο αν η μέση αριστερά ή δεξιά πλευρά μέση</translation>
+      <translation>La posició des de la part superior. Només s&apos;aplica si s&apos;ha seleccionat centrar verticalment.</translation>
     </message>
     <message>
       <source>Choose what form you want to embed</source>
-      <translation>Επιλέξτε ποια μορφή θέλετε να ενσωματώσετε</translation>
+      <translation>Trieu quin formulari voleu incrustar</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation>Αναγνωριστικό</translation>
+      <translation>Identificador</translation>
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Questionary module to render.</source>
-      <translation>Θέση αυτής της ετικέτας όπου θέλετε ενότητα Live Helper ερωτηματολογίου για την απόδοση.</translation>
+      <translation>Col·loqueu aquesta etiqueta on vulgueu mostrar el mòdul Live Helper Questionary.</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper Questionary module tag.</source>
-      <translation>Θέση αυτής της ετικέτας μετά το Live Helper ερωτηματολογίου ετικέτα ενότητα.</translation>
+      <translation>Col·loqueu aquesta etiqueta a continuació de l&apos;etiqueta del mòdul Live Helper Questionary</translation>
     </message>
     <message>
       <source>Help us to grow</source>
-      <translation>Βοηθήστε μας να αυξάνονται</translation>
+      <translation>Ajudeu-nos a créixer</translation>
     </message>
     <message>
       <source>Embed code</source>
-      <translation>Ενσωματώστε τον κώδικα</translation>
+      <translation>Codi d&apos;incrustació</translation>
     </message>
     <message>
       <source>Widget embed code</source>
-      <translation>Ενσωματώστε τον κώδικα widget</translation>
+      <translation>Codi d&apos;incrustació del widget</translation>
     </message>
     <message>
       <source>Page embed code</source>
-      <translation>Σελίδα ενσωματώνει τον κώδικα</translation>
+      <translation>Codi d&apos;incrustació de la pàgina</translation>
     </message>
     <message>
       <source>Set default speech recognition language</source>
-      <translation>Ορίσετε την προεπιλεγμένη γλώσσα αναγνώρισης ομιλίας</translation>
+      <translation>Estableix l&apos;idioma per defecte per al reconeixement de veu</translation>
     </message>
     <message>
       <source>Speech language</source>
-      <translation>Ομιλία γλώσσα</translation>
+      <translation>Idioma de parla</translation>
     </message>
     <message>
       <source>Languages</source>
-      <translation type="unfinished"/>
+      <translation>Idiomes</translation>
     </message>
     <message>
       <source>Dialects</source>
-      <translation type="unfinished"/>
+      <translation>Dialectes</translation>
     </message>
     <message>
       <source>General</source>
-      <translation>Γενική</translation>
+      <translation>General</translation>
     </message>
     <message>
       <source>Design</source>
-      <translation>Σχεδιασμός</translation>
+      <translation>Disseny</translation>
     </message>
     <message>
       <source>Hide status when offline</source>
-      <translation>Απόκρυψη status, όταν είναι εκτός σύνδεσης</translation>
+      <translation>Oculta l&apos;estat si és &quot;fora de línia&quot;</translation>
     </message>
     <message>
       <source>Show a leave a message form when there are no online operators</source>
-      <translation>Δείχνουν μια άδεια ένα μήνυμα μορφή, όταν δεν υπάρχουν καμία σε απευθείας σύνδεση φορείς</translation>
+      <translation>Mostra el formulari &quot;deixa un missatge&quot; quan no hi hagi cap agent en línia</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation>Τμήμα</translation>
+      <translation>Departament</translation>
     </message>
     <message>
       <source>Any</source>
-      <translation>Κάθε</translation>
+      <translation>Qualsevol</translation>
     </message>
     <message>
       <source>Operator ID</source>
-      <translation>Τελεστής αναγνωριστικό</translation>
+      <translation>ID d&apos;agent</translation>
     </message>
     <message>
       <source>To what operator chat should be assigned automatically?</source>
-      <translation>Τι χειριστή πρέπει να εκχωρούνται αυτόματα με chat;</translation>
+      <translation>A quin agent s&apos;hauria d&apos;assignar automàticament el xat?</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want your status to appear</source>
-      <translation>Αντιγράψτε τον κώδικα από την περιοχή κειμένου στη σελίδα όπου θέλετε την κατάστασή σας για να εμφανιστεί</translation>
+      <translation>Copieu el codi de l&apos;àrea de text a la pàgina on vulgeu que apareixi el vostre estat</translation>
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Plugin to render.</source>
-      <translation>Θέση αυτής της ετικέτας όπου θέλετε το Plugin Helper Live για να καταστήσει.</translation>
+      <translation>Col·loqueu aquesta etiqueta on vulgueu que es mostri el Live Helper Plugin.</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper Plugin tag.</source>
-      <translation>Θέση αυτής της ετικέτας μετά την ετικέτα Live Helper Plugin.</translation>
+      <translation>Col·loqueu aquesta etiqueta a continuació de l&apos;etiqueta del Live Helper Plugin.</translation>
     </message>
     <message>
       <source>On a mouse click show the page widget</source>
-      <translation>Σχετικά με ένα κλικ του ποντικιού για να δείτε τα widget σελίδα</translation>
+      <translation>En fer clic, mostra el widget de pàgina</translation>
     </message>
     <message>
       <source>Automatically check for messages from the operator/invitation messages</source>
-      <translation>Αυτόματος έλεγχος για μηνύματα από το χειριστή/πρόσκληση μηνύματα</translation>
+      <translation>Comprova automàticament si hi ha missatges de l&apos;agent / convidat</translation>
     </message>
     <message>
       <source>It increases server load, because every 15 seconds is checked for operator message or invitation message.</source>
-      <translation>Αυξάνει το φορτίο server, επειδή κάθε 15 δευτερόλεπτα ελέγχεται για μήνυμα τηλεφωνητή ή μήνυμα πρόσκλησης.</translation>
+      <translation>Augmenta la càrrega del servidor perquè es comprova cada 15 segons si hi ha missatges.</translation>
     </message>
     <message>
       <source>Disable pro active invitations, usefull if you want disable them from site part.</source>
-      <translation>Απενεργοποιήσετε προορατικού προσκλήσεις, χρήσιμο αν θέλετε να απενεργοποιήσετε από τμήμα τοποθεσίας.</translation>
+      <translation>Inhabiliteu les invitacions pro-actives. Útil si vols desactivar-les d&apos;una part del web.</translation>
     </message>
     <message>
       <source>Disable online tracking, overrides system configuration</source>
-      <translation>Απενεργοποιήσετε την online παρακολούθηση, υπερισχύει η διαμόρφωση του συστήματος</translation>
+      <translation>Inhabilita el seguiment en línia. Preval sobre la configuració del sistema.</translation>
     </message>
     <message>
       <source>Try to detect language automatically</source>
-      <translation type="unfinished"/>
+      <translation>Intenta detectar l&apos;idioma automàticament</translation>
     </message>
     <message>
       <source>Survey at the end of chat</source>
-      <translation>Έρευνα στο τέλος της συνομιλίας</translation>
+      <translation>Enquesta al final del xat</translation>
     </message>
     <message>
       <source>Product</source>
-      <translation>Προϊόντος</translation>
+      <translation>Producte</translation>
     </message>
     <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
-      <translation>Ελαχιστοποίηση της δράσης, να ισχύει μόνο αν το γραφικό στοιχείο κατάσταση είναι στο κάτω μέρος</translation>
+      <translation>Permet minimitzar, només s&apos;aplica si el quadre d&apos;estat és situat a la part inferior</translation>
     </message>
     <message>
       <source>Keep where it was</source>
-      <translation>Κρατήσει όπου ήταν</translation>
+      <translation>Deixa-ho on estava</translation>
     </message>
     <message>
       <source>Minimize to bottom of the screen</source>
-      <translation>Ελαχιστοποίηση κάτω μέρος της οθόνης</translation>
+      <translation>Minimitza a la parti inferior de la pantalla</translation>
     </message>
     <message>
       <source>Native placement - it will be shown where the html is embedded</source>
-      <translation>Μητρική τοποθέτηση - θα παρουσιαστεί όπου ενσωματώνεται το html</translation>
+      <translation>Ubicació nativa - es mostrarà allà on s&apos;hagi incrustat l&apos;HTML</translation>
     </message>
     <message>
       <source>Invisible, only JS API will be included</source>
-      <translation>Αόρατο, μόνο JS API θα πρέπει να περιλαμβάνονται</translation>
+      <translation>Invisible, només s&apos;inclourà l&apos;API JS</translation>
     </message>
     <message>
       <source>Full height right</source>
-      <translation>Δικαίωμα πλήρους ύψους</translation>
+      <translation>Alçada total a la dreta</translation>
     </message>
     <message>
       <source>Full height left</source>
-      <translation>Πλήρες ύψος αριστερά</translation>
+      <translation>Alçada total a l&apos;esquerra</translation>
     </message>
     <message>
       <source>Popup window width</source>
-      <translation>Αναδυόμενο παράθυρο πλάτος</translation>
+      <translation>Amplada del pop-up</translation>
     </message>
     <message>
       <source>Popup window width in pixels</source>
-      <translation>Αναδυόμενο παράθυρο πλάτος σε pixel</translation>
+      <translation>Amplada del pop-up en píxels</translation>
     </message>
     <message>
       <source>height</source>
-      <translation>ύψος</translation>
+      <translation>alçada</translation>
     </message>
     <message>
       <source>Popup window height in pixels</source>
-      <translation>Αναδυόμενο παράθυρο ύψος, σε pixel</translation>
+      <translation>Alçada del pop-up en píxels</translation>
     </message>
     <message>
       <source>Widget width</source>
-      <translation>Πλάτος του widget</translation>
+      <translation>Amplada del widget</translation>
     </message>
     <message>
       <source>Widget width in pixels</source>
-      <translation>Widget πλάτος σε pixel</translation>
+      <translation>Amplada del widget en píxels</translation>
     </message>
     <message>
       <source>Widget height in pixels</source>
-      <translation>Widget ύψος, σε pixel</translation>
+      <translation>Alçada del widget en píxels</translation>
     </message>
     <message>
       <source>no survey</source>
-      <translation>δεν έρευνα</translation>
+      <translation>cap enquesta</translation>
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>
-      <translation>Παρακαλώ μην εισάγεις πρωτόκολλο, απαιτείται μόνο το όνομα τομέα</translation>
+      <translation>No introduïu el protocol, només el nom de domini</translation>
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Status to render.</source>
-      <translation>Θέση αυτής της ετικέτας όπου θέλετε το καθεστώς Helper Live για να καταστήσει.</translation>
+      <translation>Col·loqueu aquesta etiqueta on vulgueu que es mostri el Live Helper Status.</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper status tag.</source>
-      <translation>Θέση αυτής της ετικέτας μετά την ετικέτα κατάστασης Live Helper.</translation>
+      <translation>Col·loqueu aquesta etiqueta a continuació de l&apos;etiqueta de Live Helper Status</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Διαμόρφωση του συστήματος</translation>
+      <translation>Configuració del sistema</translation>
     </message>
     <message>
       <source>Chat expired</source>
-      <translation>Συνομιλία λήξη</translation>
+      <translation>El xat ha caducat</translation>
     </message>
     <message>
       <source>Invalid hash</source>
-      <translation>Μη έγκυρο κλειδί κατακερματισμού</translation>
+      <translation>Codi invàlid</translation>
     </message>
     <message>
       <source>Chat was removed</source>
-      <translation>Αφαιρέθηκε συνομιλίας</translation>
+      <translation>S&apos;ha suprimit el xat</translation>
     </message>
   </context>
   <context>
     <name>questionary/htmlcode</name>
     <message>
       <source>Show overlay</source>
-      <translation>Προβολή επικάλυψης</translation>
+      <translation>Mostra la superposició</translation>
     </message>
     <message>
       <source>Show different offers for the same user</source>
-      <translation>Εμφάνιση διαφορετικές προσφορές για τον ίδιο χρήστη</translation>
+      <translation>Mostra diferents ofertes per al mateix usuari</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page header or footer</source>
-      <translation>Αντιγράψτε τον κώδικα από την περιοχή κειμένου στην κεφαλίδα σελίδας ή υποσέλιδο</translation>
+      <translation>Copiar el codi delàrea de text a la capçalera o al peu de la pàgina</translation>
     </message>
     <message>
       <source>Status text</source>
-      <translation>Κείμενο κατάστασης</translation>
+      <translation>Text d&apos;estat</translation>
     </message>
     <message>
       <source>Expand the widget automatically for new users</source>
-      <translation>Επεκτείνετε το widget αυτόματα για τους νέους χρήστες</translation>
+      <translation>Expandeix el widget automàticament per als nous usuaris</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
-      <translation>Αντιγράψτε τον κώδικα από την περιοχή κειμένου στο υποσέλιδο, πριν από το κλείσιμο &amp;lt; / σώματος &amp;gt; ετικέτα</translation>
+      <translation>Copieu el codi de l&apos;àrea de text al peu de pàgina abans de l&apos;etiqueta de tancament &amp;lt;/body&amp;gt;</translation>
     </message>
     <message>
       <source>HTML code</source>
-      <translation>Κώδικας HTML</translation>
+      <translation>Codi HTML</translation>
     </message>
   </context>
   <context>
     <name>browseoffer/index</name>
     <message>
       <source>Browse offers</source>
-      <translation>Αναζήτηση προσφέρει</translation>
+      <translation>Navega per les ofertes</translation>
     </message>
     <message>
       <source>General</source>
-      <translation>Γενική</translation>
+      <translation>General</translation>
     </message>
     <message>
       <source>Browse your offers</source>
-      <translation>Περιηγηθείτε σας προσφορές</translation>
+      <translation>Navegueu per les vostres ofertes</translation>
     </message>
     <message>
       <source>HTML Code</source>
-      <translation>Κώδικα HTML</translation>
+      <translation>Codi HTML</translation>
     </message>
     <message>
       <source>Forms</source>
-      <translation>Μορφές</translation>
+      <translation>Formularis</translation>
     </message>
     <message>
       <source>Form</source>
-      <translation>Μορφή</translation>
+      <translation>Formulari</translation>
     </message>
   </context>
   <context>
     <name>chat/chat</name>
     <message>
       <source>Last visitor message time</source>
-      <translation type="unfinished"/>
+      <translation>Hora del darrer missatge del visitant</translation>
     </message>
     <message>
       <source>Show/Hide right column</source>
-      <translation>Εμφάνιση/απόκρυψη δεξιά στήλη</translation>
+      <translation>Mostra/Oculta la columna dreta</translation>
     </message>
     <message>
       <source>User is typing now...</source>
-      <translation>User is χαρακτηριστικός τώρα...</translation>
+      <translation>L&apos;usuari està escrivint...</translation>
     </message>
     <message>
       <source>You are not chat owner, type with caution</source>
-      <translation type="unfinished"/>
+      <translation>No sou el propietari d&apos;aquest xat, escriviu amb precaució</translation>
     </message>
     <message>
       <source>Change chat status</source>
-      <translation>Αλλαγή κατάστασης του chat</translation>
+      <translation>Canvia l&apos;estat del xat</translation>
     </message>
     <message>
       <source>Pending</source>
-      <translation>Σε εκκρεμότητα</translation>
+      <translation>Pendent</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation>Ενεργό</translation>
+      <translation>Actiu</translation>
     </message>
     <message>
       <source>Closed</source>
-      <translation>Κλειστά</translation>
+      <translation>Tancat</translation>
     </message>
     <message>
       <source>Chatbox chat</source>
-      <translation>Chatbox chat</translation>
+      <translation>Xat de xat integrat</translation>
     </message>
     <message>
       <source>Operators chat</source>
-      <translation>Φορείς συνομιλίας</translation>
+      <translation>Xat d&apos;agents</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>&quot;Άκυρο&quot;</translation>
+      <translation>Cancel·la</translation>
     </message>
     <message>
       <source>This chat is closed.</source>
-      <translation>Αυτή η συνομιλία είναι κλειστό.</translation>
+      <translation>Xat tancat</translation>
     </message>
     <message>
       <source>Pending confirm</source>
-      <translation>Σε εκκρεμότητα επιβεβαίωση</translation>
+      <translation>Pendent de confirmació</translation>
     </message>
     <message>
       <source>Close</source>
-      <translation>Κλείσιμο</translation>
+      <translation>Tanca</translation>
     </message>
     <message>
       <source>Enter your message</source>
-      <translation>Εισάγετε το μήνυμά σας</translation>
+      <translation>Introduïu el vostre missatge</translation>
     </message>
     <message>
       <source>Send</source>
-      <translation>Αποστολή</translation>
+      <translation>Envia</translation>
     </message>
     <message>
       <source>BB Code</source>
-      <translation>BB κώδικα</translation>
+      <translation>Codi BB</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
-      <translation>ChatBox είναι απενεργοποιημένη.</translation>
+      <translation>El xat integrat està inhabilitat</translation>
     </message>
     <message>
       <source>Invalid hash or auto creation is disabled</source>
-      <translation>Μη έγκυρη hash ή αυτόματη δημιουργία είναι άτομα με ειδικές ανάγκες</translation>
+      <translation>Codi invàlid o creació automàtica inhabilitada</translation>
     </message>
     <message>
       <source>Back to chat</source>
-      <translation type="unfinished"/>
+      <translation>Torna al xat</translation>
     </message>
     <message>
       <source>Switch to widget</source>
-      <translation>Μεταβείτε σε widget</translation>
+      <translation>Canvia a widget </translation>
     </message>
     <message>
       <source>Visitor</source>
-      <translation>Επισκέπτης</translation>
+      <translation>Visitant</translation>
     </message>
     <message>
       <source>Chat started</source>
-      <translation>Συνομιλία που ξεκίνησε</translation>
+      <translation>S&apos;ha iniciat el xat</translation>
     </message>
     <message>
       <source>is typing now...</source>
-      <translation>πληκτρολογεί τώρα...</translation>
+      <translation>està escrivint...</translation>
     </message>
     <message>
       <source>Operator is typing now...</source>
-      <translation>Χειριστής είναι πληκτρολογώντας τώρα...</translation>
+      <translation>L&apos;agent està escrivint...</translation>
     </message>
     <message>
       <source>You have closed this chat!</source>
-      <translation type="unfinished"/>
+      <translation>Heu tancat aquest xat!</translation>
     </message>
     <message>
       <source>You have been redirected to survey!</source>
-      <translation type="unfinished"/>
+      <translation>Heu estat redirigit a l&apos;enquesta!</translation>
     </message>
   </context>
   <context>
     <name>chat/bbcodeinsert</name>
     <message>
       <source>Image</source>
-      <translation>Εικόνα</translation>
+      <translation>Imatge</translation>
     </message>
     <message>
       <source>Link</source>
-      <translation>Σύνδεσμος</translation>
+      <translation>Enllaç</translation>
     </message>
     <message>
       <source>Link title</source>
-      <translation>Τίτλος συνδέσμου</translation>
+      <translation>Títol de l&apos;enllaç</translation>
     </message>
     <message>
       <source>Bold</source>
-      <translation>Bold</translation>
+      <translation>Negreta</translation>
     </message>
     <message>
       <source>Italic</source>
-      <translation>Italic</translation>
+      <translation>Cursiva</translation>
     </message>
     <message>
       <source>Please enter link to an image</source>
-      <translation>Παρακαλώ εισάγετε το σύνδεσμο σε μια εικόνα</translation>
+      <translation>Introduïu l&apos;enllaç a una imatge</translation>
     </message>
     <message>
       <source>Please enter a link</source>
-      <translation>Παρακαλώ εισάγετε ένα σύνδεσμο</translation>
+      <translation>Introduïu un enllaç</translation>
     </message>
     <message>
       <source>Here is a link</source>
-      <translation>Εδώ είναι μια σύνδεση</translation>
+      <translation>Aquí hi ha un enllaç</translation>
     </message>
   </context>
   <context>
     <name>chat/blockedusers</name>
     <message>
       <source>IP</source>
-      <translation>Διεύθυνση IP</translation>
+      <translation>IP</translation>
     </message>
     <message>
       <source>Date</source>
-      <translation>Ημερομηνία</translation>
+      <translation>Data</translation>
     </message>
     <message>
       <source>Users who are blocked</source>
-      <translation>Οι χρήστες που έχουν αποκλειστεί</translation>
+      <translation>Usuaris blocats</translation>
     </message>
     <message>
       <source>Remove block</source>
-      <translation>Αφαιρέστε τον αποκλεισμό</translation>
+      <translation>Aixeca el blocatge</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Άδειο...</translation>
+      <translation>Buit...</translation>
     </message>
     <message>
       <source>Blocked users</source>
-      <translation>Αποκλεισμένοι χρήστες</translation>
+      <translation>Usuaris blocats</translation>
     </message>
     <message>
       <source>Please enter an IP to block</source>
-      <translation>Παρακαλούμε εισάγετε μια διεύθυνση IP για να εμποδίσει</translation>
+      <translation>Introduïu una IP per blocar</translation>
     </message>
     <message>
       <source>User was blocked!</source>
-      <translation>Ο χρήστης έχει αποκλειστεί!</translation>
+      <translation>S&apos;ha blocat l&apos;usuari!</translation>
     </message>
     <message>
       <source>User blocking failed, perhaps you do not have permission to block users?</source>
-      <translation>Κλείδωμα του χρήστη απέτυχε, ίσως δεν έχετε άδεια να εμποδίζω users;</translation>
+      <translation>No s&apos;ha blocat l&apos;usuari, potser no teniu permís per blocar usuaris.</translation>
     </message>
   </context>
   <context>
     <name>kernel/message</name>
     <message>
       <source>Are you sure?</source>
-      <translation>Είστε σίγουρος;</translation>
+      <translation>Esteu segur?</translation>
     </message>
   </context>
   <context>
     <name>department/edit</name>
     <message>
       <source>Any</source>
-      <translation>Κάθε</translation>
+      <translation>Qualsevol</translation>
     </message>
     <message>
       <source>Edit department</source>
-      <translation>Επεξεργαστείτε το τμήμα</translation>
+      <translation>Edita el departament</translation>
     </message>
     <message>
       <source>Edit department group</source>
-      <translation>Επεξεργασία ομάδας τμήμα</translation>
+      <translation>Edita el grup de departaments</translation>
     </message>
     <message>
       <source>Edit department limit group</source>
-      <translation type="unfinished"/>
+      <translation>Edita el límit del grup del departaments</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Όνομα</translation>
+      <translation>Nom</translation>
     </message>
     <message>
       <source>E-mail</source>
@@ -2316,325 +2316,325 @@
     </message>
     <message>
       <source>Visible only if online</source>
-      <translation>Ορατό μόνο αν σε απευθείας σύνδεση</translation>
+      <translation>Visible només si està en línia</translation>
     </message>
     <message>
       <source>Disabled</source>
-      <translation>Άτομα με ειδικές ανάγκες</translation>
+      <translation>Inhabilitat</translation>
     </message>
     <message>
       <source>Will not be visible to visitor</source>
-      <translation>Δεν θα είναι ορατό στον επισκέπτη</translation>
+      <translation>No serà visible per al visitant</translation>
     </message>
     <message>
       <source>Hidden</source>
-      <translation>Κρυφό</translation>
+      <translation>Ocult</translation>
     </message>
     <message>
       <source>Maximum pending chats, if this limit is reached department becomes offline automatically</source>
-      <translation type="unfinished"/>
+      <translation>Màxim de xats pendents. Si s&apos;arriba a aquest límit, el departament esdevé fora de línia</translation>
     </message>
     <message>
       <source>Group limit</source>
-      <translation type="unfinished"/>
+      <translation>Límit del grup</translation>
     </message>
     <message>
       <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
-      <translation>Καθυστέρηση σε δευτερόλεπτα πριν από την άδεια που εμφανίζεται μια φόρμα μηνυμάτων. 0 μέσα λειτουργικότητα είναι άτομα με ειδικές ανάγκες, </translation>
+      <translation>Retard en segons abans no es mostri el formulari per a deixar un missatge. 0: funció inhabilitada</translation>
     </message>
     <message>
       <source>Priority, used for chats priority</source>
-      <translation>Προτεραιότητα, που χρησιμοποιείται για συνομιλίες προτεραιότητα</translation>
+      <translation>Prioritat, s&apos;utilitza per prioritzar xats</translation>
     </message>
     <message>
       <source>Priority, used for departments sort</source>
-      <translation>Προτεραιότητα, χρησιμοποιούνται για την ταξινόμηση των τμημάτων</translation>
+      <translation>Prioritat, s&apos;utilitza per ordenar departaments</translation>
     </message>
     <message>
       <source>Automate online hours</source>
-      <translation>Αυτοματοποίηση online ώρες</translation>
+      <translation>Automatitzar horaris en línia</translation>
     </message>
     <message>
       <source>Notifications</source>
-      <translation>Κοινοποιήσεις</translation>
+      <translation>Notificacions</translation>
     </message>
     <message>
       <source>Chat transfer worklow</source>
-      <translation>Συνομιλίας μεταφορά ροής εργασιών</translation>
+      <translation>Flux de treball de transferència de xat</translation>
     </message>
     <message>
       <source>Auto assignment</source>
-      <translation>Αυτόματη εκχώρηση</translation>
+      <translation>Assignació automàtica</translation>
     </message>
     <message>
       <source>Product</source>
-      <translation type="unfinished"/>
+      <translation>Producte</translation>
     </message>
     <message>
       <source>Miscellaneous</source>
-      <translation>Διάφορα</translation>
+      <translation>Miscel·lània</translation>
     </message>
     <message>
       <source>Work hours/work days logic is active</source>
-      <translation>Εργασία ώρες/εργασία ημέρες λογική είναι ενεργή</translation>
+      <translation>S&apos;han habilitat els criteris de calendari / horari feiner</translation>
     </message>
     <message>
       <source>Workdays/work hours, during these days/hours chat will be active automatically</source>
-      <translation>Εργάσιμες ημέρες/εργασίας ώρες, κατά τη διάρκεια της αυτές τις ημέρες/ώρες συνομιλίας θα ενεργοποιηθεί αυτόματα</translation>
+      <translation>Calendari / horari feiner. El xat s&apos;habilitarà automàticament durants aquests dies i hores.</translation>
     </message>
     <message>
       <source>Work hours, 24 hours format, 1 - 24, minutes format 0 - 60</source>
-      <translation>Ώρες εργασίας, 24 ώρες μορφή, 1-24, λεπτά μορφή 0 - 60</translation>
+      <translation>Horari feiner en format de 24 hores. Hores: 0-24. Minuts: 0-60</translation>
     </message>
     <message>
       <source>Hours from</source>
-      <translation>Ώρες από</translation>
+      <translation>Hora entrada</translation>
     </message>
     <message>
       <source>Hours from, E.g. 8</source>
-      <translation>Ώρες από, π.χ. 8</translation>
+      <translation>Hora entrada. Ex. 8</translation>
     </message>
     <message>
       <source>Minutes from</source>
-      <translation>Λεπτά από</translation>
+      <translation>Minuts entrada</translation>
     </message>
     <message>
       <source>Minutes from, E.g. 30</source>
-      <translation>Λεπτά από, π.χ. 30</translation>
+      <translation>Minuts entrada. Ex. 30</translation>
     </message>
     <message>
       <source>Hours to</source>
-      <translation>Ώρες για να</translation>
+      <translation>Hora sortida</translation>
     </message>
     <message>
       <source>Hours to, E.g. 17</source>
-      <translation>Ώρες να, π.χ. 17</translation>
+      <translation>Hora sortida. Ex. 17</translation>
     </message>
     <message>
       <source>Minutes to</source>
-      <translation>Λεπτά για να</translation>
+      <translation>Minuts sortida</translation>
     </message>
     <message>
       <source>Minutes to, E.g. 30</source>
-      <translation>Λεπτά για να, π.χ. 30</translation>
+      <translation>Minuts sortida. Ex. 30</translation>
     </message>
     <message>
       <source>Custom period</source>
-      <translation>Προσαρμοσμένη περίοδο</translation>
+      <translation>Període personalitzat</translation>
     </message>
     <message>
       <source>Date from</source>
-      <translation>Ημερομηνία από</translation>
+      <translation>Data inici</translation>
     </message>
     <message>
       <source>Custom work day</source>
-      <translation>Ημέρα έργο έθιμο</translation>
+      <translation>Dia feiner personalitzat</translation>
     </message>
     <message>
       <source>Date to</source>
-      <translation>Ημερομηνία</translation>
+      <translation>Data fi</translation>
     </message>
     <message>
       <source>Add</source>
-      <translation>Προσθέστε</translation>
+      <translation>Afegeix</translation>
     </message>
     <message>
       <source>Period</source>
-      <translation>Περίοδος</translation>
+      <translation>Període</translation>
     </message>
     <message>
       <source>Start time</source>
-      <translation>Ώρα έναρξης</translation>
+      <translation>Hora d&apos;inici</translation>
     </message>
     <message>
       <source>End time</source>
-      <translation>Ώρα λήξης</translation>
+      <translation>Hora final</translation>
     </message>
     <message>
       <source>Remove</source>
-      <translation>Κατάργηση</translation>
+      <translation>Suprimeix</translation>
     </message>
     <message>
       <source>XMPP recipients</source>
-      <translation>XMPP παραλήπτες</translation>
+      <translation>Receptors XMPP</translation>
     </message>
     <message>
       <source>XMPP group recipients</source>
-      <translation>XMPP ομαδοποίηση παραληπτών</translation>
+      <translation>Grup de receptors XMPP</translation>
     </message>
     <message>
       <source>E.g somechat@conference.server.org/LiveChat</source>
-      <translation>Π.χ. somechat@conference.server.org/ LiveChat</translation>
+      <translation>P.ex. somechat@conference.server.org/LiveChat</translation>
     </message>
     <message>
       <source>These messages will be send as group messages</source>
-      <translation>Αυτά τα μηνύματα θα σταλεί ως ομάδα μηνύματα</translation>
+      <translation>Aquests missatges s&apos;enviaran com a missatges de grup</translation>
     </message>
     <message>
       <source>Inform about new chats using</source>
-      <translation>Ενημέρωση για νέες συνομιλίες χρησιμοποιώντας</translation>
+      <translation>Informa de nous xats a través de</translation>
     </message>
     <message>
       <source>XMPP messages</source>
-      <translation>XMPP μηνύματα</translation>
+      <translation>Missatges XMPP</translation>
     </message>
     <message>
       <source>Send XMPP messages to all department operators</source>
-      <translation>Στείλτε μηνύματα XMPP για όλους τους εμπορευόμενους τμήμα</translation>
+      <translation>Envia missatges XMPP a tots els agents del departament</translation>
     </message>
     <message>
       <source>Mail messages</source>
-      <translation>Τα μηνύματα της αλληλογραφίας</translation>
+      <translation>Missatges de correu</translation>
     </message>
     <message>
       <source>How many seconds chat can be pending before about chat is informed a staff</source>
-      <translation>Πόσα δευτερόλεπτα συνομιλίας μπορεί να είναι σε εκκρεμότητα πριν σχετικά με τη συνομιλία είναι ενημέρωσε ένα προσωπικό</translation>
+      <translation>Quants segons pot romandre pendent un xat abans no s&apos;informi a un administrador</translation>
     </message>
     <message>
       <source>Inform about unread messages if from last unread user message have passed (seconds)</source>
-      <translation>Ενημέρωση σχετικά με τα μη αναγνωσμένα μηνύματα, εάν από τελευταίος χρήστης μη αναγνωσμένο μήνυμα πέρασαν (δευτερόλεπτα)</translation>
+      <translation>Informa de missatges no llegits si han passat X segons del darrer missatge no llegit</translation>
     </message>
     <message>
       <source>Please enter value in seconds</source>
-      <translation>Παρακαλούμε εισάγετε την τιμή σε δευτερόλεπτα</translation>
+      <translation>Introduïu el valor en segons</translation>
     </message>
     <message>
       <source>Inform then chat is accepted by one of the staff members using</source>
-      <translation>Ενημερώνει τότε συνομιλίας είναι αποδεκτή από ένα από τα μέλη του προσωπικού με</translation>
+      <translation>Informa quan s&apos;accepti un xat per un dels membres del staff mitjançant</translation>
     </message>
     <message>
       <source>Other</source>
-      <translation>Άλλες</translation>
+      <translation>Altre</translation>
     </message>
     <message>
       <source>Inform then chat is closed by operator, only mail notification is send.</source>
-      <translation>Ενημερώνει τότε chat κλείνεται με χειριστή, ειδοποίηση για αλληλογραφία είναι το αποστολή.</translation>
+      <translation>Informa que el xat l&apos;ha tancat un agent, només s&apos;envia notificació via correu</translation>
     </message>
     <message>
       <source>Inform then chat is closed automatically, only mail notification is send.</source>
-      <translation type="unfinished"/>
+      <translation>Informa que el xat s&apos;ha tancat automàticament, només s&apos;envia notificació via correu</translation>
     </message>
     <message>
       <source>Additional e-mail address address to inform about closed chats, to this e-mail will be send all notifications about closed chats</source>
-      <translation type="unfinished"/>
+      <translation>Adreça e-mail addicional per informar de xats tancats, a aquesta adreça s&apos;hi enviaran totes les notificacions sobre xats tancats</translation>
     </message>
     <message>
       <source>To what department chat should be transferred if it is not accepted</source>
-      <translation>Να τι τμήμα συνομιλίας να μετατίθενται, αν δεν είναι αποδεκτό</translation>
+      <translation>A quin departament s&apos;ha de transferir un xat si no és acceptat</translation>
     </message>
     <message>
       <source>Timeout in seconds before chat is transferred to another department. Minimum 5 seconds.</source>
-      <translation>Χρονικό όριο σε δευτερόλεπτα πριν chat μεταφέρεται σε άλλη υπηρεσία. Ελάχιστο 5 δευτερόλεπτα.</translation>
+      <translation>Temps d&apos;espera en segons abans un xat no sigui transferit a un altre departament. Mínim 5 segons.</translation>
     </message>
     <message>
       <source>Execute new chat logic again for recipient department?</source>
-      <translation>Εκτέλεση νέα συνομιλία λογικής και πάλι για το λαμβάνον τμήμα;</translation>
+      <translation>Voleu repetir el protocol de xat nou en ser trasferit un xat a un altre departament?</translation>
     </message>
     <message>
       <source>Execute unanswered chat logic again for recipient department?</source>
-      <translation>Εκτέλεση αναπάντητα chat λογικής και πάλι για το λαμβάνον τμήμα;</translation>
+      <translation>Executar novament la lògica del xat pel departament de destí?</translation>
     </message>
     <message>
       <source>Based on selected department these products will be shown</source>
-      <translation type="unfinished"/>
+      <translation>Segons el departament seleccionat es mostraran els següents productes</translation>
     </message>
     <message>
       <source>Enable products </source>
-      <translation type="unfinished"/>
+      <translation>Habilita productes</translation>
     </message>
     <message>
       <source>Required</source>
-      <translation type="unfinished"/>
+      <translation>Obligatori</translation>
     </message>
     <message>
       <source>Assigned products</source>
-      <translation type="unfinished"/>
+      <translation>Productes assignats</translation>
     </message>
     <message>
       <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
-      <translation>Αυτό το πεδίο είναι το μέγιστο μήκος 50 χαρακτήρες και μπορεί να χρησιμοποιηθεί για οποιοδήποτε σκοπό από επεκτάσεις. Αυτό το πεδίο είναι επίσης να αναπροσαρμόζονται.</translation>
+      <translation>Aquest camp té una longitud màxima de 50 caracters i pot ser utilitzat per a qualsevol cosa per complements. Aquest camp també està indexat.</translation>
     </message>
     <message>
       <source>None</source>
-      <translation>Κανένας</translation>
+      <translation>Cap</translation>
     </message>
     <message>
       <source>Departments</source>
-      <translation>Τμήματα</translation>
+      <translation>Departaments</translation>
     </message>
     <message>
       <source>Maximum pending chats</source>
-      <translation type="unfinished"/>
+      <translation>Quantitat màxima de xats pendents</translation>
     </message>
     <message>
       <source>Monday</source>
-      <translation>Δευτέρα</translation>
+      <translation>Dilluns</translation>
     </message>
     <message>
       <source>Tuesday</source>
-      <translation>Τρίτη</translation>
+      <translation>Dimarts</translation>
     </message>
     <message>
       <source>Wednesday</source>
-      <translation>Τετάρτη</translation>
+      <translation>Dimecres</translation>
     </message>
     <message>
       <source>Thursday</source>
-      <translation>Πέμπτη</translation>
+      <translation>Dijous</translation>
     </message>
     <message>
       <source>Friday</source>
-      <translation>Παρασκευή</translation>
+      <translation>Divendres</translation>
     </message>
     <message>
       <source>Saturday</source>
-      <translation>Σάββατο</translation>
+      <translation>Dissabte</translation>
     </message>
     <message>
       <source>Sunday</source>
-      <translation>Κυριακή</translation>
+      <translation>Diumenge</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Διαμόρφωση του συστήματος</translation>
+      <translation>Configuració del sistema</translation>
     </message>
     <message>
       <source>Edit a department</source>
-      <translation>Επεξεργαστείτε ένα τμήμα</translation>
+      <translation>Edita un departament</translation>
     </message>
     <message>
       <source>Departments groups</source>
-      <translation>Ομάδες τμημάτων</translation>
+      <translation>Grups de departaments</translation>
     </message>
     <message>
       <source>Departments limit groups</source>
-      <translation type="unfinished"/>
+      <translation>Límit de grups de departaments</translation>
     </message>
   </context>
   <context>
     <name>chat/chatnotexists</name>
     <message>
       <source>Resume chat</source>
-      <translation>Βιογραφικό συνομιλίας</translation>
+      <translation>Continua el xat</translation>
     </message>
     <message>
       <source>Chat was deleted</source>
-      <translation>Η συνομιλία διαγράφηκε</translation>
+      <translation>S&apos;ha eliminat el xat</translation>
     </message>
     <message>
       <source>Survey not exist please check embed code options</source>
-      <translation>Έρευνα δεν υπάρχει παρακαλώ έλεγχος ενσωματώσετε κώδικα επιλογές</translation>
+      <translation>L&apos;enquesta no existeix. Verifiqueu les opcions d&apos;incrustació del codi.</translation>
     </message>
   </context>
   <context>
     <name>chat/startchat</name>
     <message>
       <source>Enter your message</source>
-      <translation>Εισάγετε το μήνυμά σας</translation>
+      <translation>Introduïu el vostre missatge</translation>
     </message>
     <message>
       <source>Department is disabled</source>
-      <translation>Τμήμα είναι άτομα με ειδικές ανάγκες</translation>
+      <translation>El departament està inhabilitat</translation>
     </message>
     <message>
       <source>E-mail</source>
@@ -2642,378 +2642,378 @@
     </message>
     <message>
       <source>Enter your email address</source>
-      <translation type="unfinished"/>
+      <translation>Introduïu la vostra adreça e-mail</translation>
     </message>
     <message>
       <source>Phone</source>
-      <translation>Τηλέφωνο</translation>
+      <translation>Telèfon</translation>
     </message>
     <message>
       <source>Enter your phone</source>
-      <translation type="unfinished"/>
+      <translation>Introduïu el vostre telèfon</translation>
     </message>
     <message>
       <source>Your question</source>
-      <translation>Η ερώτησή σας</translation>
+      <translation>La vostra pregunta</translation>
     </message>
     <message>
       <source>Please enter a message...</source>
-      <translation>Παρακαλούμε εισάγετε ένα μήνυμα...</translation>
+      <translation>Introduïu un missatge</translation>
     </message>
     <message>
       <source>Please provide a department</source>
-      <translation type="unfinished"/>
+      <translation>Introduïu un departament</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Όνομα</translation>
+      <translation>Nom</translation>
     </message>
     <message>
       <source>Enter your name</source>
-      <translation type="unfinished"/>
+      <translation>Introduïu el vostre nom</translation>
     </message>
     <message>
       <source>Live support is not available in your country</source>
-      <translation>Ζωντανή υποστήριξη δεν είναι διαθέσιμη στη χώρα σας</translation>
+      <translation>El suport en viu no està disponible al vostre país</translation>
     </message>
     <message>
       <source>Live Support</source>
-      <translation>Υποστήριξη σε πραγματικό χρόνο</translation>
+      <translation>Suport en viu</translation>
     </message>
     <message>
       <source>There are no online operators at the moment, please leave a message</source>
-      <translation>Δεν υπάρχουν συνδεδεμένοι φορείς αυτή τη στιγμή, παρακαλώ αφήστε ένα μήνυμα</translation>
+      <translation>No hi ha cap agent en línia en aquest moment. Podeu deixar un missatge si ho desitgeu.</translation>
     </message>
     <message>
       <source>File</source>
-      <translation>Αρχείο</translation>
+      <translation>Fitxer</translation>
     </message>
     <message>
       <source>Your request was sent!</source>
-      <translation>Το αίτημά σας εστάλη!</translation>
+      <translation>La vostra pregunta ha estat enviada!</translation>
     </message>
     <message>
       <source>Leave a message</source>
-      <translation>Αφήστε ένα μήνυμα</translation>
+      <translation>Deixeu un misstage</translation>
     </message>
     <message>
       <source>Send message</source>
-      <translation type="unfinished"/>
+      <translation>Envieu un missatge</translation>
     </message>
     <message>
       <source>I accept my personal data will be handled according to</source>
-      <translation>Δέχομαι ότι προσωπικά μου δεδομένα θα διεκπεραιώνονται σύμφωνα με</translation>
+      <translation>Accepto que les meves dades personals siguin gestionades d&apos;acord amb </translation>
     </message>
     <message>
       <source>our terms and to the Law</source>
-      <translation>τους όρους μας και με το νόμο</translation>
+      <translation>les condicions d&apos;ús</translation>
     </message>
     <message>
       <source>Start chat</source>
-      <translation>ΖΩΝΤΑΝΗ ΣΥΝΔΕΣΗ</translation>
+      <translation>Inicia un xat</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation>Τμήμα</translation>
+      <translation>Departament</translation>
     </message>
     <message>
       <source>Offline</source>
-      <translation>Εκτός σύνδεσης</translation>
+      <translation>Fora de línia</translation>
     </message>
     <message>
       <source>Have a question? Ask us!</source>
-      <translation>Έχετε μια ερώτηση; Ρωτήστε μας!</translation>
+      <translation>Teniu una pregunta? Endavant!</translation>
     </message>
     <message>
       <source>Type your message here and hit enter to send...</source>
-      <translation>Πληκτρολογήστε το μήνυμά σας εδώ και πατήστε enter για να στείλετε...</translation>
+      <translation>Introduïu el vostre missatge aquí i premeu Intro per enviar-la</translation>
     </message>
     <message>
       <source>Send</source>
-      <translation>Αποστολή</translation>
+      <translation>Envia</translation>
     </message>
     <message>
       <source>Department is offline</source>
-      <translation>Τμήμα είναι συνδεδεμένος</translation>
+      <translation>El departament està fora de línia</translation>
     </message>
     <message>
       <source>Go to leave a message form</source>
-      <translation>Πάει να φύγει ένα μήνυμα μορφή</translation>
+      <translation>Ves al formulari per deixar un missatge</translation>
     </message>
     <message>
       <source>Cancel and choose another department</source>
-      <translation>Ακυρώσετε και να επιλέξετε ένα άλλο τμήμα</translation>
+      <translation>Cancel·la i escull un altre departament</translation>
     </message>
     <message>
       <source>characters</source>
-      <translation>χαρακτήρες</translation>
+      <translation>caràcters</translation>
     </message>
     <message>
       <source>Personal assistant</source>
-      <translation>Προσωπικός βοηθός</translation>
+      <translation>Assistent personal</translation>
     </message>
     <message>
       <source>Fill out this form to start a chat</source>
-      <translation>Συμπληρώστε τη φόρμα για να ξεκινήσετε μια συνομιλία</translation>
+      <translation>Ompliu aquest formulari per iniciar un xat</translation>
     </message>
     <message>
       <source>There are no online operators at the moment, please leave your message</source>
-      <translation>Δεν υπάρχουν συνδεδεμένοι φορείς αυτή τη στιγμή, παρακαλώ αφήστε το μήνυμά σας</translation>
+      <translation>No hi ha cap agent en línia en aquest moment. Podeu deixar un missatge si ho desitgeu.</translation>
     </message>
     <message>
       <source>Me</source>
-      <translation>Μου</translation>
+      <translation>Jo</translation>
     </message>
     <message>
       <source>Product</source>
-      <translation>Προϊόντος</translation>
+      <translation>Producte</translation>
     </message>
     <message>
       <source>Choose a product</source>
-      <translation>Επιλέξτε ένα προϊόν</translation>
+      <translation>Seleccioneu un producte</translation>
     </message>
     <message>
       <source>Choose your language</source>
-      <translation>Επιλέξτε τη γλώσσα σας</translation>
+      <translation>Seleccioneu el vostre idioma.</translation>
     </message>
     <message>
       <source>Invalid CSRF token!</source>
-      <translation>Διακριτικό δεν είναι έγκυρο: CSRF!</translation>
+      <translation>Token CSRF incorrecte!</translation>
     </message>
     <message>
       <source>Please enter a valid email address</source>
-      <translation>Παρακαλώ εισάγετε μια έγκυρη διεύθυνση email</translation>
+      <translation>Introduïu una adreça d&apos;e-mail vàlida</translation>
     </message>
     <message>
       <source>Maximum 50 characters</source>
-      <translation>Έως 50 χαρακτήρες</translation>
+      <translation>50 caràcters com a màxim</translation>
     </message>
     <message>
       <source>You do not have permission to chat! Please contact site owner.</source>
-      <translation>Δεν έχετε άδεια για να κάνει chat! Παρακαλούμε επικοινωνήστε με ιδιοκτήτη της ιστοσελίδας.</translation>
+      <translation>No teniu permís per xatejar. Contacteu amb l&apos;equip del web.</translation>
     </message>
     <message>
       <source>Please enter your name</source>
-      <translation>Παρακαλώ εισάγετε το όνομά σας</translation>
+      <translation>Introduïu el vostre nom</translation>
     </message>
     <message>
       <source>Please enter your message</source>
-      <translation>Παρακαλούμε εισάγετε το μήνυμά σας</translation>
+      <translation>Introduïu el vostre missatge</translation>
     </message>
     <message>
       <source>Maximum</source>
-      <translation>Μέγιστο</translation>
+      <translation>Màxim</translation>
     </message>
     <message>
       <source>characters for a message</source>
-      <translation>χαρακτήρες για ένα μήνυμα</translation>
+      <translation>càracters per missatge</translation>
     </message>
     <message>
       <source>You have to accept our Terms Of Service</source>
-      <translation>Πρέπει να αποδεχτείτε τους όρους παροχής υπηρεσιών</translation>
+      <translation>Heu d&apos;acceptar les condicions d&apos;ús</translation>
     </message>
     <message>
       <source>Please enter your phone</source>
-      <translation>Παρακαλώ εισάγετε το τηλέφωνό σας</translation>
+      <translation>Introduïu el vostre telèfon</translation>
     </message>
     <message>
       <source>Maximum 100 characters for phone</source>
-      <translation>Έως 100 χαρακτήρες για το τηλέφωνο</translation>
+      <translation>100 caràcters com a màxim per al telèfon</translation>
     </message>
     <message>
       <source>Invalid file</source>
-      <translation>Αρχείο δεν είναι έγκυρο</translation>
+      <translation>Fitxer invàlid</translation>
     </message>
     <message>
       <source>Please choose department!</source>
-      <translation>Παρακαλούμε επιλέξτε τμήμα!</translation>
+      <translation>Seleccioneu un departament</translation>
     </message>
     <message>
       <source>Could not find a product!</source>
-      <translation>Δεν μπόρεσα να βρω ένα προϊόν!</translation>
+      <translation>No es pot localitzar un producte</translation>
     </message>
     <message>
       <source>Please choose</source>
-      <translation>Παρακαλώ επιλέξτε</translation>
+      <translation>Seleccioneu</translation>
     </message>
     <message>
       <source>Could not determine a default department!</source>
-      <translation>Δεν μπόρεσε να προσδιορίσει ένα προεπιλεγμένο τμήμα!</translation>
+      <translation>No es pot determinar un departament per defecte</translation>
     </message>
     <message>
       <source>Please choose a product!</source>
-      <translation>Παρακαλούμε επιλέξτε ένα προϊόν!</translation>
+      <translation>Seleccioneu un producte!</translation>
     </message>
     <message>
       <source>At the moment department is overloaded, please choose a different department or try again later!</source>
-      <translation type="unfinished"/>
+      <translation>En aquest moment el departament esta sobrecarregat, seleccioneu un altre departament o torneu-ho a intentar més tard!</translation>
     </message>
     <message>
       <source>is required</source>
-      <translation>είναι απαιτούμενο</translation>
+      <translation>és obligatori</translation>
     </message>
     <message>
       <source>Could not decrypt data!</source>
-      <translation>Δεν θα μπορούσε να αποκρυπτογραφήσει δεδομένα!</translation>
+      <translation>No s&apos;han pogut desencriptar les dades!</translation>
     </message>
     <message>
       <source>Visitor</source>
-      <translation>Επισκέπτης</translation>
+      <translation>Visitant</translation>
     </message>
     <message>
       <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
-      <translation>Το αίτημά σας δεν διεκπεραιώθηκε όπως ήταν αναμενόμενο - αλλά μην ανησυχείτε δεν ήταν το ελάττωμά σας. Παρακαλείσθε να υποβάλει εκ νέου το αίτημά σας. Εάν αντιμετωπίζετε το ίδιο ζήτημα που θα πρέπει να επικοινωνήσετε μαζί μας μέσω άλλων μέσων.</translation>
+      <translation>La vostra petició no s&apos;ha processat com s&apos;esperava - però no us amoïneu que no és culpa vostra! Torneu-la a enviar. Si torna a passar, ens haureu de contactar per altres mitjans.</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
-      <translation>Παρακαλούμε εισάγετε ένα μήνυμα, max χαρακτήρες</translation>
+      <translation>Introduïu un missatge, límit de caràcters</translation>
     </message>
     <message>
       <source>You cannot send messages to this chat. Please refresh your browser.</source>
-      <translation type="unfinished"/>
+      <translation>No podeu enviar missatges a aquest xat. Tanqueu i torneu a entrar.</translation>
     </message>
     <message>
       <source>Pending Chat</source>
-      <translation type="unfinished"/>
+      <translation>Xat pendent</translation>
     </message>
     <message>
       <source>Unread message</source>
-      <translation>Μη αναγνωσμένο μήνυμα</translation>
+      <translation>Missatge no llegit</translation>
     </message>
     <message>
       <source>New message from operator</source>
-      <translation type="unfinished"/>
+      <translation>Nou missatge de l&apos;agent</translation>
     </message>
     <message>
       <source>Transfer Chat</source>
-      <translation type="unfinished"/>
+      <translation>Transfereix el xat</translation>
     </message>
     <message>
       <source>Assigned Chat</source>
-      <translation type="unfinished"/>
+      <translation>Xat assignat</translation>
     </message>
     <message>
       <source>Fill in the form to start a chat</source>
-      <translation>Συμπληρώστε την φόρμα για να ξεκινήσετε μια συνομιλία</translation>
+      <translation>Ompliu aquest formulari per iniciar un xat</translation>
     </message>
   </context>
   <context>
     <name>chat/adminchat</name>
     <message>
       <source>Attach uploaded file</source>
-      <translation>Επισυνάψετε το αρχείο</translation>
+      <translation>Adjunta el fitxer pujat</translation>
     </message>
     <message>
       <source>Are you sure?</source>
-      <translation>Είστε σίγουρος;</translation>
+      <translation>N&apos;esteu segur?</translation>
     </message>
     <message>
       <source>Block user</source>
-      <translation>Μπλοκάρισμα χρήστη</translation>
+      <translation>Bloca usuari</translation>
     </message>
     <message>
       <source>Close chat</source>
-      <translation>Κλείσιμο συνομιλίας</translation>
+      <translation>Tanca el xat</translation>
     </message>
     <message>
       <source>Screen sharing</source>
-      <translation>Οθόνη μοιράζομαι</translation>
+      <translation>Compartició de pantalla</translation>
     </message>
     <message>
       <source>Copy messages to clipboard</source>
-      <translation type="unfinished"/>
+      <translation>Copia els missatges al portapapers</translation>
     </message>
     <message>
       <source>Delete chat</source>
-      <translation>Διαγραφή συνομιλίας</translation>
+      <translation>Elimina el xat</translation>
     </message>
     <message>
       <source>Edit main chat information</source>
-      <translation>Επεξεργαστείτε πληροφορίες κύρια συνομιλίας</translation>
+      <translation>Modifica la informació del xat principal</translation>
     </message>
     <message>
       <source>Print</source>
-      <translation>Εκτύπωση</translation>
+      <translation>Imprimeix</translation>
     </message>
     <message>
       <source>Redirect user to contact form.</source>
-      <translation>Ανακατεύθυνση χρήστη για την φόρμα επικοινωνίας.</translation>
+      <translation>Redirigeix l&apos;usuari cap al formulari de contacte</translation>
     </message>
     <message>
       <source>Please enter a URL</source>
-      <translation>Πληκτρολογήστε μια διεύθυνση URL</translation>
+      <translation>Introduïu una URL</translation>
     </message>
     <message>
       <source>Redirect user to another url</source>
-      <translation>Ανακατευθύνει το χρήστη σε ένα άλλο url</translation>
+      <translation>Redirigeix l&apos;usuari cap a una altra URL</translation>
     </message>
     <message>
       <source>Mail was send</source>
-      <translation>Το email στάλθηκε</translation>
+      <translation>S&apos;ha enviat l&apos;e-mail</translation>
     </message>
     <message>
       <source>Send mail</source>
-      <translation>Αποστολή μηνύματος</translation>
+      <translation>Envia l&apos;e-mail</translation>
     </message>
     <message>
       <source>Redirect user to survey</source>
-      <translation type="unfinished"/>
+      <translation>Redirigeis l&apos;usuari cap a l&apos;enquesta.</translation>
     </message>
     <message>
       <source>Choose other than default recognition language</source>
-      <translation>Επιλέξτε εκτός από την προεπιλεγμένη γλώσσα αναγνώρισης</translation>
+      <translation>Seleccioneu un altre idioma de reconeixement de veu.</translation>
     </message>
     <message>
       <source>Transfer chat</source>
-      <translation>Μεταφορά συνομιλίας</translation>
+      <translation>Transfereix el xat</translation>
     </message>
     <message>
       <source>Footprint</source>
-      <translation>Αποτύπωμα</translation>
+      <translation>Empremta</translation>
     </message>
     <message>
       <source>Refresh</source>
-      <translation>Ανανέωση</translation>
+      <translation>Refresca</translation>
     </message>
     <message>
       <source>Additional data</source>
-      <translation>Πρόσθετα δεδομένα</translation>
+      <translation>Dades addicionals</translation>
     </message>
     <message>
       <source>Hidden field</source>
-      <translation>Κρυφό πεδίο</translation>
+      <translation>Camp ocult</translation>
     </message>
     <message>
       <source>Chat duration</source>
-      <translation>Διάρκεια συνομιλίας</translation>
+      <translation>Durada del xat</translation>
     </message>
     <message>
       <source>Chat owner</source>
-      <translation>Κάτοχος συνομιλίας</translation>
+      <translation>Propietari del xat</translation>
     </message>
     <message>
       <source>Chat between operators, chat initializer</source>
-      <translation>Συνομιλία μεταξύ των φορέων, να συνομιλήσετε σύνολο αρχικών τιμών</translation>
+      <translation>Xat entre agents, inicialitzador del xat</translation>
     </message>
     <message>
       <source>City</source>
-      <translation>Πόλη</translation>
+      <translation>Ciutat</translation>
     </message>
     <message>
       <source>Country</source>
-      <translation>Χώρα</translation>
+      <translation>País</translation>
     </message>
     <message>
       <source>Created</source>
-      <translation>Δημιουργήθηκε</translation>
+      <translation>Creat</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation>Τμήμα</translation>
+      <translation>Departament</translation>
     </message>
     <message>
       <source>This is offline message</source>
-      <translation type="unfinished"/>
+      <translation>Aquest és un missatge fora de línia</translation>
     </message>
     <message>
       <source>E-mail</source>
@@ -3021,186 +3021,186 @@
     </message>
     <message>
       <source>Phone</source>
-      <translation>Τηλέφωνο</translation>
+      <translation>Telèfon</translation>
     </message>
     <message>
       <source>Product</source>
-      <translation>Προϊόντος</translation>
+      <translation>Producte</translation>
     </message>
     <message>
       <source>Page</source>
-      <translation>Σελίδα</translation>
+      <translation>Pàgina</translation>
     </message>
     <message>
       <source>Came from</source>
-      <translation>Προήλθε από</translation>
+      <translation>Vingut des de</translation>
     </message>
     <message>
       <source>Device</source>
-      <translation type="unfinished"/>
+      <translation>Dispositiu</translation>
     </message>
     <message>
       <source>Computer</source>
-      <translation type="unfinished"/>
+      <translation>Ordinador</translation>
     </message>
     <message>
       <source>Smartphone</source>
-      <translation type="unfinished"/>
+      <translation>Smartphone</translation>
     </message>
     <message>
       <source>Tablet</source>
-      <translation type="unfinished"/>
+      <translation>Tauleta</translation>
     </message>
     <message>
       <source>User left</source>
-      <translation>Χρήστη αριστερά</translation>
+      <translation>L&apos;usuari ha marxat</translation>
     </message>
     <message>
       <source>Time zone</source>
-      <translation>Ζώνη ώρας</translation>
+      <translation>Zona horària</translation>
     </message>
     <message>
       <source>Waited</source>
-      <translation>Περιμένετε</translation>
+      <translation>Ha esperat</translation>
     </message>
     <message>
       <source>Visitor</source>
-      <translation>Επισκέπτης</translation>
+      <translation>Visitant</translation>
     </message>
     <message>
       <source>Files</source>
-      <translation>Αρχεία</translation>
+      <translation>Fitxers</translation>
     </message>
     <message>
       <source>Click to change chat status</source>
-      <translation>Κάντε κλικ για να αλλάξετε την κατάστασής της συζήτησής</translation>
+      <translation>Cliqueu per canviar l&apos;estat del xat</translation>
     </message>
     <message>
       <source>Pending chat</source>
-      <translation>Σε εκκρεμότητα συνομιλίας</translation>
+      <translation>Xat pendent</translation>
     </message>
     <message>
       <source>Active chat</source>
-      <translation>Ενεργή συνομιλία</translation>
+      <translation>Xat actiu</translation>
     </message>
     <message>
       <source>Closed chat</source>
-      <translation>Κλειστό συνομιλίας</translation>
+      <translation>Xat tancat</translation>
     </message>
     <message>
       <source>Chatbox chat</source>
-      <translation>Chatbox chat</translation>
+      <translation>Xat flotant</translation>
     </message>
     <message>
       <source>Operators chat</source>
-      <translation>Φορείς συνομιλίας</translation>
+      <translation>Xat d&apos;agents</translation>
     </message>
     <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
-      <translation>Δεν θα μπορούσα να ανιχνεύσει. Βεβαιωθείτε ότι είναι ενεργοποιημένος ο εντοπισμός GEO.</translation>
+      <translation>No es pot detectar. Verifiqueu que teniu la geolocalització habilitada.</translation>
     </message>
     <message>
       <source>Map</source>
-      <translation>Χάρτης</translation>
+      <translation>Mapa</translation>
     </message>
     <message>
       <source>User browsing information</source>
-      <translation>Πληροφορίες περιήγησης χρήστη</translation>
+      <translation>Informació de navegació de l&apos;usuari</translation>
     </message>
     <message>
       <source>Chats</source>
-      <translation>Συνομιλίες</translation>
+      <translation>Xats</translation>
     </message>
     <message>
       <source>Remarks</source>
-      <translation>Παρατηρήσεις</translation>
+      <translation>Comentaris</translation>
     </message>
     <message>
       <source>Messages</source>
-      <translation>Μηνύματα</translation>
+      <translation>Missatges</translation>
     </message>
     <message>
       <source>Copied!</source>
-      <translation type="unfinished"/>
+      <translation>Copiat!</translation>
     </message>
     <message>
       <source>Copy to clipboard</source>
-      <translation type="unfinished"/>
+      <translation>Copia al portapapers</translation>
     </message>
     <message>
       <source>Copy messages</source>
-      <translation type="unfinished"/>
+      <translation>Copia missatges</translation>
     </message>
     <message>
       <source>Close dialog</source>
-      <translation>Κλείσιμο διαλόγου</translation>
+      <translation>Tanca el diàleg</translation>
     </message>
     <message>
       <source>Notes</source>
-      <translation>Σημειώσεις</translation>
+      <translation>Notes</translation>
     </message>
     <message>
       <source>Reopen chat</source>
-      <translation>Ανοίξτε πάλι το chat</translation>
+      <translation>Reobre el xat</translation>
     </message>
     <message>
       <source>Type to search</source>
-      <translation type="unfinished"/>
+      <translation>Escriviu per cercar</translation>
     </message>
     <message>
       <source>Fill textarea with canned message</source>
-      <translation>Γεμίζουν το κονσερβοποιημένο μήνυμα textarea</translation>
+      <translation>Ompliu l&apos;àrea de text amb el missatge predefinit</translation>
     </message>
     <message>
       <source>Hold/Un-Hold chat</source>
-      <translation type="unfinished"/>
+      <translation>Posa / treu d&apos;espera un xat</translation>
     </message>
     <message>
       <source>Send delayed canned message instantly</source>
-      <translation>Στείλτε την καθυστερημένη κονσερβοποιημένο μήνυμα αμέσως</translation>
+      <translation>Envia immediatament el missatge predefinit de retard</translation>
     </message>
     <message>
       <source>Send</source>
-      <translation>Αποστολή</translation>
+      <translation>Envia</translation>
     </message>
     <message>
       <source>Select a canned message</source>
-      <translation>Επιλέξτε ένα προκαθορισμένο μήνυμα</translation>
+      <translation>Seleccioneu un missatge predefinit</translation>
     </message>
     <message>
       <source>Are you sure you want to delete this chat?</source>
-      <translation type="unfinished"/>
+      <translation>N&apos;esteu segur de voler eliminar aquest xat?</translation>
     </message>
     <message>
       <source>has accepted the chat!</source>
-      <translation>έχει αποδεχθεί το chat!</translation>
+      <translation>ha acceptat el xat!</translation>
     </message>
     <message>
       <source>Auto responder got error</source>
-      <translation>Αυτόματος αποκριτής πήρε λάθος</translation>
+      <translation>L&apos;auto-responedor ha tingut un error</translation>
     </message>
     <message>
       <source>Hold removed!</source>
-      <translation type="unfinished"/>
+      <translation>Tret d&apos;espera!</translation>
     </message>
     <message>
       <source>Form data not valid</source>
-      <translation>Δεδομένα φόρμας δεν είναι έγκυρη</translation>
+      <translation>Les dades del formulari no són vàlids.</translation>
     </message>
     <message>
       <source>Has no access to this chat</source>
-      <translation>Δεν έχει πρόσβαση σε αυτή τη συζήτηση</translation>
+      <translation>No teniu accés a aquest xat</translation>
     </message>
   </context>
   <context>
     <name>chat/syncadmininterface</name>
     <message>
       <source>Open in a new window</source>
-      <translation>Άνοιγμα σε νέο παράθυρο</translation>
+      <translation>Obre en una nova finestra</translation>
     </message>
     <message>
       <source>No previous chats</source>
-      <translation>Καμία προηγούμενη συνομιλίες</translation>
+      <translation>No hi ha xats anteriors</translation>
     </message>
     <message>
       <source>h.</source>
@@ -3208,7 +3208,7 @@
     </message>
     <message>
       <source>m.</source>
-      <translation>μ.</translation>
+      <translation>m.</translation>
     </message>
     <message>
       <source>s.</source>
@@ -3216,186 +3216,186 @@
     </message>
     <message>
       <source>ago</source>
-      <translation>πριν</translation>
+      <translation>abans</translation>
     </message>
     <message>
       <source>Nothing found</source>
-      <translation>Τίποτα δεν βρέθηκε</translation>
+      <translation>No s&apos;ha trobat res</translation>
     </message>
     <message>
       <source>Add chat</source>
-      <translation>Προσθέστε το chat</translation>
+      <translation>Afegeix xat</translation>
     </message>
     <message>
       <source>Pending chat</source>
-      <translation type="unfinished"/>
+      <translation>Xat pendent</translation>
     </message>
     <message>
       <source>Accept chat</source>
-      <translation>Δεχθεί συνομιλίας</translation>
+      <translation>Accepta xat</translation>
     </message>
     <message>
       <source>Start chat</source>
-      <translation>ΖΩΝΤΑΝΗ ΣΥΝΔΕΣΗ</translation>
+      <translation>Inicia xat</translation>
     </message>
     <message>
       <source>Last activity</source>
-      <translation>Τελευταία δραστηριότητα</translation>
+      <translation>Darrera activitat</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Άδειο...</translation>
+      <translation>Buit...</translation>
     </message>
     <message>
       <source>Configure dashboard</source>
-      <translation>Διαμορφώσετε το ταμπλό</translation>
+      <translation>Configura el tauler</translation>
     </message>
     <message>
       <source>Location</source>
-      <translation type="unfinished"/>
+      <translation>Ubicació</translation>
     </message>
     <message>
       <source>Sort by location</source>
-      <translation type="unfinished"/>
+      <translation>Ordena per ubicació</translation>
     </message>
     <message>
       <source>Visitor</source>
-      <translation>Επισκέπτης</translation>
+      <translation>Visitant</translation>
     </message>
     <message>
       <source>Sort by visitor nick</source>
-      <translation type="unfinished"/>
+      <translation>Ordena per l&apos;àlies del visitant</translation>
     </message>
     <message>
       <source>Sort by time</source>
-      <translation type="unfinished"/>
+      <translation>Ordena per horari</translation>
     </message>
     <message>
       <source>Sort by operator</source>
-      <translation type="unfinished"/>
+      <translation>Ordena per agent</translation>
     </message>
     <message>
       <source>Sort by department</source>
-      <translation type="unfinished"/>
+      <translation>Ordena per departament</translation>
     </message>
     <message>
       <source>Operator</source>
-      <translation>Τελεστής</translation>
+      <translation>Agent</translation>
     </message>
     <message>
       <source>Sort by online status</source>
-      <translation type="unfinished"/>
+      <translation>Ordena per estat en línia</translation>
     </message>
     <message>
       <source>Last activity ago</source>
-      <translation>Τελευταία δραστηριότητα πριν από</translation>
+      <translation>Última activitat fa</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation>Ενεργό συνομιλίες</translation>
+      <translation>Xats actius</translation>
     </message>
     <message>
       <source>Sort by active chats number</source>
-      <translation type="unfinished"/>
+      <translation>Ordena pel nombre de xats actius</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation>Τμήμα</translation>
+      <translation>Departament</translation>
     </message>
     <message>
       <source>Sort</source>
-      <translation>Είδος</translation>
+      <translation>Ordena</translation>
     </message>
     <message>
       <source>Wait time</source>
-      <translation>Χρόνος αναμονής</translation>
+      <translation>Temps d&apos;espera</translation>
     </message>
     <message>
       <source>Delete chat</source>
-      <translation>Διαγραφή συνομιλίας</translation>
+      <translation>Esborra xat</translation>
     </message>
     <message>
       <source>Redirect user to contact form.</source>
-      <translation>Ανακατεύθυνση χρήστη για την φόρμα επικοινωνίας.</translation>
+      <translation>Redirigeix l&apos;usuari cap al formulari de contacte.</translation>
     </message>
     <message>
       <source>Are you sure?</source>
-      <translation>Είσαι σίγουρος?</translation>
+      <translation>Esteu segur?</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation>Συνομιλίες σε εκκρεμότητα</translation>
+      <translation>Xats pendents</translation>
     </message>
     <message>
       <source>Status</source>
-      <translation type="unfinished"/>
+      <translation>Estat</translation>
     </message>
     <message>
       <source>Created</source>
-      <translation>Δημιουργήθηκε</translation>
+      <translation>Creat</translation>
     </message>
     <message>
       <source>Transfer time</source>
-      <translation>Χρόνος μεταφοράς</translation>
+      <translation>Temps de transferència</translation>
     </message>
     <message>
       <source>Time ago</source>
-      <translation>Πριν από καιρό</translation>
+      <translation>Temps que fa</translation>
     </message>
   </context>
   <context>
     <name>chat/translation</name>
     <message>
       <source>Visitor language</source>
-      <translation>Επισκέπτης γλώσσα</translation>
+      <translation>Idioma del visitant</translation>
     </message>
     <message>
       <source>My language</source>
-      <translation>Γλώσσα μου</translation>
+      <translation>El meu idioma</translation>
     </message>
     <message>
       <source>Auto translate</source>
-      <translation>Αυτόματη μετάφραση</translation>
+      <translation>Tradueix automàticament</translation>
     </message>
     <message>
       <source>Translating</source>
-      <translation>Μετάφραση</translation>
+      <translation>Traduint</translation>
     </message>
     <message>
       <source>Automatically detected</source>
-      <translation>Εντοπίζονται αυτόματα</translation>
+      <translation>Detectat automàticament</translation>
     </message>
     <message>
       <source>Automatic translation</source>
-      <translation>Αυτόματη μετάφραση</translation>
+      <translation>Traducció automàtica</translation>
     </message>
     <message>
       <source>Translation settings</source>
-      <translation>Μετάφραση ρυθμίσεις</translation>
+      <translation>Configuració de la traducció</translation>
     </message>
     <message>
       <source>Enter text for testing purposes</source>
-      <translation>Εισάγετε κείμενο για τους σκοπούς της δοκιμής</translation>
+      <translation>Introduïu text amb finalitats de prova</translation>
     </message>
     <message>
       <source>Translated text</source>
-      <translation>Μεταφρασμένο κείμενο</translation>
+      <translation>Text traduït</translation>
     </message>
     <message>
       <source>Detected language</source>
-      <translation>Εντοπίστηκαν γλώσσα</translation>
+      <translation>Idioma detectat</translation>
     </message>
     <message>
       <source>Detect language</source>
-      <translation>Εντοπισμός γλώσσας</translation>
+      <translation>Detecta idioma</translation>
     </message>
     <message>
       <source>Translate</source>
-      <translation>Μεταφράσετε</translation>
+      <translation>Tradueix</translation>
     </message>
     <message>
       <source>Enable translation service</source>
-      <translation>Ενεργοποίηση μεταφραστική υπηρεσία</translation>
+      <translation>Activa el servei de traducció</translation>
     </message>
     <message>
       <source>Bing</source>
@@ -3407,175 +3407,175 @@
     </message>
     <message>
       <source>Use Bing service</source>
-      <translation>Χρησιμοποιήστε την υπηρεσία Bing</translation>
+      <translation>Utilitza el servei de Bing</translation>
     </message>
     <message>
       <source>Bing client ID</source>
-      <translation>Αναγνωριστικό υπολογιστή-πελάτη Bing</translation>
+      <translation>ID de client de Bing</translation>
     </message>
     <message>
       <source>Bing client secret, key is never shown for security purposes</source>
-      <translation>Bing πελάτη μυστικό, κλειδί παρουσιάζεται ποτέ για λόγους ασφαλείας</translation>
+      <translation>Clau secreta de Bing, la clau mai no es mostra per motius de seguretat</translation>
     </message>
     <message>
       <source>Bing access token expires</source>
-      <translation>Το διακριτικό πρόσβασης Bing λήγει</translation>
+      <translation>Caducitat del token d&apos;accés a Bing</translation>
     </message>
     <message>
       <source>Use Google service</source>
-      <translation>Χρήση Google υπηρεσία</translation>
+      <translation>Utilitza el servei de Google</translation>
     </message>
     <message>
       <source>API key, key is never shown for security purposes</source>
-      <translation>API κλειδί, κλειδί παρουσιάζεται ποτέ για λόγους ασφαλείας</translation>
+      <translation>Clau API, la clau mai no es mostra per motius de seguretat</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Ρυθμίσεις ενημέρωση</translation>
+      <translation>Configuració actualitzada</translation>
     </message>
     <message>
       <source>Missing text to translate</source>
-      <translation>Λείπει κείμενο προς μετάφραση</translation>
+      <translation>Falta el text a traduir</translation>
     </message>
     <message>
       <source>Could not detect a language</source>
-      <translation>Δεν μπόρεσε να εντοπίσει μια γλώσσα</translation>
+      <translation>No s&apos;ha pogut detectar l&apos;idioma</translation>
     </message>
     <message>
       <source>Could not translate</source>
-      <translation>Δεν θα μπορούσε να μεταφράσει</translation>
+      <translation>No s&apos;ha pogut traduir</translation>
     </message>
     <message>
       <source>Could not detect language</source>
-      <translation>Δεν θα μπορούσα να ανιχνεύσει γλώσσα</translation>
+      <translation>No s&apos;ha pogut detectar l&apos;idioma</translation>
     </message>
     <message>
       <source>Translation configuration</source>
-      <translation>Μετάφραση διαμόρφωση</translation>
+      <translation>Configuració de la traducció</translation>
     </message>
   </context>
   <context>
     <name>files/files</name>
     <message>
       <source>Refresh</source>
-      <translation>Ανανέωση</translation>
+      <translation>Actualitza</translation>
     </message>
     <message>
       <source>Delete file</source>
-      <translation>Διαγράψετε αρχείο</translation>
+      <translation>Esborra axiu</translation>
     </message>
     <message>
       <source>Sent by Customer</source>
-      <translation>Αποστέλλεται από πελάτη</translation>
+      <translation>Enviat pel Client</translation>
     </message>
     <message>
       <source>Sent by Operator</source>
-      <translation>Σταλούν με χειριστή</translation>
+      <translation>Enviat per l&apos;agent</translation>
     </message>
     <message>
       <source>Drop your files here.</source>
-      <translation>Drop τα αρχεία σας εδώ.</translation>
+      <translation>Arrossegueu els fitxers cap aquí.</translation>
     </message>
     <message>
       <source>Not an accepted file type</source>
-      <translation>Δεν μια αποδεκτή αρχείο τύπου</translation>
+      <translation>Tipus de fitxer no acceptat</translation>
     </message>
     <message>
       <source>Filesize is too big</source>
-      <translation>Μέγεθος αρχείου είναι πολύ μεγάλο</translation>
+      <translation>La mida del fitxer és massa gran</translation>
     </message>
   </context>
   <context>
     <name>chat/screenshot</name>
     <message>
       <source>Take user screenshot</source>
-      <translation>Πάρτε χρήστη screenshot</translation>
+      <translation>Pren captura de pantalla de l&apos;usuari</translation>
     </message>
     <message>
       <source>Refresh</source>
-      <translation>Ανανέωση</translation>
+      <translation>Actualitza</translation>
     </message>
     <message>
       <source>Taken</source>
-      <translation>Λαμβάνονται</translation>
+      <translation>Presa</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Άδειο...</translation>
+      <translation>Buit...</translation>
     </message>
     <message>
       <source>Perhaps screenshot is under way or screenshot is not supported on client browser, click refresh to check for a screenshot</source>
-      <translation>Ίσως screenshot είναι σε εξέλιξη ή screenshot δεν υποστηρίζεται στο πρόγραμμα περιήγησης-πελάτη, κάντε κλικ στο κουμπί ανανέωσης για να ελέγξετε για ένα screenshot</translation>
+      <translation>Potser la captura de pantalla està en curs o lno és compatible amb el navegador del client, prem Actualitzar per comprovar la captura de pantalla</translation>
     </message>
     <message>
       <source>Screenshot</source>
-      <translation>Στιγμιότυπο οθόνης</translation>
+      <translation>Pantalla</translation>
     </message>
     <message>
       <source>Screenshot store error</source>
-      <translation>Σφάλμα αποθήκευσης screenshot</translation>
+      <translation>Error en desar la captura de pantalla</translation>
     </message>
   </context>
   <context>
     <name>chat/chatpreview</name>
     <message>
       <source>Chat preview</source>
-      <translation>Chat προεπισκόπηση</translation>
+      <translation>Previsualització del xat</translation>
     </message>
   </context>
   <context>
     <name>front/default</name>
     <message>
       <source>Pending confirm</source>
-      <translation>Σε εκκρεμότητα επιβεβαίωση</translation>
+      <translation>Pendent de confirmació</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation>Ενεργό συνομιλίες</translation>
+      <translation>Xats actius</translation>
     </message>
     <message>
       <source>Unread messages</source>
-      <translation>Μη αναγνωσθέντα μηνύματα</translation>
+      <translation>Missatges no llegits</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation>Κλειστό συνομιλίες</translation>
+      <translation>Xats tancats</translation>
     </message>
     <message>
       <source>All pending chats</source>
-      <translation>Όλες οι εκκρεμείς συνομιλίες</translation>
+      <translation>Tots els xats pendents</translation>
     </message>
     <message>
       <source>All active chats</source>
-      <translation>Όλα ενεργό συνομιλίες</translation>
+      <translation>Tots els xats actius</translation>
     </message>
     <message>
       <source>All unread chats</source>
-      <translation>Όλα τα μη αναγνωσμένα συνομιλίες</translation>
+      <translation>Tots els xats no llegits</translation>
     </message>
     <message>
       <source>All closed chats</source>
-      <translation>Όλα κλειστά συνομιλίες</translation>
+      <translation>Tots els xats tancats</translation>
     </message>
     <message>
       <source>You do not have permission to use chattabschrome function</source>
-      <translation>Δεν έχετε άδεια να χρησιμοποιήσετε τη λειτουργία chattabschrome</translation>
+      <translation>No teniu permís per utilitzar la funció chattabschrome</translation>
     </message>
     <message>
       <source>Please</source>
-      <translation>Παρακαλώ</translation>
+      <translation>Si us plau,</translation>
     </message>
     <message>
       <source>login first.</source>
-      <translation>συνδεθείτε πρώτα.</translation>
+      <translation>inicieu sessió.</translation>
     </message>
     <message>
       <source>Online operators</source>
-      <translation>Σε απευθείας σύνδεση φορείς</translation>
+      <translation>Agents en línia</translation>
     </message>
     <message>
       <source>Mail settings</source>
-      <translation>Ρυθμίσεις αλληλογραφίας</translation>
+      <translation>Configuració de correu</translation>
     </message>
     <message>
       <source>SMTP</source>
@@ -3586,227 +3586,227 @@
     <name>chat/checkchatstatus</name>
     <message>
       <source>A support staff member has closed this chat</source>
-      <translation>Ένα μέλος του προσωπικού υποστήριξης έχει κλείσει αυτήν τη συζήτηση</translation>
+      <translation>Un administrador ha tancat aquest xat</translation>
     </message>
     <message>
       <source>A support staff member has joined this chat</source>
-      <translation>Ένα μέλος του προσωπικού υποστήριξης έχει ενταχθεί σε αυτήν τη συζήτηση</translation>
+      <translation>Un administrador s&apos;ha unit a aquest xat</translation>
     </message>
     <message>
       <source>At this moment there are no logged in support staff members, but you can leave your messages</source>
-      <translation>Αυτή τη στιγμή δεν υπάρχουν καμία συνδεδεμένος υποστήριξη μέλη του προσωπικού, αλλά μπορείτε να αφήσετε τα μηνύματα σας</translation>
+      <translation>En aquests moments no hi ha cap administrador en línia, però podeu deixar-los els vostres missatges</translation>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
-      <translation>Εν αναμονή της ένα μέλος του προσωπικού υποστήριξης να συμμετάσχουν, μπορείτε να γράψετε τις ερωτήσεις σας και μόλις ένα μέλος του προσωπικού υποστήριξης επιβεβαιώνει αυτήν τη συζήτηση, θα πάρει τα μηνύματα σας</translation>
+      <translation>Esperant que un administrador s&apos;hi uneixi, al xat. Podeu deixar les vostres preguntes i tan aviat com ho faci, rebrà els vostres missatges.</translation>
     </message>
     <message>
       <source>You have been transferred. Please wait for operator to join a chat...</source>
-      <translation type="unfinished"/>
+      <translation>Heu estat transferit. Espereu mentres un agent s&apos;uneixi al xat...</translation>
     </message>
     <message>
       <source>You are number</source>
-      <translation>Είναι αριθμός</translation>
+      <translation>Sou el número</translation>
     </message>
     <message>
       <source>in the queue. Please wait...</source>
-      <translation>στην ουρά. Παρακαλώ περίμενε...</translation>
+      <translation>a la cua. Espereu si us plau...</translation>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, they will get your messages</source>
-      <translation>Εν αναμονή της ένα μέλος του προσωπικού υποστήριξης να συμμετάσχουν, μπορείτε να γράψετε τις ερωτήσεις σας και από τη στιγμή που ένα μέλος του προσωπικού υποστήριξης επιβεβαιώνει αυτήν τη συζήτηση, θα πάρουν τα μηνύματα σας</translation>
+      <translation>Esperant que un administrador s&apos;hi uneixi, al xat. Podeu deixar les vostres preguntes i tan aviat com ho faci, rebrà els vostres missatges.</translation>
     </message>
     <message>
       <source>Visitor has been redirected to contact form</source>
-      <translation>Επισκέπτης έχει ανακατευθυνθεί σε φόρμα επικοινωνίας</translation>
+      <translation>S&apos;ha enviat el visitant al formulari de contacte</translation>
     </message>
   </context>
   <context>
     <name>chat/user_settings</name>
     <message>
       <source>End the chat</source>
-      <translation>Τέλος το chat</translation>
+      <translation>Finalitza el xat</translation>
     </message>
     <message>
       <source>Enable/Disable sound about new messages from the operator</source>
-      <translation>Ενεργοποίηση/Απενεργοποίηση ήχου για νέα μηνύματα από τον φορέα εκμετάλλευσης</translation>
+      <translation>Habilita la reproducció d&apos;un so quan l&apos;agent enviï un missatge</translation>
     </message>
     <message>
       <source>Print</source>
-      <translation>Εκτύπωση</translation>
+      <translation>Imprimeix</translation>
     </message>
     <message>
       <source>Send chat transcript to your e-mail</source>
-      <translation>Αποστολή αντιγράφου συνομιλίας στο e-mail σας</translation>
+      <translation>Envia&apos;m la transcripció de xat al correu electrònic</translation>
     </message>
     <message>
       <source>Change my visibility to visible/invisible</source>
-      <translation>Αλλάξετε την προβολή μου σε ορατό/αόρατο</translation>
+      <translation>Alterna la meva visibilitat</translation>
     </message>
     <message>
       <source>Change my status to online/offline</source>
-      <translation>Αλλαγή κατάστασης μου σε απευθείας σύνδεση/χωρίς σύνδεση</translation>
+      <translation>Alterna el meu estat en línia</translation>
     </message>
     <message>
       <source>Enable/Disable sound about new messages from users</source>
-      <translation>Ενεργοποίηση/Απενεργοποίηση ήχων νέων μηνυμάτων από τους χρήστες</translation>
+      <translation>Alterna el so de nous missatges dels usuaris</translation>
     </message>
     <message>
       <source>Enable/Disable sound about new pending chats</source>
-      <translation>Ενεργοποίηση/Απενεργοποίηση ήχου για νέα εν αναμονή συνομιλία</translation>
+      <translation>Alterna el so de xats nous pendents</translation>
     </message>
   </context>
   <context>
     <name>chat/dashboardwidgets</name>
     <message>
       <source>Choose what widgets you want to see</source>
-      <translation>Επιλέξτε τι θέλετε να δείτε τα widgets</translation>
+      <translation>Trieu quins widgets voleu veure</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Ρυθμίσεις ενημέρωση</translation>
+      <translation>Configuració actualitzada</translation>
     </message>
     <message>
       <source>Online operators</source>
-      <translation>Σε απευθείας σύνδεση φορείς</translation>
+      <translation>Agents en línia</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation>Ενεργό συνομιλίες</translation>
+      <translation>Xats actius</translation>
     </message>
     <message>
       <source>Online visitors</source>
-      <translation>Σε απευθείας σύνδεση επισκέπτες</translation>
+      <translation>Visitants en línia </translation>
     </message>
     <message>
       <source>Departments stats</source>
-      <translation>Τμήματα στατιστικά</translation>
+      <translation>Estadístiques del departament</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation>Συνομιλίες σε εκκρεμότητα</translation>
+      <translation>Xats pendents</translation>
     </message>
     <message>
       <source>Unread chats</source>
-      <translation>Μη αναγνωσμένα chats</translation>
+      <translation>Xats no llegits</translation>
     </message>
     <message>
       <source>Transfered chats</source>
-      <translation>Θερμομεταφερόμενες συνομιλίες</translation>
+      <translation>Xats transferits</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation>Κλειστό συνομιλίες</translation>
+      <translation>Xats tancats</translation>
     </message>
     <message>
       <source>My active and pending chats</source>
-      <translation type="unfinished"/>
+      <translation>Els meus xats actius i pendents</translation>
     </message>
   </context>
   <context>
     <name>chat/editchatconfig</name>
     <message>
       <source>Edit</source>
-      <translation>Επεξεργασία</translation>
+      <translation>Edita</translation>
     </message>
     <message>
       <source>Value in</source>
-      <translation>Αξία σε</translation>
+      <translation>Valor a</translation>
     </message>
     <message>
       <source>site access</source>
-      <translation>πρόσβαση ιστοσελίδας</translation>
+      <translation>accés al web</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Ενημέρωση</translation>
+      <translation>Actualitza</translation>
     </message>
     <message>
       <source>Data updated</source>
-      <translation>Ενημέρωση δεδομένων</translation>
+      <translation>Dades actualitzades</translation>
     </message>
   </context>
   <context>
     <name>chat/editnick</name>
     <message>
       <source>Your information</source>
-      <translation>Τα στοιχεία σας</translation>
+      <translation>La vostra informació</translation>
     </message>
     <message>
       <source>Updated!</source>
-      <translation>Ενημέρωση!</translation>
+      <translation>Actualitzat!</translation>
     </message>
   </context>
   <context>
     <name>chat/errors/adminchatnopermission</name>
     <message>
       <source>You do not have permission to access the current chat!</source>
-      <translation>Δεν έχετε δικαίωμα πρόσβασης της τρέχουσας συνομιλίας!</translation>
+      <translation>No teniu permís per accedir al xat actual!</translation>
     </message>
   </context>
   <context>
     <name>chat/syncuser</name>
     <message>
       <source>Support staff member has closed this chat</source>
-      <translation>Υποστήριξη υπάλληλος έχει κλείσει αυτήν τη συζήτηση</translation>
+      <translation>Un administrador ha tancat aquest xat</translation>
     </message>
     <message>
       <source>Edit nick</source>
-      <translation>Επεξεργαστείτε Νικ</translation>
+      <translation>Edita l&apos;àlies</translation>
     </message>
     <message>
       <source>Chat was automatically transferred to</source>
-      <translation>Chat ήταν μεταφέρεται αυτόματα στο</translation>
+      <translation>S&apos;ha transferit automàticament el xat a</translation>
     </message>
     <message>
       <source>from</source>
-      <translation>από</translation>
+      <translation>des de</translation>
     </message>
     <message>
       <source>Chat was automatically closed by cron</source>
-      <translation>Chat αυτομάτως είχε κλείσει από το cron</translation>
+      <translation>El xat s&apos;ha tancat per tasca programada</translation>
     </message>
     <message>
       <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
-      <translation>Υποστήριξη έχει κλείσει το παράθυρο της συνομιλίας, αλλά μπορείτε να αφήσετε τα μηνύματα, και ο διαχειριστής θα τα διαβάσετε αργότερα.</translation>
+      <translation>L&apos;administrador ha tancat la finestra del xat. Podeu deixar missatges i l&apos;administrador els llegirà més tard.</translation>
     </message>
     <message>
       <source>You do not have permission to view this chat, or the chat was deleted</source>
-      <translation>Δεν έχετε δικαίωμα να δείτε αυτήν τη συζήτηση, ή είχε διαγραφεί το chat</translation>
+      <translation>No teniu permís per veure aquest xat o el xat ha estat eliminat</translation>
     </message>
   </context>
   <context>
     <name>chat/errors/entertext</name>
     <message>
       <source>Please enter text!</source>
-      <translation>Παρακαλούμε εισάγετε το κείμενο!</translation>
+      <translation>Introduïu un text!</translation>
     </message>
   </context>
   <context>
     <name>system/xmpp</name>
     <message>
       <source>Geo adjustments active</source>
-      <translation>Geo προσαρμογές ενεργό</translation>
+      <translation>Ajustaments geogràfics actius</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Ρυθμίσεις ενημέρωση</translation>
+      <translation>Configuració actualitzada</translation>
     </message>
     <message>
       <source>XMPP settings</source>
-      <translation>Ρυθμίσεις XMPP</translation>
+      <translation>Configuració d&apos;XMPP</translation>
     </message>
     <message>
       <source>XMPP active</source>
-      <translation>XMPP ενεργό</translation>
+      <translation>XMPP actiu</translation>
     </message>
     <message>
       <source>XMPP Message content</source>
-      <translation>Περιεχόμενο του μηνύματος XMPP</translation>
+      <translation>Contingut del missatge XMPP</translation>
     </message>
     <message>
       <source>XMPP Message about accepted chat</source>
-      <translation>XMPP μήνυμα σχετικά με τη συνομιλία αποδεκτές</translation>
+      <translation>Missatge XMPP sobre xat acceptat</translation>
     </message>
     <message>
       <source>XMPP</source>
@@ -3818,313 +3818,313 @@
     </message>
     <message>
       <source>Use standard XMPP service</source>
-      <translation>Χρησιμοποιήστε το πρότυπο XMPP υπηρεσία</translation>
+      <translation>Utilitza el servei XMPP estàndard</translation>
     </message>
     <message>
       <source>Host</source>
-      <translation>Υποδοχής</translation>
+      <translation>Host</translation>
     </message>
     <message>
       <source>Port</source>
-      <translation>Λιμάνι</translation>
+      <translation>Port</translation>
     </message>
     <message>
       <source>Login</source>
-      <translation>Σύνδεση</translation>
+      <translation>Inicia sessió</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation>Κωδικός πρόσβασης</translation>
+      <translation>Contrasenya</translation>
     </message>
     <message>
       <source>Resource</source>
-      <translation>Πόρος</translation>
+      <translation>Recurs</translation>
     </message>
     <message>
       <source>Server</source>
-      <translation>Διακομιστή</translation>
+      <translation>Servidor</translation>
     </message>
     <message>
       <source>Recipients</source>
-      <translation>Παραλήπτες</translation>
+      <translation>Destinataris</translation>
     </message>
     <message>
       <source>Default recipients</source>
-      <translation>Προεπιλογή παραλήπτες</translation>
+      <translation>Destinataris predeterminats</translation>
     </message>
     <message>
       <source>Test recipients</source>
-      <translation>Δοκιμή παραλήπτες</translation>
+      <translation>Destinataris de la prova</translation>
     </message>
     <message>
       <source>Individual recipients</source>
-      <translation>Μεμονωμένους δικαιούχους</translation>
+      <translation>Destinataris individuals</translation>
     </message>
     <message>
       <source>Test group recipients</source>
-      <translation>Δοκιμή ομάδα παραληπτών</translation>
+      <translation>Destinataris del grup de prova</translation>
     </message>
     <message>
       <source>Test message will be send to your account e-mail</source>
-      <translation>Δοκιμή μήνυμα θα σταλεί στον e-mail λογαριασμό σας</translation>
+      <translation>El missatge de prova s&apos;enviarà al vostre correu electrònic</translation>
     </message>
     <message>
       <source>Use GTalk for messaging</source>
-      <translation>Χρησιμοποιήσετε GTalk για την ανταλλαγή μηνυμάτων</translation>
+      <translation>Utilitza GTalk per a missatgeria</translation>
     </message>
     <message>
       <source>Information for your google app</source>
-      <translation>Πληροφορίες για app σας google</translation>
+      <translation>Informació per a la vostra aplicació Google</translation>
     </message>
     <message>
       <source>Redirect URL, this url you will have to enter in your google app configuration</source>
-      <translation>Ανακατευθύνετε το URL, αυτή η διεύθυνση url θα πρέπει να εισάγετε στη ρύθμιση παραμέτρων του google app</translation>
+      <translation>URL de redirecció. Haureu d&apos;introduir aquesta URL a la configuració de l&apos;aplicació Google</translation>
     </message>
     <message>
       <source>Enter your app information bellow</source>
-      <translation>Εισάγετε σας παρακάτω πληροφορίες app</translation>
+      <translation>Introduïu la informació de l&apos;aplicació a continuació</translation>
     </message>
     <message>
       <source>OAuth 2.0 Client ID</source>
-      <translation>Αναγνωριστικό υπολογιστή-πελάτη OAuth 2.0</translation>
+      <translation>ID de client OAuth 2.0</translation>
     </message>
     <message>
       <source>Please enter your Client ID</source>
-      <translation>Παρακαλούμε εισάγετε το αναγνωριστικό υπολογιστή-πελάτη σας</translation>
+      <translation>Introduïu el vostre ID de client</translation>
     </message>
     <message>
       <source>Client secret</source>
-      <translation>Μυστικό του πελάτη</translation>
+      <translation>Codi secret de client</translation>
     </message>
     <message>
       <source>Please enter to what gmail address test message should be send?</source>
-      <translation>Παρακαλώ εισάγετε σε ποια διεύθυνση gmail δοκιμαστικό μήνυμα θα πρέπει να στείλετε;</translation>
+      <translation>Introduïu l&apos;adreça de Gmail on voleu enviar el missatge de prova</translation>
     </message>
     <message>
       <source>This message will be send to test e-mail</source>
-      <translation>Αυτό το μήνυμα θα είναι στην αποστολή για να ελέγξετε το ηλεκτρονικό ταχυδρομείο</translation>
+      <translation>Aquest missatge s&apos;enviarà per provar el correu electrònic</translation>
     </message>
     <message>
       <source>Send test message</source>
-      <translation>Στείλτε μήνυμα δοκιμή</translation>
+      <translation>Envia el missatge de prova</translation>
     </message>
     <message>
       <source>Revoke access token</source>
-      <translation>Ανακαλέσει το διακριτικό πρόσβασης</translation>
+      <translation>Revoca lel token d&apos;accés</translation>
     </message>
     <message>
       <source>Revoke permission to send a message</source>
-      <translation>Ανακαλεί την άδεια Στείλτε ένα μήνυμα</translation>
+      <translation>Revoca el permís per enviar un missatge</translation>
     </message>
     <message>
       <source>Authentificate and grant permission to send a message</source>
-      <translation>Authentificate και επιχορήγησης άδεια να στείλει ένα μήνυμα</translation>
+      <translation>Autentifica i concedeix permisos per enviar un missatge</translation>
     </message>
     <message>
       <source>Grant permission to send a message</source>
-      <translation>Χορηγήσει άδεια, να στείλει ένα μήνυμα</translation>
+      <translation>Concedeix permís per enviar un missatge</translation>
     </message>
     <message>
       <source>Succesfully authorised, now you can try to send a message</source>
-      <translation>Επιτρέπεται με επιτυχία, τώρα μπορείτε να δοκιμάσετε να στείλετε ένα μήνυμα</translation>
+      <translation>S&apos;ha autoritzat amb èxit, ara podeu intentar enviar un missatge</translation>
     </message>
     <message>
       <source>Token was revoked</source>
-      <translation>Διακριτικό ανακλήθηκε</translation>
+      <translation>S&apos;ha revocat el token</translation>
     </message>
     <message>
       <source>XMPP message was sent succesfuly</source>
-      <translation>XMPP μήνυμα στάλθηκε επιτυχώς</translation>
+      <translation>El missatge XMPP s&apos;ha enviat correctament</translation>
     </message>
     <message>
       <source>Invalid test e-mail address</source>
-      <translation>Δοκιμή δεν είναι έγκυρη διεύθυνση ηλεκτρονικού ταχυδρομείου</translation>
+      <translation>L&apos;adreça e-mail de prova no és vàlida</translation>
     </message>
   </context>
   <context>
     <name>chat/geoadjustment</name>
     <message>
       <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
-      <translation>Εφαρμόσουν chat widget δείκτη κατάστασης τους κανόνες αυτούς επίσης; μείωση της απόδοσης σχετίζεται με αυτήν την επιλογή</translation>
+      <translation>Aplicar també aquestes regles a l&apos;indicador de l&apos;estat del widget de xat? El rendiment es pot veure afectat.</translation>
     </message>
     <message>
       <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
-      <translation>Κάνει chat κατάσταση κανονική για αυτές τις χώρες, οι χώρες μπορούν να διαχωριστούν από κόμμα &quot;de, gb, μας, fr&quot; σημαίνει συνομιλία θα εμφανιστεί ως συνήθως μόνο για τις χώρες αυτές.</translation>
+      <translation>Fer que l&apos;estat del xat sigui normal per a aquests països. Els països es poden separar per coma &quot;de, gb, us, fr&quot;; el xat es mostrarà amb normalitat només per a aquests països.</translation>
     </message>
     <message>
       <source>For</source>
-      <translation>Για</translation>
+      <translation>Per a</translation>
     </message>
     <message>
       <source>all</source>
-      <translation>όλα</translation>
+      <translation>tots</translation>
     </message>
     <message>
       <source>custom</source>
-      <translation>προσαρμοσμένο</translation>
+      <translation>personalitzat</translation>
     </message>
     <message>
       <source>E.g. ar,pl</source>
-      <translation>Π.χ. ar, pl</translation>
+      <translation>P. ex. ar, pl</translation>
     </message>
     <message>
       <source>Other countries, put widget/chat status to</source>
-      <translation>Άλλες χώρες, να την κατάσταση της widget/chat</translation>
+      <translation>Altres països, posa l&apos;estat de widget/xat a</translation>
     </message>
     <message>
       <source>offline status</source>
-      <translation>offline κατάσταση</translation>
+      <translation>fora de línia</translation>
     </message>
     <message>
       <source>hidden/disabled, widget will not be shown</source>
-      <translation>κρυμμένο/απενεργοποιημένο, widget δεν θα εμφανίζεται</translation>
+      <translation>ocult / inhabilitat, no es mostrarà el widget </translation>
     </message>
     <message>
       <source>For unmatched countries put chat status to</source>
-      <translation>Για απαράμιλλη χώρες να κατάστασής της συζήτησής</translation>
+      <translation>Per als demés països posa l&apos;estat del xat a</translation>
     </message>
     <message>
       <source>normal status</source>
-      <translation>κανονική κατάσταση</translation>
+      <translation>normal</translation>
     </message>
     <message>
       <source>GEO adjustment</source>
-      <translation>GEO προσαρμογής</translation>
+      <translation>Ajustos GEO</translation>
     </message>
   </context>
   <context>
     <name>chat/onlineusers</name>
     <message>
       <source>GEO detection configuration</source>
-      <translation>Ρύθμιση παραμέτρων ανίχνευσης GEO</translation>
+      <translation>Configuració de detecció GEO</translation>
     </message>
     <message>
       <source>Map location</source>
-      <translation>Χάρτης τοποθεσίας</translation>
+      <translation>Ubicació al mapa</translation>
     </message>
     <message>
       <source>GEO Enabled</source>
-      <translation>GEO Ενεργοποίηση</translation>
+      <translation>GEO habilitat</translation>
     </message>
     <message>
       <source>Use this service</source>
-      <translation>Χρήση αυτής της υπηρεσίας</translation>
+      <translation>Utilitza aquest servei</translation>
     </message>
     <message>
       <source>Use mod_geoip2</source>
-      <translation>Χρήση του mod_geoip2</translation>
+      <translation>Utilitza mod_geoip2</translation>
     </message>
     <message>
       <source>Country code server variable</source>
-      <translation>Μεταβλητή διακομιστή κωδικό χώρας</translation>
+      <translation>Variable del servidor de codi de país</translation>
     </message>
     <message>
       <source>Country name server variable</source>
-      <translation>Τιμή εξυπηρετητή ονομάτων χώρας</translation>
+      <translation>Variable del servidor de nom de país</translation>
     </message>
     <message>
       <source>City name server variable</source>
-      <translation>Τιμή εξυπηρετητή ονομάτων πόλης</translation>
+      <translation>Variable del servidor de codi de país</translation>
     </message>
     <message>
       <source>Region name server variable</source>
-      <translation>Περιοχή όνομα διακομιστή μεταβλητή</translation>
+      <translation>Variable del servidor de codi regional</translation>
     </message>
     <message>
       <source>Latitude variable</source>
-      <translation>Μεταβλητή γεωγραφικού πλάτους</translation>
+      <translation>Variable de latitud</translation>
     </message>
     <message>
       <source>Longitude variable</source>
-      <translation>Μεταβλητή γεωγραφικού μήκους</translation>
+      <translation>Variable de longitud</translation>
     </message>
     <message>
       <source>Use MaxMind, does not depend on any third party remote service</source>
-      <translation>Χρησιμοποιήστε MaxMind, δεν εξαρτάται από οποιαδήποτε απομακρυσμένη υπηρεσία τρίτων</translation>
+      <translation>Utilitza MaxMind, no depèn de cap servei remot de tercers</translation>
     </message>
     <message>
       <source>You can download city/country database from.</source>
-      <translation>Μπορείς να κάνεις download την λίστα πόλεων/χωρών από.</translation>
+      <translation>Podeu descarregar la base de dades de ciutats/països des de</translation>
     </message>
     <message>
       <source>bcmath php extension detected</source>
-      <translation>bcmath επέκταση php ανιχνευθεί</translation>
+      <translation>extensió bcmath de PHP detectada</translation>
     </message>
     <message>
       <source>Location of city database</source>
-      <translation>Θέση της πόλης βάσης δεδομένων</translation>
+      <translation>Base de dades d&apos;ubicacions de ciutat</translation>
     </message>
     <message>
       <source>User country based detection, faster</source>
-      <translation>Χώρα χρηστών με βάση ανίχνευσης, ταχύτερα</translation>
+      <translation>Detecció del país de l&apos;usuari (més ràpida)</translation>
     </message>
     <message>
       <source>File exists</source>
-      <translation>Το αρχείο υπάρχει</translation>
+      <translation>El fitxer ja existeix</translation>
     </message>
     <message>
       <source>File does not exists</source>
-      <translation>Δεν υπάρχει το αρχείο</translation>
+      <translation>El fitxer no existeix</translation>
     </message>
     <message>
       <source>User city based detection, slower</source>
-      <translation>Ανίχνευση πόλη με βάση το χρήστη, πιο αργή</translation>
+      <translation>Detecció de la ciutat de l&apos;usuari (més lenta)</translation>
     </message>
     <message>
       <source>Use PHP-GeoIP module</source>
-      <translation>Χρήση PHP-GeoIP ενότητα</translation>
+      <translation>Utilitzeu el mòdul PHP-GeoIP</translation>
     </message>
     <message>
       <source>Support for PHP-GeoIP detected</source>
-      <translation>Υποστήριξη για PHP-GeoIP ανιχνευθεί</translation>
+      <translation>S&apos;ha detectat suport per a PHP-GeoIP</translation>
     </message>
     <message>
       <source>Requests will be comming from</source>
-      <translation>Αιτήσεις θα πρέπει να έρχονται από</translation>
+      <translation>Les sol·licituds vindran de</translation>
     </message>
     <message>
       <source>API Key</source>
-      <translation>API κλειδί</translation>
+      <translation>Clau API</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation>Όνομα χρήστη</translation>
+      <translation>Nom d&apos;usuari</translation>
     </message>
     <message>
       <source>IP, if your site remote IP is different from detected one, please provide correct remote IP address</source>
-      <translation>IP, εάν το site σας απομακρυσμένη IP είναι διαφορετική από εντοπισμός ένα, καλείσθε να παράσχετε το σωστό απομακρυσμένη διεύθυνση IP</translation>
+      <translation>IP: si l&apos;IP remota del vostre lloc és diferent de la que s&apos;ha detectat, proporcioneu l&apos;adreça IP remota correcta</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Αποθήκευση</translation>
+      <translation>Desa</translation>
     </message>
     <message>
       <source>Drag a marker where you want to have map centered by default. Zoom is also saved.</source>
-      <translation>Σύρετε ένα δείκτη όπου θέλετε να έχετε το χάρτη που κεντροθετείται από προεπιλογή. Αποθηκεύεται επίσης ζουμ.</translation>
+      <translation>Arrossegueu un marcador on volgueu que el mapa estigui centrat de manera predeterminada. El zoom també es conservarà.</translation>
     </message>
     <message>
       <source>Google Maps API key, saved automatically. After pasting the key, refresh the page.</source>
-      <translation>Κλειδί API των Χαρτών Google, αποθηκεύονται αυτόματα. Μετά την επικόλληση το κλειδί, ανανεώστε τη σελίδα.</translation>
+      <translation>Clau API de Google Maps, desada automàticament. Després d&apos;inserir la clau, actualitzeu la pàgina.</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Οι ρυθμίσεις ενημερώθηκαν</translation>
+      <translation>Configuració actualitzada</translation>
     </message>
     <message>
       <source>Send message</source>
-      <translation>Αποστολή μηνύματος</translation>
+      <translation>Envia missatge</translation>
     </message>
     <message>
       <source>Chat list</source>
-      <translation>Λίστα συζήτησης</translation>
+      <translation>Llista del xat</translation>
     </message>
     <message>
       <source>Dashboard</source>
-      <translation>Ταμπλό</translation>
+      <translation>Panell</translation>
     </message>
     <message>
       <source>City</source>
-      <translation>Πόλη</translation>
+      <translation>Ciutat</translation>
     </message>
     <message>
       <source>Lat.</source>
@@ -4136,522 +4136,523 @@
     </message>
     <message>
       <source>Time zone</source>
-      <translation>Ζώνη ώρας</translation>
+      <translation>Zona horària</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation>αναγνωριστικό</translation>
+      <translation>Identificador</translation>
     </message>
     <message>
       <source>Additional information</source>
-      <translation>Πρόσθετες πληροφορίες</translation>
+      <translation>Informació addicional</translation>
     </message>
     <message>
       <source>Last activity</source>
-      <translation>Τελευταία δραστηριότητα</translation>
+      <translation>Última activitat</translation>
     </message>
     <message>
       <source>ago</source>
-      <translation>πριν</translation>
+      <translation>des de fa</translation>
     </message>
     <message>
       <source>On page</source>
-      <translation>Στη σελίδα</translation>
+      <translation>A la pàgina</translation>
     </message>
     <message>
       <source>Yes</source>
-      <translation>Ναι</translation>
+      <translation>Si</translation>
     </message>
     <message>
       <source>No</source>
-      <translation>Όχι</translation>
+      <translation>No</translation>
     </message>
     <message>
       <source>User does not have any message from operator</source>
-      <translation>Χρήστης δεν έχει οποιοδήποτε μήνυμα από χειριστή</translation>
+      <translation>L&apos;usuari no té cap missatge de cap agent</translation>
     </message>
     <message>
       <source>User have not seen message from operator, or message window still open.</source>
-      <translation>Χρήστη δεν έχω δει το μήνυμα από τον χειριστή, ή μήνυμα ακόμα ανοιχτό παράθυρο.</translation>
+      <translation>L&apos;usuari no ha vist el missatge/s de l&apos;agent, o la finestra de missatges està encara oberta.</translation>
     </message>
     <message>
       <source>User has seen message from operator.</source>
-      <translation>Χρήστης έχει δει το μήνυμα από τον χειριστή.</translation>
+      <translation>L&apos;usuari ha vist el missatge del agent.</translation>
     </message>
     <message>
       <source>User is chatting</source>
-      <translation>Ο χρήστης συνομιλεί</translation>
+      <translation>L&apos;usuari està xatejant</translation>
     </message>
     <message>
       <source>User is not having any chat right now</source>
-      <translation>Χρήστης δεν έχει οποιοδήποτε chat αυτή τη στιγμή</translation>
+      <translation>L&apos;usuari ara mateix no està mantenit cap xat</translation>
     </message>
     <message>
       <source>Operator</source>
-      <translation>Τελεστής</translation>
+      <translation>Agent</translation>
     </message>
     <message>
       <source>has send message to user</source>
-      <translation>έχει στείλει μήνυμα προς το χρήστη</translation>
+      <translation>ha enviat un missatge a l&apos;usuari</translation>
     </message>
     <message>
       <source>No one has send any message to user yet</source>
-      <translation>Κανείς δεν έχει στείλει κανένα μήνυμα σε χρήστη ακόμα</translation>
+      <translation>Ningú ha enviat cap missatge a l&apos;usuari encara</translation>
     </message>
     <message>
       <source>First visit</source>
-      <translation>Πρώτη επίσκεψη</translation>
+      <translation>Primera visita</translation>
     </message>
     <message>
       <source>Last visit</source>
-      <translation>Τελευταία επίσκεψη</translation>
+      <translation>Última visita</translation>
     </message>
     <message>
       <source>Total visits</source>
-      <translation>Συνολικές επισκέψεις</translation>
+      <translation>Visites totals</translation>
     </message>
     <message>
       <source>time(s) invitation logic was applied</source>
-      <translation>πρόσκληση ώρα (ες) που εφαρμόστηκε η λογική</translation>
+      <translation>vegada(es) que a lògica d&apos;invitació ha estat aplicada</translation>
     </message>
     <message>
       <source>Pageviews</source>
-      <translation>Προβολές σελίδας</translation>
+      <translation>Pàgines vistes</translation>
     </message>
     <message>
       <source>Total pageviews</source>
-      <translation>Συνολικές προβολές σελίδας</translation>
+      <translation>Vistes totals de pàgines</translation>
     </message>
     <message>
       <source>Time on site</source>
-      <translation>Χρόνος παραμονής στην ιστοσελίδα</translation>
+      <translation>Temps en el el lloc web</translation>
     </message>
     <message>
       <source>Total time on site</source>
-      <translation>Συνολικός χρόνος παραμονής στην ιστοσελίδα</translation>
+      <translation>Temps total en el lloc web</translation>
     </message>
     <message>
       <source>Current page</source>
-      <translation>Τρέχουσα σελίδα</translation>
+      <translation>Pàgina actual</translation>
     </message>
     <message>
       <source>Came from</source>
-      <translation>Προήλθε από</translation>
+      <translation>Ha vingut de</translation>
     </message>
     <message>
       <source>Are you sure?</source>
-      <translation>Είστε σίγουρος;</translation>
+      <translation>N&apos;està segur ?</translation>
     </message>
     <message>
       <source>Clear list</source>
-      <translation>Καθαρισμός λίστας</translation>
+      <translation>Buidar la llista</translation>
     </message>
     <message>
       <source>User tracking is disabled, enable it at</source>
-      <translation>Παρακολούθησης του χρήστη είναι απενεργοποιημένη, ενεργοποιήσετε στο</translation>
+      <translation>El seguiment d&apos;usuari està desactivat, activar-lo a les</translation>
     </message>
     <message>
       <source>Chat configuration</source>
-      <translation>Παραμετροποίηση συνομιλίας</translation>
+      <translation>Configuració del xat</translation>
     </message>
     <message>
       <source>Online visitors list</source>
-      <translation>Λίστα σε απευθείας σύνδεση επισκέπτες</translation>
+      <translation>Llista de visitants en línia</translation>
     </message>
     <message>
       <source>Online visitors on map</source>
-      <translation>Σε απευθείας σύνδεση επισκέπτες στο χάρτη</translation>
+      <translation>Visitants en línia al mapa</translation>
     </message>
     <message>
       <source>Enable/Disable sound about new visitor</source>
-      <translation>Ενεργοποίηση/Απενεργοποίηση ήχου για νέος επισκέπτης</translation>
+      <translation>Activar/desactivar l&apos;avís sonor de nou usuari</translation>
     </message>
     <message>
       <source>Enable/Disable browser notifications about new visitor</source>
-      <translation>Ενεργοποίηση/απενεργοποίηση προγράμματος περιήγησης ειδοποιήσεις σχετικά με νέα επισκέπτης</translation>
+      <translation>Activar/desactivar les notificacions del navegador de nou usuari</translation>
     </message>
     <message>
       <source>Online visitors</source>
-      <translation>Συνδεδεμένοι χρήστες</translation>
+      <translation>Visitants en línia</translation>
     </message>
     <message>
       <source>User has message from operator</source>
-      <translation>Ο χρήστης έχει μήνυμα από τον διαχειριστή</translation>
+      <translation>L&apos;usuari té missatges d&apos;un agent</translation>
     </message>
     <message>
       <source>Marker timeout before it dissapears from map</source>
-      <translation>Χρονικό όριο δείκτη πριν εξαφανιστεί από το χάρτη</translation>
+      <translation>Temps de visualització del marcador abans de que desaparegui del mapa</translation>
     </message>
     <message>
       <source>seconds</source>
-      <translation>δευτερόλεπτα</translation>
+      <translation>segons</translation>
     </message>
     <message>
       <source>minute</source>
-      <translation>λεπτό</translation>
+      <translation>minut</translation>
     </message>
     <message>
       <source>minutes</source>
-      <translation>λεπτά</translation>
+      <translation>minuts</translation>
     </message>
     <message>
       <source>online users</source>
-      <translation>σε απευθείας σύνδεση χρήστες</translation>
+      <translation>usuaris en línia</translation>
     </message>
     <message>
       <source>Group list by</source>
-      <translation>Λίστα ομάδων από</translation>
+      <translation>Agrupar la llista per</translation>
     </message>
     <message>
       <source>Group by</source>
-      <translation>Ομαδοποίηση κατά</translation>
+      <translation>Agrupar per</translation>
     </message>
     <message>
       <source>User country</source>
-      <translation>Χώρα χρηστών</translation>
+      <translation>Pais de l&apos;usuari</translation>
     </message>
     <message>
       <source>Page</source>
-      <translation>Σελίδα</translation>
+      <translation>Pàgina</translation>
     </message>
     <message>
       <source>Page title</source>
-      <translation>Τίτλος σελίδας</translation>
+      <translation>Títol de la pàgnia</translation>
     </message>
     <message>
       <source>Referrer</source>
-      <translation>Referrer</translation>
+      <translation>Referit de</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation>Τμήμα</translation>
+      <translation>Departament</translation>
     </message>
     <message>
       <source>Refresh list every</source>
-      <translation>Ανανέωση λίστας κάθε</translation>
+      <translation>Refrescar la llista cada</translation>
     </message>
     <message>
       <source>second</source>
-      <translation>δεύτερο</translation>
+      <translation>segon</translation>
     </message>
     <message>
       <source>Show visitors who visited site in the past</source>
-      <translation>Δείξουν στους επισκέπτες που επισκεφθήκατε το site στο παρελθόν</translation>
+      <translation>Mostrar els visitant que van visitar el lloc web en el passat</translation>
     </message>
     <message>
       <source>hour</source>
-      <translation>ώρα</translation>
+      <translation>hora</translation>
     </message>
     <message>
       <source>day</source>
-      <translation>ημέρα</translation>
+      <translation>dia</translation>
     </message>
     <message>
       <source>days</source>
-      <translation>ημέρες</translation>
+      <translation>dies</translation>
     </message>
     <message>
       <source>Max records to return</source>
-      <translation>Μέγιστο πλήθος εγγραφών για να επιστρέψετε</translation>
+      <translation>Quantitat màxima de registres a retornar</translation>
     </message>
     <message>
       <source>Visitor local time</source>
-      <translation>Επισκέπτης τοπική ώρα</translation>
+      <translation>Hora local del visitant</translation>
     </message>
     <message>
       <source>By user status on site</source>
-      <translation>Από χρήστη κατάσταση επιτόπου</translation>
+      <translation>Per l&apos;estat de l&apos;usuari al site</translation>
     </message>
     <message>
       <source>Action</source>
-      <translation>Ενέργεια</translation>
+      <translation>Acció</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>
-      <translation>Χρήστη δεν έχει δει ένα μήνυμα από τον φορέα εκμετάλλευσης, ή το παράθυρο μηνύματος είναι ακόμα ανοιχτή.</translation>
+      <translation>L&apos;usuari no ha vist el missatge/s de l&apos;agent, o la la finestra de missatges encara està oberta.</translation>
     </message>
     <message>
       <source>Seen</source>
-      <translation>Δει</translation>
+      <translation>Vist</translation>
     </message>
     <message>
       <source>Unseen</source>
-      <translation>Αθέατη</translation>
+      <translation>No vist</translation>
     </message>
     <message>
       <source>User has seen the message from the operator.</source>
-      <translation>Χρήστης έχει δει το μήνυμα από τον φορέα εκμετάλλευσης.</translation>
+      <translation>L&apos;usuari ha vist el missatge de l&apos;agent.</translation>
     </message>
     <message>
       <source>User does not have any messages from the operator</source>
-      <translation>Χρήστης δεν έχει οποιαδήποτε μηνύματα από τον φορέα εκμετάλλευσης</translation>
+      <translation>L&apos;usuari no té cap missatge de l&apos;agent</translation>
     </message>
     <message>
       <source>Chat</source>
-      <translation>Chat</translation>
+      <translation>Xat</translation>
     </message>
     <message>
       <source>Returning</source>
-      <translation>Επιστροφή</translation>
+      <translation>Recurrent</translation>
     </message>
     <message>
       <source>New</source>
-      <translation>Νέα</translation>
+      <translation>Nou</translation>
     </message>
     <message>
       <source>has sent a message to the user</source>
-      <translation>απέστειλε ένα μήνυμα στο χρήστη</translation>
+      <translation>ha enviat un missatge a l&apos;usuari</translation>
     </message>
     <message>
       <source>first visit</source>
-      <translation>πρώτη επίσκεψη</translation>
+      <translation>primera visita</translation>
     </message>
     <message>
       <source>last visit</source>
-      <translation>τελευταία επίσκεψη</translation>
+      <translation>última visita</translation>
     </message>
     <message>
       <source>From</source>
-      <translation>Από</translation>
+      <translation>Des de</translation>
     </message>
     <message>
       <source>Files upload for users is active</source>
-      <translation>Φορτώσετε τα αρχεία για τους χρήστες είναι ενεργή</translation>
+      <translation>Càrrega fitxers per part d&apos;usuaris està activa</translation>
     </message>
     <message>
       <source>Files upload for operators is active</source>
-      <translation>Αρχείο φορτώνω για φορείς είναι ενεργή</translation>
+      <translation>La càrrega de fitxers per part d&apos;agents està activa</translation>
     </message>
     <message>
       <source>Uploaded files from visitors are scanned</source>
-      <translation type="unfinished"/>
+      <translation>Els fitxers carregats per visitants son escanejats</translation>
     </message>
     <message>
       <source>Preview chat</source>
-      <translation>Προεπισκόπηση συνομιλίας</translation>
+      <translation>Vista prèvia del xat</translation>
     </message>
     <message>
       <source>Visits</source>
-      <translation>Επισκέψεις</translation>
+      <translation>Visites</translation>
     </message>
     <message>
       <source>Country code variable does not exist!</source>
-      <translation>Δεν υπάρχει μεταβλητή κωδικός χώρας!</translation>
+      <translation>La variable de codi de pais no existeix</translation>
     </message>
     <message>
       <source>Country name variable does not exist!</source>
-      <translation>Δεν υπάρχει μεταβλητή όνομα χώρα!</translation>
+      <translation>La variable de nom de pais no existeix</translation>
     </message>
     <message>
       <source>Please enter city variable!</source>
-      <translation>Παρακαλούμε εισάγετε την πόλη μεταβλητή!</translation>
+      <translation>Introdueixi la variable  de població!</translation>
     </message>
     <message>
       <source>Please enter latitude variable!</source>
-      <translation>Παρακαλούμε εισάγετε το γεωγραφικό πλάτος μεταβλητή!</translation>
+      <translation>Introdueixi la latitud</translation>
     </message>
     <message>
       <source>Please enter longitude variable!</source>
-      <translation>Παρακαλούμε εισάγετε το γεωγραφικό μήκος μεταβλητή!</translation>
+      <translation>Introdueixi la longitud</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages!</source>
-      <translation>Ρύθμιση υπηρεσία παροχής απέτυχε, παρακαλώ ελέγξτε ότι υπηρεσία παροχής σας επιτρέπει να κάνουν αιτήσεις για απομακρυσμένες σελίδες!</translation>
+      <translation>El proveïdor de serveis ha fallat, comproveu que el vostre proveïdor de serveis us permet fer sol·licituds a pàgines remotes.</translation>
     </message>
     <message>
       <source>MaxMind city file does not exists!</source>
-      <translation>MaxMind πόλη αρχείο δεν υπάρχει!</translation>
+      <translation>No existeix el fitxer de poblacions MaxMind</translation>
     </message>
     <message>
       <source>MaxMind country file does not exists!</source>
-      <translation>MaxMind χώρα αρχείο δεν υπάρχει!</translation>
+      <translation>No existeix el fitxer de paisos MaxMind</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that MaxMind database files exists!</source>
-      <translation>Ρύθμιση υπηρεσία παροχής απέτυχε, παρακαλώ ελέγξτε ότι υπάρχει MaxMind αρχεία βάσης δεδομένων!</translation>
+      <translation>S&apos;ha produït un error en configurar el proveïdor de serveis. Comproveu que existeixin arxius de base de dades MaxMind</translation>
     </message>
     <message>
       <source>Please enter the API key!</source>
-      <translation>Παρακαλούμε εισάγετε το κλειδί API!</translation>
+      <translation>Introduïu la clau d&apos;accés a la API !</translation>
     </message>
     <message>
       <source>Please enter the API username!</source>
-      <translation>Παρακαλώ εισάγετε το όνομα χρήστη του API!</translation>
+      <translation>Introduïu el nom d&apos;usuari per l&apos;API</translation>
     </message>
     <message>
       <source>Please enter IP!</source>
-      <translation>Παρακαλώ εισάγεται IP!</translation>
+      <translation>Introduïu IP!</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key and username is correct!</source>
-      <translation>Ρύθμιση υπηρεσία παροχής απέτυχε, ελέγξτε ότι η υπηρεσία παροχής σας επιτρέπει να κάνετε αιτήσεις σε απομακρυσμένες σελίδες και σας API κλειδί και όνομα χρήστη είναι σωστή!</translation>
+      <translation>No s&apos;ha pogut configurar el proveïdor de serveis. Comproveu que el vostre proveïdor de serveis us permet fer sol·licituds a pàgines remotes i que la clau de l&apos;API i el nom d&apos;usuari són correctes.</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key is correct!</source>
-      <translation>Ρύθμιση υπηρεσία παροχής απέτυχε, ελέγξτε ότι η υπηρεσία παροχής σας επιτρέπει να κάνουν αιτήσεις για απομακρυσμένες σελίδες και API κλειδί σας είναι σωστή!</translation>
+      <translation>No s&apos;ha pogut configurar el proveïdor de serveis, comproveu que el vostre proveïdor de serveis us permet fer sol·licituds a pàgines remotes i que la vostra clau de l&apos;API és correcta.</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that you have installed php-GeoIP module and GeoIPCity.dat file is available!</source>
-      <translation>Ρύθμιση υπηρεσία παροχής απέτυχε, παρακαλώ ελέγξτε ότι έχετε εγκαταστήσει php-GeoIP μονάδα και το αρχείο GeoIPCity.dat είναι διαθέσιμο!</translation>
+      <translation>No s&apos;ha pogut configurar el proveïdor de serveis, comproveu que heu instal·lat el mòdul php-GeoIP i que l&apos;arxiu GeoIPCity.dat està disponible.</translation>
     </message>
     <message>
       <source>Please choose a service provider!</source>
-      <translation>Παρακαλώ επιλέξτε μια υπηρεσία παροχής!</translation>
+      <translation>Esculliu un proveïdor de serveis !</translation>
     </message>
     <message>
       <source>Online users</source>
-      <translation>Συνδεδεμένοι χρήστες</translation>
+      <translation>Usuaris en línia</translation>
     </message>
   </context>
   <context>
     <name>system/configuration</name>
     <message>
       <source>Request notification permission</source>
-      <translation>Ζητήσει άδεια κοινοποίησης</translation>
+      <translation>Sol·licitar permís de notificació</translation>
     </message>
     <message>
       <source>Close button</source>
-      <translation>Κουμπί κλεισίματος</translation>
+      <translation>Botó de tancament</translation>
     </message>
     <message>
       <source>New chat notification settings</source>
-      <translation>Νέες ρυθμίσεις ειδοποιήσεων συνομιλίας</translation>
+      <translation>Configuració per a la notificació de nou xat</translation>
     </message>
     <message>
       <source>Supported: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
-      <translation>Υποστηρίζεται: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</translation>
+      <translation>Suportat: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</translation>
     </message>
     <message>
       <source>Supported: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</source>
-      <translation>Υποστηρίζεται: ταμπλό, online_map, online_users, pending_chats, online_map, active_chats, unread_chats, closed_chats, online_operators</translation>
+      <translation>Suportat: 
+dashboard, online_map, online_users, pending_chats, online_map, active_chats, unread_chats, closed_chats, online_operators</translation>
     </message>
     <message>
       <source>Default settings</source>
-      <translation type="unfinished"/>
+      <translation>Configuració per defecte</translation>
     </message>
     <message>
       <source>Departments</source>
-      <translation>Τμήματα</translation>
+      <translation>Departaments</translation>
     </message>
     <message>
       <source>Departments groups</source>
-      <translation>Ομάδες τμημάτων</translation>
+      <translation>Grups dels departaments</translation>
     </message>
     <message>
       <source>Departments limit groups</source>
-      <translation type="unfinished"/>
+      <translation>Límit de grups per departament</translation>
     </message>
     <message>
       <source>Time zone settings</source>
-      <translation>Οι ρυθμίσεις ζώνης ώρας</translation>
+      <translation>Configuració de Zona horària</translation>
     </message>
     <message>
       <source>E-mail templates</source>
-      <translation>Πρότυπα ηλεκτρονικού ταχυδρομείου</translation>
+      <translation>Plantilles de correu electrònic</translation>
     </message>
     <message>
       <source>GEO detection configuration</source>
-      <translation>Ρύθμιση παραμέτρων ανίχνευσης GEO</translation>
+      <translation>Configuració de la GEOlocalització</translation>
     </message>
     <message>
       <source>Auto responder</source>
-      <translation>Αυτόματη απάντηση</translation>
+      <translation>Autoresponedor</translation>
     </message>
     <message>
       <source>Blocked users</source>
-      <translation>Αποκλεισμένοι χρήστες</translation>
+      <translation>Usuaris blocats</translation>
     </message>
     <message>
       <source>Browse offers embed code</source>
-      <translation>Αναζήτηση προσφορές ενσωματώνει τον κώδικα</translation>
+      <translation>Codi incrustat per a navegar les ofertes</translation>
     </message>
     <message>
       <source>Canned messages</source>
-      <translation>Κονσερβοποιημένα μηνύματα</translation>
+      <translation>Missatges pre-definits</translation>
     </message>
     <message>
       <source>Chat archive</source>
-      <translation>Αρχείο συνομιλίας</translation>
+      <translation>Arxiu de xats</translation>
     </message>
     <message>
       <source>Chat configuration</source>
-      <translation>Διαμόρφωση συνομιλίας</translation>
+      <translation>Configuració del xat</translation>
     </message>
     <message>
       <source>Live help embed code</source>
-      <translation>Κώδικας ενσωμάτωσης ζωντανής βοήθειας</translation>
+      <translation>Codi incrustat per la ajuda en viu</translation>
     </message>
     <message>
       <source>Chats list</source>
-      <translation>Λίστα συνομιλίες</translation>
+      <translation>Llista dels xats</translation>
     </message>
     <message>
       <source>Chatbox embed code</source>
-      <translation>Chatbox ενσωματώνει τον κώδικα</translation>
+      <translation>Codi d&apos;incrustació del xat flotant</translation>
     </message>
     <message>
       <source>Mail settings</source>
-      <translation>Ρυθμίσεις αλληλογραφίας</translation>
+      <translation>Configuració del correu electrònic</translation>
     </message>
     <message>
       <source>FAQ embed code</source>
-      <translation>FAQ ενσωματώνει τον κώδικα</translation>
+      <translation>Codi incrustat per a les preguntes freqüents</translation>
     </message>
     <message>
       <source>Files</source>
-      <translation>Αρχεία</translation>
+      <translation>Fitxers</translation>
     </message>
     <message>
       <source>Files upload configuration</source>
-      <translation>Αρχεία ανεβάσετε διαμόρφωση</translation>
+      <translation>Configuració de la càrrega de fitxers</translation>
     </message>
     <message>
       <source>List of files</source>
-      <translation>Λίστα των αρχείων</translation>
+      <translation>Llista dels fitxers</translation>
     </message>
     <message>
       <source>GEO adjustment</source>
-      <translation>GEO προσαρμογής</translation>
+      <translation>Ajust GEO</translation>
     </message>
     <message>
       <source>Languages configuration</source>
-      <translation>Διαμόρφωση γλώσσες</translation>
+      <translation>Configuració d&apos;idiomes</translation>
     </message>
     <message>
       <source>Maintenance</source>
-      <translation>Συντήρηση</translation>
+      <translation>Mateniment</translation>
     </message>
     <message>
       <source>Offline settings</source>
-      <translation type="unfinished"/>
+      <translation>Configuracions de fora de línia</translation>
     </message>
     <message>
       <source>Paid chat configuration</source>
-      <translation>Ρύθμιση παραμέτρων πληρωμένη συνομιλίας</translation>
+      <translation>Configuració de xat de pagament</translation>
     </message>
     <message>
       <source>Update information</source>
-      <translation>Ενημέρωση πληροφοριών</translation>
+      <translation>Informació d&apos;actualitzacions</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
-      <translation>Προσκλήσεις προορατικού συνομιλίας</translation>
+      <translation>Invitacions a xats pro actius</translation>
     </message>
     <message>
       <source>Pro active chat events</source>
-      <translation type="unfinished"/>
+      <translation>Events de xats pro-actius</translation>
     </message>
     <message>
       <source>Pro active chat variables</source>
-      <translation type="unfinished"/>
+      <translation>Variables de xats pro actius</translation>
     </message>
     <message>
       <source>Product</source>
-      <translation>Προϊόντος</translation>
+      <translation>Producte</translation>
     </message>
     <message>
       <source>Questionary embed code</source>
-      <translation>Ενσωματώστε τον κώδικα Questionary</translation>
+      <translation>Codi incrustat de qüestonari</translation>
     </message>
     <message>
       <source>Rest API</source>
@@ -4659,838 +4660,838 @@
     </message>
     <message>
       <source>Start chat form settings</source>
-      <translation>Έναρξη συνομιλίας μορφή ρυθμίσεις</translation>
+      <translation>Configuració del formulari d&apos;inici de xat</translation>
     </message>
     <message>
       <source>Statistic</source>
-      <translation>Στατιστική</translation>
+      <translation>Estadística</translation>
     </message>
     <message>
       <source>Surveys</source>
-      <translation>Έρευνες</translation>
+      <translation>Enquestes</translation>
     </message>
     <message>
       <source>Synchronization and sound settings</source>
-      <translation>Ρυθμίσεις συγχρονισμού και ήχο</translation>
+      <translation>Configuració de sincronització i sò</translation>
     </message>
     <message>
       <source>Theming</source>
-      <translation>Θεματοποίηση</translation>
+      <translation>Temes</translation>
     </message>
     <message>
       <source>Widget themes</source>
-      <translation>Θέματα widget</translation>
+      <translation>Widget de temes</translation>
     </message>
     <message>
       <source>Import new themes</source>
-      <translation>Νέα θέματα εισαγωγής</translation>
+      <translation>Importar nous temes</translation>
     </message>
     <message>
       <source>Default theme</source>
-      <translation>Προεπιλεγμένο θέμα</translation>
+      <translation>Tema per defecte</translation>
     </message>
     <message>
       <source>Back office theming</source>
-      <translation>Θεματοποίηση γραφείου επιστροφή</translation>
+      <translation>Temes Administrador</translation>
     </message>
     <message>
       <source>Admin themes</source>
-      <translation>Admin θέματα</translation>
+      <translation>Administrar temes</translation>
     </message>
     <message>
       <source>Default admin theme</source>
-      <translation>Θέμα το admin προεπιλογή</translation>
+      <translation>Tema d&apos;administració per defecte</translation>
     </message>
     <message>
       <source>Chat transfer configuration</source>
-      <translation type="unfinished"/>
+      <translation>Configuració de la trasferència de xats</translation>
     </message>
     <message>
       <source>Automatic translations</source>
-      <translation>Αυτόματη μετάφραση</translation>
+      <translation>Traduccions automàtiques</translation>
     </message>
     <message>
       <source>Users</source>
-      <translation>Χρήστες</translation>
+      <translation>Usuaris</translation>
     </message>
     <message>
       <source>List of groups</source>
-      <translation>Λίστα ομάδων</translation>
+      <translation>Llista dels grups</translation>
     </message>
     <message>
       <source>List of roles</source>
-      <translation>Λίστα ρόλων</translation>
+      <translation>Llista de rols</translation>
     </message>
     <message>
       <source>Import users</source>
-      <translation type="unfinished"/>
+      <translation>Importació d&apos;usuaris</translation>
     </message>
     <message>
       <source>Advanced</source>
-      <translation type="unfinished"/>
+      <translation>Avançat</translation>
     </message>
     <message>
       <source>Users actions</source>
-      <translation type="unfinished"/>
+      <translation>Accions dels usuaris</translation>
     </message>
     <message>
       <source>XMPP settings</source>
-      <translation>Ρυθμίσεις XMPP</translation>
+      <translation>Configuració XMPP</translation>
     </message>
     <message>
       <source>Speech</source>
-      <translation>Ομιλία</translation>
+      <translation>Parla</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Παραμετροποίηση συστήματος</translation>
+      <translation>Configuració del sistema</translation>
     </message>
     <message>
       <source>Embed code</source>
-      <translation>Ενσωματώστε τον κώδικα</translation>
+      <translation>Codi incrustat</translation>
     </message>
     <message>
       <source>Live help configuration</source>
-      <translation>Διαμόρφωση της ζωντανής βοήθειας</translation>
+      <translation>Configuració de l&apos;ajuda enviu</translation>
     </message>
     <message>
       <source>System</source>
-      <translation>Σύστημα</translation>
+      <translation>Sistema</translation>
     </message>
     <message>
       <source>Show notification only if I am an owner pending chat</source>
-      <translation type="unfinished"/>
+      <translation>Mostrar la notificació només si sóc propietari del xat pendent</translation>
     </message>
     <message>
       <source>You will stop receive notifications for pending chats if you are not an owner</source>
-      <translation type="unfinished"/>
+      <translation>Deixareu de rebre notificacions per xats pendents si no en sou un propietari</translation>
     </message>
     <message>
       <source>Show notifications if I am offline</source>
-      <translation type="unfinished"/>
+      <translation>Mostra notificacions si estic fora de línia</translation>
     </message>
     <message>
       <source>You will not receive notifications if you are not online</source>
-      <translation type="unfinished"/>
+      <translation>No rebreu notificacions si no sou en línia</translation>
     </message>
     <message>
       <source>Show alert for new chats</source>
-      <translation type="unfinished"/>
+      <translation>Mostrar alertes de nous xats</translation>
     </message>
     <message>
       <source>Show alerts for transferred chats</source>
-      <translation type="unfinished"/>
+      <translation>Mostrar alertes de xats transferits</translation>
     </message>
     <message>
       <source>You will receive alert notification if chat is transferred directly to you. You will be able to accept it directly from alert.</source>
-      <translation type="unfinished"/>
+      <translation>Rebreu una notificació si un xat t&apos;és transferit directament. Podreu acceptar-lo directament des-de la notificació.</translation>
     </message>
     <message>
       <source>Activity tracking is set at global level. Your settings will be be ignored. Timeout value still will be taken from your account settings.</source>
-      <translation type="unfinished"/>
+      <translation>El seguiment d&apos;activitats es configura a nivell global. La vostra configuració serà ignorada. Es continuarà utilitzant el valor del temps d&apos;espera establert en el vostre compte d&apos;usuari.</translation>
     </message>
     <message>
       <source>Change my online/offline status based on my activity</source>
-      <translation type="unfinished"/>
+      <translation>Canviar el vostre estat en línia/fora de línia en base a la vostra activitat</translation>
     </message>
     <message>
       <source>After certain period of time if no actions are detected you will be marked as offline automatically</source>
-      <translation type="unfinished"/>
+      <translation>Si no es detecta activitat passat un cert període de temps,  el vostre usuari serà declarat com a fora de línia automàticament</translation>
     </message>
     <message>
       <source>Choose timeout value</source>
-      <translation type="unfinished"/>
+      <translation>Esculliu el valor del temps d&apos;espera</translation>
     </message>
     <message>
       <source>Select after how long of inactivity you will be marked as offline automatically</source>
-      <translation type="unfinished"/>
+      <translation>Esculliu el temps d&apos;inactivitat després del qual el vostre usuari serà declarat com a fora de línia</translation>
     </message>
     <message>
       <source>Use default system value</source>
-      <translation type="unfinished"/>
+      <translation>Utilitzar el valor per defecte del sistema</translation>
     </message>
     <message>
       <source>minutes</source>
-      <translation type="unfinished"/>
+      <translation>minuts</translation>
     </message>
     <message>
       <source>File configuration</source>
-      <translation>Αρχείο ρύθμισης παραμέτρων</translation>
+      <translation>Configuració de fitxers</translation>
     </message>
     <message>
       <source>New file</source>
-      <translation>Νέο αρχείο</translation>
+      <translation>Nou fitxer</translation>
     </message>
   </context>
   <context>
     <name>chat/listchatconfig</name>
     <message>
       <source>Application name</source>
-      <translation>Όνομα εφαρμογής</translation>
+      <translation>Nom de l&apos;aplicació</translation>
     </message>
     <message>
       <source>Site settings</source>
-      <translation>Ρυθμίσεις τοποθεσίας</translation>
+      <translation>Configuració del lloc web</translation>
     </message>
     <message>
       <source>(Widget is open) or (closed and user has activity in last 5 minutes and ping respond)</source>
-      <translation>(Widget είναι ανοικτό) ή (κλειστό και χρήστης έχει δραστηριότητα στα τελευταία 5 λεπτά και να ανταποκριθούν ping)</translation>
+      <translation>(El widget està obert) o (tancat i l&apos;usuari presenta activitat en els últims 5 minuts i respòn a pings)</translation>
     </message>
     <message>
       <source>(Widget is open or closed) and (user has activity in last 5 minutes and ping respond)</source>
-      <translation>(Widget είναι ανοικτή ή κλειστή) και (χρήστης έχει δραστηριότητα στα τελευταία 5 λεπτά και να ανταποκριθούν ping)</translation>
+      <translation>(El widget està obert o tancat) i (l&apos;usuari presenta activitat en els últims 5 minuts i respòn a pings)</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Ενημέρωση</translation>
+      <translation>Actualització</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Ρυθμίσεις ενημέρωση</translation>
+      <translation>Configuració modificada</translation>
     </message>
     <message>
       <source>Screen sharing</source>
-      <translation>Οθόνη μοιράζομαι</translation>
+      <translation>Compartició de pantalla</translation>
     </message>
     <message>
       <source>Notifications about new chats</source>
-      <translation>Ειδοποιήσεις για νέες συνομιλίες</translation>
+      <translation>Notificacions de nous xats</translation>
     </message>
     <message>
       <source>Copyright settings</source>
-      <translation>Ρυθμίσεις πνευματικών δικαιωμάτων</translation>
+      <translation>Paràmetres de copyright</translation>
     </message>
     <message>
       <source>Online tracking</source>
-      <translation>Online παρακολούθηση</translation>
+      <translation>Seguiment en línia</translation>
     </message>
     <message>
       <source>Misc</source>
-      <translation>Misc</translation>
+      <translation>Miscel.lania</translation>
     </message>
     <message>
       <source>Visitor activity</source>
-      <translation>Δραστηριότητες των επισκεπτών</translation>
+      <translation>Activitat del visitant</translation>
     </message>
     <message>
       <source>Workflow</source>
-      <translation>Ροή εργασίας</translation>
+      <translation>Fluxe de treball</translation>
     </message>
     <message>
       <source>Chat configuration</source>
-      <translation>Διαμόρφωση συνομιλίας</translation>
+      <translation>Configuració del xat</translation>
     </message>
     <message>
       <source>Online if</source>
-      <translation>Αν σε απευθείας σύνδεση</translation>
+      <translation>En línia si</translation>
     </message>
     <message>
       <source>Chat related</source>
-      <translation>Συνομιλία σχετικές</translation>
+      <translation>Xat relacionat</translation>
     </message>
     <message>
       <source>Cookie related</source>
-      <translation>Cookie που σχετίζονται</translation>
+      <translation>Cookie relacionada</translation>
     </message>
     <message>
       <source>This determines should status widget change it&apos;s status once operator logins. Recommended value 290</source>
-      <translation>Αυτό καθορίζει θα πρέπει να αλλάξετε το γραφικό στοιχείο κατάσταση είναι το καθεστώς κάποτε χειριστή logins. Συνιστώμενη τιμή 290</translation>
+      <translation>Això determina si l&apos;estat del widget canvia el seu estat una vegada que l&apos;agent inicia la sessió. Valor recomanat 290</translation>
     </message>
     <message>
       <source>List chat configuration</source>
-      <translation>Επεξεργασία λίστας συνομιλίας</translation>
+      <translation>Configuració de la llista de xats</translation>
     </message>
   </context>
   <context>
     <name>chat/pendingchats</name>
     <message>
       <source>Information</source>
-      <translation>Πληροφορία</translation>
+      <translation>Informació</translation>
     </message>
     <message>
       <source>Operator</source>
-      <translation type="unfinished"/>
+      <translation>Agent</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Departament</translation>
     </message>
     <message>
       <source>Status</source>
-      <translation>Κατάσταση</translation>
+      <translation>Estat</translation>
     </message>
     <message>
       <source>Open in a new window</source>
-      <translation>Άνοιγμα σε νέο παράθυρο</translation>
+      <translation>Obrir en una nova finestra</translation>
     </message>
     <message>
       <source>Reject chat</source>
-      <translation>Απόρριψη συνομιλίας</translation>
+      <translation>Rebutjar el xat</translation>
     </message>
     <message>
       <source>Pending chat</source>
-      <translation>Σε εκκρεμότητα συνομιλίας</translation>
+      <translation>Xat pendent</translation>
     </message>
     <message>
       <source>Active chat</source>
-      <translation>Ενεργό συνομιλίας</translation>
+      <translation>Xat actiu</translation>
     </message>
     <message>
       <source>Closed chat</source>
-      <translation>Κλειστό συνομιλίας</translation>
+      <translation>Xat tancat</translation>
     </message>
     <message>
       <source>Chatbox chat</source>
-      <translation>Chatbox συνομιλίας</translation>
+      <translation>Xat de xat flotant</translation>
     </message>
     <message>
       <source>Operators chat</source>
-      <translation>Φορείς συνομιλίας</translation>
+      <translation>Xat d&apos;agents</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Άδειο...</translation>
+      <translation>Buit...</translation>
     </message>
     <message>
       <source>Chats list</source>
-      <translation>Λίστα συνομιλιών</translation>
+      <translation>Llista de xats</translation>
     </message>
   </context>
   <context>
     <name>chat/activechats</name>
     <message>
       <source>Close chat</source>
-      <translation>Κλείσιμο συνομιλίας</translation>
+      <translation>Tancar xat</translation>
     </message>
     <message>
       <source>Delete chat</source>
-      <translation>Διαγραφή συνομιλίας</translation>
+      <translation>Elimina xat</translation>
     </message>
     <message>
       <source>Offline request</source>
-      <translation type="unfinished"/>
+      <translation>Petició fora de línia</translation>
     </message>
     <message>
       <source>Open in a new window</source>
-      <translation>Άνοιγμα σε νέο παράθυρο</translation>
+      <translation>Obre en una nova finestra</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Άδειο...</translation>
+      <translation>Buit...</translation>
     </message>
   </context>
   <context>
     <name>chat/closedchats</name>
     <message>
       <source>Delete chat</source>
-      <translation>Διαγραφή συνομιλίας</translation>
+      <translation>Elimina xat</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Άδειο...</translation>
+      <translation>Buit...</translation>
     </message>
   </context>
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
       <source>Empty...</source>
-      <translation>Άδειο...</translation>
+      <translation>Buit...</translation>
     </message>
     <message>
       <source>collapse/expand</source>
-      <translation>Σύμπτυξη/έκταση</translation>
+      <translation>replega / desplega</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation>Ενεργές συνομιλίες</translation>
+      <translation>Xats actius</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation>Ανενεργές συνομιλίες</translation>
+      <translation>Xats tancats</translation>
     </message>
     <message>
       <source>My active and pending chats</source>
-      <translation type="unfinished"/>
+      <translation>Els meus xats actius i pendents</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation>Συνομιλίες σε αναμονή</translation>
+      <translation>Xats pendents</translation>
     </message>
     <message>
       <source>Unread messages</source>
-      <translation>Μη αναγνωσμένα μηνύματα</translation>
+      <translation>Missatges no llegits</translation>
     </message>
     <message>
       <source>Chats transferred to you directly</source>
-      <translation>Συνομιλίες να σας παραχωρήσει άμεσα</translation>
+      <translation>Xats transferits directament a mí</translation>
     </message>
     <message>
       <source>Transferred to your department</source>
-      <translation>Μεταφορά στο τμήμα σας</translation>
+      <translation>Transferit al vostre departament</translation>
     </message>
     <message>
       <source>Download XLS</source>
-      <translation>Κατεβάστε το XLS</translation>
+      <translation>Descarrega XLS</translation>
     </message>
     <message>
       <source>All departments</source>
-      <translation>Όλα τα τμήματα</translation>
+      <translation>Tots els departaments</translation>
     </message>
     <message>
       <source>Check all</source>
-      <translation>Ελέγξτε όλα τα</translation>
+      <translation>Verifica-ho tot</translation>
     </message>
     <message>
       <source>Only online</source>
-      <translation>Μόνο σε απευθείας σύνδεση</translation>
+      <translation>Només en línia</translation>
     </message>
     <message>
       <source>Only explicit online</source>
-      <translation>Μόνο ρητή online</translation>
+      <translation>Només en línia explícitament</translation>
     </message>
     <message>
       <source>Hide hidden</source>
-      <translation>Απόκρυψη Κρυφή</translation>
+      <translation>Oculta els ocults</translation>
     </message>
     <message>
       <source>Hide disabled</source>
-      <translation>Απόκρυψη απενεργοποιημένη</translation>
+      <translation>Oculta els inhabilitats</translation>
     </message>
     <message>
       <source>Department group</source>
-      <translation type="unfinished"/>
+      <translation>Grup de departaments</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation>Τμήμα</translation>
+      <translation>Departament</translation>
     </message>
     <message>
       <source>Users</source>
-      <translation type="unfinished"/>
+      <translation>Usuaris</translation>
     </message>
     <message>
       <source>User group</source>
-      <translation type="unfinished"/>
+      <translation>Grup d&apos;usuaris</translation>
     </message>
     <message>
       <source>User</source>
-      <translation type="unfinished"/>
+      <translation>Usuari</translation>
     </message>
     <message>
       <source>Number of elements in list</source>
-      <translation>Αριθμό των στοιχείων στη λίστα</translation>
+      <translation>Nombre d&apos;elements a la llista</translation>
     </message>
     <message>
       <source>Departments stats</source>
-      <translation>Τμήματα στατιστικά</translation>
+      <translation>Estadístiques del deprtament</translation>
     </message>
     <message>
       <source>Online operators</source>
-      <translation>Σε απευθείας σύνδεση φορείς</translation>
+      <translation>Agents en línia</translation>
     </message>
     <message>
       <source>Online visitors</source>
-      <translation>Συνδεδεμένοι χρήστες</translation>
+      <translation>Visitants en línia</translation>
     </message>
     <message>
       <source>Transferred chats</source>
-      <translation>Μεταφερμένη συνομιλίες</translation>
+      <translation>Xats transferits</translation>
     </message>
     <message>
       <source>Clean cache</source>
-      <translation>Καθαρό cache</translation>
+      <translation>Buida la mem. cau</translation>
     </message>
     <message>
       <source>Home</source>
-      <translation>Αρχική</translation>
+      <translation>Inici</translation>
     </message>
     <message>
       <source>Modules</source>
-      <translation>Ενότητες</translation>
+      <translation>Mòduls</translation>
     </message>
     <message>
       <source>Browse offers</source>
-      <translation>Αναζήτηση προσφέρει</translation>
+      <translation>Mostra les ofertes</translation>
     </message>
     <message>
       <source>Chatbox</source>
-      <translation>Chatbox</translation>
+      <translation>Xat flotant</translation>
     </message>
     <message>
       <source>FAQ</source>
-      <translation>Συχνές ερωτήσεις</translation>
+      <translation>FAQs</translation>
     </message>
     <message>
       <source>Questionary</source>
-      <translation>Ερωτηματολόγιο</translation>
+      <translation>Qüestionari</translation>
     </message>
     <message>
       <source>New chat request</source>
-      <translation>Αίτημα νέας συνομιλίας</translation>
+      <translation>Petició de xat nou</translation>
     </message>
     <message>
       <source>New chat has been transferred to you directly!</source>
-      <translation type="unfinished"/>
+      <translation>El nou xat se us ha transferit directament!</translation>
     </message>
     <message>
       <source>Chat</source>
-      <translation>Chat</translation>
+      <translation>Xat</translation>
     </message>
     <message>
       <source>Dashboard</source>
-      <translation>Ταμπλό</translation>
+      <translation>Panell</translation>
     </message>
     <message>
       <source>Settings</source>
-      <translation>Ρυθμίσεις</translation>
+      <translation>Paràmetres</translation>
     </message>
     <message>
       <source>Menu</source>
-      <translation>Μενού</translation>
+      <translation>Menú</translation>
     </message>
     <message>
       <source>Expand or collapse left menu</source>
-      <translation>Αναπτύξετε ή να συμπτύξετε το αριστερό μενού</translation>
+      <translation>Desplega o replega el menú esquerre</translation>
     </message>
     <message>
       <source>Chat tabs</source>
-      <translation>Καρτέλες συνομιλίας</translation>
+      <translation>Pestanyes de xats</translation>
     </message>
     <message>
       <source>Configuration</source>
-      <translation>Ρύθμιση παραμέτρων</translation>
+      <translation>Configuració</translation>
     </message>
     <message>
       <source>Chats list</source>
-      <translation>Λίστα συνομιλιών</translation>
+      <translation>Llista de xats</translation>
     </message>
     <message>
       <source>Account</source>
-      <translation>Λογαριασμός</translation>
+      <translation>Compte</translation>
     </message>
     <message>
       <source>Logout</source>
-      <translation>Αποσύνδεση</translation>
+      <translation>Tanca la sessió</translation>
     </message>
   </context>
   <context>
     <name>chat/syncadmin</name>
     <message>
       <source>System assistant</source>
-      <translation>Σύστημα βοηθός</translation>
+      <translation>Assistent de sistema</translation>
     </message>
   </context>
   <context>
     <name>chat/maintenance</name>
     <message>
       <source>Maintenance</source>
-      <translation>Συντήρηση</translation>
+      <translation>Manteniment</translation>
     </message>
     <message>
       <source>Automatic chats close, click to close old chats</source>
-      <translation>Αυτόματη chats κλείσετε, κάντε κλικ για να κλείσετε παλιές συζητήσεις</translation>
+      <translation>Tancament automàtic de xats, feu clic per tancar els antics</translation>
     </message>
     <message>
       <source>Automatic chats purge, click to purge old chats</source>
-      <translation>Συνομιλίες αυτόματη εκκαθάριση, κάντε κλικ για να εξαγνίσει παλιά συνομιλίες</translation>
+      <translation>Purga automàtica de xats, feu clic per purgar els antics</translation>
     </message>
     <message>
       <source>Update chats duration by using new algorithm</source>
-      <translation>Διάρκεια συνομιλίες ενημερωμένη έκδοση χρησιμοποιώντας το νέο αλγόριθμο</translation>
+      <translation>Recalcula la durada dels xats utilitzant el nou algorisme</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation>Κλειστό συνομιλίες</translation>
+      <translation>Xats tancats</translation>
     </message>
     <message>
       <source>Purged chats</source>
-      <translation>Εξαγνισμένοι συνομιλίες</translation>
+      <translation>Xats purgats</translation>
     </message>
     <message>
       <source>Chats duration was updated</source>
-      <translation>Ενημερώθηκε συνομιλίες διάρκειας</translation>
+      <translation>La durada dels xats ha estat actualitzada</translation>
     </message>
   </context>
   <context>
     <name>chat/statistic</name>
     <message>
       <source>Statistic</source>
-      <translation>Στατιστικά</translation>
+      <translation>Estadístiques</translation>
     </message>
     <message>
       <source>Thumbs up</source>
-      <translation>Μπράβο</translation>
+      <translation>Polzes amunt</translation>
     </message>
     <message>
       <source>Thumbs down</source>
-      <translation>Αντίχειρες κάτω</translation>
+      <translation>Polzes avall</translation>
     </message>
     <message>
       <source>Country</source>
-      <translation>Χώρα</translation>
+      <translation>Pais</translation>
     </message>
     <message>
       <source>Chats</source>
-      <translation>Συνομιλίες</translation>
+      <translation>Xats</translation>
     </message>
     <message>
       <source>User</source>
-      <translation>Χρήστη</translation>
+      <translation>Usuari</translation>
     </message>
     <message>
       <source>Average in seconds</source>
-      <translation>Κατά μέσο όρο σε δευτερόλεπτα</translation>
+      <translation>Mitjana en segons</translation>
     </message>
     <message>
       <source>Wait time</source>
-      <translation>Χρόνος αναμονής</translation>
+      <translation>Temps d&apos;espera</translation>
     </message>
     <message>
       <source>Messages</source>
-      <translation>Μηνύματα</translation>
+      <translation>Misatges</translation>
     </message>
     <message>
       <source>Month</source>
-      <translation>Μήνα</translation>
+      <translation>Mes</translation>
     </message>
     <message>
       <source>Closed</source>
-      <translation>Κλειστά</translation>
+      <translation>Tancat</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation>Ενεργό</translation>
+      <translation>Actiu</translation>
     </message>
     <message>
       <source>Operators</source>
-      <translation>Φορείς</translation>
+      <translation>Agents</translation>
     </message>
     <message>
       <source>Pending</source>
-      <translation>Σε εκκρεμότητα</translation>
+      <translation>Pendent</translation>
     </message>
     <message>
       <source>Number</source>
-      <translation>Αριθμός</translation>
+      <translation>Número</translation>
     </message>
     <message>
       <source>Time</source>
-      <translation>Χρόνος</translation>
+      <translation>temps</translation>
     </message>
     <message>
       <source>Visitors initiated</source>
-      <translation>Επισκέπτες που ξεκίνησε</translation>
+      <translation>Visitants iniciats</translation>
     </message>
     <message>
       <source>Proactive</source>
-      <translation>Προληπτική</translation>
+      <translation>Proactiu</translation>
     </message>
     <message>
       <source>Visitors</source>
-      <translation>Επισκέπτες</translation>
+      <translation>Visitants</translation>
     </message>
     <message>
       <source>System</source>
-      <translation>Σύστημα</translation>
+      <translation>Sistema</translation>
     </message>
     <message>
       <source>All operators statistic will be downloaded</source>
-      <translation>Θα μεταφορτωθεί όλα φορείς στατιστικής</translation>
+      <translation>Es descarregaran les estadístiques de tots els agents</translation>
     </message>
     <message>
       <source>Please choose statistic parameters first!</source>
-      <translation type="unfinished"/>
+      <translation>Seleccioneu abans els paràmetres d&apos;estadístiques</translation>
     </message>
     <message>
       <source>Parameter</source>
-      <translation>Παράμετρος</translation>
+      <translation>Parametre</translation>
     </message>
     <message>
       <source>Value</source>
-      <translation>Αξία</translation>
+      <translation>Valor</translation>
     </message>
     <message>
       <source>Total chats</source>
-      <translation>Σύνολο συνομιλιών</translation>
+      <translation>Xats totals</translation>
     </message>
     <message>
       <source>Total messages</source>
-      <translation>Συνολικά μηνύματα</translation>
+      <translation>Missatges totals</translation>
     </message>
     <message>
       <source>Votes</source>
-      <translation>Ψηφοφορίες</translation>
+      <translation>Vots</translation>
     </message>
     <message>
       <source>Last activity</source>
-      <translation>Τελευταία δραστηριότητα</translation>
+      <translation>Última activitat</translation>
     </message>
     <message>
       <source>ago</source>
-      <translation>πριν</translation>
+      <translation>des de</translation>
     </message>
     <message>
       <source>Avg. Wait Time</source>
-      <translation type="unfinished"/>
+      <translation>Temps mitjà d&apos;espera </translation>
     </message>
     <message>
       <source>Chats Started</source>
-      <translation type="unfinished"/>
+      <translation>Xats iniciats</translation>
     </message>
     <message>
       <source>Abandoned Chats</source>
-      <translation type="unfinished"/>
+      <translation>Xats abandonats</translation>
     </message>
     <message>
       <source>% of chats</source>
-      <translation type="unfinished"/>
+      <translation>% de xats</translation>
     </message>
     <message>
       <source>Abandoned at time %</source>
-      <translation type="unfinished"/>
+      <translation>Abandonat en el moment %</translation>
     </message>
     <message>
       <source>Total</source>
-      <translation type="unfinished"/>
+      <translation>Total</translation>
     </message>
     <message>
       <source>Average chat duration by user</source>
-      <translation>Διάρκεια μέση συνομιλίας από το χρήστης</translation>
+      <translation>Durada mitjana de xat per usuari</translation>
     </message>
     <message>
       <source>AVG visitor wait time by operator</source>
-      <translation>AVG επισκέπτης περιμένω ώρα από χειριστή</translation>
+      <translation>Espera mitjana de visitants per agent</translation>
     </message>
     <message>
       <source>AVG wait time in seconds, max 10 mininutes</source>
-      <translation>AVG περιμένετε χρόνος σε δευτερόλεπτα, max 10 mininutes</translation>
+      <translation>Espera mitjana en segons, màxim 10 minuts</translation>
     </message>
     <message>
       <source>Chatbox chats</source>
-      <translation>Συνομιλίες chatbox</translation>
+      <translation>Xats al xat flotant</translation>
     </message>
     <message>
       <source>Chats number by statuses</source>
-      <translation>Αριθμός συνομιλίες από καταστάσεις</translation>
+      <translation>Quantitat de xats per estat</translation>
     </message>
     <message>
       <source>Chats statistic</source>
-      <translation>Συνομιλίες στατιστικής</translation>
+      <translation>Estadística de xats</translation>
     </message>
     <message>
       <source>Country statistic</source>
-      <translation>Χώρα στατιστικής</translation>
+      <translation>Estadística de països</translation>
     </message>
     <message>
       <source>Hourly statistic</source>
-      <translation>Ωριαία στατιστικής</translation>
+      <translation>Estadística horària</translation>
     </message>
     <message>
       <source>Last 24h statistic</source>
-      <translation>Στατιστικά τελευταίων 24 ωρών</translation>
+      <translation>Estadística de les darreres 24h</translation>
     </message>
     <message>
       <source>Messages types</source>
-      <translation>Τύποι μηνυμάτων</translation>
+      <translation>Tipus de missatges</translation>
     </message>
     <message>
       <source>Number of chats by country</source>
-      <translation>Αριθμός των συνομιλιών ανά χώρα</translation>
+      <translation>Nombre de xats per pais</translation>
     </message>
     <message>
       <source>Number of chats by department</source>
-      <translation type="unfinished"/>
+      <translation>Nombre de xats per departament</translation>
     </message>
     <message>
       <source>Number of chats by user</source>
-      <translation>Αριθμός των συνομιλιών από το χρήστης</translation>
+      <translation>Nombre de xats per usuari</translation>
     </message>
     <message>
       <source>Number of chats per hour, average chat duration</source>
-      <translation>Αριθμός των συνομιλιών ανά ώρα, διάρκεια μέση συνομιλίας</translation>
+      <translation>Nombre de xats per hora, durada mitjana de xats</translation>
     </message>
     <message>
       <source>Number of messages by user</source>
-      <translation>Αριθμός μηνυμάτων από τον χρήστη</translation>
+      <translation>Nombre de missatges per usuari</translation>
     </message>
     <message>
       <source>Number of Thumbs Down</source>
-      <translation>Αριθμός αντίχειρες κάτω</translation>
+      <translation>Nombre de polzes avall</translation>
     </message>
     <message>
       <source>Number of Thumbs Up</source>
-      <translation>Αριθμός μπράβο</translation>
+      <translation>Nombre de polzes amunt</translation>
     </message>
     <message>
       <source>Operators statistic, top 100 by chats number</source>
-      <translation>Φορείς στατιστικής, κορυφαία 100 από αριθμό συνομιλίες</translation>
+      <translation>Estadístiques d&apos;agents, top 100 per nombre de xats</translation>
     </message>
     <message>
       <source>Proactive chats number vs visitors initiated</source>
-      <translation>Προληπτική συνομιλίες αριθμός vs επισκέπτες ξεκίνησε</translation>
+      <translation>Xats pro-actius / iniciats per visitants</translation>
     </message>
     <message>
       <source>Agents statistic</source>
-      <translation type="unfinished"/>
+      <translation>Estadística d&apos;agents</translation>
     </message>
     <message>
       <source>Last 24 hours statistic</source>
-      <translation>Τελευταία στατιστική 24 ώρες</translation>
+      <translation>Estadística de les darreres 24h</translation>
     </message>
     <message>
       <source>Total statistic</source>
-      <translation>Συνολικά στατιστικά</translation>
+      <translation>Estadístiques totals</translation>
     </message>
     <message>
       <source>Total active chats</source>
-      <translation>Σύνολο ενεργών συνομιλιών</translation>
+      <translation>Xats actius totals</translation>
     </message>
     <message>
       <source>Total closed chats</source>
-      <translation>Σύνολο ανενεργών συνομιλίών</translation>
+      <translation>Xats tancats totals</translation>
     </message>
     <message>
       <source>Total messages (including visitors, system and operators messages)</source>
-      <translation>Συνολικά μηνύματα (συμπεριλαμβανομένων των επισκεπτών, σύστημα και φορείς μηνύματα)</translation>
+      <translation>Missatges totals (incloent visitants, sistema i missatges dels agents)</translation>
     </message>
     <message>
       <source>Total messages (only operators)</source>
-      <translation>Συνολικά μηνύματα (μόνο φορείς)</translation>
+      <translation>Missatges totals (només dels agents)</translation>
     </message>
     <message>
       <source>Total messages (only system messages)</source>
-      <translation>Συνολικά μηνύματα (μόνο σύστημα μηνύματα)</translation>
+      <translation>Missatges totals (només missatges del sistema)</translation>
     </message>
     <message>
       <source>Total messages (only visitors)</source>
-      <translation>Συνολικά μηνύματα (μόνο επισκέπτες)</translation>
+      <translation>Missatges totals (només visitants)</translation>
     </message>
     <message>
       <source>Total pending chats</source>
-      <translation>Σύνολο εκκρεμών συνομιλιών</translation>
+      <translation>Xats pendents totals</translation>
     </message>
     <message>
       <source>Unanswered chats</source>
-      <translation>Αναπάντητα συνομιλίες</translation>
+      <translation>Xats sense resposta</translation>
     </message>
     <message>
       <source>Unanswered chats numbers</source>
-      <translation>Αναπάντητα συνομιλίες αριθμούς</translation>
+      <translation>Nombre de xats sense resposta</translation>
     </message>
     <message>
       <source>Users statisic</source>
-      <translation>Statisic χρήστες</translation>
+      <translation>Estadística d&apos;usuaris</translation>
     </message>
     <message>
       <source>more than 10 min.</source>
-      <translation type="unfinished"/>
+      <translation>més de 10 minuts.</translation>
     </message>
   </context>
   <context>
     <name>chat/modifychat</name>
     <message>
       <source>Modify chat</source>
-      <translation>Τροποποιήσετε το chat</translation>
+      <translation>Modifica el xat</translation>
     </message>
     <message>
       <source>E-mail</source>
@@ -5498,376 +5499,376 @@
     </message>
     <message>
       <source>Recipient e-mail</source>
-      <translation>Ηλεκτρονικού ταχυδρομείου παραλήπτη</translation>
+      <translation>Destinatari e-mail</translation>
     </message>
     <message>
       <source>Nick</source>
-      <translation>Nick</translation>
+      <translation>Àlies</translation>
     </message>
     <message>
       <source>Phone</source>
-      <translation>Τηλέφωνο</translation>
+      <translation>Telèfon</translation>
     </message>
     <message>
       <source>Update chat</source>
-      <translation>Ενημέρωση συνομιλίας</translation>
+      <translation>Modifica el xat</translation>
     </message>
     <message>
       <source>Chat information was updated</source>
-      <translation>Ενημερώθηκε chat πληροφορίες</translation>
+      <translation>La informació del xat ha estat modificada</translation>
     </message>
   </context>
   <context>
     <name>chat/part/operator_profile</name>
     <message>
       <source>Skype call</source>
-      <translation>Κλήση skype</translation>
+      <translation>Trucada de Skype</translation>
     </message>
   </context>
   <context>
     <name>chat/previewchat</name>
     <message>
       <source>Last 100 messages rows</source>
-      <translation>Τελευταία μηνύματα 100 σειρές</translation>
+      <translation>Darrers 100 missatges</translation>
     </message>
   </context>
   <context>
     <name>chat/sendchat</name>
     <message>
       <source>Enter your e-mail</source>
-      <translation>Εισάγεται το ηλεκτρονικό σας ταχυδρομείο</translation>
+      <translation>Introduïu el vostre e-mail</translation>
     </message>
   </context>
   <context>
     <name>chat/sendmail</name>
     <message>
       <source>Send mail to the user</source>
-      <translation>Αποστολή μηνύματος στον χρήστη</translation>
+      <translation>Envia e-mail a l&apos;usuari</translation>
     </message>
     <message>
       <source>Recipient</source>
-      <translation>Παραλήπτης</translation>
+      <translation>Destinatari</translation>
     </message>
     <message>
       <source>Recipient e-mail</source>
-      <translation>Παραλήπτης ηλεκτρονικής αλληλογραφίας</translation>
+      <translation>Destinatari de l&apos;e-mail</translation>
     </message>
     <message>
       <source>Subject</source>
-      <translation>Θέμα</translation>
+      <translation>Assumpte</translation>
     </message>
     <message>
       <source>From name</source>
-      <translation>Όνομα αποστολέα</translation>
+      <translation>Nom del remitent</translation>
     </message>
     <message>
       <source>Reply e-mail</source>
-      <translation>Ηλεκτρονικό ταχυδρομείο απάντησης</translation>
+      <translation>E-mail de resposta</translation>
     </message>
     <message>
       <source>From e-mail</source>
-      <translation>Ηλεκτρονικό ταχυδρομείο αποστολέα</translation>
+      <translation>E-mail remitent</translation>
     </message>
     <message>
       <source>Type your message to the user</source>
-      <translation>Πληκτρολογήστε το μήνυμα σας στον χρήστη</translation>
+      <translation>Introduïu el missatge per a l&apos;usuari</translation>
     </message>
     <message>
       <source>Send the mail</source>
-      <translation>Αποστολή μηνύματος</translation>
+      <translation>Envia l&apos;e-mail</translation>
     </message>
     <message>
       <source>Embed link to file</source>
-      <translation>Ενσωματώσετε σύνδεση με αρχείο</translation>
+      <translation>Incrusta l&apos;enllaç al fitxer</translation>
     </message>
     <message>
       <source>Mail was sent to the user</source>
-      <translation>Το μήνυμα στάλθηκε στον χρήστη</translation>
+      <translation>L&apos;e-mail ha estat enviat a l&apos;usuari</translation>
     </message>
     <message>
       <source>Please enter recipient e-mail!</source>
-      <translation>Παρακαλώ εισάγεται τον παραλήπτη ηλεκτρονικής αλληλογραφίας!</translation>
+      <translation>Inroduïu l&apos;e-mail del destinatari!</translation>
     </message>
     <message>
       <source>From e-mail is missing!</source>
-      <translation>Από ηλεκτρονικού ταχυδρομείου λείπει!</translation>
+      <translation>L&apos;e-mail remitent és en blanc!</translation>
     </message>
     <message>
       <source>Reply e-mail is missing!</source>
-      <translation>Λείπει η διεύθυνση παραλήπτη ηλεκτρονικού ταχυδρομείου!</translation>
+      <translation>L&apos;e-mail de resposta és en blanc!</translation>
     </message>
     <message>
       <source>Subject is missing!</source>
-      <translation>Λείπει το θέμα!</translation>
+      <translation>L&apos;assumpte és en blanc!</translation>
     </message>
   </context>
   <context>
     <name>chat/sendnotice</name>
     <message>
       <source>Send a message to the user</source>
-      <translation>Αποστολή μηνύματος στον χρήστη</translation>
+      <translation>Envia un missatge a l&apos;usuari</translation>
     </message>
     <message>
       <source>If the message was already sent, this will mark it as not delivered and the user will be shown the chat message again.</source>
-      <translation>Εάν το μήνυμα έχει σταλεί ήδη, αυτό θα επισημάνετε ως παραδοθείς και ο χρήστης θα εμφανιστεί μήνυμα συνομιλίας και πάλι.</translation>
+      <translation>Si el missatge ja ha estat enviat, això el marcarà com a no entregat i es tornarà a mostrar-l&apos;hi</translation>
     </message>
     <message>
       <source>Type your message to the user</source>
-      <translation>Πληκτρολογήστε το μήνυμα σας στον χρήστη</translation>
+      <translation>Introduïu el vostre missatge a l&apos;usuari</translation>
     </message>
     <message>
       <source>Requires e-mail</source>
-      <translation>Απαιτεί e-mail</translation>
+      <translation>Cal posar un e-mail</translation>
     </message>
     <message>
       <source>Requires name</source>
-      <translation>Απαιτεί όνομα</translation>
+      <translation>Cal posar un nom</translation>
     </message>
     <message>
       <source>Requires phone</source>
-      <translation>Απαιτεί τηλέφωνο</translation>
+      <translation>Cal posar un telèfon</translation>
     </message>
     <message>
       <source>Send the message</source>
-      <translation>Αποστολή μηνύματος</translation>
+      <translation>Envia el missatge</translation>
     </message>
     <message>
       <source>Message was sent to the user</source>
-      <translation>Το μήνυμα στάλθηκε στον χρήστη</translation>
+      <translation>El missatge ha estat enviat a l&apos;usuari</translation>
     </message>
     <message>
       <source>Type your message to the operator</source>
-      <translation>Πληκτρολογήστε το μήνυμά σας στο φορέα</translation>
+      <translation>Escriviu el missatge a l&apos;agent</translation>
     </message>
     <message>
       <source>Start chat with operator</source>
-      <translation>ΖΩΝΤΑΝΗ ΣΥΝΔΕΣΗ με χειριστή</translation>
+      <translation>Inicia xat amb un agent</translation>
     </message>
   </context>
   <context>
     <name>chat/syncandsoundesetting</name>
     <message>
       <source>Save</source>
-      <translation>Αποθήκευση</translation>
+      <translation>Desa</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Ενημέρωση</translation>
+      <translation>Actualitza</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>&quot;Άκυρο&quot;</translation>
+      <translation>Cancel·la</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Ρυθμίσεις ενημέρωση</translation>
+      <translation>Configuració actualitzada</translation>
     </message>
     <message>
       <source>Synchronisation and sound settings</source>
-      <translation>Ρυθμίσεις συγχρονισμού και ήχο</translation>
+      <translation>Paràmetres de sincronització i sons</translation>
     </message>
     <message>
       <source>How many seconds for a user to be considered as being online</source>
-      <translation>Πόσα δευτερόλεπτα για ένα χρήστη να θεωρηθεί ως όντας online</translation>
+      <translation>A partir de quants segons un usuari es considera que està en línia?</translation>
     </message>
     <message>
       <source>Value in seconds</source>
-      <translation>Τιμή σε δευτερόλεπτα</translation>
+      <translation>Valor en segons</translation>
     </message>
     <message>
       <source>Sync for new chats, interval in seconds</source>
-      <translation>Συγχρονισμού για νέες συνομιλίες, χρονικό διάστημα σε δευτερόλεπτα</translation>
+      <translation>Sincronització de nous xats, interval en segons</translation>
     </message>
     <message>
       <source>Check for messages from the operators, interval in seconds</source>
-      <translation>Ελέγξτε για μηνύματα από τους διαχειριστές, χρονικό διάστημα σε δευτερόλεπτα</translation>
+      <translation>Comprova si hi ha missatges dels agents, interval en segons</translation>
     </message>
     <message>
       <source>Messages settings</source>
-      <translation>Ρυθμίσεις μηνυμάτων</translation>
+      <translation>Ajustos de missatges</translation>
     </message>
     <message>
       <source>Sync for a new user message, interval in seconds</source>
-      <translation>Συγχρονισμού για ένα νέο μήνυμα του χρήστη, το χρονικό διάστημα σε δευτερόλεπτα</translation>
+      <translation>Sincronització de nous missatges d&apos;usuari, interval en segons</translation>
     </message>
     <message>
       <source>Show browser notification for new messages</source>
-      <translation>Εμφάνιση ειδοποίησης περιήγησης για νέα μηνύματα</translation>
+      <translation>Mostra notificacions de navegador per als missatges nous</translation>
     </message>
     <message>
       <source>Long polling (experimental)</source>
-      <translation>Μακράς σταθμοσκόπησης (πειραματική)</translation>
+      <translation>HTTP Long Polling (experimental)</translation>
     </message>
     <message>
       <source>Enable long polling</source>
-      <translation>Ενεργοποίηση μακρά σταθμοσκόπησης</translation>
+      <translation>Habilita Long Polling d&apos;HTTP</translation>
     </message>
     <message>
       <source>How many seconds keep connection to server?</source>
-      <translation>Πόσα δευτερόλεπτα κρατήσει τη σύνδεση στο διακομιστή;</translation>
+      <translation>Quants segons s&apos;ha de mantenir la connexió amb el servidor?</translation>
     </message>
     <message>
       <source>New chat request notification settings</source>
-      <translation>Νέες ρυθμίσεις κοινοποίηση αίτησης συνομιλίας</translation>
+      <translation>Configuració de notificacions per a sol·licituds de nou xat</translation>
     </message>
     <message>
       <source>Play a new pending chat sound on a new chat request</source>
-      <translation>Παίζουν ένα νέο εν αναμονή συνομιλία ήχου σε μια νέα αίτηση της συνομιλίας</translation>
+      <translation>Reprodueix el so de nou xat pendent a cada nova sol·licitud de xat</translation>
     </message>
     <message>
       <source>Play a sound on a new message for a back office user</source>
-      <translation>Παίξει έναν ήχο σε ένα νέο μήνυμα για έναν χρήστη πίσω γραφείο</translation>
+      <translation>Reprodueix un so a cada missatge nou al panell d&apos;administració</translation>
     </message>
     <message>
       <source>Play a sound on a new message for a front end user</source>
-      <translation>Παίξει έναν ήχο σε ένα νέο μήνυμα για ένα μπροστινό τέλος χρήστη</translation>
+      <translation>Reprodueix un so a cada missatge nou a la part pública</translation>
     </message>
     <message>
       <source>Show alert message on a new chat request</source>
-      <translation>Εμφάνιση μήνυμα προειδοποίησης σχετικά με μια νέα αίτηση της συνομιλίας</translation>
+      <translation>Mostra un missatge d&apos;alerta per cada nova sol·licitud de xat</translation>
     </message>
     <message>
       <source>How many times play sound notification</source>
-      <translation>Πόσες φορές να παίξει ήχου γνωστοποίηση</translation>
+      <translation>Quantes vegades sona la notificació de so</translation>
     </message>
     <message>
       <source>Number</source>
-      <translation>Αριθμός</translation>
+      <translation>Nombre</translation>
     </message>
     <message>
       <source>Delay between sound notifications in seconds</source>
-      <translation>Καθυστέρηση μεταξύ ήχου ειδοποιήσεις σε δευτερόλεπτα</translation>
+      <translation>interval en segons entre notificacions de so</translation>
     </message>
     <message>
       <source>delay in seconds</source>
-      <translation>καθυστέρηση σε δευτερόλεπτα</translation>
+      <translation>interval en segons</translation>
     </message>
     <message>
       <source>Seconds</source>
-      <translation>Δευτερόλεπτα</translation>
+      <translation>Segons</translation>
     </message>
     <message>
       <source>Please enter a valid online timeout value!</source>
-      <translation>Εισαγάγετε μια έγκυρη online timeout τιμή!</translation>
+      <translation>Introduïu un valor vàlid de temps d&apos;espera màxim en línia.</translation>
     </message>
     <message>
       <source>Please enter a valid server connection timeout value!</source>
-      <translation>Παρακαλούμε εισάγετε μια τιμή χρονικού ορίου σύνδεσης διακομιστή ισχύει!</translation>
+      <translation>Introduïu un valor vàlid de temps d&apos;espera màxim de la connexió del servidor.</translation>
     </message>
     <message>
       <source>Please enter a valid operator message timeout value!</source>
-      <translation>Παρακαλούμε εισάγετε μια τιμή χρονικού ορίου του χειριστή έγκυρο μήνυμα!</translation>
+      <translation>Introduïu un valor vàlid de temps d&apos;espera màxim del missatge d&apos;agent.</translation>
     </message>
     <message>
       <source>Please enter a valid new messages polling sync interval!</source>
-      <translation>Παρακαλώ εισάγετε μια έγκυρη νέα μηνύματα συγχρονισμό χρονικό διάστημα σταθμοσκόπησης!</translation>
+      <translation>Introduïu un interval vàlid de sincronització de missatges nous.</translation>
     </message>
     <message>
       <source>Please enter a valid back office sync interval!</source>
-      <translation>Παρακαλώ εισάγετε μια έγκυρη πίσω γραφείο διάστημα συγχρονισμού!</translation>
+      <translation>Introduïu un interval vàlid de sincronització a l&apos;administració.</translation>
     </message>
     <message>
       <source>Please enter a valid new messages sync interval!</source>
-      <translation>Παρακαλώ εισάγετε μια έγκυρη νέα μηνύματα συγχρονισμό διάστημα!</translation>
+      <translation>Introduïu un interval vàlid de sincronització de missatges nous.</translation>
     </message>
     <message>
       <source>Synchronization and sound settings</source>
-      <translation>Ρυθμίσεις συγχρονισμού και ήχο</translation>
+      <translation>Sincronització i configuració de sons</translation>
     </message>
   </context>
   <context>
     <name>user/account</name>
     <message>
       <source>Name</source>
-      <translation>Όνομα</translation>
+      <translation>Nom</translation>
     </message>
     <message>
       <source>Updated</source>
-      <translation>Ενημέρωση</translation>
+      <translation>Actualitzat</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Ενημέρωση</translation>
+      <translation>Actualitza</translation>
     </message>
     <message>
       <source>Updating...</source>
-      <translation>Ενημέρωση...</translation>
+      <translation>Actualitzant...</translation>
     </message>
     <message>
       <source>Logged user</source>
-      <translation>Συνδεδεμένος χρήστης</translation>
+      <translation>Sessió iniciada</translation>
     </message>
     <message>
       <source>Account data</source>
-      <translation>Δεδομένα λογαριασμού</translation>
+      <translation>Dades del compte</translation>
     </message>
     <message>
       <source>Assigned departments</source>
-      <translation>Εκχωρημένα τμήματα</translation>
+      <translation>Departaments assignats</translation>
     </message>
     <message>
       <source>Visible lists</source>
-      <translation>Ορατές λίστες</translation>
+      <translation>Llistes visibles</translation>
     </message>
     <message>
       <source>Chats</source>
-      <translation type="unfinished"/>
+      <translation>Xats</translation>
     </message>
     <message>
       <source>Speech</source>
-      <translation>Ομιλία</translation>
+      <translation>Parla</translation>
     </message>
     <message>
       <source>Permissions</source>
-      <translation>Δικαιώματα</translation>
+      <translation>Permisos</translation>
     </message>
     <message>
       <source>Do not enter a password unless you want to change it</source>
-      <translation>Μην εισάγετε έναν κωδικό πρόσβασης, αν δεν θέλετε να το αλλάξετε</translation>
+      <translation>No introduïu una contrasenya a menys que vulgueu canviar-la</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation>Όνομα χρήστη</translation>
+      <translation>Nom d&apos;usuari</translation>
     </message>
     <message>
       <source>Your username</source>
-      <translation>Το όνομα χρήστη σας</translation>
+      <translation>El vostre nom d&apos;usuari</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation>Κωδικός πρόσβασης</translation>
+      <translation>Contrasenya</translation>
     </message>
     <message>
       <source>Enter a new password</source>
-      <translation>Εισάγετε τον νέο κωδικό πρόσβασης</translation>
+      <translation>Introduïu una contrasenya nova</translation>
     </message>
     <message>
       <source>Repeat password</source>
-      <translation>Επανάληψη κωδικού πρόσβασης</translation>
+      <translation>Repeteix la contrasenya</translation>
     </message>
     <message>
       <source>Repeat the new password</source>
-      <translation>Επαναλάβετε τον νέο κωδικό πρόσβασης</translation>
+      <translation>Repeteix la nova contrasenya</translation>
     </message>
     <message>
       <source>Email</source>
-      <translation>Email</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Chat nickname</source>
-      <translation>Ψευδώνυμο συνομιλίας</translation>
+      <translation>Àlies de xat</translation>
     </message>
     <message>
       <source>Surname</source>
-      <translation>Επώνυμο</translation>
+      <translation>Cognom</translation>
     </message>
     <message>
       <source>Job title</source>
-      <translation>Τιτλος</translation>
+      <translation>Càrrec</translation>
     </message>
     <message>
       <source>I receive other operators permissions request</source>
-      <translation>Λάβω άλλη αίτηση δικαιώματα φορέων</translation>
+      <translation>Rebo sol·licituds de permisos d&apos;altres agents</translation>
     </message>
     <message>
       <source>Skype</source>
@@ -5875,534 +5876,534 @@
     </message>
     <message>
       <source>XMPP username</source>
-      <translation>Όνομα χρήστη XMPP</translation>
+      <translation>Usuari XMPP</translation>
     </message>
     <message>
       <source>Photo</source>
-      <translation>Φωτογραφία</translation>
+      <translation>Foto</translation>
     </message>
     <message>
       <source>Delete</source>
-      <translation>Διαγραφή</translation>
+      <translation>Suprimeix</translation>
     </message>
     <message>
       <source>Return</source>
-      <translation>Επιστροφή</translation>
+      <translation>Torna enrere</translation>
     </message>
     <message>
       <source>Pending chats list enabled</source>
-      <translation type="unfinished"/>
+      <translation>S&apos;ha activat la llista de xats pendents</translation>
     </message>
     <message>
       <source>Active chats list enabled</source>
-      <translation type="unfinished"/>
+      <translation>S&apos;ha habilitat la llista de xats actius</translation>
     </message>
     <message>
       <source>Unread chats list enabled</source>
-      <translation type="unfinished"/>
+      <translation>S&apos;ha habilitat la llista de xats no llegits</translation>
     </message>
     <message>
       <source>Closed chats list enabled</source>
-      <translation type="unfinished"/>
+      <translation>S&apos;ha habilitat la llista de xats tancats</translation>
     </message>
     <message>
       <source>My pending and active chats list enabled</source>
-      <translation type="unfinished"/>
+      <translation>S&apos;ha habilitat la meva llista de xats pendents i actius</translation>
     </message>
     <message>
       <source>I can see all pending chats, not only assigned to me</source>
-      <translation>Μπορώ να δω όλα σε εκκρεμότητα συνομιλίες, όχι μόνο που μου έχουν ανατεθεί</translation>
+      <translation>Puc veure tots els xats pendents, no només els assignats a mi</translation>
     </message>
     <message>
       <source>Automatically accept assigned chats</source>
-      <translation type="unfinished"/>
+      <translation>Accepta els xats assignats automàticament</translation>
     </message>
     <message>
       <source>Exclude me from auto assign workflow</source>
-      <translation type="unfinished"/>
+      <translation>Exclou-me del protocol d&apos;assignació automàtica</translation>
     </message>
     <message>
       <source>Maximum active chats</source>
-      <translation type="unfinished"/>
+      <translation>Xats actius màxims</translation>
     </message>
     <message>
       <source>Show permissions</source>
-      <translation>Παρουσίαση των δικαιωμάτων</translation>
+      <translation>Mostra els permisos</translation>
     </message>
     <message>
       <source>Account updated</source>
-      <translation>Ο λογαριασμός ενημερώθηκε</translation>
+      <translation>Compte actualitzat</translation>
     </message>
     <message>
       <source>All departments</source>
-      <translation>Όλα τα τμήματα</translation>
+      <translation>Tots els departaments</translation>
     </message>
     <message>
       <source>Individual departments</source>
-      <translation>Μεμονωμένων τμημάτων</translation>
+      <translation>Departaments individuals</translation>
     </message>
     <message>
       <source>Departments groups</source>
-      <translation>Ομάδες τμημάτων</translation>
+      <translation>Grups de departaments</translation>
     </message>
     <message>
       <source>Offline</source>
-      <translation type="unfinished"/>
+      <translation>Fora de línia</translation>
     </message>
     <message>
       <source>Chat status will not change upon pending chat opening</source>
-      <translation>Κατάστασής της συζήτησής δεν θα αλλάξει κατά την εν αναμονή chat άνοιγμα</translation>
+      <translation>L&apos;estat del xat no ha de canviar quan s&apos;obre un xat pendent</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation>Σε εκκρεμότητα συνομιλίες</translation>
+      <translation>Xats pendents</translation>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
-      <translation>Χρήστης λαμβάνει άλλη αίτηση δικαιώματα φορέων</translation>
+      <translation>L&apos;usuari rep peticions de permisos d&apos;altres agents</translation>
     </message>
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
-      <translation>Χρήστης μπορεί να δει όλα σε εκκρεμότητα συνομιλίες, όχι μόνο που του ανατίθενται</translation>
+      <translation>L&apos;usuari pot veure tots els xats pendents, no només els que té assignats</translation>
     </message>
     <message>
       <source>Exclude from auto assign workflow</source>
-      <translation type="unfinished"/>
+      <translation>Exclòs del protocol d&apos;assignació automàtica</translation>
     </message>
     <message>
       <source>Created</source>
-      <translation type="unfinished"/>
+      <translation>Creat</translation>
     </message>
     <message>
       <source>Notifications</source>
-      <translation type="unfinished"/>
+      <translation>Notificacions</translation>
     </message>
     <message>
       <source>Personal canned messages</source>
-      <translation>Προσωπικά τα κονσερβοποιημένα μηνύματα</translation>
+      <translation>Missatges emmagatzemats propis</translation>
     </message>
     <message>
       <source>Main</source>
-      <translation type="unfinished"/>
+      <translation>Principal</translation>
     </message>
     <message>
       <source>Add translation</source>
-      <translation type="unfinished"/>
+      <translation>Afegeix una traducció</translation>
     </message>
   </context>
   <context>
     <name>chat/transferchat</name>
     <message>
       <source>Online</source>
-      <translation>Σε απευθείας σύνδεση</translation>
+      <translation>En línia</translation>
     </message>
     <message>
       <source>Offline</source>
-      <translation>Χωρίς σύνδεση</translation>
+      <translation>Fora de línia</translation>
     </message>
     <message>
       <source>Transfer to a user</source>
-      <translation>Μεταφορά σε χρήστη</translation>
+      <translation>Transfereix a un usuari</translation>
     </message>
     <message>
       <source>Transfer to a department</source>
-      <translation>Μεταφορά σε τμήμα</translation>
+      <translation>Transfereix a un departament</translation>
     </message>
     <message>
       <source>Change owner</source>
-      <translation type="unfinished"/>
+      <translation>Canvia el propietari</translation>
     </message>
     <message>
       <source>Logged in users</source>
-      <translation>Συνδεδεμένοι χρήστες</translation>
+      <translation>Usuaris en sessió</translation>
     </message>
     <message>
       <source>Transfer a chat to one of your departments users</source>
-      <translation>Μεταφέρετε μια συνομιλία με έναν από τους χρήστες σας τμήματα</translation>
+      <translation>Transfereix un xat a un altre usuari del meu departament</translation>
     </message>
     <message>
       <source>Only logged and online operators</source>
-      <translation type="unfinished"/>
+      <translation>Només agents en sessió i en línia</translation>
     </message>
     <message>
       <source>Only operators from same departments</source>
-      <translation type="unfinished"/>
+      <translation>Només els agents dels mateixos departaments</translation>
     </message>
     <message>
       <source>Transfer</source>
-      <translation>Μεταφορά</translation>
+      <translation>Transfereix</translation>
     </message>
     <message>
       <source>Only departments which are online and explicitly assigned operator are online</source>
-      <translation>Μόνο τα τμήματα που είναι σε απευθείας σύνδεση και έχει εκχωρηθεί ρητά χειριστή είναι online</translation>
+      <translation>Només els departaments i els agents explícitament assignats que estan en línia</translation>
     </message>
     <message>
       <source>Exclude hidden departments</source>
-      <translation>Αποκλείουν κρυφά τμήματα</translation>
+      <translation>Exclou els departaments ocults</translation>
     </message>
     <message>
       <source>Exclude disabled departments</source>
-      <translation>Τμήματα αποκλείει άτομα με ειδικές ανάγκες</translation>
+      <translation>Exclou els departaments desabilitats</translation>
     </message>
     <message>
       <source>Transfer chat</source>
-      <translation type="unfinished"/>
+      <translation>Transfereix xat</translation>
     </message>
   </context>
   <context>
     <name>chat/userjoined</name>
     <message>
       <source>Visitor has joined the chat!</source>
-      <translation>Επισκέπτης έχει ενταχθεί στο chat!</translation>
+      <translation>Un visitant s&apos;ha unit al xat!</translation>
     </message>
     <message>
       <source>Visitor has joined the chat from popup chat window!</source>
-      <translation>Επισκέπτης έχει ενταχθεί από το αναδυόμενο παράθυρο συνομιλίας chat!</translation>
+      <translation>Un visitant s&apos;ha unit al xat al pop-up</translation>
     </message>
   </context>
   <context>
     <name>chat/userleftchat</name>
     <message>
       <source>Visitor has left the chat!</source>
-      <translation>Επισκέπτης έχει αφήσει το chat!</translation>
+      <translation>El visitant ha abandonat el xat!</translation>
     </message>
     <message>
       <source>Visitor has closed the chat explicitly!</source>
-      <translation>Επισκεπτών έχει κλείσει ρητά τη συνομιλία!</translation>
+      <translation>El visitant ha tancat el xat explícitament!</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/archive</name>
     <message>
       <source>Chat archive</source>
-      <translation>Αρχείο συνομιλίας</translation>
+      <translation>Arxiu de xats</translation>
     </message>
     <message>
       <source>Archives list</source>
-      <translation>Αρχεία λίστα</translation>
+      <translation>Llista d&apos;arxius</translation>
     </message>
     <message>
       <source>New archive</source>
-      <translation>Νέο αρχείο</translation>
+      <translation>Nou arxiu</translation>
     </message>
     <message>
       <source>Configuration</source>
-      <translation type="unfinished"/>
+      <translation>Configuració</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/archivechats</name>
     <message>
       <source>Archiving has finished.</source>
-      <translation>Αρχειοθέτηση έχει τελειώσει.</translation>
+      <translation>S&apos;ha acabat l&apos;arxiu.</translation>
     </message>
     <message>
       <source>See archived chats</source>
-      <translation>Δείτε τις αρχειοθετημένες συζητήσεις</translation>
+      <translation>Mostra els xats arxivats</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/editarchive</name>
     <message>
       <source>Edit archive</source>
-      <translation>Επεξεργαστείτε το αρχείο</translation>
+      <translation>Edita l&apos;arxiu</translation>
     </message>
     <message>
       <source>Archive updated</source>
-      <translation>Αρχείο ενημέρωση</translation>
+      <translation>S&apos;ha actualitzat l&apos;arxiu</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/newarchive</name>
     <message>
       <source>Date from</source>
-      <translation>Από ημερομηνία</translation>
+      <translation>Data inici</translation>
     </message>
     <message>
       <source>E.g</source>
-      <translation>Π.χ.</translation>
+      <translation>P. ex.</translation>
     </message>
     <message>
       <source>Date to</source>
-      <translation>Σε ημερομηνία</translation>
+      <translation>Data fi</translation>
     </message>
     <message>
       <source>New archive</source>
-      <translation>Νέο αρχείο</translation>
+      <translation>Nou arxiu</translation>
     </message>
     <message>
       <source>Please enter a valid from date range!</source>
-      <translation>Παρακαλώ εισάγετε μια έγκυρη από εύρος ημερομηνιών!</translation>
+      <translation>Introduïu un interval de dates vàlid.</translation>
     </message>
     <message>
       <source>Please enter a valid to date range!</source>
-      <translation>Παρακαλώ εισάγετε μια έγκυρη ημερομηνία φάσμα!</translation>
+      <translation>Introduïu un interval de dates vàlid.</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/list</name>
     <message>
       <source>Archives list</source>
-      <translation>Αρχεία λίστα</translation>
+      <translation>Llista d&apos;arxius</translation>
     </message>
     <message>
       <source>From date</source>
-      <translation>Από ημερομηνία</translation>
+      <translation>Data d&apos;inici</translation>
     </message>
     <message>
       <source>Till date</source>
-      <translation>Μέχρι την ημερομηνία</translation>
+      <translation>Data de fi</translation>
     </message>
     <message>
       <source>List chats</source>
-      <translation>Λίστα συνομιλίες</translation>
+      <translation>Llista de xats</translation>
     </message>
     <message>
       <source>Process again</source>
-      <translation>Διαδικασία και πάλι</translation>
+      <translation>Torna a processar</translation>
     </message>
     <message>
       <source>Edit</source>
-      <translation>Επεξεργασία</translation>
+      <translation>Edita</translation>
     </message>
     <message>
       <source>Archived chats</source>
-      <translation>Αρχειοθετημένα συνομιλίες</translation>
+      <translation>Xats arxivats</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/listarchivechats</name>
     <message>
       <source>Archived chats</source>
-      <translation>Αρχειοθετημένα συνομιλίες</translation>
+      <translation>Xats arxivats</translation>
     </message>
     <message>
       <source>Information</source>
-      <translation>Πληροφορίες</translation>
+      <translation>Informació</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/process</name>
     <message>
       <source>Process archive</source>
-      <translation>Διαδικασία αρχείο</translation>
+      <translation>Arxiu de processos</translation>
     </message>
     <message>
       <source>Process</source>
-      <translation>Διαδικασία</translation>
+      <translation>Procés</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/process_content</name>
     <message>
       <source>Date from</source>
-      <translation>Χρονολογούνται από</translation>
+      <translation>Data inici</translation>
     </message>
     <message>
       <source>Date to</source>
-      <translation>Χρονολογούνται</translation>
+      <translation>Data fi</translation>
     </message>
     <message>
       <source>Potential chats to archive</source>
-      <translation>Δυνατότητα συνομιλίες για την αρχειοθέτηση</translation>
+      <translation>Xats potencials per arxivar</translation>
     </message>
     <message>
       <source>Archived chats</source>
-      <translation>Αρχειοθετημένα συνομιλίες</translation>
+      <translation>Xats arxivats</translation>
     </message>
     <message>
       <source>First archived chat ID</source>
-      <translation type="unfinished"/>
+      <translation>Primer ID de xat arxivat</translation>
     </message>
     <message>
       <source>Last archived chat ID</source>
-      <translation type="unfinished"/>
+      <translation>Darrer ID de xat arxivat</translation>
     </message>
     <message>
       <source>Archive progress</source>
-      <translation>Αρχείο πρόοδο</translation>
+      <translation>Progrés d&apos;arxiu</translation>
     </message>
     <message>
       <source>Pending for action...</source>
-      <translation>Σε εκκρεμότητα για δράση...</translation>
+      <translation>Esperant acció ...</translation>
     </message>
     <message>
       <source>Terms dictionary</source>
-      <translation>Λεξικό Ορολογιών</translation>
+      <translation>Diccionari de termes</translation>
     </message>
     <message>
       <source>first archived chat ID</source>
-      <translation>πρώτη ID αρχειοθετημένα συνομιλίας</translation>
+      <translation>Primer ID de xat arxivat</translation>
     </message>
     <message>
       <source>last archived chat ID</source>
-      <translation>τελευταίο ID αρχειοθετημένα συνομιλίας</translation>
+      <translation>Darrer ID de xat arxivat</translation>
     </message>
     <message>
       <source>number of archived chats</source>
-      <translation>αριθμός των αρχειοθετημένα συνομιλιών</translation>
+      <translation>Nombre de xats arxivats</translation>
     </message>
     <message>
       <source>number of archived messages</source>
-      <translation>αριθμός των αρχειοθετημένα μηνύματα</translation>
+      <translation>Nombre de missatges arxivats</translation>
     </message>
     <message>
       <source>Error accoured during archive process</source>
-      <translation>Σφάλμα accoured κατά τη διάρκεια διαδικασίας αρχείο</translation>
+      <translation>S&apos;ha produït un error durant el procés d&apos;arxivat</translation>
     </message>
   </context>
   <context>
     <name>chatbox/configuration</name>
     <message>
       <source>Chatbox</source>
-      <translation>Κουτί συνομιλίας</translation>
+      <translation>Xat flotant</translation>
     </message>
     <message>
       <source>General</source>
-      <translation>Γενικά</translation>
+      <translation>General</translation>
     </message>
     <message>
       <source>General settings</source>
-      <translation>Γενικές ρυθμίσεις</translation>
+      <translation>Configuració general</translation>
     </message>
     <message>
       <source>Chatbox list</source>
-      <translation>Λίστα κουτιών συνομιλίας</translation>
+      <translation>Llista de xats flotants</translation>
     </message>
   </context>
   <context>
     <name>system/messages</name>
     <message>
       <source>Updated</source>
-      <translation>Ενημερωμένο</translation>
+      <translation>Actualitzat</translation>
     </message>
   </context>
   <context>
     <name>chatbox/form</name>
     <message>
       <source>Chatbox name</source>
-      <translation>Όνομα chatbox</translation>
+      <translation>Nom del xat flotant</translation>
     </message>
     <message>
       <source>Name of manager</source>
-      <translation>Όνομα του διαχειριστή</translation>
+      <translation>Nom del responsable</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation>Αναγνωριστικό</translation>
+      <translation>Identificador</translation>
     </message>
     <message>
       <source>Chatbox active</source>
-      <translation>Ενεργό chatbox</translation>
+      <translation>Xat flotant actiu</translation>
     </message>
   </context>
   <context>
     <name>chatbox/generalsettings</name>
     <message>
       <source>Chatbox settings</source>
-      <translation>Ρυθμίσεις chatbox</translation>
+      <translation>Ajustos del xat flotant</translation>
     </message>
     <message>
       <source>Default new chatbox name</source>
-      <translation>Προεπιλογή νέο όνομα chatbox</translation>
+      <translation>Nom predefinit per als xats flotants nous</translation>
     </message>
     <message>
       <source>Default operator name</source>
-      <translation>Προεπιλεγμένο όνομα χειριστή</translation>
+      <translation>Nom predefinit d&apos;agent</translation>
     </message>
     <message>
       <source>Messages limit in the chatbox</source>
-      <translation>Όριο μηνύματα στο chatbox</translation>
+      <translation>Límit de missatges al xat flotant</translation>
     </message>
     <message>
       <source>Auto creation by chatbox identifier is enabled</source>
-      <translation>Αυτόματη δημιουργία από chatbox αναγνωριστικό τοποθεσίας</translation>
+      <translation>S&apos;ha habilitat la creació automàtica de xat flotant segons l&apos;identificador</translation>
     </message>
     <message>
       <source>Secret hash, this is used when auto creation is disabled</source>
-      <translation>Μυστικό hash, αυτό χρησιμοποιείται όταν είναι απενεργοποιημένη η αυτόματη δημιουργία</translation>
+      <translation>Hash secret, s&apos;utilitza quan la creació automàtica està inhabilitada</translation>
     </message>
     <message>
       <source>more information on how to use it</source>
-      <translation>περισσότερες πληροφορίες για το πώς να το χρησιμοποιήσει</translation>
+      <translation>més informació sobre com utilitzar-ho</translation>
     </message>
     <message>
       <source>Paid chat settings</source>
-      <translation>Ρυθμίσεις επί πληρωμή συνομιλίας</translation>
+      <translation>Paràmetres del xat de pagament</translation>
     </message>
   </context>
   <context>
     <name>chatbox/list</name>
     <message>
       <source>Chatbox list</source>
-      <translation>Λίστα chatbox</translation>
+      <translation>Llista de xats flotants</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Όνομα</translation>
+      <translation>Nom</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation>Αναγνωριστικό</translation>
+      <translation>Identificador</translation>
     </message>
     <message>
       <source>Chatbox</source>
-      <translation>Chatbox</translation>
+      <translation>Xat flotant</translation>
     </message>
   </context>
   <context>
     <name>user/userlist</name>
     <message>
       <source>Edit</source>
-      <translation>Επεξεργασία</translation>
+      <translation>Edita</translation>
     </message>
     <message>
       <source>Delete</source>
-      <translation>Διαγραφή</translation>
+      <translation>Esborra</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation>Όνομα χρήστη</translation>
+      <translation>Nom d&apos;usuari</translation>
     </message>
     <message>
       <source>Start activity</source>
-      <translation type="unfinished"/>
+      <translation>Primera activitat</translation>
     </message>
     <message>
       <source>Last activity</source>
-      <translation>Τελευταία δραστηριότητα</translation>
+      <translation>Darrera activitat</translation>
     </message>
     <message>
       <source>Duration</source>
-      <translation type="unfinished"/>
+      <translation>Durada</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation type="unfinished"/>
+      <translation>Xats actius</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation type="unfinished"/>
+      <translation>Xats pendents</translation>
     </message>
     <message>
       <source>Inactive chats</source>
-      <translation type="unfinished"/>
+      <translation>Xats inactius</translation>
     </message>
     <message>
       <source>RT Active chats</source>
-      <translation type="unfinished"/>
+      <translation>Xats RT actius</translation>
     </message>
     <message>
       <source>Update stats</source>
-      <translation type="unfinished"/>
+      <translation>Actualitza les estadístiques</translation>
     </message>
     <message>
       <source>Users</source>
-      <translation>Χρήστες</translation>
+      <translation>Usuaris</translation>
     </message>
     <message>
       <source>Username (Nickname)</source>
-      <translation type="unfinished"/>
+      <translation>Nom d&apos;usuari (àlies)</translation>
     </message>
     <message>
       <source>E-mail</source>
@@ -6410,52 +6411,52 @@
     </message>
     <message>
       <source>New user</source>
-      <translation>Νέος χρήστης</translation>
+      <translation>Nou usuari</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Παραμετροποίηση συστήματος</translation>
+      <translation>Configuració de sistema</translation>
     </message>
     <message>
       <source>Statistic</source>
-      <translation type="unfinished"/>
+      <translation>Estadística</translation>
     </message>
     <message>
       <source>Users Actions</source>
-      <translation type="unfinished"/>
+      <translation>Accions dels usuaris</translation>
     </message>
   </context>
   <context>
     <name>kernel/messages</name>
     <message>
       <source>Are you sure?</source>
-      <translation>Είσαι σίγουρος?</translation>
+      <translation>N&apos;esteu segur?</translation>
     </message>
   </context>
   <context>
     <name>chatbox/new</name>
     <message>
       <source>New chatbox</source>
-      <translation>Νέα chatbox</translation>
+      <translation>Nou xat flotant</translation>
     </message>
     <message>
       <source>New</source>
-      <translation>Νέα</translation>
+      <translation>Nou</translation>
     </message>
   </context>
   <context>
     <name>department/departments</name>
     <message>
       <source>Edit</source>
-      <translation>Επεξεργασία</translation>
+      <translation>Edita</translation>
     </message>
     <message>
       <source>Departments</source>
-      <translation>Τμήματα</translation>
+      <translation>Departaments</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Όνομα</translation>
+      <translation>Nom</translation>
     </message>
     <message>
       <source>E-mail</source>
@@ -6463,178 +6464,178 @@
     </message>
     <message>
       <source>Hidden</source>
-      <translation type="unfinished"/>
+      <translation>Ocult</translation>
     </message>
     <message>
       <source>Disabled</source>
-      <translation type="unfinished"/>
+      <translation>Inhabilitat</translation>
     </message>
     <message>
       <source>Visible only if online</source>
-      <translation type="unfinished"/>
+      <translation>Visible només en línia</translation>
     </message>
     <message>
       <source>Overloaded</source>
-      <translation type="unfinished"/>
+      <translation>Sobrecarregat</translation>
     </message>
     <message>
       <source>Yes</source>
-      <translation type="unfinished"/>
+      <translation>Sí</translation>
     </message>
     <message>
       <source>No</source>
-      <translation type="unfinished"/>
+      <translation>No</translation>
     </message>
     <message>
       <source>Edit department</source>
-      <translation>Επεξεργαστείτε το τμήμα</translation>
+      <translation>Edita el departament</translation>
     </message>
     <message>
       <source>New department</source>
-      <translation>Νέο τμήμα</translation>
+      <translation>Nou departament</translation>
     </message>
     <message>
       <source>Are you sure?</source>
-      <translation>Είσαι σίγουρος?</translation>
+      <translation>N&apos;esteu segur?</translation>
     </message>
     <message>
       <source>Departments groups</source>
-      <translation>Ομάδες τμημάτων</translation>
+      <translation>Grups de departaments</translation>
     </message>
     <message>
       <source>Group</source>
-      <translation>Ομάδα</translation>
+      <translation>Grup</translation>
     </message>
     <message>
       <source>Departments limit groups</source>
-      <translation type="unfinished"/>
+      <translation>Límit de grups de departaments</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Διαμόρφωση του συστήματος</translation>
+      <translation>Configuració de sistema</translation>
     </message>
     <message>
       <source>Archive configuration</source>
-      <translation type="unfinished"/>
+      <translation>Desa la configuració</translation>
     </message>
   </context>
   <context>
     <name>cobrowse/browse</name>
     <message>
       <source>Click blue eye at the top to request screen share</source>
-      <translation>Κάντε κλικ στο μπλε μάτι στην κορυφή να ζητήσει μερίδιο οθόνη</translation>
+      <translation>Feu clic a l&apos;ull blau a dalt per sol·licitar la compartició de la pantalla</translation>
     </message>
     <message>
       <source>Request screen share</source>
-      <translation>Αίτηση οθόνη μερίδιο</translation>
+      <translation>Sol·licita la compartició de pantalla</translation>
     </message>
     <message>
       <source>Show my mouse position to visitor</source>
-      <translation>Δείξει μου ποντίκι θέση επισκέπτη</translation>
+      <translation>Mostra-li al visitant la meva posició del mouse</translation>
     </message>
     <message>
       <source>On highlight scroll user window location to match my</source>
-      <translation>Να τονίσει από θέση παράθυρο χρήστη κύλισης για να ταιριάζει μου</translation>
+      <translation>Al ressaltar text desplaça la finestra de l&apos;usuari per fer-la coincidir amb la meva</translation>
     </message>
     <message>
       <source>Follow user scroll position</source>
-      <translation>Ακολουθήστε το χρήστη θέση κύλισης</translation>
+      <translation>Segueix la posició de desplaçament de l&apos;usuari</translation>
     </message>
     <message>
       <source>On click navigate user browser</source>
-      <translation>Στη επιλέξτε πλοήγηση πρόγραμμα περιήγησης χρήστη</translation>
+      <translation>Al fer clic, controla el navegador de l&apos;usuari</translation>
     </message>
     <message>
       <source>Screen sharing session has finished</source>
-      <translation>Οθόνη κοινή προβολή έχει τελειώσει</translation>
+      <translation>La sessió de compartició de pantalla ha finalitzat</translation>
     </message>
     <message>
       <source>Screen is shared</source>
-      <translation>Οθόνη είναι από κοινού</translation>
+      <translation>S&apos;ha compartit la pantalla</translation>
     </message>
   </context>
   <context>
     <name>chat/operatorsbalancing</name>
     <message>
       <source>Active</source>
-      <translation>Ενεργό</translation>
+      <translation>Actiu</translation>
     </message>
     <message>
       <source>Maximum number of active chats user can have at a time, 0 - unlimited</source>
-      <translation>Μέγιστος αριθμός ενεργό συζητήσεις χρήστη μπορεί να έχουν σε έναν χρόνο, 0 - απεριόριστη</translation>
+      <translation>El nombre màxim de xats actius simultanis per usuari. 0: il·limitat</translation>
     </message>
     <message>
       <source>Maximum number of department active chats, 0 - unlimited</source>
-      <translation type="unfinished"/>
+      <translation>Nombre màxim de xats actius per departament. 0: il·limitats</translation>
     </message>
     <message>
       <source>If this limit is reached, new chats will not be assigned to any operator.</source>
-      <translation type="unfinished"/>
+      <translation>Si s&apos;arriba a aquest límit, els xats nous no seran assignats a cap agent.</translation>
     </message>
     <message>
       <source>Automatically assign chat to another operator if operator did not accepted chat in seconds, 0 - disabled</source>
-      <translation>Αναθέσετε αυτόματα chat σε άλλο παροχέα αν χειριστή έκανε δεν γίνουν δεκτές chat σε δευτερόλεπτα, 0 - άτομα με ειδικές ανάγκες</translation>
+      <translation>Segons abans no es reassigni automàticamenta un xat en espera a un altre agent. 0: inhabilitat</translation>
     </message>
     <message>
       <source>Minimum delay between chat assignment to operator</source>
-      <translation type="unfinished"/>
+      <translation>Interval mínim entre assignacions de xat a un agent</translation>
     </message>
     <message>
       <source>Delay in seconds before next chat can be assigned to operator.</source>
-      <translation type="unfinished"/>
+      <translation>Interval en segons abans no es pugui assignar un nou xat a l&apos;agent.</translation>
     </message>
     <message>
       <source>Exclude inactive chats</source>
-      <translation type="unfinished"/>
+      <translation>Exclou xats inactius</translation>
     </message>
     <message>
       <source>Pending and active chats which visitors has closed chats explicitly or visitors being redirected to survey will be excluded</source>
-      <translation type="unfinished"/>
+      <translation>S&apos;exclouen els xats pendents o tancats explícitament pel visitant., també els visitants redirigits a l&apos;enquesta.</translation>
     </message>
   </context>
   <context>
     <name>gallery/album_list_admin</name>
     <message>
       <source>Are you sure?</source>
-      <translation>Είσαι σίγουρος?</translation>
+      <translation>N&apos;esteu segur?</translation>
     </message>
   </context>
   <context>
     <name>department/new</name>
     <message>
       <source>New department</source>
-      <translation>Νέο τμήμα</translation>
+      <translation>Nou departament</translation>
     </message>
     <message>
       <source>New department group</source>
-      <translation>Νέο τμήμα/ομάδα</translation>
+      <translation>Nou grup de departaments</translation>
     </message>
     <message>
       <source>New department limit group</source>
-      <translation type="unfinished"/>
+      <translation>Nou límit de grup de departaments</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Παραμετροποίηση συστήματος</translation>
+      <translation>Configuració de sistema</translation>
     </message>
     <message>
       <source>Departments</source>
-      <translation>Τμήματα</translation>
+      <translation>Departaments</translation>
     </message>
   </context>
   <context>
     <name>faq/faqwidget</name>
     <message>
       <source>FAQ</source>
-      <translation>Συχνές ερωτήσεις</translation>
+      <translation>FAQs</translation>
     </message>
     <message>
       <source>Ask a question</source>
-      <translation>Κάντε μια ερώτηση</translation>
+      <translation>Formuleu una pregunta</translation>
     </message>
     <message>
       <source>Type your question</source>
-      <translation>Πληκτρολογήστε την ερώτηση σας</translation>
+      <translation>Formuleu la vostra pregunta</translation>
     </message>
     <message>
       <source>E-mail</source>
@@ -6642,81 +6643,81 @@
     </message>
     <message>
       <source>Question</source>
-      <translation>Ερώτηση</translation>
+      <translation>Pregunta</translation>
     </message>
     <message>
       <source>Send your question</source>
-      <translation>Στείλε την ερώτηση σου</translation>
+      <translation>Envieu la vostra pregunta</translation>
     </message>
     <message>
       <source>Your question was submitted!</source>
-      <translation>Ερώτησή σας υποβλήθηκε!</translation>
+      <translation>La vostra pregunta ha estat enviada</translation>
     </message>
     <message>
       <source>Please enter a question!</source>
-      <translation>Παρακαλώ εισάγεται μια ερώτηση!</translation>
+      <translation>Introduïu una pregunta!</translation>
     </message>
     <message>
       <source>Please enter your email address!</source>
-      <translation>Παρακαλούμε εισάγετε το email σας!</translation>
+      <translation>Introduïu la vostra adreça d&apos;e-mail</translation>
     </message>
   </context>
   <context>
     <name>faq/new</name>
     <message>
       <source>Question</source>
-      <translation>Ερώτηση</translation>
+      <translation>Pregunta</translation>
     </message>
     <message>
       <source>Answer</source>
-      <translation>Απάντηση</translation>
+      <translation>Resposta</translation>
     </message>
     <message>
       <source>URL, enter * at the end for the wildcard</source>
-      <translation>Διεύθυνση URL, πληκτρολογήστε * στο τέλος για το χαρακτήρα μπαλαντέρ</translation>
+      <translation>URL, afegiu * al final com a comodí</translation>
     </message>
     <message>
       <source>The URL where this question should appear, leave it empty for all</source>
-      <translation>Το URL όπου αυτό το ερώτημα πρέπει να εμφανιστεί, αφήστε το κενό για όλους</translation>
+      <translation>L&apos;URL on ha d&apos;aparèixer aquesta pregunta, deixeu-ho en blanc per a totes</translation>
     </message>
     <message>
       <source>Submitter e-mail</source>
-      <translation>Υποβάλλων ηλεκτρονικού ταχυδρομείου</translation>
+      <translation>E-mail del remitent</translation>
     </message>
     <message>
       <source>Identifier, can be used to filter questions by identifier</source>
-      <translation>Αναγνωριστικό, μπορεί να χρησιμοποιηθεί για να φιλτράρει ερωτήσεις από το αναγνωριστικό</translation>
+      <translation>Identificador, es pot utilitzar per filtrar preguntes</translation>
     </message>
     <message>
       <source>Question is active</source>
-      <translation>Η ερώτηση είναι ενεργή</translation>
+      <translation>La pregunta està activa</translation>
     </message>
     <message>
       <source>New question</source>
-      <translation>Νέα ερωτηση</translation>
+      <translation>Nova pregunta</translation>
     </message>
   </context>
   <context>
     <name>faq/list</name>
     <message>
       <source>FAQ</source>
-      <translation>ΣΥΧΝΈΣ ΕΡΩΤΉΣΕΙΣ</translation>
+      <translation>FAQs</translation>
     </message>
     <message>
       <source>Question</source>
-      <translation>Ερώτηση</translation>
+      <translation>Pregunta</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation>Αναγνωριστικό</translation>
+      <translation>Identificador</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation>Ενεργό</translation>
+      <translation>Actiu</translation>
     </message>
     <message>
       <source>Y</source>
-      <translation>Y</translation>
+      <translation>S</translation>
     </message>
     <message>
       <source>N</source>
@@ -6724,166 +6725,166 @@
     </message>
     <message>
       <source>Edit</source>
-      <translation>Επεξεργασία</translation>
+      <translation>Edita</translation>
     </message>
     <message>
       <source>Delete this question</source>
-      <translation>Διαγραφή αυτής της ερώτησης</translation>
+      <translation>Elimina aquesta pregunta</translation>
     </message>
     <message>
       <source>New question</source>
-      <translation>Νέα ερωτηση</translation>
+      <translation>Nova pregunta</translation>
     </message>
   </context>
   <context>
     <name>faq/view</name>
     <message>
       <source>View</source>
-      <translation>Όψη</translation>
+      <translation>Vista</translation>
     </message>
     <message>
       <source>Please enter a manager name!</source>
-      <translation>Παρακαλώ εισάγεται ένα όνομα διαχειριστή!</translation>
+      <translation>Introduïu un nom de administrador</translation>
     </message>
     <message>
       <source>Please enter a chatbox name!</source>
-      <translation>Παρακαλώ εισάγεται ένα όνομα chatbox!</translation>
+      <translation>Introduïu un nom per al xat flotant</translation>
     </message>
     <message>
       <source>Please enter a chatbox identifier!</source>
-      <translation>Παρακαλούμε εισάγετε ένα αναγνωριστικό chatbox!</translation>
+      <translation>Introduïu un identificador per al xat flotant</translation>
     </message>
     <message>
       <source>Please enter answer!</source>
-      <translation>Παρακαλώ εισάγεται την απάντηση!</translation>
+      <translation>Introduïu una resposta</translation>
     </message>
     <message>
       <source>Identifier has to be shorter than 10 characters!</source>
-      <translation>Αναγνωριστικό πρέπει να είναι μικρότερη από 10 χαρακτήρες!</translation>
+      <translation>L&apos;identificador ha de tenir com a màxim 10 caràcters</translation>
     </message>
     <message>
       <source>Please enter question!</source>
-      <translation>Παρακαλούμε εισάγετε το θέμα!</translation>
+      <translation>Formuleu una pregunta</translation>
     </message>
     <message>
       <source>FAQ</source>
-      <translation>Συχνές ερωτήσεις</translation>
+      <translation>FAQs</translation>
     </message>
     <message>
       <source>FAQ description</source>
-      <translation>Περιγραφή συχνών ερωτήσεων</translation>
+      <translation>Descripció de les FAQs</translation>
     </message>
   </context>
   <context>
     <name>file/list</name>
     <message>
       <source>List of files</source>
-      <translation>Λίστα των αρχείων</translation>
+      <translation>Llista dels fitxers</translation>
     </message>
     <message>
       <source>Upload a file</source>
-      <translation>Φορτώστε ένα αρχείο</translation>
+      <translation>Carrega un fitxer</translation>
     </message>
     <message>
       <source>Upload name</source>
-      <translation>Ανεβάστε το όνομα</translation>
+      <translation>Nom de càrrega</translation>
     </message>
     <message>
       <source>File size</source>
-      <translation>Μέγεθος αρχείου</translation>
+      <translation>Mida de fitxer</translation>
     </message>
     <message>
       <source>Embed BB code</source>
-      <translation>BB Κώδικας ενσωμάτωσης</translation>
+      <translation>Incrusta codi BB</translation>
     </message>
     <message>
       <source>User</source>
-      <translation>Χρήστη</translation>
+      <translation>Usuari</translation>
     </message>
     <message>
       <source>Chat</source>
-      <translation>Chat</translation>
+      <translation>Xat</translation>
     </message>
     <message>
       <source>Extension</source>
-      <translation>Επέκταση</translation>
+      <translation>Extensió</translation>
     </message>
     <message>
       <source>Date</source>
-      <translation>Ημερομηνία</translation>
+      <translation>Data</translation>
     </message>
     <message>
       <source>Delete the file</source>
-      <translation>Διαγράψτε το αρχείο</translation>
+      <translation>Elimina el fitxer</translation>
     </message>
   </context>
   <context>
     <name>file/configuration</name>
     <message>
       <source>Allowed files types for operators</source>
-      <translation>Επιτρέπεται τύπους αρχείων για τους φορείς εκμετάλλευσης</translation>
+      <translation>Tipus de fitxers dels agents acceptables</translation>
     </message>
     <message>
       <source>Allowed files types for users</source>
-      <translation>Επιτρέπεται τύπους αρχείων για τους χρήστες</translation>
+      <translation>Tipus de fitxers dels usuaris acceptables</translation>
     </message>
     <message>
       <source>Maximum file size in KB</source>
-      <translation>Μέγιστο μέγεθος αρχείου σε KB</translation>
+      <translation>Mida màxima dels fitxers en KB</translation>
     </message>
     <message>
       <source>ClamAV antivirus configuration</source>
-      <translation type="unfinished"/>
+      <translation>Configuració d&apos;antivirus ClamAV</translation>
     </message>
     <message>
       <source>ClamAV socket path</source>
-      <translation type="unfinished"/>
+      <translation>Ruta al socket ClamAV</translation>
     </message>
     <message>
       <source>ClamAV socket length</source>
-      <translation type="unfinished"/>
+      <translation>Longitud del socket ClamAV</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Ρυθμίσεις ενημέρωση</translation>
+      <translation>Paràmetres actualitzats</translation>
     </message>
     <message>
       <source>File configuration</source>
-      <translation>Αρχείο ρύθμισης παραμέτρων</translation>
+      <translation>Configuració de fitxers</translation>
     </message>
     <message>
       <source>Please enter valid file type!</source>
-      <translation>Παρακαλούμε, εισάγετε έγκυρο αρχείο τύπου!</translation>
+      <translation>Introduïu un tipus de fitxer vàlid.</translation>
     </message>
     <message>
       <source>Please enter valid maximum file size!</source>
-      <translation>Παρακαλούμε, εισάγετε έγκυρο μέγιστο μέγεθος αρχείου!</translation>
+      <translation>Introduïu un tamanymàxim de fitxer vàlid</translation>
     </message>
   </context>
   <context>
     <name>file/new</name>
     <message>
       <source>File name</source>
-      <translation>Όνομα αρχείου</translation>
+      <translation>Nom de fitxer</translation>
     </message>
     <message>
       <source>Upload</source>
-      <translation>Ανεβάστε</translation>
+      <translation>Carrega</translation>
     </message>
     <message>
       <source>File uploaded</source>
-      <translation>Φορτώθηκε το αρχείο</translation>
+      <translation>Fitxer carregat</translation>
     </message>
     <message>
       <source>New file</source>
-      <translation>Νέο αρχείο</translation>
+      <translation>Nou fitxer</translation>
     </message>
   </context>
   <context>
     <name>form/collected</name>
     <message>
       <source>Download XLS</source>
-      <translation>Κατεβάστε XLS</translation>
+      <translation>Descarrega XLS</translation>
     </message>
     <message>
       <source>URL</source>
@@ -6891,19 +6892,19 @@
     </message>
     <message>
       <source>Name</source>
-      <translation>Όνομα</translation>
+      <translation>Nom</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation>Αναγνωριστικό</translation>
+      <translation>Identificador</translation>
     </message>
     <message>
       <source>Intro</source>
-      <translation>Εισαγωγή</translation>
+      <translation>Introducció</translation>
     </message>
     <message>
       <source>Time</source>
-      <translation>Χρόνος</translation>
+      <translation>Hora</translation>
     </message>
     <message>
       <source>IP</source>
@@ -6911,622 +6912,622 @@
     </message>
     <message>
       <source>View</source>
-      <translation>Θέα</translation>
+      <translation>Vista</translation>
     </message>
     <message>
       <source>Download</source>
-      <translation>Κατεβάσετε</translation>
+      <translation>Descarrega</translation>
     </message>
     <message>
       <source>Delete</source>
-      <translation>Διαγραφή</translation>
+      <translation>Elimina</translation>
     </message>
   </context>
   <context>
     <name>form/fill</name>
     <message>
       <source>Return</source>
-      <translation>Επιστροφή</translation>
+      <translation>Retorna</translation>
     </message>
     <message>
       <source>Submit</source>
-      <translation>Υποβάλουν</translation>
+      <translation>Envia</translation>
     </message>
     <message>
       <source>Information collected</source>
-      <translation>Πληροφορίες που συλλέγονται</translation>
+      <translation>Informació recopilada</translation>
     </message>
     <message>
       <source>is required</source>
-      <translation>απαιτείται</translation>
+      <translation>és obligatori</translation>
     </message>
     <message>
       <source>invalid date format</source>
-      <translation>μη έγκυρη μορφή ημερομηνίας</translation>
+      <translation>Format de data incorrecte</translation>
     </message>
   </context>
   <context>
     <name>form/index</name>
     <message>
       <source>Form</source>
-      <translation>Μορφή</translation>
+      <translation>Formulari</translation>
     </message>
     <message>
       <source>List of forms</source>
-      <translation>Λίστα των μορφών</translation>
+      <translation>Llista dels formularis</translation>
     </message>
     <message>
       <source>Page embed code</source>
-      <translation>Σελίδα ενσωματώνει τον κώδικα</translation>
+      <translation>Codi d&apos;incrustació de la pàgina</translation>
     </message>
     <message>
       <source>Date</source>
-      <translation>Ημερομηνία</translation>
+      <translation>Data</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation>Αναγνωριστικό</translation>
+      <translation>Identificador</translation>
     </message>
   </context>
   <context>
     <name>form/viewcollected</name>
     <message>
       <source>collected information</source>
-      <translation>πληροφορίες που συλλέγονται</translation>
+      <translation>informació recopilada</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation>Αναγνωριστικό</translation>
+      <translation>Identificador</translation>
     </message>
     <message>
       <source>Download</source>
-      <translation>Κατεβάσετε</translation>
+      <translation>Descarrega</translation>
     </message>
     <message>
       <source>Collected information</source>
-      <translation>Πληροφορίες που συλλέγονται</translation>
+      <translation>Informació recopilada</translation>
     </message>
   </context>
   <context>
     <name>kernel/nopermission</name>
     <message>
       <source>Go back</source>
-      <translation>Ένα βήμα πίσω</translation>
+      <translation>Torna enrere</translation>
     </message>
     <message>
       <source>You do not have permission to access the module</source>
-      <translation>Δεν έχετε δικαίωμα πρόσβασης ενότητα</translation>
+      <translation>No teniu permisos per accedir al mòdul</translation>
     </message>
     <message>
       <source>and use</source>
-      <translation>και χρήση</translation>
+      <translation>i utilitza</translation>
     </message>
     <message>
       <source>function</source>
-      <translation>λειτουργία</translation>
+      <translation>funció</translation>
     </message>
     <message>
       <source>You do not have permission to edit selected object</source>
-      <translation>Δεν έχετε το δικαίωμα να επεξεργαστείτε το επιλεγμένο αντικείμενο</translation>
+      <translation>No teniu permisos per modificar l&apos;objecte seleccionat</translation>
     </message>
   </context>
   <context>
     <name>core/paginator</name>
     <message>
       <source>Go to page</source>
-      <translation>Μεταβείτε στη σελίδα</translation>
+      <translation>Vés a la pàgina</translation>
     </message>
     <message>
       <source>of</source>
-      <translation>του</translation>
+      <translation>de</translation>
     </message>
     <message>
       <source>Page</source>
-      <translation>Σελίδα</translation>
+      <translation>Pàgina</translation>
     </message>
     <message>
       <source>Found</source>
-      <translation>Βρέθηκαν</translation>
+      <translation>Trobats</translation>
     </message>
   </context>
   <context>
     <name>paidchat/expiredchat</name>
     <message>
       <source>Chat</source>
-      <translation>Συνομιλία</translation>
+      <translation>Xat</translation>
     </message>
     <message>
       <source>Chat was closed.</source>
-      <translation>Συνομιλία ήταν κλειστό.</translation>
+      <translation>S&apos;ha tancat el xat</translation>
     </message>
     <message>
       <source>Invalid hash</source>
-      <translation>Μη έγκυρο κλειδί κατακερματισμού</translation>
+      <translation>Hash invàlid</translation>
     </message>
     <message>
       <source>Removed paid chat</source>
-      <translation>Απομακρυνθεί chat επί πληρωμή</translation>
+      <translation>Xat de pagament suprimit</translation>
     </message>
   </context>
   <context>
     <name>paidchat/settings</name>
     <message>
       <source>Paid chat settings</source>
-      <translation>Ρυθμίσεις επί πληρωμή συνομιλίας</translation>
+      <translation>Paràmetres de xat de pagament</translation>
     </message>
     <message>
       <source>Enabled</source>
-      <translation>Ενεργοποιημένη</translation>
+      <translation>Activat</translation>
     </message>
     <message>
       <source>User can not access old chat if chat is closed</source>
-      <translation>Χρήστης δεν πρόσβαση στο παλιό chat αν συνομιλίας είναι κλειστή</translation>
+      <translation>L&apos;usuari no pot accedir a un xat antic si el xat és tancat</translation>
     </message>
     <message>
       <source>Secret hash, used for verification</source>
-      <translation>Μυστικό κατακερματισμού, που χρησιμοποιείται για την επαλήθευση</translation>
+      <translation>Hash secret, utilitzat per a verificació</translation>
     </message>
   </context>
   <context>
     <name>permission/editrole</name>
     <message>
       <source>Edit role</source>
-      <translation>Επεξεργαστείτε το ρόλο</translation>
+      <translation>Edita rol</translation>
     </message>
     <message>
       <source>Title</source>
-      <translation>Τίτλος</translation>
+      <translation>Títol</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Ενημέρωση</translation>
+      <translation>Modificar</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Ακύρωση</translation>
+      <translation>Cancel·la</translation>
     </message>
     <message>
       <source>Assigned functions</source>
-      <translation>Εκχωρημένες  λειτουργίες</translation>
+      <translation>Funcions assignades</translation>
     </message>
     <message>
       <source>Module</source>
-      <translation>Ενότητα</translation>
+      <translation>Mòdul</translation>
     </message>
     <message>
       <source>Function</source>
-      <translation>Λειτουργία</translation>
+      <translation>Funció</translation>
     </message>
     <message>
       <source>Limitation</source>
-      <translation type="unfinished"/>
+      <translation>Limitació</translation>
     </message>
     <message>
       <source>Remove selected policy</source>
-      <translation>Αφαιρέστε την επιλεγμένη πολιτική</translation>
+      <translation>Suprimeix la política seleccionada</translation>
     </message>
     <message>
       <source>New policy</source>
-      <translation>Νέα πολιτική</translation>
+      <translation>Nova política</translation>
     </message>
     <message>
       <source>Role assigned groups</source>
-      <translation>Ρόλο που έχουν ανατεθεί σε ομάδες</translation>
+      <translation>Grups asignats al rol</translation>
     </message>
     <message>
       <source>Remove selected role</source>
-      <translation>Κατάργηση επιλεγμένου ρόλου</translation>
+      <translation>Suprimeix el rol seleccionat</translation>
     </message>
     <message>
       <source>Assign a group</source>
-      <translation>Αντιστοίχιση ομάδας</translation>
+      <translation>Assigna a grup</translation>
     </message>
     <message>
       <source>All modules</source>
-      <translation>Όλες τις ενότητες</translation>
+      <translation>Tots els mòduls</translation>
     </message>
     <message>
       <source>All functions</source>
-      <translation>Όλες τις λειτουργίες</translation>
+      <translation>Totes les funcions</translation>
     </message>
     <message>
       <source>Please enter role name</source>
-      <translation>Παρακαλούμε εισάγετε το όνομα ρόλου</translation>
+      <translation>Introdueix el nom del rol</translation>
     </message>
     <message>
       <source>Please choose module</source>
-      <translation>Παρακαλώ επιλέξτε ενότητα</translation>
+      <translation>Seleccioneu un mòdul</translation>
     </message>
     <message>
       <source>Please choose module function</source>
-      <translation>Παρακαλώ επιλέξτε ενότητα λειτουργίας</translation>
+      <translation>Seleccioneu una funció de mòdul</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Παραμετροποίηση συστήματος</translation>
+      <translation>Configuració del sistema</translation>
     </message>
     <message>
       <source>List of roles</source>
-      <translation>Λίστα των ρόλων</translation>
+      <translation>Llista de rols</translation>
     </message>
     <message>
       <source>Role edit</source>
-      <translation>Επεξεργασία ρόλου</translation>
+      <translation>Modifica rol</translation>
     </message>
   </context>
   <context>
     <name>permission/getpermissionssummary</name>
     <message>
       <source>Request permission</source>
-      <translation>Ζητήσει άδεια</translation>
+      <translation>Sol·licita permís</translation>
     </message>
     <message>
       <source>Please choose at least one permission</source>
-      <translation>Παρακαλώ επιλέξτε τουλάχιστον μία άδεια</translation>
+      <translation>Seleccioneu com a mínim un permís</translation>
     </message>
   </context>
   <context>
     <name>permission/groupassignrole</name>
     <message>
       <source>Title</source>
-      <translation>Τίτλος</translation>
+      <translation>Títol</translation>
     </message>
     <message>
       <source>Assign</source>
-      <translation>Αντιστοιχίσετε</translation>
+      <translation>Assigna</translation>
     </message>
   </context>
   <context>
     <name>permission/modulefunctions</name>
     <message>
       <source>All functions</source>
-      <translation>Όλες τις λειτουργίες</translation>
+      <translation>Totes les funcions</translation>
     </message>
   </context>
   <context>
     <name>permission/newpolicy</name>
     <message>
       <source>New policy</source>
-      <translation>Νέα πολιτική</translation>
+      <translation>Nova política</translation>
     </message>
     <message>
       <source>Choose a module</source>
-      <translation>Επιλέξτε μια ενότητα</translation>
+      <translation>Seleccioneu un mòdul</translation>
     </message>
     <message>
       <source>All modules</source>
-      <translation>Όλες τις ενότητες</translation>
+      <translation>Tots els mòduls</translation>
     </message>
     <message>
       <source>Choose a module function</source>
-      <translation>Επιλέξτε μια ενότητα λειτουργία</translation>
+      <translation>Seleccioneu una funció de mòdul</translation>
     </message>
     <message>
       <source>Limitation</source>
-      <translation type="unfinished"/>
+      <translation>Limitació</translation>
     </message>
     <message>
       <source>Enter any content which you will be able to get within users permissions</source>
-      <translation type="unfinished"/>
+      <translation>Introduïu qualsevol paraula que pugui trobar-se entre els permisos d&apos;usuaris</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Αποθήκευση</translation>
+      <translation>Desa</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>&quot;Άκυρο&quot;</translation>
+      <translation>Cancel·la</translation>
     </message>
     <message>
       <source>All functions</source>
-      <translation>Όλες τις λειτουργίες</translation>
+      <translation>Totes les funcions</translation>
     </message>
   </context>
   <context>
     <name>permission/newrole</name>
     <message>
       <source>New role</source>
-      <translation>Νέο ρόλο</translation>
+      <translation>Nova regla</translation>
     </message>
     <message>
       <source>Title</source>
-      <translation>Τίτλος</translation>
+      <translation>Títol</translation>
     </message>
     <message>
       <source>Policy list</source>
-      <translation>Λίστα πολιτικής</translation>
+      <translation>Llista de polítiques</translation>
     </message>
     <message>
       <source>Module</source>
-      <translation>Ενότητα</translation>
+      <translation>Mòdul</translation>
     </message>
     <message>
       <source>Function</source>
-      <translation>Λειτουργία</translation>
+      <translation>Funció</translation>
     </message>
     <message>
       <source>New policy</source>
-      <translation>Νέα πολιτική</translation>
+      <translation>Nova política</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Αποθήκευση</translation>
+      <translation>Desa</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>&quot;Άκυρο&quot;</translation>
+      <translation>Cancel·la</translation>
     </message>
     <message>
       <source>Please enter role name</source>
-      <translation>Παρακαλούμε εισάγετε το όνομα ρόλου</translation>
+      <translation>Introduïu el nom del rol</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Παραμετροποίηση συστήματος</translation>
+      <translation>Configuració del sistema</translation>
     </message>
     <message>
       <source>List of roles</source>
-      <translation>Λίστα των ρόλων</translation>
+      <translation>Llista de rols</translation>
     </message>
   </context>
   <context>
     <name>permission/request</name>
     <message>
       <source>Request permission</source>
-      <translation>Ζητήσει άδεια</translation>
+      <translation>Sol·licita permís</translation>
     </message>
     <message>
       <source>Request permissions</source>
-      <translation>Ζητήσουν δικαιώματα</translation>
+      <translation>Sol·licita permisos</translation>
     </message>
     <message>
       <source>Permission requested</source>
-      <translation>Ζήτησε άδεια</translation>
+      <translation>Permís solicitat</translation>
     </message>
     <message>
       <source>Please choose a user!</source>
-      <translation>Παρακαλώ επιλέξτε ένα χρήστη!</translation>
+      <translation>Seleccioneu un usuari!</translation>
     </message>
     <message>
       <source>This user can not receive permision request!</source>
-      <translation>Αυτός ο χρήστης δεν μπορεί να λάβει permision αίτημα!</translation>
+      <translation>Aquest usuari no pot rebre la sol·licitud de permisos!</translation>
     </message>
     <message>
       <source>Permissions were not provided</source>
-      <translation>Δεν χορηγήθηκαν δικαιώματα</translation>
+      <translation>No s&apos;han proporcionat permisos</translation>
     </message>
   </context>
   <context>
     <name>permission/roleassigngroup</name>
     <message>
       <source>Title</source>
-      <translation>Τίτλος</translation>
+      <translation>Títol</translation>
     </message>
     <message>
       <source>Assign</source>
-      <translation>Αντιστοιχίσετε</translation>
+      <translation>Assigna</translation>
     </message>
   </context>
   <context>
     <name>permission/roles</name>
     <message>
       <source>List of roles</source>
-      <translation>Λίστα των ρόλων</translation>
+      <translation>Llista de rols</translation>
     </message>
     <message>
       <source>Title</source>
-      <translation>Τίτλος</translation>
+      <translation>Títol</translation>
     </message>
     <message>
       <source>Edit a role</source>
-      <translation>Επεξεργαστείτε έναν ρόλο</translation>
+      <translation>Edita el rol</translation>
     </message>
     <message>
       <source>Delete a role</source>
-      <translation>Διαγράψετε έναν ρόλο</translation>
+      <translation>Suprimeix el rol</translation>
     </message>
     <message>
       <source>New role</source>
-      <translation>Νέο ρόλο</translation>
+      <translation>Nou rol</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Διαμόρφωση του συστήματος</translation>
+      <translation>Configuració del sistema</translation>
     </message>
   </context>
   <context>
     <name>lhproduct/index</name>
     <message>
       <source>Products</source>
-      <translation>Προϊόντα</translation>
+      <translation>Productes</translation>
     </message>
   </context>
   <context>
     <name>theme/index</name>
     <message>
       <source>Products</source>
-      <translation>Προϊόντα</translation>
+      <translation>Productes</translation>
     </message>
     <message>
       <source>Default theme</source>
-      <translation>Προεπιλεγμένο θέμα</translation>
+      <translation>Tema per defecte</translation>
     </message>
     <message>
       <source>Theme</source>
-      <translation>Θέμα</translation>
+      <translation>Tema</translation>
     </message>
     <message>
       <source>Widget themes</source>
-      <translation>Θέματα widget</translation>
+      <translation>Temes dels widgets</translation>
     </message>
     <message>
       <source>Import a new theme</source>
-      <translation>Εισάγει ένα νέο θέμα</translation>
+      <translation>Importa un tema nou</translation>
     </message>
     <message>
       <source>Admin</source>
-      <translation>Admin</translation>
+      <translation>Administració</translation>
     </message>
     <message>
       <source>Admin themes</source>
-      <translation>Admin θέματα</translation>
+      <translation>Temes d&apos;administració</translation>
     </message>
     <message>
       <source>Default admin theme</source>
-      <translation>Θέμα το admin προεπιλογή</translation>
+      <translation>Tema d&apos;administració per defecte</translation>
     </message>
     <message>
       <source>Rest API</source>
-      <translation>Rest API</translation>
+      <translation>API Rest</translation>
     </message>
     <message>
       <source>Themes</source>
-      <translation>Θέματα</translation>
+      <translation>Temes</translation>
     </message>
     <message>
       <source>Import theme</source>
-      <translation>Θέμα εισαγωγής</translation>
+      <translation>Importa tema</translation>
     </message>
   </context>
   <context>
     <name>questionary/answers</name>
     <message>
       <source>Answer</source>
-      <translation>Απάντηση</translation>
+      <translation>Respon</translation>
     </message>
     <message>
       <source>Date</source>
-      <translation>Ημερομηνία</translation>
+      <translation>Data</translation>
     </message>
     <message>
       <source>IP</source>
-      <translation>Διεύθυνση IP</translation>
+      <translation>IP</translation>
     </message>
     <message>
       <source>View</source>
-      <translation>Προβολή</translation>
+      <translation>Vista</translation>
     </message>
     <message>
       <source>Delete the answer</source>
-      <translation>Διαγραφή απάντησης</translation>
+      <translation>Eliminar la resposta</translation>
     </message>
     <message>
       <source>Option name</source>
-      <translation>Όνομα επιλογής</translation>
+      <translation>Nom de la opció</translation>
     </message>
     <message>
       <source>Progress</source>
-      <translation>Πρόοδος εργασιών</translation>
+      <translation>Progrés</translation>
     </message>
     <message>
       <source>Votes</source>
-      <translation>Ψηφοφορίες</translation>
+      <translation>Vots</translation>
     </message>
   </context>
   <context>
     <name>questionary/edit</name>
     <message>
       <source>Edit the question</source>
-      <translation>Επεξεργαστείτε το ερώτημα</translation>
+      <translation>Edita la pregunta</translation>
     </message>
     <message>
       <source>Question</source>
-      <translation>Ερώτηση</translation>
+      <translation>Pregunta</translation>
     </message>
     <message>
       <source>Voting options</source>
-      <translation>Επιλογές ψηφοφορίας</translation>
+      <translation>Opcions de valoració</translation>
     </message>
     <message>
       <source>Answers</source>
-      <translation>Απαντήσεις</translation>
+      <translation>Respostes</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Αποθήκευση</translation>
+      <translation>Desa</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Ενημέρωση</translation>
+      <translation>Actualitza</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Ακύρωση</translation>
+      <translation>Cancel·la</translation>
     </message>
     <message>
       <source>Updated</source>
-      <translation>Ενημερωμένο</translation>
+      <translation>Actualizat</translation>
     </message>
     <message>
       <source>If there are no options to choose from, the user will be shown a text field where he will be able to enter his own answer.</source>
-      <translation>Εάν δεν υπάρχουν επιλογές να επιλέξει από, ο χρήστης θα εμφανιστεί ένα πεδίο κειμένου, όπου θα είναι σε θέση να εισάγετε τη δική του απάντηση.</translation>
+      <translation>Si no hi ha cap opció disponible, es mostrarà a l&apos;usuari un camp de text on podrà indtroduir la seva pròpia resposta.</translation>
     </message>
     <message>
       <source>Option</source>
-      <translation>Επιλογή</translation>
+      <translation>Opció</translation>
     </message>
     <message>
       <source>Enter name...</source>
-      <translation>Πληκτρολογήστε το όνομα...</translation>
+      <translation>introduïu un nom...</translation>
     </message>
     <message>
       <source>Option position</source>
-      <translation>Επιλογή θέσης</translation>
+      <translation>Posició de la opció</translation>
     </message>
     <message>
       <source>Position</source>
-      <translation>Θέση</translation>
+      <translation>Posició</translation>
     </message>
     <message>
       <source>Edit</source>
-      <translation>Επεξεργασία</translation>
+      <translation>Edita</translation>
     </message>
     <message>
       <source>Delete</source>
-      <translation>Διαγραφή</translation>
+      <translation>Elimina</translation>
     </message>
     <message>
       <source>Please enter a question!</source>
-      <translation>Παρακαλούμε εισάγετε μια ερώτηση!</translation>
+      <translation>Per favor, introduïu una pregunta!</translation>
     </message>
     <message>
       <source>Please enter an option!</source>
-      <translation>Παρακαλούμε εισάγετε μια επιλογή!</translation>
+      <translation>Per favor, introduïu una opció!</translation>
     </message>
     <message>
       <source>Edit a question</source>
-      <translation>Επεξεργαστείτε μια ερώτηση</translation>
+      <translation>Edita una pregunta</translation>
     </message>
   </context>
   <context>
     <name>questionary/list</name>
     <message>
       <source>Questions</source>
-      <translation>Ερωτήσεις</translation>
+      <translation>Preguntes</translation>
     </message>
     <message>
       <source>Question</source>
-      <translation>Ερώτηση</translation>
+      <translation>Pregunta</translation>
     </message>
     <message>
       <source>Location</source>
-      <translation>Τοποθεσία</translation>
+      <translation>Ubicació</translation>
     </message>
     <message>
       <source>Priority</source>
-      <translation>Προτεραιότητα</translation>
+      <translation>Prioritat</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation>Ενεργό</translation>
+      <translation>Actiu</translation>
     </message>
     <message>
       <source>Revote</source>
-      <translation>Μυωπική</translation>
+      <translation>Torna a valorar</translation>
     </message>
     <message>
       <source>Y</source>
-      <translation>Y</translation>
+      <translation>S</translation>
     </message>
     <message>
       <source>N</source>
@@ -7534,584 +7535,584 @@
     </message>
     <message>
       <source>Edit the question</source>
-      <translation>Επεξεργαστείτε το ερώτημα</translation>
+      <translation>Edita la pregunta</translation>
     </message>
     <message>
       <source>Delete the question</source>
-      <translation>Διαγράψετε το ερώτημα</translation>
+      <translation>Suprimeix la pregunta</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Άδειο...</translation>
+      <translation>En blanc...</translation>
     </message>
     <message>
       <source>New question</source>
-      <translation>Νέα ερώτηση</translation>
+      <translation>Nova Pregunta</translation>
     </message>
     <message>
       <source>Off</source>
-      <translation>Μακριά</translation>
+      <translation>Apagat</translation>
     </message>
     <message>
       <source>Questionary</source>
-      <translation>Ερωτηματολογίου</translation>
+      <translation>Qüestionari</translation>
     </message>
   </context>
   <context>
     <name>questionary/newquestion</name>
     <message>
       <source>Enter a new question</source>
-      <translation>Εισάγεται μια νέα ερώτηση</translation>
+      <translation>introduïu una nova pregunta</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Αποθήκευση</translation>
+      <translation>Desa</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>&quot;Άκυρο&quot;</translation>
+      <translation>Cancel·la</translation>
     </message>
     <message>
       <source>New question</source>
-      <translation>Νέα ερώτηση</translation>
+      <translation>Nova pregunta</translation>
     </message>
   </context>
   <context>
     <name>questionary/previewanswer</name>
     <message>
       <source>Preview the answer</source>
-      <translation>Προεπισκόπηση απάντησης</translation>
+      <translation>Vista prèvia de la resposta</translation>
     </message>
   </context>
   <context>
     <name>questionary/form_question</name>
     <message>
       <source>Question</source>
-      <translation>Ερώτηση</translation>
+      <translation>Pregunta</translation>
     </message>
     <message>
       <source>Question intro</source>
-      <translation>Ερώτηση intro</translation>
+      <translation>Introducció de la pregunta </translation>
     </message>
     <message>
       <source>Show questions for all the URLs containing this string E.g /shop/basket</source>
-      <translation>Εμφάνιση ερωτήσεων για όλο το URLs που περιέχει αυτή η συμβολοσειρά /shop/basket π.χ.</translation>
+      <translation>Mostra les preguntes per a totes les URLs que continguin aquesta cadena. Ex. /shop/basket</translation>
     </message>
     <message>
       <source>Priority, if multiple questions match a location, the question with the higher priority will be shown</source>
-      <translation>Προτεραιότητα, εάν ερωτήσεις πολλαπλής ταιριάζει με μια τοποθεσία του, το θέμα με την υψηλότερη προτεραιότητα θα εμφανιστεί</translation>
+      <translation>Prioritat. Si coincideixen diverses preguntes a la mateixa localització, la pregunta amb més prioritat serà la que es mostrarà.</translation>
     </message>
     <message>
       <source>Revote time (hours), before can revote. Default 0 - never. Higher value allow revote after seconds expire since last vote</source>
-      <translation>Μυωπική χρόνος (ώρες), πριν να μυωπική. Προεπιλεγμένη τιμή 0 - ποτέ. Υψηλότερη τιμή επιτρέπουν revote μετά από δευτερόλεπτα που λήγουν από την τελευταία ψηφοφορία</translation>
+      <translation>Temps (hores) per poder tornar a valorar. Per defecte 0: mai. Un valor més alt permet tornar a votar després de la darrera votació</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation>Ενεργό</translation>
+      <translation>Actiu</translation>
     </message>
   </context>
   <context>
     <name>questionary/votingwidget</name>
     <message>
       <source>Questionary</source>
-      <translation>Ερωτηματολογίου</translation>
+      <translation>Qüestionari</translation>
     </message>
     <message>
       <source>Thank you!</source>
-      <translation>Ευχαριστούμε!</translation>
+      <translation>Gràcies!</translation>
     </message>
     <message>
       <source>You have already voted, thank you!</source>
-      <translation>Έχετε ήδη ψηφίσει, ευχαριστώ!</translation>
+      <translation>Ja heu valorat el servei abans, gràcies!</translation>
     </message>
     <message>
       <source>Vote</source>
-      <translation>Ψηφοφορία</translation>
+      <translation>Valoració</translation>
     </message>
     <message>
       <source>Send</source>
-      <translation>Αποστολή</translation>
+      <translation>Envia</translation>
     </message>
     <message>
       <source>We do not have any requests for now.</source>
-      <translation>Δεν έχουμε καμία αίτηση για τώρα.</translation>
+      <translation>No hi ha peticions per ara.</translation>
     </message>
     <message>
       <source>Please choose one of the options!</source>
-      <translation>Παρακαλούμε επιλέξτε μία από τις επιλογές!</translation>
+      <translation>Seleccioneu una de les opcions!</translation>
     </message>
     <message>
       <source>No question was detected</source>
-      <translation>Μη εντοπισμός ερώτησης</translation>
+      <translation>No s&apos;ha trobat cap pregunta</translation>
     </message>
     <message>
       <source>Please enter your feedback!</source>
-      <translation>Παρακαλούμε εισάγετε τα σχόλιά σας!</translation>
+      <translation>Per favor, introduïu la teua opinió!</translation>
     </message>
     <message>
       <source>You have already send your feedback!</source>
-      <translation>Ήδη έχουν σταλεί τα σχόλιά σας!</translation>
+      <translation>Ja heu enviat el vostre missatge!</translation>
     </message>
   </context>
   <context>
     <name>lhrestapi/index</name>
     <message>
       <source>Rest API</source>
-      <translation>Rest API</translation>
+      <translation>API Rest</translation>
     </message>
     <message>
       <source>Rest API Keys</source>
-      <translation>Κλειδιά υπόλοιπα API</translation>
+      <translation>Claus de l&apos;API Rest</translation>
     </message>
   </context>
   <context>
     <name>speech/language</name>
     <message>
       <source>Dialects</source>
-      <translation type="unfinished"/>
+      <translation>Dialectes</translation>
     </message>
     <message>
       <source>Langauge</source>
-      <translation type="unfinished"/>
+      <translation>Idioma</translation>
     </message>
     <message>
       <source>Dialect</source>
-      <translation>Διάλεκτος</translation>
+      <translation>Dialecte</translation>
     </message>
     <message>
       <source>Language Code</source>
-      <translation type="unfinished"/>
+      <translation>Codi d&apos;idioma</translation>
     </message>
     <message>
       <source>Short Code</source>
-      <translation type="unfinished"/>
+      <translation>Codi curt</translation>
     </message>
     <message>
       <source>New dialect</source>
-      <translation type="unfinished"/>
+      <translation>Nou dialecte</translation>
     </message>
     <message>
       <source>Edit dialect</source>
-      <translation type="unfinished"/>
+      <translation>Edita el dialecte</translation>
     </message>
     <message>
       <source>Edit language</source>
-      <translation type="unfinished"/>
+      <translation>Editar l&apos;idioma</translation>
     </message>
     <message>
       <source>Language</source>
-      <translation>Γλώσσα</translation>
+      <translation>Idioma</translation>
     </message>
     <message>
       <source>Dialect name</source>
-      <translation type="unfinished"/>
+      <translation>Nom del dialecte</translation>
     </message>
     <message>
       <source>Language code</source>
-      <translation type="unfinished"/>
+      <translation>Codi d&apos;idioma</translation>
     </message>
     <message>
       <source>Short code</source>
-      <translation type="unfinished"/>
+      <translation>Codi curt</translation>
     </message>
     <message>
       <source>Languages</source>
-      <translation type="unfinished"/>
+      <translation>Idiomes</translation>
     </message>
     <message>
       <source>New language</source>
-      <translation type="unfinished"/>
+      <translation>Nou idioma</translation>
     </message>
     <message>
       <source>Choose speech recognition language for this chat</source>
-      <translation>Επιλέξτε γλώσσα αναγνώρισης ομιλίας για το chat</translation>
+      <translation>Trieu l&apos;idioma del reconeixement de veu per a aquest xat</translation>
     </message>
     <message>
       <source>Default speech recognition language</source>
-      <translation>Προεπιλεγμένη γλώσσα αναγνώρισης ομιλίας</translation>
+      <translation>Idioma del reconeixement de veu per defecte</translation>
     </message>
   </context>
   <context>
     <name>speech/speech</name>
     <message>
       <source>Use application default recognition language</source>
-      <translation>Χρησιμοποιήστε την εφαρμογή προεπιλεγμένη γλώσσα αναγνώρισης</translation>
+      <translation>Utilitza l&apos;idioma del reconeixement de veu per defecte de l&apos;aplicació</translation>
     </message>
     <message>
       <source>Use application default recognition dialect</source>
-      <translation>Χρησιμοποιήστε την προεπιλεγμένη εφαρμογή αναγνώρισης διάλεκτο</translation>
+      <translation>Utilitza el reconeixement de dialecte per defecte de l&apos;aplicació</translation>
     </message>
   </context>
   <context>
     <name>survey/choosesurvey</name>
     <message>
       <source>Survey</source>
-      <translation type="unfinished"/>
+      <translation>Enquesta</translation>
     </message>
     <message>
       <source>Collected information</source>
-      <translation type="unfinished"/>
+      <translation>Informació recopilada</translation>
     </message>
     <message>
       <source>Visitor was redirected to survey, you can now close this window.</source>
-      <translation type="unfinished"/>
+      <translation>El visitant ha estat redirigit a l&apos;enquesta, ara ja podeu tancar aquesta finestra.</translation>
     </message>
   </context>
   <context>
     <name>survey/collected</name>
     <message>
       <source>List</source>
-      <translation type="unfinished"/>
+      <translation>Llista</translation>
     </message>
     <message>
       <source>Chart</source>
-      <translation type="unfinished"/>
+      <translation>Gràfica</translation>
     </message>
     <message>
       <source>Great chats with average of</source>
-      <translation type="unfinished"/>
+      <translation>Xats genials amb una mitjana de</translation>
     </message>
     <message>
       <source>Not so great chats</source>
-      <translation type="unfinished"/>
+      <translation>Xats no tant genials...</translation>
     </message>
     <message>
       <source>Average</source>
-      <translation type="unfinished"/>
+      <translation>Mitjana</translation>
     </message>
     <message>
       <source>Stars</source>
-      <translation>Αστέρια</translation>
+      <translation>Estrelles</translation>
     </message>
     <message>
       <source>Percentages</source>
-      <translation type="unfinished"/>
+      <translation>Percentatges</translation>
     </message>
     <message>
       <source>Chats</source>
-      <translation>Συνομιλίες</translation>
+      <translation>Xats</translation>
     </message>
     <message>
       <source>Chat</source>
-      <translation>Chat</translation>
+      <translation>Xat</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation>Τμήμα</translation>
+      <translation>Departament</translation>
     </message>
     <message>
       <source>Operator</source>
-      <translation>Τελεστής</translation>
+      <translation>Agent</translation>
     </message>
     <message>
       <source>Time</source>
-      <translation>Χρόνος</translation>
+      <translation>Hora</translation>
     </message>
     <message>
       <source>View information</source>
-      <translation>Προβολή πληροφοριών</translation>
+      <translation>Mostra informació</translation>
     </message>
     <message>
       <source>Collected information</source>
-      <translation>Οι πληροφορίες που συλλέγονται</translation>
+      <translation>Informació recopilada</translation>
     </message>
     <message>
       <source>Survey</source>
-      <translation type="unfinished"/>
+      <translation>Enquesta</translation>
     </message>
     <message>
       <source>Department name</source>
-      <translation>Το πεδίο ονόματος τμήματος</translation>
+      <translation>Nom de departament</translation>
     </message>
     <message>
       <source>Survey ID</source>
-      <translation type="unfinished"/>
+      <translation>Codi d&apos;enquesta</translation>
     </message>
   </context>
   <context>
     <name>survey/fill</name>
     <message>
       <source>Preview chat</source>
-      <translation>Προεπισκόπηση συνομιλίας</translation>
+      <translation>Vista prèvia del xat</translation>
     </message>
     <message>
       <source>star</source>
-      <translation>αστέρι</translation>
+      <translation>estrella</translation>
     </message>
     <message>
       <source>Poor</source>
-      <translation>Κακή</translation>
+      <translation>Pobre</translation>
     </message>
     <message>
       <source>stars</source>
-      <translation>αστέρια</translation>
+      <translation>estrelles</translation>
     </message>
     <message>
       <source>Excellent</source>
-      <translation>Εξαιρετική</translation>
+      <translation>Excel·lent</translation>
     </message>
     <message>
       <source>Thank you for your feedback...</source>
-      <translation>Σας ευχαριστώ για τα σχόλιά σας...</translation>
+      <translation>Gràcies pels vostres comentaris...</translation>
     </message>
     <message>
       <source>Please complete this short evaluation survey</source>
-      <translation>Παρακαλείσθε να συμπληρώσετε αυτήν την σύντομη εκτίμηση έρευνα</translation>
+      <translation>Responeu aquesta breu enquesta de satisfacció</translation>
     </message>
   </context>
   <context>
     <name>users/autologin</name>
     <message>
       <source>Auto login settings</source>
-      <translation>Ρυθμίσεις αυτόματης σύνδεσης</translation>
+      <translation>Configuració d&apos;auto-inici de sessió</translation>
     </message>
     <message>
       <source>Custom auto logins</source>
-      <translation type="unfinished"/>
+      <translation>Auto-inicis de sessió personalitzades</translation>
     </message>
     <message>
       <source>This module can be used if you are generating autologin link. See site for code examples</source>
-      <translation>Αυτή η ενότητα μπορεί να χρησιμοποιηθεί εάν δημιουργείτε αυτόματη σύνδεση σύνδεση. Ανατρέξτε στην τοποθεσία για παραδείγματα κώδικα</translation>
+      <translation>Aquest mòdul es pot utilitzar si esteu generant un enllaç d&apos;auto-inici de sessió. Vegeu el nostre web per obtenir exemples de codi.</translation>
     </message>
     <message>
       <source>Enabled</source>
-      <translation>Ενεργοποιημένη</translation>
+      <translation>Habilitat</translation>
     </message>
     <message>
       <source>Secret hash used for authentification token generation, min 10 characters</source>
-      <translation>Μυστικό hash που χρησιμοποιούνται για πιστοποίησης γνησιότητας διακριτικού γενιά, min 10 χαρακτήρες</translation>
+      <translation>Hash secret per a la generació de tokens d&apos;autenticació, mín. 10 caràcters</translation>
     </message>
     <message>
       <source>User ID</source>
-      <translation type="unfinished"/>
+      <translation>ID d&apos;usuari</translation>
     </message>
     <message>
       <source>SiteAccess</source>
-      <translation type="unfinished"/>
+      <translation>SiteAccess</translation>
     </message>
     <message>
       <source>Default URL</source>
-      <translation type="unfinished"/>
+      <translation>URL per defecte</translation>
     </message>
     <message>
       <source>Secret hash</source>
-      <translation type="unfinished"/>
+      <translation>Hash secret</translation>
     </message>
     <message>
       <source>IP Allowed</source>
-      <translation type="unfinished"/>
+      <translation>IP permesa</translation>
     </message>
     <message>
       <source>Copied!</source>
-      <translation type="unfinished"/>
+      <translation>Copiada!</translation>
     </message>
     <message>
       <source>Copy URL to clipboard</source>
-      <translation type="unfinished"/>
+      <translation>Copia l&apos;URL al portapapers</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Ρυθμίσεις ενημέρωση</translation>
+      <translation>Configuració actualitzada</translation>
     </message>
     <message>
       <source>Autologin hash has expired</source>
-      <translation>AutoLogin hash έχει λήξει</translation>
+      <translation>El hash d&apos;auto-inici de sessió ha caducat</translation>
     </message>
     <message>
       <source>Could not find a user</source>
-      <translation>Δεν μπόρεσα να βρω ένα χρήστη</translation>
+      <translation>No s&apos;ha pogut trobar cap usuari</translation>
     </message>
     <message>
       <source>Could not find a provided user</source>
-      <translation>Δεν μπόρεσα να βρω ένα χρήστη</translation>
+      <translation>No s&apos;ha pogut trobar l&apos;usuari proporcionat</translation>
     </message>
     <message>
       <source>Invalid autologin hash</source>
-      <translation>Μη έγκυρη autologin κατακερματισμού</translation>
+      <translation>Hash d&apos;auto-inici de sessió invàlid</translation>
     </message>
     <message>
       <source>Auto login module is not enabled</source>
-      <translation>Δεν είναι ενεργοποιημένη η αυτόματη σύνδεση ενότητα</translation>
+      <translation>El mòdul d&apos;inici de sessió automàtic no està habilitat</translation>
     </message>
   </context>
   <context>
     <name>system/languages</name>
     <message>
       <source>Languages configuration</source>
-      <translation>Διαμόρφωση πολυγλωσσικότητας</translation>
+      <translation>Configuració d&apos;idiomes</translation>
     </message>
     <message>
       <source>Your language</source>
-      <translation>Γλώσσα σας</translation>
+      <translation>El vostre idioma</translation>
     </message>
     <message>
       <source>General language settings</source>
-      <translation>Γενικές γλωσσικές ρυθμίσεις</translation>
+      <translation>Configuració general d&apos;idiomes</translation>
     </message>
     <message>
       <source>Language</source>
-      <translation>Γλώσσα</translation>
+      <translation>Idioma</translation>
     </message>
     <message>
       <source>Current site access</source>
-      <translation>Πρόσβαση στην τρέχουσα ιστοσελίδα</translation>
+      <translation>Accés a aquest web</translation>
     </message>
     <message>
       <source>Site access</source>
-      <translation>Πρόσβαση στην ιστοσελίδα</translation>
+      <translation>Accés al web</translation>
     </message>
     <message>
       <source>options for</source>
-      <translation>επιλογές για</translation>
+      <translation>opcions per a</translation>
     </message>
     <message>
       <source>Theme, separate themes by new line</source>
-      <translation>Θέμα, ξεχωριστά θέματα από νέα γραμμή</translation>
+      <translation>Tema. Separeu temes amb salts de línia</translation>
     </message>
     <message>
       <source>Default module</source>
-      <translation>Προεπιλεγμένη ενότητα</translation>
+      <translation>Mòdul per defecte</translation>
     </message>
     <message>
       <source>Default view</source>
-      <translation>Προεπιλεγμένη προβολή</translation>
+      <translation>Vista per defecte</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Οι ρυθμίσεις ενημερώθηκαν</translation>
+      <translation>Ajustos actualitzats</translation>
     </message>
     <message>
       <source>Please choose correct language</source>
-      <translation>Παρακαλώ επιλέξτε την σωστή γλώσσα</translation>
+      <translation>Seleccioneu l&apos;idioma correcte</translation>
     </message>
     <message>
       <source>Please enter theme</source>
-      <translation>Παρακαλούμε εισάγετε το θέμα</translation>
+      <translation>Introduïu un tema</translation>
     </message>
     <message>
       <source>Please enter module name</source>
-      <translation>Παρακαλούμε εισάγετε το όνομα της λειτουργικής μονάδας</translation>
+      <translation>Introduïu el nom d&apos;un mòdul</translation>
     </message>
     <message>
       <source>Please enter view name</source>
-      <translation>Παρακαλούμε εισάγετε το όνομα προβολής</translation>
+      <translation>Introduïu el nom d&apos;una vista</translation>
     </message>
   </context>
   <context>
     <name>system/smtp</name>
     <message>
       <source>Settings updated</source>
-      <translation>Οι ρυθμίσεις ενημερώθηκαν</translation>
+      <translation>Ajustos actualitzats</translation>
     </message>
     <message>
       <source>Mail settings</source>
-      <translation>Ρυθμίσεις αλληλογραφίας</translation>
+      <translation>Configuració del correu</translation>
     </message>
     <message>
       <source>Sender address</source>
-      <translation>Διεύθυνση αποστολέα</translation>
+      <translation>Adreça del remitent</translation>
     </message>
     <message>
       <source>Default from e-mail address</source>
-      <translation>Προεπιλογή από τη διεύθυνση ηλεκτρονικού ταχυδρομείου</translation>
+      <translation>Adreça de e-mail per defecte del remitent</translation>
     </message>
     <message>
       <source>Default from name</source>
-      <translation>Προεπιλογή από όνομα</translation>
+      <translation>Nom per defecte del remitent</translation>
     </message>
     <message>
       <source>SMTP enabled</source>
-      <translation>Ενεργό SMTP</translation>
+      <translation>SMTP habilitat</translation>
     </message>
     <message>
       <source>Login</source>
-      <translation>Σύνδεση</translation>
+      <translation>Inici de sessió</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation>Κωδικός πρόσβασης</translation>
+      <translation>Contrasenya</translation>
     </message>
     <message>
       <source>Host</source>
-      <translation>Host</translation>
+      <translation>Servidor</translation>
     </message>
     <message>
       <source>Port</source>
-      <translation>Λιμάνι</translation>
+      <translation>Port</translation>
     </message>
     <message>
       <source>Transfer configuration</source>
-      <translation type="unfinished"/>
+      <translation>Configuració de transferència</translation>
     </message>
   </context>
   <context>
     <name>system/timezone</name>
     <message>
       <source>Do not save offline chats</source>
-      <translation type="unfinished"/>
+      <translation>No desis els xats fora de línia</translation>
     </message>
     <message>
       <source>Automatically change offline chat status to closed</source>
-      <translation type="unfinished"/>
+      <translation>Canvia automàticament l&apos;estat dels xats de &quot;fora de línia&quot; a &quot;tancat&quot;</translation>
     </message>
     <message>
       <source>Time zone settings</source>
-      <translation>Οι ρυθμίσεις ζώνης ώρας</translation>
+      <translation>Paràmetres de zona horària</translation>
     </message>
     <message>
       <source>Set application specific time zone</source>
-      <translation>Ορισμός εφαρμογή συγκεκριμένη ζώνη ώρας</translation>
+      <translation>Estableix la zona horària específica de l&apos;aplicació</translation>
     </message>
     <message>
       <source>Date format E.g (Y-m-d)</source>
-      <translation>Ημερομηνία μορφή π.χ. (Y-m-d)</translation>
+      <translation>Format de data. P. ex. Y-m-d</translation>
     </message>
     <message>
       <source>Full date format E.g (Y-m-d H:i:s)</source>
-      <translation>Πλήρη ημερομηνία μορφή π.χ. (Y-m-d-H:i:s)</translation>
+      <translation>Format de data complet. P. ex. Y-m-d H:i:s</translation>
     </message>
     <message>
       <source>Hour format E.g (H:i:s)</source>
-      <translation>Ωρη μορφή π.χ. (H:i:s)</translation>
+      <translation>Format horari. P. ex. H:i:s</translation>
     </message>
     <message>
       <source>Live Helper Chat update</source>
-      <translation>Ζωντανή συνομιλία Helper αναπροσαρμογή</translation>
+      <translation>Actualització de Live Helper Chat</translation>
     </message>
     <message>
       <source>Comparing current database structure, please wait...</source>
-      <translation>Συγκρίνοντας την τρέχουσα δομή της βάσης δεδομένων, παρακαλώ περιμένετε...</translation>
+      <translation>Comparant l&apos;estructura de la base de dades actual, espereu...</translation>
     </message>
     <message>
       <source>Time zone</source>
-      <translation>Ζώνη ώρας</translation>
+      <translation>Zona horària</translation>
     </message>
   </context>
   <context>
     <name>user/edit</name>
     <message>
       <source>Server default time zone</source>
-      <translation>Διακομιστή προεπιλεγμένη ζώνη ώρας</translation>
+      <translation>Zona horària predeterminada del servidor</translation>
     </message>
     <message>
       <source>Edit user</source>
-      <translation>Επεξεργαστείτε το χρήστη</translation>
+      <translation>Edita l&apos;usuari</translation>
     </message>
     <message>
       <source>Do not enter a password unless you want to change it</source>
-      <translation>Μην εισάγετε έναν κωδικό πρόσβασης, αν δεν θέλετε να το αλλάξετε</translation>
+      <translation>No introduïu cap contrasenya si no la voleu canviar</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation>Όνομα χρήστη</translation>
+      <translation>Usuari</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation>Κωδικός πρόσβασης</translation>
+      <translation>Contrasenya</translation>
     </message>
     <message>
       <source>Repeat the new password</source>
-      <translation>Επαναλάβετε τον νέο κωδικό πρόσβασης</translation>
+      <translation>Repetiu la nova contrasenya</translation>
     </message>
     <message>
       <source>E-mail</source>
@@ -8119,133 +8120,133 @@
     </message>
     <message>
       <source>Chat nickname</source>
-      <translation>Ψευδώνυμο συνομιλίας</translation>
+      <translation>Àlies per al xat</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Όνομα</translation>
+      <translation>Nom</translation>
     </message>
     <message>
       <source>Surname</source>
-      <translation>Επώνυμο</translation>
+      <translation>Cognoms</translation>
     </message>
     <message>
       <source>Photo</source>
-      <translation>Φωτογραφία</translation>
+      <translation>Foto</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Αποθήκευση</translation>
+      <translation>Desa</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Ενημέρωση</translation>
+      <translation>Actualitza</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Ακύρωση</translation>
+      <translation>Cancel·la</translation>
     </message>
     <message>
       <source>Assigned departments</source>
-      <translation>Εκχωρημένα τμήματα</translation>
+      <translation>Departaments assignats</translation>
     </message>
     <message>
       <source>User time zone</source>
-      <translation>Ζώνη ώρας του χρήστη</translation>
+      <translation>Zona horària de l&apos;usuari</translation>
     </message>
     <message>
       <source>Application default time zone</source>
-      <translation>Εφαρμογή προεπιλεγμένη ζώνη ώρας</translation>
+      <translation>Zona horària predeterminada de l&apos;aplicació</translation>
     </message>
     <message>
       <source>Wrong email address</source>
-      <translation>Λάθος διεύθυνση ηλεκτρονικού ταχυδρομείου</translation>
+      <translation>Adreça d&apos;e-mail incorrecta</translation>
     </message>
     <message>
       <source>Invalid CSRF token!</source>
-      <translation>Διακριτικό δεν είναι έγκυρο: CSRF!</translation>
+      <translation>Token CSRF incorrecte</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Παραμετροποίηση συστήματος</translation>
+      <translation>Configuració del sistema</translation>
     </message>
     <message>
       <source>Users</source>
-      <translation>Χρήστες</translation>
+      <translation>Usuaris</translation>
     </message>
     <message>
       <source>User edit</source>
-      <translation>Επεξεργασία χρήστη</translation>
+      <translation>Edició d&apos;usuari</translation>
     </message>
   </context>
   <context>
     <name>system/transferconfiguration</name>
     <message>
       <source>Transfer configuration</source>
-      <translation type="unfinished"/>
+      <translation>Configuració de transferència</translation>
     </message>
     <message>
       <source>Options for chat transfer to department</source>
-      <translation type="unfinished"/>
+      <translation>Opcions de transferència de xats entre departaments</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>Configuracions actualitzades</translation>
     </message>
   </context>
   <context>
     <name>user/new</name>
     <message>
       <source>Do not show user status as online</source>
-      <translation>Δεν δείχνουν κατάστασης χρήστη ως σε απευθείας σύνδεση</translation>
+      <translation>No mostris l&apos;estat de l&apos;usuari en línia</translation>
     </message>
     <message>
       <source>Change chat department to transferred department on chat transfer</source>
-      <translation type="unfinished"/>
+      <translation>Canvia el departament del xat al departament transferit en transferir un xat</translation>
     </message>
     <message>
       <source>Make chat status pending on transfer to department</source>
-      <translation type="unfinished"/>
+      <translation>Fes que l&apos;estat del xat esdevingui pendent en transferir-lo de departament</translation>
     </message>
     <message>
       <source>Make chat unassigned. Assigned operator will be unassigned</source>
-      <translation type="unfinished"/>
+      <translation>Desassigna xat. L&apos;agent prèviament assignat serà desassignat.</translation>
     </message>
     <message>
       <source>I receive other operators permissions request</source>
-      <translation>Λάβω άλλη αίτηση δικαιώματα φορέων</translation>
+      <translation>Rebo sol·licituds de permisos d&apos;altres agents</translation>
     </message>
     <message>
       <source>Offline</source>
-      <translation type="unfinished"/>
+      <translation>Fora de línia</translation>
     </message>
     <message>
       <source>Invisible mode</source>
-      <translation>Invisible μοντέλο</translation>
+      <translation>Mode invisible</translation>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
-      <translation>Χρήστης λαμβάνει άλλη αίτηση δικαιώματα φορέων</translation>
+      <translation>L&apos;usuari rep peticions de permisos d&apos;altres agents</translation>
     </message>
     <message>
       <source>User group</source>
-      <translation>Ομάδα χρήστη</translation>
+      <translation>Grup d&apos;usuaris</translation>
     </message>
     <message>
       <source>Disabled</source>
-      <translation>Απενεργοποιημένο</translation>
+      <translation>Inhabilitat</translation>
     </message>
     <message>
       <source>User department</source>
-      <translation type="unfinished"/>
+      <translation>Departament de l&apos;usuari</translation>
     </message>
     <message>
       <source>New user</source>
-      <translation>Νέος χρήστης</translation>
+      <translation>Nou usuari</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation>Όνομα χρήστη</translation>
+      <translation>Nom d&apos;usuari</translation>
     </message>
     <message>
       <source>E-mail</source>
@@ -8253,104 +8254,104 @@
     </message>
     <message>
       <source>Password</source>
-      <translation>Κωδικός πρόσβασης</translation>
+      <translation>Contrasenya</translation>
     </message>
     <message>
       <source>Repeat the new password</source>
-      <translation>Επαναλάβετε τον νέο κωδικό πρόσβασης</translation>
+      <translation>Repetiu la nova contrasenya</translation>
     </message>
     <message>
       <source>Chat nickname</source>
-      <translation>Ψευδώνυμο συνομιλίας</translation>
+      <translation>Àlies de xat</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Όνομα</translation>
+      <translation>Nom</translation>
     </message>
     <message>
       <source>Surname</source>
-      <translation>Επώνυμο</translation>
+      <translation>Cognom</translation>
     </message>
     <message>
       <source>Photo</source>
-      <translation>Φωτογραφία</translation>
+      <translation>Foto</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Αποθήκευση</translation>
+      <translation>Desa</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Παραμετροποίηση συστήματος</translation>
+      <translation>Configuració del sistema</translation>
     </message>
     <message>
       <source>Users</source>
-      <translation>Χρήστες</translation>
+      <translation>Usuaris</translation>
     </message>
     <message>
       <source>Please enter a group name</source>
-      <translation>Πληκτρολογήστε ένα όνομα ομάδας</translation>
+      <translation>Introduïu un nom per al grup</translation>
     </message>
   </context>
   <context>
     <name>system/update</name>
     <message>
       <source>Your version</source>
-      <translation>Σας έκδοση</translation>
+      <translation>La vostra versió</translation>
     </message>
     <message>
       <source>Current version</source>
-      <translation>Τρέχουσα έκδοση</translation>
+      <translation>Versió actual</translation>
     </message>
     <message>
       <source>News</source>
-      <translation>Ειδήσεις</translation>
+      <translation>Notícies</translation>
     </message>
     <message>
       <source>Update instructions</source>
-      <translation>Ενημέρωση οδηγίες</translation>
+      <translation>Instruccions d&apos;actualització</translation>
     </message>
     <message>
       <source>Live Helper Chat update information</source>
-      <translation>Live Helper Chat ενημέρωση πληροφοριών</translation>
+      <translation>Informació d&apos;actualització de Live Helper Chat</translation>
     </message>
   </context>
   <context>
     <name>update/statusdb</name>
     <message>
       <source>Database structure check</source>
-      <translation>Βάση δεδομένων δομή ελέγχου</translation>
+      <translation>Comprovació d&apos;estructura de base de dades</translation>
     </message>
     <message>
       <source>Your database does not require any updates</source>
-      <translation>Βάση δεδομένων σας δεν απαιτεί οποιεσδήποτε αναπροσαρμογές</translation>
+      <translation>La vostra base de dades no requereix cap canvi</translation>
     </message>
     <message>
       <source>Update database</source>
-      <translation>Ενημέρωση της βάσης δεδομένων</translation>
+      <translation>Actualitza la base de dades</translation>
     </message>
     <message>
       <source>Queries which will be executed on update</source>
-      <translation>Ερωτήματα που θα εκτελεστεί στην ενημέρωση</translation>
+      <translation>Consultes que s&apos;executaran en l&apos;actualització</translation>
     </message>
   </context>
   <context>
     <name>icclicktocallform/form</name>
     <message>
       <source>Settings</source>
-      <translation>Ρυθμίσεις</translation>
+      <translation>Configuracions</translation>
     </message>
     <message>
       <source>Header settings</source>
-      <translation>Κεφαλίδα ρυθμίσεις</translation>
+      <translation>Configuració de la capçalera</translation>
     </message>
     <message>
       <source>Header css</source>
-      <translation>Κεφαλίδα css</translation>
+      <translation>CSS de la capçalera</translation>
     </message>
     <message>
       <source>Static content</source>
-      <translation>Στατικό περιεχόμενο</translation>
+      <translation>Contingut estàtic</translation>
     </message>
     <message>
       <source>JS</source>
@@ -8362,181 +8363,181 @@
     </message>
     <message>
       <source>Name</source>
-      <translation>Όνομα</translation>
+      <translation>Nom</translation>
     </message>
     <message>
       <source>Header content</source>
-      <translation>Κεφαλίδα περιεχομένου</translation>
+      <translation>Contingut de la capçalera</translation>
     </message>
     <message>
       <source>Resource name for replacement</source>
-      <translation>Όνομα πόρου για αντικατάσταση</translation>
+      <translation>Nom del recurs a substituir</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Άδειο...</translation>
+      <translation>En blanc...</translation>
     </message>
     <message>
       <source>Invalid CSRF token!</source>
-      <translation>Μη έγκυρο διακριτικό CSRF!</translation>
+      <translation>Token CSRF invàlid!</translation>
     </message>
     <message>
       <source>Please enter a name</source>
-      <translation>Παρακαλούμε εισάγετε όνομα</translation>
+      <translation>Introduïu un nom</translation>
     </message>
     <message>
       <source>File not chosen for</source>
-      <translation>Δεν επιλεγεί για το αρχείο</translation>
+      <translation>Fitxer no seleccionat per a</translation>
     </message>
   </context>
   <context>
     <name>lhtheme/admin</name>
     <message>
       <source>New admin theme</source>
-      <translation>Νέο θέμα admin</translation>
+      <translation>Nou tema d&apos;administració</translation>
     </message>
     <message>
       <source>Admin themes</source>
-      <translation>Admin θέματα</translation>
+      <translation>Temes d&apos;administració</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Όνομα</translation>
+      <translation>Nom</translation>
     </message>
     <message>
       <source>Default admin theme</source>
-      <translation>Θέμα το admin προεπιλογή</translation>
+      <translation>Tema d&apos;administració predeterminat</translation>
     </message>
     <message>
       <source>Edit admin theme</source>
-      <translation>Επεξεργασία θέμα admin</translation>
+      <translation>Edita el tema d&apos;administració</translation>
     </message>
   </context>
   <context>
     <name>admintheme/form</name>
     <message>
       <source>Edit theme</source>
-      <translation>Επεξεργασία θέμα</translation>
+      <translation>Edita el tema</translation>
     </message>
     <message>
       <source>Updated</source>
-      <translation>Ενημέρωση</translation>
+      <translation>Actualitza</translation>
     </message>
   </context>
   <context>
     <name>theme/default</name>
     <message>
       <source>Set as default theme</source>
-      <translation>Ορισμός θέματος ως προεπιλεγμένου</translation>
+      <translation>Estableix com a tema predeterminat</translation>
     </message>
   </context>
   <context>
     <name>theme/import</name>
     <message>
       <source>Default theme was set</source>
-      <translation>Προεπιλεγμένο θέμα ορίστηκε</translation>
+      <translation>S&apos;ha configurat el tema predeterminat</translation>
     </message>
     <message>
       <source>Default admin theme was set</source>
-      <translation>Θέμα το admin προεπιλογή ορίστηκε</translation>
+      <translation>S&apos;ha configurat el tema d&apos;administració predeterminat </translation>
     </message>
     <message>
       <source>Import theme</source>
-      <translation>Θέμα εισαγωγής</translation>
+      <translation>Importa tema</translation>
     </message>
     <message>
       <source>File</source>
-      <translation>Αρχείο</translation>
+      <translation>Fitxer</translation>
     </message>
     <message>
       <source>Import</source>
-      <translation>Εισαγωγή</translation>
+      <translation>Importa</translation>
     </message>
     <message>
       <source>Theme imported</source>
-      <translation>Θέμα που εισάγονται</translation>
+      <translation>Tema importat</translation>
     </message>
     <message>
       <source>Could not import a new theme!</source>
-      <translation>Δεν θα μπορούσαν να εισαγάγουν ένα νέο θέμα!</translation>
+      <translation>No s&apos;ha pogut importar el tema nou.</translation>
     </message>
     <message>
       <source>Invalid file!</source>
-      <translation>Αρχείο δεν είναι έγκυρο!</translation>
+      <translation>El fitxer no és vàlid!</translation>
     </message>
   </context>
   <context>
     <name>user/editgroup</name>
     <message>
       <source>Group edit</source>
-      <translation>Ομάδα επεξεργασία</translation>
+      <translation>Edita el grup</translation>
     </message>
     <message>
       <source>Title</source>
-      <translation>Τίτλος</translation>
+      <translation>Títol</translation>
     </message>
     <message>
       <source>Member of this group can work with the following groups</source>
-      <translation type="unfinished"/>
+      <translation>Els membres d&apos;aquest grup poden treballar amb els següents grups</translation>
     </message>
     <message>
       <source>Disabled</source>
-      <translation>Άτομα με ειδικές ανάγκες</translation>
+      <translation>Inhabilitat</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Ενημέρωση</translation>
+      <translation>Actualitza</translation>
     </message>
     <message>
       <source>Assigned users</source>
-      <translation>Εκχωρημένη χρήστες</translation>
+      <translation>Usuaris assignats</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation>Όνομα χρήστη</translation>
+      <translation>Nom d&apos;usuari</translation>
     </message>
     <message>
       <source>Remove user from the group</source>
-      <translation>Κατάργηση χρήστη από την ομάδα</translation>
+      <translation>Elimina l&apos;usuari del grup</translation>
     </message>
     <message>
       <source>Assign user</source>
-      <translation>Αντιστοίχιση χρήστη</translation>
+      <translation>Assigna un usuari</translation>
     </message>
     <message>
       <source>Assigned roles</source>
-      <translation>Ρόλων που έχουν</translation>
+      <translation>Rols assignats</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Όνομα</translation>
+      <translation>Nom</translation>
     </message>
     <message>
       <source>Remove role from group</source>
-      <translation>Αφαιρέσετε ρόλο από ομάδα</translation>
+      <translation>Suprimeix el rol del grup</translation>
     </message>
     <message>
       <source>Assign role</source>
-      <translation>Αντιστοιχίσετε ρόλο</translation>
+      <translation>Assigna rol</translation>
     </message>
     <message>
       <source>Please enter a group name</source>
-      <translation>Πληκτρολογήστε ένα όνομα ομάδας</translation>
+      <translation>Introduïu un nom de grup</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Διαμόρφωση του συστήματος</translation>
+      <translation>Configuració del sistema</translation>
     </message>
     <message>
       <source>Groups</source>
-      <translation>Ομάδες</translation>
+      <translation>Grups</translation>
     </message>
   </context>
   <context>
     <name>user/forgotpassword</name>
     <message>
       <source>Password reminder</source>
-      <translation>Υπενθύμιση κωδικού πρόσβασης</translation>
+      <translation>Recordatori de contrasenya</translation>
     </message>
     <message>
       <source>E-mail</source>
@@ -8544,37 +8545,37 @@
     </message>
     <message>
       <source>Restore password</source>
-      <translation>Επαναφορά κωδικού πρόσβασης</translation>
+      <translation>Restaura contrasenya</translation>
     </message>
     <message>
       <source>Invalid e-mail address!</source>
-      <translation>Μη αποδεκτή διεύθυνση ηλεκτρονικού ταχυδρομείου</translation>
+      <translation>Adreça d&apos;e-mail invàlida!</translation>
     </message>
     <message>
       <source>Password remind</source>
-      <translation>ΥΠΕΝΘΥΜΙΣΗ ΚΩΔΙΚΟΥ ΠΡΟΣΒΑΣΗΣ</translation>
+      <translation>Recupera la contrasenya</translation>
     </message>
     <message>
       <source>Click this link and You will be sent a new password</source>
-      <translation>Κάντε κλικ αυτό το σύνδεσμο και θα σας σταλεί ένα νέο κωδικό πρόσβασης</translation>
+      <translation>Feu clic en aquest enllaç i rebreu una nova contrasenya</translation>
     </message>
   </context>
   <context>
     <name>user/forgotpasswordsent</name>
     <message>
       <source>Password reminder</source>
-      <translation>Υπενθίμηση κωδικού πρόσβασης</translation>
+      <translation>Recuperació de contrasenya</translation>
     </message>
     <message>
       <source>E-mail sent. Click the link in the email and You will be sent out a new password.</source>
-      <translation>E-mail που αποστέλλονται. Κάντε κλικ στη σύνδεση στο ηλεκτρονικό ταχυδρομείο και θα σας σταλεί έξω ένα νέο κωδικό πρόσβασης.</translation>
+      <translation>E-mail enviat. Feu clic a l&apos;enllaç del correu electrònic i rebreu una nova contrasenya.</translation>
     </message>
   </context>
   <context>
     <name>user/groupassignuser</name>
     <message>
       <source>Username</source>
-      <translation>Όνομα χρήστη</translation>
+      <translation>Usuari</translation>
     </message>
     <message>
       <source>E-mail</source>
@@ -8582,395 +8583,395 @@
     </message>
     <message>
       <source>Name</source>
-      <translation>Όνομα</translation>
+      <translation>Nom</translation>
     </message>
     <message>
       <source>Surname</source>
-      <translation>Επώνυμο</translation>
+      <translation>Cognom</translation>
     </message>
     <message>
       <source>Assign</source>
-      <translation>Εκχώρηση</translation>
+      <translation>Assigna</translation>
     </message>
     <message>
       <source>User was assigned to the group!</source>
-      <translation>Ο χρήστης εκχωρήθηκε στην ομάδα!</translation>
+      <translation>S&apos;ha assignat l&apos;usuari al grup!</translation>
     </message>
   </context>
   <context>
     <name>user/grouplist</name>
     <message>
       <source>Name</source>
-      <translation>Όνομα</translation>
+      <translation>Nom</translation>
     </message>
     <message>
       <source>Edit group</source>
-      <translation>Επεξεργασία ομάδας</translation>
+      <translation>Editar el grup</translation>
     </message>
     <message>
       <source>Delete group</source>
-      <translation>Διαγραφή ομάδας</translation>
+      <translation>Elimina el grup</translation>
     </message>
     <message>
       <source>New group</source>
-      <translation>Νέα ομάδα</translation>
+      <translation>Nou grup</translation>
     </message>
     <message>
       <source>Groups</source>
-      <translation>Ομάδες</translation>
+      <translation>Grups</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Παραμετροποίηση συστήματος</translation>
+      <translation>Configuració del sistema</translation>
     </message>
   </context>
   <context>
     <name>user/import</name>
     <message>
       <source>Import users</source>
-      <translation type="unfinished"/>
+      <translation>Importa usuaris</translation>
     </message>
     <message>
       <source>CSV Separator</source>
-      <translation type="unfinished"/>
+      <translation>Separador CSV</translation>
     </message>
     <message>
       <source>Skip first row</source>
-      <translation type="unfinished"/>
+      <translation>Omet la primera línia</translation>
     </message>
     <message>
       <source>File</source>
-      <translation type="unfinished"/>
+      <translation>Fitxer</translation>
     </message>
     <message>
       <source>Import only one record to test</source>
-      <translation type="unfinished"/>
+      <translation>Importa només un registre per provar</translation>
     </message>
     <message>
       <source>Enter column number starting from 1</source>
-      <translation type="unfinished"/>
+      <translation>Introduïu el número de columna a partir de l&apos;1</translation>
     </message>
     <message>
       <source>Import</source>
-      <translation type="unfinished"/>
+      <translation>Importació</translation>
     </message>
     <message>
       <source>Updated!</source>
-      <translation type="unfinished"/>
+      <translation>Actualitzat!</translation>
     </message>
     <message>
       <source>Updated</source>
-      <translation type="unfinished"/>
+      <translation>Actualitzat</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation type="unfinished"/>
+      <translation>Nom d&apos;usuari</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation type="unfinished"/>
+      <translation>Contrasenya</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation type="unfinished"/>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>First name</source>
-      <translation type="unfinished"/>
+      <translation>Nom</translation>
     </message>
     <message>
       <source>Last name</source>
-      <translation type="unfinished"/>
+      <translation>Cognom</translation>
     </message>
     <message>
       <source>Nickname</source>
-      <translation type="unfinished"/>
+      <translation>Àlies</translation>
     </message>
     <message>
       <source>Disabled</source>
-      <translation type="unfinished"/>
+      <translation>Inhabilitat</translation>
     </message>
     <message>
       <source>Hide Online</source>
-      <translation type="unfinished"/>
+      <translation>Oculta &quot;en línia&quot;</translation>
     </message>
     <message>
       <source>Can access all departments</source>
-      <translation type="unfinished"/>
+      <translation>Pot accedir a tots els departaments</translation>
     </message>
     <message>
       <source>Skype</source>
-      <translation type="unfinished"/>
+      <translation>Skype</translation>
     </message>
     <message>
       <source>Job title</source>
-      <translation type="unfinished"/>
+      <translation>Posició</translation>
     </message>
     <message>
       <source>Time Zone</source>
-      <translation type="unfinished"/>
+      <translation>Zona horària</translation>
     </message>
     <message>
       <source>Invisible</source>
-      <translation type="unfinished"/>
+      <translation>Invisible</translation>
     </message>
     <message>
       <source>Username field not found!</source>
-      <translation type="unfinished"/>
+      <translation>No s&apos;ha trobat el camp de nom d&apos;usuari!</translation>
     </message>
   </context>
   <context>
     <name>user/login</name>
     <message>
       <source>Please login</source>
-      <translation>Παρακαλούμε συνδεθείτε</translation>
+      <translation>Per favor, inicia la sessió</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation>Όνομα χρήστη</translation>
+      <translation>Nom d&apos;usuari</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation>Κωδικός πρόσβασης</translation>
+      <translation>Contrasenya</translation>
     </message>
     <message>
       <source>Remember me</source>
-      <translation>Να με θυμάσαι</translation>
+      <translation>Recorda&apos;m</translation>
     </message>
     <message>
       <source>Login</source>
-      <translation>Σύνδεση</translation>
+      <translation>Inicia la sessió</translation>
     </message>
     <message>
       <source>Password reminder</source>
-      <translation>Υπενθύμιση κωδικού πρόσβασης</translation>
+      <translation>Recuperació de contrasenya</translation>
     </message>
     <message>
       <source>You session has ended. Please login!</source>
-      <translation type="unfinished"/>
+      <translation>Ha finalitzat la vostra sessió. Inicieu-la de nou!</translation>
     </message>
     <message>
       <source>You were logged out because another user logged under same account</source>
-      <translation>Αποσυνδεθήκατε επειδή κάποιος άλλος χρήστης συνδεδεμένος στο ίδιο λογαριασμό</translation>
+      <translation>S&apos;ha tancat la vostra sessió perquè un altre usuari ha iniciat sessió amb el mateix compte</translation>
     </message>
     <message>
       <source>CSFR token is invalid, try to resubmit form</source>
-      <translation>Το διακριτικό CSFR είναι έγκυρη, προσπαθήστε να υποβάλετε ξανά την φόρμα</translation>
+      <translation>El token CSFR no és vàlid, intenteu tornar a enviar el formulari</translation>
     </message>
     <message>
       <source>Incorrect username or password</source>
-      <translation>Εσφαλμένο όνομα χρήστη ή κωδικού πρόσβασης</translation>
+      <translation>Nom d&apos;usuari o contrasenya incorrectes</translation>
     </message>
     <message>
       <source>Logged in successfully</source>
-      <translation>Συνδεθεί με επιτυχία</translation>
+      <translation>S&apos;ha iniciat la sessió amb èxit</translation>
     </message>
   </context>
   <context>
     <name>user/newgroup</name>
     <message>
       <source>New group</source>
-      <translation>Νέα ομάδα</translation>
+      <translation>Nou grup</translation>
     </message>
     <message>
       <source>Title</source>
-      <translation>Τίτλος</translation>
+      <translation>Títol</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Αποθήκευση</translation>
+      <translation>Desa</translation>
     </message>
     <message>
       <source>Save and assign the user</source>
-      <translation>Αποθήκευση και εκχώρηση του χρήστη</translation>
+      <translation>Desa i assigna l&apos;usuari</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Παραμετροποίηση συστήματος</translation>
+      <translation>Configuració del sistema</translation>
     </message>
     <message>
       <source>Groups</source>
-      <translation>Ομάδες</translation>
+      <translation>Grups</translation>
     </message>
   </context>
   <context>
     <name>user/remindpassword</name>
     <message>
       <source>New password</source>
-      <translation>Νέο κωδικό πρόσβασης</translation>
+      <translation>Nova contrasenya</translation>
     </message>
     <message>
       <source>Hash was not found or was used already</source>
-      <translation>Hash δεν βρέθηκε ή χρησιμοποιήθηκε ήδη</translation>
+      <translation>El hash no s&apos;ha trobat o ja s&apos;havia utilitzat</translation>
     </message>
     <message>
       <source>Password remind - new password</source>
-      <translation>ΥΠΕΝΘΥΜΙΣΗ ΚΩΔΙΚΟΥ ΠΡΟΣΒΑΣΗΣ - νέο κωδικό πρόσβασης</translation>
+      <translation>Recuperació de contrasenya - contrasenya nova.</translation>
     </message>
     <message>
       <source>New password:</source>
-      <translation>Νέος κωδικός πρόσβασης:</translation>
+      <translation>Nova contrasenya:</translation>
     </message>
     <message>
       <source>New password has been sent to your email.</source>
-      <translation>Ο νέος κωδικός στάλθηκε στο ηλεκτρονικό σας ταχυδρομείο.</translation>
+      <translation>S&apos;ha enviat una nova contrasenya al vostre e-mail.</translation>
     </message>
   </context>
   <context>
     <name>user/wentinactive</name>
     <message>
       <source>Because of inactivity you went offline, click continue to go online.</source>
-      <translation type="unfinished"/>
+      <translation>A causa de la inactivitat, s&apos;ha tancat la sessió, fes clic a Continua per reiniciar-la.</translation>
     </message>
     <message>
       <source>Continue</source>
-      <translation type="unfinished"/>
+      <translation>Continua</translation>
     </message>
     <message>
       <source>Logout</source>
-      <translation type="unfinished"/>
+      <translation>Tanca la sessió</translation>
     </message>
     <message>
       <source>Offline</source>
-      <translation type="unfinished"/>
+      <translation>Fora de línia</translation>
     </message>
   </context>
   <context>
     <name>lhxml/userinfo</name>
     <message>
       <source>ID</source>
-      <translation>ID</translation>
+      <translation>Identificador</translation>
     </message>
     <message>
       <source>IP address</source>
-      <translation>Διεύθυνση IP</translation>
+      <translation>Adreça IP</translation>
     </message>
     <message>
       <source>Current page</source>
-      <translation>Τρέχουσα σελίδα</translation>
+      <translation>Pàgina actual</translation>
     </message>
     <message>
       <source>Last visit</source>
-      <translation>Τελευταία επίσκεψη</translation>
+      <translation>Darrera visita</translation>
     </message>
     <message>
       <source>User agent</source>
-      <translation>User αντιπρόσωπος</translation>
+      <translation>Agent d&apos;usuari de navegador</translation>
     </message>
     <message>
       <source>Country code</source>
-      <translation>Κωδικός χώρας</translation>
+      <translation>Codi del país</translation>
     </message>
     <message>
       <source>Country name</source>
-      <translation>Όνομα χώρας</translation>
+      <translation>Nom del país</translation>
     </message>
     <message>
       <source>Message seen</source>
-      <translation>Μήνυμα δει</translation>
+      <translation>Missatge vist</translation>
     </message>
   </context>
   <context>
     <name>abstract/product</name>
     <message>
       <source>Name</source>
-      <translation>Όνομα</translation>
+      <translation>Nom</translation>
     </message>
     <message>
       <source>Priority</source>
-      <translation>Προτεραιότητα</translation>
+      <translation>Prioritat</translation>
     </message>
     <message>
       <source>Product</source>
-      <translation>Προϊόντος</translation>
+      <translation>Producte</translation>
     </message>
     <message>
       <source>API Key</source>
-      <translation>Κλειδί API</translation>
+      <translation>Clau API</translation>
     </message>
   </context>
   <context>
     <name>abstract/survey</name>
     <message>
       <source>Name</source>
-      <translation>Όνομα</translation>
+      <translation>Nom</translation>
     </message>
     <message>
       <source>Feedback text</source>
-      <translation type="unfinished"/>
+      <translation>Text de resposta</translation>
     </message>
     <message>
       <source>Max stars for feedback</source>
-      <translation>Max αστέρια για ανατροφοδότηση</translation>
+      <translation>Màxim d&apos;estrelles per valoració</translation>
     </message>
     <message>
       <source>Max stars pos</source>
-      <translation>Max αστέρια pos</translation>
+      <translation>Estrelles màximes</translation>
     </message>
     <message>
       <source>Title for evaluation</source>
-      <translation>Τίτλος για την αξιολόγηση</translation>
+      <translation>Títol de la valoració</translation>
     </message>
     <message>
       <source>Required</source>
-      <translation>Απαιτείται</translation>
+      <translation>Obligatori</translation>
     </message>
     <message>
       <source>Title for plain question</source>
-      <translation>Τίτλος για απλό ερώτημα</translation>
+      <translation>Títol de pregunta simple</translation>
     </message>
     <message>
       <source>Title for custom questions</source>
-      <translation>Τίτλος για προσαρμοσμένες ερωτήσεις</translation>
+      <translation>Títol de preguntes personalitzades</translation>
     </message>
     <message>
       <source>Survey</source>
-      <translation>Έρευνα</translation>
+      <translation>Enquesta</translation>
     </message>
   </context>
   <context>
     <name>file/file</name>
     <message>
       <source>Download file</source>
-      <translation>Κατεβάστε το αρχείο</translation>
+      <translation>Descarrega el fitxer</translation>
     </message>
     <message>
       <source>Collected survey data</source>
-      <translation type="unfinished"/>
+      <translation>Dades d&apos;enquestes recopilades</translation>
     </message>
   </context>
   <context>
     <name>chat/accepttrasnfer</name>
     <message>
       <source>Chat has been transfered to</source>
-      <translation type="unfinished"/>
+      <translation>S&apos;ha transferit el xat a</translation>
     </message>
     <message>
       <source>has joined the chat!</source>
-      <translation>έχει ενταχθεί στο chat!</translation>
+      <translation>s&apos;ha unit al xat!</translation>
     </message>
     <message>
       <source>has accepted a chat!</source>
-      <translation>δέχθηκε μια συνομιλία!</translation>
+      <translation>El xat s&apos;ha acceptat!</translation>
     </message>
   </context>
   <context>
     <name>chat/chatexport</name>
     <message>
       <source>Department name</source>
-      <translation>Το πεδίο ονόματος τμήματος</translation>
+      <translation>Nom del departament</translation>
     </message>
     <message>
       <source>Pending chats number</source>
-      <translation>Συνομιλίες σε εκκρεμότητα αριθμό</translation>
+      <translation>Nombre de xats pendents</translation>
     </message>
     <message>
       <source>Active chats number</source>
-      <translation>Αριθμός ενεργό συνομιλίες</translation>
+      <translation>Nombre de xats actius</translation>
     </message>
     <message>
       <source>Visitor Name</source>
-      <translation>Όνομα του επισκέπτη</translation>
+      <translation>Nom del visitant</translation>
     </message>
     <message>
       <source>E-mail</source>
@@ -8978,19 +8979,19 @@
     </message>
     <message>
       <source>Phone</source>
-      <translation>Τηλέφωνο</translation>
+      <translation>Telèfon</translation>
     </message>
     <message>
       <source>Wait time</source>
-      <translation>Χρόνος αναμονής</translation>
+      <translation>Temps d&apos;espera</translation>
     </message>
     <message>
       <source>Country</source>
-      <translation>Χώρα</translation>
+      <translation>País</translation>
     </message>
     <message>
       <source>City</source>
-      <translation>Πόλη</translation>
+      <translation>Ciutat</translation>
     </message>
     <message>
       <source>IP</source>
@@ -8998,430 +8999,430 @@
     </message>
     <message>
       <source>Operator</source>
-      <translation>Χειριστή</translation>
+      <translation>Agent</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation>Τμήμα</translation>
+      <translation>Departament</translation>
     </message>
     <message>
       <source>Date</source>
-      <translation>Ημερομηνία</translation>
+      <translation>Data</translation>
     </message>
     <message>
       <source>Minutes</source>
-      <translation>Λεπτά</translation>
+      <translation>Minuts</translation>
     </message>
     <message>
       <source>Vote status</source>
-      <translation>Ψηφοφορίας κατάσταση</translation>
+      <translation>Estat de la valoració</translation>
     </message>
     <message>
       <source>Mail send</source>
-      <translation>Αποστολή αλληλογραφίας</translation>
+      <translation>Correu enviat</translation>
     </message>
     <message>
       <source>Page</source>
-      <translation>Σελίδα</translation>
+      <translation>Pàgina</translation>
     </message>
     <message>
       <source>Came from</source>
-      <translation>Προήλθε από</translation>
+      <translation>Ve des de</translation>
     </message>
     <message>
       <source>Link</source>
-      <translation>Σύνδεση</translation>
+      <translation>Enllaç</translation>
     </message>
     <message>
       <source>Chat content</source>
-      <translation>Περιεχόμενο της συνομιλίας</translation>
+      <translation>Contingut del xat</translation>
     </message>
     <message>
       <source>User ID</source>
-      <translation>Αναγνωριστικό χρήστη</translation>
+      <translation>ID d&apos;usuari</translation>
     </message>
     <message>
       <source>Chat average in seconds</source>
-      <translation>Συνομιλία μέσο σε δευτερόλεπτα</translation>
+      <translation>Temps mitjà del xat en segons</translation>
     </message>
     <message>
       <source>Agent</source>
-      <translation type="unfinished"/>
+      <translation>Agent</translation>
     </message>
     <message>
       <source>Chats</source>
-      <translation type="unfinished"/>
+      <translation>Xats</translation>
     </message>
     <message>
       <source>Total number of chats</source>
-      <translation type="unfinished"/>
+      <translation>Nombre total de xats</translation>
     </message>
     <message>
       <source>Number of chats while online</source>
-      <translation type="unfinished"/>
+      <translation>Nombre de xats en línia</translation>
     </message>
     <message>
       <source>Hours on chat (sum of chat duration)</source>
-      <translation type="unfinished"/>
+      <translation>Hores de xat (suma de la durada dels xats)</translation>
     </message>
     <message>
       <source>Time online (sum of time spend online)</source>
-      <translation type="unfinished"/>
+      <translation>Temps en línia (suma de temps en línia)</translation>
     </message>
     <message>
       <source>AVG number of chat per hour</source>
-      <translation type="unfinished"/>
+      <translation>Mitjana de xats per hora</translation>
     </message>
     <message>
       <source>Average pick-up time</source>
-      <translation type="unfinished"/>
+      <translation>Temps mitjà de resposta</translation>
     </message>
     <message>
       <source>Average chat length</source>
-      <translation type="unfinished"/>
+      <translation>Longitud mitjana del xat</translation>
     </message>
   </context>
   <context>
     <name>chat/closechatadmin</name>
     <message>
       <source>has closed the chat!</source>
-      <translation>έκλεισε το chat!</translation>
+      <translation>ha tancat el xat!</translation>
     </message>
   </context>
   <context>
     <name>departament/edit</name>
     <message>
       <source>Please enter a department name</source>
-      <translation>Πληκτρολογήστε ένα όνομα τμήματος</translation>
+      <translation>Introduïu un nom de departament</translation>
     </message>
     <message>
       <source>Minimum 5 seconds</source>
-      <translation>Ελάχιστο 5 δευτερόλεπτα</translation>
+      <translation>Mínim 5 segons</translation>
     </message>
     <message>
       <source>Transfer department has to be different one than self</source>
-      <translation>Τμήμα μεταφοράς πρέπει να είναι διαφορετική από ό, τι αυτο</translation>
+      <translation>El departament de transferència ha de ser diferent a l&apos;actual</translation>
     </message>
     <message>
       <source>Please enter a valid from date range!</source>
-      <translation>Παρακαλώ εισάγετε μια έγκυρη από εύρος ημερομηνιών!</translation>
+      <translation>Introduïu una data d&apos;inici vàlida</translation>
     </message>
     <message>
       <source>Please enter a valid to date range!</source>
-      <translation>Παρακαλώ εισάγετε μια έγκυρη ημερομηνία φάσμα!</translation>
+      <translation>Introduïu una data de fi vàlida</translation>
     </message>
   </context>
   <context>
     <name>departament/editgroup</name>
     <message>
       <source>Please enter a department group name</source>
-      <translation>Παρακαλώ εισάγετε ένα όνομα ομάδας τμήμα</translation>
+      <translation>Introduïu un nom de grup de departaments</translation>
     </message>
   </context>
   <context>
     <name>user/validator</name>
     <message>
       <source>Please enter a username</source>
-      <translation>Παρακαλώ εισάγετε ένα όνομα χρήστη</translation>
+      <translation>Introduïu un nom d&apos;usuari</translation>
     </message>
     <message>
       <source>User exists</source>
-      <translation>Χρήστης υπάρχει</translation>
+      <translation>L&apos;usuari ja existeix</translation>
     </message>
     <message>
       <source>Passwords mismatch</source>
-      <translation>Ασυμφωνία τους κωδικούς πρόσβασης</translation>
+      <translation>Les contrasenyes no coincideixen</translation>
     </message>
     <message>
       <source>User action type not set</source>
-      <translation>Τύπος ενέργειας του χρήστη δεν έχει οριστεί</translation>
+      <translation>El tipus d&apos;acció d&apos;usuari no està configurat</translation>
     </message>
     <message>
       <source>Wrong email address</source>
-      <translation>Λάθος διεύθυνση ηλεκτρονικού ταχυδρομείου</translation>
+      <translation>E-mail incorrecte</translation>
     </message>
     <message>
       <source>Please enter a name</source>
-      <translation>Παρακαλούμε εισάγετε όνομα</translation>
+      <translation>Introduïu un nom</translation>
     </message>
     <message>
       <source>You are trying to assign group which are not known!</source>
-      <translation type="unfinished"/>
+      <translation>Esteu intentant assignar un grup desconegut.</translation>
     </message>
     <message>
       <source>Please choose a default user group</source>
-      <translation>Παρακαλώ επιλέξτε μια προεπιλεγμένη ομάδα χρηστών</translation>
+      <translation>Seleccioneu un grup d&apos;usuaris predeterminat</translation>
     </message>
   </context>
   <context>
     <name>abstract/browserofferinvitation</name>
     <message>
       <source>Name for personal purposes</source>
-      <translation>Όνομα για προσωπικούς σκοπούς</translation>
+      <translation>Nom per a finalitats personals</translation>
     </message>
     <message>
       <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
-      <translation>Γλώσσα, αφήστε κενό για όλους. Π.χ. φωτισμό, rus, ger κλπ...</translation>
+      <translation>Idioma. Deixeu-ho en blanc per a tots.</translation>
     </message>
     <message>
       <source>Time on site on single page in seconds</source>
-      <translation>Χρόνος στον ιστότοπο σε μεμονωμένη σελίδα σε δευτερόλεπτα</translation>
+      <translation>Temps a la pàgina web en segons</translation>
     </message>
     <message>
       <source>Priority, the lower the higher</source>
-      <translation>Προτεραιότητα, τόσο χαμηλότερο το υψηλότερο</translation>
+      <translation>Índex de prioritat. Com més baix, major prioritat.</translation>
     </message>
     <message>
       <source>Popup width</source>
-      <translation>Υπερεμφανιζόμενο πλάτος</translation>
+      <translation>Ample del pop-up</translation>
     </message>
     <message>
       <source>Popup height</source>
-      <translation>Υπερεμφανιζόμενο ύψος</translation>
+      <translation>Alçada del pop-up</translation>
     </message>
     <message>
       <source>Measure units, px or percents</source>
-      <translation>Μονάδες μέτρησης, px ή percents</translation>
+      <translation>Unitats de mesura, px o percentatges</translation>
     </message>
     <message>
       <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
-      <translation>Referrer τομέα χωρίς το www, π.χ. google λέξη-κλειδί θα συμφωνούν με οποιοδήποτε τομέα google</translation>
+      <translation>Domini d&apos;origen sense www. Ex. una cerca a Google mostrarà el domini de Google </translation>
     </message>
     <message>
       <source>URL, enter * at the end for the wildcard</source>
-      <translation>Διεύθυνση URL, πληκτρολογήστε * στο τέλος για το χαρακτήρα μπαλαντέρ</translation>
+      <translation>URL, introduïu * al final com a comodí</translation>
     </message>
     <message>
       <source>Custom iframe URL, takes priority over default content</source>
-      <translation>Διεύθυνση URL έθιμο iframe, έχει προτεραιότητα πάνω από το προεπιλεγμένο περιεχόμενο</translation>
+      <translation>L&apos;URL de l&apos;iframe personalitzat, té prioritat sobre el contingut predeterminat</translation>
     </message>
     <message>
       <source>Default popup content</source>
-      <translation>Προεπιλογή αναδυόμενο παράθυρο περιεχόμενο</translation>
+      <translation>Contingut predeterminat del pop-up</translation>
     </message>
     <message>
       <source>Callback content, must be valid json</source>
-      <translation>Επανάκλησης περιεχόμενο, πρέπει να είναι έγκυρη json</translation>
+      <translation>Contingut de callback. Ha de ser un JSON vàlid.</translation>
     </message>
     <message>
       <source>Load content in lhc iframe</source>
-      <translation>Περιεχόμενο φορτίο σε lhc iframe</translation>
+      <translation>Carrega el contingut a l&apos;iframe d&apos;LHC</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation>Ενεργό</translation>
+      <translation>Actiu</translation>
     </message>
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
-      <translation>Αναγνωριστικό, για ποιο προσδιοριστικό πρέπει να εμφανιστεί αυτό το μήνυμα, αφήστε κενό για όλους</translation>
+      <translation>Identificador. Per a quin identificador s&apos;ha de mostrar aquest missatge, deixeu-lo buit per a tots</translation>
     </message>
     <message>
       <source>Matched times</source>
-      <translation>Συμφωνημένα φορές</translation>
+      <translation>Temps coincidents</translation>
     </message>
     <message>
       <source>Browser offer invitations</source>
-      <translation>Πρόγραμμα περιήγησης προσφορά προσκλήσεις</translation>
+      <translation>El navegador ofereix invitacions</translation>
     </message>
     <message>
       <source>Content</source>
-      <translation>Περιεχόμενο</translation>
+      <translation>Contingut</translation>
     </message>
     <message>
       <source>Name attributes</source>
-      <translation>Χαρακτηριστικά όνομα</translation>
+      <translation>Atributs del nom</translation>
     </message>
     <message>
       <source>Introduction attributes</source>
-      <translation>Εισαγωγή χαρακτηριστικά</translation>
+      <translation>Atributs d&apos;introducció</translation>
     </message>
     <message>
       <source>XLS Columns</source>
-      <translation>XLS στήλες</translation>
+      <translation>Columnes XLS</translation>
     </message>
     <message>
       <source>Recipient</source>
-      <translation>Παραλήπτης</translation>
+      <translation>Destinatari</translation>
     </message>
     <message>
       <source>Post content after form is submitted</source>
-      <translation>Δημοσιεύσετε περιεχόμενο μετά μορφή υποβάλλεται</translation>
+      <translation>Publica el contingut després d&apos;enviar el formulari</translation>
     </message>
     <message>
       <source>Custom pagelayout</source>
-      <translation>Προσαρμοσμένη pagelayout</translation>
+      <translation>Disposició de pàgina personalitzada</translation>
     </message>
     <message>
       <source>Forms list</source>
-      <translation>Λίστα μορφές</translation>
+      <translation>Llista de formularis</translation>
     </message>
   </context>
   <context>
     <name>abstract/email_template</name>
     <message>
       <source>Name, for personal purposes</source>
-      <translation>Όνομα, για προσωπικούς λόγους</translation>
+      <translation>Nom. Per a finalitats personals</translation>
     </message>
     <message>
       <source>Subject</source>
-      <translation>Θέμα</translation>
+      <translation>Assumpte</translation>
     </message>
     <message>
       <source>Allow user to change subject</source>
-      <translation>Επιτρέπει στο χρήστη να αλλάξει θέμα</translation>
+      <translation>Permet que l&apos;usuari canviï l&apos;assumpte</translation>
     </message>
     <message>
       <source>From name</source>
-      <translation>Από το όνομα</translation>
+      <translation>Nom del remitent</translation>
     </message>
     <message>
       <source>Allow to change from name</source>
-      <translation>Επιτρέπει την αλλαγή από το όνομα</translation>
+      <translation>Permet canviar el nom del remitent</translation>
     </message>
     <message>
       <source>From e-mail</source>
-      <translation>Από το ηλεκτρονικό ταχυδρομείο</translation>
+      <translation>E-mail remitent</translation>
     </message>
     <message>
       <source>Allow to change from e-mail</source>
-      <translation>Επιτρέπει την αλλαγή από ηλεκτρονικό ταχυδρομείο</translation>
+      <translation>Permet canviar l&apos;e-mail del remitent</translation>
     </message>
     <message>
       <source>Use user e-mail as from address</source>
-      <translation>Χρήση e-mail χρήστη από την διεύθυνση</translation>
+      <translation>Utilitza l&apos;e-mail de l&apos;usuari com a remitent</translation>
     </message>
     <message>
       <source>Reply to</source>
-      <translation>Απάντηση σε</translation>
+      <translation>Respon a</translation>
     </message>
     <message>
       <source>Allow to change reply e-mail</source>
-      <translation>Επιτρέπουν να αλλάξετε τη διεύθυνση ηλεκτρονικού ταχυδρομείου απάντησης</translation>
+      <translation>Permet canviar l&apos;adreça email de resposta</translation>
     </message>
     <message>
       <source>Recipient email, this is used if the application could not determine who should receive an email.</source>
-      <translation>Παραληπτών ηλεκτρονικού ταχυδρομείου, αυτό χρησιμοποιείται αν η αίτηση δεν μπόρεσε να προσδιορίσει ποιος πρέπει να λαμβάνει ένα μήνυμα ηλεκτρονικού ταχυδρομείου.</translation>
+      <translation>E-mail del destinatari. S&apos;utilitza si l&apos;aplicació no pot determinar qui hauria de rebre un e-mail.</translation>
     </message>
     <message>
       <source>BCC recipients, can be separated by comma.</source>
-      <translation>Παραλήπτες &quot;Ιδιαίτ.&quot;, μπορεί να διαχωριστεί από το κόμμα.</translation>
+      <translation>Els destinataris en còpia oculta. Separats per comes.</translation>
     </message>
     <message>
       <source>Content</source>
-      <translation>Περιεχόμενο</translation>
+      <translation>Contingut</translation>
     </message>
     <message>
       <source>E-mail templates</source>
-      <translation>Πρότυπα ηλεκτρονικού ταχυδρομείου</translation>
+      <translation>Plantilles d&apos;e-mail</translation>
     </message>
   </context>
   <context>
     <name>chat/deletechatadmin</name>
     <message>
       <source>You do not have rights to delete a chat</source>
-      <translation>Δεν έχετε δικαιώματα για να διαγράψετε μια συνομιλία</translation>
+      <translation>No teniu permisos per eliminar un xat</translation>
     </message>
   </context>
   <context>
     <name>chat/voteaction</name>
     <message>
       <source>User has updated his profile information</source>
-      <translation>Χρήστης έχει ενημερώσει τις πληροφορίες του προφίλ</translation>
+      <translation>L&apos;usuari ha actualitzat la informació del seu perfil</translation>
     </message>
     <message>
       <source>Thumbs up</source>
-      <translation>Μπράβο</translation>
+      <translation>Polzes cap amunt</translation>
     </message>
     <message>
       <source>Thumbs down</source>
-      <translation>Αντίχειρες κάτω</translation>
+      <translation>Polzes cap avall</translation>
     </message>
     <message>
       <source>Removed thumb vote</source>
-      <translation>Αφαιρεθεί αντίχειρα ψηφοφορία</translation>
+      <translation>Valoració de polze suprimit</translation>
     </message>
   </context>
   <context>
     <name>chat/refreshcustomfields</name>
     <message>
       <source>Custom chat data was saved</source>
-      <translation type="unfinished"/>
+      <translation>S&apos;han desat les dades de xat personalitzades</translation>
     </message>
     <message>
       <source>Data refreshed</source>
-      <translation>Αναζωογονείται δεδομένων</translation>
+      <translation>Dades actualitzades</translation>
     </message>
   </context>
   <context>
     <name>chat/reopenchat</name>
     <message>
       <source>has reopened the chat!</source>
-      <translation>ξανάνοιξε το chat!</translation>
+      <translation>ha reobert el xat!</translation>
     </message>
     <message>
       <source>No permission to reopen the chat!</source>
-      <translation>Δεν έχει άδεια να ανοίξει εκ νέου το chat!</translation>
+      <translation>No teniu permisos per tornar a obrir un xat.</translation>
     </message>
   </context>
   <context>
     <name>chat/single</name>
     <message>
       <source>Chat started with</source>
-      <translation>Συνομιλία ξεκίνησε με</translation>
+      <translation>S&apos;ha iniciat un xat amb</translation>
     </message>
   </context>
   <context>
     <name>chat/transferuser</name>
     <message>
       <source>Chat was assigned to selected department</source>
-      <translation>Chat ανατέθηκε στον επιλεγμένο τμήμα</translation>
+      <translation>S&apos;ha assignat el xat al departament seleccionat</translation>
     </message>
     <message>
       <source>Chat was assigned to selected user</source>
-      <translation>Chat ανατέθηκε στον επιλεγμένο χρήστη</translation>
+      <translation>S&apos;ha assignat un xat a l&apos;usuari seleccionat</translation>
     </message>
   </context>
   <context>
     <name>chat/updatemsguser</name>
     <message>
       <source>User has edited his last message</source>
-      <translation>Χρήστης έχει επιμεληθεί το τελευταίο μήνυμα</translation>
+      <translation>L&apos;usuari ha editat el seu últim missatge</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/viewarchivedchat</name>
     <message>
       <source>View archived chat</source>
-      <translation>Προβολή αρχειοθετημένων συνομιλίας</translation>
+      <translation>Mostra el xat arxivat</translation>
     </message>
   </context>
   <context>
     <name>file/configurations</name>
     <message>
       <source>Please enter valid file type!</source>
-      <translation>Παρακαλούμε, εισάγετε έγκυρο αρχείο τύπου!</translation>
+      <translation>Introduïu el tipus de fitxer vàlid.</translation>
     </message>
   </context>
   <context>
     <name>statistic/onlinehours</name>
     <message>
       <source>Online Hours</source>
-      <translation type="unfinished"/>
+      <translation>Horari en línia</translation>
     </message>
   </context>
   <context>
     <name>system/offlinesettings</name>
     <message>
       <source>Offline settings</source>
-      <translation type="unfinished"/>
+      <translation>Configuració fora de línia</translation>
     </message>
     <message>
       <source>Offline chat request won&apos;t be saved.</source>
-      <translation type="unfinished"/>
+      <translation>La sol·licitud de xat fora de línia no es desarà.</translation>
     </message>
     <message>
       <source>Then offline chat is registered it&apos;s status will be changed to closed chat.</source>
-      <translation type="unfinished"/>
+      <translation>Quan es registri un xat fora de línia, el seu estat canviarà a xat tancat.</translation>
     </message>
   </context>
 </TS>
