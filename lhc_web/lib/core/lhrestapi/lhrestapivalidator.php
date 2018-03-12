@@ -209,7 +209,20 @@ class erLhcoreClassRestAPIHandler
         
         // Get chats count
         $chatsCount = erLhcoreClassChat::getCount($filter);
-        
+
+        // Allow extensions append custom field
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.restapi_chats',array('list' => & $chats));
+
+        if (isset($_GET['include_messages']) && $_GET['include_messages'] == 'true') {
+            $messages = erLhcoreClassModelmsg::getList(array('limit' => 100000,'sort' => 'id ASC','filterin' => array('chat_id' => array_keys($chats))));
+            foreach ($messages as $message) {
+                if (!is_array($chats[$message->chat_id]->messages)) {
+                    $chats[$message->chat_id]->messages = array();
+                }
+                $chats[$message->chat_id]->messages[] = $message;
+            }
+        }
+
         // Chats list
         return array(
             'list' => array_values($chats),

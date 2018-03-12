@@ -85,6 +85,14 @@
             "required": false,
             "type": "string",
             "format": "int32"
+          },
+          {
+            "name": "include_messages",
+            "description": "Include messages within chat",
+            "required": false,
+            "type": "boolean",
+            "default": false,
+            "in": "query"
           }
         ],
         "responses": {
