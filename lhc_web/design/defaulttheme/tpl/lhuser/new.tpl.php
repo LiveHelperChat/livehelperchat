@@ -135,7 +135,7 @@
 						
 		<?php include(erLhcoreClassDesign::designtpl('lhuser/account/below_new_account_multiinclude.tpl.php'));?>
 		
-		<input type="submit" class="btn btn-default" ng-disabled="!accval.validForm" name="Update_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Save');?>" />
+		<input <?php if (empty($groupsRequired)) :?>ng-init="accval.validForm=true"<?php endif?> type="submit" class="btn btn-default" ng-disabled="!accval.validForm" name="Update_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Save');?>" />
 	</div>
 	
 	<div role="tabpanel" class="tab-pane <?php if ($tab == 'tab_departments') : ?>active<?php endif;?>" id="departments">
