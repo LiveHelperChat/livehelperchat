@@ -209,11 +209,13 @@ class erLhcoreClassUserValidator {
 
     		        $groupsRequired = erLhcoreClassModelGroup::getList(array('filter' => array('required' => 1)));
 
-    		        $diff = array_diff(array_keys($groupsRequired), $userData->user_groups_id);
+    		        if (!empty($groupsRequired)) {
+                        $diff = array_diff(array_keys($groupsRequired), $userData->user_groups_id);
 
-    		        if (count($diff) == count($groupsRequired)) {
-                        $Errors['group_required'] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','You have to choose one of required groups!');
-                    }
+                        if (count($diff) == count($groupsRequired)) {
+                            $Errors['group_required'] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','You have to choose one of required groups!');
+                        }
+    		        }
 
     		    } else {
     		        $unknownGroups = array_diff($form->DefaultGroup, $params['groups_can_edit']);
@@ -224,10 +226,12 @@ class erLhcoreClassUserValidator {
     		            if (!empty($params['groups_can_edit'])) {
                             $groupsRequired = erLhcoreClassModelGroup::getList(array('filterin' => array('id' => $params['groups_can_edit']), 'filter' => array('required' => 1)));
 
-                            $diff = array_diff(array_keys($groupsRequired), $userData->user_groups_id);
-
-                            if (count($diff) == count($groupsRequired)) {
-                                $Errors['group_required'] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','You have to choose one of required groups!');
+                            if (!empty($groupsRequired)) {
+                                $diff = array_diff(array_keys($groupsRequired), $userData->user_groups_id);
+    
+                                if (count($diff) == count($groupsRequired)) {
+                                    $Errors['group_required'] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','You have to choose one of required groups!');
+                                }
                             }
     		            }
 
