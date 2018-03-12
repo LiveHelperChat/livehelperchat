@@ -1016,7 +1016,7 @@ class erLhcoreClassChatValidator {
                 $msg->time = time();
                 erLhcoreClassChat::getSession()->save($msg);
 
-                $params['chat']->unanswered_chat = 1;
+                $params['chat']->unanswered_chat = 0;
                 $params['chat']->last_msg_id = $msg->id;
                 $params['chat']->saveThis();
             }
