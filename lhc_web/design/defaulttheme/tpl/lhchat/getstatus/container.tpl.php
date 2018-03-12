@@ -3,6 +3,7 @@ $iconsStatuses['restore_image_url'] = ($theme !== false && $theme->restore_image
 $iconsStatuses['minimize_image_url'] = ($theme !== false && $theme->minimize_image_url !== false && strpos($theme->minimize_image_url, 'http') !== false);
 $iconsStatuses['close_image_url'] = ($theme !== false && $theme->close_image_url !== false && strpos($theme->close_image_url, 'http') !== false);
 $iconsStatuses['popup_image_url'] = ($theme !== false && $theme->popup_image_url !== false && strpos($theme->popup_image_url, 'http') !== false);
+$iconsStatuses['online_image_url'] = ($theme !== false && $theme->online_image_url !== false && strpos($theme->online_image_url, 'http') !== false);
 ?>
 <?php if ($theme !== false && $theme->modern_look == 0) : ?>
 this.iframe_html = '<div id="<?php echo $chatCSSLayoutOptions['container_id']?>" <?= isset($currentPosition['full_height']) && $currentPosition['full_height'] ? 'style="height:100%"' : '' ?>>' +
