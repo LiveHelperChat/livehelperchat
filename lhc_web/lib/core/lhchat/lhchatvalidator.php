@@ -6,6 +6,40 @@
 
 class erLhcoreClassChatValidator {
 
+    public static function validateChatModifyCore(& $chat)
+    {
+        $definition = array(
+            'DepartmentID' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
+            ),
+            'unanswered_chat' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            )
+        );
+
+        $form = new ezcInputForm( INPUT_POST, $definition );
+        $Errors = array();
+
+        $currentUser = erLhcoreClassUser::instance();
+
+        if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Invalid CSRF token!');
+        }
+
+        if ($form->hasValidData( 'DepartmentID' ))
+        {
+            $chat->dep_id = $form->DepartmentID;
+        }
+
+        if ($form->hasValidData( 'unanswered_chat' ) && $form->unanswered_chat == 1) {
+            $chat->unanswered_chat = 1;
+        } else {
+            $chat->unanswered_chat = 0;
+        }
+
+        return $Errors;
+    }
+
 	public static function validateChatModify(& $chat)
 	{
 		$definition = array(				
