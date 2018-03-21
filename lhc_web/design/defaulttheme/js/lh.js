@@ -151,7 +151,34 @@ function lh(){
             $('#CSChatMessage-'+chat_id).focus();
             inst.rememberTab(chat_id);
             inst.addQuateHandler(chat_id);
+            inst.loadMainData(chat_id);
             ee.emitEvent('chatTabLoaded', [chat_id]);
+        });
+    }
+
+    this.loadMainData = function(chat_id) {
+        $.getJSON(this.wwwDir + 'chat/loadmaindata/' + chat_id, { }, function(data) {
+            $.each(data.items, function( index, dataElement ) {
+                var el = $(dataElement.selector);
+
+                if (typeof dataElement.attr !== 'undefined') {
+                    $.each(dataElement.attr, function( attr, data ) {
+                        el.attr(attr,data);
+                    });
+                }
+
+                if (typeof dataElement.action !== 'undefined') {
+                    if (dataElement.action == 'hide') {
+                        el.hide();
+                    } else if(dataElement.action == 'show') {
+                        el.show();
+                    } else if(dataElement.action == 'remove') {
+                        el.remove();
+                    }
+                }
+            });
+        }).fail(function() {
+
         });
     }
 
@@ -300,6 +327,7 @@ function lh(){
                 inst.rememberTab(chat_id);
             }
             inst.addQuateHandler(chat_id);
+            inst.loadMainData(chat_id);
             ee.emitEvent('chatTabLoaded', [chat_id]);
     	});
     };
@@ -1620,6 +1648,22 @@ function lh(){
             this.audio.load();
 	    }
 	};
+
+	this.loadPreviousMessages = function (inst) {
+        $.getJSON(this.wwwDir + 'chat/loadpreviousmessages/' + inst.attr('chat-id') + '/' + inst.attr('message-id'), function(data) {
+            if (data.error == false) {
+                var btn = $('#messagesBlock-'+inst.attr('chat-original-id')+' > .load-prev-btn');
+                btn.after(data.result);
+
+                if (data.has_messages == true) {
+                    btn.attr('message-id', data.message_id);
+                    inst.attr('chat-id',data.chat_id);
+                } else {
+                    btn.remove();
+                }
+            }
+        });
+    };
 
 	this.hidenicknamesstatus = null;
 

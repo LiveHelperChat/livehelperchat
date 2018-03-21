@@ -60,7 +60,9 @@ class erLhcoreClassChat {
 			'chat_locale',
 			//'product_id'
 	);
-	
+
+	public static $limitMessages = 50;
+
     /**
      * Gets pending chats
      */
@@ -89,7 +91,7 @@ class erLhcoreClassChat {
     	if (!empty($filterAdditional)) {
     		$filter = array_merge_recursive($filter,$filterAdditional);
     	}
-    	    	
+
     	return self::getList($filter);
     }
 
@@ -1025,18 +1027,30 @@ class erLhcoreClassChat {
        return $text;
    }
 
-
    /**
     * Gets chats messages, used to review chat etc.
     * */
-   public static function getChatMessages($chat_id)
+   public static function getChatMessages($chat_id, $limit = 1000, $lastMessageId = 0)
    {
-   	   $db = ezcDbInstance::get();
-       $stmt = $db->prepare('SELECT lh_msg.* FROM lh_msg INNER JOIN ( SELECT id FROM lh_msg WHERE chat_id = :chat_id ORDER BY id ASC) AS items ON lh_msg.id = items.id');
-       $stmt->bindValue( ':chat_id',$chat_id,PDO::PARAM_INT);
-       $stmt->setFetchMode(PDO::FETCH_ASSOC);
-       $stmt->execute();
-       $rows = $stmt->fetchAll();
+       if ($lastMessageId == 0) {
+           $db = ezcDbInstance::get();
+           $stmt = $db->prepare('SELECT lh_msg.* FROM lh_msg INNER JOIN ( SELECT id FROM lh_msg WHERE chat_id = :chat_id ORDER BY id DESC LIMIT :limit) AS items ON lh_msg.id = items.id ORDER BY lh_msg.id ASC');
+           $stmt->bindValue( ':chat_id',$chat_id,PDO::PARAM_INT);
+           $stmt->bindValue( ':limit',$limit,PDO::PARAM_INT);
+           $stmt->setFetchMode(PDO::FETCH_ASSOC);
+           $stmt->execute();
+           $rows = $stmt->fetchAll();
+       } else {
+           $db = ezcDbInstance::get();
+           $stmt = $db->prepare('SELECT lh_msg.* FROM lh_msg INNER JOIN ( SELECT id FROM lh_msg WHERE chat_id = :chat_id AND lh_msg.id < :message_id ORDER BY id DESC LIMIT :limit) AS items ON lh_msg.id = items.id ORDER BY lh_msg.id ASC');
+           $stmt->bindValue( ':chat_id',$chat_id,PDO::PARAM_INT);
+           $stmt->bindValue( ':limit',$limit,PDO::PARAM_INT);
+           $stmt->bindValue( ':message_id',$lastMessageId,PDO::PARAM_INT);
+           $stmt->setFetchMode(PDO::FETCH_ASSOC);
+           $stmt->execute();
+           $rows = $stmt->fetchAll();
+       }
+
        return $rows;
    }
 

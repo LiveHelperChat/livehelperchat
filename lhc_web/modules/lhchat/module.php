@@ -12,6 +12,19 @@ $ViewList['adminchat'] = array(
     'multiple_arguments' => array('arg')
 );
 
+$ViewList['loadmaindata'] = array(
+    'params' => array('chat_id'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
+$ViewList['loadpreviousmessages'] = array(
+    'params' => array('chat_id','message_id'),
+    'uparams' => array(),
+    'functions' => array( 'use' ),
+    'multiple_arguments' => array()
+);
+
 $ViewList['subject'] = array(
     'params' => array('chat_id'),
     'uparams' => array('subject','status'),

@@ -498,6 +498,74 @@ class erLhcoreClassChatWorkflow {
      		}
      	}
      }
+
+     public static function getChatHistory($chat, $lastMessageId)
+     {
+         $messages = erLhcoreClassChat::getChatMessages($chat->id, erLhcoreClassChat::$limitMessages, $lastMessageId);
+
+         $messageId = 0;
+         $hasMessages = true;
+         if (count($messages) == erLhcoreClassChat::$limitMessages) {
+             reset($messages);
+             $message = current($messages);
+             $messageId = $message['id'];
+         } else {
+             $hasMessages = false;
+
+             $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow.get_chat_history', array(
+                 'chat' => $chat,
+                 'last_message_id' => $lastMessageId,
+             ));
+
+             if ($statusWorkflow === false) {
+                 if (($online_user = $chat->online_user) !== false) {
+                     $chatHistory = erLhcoreClassModelChat::findOne(array('sort' => 'id DESC','filterlt' => array('id' => $chat->id), 'filter' => array('online_user_id' => $online_user->id)));
+                     if ($chatHistory instanceof erLhcoreClassModelChat) {
+                         $chat = $chatHistory;
+                         $hasMessages = true;
+                     }
+                 }
+             } else {
+                 $hasMessages = $statusWorkflow['has_messages'];
+                 $chat = $statusWorkflow['chat'];
+             }
+         }
+
+         return array(
+             'chat_id' => (is_object($chat) ? $chat->id : null),
+             'message_id' => $messageId,
+             'messages' => $messages,
+             'has_messages' => $hasMessages
+         );
+     }
+
+    public static function hasPreviousChats($params)
+    {
+        reset($params['messages']); $firstMessage = current($params['messages']);
+        $chatHistory = $params['chat'];
+        $hasMessages = erLhcoreClassChat::$limitMessages == count($params['messages']);
+        $firstMessageId = $firstMessage['id'];
+
+        $params['has_messages'] = $hasMessages;
+        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow.has_previous_messages', $params);
+
+        if ($statusWorkflow === false) {
+            if ($hasMessages == false && ($online_user = $params['chat']->online_user) !== false) {
+                $chatHistory = erLhcoreClassModelChat::findOne(array('sort' => 'id DESC','filterlt' => array('id' => $params['chat']->id), 'filter' => array('online_user_id' => $online_user->id)));
+                if ($chatHistory instanceof erLhcoreClassModelChat) {
+                    $hasMessages = true;
+                    $firstMessageId = 0;
+                }
+            }
+            return array(
+                'has_messages' => $hasMessages,
+                'chat_history' => $chatHistory,
+                'message_id' => $firstMessageId
+            );
+        } else {
+            return $statusWorkflow;
+        }
+    }
 }
 
 ?>

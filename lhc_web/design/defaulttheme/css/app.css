@@ -1404,3 +1404,29 @@ input[type="file"]{
 .message-container-admin{
 	position:relative;
 }
+
+.load-prev-btn:hover,
+.load-prev-btn{
+	position:absolute;
+	text-align: center;
+	border-top:0;
+	border-right:0;
+	border-left:0;
+	margin-left:-1px;
+	background-color: rgba(196, 203, 209, 0.57);
+	color:#FFF;
+	font-weight:bold;
+	user-select: none;
+	right:0;
+	-webkit-border-bottom-left-radius: 10px;
+	-moz-border-radius-bottomleft: 10px;
+	border-bottom-left-radius: 10px;
+	padding:1px 10px 2px 10px;
+	border:1px solid #ccc;
+	border-top:0;
+	border-right:0;
+
+}
+.load-prev-btn:hover{
+	background-color:rgba(196, 203, 209, 0.90);
+}

@@ -1,0 +1,35 @@
+<?php
+
+$db = ezcDbInstance::get();
+$db->beginTransaction();
+
+$chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['chat_id']);
+
+if ( erLhcoreClassChat::hasAccessToRead($chat) )
+{
+    $userData = $currentUser->getUserData();
+
+    if (erLhcoreClassChat::hasAccessToWrite($chat)) {
+
+        try {
+
+            $result = erLhcoreClassChatWorkflow::getChatHistory($chat, $Params['user_parameters']['message_id']);
+
+            $tpl = erLhcoreClassTemplate::getInstance('lhchat/syncadmin.tpl.php');
+            $tpl->set('messages', $result['messages']);
+            $tpl->set('chat', $chat);
+
+            echo json_encode(array('error' => false, 'result' => $tpl->fetch(), 'has_messages' => $result['has_messages'], 'chat_id' => $result['chat_id'], 'message_id' => (int)$result['message_id']));
+
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    }
+
+} else {
+    echo json_encode(array('error' => true));
+}
+
+exit;
+
+?>

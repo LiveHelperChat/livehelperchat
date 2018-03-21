@@ -5,12 +5,13 @@
 
 		<a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Show/Hide right column')?>" href="#" class="material-icons collapse-right" onclick="lhinst.processCollapse('<?php echo $chat->id;?>')">chevron_right</a>
 		<?php include(erLhcoreClassDesign::designtpl('lhchat/part/above_messages_block.tpl.php')); ?>
-		
+
 		<div class="message-block">
 			<div class="msgBlock msgBlock-admin" id="messagesBlock-<?php echo $chat->id?>">
-				<?php
-				$LastMessageID = 0;
-    			$messages = erLhcoreClassChat::getChatMessages($chat->id); ?>
+                <?php $LastMessageID = 0; $messages = erLhcoreClassChat::getChatMessages($chat->id, erLhcoreClassChat::$limitMessages); ?>
+
+                <?php include(erLhcoreClassDesign::designtpl('lhchat/part/load_previous.tpl.php'));?>
+
 				<?php include(erLhcoreClassDesign::designtpl('lhchat/syncadmin.tpl.php'));?>
 				<?php if (isset($msg)) {	$LastMessageID = $msg['id'];} ?>
 
@@ -19,7 +20,6 @@
 				<?php elseif ($chat->user_status == 0) : ?>
 				<?php include(erLhcoreClassDesign::designtpl('lhchat/userjoined.tpl.php')); ?>
 				<?php endif;?>
-
 			</div>
 			
 		</div>
