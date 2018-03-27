@@ -4,8 +4,16 @@ uglify   = require('gulp-uglify'),
 concat   = require('gulp-concat'),
 watch 	 = require('gulp-watch'),
 webpack = require('webpack'),
-webpackConfig = require('./webpack.config.js');
-bower = require('gulp-bower');
+webpackConfig = require('./webpack.config.js'),
+bower = require('gulp-bower'),
+react = require('gulp-react');
+var babel = require('gulp-babel');
+var newer        = require('gulp-newer');
+var eslint       = require('gulp-eslint');
+var sourcemaps = require('gulp-sourcemaps');
+var browserify = require('browserify');
+var source = require('vinyl-source-stream');
+var buffer = require('vinyl-buffer');
 
 gulp.task('js-hotkeys', function() {
 	var stylePath = ['design/defaulttheme/js/jquery.hotkeys.js'];
@@ -48,6 +56,7 @@ gulp.task('js-angular-main', function() {
 	.pipe(gulp.dest('design/defaulttheme/js'));
 });
 
+
 gulp.task('js-angular-online', function() {
 	var stylePath = ['design/defaulttheme/js/angular.lhc.online.js'];
 	
@@ -55,6 +64,53 @@ gulp.task('js-angular-online', function() {
 	.pipe(concat('angular.lhc.online.min.js'))
 	.pipe(uglify({preserveComments: 'some'}))
 	.pipe(gulp.dest('design/defaulttheme/js'));
+});
+
+// https://gist.github.com/micmania1/3a6f91b256b8f3e7dc97a740d60e20cb
+
+gulp.task('react',[], function () {
+    return	gulp.src([
+    	"design/defaulttheme/js/react/src/*.jsx"
+	])
+        .pipe(sourcemaps.init())
+        .pipe(babel({
+            presets: ["react", "es2015"]
+        }))
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest("design/defaulttheme/js/react/build"));
+});
+
+gulp.task('react-components',[], function () {
+    return	gulp.src([
+        "design/defaulttheme/js/react/src/components/*.jsx"
+	])
+	.pipe(sourcemaps.init())
+	.pipe(babel({
+		presets: ["react", "es2015"]
+	}))
+	.pipe(sourcemaps.write('.'))
+	.pipe(gulp.dest("design/defaulttheme/js/react/build/components"));
+});
+
+gulp.task('react-js', [/*'react','react-components'*/], function() {
+    // Assumes a file has been transformed from
+    // ./app/src/main.jsx to ./app/dist/main.js
+    //process.env.NODE_ENV = 'production';
+    return browserify('design/defaulttheme/js/react/src/index.jsx')
+        .transform("babelify", {
+        	presets: ["react", "es2015", "stage-0"],
+            plugins: ['react-html-attrs', 'transform-class-properties', 'transform-decorators-legacy']
+        })
+        .bundle()
+        .on('error', gutil.log)
+        .pipe(source('all.js'))
+        .pipe(buffer())
+        //.pipe(uglify({ mangle: false }))
+        .pipe(gulp.dest('design/defaulttheme/js/react/build'))
+});
+
+gulp.task('default-react', ['react-js'], function() {
+    gulp.watch(['design/defaulttheme/js/react/src/*.jsx','design/defaulttheme/js/react/src/components/*.jsx'], ['react-js']);
 });
 
 gulp.task('js-angular-checkmodel', function() {
