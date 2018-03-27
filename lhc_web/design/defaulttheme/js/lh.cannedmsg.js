@@ -153,7 +153,7 @@ var LHCCannedMessageAutoSuggest = (function() {
 				clearTimeout(this.timeoutDelay);
 				this.timeoutDelay = setTimeout(function(){
 					_that.showSuggester();
-				},500);				
+				},500);
 			}
 			
 		} else {
@@ -183,10 +183,17 @@ var LHCCannedMessageAutoSuggest = (function() {
 				// Insert selected text
 				var caretPos = _that.textarea[0].selectionStart,
 		        currentValue = _that.textarea.val();
-				
-				var textBeforeCursor = currentValue.substring(0, caretPos - 1 - _that.currentKeword.length) + $(this).attr('data-msg');
-				_that.textarea.val(textBeforeCursor + currentValue.substring(caretPos));	
-				
+
+                var textBeforeCursor = currentValue.substring(0, caretPos - 1 - _that.currentKeword.length);
+
+                if (textBeforeCursor.substr(textBeforeCursor.length - 1) == '#') {
+                    textBeforeCursor = currentValue.substr(0,textBeforeCursor.length-1);
+                }
+
+                textBeforeCursor = textBeforeCursor + $(this).attr('data-msg');
+
+                _that.textarea.val(textBeforeCursor + currentValue.substring(caretPos));
+
 				// Set cursor position
 				if ('selectionStart' in _that.textarea[0]) {
 					_that.textarea[0].selectionStart = textBeforeCursor.length;
