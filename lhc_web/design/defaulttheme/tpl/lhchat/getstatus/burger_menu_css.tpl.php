@@ -21,7 +21,7 @@ ul." . $chatCSSPrefix . "-cf a {
 
 ul." . $chatCSSPrefix . "-cf li ul a{
     background-color:#525252;
-    padding:6px!important;
+    padding:7px!important;
 }
 
 ul." . $chatCSSPrefix . "-cf > li > a{
@@ -31,7 +31,7 @@ ul." . $chatCSSPrefix . "-cf > li > a{
 }
 
 ul." . $chatCSSPrefix . "-cf li ul {
-    left: 0;
+    left: -5px;
     position: absolute;
     top: 22px;
     visibility: hidden;
