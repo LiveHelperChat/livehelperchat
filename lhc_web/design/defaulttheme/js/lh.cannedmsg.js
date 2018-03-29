@@ -160,7 +160,7 @@ var LHCCannedMessageAutoSuggest = (function() {
 			this.stopSuggesting();
 		}
 	}
-	
+
 	LHCCannedMessageAutoSuggest.prototype.initSuggester = function()
 	{
 		var _that = this;
@@ -183,14 +183,13 @@ var LHCCannedMessageAutoSuggest = (function() {
 				// Insert selected text
 				var caretPos = _that.textarea[0].selectionStart,
 		        currentValue = _that.textarea.val();
+                var textAppend = $(this).attr('data-msg');
 
-                var textBeforeCursor = currentValue.substring(0, caretPos - 1 - _that.currentKeword.length);
+                var textBeforeCursor = currentValue.substring(0, caretPos);
 
-                if (textBeforeCursor.substr(textBeforeCursor.length - 1) == '#') {
-                    textBeforeCursor = currentValue.substr(0,textBeforeCursor.length-1);
-                }
-
-                textBeforeCursor = textBeforeCursor + $(this).attr('data-msg');
+                // Strip keyword
+                var index = textBeforeCursor.lastIndexOf('#');
+                textBeforeCursor =  textBeforeCursor.substring(0, index) + textAppend;
 
                 _that.textarea.val(textBeforeCursor + currentValue.substring(caretPos));
 
