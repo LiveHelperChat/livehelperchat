@@ -110,7 +110,11 @@ gulp.task('react-js', [/*'react','react-components'*/], function() {
 });
 
 gulp.task('default-react', ['react-js'], function() {
-    gulp.watch(['design/defaulttheme/js/react/src/*.jsx','design/defaulttheme/js/react/src/components/*.jsx'], ['react-js']);
+    gulp.watch([
+    	'design/defaulttheme/js/react/src/*.js',
+		'design/defaulttheme/js/react/src/*.jsx',
+		'design/defaulttheme/js/react/src/*/*.js'
+	], ['react-js']);
 });
 
 gulp.task('js-angular-checkmodel', function() {

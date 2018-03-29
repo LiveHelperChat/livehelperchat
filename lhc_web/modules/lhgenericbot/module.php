@@ -17,6 +17,12 @@ $ViewList['nodegroups'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['nodegrouptriggers'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
 $ViewList['addgroup'] = array(
     'params' => array(),
     'uparams' => array(),
