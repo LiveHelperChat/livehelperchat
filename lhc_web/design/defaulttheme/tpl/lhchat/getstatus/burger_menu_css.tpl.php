@@ -20,7 +20,7 @@ ul." . $chatCSSPrefix . "-cf a {
 }
 
 ul." . $chatCSSPrefix . "-cf li ul a{
-    background-color:#525252;
+    background-color:#" . ($theme !== false ? $theme->header_background : '525252') .";
     padding:7px!important;
 }
 
@@ -44,7 +44,7 @@ ul." . $chatCSSPrefix . "-cf li:hover ul {
 }
 
 ul." . $chatCSSPrefix . "-cf li ul a:hover {
-    background: #6b6b6b;
+    background: #". ($theme !== false ? $theme->need_help_hover_bg : '6b6b6b') . ";
 }
 
 ";
