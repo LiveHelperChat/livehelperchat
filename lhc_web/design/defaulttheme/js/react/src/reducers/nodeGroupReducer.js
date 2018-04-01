@@ -1,62 +1,53 @@
 import { FETCH_NODE_GROUPS, FETCH_NODE_GROUPS_FULFILLED, FETCH_NODE_GROUPS_REJECTED, ADD_GROUP_FULFILLED, UPDATE_GROUP_FULFILLED } from "../constants/action-types";
+import {fromJS} from 'immutable';
 
 // https://github.com/learncodeacademy/react-js-tutorials/blob/master/5-redux-react/src/js/components/Layout.js
 // https://github.com/valentinogagliardi/minimal-react-redux-webpack/blob/master/src/js/components/Form.js
 
-const nodeGroupReducer = (state = {
+const initialState = fromJS({
     nodegroups : [],
     fetching: false,
     fetched: false,
     error: null
-    }, action) => {
+})
+
+const applyFn = (state, fn) => fn(state)
+export const pipe = (fns, state) => state.withMutations(s => fns.reduce(applyFn, s))
+
+const nodeGroupReducer = (state = initialState, action) => {
     switch (action.type) {
 
         case FETCH_NODE_GROUPS : {
-            return {
-                ...state,
-                fetching: true
-            };
+            return state.set('fetching',true);
         }
 
         case FETCH_NODE_GROUPS_FULFILLED: {
-             return {
-                     ...state,
-                     fetching: false,
-                     fetched: true,
-                     nodegroups: action.payload,
-            }
+            return state
+                .set('fetching',false)
+                .set('fetched',true)
+                .set('nodegroups',fromJS(action.payload));
         }
 
         case ADD_GROUP_FULFILLED: {
-            return {
-                ...state,
-                fetching: false,
-                fetched: true,
-                nodegroups: [...state.nodegroups, action.payload],
-            }
+            return state
+                .set('fetched',true)
+                .set('fetching',false)
+                .update('nodegroups', nodegroups => nodegroups.push(fromJS(action.payload)));
         }
 
         case UPDATE_GROUP_FULFILLED: {
 
             const { id, name } = action.payload;
-            const newTweets = [...state.nodegroups]
-            const tweetToUpdate = newTweets.findIndex(tweet => tweet.id === id)
-            newTweets[tweetToUpdate] = action.payload;
 
-            return {
-                ...state,
-                fetching: false,
-                fetched: true,
-                nodegroups: newTweets,
-            }
+            const indexOfListingToUpdate = state.get('nodegroups').findIndex(listing => {
+                    return listing.get('id') === id;
+            });
+
+            return state.setIn(['nodegroups', indexOfListingToUpdate, 'name'], name);
         }
 
         case FETCH_NODE_GROUPS_REJECTED: {
-            return {
-                ...state,
-                fetching: false,
-                error: action.payload
-            };
+            return state.set('fetching',false).set('error',action.payload);
         }
 
         default:

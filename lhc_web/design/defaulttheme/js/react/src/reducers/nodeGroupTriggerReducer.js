@@ -1,42 +1,38 @@
-import { FETCH_NODE_GROUP_TRIGGERS, FETCH_NODE_GROUP_TRIGGERS_FULFILLED, FETCH_NODE_GROUP_TRIGGERS_REJECTED } from "../constants/action-types";
+import { FETCH_NODE_GROUP_TRIGGERS, FETCH_NODE_GROUP_TRIGGERS_FULFILLED, FETCH_NODE_GROUP_TRIGGERS_REJECTED, UPDATE_TRIGGER_NAME } from "../constants/action-types";
+import {fromJS} from 'immutable';
 
 // https://github.com/learncodeacademy/react-js-tutorials/blob/master/5-redux-react/src/js/components/Layout.js
 // https://github.com/valentinogagliardi/minimal-react-redux-webpack/blob/master/src/js/components/Form.js
 
-const nodeGroupTriggerReducer = (state = {
+const initialState = fromJS({
     nodegrouptriggers : {},
     fetching: false,
     fetched: false,
     error: null
-}, action) => {
+})
+
+const nodeGroupTriggerReducer = (state = initialState, action) => {
     switch (action.type) {
 
         case FETCH_NODE_GROUP_TRIGGERS : {
-            return {
-                ...state,
-                fetching: true
-        };
+            return state.set('fetching', false);
         }
 
         case FETCH_NODE_GROUP_TRIGGERS_FULFILLED: {
-
-            const newTweets = [...state.nodegrouptriggers]
-            newTweets[action.group_id] = action.payload;
-
-            return {
-                ...state,
-                fetching: false,
-                fetched: true,
-                nodegrouptriggers: newTweets,
-            }
+            return state.setIn(['nodegrouptriggers',action.group_id], fromJS(action.payload));
         }
 
         case FETCH_NODE_GROUP_TRIGGERS_REJECTED: {
-            return {
-                ...state,
-                fetching: false,
-                error: action.payload
-            }
+            return state.set('fetching', false).set('error',fromJS(action.payload));
+        }
+
+        case UPDATE_TRIGGER_NAME: {
+
+            const indexOfListingToUpdate = state.get('nodegrouptriggers').get( action.payload.get('group_id') ).findIndex(listing => {
+                    return listing.get('id') === action.payload.get('id');
+            });
+
+            return state.setIn(['nodegrouptriggers', action.payload.get('group_id'), indexOfListingToUpdate, 'name'], action.payload.get('name'));
         }
 
         default:

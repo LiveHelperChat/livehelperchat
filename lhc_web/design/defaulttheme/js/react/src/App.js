@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import NodeGroups from './components/NodeGroups';
+import NodeTriggerBuilder from './components/NodeTriggerBuilder';
 
 class App extends Component {
   render() {
@@ -9,7 +10,7 @@ class App extends Component {
               <NodeGroups />
         </div>
         <div className="col-xs-4">
-              REsponse
+              <NodeTriggerBuilder />
         </div>
         <div className="col-xs-4">
               Pewview

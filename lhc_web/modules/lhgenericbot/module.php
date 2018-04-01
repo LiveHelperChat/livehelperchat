@@ -29,6 +29,12 @@ $ViewList['addgroup'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['nodetriggeractions'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
 $FunctionList['use'] = array('explain' => 'General permission to use generic bot module');
 
 ?>
