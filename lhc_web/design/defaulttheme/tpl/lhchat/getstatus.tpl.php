@@ -154,6 +154,13 @@ var lh_inst  = {
     },
     
 	min : function(initial) {
+
+        // If it's proactive invitation hide instead to avoid reopening.
+        if (this.isProactivePending == 1) {
+           this.hide();
+           return;
+        }
+
 		var dm = document.getElementById('<?php echo $chatCSSLayoutOptions['container_id']?>');
 
         var msgNum = document.getElementById('<?php echo $chatCSSPrefix?>-msg-number');
