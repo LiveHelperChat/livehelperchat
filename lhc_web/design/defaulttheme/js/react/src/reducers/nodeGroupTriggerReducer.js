@@ -1,4 +1,4 @@
-import { FETCH_NODE_GROUP_TRIGGERS, FETCH_NODE_GROUP_TRIGGERS_FULFILLED, FETCH_NODE_GROUP_TRIGGERS_REJECTED, UPDATE_TRIGGER_NAME } from "../constants/action-types";
+import { REMOVE_TRIGGER, FETCH_NODE_GROUP_TRIGGERS, FETCH_NODE_GROUP_TRIGGERS_FULFILLED, FETCH_NODE_GROUP_TRIGGERS_REJECTED, UPDATE_TRIGGER_NAME, ADD_TRIGGER_FULFILLED, SAVE_TRIGGER } from "../constants/action-types";
 import {fromJS} from 'immutable';
 
 // https://github.com/learncodeacademy/react-js-tutorials/blob/master/5-redux-react/src/js/components/Layout.js
@@ -26,13 +26,26 @@ const nodeGroupTriggerReducer = (state = initialState, action) => {
             return state.set('fetching', false).set('error',fromJS(action.payload));
         }
 
-        case UPDATE_TRIGGER_NAME: {
+        case SAVE_TRIGGER: {
 
             const indexOfListingToUpdate = state.get('nodegrouptriggers').get( action.payload.get('group_id') ).findIndex(listing => {
                     return listing.get('id') === action.payload.get('id');
             });
 
             return state.setIn(['nodegrouptriggers', action.payload.get('group_id'), indexOfListingToUpdate, 'name'], action.payload.get('name'));
+        }
+
+        case REMOVE_TRIGGER: {
+
+            const indexOfListingToUpdate = state.get('nodegrouptriggers').get( action.payload.get('group_id') ).findIndex(listing => {
+                return listing.get('id') === action.payload.get('id');
+            });
+
+            return state.deleteIn(['nodegrouptriggers', action.payload.get('group_id'), indexOfListingToUpdate]);
+        }
+
+        case ADD_TRIGGER_FULFILLED: {
+            return state.updateIn(['nodegrouptriggers',action.payload.group_id], triggers => triggers.push(fromJS(action.payload)));
         }
 
         default:

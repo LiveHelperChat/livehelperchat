@@ -2,29 +2,29 @@
 
 header ( 'content-type: application/json; charset=utf-8' );
 
-$types = array(
-    'text' => 'Send text',
-    'generic' => 'Send Carrousel',
-    'list' => 'Send List',
-);
+$trigger = erLhcoreClassModelGenericBotTrigger::fetch($Params['user_parameters']['id']);
 
 echo json_encode(
     array(
-        'name' => 'Trigger one - ' . $Params['user_parameters']['id'],
-        'id' => $Params['user_parameters']['id'],
-        'group_id' => 1,
-        'actions' => array(
-            array(
-                'type' => 'text',
-                'text' => 'text'
-            ),
-            array(
-                'type' => 'list',
-                'text' => 'text2'
-            )
-        )
+        'name' => $trigger->name,
+        'id' => $trigger->id,
+        'group_id' => $trigger->group_id,
+        'actions' => $trigger->actions_front
     )
 );
+
+
+/*array(
+    array(
+        'type' => 'text',
+        'text' => 'text'
+    ),
+    array(
+        'type' => 'list',
+        'text' => 'text2'
+    )
+)*/
+
 
 /*
     <option value="text">Send Text</option>

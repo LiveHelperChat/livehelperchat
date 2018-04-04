@@ -36,14 +36,11 @@ const nodeGroupReducer = (state = initialState, action) => {
         }
 
         case UPDATE_GROUP_FULFILLED: {
-
-            const { id, name } = action.payload;
-
             const indexOfListingToUpdate = state.get('nodegroups').findIndex(listing => {
-                    return listing.get('id') === id;
+                  return listing.get('id') === action.payload.get('id');
             });
 
-            return state.setIn(['nodegroups', indexOfListingToUpdate, 'name'], name);
+            return state.setIn(['nodegroups', indexOfListingToUpdate], action.payload);
         }
 
         case FETCH_NODE_GROUPS_REJECTED: {

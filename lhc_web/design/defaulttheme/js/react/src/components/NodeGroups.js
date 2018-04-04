@@ -13,11 +13,11 @@ import { fetchNodeGroups, addNodeGroup, updateNodeGroup } from "../actions/nodeG
 class NodeGroups extends Component {
 
     componentWillMount() {
-        this.props.dispatch(fetchNodeGroups())
+        this.props.dispatch(fetchNodeGroups(this.props.botId))
     }
 
     addGroup() {
-        this.props.dispatch(addNodeGroup())
+        this.props.dispatch(addNodeGroup(this.props.botId))
     }
 
     changeTitle(obj) {
@@ -29,7 +29,6 @@ class NodeGroups extends Component {
 
         return (
             <div>
-                <p>Node group data</p>
                 {mappedNodeGroups}
                 <hr/>
                 <button className="btn btn-default" onClick={this.addGroup.bind(this)}>Add group</button>

@@ -230,6 +230,13 @@ return array_merge(array (
 		'erLhcoreClassChatPaid'       				=> 'lib/core/lhchat/lhchatpaid.php',
 
 		'erLhcoreClassChatEvent'       				=> 'lib/core/lhchat/lhchatevent.php',
+
+        // Bot classes
+        'erLhcoreClassModelGenericBotBot'           => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbotbot.php',
+        'erLhcoreClassModelGenericBotGroup'         => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbotgroup.php',
+        'erLhcoreClassModelGenericBotTrigger'       => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbottrigger.php',
+        'erLhcoreClassGenericBot'                   => 'lib/core/lhgenericbot/lhgenericbot.php',
+        'erLhcoreClassGenericBotValidator'          => 'lib/core/lhgenericbot/lhgenericbotvalidator.php'
 ),
 include('var/autoloads/lhextension_autoload.php')
 );

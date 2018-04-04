@@ -5,14 +5,19 @@ class NodeTriggerActionList extends Component {
 
     constructor(props) {
         super(props);
+        this.changeType = this.changeType.bind(this);
+    }
+
+    changeType(e) {
+        this.props.onChangeType({id : this.props.id, 'type' : e.target.value});
     }
 
     render() {
         return (
             <div>
-                <hr/>
-                <NodeTriggerActionType type={this.props.action.get('type')} />
+                <NodeTriggerActionType onChange={this.changeType} type={this.props.action.get('type')} />
                 <p>Send list</p>
+                <hr/>
             </div>
         );
     }
