@@ -2114,8 +2114,10 @@ function lh(){
 					inst.addingUserMessage = false;
 					
 					return true;
-				}).fail(function() {	
-					inst.addUserMessageQueue.push({'pdata':pdata,'url':inst.wwwDir + inst.addmsgurl + chat_id,'chat_id':chat_id});
+				}).fail(function(respose) {
+                    var escaped = '<div style="margin:10px 10px 30px 10px;" class="alert alert-warning" role="alert">' + $("<div>").text('Invalid response - ' + respose.responseText).html() + '</div>';
+                    $('#messagesBlock-'+chat_id).append(escaped);
+					inst.addUserMessageQueue.push({'pdata':pdata,'url':inst.wwwDir + inst.addmsgurl + chat_id,'chat_id':chat_id,'retries':0});
 		        	clearTimeout(inst.addDelayedTimeout);
 		        	inst.addDelayedTimeout = setTimeout(function(){		        		
 		        		inst.addDelayedMessageAdmin();
@@ -2124,7 +2126,7 @@ function lh(){
 		    	});
 				
 			} else {
-				this.addUserMessageQueue.push({'pdata':pdata,'url':this.wwwDir + this.addmsgurl + chat_id,'chat_id':chat_id});
+				this.addUserMessageQueue.push({'pdata':pdata,'url':this.wwwDir + this.addmsgurl + chat_id,'chat_id':chat_id,'retries':0});
 	        	clearTimeout(this.addDelayedTimeout);
 	        	this.addDelayedTimeout = setTimeout(function(){
 	        		inst.addDelayedMessageAdmin();
@@ -2143,7 +2145,9 @@ function lh(){
     		{
 	    		var elementAdd = this.addUserMessageQueue.shift();
 	    		this.addingUserMessage = true;
-	    		
+
+                elementAdd.retries = elementAdd.retries + 1;
+
 		        $.postJSON(elementAdd.url, elementAdd.pdata , function(data) {
 		        		        	
 		        	if (LHCCallbacks.addmsgadmin) {
@@ -2167,13 +2171,20 @@ function lh(){
 		            	inst.addDelayedMessageAdmin();	            	
 		        	}
 		        	
-				}).fail(function() {					
-					inst.addUserMessageQueue.unshift(elementAdd);
-					inst.addingUserMessage = false;
-					clearTimeout(inst.addDelayedTimeout);
-					inst.addDelayedTimeout = setTimeout(function(){
-		        		inst.addDelayedMessageAdmin();
-					}, 500);
+				}).fail(function(respose) {
+
+                    var escaped = '<div style="margin:10px 10px 30px 10px;" class="alert alert-warning" role="alert">' + $("<div>").text('Invalid response - ' + respose.responseText).html() + '</div>';
+                    $('#messagesBlock-'+elementAdd.chat_id).append(escaped);
+
+                    if (elementAdd.retries < 2) {
+                        inst.addUserMessageQueue.unshift(elementAdd);
+                        inst.addingUserMessage = false;
+                        clearTimeout(inst.addDelayedTimeout);
+                        inst.addDelayedTimeout = setTimeout(function(){
+                            inst.addDelayedMessageAdmin();
+                        }, 500);
+                    }
+
 				});
     		}
     		
@@ -2530,7 +2541,7 @@ function lh(){
 		        	inst.addingUserMessage = false;
 				});
 	        } else {
-	        	this.addUserMessageQueue.push({'pdata':pdata,'url':this.wwwDir + this.addmsgurluser + this.chat_id + '/' + this.hash + modeWindow});
+	        	this.addUserMessageQueue.push({'retries':0, 'pdata':pdata,'url':this.wwwDir + this.addmsgurluser + this.chat_id + '/' + this.hash + modeWindow});
 	        	clearTimeout(this.addDelayedTimeout);
 	        	this.addDelayedTimeout = setTimeout(function(){
 	        		inst.addDelayedMessage();
@@ -2545,7 +2556,7 @@ function lh(){
     	
     	var arrayLength = messages.length;
     	for (var i = 0; i < arrayLength; i++) {    	    
-    	    this.addUserMessageQueue.push({'pdata':{msg : messages[i]},'url':this.wwwDir + this.addmsgurluser + this.chat_id + '/' + this.hash + modeWindow});
+    	    this.addUserMessageQueue.push({'retries':0,'pdata':{msg : messages[i]},'url':this.wwwDir + this.addmsgurluser + this.chat_id + '/' + this.hash + modeWindow});
     	}
     	
     	this.addDelayedMessage();
