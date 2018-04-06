@@ -71,7 +71,7 @@ class NodeGroup extends Component {
             var mappedNodeGroupTriggers = "";
         }
 
-        if (this.props.currenttrigger.getIn(['currenttrigger','name']) && this.props.currenttrigger.getIn(['currenttrigger','group_id']) == this.props.group.get('id')){
+        if (this.props.currenttrigger.getIn(['currenttrigger','id']) && this.props.currenttrigger.getIn(['currenttrigger','group_id']) == this.props.group.get('id')){
             var triggerAction = <NodeGroupTriggerEvents deleteEvent={this.deleteEvent.bind(this)} addEvent={this.addTriggerEvent.bind(this)} updateEvent={this.updateEvent.bind(this)} trigger={this.props.currenttrigger.get('currenttrigger')} />;
         } else {
             var triggerAction = "";

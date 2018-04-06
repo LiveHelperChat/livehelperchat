@@ -446,7 +446,7 @@ var NodeGroup = (_dec = (0, _reactRedux.connect)(function (store) {
                 var mappedNodeGroupTriggers = "";
             }
 
-            if (this.props.currenttrigger.getIn(['currenttrigger', 'name']) && this.props.currenttrigger.getIn(['currenttrigger', 'group_id']) == this.props.group.get('id')) {
+            if (this.props.currenttrigger.getIn(['currenttrigger', 'id']) && this.props.currenttrigger.getIn(['currenttrigger', 'group_id']) == this.props.group.get('id')) {
                 var triggerAction = _react2.default.createElement(_NodeGroupTriggerEvents2.default, { deleteEvent: this.deleteEvent.bind(this), addEvent: this.addTriggerEvent.bind(this), updateEvent: this.updateEvent.bind(this), trigger: this.props.currenttrigger.get('currenttrigger') });
             } else {
                 var triggerAction = "";
