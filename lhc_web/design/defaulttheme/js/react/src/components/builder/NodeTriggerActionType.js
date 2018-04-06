@@ -6,7 +6,7 @@ export default ({onChange, type}) => {
         {
         'value':'text',
         'text' : 'Send Text',
-        },
+        }/*,
         {
             'value':'typing',
             'text' : 'Send Typing',
@@ -46,7 +46,7 @@ export default ({onChange, type}) => {
         {
             'value':'command',
             'text' : 'Update Current Lead',
-        }
+        }*/
     ]);
 
     var list = options.map((option, index) => <option key={index} value={option.get('value')}>{option.get('text')}</option>);

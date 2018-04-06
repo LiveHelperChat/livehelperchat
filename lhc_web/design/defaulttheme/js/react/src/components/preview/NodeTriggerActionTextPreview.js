@@ -9,7 +9,10 @@ class NodeTriggerActionTextPreview extends Component {
     render() {
         return (
             <div>
-                <p>{this.props.action.getIn(['content','text'])}</p>
+                <div className="message-row message-admin operator-changes">
+                    <div className="msg-date">18:10:45</div>
+                    <span className="usr-tit op-tit"><i className="material-icons chat-operators mi-fs15 mr-0">&#xE851;</i>Operator</span>{this.props.action.getIn(['content','text'])}
+                </div>
             </div>
         );
     }

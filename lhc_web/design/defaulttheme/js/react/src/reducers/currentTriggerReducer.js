@@ -6,7 +6,11 @@ import {
     UPDATE_TRIGGER_TYPE,
     ADD_TRIGGER_RESPONSE,
     HANDLE_CONTENT_CHANGE,
-    REMOVE_TRIGGER
+    REMOVE_TRIGGER,
+    CANCEL_TRIGGER,
+    UPDATE_TRIGGER_EVENT,
+    ADD_TRIGGER_EVENT_FULFILLED,
+    DELETE_TRIGGER_EVENT
 } from "../constants/action-types";
 import {fromJS} from 'immutable';
 
@@ -19,10 +23,6 @@ const initialState = fromJS({
 
 const nodeGroupTriggerReducer = (state = initialState, action) => {
     switch (action.type) {
-
-        case FETCH_TRIGGER_RESPONSE : {
-            return state.set('fetching', true).setIn(['currenttrigger','id'], action.payload.triggerid);
-        }
 
         case FETCH_TRIGGER_RESPONSE_FULFILLED: {
             return state.set('currenttrigger', fromJS(action.payload));
@@ -41,7 +41,7 @@ const nodeGroupTriggerReducer = (state = initialState, action) => {
         }
 
         case ADD_TRIGGER_RESPONSE: {
-            return state.updateIn(['currenttrigger','actions'], actions => actions.push(fromJS({'type' : 'text', content : {'text' : 'Write your response here!'}})));
+            return state.updateIn(['currenttrigger','actions'], actions => actions.push(fromJS({'type' : 'text', content : {'text' : ''}})));
         }
 
         case HANDLE_CONTENT_CHANGE: {
@@ -54,6 +54,36 @@ const nodeGroupTriggerReducer = (state = initialState, action) => {
             }
 
             return state;
+        }
+
+        case CANCEL_TRIGGER: {
+            if (state.getIn(['currenttrigger','id']) == action.payload.get('id')){
+                return state.set('currenttrigger',fromJS({}));
+            }
+
+            return state;
+        }
+
+        case UPDATE_TRIGGER_EVENT: {
+            const indexOfListingToUpdate = state.getIn(['currenttrigger','events']).findIndex(listing => {
+                return listing.get('id') === action.payload.get('id');
+            });
+
+            return state.setIn(['currenttrigger','events',indexOfListingToUpdate], action.payload);
+        }
+
+        case ADD_TRIGGER_EVENT_FULFILLED: {
+            return state.updateIn(['currenttrigger','events'], events => events.push(fromJS(action.payload)));
+        }
+
+        case DELETE_TRIGGER_EVENT: {
+            const indexOfListingToUpdate = state.getIn(['currenttrigger','events']).findIndex(listing => {
+                return listing.get('id') === action.payload.get('id');
+            });
+
+            console.log(action.payload.get('id'));
+
+            return state.deleteIn(['currenttrigger','events',indexOfListingToUpdate]);
         }
 
         default:

@@ -20,6 +20,13 @@ class erLhcoreClassGenericBotValidator {
         $trigger->name = $data['name'];
         $trigger->saveThis();
     }
+
+    public static function validateTriggerEvent(& $data) {
+        $triggerEvent = erLhcoreClassModelGenericBotTriggerEvent::fetch($data['id']);
+        $triggerEvent->type = $data['type'];
+        $triggerEvent->pattern = $data['pattern'];
+        $triggerEvent->saveThis();
+    }
 }
 
 ?>

@@ -9,7 +9,8 @@ echo json_encode(
         'name' => $trigger->name,
         'id' => $trigger->id,
         'group_id' => $trigger->group_id,
-        'actions' => $trigger->actions_front
+        'actions' => $trigger->actions_front,
+        'events' => array_values($trigger->events)
     )
 );
 

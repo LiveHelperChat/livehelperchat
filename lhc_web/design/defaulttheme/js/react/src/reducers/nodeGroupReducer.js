@@ -1,4 +1,4 @@
-import { FETCH_NODE_GROUPS, FETCH_NODE_GROUPS_FULFILLED, FETCH_NODE_GROUPS_REJECTED, ADD_GROUP_FULFILLED, UPDATE_GROUP_FULFILLED } from "../constants/action-types";
+import { DELETE_TRIGGER_GROUP, FETCH_NODE_GROUPS, FETCH_NODE_GROUPS_FULFILLED, FETCH_NODE_GROUPS_REJECTED, ADD_GROUP_FULFILLED, UPDATE_GROUP_FULFILLED } from "../constants/action-types";
 import {fromJS} from 'immutable';
 
 // https://github.com/learncodeacademy/react-js-tutorials/blob/master/5-redux-react/src/js/components/Layout.js
@@ -33,6 +33,14 @@ const nodeGroupReducer = (state = initialState, action) => {
                 .set('fetched',true)
                 .set('fetching',false)
                 .update('nodegroups', nodegroups => nodegroups.push(fromJS(action.payload)));
+        }
+
+        case DELETE_TRIGGER_GROUP: {
+            const indexOfListingToUpdate = state.get('nodegroups').findIndex(listing => {
+                return listing.get('id') === action.payload.groupId.id;
+            });
+
+            return state.deleteIn(['nodegroups', indexOfListingToUpdate]);
         }
 
         case UPDATE_GROUP_FULFILLED: {

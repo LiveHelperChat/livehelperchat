@@ -77,6 +77,30 @@ $ViewList['addtrigger'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['addtriggerevent'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
+$ViewList['deletetriggerevent'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
+$ViewList['deletegroup'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
+$ViewList['updatetriggerevent'] = array(
+    'params' => array(),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
 $ViewList['removetrigger'] = array(
     'params' => array('id'),
     'uparams' => array(),

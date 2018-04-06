@@ -23,9 +23,9 @@ class NodeTriggerBuilderPreview extends Component {
         if (this.props.currenttrigger.get('currenttrigger').has('actions')) {
                 actions = this.props.currenttrigger.get('currenttrigger').get('actions').map((action, index) => {
                     if (action.get('type') == 'text') {
-                    return <NodeTriggerActionTextPreview key={index} id={index} action={action} />
+                    return <NodeTriggerActionTextPreview key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} action={action} />
                 } else if (action.get('type') == 'list') {
-                    return <NodeTriggerActionListPreview key={index} id={index} action={action} />
+                    return <NodeTriggerActionListPreview key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} action={action} />
                 }
             });
         }
