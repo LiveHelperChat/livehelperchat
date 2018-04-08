@@ -1652,14 +1652,15 @@ function lh(){
 	this.loadPreviousMessages = function (inst) {
         $.getJSON(this.wwwDir + 'chat/loadpreviousmessages/' + inst.attr('chat-id') + '/' + inst.attr('message-id'), function(data) {
             if (data.error == false) {
-                var btn = $('#messagesBlock-'+inst.attr('chat-original-id')+' > .load-prev-btn');
-                btn.after(data.result);
+
+                var msg = $('#messagesBlock-'+inst.attr('chat-original-id'));
+                msg.prepend(data.result);
 
                 if (data.has_messages == true) {
-                    btn.attr('message-id', data.message_id);
+                    inst.attr('message-id', data.message_id);
                     inst.attr('chat-id',data.chat_id);
                 } else {
-                    btn.remove();
+                    inst.remove();
                 }
             }
         });

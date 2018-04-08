@@ -17,7 +17,7 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) ) {
 
     if ($dataPrevious['has_messages'] == true) {
         $items[] = array (
-            'selector' => '#messagesBlock-' . $chat->id.' > .load-prev-btn',
+            'selector' => '#load-prev-btn-' . $chat->id,
             'action' => 'show',
             'attr' => array(
                 'chat-original-id' => $chat->id,
@@ -27,7 +27,7 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) ) {
         );
     } else {
         $items[] = array (
-            'selector' => '#messagesBlock-' . $chat->id.' > .load-prev-btn',
+            'selector' => '#load-prev-btn-' . $chat->id,
             'action' => 'hide'
         );
     }
