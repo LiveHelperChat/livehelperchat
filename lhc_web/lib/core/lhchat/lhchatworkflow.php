@@ -451,7 +451,11 @@ class erLhcoreClassChatWorkflow {
          		}
      		}
 
-     		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow.canned_message_replace',array('user' => $chat->user, 'chat' => $chat, 'replace_array' => & $replaceArray));
+     		$items = array($cannedMsg);
+
+     		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow.canned_message_replace',array('items' => & $items, 'user' => $chat->user, 'chat' => $chat, 'replace_array' => & $replaceArray));
+
+            $cannedMsg = $items[0];
 
      		// Set proper message by language
             $cannedMsg->setMessageByChatLocale($chat->chat_locale);
