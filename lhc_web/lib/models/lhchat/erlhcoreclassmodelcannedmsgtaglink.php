@@ -64,7 +64,8 @@ class erLhcoreClassModelCannedMsgTagLink
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow.canned_message_replace', array(
             'chat' => $chat,
             'replace_array' => & $replaceArray,
-            'user' => $user
+            'user' => $user,
+            'items' => & $cannedMessagesAll
         ));
         
         foreach ($cannedMessagesAll as $item) {

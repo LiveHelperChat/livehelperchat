@@ -100,6 +100,21 @@ class erLhcoreClassModelCannedMsg
                     $this->tags_plain = implode(', ', $tagsPlain);
                     return $this->tags_plain;
                 break;
+
+            case 'additional_data_array':
+                $jsonData = json_decode($this->additional_data,true);
+                if ($jsonData !== null) {
+                    $this->additional_data_array = $jsonData;
+                } else {
+                    $this->additional_data_array = $this->additional_data;
+                }
+
+                if (!is_array($this->additional_data_array)) {
+                    $this->additional_data_array = array();
+                }
+
+                return $this->additional_data_array;
+                break;
                     
             default:
                 break;
@@ -255,7 +270,8 @@ class erLhcoreClassModelCannedMsg
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow.canned_message_replace', array(
             'chat' => $chat,
             'replace_array' => & $replaceArray,
-            'user' => $user
+            'user' => $user,
+            'items' => & $items
         ));
         
         $grouped = array();

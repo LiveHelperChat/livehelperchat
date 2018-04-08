@@ -81,22 +81,14 @@ if ($pages->items_total > 0) {
                 <input type="text" class="form-control" name="Tags" value="<?php echo htmlspecialchars($canned_msg->tags_plain)?>" />
             </div>
 
-            <div class="form-group">
-                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Message');?></label>
-                <textarea class="form-control" name="Message"><?php echo htmlspecialchars($canned_msg->msg);?></textarea>
-            </div>
 
-            <div class="form-group">
-                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Fallback message');?></label>
-                <textarea class="form-control" name="FallbackMessage"><?php echo htmlspecialchars($canned_msg->fallback_msg);?></textarea>
-            </div>
 
             <div class="form-group">
                 <label><input type="checkbox" name="AutoSend" value="on" <?php $canned_msg->auto_send == 1 ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Automatically send this message to user then chat is accepted');?></label>
             </div>
 
             <div class="form-group">
-                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Delay in seconds');?></label>
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Delay in seconds');?></label>
                 <input type="text" class="form-control" name="Delay" value="<?php echo $canned_msg->delay?>" />
             </div>
 
@@ -104,7 +96,29 @@ if ($pages->items_total > 0) {
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Position');?></label>
                 <input type="text" class="form-control" name="Position" value="<?php echo $canned_msg->position?>" />
             </div>
+
             <?php include(erLhcoreClassDesign::designtpl('lhuser/parts/cannedmsg/custom_fields_multiinclude.tpl.php'));?>
+
+            <ul class="nav nav-pills" role="tablist" id="canned-main-extension">
+                <li role="presentation" class="active"><a href="#main-extension" aria-controls="main-extension" role="tab" data-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Messages');?></a></li>
+                <?php include(erLhcoreClassDesign::designtpl('lhchat/cannedmsg/custom_fallback_tab_multiinclude.tpl.php')); ?>
+            </ul>
+
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="main-extension">
+                    <div class="form-group">
+                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Message');?>*</label>
+                        <textarea class="form-control" name="Message"><?php echo htmlspecialchars($canned_msg->msg);?></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Fallback message');?></label>
+                        <textarea class="form-control" name="FallbackMessage"><?php echo htmlspecialchars($canned_msg->fallback_msg);?></textarea>
+                    </div>
+                </div>
+                <?php $canned_message = $canned_msg; ?>
+                <?php include(erLhcoreClassDesign::designtpl('lhchat/cannedmsg/custom_fallback_tab_content_multiinclude.tpl.php')); ?>
+            </div>
+
         </div>
 
         <div ng-repeat="lang in cmsg.languages" role="tabpanel" class="tab-pane" id="lang-{{$index}}">
@@ -127,15 +141,25 @@ if ($pages->items_total > 0) {
                 </div>
             </div>
 
-            <div class="form-group">
-                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Message');?>*</label>
-                <textarea class="form-control" name="message_lang[{{$index}}]" ng-model="lang.message"></textarea>
+            <ul class="nav nav-pills" role="tablist">
+                <li role="presentation" class="active"><a href="#main-extension-lang-{{$index}}" aria-controls="main-extension-lang-{{$index}}" role="tab" data-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Messages');?></a></li>
+                <?php include(erLhcoreClassDesign::designtpl('lhchat/cannedmsg/custom_fallback_lang_tab_multiinclude.tpl.php')); ?>
+            </ul>
+
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="main-extension-lang-{{$index}}">
+                    <div class="form-group">
+                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Message');?>*</label>
+                        <textarea class="form-control" name="message_lang[{{$index}}]" ng-model="lang.message"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Fallback message');?></label>
+                        <textarea class="form-control" name="fallback_message_lang[{{$index}}]" ng-model="lang.fallback_message"></textarea>
+                    </div>
+                </div>
+                <?php include(erLhcoreClassDesign::designtpl('lhchat/cannedmsg/custom_fallback_lang_tab_content_multiinclude.tpl.php')); ?>
             </div>
 
-            <div class="form-group">
-                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Fallback message');?></label>
-                <textarea class="form-control" name="fallback_message_lang[{{$index}}]" ng-model="lang.fallback_message"></textarea>
-            </div>
         </div>
 
     </div>
