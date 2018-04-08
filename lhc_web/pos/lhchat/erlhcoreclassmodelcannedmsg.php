@@ -86,6 +86,11 @@ $def->properties['languages']->columnName   = 'languages';
 $def->properties['languages']->propertyName = 'languages';
 $def->properties['languages']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['additional_data'] = new ezcPersistentObjectProperty();
+$def->properties['additional_data']->columnName   = 'additional_data';
+$def->properties['additional_data']->propertyName = 'additional_data';
+$def->properties['additional_data']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 return $def;
 
 ?>

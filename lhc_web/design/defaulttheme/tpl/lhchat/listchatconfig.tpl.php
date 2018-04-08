@@ -260,7 +260,9 @@
 			</div>
 
 			<?php include(erLhcoreClassDesign::designtpl('lhchat/listchatconfig/screen_sharing.tpl.php'));?>
-										
+
+			<?php include(erLhcoreClassDesign::designtpl('lhchat/listchatconfig/gdpr.tpl.php'));?>
+
 			<?php endif;?>		
 							
 		</div>

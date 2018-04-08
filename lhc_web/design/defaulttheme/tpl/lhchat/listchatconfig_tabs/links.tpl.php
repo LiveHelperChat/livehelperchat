@@ -6,4 +6,5 @@
 <li role="presentation"><a href="#visitoractivity" aria-controls="visitoractivity" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Visitor activity');?></a></li>
 <li role="presentation"><a href="#workflow" aria-controls="workflow" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Workflow');?></a></li>
 <?php include(erLhcoreClassDesign::designtpl('lhchat/listchatconfig/screen_sharing_tab.tpl.php'));?>
+<?php include(erLhcoreClassDesign::designtpl('lhchat/listchatconfig/gdpr_tab.tpl.php'));?>
 <?php endif;?>
