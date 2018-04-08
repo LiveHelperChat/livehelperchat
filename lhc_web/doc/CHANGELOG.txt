@@ -1,3 +1,14 @@
+2.92v
+
+1. Load previous button moved up, so visitor nick will be visible again for first message.
+2. Option to anonymize visitor IP and messages after specific period of time.
+3. In modern look, invitation will be hidden persistently on minimize action.
+4. Header refactored on modern look.
+5. Improved replacement algorithm for canned messages, then sometimes # hash was left after replace.
+6. And many other small changes :)
+
+execute doc/update_db/update_167.sql for update
+
 2.91v
 
 1. Modern look for widget.
