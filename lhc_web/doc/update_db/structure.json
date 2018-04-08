@@ -7149,14 +7149,14 @@
                 "identifier": "encrypt_msg_after",
                 "value": "0",
                 "type": "0",
-                "explain": "After how many days encrypt messaes",
+                "explain": "After how many days anonymize messages",
                 "hidden": "0"
             },
             {
                 "identifier": "encrypt_msg_op",
                 "value": "0",
                 "type": "0",
-                "explain": "Encrypt also operators messages",
+                "explain": "Anonymize also operators messages",
                 "hidden": "0"
             },
             {
