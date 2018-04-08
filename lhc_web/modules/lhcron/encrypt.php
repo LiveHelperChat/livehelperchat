@@ -19,7 +19,7 @@ if ($value > 0) {
 
     $chats = erLhcoreClassModelChat::getList(array(
         'sort' => 'id DESC',
-        'limit' => 1,
+        'limit' => 500,
         'filter' => array('anonymized' => 0),
         'filterlt' => array('time' => (time()-($value*24*3600))
     )));
