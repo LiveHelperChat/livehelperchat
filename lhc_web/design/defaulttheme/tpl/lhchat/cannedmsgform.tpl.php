@@ -24,14 +24,21 @@
             <input type="text" class="form-control" name="ExplainHover" value="<?php echo htmlspecialchars($canned_message->explain);?>" />
         </div>
 
-        <div class="form-group">
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Message');?>*</label>
-            <textarea class="form-control" name="Message"><?php echo htmlspecialchars($canned_message->msg);?></textarea>
-        </div>
+        <ul class="nav nav-pills" role="tablist" id="canned-main-extension">
+            <li role="presentation" class="active"><a href="#main-extension" aria-controls="main-extension" role="tab" data-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Messages');?></a></li>
+        </ul>
 
-        <div class="form-group">
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Fallback message');?></label>
-            <textarea class="form-control" name="FallbackMessage"><?php echo htmlspecialchars($canned_message->fallback_msg);?></textarea>
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="main-extension">
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Message');?>*</label>
+                    <textarea class="form-control" name="Message"><?php echo htmlspecialchars($canned_message->msg);?></textarea>
+                </div>
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Fallback message');?></label>
+                    <textarea class="form-control" name="FallbackMessage"><?php echo htmlspecialchars($canned_message->fallback_msg);?></textarea>
+                </div>
+            </div>
         </div>
 
         <label><input type="checkbox" name="AutoSend" value="on" <?php $canned_message->auto_send == 1 ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Automatically send this message to user then chat is accepted');?></label>
@@ -72,6 +79,7 @@
             </div>
         </div>
 
+        <!--// Todo-->
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Message');?>*</label>
             <textarea class="form-control" name="message_lang[{{$index}}]" ng-model="lang.message"></textarea>
@@ -81,6 +89,9 @@
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Fallback message');?></label>
             <textarea class="form-control" name="fallback_message_lang[{{$index}}]" ng-model="lang.fallback_message"></textarea>
         </div>
+
+
+
 
     </div>
 

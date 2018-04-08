@@ -981,6 +981,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `title` varchar(250) NOT NULL,
                   `explain` varchar(250) NOT NULL,
                   `languages` text NOT NULL,
+                  `additional_data` text NOT NULL,
         	   	  `position` int(11) NOT NULL,
         	   	  `department_id` int(11) NOT NULL,
         	   	  `user_id` int(11) NOT NULL,

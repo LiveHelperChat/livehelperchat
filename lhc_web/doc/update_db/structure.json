@@ -3150,6 +3150,15 @@
                 "collation": "utf8mb4_unicode_ci"
             },
             {
+                "field": "additional_data",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": "",
+                "collation": "utf8mb4_unicode_ci"
+            },
+            {
                 "field": "languages",
                 "type": "text",
                 "null": "NO",
