@@ -196,7 +196,7 @@ $ViewList['loadinitialdata'] = array(
 
 $ViewList['list'] = array(
     'params' => array(),
-    'uparams' => array('una','chat_duration_from','chat_duration_till','wait_time_from','wait_time_till','chat_id','nick','email','timefrom','timeto','department_id','user_id','print','xls','fbst','chat_status','hum','product_id','timefrom','timefrom_minutes','timefrom_hours','timeto','timeto_minutes','timeto_hours','department_group_id','group_id'),
+    'uparams' => array('anonymized','una','chat_duration_from','chat_duration_till','wait_time_from','wait_time_till','chat_id','nick','email','timefrom','timeto','department_id','user_id','print','xls','fbst','chat_status','hum','product_id','timefrom','timefrom_minutes','timefrom_hours','timeto','timeto_minutes','timeto_hours','department_group_id','group_id'),
     'functions' => array( 'use' )
 );
 

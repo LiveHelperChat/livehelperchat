@@ -114,6 +114,9 @@ class erLhcoreClassModelChat {
 
                // Time then chat was closed
                'cls_time'    	        => $this->cls_time,
+
+               // Anonymized
+               'anonymized'    	        => $this->anonymized,
        );
    }
 
@@ -456,6 +459,9 @@ class erLhcoreClassModelChat {
        $geoData = erLhcoreClassModelChatConfig::fetch('geo_data');
        $geo_data = (array)$geoData->data;
 
+       $fileData = erLhcoreClassModelChatConfig::fetch('file_configuration');
+       $data = (array)$fileData->data;
+
        if (isset($geo_data['geo_detection_enabled']) && $geo_data['geo_detection_enabled'] == 1) {
 
            $params = array();
@@ -486,6 +492,15 @@ class erLhcoreClassModelChat {
                $instance->city = $location->city;
            }
        }
+
+       $hideIp = erLhcoreClassModelChatConfig::fetch('do_no_track_ip');
+       if ($hideIp->value == 1) {
+           $parts = explode('.',$instance->ip);
+           if (isset($parts[0]) && $parts[1]) {
+               $instance->ip = $parts[0] . '.' . $parts[1] . '.xxx.xxx';
+           }
+       }
+
    }
 
    public function blockUser() {
@@ -645,7 +660,9 @@ class erLhcoreClassModelChat {
    public $chat_locale_to = '';
    
    public $uagent = '';
-   
+
+   public $anonymized = 0;
+
    // 0 - PC, 1 - mobile, 2 - tablet
    public $device_type = 0;
 

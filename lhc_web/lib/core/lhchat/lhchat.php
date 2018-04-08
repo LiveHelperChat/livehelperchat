@@ -58,7 +58,7 @@ class erLhcoreClassChat {
 			'usaccept',
 			'auto_responder_id',
 			'chat_locale',
-			//'product_id'
+			'anonymized',
 	);
 
 	public static $limitMessages = 50;

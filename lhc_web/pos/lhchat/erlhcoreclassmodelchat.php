@@ -381,6 +381,11 @@ $def->properties['cls_time']->columnName   = 'cls_time';
 $def->properties['cls_time']->propertyName = 'cls_time';
 $def->properties['cls_time']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['anonymized'] = new ezcPersistentObjectProperty();
+$def->properties['anonymized']->columnName   = 'anonymized';
+$def->properties['anonymized']->propertyName = 'anonymized';
+$def->properties['anonymized']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

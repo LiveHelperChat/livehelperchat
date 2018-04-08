@@ -540,6 +540,15 @@ class erLhcoreClassModelChatOnlineUser
                 $instance->city = $location->city;
             }
         }
+
+        $hideIp = erLhcoreClassModelChatConfig::fetch('do_no_track_ip');
+        if ($hideIp->value == 1) {
+            $parts = explode('.',$instance->ip);
+            if (isset($parts[0]) && $parts[1]) {
+                $instance->ip = $parts[0] . '.' . $parts[1] . '.xxx.xxx';
+            }
+        }
+
     }
 
     public static function cleanupOnlineUsers($params = array())

@@ -3395,6 +3395,14 @@
                 "extra": ""
             },
             {
+                "field": "anonymized",
+                "type": "tinyint(1)",
+                "null": "NO",
+                "key": "MUL",
+                "default": "0",
+                "extra": ""
+            },
+            {
                 "field": "cls_time",
                 "type": "int(11)",
                 "null": "NO",
@@ -7122,6 +7130,27 @@
                 "hidden": "0"
             },
             {
+                "identifier": "do_no_track_ip",
+                "value": "0",
+                "type": "0",
+                "explain": "Do not track visitors IP",
+                "hidden": "0"
+            },
+            {
+                "identifier": "encrypt_msg_after",
+                "value": "0",
+                "type": "0",
+                "explain": "After how many days encrypt messaes",
+                "hidden": "0"
+            },
+            {
+                "identifier": "encrypt_msg_op",
+                "value": "0",
+                "type": "0",
+                "explain": "Encrypt also operators messages",
+                "hidden": "0"
+            },
+            {
                 "identifier": "track_online_visitors",
                 "value": "1",
                 "type": "0",
@@ -7978,7 +8007,8 @@
     			"product_id" : "ALTER TABLE `lh_chat` ADD INDEX `product_id` (`product_id`);",
     			"unread_operator" : "ALTER TABLE `lh_chat` ADD INDEX `unread_operator` (`has_unread_op_messages`, `unread_op_messages_informed`);",
     			"user_id_sender_user_id" : "ALTER TABLE `lh_chat` ADD INDEX `user_id_sender_user_id` (`user_id`, `sender_user_id`);",
-    			"sender_user_id" : "ALTER TABLE `lh_chat` ADD INDEX `sender_user_id` (`sender_user_id`);"
+    			"sender_user_id" : "ALTER TABLE `lh_chat` ADD INDEX `sender_user_id` (`sender_user_id`);",
+    			"anonymized" : "ALTER TABLE `lh_chat` ADD INDEX `anonymized` (`anonymized`);"
     		},
     		"old" : ["user_id"]
     	},
