@@ -174,6 +174,8 @@ function lh(){
                         el.show();
                     } else if(dataElement.action == 'remove') {
                         el.remove();
+                    } else if(dataElement.action == 'click') {
+                        el.click();
                     }
                 }
             });

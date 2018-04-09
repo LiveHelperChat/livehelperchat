@@ -31,6 +31,17 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) ) {
             'action' => 'hide'
         );
     }
+
+    $soundData = erLhcoreClassModelChatConfig::fetch('sync_sound_settings');
+    $data = (array)$soundData->data;
+
+    if (isset($data['preload_messages']) && $data['preload_messages'] == 1)
+    {
+        $items[] = array (
+            'selector' => '#load-prev-btn-' . $chat->id,
+            'action' => 'click'
+        );
+    }
 }
 
 
