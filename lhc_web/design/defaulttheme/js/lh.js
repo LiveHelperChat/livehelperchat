@@ -175,6 +175,7 @@ function lh(){
                     } else if(dataElement.action == 'remove') {
                         el.remove();
                     } else if(dataElement.action == 'click') {
+                        el.attr('auto-scroll',1);
                         el.click();
                     }
                 }
@@ -1659,6 +1660,11 @@ function lh(){
 
                 var msg = $('#messagesBlock-'+inst.attr('chat-original-id'));
                 msg.prepend(data.result);
+
+                if (inst.attr('auto-scroll') == 1) {
+                    inst.attr('auto-scroll',0);
+                    msg.stop(true,false).animate({ scrollTop: msg.prop('scrollHeight') }, 500);
+                }
 
                 if (data.has_messages == true) {
                     inst.attr('message-id', data.message_id);
