@@ -21,7 +21,7 @@ class erLhcoreClassAdminChatValidatorHelper {
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             ),
             'Position' => new ezcInputFormDefinitionElement(
-                ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0)
+                ezcInputFormDefinitionElement::OPTIONAL, 'int',array()
             ),
             'Delay' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0)
