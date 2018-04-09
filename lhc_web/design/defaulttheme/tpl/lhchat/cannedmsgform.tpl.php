@@ -32,9 +32,14 @@
         </div>
 
         <div class="form-group">
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Position');?></label>
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Position');?>
+                    <a class="live-help-tooltip" data-placement="top" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','The smaller the position value the higher the canned message will appear in the list')?>" data-toggle="tooltip" ><i class="material-icons">&#xE887;</i></a>
+                </label>
+
             <input type="text" class="form-control" name="Position" value="<?php echo $canned_message->position?>" />
         </div>
+
+
 
         <?php include(erLhcoreClassDesign::designtpl('lhchat/cannedmsg/department.tpl.php')); ?>
 
@@ -105,3 +110,6 @@
 </div>
 
 </div>
+<script>
+    $('.live-help-tooltip').tooltip();
+</script>
