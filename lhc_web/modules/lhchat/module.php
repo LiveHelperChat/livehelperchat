@@ -20,7 +20,7 @@ $ViewList['loadmaindata'] = array(
 
 $ViewList['loadpreviousmessages'] = array(
     'params' => array('chat_id','message_id'),
-    'uparams' => array(),
+    'uparams' => array('initial'),
     'functions' => array( 'use' ),
     'multiple_arguments' => array()
 );

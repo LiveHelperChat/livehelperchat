@@ -1652,8 +1652,10 @@ function lh(){
 	};
 
 	this.loadPreviousMessages = function (inst) {
-        $.getJSON(this.wwwDir + 'chat/loadpreviousmessages/' + inst.attr('chat-id') + '/' + inst.attr('message-id'), function(data) {
+        $.getJSON(this.wwwDir + 'chat/loadpreviousmessages/' + inst.attr('chat-id') + '/' + inst.attr('message-id') + '/(initial)/' + inst.attr('data-initial'), function(data) {
             if (data.error == false) {
+
+                inst.attr('data-initial',0);
 
                 var msg = $('#messagesBlock-'+inst.attr('chat-original-id'));
                 msg.prepend(data.result);
