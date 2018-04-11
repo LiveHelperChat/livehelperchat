@@ -1316,6 +1316,189 @@ class erLhcoreClassChatStatistic {
         return erLhcoreClassChat::getCount(array_merge_recursive($filter,array('filtergt' => array('chat_duration' => 0),'filter' =>  array('status' => erLhcoreClassModelChat::STATUS_CLOSED_CHAT))),'lh_chat','SUM(chat_duration)');
     }
 
+    public static function getDepartmentsStatistic($days = 30, $filter = array(), $input)
+    {
+        if (empty($filter)) {
+            $filter['filtergt']['time'] = $dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
+        }
+
+        if (
+            isset($filter['filtergte']['hourminute']) &&
+            isset($filter['filterlte']['hourminute']) &&
+            $filter['filtergte']['hourminute'] > $filter['filterlte']['hourminute']
+        ) {
+            $sql = '(hourminute >= ' . (int)$filter['filtergte']['hourminute'] . ' OR hourminute <= ' . (int)$filter['filterlte']['hourminute'] .')';
+            unset($filter['filtergte']['hourminute']);
+            unset($filter['filterlte']['hourminute']);
+            $filter['filter_custom'][] = $sql;
+        }
+
+        $filterNew = $filter;
+        $filterNew['group'] = 'ymd, status';
+
+        // Collect statistic by days
+        $stats = erLhcoreClassModelDepartamentAvailability::getCount($filterNew,'count',false,'count(id) as records, status, ymd, min(time) as time',false,true);
+
+        $statsByDay = array();
+
+        foreach ($stats as $stat) {
+            $statsByDay[$stat['ymd']]['stats'][$stat['status']] = $stat['records'];
+            $statsByDay[$stat['ymd']]['time'] = $stat['time'];
+        }
+
+        foreach ($statsByDay as $key => $stat) {
+            $statsByDay[$key]['total'] = array_sum($statsByDay[$key]['stats']);
+
+            $statsByDay[$key]['stats_formated'] = array();
+            foreach ($statsByDay[$key]['stats'] as $status => $records) {
+                $statsByDay[$key]['stats_formated'][$status]['perc'] = round(floor($records/$statsByDay[$key]['total'] * 10000)/100,2, PHP_ROUND_HALF_DOWN);
+                $statsByDay[$key]['stats_formated'][$status]['seconds'] = $records*60;
+            }
+        }
+
+        $filterNew = $filter;
+        $filterNew['group'] = 'hour, status';
+
+        // Collect statistic by hour
+        $stats = erLhcoreClassModelDepartamentAvailability::getCount($filterNew,'count',false,'count(id) as records, status, hour, min(time) as time',false,true);
+        $statsByHour = array();
+
+        foreach ($stats as $stat) {
+            $statsByHour[self::convertUTFHourToLocal($stat['hour'])]['stats'][$stat['status']] = $stat['records'];
+            $statsByHour[self::convertUTFHourToLocal($stat['hour'])]['time'] = $stat['time'];
+        }
+
+        ksort($statsByHour);
+
+        foreach ($statsByHour as $key => $stat) {
+            $statsByHour[$key]['total'] = array_sum($statsByHour[$key]['stats']);
+            $statsByHour[$key]['stats_formated'] = array();
+            foreach ($statsByHour[$key]['stats'] as $status => $records) {
+                  $statsByHour[$key]['stats_formated'][$status]['perc'] = round(floor($records/$statsByHour[$key]['total'] * 10000)/100,2, PHP_ROUND_HALF_DOWN);
+                  $statsByHour[$key]['stats_formated'][$status]['seconds'] = $records*60;
+            }
+        }
+
+        $filterNew = $filter;
+        $filterNew['group'] = 'status';
+        $stats = erLhcoreClassModelDepartamentAvailability::getCount($filterNew,'count',false,'count(id) as records, status',false,true);
+
+        $totalTime = 0;
+        foreach ($stats as $stat) {
+            $totalTime +=  $stat['records'];
+        }
+
+        $statGlobal = array();
+        foreach ($stats as $stat) {
+            $stat['perc'] = round(floor(($stat['records']/$totalTime) * 10000)/100,2, PHP_ROUND_HALF_DOWN);
+            $statGlobal[] = $stat;
+        }
+
+        return array('day_stats' => $statsByDay, 'hour_stats' => $statsByHour, 'global_stats' => $statGlobal);
+    }
+
+    public static function convertUTFHourToLocal($hourUTF) {
+
+        $dateTime = new DateTime("now");
+        $hourUTF =  $hourUTF + ($dateTime->getOffset() / 60 / 60);
+
+        if ($hourUTF < 0) {
+            $hourUTF = 24 + $hourUTF;
+        } elseif ($hourUTF > 23) {
+            $hourUTF = $hourUTF - 24;
+        }
+
+        return $hourUTF;
+    }
+
+    public static function exportDepartmentStatistic($data) {
+
+        include 'lib/core/lhform/PHPExcel.php';
+        $cacheMethod = PHPExcel_CachedObjectStorageFactory::cache_to_phpTemp;
+        $cacheSettings = array( 'memoryCacheSize ' => '64MB');
+        PHPExcel_Settings::setCacheStorageMethod($cacheMethod, $cacheSettings);
+
+        $objPHPExcel = new PHPExcel();
+        $objPHPExcel->setActiveSheetIndex(0);
+        $objPHPExcel->getActiveSheet()->getStyle('A1:AW1')->getFont()->setBold(true);
+        $objPHPExcel->getActiveSheet()->setTitle('Report');
+
+
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(0, 1, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Date'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, 1, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Online'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(2, 1, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Disabled'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(3, 1, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Overloaded'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(4, 1, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Offline'));
+
+
+        $i = 2;
+        foreach ($data['day_stats'] as $day) {
+
+            $key = 0;
+            $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($key, $i, (string)date(erLhcoreClassModule::$dateFormat,$day['time']));
+
+            $key++;
+            $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($key, $i, (isset($day['stats_formated'][0]['perc']) ? $day['stats_formated'][0]['perc'] : 0) . '%');
+
+            $key++;
+            $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($key, $i, (isset($day['stats_formated'][1]['perc']) ? $day['stats_formated'][1]['perc'] : 0) . '%');
+
+            $key++;
+            $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($key, $i, (isset($day['stats_formated'][2]['perc']) ? $day['stats_formated'][2]['perc'] : 0) . '%');
+
+            $key++;
+            $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($key, $i, (isset($day['stats_formated'][3]['perc']) ? $day['stats_formated'][3]['perc'] : 0) . '%');
+
+            $i++;
+        }
+
+        $i++;
+        $i++;
+
+        $objPHPExcel->getActiveSheet()->getStyle("A{$i}:AW{$i}")->getFont()->setBold(true);
+
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(0, $i, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Hour'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, $i, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Online'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(2, $i, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Disabled'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(3, $i, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Overloaded'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(4, $i, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Offline'));
+
+        $i++;
+        foreach ($data['hour_stats'] as $hour => $day) {
+
+            $key = 0;
+            $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($key, $i, $hour);
+
+            $key++;
+            $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($key, $i, (isset($day['stats_formated'][0]['perc']) ? $day['stats_formated'][0]['perc'] : 0) . '%');
+
+            $key++;
+            $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($key, $i, (isset($day['stats_formated'][1]['perc']) ? $day['stats_formated'][1]['perc'] : 0) . '%');
+
+            $key++;
+            $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($key, $i, (isset($day['stats_formated'][2]['perc']) ? $day['stats_formated'][2]['perc'] : 0) . '%');
+
+            $key++;
+            $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($key, $i, (isset($day['stats_formated'][3]['perc']) ? $day['stats_formated'][3]['perc'] : 0) . '%');
+
+            $i++;
+        }
+
+
+        $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+
+        // We'll be outputting an excel file
+        header('Content-type: application/vnd.ms-excel');
+
+        // It will be called file.xls
+        header('Content-Disposition: attachment; filename="report.xlsx"');
+
+        // Write file to the browser
+        $objWriter->save('php://output');
+    }
+
+
+
     public static function getRangeWaitTime()
     {
         return array(

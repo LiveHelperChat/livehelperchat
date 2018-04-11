@@ -9,6 +9,7 @@
 		<li role="presentation" <?php if ($tab == 'last24') : ?>class="active"<?php endif;?>><a href="<?php echo erLhcoreClassDesign::baseurl('statistic/statistic')?>/(tab)/last24" ><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/tab_last_24_hours_statistic.tpl.php'));?></a></li>
 		<li role="presentation" <?php if ($tab == 'agentstatistic') : ?>class="active"<?php endif;?>><a href="<?php echo erLhcoreClassDesign::baseurl('statistic/statistic')?>/(tab)/agentstatistic" ><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/tab_agent_statistic.tpl.php'));?></a></li>
 		<li role="presentation" <?php if ($tab == 'performance') : ?>class="active"<?php endif;?>><a href="<?php echo erLhcoreClassDesign::baseurl('statistic/statistic')?>/(tab)/performance" ><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/tab_performance.tpl.php'));?></a></li>
+		<li role="presentation" <?php if ($tab == 'departments') : ?>class="active"<?php endif;?>><a href="<?php echo erLhcoreClassDesign::baseurl('statistic/statistic')?>/(tab)/departments" ><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/tab_departments.tpl.php'));?></a></li>
 		<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/statistic_tab_multiinclude.tpl.php')); ?>
 	</ul>
 
@@ -48,6 +49,12 @@
 		<?php if ($tab == 'performance') : ?>
         <div role="tabpanel" class="tab-pane active">
           <?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/performance.tpl.php'));?>
+        </div>
+        <?php endif;?>
+
+		<?php if ($tab == 'departments') : ?>
+        <div role="tabpanel" class="tab-pane active">
+          <?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/departments.tpl.php'));?>
         </div>
         <?php endif;?>
 

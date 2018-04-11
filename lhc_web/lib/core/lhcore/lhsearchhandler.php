@@ -123,7 +123,45 @@ class erLhcoreClassSearchHandler
 
                         $filterType = $field['filter_type'];
 
-                        if (isset($field['datatype']) && $field['datatype'] == 'date') {
+                        if (isset($field['datatype']) && $field['datatype'] == 'hourminuteutc') {
+
+                            $key = str_replace('_hours','',$key);
+
+                            $dateTime = new DateTime("now");
+
+                            if (isset($_GET[$key.'_hours'])){
+                                $hours = isset($_GET[$key.'_hours']) && is_numeric($_GET[$key.'_hours']) ? (int)$_GET[$key.'_hours'] : 0;
+                                $inputFrom->{$key.'_hours'} = (isset($_GET[$key.'_hours']) && is_numeric($_GET[$key.'_hours'])) ? (int)$_GET[$key.'_hours'] : null;
+                            } elseif (isset($uparams[$key.'_hours']) && is_numeric($uparams[$key.'_hours'])) {
+                                $hours = $uparams[$key.'_hours'];
+                                $inputFrom->{$key.'_hours'} = (int)$uparams[$key.'_hours'];
+                            } else {
+                                $inputFrom->{$key.'_hours'} = null;
+                                $hours = 0;
+                            }
+
+                            if (isset($_GET[$key.'_minutes'])){
+                                $minutes = isset($_GET[$key.'_minutes']) && is_numeric($_GET[$key.'_minutes']) ? (int)$_GET[$key.'_minutes'] : 0;
+                                $inputFrom->{$key.'_minutes'} = (isset($_GET[$key.'_minutes']) && is_numeric($_GET[$key.'_minutes'])) ? (int)$_GET[$key.'_minutes'] : null;
+                            } elseif (isset($uparams[$key.'_minutes']) && is_numeric($uparams[$key.'_minutes'])) {
+                                $minutes = $uparams[$key.'_minutes'];
+                                $inputFrom->{$key.'_minutes'} = (int)$uparams[$key.'_minutes'];
+                            } else {
+                                $inputFrom->{$key.'_minutes'} = null;
+                                $minutes = 0;
+                            }
+
+                            $hours = $hours - ($dateTime->getOffset() / 60 / 60);
+
+                            if ($hours < 0) {
+                                $hours = 24 + $hours;
+                            } elseif ($hours > 23) {
+                                $hours = $hours - 24;
+                            }
+
+                            $filter[$filterType][$field['filter_table_field']] = (int)($hours . str_pad($minutes, 2, '0', STR_PAD_LEFT));
+
+                        } else if (isset($field['datatype']) && $field['datatype'] == 'date') {
                             
                             $dateFormated = self::formatDateToTimestamp($inputParams->$key);
                             if ($dateFormated != false) {
@@ -180,8 +218,46 @@ class erLhcoreClassSearchHandler
                             $filter['filter'][$field['filter_table_field']] = $inputParams->$key;
                         } else {
                             
-                            if (isset($field['datatype']) && $field['datatype'] == 'date') {
-                                
+                            if (isset($field['datatype']) && $field['datatype'] == 'hourminuteutc') {
+
+                                $key = str_replace('_hours','',$key);
+
+                                $dateTime = new DateTime("now");
+
+                                if (isset($_GET[$key.'_hours'])){
+                                    $hours = isset($_GET[$key.'_hours']) && is_numeric($_GET[$key.'_hours']) ? (int)$_GET[$key.'_hours'] : 0;
+                                    $inputFrom->{$key.'_hours'} = (isset($_GET[$key.'_hours']) && is_numeric($_GET[$key.'_hours'])) ? (int)$_GET[$key.'_hours'] : null;
+                                } elseif (isset($uparams[$key.'_hours']) && is_numeric($uparams[$key.'_hours'])) {
+                                    $hours = $uparams[$key.'_hours'];
+                                    $inputFrom->{$key.'_hours'} = (int)$uparams[$key.'_hours'];
+                                } else {
+                                    $inputFrom->{$key.'_hours'} = null;
+                                    $hours = 0;
+                                }
+
+                                if (isset($_GET[$key.'_minutes'])){
+                                    $minutes = isset($_GET[$key.'_minutes']) && is_numeric($_GET[$key.'_minutes']) ? (int)$_GET[$key.'_minutes'] : 0;
+                                    $inputFrom->{$key.'_minutes'} = (isset($_GET[$key.'_minutes']) && is_numeric($_GET[$key.'_minutes'])) ? (int)$_GET[$key.'_minutes'] : null;
+                                } elseif (isset($uparams[$key.'_minutes']) && is_numeric($uparams[$key.'_minutes'])) {
+                                    $minutes = $uparams[$key.'_minutes'];
+                                    $inputFrom->{$key.'_minutes'} = (int)$uparams[$key.'_minutes'];
+                                } else {
+                                    $inputFrom->{$key.'_minutes'} = null;
+                                    $minutes = 0;
+                                }
+
+                                $hours = $hours - ($dateTime->getOffset() / 60 / 60);
+
+                                if ($hours < 0) {
+                                    $hours = 24 + $hours;
+                                } elseif ($hours > 23) {
+                                    $hours = $hours - 24;
+                                }
+
+                                $filter[$filterType][$field['filter_table_field']] = (int)($hours . str_pad($minutes, 2, '0', STR_PAD_LEFT));
+
+                            } else if (isset($field['datatype']) && $field['datatype'] == 'date') {
+
                                 $dateFormated = self::formatDateToTimestamp($inputParams->$key);
                                 if ($dateFormated != false) {
                                     $filter[$filterType][$field['filter_table_field']] = $dateFormated;
