@@ -2,8 +2,8 @@
 
 class erLhcoreClassUpdate
 {
-	const DB_VERSION = 167;
-	const LHC_RELEASE = 292;
+	const DB_VERSION = 168;
+	const LHC_RELEASE = 293;
 
 	public static function doTablesUpdate($definition){
 		$updateInformation = self::getTablesStatus($definition);
@@ -179,9 +179,12 @@ class erLhcoreClassUpdate
 				}
 								
 			} catch (Exception $e) {
-				$tablesStatus[$table]['error'] = true;
-				$tablesStatus[$table]['status'] = "table does not exists";
-				$tablesStatus[$table]['queries'][] = $definition['tables_create'][$table];
+		        if (isset($definition['tables_create'][$table]))
+                {
+                    $tablesStatus[$table]['error'] = true;
+                    $tablesStatus[$table]['status'] = "table does not exists";
+                    $tablesStatus[$table]['queries'][] = $definition['tables_create'][$table];
+                }
 			}			
 		}
 		

@@ -4,14 +4,14 @@
 
         <div class="col-md-3">
             <div class="form-group">
-                <label>Department</label>
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department')?></label>
 
                 <div class="btn-block-department">
                     <ul class="nav">
                         <li class="dropdown">
 
                             <button type="button" class="btn btn-default btn-block btn-sm dropdown-toggle btn-department-dropdown" data-toggle="dropdown" aria-expanded="false">
-                                Choose department <span class="caret"></span>
+                                <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose department')?> <span class="caret"></span>
                             </button>
 
                             <ul class="dropdown-menu" role="menu">
@@ -44,7 +44,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <select name="timeintervalfrom_hours" class="form-control input-sm">
-                            <option value="">Select hour</option>
+                            <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select hour')?></option>
                             <?php for ($i = 0; $i <= 23; $i++) : ?>
                                 <option value="<?php echo $i?>" <?php if (isset($input->timeintervalfrom_hours) && $input->timeintervalfrom_hours === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> h.</option>
                             <?php endfor;?>
@@ -52,7 +52,7 @@
                     </div>
                     <div class="col-md-6">
                         <select name="timeintervalfrom_minutes" class="form-control input-sm">
-                            <option value="">Select minute</option>
+                            <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select minute')?></option>
                             <?php for ($i = 0; $i <= 59; $i++) : ?>
                                 <option value="<?php echo $i?>" <?php if (isset($input->timeintervalfrom_minutes) && $input->timeintervalfrom_minutes === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> m.</option>
                             <?php endfor;?>
@@ -68,7 +68,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <select name="timeintervalto_hours" class="form-control input-sm">
-                            <option value="">Select hour</option>
+                            <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select hour')?></option>
                             <?php for ($i = 0; $i <= 23; $i++) : ?>
                                 <option value="<?php echo $i?>" <?php if (isset($input->timeintervalto_hours) && $input->timeintervalto_hours === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> h.</option>
                             <?php endfor;?>
@@ -76,7 +76,7 @@
                     </div>
                     <div class="col-md-6">
                         <select name="timeintervalto_minutes" class="form-control input-sm">
-                            <option value="">Select minute</option>
+                            <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select minute')?></option>
                             <?php for ($i = 0; $i <= 59; $i++) : ?>
                                 <option value="<?php echo $i?>" <?php if (isset($input->timeintervalto_minutes) && $input->timeintervalto_minutes === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> m.</option>
                             <?php endfor;?>
@@ -103,7 +103,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <select name="timefrom_hours" class="form-control input-sm">
-                            <option value="">Select hour</option>
+                            <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select hour')?></option>
                             <?php for ($i = 0; $i <= 23; $i++) : ?>
                                 <option value="<?php echo $i?>" <?php if (isset($input->timefrom_hours) && $input->timefrom_hours === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> h.</option>
                             <?php endfor;?>
@@ -111,7 +111,7 @@
                     </div>
                     <div class="col-md-6">
                         <select name="timefrom_minutes" class="form-control input-sm">
-                            <option value="">Select minute</option>
+                            <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select minute')?></option>
                             <?php for ($i = 0; $i <= 59; $i++) : ?>
                                 <option value="<?php echo $i?>" <?php if (isset($input->timefrom_minutes) && $input->timefrom_minutes === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> m.</option>
                             <?php endfor;?>
@@ -138,7 +138,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <select name="timeto_hours" class="form-control input-sm">
-                            <option value="">Select hour</option>
+                            <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select hour');?></option>
                             <?php for ($i = 0; $i <= 23; $i++) : ?>
                                 <option value="<?php echo $i?>" <?php if (isset($input->timeto_hours) && $input->timeto_hours === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> h.</option>
                             <?php endfor;?>
@@ -146,7 +146,7 @@
                     </div>
                     <div class="col-md-6">
                         <select name="timeto_minutes" class="form-control input-sm">
-                            <option value="">Select minute</option>
+                            <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select minute');?></option>
                             <?php for ($i = 0; $i <= 59; $i++) : ?>
                                 <option value="<?php echo $i?>" <?php if (isset($input->timeto_minutes) && $input->timeto_minutes === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> m.</option>
                             <?php endfor;?>
