@@ -1,0 +1,1 @@
+<div  id="root" data-bot-id="<?php echo $bot->id?>"></div>

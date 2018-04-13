@@ -8,7 +8,7 @@ $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.stat
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhstatistic/statistic.tpl.php');
 
-$validTabs = array('active','total','last24','chatsstatistic','agentstatistic','performance');
+$validTabs = array('active','total','last24','chatsstatistic','agentstatistic','performance','departments');
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.valid_tabs', array(
     'valid_tabs' => & $validTabs
@@ -142,21 +142,50 @@ if ($tab == 'active') {
 } else if ($tab == 'performance') {
 
     if (isset($_GET['doSearch'])) {
-        $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat', 'module_file' => 'performance_statistic','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']));
+        $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat', 'module_file' => 'performance_statistic', 'format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']));
     } else {
-        $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat', 'module_file' => 'performance_statistic','format_filter' => true, 'uparams' => $Params['user_parameters_unordered']));
+        $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat', 'module_file' => 'performance_statistic', 'format_filter' => true, 'uparams' => $Params['user_parameters_unordered']));
     }
-    
+
     erLhcoreClassChatStatistic::formatUserFilter($filterParams);
-    
+
     if (isset($_GET['doSearch'])) {
         $performanceStatistic = erLhcoreClassChatStatistic::getPerformanceStatistic(30, $filterParams['filter'], $filterParams);
     } else {
         $performanceStatistic = array();
     }
 
+    $tpl->set('input', $filterParams['input_form']);
+    $tpl->set('performanceStatistic', $performanceStatistic);
+
+} else if ($tab == 'departments') {
+
+    if (isset($_GET['doSearch'])) {
+        $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'departments_statistic','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']));
+    } else {
+        $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'departments_statistic','format_filter' => true, 'uparams' => $Params['user_parameters_unordered']));
+    }
+
+    erLhcoreClassChatStatistic::formatUserFilter($filterParams, 'lh_departament_availability');
+
     $tpl->set('input',$filterParams['input_form']);
-    $tpl->set('performanceStatistic',$performanceStatistic);
+
+    if (isset($_GET['doSearch']) || $Params['user_parameters_unordered']['xls'] == 1) {
+        $departmentstats = erLhcoreClassChatStatistic::getDepartmentsStatistic(30, $filterParams['filter'], $filterParams);
+    } else {
+        $departmentstats = array();
+    }
+
+    if ($Params['user_parameters_unordered']['xls'] == 1) {
+        $departmentStats = erLhcoreClassChatStatistic::getDepartmentsStatistic(30, $filterParams['filter'], $filterParams);
+        erLhcoreClassChatStatistic::exportDepartmentStatistic($departmentStats);
+        exit;
+    }
+
+    $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
+
+    $tpl->set('input_append', $append);
+    $tpl->set('departmentstats', $departmentstats);
 
 } else {
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.process_tab', array(

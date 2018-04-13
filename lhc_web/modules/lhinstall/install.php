@@ -1373,6 +1373,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `inform_close_all` int(11) NOT NULL,
 				  `inform_close_all_email` varchar(250) NOT NULL,
 				  `product_configuration` varchar(250) NOT NULL,
+				  `bot_configuration` text NOT NULL,
 				  PRIMARY KEY (`id`),
 				  KEY `identifier` (`identifier`),
 				  KEY `attr_int_1` (`attr_int_1`),
@@ -1400,7 +1401,9 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   KEY `dep_group_id` (`dep_group_id`),
                   KEY `user_id` (`user_id`)
                 ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
-        	           	   
+
+               $db->query("CREATE TABLE `lh_departament_availability` ( `id` bigint(20) NOT NULL AUTO_INCREMENT, `dep_id` int(11) NOT NULL, `hour` int(11) NOT NULL, `hourminute` int(4) NOT NULL, `minute` int(11) NOT NULL, `time` int(11) NOT NULL, `ymdhi` bigint(20) NOT NULL, `ymd` int(11) NOT NULL, `status` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `ymdhi` (`ymdhi`), KEY `dep_id` (`dep_id`),  KEY `hourminute` (`hourminute`), KEY `time` (`time`)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+
         	   $db->query("CREATE TABLE `lh_abstract_product_departament` (
         	       `id` int(11) NOT NULL AUTO_INCREMENT,
         	       `product_id` int(11) NOT NULL,

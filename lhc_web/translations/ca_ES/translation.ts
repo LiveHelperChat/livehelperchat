@@ -2,26 +2,6 @@
   <context>
     <name>listchatconfig</name>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Quants dies després de l&apos;última visualització ha de romandre ocult el widget de votació</translation>
     </message>
@@ -266,6 +246,14 @@
       <translation>Interval en segons entre verificacions de canvi d&apos;estat del xat. 0 per inhabilitar.</translation>
     </message>
     <message>
+      <source>How long operator can wait for message from visitor before time between messages are ignored. Values in minutes.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How long visitor can wait for message from operator before time between messages are ignored. Values in minutes.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show BB Code button</source>
       <translation>Mostra el botó de codi BB.</translation>
     </message>
@@ -367,6 +355,10 @@
     <message>
       <source>Return</source>
       <translation>Torna</translation>
+    </message>
+    <message>
+      <source>Save &amp; Exit</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Delete department</source>
@@ -528,6 +520,10 @@
     <message>
       <source>Hide message time from visitor</source>
       <translation>Oculta la hora dels missatges al visitant</translation>
+    </message>
+    <message>
+      <source>Use modern look</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Need help standard text</source>
@@ -1032,12 +1028,12 @@
   <context>
     <name>chat/lists/search_panel</name>
     <message>
-      <source>Select operator</source>
-      <translation>Seleccioneu l&apos;agent</translation>
-    </message>
-    <message>
       <source>Select event</source>
       <translation>Seleccioneu l&apos;esdeveniment</translation>
+    </message>
+    <message>
+      <source>Close selected</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Delete selected</source>
@@ -1056,8 +1052,16 @@
       <translation>Departament</translation>
     </message>
     <message>
+      <source>Department group</source>
+      <translation>Grup de departaments</translation>
+    </message>
+    <message>
       <source>User</source>
       <translation>Usuari</translation>
+    </message>
+    <message>
+      <source>User group</source>
+      <translation>Grup d&apos;usuaris</translation>
     </message>
     <message>
       <source>Date range from</source>
@@ -1156,6 +1160,10 @@
       <translation>Té missatges no llegits</translation>
     </message>
     <message>
+      <source>Unanswered chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Search</source>
       <translation>Cerca</translation>
     </message>
@@ -1176,8 +1184,16 @@
       <translation>Seleccioneu la el departament</translation>
     </message>
     <message>
+      <source>Choose department group</source>
+      <translation>Seleccioneu el grup de departaments</translation>
+    </message>
+    <message>
       <source>Select user</source>
       <translation>Seleccioneu l&apos;usuari</translation>
+    </message>
+    <message>
+      <source>Select group</source>
+      <translation>Seleccionar grup</translation>
     </message>
     <message>
       <source>Select product</source>
@@ -1204,14 +1220,6 @@
       <translation>Inhabilitat</translation>
     </message>
     <message>
-      <source>User group</source>
-      <translation>Grup d&apos;usuaris</translation>
-    </message>
-    <message>
-      <source>Department group</source>
-      <translation>Grup de departaments</translation>
-    </message>
-    <message>
       <source>Exclude offline request from charts.</source>
       <translation>Exclou les sol·licituds &quot;fora de línia&quot; dels gràfics.</translation>
     </message>
@@ -1224,16 +1232,8 @@
       <translation>Compara amb el anterior</translation>
     </message>
     <message>
-      <source>Select group</source>
-      <translation>Seleccionar grup</translation>
-    </message>
-    <message>
       <source>Choose department</source>
       <translation>Seleccioneu el departament</translation>
-    </message>
-    <message>
-      <source>Choose department group</source>
-      <translation>Seleccioneu el grup de departaments</translation>
     </message>
     <message>
       <source>Agent</source>
@@ -1254,6 +1254,10 @@
     <message>
       <source>Day</source>
       <translation>Dia</translation>
+    </message>
+    <message>
+      <source>Week</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Date range from to</source>
@@ -1460,6 +1464,37 @@
     </message>
   </context>
   <context>
+    <name>chat/subject</name>
+    <message>
+      <source>If you do not choose any department, subject will be visible for all departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Subject</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a subject</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set a subject</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Subject selected!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Subject unselected!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a subject</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>survey/form</name>
     <message>
       <source>Add option</source>
@@ -1654,6 +1689,10 @@
     <message>
       <source>Pro active chat variables</source>
       <translation>Variables de xats pro-actius</translation>
+    </message>
+    <message>
+      <source>Subject</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -2205,41 +2244,6 @@
     <message>
       <source>You have been redirected to survey!</source>
       <translation>Heu estat redirigit a l&apos;enquesta!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/bbcodeinsert</name>
-    <message>
-      <source>Image</source>
-      <translation>Imatge</translation>
-    </message>
-    <message>
-      <source>Link</source>
-      <translation>Enllaç</translation>
-    </message>
-    <message>
-      <source>Link title</source>
-      <translation>Títol de l&apos;enllaç</translation>
-    </message>
-    <message>
-      <source>Bold</source>
-      <translation>Negreta</translation>
-    </message>
-    <message>
-      <source>Italic</source>
-      <translation>Cursiva</translation>
-    </message>
-    <message>
-      <source>Please enter link to an image</source>
-      <translation>Introduïu l&apos;enllaç a una imatge</translation>
-    </message>
-    <message>
-      <source>Please enter a link</source>
-      <translation>Introduïu un enllaç</translation>
-    </message>
-    <message>
-      <source>Here is a link</source>
-      <translation>Aquí hi ha un enllaç</translation>
     </message>
   </context>
   <context>
@@ -2797,6 +2801,10 @@
       <translation>Introduïu el vostre nom</translation>
     </message>
     <message>
+      <source>Maximum 100 characters</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter your message</source>
       <translation>Introduïu el vostre missatge</translation>
     </message>
@@ -3004,8 +3012,16 @@
       <translation>País</translation>
     </message>
     <message>
-      <source>Created</source>
-      <translation>Creat</translation>
+      <source>Created at</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Started at</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed at</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Department</source>
@@ -3144,6 +3160,10 @@
       <translation>Reobre el xat</translation>
     </message>
     <message>
+      <source>BB Code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Type to search</source>
       <translation>Escriviu per cercar</translation>
     </message>
@@ -3162,6 +3182,14 @@
     <message>
       <source>Send</source>
       <translation>Envia</translation>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation>Creat</translation>
+    </message>
+    <message>
+      <source>Priority</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Select a canned message</source>
@@ -4514,6 +4542,10 @@
       <translation>Botó de tancament</translation>
     </message>
     <message>
+      <source>Chat duration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>New chat notification settings</source>
       <translation>Configuració per a la notificació de nou xat</translation>
     </message>
@@ -4603,8 +4635,8 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
       <translation>Fitxers</translation>
     </message>
     <message>
-      <source>Files upload configuration</source>
-      <translation>Configuració de la càrrega de fitxers</translation>
+      <source>Files configuration</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>List of files</source>
@@ -4665,6 +4697,10 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
     <message>
       <source>Statistic</source>
       <translation>Estadística</translation>
+    </message>
+    <message>
+      <source>Subjects</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Surveys</source>
@@ -4817,6 +4853,10 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
     <message>
       <source>File configuration</source>
       <translation>Configuració de fitxers</translation>
+    </message>
+    <message>
+      <source>Edit file</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>New file</source>
@@ -5271,10 +5311,6 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
       <translation>Pendent</translation>
     </message>
     <message>
-      <source>Number</source>
-      <translation>Número</translation>
-    </message>
-    <message>
       <source>Time</source>
       <translation>temps</translation>
     </message>
@@ -5295,12 +5331,24 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
       <translation>Sistema</translation>
     </message>
     <message>
+      <source>Average chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>All operators statistic will be downloaded</source>
       <translation>Es descarregaran les estadístiques de tots els agents</translation>
     </message>
     <message>
       <source>Please choose statistic parameters first!</source>
       <translation>Seleccioneu abans els paràmetres d&apos;estadístiques</translation>
+    </message>
+    <message>
+      <source>Number</source>
+      <translation>Número</translation>
     </message>
     <message>
       <source>Parameter</source>
@@ -5383,10 +5431,6 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
       <translation>Estadística de països</translation>
     </message>
     <message>
-      <source>Hourly statistic</source>
-      <translation>Estadística horària</translation>
-    </message>
-    <message>
       <source>Last 24h statistic</source>
       <translation>Estadística de les darreres 24h</translation>
     </message>
@@ -5409,6 +5453,10 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
     <message>
       <source>Number of chats per hour, average chat duration</source>
       <translation>Nombre de xats per hora, durada mitjana de xats</translation>
+    </message>
+    <message>
+      <source>Average number of chats &amp; peak per hour</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Number of messages by user</source>
@@ -5941,6 +5989,10 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
     <message>
       <source>Individual departments</source>
       <translation>Departaments individuals</translation>
+    </message>
+    <message>
+      <source>Read only</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Departments groups</source>
@@ -6806,12 +6858,20 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
       <translation>Xat</translation>
     </message>
     <message>
+      <source>Persistent</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Extension</source>
       <translation>Extensió</translation>
     </message>
     <message>
       <source>Date</source>
       <translation>Data</translation>
+    </message>
+    <message>
+      <source>Edit</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Delete the file</source>
@@ -6845,6 +6905,30 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
       <translation>Longitud del socket ClamAV</translation>
     </message>
     <message>
+      <source>Maintenance</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Files will be deleted only if days is &gt; 0</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete files</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>if file is (OR)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>And operator file is older than n days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>And visitor file is older than n days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Settings updated</source>
       <translation>Paràmetres actualitzats</translation>
     </message>
@@ -6868,12 +6952,24 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
       <translation>Nom de fitxer</translation>
     </message>
     <message>
+      <source>Persistent</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Upload</source>
       <translation>Carrega</translation>
     </message>
     <message>
+      <source>File updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>File uploaded</source>
       <translation>Fitxer carregat</translation>
+    </message>
+    <message>
+      <source>Edit file</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>New file</source>
@@ -7999,6 +8095,64 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
     </message>
   </context>
   <context>
+    <name>system/offlinesettings</name>
+    <message>
+      <source>Offline settings</source>
+      <translation>Configuració fora de línia</translation>
+    </message>
+    <message>
+      <source>Offline chat request won&apos;t be saved.</source>
+      <translation>La sol·licitud de xat fora de línia no es desarà.</translation>
+    </message>
+    <message>
+      <source>Then offline chat is registered it&apos;s status will be changed to closed chat.</source>
+      <translation>Quan es registri un xat fora de línia, el seu estat canviarà a xat tancat.</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/timezone</name>
+    <message>
+      <source>Do not save offline chats</source>
+      <translation>No desis els xats fora de línia</translation>
+    </message>
+    <message>
+      <source>Automatically change offline chat status to closed</source>
+      <translation>Canvia automàticament l&apos;estat dels xats de &quot;fora de línia&quot; a &quot;tancat&quot;</translation>
+    </message>
+    <message>
+      <source>Time zone settings</source>
+      <translation>Paràmetres de zona horària</translation>
+    </message>
+    <message>
+      <source>Set application specific time zone</source>
+      <translation>Estableix la zona horària específica de l&apos;aplicació</translation>
+    </message>
+    <message>
+      <source>Date format E.g (Y-m-d)</source>
+      <translation>Format de data. P. ex. Y-m-d</translation>
+    </message>
+    <message>
+      <source>Full date format E.g (Y-m-d H:i:s)</source>
+      <translation>Format de data complet. P. ex. Y-m-d H:i:s</translation>
+    </message>
+    <message>
+      <source>Hour format E.g (H:i:s)</source>
+      <translation>Format horari. P. ex. H:i:s</translation>
+    </message>
+    <message>
+      <source>Live Helper Chat update</source>
+      <translation>Actualització de Live Helper Chat</translation>
+    </message>
+    <message>
+      <source>Comparing current database structure, please wait...</source>
+      <translation>Comparant l&apos;estructura de la base de dades actual, espereu...</translation>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation>Zona horària</translation>
+    </message>
+  </context>
+  <context>
     <name>system/smtp</name>
     <message>
       <source>Settings updated</source>
@@ -8043,49 +8197,6 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
     <message>
       <source>Transfer configuration</source>
       <translation>Configuració de transferència</translation>
-    </message>
-  </context>
-  <context>
-    <name>system/timezone</name>
-    <message>
-      <source>Do not save offline chats</source>
-      <translation>No desis els xats fora de línia</translation>
-    </message>
-    <message>
-      <source>Automatically change offline chat status to closed</source>
-      <translation>Canvia automàticament l&apos;estat dels xats de &quot;fora de línia&quot; a &quot;tancat&quot;</translation>
-    </message>
-    <message>
-      <source>Time zone settings</source>
-      <translation>Paràmetres de zona horària</translation>
-    </message>
-    <message>
-      <source>Set application specific time zone</source>
-      <translation>Estableix la zona horària específica de l&apos;aplicació</translation>
-    </message>
-    <message>
-      <source>Date format E.g (Y-m-d)</source>
-      <translation>Format de data. P. ex. Y-m-d</translation>
-    </message>
-    <message>
-      <source>Full date format E.g (Y-m-d H:i:s)</source>
-      <translation>Format de data complet. P. ex. Y-m-d H:i:s</translation>
-    </message>
-    <message>
-      <source>Hour format E.g (H:i:s)</source>
-      <translation>Format horari. P. ex. H:i:s</translation>
-    </message>
-    <message>
-      <source>Live Helper Chat update</source>
-      <translation>Actualització de Live Helper Chat</translation>
-    </message>
-    <message>
-      <source>Comparing current database structure, please wait...</source>
-      <translation>Comparant l&apos;estructura de la base de dades actual, espereu...</translation>
-    </message>
-    <message>
-      <source>Time zone</source>
-      <translation>Zona horària</translation>
     </message>
   </context>
   <context>
@@ -8197,10 +8308,6 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
   <context>
     <name>user/new</name>
     <message>
-      <source>Do not show user status as online</source>
-      <translation>No mostris l&apos;estat de l&apos;usuari en línia</translation>
-    </message>
-    <message>
       <source>Change chat department to transferred department on chat transfer</source>
       <translation>Canvia el departament del xat al departament transferit en transferir un xat</translation>
     </message>
@@ -8231,6 +8338,10 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
     <message>
       <source>User group</source>
       <translation>Grup d&apos;usuaris</translation>
+    </message>
+    <message>
+      <source>Required groups, choose one or more</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Disabled</source>
@@ -8483,6 +8594,14 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
     <message>
       <source>Disabled</source>
       <translation>Inhabilitat</translation>
+    </message>
+    <message>
+      <source>Required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If group is required, at least one group of required groups has to be selected.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Update</source>
@@ -8932,10 +9051,6 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
   <context>
     <name>file/file</name>
     <message>
-      <source>Download file</source>
-      <translation>Descarrega el fitxer</translation>
-    </message>
-    <message>
       <source>Collected survey data</source>
       <translation>Dades d&apos;enquestes recopilades</translation>
     </message>
@@ -9144,6 +9259,10 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
     <message>
       <source>Please enter a name</source>
       <translation>Introduïu un nom</translation>
+    </message>
+    <message>
+      <source>You have to choose one of required groups!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You are trying to assign group which are not known!</source>
@@ -9372,17 +9491,6 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
     </message>
   </context>
   <context>
-    <name>chat/transferuser</name>
-    <message>
-      <source>Chat was assigned to selected department</source>
-      <translation>S&apos;ha assignat el xat al departament seleccionat</translation>
-    </message>
-    <message>
-      <source>Chat was assigned to selected user</source>
-      <translation>S&apos;ha assignat un xat a l&apos;usuari seleccionat</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/updatemsguser</name>
     <message>
       <source>User has edited his last message</source>
@@ -9408,21 +9516,6 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
     <message>
       <source>Online Hours</source>
       <translation>Horari en línia</translation>
-    </message>
-  </context>
-  <context>
-    <name>system/offlinesettings</name>
-    <message>
-      <source>Offline settings</source>
-      <translation>Configuració fora de línia</translation>
-    </message>
-    <message>
-      <source>Offline chat request won&apos;t be saved.</source>
-      <translation>La sol·licitud de xat fora de línia no es desarà.</translation>
-    </message>
-    <message>
-      <source>Then offline chat is registered it&apos;s status will be changed to closed chat.</source>
-      <translation>Quan es registri un xat fora de línia, el seu estat canviarà a xat tancat.</translation>
     </message>
   </context>
 </TS>

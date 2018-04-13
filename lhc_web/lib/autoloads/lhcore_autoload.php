@@ -87,6 +87,7 @@ return array_merge(array (
         'erLhcoreClassModelRole'        => 'lib/models/lhpermission/erlhcoreclassmodelrole.php',
         'erLhcoreClassModelRoleFunction'=> 'lib/models/lhpermission/erlhcoreclassmodelrolefunction.php',
         'erLhcoreClassModelDepartament' => 'lib/models/lhdepartament/erlhcoreclassmodeldepartament.php',
+        'erLhcoreClassModelDepartamentAvailability' => 'lib/models/lhdepartament/erlhcoreclassmodeldepartamentavailability.php',
         'erLhcoreClassModelDepartamentGroup' => 'lib/models/lhdepartament/erlhcoreclassmodeldepartamentgroup.php',
         'erLhcoreClassModelDepartamentLimitGroup' => 'lib/models/lhdepartament/erlhcoreclassmodeldepartamentlimitgroup.php',
         'erLhcoreClassModelDepartamentGroupMember' => 'lib/models/lhdepartament/erlhcoreclassmodeldepartamentgroupmember.php',
@@ -230,6 +231,14 @@ return array_merge(array (
 		'erLhcoreClassChatPaid'       				=> 'lib/core/lhchat/lhchatpaid.php',
 
 		'erLhcoreClassChatEvent'       				=> 'lib/core/lhchat/lhchatevent.php',
+
+        // Bot classes
+        'erLhcoreClassModelGenericBotBot'           => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbotbot.php',
+        'erLhcoreClassModelGenericBotGroup'         => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbotgroup.php',
+        'erLhcoreClassModelGenericBotTrigger'       => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbottrigger.php',
+        'erLhcoreClassModelGenericBotTriggerEvent'  => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbottriggerevent.php',
+        'erLhcoreClassGenericBot'                   => 'lib/core/lhgenericbot/lhgenericbot.php',
+        'erLhcoreClassGenericBotValidator'          => 'lib/core/lhgenericbot/lhgenericbotvalidator.php'
 ),
 include('var/autoloads/lhextension_autoload.php')
 );

@@ -222,6 +222,11 @@ $def->properties['product_configuration']->columnName   = 'product_configuration
 $def->properties['product_configuration']->propertyName = 'product_configuration';
 $def->properties['product_configuration']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['bot_configuration'] = new ezcPersistentObjectProperty();
+$def->properties['bot_configuration']->columnName   = 'bot_configuration';
+$def->properties['bot_configuration']->propertyName = 'bot_configuration';
+$def->properties['bot_configuration']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 return $def;
 
 ?>

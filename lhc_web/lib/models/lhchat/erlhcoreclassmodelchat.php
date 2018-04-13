@@ -519,6 +519,7 @@ class erLhcoreClassModelChat {
    const STATUS_CLOSED_CHAT = 2;
    const STATUS_CHATBOX_CHAT = 3;
    const STATUS_OPERATORS_CHAT = 4;
+   const STATUS_BOT_CHAT = 5;
 
    const CHAT_INITIATOR_DEFAULT = 0;
    const CHAT_INITIATOR_PROACTIVE = 1;
