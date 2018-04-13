@@ -2,26 +2,6 @@
   <context>
     <name>listchatconfig</name>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Son gösterimden kaç gün sonra oy pusula kutusu açılmamalı?</translation>
     </message>
@@ -266,6 +246,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>How long operator can wait for message from visitor before time between messages are ignored. Values in minutes.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How long visitor can wait for message from operator before time between messages are ignored. Values in minutes.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show BB Code button</source>
       <translation>BB Kodu butununu göster</translation>
     </message>
@@ -367,6 +355,10 @@
     <message>
       <source>Return</source>
       <translation>Geri</translation>
+    </message>
+    <message>
+      <source>Save &amp; Exit</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Delete department</source>
@@ -527,6 +519,10 @@
     </message>
     <message>
       <source>Hide message time from visitor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use modern look</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1032,11 +1028,11 @@
   <context>
     <name>chat/lists/search_panel</name>
     <message>
-      <source>Select operator</source>
+      <source>Select event</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Select event</source>
+      <source>Close selected</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1056,8 +1052,16 @@
       <translation>Departman</translation>
     </message>
     <message>
+      <source>Department group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User</source>
       <translation>Kullanıcı</translation>
+    </message>
+    <message>
+      <source>User group</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Date range from</source>
@@ -1156,6 +1160,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Unanswered chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Search</source>
       <translation type="unfinished"/>
     </message>
@@ -1176,8 +1184,16 @@
       <translation>Seçili departman</translation>
     </message>
     <message>
+      <source>Choose department group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Select user</source>
       <translation>Seçili kullanıcı</translation>
+    </message>
+    <message>
+      <source>Select group</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Select product</source>
@@ -1204,14 +1220,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>User group</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Department group</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Exclude offline request from charts.</source>
       <translation type="unfinished"/>
     </message>
@@ -1224,15 +1232,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Select group</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Choose department</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose department group</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1254,6 +1254,10 @@
     <message>
       <source>Day</source>
       <translation>Gün</translation>
+    </message>
+    <message>
+      <source>Week</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Date range from to</source>
@@ -1460,6 +1464,37 @@
     </message>
   </context>
   <context>
+    <name>chat/subject</name>
+    <message>
+      <source>If you do not choose any department, subject will be visible for all departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Subject</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a subject</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set a subject</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Subject selected!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Subject unselected!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a subject</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>survey/form</name>
     <message>
       <source>Add option</source>
@@ -1653,6 +1688,10 @@
     </message>
     <message>
       <source>Pro active chat variables</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Subject</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -2204,41 +2243,6 @@
     </message>
     <message>
       <source>You have been redirected to survey!</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/bbcodeinsert</name>
-    <message>
-      <source>Image</source>
-      <translation>Resim</translation>
-    </message>
-    <message>
-      <source>Link</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Link title</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Bold</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Italic</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter link to an image</source>
-      <translation>Lütfen resim için bir bağlantı adresi girin</translation>
-    </message>
-    <message>
-      <source>Please enter a link</source>
-      <translation>Lütfen bir bağlantı adresi girin</translation>
-    </message>
-    <message>
-      <source>Here is a link</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -2797,6 +2801,10 @@
       <translation>Lütfen adınızı girin</translation>
     </message>
     <message>
+      <source>Maximum 100 characters</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter your message</source>
       <translation>Lütfen mesajınızı girin</translation>
     </message>
@@ -3004,8 +3012,16 @@
       <translation>Ülke</translation>
     </message>
     <message>
-      <source>Created</source>
-      <translation>Oluşturuldu</translation>
+      <source>Created at</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Started at</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed at</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Department</source>
@@ -3144,6 +3160,10 @@
       <translation>Konuşmayı tekrar aç</translation>
     </message>
     <message>
+      <source>BB Code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Type to search</source>
       <translation type="unfinished"/>
     </message>
@@ -3162,6 +3182,14 @@
     <message>
       <source>Send</source>
       <translation>Gönder</translation>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation>Oluşturuldu</translation>
+    </message>
+    <message>
+      <source>Priority</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Select a canned message</source>
@@ -4516,6 +4544,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chat duration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>New chat notification settings</source>
       <translation>Yeni konuşma bildirimi ayarları</translation>
     </message>
@@ -4604,8 +4636,8 @@
       <translation>Dosyalar</translation>
     </message>
     <message>
-      <source>Files upload configuration</source>
-      <translation>Dosya yükleme ayarları</translation>
+      <source>Files configuration</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>List of files</source>
@@ -4666,6 +4698,10 @@
     <message>
       <source>Statistic</source>
       <translation>İstatistik</translation>
+    </message>
+    <message>
+      <source>Subjects</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Surveys</source>
@@ -4818,6 +4854,10 @@
     <message>
       <source>File configuration</source>
       <translation>Dosya ayarı</translation>
+    </message>
+    <message>
+      <source>Edit file</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>New file</source>
@@ -5272,10 +5312,6 @@
       <translation>Beklemede</translation>
     </message>
     <message>
-      <source>Number</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Time</source>
       <translation type="unfinished"/>
     </message>
@@ -5296,11 +5332,23 @@
       <translation>Sistem</translation>
     </message>
     <message>
+      <source>Average chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>All operators statistic will be downloaded</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Please choose statistic parameters first!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5384,10 +5432,6 @@
       <translation>Ülkesel istatistik</translation>
     </message>
     <message>
-      <source>Hourly statistic</source>
-      <translation>Saatlik istatistik</translation>
-    </message>
-    <message>
       <source>Last 24h statistic</source>
       <translation>Son 24 saatlik istatistik</translation>
     </message>
@@ -5409,6 +5453,10 @@
     </message>
     <message>
       <source>Number of chats per hour, average chat duration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Average number of chats &amp; peak per hour</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5941,6 +5989,10 @@
     </message>
     <message>
       <source>Individual departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Read only</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6807,12 +6859,20 @@
       <translation>Konuşma</translation>
     </message>
     <message>
+      <source>Persistent</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Extension</source>
       <translation>Dosya uzantısı</translation>
     </message>
     <message>
       <source>Date</source>
       <translation>Tarih</translation>
+    </message>
+    <message>
+      <source>Edit</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Delete the file</source>
@@ -6846,6 +6906,30 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Maintenance</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Files will be deleted only if days is &gt; 0</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete files</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>if file is (OR)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>And operator file is older than n days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>And visitor file is older than n days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Settings updated</source>
       <translation>Ayarlar güncellendi</translation>
     </message>
@@ -6869,12 +6953,24 @@
       <translation>Dosya adı</translation>
     </message>
     <message>
+      <source>Persistent</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Upload</source>
       <translation>Yükle</translation>
     </message>
     <message>
+      <source>File updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>File uploaded</source>
       <translation>Yüklenen dosya</translation>
+    </message>
+    <message>
+      <source>Edit file</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>New file</source>
@@ -8000,49 +8096,17 @@
     </message>
   </context>
   <context>
-    <name>system/smtp</name>
+    <name>system/offlinesettings</name>
     <message>
-      <source>Settings updated</source>
-      <translation>Ayarlar güncellendi</translation>
-    </message>
-    <message>
-      <source>Mail settings</source>
-      <translation>E-posta seçenekleri</translation>
-    </message>
-    <message>
-      <source>Sender address</source>
+      <source>Offline settings</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Default from e-mail address</source>
+      <source>Offline chat request won&apos;t be saved.</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Default from name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>SMTP enabled</source>
-      <translation>SMTP etkinleştirildi</translation>
-    </message>
-    <message>
-      <source>Login</source>
-      <translation>Giriş</translation>
-    </message>
-    <message>
-      <source>Password</source>
-      <translation>Parola</translation>
-    </message>
-    <message>
-      <source>Host</source>
-      <translation>Sunucu</translation>
-    </message>
-    <message>
-      <source>Port</source>
-      <translation>Port</translation>
-    </message>
-    <message>
-      <source>Transfer configuration</source>
+      <source>Then offline chat is registered it&apos;s status will be changed to closed chat.</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -8087,6 +8151,53 @@
     <message>
       <source>Time zone</source>
       <translation>Saat dilimi</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/smtp</name>
+    <message>
+      <source>Settings updated</source>
+      <translation>Ayarlar güncellendi</translation>
+    </message>
+    <message>
+      <source>Mail settings</source>
+      <translation>E-posta seçenekleri</translation>
+    </message>
+    <message>
+      <source>Sender address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default from e-mail address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default from name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>SMTP enabled</source>
+      <translation>SMTP etkinleştirildi</translation>
+    </message>
+    <message>
+      <source>Login</source>
+      <translation>Giriş</translation>
+    </message>
+    <message>
+      <source>Password</source>
+      <translation>Parola</translation>
+    </message>
+    <message>
+      <source>Host</source>
+      <translation>Sunucu</translation>
+    </message>
+    <message>
+      <source>Port</source>
+      <translation>Port</translation>
+    </message>
+    <message>
+      <source>Transfer configuration</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -8198,10 +8309,6 @@
   <context>
     <name>user/new</name>
     <message>
-      <source>Do not show user status as online</source>
-      <translation>Kullanıcı durumunu çevrimci olarak gösterme</translation>
-    </message>
-    <message>
       <source>Change chat department to transferred department on chat transfer</source>
       <translation type="unfinished"/>
     </message>
@@ -8232,6 +8339,10 @@
     <message>
       <source>User group</source>
       <translation>Kullanıcı grubu</translation>
+    </message>
+    <message>
+      <source>Required groups, choose one or more</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Disabled</source>
@@ -8483,6 +8594,14 @@
     </message>
     <message>
       <source>Disabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If group is required, at least one group of required groups has to be selected.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8933,10 +9052,6 @@
   <context>
     <name>file/file</name>
     <message>
-      <source>Download file</source>
-      <translation>Dosyayı indir</translation>
-    </message>
-    <message>
       <source>Collected survey data</source>
       <translation type="unfinished"/>
     </message>
@@ -9145,6 +9260,10 @@
     <message>
       <source>Please enter a name</source>
       <translation>Lütfen isim girin</translation>
+    </message>
+    <message>
+      <source>You have to choose one of required groups!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You are trying to assign group which are not known!</source>
@@ -9373,17 +9492,6 @@
     </message>
   </context>
   <context>
-    <name>chat/transferuser</name>
-    <message>
-      <source>Chat was assigned to selected department</source>
-      <translation>Konuşma seçilmiş departmana aktarıldı</translation>
-    </message>
-    <message>
-      <source>Chat was assigned to selected user</source>
-      <translation>Konuşma seçilmiş kullanıcıya atandı</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/updatemsguser</name>
     <message>
       <source>User has edited his last message</source>
@@ -9408,21 +9516,6 @@
     <name>statistic/onlinehours</name>
     <message>
       <source>Online Hours</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>system/offlinesettings</name>
-    <message>
-      <source>Offline settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Offline chat request won&apos;t be saved.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Then offline chat is registered it&apos;s status will be changed to closed chat.</source>
       <translation type="unfinished"/>
     </message>
   </context>

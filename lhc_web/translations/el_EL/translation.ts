@@ -2,26 +2,6 @@
   <context>
     <name>listchatconfig</name>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Πόσες ημέρες ψηφοφορίας widget δεν θα πρέπει να επεκταθεί μετά από την τελευταία εμφάνιση</translation>
     </message>
@@ -266,6 +246,14 @@
       <translation>Διάστημα μεταξύ κατάστασής της συζήτησής τους ελέγχους σε δευτερόλεπτα, 0 άτομα με ειδικές ανάγκες.</translation>
     </message>
     <message>
+      <source>How long operator can wait for message from visitor before time between messages are ignored. Values in minutes.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How long visitor can wait for message from operator before time between messages are ignored. Values in minutes.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show BB Code button</source>
       <translation>Εμφάνιση του κουμπιού BB κώδικα</translation>
     </message>
@@ -367,6 +355,10 @@
     <message>
       <source>Return</source>
       <translation>Επιστροφή</translation>
+    </message>
+    <message>
+      <source>Save &amp; Exit</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Delete department</source>
@@ -527,6 +519,10 @@
     </message>
     <message>
       <source>Hide message time from visitor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use modern look</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1032,11 +1028,11 @@
   <context>
     <name>chat/lists/search_panel</name>
     <message>
-      <source>Select operator</source>
+      <source>Select event</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Select event</source>
+      <source>Close selected</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1056,8 +1052,16 @@
       <translation>Τμήμα</translation>
     </message>
     <message>
+      <source>Department group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User</source>
       <translation>Χρήστης</translation>
+    </message>
+    <message>
+      <source>User group</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Date range from</source>
@@ -1156,6 +1160,10 @@
       <translation>Έχει μη αναγνωσθέντα μηνύματα</translation>
     </message>
     <message>
+      <source>Unanswered chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Search</source>
       <translation>Αναζήτηση</translation>
     </message>
@@ -1176,8 +1184,16 @@
       <translation>Επέλεξε τμήμα</translation>
     </message>
     <message>
+      <source>Choose department group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Select user</source>
       <translation>Επέλεξε χρήστη</translation>
+    </message>
+    <message>
+      <source>Select group</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Select product</source>
@@ -1204,14 +1220,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>User group</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Department group</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Exclude offline request from charts.</source>
       <translation type="unfinished"/>
     </message>
@@ -1224,16 +1232,8 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Select group</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Choose department</source>
       <translation>Επιλέξτε τμήμα</translation>
-    </message>
-    <message>
-      <source>Choose department group</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Agent</source>
@@ -1254,6 +1254,10 @@
     <message>
       <source>Day</source>
       <translation>Ημέρα</translation>
+    </message>
+    <message>
+      <source>Week</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Date range from to</source>
@@ -1460,6 +1464,37 @@
     </message>
   </context>
   <context>
+    <name>chat/subject</name>
+    <message>
+      <source>If you do not choose any department, subject will be visible for all departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Subject</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a subject</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set a subject</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Subject selected!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Subject unselected!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a subject</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>survey/form</name>
     <message>
       <source>Add option</source>
@@ -1653,6 +1688,10 @@
     </message>
     <message>
       <source>Pro active chat variables</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Subject</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -2205,41 +2244,6 @@
     <message>
       <source>You have been redirected to survey!</source>
       <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/bbcodeinsert</name>
-    <message>
-      <source>Image</source>
-      <translation>Εικόνα</translation>
-    </message>
-    <message>
-      <source>Link</source>
-      <translation>Σύνδεσμος</translation>
-    </message>
-    <message>
-      <source>Link title</source>
-      <translation>Τίτλος συνδέσμου</translation>
-    </message>
-    <message>
-      <source>Bold</source>
-      <translation>Bold</translation>
-    </message>
-    <message>
-      <source>Italic</source>
-      <translation>Italic</translation>
-    </message>
-    <message>
-      <source>Please enter link to an image</source>
-      <translation>Παρακαλώ εισάγετε το σύνδεσμο σε μια εικόνα</translation>
-    </message>
-    <message>
-      <source>Please enter a link</source>
-      <translation>Παρακαλώ εισάγετε ένα σύνδεσμο</translation>
-    </message>
-    <message>
-      <source>Here is a link</source>
-      <translation>Εδώ είναι μια σύνδεση</translation>
     </message>
   </context>
   <context>
@@ -2797,6 +2801,10 @@
       <translation>Παρακαλώ εισάγετε το όνομά σας</translation>
     </message>
     <message>
+      <source>Maximum 100 characters</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter your message</source>
       <translation>Παρακαλούμε εισάγετε το μήνυμά σας</translation>
     </message>
@@ -3004,8 +3012,16 @@
       <translation>Χώρα</translation>
     </message>
     <message>
-      <source>Created</source>
-      <translation>Δημιουργήθηκε</translation>
+      <source>Created at</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Started at</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed at</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Department</source>
@@ -3144,6 +3160,10 @@
       <translation>Ανοίξτε πάλι το chat</translation>
     </message>
     <message>
+      <source>BB Code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Type to search</source>
       <translation type="unfinished"/>
     </message>
@@ -3162,6 +3182,14 @@
     <message>
       <source>Send</source>
       <translation>Αποστολή</translation>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation>Δημιουργήθηκε</translation>
+    </message>
+    <message>
+      <source>Priority</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Select a canned message</source>
@@ -4514,6 +4542,10 @@
       <translation>Κουμπί κλεισίματος</translation>
     </message>
     <message>
+      <source>Chat duration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>New chat notification settings</source>
       <translation>Νέες ρυθμίσεις ειδοποιήσεων συνομιλίας</translation>
     </message>
@@ -4602,8 +4634,8 @@
       <translation>Αρχεία</translation>
     </message>
     <message>
-      <source>Files upload configuration</source>
-      <translation>Αρχεία ανεβάσετε διαμόρφωση</translation>
+      <source>Files configuration</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>List of files</source>
@@ -4664,6 +4696,10 @@
     <message>
       <source>Statistic</source>
       <translation>Στατιστική</translation>
+    </message>
+    <message>
+      <source>Subjects</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Surveys</source>
@@ -4816,6 +4852,10 @@
     <message>
       <source>File configuration</source>
       <translation>Αρχείο ρύθμισης παραμέτρων</translation>
+    </message>
+    <message>
+      <source>Edit file</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>New file</source>
@@ -5270,10 +5310,6 @@
       <translation>Σε εκκρεμότητα</translation>
     </message>
     <message>
-      <source>Number</source>
-      <translation>Αριθμός</translation>
-    </message>
-    <message>
       <source>Time</source>
       <translation>Χρόνος</translation>
     </message>
@@ -5294,12 +5330,24 @@
       <translation>Σύστημα</translation>
     </message>
     <message>
+      <source>Average chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>All operators statistic will be downloaded</source>
       <translation>Θα μεταφορτωθεί όλα φορείς στατιστικής</translation>
     </message>
     <message>
       <source>Please choose statistic parameters first!</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number</source>
+      <translation>Αριθμός</translation>
     </message>
     <message>
       <source>Parameter</source>
@@ -5382,10 +5430,6 @@
       <translation>Χώρα στατιστικής</translation>
     </message>
     <message>
-      <source>Hourly statistic</source>
-      <translation>Ωριαία στατιστικής</translation>
-    </message>
-    <message>
       <source>Last 24h statistic</source>
       <translation>Στατιστικά τελευταίων 24 ωρών</translation>
     </message>
@@ -5408,6 +5452,10 @@
     <message>
       <source>Number of chats per hour, average chat duration</source>
       <translation>Αριθμός των συνομιλιών ανά ώρα, διάρκεια μέση συνομιλίας</translation>
+    </message>
+    <message>
+      <source>Average number of chats &amp; peak per hour</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Number of messages by user</source>
@@ -5940,6 +5988,10 @@
     <message>
       <source>Individual departments</source>
       <translation>Μεμονωμένων τμημάτων</translation>
+    </message>
+    <message>
+      <source>Read only</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Departments groups</source>
@@ -6805,12 +6857,20 @@
       <translation>Chat</translation>
     </message>
     <message>
+      <source>Persistent</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Extension</source>
       <translation>Επέκταση</translation>
     </message>
     <message>
       <source>Date</source>
       <translation>Ημερομηνία</translation>
+    </message>
+    <message>
+      <source>Edit</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Delete the file</source>
@@ -6844,6 +6904,30 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Maintenance</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Files will be deleted only if days is &gt; 0</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete files</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>if file is (OR)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>And operator file is older than n days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>And visitor file is older than n days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Settings updated</source>
       <translation>Ρυθμίσεις ενημέρωση</translation>
     </message>
@@ -6867,12 +6951,24 @@
       <translation>Όνομα αρχείου</translation>
     </message>
     <message>
+      <source>Persistent</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Upload</source>
       <translation>Ανεβάστε</translation>
     </message>
     <message>
+      <source>File updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>File uploaded</source>
       <translation>Φορτώθηκε το αρχείο</translation>
+    </message>
+    <message>
+      <source>Edit file</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>New file</source>
@@ -7998,49 +8094,17 @@
     </message>
   </context>
   <context>
-    <name>system/smtp</name>
+    <name>system/offlinesettings</name>
     <message>
-      <source>Settings updated</source>
-      <translation>Οι ρυθμίσεις ενημερώθηκαν</translation>
+      <source>Offline settings</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Mail settings</source>
-      <translation>Ρυθμίσεις αλληλογραφίας</translation>
+      <source>Offline chat request won&apos;t be saved.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Sender address</source>
-      <translation>Διεύθυνση αποστολέα</translation>
-    </message>
-    <message>
-      <source>Default from e-mail address</source>
-      <translation>Προεπιλογή από τη διεύθυνση ηλεκτρονικού ταχυδρομείου</translation>
-    </message>
-    <message>
-      <source>Default from name</source>
-      <translation>Προεπιλογή από όνομα</translation>
-    </message>
-    <message>
-      <source>SMTP enabled</source>
-      <translation>Ενεργό SMTP</translation>
-    </message>
-    <message>
-      <source>Login</source>
-      <translation>Σύνδεση</translation>
-    </message>
-    <message>
-      <source>Password</source>
-      <translation>Κωδικός πρόσβασης</translation>
-    </message>
-    <message>
-      <source>Host</source>
-      <translation>Host</translation>
-    </message>
-    <message>
-      <source>Port</source>
-      <translation>Λιμάνι</translation>
-    </message>
-    <message>
-      <source>Transfer configuration</source>
+      <source>Then offline chat is registered it&apos;s status will be changed to closed chat.</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -8085,6 +8149,53 @@
     <message>
       <source>Time zone</source>
       <translation>Ζώνη ώρας</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/smtp</name>
+    <message>
+      <source>Settings updated</source>
+      <translation>Οι ρυθμίσεις ενημερώθηκαν</translation>
+    </message>
+    <message>
+      <source>Mail settings</source>
+      <translation>Ρυθμίσεις αλληλογραφίας</translation>
+    </message>
+    <message>
+      <source>Sender address</source>
+      <translation>Διεύθυνση αποστολέα</translation>
+    </message>
+    <message>
+      <source>Default from e-mail address</source>
+      <translation>Προεπιλογή από τη διεύθυνση ηλεκτρονικού ταχυδρομείου</translation>
+    </message>
+    <message>
+      <source>Default from name</source>
+      <translation>Προεπιλογή από όνομα</translation>
+    </message>
+    <message>
+      <source>SMTP enabled</source>
+      <translation>Ενεργό SMTP</translation>
+    </message>
+    <message>
+      <source>Login</source>
+      <translation>Σύνδεση</translation>
+    </message>
+    <message>
+      <source>Password</source>
+      <translation>Κωδικός πρόσβασης</translation>
+    </message>
+    <message>
+      <source>Host</source>
+      <translation>Host</translation>
+    </message>
+    <message>
+      <source>Port</source>
+      <translation>Λιμάνι</translation>
+    </message>
+    <message>
+      <source>Transfer configuration</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -8196,10 +8307,6 @@
   <context>
     <name>user/new</name>
     <message>
-      <source>Do not show user status as online</source>
-      <translation>Δεν δείχνουν κατάστασης χρήστη ως σε απευθείας σύνδεση</translation>
-    </message>
-    <message>
       <source>Change chat department to transferred department on chat transfer</source>
       <translation type="unfinished"/>
     </message>
@@ -8230,6 +8337,10 @@
     <message>
       <source>User group</source>
       <translation>Ομάδα χρήστη</translation>
+    </message>
+    <message>
+      <source>Required groups, choose one or more</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Disabled</source>
@@ -8482,6 +8593,14 @@
     <message>
       <source>Disabled</source>
       <translation>Άτομα με ειδικές ανάγκες</translation>
+    </message>
+    <message>
+      <source>Required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If group is required, at least one group of required groups has to be selected.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Update</source>
@@ -8931,10 +9050,6 @@
   <context>
     <name>file/file</name>
     <message>
-      <source>Download file</source>
-      <translation>Κατεβάστε το αρχείο</translation>
-    </message>
-    <message>
       <source>Collected survey data</source>
       <translation type="unfinished"/>
     </message>
@@ -9143,6 +9258,10 @@
     <message>
       <source>Please enter a name</source>
       <translation>Παρακαλούμε εισάγετε όνομα</translation>
+    </message>
+    <message>
+      <source>You have to choose one of required groups!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You are trying to assign group which are not known!</source>
@@ -9371,17 +9490,6 @@
     </message>
   </context>
   <context>
-    <name>chat/transferuser</name>
-    <message>
-      <source>Chat was assigned to selected department</source>
-      <translation>Chat ανατέθηκε στον επιλεγμένο τμήμα</translation>
-    </message>
-    <message>
-      <source>Chat was assigned to selected user</source>
-      <translation>Chat ανατέθηκε στον επιλεγμένο χρήστη</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/updatemsguser</name>
     <message>
       <source>User has edited his last message</source>
@@ -9406,21 +9514,6 @@
     <name>statistic/onlinehours</name>
     <message>
       <source>Online Hours</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>system/offlinesettings</name>
-    <message>
-      <source>Offline settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Offline chat request won&apos;t be saved.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Then offline chat is registered it&apos;s status will be changed to closed chat.</source>
       <translation type="unfinished"/>
     </message>
   </context>
