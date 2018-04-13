@@ -174,6 +174,9 @@ function lh(){
                         el.show();
                     } else if(dataElement.action == 'remove') {
                         el.remove();
+                    } else if(dataElement.action == 'click') {
+                        el.attr('auto-scroll',1);
+                        el.click();
                     }
                 }
             });
@@ -1650,16 +1653,24 @@ function lh(){
 	};
 
 	this.loadPreviousMessages = function (inst) {
-        $.getJSON(this.wwwDir + 'chat/loadpreviousmessages/' + inst.attr('chat-id') + '/' + inst.attr('message-id'), function(data) {
+        $.getJSON(this.wwwDir + 'chat/loadpreviousmessages/' + inst.attr('chat-id') + '/' + inst.attr('message-id') + '/(initial)/' + inst.attr('data-initial'), function(data) {
             if (data.error == false) {
-                var btn = $('#messagesBlock-'+inst.attr('chat-original-id')+' > .load-prev-btn');
-                btn.after(data.result);
+
+                inst.attr('data-initial',0);
+
+                var msg = $('#messagesBlock-'+inst.attr('chat-original-id'));
+                msg.prepend(data.result);
+
+                if (inst.attr('auto-scroll') == 1) {
+                    inst.attr('auto-scroll',0);
+                    msg.stop(true,false).animate({ scrollTop: msg.prop('scrollHeight') }, 500);
+                }
 
                 if (data.has_messages == true) {
-                    btn.attr('message-id', data.message_id);
+                    inst.attr('message-id', data.message_id);
                     inst.attr('chat-id',data.chat_id);
                 } else {
-                    btn.remove();
+                    inst.remove();
                 }
             }
         });

@@ -23,6 +23,10 @@
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Check for messages from the operators, interval in seconds');?></label>
     <input type="text" class="form-control" name="SyncForOperatorMessagesEvery" value="<?php echo htmlspecialchars(isset($sound_data['check_for_operator_msg']) ? $sound_data['check_for_operator_msg'] : '')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Value in seconds');?>" />
 </div>
+    
+<div class="form-group">
+    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Preload previous chat messages on chat open');?> <input type="checkbox" name="PreloadMessages" value="on" <?php echo isset($sound_data['preload_messages']) && $sound_data['preload_messages'] == 1 ? 'checked="checked"' : '' ?> /></label>
+</div>
 
 <h2><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Messages settings');?></h2>
 

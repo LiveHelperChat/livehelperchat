@@ -29,9 +29,4 @@ class erLhcoreClassModelGenericBotBot {
 
     public $id = null;
     public $name = '';
-    public $header_content = '';
-    public $header_css = '';
-    public $static_content = '';
-    public $static_js_content = '';
-    public $static_css_content = '';
 }

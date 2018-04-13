@@ -220,6 +220,18 @@ $fieldsSearch['una'] = array (
     )
 );
 
+$fieldsSearch['anonymized'] = array (
+    'type' => 'checkbox',
+    'trans' => 'Anonymized',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filter',
+    'filter_table_field' => 'anonymized',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+    )
+);
+
 $fieldSortAttr = array (
 'field'      => false,
 'default'    => false,

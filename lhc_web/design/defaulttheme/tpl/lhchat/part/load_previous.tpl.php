@@ -1,1 +1,1 @@
-<a class="load-prev-btn" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Load more...')?>" onclick="return lhinst.loadPreviousMessages($(this))"><i class="material-icons">&#xE889;</i></a>
+<a class="load-prev-btn" data-initial="1" id="load-prev-btn-<?php echo $chat->id?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Load more...')?>" onclick="return lhinst.loadPreviousMessages($(this))"><i class="material-icons">&#xE889;</i></a>

@@ -55,6 +55,9 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
         ),
         'ShowBrowserNotificationMessage' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
+        'PreloadMessages' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         )
     );
     
@@ -71,6 +74,12 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
         $data['long_polling_enabled'] = true;
     } else {
         $data['long_polling_enabled'] = false;
+    }
+
+    if ( $form->hasValidData( 'PreloadMessages' ) && $form->PreloadMessages == true ) {
+        $data['preload_messages'] = true;
+    } else {
+        $data['preload_messages'] = false;
     }
     
     if ( $form->hasValidData( 'ShowBrowserNotificationMessage' ) && $form->ShowBrowserNotificationMessage == true ) {

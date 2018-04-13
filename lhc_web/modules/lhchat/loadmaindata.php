@@ -17,7 +17,7 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) ) {
 
     if ($dataPrevious['has_messages'] == true) {
         $items[] = array (
-            'selector' => '#messagesBlock-' . $chat->id.' > .load-prev-btn',
+            'selector' => '#load-prev-btn-' . $chat->id,
             'action' => 'show',
             'attr' => array(
                 'chat-original-id' => $chat->id,
@@ -27,8 +27,19 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) ) {
         );
     } else {
         $items[] = array (
-            'selector' => '#messagesBlock-' . $chat->id.' > .load-prev-btn',
+            'selector' => '#load-prev-btn-' . $chat->id,
             'action' => 'hide'
+        );
+    }
+
+    $soundData = erLhcoreClassModelChatConfig::fetch('sync_sound_settings');
+    $data = (array)$soundData->data;
+
+    if (isset($data['preload_messages']) && $data['preload_messages'] == 1)
+    {
+        $items[] = array (
+            'selector' => '#load-prev-btn-' . $chat->id,
+            'action' => 'click'
         );
     }
 }

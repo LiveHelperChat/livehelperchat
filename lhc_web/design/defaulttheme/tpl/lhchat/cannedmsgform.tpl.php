@@ -24,16 +24,6 @@
             <input type="text" class="form-control" name="ExplainHover" value="<?php echo htmlspecialchars($canned_message->explain);?>" />
         </div>
 
-        <div class="form-group">
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Message');?>*</label>
-            <textarea class="form-control" name="Message"><?php echo htmlspecialchars($canned_message->msg);?></textarea>
-        </div>
-
-        <div class="form-group">
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Fallback message');?></label>
-            <textarea class="form-control" name="FallbackMessage"><?php echo htmlspecialchars($canned_message->fallback_msg);?></textarea>
-        </div>
-
         <label><input type="checkbox" name="AutoSend" value="on" <?php $canned_message->auto_send == 1 ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Automatically send this message to user then chat is accepted');?></label>
 
         <div class="form-group">
@@ -42,13 +32,37 @@
         </div>
 
         <div class="form-group">
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Position');?></label>
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Position');?>
+                    <a class="live-help-tooltip" data-placement="top" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','The smaller the position value the higher the canned message will appear in the list')?>" data-toggle="tooltip" ><i class="material-icons">&#xE887;</i></a>
+                </label>
+
             <input type="text" class="form-control" name="Position" value="<?php echo $canned_message->position?>" />
         </div>
+
+
 
         <?php include(erLhcoreClassDesign::designtpl('lhchat/cannedmsg/department.tpl.php')); ?>
 
         <?php include(erLhcoreClassDesign::designtpl('lhchat/part/after_cannedmsgform_multiinclude.tpl.php')); ?>
+
+        <ul class="nav nav-pills" role="tablist" id="canned-main-extension">
+            <li role="presentation" class="active"><a href="#main-extension" aria-controls="main-extension" role="tab" data-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Messages');?></a></li>
+            <?php include(erLhcoreClassDesign::designtpl('lhchat/cannedmsg/custom_fallback_tab_multiinclude.tpl.php')); ?>
+        </ul>
+
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="main-extension">
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Message');?>*</label>
+                    <textarea class="form-control" name="Message"><?php echo htmlspecialchars($canned_message->msg);?></textarea>
+                </div>
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Fallback message');?></label>
+                    <textarea class="form-control" name="FallbackMessage"><?php echo htmlspecialchars($canned_message->fallback_msg);?></textarea>
+                </div>
+            </div>
+            <?php include(erLhcoreClassDesign::designtpl('lhchat/cannedmsg/custom_fallback_tab_content_multiinclude.tpl.php')); ?>
+        </div>
 
     </div>
 
@@ -72,14 +86,23 @@
             </div>
         </div>
 
-        <div class="form-group">
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Message');?>*</label>
-            <textarea class="form-control" name="message_lang[{{$index}}]" ng-model="lang.message"></textarea>
-        </div>
+        <ul class="nav nav-pills" role="tablist">
+            <li role="presentation" class="active"><a href="#main-extension-lang-{{$index}}" aria-controls="main-extension-lang-{{$index}}" role="tab" data-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Messages');?></a></li>
+            <?php include(erLhcoreClassDesign::designtpl('lhchat/cannedmsg/custom_fallback_lang_tab_multiinclude.tpl.php')); ?>
+        </ul>
 
-        <div class="form-group">
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Fallback message');?></label>
-            <textarea class="form-control" name="fallback_message_lang[{{$index}}]" ng-model="lang.fallback_message"></textarea>
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="main-extension-lang-{{$index}}">
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Message');?>*</label>
+                    <textarea class="form-control" name="message_lang[{{$index}}]" ng-model="lang.message"></textarea>
+                </div>
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Fallback message');?></label>
+                    <textarea class="form-control" name="fallback_message_lang[{{$index}}]" ng-model="lang.fallback_message"></textarea>
+                </div>
+            </div>
+            <?php include(erLhcoreClassDesign::designtpl('lhchat/cannedmsg/custom_fallback_lang_tab_content_multiinclude.tpl.php')); ?>
         </div>
 
     </div>
@@ -87,3 +110,6 @@
 </div>
 
 </div>
+<script>
+    $('.live-help-tooltip').tooltip();
+</script>
