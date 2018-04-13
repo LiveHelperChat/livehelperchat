@@ -1,3 +1,4 @@
+<?php /*
 <div class="form-group">
     <label>Bot</label>
     <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
@@ -8,4 +9,5 @@
         'display_name'   => 'name',
         'list_function'  => 'erLhcoreClassModelGenericBotBot::getList'
     )); ?>
-</div>
+</div>*/ ?>
+<p>Wait for a new version :)</p>

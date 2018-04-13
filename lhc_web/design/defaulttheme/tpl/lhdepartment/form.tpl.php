@@ -58,7 +58,9 @@
 			
 			<li role="presentation"><a href="#miscellaneous" aria-controls="miscellaneous" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Miscellaneous');?></a></li>
 
+            <?php /*
             <li role="presentation"><a href="#genericbot" aria-controls="genericbot" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Bot configuration');?></a></li>
+             */ ?>
 
 			<?php include(erLhcoreClassDesign::designtpl('lhdepartment/parts/tab_multiinclude.tpl.php'));?>
 		</ul>
@@ -338,10 +340,11 @@
 				</div> 
 		    </div>
 			<?php endif;?>
-			
+
+            <?php /*
 			<div role="tabpanel" class="tab-pane" id="genericbot">
                 <?php include(erLhcoreClassDesign::designtpl('lhdepartment/parts/bot_configuration.tpl.php'));?>
-		    </div>
+		    </div>*/ ?>
 
 
 			<div role="tabpanel" class="tab-pane" id="miscellaneous">
