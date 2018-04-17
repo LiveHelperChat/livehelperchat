@@ -23,6 +23,9 @@ class NodeTriggerBuilder extends Component {
         this.addResponse = this.addResponse.bind(this);
         this.saveResponse = this.saveResponse.bind(this);
         this.cancelChanges = this.cancelChanges.bind(this);
+        this.addQuickReply = this.addQuickReply.bind(this);
+        this.removeQuickReply = this.removeQuickReply.bind(this);
+        this.removeAction = this.removeAction.bind(this);
     }
 
     handleChange(e) {
@@ -55,15 +58,30 @@ class NodeTriggerBuilder extends Component {
         this.props.dispatch({'type' : 'ADD_TRIGGER_RESPONSE'});
     }
 
+    addQuickReply(obj) {
+        this.setState({dataChanged : true});
+        this.props.dispatch({'type' : 'HANDLE_ADD_QUICK_REPLY','payload' : obj});
+    }
+
+    removeQuickReply(obj) {
+        this.setState({dataChanged : true});
+        this.props.dispatch({'type' : 'HANDLE_ADD_QUICK_REPLY_REMOVE','payload' : obj});
+    }
+
+    removeAction(obj) {
+        this.setState({dataChanged : true});
+        this.props.dispatch({'type' : 'REMOVE_TRIGGER_RESPONSE','payload' : obj});
+    }
+
     render() {
 
         var actions = [];
         if (this.props.currenttrigger.get('currenttrigger').has('actions')) {
             actions = this.props.currenttrigger.get('currenttrigger').get('actions').map((action, index) => {
                 if (action.get('type') == 'text') {
-                    return <NodeTriggerActionText key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} />
+                    return <NodeTriggerActionText key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} removeAction={this.removeAction} removeQuickReply={this.removeQuickReply} addQuickReply={this.addQuickReply} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} />
                 } else if (action.get('type') == 'list') {
-                    return <NodeTriggerActionList key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} />
+                    return <NodeTriggerActionList key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} removeAction={this.removeAction} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} />
                 }
             });
         }

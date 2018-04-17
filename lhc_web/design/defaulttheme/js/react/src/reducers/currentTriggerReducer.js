@@ -10,7 +10,10 @@ import {
     CANCEL_TRIGGER,
     UPDATE_TRIGGER_EVENT,
     ADD_TRIGGER_EVENT_FULFILLED,
-    DELETE_TRIGGER_EVENT
+    DELETE_TRIGGER_EVENT,
+    HANDLE_ADD_QUICK_REPLY,
+    HANDLE_ADD_QUICK_REPLY_REMOVE,
+    REMOVE_TRIGGER_RESPONSE
 } from "../constants/action-types";
 import {fromJS} from 'immutable';
 
@@ -44,8 +47,26 @@ const nodeGroupTriggerReducer = (state = initialState, action) => {
             return state.updateIn(['currenttrigger','actions'], actions => actions.push(fromJS({'type' : 'text', content : {'text' : ''}})));
         }
 
+        case REMOVE_TRIGGER_RESPONSE: {
+            return state.deleteIn(['currenttrigger','actions',action.payload.id]);
+        }
+
         case HANDLE_CONTENT_CHANGE: {
             return state.setIn(['currenttrigger','actions',action.payload.id].concat(action.payload.path),action.payload.value);
+        }
+
+        case HANDLE_ADD_QUICK_REPLY: {
+
+            if (!state.getIn(['currenttrigger','actions',action.payload.id,'content']).has('quick_replies')) {
+                return state.setIn(['currenttrigger','actions',action.payload.id,'content','quick_replies'],fromJS([{'type' : 'button', content : {'name' : '','payload' : ''}}]));
+            }
+
+            return state.updateIn(['currenttrigger','actions',action.payload.id,'content','quick_replies'], quick_replies => quick_replies.push(fromJS({'type' : 'button', content : {'name' : '','payload' : ''}})));
+        }
+
+        case HANDLE_ADD_QUICK_REPLY_REMOVE: {
+            const actions = ['currenttrigger','actions',action.payload.id];
+            return state.deleteIn([...actions, ...action.payload.path]);
         }
 
         case REMOVE_TRIGGER: {
@@ -80,8 +101,6 @@ const nodeGroupTriggerReducer = (state = initialState, action) => {
             const indexOfListingToUpdate = state.getIn(['currenttrigger','events']).findIndex(listing => {
                 return listing.get('id') === action.payload.get('id');
             });
-
-            console.log(action.payload.get('id'));
 
             return state.deleteIn(['currenttrigger','events',indexOfListingToUpdate]);
         }

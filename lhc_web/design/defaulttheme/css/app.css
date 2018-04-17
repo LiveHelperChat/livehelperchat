@@ -1430,3 +1430,8 @@ input[type="file"]{
 .load-prev-btn:hover{
 	background-color:rgba(196, 203, 209, 0.90);
 }
+
+.quick-replies{
+	margin-top:5px;
+	margin-bottom: 5px;
+}

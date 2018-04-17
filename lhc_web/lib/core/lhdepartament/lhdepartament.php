@@ -136,6 +136,10 @@ class erLhcoreClassDepartament{
 	   			'products_required' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	   			),
+                // Bot attributes
+                'bot_id' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
+                )
 	   	);
 
         foreach (self::getWeekDays() as $dayShort => $dayLong) {
@@ -174,7 +178,7 @@ class erLhcoreClassDepartament{
 	   	} else {
 	   		$department->name = $form->Name;
 	   	}
-	   	
+
 	   	if ( erLhcoreClassUser::instance()->hasAccessTo('lhdepartment','actautoassignment') ) {
 		   	if ( $form->hasValidData( 'AutoAssignActive' ) && $form->AutoAssignActive == true )	{
 		   		$department->active_balancing = 1;
@@ -438,7 +442,19 @@ class erLhcoreClassDepartament{
        } else {
            $department->departament_products_id = array();
        }
-       
+
+       $botConfiguration = array();
+
+       if ( $form->hasValidData( 'bot_id' ) )
+       {
+           $botConfiguration['bot_id'] = $form->bot_id;
+       } else {
+           $botConfiguration = array();
+       }
+
+       $department->bot_configuration_array = $botConfiguration;
+       $department->bot_configuration = json_encode($botConfiguration);
+
 	   return $Errors;   	
    }
 

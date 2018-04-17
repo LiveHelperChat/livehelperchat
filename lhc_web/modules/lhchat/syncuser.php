@@ -66,6 +66,7 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
             $validStatuses = array(
                 erLhcoreClassModelChat::STATUS_PENDING_CHAT,
                 erLhcoreClassModelChat::STATUS_ACTIVE_CHAT,
+                erLhcoreClassModelChat::STATUS_BOT_CHAT,
             );
 
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.validstatus_chat',array('chat' => & $chat, 'valid_statuses' => & $validStatuses));

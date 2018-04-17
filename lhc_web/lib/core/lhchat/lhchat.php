@@ -622,6 +622,32 @@ class erLhcoreClassChat {
     	return self::getList($filter);
     }
 
+    public static function getBotChats($limit = 50, $offset = 0, $filterAdditional = array())
+    {
+    	$limitation = self::getDepartmentLimitation();
+
+    	// Does not have any assigned department
+    	if ($limitation === false) { return array(); }
+
+    	$filter = array();
+    	$filter['filter'] = array('status' => 5);
+
+    	if ($limitation !== true) {
+    		$filter['customfilter'][] = $limitation;
+    		$filter['use_index'] = 'status_dep_id_id';
+    	}
+
+    	$filter['limit'] = $limit;
+    	$filter['offset'] = $offset;
+    	$filter['smart_select'] = true;
+
+    	if (!empty($filterAdditional)) {
+    		$filter = array_merge_recursive($filter,$filterAdditional);
+    	}
+
+    	return self::getList($filter);
+    }
+
     public static function getClosedChatsCount($filterAdditional = array())
     {
     	$limitation = self::getDepartmentLimitation();

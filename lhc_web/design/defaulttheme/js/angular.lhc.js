@@ -196,6 +196,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	this.custom_extension_filter = '';
 
 	// Active chat limit
+	this.limitb = this.restoreLocalSetting('limitb',10,false);
 	this.limita = this.restoreLocalSetting('limita',10,false);
 	this.limitu = this.restoreLocalSetting('limitu',10,false);
 	this.limitp = this.restoreLocalSetting('limitp',10,false);
@@ -253,6 +254,12 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	this.pendingd_dpgroups = this.restoreLocalSetting('pendingd_dpgroups',[],true);
 	this.pendingd_ugroups = this.restoreLocalSetting('pendingd_ugroups',[],true);
 	this.pendingdNames = [];
+
+	this.botd = this.restoreLocalSetting('botd',[],true);
+	this.botd_products = this.restoreLocalSetting('botd_products',[],true);
+	this.botd_dpgroups = this.restoreLocalSetting('botd_dpgroups',[],true);
+	this.botd_ugroups = this.restoreLocalSetting('botd_ugroups',[],true);
+	this.botdNames = [];
 
 	this.closedd = this.restoreLocalSetting('closedd',[],true);
 	this.closedd_products = this.restoreLocalSetting('closedd_products',[],true);
@@ -394,7 +401,8 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		filter += '/(limitc)/'+parseInt(_that.limitc);
 		filter += '/(limitd)/'+parseInt(_that.limitd);
 		filter += '/(limitmc)/'+parseInt(_that.limitmc);
-	
+		filter += '/(limitb)/'+parseInt(_that.limitb);
+
 		if (typeof _that.activeu == 'object' && _that.activeu.length > 0) {
 			filter += '/(activeu)/'+_that.activeu.join('/');			
 		}

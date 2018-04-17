@@ -3139,6 +3139,12 @@ function lh(){
     	lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'chat/editnick/'+this.chat_id+'/'+this.hash})   
     }
 
+    this.buttonClicked = function(payload) {
+        $.get(this.wwwDir + 'genericbot/buttonclicked/'+this.chat_id+'/'+this.hash,{payload: payload},function(data){
+
+        });
+    }
+
 }
 
 var lhinst = new lh();

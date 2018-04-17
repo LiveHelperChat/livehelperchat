@@ -15,6 +15,11 @@
     border:0;
     box-shadow: none;
 }
-.dropdown-menu-trigger>li>a {
+
+.dropdown-menu-trigger > li > a {
     padding-left:5px;
+}
+
+.gen-btn-list .btn{
+    margin: 5px 5px 5px 0px;
 }

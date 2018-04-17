@@ -28,8 +28,12 @@ class erLhcoreClassModelGenericBotTriggerEvent {
     {
         switch ($var) {
             case 'actions_front':
-
                 return $this->actions_front;
+                break;
+
+            case 'trigger':
+                $this->trigger = erLhcoreClassModelGenericBotTrigger::fetch($this->trigger_id);
+                return $this->trigger;
                 break;
 
             default:

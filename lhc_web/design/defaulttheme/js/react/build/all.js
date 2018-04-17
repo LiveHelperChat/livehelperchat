@@ -70,7 +70,7 @@ var App = function (_Component) {
 
 exports.default = App;
 
-},{"./components/NodeGroups":7,"./components/NodeTriggerBuilder":8,"./components/NodeTriggerBuilderPreview":9,"react":106}],2:[function(require,module,exports){
+},{"./components/NodeGroups":7,"./components/NodeTriggerBuilder":8,"./components/NodeTriggerBuilderPreview":9,"react":108}],2:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -142,7 +142,7 @@ function updateNodeGroup(obj) {
     };
 }
 
-},{"axios":23}],3:[function(require,module,exports){
+},{"axios":25}],3:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -329,7 +329,7 @@ function removeTrigger(obj) {
     };
 }
 
-},{"axios":23}],4:[function(require,module,exports){
+},{"axios":25}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -509,7 +509,7 @@ var NodeGroup = (_dec = (0, _reactRedux.connect)(function (store) {
 }(_react.Component)) || _class);
 exports.default = NodeGroup;
 
-},{"../actions/nodeGroupTriggerActions":3,"./NodeGroupTrigger":5,"./NodeGroupTriggerEvents":6,"react":106,"react-redux":88}],5:[function(require,module,exports){
+},{"../actions/nodeGroupTriggerActions":3,"./NodeGroupTrigger":5,"./NodeGroupTriggerEvents":6,"react":108,"react-redux":90}],5:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -643,7 +643,7 @@ var NodeGroupTrigger = (_dec = (0, _reactRedux.connect)(function (store) {
 }(_react.Component)) || _class);
 exports.default = NodeGroupTrigger;
 
-},{"../actions/nodeGroupTriggerActions":3,"react":106,"react-redux":88}],6:[function(require,module,exports){
+},{"../actions/nodeGroupTriggerActions":3,"react":108,"react-redux":90}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -730,7 +730,7 @@ var NodeGroupTriggerEvents = function (_Component) {
 
 exports.default = NodeGroupTriggerEvents;
 
-},{"./events/NodeGroupTriggerEvent":13,"immutable":65,"react":106}],7:[function(require,module,exports){
+},{"./events/NodeGroupTriggerEvent":14,"immutable":67,"react":108}],7:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -816,7 +816,7 @@ var NodeGroups = (_dec = (0, _reactRedux.connect)(function (state) {
 }(_react.Component)) || _class);
 exports.default = NodeGroups;
 
-},{"../actions/nodeGroupActions":2,"./NodeGroup":4,"react":106,"react-redux":88}],8:[function(require,module,exports){
+},{"../actions/nodeGroupActions":2,"./NodeGroup":4,"react":108,"react-redux":90}],8:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -871,6 +871,9 @@ var NodeTriggerBuilder = (_dec = (0, _reactRedux.connect)(function (store) {
         _this.addResponse = _this.addResponse.bind(_this);
         _this.saveResponse = _this.saveResponse.bind(_this);
         _this.cancelChanges = _this.cancelChanges.bind(_this);
+        _this.addQuickReply = _this.addQuickReply.bind(_this);
+        _this.removeQuickReply = _this.removeQuickReply.bind(_this);
+        _this.removeAction = _this.removeAction.bind(_this);
         return _this;
     }
 
@@ -911,6 +914,24 @@ var NodeTriggerBuilder = (_dec = (0, _reactRedux.connect)(function (store) {
             this.props.dispatch({ 'type': 'ADD_TRIGGER_RESPONSE' });
         }
     }, {
+        key: "addQuickReply",
+        value: function addQuickReply(obj) {
+            this.setState({ dataChanged: true });
+            this.props.dispatch({ 'type': 'HANDLE_ADD_QUICK_REPLY', 'payload': obj });
+        }
+    }, {
+        key: "removeQuickReply",
+        value: function removeQuickReply(obj) {
+            this.setState({ dataChanged: true });
+            this.props.dispatch({ 'type': 'HANDLE_ADD_QUICK_REPLY_REMOVE', 'payload': obj });
+        }
+    }, {
+        key: "removeAction",
+        value: function removeAction(obj) {
+            this.setState({ dataChanged: true });
+            this.props.dispatch({ 'type': 'REMOVE_TRIGGER_RESPONSE', 'payload': obj });
+        }
+    }, {
         key: "render",
         value: function render() {
             var _this2 = this;
@@ -919,9 +940,9 @@ var NodeTriggerBuilder = (_dec = (0, _reactRedux.connect)(function (store) {
             if (this.props.currenttrigger.get('currenttrigger').has('actions')) {
                 actions = this.props.currenttrigger.get('currenttrigger').get('actions').map(function (action, index) {
                     if (action.get('type') == 'text') {
-                        return _react2.default.createElement(_NodeTriggerActionText2.default, { key: index + '-' + _this2.props.currenttrigger.get('currenttrigger').get('id'), id: index, onChangeContent: _this2.handleContentChange, onChangeType: _this2.handleTypeChange, action: action });
+                        return _react2.default.createElement(_NodeTriggerActionText2.default, { key: index + '-' + _this2.props.currenttrigger.get('currenttrigger').get('id'), id: index, removeAction: _this2.removeAction, removeQuickReply: _this2.removeQuickReply, addQuickReply: _this2.addQuickReply, onChangeContent: _this2.handleContentChange, onChangeType: _this2.handleTypeChange, action: action });
                     } else if (action.get('type') == 'list') {
-                        return _react2.default.createElement(_NodeTriggerActionList2.default, { key: index + '-' + _this2.props.currenttrigger.get('currenttrigger').get('id'), id: index, onChangeContent: _this2.handleContentChange, onChangeType: _this2.handleTypeChange, action: action });
+                        return _react2.default.createElement(_NodeTriggerActionList2.default, { key: index + '-' + _this2.props.currenttrigger.get('currenttrigger').get('id'), id: index, removeAction: _this2.removeAction, onChangeContent: _this2.handleContentChange, onChangeType: _this2.handleTypeChange, action: action });
                     }
                 });
             }
@@ -968,7 +989,7 @@ var NodeTriggerBuilder = (_dec = (0, _reactRedux.connect)(function (store) {
 }(_react.Component)) || _class);
 exports.default = NodeTriggerBuilder;
 
-},{"../actions/nodeGroupTriggerActions":3,"./builder/NodeTriggerActionList":10,"./builder/NodeTriggerActionText":11,"react":106,"react-redux":88}],9:[function(require,module,exports){
+},{"../actions/nodeGroupTriggerActions":3,"./builder/NodeTriggerActionList":10,"./builder/NodeTriggerActionText":12,"react":108,"react-redux":90}],9:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1044,7 +1065,7 @@ var NodeTriggerBuilderPreview = (_dec = (0, _reactRedux.connect)(function (store
 }(_react.Component)) || _class);
 exports.default = NodeTriggerBuilderPreview;
 
-},{"../actions/nodeGroupTriggerActions":3,"./preview/NodeTriggerActionListPreview":14,"./preview/NodeTriggerActionTextPreview":15,"react":106,"react-redux":88}],10:[function(require,module,exports){
+},{"../actions/nodeGroupTriggerActions":3,"./preview/NodeTriggerActionListPreview":15,"./preview/NodeTriggerActionTextPreview":17,"react":108,"react-redux":90}],10:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1108,7 +1129,126 @@ var NodeTriggerActionList = function (_Component) {
 
 exports.default = NodeTriggerActionList;
 
-},{"./NodeTriggerActionType":12,"react":106}],11:[function(require,module,exports){
+},{"./NodeTriggerActionType":13,"react":108}],11:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var NodeTriggerActionQuickReply = function (_Component) {
+    _inherits(NodeTriggerActionQuickReply, _Component);
+
+    function NodeTriggerActionQuickReply(props) {
+        _classCallCheck(this, NodeTriggerActionQuickReply);
+
+        var _this = _possibleConstructorReturn(this, (NodeTriggerActionQuickReply.__proto__ || Object.getPrototypeOf(NodeTriggerActionQuickReply)).call(this, props));
+
+        _this.onNameChange = _this.onNameChange.bind(_this);
+        _this.onPayloadChange = _this.onPayloadChange.bind(_this);
+        _this.deleteReply = _this.deleteReply.bind(_this);
+        return _this;
+    }
+
+    _createClass(NodeTriggerActionQuickReply, [{
+        key: "onNameChange",
+        value: function onNameChange(e) {
+            this.props.onNameChange({ id: this.props.id, value: e.target.value });
+        }
+    }, {
+        key: "onPayloadChange",
+        value: function onPayloadChange(e) {
+            this.props.onPayloadChange({ id: this.props.id, value: e.target.value });
+        }
+    }, {
+        key: "deleteReply",
+        value: function deleteReply() {
+            this.props.deleteReply({ id: this.props.id });
+        }
+    }, {
+        key: "render",
+        value: function render() {
+            return _react2.default.createElement(
+                "div",
+                { className: "row" },
+                _react2.default.createElement(
+                    "div",
+                    { className: "col-xs-5" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "form-group" },
+                        _react2.default.createElement(
+                            "label",
+                            null,
+                            "Name"
+                        ),
+                        _react2.default.createElement("input", { type: "text", onChange: this.onNameChange, defaultValue: this.props.reply.getIn(['content', 'name']), className: "form-control" })
+                    )
+                ),
+                _react2.default.createElement(
+                    "div",
+                    { className: "col-xs-5" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "form-group" },
+                        _react2.default.createElement(
+                            "label",
+                            null,
+                            "Payload"
+                        ),
+                        _react2.default.createElement("input", { type: "text", onChange: this.onPayloadChange, defaultValue: this.props.reply.getIn(['content', 'payload']), className: "form-control" })
+                    )
+                ),
+                _react2.default.createElement(
+                    "div",
+                    { className: "col-xs-2" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "form-group" },
+                        _react2.default.createElement(
+                            "label",
+                            null,
+                            "\xA0"
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            null,
+                            _react2.default.createElement(
+                                "a",
+                                { onClick: this.deleteReply },
+                                _react2.default.createElement(
+                                    "i",
+                                    { className: "material-icons mr-0" },
+                                    "delete"
+                                )
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return NodeTriggerActionQuickReply;
+}(_react.Component);
+
+exports.default = NodeTriggerActionQuickReply;
+
+},{"react":108}],12:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1124,6 +1264,10 @@ var _react2 = _interopRequireDefault(_react);
 var _NodeTriggerActionType = require('./NodeTriggerActionType');
 
 var _NodeTriggerActionType2 = _interopRequireDefault(_NodeTriggerActionType);
+
+var _NodeTriggerActionQuickReply = require('./NodeTriggerActionQuickReply');
+
+var _NodeTriggerActionQuickReply2 = _interopRequireDefault(_NodeTriggerActionQuickReply);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1143,6 +1287,12 @@ var NodeTriggerActionText = function (_Component) {
 
         _this.changeType = _this.changeType.bind(_this);
         _this.setText = _this.setText.bind(_this);
+        _this.addQuickReply = _this.addQuickReply.bind(_this);
+        _this.removeAction = _this.removeAction.bind(_this);
+
+        _this.onQuickReplyNameChange = _this.onQuickReplyNameChange.bind(_this);
+        _this.onQuickReplyPayloadChange = _this.onQuickReplyPayloadChange.bind(_this);
+        _this.onDeleteQuickReply = _this.onDeleteQuickReply.bind(_this);
         return _this;
     }
 
@@ -1157,23 +1307,102 @@ var NodeTriggerActionText = function (_Component) {
             this.props.onChangeContent({ id: this.props.id, 'path': ['content', 'text'], value: e.target.value });
         }
     }, {
+        key: 'addQuickReply',
+        value: function addQuickReply(e) {
+            this.props.addQuickReply({ id: this.props.id });
+        }
+    }, {
+        key: 'onQuickReplyNameChange',
+        value: function onQuickReplyNameChange(e) {
+            this.props.onChangeContent({ id: this.props.id, 'path': ['content', 'quick_replies', e.id, 'content', 'name'], value: e.value });
+        }
+    }, {
+        key: 'onQuickReplyPayloadChange',
+        value: function onQuickReplyPayloadChange(e) {
+            this.props.onChangeContent({ id: this.props.id, 'path': ['content', 'quick_replies', e.id, 'content', 'payload'], value: e.value });
+        }
+    }, {
+        key: 'onDeleteQuickReply',
+        value: function onDeleteQuickReply(e) {
+            this.props.removeQuickReply({ id: this.props.id, 'path': ['content', 'quick_replies', e.id] });
+        }
+    }, {
+        key: 'removeAction',
+        value: function removeAction() {
+            this.props.removeAction({ id: this.props.id });
+        }
+    }, {
         key: 'render',
         value: function render() {
+            var _this2 = this;
+
+            var quick_replies = [];
+
+            if (this.props.action.hasIn(['content', 'quick_replies'])) {
+                quick_replies = this.props.action.getIn(['content', 'quick_replies']).map(function (reply, index) {
+                    return _react2.default.createElement(_NodeTriggerActionQuickReply2.default, { deleteReply: _this2.onDeleteQuickReply, onNameChange: _this2.onQuickReplyNameChange, onPayloadChange: _this2.onQuickReplyPayloadChange, id: index, key: index, reply: reply });
+                });
+            }
+
             return _react2.default.createElement(
                 'div',
-                null,
-                _react2.default.createElement(_NodeTriggerActionType2.default, { onChange: this.changeType, type: this.props.action.get('type') }),
+                { className: 'row' },
                 _react2.default.createElement(
                     'div',
-                    { className: 'form-group' },
+                    { className: 'col-xs-12' },
                     _react2.default.createElement(
-                        'label',
-                        null,
-                        'Enter text'
+                        'div',
+                        { className: 'row' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-xs-11' },
+                            _react2.default.createElement(_NodeTriggerActionType2.default, { onChange: this.changeType, type: this.props.action.get('type') })
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-xs-1' },
+                            _react2.default.createElement(
+                                'button',
+                                { onClick: this.removeAction, type: 'button', className: 'btn btn-danger btn-sm pull-right' },
+                                _react2.default.createElement(
+                                    'i',
+                                    { className: 'material-icons mr-0' },
+                                    'delete'
+                                )
+                            )
+                        )
                     ),
-                    _react2.default.createElement('textarea', { placeholder: 'Write your response here!', onChange: this.setText, defaultValue: this.props.action.getIn(['content', 'text']), className: 'form-control' })
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'form-group' },
+                        _react2.default.createElement(
+                            'label',
+                            null,
+                            'Enter text'
+                        ),
+                        _react2.default.createElement('textarea', { placeholder: 'Write your response here!', onChange: this.setText, defaultValue: this.props.action.getIn(['content', 'text']), className: 'form-control' })
+                    ),
+                    _react2.default.createElement(
+                        'button',
+                        { onClick: this.addQuickReply, className: 'btn btn-xs btn-default pull-right' },
+                        _react2.default.createElement(
+                            'i',
+                            { className: 'material-icons mr-0' },
+                            'add'
+                        ),
+                        ' Add quick reply'
+                    )
                 ),
-                _react2.default.createElement('hr', null)
+                _react2.default.createElement(
+                    'div',
+                    { className: 'col-xs-12' },
+                    quick_replies
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'col-xs-12' },
+                    _react2.default.createElement('hr', null)
+                )
             );
         }
     }]);
@@ -1183,7 +1412,7 @@ var NodeTriggerActionText = function (_Component) {
 
 exports.default = NodeTriggerActionText;
 
-},{"./NodeTriggerActionType":12,"react":106}],12:[function(require,module,exports){
+},{"./NodeTriggerActionQuickReply":11,"./NodeTriggerActionType":13,"react":108}],13:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1273,7 +1502,7 @@ exports.default = function (_ref) {
                     'select',
                     { onChange: function onChange(e) {
                             return _onChange(e);
-                        }, className: 'form-control', defaultValue: type },
+                        }, className: 'form-control input-sm', defaultValue: type },
                     list
                 )
             )
@@ -1281,7 +1510,7 @@ exports.default = function (_ref) {
     );
 };
 
-},{"immutable":65,"react":106}],13:[function(require,module,exports){
+},{"immutable":67,"react":108}],14:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1413,7 +1642,7 @@ var NodeGroupTriggerEvent = function (_Component) {
 
 exports.default = NodeGroupTriggerEvent;
 
-},{"react":106}],14:[function(require,module,exports){
+},{"react":108}],15:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1463,7 +1692,7 @@ var NodeTriggerActionListPreview = function (_Component) {
 
 exports.default = NodeTriggerActionListPreview;
 
-},{"react":106}],15:[function(require,module,exports){
+},{"react":108}],16:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1484,6 +1713,66 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var NodeTriggerActionQuickReplyListPreview = function (_Component) {
+    _inherits(NodeTriggerActionQuickReplyListPreview, _Component);
+
+    function NodeTriggerActionQuickReplyListPreview(props) {
+        _classCallCheck(this, NodeTriggerActionQuickReplyListPreview);
+
+        return _possibleConstructorReturn(this, (NodeTriggerActionQuickReplyListPreview.__proto__ || Object.getPrototypeOf(NodeTriggerActionQuickReplyListPreview)).call(this, props));
+    }
+
+    _createClass(NodeTriggerActionQuickReplyListPreview, [{
+        key: "render",
+        value: function render() {
+            if (this.props.items) {
+                return _react2.default.createElement(
+                    "div",
+                    { className: "gen-btn-list" },
+                    this.props.items.map(function (item, index) {
+                        return _react2.default.createElement(
+                            "a",
+                            { key: index, className: "btn btn-default btn-xs" },
+                            item.getIn(['content', 'name'])
+                        );
+                    })
+                );
+            } else {
+                return null;
+            }
+        }
+    }]);
+
+    return NodeTriggerActionQuickReplyListPreview;
+}(_react.Component);
+
+exports.default = NodeTriggerActionQuickReplyListPreview;
+
+},{"react":108}],17:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _NodeTriggerActionQuickReplyListPreview = require('./NodeTriggerActionQuickReplyListPreview');
+
+var _NodeTriggerActionQuickReplyListPreview2 = _interopRequireDefault(_NodeTriggerActionQuickReplyListPreview);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 var NodeTriggerActionTextPreview = function (_Component) {
     _inherits(NodeTriggerActionTextPreview, _Component);
 
@@ -1494,31 +1783,33 @@ var NodeTriggerActionTextPreview = function (_Component) {
     }
 
     _createClass(NodeTriggerActionTextPreview, [{
-        key: "render",
+        key: 'render',
         value: function render() {
+
             return _react2.default.createElement(
-                "div",
+                'div',
                 null,
                 _react2.default.createElement(
-                    "div",
-                    { className: "message-row message-admin operator-changes" },
+                    'div',
+                    { className: 'message-row message-admin operator-changes' },
                     _react2.default.createElement(
-                        "div",
-                        { className: "msg-date" },
-                        "18:10:45"
+                        'div',
+                        { className: 'msg-date' },
+                        '18:10:45'
                     ),
                     _react2.default.createElement(
-                        "span",
-                        { className: "usr-tit op-tit" },
+                        'span',
+                        { className: 'usr-tit op-tit' },
                         _react2.default.createElement(
-                            "i",
-                            { className: "material-icons chat-operators mi-fs15 mr-0" },
-                            "\uE851"
+                            'i',
+                            { className: 'material-icons chat-operators mi-fs15 mr-0' },
+                            '\uE851'
                         ),
-                        "Operator"
+                        'Operator'
                     ),
                     this.props.action.getIn(['content', 'text'])
-                )
+                ),
+                _react2.default.createElement(_NodeTriggerActionQuickReplyListPreview2.default, { items: this.props.action.getIn(['content', 'quick_replies']) })
             );
         }
     }]);
@@ -1528,7 +1819,7 @@ var NodeTriggerActionTextPreview = function (_Component) {
 
 exports.default = NodeTriggerActionTextPreview;
 
-},{"react":106}],16:[function(require,module,exports){
+},{"./NodeTriggerActionQuickReplyListPreview":16,"react":108}],18:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1563,8 +1854,11 @@ var CANCEL_TRIGGER = exports.CANCEL_TRIGGER = "CANCEL_TRIGGER";
 var UPDATE_TRIGGER_EVENT = exports.UPDATE_TRIGGER_EVENT = "UPDATE_TRIGGER_EVENT";
 var ADD_TRIGGER_EVENT_FULFILLED = exports.ADD_TRIGGER_EVENT_FULFILLED = "ADD_TRIGGER_EVENT_FULFILLED";
 var DELETE_TRIGGER_EVENT = exports.DELETE_TRIGGER_EVENT = "DELETE_TRIGGER_EVENT";
+var HANDLE_ADD_QUICK_REPLY = exports.HANDLE_ADD_QUICK_REPLY = "HANDLE_ADD_QUICK_REPLY";
+var HANDLE_ADD_QUICK_REPLY_REMOVE = exports.HANDLE_ADD_QUICK_REPLY_REMOVE = "HANDLE_ADD_QUICK_REPLY_REMOVE";
+var REMOVE_TRIGGER_RESPONSE = exports.REMOVE_TRIGGER_RESPONSE = "REMOVE_TRIGGER_RESPONSE";
 
-},{}],17:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');
@@ -1595,7 +1889,7 @@ _reactDom2.default.render(_react2.default.createElement(
     _react2.default.createElement(_App2.default, root.dataset)
 ), root);
 
-},{"./App":1,"./store/index":22,"react":106,"react-dom":77,"react-redux":88}],18:[function(require,module,exports){
+},{"./App":1,"./store/index":24,"react":108,"react-dom":79,"react-redux":90}],20:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1605,6 +1899,8 @@ Object.defineProperty(exports, "__esModule", {
 var _actionTypes = require('../constants/action-types');
 
 var _immutable = require('immutable');
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 var initialState = (0, _immutable.fromJS)({
     currenttrigger: {},
@@ -1646,9 +1942,32 @@ var nodeGroupTriggerReducer = function nodeGroupTriggerReducer() {
                 });
             }
 
+        case _actionTypes.REMOVE_TRIGGER_RESPONSE:
+            {
+                return state.deleteIn(['currenttrigger', 'actions', action.payload.id]);
+            }
+
         case _actionTypes.HANDLE_CONTENT_CHANGE:
             {
                 return state.setIn(['currenttrigger', 'actions', action.payload.id].concat(action.payload.path), action.payload.value);
+            }
+
+        case _actionTypes.HANDLE_ADD_QUICK_REPLY:
+            {
+
+                if (!state.getIn(['currenttrigger', 'actions', action.payload.id, 'content']).has('quick_replies')) {
+                    return state.setIn(['currenttrigger', 'actions', action.payload.id, 'content', 'quick_replies'], (0, _immutable.fromJS)([{ 'type': 'button', content: { 'name': '', 'payload': '' } }]));
+                }
+
+                return state.updateIn(['currenttrigger', 'actions', action.payload.id, 'content', 'quick_replies'], function (quick_replies) {
+                    return quick_replies.push((0, _immutable.fromJS)({ 'type': 'button', content: { 'name': '', 'payload': '' } }));
+                });
+            }
+
+        case _actionTypes.HANDLE_ADD_QUICK_REPLY_REMOVE:
+            {
+                var actions = ['currenttrigger', 'actions', action.payload.id];
+                return state.deleteIn([].concat(actions, _toConsumableArray(action.payload.path)));
             }
 
         case _actionTypes.REMOVE_TRIGGER:
@@ -1691,8 +2010,6 @@ var nodeGroupTriggerReducer = function nodeGroupTriggerReducer() {
                     return listing.get('id') === action.payload.get('id');
                 });
 
-                console.log(action.payload.get('id'));
-
                 return state.deleteIn(['currenttrigger', 'events', _indexOfListingToUpdate]);
             }
 
@@ -1703,7 +2020,7 @@ var nodeGroupTriggerReducer = function nodeGroupTriggerReducer() {
 
 exports.default = nodeGroupTriggerReducer;
 
-},{"../constants/action-types":16,"immutable":65}],19:[function(require,module,exports){
+},{"../constants/action-types":18,"immutable":67}],21:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1732,7 +2049,7 @@ exports.default = (0, _redux.combineReducers)({
     currenttrigger: _currentTriggerReducer2.default
 });
 
-},{"./currentTriggerReducer":18,"./nodeGroupReducer":20,"./nodeGroupTriggerReducer":21,"redux":117}],20:[function(require,module,exports){
+},{"./currentTriggerReducer":20,"./nodeGroupReducer":22,"./nodeGroupTriggerReducer":23,"redux":119}],22:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1816,7 +2133,7 @@ var nodeGroupReducer = function nodeGroupReducer() {
 
 exports.default = nodeGroupReducer;
 
-},{"../constants/action-types":16,"immutable":65}],21:[function(require,module,exports){
+},{"../constants/action-types":18,"immutable":67}],23:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1892,7 +2209,7 @@ var nodeGroupTriggerReducer = function nodeGroupTriggerReducer() {
 
 exports.default = nodeGroupTriggerReducer;
 
-},{"../constants/action-types":16,"immutable":65}],22:[function(require,module,exports){
+},{"../constants/action-types":18,"immutable":67}],24:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1923,9 +2240,9 @@ var store = (0, _redux.createStore)(_index2.default, middleware);
 
 exports.default = store;
 
-},{"../reducers/index":19,"redux":117,"redux-logger":108,"redux-promise-middleware":109,"redux-thunk":111}],23:[function(require,module,exports){
+},{"../reducers/index":21,"redux":119,"redux-logger":110,"redux-promise-middleware":111,"redux-thunk":113}],25:[function(require,module,exports){
 module.exports = require('./lib/axios');
-},{"./lib/axios":25}],24:[function(require,module,exports){
+},{"./lib/axios":27}],26:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -2109,7 +2426,7 @@ module.exports = function xhrAdapter(config) {
 };
 
 }).call(this,require('_process'))
-},{"../core/createError":31,"./../core/settle":34,"./../helpers/btoa":38,"./../helpers/buildURL":39,"./../helpers/cookies":41,"./../helpers/isURLSameOrigin":43,"./../helpers/parseHeaders":45,"./../utils":47,"_process":68}],25:[function(require,module,exports){
+},{"../core/createError":33,"./../core/settle":36,"./../helpers/btoa":40,"./../helpers/buildURL":41,"./../helpers/cookies":43,"./../helpers/isURLSameOrigin":45,"./../helpers/parseHeaders":47,"./../utils":49,"_process":70}],27:[function(require,module,exports){
 'use strict';
 
 var utils = require('./utils');
@@ -2163,7 +2480,7 @@ module.exports = axios;
 // Allow use of default import syntax in TypeScript
 module.exports.default = axios;
 
-},{"./cancel/Cancel":26,"./cancel/CancelToken":27,"./cancel/isCancel":28,"./core/Axios":29,"./defaults":36,"./helpers/bind":37,"./helpers/spread":46,"./utils":47}],26:[function(require,module,exports){
+},{"./cancel/Cancel":28,"./cancel/CancelToken":29,"./cancel/isCancel":30,"./core/Axios":31,"./defaults":38,"./helpers/bind":39,"./helpers/spread":48,"./utils":49}],28:[function(require,module,exports){
 'use strict';
 
 /**
@@ -2184,7 +2501,7 @@ Cancel.prototype.__CANCEL__ = true;
 
 module.exports = Cancel;
 
-},{}],27:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 'use strict';
 
 var Cancel = require('./Cancel');
@@ -2243,14 +2560,14 @@ CancelToken.source = function source() {
 
 module.exports = CancelToken;
 
-},{"./Cancel":26}],28:[function(require,module,exports){
+},{"./Cancel":28}],30:[function(require,module,exports){
 'use strict';
 
 module.exports = function isCancel(value) {
   return !!(value && value.__CANCEL__);
 };
 
-},{}],29:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 'use strict';
 
 var defaults = require('./../defaults');
@@ -2331,7 +2648,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = Axios;
 
-},{"./../defaults":36,"./../utils":47,"./InterceptorManager":30,"./dispatchRequest":32}],30:[function(require,module,exports){
+},{"./../defaults":38,"./../utils":49,"./InterceptorManager":32,"./dispatchRequest":34}],32:[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -2385,7 +2702,7 @@ InterceptorManager.prototype.forEach = function forEach(fn) {
 
 module.exports = InterceptorManager;
 
-},{"./../utils":47}],31:[function(require,module,exports){
+},{"./../utils":49}],33:[function(require,module,exports){
 'use strict';
 
 var enhanceError = require('./enhanceError');
@@ -2405,7 +2722,7 @@ module.exports = function createError(message, config, code, request, response) 
   return enhanceError(error, config, code, request, response);
 };
 
-},{"./enhanceError":33}],32:[function(require,module,exports){
+},{"./enhanceError":35}],34:[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -2493,7 +2810,7 @@ module.exports = function dispatchRequest(config) {
   });
 };
 
-},{"../cancel/isCancel":28,"../defaults":36,"./../helpers/combineURLs":40,"./../helpers/isAbsoluteURL":42,"./../utils":47,"./transformData":35}],33:[function(require,module,exports){
+},{"../cancel/isCancel":30,"../defaults":38,"./../helpers/combineURLs":42,"./../helpers/isAbsoluteURL":44,"./../utils":49,"./transformData":37}],35:[function(require,module,exports){
 'use strict';
 
 /**
@@ -2516,7 +2833,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
   return error;
 };
 
-},{}],34:[function(require,module,exports){
+},{}],36:[function(require,module,exports){
 'use strict';
 
 var createError = require('./createError');
@@ -2544,7 +2861,7 @@ module.exports = function settle(resolve, reject, response) {
   }
 };
 
-},{"./createError":31}],35:[function(require,module,exports){
+},{"./createError":33}],37:[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -2566,7 +2883,7 @@ module.exports = function transformData(data, headers, fns) {
   return data;
 };
 
-},{"./../utils":47}],36:[function(require,module,exports){
+},{"./../utils":49}],38:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -2666,7 +2983,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 module.exports = defaults;
 
 }).call(this,require('_process'))
-},{"./adapters/http":24,"./adapters/xhr":24,"./helpers/normalizeHeaderName":44,"./utils":47,"_process":68}],37:[function(require,module,exports){
+},{"./adapters/http":26,"./adapters/xhr":26,"./helpers/normalizeHeaderName":46,"./utils":49,"_process":70}],39:[function(require,module,exports){
 'use strict';
 
 module.exports = function bind(fn, thisArg) {
@@ -2679,7 +2996,7 @@ module.exports = function bind(fn, thisArg) {
   };
 };
 
-},{}],38:[function(require,module,exports){
+},{}],40:[function(require,module,exports){
 'use strict';
 
 // btoa polyfill for IE<10 courtesy https://github.com/davidchambers/Base64.js
@@ -2717,7 +3034,7 @@ function btoa(input) {
 
 module.exports = btoa;
 
-},{}],39:[function(require,module,exports){
+},{}],41:[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -2785,7 +3102,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
   return url;
 };
 
-},{"./../utils":47}],40:[function(require,module,exports){
+},{"./../utils":49}],42:[function(require,module,exports){
 'use strict';
 
 /**
@@ -2801,7 +3118,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
     : baseURL;
 };
 
-},{}],41:[function(require,module,exports){
+},{}],43:[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -2856,7 +3173,7 @@ module.exports = (
   })()
 );
 
-},{"./../utils":47}],42:[function(require,module,exports){
+},{"./../utils":49}],44:[function(require,module,exports){
 'use strict';
 
 /**
@@ -2872,7 +3189,7 @@ module.exports = function isAbsoluteURL(url) {
   return /^([a-z][a-z\d\+\-\.]*:)?\/\//i.test(url);
 };
 
-},{}],43:[function(require,module,exports){
+},{}],45:[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -2942,7 +3259,7 @@ module.exports = (
   })()
 );
 
-},{"./../utils":47}],44:[function(require,module,exports){
+},{"./../utils":49}],46:[function(require,module,exports){
 'use strict';
 
 var utils = require('../utils');
@@ -2956,7 +3273,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
   });
 };
 
-},{"../utils":47}],45:[function(require,module,exports){
+},{"../utils":49}],47:[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -3011,7 +3328,7 @@ module.exports = function parseHeaders(headers) {
   return parsed;
 };
 
-},{"./../utils":47}],46:[function(require,module,exports){
+},{"./../utils":49}],48:[function(require,module,exports){
 'use strict';
 
 /**
@@ -3040,7 +3357,7 @@ module.exports = function spread(callback) {
   };
 };
 
-},{}],47:[function(require,module,exports){
+},{}],49:[function(require,module,exports){
 'use strict';
 
 var bind = require('./helpers/bind');
@@ -3345,7 +3662,7 @@ module.exports = {
   trim: trim
 };
 
-},{"./helpers/bind":37,"is-buffer":67}],48:[function(require,module,exports){
+},{"./helpers/bind":39,"is-buffer":69}],50:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -3422,7 +3739,7 @@ var EventListener = {
 
 module.exports = EventListener;
 }).call(this,require('_process'))
-},{"./emptyFunction":53,"_process":68}],49:[function(require,module,exports){
+},{"./emptyFunction":55,"_process":70}],51:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -3456,7 +3773,7 @@ var ExecutionEnvironment = {
 };
 
 module.exports = ExecutionEnvironment;
-},{}],50:[function(require,module,exports){
+},{}],52:[function(require,module,exports){
 "use strict";
 
 /**
@@ -3486,7 +3803,7 @@ function camelize(string) {
 }
 
 module.exports = camelize;
-},{}],51:[function(require,module,exports){
+},{}],53:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -3524,7 +3841,7 @@ function camelizeStyleName(string) {
 }
 
 module.exports = camelizeStyleName;
-},{"./camelize":50}],52:[function(require,module,exports){
+},{"./camelize":52}],54:[function(require,module,exports){
 'use strict';
 
 /**
@@ -3562,7 +3879,7 @@ function containsNode(outerNode, innerNode) {
 }
 
 module.exports = containsNode;
-},{"./isTextNode":61}],53:[function(require,module,exports){
+},{"./isTextNode":63}],55:[function(require,module,exports){
 "use strict";
 
 /**
@@ -3599,7 +3916,7 @@ emptyFunction.thatReturnsArgument = function (arg) {
 };
 
 module.exports = emptyFunction;
-},{}],54:[function(require,module,exports){
+},{}],56:[function(require,module,exports){
 (function (process){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -3619,7 +3936,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = emptyObject;
 }).call(this,require('_process'))
-},{"_process":68}],55:[function(require,module,exports){
+},{"_process":70}],57:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -3644,7 +3961,7 @@ function focusNode(node) {
 }
 
 module.exports = focusNode;
-},{}],56:[function(require,module,exports){
+},{}],58:[function(require,module,exports){
 'use strict';
 
 /**
@@ -3681,7 +3998,7 @@ function getActiveElement(doc) /*?DOMElement*/{
 }
 
 module.exports = getActiveElement;
-},{}],57:[function(require,module,exports){
+},{}],59:[function(require,module,exports){
 'use strict';
 
 /**
@@ -3712,7 +4029,7 @@ function hyphenate(string) {
 }
 
 module.exports = hyphenate;
-},{}],58:[function(require,module,exports){
+},{}],60:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -3749,7 +4066,7 @@ function hyphenateStyleName(string) {
 }
 
 module.exports = hyphenateStyleName;
-},{"./hyphenate":57}],59:[function(require,module,exports){
+},{"./hyphenate":59}],61:[function(require,module,exports){
 (function (process){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -3805,7 +4122,7 @@ function invariant(condition, format, a, b, c, d, e, f) {
 
 module.exports = invariant;
 }).call(this,require('_process'))
-},{"_process":68}],60:[function(require,module,exports){
+},{"_process":70}],62:[function(require,module,exports){
 'use strict';
 
 /**
@@ -3828,7 +4145,7 @@ function isNode(object) {
 }
 
 module.exports = isNode;
-},{}],61:[function(require,module,exports){
+},{}],63:[function(require,module,exports){
 'use strict';
 
 /**
@@ -3851,7 +4168,7 @@ function isTextNode(object) {
 }
 
 module.exports = isTextNode;
-},{"./isNode":60}],62:[function(require,module,exports){
+},{"./isNode":62}],64:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -3917,7 +4234,7 @@ function shallowEqual(objA, objB) {
 }
 
 module.exports = shallowEqual;
-},{}],63:[function(require,module,exports){
+},{}],65:[function(require,module,exports){
 (function (process){
 /**
  * Copyright (c) 2014-present, Facebook, Inc.
@@ -3982,7 +4299,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = warning;
 }).call(this,require('_process'))
-},{"./emptyFunction":53,"_process":68}],64:[function(require,module,exports){
+},{"./emptyFunction":55,"_process":70}],66:[function(require,module,exports){
 /**
  * Copyright 2015, Yahoo! Inc.
  * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
@@ -4056,7 +4373,7 @@ module.exports = warning;
     };
 })));
 
-},{}],65:[function(require,module,exports){
+},{}],67:[function(require,module,exports){
 /**
  * Copyright (c) 2014-present, Facebook, Inc.
  *
@@ -9034,7 +9351,7 @@ module.exports = warning;
   return Immutable;
 
 }));
-},{}],66:[function(require,module,exports){
+},{}],68:[function(require,module,exports){
 (function (process){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -9087,7 +9404,7 @@ var invariant = function(condition, format, a, b, c, d, e, f) {
 module.exports = invariant;
 
 }).call(this,require('_process'))
-},{"_process":68}],67:[function(require,module,exports){
+},{"_process":70}],69:[function(require,module,exports){
 /*!
  * Determine if an object is a Buffer
  *
@@ -9110,7 +9427,7 @@ function isSlowBuffer (obj) {
   return typeof obj.readFloatLE === 'function' && typeof obj.slice === 'function' && isBuffer(obj.slice(0, 0))
 }
 
-},{}],68:[function(require,module,exports){
+},{}],70:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -9296,7 +9613,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],69:[function(require,module,exports){
+},{}],71:[function(require,module,exports){
 (function (process){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -9359,7 +9676,7 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
 module.exports = checkPropTypes;
 
 }).call(this,require('_process'))
-},{"./lib/ReactPropTypesSecret":73,"_process":68,"fbjs/lib/invariant":59,"fbjs/lib/warning":63}],70:[function(require,module,exports){
+},{"./lib/ReactPropTypesSecret":75,"_process":70,"fbjs/lib/invariant":61,"fbjs/lib/warning":65}],72:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -9419,7 +9736,7 @@ module.exports = function() {
   return ReactPropTypes;
 };
 
-},{"./lib/ReactPropTypesSecret":73,"fbjs/lib/emptyFunction":53,"fbjs/lib/invariant":59}],71:[function(require,module,exports){
+},{"./lib/ReactPropTypesSecret":75,"fbjs/lib/emptyFunction":55,"fbjs/lib/invariant":61}],73:[function(require,module,exports){
 (function (process){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -9965,7 +10282,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 };
 
 }).call(this,require('_process'))
-},{"./checkPropTypes":69,"./lib/ReactPropTypesSecret":73,"_process":68,"fbjs/lib/emptyFunction":53,"fbjs/lib/invariant":59,"fbjs/lib/warning":63,"object-assign":74}],72:[function(require,module,exports){
+},{"./checkPropTypes":71,"./lib/ReactPropTypesSecret":75,"_process":70,"fbjs/lib/emptyFunction":55,"fbjs/lib/invariant":61,"fbjs/lib/warning":65,"object-assign":76}],74:[function(require,module,exports){
 (function (process){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -9997,7 +10314,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 }).call(this,require('_process'))
-},{"./factoryWithThrowingShims":70,"./factoryWithTypeCheckers":71,"_process":68}],73:[function(require,module,exports){
+},{"./factoryWithThrowingShims":72,"./factoryWithTypeCheckers":73,"_process":70}],75:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -10011,7 +10328,7 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 
 module.exports = ReactPropTypesSecret;
 
-},{}],74:[function(require,module,exports){
+},{}],76:[function(require,module,exports){
 /*
 object-assign
 (c) Sindre Sorhus
@@ -10103,7 +10420,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 	return to;
 };
 
-},{}],75:[function(require,module,exports){
+},{}],77:[function(require,module,exports){
 (function (process){
 /** @license React v16.2.0
  * react-dom.development.js
@@ -25501,7 +25818,7 @@ module.exports = reactDom;
 }
 
 }).call(this,require('_process'))
-},{"_process":68,"fbjs/lib/EventListener":48,"fbjs/lib/ExecutionEnvironment":49,"fbjs/lib/camelizeStyleName":51,"fbjs/lib/containsNode":52,"fbjs/lib/emptyFunction":53,"fbjs/lib/emptyObject":54,"fbjs/lib/focusNode":55,"fbjs/lib/getActiveElement":56,"fbjs/lib/hyphenateStyleName":58,"fbjs/lib/invariant":59,"fbjs/lib/shallowEqual":62,"fbjs/lib/warning":63,"object-assign":78,"prop-types/checkPropTypes":69,"react":106}],76:[function(require,module,exports){
+},{"_process":70,"fbjs/lib/EventListener":50,"fbjs/lib/ExecutionEnvironment":51,"fbjs/lib/camelizeStyleName":53,"fbjs/lib/containsNode":54,"fbjs/lib/emptyFunction":55,"fbjs/lib/emptyObject":56,"fbjs/lib/focusNode":57,"fbjs/lib/getActiveElement":58,"fbjs/lib/hyphenateStyleName":60,"fbjs/lib/invariant":61,"fbjs/lib/shallowEqual":64,"fbjs/lib/warning":65,"object-assign":80,"prop-types/checkPropTypes":71,"react":108}],78:[function(require,module,exports){
 /** @license React v16.2.0
  * react-dom.production.min.js
  *
@@ -25732,7 +26049,7 @@ var Sg={createPortal:Qg,findDOMNode:function(a){if(null==a)return null;if(1===a.
 E("40");return a._reactRootContainer?(Z.unbatchedUpdates(function(){Pg(null,null,a,!1,function(){a._reactRootContainer=null})}),!0):!1},unstable_createPortal:Qg,unstable_batchedUpdates:tc,unstable_deferredUpdates:Z.deferredUpdates,flushSync:Z.flushSync,__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED:{EventPluginHub:mb,EventPluginRegistry:Va,EventPropagators:Cb,ReactControlledComponent:qc,ReactDOMComponentTree:sb,ReactDOMEventListener:xd}};
 Z.injectIntoDevTools({findFiberByHostInstance:pb,bundleType:0,version:"16.2.0",rendererPackageName:"react-dom"});var Tg=Object.freeze({default:Sg}),Ug=Tg&&Sg||Tg;module.exports=Ug["default"]?Ug["default"]:Ug;
 
-},{"fbjs/lib/EventListener":48,"fbjs/lib/ExecutionEnvironment":49,"fbjs/lib/containsNode":52,"fbjs/lib/emptyFunction":53,"fbjs/lib/emptyObject":54,"fbjs/lib/focusNode":55,"fbjs/lib/getActiveElement":56,"fbjs/lib/shallowEqual":62,"object-assign":78,"react":106}],77:[function(require,module,exports){
+},{"fbjs/lib/EventListener":50,"fbjs/lib/ExecutionEnvironment":51,"fbjs/lib/containsNode":54,"fbjs/lib/emptyFunction":55,"fbjs/lib/emptyObject":56,"fbjs/lib/focusNode":57,"fbjs/lib/getActiveElement":58,"fbjs/lib/shallowEqual":64,"object-assign":80,"react":108}],79:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -25774,9 +26091,9 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this,require('_process'))
-},{"./cjs/react-dom.development.js":75,"./cjs/react-dom.production.min.js":76,"_process":68}],78:[function(require,module,exports){
-arguments[4][74][0].apply(exports,arguments)
-},{"dup":74}],79:[function(require,module,exports){
+},{"./cjs/react-dom.development.js":77,"./cjs/react-dom.production.min.js":78,"_process":70}],80:[function(require,module,exports){
+arguments[4][76][0].apply(exports,arguments)
+},{"dup":76}],81:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -25865,7 +26182,7 @@ function createProvider() {
 
 exports.default = createProvider();
 }).call(this,require('_process'))
-},{"../utils/PropTypes":89,"../utils/warning":93,"_process":68,"prop-types":72,"react":106}],80:[function(require,module,exports){
+},{"../utils/PropTypes":91,"../utils/warning":95,"_process":70,"prop-types":74,"react":108}],82:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -26174,7 +26491,7 @@ selectorFactory) {
   };
 }
 }).call(this,require('_process'))
-},{"../utils/PropTypes":89,"../utils/Subscription":90,"_process":68,"hoist-non-react-statics":64,"invariant":66,"react":106}],81:[function(require,module,exports){
+},{"../utils/PropTypes":91,"../utils/Subscription":92,"_process":70,"hoist-non-react-statics":66,"invariant":68,"react":108}],83:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -26303,7 +26620,7 @@ function createConnect() {
 }
 
 exports.default = createConnect();
-},{"../components/connectAdvanced":80,"../utils/shallowEqual":91,"./mapDispatchToProps":82,"./mapStateToProps":83,"./mergeProps":84,"./selectorFactory":85}],82:[function(require,module,exports){
+},{"../components/connectAdvanced":82,"../utils/shallowEqual":93,"./mapDispatchToProps":84,"./mapStateToProps":85,"./mergeProps":86,"./selectorFactory":87}],84:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -26332,7 +26649,7 @@ function whenMapDispatchToPropsIsObject(mapDispatchToProps) {
 }
 
 exports.default = [whenMapDispatchToPropsIsFunction, whenMapDispatchToPropsIsMissing, whenMapDispatchToPropsIsObject];
-},{"./wrapMapToProps":87,"redux":117}],83:[function(require,module,exports){
+},{"./wrapMapToProps":89,"redux":119}],85:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -26352,7 +26669,7 @@ function whenMapStateToPropsIsMissing(mapStateToProps) {
 }
 
 exports.default = [whenMapStateToPropsIsFunction, whenMapStateToPropsIsMissing];
-},{"./wrapMapToProps":87}],84:[function(require,module,exports){
+},{"./wrapMapToProps":89}],86:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -26413,7 +26730,7 @@ function whenMergePropsIsOmitted(mergeProps) {
 
 exports.default = [whenMergePropsIsFunction, whenMergePropsIsOmitted];
 }).call(this,require('_process'))
-},{"../utils/verifyPlainObject":92,"_process":68}],85:[function(require,module,exports){
+},{"../utils/verifyPlainObject":94,"_process":70}],87:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -26529,7 +26846,7 @@ function finalPropsSelectorFactory(dispatch, _ref2) {
   return selectorFactory(mapStateToProps, mapDispatchToProps, mergeProps, dispatch, options);
 }
 }).call(this,require('_process'))
-},{"./verifySubselectors":86,"_process":68}],86:[function(require,module,exports){
+},{"./verifySubselectors":88,"_process":70}],88:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -26556,7 +26873,7 @@ function verifySubselectors(mapStateToProps, mapDispatchToProps, mergeProps, dis
   verify(mapDispatchToProps, 'mapDispatchToProps', displayName);
   verify(mergeProps, 'mergeProps', displayName);
 }
-},{"../utils/warning":93}],87:[function(require,module,exports){
+},{"../utils/warning":95}],89:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -26637,7 +26954,7 @@ function wrapMapToPropsFunc(mapToProps, methodName) {
   };
 }
 }).call(this,require('_process'))
-},{"../utils/verifyPlainObject":92,"_process":68}],88:[function(require,module,exports){
+},{"../utils/verifyPlainObject":94,"_process":70}],90:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -26661,7 +26978,7 @@ exports.Provider = _Provider2.default;
 exports.createProvider = _Provider.createProvider;
 exports.connectAdvanced = _connectAdvanced2.default;
 exports.connect = _connect2.default;
-},{"./components/Provider":79,"./components/connectAdvanced":80,"./connect/connect":81}],89:[function(require,module,exports){
+},{"./components/Provider":81,"./components/connectAdvanced":82,"./connect/connect":83}],91:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -26685,7 +27002,7 @@ var storeShape = exports.storeShape = _propTypes2.default.shape({
   dispatch: _propTypes2.default.func.isRequired,
   getState: _propTypes2.default.func.isRequired
 });
-},{"prop-types":72}],90:[function(require,module,exports){
+},{"prop-types":74}],92:[function(require,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -26782,7 +27099,7 @@ var Subscription = function () {
 }();
 
 exports.default = Subscription;
-},{}],91:[function(require,module,exports){
+},{}],93:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -26817,7 +27134,7 @@ function shallowEqual(objA, objB) {
 
   return true;
 }
-},{}],92:[function(require,module,exports){
+},{}],94:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -26838,7 +27155,7 @@ function verifyPlainObject(value, displayName, methodName) {
     (0, _warning2.default)(methodName + '() in ' + displayName + ' must return a plain object. Instead received ' + value + '.');
   }
 }
-},{"./warning":93,"lodash/isPlainObject":103}],93:[function(require,module,exports){
+},{"./warning":95,"lodash/isPlainObject":105}],95:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -26864,7 +27181,7 @@ function warning(message) {
   } catch (e) {}
   /* eslint-enable no-empty */
 }
-},{}],94:[function(require,module,exports){
+},{}],96:[function(require,module,exports){
 var root = require('./_root');
 
 /** Built-in value references. */
@@ -26872,7 +27189,7 @@ var Symbol = root.Symbol;
 
 module.exports = Symbol;
 
-},{"./_root":101}],95:[function(require,module,exports){
+},{"./_root":103}],97:[function(require,module,exports){
 var Symbol = require('./_Symbol'),
     getRawTag = require('./_getRawTag'),
     objectToString = require('./_objectToString');
@@ -26902,7 +27219,7 @@ function baseGetTag(value) {
 
 module.exports = baseGetTag;
 
-},{"./_Symbol":94,"./_getRawTag":98,"./_objectToString":99}],96:[function(require,module,exports){
+},{"./_Symbol":96,"./_getRawTag":100,"./_objectToString":101}],98:[function(require,module,exports){
 (function (global){
 /** Detect free variable `global` from Node.js. */
 var freeGlobal = typeof global == 'object' && global && global.Object === Object && global;
@@ -26910,7 +27227,7 @@ var freeGlobal = typeof global == 'object' && global && global.Object === Object
 module.exports = freeGlobal;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],97:[function(require,module,exports){
+},{}],99:[function(require,module,exports){
 var overArg = require('./_overArg');
 
 /** Built-in value references. */
@@ -26918,7 +27235,7 @@ var getPrototype = overArg(Object.getPrototypeOf, Object);
 
 module.exports = getPrototype;
 
-},{"./_overArg":100}],98:[function(require,module,exports){
+},{"./_overArg":102}],100:[function(require,module,exports){
 var Symbol = require('./_Symbol');
 
 /** Used for built-in method references. */
@@ -26966,7 +27283,7 @@ function getRawTag(value) {
 
 module.exports = getRawTag;
 
-},{"./_Symbol":94}],99:[function(require,module,exports){
+},{"./_Symbol":96}],101:[function(require,module,exports){
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
 
@@ -26990,7 +27307,7 @@ function objectToString(value) {
 
 module.exports = objectToString;
 
-},{}],100:[function(require,module,exports){
+},{}],102:[function(require,module,exports){
 /**
  * Creates a unary function that invokes `func` with its argument transformed.
  *
@@ -27007,7 +27324,7 @@ function overArg(func, transform) {
 
 module.exports = overArg;
 
-},{}],101:[function(require,module,exports){
+},{}],103:[function(require,module,exports){
 var freeGlobal = require('./_freeGlobal');
 
 /** Detect free variable `self`. */
@@ -27018,7 +27335,7 @@ var root = freeGlobal || freeSelf || Function('return this')();
 
 module.exports = root;
 
-},{"./_freeGlobal":96}],102:[function(require,module,exports){
+},{"./_freeGlobal":98}],104:[function(require,module,exports){
 /**
  * Checks if `value` is object-like. A value is object-like if it's not `null`
  * and has a `typeof` result of "object".
@@ -27049,7 +27366,7 @@ function isObjectLike(value) {
 
 module.exports = isObjectLike;
 
-},{}],103:[function(require,module,exports){
+},{}],105:[function(require,module,exports){
 var baseGetTag = require('./_baseGetTag'),
     getPrototype = require('./_getPrototype'),
     isObjectLike = require('./isObjectLike');
@@ -27113,7 +27430,7 @@ function isPlainObject(value) {
 
 module.exports = isPlainObject;
 
-},{"./_baseGetTag":95,"./_getPrototype":97,"./isObjectLike":102}],104:[function(require,module,exports){
+},{"./_baseGetTag":97,"./_getPrototype":99,"./isObjectLike":104}],106:[function(require,module,exports){
 (function (process){
 /** @license React v16.2.0
  * react.development.js
@@ -28474,7 +28791,7 @@ module.exports = react;
 }
 
 }).call(this,require('_process'))
-},{"_process":68,"fbjs/lib/emptyFunction":53,"fbjs/lib/emptyObject":54,"fbjs/lib/invariant":59,"fbjs/lib/warning":63,"object-assign":107,"prop-types/checkPropTypes":69}],105:[function(require,module,exports){
+},{"_process":70,"fbjs/lib/emptyFunction":55,"fbjs/lib/emptyObject":56,"fbjs/lib/invariant":61,"fbjs/lib/warning":65,"object-assign":109,"prop-types/checkPropTypes":71}],107:[function(require,module,exports){
 /** @license React v16.2.0
  * react.production.min.js
  *
@@ -28497,7 +28814,7 @@ var U={Children:{map:function(a,b,e){if(null==a)return a;var c=[];T(a,c,null,b,e
 d=a.key,g=a.ref,k=a._owner;if(null!=b){void 0!==b.ref&&(g=b.ref,k=G.current);void 0!==b.key&&(d=""+b.key);if(a.type&&a.type.defaultProps)var f=a.type.defaultProps;for(h in b)H.call(b,h)&&!I.hasOwnProperty(h)&&(c[h]=void 0===b[h]&&void 0!==f?f[h]:b[h])}var h=arguments.length-2;if(1===h)c.children=e;else if(1<h){f=Array(h);for(var l=0;l<h;l++)f[l]=arguments[l+2];c.children=f}return{$$typeof:r,type:a.type,key:d,ref:g,props:c,_owner:k}},createFactory:function(a){var b=J.bind(null,a);b.type=a;return b},
 isValidElement:K,version:"16.2.0",__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED:{ReactCurrentOwner:G,assign:m}},V=Object.freeze({default:U}),W=V&&U||V;module.exports=W["default"]?W["default"]:W;
 
-},{"fbjs/lib/emptyFunction":53,"fbjs/lib/emptyObject":54,"object-assign":107}],106:[function(require,module,exports){
+},{"fbjs/lib/emptyFunction":55,"fbjs/lib/emptyObject":56,"object-assign":109}],108:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -28508,14 +28825,14 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this,require('_process'))
-},{"./cjs/react.development.js":104,"./cjs/react.production.min.js":105,"_process":68}],107:[function(require,module,exports){
-arguments[4][74][0].apply(exports,arguments)
-},{"dup":74}],108:[function(require,module,exports){
+},{"./cjs/react.development.js":106,"./cjs/react.production.min.js":107,"_process":70}],109:[function(require,module,exports){
+arguments[4][76][0].apply(exports,arguments)
+},{"dup":76}],110:[function(require,module,exports){
 (function (global){
 !function(e,t){"object"==typeof exports&&"undefined"!=typeof module?t(exports):"function"==typeof define&&define.amd?define(["exports"],t):t(e.reduxLogger=e.reduxLogger||{})}(this,function(e){"use strict";function t(e,t){e.super_=t,e.prototype=Object.create(t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}})}function r(e,t){Object.defineProperty(this,"kind",{value:e,enumerable:!0}),t&&t.length&&Object.defineProperty(this,"path",{value:t,enumerable:!0})}function n(e,t,r){n.super_.call(this,"E",e),Object.defineProperty(this,"lhs",{value:t,enumerable:!0}),Object.defineProperty(this,"rhs",{value:r,enumerable:!0})}function o(e,t){o.super_.call(this,"N",e),Object.defineProperty(this,"rhs",{value:t,enumerable:!0})}function i(e,t){i.super_.call(this,"D",e),Object.defineProperty(this,"lhs",{value:t,enumerable:!0})}function a(e,t,r){a.super_.call(this,"A",e),Object.defineProperty(this,"index",{value:t,enumerable:!0}),Object.defineProperty(this,"item",{value:r,enumerable:!0})}function f(e,t,r){var n=e.slice((r||t)+1||e.length);return e.length=t<0?e.length+t:t,e.push.apply(e,n),e}function u(e){var t="undefined"==typeof e?"undefined":N(e);return"object"!==t?t:e===Math?"math":null===e?"null":Array.isArray(e)?"array":"[object Date]"===Object.prototype.toString.call(e)?"date":"function"==typeof e.toString&&/^\/.*\//.test(e.toString())?"regexp":"object"}function l(e,t,r,c,s,d,p){s=s||[],p=p||[];var g=s.slice(0);if("undefined"!=typeof d){if(c){if("function"==typeof c&&c(g,d))return;if("object"===("undefined"==typeof c?"undefined":N(c))){if(c.prefilter&&c.prefilter(g,d))return;if(c.normalize){var h=c.normalize(g,d,e,t);h&&(e=h[0],t=h[1])}}}g.push(d)}"regexp"===u(e)&&"regexp"===u(t)&&(e=e.toString(),t=t.toString());var y="undefined"==typeof e?"undefined":N(e),v="undefined"==typeof t?"undefined":N(t),b="undefined"!==y||p&&p[p.length-1].lhs&&p[p.length-1].lhs.hasOwnProperty(d),m="undefined"!==v||p&&p[p.length-1].rhs&&p[p.length-1].rhs.hasOwnProperty(d);if(!b&&m)r(new o(g,t));else if(!m&&b)r(new i(g,e));else if(u(e)!==u(t))r(new n(g,e,t));else if("date"===u(e)&&e-t!==0)r(new n(g,e,t));else if("object"===y&&null!==e&&null!==t)if(p.filter(function(t){return t.lhs===e}).length)e!==t&&r(new n(g,e,t));else{if(p.push({lhs:e,rhs:t}),Array.isArray(e)){var w;e.length;for(w=0;w<e.length;w++)w>=t.length?r(new a(g,w,new i(void 0,e[w]))):l(e[w],t[w],r,c,g,w,p);for(;w<t.length;)r(new a(g,w,new o(void 0,t[w++])))}else{var x=Object.keys(e),S=Object.keys(t);x.forEach(function(n,o){var i=S.indexOf(n);i>=0?(l(e[n],t[n],r,c,g,n,p),S=f(S,i)):l(e[n],void 0,r,c,g,n,p)}),S.forEach(function(e){l(void 0,t[e],r,c,g,e,p)})}p.length=p.length-1}else e!==t&&("number"===y&&isNaN(e)&&isNaN(t)||r(new n(g,e,t)))}function c(e,t,r,n){return n=n||[],l(e,t,function(e){e&&n.push(e)},r),n.length?n:void 0}function s(e,t,r){if(r.path&&r.path.length){var n,o=e[t],i=r.path.length-1;for(n=0;n<i;n++)o=o[r.path[n]];switch(r.kind){case"A":s(o[r.path[n]],r.index,r.item);break;case"D":delete o[r.path[n]];break;case"E":case"N":o[r.path[n]]=r.rhs}}else switch(r.kind){case"A":s(e[t],r.index,r.item);break;case"D":e=f(e,t);break;case"E":case"N":e[t]=r.rhs}return e}function d(e,t,r){if(e&&t&&r&&r.kind){for(var n=e,o=-1,i=r.path?r.path.length-1:0;++o<i;)"undefined"==typeof n[r.path[o]]&&(n[r.path[o]]="number"==typeof r.path[o]?[]:{}),n=n[r.path[o]];switch(r.kind){case"A":s(r.path?n[r.path[o]]:n,r.index,r.item);break;case"D":delete n[r.path[o]];break;case"E":case"N":n[r.path[o]]=r.rhs}}}function p(e,t,r){if(r.path&&r.path.length){var n,o=e[t],i=r.path.length-1;for(n=0;n<i;n++)o=o[r.path[n]];switch(r.kind){case"A":p(o[r.path[n]],r.index,r.item);break;case"D":o[r.path[n]]=r.lhs;break;case"E":o[r.path[n]]=r.lhs;break;case"N":delete o[r.path[n]]}}else switch(r.kind){case"A":p(e[t],r.index,r.item);break;case"D":e[t]=r.lhs;break;case"E":e[t]=r.lhs;break;case"N":e=f(e,t)}return e}function g(e,t,r){if(e&&t&&r&&r.kind){var n,o,i=e;for(o=r.path.length-1,n=0;n<o;n++)"undefined"==typeof i[r.path[n]]&&(i[r.path[n]]={}),i=i[r.path[n]];switch(r.kind){case"A":p(i[r.path[n]],r.index,r.item);break;case"D":i[r.path[n]]=r.lhs;break;case"E":i[r.path[n]]=r.lhs;break;case"N":delete i[r.path[n]]}}}function h(e,t,r){if(e&&t){var n=function(n){r&&!r(e,t,n)||d(e,t,n)};l(e,t,n)}}function y(e){return"color: "+F[e].color+"; font-weight: bold"}function v(e){var t=e.kind,r=e.path,n=e.lhs,o=e.rhs,i=e.index,a=e.item;switch(t){case"E":return[r.join("."),n,"→",o];case"N":return[r.join("."),o];case"D":return[r.join(".")];case"A":return[r.join(".")+"["+i+"]",a];default:return[]}}function b(e,t,r,n){var o=c(e,t);try{n?r.groupCollapsed("diff"):r.group("diff")}catch(e){r.log("diff")}o?o.forEach(function(e){var t=e.kind,n=v(e);r.log.apply(r,["%c "+F[t].text,y(t)].concat(P(n)))}):r.log("—— no diff ——");try{r.groupEnd()}catch(e){r.log("—— diff end —— ")}}function m(e,t,r,n){switch("undefined"==typeof e?"undefined":N(e)){case"object":return"function"==typeof e[n]?e[n].apply(e,P(r)):e[n];case"function":return e(t);default:return e}}function w(e){var t=e.timestamp,r=e.duration;return function(e,n,o){var i=["action"];return i.push("%c"+String(e.type)),t&&i.push("%c@ "+n),r&&i.push("%c(in "+o.toFixed(2)+" ms)"),i.join(" ")}}function x(e,t){var r=t.logger,n=t.actionTransformer,o=t.titleFormatter,i=void 0===o?w(t):o,a=t.collapsed,f=t.colors,u=t.level,l=t.diff,c="undefined"==typeof t.titleFormatter;e.forEach(function(o,s){var d=o.started,p=o.startedTime,g=o.action,h=o.prevState,y=o.error,v=o.took,w=o.nextState,x=e[s+1];x&&(w=x.prevState,v=x.started-d);var S=n(g),k="function"==typeof a?a(function(){return w},g,o):a,j=D(p),E=f.title?"color: "+f.title(S)+";":"",A=["color: gray; font-weight: lighter;"];A.push(E),t.timestamp&&A.push("color: gray; font-weight: lighter;"),t.duration&&A.push("color: gray; font-weight: lighter;");var O=i(S,j,v);try{k?f.title&&c?r.groupCollapsed.apply(r,["%c "+O].concat(A)):r.groupCollapsed(O):f.title&&c?r.group.apply(r,["%c "+O].concat(A)):r.group(O)}catch(e){r.log(O)}var N=m(u,S,[h],"prevState"),P=m(u,S,[S],"action"),C=m(u,S,[y,h],"error"),F=m(u,S,[w],"nextState");if(N)if(f.prevState){var L="color: "+f.prevState(h)+"; font-weight: bold";r[N]("%c prev state",L,h)}else r[N]("prev state",h);if(P)if(f.action){var T="color: "+f.action(S)+"; font-weight: bold";r[P]("%c action    ",T,S)}else r[P]("action    ",S);if(y&&C)if(f.error){var M="color: "+f.error(y,h)+"; font-weight: bold;";r[C]("%c error     ",M,y)}else r[C]("error     ",y);if(F)if(f.nextState){var _="color: "+f.nextState(w)+"; font-weight: bold";r[F]("%c next state",_,w)}else r[F]("next state",w);l&&b(h,w,r,k);try{r.groupEnd()}catch(e){r.log("—— log end ——")}})}function S(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},t=Object.assign({},L,e),r=t.logger,n=t.stateTransformer,o=t.errorTransformer,i=t.predicate,a=t.logErrors,f=t.diffPredicate;if("undefined"==typeof r)return function(){return function(e){return function(t){return e(t)}}};if(e.getState&&e.dispatch)return console.error("[redux-logger] redux-logger not installed. Make sure to pass logger instance as middleware:\n// Logger with default options\nimport { logger } from 'redux-logger'\nconst store = createStore(\n  reducer,\n  applyMiddleware(logger)\n)\n// Or you can create your own logger with custom options http://bit.ly/redux-logger-options\nimport createLogger from 'redux-logger'\nconst logger = createLogger({\n  // ...options\n});\nconst store = createStore(\n  reducer,\n  applyMiddleware(logger)\n)\n"),function(){return function(e){return function(t){return e(t)}}};var u=[];return function(e){var r=e.getState;return function(e){return function(l){if("function"==typeof i&&!i(r,l))return e(l);var c={};u.push(c),c.started=O.now(),c.startedTime=new Date,c.prevState=n(r()),c.action=l;var s=void 0;if(a)try{s=e(l)}catch(e){c.error=o(e)}else s=e(l);c.took=O.now()-c.started,c.nextState=n(r());var d=t.diff&&"function"==typeof f?f(r,l):t.diff;if(x(u,Object.assign({},t,{diff:d})),u.length=0,c.error)throw c.error;return s}}}}var k,j,E=function(e,t){return new Array(t+1).join(e)},A=function(e,t){return E("0",t-e.toString().length)+e},D=function(e){return A(e.getHours(),2)+":"+A(e.getMinutes(),2)+":"+A(e.getSeconds(),2)+"."+A(e.getMilliseconds(),3)},O="undefined"!=typeof performance&&null!==performance&&"function"==typeof performance.now?performance:Date,N="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},P=function(e){if(Array.isArray(e)){for(var t=0,r=Array(e.length);t<e.length;t++)r[t]=e[t];return r}return Array.from(e)},C=[];k="object"===("undefined"==typeof global?"undefined":N(global))&&global?global:"undefined"!=typeof window?window:{},j=k.DeepDiff,j&&C.push(function(){"undefined"!=typeof j&&k.DeepDiff===c&&(k.DeepDiff=j,j=void 0)}),t(n,r),t(o,r),t(i,r),t(a,r),Object.defineProperties(c,{diff:{value:c,enumerable:!0},observableDiff:{value:l,enumerable:!0},applyDiff:{value:h,enumerable:!0},applyChange:{value:d,enumerable:!0},revertChange:{value:g,enumerable:!0},isConflict:{value:function(){return"undefined"!=typeof j},enumerable:!0},noConflict:{value:function(){return C&&(C.forEach(function(e){e()}),C=null),c},enumerable:!0}});var F={E:{color:"#2196F3",text:"CHANGED:"},N:{color:"#4CAF50",text:"ADDED:"},D:{color:"#F44336",text:"DELETED:"},A:{color:"#2196F3",text:"ARRAY:"}},L={level:"log",logger:console,logErrors:!0,collapsed:void 0,predicate:void 0,duration:!1,timestamp:!0,stateTransformer:function(e){return e},actionTransformer:function(e){return e},errorTransformer:function(e){return e},colors:{title:function(){return"inherit"},prevState:function(){return"#9E9E9E"},action:function(){return"#03A9F4"},nextState:function(){return"#4CAF50"},error:function(){return"#F20404"}},diff:!1,diffPredicate:void 0,transformer:void 0},T=function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},t=e.dispatch,r=e.getState;return"function"==typeof t||"function"==typeof r?S()({dispatch:t,getState:r}):void console.error("\n[redux-logger v3] BREAKING CHANGE\n[redux-logger v3] Since 3.0.0 redux-logger exports by default logger with default settings.\n[redux-logger v3] Change\n[redux-logger v3] import createLogger from 'redux-logger'\n[redux-logger v3] to\n[redux-logger v3] import { createLogger } from 'redux-logger'\n")};e.defaults=L,e.createLogger=S,e.logger=T,e.default=T,Object.defineProperty(e,"__esModule",{value:!0})});
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],109:[function(require,module,exports){
+},{}],111:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -28724,7 +29041,7 @@ function promiseMiddleware() {
     };
   };
 }
-},{"./isPromise.js":110}],110:[function(require,module,exports){
+},{"./isPromise.js":112}],112:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -28741,7 +29058,7 @@ function isPromise(value) {
 
   return false;
 }
-},{}],111:[function(require,module,exports){
+},{}],113:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -28765,7 +29082,7 @@ var thunk = createThunkMiddleware();
 thunk.withExtraArgument = createThunkMiddleware;
 
 exports['default'] = thunk;
-},{}],112:[function(require,module,exports){
+},{}],114:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -28824,7 +29141,7 @@ function applyMiddleware() {
     };
   };
 }
-},{"./compose":115}],113:[function(require,module,exports){
+},{"./compose":117}],115:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -28876,7 +29193,7 @@ function bindActionCreators(actionCreators, dispatch) {
   }
   return boundActionCreators;
 }
-},{}],114:[function(require,module,exports){
+},{}],116:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -29022,7 +29339,7 @@ function combineReducers(reducers) {
   };
 }
 }).call(this,require('_process'))
-},{"./createStore":116,"./utils/warning":118,"_process":68,"lodash/isPlainObject":128}],115:[function(require,module,exports){
+},{"./createStore":118,"./utils/warning":120,"_process":70,"lodash/isPlainObject":130}],117:[function(require,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -29059,7 +29376,7 @@ function compose() {
     };
   });
 }
-},{}],116:[function(require,module,exports){
+},{}],118:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -29321,7 +29638,7 @@ var ActionTypes = exports.ActionTypes = {
     replaceReducer: replaceReducer
   }, _ref2[_symbolObservable2['default']] = observable, _ref2;
 }
-},{"lodash/isPlainObject":128,"symbol-observable":129}],117:[function(require,module,exports){
+},{"lodash/isPlainObject":130,"symbol-observable":131}],119:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -29370,7 +29687,7 @@ exports.bindActionCreators = _bindActionCreators2['default'];
 exports.applyMiddleware = _applyMiddleware2['default'];
 exports.compose = _compose2['default'];
 }).call(this,require('_process'))
-},{"./applyMiddleware":112,"./bindActionCreators":113,"./combineReducers":114,"./compose":115,"./createStore":116,"./utils/warning":118,"_process":68}],118:[function(require,module,exports){
+},{"./applyMiddleware":114,"./bindActionCreators":115,"./combineReducers":116,"./compose":117,"./createStore":118,"./utils/warning":120,"_process":70}],120:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -29396,27 +29713,27 @@ function warning(message) {
   } catch (e) {}
   /* eslint-enable no-empty */
 }
-},{}],119:[function(require,module,exports){
-arguments[4][94][0].apply(exports,arguments)
-},{"./_root":126,"dup":94}],120:[function(require,module,exports){
-arguments[4][95][0].apply(exports,arguments)
-},{"./_Symbol":119,"./_getRawTag":123,"./_objectToString":124,"dup":95}],121:[function(require,module,exports){
+},{}],121:[function(require,module,exports){
 arguments[4][96][0].apply(exports,arguments)
-},{"dup":96}],122:[function(require,module,exports){
+},{"./_root":128,"dup":96}],122:[function(require,module,exports){
 arguments[4][97][0].apply(exports,arguments)
-},{"./_overArg":125,"dup":97}],123:[function(require,module,exports){
+},{"./_Symbol":121,"./_getRawTag":125,"./_objectToString":126,"dup":97}],123:[function(require,module,exports){
 arguments[4][98][0].apply(exports,arguments)
-},{"./_Symbol":119,"dup":98}],124:[function(require,module,exports){
+},{"dup":98}],124:[function(require,module,exports){
 arguments[4][99][0].apply(exports,arguments)
-},{"dup":99}],125:[function(require,module,exports){
+},{"./_overArg":127,"dup":99}],125:[function(require,module,exports){
 arguments[4][100][0].apply(exports,arguments)
-},{"dup":100}],126:[function(require,module,exports){
+},{"./_Symbol":121,"dup":100}],126:[function(require,module,exports){
 arguments[4][101][0].apply(exports,arguments)
-},{"./_freeGlobal":121,"dup":101}],127:[function(require,module,exports){
+},{"dup":101}],127:[function(require,module,exports){
 arguments[4][102][0].apply(exports,arguments)
 },{"dup":102}],128:[function(require,module,exports){
 arguments[4][103][0].apply(exports,arguments)
-},{"./_baseGetTag":120,"./_getPrototype":122,"./isObjectLike":127,"dup":103}],129:[function(require,module,exports){
+},{"./_freeGlobal":123,"dup":103}],129:[function(require,module,exports){
+arguments[4][104][0].apply(exports,arguments)
+},{"dup":104}],130:[function(require,module,exports){
+arguments[4][105][0].apply(exports,arguments)
+},{"./_baseGetTag":122,"./_getPrototype":124,"./isObjectLike":129,"dup":105}],131:[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -29448,7 +29765,7 @@ if (typeof self !== 'undefined') {
 var result = (0, _ponyfill2['default'])(root);
 exports['default'] = result;
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./ponyfill.js":130}],130:[function(require,module,exports){
+},{"./ponyfill.js":132}],132:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29472,4 +29789,4 @@ function symbolObservablePonyfill(root) {
 
 	return result;
 };
-},{}]},{},[17]);
+},{}]},{},[19]);

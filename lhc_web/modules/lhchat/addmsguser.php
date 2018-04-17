@@ -23,6 +23,7 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && trim(str_replace('
 	    $validStatuses = array(
             erLhcoreClassModelChat::STATUS_PENDING_CHAT,
             erLhcoreClassModelChat::STATUS_ACTIVE_CHAT,
+            erLhcoreClassModelChat::STATUS_BOT_CHAT,
         );
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.validstatus_chat',array('chat' => & $chat, 'valid_statuses' => & $validStatuses));
@@ -56,6 +57,10 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && trim(str_replace('
                 $r = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a message, max characters').' - '.(int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value;
                 echo erLhcoreClassChat::safe_json_encode(array('error' => $error, 'r' => $r));
                 exit;
+            }
+
+            if (isset($chat->chat_variables_array['gbot_id'])) {
+                erLhcoreClassGenericBotWorkflow::userMessageAdded($chat, $msg);
             }
 
 	        $stmt = $db->prepare('UPDATE lh_chat SET last_user_msg_time = :last_user_msg_time, lsync = :lsync, last_msg_id = :last_msg_id, has_unread_messages = 1, unanswered_chat = :unanswered_chat WHERE id = :id');

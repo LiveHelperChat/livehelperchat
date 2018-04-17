@@ -279,6 +279,9 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
 	       $chat->time = $chat->pnd_time = time();
 	       $chat->status = 0;
 
+	       // Set bot workflow if required
+           erLhcoreClassChatValidator::setBot($chat);
+
 	       $chat->hash = erLhcoreClassChat::generateHash();
 	       $chat->referrer = isset($_POST['URLRefer']) ? $_POST['URLRefer'] : '';
 	       $chat->session_referrer = isset($_POST['r']) ? $_POST['r'] : '';

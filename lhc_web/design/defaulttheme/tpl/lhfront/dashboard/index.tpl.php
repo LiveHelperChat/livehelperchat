@@ -46,7 +46,11 @@ $columnSize = 12 / $columnsTotal;
                     <?php if ($pendingTabEnabled == true && $online_chat_enabled_pre == true) : ?>
                         <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/pending_chats.tpl.php'));?>
                     <?php endif;?>
-                    
+
+                <?php elseif ($wiget == 'bot_chats') : ?>
+
+                        <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/bot_chats.tpl.php'));?>
+
                 <?php elseif ($wiget == 'unread_chats') : ?>
                 
                     <?php if ($unreadTabEnabled == true && $online_chat_enabled_pre == true) : ?>
