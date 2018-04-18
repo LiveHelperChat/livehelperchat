@@ -32,15 +32,26 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) ) {
         );
     }
 
-    $soundData = erLhcoreClassModelChatConfig::fetch('sync_sound_settings');
-    $data = (array)$soundData->data;
+    $loadPrevious = false;
 
-    if (isset($data['preload_messages']) && $data['preload_messages'] == 1)
+    if ($dataPrevious['has_messages'] == true)
     {
-        $items[] = array (
-            'selector' => '#load-prev-btn-' . $chat->id,
-            'action' => 'click'
-        );
+        $loadPrevious = erLhcoreClassModelUserSetting::getSetting('auto_preload',0) == 1;
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.auto_preload',array('chat' => $chat, 'load_previous' => & $loadPrevious));
+    }
+
+    if ($loadPrevious == 1) {
+
+        $soundData = erLhcoreClassModelChatConfig::fetch('sync_sound_settings');
+        $data = (array)$soundData->data;
+
+        if (isset($data['preload_messages']) && $data['preload_messages'] == 1)
+        {
+            $items[] = array (
+                'selector' => '#load-prev-btn-' . $chat->id,
+                'action' => 'click'
+            );
+        }
     }
 }
 

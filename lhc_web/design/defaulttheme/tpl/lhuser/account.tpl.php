@@ -189,6 +189,10 @@
             </div>
 
             <div class="form-group">
+                <label><input type="checkbox" name="auto_preload" value="1" <?php erLhcoreClassModelUserSetting::getSetting('auto_preload',0) == 1 ? print 'checked="checked"' : '' ?> <?php $user->exclude_autoasign == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Auto preload previous visitor chat messages');?></label>
+            </div>
+
+            <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Maximum active chats');?></label>
                 <input type="text" class="form-control" name="maximumChats" value="<?php echo $user->max_active_chats?>" />
             </div>

@@ -30,6 +30,12 @@ if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','allowtochoosependingmod
     $UserData->max_active_chats = $pendingSettings['max_chats'];
     $UserData->saveThis();
 
+    if (isset($_POST['auto_preload']) && $_POST['auto_preload'] == 1) {
+        erLhcoreClassModelUserSetting::setSetting('auto_preload', 1);
+    } else {
+        erLhcoreClassModelUserSetting::setSetting('auto_preload', 0);
+    }
+
     // Update max active chats directly
     $db = ezcDbInstance::get();
     $stmt = $db->prepare('UPDATE lh_userdep SET max_chats = :max_chats, exclude_autoasign = :exclude_autoasign WHERE user_id = :user_id');
