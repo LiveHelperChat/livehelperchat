@@ -14,6 +14,12 @@ $def->properties['msg']->columnName   = 'msg';
 $def->properties['msg']->propertyName = 'msg';
 $def->properties['msg']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+// Meta data for message
+$def->properties['meta_msg'] = new ezcPersistentObjectProperty();
+$def->properties['meta_msg']->columnName   = 'meta_msg';
+$def->properties['meta_msg']->propertyName = 'meta_msg';
+$def->properties['meta_msg']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 $def->properties['name_support'] = new ezcPersistentObjectProperty();
 $def->properties['name_support']->columnName   = 'name_support';
 $def->properties['name_support']->propertyName = 'name_support';

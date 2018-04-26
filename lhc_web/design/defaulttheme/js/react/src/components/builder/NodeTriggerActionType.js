@@ -6,7 +6,12 @@ export default ({onChange, type}) => {
         {
         'value':'text',
         'text' : 'Send Text',
-        }/*,
+        },
+        {
+        'value':'collectable',
+        'text' : 'Collect information',
+        }
+        /*,
         {
             'value':'typing',
             'text' : 'Send Typing',

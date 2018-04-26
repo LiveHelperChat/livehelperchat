@@ -6,27 +6,25 @@ class erLhcoreClassGenericBotActionText {
     {
         $buttons = '';
 
-        //print_r($action);
+        $msg = new erLhcoreClassModelmsg();
+
+        $metaMessage = array();
 
         if (isset($action['content']['quick_replies']) && !empty($action['content']['quick_replies']))
         {
-            $buttons = '[listinline]';
-
-            foreach ($action['content']['quick_replies'] as $quickReply) {
-                $buttons .= '[li][button id='.$quickReply['content']['payload'].']' . $quickReply['content']['name'] . '[/button][/li]';
-            }
-
-            $buttons .= '[/listinline]';
+            $metaMessage['content']['quick_replies'] = $action['content']['quick_replies'];
         }
 
-        $msg = new erLhcoreClassModelmsg();
         $msg->msg = trim($action['content']['text']) . $buttons;
+        $msg->meta_msg = !empty($metaMessage) ? json_encode($metaMessage) : '';
         $msg->chat_id = $chat->id;
         $msg->name_support = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
         $msg->user_id = -2;
         $msg->time = time() + 5;
 
         erLhcoreClassChat::getSession()->save($msg);
+
+        return $msg;
     }
 }
 

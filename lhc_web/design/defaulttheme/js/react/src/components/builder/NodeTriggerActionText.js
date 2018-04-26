@@ -14,6 +14,8 @@ class NodeTriggerActionText extends Component {
         this.onQuickReplyNameChange = this.onQuickReplyNameChange.bind(this);
         this.onQuickReplyPayloadChange = this.onQuickReplyPayloadChange.bind(this);
         this.onDeleteQuickReply = this.onDeleteQuickReply.bind(this);
+        this.onQuickReplyPayloadTypeChange = this.onQuickReplyPayloadTypeChange.bind(this);
+        this.onPayloadAttrChange = this.onPayloadAttrChange.bind(this);
     }
 
     changeType(e) {
@@ -36,6 +38,14 @@ class NodeTriggerActionText extends Component {
         this.props.onChangeContent({id : this.props.id, 'path' : ['content','quick_replies',e.id,'content','payload'], value : e.value});
     }
 
+    onQuickReplyPayloadTypeChange(e) {
+        this.props.onChangeContent({id : this.props.id, 'path' : ['content','quick_replies',e.id,'type'], value : e.value});
+    }
+
+    onPayloadAttrChange(e) {
+        this.props.onChangeContent({id : this.props.id, 'path' : ['content','quick_replies',e.id,'content', e.payload.attr], value : e.payload.value});
+    }
+
     onDeleteQuickReply(e) {
         this.props.removeQuickReply({id : this.props.id, 'path' : ['content','quick_replies',e.id]});
     }
@@ -50,7 +60,7 @@ class NodeTriggerActionText extends Component {
 
         if (this.props.action.hasIn(['content','quick_replies'])) {
              quick_replies = this.props.action.getIn(['content','quick_replies']).map((reply, index) => {
-                return <NodeTriggerActionQuickReply deleteReply={this.onDeleteQuickReply} onNameChange={this.onQuickReplyNameChange} onPayloadChange={this.onQuickReplyPayloadChange} id={index} key={index} reply={reply} />
+                return <NodeTriggerActionQuickReply onPayloadAttrChange={this.onPayloadAttrChange} onPayloadTypeChange={this.onQuickReplyPayloadTypeChange} deleteReply={this.onDeleteQuickReply} onNameChange={this.onQuickReplyNameChange} onPayloadChange={this.onQuickReplyPayloadChange} id={index} key={index} reply={reply} />
             });
         }
 

@@ -13,12 +13,17 @@ import {
     DELETE_TRIGGER_EVENT,
     HANDLE_ADD_QUICK_REPLY,
     HANDLE_ADD_QUICK_REPLY_REMOVE,
-    REMOVE_TRIGGER_RESPONSE
+    REMOVE_TRIGGER_RESPONSE,
+    INIT_BOT_FULFILLED,
+    ADD_PAYLOAD_TRIGGERS_FULFILLED,
+    UPDATE_PAYLOADS_FULFILLED,
+    ADD_SUBELEMENT
 } from "../constants/action-types";
 import {fromJS} from 'immutable';
 
 const initialState = fromJS({
     currenttrigger : {},
+    payloads : [],
     fetching: false,
     fetched: false,
     error: null
@@ -54,6 +59,15 @@ const nodeGroupTriggerReducer = (state = initialState, action) => {
         case HANDLE_CONTENT_CHANGE: {
             return state.setIn(['currenttrigger','actions',action.payload.id].concat(action.payload.path),action.payload.value);
         }
+
+        case ADD_SUBELEMENT:{
+
+            if (!state.getIn(['currenttrigger','actions',action.payload.id]).hasIn(action.payload.path)) {
+                return state.setIn(['currenttrigger','actions',action.payload.id].concat(action.payload.path),fromJS(action.payload.default));
+            }
+
+            return state.updateIn(['currenttrigger','actions',action.payload.id].concat(action.payload.path), elements => elements.push(fromJS(action.payload.default)));
+         }
 
         case HANDLE_ADD_QUICK_REPLY: {
 
@@ -103,6 +117,18 @@ const nodeGroupTriggerReducer = (state = initialState, action) => {
             });
 
             return state.deleteIn(['currenttrigger','events',indexOfListingToUpdate]);
+        }
+
+        case INIT_BOT_FULFILLED : {
+            return state.set('payloads',fromJS(action.payload['payloads']));
+        }
+
+        case ADD_PAYLOAD_TRIGGERS_FULFILLED: {
+            return state.set('payloads',fromJS(action.payload['payloads']));
+        }
+
+        case UPDATE_PAYLOADS_FULFILLED: {
+            return state.set('payloads',fromJS(action.payload['payloads']));
         }
 
         default:

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { updateTriggerName, updateTriggerType, addResponse, updateTriggerContent, saveTrigger } from "../actions/nodeGroupTriggerActions"
+import { updateTriggerName, updateTriggerType, addResponse, updateTriggerContent, saveTrigger, initBot } from "../actions/nodeGroupTriggerActions"
 import NodeTriggerActionText from './builder/NodeTriggerActionText';
 import NodeTriggerActionList from './builder/NodeTriggerActionList';
+import NodeTriggerActionCollectable from './builder/NodeTriggerActionCollectable';
 
 
 @connect((store) => {
@@ -26,6 +27,9 @@ class NodeTriggerBuilder extends Component {
         this.addQuickReply = this.addQuickReply.bind(this);
         this.removeQuickReply = this.removeQuickReply.bind(this);
         this.removeAction = this.removeAction.bind(this);
+        this.addSubelement = this.addSubelement.bind(this);
+
+        this.props.dispatch(initBot(this.props.botId));
     }
 
     handleChange(e) {
@@ -73,7 +77,14 @@ class NodeTriggerBuilder extends Component {
         this.props.dispatch({'type' : 'REMOVE_TRIGGER_RESPONSE','payload' : obj});
     }
 
+    addSubelement(obj) {
+        this.setState({dataChanged : true});
+        this.props.dispatch({'type' : 'ADD_SUBELEMENT','payload' : obj});
+    }
+
     render() {
+
+        
 
         var actions = [];
         if (this.props.currenttrigger.get('currenttrigger').has('actions')) {
@@ -82,6 +93,8 @@ class NodeTriggerBuilder extends Component {
                     return <NodeTriggerActionText key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} removeAction={this.removeAction} removeQuickReply={this.removeQuickReply} addQuickReply={this.addQuickReply} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} />
                 } else if (action.get('type') == 'list') {
                     return <NodeTriggerActionList key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} removeAction={this.removeAction} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} />
+                } else if (action.get('type') == 'collectable') {
+                    return <NodeTriggerActionCollectable addSubelement={this.addSubelement} key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} removeAction={this.removeAction} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} />
                 }
             });
         }

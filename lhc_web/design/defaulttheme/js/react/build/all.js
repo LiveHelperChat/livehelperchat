@@ -48,17 +48,17 @@ var App = function (_Component) {
         { className: 'row' },
         _react2.default.createElement(
           'div',
-          { className: 'col-xs-4' },
+          { className: 'col-xs-3' },
           _react2.default.createElement(_NodeGroups2.default, { botId: this.props.botId })
         ),
         _react2.default.createElement(
           'div',
-          { className: 'col-xs-4' },
-          _react2.default.createElement(_NodeTriggerBuilder2.default, null)
+          { className: 'col-xs-6' },
+          _react2.default.createElement(_NodeTriggerBuilder2.default, { botId: this.props.botId })
         ),
         _react2.default.createElement(
           'div',
-          { className: 'col-xs-4' },
+          { className: 'col-xs-3' },
           _react2.default.createElement(_NodeTriggerBuilderPreview2.default, null)
         )
       );
@@ -70,7 +70,7 @@ var App = function (_Component) {
 
 exports.default = App;
 
-},{"./components/NodeGroups":7,"./components/NodeTriggerBuilder":8,"./components/NodeTriggerBuilderPreview":9,"react":108}],2:[function(require,module,exports){
+},{"./components/NodeGroups":8,"./components/NodeTriggerBuilder":9,"./components/NodeTriggerBuilderPreview":10,"react":113}],2:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -142,7 +142,7 @@ function updateNodeGroup(obj) {
     };
 }
 
-},{"axios":25}],3:[function(require,module,exports){
+},{"axios":30}],3:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -158,7 +158,10 @@ exports.addTriggerEvent = addTriggerEvent;
 exports.deleteTriggerEvent = deleteTriggerEvent;
 exports.updateTriggerEvent = updateTriggerEvent;
 exports.saveTrigger = saveTrigger;
+exports.updatePayload = updatePayload;
 exports.removeTrigger = removeTrigger;
+exports.setDefaultTrigger = setDefaultTrigger;
+exports.initBot = initBot;
 
 var _axios = require("axios");
 
@@ -311,10 +314,19 @@ function saveTrigger(obj) {
 
         _axios2.default.post(WWW_DIR_JAVASCRIPT + "genericbot/savetrigger/(method)/actions", obj.toJS()).then(function (response) {
             dispatch({ type: "SAVE_TRIGGER_FULFILLED", payload: response.data });
+            updatePayload(dispatch, obj);
         }).catch(function (err) {
             dispatch({ type: "SAVE_TRIGGER_REJECTED", payload: err });
         });
     };
+}
+
+function updatePayload(dispatch, obj) {
+    _axios2.default.post(WWW_DIR_JAVASCRIPT + "genericbot/getpayloads/" + obj.get('id')).then(function (response) {
+        dispatch({ type: "UPDATE_PAYLOADS_FULFILLED", payload: response.data });
+    }).catch(function (err) {
+        dispatch({ type: "UPDATE_PAYLOADS_REJECTED", payload: err });
+    });
 }
 
 function removeTrigger(obj) {
@@ -329,7 +341,57 @@ function removeTrigger(obj) {
     };
 }
 
-},{"axios":25}],4:[function(require,module,exports){
+function setDefaultTrigger(obj) {
+    return function (dispatch) {
+        dispatch({ type: "SET_DEFAULT_TRIGGER", payload: obj });
+
+        _axios2.default.post(WWW_DIR_JAVASCRIPT + "genericbot/setdefaulttrigger/" + obj.get('id') + '/' + obj.get('default')).then(function (response) {
+            dispatch({ type: "SET_DEFAULT_FULFILLED", payload: response.data });
+        }).catch(function (err) {
+            dispatch({ type: "SET_DEFAULT_REJECTED", payload: err });
+        });
+    };
+}
+
+function initBot(botId) {
+    return function (dispatch) {
+        dispatch({ type: "INIT_BOT", payload: botId });
+
+        _axios2.default.post(WWW_DIR_JAVASCRIPT + "genericbot/initbot/" + botId).then(function (response) {
+            dispatch({ type: "INIT_BOT_FULFILLED", payload: response.data });
+        }).catch(function (err) {
+            dispatch({ type: "INIT_BOT_REJECTED", payload: err });
+        });
+    };
+}
+
+},{"axios":30}],4:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.addPayload = addPayload;
+
+var _axios = require("axios");
+
+var _axios2 = _interopRequireDefault(_axios);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function addPayload(payload) {
+    return function (dispatch) {
+        dispatch({ type: "ADD_PAYLOAD_TRIGGERS" });
+
+        _axios2.default.post(WWW_DIR_JAVASCRIPT + "genericbot/addpayload", payload).then(function (response) {
+            dispatch({ type: "ADD_PAYLOAD_TRIGGERS_FULFILLED", payload: response.data });
+        }).catch(function (err) {
+            dispatch({ type: "ADD_PAYLOAD_TRIGGERS_REJECTED", payload: err });
+        });
+    };
+}
+
+},{"axios":30}],5:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -509,7 +571,7 @@ var NodeGroup = (_dec = (0, _reactRedux.connect)(function (store) {
 }(_react.Component)) || _class);
 exports.default = NodeGroup;
 
-},{"../actions/nodeGroupTriggerActions":3,"./NodeGroupTrigger":5,"./NodeGroupTriggerEvents":6,"react":108,"react-redux":90}],5:[function(require,module,exports){
+},{"../actions/nodeGroupTriggerActions":3,"./NodeGroupTrigger":6,"./NodeGroupTriggerEvents":7,"react":113,"react-redux":95}],6:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -550,6 +612,7 @@ var NodeGroupTrigger = (_dec = (0, _reactRedux.connect)(function (store) {
 
         _this.state = { isCurrent: false };
         _this.removeTrigger = _this.removeTrigger.bind(_this);
+        _this.setDefaultTrigger = _this.setDefaultTrigger.bind(_this);
         return _this;
     }
 
@@ -562,6 +625,12 @@ var NodeGroupTrigger = (_dec = (0, _reactRedux.connect)(function (store) {
         key: "removeTrigger",
         value: function removeTrigger() {
             this.props.dispatch((0, _nodeGroupTriggerActions.removeTrigger)(this.props.trigger));
+        }
+    }, {
+        key: "setDefaultTrigger",
+        value: function setDefaultTrigger(e) {
+            var value = e.target.checked;
+            this.props.dispatch((0, _nodeGroupTriggerActions.setDefaultTrigger)(this.props.trigger.set('default', value == true ? 1 : 0)));
         }
     }, {
         key: "shouldComponentUpdate",
@@ -590,6 +659,10 @@ var NodeGroupTrigger = (_dec = (0, _reactRedux.connect)(function (store) {
             var classNameCurrent = 'btn btn-default btn-xs';
             if (this.props.currenttrigger.get('currenttrigger').get('id') === this.props.trigger.get('id')) {
                 classNameCurrent = 'btn btn-default btn-xs btn-success';
+            }
+
+            if (this.props.trigger.get('default') == 1) {
+                classNameCurrent = classNameCurrent + ' default-trigger-btn';
             }
 
             //<li><a href="#" ng-click="changeGroup(trigger)"><i class="material-icons">&#xE8D2;</i>Change Group</a></li>
@@ -632,6 +705,16 @@ var NodeGroupTrigger = (_dec = (0, _reactRedux.connect)(function (store) {
                                 ),
                                 " Delete"
                             )
+                        ),
+                        _react2.default.createElement(
+                            "li",
+                            null,
+                            _react2.default.createElement(
+                                "label",
+                                null,
+                                _react2.default.createElement("input", { onChange: this.setDefaultTrigger, type: "checkbox", checked: this.props.trigger.get('default') }),
+                                "Default"
+                            )
                         )
                     )
                 )
@@ -643,7 +726,7 @@ var NodeGroupTrigger = (_dec = (0, _reactRedux.connect)(function (store) {
 }(_react.Component)) || _class);
 exports.default = NodeGroupTrigger;
 
-},{"../actions/nodeGroupTriggerActions":3,"react":108,"react-redux":90}],6:[function(require,module,exports){
+},{"../actions/nodeGroupTriggerActions":3,"react":113,"react-redux":95}],7:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -730,7 +813,7 @@ var NodeGroupTriggerEvents = function (_Component) {
 
 exports.default = NodeGroupTriggerEvents;
 
-},{"./events/NodeGroupTriggerEvent":14,"immutable":67,"react":108}],7:[function(require,module,exports){
+},{"./events/NodeGroupTriggerEvent":19,"immutable":72,"react":113}],8:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -816,7 +899,7 @@ var NodeGroups = (_dec = (0, _reactRedux.connect)(function (state) {
 }(_react.Component)) || _class);
 exports.default = NodeGroups;
 
-},{"../actions/nodeGroupActions":2,"./NodeGroup":4,"react":108,"react-redux":90}],8:[function(require,module,exports){
+},{"../actions/nodeGroupActions":2,"./NodeGroup":5,"react":113,"react-redux":95}],9:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -842,6 +925,10 @@ var _NodeTriggerActionText2 = _interopRequireDefault(_NodeTriggerActionText);
 var _NodeTriggerActionList = require("./builder/NodeTriggerActionList");
 
 var _NodeTriggerActionList2 = _interopRequireDefault(_NodeTriggerActionList);
+
+var _NodeTriggerActionCollectable = require("./builder/NodeTriggerActionCollectable");
+
+var _NodeTriggerActionCollectable2 = _interopRequireDefault(_NodeTriggerActionCollectable);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -874,6 +961,9 @@ var NodeTriggerBuilder = (_dec = (0, _reactRedux.connect)(function (store) {
         _this.addQuickReply = _this.addQuickReply.bind(_this);
         _this.removeQuickReply = _this.removeQuickReply.bind(_this);
         _this.removeAction = _this.removeAction.bind(_this);
+        _this.addSubelement = _this.addSubelement.bind(_this);
+
+        _this.props.dispatch((0, _nodeGroupTriggerActions.initBot)(_this.props.botId));
         return _this;
     }
 
@@ -932,6 +1022,12 @@ var NodeTriggerBuilder = (_dec = (0, _reactRedux.connect)(function (store) {
             this.props.dispatch({ 'type': 'REMOVE_TRIGGER_RESPONSE', 'payload': obj });
         }
     }, {
+        key: "addSubelement",
+        value: function addSubelement(obj) {
+            this.setState({ dataChanged: true });
+            this.props.dispatch({ 'type': 'ADD_SUBELEMENT', 'payload': obj });
+        }
+    }, {
         key: "render",
         value: function render() {
             var _this2 = this;
@@ -943,6 +1039,8 @@ var NodeTriggerBuilder = (_dec = (0, _reactRedux.connect)(function (store) {
                         return _react2.default.createElement(_NodeTriggerActionText2.default, { key: index + '-' + _this2.props.currenttrigger.get('currenttrigger').get('id'), id: index, removeAction: _this2.removeAction, removeQuickReply: _this2.removeQuickReply, addQuickReply: _this2.addQuickReply, onChangeContent: _this2.handleContentChange, onChangeType: _this2.handleTypeChange, action: action });
                     } else if (action.get('type') == 'list') {
                         return _react2.default.createElement(_NodeTriggerActionList2.default, { key: index + '-' + _this2.props.currenttrigger.get('currenttrigger').get('id'), id: index, removeAction: _this2.removeAction, onChangeContent: _this2.handleContentChange, onChangeType: _this2.handleTypeChange, action: action });
+                    } else if (action.get('type') == 'collectable') {
+                        return _react2.default.createElement(_NodeTriggerActionCollectable2.default, { addSubelement: _this2.addSubelement, key: index + '-' + _this2.props.currenttrigger.get('currenttrigger').get('id'), id: index, removeAction: _this2.removeAction, onChangeContent: _this2.handleContentChange, onChangeType: _this2.handleTypeChange, action: action });
                     }
                 });
             }
@@ -989,7 +1087,7 @@ var NodeTriggerBuilder = (_dec = (0, _reactRedux.connect)(function (store) {
 }(_react.Component)) || _class);
 exports.default = NodeTriggerBuilder;
 
-},{"../actions/nodeGroupTriggerActions":3,"./builder/NodeTriggerActionList":10,"./builder/NodeTriggerActionText":12,"react":108,"react-redux":90}],9:[function(require,module,exports){
+},{"../actions/nodeGroupTriggerActions":3,"./builder/NodeTriggerActionCollectable":11,"./builder/NodeTriggerActionList":12,"./builder/NodeTriggerActionText":15,"react":113,"react-redux":95}],10:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1065,7 +1163,117 @@ var NodeTriggerBuilderPreview = (_dec = (0, _reactRedux.connect)(function (store
 }(_react.Component)) || _class);
 exports.default = NodeTriggerBuilderPreview;
 
-},{"../actions/nodeGroupTriggerActions":3,"./preview/NodeTriggerActionListPreview":15,"./preview/NodeTriggerActionTextPreview":17,"react":108,"react-redux":90}],10:[function(require,module,exports){
+},{"../actions/nodeGroupTriggerActions":3,"./preview/NodeTriggerActionListPreview":20,"./preview/NodeTriggerActionTextPreview":22,"react":113,"react-redux":95}],11:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _NodeTriggerActionType = require('./NodeTriggerActionType');
+
+var _NodeTriggerActionType2 = _interopRequireDefault(_NodeTriggerActionType);
+
+var _NodeCollectableField = require('./collectable/NodeCollectableField');
+
+var _NodeCollectableField2 = _interopRequireDefault(_NodeCollectableField);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var NodeTriggerActionCollectable = function (_Component) {
+    _inherits(NodeTriggerActionCollectable, _Component);
+
+    function NodeTriggerActionCollectable(props) {
+        _classCallCheck(this, NodeTriggerActionCollectable);
+
+        var _this = _possibleConstructorReturn(this, (NodeTriggerActionCollectable.__proto__ || Object.getPrototypeOf(NodeTriggerActionCollectable)).call(this, props));
+
+        _this.changeType = _this.changeType.bind(_this);
+        _this.removeAction = _this.removeAction.bind(_this);
+        return _this;
+    }
+
+    _createClass(NodeTriggerActionCollectable, [{
+        key: 'changeType',
+        value: function changeType(e) {
+            this.props.onChangeType({ id: this.props.id, 'type': e.target.value });
+        }
+    }, {
+        key: 'removeAction',
+        value: function removeAction() {
+            this.props.removeAction({ id: this.props.id });
+        }
+    }, {
+        key: 'addField',
+        value: function addField() {
+            this.props.addSubelement({ id: this.props.id, 'path': ['content', 'collectable_fields'], 'default': [{ 'type': 'text', content: { 'message': '', 'name': '', 'field': '' } }] });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+
+            var collectable_fields = [];
+
+            if (this.props.action.hasIn(['content', 'collectable_fields'])) {
+                collectable_fields = this.props.action.getIn(['content', 'collectable_fields']).map(function (field, index) {
+                    return _react2.default.createElement(_NodeCollectableField2.default, { id: index, key: index, reply: field });
+                });
+            }
+
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                    'div',
+                    { className: 'row' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-xs-11' },
+                        _react2.default.createElement(_NodeTriggerActionType2.default, { onChange: this.changeType, type: this.props.action.get('type') })
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-xs-1' },
+                        _react2.default.createElement(
+                            'button',
+                            { onClick: this.removeAction, type: 'button', className: 'btn btn-danger btn-sm pull-right' },
+                            _react2.default.createElement(
+                                'i',
+                                { className: 'material-icons mr-0' },
+                                'delete'
+                            )
+                        )
+                    )
+                ),
+                collectable_fields,
+                _react2.default.createElement(
+                    'a',
+                    { className: 'btn btn-info btn-sm', onClick: this.addField.bind(this) },
+                    'Add field'
+                ),
+                _react2.default.createElement('hr', null)
+            );
+        }
+    }]);
+
+    return NodeTriggerActionCollectable;
+}(_react.Component);
+
+exports.default = NodeTriggerActionCollectable;
+
+},{"./NodeTriggerActionType":16,"./collectable/NodeCollectableField":18,"react":113}],12:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1129,8 +1337,8 @@ var NodeTriggerActionList = function (_Component) {
 
 exports.default = NodeTriggerActionList;
 
-},{"./NodeTriggerActionType":13,"react":108}],11:[function(require,module,exports){
-"use strict";
+},{"./NodeTriggerActionType":16,"react":113}],13:[function(require,module,exports){
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -1138,9 +1346,17 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = require("react");
+var _dec, _class;
+
+var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = require('react-redux');
+
+var _NodeTriggerActionQuickReplyPayload = require('./NodeTriggerActionQuickReplyPayload');
+
+var _NodeTriggerActionQuickReplyPayload2 = _interopRequireDefault(_NodeTriggerActionQuickReplyPayload);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1150,7 +1366,11 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var NodeTriggerActionQuickReply = function (_Component) {
+var NodeTriggerActionQuickReply = (_dec = (0, _reactRedux.connect)(function (store) {
+    return {
+        payloads: store.currenttrigger
+    };
+}), _dec(_class = function (_Component) {
     _inherits(NodeTriggerActionQuickReply, _Component);
 
     function NodeTriggerActionQuickReply(props) {
@@ -1161,47 +1381,196 @@ var NodeTriggerActionQuickReply = function (_Component) {
         _this.onNameChange = _this.onNameChange.bind(_this);
         _this.onPayloadChange = _this.onPayloadChange.bind(_this);
         _this.deleteReply = _this.deleteReply.bind(_this);
+        _this.onPayloadTypeChange = _this.onPayloadTypeChange.bind(_this);
+        _this.onPayloadAttrChange = _this.onPayloadAttrChange.bind(_this);
         return _this;
     }
 
     _createClass(NodeTriggerActionQuickReply, [{
-        key: "onNameChange",
+        key: 'onNameChange',
         value: function onNameChange(e) {
             this.props.onNameChange({ id: this.props.id, value: e.target.value });
         }
     }, {
-        key: "onPayloadChange",
-        value: function onPayloadChange(e) {
-            this.props.onPayloadChange({ id: this.props.id, value: e.target.value });
+        key: 'onPayloadChange',
+        value: function onPayloadChange(payload) {
+            this.props.onPayloadChange({ id: this.props.id, value: payload });
         }
     }, {
-        key: "deleteReply",
+        key: 'onPayloadTypeChange',
+        value: function onPayloadTypeChange(payload) {
+            this.props.onPayloadChange({ id: this.props.id, value: "" });
+            this.props.onPayloadTypeChange({ id: this.props.id, value: payload });
+        }
+    }, {
+        key: 'onPayloadAttrChange',
+        value: function onPayloadAttrChange(payload) {
+            this.props.onPayloadAttrChange({ id: this.props.id, payload: payload });
+        }
+    }, {
+        key: 'deleteReply',
         value: function deleteReply() {
             this.props.deleteReply({ id: this.props.id });
         }
     }, {
-        key: "render",
+        key: 'render',
         value: function render() {
+
             return _react2.default.createElement(
-                "div",
-                { className: "row" },
+                'div',
+                { className: 'row' },
                 _react2.default.createElement(
-                    "div",
-                    { className: "col-xs-5" },
+                    'div',
+                    { className: 'col-xs-5' },
                     _react2.default.createElement(
-                        "div",
-                        { className: "form-group" },
+                        'div',
+                        { className: 'form-group' },
                         _react2.default.createElement(
-                            "label",
+                            'label',
                             null,
-                            "Name"
+                            'Name'
                         ),
-                        _react2.default.createElement("input", { type: "text", onChange: this.onNameChange, defaultValue: this.props.reply.getIn(['content', 'name']), className: "form-control" })
+                        _react2.default.createElement('input', { type: 'text', onChange: this.onNameChange, defaultValue: this.props.reply.getIn(['content', 'name']), className: 'form-control input-sm' })
                     )
                 ),
                 _react2.default.createElement(
+                    'div',
+                    { className: 'col-xs-5' },
+                    _react2.default.createElement(_NodeTriggerActionQuickReplyPayload2.default, { onPayloadAttrChange: this.onPayloadAttrChange, onPayloadTypeChange: this.onPayloadTypeChange, onPayloadChange: this.onPayloadChange, payloadType: this.props.reply.get('type'), currentPayload: this.props.reply.getIn(['content']) })
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'col-xs-2' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'form-group' },
+                        _react2.default.createElement(
+                            'label',
+                            null,
+                            '\xA0'
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            null,
+                            _react2.default.createElement(
+                                'a',
+                                { onClick: this.deleteReply },
+                                _react2.default.createElement(
+                                    'i',
+                                    { className: 'material-icons mr-0' },
+                                    'delete'
+                                )
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return NodeTriggerActionQuickReply;
+}(_react.Component)) || _class);
+exports.default = NodeTriggerActionQuickReply;
+
+},{"./NodeTriggerActionQuickReplyPayload":14,"react":113,"react-redux":95}],14:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec, _class;
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = require("react-redux");
+
+var _nodePayloadActions = require("../../actions/nodePayloadActions");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var NodeTriggerActionQuickReplyPayload = (_dec = (0, _reactRedux.connect)(function (store) {
+    return {
+        payloads: store.currenttrigger
+    };
+}), _dec(_class = function (_Component) {
+    _inherits(NodeTriggerActionQuickReplyPayload, _Component);
+
+    function NodeTriggerActionQuickReplyPayload(props) {
+        _classCallCheck(this, NodeTriggerActionQuickReplyPayload);
+
+        var _this = _possibleConstructorReturn(this, (NodeTriggerActionQuickReplyPayload.__proto__ || Object.getPrototypeOf(NodeTriggerActionQuickReplyPayload)).call(this, props));
+
+        _this.state = { addingPayload: false, value: '' };
+        return _this;
+    }
+
+    _createClass(NodeTriggerActionQuickReplyPayload, [{
+        key: "addPayload",
+        value: function addPayload() {
+            this.setState({ addingPayload: true });
+        }
+    }, {
+        key: "savePayload",
+        value: function savePayload() {
+            this.props.dispatch((0, _nodePayloadActions.addPayload)({ trigger_id: this.props.payloads.getIn(['currenttrigger', 'id']), name: this.props.currentPayload.get('name'), value: this.state.value }));
+
+            this.props.onPayloadChange(this.state.value);
+            this.setState({ addingPayload: false });
+        }
+    }, {
+        key: "cancelSavePayload",
+        value: function cancelSavePayload() {
+            this.setState({ addingPayload: false });
+        }
+    }, {
+        key: "onChange",
+        value: function onChange(e) {
+            this.props.onPayloadChange(e.target.value);
+        }
+    }, {
+        key: "onChangeType",
+        value: function onChangeType(e) {
+            this.props.onPayloadTypeChange(e.target.value);
+        }
+    }, {
+        key: "onPayloadNameChange",
+        value: function onPayloadNameChange(e) {
+            this.setState({ value: e.target.value });
+        }
+    }, {
+        key: "onChangeMessageToVisitor",
+        value: function onChangeMessageToVisitor(e) {
+            this.props.onPayloadAttrChange({ attr: 'payload_message', value: e.target.value });
+        }
+    }, {
+        key: "render",
+        value: function render() {
+
+            var list = this.props.payloads.get('payloads').map(function (option, index) {
+                return _react2.default.createElement(
+                    "option",
+                    { key: option.get('id'), value: option.get('payload') },
+                    option.get('name') + ' [' + option.get('payload') + ']'
+                );
+            });
+
+            var controlPayload = "";
+
+            if (this.props.payloadType == 'button') {
+                controlPayload = _react2.default.createElement(
                     "div",
-                    { className: "col-xs-5" },
+                    { className: "col-xs-9" },
                     _react2.default.createElement(
                         "div",
                         { className: "form-group" },
@@ -1210,12 +1579,107 @@ var NodeTriggerActionQuickReply = function (_Component) {
                             null,
                             "Payload"
                         ),
-                        _react2.default.createElement("input", { type: "text", onChange: this.onPayloadChange, defaultValue: this.props.reply.getIn(['content', 'payload']), className: "form-control" })
+                        this.state.addingPayload == false ? _react2.default.createElement(
+                            "select",
+                            { className: "form-control input-sm", onChange: this.onChange.bind(this), value: this.props.currentPayload.get('payload') },
+                            _react2.default.createElement(
+                                "option",
+                                { value: "" },
+                                "Select event"
+                            ),
+                            list
+                        ) : _react2.default.createElement("input", { className: "form-control input-sm", type: "text", onChange: this.onPayloadNameChange.bind(this), defaultValue: "" })
                     )
-                ),
+                );
+            } else if (this.props.payloadType == 'url') {
+                controlPayload = _react2.default.createElement(
+                    "div",
+                    { className: "col-xs-12" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "form-group" },
+                        _react2.default.createElement(
+                            "label",
+                            null,
+                            "URL"
+                        ),
+                        _react2.default.createElement("input", { className: "form-control input-sm", type: "text", onChange: this.onChange.bind(this), defaultValue: this.props.currentPayload.get('payload') })
+                    )
+                );
+            } else if (this.props.payloadType == 'updatechat') {
+                controlPayload = _react2.default.createElement(
+                    "div",
+                    { className: "col-xs-12" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "form-group" },
+                        _react2.default.createElement(
+                            "select",
+                            { className: "form-control input-sm", value: this.props.currentPayload.get('payload'), onChange: this.onChange.bind(this) },
+                            _react2.default.createElement(
+                                "option",
+                                { value: "" },
+                                "Select event"
+                            ),
+                            _react2.default.createElement(
+                                "option",
+                                { value: "transferToOperator" },
+                                "Transfer to operator"
+                            )
+                        )
+                    ),
+                    this.props.currentPayload.get('payload') == 'transferToOperator' && _react2.default.createElement(
+                        "div",
+                        { className: "form-group" },
+                        _react2.default.createElement(
+                            "label",
+                            null,
+                            "Message to user after transfer"
+                        ),
+                        _react2.default.createElement("input", { className: "form-control input-sm", onChange: this.onChangeMessageToVisitor.bind(this), defaultValue: this.props.currentPayload.get('payload_message'), type: "text", placeholder: "Message to visitor" })
+                    )
+                );
+            }
+
+            return _react2.default.createElement(
+                "div",
+                { className: "row" },
                 _react2.default.createElement(
                     "div",
-                    { className: "col-xs-2" },
+                    { className: "col-xs-12" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "form-group" },
+                        _react2.default.createElement(
+                            "label",
+                            null,
+                            "Type"
+                        ),
+                        _react2.default.createElement(
+                            "select",
+                            { className: "form-control input-sm", defaultValue: this.props.payloadType, onChange: this.onChangeType.bind(this) },
+                            _react2.default.createElement(
+                                "option",
+                                { value: "url" },
+                                "URL"
+                            ),
+                            _react2.default.createElement(
+                                "option",
+                                { value: "button" },
+                                "Click"
+                            ),
+                            _react2.default.createElement(
+                                "option",
+                                { value: "updatechat" },
+                                "Update chat"
+                            )
+                        )
+                    )
+                ),
+                controlPayload,
+                this.props.payloadType == 'button' && _react2.default.createElement(
+                    "div",
+                    { className: "col-xs-3" },
                     _react2.default.createElement(
                         "div",
                         { className: "form-group" },
@@ -1227,13 +1691,34 @@ var NodeTriggerActionQuickReply = function (_Component) {
                         _react2.default.createElement(
                             "div",
                             null,
-                            _react2.default.createElement(
+                            this.state.addingPayload == false ? _react2.default.createElement(
                                 "a",
-                                { onClick: this.deleteReply },
+                                { title: "Add new payload", onClick: this.addPayload.bind(this) },
                                 _react2.default.createElement(
                                     "i",
                                     { className: "material-icons mr-0" },
-                                    "delete"
+                                    "add"
+                                )
+                            ) : _react2.default.createElement(
+                                "div",
+                                null,
+                                _react2.default.createElement(
+                                    "a",
+                                    { title: "Save", onClick: this.savePayload.bind(this) },
+                                    _react2.default.createElement(
+                                        "i",
+                                        { className: "material-icons mr-0" },
+                                        "check"
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    "a",
+                                    { title: "Cancel", onClick: this.cancelSavePayload.bind(this) },
+                                    _react2.default.createElement(
+                                        "i",
+                                        { className: "material-icons mr-0" },
+                                        "cancel"
+                                    )
                                 )
                             )
                         )
@@ -1243,12 +1728,11 @@ var NodeTriggerActionQuickReply = function (_Component) {
         }
     }]);
 
-    return NodeTriggerActionQuickReply;
-}(_react.Component);
+    return NodeTriggerActionQuickReplyPayload;
+}(_react.Component)) || _class);
+exports.default = NodeTriggerActionQuickReplyPayload;
 
-exports.default = NodeTriggerActionQuickReply;
-
-},{"react":108}],12:[function(require,module,exports){
+},{"../../actions/nodePayloadActions":4,"react":113,"react-redux":95}],15:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1293,6 +1777,8 @@ var NodeTriggerActionText = function (_Component) {
         _this.onQuickReplyNameChange = _this.onQuickReplyNameChange.bind(_this);
         _this.onQuickReplyPayloadChange = _this.onQuickReplyPayloadChange.bind(_this);
         _this.onDeleteQuickReply = _this.onDeleteQuickReply.bind(_this);
+        _this.onQuickReplyPayloadTypeChange = _this.onQuickReplyPayloadTypeChange.bind(_this);
+        _this.onPayloadAttrChange = _this.onPayloadAttrChange.bind(_this);
         return _this;
     }
 
@@ -1322,6 +1808,16 @@ var NodeTriggerActionText = function (_Component) {
             this.props.onChangeContent({ id: this.props.id, 'path': ['content', 'quick_replies', e.id, 'content', 'payload'], value: e.value });
         }
     }, {
+        key: 'onQuickReplyPayloadTypeChange',
+        value: function onQuickReplyPayloadTypeChange(e) {
+            this.props.onChangeContent({ id: this.props.id, 'path': ['content', 'quick_replies', e.id, 'type'], value: e.value });
+        }
+    }, {
+        key: 'onPayloadAttrChange',
+        value: function onPayloadAttrChange(e) {
+            this.props.onChangeContent({ id: this.props.id, 'path': ['content', 'quick_replies', e.id, 'content', e.payload.attr], value: e.payload.value });
+        }
+    }, {
         key: 'onDeleteQuickReply',
         value: function onDeleteQuickReply(e) {
             this.props.removeQuickReply({ id: this.props.id, 'path': ['content', 'quick_replies', e.id] });
@@ -1340,7 +1836,7 @@ var NodeTriggerActionText = function (_Component) {
 
             if (this.props.action.hasIn(['content', 'quick_replies'])) {
                 quick_replies = this.props.action.getIn(['content', 'quick_replies']).map(function (reply, index) {
-                    return _react2.default.createElement(_NodeTriggerActionQuickReply2.default, { deleteReply: _this2.onDeleteQuickReply, onNameChange: _this2.onQuickReplyNameChange, onPayloadChange: _this2.onQuickReplyPayloadChange, id: index, key: index, reply: reply });
+                    return _react2.default.createElement(_NodeTriggerActionQuickReply2.default, { onPayloadAttrChange: _this2.onPayloadAttrChange, onPayloadTypeChange: _this2.onQuickReplyPayloadTypeChange, deleteReply: _this2.onDeleteQuickReply, onNameChange: _this2.onQuickReplyNameChange, onPayloadChange: _this2.onQuickReplyPayloadChange, id: index, key: index, reply: reply });
                 });
             }
 
@@ -1412,7 +1908,7 @@ var NodeTriggerActionText = function (_Component) {
 
 exports.default = NodeTriggerActionText;
 
-},{"./NodeTriggerActionQuickReply":11,"./NodeTriggerActionType":13,"react":108}],13:[function(require,module,exports){
+},{"./NodeTriggerActionQuickReply":13,"./NodeTriggerActionType":16,"react":113}],16:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1433,47 +1929,51 @@ exports.default = function (_ref) {
 
     var options = (0, _immutable.fromJS)([{
         'value': 'text',
-        'text': 'Send Text' /*,
-                            {
-                               'value':'typing',
-                               'text' : 'Send Typing',
-                            },
-                            {
-                               'value':'predefined',
-                               'text' : 'Send predefined block',
-                            },
-                            {
-                               'value':'image',
-                               'text' : 'Send Image',
-                            },
-                            {
-                               'value':'video',
-                               'text' : 'Send Video',
-                            },
-                            {
-                               'value':'audio',
-                               'text' : 'Send Audio',
-                            },
-                            {
-                               'value':'file',
-                               'text' : 'Send File',
-                            },
-                            {
-                               'value':'button',
-                               'text' : 'Send Buttons',
-                            },
-                            {
-                               'value':'generic',
-                               'text' : 'Send Carrousel',
-                            },
-                            {
-                               'value':'list',
-                               'text' : 'Send List',
-                            },
-                            {
-                               'value':'command',
-                               'text' : 'Update Current Lead',
-                            }*/
+        'text': 'Send Text'
+    }, {
+        'value': 'collectable',
+        'text': 'Collect information'
+        /*,
+        {
+            'value':'typing',
+            'text' : 'Send Typing',
+        },
+        {
+            'value':'predefined',
+            'text' : 'Send predefined block',
+        },
+        {
+            'value':'image',
+            'text' : 'Send Image',
+        },
+        {
+            'value':'video',
+            'text' : 'Send Video',
+        },
+        {
+            'value':'audio',
+            'text' : 'Send Audio',
+        },
+        {
+            'value':'file',
+            'text' : 'Send File',
+        },
+        {
+            'value':'button',
+            'text' : 'Send Buttons',
+        },
+        {
+            'value':'generic',
+            'text' : 'Send Carrousel',
+        },
+        {
+            'value':'list',
+            'text' : 'Send List',
+        },
+        {
+            'value':'command',
+            'text' : 'Update Current Lead',
+        }*/
     }]);
 
     var list = options.map(function (option, index) {
@@ -1510,7 +2010,74 @@ exports.default = function (_ref) {
     );
 };
 
-},{"immutable":67,"react":108}],14:[function(require,module,exports){
+},{"immutable":72,"react":113}],17:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec, _class;
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = require('react-redux');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var NodeTriggerPayloadList = (_dec = (0, _reactRedux.connect)(function (store) {
+    return {
+        payloads: store.currenttrigger
+    };
+}), _dec(_class = function (_Component) {
+    _inherits(NodeTriggerPayloadList, _Component);
+
+    function NodeTriggerPayloadList(props) {
+        _classCallCheck(this, NodeTriggerPayloadList);
+
+        return _possibleConstructorReturn(this, (NodeTriggerPayloadList.__proto__ || Object.getPrototypeOf(NodeTriggerPayloadList)).call(this, props));
+    }
+
+    _createClass(NodeTriggerPayloadList, [{
+        key: 'onChange',
+        value: function onChange(e) {
+            this.props.onSetPayload(e.target.value);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+
+            var list = this.props.payloads.get('payloads').map(function (option, index) {
+                return _react2.default.createElement(
+                    'option',
+                    { key: option.get('id'), value: option.get('payload') },
+                    option.get('name') + ' [' + option.get('payload') + ']'
+                );
+            });
+
+            return _react2.default.createElement(
+                'select',
+                { className: 'form-control input-sm', onChange: this.onChange.bind(this), value: this.props.payload },
+                list
+            );
+        }
+    }]);
+
+    return NodeTriggerPayloadList;
+}(_react.Component)) || _class);
+exports.default = NodeTriggerPayloadList;
+
+},{"react":113,"react-redux":95}],18:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1531,6 +2098,91 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var NodeCollectableField = function (_Component) {
+    _inherits(NodeCollectableField, _Component);
+
+    function NodeCollectableField(props) {
+        _classCallCheck(this, NodeCollectableField);
+
+        var _this = _possibleConstructorReturn(this, (NodeCollectableField.__proto__ || Object.getPrototypeOf(NodeCollectableField)).call(this, props));
+
+        _this.changeType = _this.changeType.bind(_this);
+        return _this;
+    }
+
+    _createClass(NodeCollectableField, [{
+        key: 'changeType',
+        value: function changeType(e) {
+            this.props.onChangeType({ id: this.props.id, 'type': e.target.value });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'row' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'col-xs-12' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'form-group' },
+                        _react2.default.createElement(
+                            'label',
+                            null,
+                            'Field name'
+                        ),
+                        _react2.default.createElement('input', { className: 'form-control', type: 'text' })
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'col-xs-12' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'form-group' },
+                        _react2.default.createElement(
+                            'label',
+                            null,
+                            'Message to user'
+                        ),
+                        _react2.default.createElement('textarea', { className: 'form-control' })
+                    )
+                )
+            );
+        }
+    }]);
+
+    return NodeCollectableField;
+}(_react.Component);
+
+exports.default = NodeCollectableField;
+
+},{"react":113}],19:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _NodeTriggerPayloadList = require('../builder/NodeTriggerPayloadList');
+
+var _NodeTriggerPayloadList2 = _interopRequireDefault(_NodeTriggerPayloadList);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 var NodeGroupTriggerEvent = function (_Component) {
     _inherits(NodeGroupTriggerEvent, _Component);
 
@@ -1541,6 +2193,7 @@ var NodeGroupTriggerEvent = function (_Component) {
 
         _this.typeChange = _this.typeChange.bind(_this);
         _this.textChange = _this.textChange.bind(_this);
+        _this.payloadChange = _this.payloadChange.bind(_this);
         _this.deleteEvent = _this.deleteEvent.bind(_this);
         return _this;
     }
@@ -1554,6 +2207,11 @@ var NodeGroupTriggerEvent = function (_Component) {
         key: 'textChange',
         value: function textChange(e) {
             this.props.updateEvent(this.props.event.set('pattern', e.target.value));
+        }
+    }, {
+        key: 'payloadChange',
+        value: function payloadChange(payload) {
+            this.props.updateEvent(this.props.event.set('pattern', payload));
         }
     }, {
         key: 'deleteEvent',
@@ -1604,7 +2262,7 @@ var NodeGroupTriggerEvent = function (_Component) {
                             null,
                             'Pattern or event name'
                         ),
-                        _react2.default.createElement('input', { onChange: this.textChange, type: 'text', className: 'form-control input-sm', value: this.props.event.get('pattern') })
+                        this.props.event.get('type') == 0 ? _react2.default.createElement('input', { onChange: this.textChange, type: 'text', className: 'form-control input-sm', value: this.props.event.get('pattern') }) : _react2.default.createElement(_NodeTriggerPayloadList2.default, { onSetPayload: this.payloadChange, payload: this.props.event.get('pattern') })
                     )
                 ),
                 _react2.default.createElement(
@@ -1642,7 +2300,7 @@ var NodeGroupTriggerEvent = function (_Component) {
 
 exports.default = NodeGroupTriggerEvent;
 
-},{"react":108}],15:[function(require,module,exports){
+},{"../builder/NodeTriggerPayloadList":17,"react":113}],20:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1692,7 +2350,7 @@ var NodeTriggerActionListPreview = function (_Component) {
 
 exports.default = NodeTriggerActionListPreview;
 
-},{"react":108}],16:[function(require,module,exports){
+},{"react":113}],21:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1733,6 +2391,11 @@ var NodeTriggerActionQuickReplyListPreview = function (_Component) {
                         return _react2.default.createElement(
                             "a",
                             { key: index, className: "btn btn-default btn-xs" },
+                            item.get('type') == 'url' && _react2.default.createElement(
+                                "i",
+                                { className: "material-icons" },
+                                "open_in_new"
+                            ),
                             item.getIn(['content', 'name'])
                         );
                     })
@@ -1748,7 +2411,7 @@ var NodeTriggerActionQuickReplyListPreview = function (_Component) {
 
 exports.default = NodeTriggerActionQuickReplyListPreview;
 
-},{"react":108}],17:[function(require,module,exports){
+},{"react":113}],22:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1807,7 +2470,11 @@ var NodeTriggerActionTextPreview = function (_Component) {
                         ),
                         'Operator'
                     ),
-                    this.props.action.getIn(['content', 'text'])
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'msg-body' },
+                        this.props.action.getIn(['content', 'text'])
+                    )
                 ),
                 _react2.default.createElement(_NodeTriggerActionQuickReplyListPreview2.default, { items: this.props.action.getIn(['content', 'quick_replies']) })
             );
@@ -1819,7 +2486,7 @@ var NodeTriggerActionTextPreview = function (_Component) {
 
 exports.default = NodeTriggerActionTextPreview;
 
-},{"./NodeTriggerActionQuickReplyListPreview":16,"react":108}],18:[function(require,module,exports){
+},{"./NodeTriggerActionQuickReplyListPreview":21,"react":113}],23:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1831,6 +2498,7 @@ var FETCH_NODE_GROUPS_REJECTED = exports.FETCH_NODE_GROUPS_REJECTED = "FETCH_NOD
 var ADD_GROUP_FULFILLED = exports.ADD_GROUP_FULFILLED = "ADD_GROUP_FULFILLED";
 var UPDATE_GROUP_FULFILLED = exports.UPDATE_GROUP_FULFILLED = "UPDATE_GROUP_FULFILLED";
 var DELETE_TRIGGER_GROUP = exports.DELETE_TRIGGER_GROUP = "DELETE_TRIGGER_GROUP";
+var INIT_BOT_FULFILLED = exports.INIT_BOT_FULFILLED = "INIT_BOT_FULFILLED";
 
 // Trigger actions
 var FETCH_NODE_GROUP_TRIGGERS = exports.FETCH_NODE_GROUP_TRIGGERS = "FETCH_NODE_GROUP_TRIGGERS";
@@ -1857,8 +2525,12 @@ var DELETE_TRIGGER_EVENT = exports.DELETE_TRIGGER_EVENT = "DELETE_TRIGGER_EVENT"
 var HANDLE_ADD_QUICK_REPLY = exports.HANDLE_ADD_QUICK_REPLY = "HANDLE_ADD_QUICK_REPLY";
 var HANDLE_ADD_QUICK_REPLY_REMOVE = exports.HANDLE_ADD_QUICK_REPLY_REMOVE = "HANDLE_ADD_QUICK_REPLY_REMOVE";
 var REMOVE_TRIGGER_RESPONSE = exports.REMOVE_TRIGGER_RESPONSE = "REMOVE_TRIGGER_RESPONSE";
+var ADD_PAYLOAD_TRIGGERS_FULFILLED = exports.ADD_PAYLOAD_TRIGGERS_FULFILLED = "ADD_PAYLOAD_TRIGGERS_FULFILLED";
+var UPDATE_PAYLOADS_FULFILLED = exports.UPDATE_PAYLOADS_FULFILLED = "UPDATE_PAYLOADS_FULFILLED";
+var SET_DEFAULT_TRIGGER = exports.SET_DEFAULT_TRIGGER = "SET_DEFAULT_TRIGGER";
+var ADD_SUBELEMENT = exports.ADD_SUBELEMENT = "ADD_SUBELEMENT";
 
-},{}],19:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');
@@ -1889,7 +2561,7 @@ _reactDom2.default.render(_react2.default.createElement(
     _react2.default.createElement(_App2.default, root.dataset)
 ), root);
 
-},{"./App":1,"./store/index":24,"react":108,"react-dom":79,"react-redux":90}],20:[function(require,module,exports){
+},{"./App":1,"./store/index":29,"react":113,"react-dom":84,"react-redux":95}],25:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1904,6 +2576,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
 var initialState = (0, _immutable.fromJS)({
     currenttrigger: {},
+    payloads: [],
     fetching: false,
     fetched: false,
     error: null
@@ -1950,6 +2623,18 @@ var nodeGroupTriggerReducer = function nodeGroupTriggerReducer() {
         case _actionTypes.HANDLE_CONTENT_CHANGE:
             {
                 return state.setIn(['currenttrigger', 'actions', action.payload.id].concat(action.payload.path), action.payload.value);
+            }
+
+        case _actionTypes.ADD_SUBELEMENT:
+            {
+
+                if (!state.getIn(['currenttrigger', 'actions', action.payload.id]).hasIn(action.payload.path)) {
+                    return state.setIn(['currenttrigger', 'actions', action.payload.id].concat(action.payload.path), (0, _immutable.fromJS)(action.payload.default));
+                }
+
+                return state.updateIn(['currenttrigger', 'actions', action.payload.id].concat(action.payload.path), function (elements) {
+                    return elements.push((0, _immutable.fromJS)(action.payload.default));
+                });
             }
 
         case _actionTypes.HANDLE_ADD_QUICK_REPLY:
@@ -2013,6 +2698,21 @@ var nodeGroupTriggerReducer = function nodeGroupTriggerReducer() {
                 return state.deleteIn(['currenttrigger', 'events', _indexOfListingToUpdate]);
             }
 
+        case _actionTypes.INIT_BOT_FULFILLED:
+            {
+                return state.set('payloads', (0, _immutable.fromJS)(action.payload['payloads']));
+            }
+
+        case _actionTypes.ADD_PAYLOAD_TRIGGERS_FULFILLED:
+            {
+                return state.set('payloads', (0, _immutable.fromJS)(action.payload['payloads']));
+            }
+
+        case _actionTypes.UPDATE_PAYLOADS_FULFILLED:
+            {
+                return state.set('payloads', (0, _immutable.fromJS)(action.payload['payloads']));
+            }
+
         default:
             return state;
     }
@@ -2020,7 +2720,7 @@ var nodeGroupTriggerReducer = function nodeGroupTriggerReducer() {
 
 exports.default = nodeGroupTriggerReducer;
 
-},{"../constants/action-types":18,"immutable":67}],21:[function(require,module,exports){
+},{"../constants/action-types":23,"immutable":72}],26:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2049,7 +2749,7 @@ exports.default = (0, _redux.combineReducers)({
     currenttrigger: _currentTriggerReducer2.default
 });
 
-},{"./currentTriggerReducer":20,"./nodeGroupReducer":22,"./nodeGroupTriggerReducer":23,"redux":119}],22:[function(require,module,exports){
+},{"./currentTriggerReducer":25,"./nodeGroupReducer":27,"./nodeGroupTriggerReducer":28,"redux":124}],27:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2133,7 +2833,7 @@ var nodeGroupReducer = function nodeGroupReducer() {
 
 exports.default = nodeGroupReducer;
 
-},{"../constants/action-types":18,"immutable":67}],23:[function(require,module,exports){
+},{"../constants/action-types":23,"immutable":72}],28:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2195,6 +2895,15 @@ var nodeGroupTriggerReducer = function nodeGroupTriggerReducer() {
                 return state.deleteIn(['nodegrouptriggers', action.payload.get('group_id'), _indexOfListingToUpdate]);
             }
 
+        case _actionTypes.SET_DEFAULT_TRIGGER:
+            {
+                var _indexOfListingToUpdate2 = state.get('nodegrouptriggers').get(action.payload.get('group_id')).findIndex(function (listing) {
+                    return listing.get('id') === action.payload.get('id');
+                });
+
+                return state.setIn(['nodegrouptriggers', action.payload.get('group_id'), _indexOfListingToUpdate2, 'default'], action.payload.get('default'));
+            }
+
         case _actionTypes.ADD_TRIGGER_FULFILLED:
             {
                 return state.updateIn(['nodegrouptriggers', action.payload.group_id], function (triggers) {
@@ -2209,7 +2918,7 @@ var nodeGroupTriggerReducer = function nodeGroupTriggerReducer() {
 
 exports.default = nodeGroupTriggerReducer;
 
-},{"../constants/action-types":18,"immutable":67}],24:[function(require,module,exports){
+},{"../constants/action-types":23,"immutable":72}],29:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2240,9 +2949,9 @@ var store = (0, _redux.createStore)(_index2.default, middleware);
 
 exports.default = store;
 
-},{"../reducers/index":21,"redux":119,"redux-logger":110,"redux-promise-middleware":111,"redux-thunk":113}],25:[function(require,module,exports){
+},{"../reducers/index":26,"redux":124,"redux-logger":115,"redux-promise-middleware":116,"redux-thunk":118}],30:[function(require,module,exports){
 module.exports = require('./lib/axios');
-},{"./lib/axios":27}],26:[function(require,module,exports){
+},{"./lib/axios":32}],31:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -2426,7 +3135,7 @@ module.exports = function xhrAdapter(config) {
 };
 
 }).call(this,require('_process'))
-},{"../core/createError":33,"./../core/settle":36,"./../helpers/btoa":40,"./../helpers/buildURL":41,"./../helpers/cookies":43,"./../helpers/isURLSameOrigin":45,"./../helpers/parseHeaders":47,"./../utils":49,"_process":70}],27:[function(require,module,exports){
+},{"../core/createError":38,"./../core/settle":41,"./../helpers/btoa":45,"./../helpers/buildURL":46,"./../helpers/cookies":48,"./../helpers/isURLSameOrigin":50,"./../helpers/parseHeaders":52,"./../utils":54,"_process":75}],32:[function(require,module,exports){
 'use strict';
 
 var utils = require('./utils');
@@ -2480,7 +3189,7 @@ module.exports = axios;
 // Allow use of default import syntax in TypeScript
 module.exports.default = axios;
 
-},{"./cancel/Cancel":28,"./cancel/CancelToken":29,"./cancel/isCancel":30,"./core/Axios":31,"./defaults":38,"./helpers/bind":39,"./helpers/spread":48,"./utils":49}],28:[function(require,module,exports){
+},{"./cancel/Cancel":33,"./cancel/CancelToken":34,"./cancel/isCancel":35,"./core/Axios":36,"./defaults":43,"./helpers/bind":44,"./helpers/spread":53,"./utils":54}],33:[function(require,module,exports){
 'use strict';
 
 /**
@@ -2501,7 +3210,7 @@ Cancel.prototype.__CANCEL__ = true;
 
 module.exports = Cancel;
 
-},{}],29:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 'use strict';
 
 var Cancel = require('./Cancel');
@@ -2560,14 +3269,14 @@ CancelToken.source = function source() {
 
 module.exports = CancelToken;
 
-},{"./Cancel":28}],30:[function(require,module,exports){
+},{"./Cancel":33}],35:[function(require,module,exports){
 'use strict';
 
 module.exports = function isCancel(value) {
   return !!(value && value.__CANCEL__);
 };
 
-},{}],31:[function(require,module,exports){
+},{}],36:[function(require,module,exports){
 'use strict';
 
 var defaults = require('./../defaults');
@@ -2648,7 +3357,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = Axios;
 
-},{"./../defaults":38,"./../utils":49,"./InterceptorManager":32,"./dispatchRequest":34}],32:[function(require,module,exports){
+},{"./../defaults":43,"./../utils":54,"./InterceptorManager":37,"./dispatchRequest":39}],37:[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -2702,7 +3411,7 @@ InterceptorManager.prototype.forEach = function forEach(fn) {
 
 module.exports = InterceptorManager;
 
-},{"./../utils":49}],33:[function(require,module,exports){
+},{"./../utils":54}],38:[function(require,module,exports){
 'use strict';
 
 var enhanceError = require('./enhanceError');
@@ -2722,7 +3431,7 @@ module.exports = function createError(message, config, code, request, response) 
   return enhanceError(error, config, code, request, response);
 };
 
-},{"./enhanceError":35}],34:[function(require,module,exports){
+},{"./enhanceError":40}],39:[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -2810,7 +3519,7 @@ module.exports = function dispatchRequest(config) {
   });
 };
 
-},{"../cancel/isCancel":30,"../defaults":38,"./../helpers/combineURLs":42,"./../helpers/isAbsoluteURL":44,"./../utils":49,"./transformData":37}],35:[function(require,module,exports){
+},{"../cancel/isCancel":35,"../defaults":43,"./../helpers/combineURLs":47,"./../helpers/isAbsoluteURL":49,"./../utils":54,"./transformData":42}],40:[function(require,module,exports){
 'use strict';
 
 /**
@@ -2833,7 +3542,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
   return error;
 };
 
-},{}],36:[function(require,module,exports){
+},{}],41:[function(require,module,exports){
 'use strict';
 
 var createError = require('./createError');
@@ -2861,7 +3570,7 @@ module.exports = function settle(resolve, reject, response) {
   }
 };
 
-},{"./createError":33}],37:[function(require,module,exports){
+},{"./createError":38}],42:[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -2883,7 +3592,7 @@ module.exports = function transformData(data, headers, fns) {
   return data;
 };
 
-},{"./../utils":49}],38:[function(require,module,exports){
+},{"./../utils":54}],43:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -2983,7 +3692,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 module.exports = defaults;
 
 }).call(this,require('_process'))
-},{"./adapters/http":26,"./adapters/xhr":26,"./helpers/normalizeHeaderName":46,"./utils":49,"_process":70}],39:[function(require,module,exports){
+},{"./adapters/http":31,"./adapters/xhr":31,"./helpers/normalizeHeaderName":51,"./utils":54,"_process":75}],44:[function(require,module,exports){
 'use strict';
 
 module.exports = function bind(fn, thisArg) {
@@ -2996,7 +3705,7 @@ module.exports = function bind(fn, thisArg) {
   };
 };
 
-},{}],40:[function(require,module,exports){
+},{}],45:[function(require,module,exports){
 'use strict';
 
 // btoa polyfill for IE<10 courtesy https://github.com/davidchambers/Base64.js
@@ -3034,7 +3743,7 @@ function btoa(input) {
 
 module.exports = btoa;
 
-},{}],41:[function(require,module,exports){
+},{}],46:[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -3102,7 +3811,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
   return url;
 };
 
-},{"./../utils":49}],42:[function(require,module,exports){
+},{"./../utils":54}],47:[function(require,module,exports){
 'use strict';
 
 /**
@@ -3118,7 +3827,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
     : baseURL;
 };
 
-},{}],43:[function(require,module,exports){
+},{}],48:[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -3173,7 +3882,7 @@ module.exports = (
   })()
 );
 
-},{"./../utils":49}],44:[function(require,module,exports){
+},{"./../utils":54}],49:[function(require,module,exports){
 'use strict';
 
 /**
@@ -3189,7 +3898,7 @@ module.exports = function isAbsoluteURL(url) {
   return /^([a-z][a-z\d\+\-\.]*:)?\/\//i.test(url);
 };
 
-},{}],45:[function(require,module,exports){
+},{}],50:[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -3259,7 +3968,7 @@ module.exports = (
   })()
 );
 
-},{"./../utils":49}],46:[function(require,module,exports){
+},{"./../utils":54}],51:[function(require,module,exports){
 'use strict';
 
 var utils = require('../utils');
@@ -3273,7 +3982,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
   });
 };
 
-},{"../utils":49}],47:[function(require,module,exports){
+},{"../utils":54}],52:[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -3328,7 +4037,7 @@ module.exports = function parseHeaders(headers) {
   return parsed;
 };
 
-},{"./../utils":49}],48:[function(require,module,exports){
+},{"./../utils":54}],53:[function(require,module,exports){
 'use strict';
 
 /**
@@ -3357,7 +4066,7 @@ module.exports = function spread(callback) {
   };
 };
 
-},{}],49:[function(require,module,exports){
+},{}],54:[function(require,module,exports){
 'use strict';
 
 var bind = require('./helpers/bind');
@@ -3662,7 +4371,7 @@ module.exports = {
   trim: trim
 };
 
-},{"./helpers/bind":39,"is-buffer":69}],50:[function(require,module,exports){
+},{"./helpers/bind":44,"is-buffer":74}],55:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -3739,7 +4448,7 @@ var EventListener = {
 
 module.exports = EventListener;
 }).call(this,require('_process'))
-},{"./emptyFunction":55,"_process":70}],51:[function(require,module,exports){
+},{"./emptyFunction":60,"_process":75}],56:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -3773,7 +4482,7 @@ var ExecutionEnvironment = {
 };
 
 module.exports = ExecutionEnvironment;
-},{}],52:[function(require,module,exports){
+},{}],57:[function(require,module,exports){
 "use strict";
 
 /**
@@ -3803,7 +4512,7 @@ function camelize(string) {
 }
 
 module.exports = camelize;
-},{}],53:[function(require,module,exports){
+},{}],58:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -3841,7 +4550,7 @@ function camelizeStyleName(string) {
 }
 
 module.exports = camelizeStyleName;
-},{"./camelize":52}],54:[function(require,module,exports){
+},{"./camelize":57}],59:[function(require,module,exports){
 'use strict';
 
 /**
@@ -3879,7 +4588,7 @@ function containsNode(outerNode, innerNode) {
 }
 
 module.exports = containsNode;
-},{"./isTextNode":63}],55:[function(require,module,exports){
+},{"./isTextNode":68}],60:[function(require,module,exports){
 "use strict";
 
 /**
@@ -3916,7 +4625,7 @@ emptyFunction.thatReturnsArgument = function (arg) {
 };
 
 module.exports = emptyFunction;
-},{}],56:[function(require,module,exports){
+},{}],61:[function(require,module,exports){
 (function (process){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -3936,7 +4645,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = emptyObject;
 }).call(this,require('_process'))
-},{"_process":70}],57:[function(require,module,exports){
+},{"_process":75}],62:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -3961,7 +4670,7 @@ function focusNode(node) {
 }
 
 module.exports = focusNode;
-},{}],58:[function(require,module,exports){
+},{}],63:[function(require,module,exports){
 'use strict';
 
 /**
@@ -3998,7 +4707,7 @@ function getActiveElement(doc) /*?DOMElement*/{
 }
 
 module.exports = getActiveElement;
-},{}],59:[function(require,module,exports){
+},{}],64:[function(require,module,exports){
 'use strict';
 
 /**
@@ -4029,7 +4738,7 @@ function hyphenate(string) {
 }
 
 module.exports = hyphenate;
-},{}],60:[function(require,module,exports){
+},{}],65:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -4066,7 +4775,7 @@ function hyphenateStyleName(string) {
 }
 
 module.exports = hyphenateStyleName;
-},{"./hyphenate":59}],61:[function(require,module,exports){
+},{"./hyphenate":64}],66:[function(require,module,exports){
 (function (process){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -4122,7 +4831,7 @@ function invariant(condition, format, a, b, c, d, e, f) {
 
 module.exports = invariant;
 }).call(this,require('_process'))
-},{"_process":70}],62:[function(require,module,exports){
+},{"_process":75}],67:[function(require,module,exports){
 'use strict';
 
 /**
@@ -4145,7 +4854,7 @@ function isNode(object) {
 }
 
 module.exports = isNode;
-},{}],63:[function(require,module,exports){
+},{}],68:[function(require,module,exports){
 'use strict';
 
 /**
@@ -4168,7 +4877,7 @@ function isTextNode(object) {
 }
 
 module.exports = isTextNode;
-},{"./isNode":62}],64:[function(require,module,exports){
+},{"./isNode":67}],69:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -4234,7 +4943,7 @@ function shallowEqual(objA, objB) {
 }
 
 module.exports = shallowEqual;
-},{}],65:[function(require,module,exports){
+},{}],70:[function(require,module,exports){
 (function (process){
 /**
  * Copyright (c) 2014-present, Facebook, Inc.
@@ -4299,7 +5008,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = warning;
 }).call(this,require('_process'))
-},{"./emptyFunction":55,"_process":70}],66:[function(require,module,exports){
+},{"./emptyFunction":60,"_process":75}],71:[function(require,module,exports){
 /**
  * Copyright 2015, Yahoo! Inc.
  * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
@@ -4373,7 +5082,7 @@ module.exports = warning;
     };
 })));
 
-},{}],67:[function(require,module,exports){
+},{}],72:[function(require,module,exports){
 /**
  * Copyright (c) 2014-present, Facebook, Inc.
  *
@@ -9351,7 +10060,7 @@ module.exports = warning;
   return Immutable;
 
 }));
-},{}],68:[function(require,module,exports){
+},{}],73:[function(require,module,exports){
 (function (process){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -9404,7 +10113,7 @@ var invariant = function(condition, format, a, b, c, d, e, f) {
 module.exports = invariant;
 
 }).call(this,require('_process'))
-},{"_process":70}],69:[function(require,module,exports){
+},{"_process":75}],74:[function(require,module,exports){
 /*!
  * Determine if an object is a Buffer
  *
@@ -9427,7 +10136,7 @@ function isSlowBuffer (obj) {
   return typeof obj.readFloatLE === 'function' && typeof obj.slice === 'function' && isBuffer(obj.slice(0, 0))
 }
 
-},{}],70:[function(require,module,exports){
+},{}],75:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -9613,7 +10322,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],71:[function(require,module,exports){
+},{}],76:[function(require,module,exports){
 (function (process){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -9676,7 +10385,7 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
 module.exports = checkPropTypes;
 
 }).call(this,require('_process'))
-},{"./lib/ReactPropTypesSecret":75,"_process":70,"fbjs/lib/invariant":61,"fbjs/lib/warning":65}],72:[function(require,module,exports){
+},{"./lib/ReactPropTypesSecret":80,"_process":75,"fbjs/lib/invariant":66,"fbjs/lib/warning":70}],77:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -9736,7 +10445,7 @@ module.exports = function() {
   return ReactPropTypes;
 };
 
-},{"./lib/ReactPropTypesSecret":75,"fbjs/lib/emptyFunction":55,"fbjs/lib/invariant":61}],73:[function(require,module,exports){
+},{"./lib/ReactPropTypesSecret":80,"fbjs/lib/emptyFunction":60,"fbjs/lib/invariant":66}],78:[function(require,module,exports){
 (function (process){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -10282,7 +10991,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 };
 
 }).call(this,require('_process'))
-},{"./checkPropTypes":71,"./lib/ReactPropTypesSecret":75,"_process":70,"fbjs/lib/emptyFunction":55,"fbjs/lib/invariant":61,"fbjs/lib/warning":65,"object-assign":76}],74:[function(require,module,exports){
+},{"./checkPropTypes":76,"./lib/ReactPropTypesSecret":80,"_process":75,"fbjs/lib/emptyFunction":60,"fbjs/lib/invariant":66,"fbjs/lib/warning":70,"object-assign":81}],79:[function(require,module,exports){
 (function (process){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -10314,7 +11023,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 }).call(this,require('_process'))
-},{"./factoryWithThrowingShims":72,"./factoryWithTypeCheckers":73,"_process":70}],75:[function(require,module,exports){
+},{"./factoryWithThrowingShims":77,"./factoryWithTypeCheckers":78,"_process":75}],80:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -10328,7 +11037,7 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 
 module.exports = ReactPropTypesSecret;
 
-},{}],76:[function(require,module,exports){
+},{}],81:[function(require,module,exports){
 /*
 object-assign
 (c) Sindre Sorhus
@@ -10420,7 +11129,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 	return to;
 };
 
-},{}],77:[function(require,module,exports){
+},{}],82:[function(require,module,exports){
 (function (process){
 /** @license React v16.2.0
  * react-dom.development.js
@@ -25818,7 +26527,7 @@ module.exports = reactDom;
 }
 
 }).call(this,require('_process'))
-},{"_process":70,"fbjs/lib/EventListener":50,"fbjs/lib/ExecutionEnvironment":51,"fbjs/lib/camelizeStyleName":53,"fbjs/lib/containsNode":54,"fbjs/lib/emptyFunction":55,"fbjs/lib/emptyObject":56,"fbjs/lib/focusNode":57,"fbjs/lib/getActiveElement":58,"fbjs/lib/hyphenateStyleName":60,"fbjs/lib/invariant":61,"fbjs/lib/shallowEqual":64,"fbjs/lib/warning":65,"object-assign":80,"prop-types/checkPropTypes":71,"react":108}],78:[function(require,module,exports){
+},{"_process":75,"fbjs/lib/EventListener":55,"fbjs/lib/ExecutionEnvironment":56,"fbjs/lib/camelizeStyleName":58,"fbjs/lib/containsNode":59,"fbjs/lib/emptyFunction":60,"fbjs/lib/emptyObject":61,"fbjs/lib/focusNode":62,"fbjs/lib/getActiveElement":63,"fbjs/lib/hyphenateStyleName":65,"fbjs/lib/invariant":66,"fbjs/lib/shallowEqual":69,"fbjs/lib/warning":70,"object-assign":85,"prop-types/checkPropTypes":76,"react":113}],83:[function(require,module,exports){
 /** @license React v16.2.0
  * react-dom.production.min.js
  *
@@ -26049,7 +26758,7 @@ var Sg={createPortal:Qg,findDOMNode:function(a){if(null==a)return null;if(1===a.
 E("40");return a._reactRootContainer?(Z.unbatchedUpdates(function(){Pg(null,null,a,!1,function(){a._reactRootContainer=null})}),!0):!1},unstable_createPortal:Qg,unstable_batchedUpdates:tc,unstable_deferredUpdates:Z.deferredUpdates,flushSync:Z.flushSync,__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED:{EventPluginHub:mb,EventPluginRegistry:Va,EventPropagators:Cb,ReactControlledComponent:qc,ReactDOMComponentTree:sb,ReactDOMEventListener:xd}};
 Z.injectIntoDevTools({findFiberByHostInstance:pb,bundleType:0,version:"16.2.0",rendererPackageName:"react-dom"});var Tg=Object.freeze({default:Sg}),Ug=Tg&&Sg||Tg;module.exports=Ug["default"]?Ug["default"]:Ug;
 
-},{"fbjs/lib/EventListener":50,"fbjs/lib/ExecutionEnvironment":51,"fbjs/lib/containsNode":54,"fbjs/lib/emptyFunction":55,"fbjs/lib/emptyObject":56,"fbjs/lib/focusNode":57,"fbjs/lib/getActiveElement":58,"fbjs/lib/shallowEqual":64,"object-assign":80,"react":108}],79:[function(require,module,exports){
+},{"fbjs/lib/EventListener":55,"fbjs/lib/ExecutionEnvironment":56,"fbjs/lib/containsNode":59,"fbjs/lib/emptyFunction":60,"fbjs/lib/emptyObject":61,"fbjs/lib/focusNode":62,"fbjs/lib/getActiveElement":63,"fbjs/lib/shallowEqual":69,"object-assign":85,"react":113}],84:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -26091,9 +26800,9 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this,require('_process'))
-},{"./cjs/react-dom.development.js":77,"./cjs/react-dom.production.min.js":78,"_process":70}],80:[function(require,module,exports){
-arguments[4][76][0].apply(exports,arguments)
-},{"dup":76}],81:[function(require,module,exports){
+},{"./cjs/react-dom.development.js":82,"./cjs/react-dom.production.min.js":83,"_process":75}],85:[function(require,module,exports){
+arguments[4][81][0].apply(exports,arguments)
+},{"dup":81}],86:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -26182,7 +26891,7 @@ function createProvider() {
 
 exports.default = createProvider();
 }).call(this,require('_process'))
-},{"../utils/PropTypes":91,"../utils/warning":95,"_process":70,"prop-types":74,"react":108}],82:[function(require,module,exports){
+},{"../utils/PropTypes":96,"../utils/warning":100,"_process":75,"prop-types":79,"react":113}],87:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -26491,7 +27200,7 @@ selectorFactory) {
   };
 }
 }).call(this,require('_process'))
-},{"../utils/PropTypes":91,"../utils/Subscription":92,"_process":70,"hoist-non-react-statics":66,"invariant":68,"react":108}],83:[function(require,module,exports){
+},{"../utils/PropTypes":96,"../utils/Subscription":97,"_process":75,"hoist-non-react-statics":71,"invariant":73,"react":113}],88:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -26620,7 +27329,7 @@ function createConnect() {
 }
 
 exports.default = createConnect();
-},{"../components/connectAdvanced":82,"../utils/shallowEqual":93,"./mapDispatchToProps":84,"./mapStateToProps":85,"./mergeProps":86,"./selectorFactory":87}],84:[function(require,module,exports){
+},{"../components/connectAdvanced":87,"../utils/shallowEqual":98,"./mapDispatchToProps":89,"./mapStateToProps":90,"./mergeProps":91,"./selectorFactory":92}],89:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -26649,7 +27358,7 @@ function whenMapDispatchToPropsIsObject(mapDispatchToProps) {
 }
 
 exports.default = [whenMapDispatchToPropsIsFunction, whenMapDispatchToPropsIsMissing, whenMapDispatchToPropsIsObject];
-},{"./wrapMapToProps":89,"redux":119}],85:[function(require,module,exports){
+},{"./wrapMapToProps":94,"redux":124}],90:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -26669,7 +27378,7 @@ function whenMapStateToPropsIsMissing(mapStateToProps) {
 }
 
 exports.default = [whenMapStateToPropsIsFunction, whenMapStateToPropsIsMissing];
-},{"./wrapMapToProps":89}],86:[function(require,module,exports){
+},{"./wrapMapToProps":94}],91:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -26730,7 +27439,7 @@ function whenMergePropsIsOmitted(mergeProps) {
 
 exports.default = [whenMergePropsIsFunction, whenMergePropsIsOmitted];
 }).call(this,require('_process'))
-},{"../utils/verifyPlainObject":94,"_process":70}],87:[function(require,module,exports){
+},{"../utils/verifyPlainObject":99,"_process":75}],92:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -26846,7 +27555,7 @@ function finalPropsSelectorFactory(dispatch, _ref2) {
   return selectorFactory(mapStateToProps, mapDispatchToProps, mergeProps, dispatch, options);
 }
 }).call(this,require('_process'))
-},{"./verifySubselectors":88,"_process":70}],88:[function(require,module,exports){
+},{"./verifySubselectors":93,"_process":75}],93:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -26873,7 +27582,7 @@ function verifySubselectors(mapStateToProps, mapDispatchToProps, mergeProps, dis
   verify(mapDispatchToProps, 'mapDispatchToProps', displayName);
   verify(mergeProps, 'mergeProps', displayName);
 }
-},{"../utils/warning":95}],89:[function(require,module,exports){
+},{"../utils/warning":100}],94:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -26954,7 +27663,7 @@ function wrapMapToPropsFunc(mapToProps, methodName) {
   };
 }
 }).call(this,require('_process'))
-},{"../utils/verifyPlainObject":94,"_process":70}],90:[function(require,module,exports){
+},{"../utils/verifyPlainObject":99,"_process":75}],95:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -26978,7 +27687,7 @@ exports.Provider = _Provider2.default;
 exports.createProvider = _Provider.createProvider;
 exports.connectAdvanced = _connectAdvanced2.default;
 exports.connect = _connect2.default;
-},{"./components/Provider":81,"./components/connectAdvanced":82,"./connect/connect":83}],91:[function(require,module,exports){
+},{"./components/Provider":86,"./components/connectAdvanced":87,"./connect/connect":88}],96:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -27002,7 +27711,7 @@ var storeShape = exports.storeShape = _propTypes2.default.shape({
   dispatch: _propTypes2.default.func.isRequired,
   getState: _propTypes2.default.func.isRequired
 });
-},{"prop-types":74}],92:[function(require,module,exports){
+},{"prop-types":79}],97:[function(require,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -27099,7 +27808,7 @@ var Subscription = function () {
 }();
 
 exports.default = Subscription;
-},{}],93:[function(require,module,exports){
+},{}],98:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -27134,7 +27843,7 @@ function shallowEqual(objA, objB) {
 
   return true;
 }
-},{}],94:[function(require,module,exports){
+},{}],99:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -27155,7 +27864,7 @@ function verifyPlainObject(value, displayName, methodName) {
     (0, _warning2.default)(methodName + '() in ' + displayName + ' must return a plain object. Instead received ' + value + '.');
   }
 }
-},{"./warning":95,"lodash/isPlainObject":105}],95:[function(require,module,exports){
+},{"./warning":100,"lodash/isPlainObject":110}],100:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -27181,7 +27890,7 @@ function warning(message) {
   } catch (e) {}
   /* eslint-enable no-empty */
 }
-},{}],96:[function(require,module,exports){
+},{}],101:[function(require,module,exports){
 var root = require('./_root');
 
 /** Built-in value references. */
@@ -27189,7 +27898,7 @@ var Symbol = root.Symbol;
 
 module.exports = Symbol;
 
-},{"./_root":103}],97:[function(require,module,exports){
+},{"./_root":108}],102:[function(require,module,exports){
 var Symbol = require('./_Symbol'),
     getRawTag = require('./_getRawTag'),
     objectToString = require('./_objectToString');
@@ -27219,7 +27928,7 @@ function baseGetTag(value) {
 
 module.exports = baseGetTag;
 
-},{"./_Symbol":96,"./_getRawTag":100,"./_objectToString":101}],98:[function(require,module,exports){
+},{"./_Symbol":101,"./_getRawTag":105,"./_objectToString":106}],103:[function(require,module,exports){
 (function (global){
 /** Detect free variable `global` from Node.js. */
 var freeGlobal = typeof global == 'object' && global && global.Object === Object && global;
@@ -27227,7 +27936,7 @@ var freeGlobal = typeof global == 'object' && global && global.Object === Object
 module.exports = freeGlobal;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],99:[function(require,module,exports){
+},{}],104:[function(require,module,exports){
 var overArg = require('./_overArg');
 
 /** Built-in value references. */
@@ -27235,7 +27944,7 @@ var getPrototype = overArg(Object.getPrototypeOf, Object);
 
 module.exports = getPrototype;
 
-},{"./_overArg":102}],100:[function(require,module,exports){
+},{"./_overArg":107}],105:[function(require,module,exports){
 var Symbol = require('./_Symbol');
 
 /** Used for built-in method references. */
@@ -27283,7 +27992,7 @@ function getRawTag(value) {
 
 module.exports = getRawTag;
 
-},{"./_Symbol":96}],101:[function(require,module,exports){
+},{"./_Symbol":101}],106:[function(require,module,exports){
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
 
@@ -27307,7 +28016,7 @@ function objectToString(value) {
 
 module.exports = objectToString;
 
-},{}],102:[function(require,module,exports){
+},{}],107:[function(require,module,exports){
 /**
  * Creates a unary function that invokes `func` with its argument transformed.
  *
@@ -27324,7 +28033,7 @@ function overArg(func, transform) {
 
 module.exports = overArg;
 
-},{}],103:[function(require,module,exports){
+},{}],108:[function(require,module,exports){
 var freeGlobal = require('./_freeGlobal');
 
 /** Detect free variable `self`. */
@@ -27335,7 +28044,7 @@ var root = freeGlobal || freeSelf || Function('return this')();
 
 module.exports = root;
 
-},{"./_freeGlobal":98}],104:[function(require,module,exports){
+},{"./_freeGlobal":103}],109:[function(require,module,exports){
 /**
  * Checks if `value` is object-like. A value is object-like if it's not `null`
  * and has a `typeof` result of "object".
@@ -27366,7 +28075,7 @@ function isObjectLike(value) {
 
 module.exports = isObjectLike;
 
-},{}],105:[function(require,module,exports){
+},{}],110:[function(require,module,exports){
 var baseGetTag = require('./_baseGetTag'),
     getPrototype = require('./_getPrototype'),
     isObjectLike = require('./isObjectLike');
@@ -27430,7 +28139,7 @@ function isPlainObject(value) {
 
 module.exports = isPlainObject;
 
-},{"./_baseGetTag":97,"./_getPrototype":99,"./isObjectLike":104}],106:[function(require,module,exports){
+},{"./_baseGetTag":102,"./_getPrototype":104,"./isObjectLike":109}],111:[function(require,module,exports){
 (function (process){
 /** @license React v16.2.0
  * react.development.js
@@ -28791,7 +29500,7 @@ module.exports = react;
 }
 
 }).call(this,require('_process'))
-},{"_process":70,"fbjs/lib/emptyFunction":55,"fbjs/lib/emptyObject":56,"fbjs/lib/invariant":61,"fbjs/lib/warning":65,"object-assign":109,"prop-types/checkPropTypes":71}],107:[function(require,module,exports){
+},{"_process":75,"fbjs/lib/emptyFunction":60,"fbjs/lib/emptyObject":61,"fbjs/lib/invariant":66,"fbjs/lib/warning":70,"object-assign":114,"prop-types/checkPropTypes":76}],112:[function(require,module,exports){
 /** @license React v16.2.0
  * react.production.min.js
  *
@@ -28814,7 +29523,7 @@ var U={Children:{map:function(a,b,e){if(null==a)return a;var c=[];T(a,c,null,b,e
 d=a.key,g=a.ref,k=a._owner;if(null!=b){void 0!==b.ref&&(g=b.ref,k=G.current);void 0!==b.key&&(d=""+b.key);if(a.type&&a.type.defaultProps)var f=a.type.defaultProps;for(h in b)H.call(b,h)&&!I.hasOwnProperty(h)&&(c[h]=void 0===b[h]&&void 0!==f?f[h]:b[h])}var h=arguments.length-2;if(1===h)c.children=e;else if(1<h){f=Array(h);for(var l=0;l<h;l++)f[l]=arguments[l+2];c.children=f}return{$$typeof:r,type:a.type,key:d,ref:g,props:c,_owner:k}},createFactory:function(a){var b=J.bind(null,a);b.type=a;return b},
 isValidElement:K,version:"16.2.0",__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED:{ReactCurrentOwner:G,assign:m}},V=Object.freeze({default:U}),W=V&&U||V;module.exports=W["default"]?W["default"]:W;
 
-},{"fbjs/lib/emptyFunction":55,"fbjs/lib/emptyObject":56,"object-assign":109}],108:[function(require,module,exports){
+},{"fbjs/lib/emptyFunction":60,"fbjs/lib/emptyObject":61,"object-assign":114}],113:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -28825,14 +29534,14 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this,require('_process'))
-},{"./cjs/react.development.js":106,"./cjs/react.production.min.js":107,"_process":70}],109:[function(require,module,exports){
-arguments[4][76][0].apply(exports,arguments)
-},{"dup":76}],110:[function(require,module,exports){
+},{"./cjs/react.development.js":111,"./cjs/react.production.min.js":112,"_process":75}],114:[function(require,module,exports){
+arguments[4][81][0].apply(exports,arguments)
+},{"dup":81}],115:[function(require,module,exports){
 (function (global){
 !function(e,t){"object"==typeof exports&&"undefined"!=typeof module?t(exports):"function"==typeof define&&define.amd?define(["exports"],t):t(e.reduxLogger=e.reduxLogger||{})}(this,function(e){"use strict";function t(e,t){e.super_=t,e.prototype=Object.create(t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}})}function r(e,t){Object.defineProperty(this,"kind",{value:e,enumerable:!0}),t&&t.length&&Object.defineProperty(this,"path",{value:t,enumerable:!0})}function n(e,t,r){n.super_.call(this,"E",e),Object.defineProperty(this,"lhs",{value:t,enumerable:!0}),Object.defineProperty(this,"rhs",{value:r,enumerable:!0})}function o(e,t){o.super_.call(this,"N",e),Object.defineProperty(this,"rhs",{value:t,enumerable:!0})}function i(e,t){i.super_.call(this,"D",e),Object.defineProperty(this,"lhs",{value:t,enumerable:!0})}function a(e,t,r){a.super_.call(this,"A",e),Object.defineProperty(this,"index",{value:t,enumerable:!0}),Object.defineProperty(this,"item",{value:r,enumerable:!0})}function f(e,t,r){var n=e.slice((r||t)+1||e.length);return e.length=t<0?e.length+t:t,e.push.apply(e,n),e}function u(e){var t="undefined"==typeof e?"undefined":N(e);return"object"!==t?t:e===Math?"math":null===e?"null":Array.isArray(e)?"array":"[object Date]"===Object.prototype.toString.call(e)?"date":"function"==typeof e.toString&&/^\/.*\//.test(e.toString())?"regexp":"object"}function l(e,t,r,c,s,d,p){s=s||[],p=p||[];var g=s.slice(0);if("undefined"!=typeof d){if(c){if("function"==typeof c&&c(g,d))return;if("object"===("undefined"==typeof c?"undefined":N(c))){if(c.prefilter&&c.prefilter(g,d))return;if(c.normalize){var h=c.normalize(g,d,e,t);h&&(e=h[0],t=h[1])}}}g.push(d)}"regexp"===u(e)&&"regexp"===u(t)&&(e=e.toString(),t=t.toString());var y="undefined"==typeof e?"undefined":N(e),v="undefined"==typeof t?"undefined":N(t),b="undefined"!==y||p&&p[p.length-1].lhs&&p[p.length-1].lhs.hasOwnProperty(d),m="undefined"!==v||p&&p[p.length-1].rhs&&p[p.length-1].rhs.hasOwnProperty(d);if(!b&&m)r(new o(g,t));else if(!m&&b)r(new i(g,e));else if(u(e)!==u(t))r(new n(g,e,t));else if("date"===u(e)&&e-t!==0)r(new n(g,e,t));else if("object"===y&&null!==e&&null!==t)if(p.filter(function(t){return t.lhs===e}).length)e!==t&&r(new n(g,e,t));else{if(p.push({lhs:e,rhs:t}),Array.isArray(e)){var w;e.length;for(w=0;w<e.length;w++)w>=t.length?r(new a(g,w,new i(void 0,e[w]))):l(e[w],t[w],r,c,g,w,p);for(;w<t.length;)r(new a(g,w,new o(void 0,t[w++])))}else{var x=Object.keys(e),S=Object.keys(t);x.forEach(function(n,o){var i=S.indexOf(n);i>=0?(l(e[n],t[n],r,c,g,n,p),S=f(S,i)):l(e[n],void 0,r,c,g,n,p)}),S.forEach(function(e){l(void 0,t[e],r,c,g,e,p)})}p.length=p.length-1}else e!==t&&("number"===y&&isNaN(e)&&isNaN(t)||r(new n(g,e,t)))}function c(e,t,r,n){return n=n||[],l(e,t,function(e){e&&n.push(e)},r),n.length?n:void 0}function s(e,t,r){if(r.path&&r.path.length){var n,o=e[t],i=r.path.length-1;for(n=0;n<i;n++)o=o[r.path[n]];switch(r.kind){case"A":s(o[r.path[n]],r.index,r.item);break;case"D":delete o[r.path[n]];break;case"E":case"N":o[r.path[n]]=r.rhs}}else switch(r.kind){case"A":s(e[t],r.index,r.item);break;case"D":e=f(e,t);break;case"E":case"N":e[t]=r.rhs}return e}function d(e,t,r){if(e&&t&&r&&r.kind){for(var n=e,o=-1,i=r.path?r.path.length-1:0;++o<i;)"undefined"==typeof n[r.path[o]]&&(n[r.path[o]]="number"==typeof r.path[o]?[]:{}),n=n[r.path[o]];switch(r.kind){case"A":s(r.path?n[r.path[o]]:n,r.index,r.item);break;case"D":delete n[r.path[o]];break;case"E":case"N":n[r.path[o]]=r.rhs}}}function p(e,t,r){if(r.path&&r.path.length){var n,o=e[t],i=r.path.length-1;for(n=0;n<i;n++)o=o[r.path[n]];switch(r.kind){case"A":p(o[r.path[n]],r.index,r.item);break;case"D":o[r.path[n]]=r.lhs;break;case"E":o[r.path[n]]=r.lhs;break;case"N":delete o[r.path[n]]}}else switch(r.kind){case"A":p(e[t],r.index,r.item);break;case"D":e[t]=r.lhs;break;case"E":e[t]=r.lhs;break;case"N":e=f(e,t)}return e}function g(e,t,r){if(e&&t&&r&&r.kind){var n,o,i=e;for(o=r.path.length-1,n=0;n<o;n++)"undefined"==typeof i[r.path[n]]&&(i[r.path[n]]={}),i=i[r.path[n]];switch(r.kind){case"A":p(i[r.path[n]],r.index,r.item);break;case"D":i[r.path[n]]=r.lhs;break;case"E":i[r.path[n]]=r.lhs;break;case"N":delete i[r.path[n]]}}}function h(e,t,r){if(e&&t){var n=function(n){r&&!r(e,t,n)||d(e,t,n)};l(e,t,n)}}function y(e){return"color: "+F[e].color+"; font-weight: bold"}function v(e){var t=e.kind,r=e.path,n=e.lhs,o=e.rhs,i=e.index,a=e.item;switch(t){case"E":return[r.join("."),n,"→",o];case"N":return[r.join("."),o];case"D":return[r.join(".")];case"A":return[r.join(".")+"["+i+"]",a];default:return[]}}function b(e,t,r,n){var o=c(e,t);try{n?r.groupCollapsed("diff"):r.group("diff")}catch(e){r.log("diff")}o?o.forEach(function(e){var t=e.kind,n=v(e);r.log.apply(r,["%c "+F[t].text,y(t)].concat(P(n)))}):r.log("—— no diff ——");try{r.groupEnd()}catch(e){r.log("—— diff end —— ")}}function m(e,t,r,n){switch("undefined"==typeof e?"undefined":N(e)){case"object":return"function"==typeof e[n]?e[n].apply(e,P(r)):e[n];case"function":return e(t);default:return e}}function w(e){var t=e.timestamp,r=e.duration;return function(e,n,o){var i=["action"];return i.push("%c"+String(e.type)),t&&i.push("%c@ "+n),r&&i.push("%c(in "+o.toFixed(2)+" ms)"),i.join(" ")}}function x(e,t){var r=t.logger,n=t.actionTransformer,o=t.titleFormatter,i=void 0===o?w(t):o,a=t.collapsed,f=t.colors,u=t.level,l=t.diff,c="undefined"==typeof t.titleFormatter;e.forEach(function(o,s){var d=o.started,p=o.startedTime,g=o.action,h=o.prevState,y=o.error,v=o.took,w=o.nextState,x=e[s+1];x&&(w=x.prevState,v=x.started-d);var S=n(g),k="function"==typeof a?a(function(){return w},g,o):a,j=D(p),E=f.title?"color: "+f.title(S)+";":"",A=["color: gray; font-weight: lighter;"];A.push(E),t.timestamp&&A.push("color: gray; font-weight: lighter;"),t.duration&&A.push("color: gray; font-weight: lighter;");var O=i(S,j,v);try{k?f.title&&c?r.groupCollapsed.apply(r,["%c "+O].concat(A)):r.groupCollapsed(O):f.title&&c?r.group.apply(r,["%c "+O].concat(A)):r.group(O)}catch(e){r.log(O)}var N=m(u,S,[h],"prevState"),P=m(u,S,[S],"action"),C=m(u,S,[y,h],"error"),F=m(u,S,[w],"nextState");if(N)if(f.prevState){var L="color: "+f.prevState(h)+"; font-weight: bold";r[N]("%c prev state",L,h)}else r[N]("prev state",h);if(P)if(f.action){var T="color: "+f.action(S)+"; font-weight: bold";r[P]("%c action    ",T,S)}else r[P]("action    ",S);if(y&&C)if(f.error){var M="color: "+f.error(y,h)+"; font-weight: bold;";r[C]("%c error     ",M,y)}else r[C]("error     ",y);if(F)if(f.nextState){var _="color: "+f.nextState(w)+"; font-weight: bold";r[F]("%c next state",_,w)}else r[F]("next state",w);l&&b(h,w,r,k);try{r.groupEnd()}catch(e){r.log("—— log end ——")}})}function S(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},t=Object.assign({},L,e),r=t.logger,n=t.stateTransformer,o=t.errorTransformer,i=t.predicate,a=t.logErrors,f=t.diffPredicate;if("undefined"==typeof r)return function(){return function(e){return function(t){return e(t)}}};if(e.getState&&e.dispatch)return console.error("[redux-logger] redux-logger not installed. Make sure to pass logger instance as middleware:\n// Logger with default options\nimport { logger } from 'redux-logger'\nconst store = createStore(\n  reducer,\n  applyMiddleware(logger)\n)\n// Or you can create your own logger with custom options http://bit.ly/redux-logger-options\nimport createLogger from 'redux-logger'\nconst logger = createLogger({\n  // ...options\n});\nconst store = createStore(\n  reducer,\n  applyMiddleware(logger)\n)\n"),function(){return function(e){return function(t){return e(t)}}};var u=[];return function(e){var r=e.getState;return function(e){return function(l){if("function"==typeof i&&!i(r,l))return e(l);var c={};u.push(c),c.started=O.now(),c.startedTime=new Date,c.prevState=n(r()),c.action=l;var s=void 0;if(a)try{s=e(l)}catch(e){c.error=o(e)}else s=e(l);c.took=O.now()-c.started,c.nextState=n(r());var d=t.diff&&"function"==typeof f?f(r,l):t.diff;if(x(u,Object.assign({},t,{diff:d})),u.length=0,c.error)throw c.error;return s}}}}var k,j,E=function(e,t){return new Array(t+1).join(e)},A=function(e,t){return E("0",t-e.toString().length)+e},D=function(e){return A(e.getHours(),2)+":"+A(e.getMinutes(),2)+":"+A(e.getSeconds(),2)+"."+A(e.getMilliseconds(),3)},O="undefined"!=typeof performance&&null!==performance&&"function"==typeof performance.now?performance:Date,N="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},P=function(e){if(Array.isArray(e)){for(var t=0,r=Array(e.length);t<e.length;t++)r[t]=e[t];return r}return Array.from(e)},C=[];k="object"===("undefined"==typeof global?"undefined":N(global))&&global?global:"undefined"!=typeof window?window:{},j=k.DeepDiff,j&&C.push(function(){"undefined"!=typeof j&&k.DeepDiff===c&&(k.DeepDiff=j,j=void 0)}),t(n,r),t(o,r),t(i,r),t(a,r),Object.defineProperties(c,{diff:{value:c,enumerable:!0},observableDiff:{value:l,enumerable:!0},applyDiff:{value:h,enumerable:!0},applyChange:{value:d,enumerable:!0},revertChange:{value:g,enumerable:!0},isConflict:{value:function(){return"undefined"!=typeof j},enumerable:!0},noConflict:{value:function(){return C&&(C.forEach(function(e){e()}),C=null),c},enumerable:!0}});var F={E:{color:"#2196F3",text:"CHANGED:"},N:{color:"#4CAF50",text:"ADDED:"},D:{color:"#F44336",text:"DELETED:"},A:{color:"#2196F3",text:"ARRAY:"}},L={level:"log",logger:console,logErrors:!0,collapsed:void 0,predicate:void 0,duration:!1,timestamp:!0,stateTransformer:function(e){return e},actionTransformer:function(e){return e},errorTransformer:function(e){return e},colors:{title:function(){return"inherit"},prevState:function(){return"#9E9E9E"},action:function(){return"#03A9F4"},nextState:function(){return"#4CAF50"},error:function(){return"#F20404"}},diff:!1,diffPredicate:void 0,transformer:void 0},T=function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},t=e.dispatch,r=e.getState;return"function"==typeof t||"function"==typeof r?S()({dispatch:t,getState:r}):void console.error("\n[redux-logger v3] BREAKING CHANGE\n[redux-logger v3] Since 3.0.0 redux-logger exports by default logger with default settings.\n[redux-logger v3] Change\n[redux-logger v3] import createLogger from 'redux-logger'\n[redux-logger v3] to\n[redux-logger v3] import { createLogger } from 'redux-logger'\n")};e.defaults=L,e.createLogger=S,e.logger=T,e.default=T,Object.defineProperty(e,"__esModule",{value:!0})});
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],111:[function(require,module,exports){
+},{}],116:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29041,7 +29750,7 @@ function promiseMiddleware() {
     };
   };
 }
-},{"./isPromise.js":112}],112:[function(require,module,exports){
+},{"./isPromise.js":117}],117:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29058,7 +29767,7 @@ function isPromise(value) {
 
   return false;
 }
-},{}],113:[function(require,module,exports){
+},{}],118:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -29082,7 +29791,7 @@ var thunk = createThunkMiddleware();
 thunk.withExtraArgument = createThunkMiddleware;
 
 exports['default'] = thunk;
-},{}],114:[function(require,module,exports){
+},{}],119:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -29141,7 +29850,7 @@ function applyMiddleware() {
     };
   };
 }
-},{"./compose":117}],115:[function(require,module,exports){
+},{"./compose":122}],120:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -29193,7 +29902,7 @@ function bindActionCreators(actionCreators, dispatch) {
   }
   return boundActionCreators;
 }
-},{}],116:[function(require,module,exports){
+},{}],121:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -29339,7 +30048,7 @@ function combineReducers(reducers) {
   };
 }
 }).call(this,require('_process'))
-},{"./createStore":118,"./utils/warning":120,"_process":70,"lodash/isPlainObject":130}],117:[function(require,module,exports){
+},{"./createStore":123,"./utils/warning":125,"_process":75,"lodash/isPlainObject":135}],122:[function(require,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -29376,7 +30085,7 @@ function compose() {
     };
   });
 }
-},{}],118:[function(require,module,exports){
+},{}],123:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -29638,7 +30347,7 @@ var ActionTypes = exports.ActionTypes = {
     replaceReducer: replaceReducer
   }, _ref2[_symbolObservable2['default']] = observable, _ref2;
 }
-},{"lodash/isPlainObject":130,"symbol-observable":131}],119:[function(require,module,exports){
+},{"lodash/isPlainObject":135,"symbol-observable":136}],124:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -29687,7 +30396,7 @@ exports.bindActionCreators = _bindActionCreators2['default'];
 exports.applyMiddleware = _applyMiddleware2['default'];
 exports.compose = _compose2['default'];
 }).call(this,require('_process'))
-},{"./applyMiddleware":114,"./bindActionCreators":115,"./combineReducers":116,"./compose":117,"./createStore":118,"./utils/warning":120,"_process":70}],120:[function(require,module,exports){
+},{"./applyMiddleware":119,"./bindActionCreators":120,"./combineReducers":121,"./compose":122,"./createStore":123,"./utils/warning":125,"_process":75}],125:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -29713,27 +30422,27 @@ function warning(message) {
   } catch (e) {}
   /* eslint-enable no-empty */
 }
-},{}],121:[function(require,module,exports){
-arguments[4][96][0].apply(exports,arguments)
-},{"./_root":128,"dup":96}],122:[function(require,module,exports){
-arguments[4][97][0].apply(exports,arguments)
-},{"./_Symbol":121,"./_getRawTag":125,"./_objectToString":126,"dup":97}],123:[function(require,module,exports){
-arguments[4][98][0].apply(exports,arguments)
-},{"dup":98}],124:[function(require,module,exports){
-arguments[4][99][0].apply(exports,arguments)
-},{"./_overArg":127,"dup":99}],125:[function(require,module,exports){
-arguments[4][100][0].apply(exports,arguments)
-},{"./_Symbol":121,"dup":100}],126:[function(require,module,exports){
+},{}],126:[function(require,module,exports){
 arguments[4][101][0].apply(exports,arguments)
-},{"dup":101}],127:[function(require,module,exports){
+},{"./_root":133,"dup":101}],127:[function(require,module,exports){
 arguments[4][102][0].apply(exports,arguments)
-},{"dup":102}],128:[function(require,module,exports){
+},{"./_Symbol":126,"./_getRawTag":130,"./_objectToString":131,"dup":102}],128:[function(require,module,exports){
 arguments[4][103][0].apply(exports,arguments)
-},{"./_freeGlobal":123,"dup":103}],129:[function(require,module,exports){
+},{"dup":103}],129:[function(require,module,exports){
 arguments[4][104][0].apply(exports,arguments)
-},{"dup":104}],130:[function(require,module,exports){
+},{"./_overArg":132,"dup":104}],130:[function(require,module,exports){
 arguments[4][105][0].apply(exports,arguments)
-},{"./_baseGetTag":122,"./_getPrototype":124,"./isObjectLike":129,"dup":105}],131:[function(require,module,exports){
+},{"./_Symbol":126,"dup":105}],131:[function(require,module,exports){
+arguments[4][106][0].apply(exports,arguments)
+},{"dup":106}],132:[function(require,module,exports){
+arguments[4][107][0].apply(exports,arguments)
+},{"dup":107}],133:[function(require,module,exports){
+arguments[4][108][0].apply(exports,arguments)
+},{"./_freeGlobal":128,"dup":108}],134:[function(require,module,exports){
+arguments[4][109][0].apply(exports,arguments)
+},{"dup":109}],135:[function(require,module,exports){
+arguments[4][110][0].apply(exports,arguments)
+},{"./_baseGetTag":127,"./_getPrototype":129,"./isObjectLike":134,"dup":110}],136:[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -29765,7 +30474,7 @@ if (typeof self !== 'undefined') {
 var result = (0, _ponyfill2['default'])(root);
 exports['default'] = result;
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./ponyfill.js":132}],132:[function(require,module,exports){
+},{"./ponyfill.js":137}],137:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29789,4 +30498,4 @@ function symbolObservablePonyfill(root) {
 
 	return result;
 };
-},{}]},{},[19]);
+},{}]},{},[24]);

@@ -324,9 +324,6 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
 	       $chat->time = $chat->pnd_time = time();
 	       $chat->status = 0;
 
-			// Set bot workflow if required
-            erLhcoreClassChatValidator::setBot($chat);
-
 	       $chat->hash = erLhcoreClassChat::generateHash();
 	       $chat->referrer = isset($_POST['URLRefer']) ? $_POST['URLRefer'] : '';
 	       $chat->session_referrer = isset($_POST['r']) ? $_POST['r'] : '';
@@ -343,7 +340,9 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
     	       
     	       // Store chat
     	       $chat->saveThis();
-    
+
+
+
     	       // Assign chat to user
     	       if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 ) {
     	            // To track online users
@@ -442,8 +441,12 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
     	           $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_START_ON_KEY_UP;
     	           $chat->saveThis();
     	       }
-    	       
+
+    	       // Set bot workflow if required
+               erLhcoreClassChatValidator::setBot($chat);
+
     	       erLhcoreClassChat::updateDepartmentStats($chat->department);
+
     	       erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started',array('chat' => & $chat, 'msg' => $messageInitial));
     
     	       // Paid chat settings

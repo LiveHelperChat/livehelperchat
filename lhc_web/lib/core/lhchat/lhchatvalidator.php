@@ -1076,6 +1076,18 @@ class erLhcoreClassChatValidator {
 
                 $chat->chat_variables = json_encode($variablesArray);
                 $chat->chat_variables_array = $variablesArray;
+
+                // Find default messages if there are any
+                $botTrigger = erLhcoreClassModelGenericBotTrigger::findOne(array('filter' => array('bot_id' => $bot->id, 'default' => 1)));
+                if ($botTrigger instanceof erLhcoreClassModelGenericBotTrigger) {
+
+                    $message = erLhcoreClassGenericBotWorkflow::processTrigger($chat, $botTrigger);
+
+                    if (isset($message) && $message instanceof erLhcoreClassModelmsg) {
+                        $chat->last_msg_id = $message->id;
+                        $chat->saveThis();
+                    }
+                }
             }
         }
     }

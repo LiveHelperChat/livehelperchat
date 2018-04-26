@@ -18,6 +18,7 @@ class erLhcoreClassModelGenericBotTriggerEvent {
             'id' => $this->id,
             'trigger_id' => $this->trigger_id,
             'pattern' => $this->pattern,
+            'bot_id' => $this->bot_id,
             'type' => $this->type,
         );
 
@@ -50,4 +51,5 @@ class erLhcoreClassModelGenericBotTriggerEvent {
     public $trigger_id = 0;
     public $pattern = '';
     public $type = 0;
+    public $bot_id = 0;
 }

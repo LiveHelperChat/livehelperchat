@@ -18,7 +18,9 @@ class erLhcoreClassModelGenericBotTrigger {
             'id' => $this->id,
             'name' => $this->name,
             'group_id' => $this->group_id,
+            'bot_id' => $this->bot_id,
             'actions' => $this->actions,
+        	'default' => $this->default,
         );
 
         return $stateArray;
@@ -72,4 +74,6 @@ class erLhcoreClassModelGenericBotTrigger {
     public $name = '';
     public $actions = '';
     public $group_id = 0;
+    public $bot_id = 0;
+    public $default = 0;
 }

@@ -114,7 +114,8 @@ gulp.task('default-react', ['react-js'], function() {
     	'design/defaulttheme/js/react/src/*.js',
 		'design/defaulttheme/js/react/src/*.jsx',
 		'design/defaulttheme/js/react/src/*/*.js',
-		'design/defaulttheme/js/react/src/*/*/*.js'
+		'design/defaulttheme/js/react/src/*/*/*.js',
+		'design/defaulttheme/js/react/src/*/*/*/*.js'
 	], ['react-js']);
 });
 

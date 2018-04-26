@@ -19,10 +19,20 @@ $def->properties['group_id']->columnName   = 'group_id';
 $def->properties['group_id']->propertyName = 'group_id';
 $def->properties['group_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['bot_id'] = new ezcPersistentObjectProperty();
+$def->properties['bot_id']->columnName   = 'bot_id';
+$def->properties['bot_id']->propertyName = 'bot_id';
+$def->properties['bot_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['actions'] = new ezcPersistentObjectProperty();
 $def->properties['actions']->columnName   = 'actions';
 $def->properties['actions']->propertyName = 'actions';
 $def->properties['actions']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['default'] = new ezcPersistentObjectProperty();
+$def->properties['default']->columnName   = 'default';
+$def->properties['default']->propertyName = 'default';
+$def->properties['default']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
 return $def;
 

@@ -833,7 +833,10 @@ function lh(){
     	            		
     	            		messageBlock.find('.pending-storage').remove();
     	            		messageBlock.append(data.result);
-    	            		
+
+                            messageBlock.find('.meta-auto-hide').hide();
+                            messageBlock.find('.message-row').last().find('.meta-message > .meta-auto-hide').show();
+
 	  	                	if (isAtTheBottom < 20) {
 	  	                		messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
 	  	                	}  	                	  
@@ -3139,9 +3142,27 @@ function lh(){
     	lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'chat/editnick/'+this.chat_id+'/'+this.hash})   
     }
 
-    this.buttonClicked = function(payload) {
-        $.get(this.wwwDir + 'genericbot/buttonclicked/'+this.chat_id+'/'+this.hash,{payload: payload},function(data){
+    this.buttonClicked = function(payload, id) {
+        $.get(this.wwwDir + 'genericbot/buttonclicked/'+this.chat_id+'/'+this.hash,{payload: payload, id : id},function(data){
+            $('#meta-message-'+id).remove();
+            jQuery('<div/>', {
+                'class': 'message-row pending-storage pending-storage-bot',
+                text: 'Processing...'
+            }).appendTo($('#messagesBlock'));
 
+            lhinst.syncusercall();
+        });
+    }
+
+    this.updateChatClicked = function(payload, id) {
+        $.get(this.wwwDir + 'genericbot/updatebuttonclicked/'+this.chat_id+'/'+this.hash,{payload: payload, id : id},function(data){
+            $('#meta-message-'+id).remove();
+            jQuery('<div/>', {
+                'class': 'message-row pending-storage pending-storage-bot',
+                text: 'Processing...'
+            }).appendTo($('#messagesBlock'));
+
+            lhinst.syncusercall();
         });
     }
 

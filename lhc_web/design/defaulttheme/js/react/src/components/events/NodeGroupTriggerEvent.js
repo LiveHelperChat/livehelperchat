@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 
+import NodeTriggerPayloadList from '../builder/NodeTriggerPayloadList';
+
 class NodeGroupTriggerEvent extends Component {
 
     constructor(props) {
         super(props);
         this.typeChange = this.typeChange.bind(this);
         this.textChange = this.textChange.bind(this);
+        this.payloadChange = this.payloadChange.bind(this);
         this.deleteEvent = this.deleteEvent.bind(this);
     }
 
@@ -15,6 +18,10 @@ class NodeGroupTriggerEvent extends Component {
 
     textChange(e) {
         this.props.updateEvent(this.props.event.set('pattern',e.target.value));
+    }
+
+    payloadChange(payload) {
+        this.props.updateEvent(this.props.event.set('pattern',payload));
     }
 
     deleteEvent() {
@@ -36,7 +43,11 @@ class NodeGroupTriggerEvent extends Component {
                 <div className="col-xs-5">
                     <div className="form-group">
                         <label>Pattern or event name</label>
-                        <input onChange={this.textChange} type="text" className="form-control input-sm" value={this.props.event.get('pattern')} />
+                        {this.props.event.get('type') == 0 ? (
+                                 <input onChange={this.textChange} type="text" className="form-control input-sm" value={this.props.event.get('pattern')} />
+                            ) : (
+                             <NodeTriggerPayloadList onSetPayload={this.payloadChange} payload={this.props.event.get('pattern')} />
+                        )}
                     </div>
                 </div>
                 <div className="col-xs-2">

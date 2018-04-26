@@ -11,6 +11,24 @@ $ViewList['bot'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['initbot'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
+$ViewList['addpayload'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
+$ViewList['getpayloads'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
 $ViewList['nodegroups'] = array(
     'params' => array('id'),
     'uparams' => array(),
@@ -107,10 +125,26 @@ $ViewList['removetrigger'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['setdefaulttrigger'] = array(
+    'params' => array('id','default'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
 $ViewList['nodetriggeractions'] = array(
     'params' => array('id'),
     'uparams' => array(),
     'functions' => array( 'use' )
+);
+
+$ViewList['buttonclicked'] = array(
+    'params' => array('chat_id', 'hash'),
+    'uparams' => array()
+);
+
+$ViewList['updatebuttonclicked'] = array(
+    'params' => array('chat_id', 'hash'),
+    'uparams' => array()
 );
 
 $FunctionList['use'] = array('explain' => 'General permission to use generic bot module');

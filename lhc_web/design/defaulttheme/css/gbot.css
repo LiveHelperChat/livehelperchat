@@ -23,3 +23,7 @@
 .gen-btn-list .btn{
     margin: 5px 5px 5px 0px;
 }
+
+.default-trigger-btn{
+    background-color: #5cb85c87;
+}
