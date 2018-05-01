@@ -93,9 +93,9 @@ gulp.task('react-components',[], function () {
 });
 
 gulp.task('react-js', [/*'react','react-components'*/], function() {
-    // Assumes a file has been transformed from
-    // ./app/src/main.jsx to ./app/dist/main.js
-    //process.env.NODE_ENV = 'production';
+
+    process.env.NODE_ENV = 'production';
+
     return browserify('design/defaulttheme/js/react/src/index.jsx')
         .transform("babelify", {
         	presets: ["react", "es2015", "stage-0"],
@@ -105,7 +105,7 @@ gulp.task('react-js', [/*'react','react-components'*/], function() {
         .on('error', gutil.log)
         .pipe(source('all.js'))
         .pipe(buffer())
-        //.pipe(uglify({ mangle: false }))
+        .pipe(uglify({ mangle: false }))
         .pipe(gulp.dest('design/defaulttheme/js/react/build'))
 });
 
