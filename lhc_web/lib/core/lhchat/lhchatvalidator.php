@@ -1085,9 +1085,10 @@ class erLhcoreClassChatValidator {
 
                     if (isset($message) && $message instanceof erLhcoreClassModelmsg) {
                         $chat->last_msg_id = $message->id;
-                        $chat->saveThis();
                     }
                 }
+
+                $chat->saveThis();
             }
         }
     }

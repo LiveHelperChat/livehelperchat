@@ -5,8 +5,8 @@
             <a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','collapse/expand')?>" ng-click="lhc.toggleWidget('botc_widget_exp')" class="fs24 pull-right material-icons exp-cntr">{{lhc.toggleWidgetData['botc_widget_exp'] == false ? 'expand_less' : 'expand_more'}}</a>
         </div>
 
+        <?php if (erLhcoreClassModelUserSetting::getSetting('enable_bot_list',0) == 1) : ?>
         <div ng-if="lhc.toggleWidgetData['botc_widget_exp'] !== true">
-
             <?php $optinsPanel = array('panelid' => 'botd', 'limitid' => 'limitb'); ?>
             <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/parts/options.tpl.php'));?>
 
@@ -15,7 +15,9 @@
             </div>
 
             <div ng-if="bot_chats.list.length == 0" class="m10 alert alert-info"><i class="material-icons">search</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Nothing found')?>...</div>
-
         </div>
+        <?php else : ?>
+            <div class="m10 alert alert-info"><i class="material-icons">search</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Please enable bot chats list in your account!')?></div>
+        <?php endif; ?>
     </div>
 <?php endif; ?>
