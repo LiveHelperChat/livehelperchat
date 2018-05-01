@@ -2,6 +2,22 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -199,6 +215,18 @@
     </message>
     <message>
       <source>Please enter explicit http mode. Either http: or https:, do not forget : at the end.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Encrypt also operators messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>After how many days encrypt messaes.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Do not track visitors IP.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1164,6 +1192,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Anonymized</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Search</source>
       <translation>Kerko</translation>
     </message>
@@ -1257,6 +1289,22 @@
     </message>
     <message>
       <source>Week</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Day interval to include from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Select hour</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Select minute</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Day interval to include to</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1371,6 +1419,10 @@
       <translation>Mezash i ri i konservuar</translation>
     </message>
     <message>
+      <source>Messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Main</source>
       <translation type="unfinished"/>
     </message>
@@ -1387,20 +1439,24 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Message</source>
-      <translation>Mesazh</translation>
-    </message>
-    <message>
-      <source>Fallback message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Automatically send this message to user then chat is accepted</source>
       <translation>Automatikisht dergo këtë mesazh tek përdoruesi kur chat-i pranohet</translation>
     </message>
     <message>
       <source>Delay in seconds</source>
       <translation>Vonesa ne sekonda</translation>
+    </message>
+    <message>
+      <source>The smaller the position value the higher the canned message will appear in the list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message</source>
+      <translation>Mesazh</translation>
+    </message>
+    <message>
+      <source>Fallback message</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Tag&apos;s</source>
@@ -2206,6 +2262,10 @@
       <translation>Kodi BB</translation>
     </message>
     <message>
+      <source>Load more...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chatbox is disabled.</source>
       <translation>Kutia e bisedes eshte c&apos;aktivizuar</translation>
     </message>
@@ -2377,6 +2437,10 @@
     <message>
       <source>Miscellaneous</source>
       <translation>Te ndryshme</translation>
+    </message>
+    <message>
+      <source>Bot configuration</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Work hours/work days logic is active</source>
@@ -2934,6 +2998,10 @@
     <message>
       <source>Delete chat</source>
       <translation>Fshi biseden</translation>
+    </message>
+    <message>
+      <source>Modify chat</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Edit main chat information</source>
@@ -4890,6 +4958,10 @@
       <translation>Konfigurimet u rifreskuan</translation>
     </message>
     <message>
+      <source>Data protection</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Screen sharing</source>
       <translation type="unfinished"/>
     </message>
@@ -5351,6 +5423,30 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Overloaded</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hour</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Parameter</source>
       <translation>Parametrat</translation>
     </message>
@@ -5483,6 +5579,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Last 24 hours statistic</source>
       <translation type="unfinished"/>
     </message>
@@ -5542,6 +5642,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>User attribute</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat attributes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>E-mail</source>
       <translation type="unfinished"/>
     </message>
@@ -5559,6 +5667,14 @@
     </message>
     <message>
       <source>Update chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unanswered chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5729,6 +5845,10 @@
     </message>
     <message>
       <source>Check for messages from the operators, interval in seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Preload previous chat messages on chat open</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6414,6 +6534,10 @@
       <translation>Fshi</translation>
     </message>
     <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Username</source>
       <translation type="unfinished"/>
     </message>
@@ -6664,6 +6788,10 @@
     </message>
     <message>
       <source>New department limit group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New bot</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9196,6 +9324,26 @@
       <source>Average chat length</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Overloaded</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hour</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/closechatadmin</name>
@@ -9216,6 +9364,10 @@
     </message>
     <message>
       <source>Transfer department has to be different one than self</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter bot name!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9515,6 +9667,32 @@
     <name>statistic/onlinehours</name>
     <message>
       <source>Online Hours</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>genericbot/edit</name>
+    <message>
+      <source>System configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bots</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>genericbot/new</name>
+    <message>
+      <source>System configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bots</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
       <translation type="unfinished"/>
     </message>
   </context>

@@ -2,6 +2,22 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Per quanti giorni il widget di voto non deve essere mostrato dopo l&apos;ultima visualizzazione</translation>
     </message>
@@ -200,6 +216,18 @@
     <message>
       <source>Please enter explicit http mode. Either http: or https:, do not forget : at the end.</source>
       <translation>Per favore inserisci modalità http esplicite. http: o https: , non dimenticare il : alla fine</translation>
+    </message>
+    <message>
+      <source>Encrypt also operators messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>After how many days encrypt messaes.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Do not track visitors IP.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Disable chat transcript send</source>
@@ -1165,6 +1193,10 @@
       <translation>Chat senza risposta</translation>
     </message>
     <message>
+      <source>Anonymized</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Search</source>
       <translation>Cerca</translation>
     </message>
@@ -1259,6 +1291,22 @@
     <message>
       <source>Week</source>
       <translation>Settimana</translation>
+    </message>
+    <message>
+      <source>Day interval to include from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Select hour</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Select minute</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Day interval to include to</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Date range from to</source>
@@ -1372,6 +1420,10 @@
       <translation>Nuovo messaggio predefinito</translation>
     </message>
     <message>
+      <source>Messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Main</source>
       <translation>Principale</translation>
     </message>
@@ -1388,20 +1440,24 @@
       <translation>Spiegare</translation>
     </message>
     <message>
-      <source>Message</source>
-      <translation>Messaggio</translation>
-    </message>
-    <message>
-      <source>Fallback message</source>
-      <translation>Messaggio di fallback</translation>
-    </message>
-    <message>
       <source>Automatically send this message to user then chat is accepted</source>
       <translation>Invia automaticamente il messaggio all&apos; utente ed accetta la chat</translation>
     </message>
     <message>
       <source>Delay in seconds</source>
       <translation>Ritardo in secondi</translation>
+    </message>
+    <message>
+      <source>The smaller the position value the higher the canned message will appear in the list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message</source>
+      <translation>Messaggio</translation>
+    </message>
+    <message>
+      <source>Fallback message</source>
+      <translation>Messaggio di fallback</translation>
     </message>
     <message>
       <source>Tag&apos;s</source>
@@ -1453,7 +1509,7 @@
     </message>
     <message>
       <source>Dialects</source>
-      <translation>DIaletti</translation>
+      <translation>Dialetti</translation>
     </message>
     <message>
       <source>Edit dialect</source>
@@ -1911,7 +1967,7 @@
     </message>
     <message>
       <source>Dialects</source>
-      <translation>DIaletti</translation>
+      <translation>Dialetti</translation>
     </message>
     <message>
       <source>General</source>
@@ -2207,6 +2263,10 @@
       <translation>Codice BB</translation>
     </message>
     <message>
+      <source>Load more...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chatbox is disabled.</source>
       <translation>Chatbox è disabilitata</translation>
     </message>
@@ -2378,6 +2438,10 @@
     <message>
       <source>Miscellaneous</source>
       <translation>Varie</translation>
+    </message>
+    <message>
+      <source>Bot configuration</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Work hours/work days logic is active</source>
@@ -2935,6 +2999,10 @@
     <message>
       <source>Delete chat</source>
       <translation>Elimina Chat</translation>
+    </message>
+    <message>
+      <source>Modify chat</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Edit main chat information</source>
@@ -4890,6 +4958,10 @@
       <translation>Impostazioni aggiornate</translation>
     </message>
     <message>
+      <source>Data protection</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Screen sharing</source>
       <translation>Condivisione dello schermo</translation>
     </message>
@@ -5351,6 +5423,30 @@
       <translation>Numero</translation>
     </message>
     <message>
+      <source>Online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Overloaded</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hour</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Parameter</source>
       <translation>Parametri</translation>
     </message>
@@ -5483,6 +5579,10 @@
       <translation>Statistiche agente</translation>
     </message>
     <message>
+      <source>Departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Last 24 hours statistic</source>
       <translation>Ultime statistiche delle 24 ore</translation>
     </message>
@@ -5542,6 +5642,14 @@
       <translation>Modificare la chat</translation>
     </message>
     <message>
+      <source>User attribute</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat attributes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>E-mail</source>
       <translation>E-mail</translation>
     </message>
@@ -5560,6 +5668,14 @@
     <message>
       <source>Update chat</source>
       <translation>Aggiorna la chat</translation>
+    </message>
+    <message>
+      <source>Unanswered chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chat information was updated</source>
@@ -5730,6 +5846,10 @@
     <message>
       <source>Check for messages from the operators, interval in seconds</source>
       <translation>Verificare la presenza di messaggi da parte dell&apos;operatore, intervallo in secondi</translation>
+    </message>
+    <message>
+      <source>Preload previous chat messages on chat open</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Messages settings</source>
@@ -6414,6 +6534,10 @@
       <translation>Elimina</translation>
     </message>
     <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Username</source>
       <translation>Username</translation>
     </message>
@@ -6665,6 +6789,10 @@
     <message>
       <source>New department limit group</source>
       <translation>Nuovo limite dipartimento gruppo</translation>
+    </message>
+    <message>
+      <source>New bot</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>System configuration</source>
@@ -9196,6 +9324,26 @@
       <source>Average chat length</source>
       <translation>Tempo medio durata chat</translation>
     </message>
+    <message>
+      <source>Online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Overloaded</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hour</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/closechatadmin</name>
@@ -9217,6 +9365,10 @@
     <message>
       <source>Transfer department has to be different one than self</source>
       <translation>Il Dipartimento di trasferimento deve essere differente rispetto a quello attuale</translation>
+    </message>
+    <message>
+      <source>Please enter bot name!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter a valid from date range!</source>
@@ -9516,6 +9668,32 @@
     <message>
       <source>Online Hours</source>
       <translation>Orario della chat online</translation>
+    </message>
+  </context>
+  <context>
+    <name>genericbot/edit</name>
+    <message>
+      <source>System configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bots</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>genericbot/new</name>
+    <message>
+      <source>System configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bots</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>
