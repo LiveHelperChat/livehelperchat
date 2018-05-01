@@ -17,7 +17,7 @@ $validStatuses = array(
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.validstatus_chat',array('chat' => & $chat, 'valid_statuses' => & $validStatuses));
 
 try {
-    if ($chat->hash == $Params['user_parameters']['hash'] && (in_array($chat->status,$validStatuses)) /*&& !in_array($chat->status_sub, array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW,erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM))*/) {
+    if ($chat->hash == $Params['user_parameters']['hash'] && (in_array($chat->status,$validStatuses)) && !in_array($chat->status_sub, array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW,erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM))) {
 
         if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
             throw new Exception('Message not provided!');
