@@ -26,7 +26,7 @@ if ($pages->items_total > 0) {
     $tpl->set('items',$items);
 }
 
-$filterParams['input_form']->form_action = erLhcoreClassDesign::baseurl('chat/list');
+$filterParams['input_form']->form_action = erLhcoreClassDesign::baseurl('genericbot/list');
 $tpl->set('input',$filterParams['input_form']);
 $tpl->set('inputAppend',$append);
 

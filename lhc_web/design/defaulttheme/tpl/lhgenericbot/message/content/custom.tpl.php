@@ -5,6 +5,6 @@
         $metaMessageContent = call_user_func_array($metaMessage['render_function'],$argsCall) ?>
         <?php echo $metaMessageContent?>
     <?php else : ?>
-        <p>Function is not callable <?php echo htmlspecialchars($metaMessage['render_function'])?></p>
+        <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/list','Function is not callable')?> <?php echo htmlspecialchars($metaMessage['render_function'])?></p>
     <?php endif; ?>
 </div>

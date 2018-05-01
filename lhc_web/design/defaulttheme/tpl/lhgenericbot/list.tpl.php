@@ -1,4 +1,4 @@
-<h1>Bot list</h1>
+<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/list','Bot list')?></h1>
 
 <?php if (isset($items)) : ?>
 
@@ -24,7 +24,7 @@
 <?php if (isset($pages)) : ?>
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/paginator.tpl.php')); ?>
 <?php endif;?>
-<br />
+
 <?php endif; ?>
 
-<a class="btn btn-default" href="<?php echo erLhcoreClassDesign::baseurl('genericbot/new')?>">New</a>
+<a class="btn btn-default" href="<?php echo erLhcoreClassDesign::baseurl('genericbot/new')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/list','New')?></a>

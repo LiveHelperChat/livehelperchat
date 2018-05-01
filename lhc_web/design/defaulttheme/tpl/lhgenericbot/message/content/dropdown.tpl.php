@@ -12,6 +12,6 @@
         )); ?>
     </div>
 
-    <a class="btn btn-xs btn-info" onclick="lhinst.dropdownClicked(<?php echo $messageId?>)">Choose</a>
+    <a class="btn btn-xs btn-info" onclick="lhinst.dropdownClicked(<?php echo $messageId?>)"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/list','Choose')?></a>
 
 </div>
