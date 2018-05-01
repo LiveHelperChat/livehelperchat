@@ -962,6 +962,9 @@ var NodeTriggerBuilder = (_dec = (0, _reactRedux.connect)(function (store) {
         _this.removeQuickReply = _this.removeQuickReply.bind(_this);
         _this.removeAction = _this.removeAction.bind(_this);
         _this.addSubelement = _this.addSubelement.bind(_this);
+        _this.deleteSubelement = _this.deleteSubelement.bind(_this);
+        _this.moveUpSubelement = _this.moveUpSubelement.bind(_this);
+        _this.moveDownSubelement = _this.moveDownSubelement.bind(_this);
 
         _this.props.dispatch((0, _nodeGroupTriggerActions.initBot)(_this.props.botId));
         return _this;
@@ -1028,6 +1031,24 @@ var NodeTriggerBuilder = (_dec = (0, _reactRedux.connect)(function (store) {
             this.props.dispatch({ 'type': 'ADD_SUBELEMENT', 'payload': obj });
         }
     }, {
+        key: "deleteSubelement",
+        value: function deleteSubelement(obj) {
+            this.setState({ dataChanged: true });
+            this.props.dispatch({ 'type': 'REMOVE_SUBELEMENT', 'payload': obj });
+        }
+    }, {
+        key: "moveUpSubelement",
+        value: function moveUpSubelement(obj) {
+            this.setState({ dataChanged: true });
+            this.props.dispatch({ 'type': 'MOVE_UP_SUBELEMENT', 'payload': obj });
+        }
+    }, {
+        key: "moveDownSubelement",
+        value: function moveDownSubelement(obj) {
+            this.setState({ dataChanged: true });
+            this.props.dispatch({ 'type': 'MOVE_DOWN_SUBELEMENT', 'payload': obj });
+        }
+    }, {
         key: "render",
         value: function render() {
             var _this2 = this;
@@ -1040,7 +1061,7 @@ var NodeTriggerBuilder = (_dec = (0, _reactRedux.connect)(function (store) {
                     } else if (action.get('type') == 'list') {
                         return _react2.default.createElement(_NodeTriggerActionList2.default, { key: index + '-' + _this2.props.currenttrigger.get('currenttrigger').get('id'), id: index, removeAction: _this2.removeAction, onChangeContent: _this2.handleContentChange, onChangeType: _this2.handleTypeChange, action: action });
                     } else if (action.get('type') == 'collectable') {
-                        return _react2.default.createElement(_NodeTriggerActionCollectable2.default, { addSubelement: _this2.addSubelement, key: index + '-' + _this2.props.currenttrigger.get('currenttrigger').get('id'), id: index, removeAction: _this2.removeAction, onChangeContent: _this2.handleContentChange, onChangeType: _this2.handleTypeChange, action: action });
+                        return _react2.default.createElement(_NodeTriggerActionCollectable2.default, { moveDownSubelement: _this2.moveDownSubelement, moveUpSubelement: _this2.moveUpSubelement, deleteSubelement: _this2.deleteSubelement, addSubelement: _this2.addSubelement, key: index + '-' + _this2.props.currenttrigger.get('currenttrigger').get('id'), id: index, removeAction: _this2.removeAction, onChangeContent: _this2.handleContentChange, onChangeType: _this2.handleTypeChange, action: action });
                     }
                 });
             }
@@ -1184,6 +1205,10 @@ var _NodeCollectableField = require('./collectable/NodeCollectableField');
 
 var _NodeCollectableField2 = _interopRequireDefault(_NodeCollectableField);
 
+var _NodeTriggerPayloadList = require('./NodeTriggerPayloadList');
+
+var _NodeTriggerPayloadList2 = _interopRequireDefault(_NodeTriggerPayloadList);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1202,6 +1227,12 @@ var NodeTriggerActionCollectable = function (_Component) {
 
         _this.changeType = _this.changeType.bind(_this);
         _this.removeAction = _this.removeAction.bind(_this);
+        _this.onchangeFieldAttr = _this.onchangeFieldAttr.bind(_this);
+        _this.onDeleteField = _this.onDeleteField.bind(_this);
+        _this.onMoveUpField = _this.onMoveUpField.bind(_this);
+        _this.onMoveDownField = _this.onMoveDownField.bind(_this);
+        _this.payloadChange = _this.payloadChange.bind(_this);
+        _this.onChangeMainAttr = _this.onChangeMainAttr.bind(_this);
         return _this;
     }
 
@@ -1218,17 +1249,48 @@ var NodeTriggerActionCollectable = function (_Component) {
     }, {
         key: 'addField',
         value: function addField() {
-            this.props.addSubelement({ id: this.props.id, 'path': ['content', 'collectable_fields'], 'default': [{ 'type': 'text', content: { 'message': '', 'name': '', 'field': '' } }] });
+            this.props.addSubelement({ id: this.props.id, 'path': ['content', 'collectable_fields'], 'default': { 'type': 'text', content: { 'message': '', 'name': '', 'validation': '', 'field': '' } } });
+        }
+    }, {
+        key: 'onchangeFieldAttr',
+        value: function onchangeFieldAttr(e) {
+            this.props.onChangeContent({ id: this.props.id, 'path': ['content', 'collectable_fields', e.id].concat(e.path), value: e.value });
+        }
+    }, {
+        key: 'onDeleteField',
+        value: function onDeleteField(fieldIndex) {
+            this.props.deleteSubelement({ id: this.props.id, 'path': ['content', 'collectable_fields', fieldIndex] });
+        }
+    }, {
+        key: 'onMoveUpField',
+        value: function onMoveUpField(fieldIndex) {
+            this.props.moveUpSubelement({ id: this.props.id, 'index': fieldIndex, 'path': ['content', 'collectable_fields'] });
+        }
+    }, {
+        key: 'onMoveDownField',
+        value: function onMoveDownField(fieldIndex) {
+            this.props.moveDownSubelement({ id: this.props.id, 'index': fieldIndex, 'path': ['content', 'collectable_fields'] });
+        }
+    }, {
+        key: 'payloadChange',
+        value: function payloadChange(e) {
+            console.log(e.target.value);
+        }
+    }, {
+        key: 'onChangeMainAttr',
+        value: function onChangeMainAttr(field, e) {
+            this.props.onChangeContent({ id: this.props.id, 'path': ['content', 'collectable_options', field], value: e });
         }
     }, {
         key: 'render',
         value: function render() {
+            var _this2 = this;
 
             var collectable_fields = [];
 
             if (this.props.action.hasIn(['content', 'collectable_fields'])) {
                 collectable_fields = this.props.action.getIn(['content', 'collectable_fields']).map(function (field, index) {
-                    return _react2.default.createElement(_NodeCollectableField2.default, { id: index, key: index, reply: field });
+                    return _react2.default.createElement(_NodeCollectableField2.default, { id: index, isFirst: index == 0, isLast: index + 1 == _this2.props.action.getIn(['content', 'collectable_fields']).size, key: index + '-' + field.getIn(['content', 'name']) + '-' + field.getIn(['content', 'field']) + '-' + field.get('type'), field: field, onMoveDownField: _this2.onMoveDownField, onMoveUpField: _this2.onMoveUpField, onDeleteField: _this2.onDeleteField, onChangeFieldAttr: _this2.onchangeFieldAttr });
                 });
             }
 
@@ -1257,6 +1319,164 @@ var NodeTriggerActionCollectable = function (_Component) {
                         )
                     )
                 ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'row' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-xs-12' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'form-group' },
+                            _react2.default.createElement(
+                                'label',
+                                null,
+                                'Collection identifier'
+                            ),
+                            _react2.default.createElement('input', { type: 'text', className: 'form-control', onChange: function onChange(e) {
+                                    return _this2.onChangeMainAttr('identifier_collection', e.target.value);
+                                }, defaultValue: this.props.action.getIn(['content', 'collectable_options', 'identifier_collection']) })
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-xs-6' },
+                        _react2.default.createElement(
+                            'label',
+                            null,
+                            _react2.default.createElement('input', { type: 'checkbox', onChange: function onChange(e) {
+                                    return _this2.onChangeMainAttr('show_summary', e.target.checked);
+                                }, defaultChecked: this.props.action.getIn(['content', 'collectable_options', 'show_summary']) }),
+                            'Ask user to confirm collected information'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-xs-6' },
+                        _react2.default.createElement(
+                            'label',
+                            null,
+                            _react2.default.createElement('input', { type: 'checkbox', onChange: function onChange(e) {
+                                    return _this2.onChangeMainAttr('show_summary_checkbox', e.target.checked);
+                                }, defaultChecked: this.props.action.getIn(['content', 'collectable_options', 'show_summary_checkbox']) }),
+                            'Ask user to confirm information by checking checkbox'
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'row' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-xs-12' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'form-group' },
+                            _react2.default.createElement(
+                                'label',
+                                null,
+                                'Checkbox value'
+                            ),
+                            _react2.default.createElement('input', { type: 'text', className: 'form-control', onChange: function onChange(e) {
+                                    return _this2.onChangeMainAttr('show_summary_checkbox_name', e.target.value);
+                                }, defaultValue: this.props.action.getIn(['content', 'collectable_options', 'show_summary_checkbox_name']) })
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-xs-12' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'form-group' },
+                            _react2.default.createElement(
+                                'label',
+                                null,
+                                'Confirm button value'
+                            ),
+                            _react2.default.createElement('input', { type: 'text', className: 'form-control', onChange: function onChange(e) {
+                                    return _this2.onChangeMainAttr('show_summary_confirm_name', e.target.value);
+                                }, defaultValue: this.props.action.getIn(['content', 'collectable_options', 'show_summary_confirm_name']) })
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-xs-6' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'form-group' },
+                            _react2.default.createElement(
+                                'label',
+                                null,
+                                'Custom summary formation event'
+                            ),
+                            _react2.default.createElement('input', { type: 'text', className: 'form-control', onChange: function onChange(e) {
+                                    return _this2.onChangeMainAttr('show_summary_callback', e.target.value);
+                                }, defaultValue: this.props.action.getIn(['content', 'collectable_options', 'show_summary_callback']) })
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-xs-6' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'form-group' },
+                            _react2.default.createElement(
+                                'label',
+                                null,
+                                'Dispatch this event then all steps are successfuly completed'
+                            ),
+                            _react2.default.createElement('input', { type: 'text', className: 'form-control', onChange: function onChange(e) {
+                                    return _this2.onChangeMainAttr('collection_callback', e.target.value);
+                                }, defaultValue: this.props.action.getIn(['content', 'collectable_options', 'collection_callback']) })
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-xs-12' },
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'Then process is complete send this message to user or trigger payload'
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'row' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'col-xs-6' },
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'form-group' },
+                                    _react2.default.createElement(
+                                        'label',
+                                        null,
+                                        'Confirmation message'
+                                    ),
+                                    _react2.default.createElement('textarea', { className: 'form-control', onChange: function onChange(e) {
+                                            return _this2.onChangeMainAttr('confirmation_message', e.target.value);
+                                        }, defaultValue: this.props.action.getIn(['content', 'collectable_options', 'confirmation_message']) })
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'col-xs-6' },
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'form-group' },
+                                    _react2.default.createElement(
+                                        'label',
+                                        null,
+                                        'Trigger payload'
+                                    ),
+                                    _react2.default.createElement(_NodeTriggerPayloadList2.default, { showOptional: true, onSetPayload: function onSetPayload(e) {
+                                            return _this2.onChangeMainAttr('collection_callback_pattern', e);
+                                        }, payload: this.props.action.getIn(['content', 'collectable_options', 'collection_callback_pattern']) })
+                                )
+                            )
+                        )
+                    )
+                ),
+                _react2.default.createElement('hr', null),
                 collectable_fields,
                 _react2.default.createElement(
                     'a',
@@ -1273,7 +1493,7 @@ var NodeTriggerActionCollectable = function (_Component) {
 
 exports.default = NodeTriggerActionCollectable;
 
-},{"./NodeTriggerActionType":16,"./collectable/NodeCollectableField":18,"react":113}],12:[function(require,module,exports){
+},{"./NodeTriggerActionType":16,"./NodeTriggerPayloadList":17,"./collectable/NodeCollectableField":18,"react":113}],12:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2068,6 +2288,11 @@ var NodeTriggerPayloadList = (_dec = (0, _reactRedux.connect)(function (store) {
             return _react2.default.createElement(
                 'select',
                 { className: 'form-control input-sm', onChange: this.onChange.bind(this), value: this.props.payload },
+                this.props.showOptional == true && _react2.default.createElement(
+                    'option',
+                    { value: '' },
+                    'Choose payload'
+                ),
                 list
             );
         }
@@ -2116,23 +2341,326 @@ var NodeCollectableField = function (_Component) {
             this.props.onChangeType({ id: this.props.id, 'type': e.target.value });
         }
     }, {
+        key: 'onChangeFieldStoreName',
+        value: function onChangeFieldStoreName(e) {
+            this.props.onChangeFieldAttr({ id: this.props.id, 'path': ['content', 'field'], value: e.target.value });
+        }
+    }, {
+        key: 'onChangeFieldName',
+        value: function onChangeFieldName(e) {
+            this.props.onChangeFieldAttr({ id: this.props.id, 'path': ['content', 'name'], value: e.target.value });
+        }
+    }, {
+        key: 'onChangeFieldType',
+        value: function onChangeFieldType(e) {
+            this.props.onChangeFieldAttr({ id: this.props.id, 'path': ['type'], value: e.target.value });
+        }
+    }, {
+        key: 'onChangeValidation',
+        value: function onChangeValidation(e) {
+            this.props.onChangeFieldAttr({ id: this.props.id, 'path': ['content', 'validation'], value: e.target.value });
+        }
+    }, {
+        key: 'onChangeRenderFunction',
+        value: function onChangeRenderFunction(e) {
+            this.props.onChangeFieldAttr({ id: this.props.id, 'path': ['content', 'render_function'], value: e.target.value });
+        }
+    }, {
+        key: 'onChangeRenderArgs',
+        value: function onChangeRenderArgs(e) {
+            this.props.onChangeFieldAttr({ id: this.props.id, 'path': ['content', 'render_args'], value: e.target.value });
+        }
+    }, {
+        key: 'onChangeMessage',
+        value: function onChangeMessage(e) {
+            this.props.onChangeFieldAttr({ id: this.props.id, 'path': ['content', 'message'], value: e.target.value });
+        }
+    }, {
+        key: 'onChangeAdditionalMessage',
+        value: function onChangeAdditionalMessage(e) {
+            this.props.onChangeFieldAttr({ id: this.props.id, 'path': ['content', 'message_explain'], value: e.target.value });
+        }
+    }, {
+        key: 'onChangeProvider',
+        value: function onChangeProvider(e) {
+            this.props.onChangeFieldAttr({ id: this.props.id, 'path': ['content', 'provider_dropdown'], value: e.target.value });
+        }
+    }, {
+        key: 'onChangeProviderName',
+        value: function onChangeProviderName(e) {
+            this.props.onChangeFieldAttr({ id: this.props.id, 'path': ['content', 'provider_name'], value: e.target.value });
+        }
+    }, {
+        key: 'onChangeProviderId',
+        value: function onChangeProviderId(e) {
+            this.props.onChangeFieldAttr({ id: this.props.id, 'path': ['content', 'provider_id'], value: e.target.value });
+        }
+    }, {
+        key: 'onChangeRenderValidateFunction',
+        value: function onChangeRenderValidateFunction(e) {
+            this.props.onChangeFieldAttr({ id: this.props.id, 'path': ['content', 'render_validate'], value: e.target.value });
+        }
+    }, {
+        key: 'onChangeValidationCallback',
+        value: function onChangeValidationCallback(e) {
+            this.props.onChangeFieldAttr({ id: this.props.id, 'path': ['content', 'validation_callback'], value: e.target.value });
+        }
+    }, {
+        key: 'onChangeValidationError',
+        value: function onChangeValidationError(e) {
+            this.props.onChangeFieldAttr({ id: this.props.id, 'path': ['content', 'validation_error'], value: e.target.value });
+        }
+    }, {
+        key: 'deleteField',
+        value: function deleteField() {
+            this.props.onDeleteField(this.props.id);
+        }
+    }, {
+        key: 'upField',
+        value: function upField() {
+            this.props.onMoveUpField(this.props.id);
+        }
+    }, {
+        key: 'downField',
+        value: function downField() {
+            this.props.onMoveDownField(this.props.id);
+        }
+    }, {
         key: 'render',
         value: function render() {
+
             return _react2.default.createElement(
                 'div',
                 { className: 'row' },
                 _react2.default.createElement(
                     'div',
-                    { className: 'col-xs-12' },
+                    { className: 'col-xs-6' },
                     _react2.default.createElement(
                         'div',
                         { className: 'form-group' },
                         _react2.default.createElement(
                             'label',
                             null,
-                            'Field name'
+                            this.props.id + 1,
+                            '. Field name*'
                         ),
-                        _react2.default.createElement('input', { className: 'form-control', type: 'text' })
+                        _react2.default.createElement('input', { className: 'form-control', onChange: this.onChangeFieldName.bind(this), type: 'text', defaultValue: this.props.field.getIn(['content', 'name']) })
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'col-xs-6' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'form-group' },
+                        _react2.default.createElement(
+                            'label',
+                            null,
+                            'Field store name*'
+                        ),
+                        _react2.default.createElement('input', { className: 'form-control', onChange: this.onChangeFieldStoreName.bind(this), type: 'text', defaultValue: this.props.field.getIn(['content', 'field']) })
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'col-xs-6' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'form-group' },
+                        _react2.default.createElement(
+                            'label',
+                            null,
+                            'Field type*'
+                        ),
+                        _react2.default.createElement(
+                            'select',
+                            { className: 'form-control', onChange: this.onChangeFieldType.bind(this), defaultValue: this.props.field.get('type') },
+                            _react2.default.createElement(
+                                'option',
+                                { value: '' },
+                                'Select field type'
+                            ),
+                            _react2.default.createElement(
+                                'option',
+                                { value: 'text' },
+                                'Text'
+                            ),
+                            _react2.default.createElement(
+                                'option',
+                                { value: 'email' },
+                                'E-mail'
+                            ),
+                            _react2.default.createElement(
+                                'option',
+                                { value: 'phone' },
+                                'Phone'
+                            ),
+                            _react2.default.createElement(
+                                'option',
+                                { value: 'buttons' },
+                                'Buttons'
+                            ),
+                            _react2.default.createElement(
+                                'option',
+                                { value: 'dropdown' },
+                                'Dropdown'
+                            ),
+                            _react2.default.createElement(
+                                'option',
+                                { value: 'custom' },
+                                'Custom'
+                            )
+                        )
+                    )
+                ),
+                this.props.field.get('type') == 'text' && _react2.default.createElement(
+                    'div',
+                    { className: 'col-xs-6' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'form-group' },
+                        _react2.default.createElement(
+                            'label',
+                            null,
+                            'Validation preg match rule'
+                        ),
+                        _react2.default.createElement('input', { className: 'form-control', type: 'text', onChange: this.onChangeValidation.bind(this), defaultValue: this.props.field.getIn(['content', 'validation']) })
+                    )
+                ),
+                this.props.field.get('type') == 'text' && _react2.default.createElement(
+                    'div',
+                    { className: 'col-xs-12' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'row' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-xs-6' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'form-group' },
+                                _react2.default.createElement(
+                                    'label',
+                                    null,
+                                    'Custom event validation'
+                                ),
+                                _react2.default.createElement('input', { className: 'form-control', type: 'text', onChange: this.onChangeValidationCallback.bind(this), defaultValue: this.props.field.getIn(['content', 'validation_callback']) })
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-xs-6' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'form-group' },
+                                _react2.default.createElement(
+                                    'label',
+                                    null,
+                                    'Validation error message'
+                                ),
+                                _react2.default.createElement('input', { className: 'form-control', type: 'text', onChange: this.onChangeValidationError.bind(this), defaultValue: this.props.field.getIn(['content', 'validation_error']) })
+                            )
+                        )
+                    )
+                ),
+                this.props.field.get('type') == 'dropdown' && _react2.default.createElement(
+                    'div',
+                    { className: 'col-xs-6' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'row' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-xs-4' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'form-group' },
+                                _react2.default.createElement(
+                                    'label',
+                                    null,
+                                    'Provider event'
+                                ),
+                                _react2.default.createElement('input', { className: 'form-control', type: 'text', onChange: this.onChangeProvider.bind(this), defaultValue: this.props.field.getIn(['content', 'provider_dropdown']) })
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-xs-4' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'form-group' },
+                                _react2.default.createElement(
+                                    'label',
+                                    null,
+                                    'Name attribute'
+                                ),
+                                _react2.default.createElement('input', { className: 'form-control', type: 'text', onChange: this.onChangeProviderName.bind(this), defaultValue: this.props.field.getIn(['content', 'provider_name']) })
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-xs-4' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'form-group' },
+                                _react2.default.createElement(
+                                    'label',
+                                    null,
+                                    'Id attribute'
+                                ),
+                                _react2.default.createElement('input', { className: 'form-control', type: 'text', onChange: this.onChangeProviderId.bind(this), defaultValue: this.props.field.getIn(['content', 'provider_id']) })
+                            )
+                        )
+                    )
+                ),
+                (this.props.field.get('type') == 'buttons' || this.props.field.get('type') == 'custom') && _react2.default.createElement(
+                    'div',
+                    { className: 'col-xs-6' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'row' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-xs-6' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'form-group' },
+                                _react2.default.createElement(
+                                    'label',
+                                    null,
+                                    'Render event'
+                                ),
+                                _react2.default.createElement('input', { className: 'form-control', type: 'text', onChange: this.onChangeRenderFunction.bind(this), defaultValue: this.props.field.getIn(['content', 'render_function']) })
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-xs-6' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'form-group' },
+                                _react2.default.createElement(
+                                    'label',
+                                    null,
+                                    'Arguments'
+                                ),
+                                _react2.default.createElement('input', { className: 'form-control', type: 'text', onChange: this.onChangeRenderArgs.bind(this), defaultValue: this.props.field.getIn(['content', 'render_args']) })
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-xs-12' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'form-group' },
+                                _react2.default.createElement(
+                                    'label',
+                                    null,
+                                    'Validate event'
+                                ),
+                                _react2.default.createElement('input', { className: 'form-control', type: 'text', onChange: this.onChangeRenderValidateFunction.bind(this), defaultValue: this.props.field.getIn(['content', 'render_validate']) })
+                            )
+                        )
                     )
                 ),
                 _react2.default.createElement(
@@ -2140,14 +2668,76 @@ var NodeCollectableField = function (_Component) {
                     { className: 'col-xs-12' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'form-group' },
+                        { className: 'row' },
                         _react2.default.createElement(
-                            'label',
-                            null,
-                            'Message to user'
+                            'div',
+                            { className: 'col-xs-6' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'form-group' },
+                                _react2.default.createElement(
+                                    'label',
+                                    null,
+                                    'Message to user'
+                                ),
+                                _react2.default.createElement('textarea', { onChange: this.onChangeMessage.bind(this), defaultValue: this.props.field.getIn(['content', 'message']), className: 'form-control' })
+                            )
                         ),
-                        _react2.default.createElement('textarea', { className: 'form-control' })
-                    )
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-xs-6' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'form-group' },
+                                _react2.default.createElement(
+                                    'label',
+                                    null,
+                                    'Additional message to user'
+                                ),
+                                _react2.default.createElement('textarea', { onChange: this.onChangeAdditionalMessage.bind(this), defaultValue: this.props.field.getIn(['content', 'message_explain']), className: 'form-control' })
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'row' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-xs-12' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'btn-group pull-left', role: 'group', 'aria-label': 'Trigger actions' },
+                                this.props.isFirst == false && _react2.default.createElement(
+                                    'a',
+                                    { className: 'btn btn-default btn-xs', onClick: this.upField.bind(this) },
+                                    _react2.default.createElement(
+                                        'i',
+                                        { className: 'material-icons mr-0' },
+                                        'keyboard_arrow_up'
+                                    )
+                                ),
+                                this.props.isLast == false && _react2.default.createElement(
+                                    'a',
+                                    { className: 'btn btn-default btn-xs', onClick: this.downField.bind(this) },
+                                    _react2.default.createElement(
+                                        'i',
+                                        { className: 'material-icons mr-0' },
+                                        'keyboard_arrow_down'
+                                    )
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'btn-group pull-right', role: 'group', 'aria-label': 'Trigger actions' },
+                                _react2.default.createElement(
+                                    'a',
+                                    { className: 'btn btn-warning btn-xs', onClick: this.deleteField.bind(this) },
+                                    'Delete'
+                                )
+                            )
+                        )
+                    ),
+                    _react2.default.createElement('hr', null)
                 )
             );
         }
@@ -2529,6 +3119,9 @@ var ADD_PAYLOAD_TRIGGERS_FULFILLED = exports.ADD_PAYLOAD_TRIGGERS_FULFILLED = "A
 var UPDATE_PAYLOADS_FULFILLED = exports.UPDATE_PAYLOADS_FULFILLED = "UPDATE_PAYLOADS_FULFILLED";
 var SET_DEFAULT_TRIGGER = exports.SET_DEFAULT_TRIGGER = "SET_DEFAULT_TRIGGER";
 var ADD_SUBELEMENT = exports.ADD_SUBELEMENT = "ADD_SUBELEMENT";
+var REMOVE_SUBELEMENT = exports.REMOVE_SUBELEMENT = "REMOVE_SUBELEMENT";
+var MOVE_UP_SUBELEMENT = exports.MOVE_UP_SUBELEMENT = "MOVE_UP_SUBELEMENT";
+var MOVE_DOWN_SUBELEMENT = exports.MOVE_DOWN_SUBELEMENT = "MOVE_DOWN_SUBELEMENT";
 
 },{}],24:[function(require,module,exports){
 'use strict';
@@ -2629,12 +3222,34 @@ var nodeGroupTriggerReducer = function nodeGroupTriggerReducer() {
             {
 
                 if (!state.getIn(['currenttrigger', 'actions', action.payload.id]).hasIn(action.payload.path)) {
-                    return state.setIn(['currenttrigger', 'actions', action.payload.id].concat(action.payload.path), (0, _immutable.fromJS)(action.payload.default));
+                    return state.setIn(['currenttrigger', 'actions', action.payload.id].concat(action.payload.path), (0, _immutable.fromJS)([action.payload.default]));
                 }
 
                 return state.updateIn(['currenttrigger', 'actions', action.payload.id].concat(action.payload.path), function (elements) {
                     return elements.push((0, _immutable.fromJS)(action.payload.default));
                 });
+            }
+
+        case _actionTypes.REMOVE_SUBELEMENT:
+            {
+                return state.deleteIn(['currenttrigger', 'actions', action.payload.id].concat(action.payload.path));
+            }
+
+        case _actionTypes.MOVE_UP_SUBELEMENT:
+            {
+
+                var source = state.getIn(['currenttrigger', 'actions', action.payload.id].concat(action.payload.path)).get(action.payload.index);
+                var destination = state.getIn(['currenttrigger', 'actions', action.payload.id].concat(action.payload.path)).get(action.payload.index - 1);
+
+                return state.setIn(['currenttrigger', 'actions', action.payload.id].concat(action.payload.path).concat([action.payload.index]), destination).setIn(['currenttrigger', 'actions', action.payload.id].concat(action.payload.path).concat([action.payload.index - 1]), source);
+            }
+
+        case _actionTypes.MOVE_DOWN_SUBELEMENT:
+            {
+                var _source = state.getIn(['currenttrigger', 'actions', action.payload.id].concat(action.payload.path)).get(action.payload.index);
+                var _destination = state.getIn(['currenttrigger', 'actions', action.payload.id].concat(action.payload.path)).get(action.payload.index + 1);
+
+                return state.setIn(['currenttrigger', 'actions', action.payload.id].concat(action.payload.path).concat([action.payload.index]), _destination).setIn(['currenttrigger', 'actions', action.payload.id].concat(action.payload.path).concat([action.payload.index + 1]), _source);
             }
 
         case _actionTypes.HANDLE_ADD_QUICK_REPLY:

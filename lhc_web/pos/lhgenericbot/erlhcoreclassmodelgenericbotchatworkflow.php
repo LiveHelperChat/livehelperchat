@@ -24,6 +24,11 @@ $def->properties['status']->columnName   = 'status';
 $def->properties['status']->propertyName = 'status';
 $def->properties['status']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['trigger_id'] = new ezcPersistentObjectProperty();
+$def->properties['trigger_id']->columnName   = 'trigger_id';
+$def->properties['trigger_id']->propertyName = 'trigger_id';
+$def->properties['trigger_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['collected_data'] = new ezcPersistentObjectProperty();
 $def->properties['collected_data']->columnName   = 'collected_data';
 $def->properties['collected_data']->propertyName = 'collected_data';

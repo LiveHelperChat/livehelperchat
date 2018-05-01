@@ -139,7 +139,7 @@ $ViewList['nodetriggeractions'] = array(
 
 $ViewList['buttonclicked'] = array(
     'params' => array('chat_id', 'hash'),
-    'uparams' => array()
+    'uparams' => array('type')
 );
 
 $ViewList['updatebuttonclicked'] = array(

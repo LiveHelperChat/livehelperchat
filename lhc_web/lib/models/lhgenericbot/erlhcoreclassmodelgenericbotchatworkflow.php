@@ -19,7 +19,8 @@ class erLhcoreClassModelGenericBotChatWorkflow {
             'chat_id' => $this->chat_id,
             'identifier' => $this->identifier,
             'status' => $this->status,
-            'collected_data' => $this->collected_data
+            'collected_data' => $this->collected_data,
+            'trigger_id' => $this->trigger_id
         );
 
         return $stateArray;
@@ -29,7 +30,7 @@ class erLhcoreClassModelGenericBotChatWorkflow {
 
         switch ($var) {
             case 'collected_data_array':
-                $jsonData = json_decode($this->collected_data);
+                $jsonData = json_decode($this->collected_data,true);
                 if ($jsonData !== null) {
                     $this->collected_data_array = $jsonData;
                 } else {
@@ -49,12 +50,14 @@ class erLhcoreClassModelGenericBotChatWorkflow {
     }
 
     const STATUS_STARTED = 0;
-    const STATUS_COMPLETED = 1;
+    const STATUS_PENDING_CONFIRM = 1;
+    const STATUS_COMPLETED = 2;
 
     public $id = null;
     public $chat_id = null;
-    public $identifier = null;
+    public $identifier = '';
     public $status = self::STATUS_STARTED;
     public $collected_data = '';
+    public $trigger_id = null;
 
 }

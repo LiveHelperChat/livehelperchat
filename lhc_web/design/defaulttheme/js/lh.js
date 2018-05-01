@@ -3166,6 +3166,24 @@ function lh(){
         });
     }
 
+    this.dropdownClicked = function(id) {
+        if ($('#generic_list-'+id).val() != '') {
+
+            $.get(this.wwwDir + 'genericbot/buttonclicked/'+this.chat_id+'/'+this.hash+'/(type)/valueclicked',{payload: $('#id_generic_list-'+id).val(), id : id},function(data){
+                $('#meta-message-'+id).remove();
+                jQuery('<div/>', {
+                    'class': 'message-row pending-storage pending-storage-bot',
+                    text: 'Processing...'
+                }).appendTo($('#messagesBlock'));
+
+                lhinst.syncusercall();
+            });
+
+        } else {
+            alert('Please choose!');
+        }
+    }
+
 }
 
 var lhinst = new lh();

@@ -17,7 +17,10 @@ import {
     INIT_BOT_FULFILLED,
     ADD_PAYLOAD_TRIGGERS_FULFILLED,
     UPDATE_PAYLOADS_FULFILLED,
-    ADD_SUBELEMENT
+    ADD_SUBELEMENT,
+    REMOVE_SUBELEMENT,
+    MOVE_UP_SUBELEMENT,
+    MOVE_DOWN_SUBELEMENT
 } from "../constants/action-types";
 import {fromJS} from 'immutable';
 
@@ -63,10 +66,29 @@ const nodeGroupTriggerReducer = (state = initialState, action) => {
         case ADD_SUBELEMENT:{
 
             if (!state.getIn(['currenttrigger','actions',action.payload.id]).hasIn(action.payload.path)) {
-                return state.setIn(['currenttrigger','actions',action.payload.id].concat(action.payload.path),fromJS(action.payload.default));
+                return state.setIn(['currenttrigger','actions',action.payload.id].concat(action.payload.path),fromJS([action.payload.default]));
             }
 
             return state.updateIn(['currenttrigger','actions',action.payload.id].concat(action.payload.path), elements => elements.push(fromJS(action.payload.default)));
+         }
+
+         case REMOVE_SUBELEMENT:{
+            return state.deleteIn(['currenttrigger','actions',action.payload.id].concat(action.payload.path));
+         }
+
+         case MOVE_UP_SUBELEMENT: {
+
+             let source = state.getIn(['currenttrigger','actions',action.payload.id].concat(action.payload.path)).get(action.payload.index);
+             let destination = state.getIn(['currenttrigger','actions',action.payload.id].concat(action.payload.path)).get(action.payload.index-1);
+
+             return state.setIn(['currenttrigger','actions',action.payload.id].concat(action.payload.path).concat([action.payload.index]),destination).setIn(['currenttrigger','actions',action.payload.id].concat(action.payload.path).concat([action.payload.index-1]),source);
+         }
+
+         case MOVE_DOWN_SUBELEMENT:{
+             let source = state.getIn(['currenttrigger','actions',action.payload.id].concat(action.payload.path)).get(action.payload.index);
+             let destination = state.getIn(['currenttrigger','actions',action.payload.id].concat(action.payload.path)).get(action.payload.index+1);
+
+             return state.setIn(['currenttrigger','actions',action.payload.id].concat(action.payload.path).concat([action.payload.index]),destination).setIn(['currenttrigger','actions',action.payload.id].concat(action.payload.path).concat([action.payload.index+1]),source);
          }
 
         case HANDLE_ADD_QUICK_REPLY: {

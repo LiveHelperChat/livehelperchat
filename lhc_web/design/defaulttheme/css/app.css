@@ -1424,9 +1424,9 @@ input[type="file"]{
 	border:1px solid #ccc;
 	border-top:0;
 	border-right:0;
-
 }
-.load-prev-btn:hover{
+
+.load-prev-btn:hover {
 	background-color:rgba(196, 203, 209, 0.90);
 }
 
@@ -1436,7 +1436,27 @@ input[type="file"]{
 	margin-left:0px;
 }
 
+.quick-replies > li {
+	padding-left:0;
+}
+
 .pending-storage-bot{
 	padding-top:12px!important;
 	padding-bottom:12px!important;
+}
+
+.p5{
+	padding: 5px;
+}
+
+.pl0{
+	padding-left:0;
+}
+
+.pb5{
+	padding-bottom: 5px;
+}
+
+.mb5{
+	margin-bottom: 5px;
 }

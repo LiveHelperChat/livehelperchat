@@ -240,13 +240,14 @@ return array_merge(array (
         'erLhcoreClassModelGenericBotPayload'       => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbotpayload.php',
         'erLhcoreClassModelGenericBotChatWorkflow'  => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbotchatworkflow.php',
 
-
         'erLhcoreClassGenericBot'                   => 'lib/core/lhgenericbot/lhgenericbot.php',
         'erLhcoreClassGenericBotWorkflow'           => 'lib/core/lhgenericbot/lhgenericbotworkflow.php',
         'erLhcoreClassGenericBotValidator'          => 'lib/core/lhgenericbot/lhgenericbotvalidator.php',
 
         'erLhcoreClassGenericBotActionText'         => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactiontext.php',
-        'erLhcoreClassGenericBotUpdateActions'      => 'lib/core/lhgenericbot/actionsChat/lhgenericbotupdateactions.php'
+        'erLhcoreClassGenericBotUpdateActions'      => 'lib/core/lhgenericbot/actionsChat/lhgenericbotupdateactions.php',
+        'erLhcoreClassGenericBotActionCollectable'  => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactioncollectable.php'
+
 ),
 include('var/autoloads/lhextension_autoload.php')
 );

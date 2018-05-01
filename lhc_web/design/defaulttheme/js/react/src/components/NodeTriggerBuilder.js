@@ -28,6 +28,9 @@ class NodeTriggerBuilder extends Component {
         this.removeQuickReply = this.removeQuickReply.bind(this);
         this.removeAction = this.removeAction.bind(this);
         this.addSubelement = this.addSubelement.bind(this);
+        this.deleteSubelement = this.deleteSubelement.bind(this);
+        this.moveUpSubelement = this.moveUpSubelement.bind(this);
+        this.moveDownSubelement = this.moveDownSubelement.bind(this);
 
         this.props.dispatch(initBot(this.props.botId));
     }
@@ -82,6 +85,21 @@ class NodeTriggerBuilder extends Component {
         this.props.dispatch({'type' : 'ADD_SUBELEMENT','payload' : obj});
     }
 
+    deleteSubelement(obj) {
+        this.setState({dataChanged : true});
+        this.props.dispatch({'type' : 'REMOVE_SUBELEMENT','payload' : obj});
+    }
+
+    moveUpSubelement(obj) {
+        this.setState({dataChanged : true});
+        this.props.dispatch({'type' : 'MOVE_UP_SUBELEMENT','payload' : obj});
+    }
+
+    moveDownSubelement(obj) {
+        this.setState({dataChanged : true});
+        this.props.dispatch({'type' : 'MOVE_DOWN_SUBELEMENT','payload' : obj});
+    }
+
     render() {
 
         
@@ -94,7 +112,7 @@ class NodeTriggerBuilder extends Component {
                 } else if (action.get('type') == 'list') {
                     return <NodeTriggerActionList key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} removeAction={this.removeAction} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} />
                 } else if (action.get('type') == 'collectable') {
-                    return <NodeTriggerActionCollectable addSubelement={this.addSubelement} key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} removeAction={this.removeAction} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} />
+                    return <NodeTriggerActionCollectable moveDownSubelement={this.moveDownSubelement} moveUpSubelement={this.moveUpSubelement} deleteSubelement={this.deleteSubelement} addSubelement={this.addSubelement} key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} removeAction={this.removeAction} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} />
                 }
             });
         }

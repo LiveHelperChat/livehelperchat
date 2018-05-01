@@ -37,7 +37,12 @@ try {
             throw new Exception('Payload not provided');
         }
 
-        erLhcoreClassGenericBotWorkflow::processButtonClick($chat, $message, $_GET['payload']);
+        if ($Params['user_parameters_unordered']['type'] == 'valueclicked') {
+            erLhcoreClassGenericBotWorkflow::processValueClick($chat, $message, $_GET['payload']);
+        } else {
+            erLhcoreClassGenericBotWorkflow::processButtonClick($chat, $message, $_GET['payload']);
+        }
+
 
         echo json_encode(array('error' => false));
 
