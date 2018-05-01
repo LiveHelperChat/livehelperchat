@@ -156,11 +156,21 @@ export function saveTrigger(obj) {
 
         axios.post(WWW_DIR_JAVASCRIPT + "genericbot/savetrigger/(method)/actions", obj.toJS())
                 .then((response) => {
-                dispatch({type: "SAVE_TRIGGER_FULFILLED", payload: response.data})
+                dispatch({type: "SAVE_TRIGGER_FULFILLED", payload: response.data});
+                updatePayload(dispatch, obj);
         }).catch((err) => {
                 dispatch({type: "SAVE_TRIGGER_REJECTED", payload: err})
             })
         }
+}
+
+export function updatePayload(dispatch, obj) {
+        axios.post(WWW_DIR_JAVASCRIPT + "genericbot/getpayloads/" + obj.get('id'))
+            .then((response) => {
+                dispatch({type: "UPDATE_PAYLOADS_FULFILLED", payload: response.data})
+            }).catch((err) => {
+            dispatch({type: "UPDATE_PAYLOADS_REJECTED", payload: err})
+        })
 }
 
 export function removeTrigger(obj) {
@@ -176,3 +186,28 @@ export function removeTrigger(obj) {
     }
 }
 
+export function setDefaultTrigger(obj) {
+    return function(dispatch) {
+        dispatch({type: "SET_DEFAULT_TRIGGER", payload : obj});
+
+        axios.post(WWW_DIR_JAVASCRIPT + "genericbot/setdefaulttrigger/" + obj.get('id') + '/' +  obj.get('default'))
+                .then((response) => {
+                dispatch({type: "SET_DEFAULT_FULFILLED", payload: response.data})
+        }).catch((err) => {
+                dispatch({type: "SET_DEFAULT_REJECTED", payload: err})
+        })
+    }
+}
+
+export function initBot(botId) {
+    return function(dispatch) {
+        dispatch({type: "INIT_BOT", payload : botId});
+
+        axios.post(WWW_DIR_JAVASCRIPT + "genericbot/initbot/" + botId)
+            .then((response) => {
+            dispatch({type: "INIT_BOT_FULFILLED", payload: response.data})
+        }).catch((err) => {
+            dispatch({type: "INIT_BOT_REJECTED", payload: err})
+        })
+    }
+}

@@ -237,8 +237,17 @@ return array_merge(array (
         'erLhcoreClassModelGenericBotGroup'         => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbotgroup.php',
         'erLhcoreClassModelGenericBotTrigger'       => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbottrigger.php',
         'erLhcoreClassModelGenericBotTriggerEvent'  => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbottriggerevent.php',
+        'erLhcoreClassModelGenericBotPayload'       => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbotpayload.php',
+        'erLhcoreClassModelGenericBotChatWorkflow'  => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbotchatworkflow.php',
+
         'erLhcoreClassGenericBot'                   => 'lib/core/lhgenericbot/lhgenericbot.php',
-        'erLhcoreClassGenericBotValidator'          => 'lib/core/lhgenericbot/lhgenericbotvalidator.php'
+        'erLhcoreClassGenericBotWorkflow'           => 'lib/core/lhgenericbot/lhgenericbotworkflow.php',
+        'erLhcoreClassGenericBotValidator'          => 'lib/core/lhgenericbot/lhgenericbotvalidator.php',
+
+        'erLhcoreClassGenericBotActionText'         => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactiontext.php',
+        'erLhcoreClassGenericBotUpdateActions'      => 'lib/core/lhgenericbot/actionsChat/lhgenericbotupdateactions.php',
+        'erLhcoreClassGenericBotActionCollectable'  => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactioncollectable.php'
+
 ),
 include('var/autoloads/lhextension_autoload.php')
 );

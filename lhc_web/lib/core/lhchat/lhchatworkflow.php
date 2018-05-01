@@ -317,14 +317,14 @@ class erLhcoreClassChatWorkflow {
 	    	    $chat->syncAndLock();
 
 	    	    if ($chat->user_id == 0 && $chat->tslasign < time()-$department->max_timeout_seconds) {
-	    	    
+
         	    	$statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow.autoassign', array(
         	    	    'department' => & $department,
         	    	    'chat' => & $chat,
         	    	    'is_online' => & $isOnlineUser,
         	    	    'params' => & $params,
         	    	));
-        	    		    	
+
         	    	// There was no callbacks or file not found etc, we try to download from standard location
         	    	if ($statusWorkflow === false) {
 

@@ -23,6 +23,7 @@ class erLhcoreClassModelmsg
         return array(
             'id' => $this->id,
             'msg' => $this->msg,
+            'meta_msg' => $this->meta_msg,
             'time' => $this->time,
             'chat_id' => $this->chat_id,
             'user_id' => $this->user_id,
@@ -43,6 +44,18 @@ class erLhcoreClassModelmsg
                 return $this->time_front;
                 break;
 
+            case 'meta_msg_array':
+                $this->meta_msg_array = array();
+                if ($this->meta_msg != '')
+                {
+                    $jsonData = json_decode($this->meta_msg,true);
+                    if ($jsonData !== null) {
+                        $this->meta_msg_array = $jsonData;
+                    }
+                }
+                return $this->meta_msg_array;
+                break;
+
             default:
                 break;
         }
@@ -54,6 +67,7 @@ class erLhcoreClassModelmsg
     public $user_id = null;
     public $name_support = '';
     public $msg = '';
+    public $meta_msg = '';
 }
 
 ?>

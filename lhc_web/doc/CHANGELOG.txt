@@ -1,3 +1,9 @@
+2.94v
+
+1. Bot. First version of bot. Expected to be enhanced futher a lot.
+
+execute doc/update_db/update_169.sql for update
+
 2.93v
 
 1. Department availability statistic. In order for this statistic to be collection. This cronjob has to be setup.

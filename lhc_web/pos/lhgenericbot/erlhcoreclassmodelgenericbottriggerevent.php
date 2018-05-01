@@ -14,6 +14,11 @@ $def->properties['trigger_id']->columnName   = 'trigger_id';
 $def->properties['trigger_id']->propertyName = 'trigger_id';
 $def->properties['trigger_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['bot_id'] = new ezcPersistentObjectProperty();
+$def->properties['bot_id']->columnName   = 'bot_id';
+$def->properties['bot_id']->propertyName = 'bot_id';
+$def->properties['bot_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['pattern'] = new ezcPersistentObjectProperty();
 $def->properties['pattern']->columnName   = 'pattern';
 $def->properties['pattern']->propertyName = 'pattern';

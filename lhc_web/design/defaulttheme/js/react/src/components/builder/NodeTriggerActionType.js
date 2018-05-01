@@ -6,7 +6,12 @@ export default ({onChange, type}) => {
         {
         'value':'text',
         'text' : 'Send Text',
-        }/*,
+        },
+        {
+        'value':'collectable',
+        'text' : 'Collect information',
+        }
+        /*,
         {
             'value':'typing',
             'text' : 'Send Typing',
@@ -58,7 +63,7 @@ export default ({onChange, type}) => {
             </div>
             <div className="col-xs-6">
                 <div className="form-group">
-                    <select onChange={(e) => onChange(e)} className="form-control" defaultValue={type}>
+                    <select onChange={(e) => onChange(e)} className="form-control input-sm" defaultValue={type}>
                         {list}
                     </select>
                 </div>

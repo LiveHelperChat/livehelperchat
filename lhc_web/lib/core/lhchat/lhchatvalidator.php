@@ -1063,6 +1063,35 @@ class erLhcoreClassChatValidator {
             }
         }
     }
+
+    // Set's chat as a bot
+    public static function setBot(& $chat) {
+        if (isset($chat->department->bot_configuration_array['bot_id']) && is_numeric($chat->department->bot_configuration_array['bot_id'])) {
+            $bot = erLhcoreClassModelGenericBotBot::fetch($chat->department->bot_configuration_array['bot_id']);
+            if ($bot instanceof erLhcoreClassModelGenericBotBot) {
+                $chat->status = erLhcoreClassModelChat::STATUS_BOT_CHAT;
+                
+                $variablesArray = $chat->chat_variables_array;
+                $variablesArray['gbot_id'] = $bot->id;
+
+                $chat->chat_variables = json_encode($variablesArray);
+                $chat->chat_variables_array = $variablesArray;
+
+                // Find default messages if there are any
+                $botTrigger = erLhcoreClassModelGenericBotTrigger::findOne(array('filter' => array('bot_id' => $bot->id, 'default' => 1)));
+                if ($botTrigger instanceof erLhcoreClassModelGenericBotTrigger) {
+
+                    $message = erLhcoreClassGenericBotWorkflow::processTrigger($chat, $botTrigger);
+
+                    if (isset($message) && $message instanceof erLhcoreClassModelmsg) {
+                        $chat->last_msg_id = $message->id;
+                    }
+                }
+
+                $chat->saveThis();
+            }
+        }
+    }
 }
 
 ?>

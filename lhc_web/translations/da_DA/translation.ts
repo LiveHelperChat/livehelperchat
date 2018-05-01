@@ -2,6 +2,22 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Antal dage afstemnings widget ikke skal udvides efter sidste succesfulde visning</translation>
     </message>
@@ -11,7 +27,7 @@
     </message>
     <message>
       <source>Which ip should be allowed to update DB by executing http request, separate by comma?</source>
-      <translation>Hvilken Ip skal tillades at opdaterer databasen ved brug af http forespørgsel adskildt af komma</translation>
+      <translation>Hvilken IP-adresse skal tillades at opdatere databasen ved brug af http forespørgsel adskildt af komma</translation>
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
@@ -23,7 +39,7 @@
     </message>
     <message>
       <source>Track is user still on site, chat status checks also has to be enabled</source>
-      <translation type="unfinished"/>
+      <translation>Hold øje med om bruger stadig er på sitet, chatstatus-tjek skal også være aktiveret</translation>
     </message>
     <message>
       <source>Track online visitors even if there is no online operators</source>
@@ -55,7 +71,7 @@
     </message>
     <message>
       <source>Play sound on invitation to chat.</source>
-      <translation type="unfinished"/>
+      <translation>Afspil lyd ved invitation til chat</translation>
     </message>
     <message>
       <source>Show users option to switch language at widget</source>
@@ -199,6 +215,18 @@
     </message>
     <message>
       <source>Please enter explicit http mode. Either http: or https:, do not forget : at the end.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Encrypt also operators messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>After how many days encrypt messaes.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Do not track visitors IP.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1164,6 +1192,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Anonymized</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Search</source>
       <translation>Søg</translation>
     </message>
@@ -1257,6 +1289,22 @@
     </message>
     <message>
       <source>Week</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Day interval to include from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Select hour</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Select minute</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Day interval to include to</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1371,6 +1419,10 @@
       <translation>Ny forhåndsbesked</translation>
     </message>
     <message>
+      <source>Messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Main</source>
       <translation type="unfinished"/>
     </message>
@@ -1387,20 +1439,24 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Message</source>
-      <translation>Meddelelser</translation>
-    </message>
-    <message>
-      <source>Fallback message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Automatically send this message to user then chat is accepted</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Delay in seconds</source>
       <translation>Forsinkelse i sekunder</translation>
+    </message>
+    <message>
+      <source>The smaller the position value the higher the canned message will appear in the list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message</source>
+      <translation>Meddelelser</translation>
+    </message>
+    <message>
+      <source>Fallback message</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Tag&apos;s</source>
@@ -2206,6 +2262,10 @@
       <translation>BB Kode</translation>
     </message>
     <message>
+      <source>Load more...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chatbox is disabled.</source>
       <translation>Chatbox er deaktiveret</translation>
     </message>
@@ -2377,6 +2437,10 @@
     <message>
       <source>Miscellaneous</source>
       <translation>Diverse</translation>
+    </message>
+    <message>
+      <source>Bot configuration</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Work hours/work days logic is active</source>
@@ -2662,7 +2726,7 @@
     </message>
     <message>
       <source>Please enter a message...</source>
-      <translation type="unfinished"/>
+      <translation>Indtast en besked.</translation>
     </message>
     <message>
       <source>Please provide a department</source>
@@ -2934,6 +2998,10 @@
     <message>
       <source>Delete chat</source>
       <translation>Slet chat</translation>
+    </message>
+    <message>
+      <source>Modify chat</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Edit main chat information</source>
@@ -4889,6 +4957,10 @@
       <translation>Indstillinger opdateret</translation>
     </message>
     <message>
+      <source>Data protection</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Screen sharing</source>
       <translation type="unfinished"/>
     </message>
@@ -5350,6 +5422,30 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Overloaded</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hour</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Parameter</source>
       <translation>Parameter</translation>
     </message>
@@ -5482,6 +5578,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Last 24 hours statistic</source>
       <translation type="unfinished"/>
     </message>
@@ -5541,6 +5641,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>User attribute</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat attributes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>E-mail</source>
       <translation type="unfinished"/>
     </message>
@@ -5558,6 +5666,14 @@
     </message>
     <message>
       <source>Update chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unanswered chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5729,6 +5845,10 @@
     <message>
       <source>Check for messages from the operators, interval in seconds</source>
       <translation>Kontroller om der er meddelelser fra operatørerne, interval i sekunder</translation>
+    </message>
+    <message>
+      <source>Preload previous chat messages on chat open</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Messages settings</source>
@@ -6413,6 +6533,10 @@
       <translation>Slet</translation>
     </message>
     <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Username</source>
       <translation>Brugernavn</translation>
     </message>
@@ -6663,6 +6787,10 @@
     </message>
     <message>
       <source>New department limit group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New bot</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9195,6 +9323,26 @@
       <source>Average chat length</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Overloaded</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hour</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/closechatadmin</name>
@@ -9216,6 +9364,10 @@
     <message>
       <source>Transfer department has to be different one than self</source>
       <translation>Overførselsafdeling skal være anderledes end egen.</translation>
+    </message>
+    <message>
+      <source>Please enter bot name!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter a valid from date range!</source>
@@ -9344,7 +9496,7 @@
     </message>
     <message>
       <source>Content</source>
-      <translation type="unfinished"/>
+      <translation>Indhold</translation>
     </message>
     <message>
       <source>Name attributes</source>
@@ -9356,11 +9508,11 @@
     </message>
     <message>
       <source>XLS Columns</source>
-      <translation type="unfinished"/>
+      <translation>XLS-kolonner</translation>
     </message>
     <message>
       <source>Recipient</source>
-      <translation type="unfinished"/>
+      <translation>Modtager</translation>
     </message>
     <message>
       <source>Post content after form is submitted</source>
@@ -9372,7 +9524,7 @@
     </message>
     <message>
       <source>Forms list</source>
-      <translation type="unfinished"/>
+      <translation>Formularliste</translation>
     </message>
   </context>
   <context>
@@ -9399,7 +9551,7 @@
     </message>
     <message>
       <source>From e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Fra email</translation>
     </message>
     <message>
       <source>Allow to change from e-mail</source>
@@ -9464,11 +9616,11 @@
     <name>chat/refreshcustomfields</name>
     <message>
       <source>Custom chat data was saved</source>
-      <translation type="unfinished"/>
+      <translation>Brugerdefineret chatdata er blevet gemt</translation>
     </message>
     <message>
       <source>Data refreshed</source>
-      <translation type="unfinished"/>
+      <translation>Data opdateret</translation>
     </message>
   </context>
   <context>
@@ -9493,7 +9645,7 @@
     <name>chat/updatemsguser</name>
     <message>
       <source>User has edited his last message</source>
-      <translation type="unfinished"/>
+      <translation>Brugeren har redigeret sin seneste besked</translation>
     </message>
   </context>
   <context>
@@ -9514,7 +9666,33 @@
     <name>statistic/onlinehours</name>
     <message>
       <source>Online Hours</source>
-      <translation type="unfinished"/>
+      <translation>Tidsrum online.</translation>
+    </message>
+  </context>
+  <context>
+    <name>genericbot/edit</name>
+    <message>
+      <source>System configuration</source>
+      <translation>Systemindstillinger</translation>
+    </message>
+    <message>
+      <source>Bots</source>
+      <translation>Bots</translation>
+    </message>
+  </context>
+  <context>
+    <name>genericbot/new</name>
+    <message>
+      <source>System configuration</source>
+      <translation>Systemindstillinger</translation>
+    </message>
+    <message>
+      <source>Bots</source>
+      <translation>Bots</translation>
+    </message>
+    <message>
+      <source>New</source>
+      <translation>Ny</translation>
     </message>
   </context>
 </TS>

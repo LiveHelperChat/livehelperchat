@@ -121,6 +121,20 @@ class erLhcoreClassModelDepartament {
 	   			return $this->inform_options_array;
 	   		break;
 
+            case 'bot_configuration_array':
+                if (!empty($this->bot_configuration)) {
+                    $jsonData = json_decode($this->bot_configuration,true);
+                    if ($jsonData !== null) {
+                        $this->bot_configuration_array = $jsonData;
+                    } else {
+                        $this->bot_configuration_array = array();
+                    }
+                } else {
+                    $this->bot_configuration_array = array();
+                }
+            return $this->bot_configuration_array;
+            break;
+
 	   		case 'can_delete':
 	   			$this->can_delete = erLhcoreClassChat::getCount(array('filter' => array('dep_id' => $this->id))) == 0;
 	   			return $this->can_delete;

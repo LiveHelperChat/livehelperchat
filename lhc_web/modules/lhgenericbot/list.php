@@ -26,14 +26,15 @@ if ($pages->items_total > 0) {
     $tpl->set('items',$items);
 }
 
-$filterParams['input_form']->form_action = erLhcoreClassDesign::baseurl('chat/list');
+$filterParams['input_form']->form_action = erLhcoreClassDesign::baseurl('genericbot/list');
 $tpl->set('input',$filterParams['input_form']);
 $tpl->set('inputAppend',$append);
 
 $Result['content'] = $tpl->fetch();
 
 $Result['path'] = array(
-    array('url' =>erLhcoreClassDesign::baseurl('chat/list'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Chats list'))
+    array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/new','System configuration')),
+    array('url' =>erLhcoreClassDesign::baseurl('chat/list'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Bot list'))
 );
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.list_path',array('result' => & $Result));

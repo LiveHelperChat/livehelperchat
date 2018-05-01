@@ -28,6 +28,7 @@ $ReturnMessages = array();
 $pendingTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_pending_list',1);
 $activeTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_active_list',1);
 $closedTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_close_list',0);
+$botTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_bot_list',0);
 $unreadTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_unread_list',1);
 $showAllPending = erLhcoreClassModelUserSetting::getSetting('show_all_pending',1);
 $showDepartmentsStats = $currentUser->hasAccessTo('lhuser','canseedepartmentstats');
@@ -258,6 +259,29 @@ if ($closedTabEnabled == true) {
 	$ReturnMessages['closed_chats'] = array('list' => array_values($chats));
 	
 	$chatsList[] = & $ReturnMessages['closed_chats']['list'];
+}
+
+if ($botTabEnabled == true) {
+    $limitList = is_numeric($Params['user_parameters_unordered']['limitb']) ? (int)$Params['user_parameters_unordered']['limitb'] : 10;
+
+    $filter = array('ignore_fields' => erLhcoreClassChat::$chatListIgnoreField);
+
+    if (is_array($Params['user_parameters_unordered']['botd']) && !empty($Params['user_parameters_unordered']['botd'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['botd']);
+        $filter['filterin']['dep_id'] = $Params['user_parameters_unordered']['botd'];
+    }
+
+    /**
+     * Bot chats
+     * */
+    $chats = erLhcoreClassChat::getBotChats($limitList,0,$filter);
+
+    $chatsListAll = $chatsListAll+$chats;
+
+    erLhcoreClassChat::prefillGetAttributes($chats,array('time_created_front','department_name','plain_user_name','product_name'),array('product_id','product','department','time','status','user_id','user'));
+    $ReturnMessages['bot_chats'] = array('list' => array_values($chats));
+
+    $chatsList[] = & $ReturnMessages['bot_chats']['list'];
 }
 
 if ($pendingTabEnabled == true) {

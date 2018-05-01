@@ -293,7 +293,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
 	       
     	       // Store chat
     	       $chat->saveThis();
-    
+
     	       // Assign chat to user
     	       if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 && (string)$Params['user_parameters_unordered']['vid'] != '') {
     	            // To track online users
@@ -386,10 +386,13 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
     					erLhcoreClassChat::getSession()->save($msg);
     				}
     			}
+
+                // Set bot workflow if required
+                erLhcoreClassChatValidator::setBot($chat);
+
+    	        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started',array('chat' => & $chat, 'msg' => $messageInitial));
     
-    	       erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started',array('chat' => & $chat, 'msg' => $messageInitial));
-    
-    	       erLhcoreClassChat::updateDepartmentStats($chat->department);
+    	        erLhcoreClassChat::updateDepartmentStats($chat->department);
     	       	       
     	       // Paid chat settings
     	       if (isset($paidChatSettings)) {
