@@ -1,0 +1,1 @@
+<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','You are talking with out bot now.'); ?>
