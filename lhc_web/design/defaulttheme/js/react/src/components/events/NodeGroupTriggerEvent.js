@@ -46,7 +46,7 @@ class NodeGroupTriggerEvent extends Component {
                         {this.props.event.get('type') == 0 ? (
                                  <input onChange={this.textChange} type="text" className="form-control input-sm" value={this.props.event.get('pattern')} />
                             ) : (
-                             <NodeTriggerPayloadList onSetPayload={this.payloadChange} payload={this.props.event.get('pattern')} />
+                             <NodeTriggerPayloadList showOptional={true} onSetPayload={this.payloadChange} payload={this.props.event.get('pattern')} />
                         )}
                     </div>
                 </div>
