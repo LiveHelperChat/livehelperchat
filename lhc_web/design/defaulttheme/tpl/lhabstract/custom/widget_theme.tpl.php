@@ -316,8 +316,13 @@
         		    <h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Text changes')?></h3>
         		
             		<div class="form-group">										
+    				<label><?php echo $fields['bot_status_text']['trans'];?></label>
+    				<?php echo erLhcoreClassAbstract::renderInput('bot_status_text', $fields['bot_status_text'], $object)?>
+    				</div>
+
+                    <div class="form-group">
     				<label><?php echo $fields['support_joined']['trans'];?></label>
-    				<?php echo erLhcoreClassAbstract::renderInput('support_joined', $fields['support_joined'], $object)?>		
+    				<?php echo erLhcoreClassAbstract::renderInput('support_joined', $fields['support_joined'], $object)?>
     				</div>
     				
     				<div class="form-group">										

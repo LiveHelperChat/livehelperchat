@@ -34,6 +34,11 @@ $def->properties['default']->columnName   = 'default';
 $def->properties['default']->propertyName = 'default';
 $def->properties['default']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['default_unknown'] = new ezcPersistentObjectProperty();
+$def->properties['default_unknown']->columnName   = 'default_unknown';
+$def->properties['default_unknown']->propertyName = 'default_unknown';
+$def->properties['default_unknown']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

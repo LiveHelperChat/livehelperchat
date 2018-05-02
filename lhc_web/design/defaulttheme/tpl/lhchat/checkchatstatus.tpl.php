@@ -28,7 +28,11 @@
     	<?php endif; ?>	
     </h4>
     <?php elseif ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT) : ?>
-        <h4><?php include(erLhcoreClassDesign::designtpl('lhchat/checkchatstatus_text/bot_chat.tpl.php'));?></h4>
+        <h4><?php if ($theme !== false  && $theme->bot_status_text != '') : ?>
+            <?php echo htmlspecialchars($theme->bot_status_text)?>
+        <?php else : ?>
+           <?php include(erLhcoreClassDesign::designtpl('lhchat/checkchatstatus_text/bot_chat.tpl.php'));?>
+        <?php endif; ?></h4>
     <?php elseif ($is_online == true) : ?>
     <h4>
          <?php if ($chat->number_in_queue > 1) : ?><?php include(erLhcoreClassDesign::designtpl('lhchat/checkchatstatus_text/you_a_number_in_queue.tpl.php'));?>

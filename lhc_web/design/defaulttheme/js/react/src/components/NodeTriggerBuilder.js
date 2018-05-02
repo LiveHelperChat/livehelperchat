@@ -108,7 +108,7 @@ class NodeTriggerBuilder extends Component {
         if (this.props.currenttrigger.get('currenttrigger').has('actions')) {
             actions = this.props.currenttrigger.get('currenttrigger').get('actions').map((action, index) => {
                 if (action.get('type') == 'text') {
-                    return <NodeTriggerActionText key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} removeAction={this.removeAction} removeQuickReply={this.removeQuickReply} addQuickReply={this.addQuickReply} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} />
+                    return <NodeTriggerActionText addSubelement={this.addSubelement} deleteSubelement={this.deleteSubelement} key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} removeAction={this.removeAction} removeQuickReply={this.removeQuickReply} addQuickReply={this.addQuickReply} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} />
                 } else if (action.get('type') == 'list') {
                     return <NodeTriggerActionList key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} removeAction={this.removeAction} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} />
                 } else if (action.get('type') == 'collectable') {

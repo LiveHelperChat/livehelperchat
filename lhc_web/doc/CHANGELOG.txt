@@ -1,6 +1,14 @@
+2.95v
+
+1. Default trigger if visitor message is unknown.
+2. Option to collect visitor phone/email through chatting.
+3. Theme has custom status text for chat's going with a bot.
+
+execute doc/update_db/update_170.sql for update
+
 2.94v
 
-1. Bot. First version of bot. Expected to be enhanced futher a lot.
+1. Bot. First version of bot. Expected to be enhanced further a lot.
 
 execute doc/update_db/update_169.sql for update
 

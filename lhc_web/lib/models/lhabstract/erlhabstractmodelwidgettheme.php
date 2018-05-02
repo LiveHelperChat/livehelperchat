@@ -35,6 +35,7 @@ class erLhAbstractModelWidgetTheme {
 			'custom_popup_css'			=> $this->custom_popup_css,
 			'need_help_header'			=> $this->need_help_header,
 			'need_help_text'			=> $this->need_help_text,
+			'bot_status_text'			=> $this->bot_status_text,
 			'online_text'				=> $this->online_text,
 			'offline_text'				=> $this->offline_text,
 			'logo_image'				=> $this->logo_image,
@@ -489,6 +490,7 @@ class erLhAbstractModelWidgetTheme {
 	public $show_status_delay = 0;
 
 	public $support_joined = '';
+	public $bot_status_text = '';
 	public $support_closed = '';
 	public $pending_join = '';
 	public $noonline_operators = '';

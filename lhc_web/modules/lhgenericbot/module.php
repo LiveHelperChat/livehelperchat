@@ -131,6 +131,12 @@ $ViewList['setdefaulttrigger'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['setdefaultunknowntrigger'] = array(
+    'params' => array('id','default'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
 $ViewList['nodetriggeractions'] = array(
     'params' => array('id'),
     'uparams' => array(),
