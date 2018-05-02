@@ -199,6 +199,19 @@ export function setDefaultTrigger(obj) {
     }
 }
 
+export function setDefaultUnknownTrigger(obj) {
+    return function(dispatch) {
+        dispatch({type: "SET_DEFAULT_UNKNOWN_TRIGGER", payload : obj});
+
+        axios.post(WWW_DIR_JAVASCRIPT + "genericbot/setdefaultunknowntrigger/" + obj.get('id') + '/' +  obj.get('default_unknown'))
+                .then((response) => {
+                dispatch({type: "SET_DEFAULT_UNKNOWN_FULFILLED", payload: response.data})
+        }).catch((err) => {
+                dispatch({type: "SET_DEFAULT_UNKNOWN_REJECTED", payload: err})
+        })
+    }
+}
+
 export function initBot(botId) {
     return function(dispatch) {
         dispatch({type: "INIT_BOT", payload : botId});

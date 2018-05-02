@@ -1,0 +1,3 @@
+CREATE TABLE `lh_generic_bot_chat_event` ( `id` bigint(20) NOT NULL AUTO_INCREMENT, `chat_id` bigint(20) NOT NULL, `content` longtext NOT NULL, `ctime` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `chat_id` (`chat_id`)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+ALTER TABLE `lh_generic_bot_trigger` ADD `default_unknown` int(11) NOT NULL, COMMENT='';
+ALTER TABLE `lh_abstract_widget_theme` ADD `bot_status_text` varchar(250) NOT NULL, COMMENT='';

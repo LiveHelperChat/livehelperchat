@@ -39,6 +39,11 @@ $def->properties['header_background']->columnName   = 'header_background';
 $def->properties['header_background']->propertyName = 'header_background';
 $def->properties['header_background']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['bot_status_text'] = new ezcPersistentObjectProperty();
+$def->properties['bot_status_text']->columnName   = 'bot_status_text';
+$def->properties['bot_status_text']->propertyName = 'bot_status_text';
+$def->properties['bot_status_text']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 $def->properties['widget_border_color'] = new ezcPersistentObjectProperty();
 $def->properties['widget_border_color']->columnName   = 'widget_border_color';
 $def->properties['widget_border_color']->propertyName = 'widget_border_color';

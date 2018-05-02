@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { fetchNodeGroupTriggerAction, removeTrigger, setDefaultTrigger } from "../actions/nodeGroupTriggerActions"
+import { fetchNodeGroupTriggerAction, removeTrigger, setDefaultTrigger, setDefaultUnknownTrigger } from "../actions/nodeGroupTriggerActions"
 import { connect } from "react-redux";
 
 @connect((store) => {
@@ -16,6 +16,7 @@ class NodeGroupTrigger extends Component {
         this.state = {isCurrent: false};
         this.removeTrigger = this.removeTrigger.bind(this);
         this.setDefaultTrigger = this.setDefaultTrigger.bind(this);
+        this.setDefaultUnknownTrigger = this.setDefaultUnknownTrigger.bind(this);
     }
 
     loadTriggerActions() {
@@ -30,7 +31,12 @@ class NodeGroupTrigger extends Component {
     	const value = e.target.checked;
     	this.props.dispatch(setDefaultTrigger(this.props.trigger.set('default',value == true ? 1 : 0)));
     }
-    
+
+    setDefaultUnknownTrigger(e) {
+    	const value = e.target.checked;
+    	this.props.dispatch(setDefaultUnknownTrigger(this.props.trigger.set('default_unknown',value == true ? 1 : 0)));
+    }
+
     shouldComponentUpdate(nextProps, nextState) {
         
         if (this.props.trigger !== nextProps.trigger) {
@@ -61,6 +67,10 @@ class NodeGroupTrigger extends Component {
             classNameCurrent = classNameCurrent + ' default-trigger-btn';
         }
 
+        if (this.props.trigger.get('default_unknown') == 1) {
+            classNameCurrent = classNameCurrent + ' btn-warning';
+        }
+
         //<li><a href="#" ng-click="changeGroup(trigger)"><i class="material-icons">&#xE8D2;</i>Change Group</a></li>
         //<li><a href="#" ng-click="duplicateTrigger(trigger)"><i class="material-icons">&#xE14D;</i>Duplicate</a></li>
 
@@ -74,7 +84,8 @@ class NodeGroupTrigger extends Component {
                         </button>
                         <ul class="dropdown-menu dropdown-menu-trigger">
                             <li><a href="#" onClick={this.removeTrigger}><i class="material-icons">delete</i> Delete</a></li>
-                            <li><label><input onChange={this.setDefaultTrigger} type="checkbox" checked={this.props.trigger.get('default')} />Default</label></li>
+                            <li><label title="This message will be send tu visitor then chat starts"><input onChange={this.setDefaultTrigger} type="checkbox" checked={this.props.trigger.get('default')} />Default</label></li>
+                            <li><label title="This message will be send to visitor then we could dot determine what we should do"><input onChange={this.setDefaultUnknownTrigger} type="checkbox" checked={this.props.trigger.get('default_unknown')} />Default for unknown</label></li>
                         </ul>
                     </div>
                 </li>

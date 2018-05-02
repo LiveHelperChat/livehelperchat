@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import NodeTriggerActionType from './NodeTriggerActionType';
 import NodeTriggerActionQuickReply from './NodeTriggerActionQuickReply';
+import NodeTriggerCallbackItem from './NodeTriggerCallbackItem';
 
 class NodeTriggerActionText extends Component {
 
@@ -9,6 +10,7 @@ class NodeTriggerActionText extends Component {
         this.changeType = this.changeType.bind(this);
         this.setText = this.setText.bind(this);
         this.addQuickReply = this.addQuickReply.bind(this);
+        this.addAction = this.addAction.bind(this);
         this.removeAction = this.removeAction.bind(this);
 
         this.onQuickReplyNameChange = this.onQuickReplyNameChange.bind(this);
@@ -16,6 +18,11 @@ class NodeTriggerActionText extends Component {
         this.onDeleteQuickReply = this.onDeleteQuickReply.bind(this);
         this.onQuickReplyPayloadTypeChange = this.onQuickReplyPayloadTypeChange.bind(this);
         this.onPayloadAttrChange = this.onPayloadAttrChange.bind(this);
+
+
+        // Abstract methods
+        this.onDeleteField = this.onDeleteField.bind(this);
+        this.onchangeFieldAttr = this.onchangeFieldAttr.bind(this);
     }
 
     changeType(e) {
@@ -28,6 +35,10 @@ class NodeTriggerActionText extends Component {
 
     addQuickReply(e) {
         this.props.addQuickReply({id : this.props.id});
+    }
+
+    addAction(e) {
+        this.props.addSubelement({id : this.props.id, 'path' : ['content','callback_list'], 'default' : {content : {'success_message' : '','success_text_pattern' : '', 'success_callback' : '', 'type' : '','field' : '', 'event' : ''}}});
     }
 
     onQuickReplyNameChange(e) {
@@ -54,6 +65,14 @@ class NodeTriggerActionText extends Component {
         this.props.removeAction({id : this.props.id});
     }
 
+    onDeleteField(fieldIndex) {
+        this.props.deleteSubelement({id : this.props.id, 'path' : ['content','callback_list',fieldIndex]});
+    }
+
+    onchangeFieldAttr(e) {
+        this.props.onChangeContent({id : this.props.id, 'path' : ['content','callback_list',e.id].concat(e.path), value : e.value});
+    }
+
     render() {
 
         var quick_replies = [];
@@ -61,6 +80,14 @@ class NodeTriggerActionText extends Component {
         if (this.props.action.hasIn(['content','quick_replies'])) {
              quick_replies = this.props.action.getIn(['content','quick_replies']).map((reply, index) => {
                 return <NodeTriggerActionQuickReply onPayloadAttrChange={this.onPayloadAttrChange} onPayloadTypeChange={this.onQuickReplyPayloadTypeChange} deleteReply={this.onDeleteQuickReply} onNameChange={this.onQuickReplyNameChange} onPayloadChange={this.onQuickReplyPayloadChange} id={index} key={index} reply={reply} />
+            });
+        }
+
+        var callback_list = [];
+
+        if (this.props.action.hasIn(['content','callback_list'])) {
+            callback_list = this.props.action.getIn(['content','callback_list']).map((callback, index) => {
+                return <NodeTriggerCallbackItem onChangeFieldAttr={this.onchangeFieldAttr} onDeleteField={this.onDeleteField} id={index} key={index} callback={callback} />
             });
         }
 
@@ -85,9 +112,17 @@ class NodeTriggerActionText extends Component {
                         <label>Enter text</label>
                         <textarea placeholder="Write your response here!" onChange={this.setText} defaultValue={this.props.action.getIn(['content','text'])} className="form-control"></textarea>
                     </div>
-                    <button onClick={this.addQuickReply} className="btn btn-xs btn-default pull-right"><i className="material-icons mr-0">add</i> Add quick reply</button>
+
+                    <div className="btn-group pull-right" role="group">
+                        <a onClick={this.addAction} className="btn btn-xs btn-default"><i className="material-icons mr-0">add</i> Add action on message</a>
+                        <a onClick={this.addQuickReply} className="btn btn-xs btn-default"><i className="material-icons mr-0">add</i> Add quick reply</a>
+                    </div>
+
                 </div>
                 <div className="col-xs-12">
+                    {callback_list}
+                    {callback_list.size > 0 && quick_replies.size > 0 &&
+                    <hr/>}
                     {quick_replies}
                 </div>
                 <div className="col-xs-12">
