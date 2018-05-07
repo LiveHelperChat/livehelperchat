@@ -11,6 +11,8 @@
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/custom.tpl.php'));?>
         <?php elseif ($type == 'collected_summary' && (!isset($messagesStats) || $messagesStats['total_messages'] == $messagesStats['counter_messages'])) : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/collected_summary.tpl.php'));?>
+        <?php elseif ($type == 'buttons_generic') : ?>
+            <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/buttons_generic.tpl.php'));?>
         <?php endif; ?>
     <?php endforeach; endif;  ?>
 </div>

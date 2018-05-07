@@ -8,11 +8,14 @@ class erLhcoreClassGenericBotWorkflow {
         return $event;
     }
 
+    public static $currentEvent = null;
+
     public static function userMessageAdded(& $chat, $msg) {
 
         // Try to find current callback handler just
         $chatEvent = erLhcoreClassModelGenericBotChatEvent::findOne(array('filter' => array('chat_id' => $chat->id)));
         if ($chatEvent instanceof erLhcoreClassModelGenericBotChatEvent) {
+            self::$currentEvent = $chatEvent;
             self::processEvent($chatEvent, $chat, array('msg' => $msg));
             return;
         }
@@ -57,7 +60,11 @@ class erLhcoreClassGenericBotWorkflow {
             $payload =  $params['payload'];
         }
 
+        $db = ezcDbInstance::get();
+
         try {
+
+            // Event was processed we can remove it now
             foreach ($chatEvent->content_array['callback_list'] as $eventData) {
 
                 // Perhaps there is extension which listens for a specific event
@@ -91,7 +98,6 @@ class erLhcoreClassGenericBotWorkflow {
                     if ($eventData['content']['type'] == 'chat') {
                         if ($eventData['content']['field'] == 'email') {
                             if (filter_var($payload, FILTER_VALIDATE_EMAIL)) {
-                                $db = ezcDbInstance::get();
                                 $q = $db->createUpdateQuery();
                                 $q->update( 'lh_chat' )
                                     ->set( 'email', $q->bindValue($payload) )
@@ -114,7 +120,6 @@ class erLhcoreClassGenericBotWorkflow {
                                 throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum 100 characters for phone'));
                             }
 
-                            $db = ezcDbInstance::get();
                             $q = $db->createUpdateQuery();
                             $q->update( 'lh_chat' )
                                 ->set( 'phone', $q->bindValue($payload) )
@@ -142,11 +147,10 @@ class erLhcoreClassGenericBotWorkflow {
                 }
             }
 
-            // Event was processed we can remove it now
             $chatEvent->removeThis();
 
         } catch (Exception $e) {
-            self::sendAsBot($chat, $e->getMessage());
+             self::sendAsBot($chat, $e->getMessage());
         }
     }
 
@@ -534,14 +538,22 @@ class erLhcoreClassGenericBotWorkflow {
 
     public static function getClickName($metaData, $payload, $returnAll = false)
     {
-        foreach ($metaData['content']['quick_replies'] as $reply) {
-            if ($reply['content']['payload'] == $payload) {
-                return $returnAll == false ? $reply['content']['name'] : $reply['content'];
+        if (isset($metaData['content']['quick_replies'])) {
+            foreach ($metaData['content']['quick_replies'] as $reply) {
+                if ($reply['content']['payload'] == $payload) {
+                    return $returnAll == false ? $reply['content']['name'] : $reply['content'];
+                }
+            }
+        } elseif (isset($metaData['content']['buttons_generic'])) {
+            foreach ($metaData['content']['buttons_generic'] as $reply) {
+                if ($reply['content']['payload'] == $payload) {
+                    return $returnAll == false ? $reply['content']['name'] : $reply['content'];
+                }
             }
         }
     }
 
-    public static function processButtonClick($chat, $messageContext, $payload) {
+    public static function processButtonClick($chat, $messageContext, $payload, $params = array()) {
 
         if (isset($chat->chat_variables_array['gbot_id'])) {
 
@@ -557,7 +569,9 @@ class erLhcoreClassGenericBotWorkflow {
             $messageClick = self::getClickName($messageContext->meta_msg_array, $payload);
 
             if (!empty($messageClick)) {
-                $messageContext->meta_msg_array['processed'] = true;
+                if ((isset($params['processed']) && $params['processed'] == true) || !isset($params['processed'])){
+                    $messageContext->meta_msg_array['processed'] = true;
+                }
                 $messageContext->meta_msg = json_encode($messageContext->meta_msg_array);
                 $messageContext->saveThis();
                 self::sendAsUser($chat, $messageClick);
@@ -575,7 +589,7 @@ class erLhcoreClassGenericBotWorkflow {
         }
     }
 
-    public static function processValueClick($chat, $messageContext, $payload)
+    public static function processValueClick($chat, $messageContext, $payload, $params = array())
     {
 
         // Try to find current workflow first
@@ -588,7 +602,9 @@ class erLhcoreClassGenericBotWorkflow {
         $messageClick = self::getValueName($messageContext->meta_msg_array, $payload);
 
         if (!empty($messageClick)) {
-            $messageContext->meta_msg_array['processed'] = true;
+            if ((isset($params['processed']) && $params['processed'] == true) || !isset($params['processed'])){
+                $messageContext->meta_msg_array['processed'] = true;
+            }
             $messageContext->meta_msg = json_encode($messageContext->meta_msg_array);
             $messageContext->saveThis();
             self::sendAsUser($chat, $messageClick);

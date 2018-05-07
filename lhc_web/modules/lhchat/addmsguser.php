@@ -154,7 +154,7 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && trim(str_replace('
         	    }
 	        }*/
 	    }
-	    
+
 	    $db->commit();
 	    echo erLhcoreClassChat::safe_json_encode(array('error' => $error, 'r' => $r));
 	    exit;

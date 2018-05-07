@@ -246,6 +246,7 @@ return array_merge(array (
         'erLhcoreClassGenericBotValidator'          => 'lib/core/lhgenericbot/lhgenericbotvalidator.php',
 
         'erLhcoreClassGenericBotActionText'         => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactiontext.php',
+        'erLhcoreClassGenericBotActionButtons'      => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionbuttons.php',
         'erLhcoreClassGenericBotUpdateActions'      => 'lib/core/lhgenericbot/actionsChat/lhgenericbotupdateactions.php',
         'erLhcoreClassGenericBotActionCollectable'  => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactioncollectable.php'
 

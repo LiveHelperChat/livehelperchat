@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { updateTriggerName, updateTriggerType, addResponse } from "../actions/nodeGroupTriggerActions"
 import NodeTriggerActionTextPreview from './preview/NodeTriggerActionTextPreview';
 import NodeTriggerActionListPreview from './preview/NodeTriggerActionListPreview';
+import NodeTriggerActionButtonsPreview from './preview/NodeTriggerActionButtonsPreview';
 
 
 @connect((store) => {
@@ -26,6 +27,8 @@ class NodeTriggerBuilderPreview extends Component {
                     return <NodeTriggerActionTextPreview key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} action={action} />
                 } else if (action.get('type') == 'list') {
                     return <NodeTriggerActionListPreview key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} action={action} />
+                } else if (action.get('type') == 'buttons') {
+                    return <NodeTriggerActionButtonsPreview key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} action={action} />
                 }
             });
         }

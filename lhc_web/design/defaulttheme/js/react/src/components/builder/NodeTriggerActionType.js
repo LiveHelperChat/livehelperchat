@@ -10,6 +10,10 @@ export default ({onChange, type}) => {
         {
         'value':'collectable',
         'text' : 'Collect information',
+        },
+        {
+        'value':'buttons',
+        'text' : 'Button list',
         }
         /*,
         {

@@ -4,6 +4,7 @@ import { updateTriggerName, updateTriggerType, addResponse, updateTriggerContent
 import NodeTriggerActionText from './builder/NodeTriggerActionText';
 import NodeTriggerActionList from './builder/NodeTriggerActionList';
 import NodeTriggerActionCollectable from './builder/NodeTriggerActionCollectable';
+import NodeTriggerActionButtons from './builder/NodeTriggerActionButtons';
 
 
 @connect((store) => {
@@ -102,8 +103,6 @@ class NodeTriggerBuilder extends Component {
 
     render() {
 
-        
-
         var actions = [];
         if (this.props.currenttrigger.get('currenttrigger').has('actions')) {
             actions = this.props.currenttrigger.get('currenttrigger').get('actions').map((action, index) => {
@@ -113,6 +112,8 @@ class NodeTriggerBuilder extends Component {
                     return <NodeTriggerActionList key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} removeAction={this.removeAction} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} />
                 } else if (action.get('type') == 'collectable') {
                     return <NodeTriggerActionCollectable moveDownSubelement={this.moveDownSubelement} moveUpSubelement={this.moveUpSubelement} deleteSubelement={this.deleteSubelement} addSubelement={this.addSubelement} key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} removeAction={this.removeAction} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} />
+                } else if (action.get('type') == 'buttons') {
+                    return <NodeTriggerActionButtons moveDownSubelement={this.moveDownSubelement} moveUpSubelement={this.moveUpSubelement} deleteSubelement={this.deleteSubelement} addSubelement={this.addSubelement} key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} removeAction={this.removeAction} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} />
                 }
             });
         }

@@ -22,7 +22,9 @@ import {
     MOVE_UP_SUBELEMENT,
     MOVE_DOWN_SUBELEMENT
 } from "../constants/action-types";
+
 import {fromJS} from 'immutable';
+import shortid from 'shortid';
 
 const initialState = fromJS({
     currenttrigger : {},
@@ -52,7 +54,7 @@ const nodeGroupTriggerReducer = (state = initialState, action) => {
         }
 
         case ADD_TRIGGER_RESPONSE: {
-            return state.updateIn(['currenttrigger','actions'], actions => actions.push(fromJS({'type' : 'text', content : {'text' : ''}})));
+            return state.updateIn(['currenttrigger','actions'], actions => actions.push(fromJS({'_id' : shortid.generate(), 'type' : 'text', content : {'text' : ''}})));
         }
 
         case REMOVE_TRIGGER_RESPONSE: {
@@ -94,10 +96,10 @@ const nodeGroupTriggerReducer = (state = initialState, action) => {
         case HANDLE_ADD_QUICK_REPLY: {
 
             if (!state.getIn(['currenttrigger','actions',action.payload.id,'content']).has('quick_replies')) {
-                return state.setIn(['currenttrigger','actions',action.payload.id,'content','quick_replies'],fromJS([{'type' : 'button', content : {'name' : '','payload' : ''}}]));
+                return state.setIn(['currenttrigger','actions',action.payload.id,'content','quick_replies'],fromJS([{'_id': shortid.generate(), 'type' : 'button', content : {'name' : '','payload' : ''}}]));
             }
 
-            return state.updateIn(['currenttrigger','actions',action.payload.id,'content','quick_replies'], quick_replies => quick_replies.push(fromJS({'type' : 'button', content : {'name' : '','payload' : ''}})));
+            return state.updateIn(['currenttrigger','actions',action.payload.id,'content','quick_replies'], quick_replies => quick_replies.push(fromJS({'_id': shortid.generate(), 'type' : 'button', content : {'name' : '','payload' : ''}})));
         }
 
         case HANDLE_ADD_QUICK_REPLY_REMOVE: {

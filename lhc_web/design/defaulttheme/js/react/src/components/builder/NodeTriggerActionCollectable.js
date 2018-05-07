@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import NodeTriggerActionType from './NodeTriggerActionType';
 import NodeCollectableField from './collectable/NodeCollectableField';
 import NodeTriggerPayloadList from './NodeTriggerPayloadList';
+import shortid from 'shortid';
 
 class NodeTriggerActionCollectable extends Component {
 
@@ -26,7 +27,7 @@ class NodeTriggerActionCollectable extends Component {
     }
 
     addField() {
-        this.props.addSubelement({id : this.props.id, 'path' : ['content','collectable_fields'], 'default' : {'type' : 'text', content : {'message' : '', 'name' : '', 'validation' : '', 'field' : ''}}});
+        this.props.addSubelement({id : this.props.id, 'path' : ['content','collectable_fields'], 'default' : {'_id': shortid.generate(), 'type' : 'text', content : {'message' : '', 'name' : '', 'validation' : '', 'field' : ''}}});
     }
 
     onchangeFieldAttr(e) {
@@ -59,7 +60,7 @@ class NodeTriggerActionCollectable extends Component {
 
         if (this.props.action.hasIn(['content','collectable_fields'])) {
             collectable_fields = this.props.action.getIn(['content','collectable_fields']).map((field, index) => {
-                return <NodeCollectableField id={index} isFirst={index == 0} isLast={index +1 == this.props.action.getIn(['content','collectable_fields']).size} key={index + '-' + field.getIn(['content','name'])+ '-'+ field.getIn(['content','field']) + '-' + field.get('type')} field={field} onMoveDownField={this.onMoveDownField} onMoveUpField={this.onMoveUpField} onDeleteField={this.onDeleteField} onChangeFieldAttr={this.onchangeFieldAttr}/>
+                return <NodeCollectableField id={index} isFirst={index == 0} isLast={index +1 == this.props.action.getIn(['content','collectable_fields']).size} key={field.get('_id')} field={field} onMoveDownField={this.onMoveDownField} onMoveUpField={this.onMoveUpField} onDeleteField={this.onDeleteField} onChangeFieldAttr={this.onchangeFieldAttr}/>
             });
         }
 

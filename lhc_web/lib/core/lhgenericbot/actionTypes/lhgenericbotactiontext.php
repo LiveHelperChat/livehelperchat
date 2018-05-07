@@ -4,8 +4,6 @@ class erLhcoreClassGenericBotActionText {
 
     public static function process($chat, $action)
     {
-        $buttons = '';
-
         $msg = new erLhcoreClassModelmsg();
 
         $metaMessage = array();
@@ -17,14 +15,26 @@ class erLhcoreClassGenericBotActionText {
 
         if (isset($action['content']['callback_list']) && !empty($action['content']['callback_list']))
         {
-            $event = new erLhcoreClassModelGenericBotChatEvent();
-            $event->chat_id = $chat->id;
-            $event->ctime = time();
-            $event->content = json_encode(array('callback_list' => $action['content']['callback_list']));
-            $event->saveThis();
+            $filter = array('filter' => array('chat_id' => $chat->id));
+
+            if ( erLhcoreClassGenericBotWorkflow::$currentEvent instanceof erLhcoreClassModelGenericBotChatEvent) {
+                $filter['filternot']['id'] = erLhcoreClassGenericBotWorkflow::$currentEvent->id;
+            }
+
+            $event = erLhcoreClassModelGenericBotChatEvent::findOne($filter);
+
+            if ($event instanceof erLhcoreClassModelGenericBotChatEvent) {
+                $action['content']['text'] = 'Please complete previous process!';
+            } else {
+                $event = new erLhcoreClassModelGenericBotChatEvent();
+                $event->chat_id = $chat->id;
+                $event->ctime = time();
+                $event->content = json_encode(array('callback_list' => $action['content']['callback_list']));
+                $event->saveThis();
+            }
         }
 
-        $msg->msg = trim($action['content']['text']) . $buttons;
+        $msg->msg = trim($action['content']['text']);
         $msg->meta_msg = !empty($metaMessage) ? json_encode($metaMessage) : '';
         $msg->chat_id = $chat->id;
         $msg->name_support = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');

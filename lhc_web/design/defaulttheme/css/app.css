@@ -1460,3 +1460,44 @@ input[type="file"]{
 .mb5{
 	margin-bottom: 5px;
 }
+
+.bot-btn-list > li {
+
+}
+
+.bot-btn-list {
+	max-width: 250px;
+	border-radius: 8px;
+	border: 1px solid #eee;
+	width: 100%;
+	background-color: #FFF;
+	margin: 0;
+	padding: 0;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.bot-btn-list > li {
+	background: none;
+	border: none;
+	width: 100%;
+	border-bottom: 1px solid #eee;
+	font-size: 14px;
+	font-weight: 600;
+	display:inline-block;
+	list-style-type: none;
+}
+
+.bot-btn-list li:last-child {
+	border-bottom: none;
+}
+
+.bot-btn-list > li a{
+	display:block;
+	padding: 6px 0;
+	text-align: center;
+}
+.bot-btn-list > li a:hover{
+	background: none;
+	border: 0;
+}
