@@ -39,7 +39,8 @@ class NodeTriggerActionText extends Component {
     }
 
     addAction(e) {
-        this.props.addSubelement({id : this.props.id, 'path' : ['content','callback_list'], 'default' : {'_id': shortid.generate(), content : {'success_message' : '','success_text_pattern' : '', 'success_callback' : '', 'type' : '','field' : '', 'event' : ''}}});}
+        this.props.addSubelement({id : this.props.id, 'path' : ['content','callback_list'], 'default' : {'_id': shortid.generate(), content : {'success_message' : '','success_text_pattern' : '', 'success_callback' : '', 'type' : '','field' : '', 'event' : ''}}});
+    }
 
     onQuickReplyNameChange(e) {
         this.props.onChangeContent({id : this.props.id, 'path' : ['content','quick_replies',e.id,'content','name'], value : e.value});

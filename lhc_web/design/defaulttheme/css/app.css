@@ -1501,3 +1501,63 @@ input[type="file"]{
 	background: none;
 	border: 0;
 }
+
+/**
+* List style
+*/
+
+.list-group .button-item {
+	padding:0;
+}
+
+.list-group .button-item a{
+	display:block;
+	padding: 10px 0;
+	text-align: center;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.list-group {
+	border-radius: 10px;
+	border: 1px solid #ccc;
+	background-color: #fff;
+	overflow: hidden;
+	max-width: 370px;
+}
+
+.list-group-element:first-child:not(.compact) {
+	padding: 0;
+	border: none;
+	position: relative;
+	border-radius: 10px 10px 0 0;
+}
+
+.list-group-element {
+	display: block;
+	overflow: hidden;
+	padding: 20px;
+	border-bottom: 1px solid #ccc;
+}
+
+.list-group-element:first-child:not(.compact) .element-description-row {
+	position: absolute;
+	top: 35%;
+	left: 20px;
+	z-index: 9;
+	color: #fff;
+	width: 100%;
+}
+
+.list-group-element h4 {
+	margin: 5px 0;
+}
+
+.list-group-element:last-child{
+	border-bottom: 0;
+}
+
+.element-background {
+	height: 180px;
+	background-size: cover;
+}

@@ -4,16 +4,20 @@ import {fromJS} from 'immutable';
 export default ({onChange, type}) => {
     var options = fromJS([
         {
-        'value':'text',
-        'text' : 'Send Text',
+            'value':'text',
+            'text' : 'Send Text',
         },
         {
-        'value':'collectable',
-        'text' : 'Collect information',
+            'value':'collectable',
+            'text' : 'Collect information',
         },
         {
-        'value':'buttons',
-        'text' : 'Button list',
+            'value':'buttons',
+            'text' : 'Button list',
+        },
+        {
+            'value':'list',
+            'text' : 'Send List',
         }
         /*,
         {

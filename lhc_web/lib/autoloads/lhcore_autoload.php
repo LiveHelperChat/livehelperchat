@@ -248,7 +248,8 @@ return array_merge(array (
         'erLhcoreClassGenericBotActionText'         => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactiontext.php',
         'erLhcoreClassGenericBotActionButtons'      => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionbuttons.php',
         'erLhcoreClassGenericBotUpdateActions'      => 'lib/core/lhgenericbot/actionsChat/lhgenericbotupdateactions.php',
-        'erLhcoreClassGenericBotActionCollectable'  => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactioncollectable.php'
+        'erLhcoreClassGenericBotActionCollectable'  => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactioncollectable.php',
+        'erLhcoreClassGenericBotActionList'         => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionlist.php'
 
 ),
 include('var/autoloads/lhextension_autoload.php')

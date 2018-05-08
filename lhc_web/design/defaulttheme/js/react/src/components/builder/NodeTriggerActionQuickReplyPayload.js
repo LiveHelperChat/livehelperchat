@@ -100,6 +100,7 @@ class NodeTriggerActionQuickReplyPayload extends Component {
                     <div className="form-group">
                         <label>Type</label>
                         <select className="form-control input-sm" defaultValue={this.props.payloadType} onChange={this.onChangeType.bind(this)} >
+                            <option value="none">No action</option>
                             <option value="url">URL</option>
                             <option value="button">Click</option>
                             <option value="updatechat">Update chat</option>

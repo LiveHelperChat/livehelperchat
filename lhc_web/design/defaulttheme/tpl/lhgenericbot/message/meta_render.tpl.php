@@ -13,6 +13,8 @@
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/collected_summary.tpl.php'));?>
         <?php elseif ($type == 'buttons_generic') : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/buttons_generic.tpl.php'));?>
+        <?php elseif ($type == 'list') : ?>
+            <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/list.tpl.php'));?>
         <?php endif; ?>
     <?php endforeach; endif;  ?>
 </div>
