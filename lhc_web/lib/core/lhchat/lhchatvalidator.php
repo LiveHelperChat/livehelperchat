@@ -1066,6 +1066,15 @@ class erLhcoreClassChatValidator {
 
     // Set's chat as a bot
     public static function setBot(& $chat) {
+
+        $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_set_bot', array(
+            'chat' => & $chat,
+        ));
+
+        if ($handler !== false) {
+             return;
+        }
+
         if (isset($chat->department->bot_configuration_array['bot_id']) && is_numeric($chat->department->bot_configuration_array['bot_id'])) {
             $bot = erLhcoreClassModelGenericBotBot::fetch($chat->department->bot_configuration_array['bot_id']);
             if ($bot instanceof erLhcoreClassModelGenericBotBot) {

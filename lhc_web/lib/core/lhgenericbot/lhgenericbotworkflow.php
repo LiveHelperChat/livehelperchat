@@ -564,7 +564,17 @@ class erLhcoreClassGenericBotWorkflow {
                 return;
             }
 
-            $event = self::findEvent($payload, $chat->chat_variables_array['gbot_id'], 1);
+            $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_get_click', array(
+                    'chat' => & $chat,
+                    'msg' => $messageContext,
+                    'payload' => $payload,
+            ));
+
+            if ($handler !== false) {
+                $event = $handler['event'];
+            } else {
+                $event = self::findEvent($payload, $chat->chat_variables_array['gbot_id'], 1);
+            }
 
             $messageClick = self::getClickName($messageContext->meta_msg_array, $payload);
 
