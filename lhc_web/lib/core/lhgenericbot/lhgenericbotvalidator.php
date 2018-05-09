@@ -43,6 +43,14 @@ class erLhcoreClassGenericBotValidator {
                     }
                 }
             }
+            
+            if (isset($action['content']['buttons'])) {
+                foreach ($action['content']['buttons'] as $quickReply) {
+                    if ($quickReply['type'] == 'button') {
+                        $triggerPayloads[$quickReply['content']['payload']] = $quickReply['content']['name'];
+                    }
+                }
+            }
         }
 
         // Reindex for easier usage
